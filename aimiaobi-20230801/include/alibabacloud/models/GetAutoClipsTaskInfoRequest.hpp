@@ -13,10 +13,14 @@ namespace Models
   class GetAutoClipsTaskInfoRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetAutoClipsTaskInfoRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ShowAnalysisResults, showAnalysisResults_);
+      DARABONBA_PTR_TO_JSON(ShowResourceInfo, showResourceInfo_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, GetAutoClipsTaskInfoRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ShowAnalysisResults, showAnalysisResults_);
+      DARABONBA_PTR_FROM_JSON(ShowResourceInfo, showResourceInfo_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
@@ -31,8 +35,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->taskId_ == nullptr
-        && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->showAnalysisResults_ == nullptr
+        && this->showResourceInfo_ == nullptr && this->taskId_ == nullptr && this->workspaceId_ == nullptr; };
+    // showAnalysisResults Field Functions 
+    bool hasShowAnalysisResults() const { return this->showAnalysisResults_ != nullptr;};
+    void deleteShowAnalysisResults() { this->showAnalysisResults_ = nullptr;};
+    inline bool getShowAnalysisResults() const { DARABONBA_PTR_GET_DEFAULT(showAnalysisResults_, false) };
+    inline GetAutoClipsTaskInfoRequest& setShowAnalysisResults(bool showAnalysisResults) { DARABONBA_PTR_SET_VALUE(showAnalysisResults_, showAnalysisResults) };
+
+
+    // showResourceInfo Field Functions 
+    bool hasShowResourceInfo() const { return this->showResourceInfo_ != nullptr;};
+    void deleteShowResourceInfo() { this->showResourceInfo_ = nullptr;};
+    inline bool getShowResourceInfo() const { DARABONBA_PTR_GET_DEFAULT(showResourceInfo_, false) };
+    inline GetAutoClipsTaskInfoRequest& setShowResourceInfo(bool showResourceInfo) { DARABONBA_PTR_SET_VALUE(showResourceInfo_, showResourceInfo) };
+
+
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
@@ -48,6 +66,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> showAnalysisResults_ {};
+    shared_ptr<bool> showResourceInfo_ {};
     // This parameter is required.
     shared_ptr<string> taskId_ {};
     // This parameter is required.

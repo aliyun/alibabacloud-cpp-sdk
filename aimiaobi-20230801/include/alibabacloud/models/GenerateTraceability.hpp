@@ -109,6 +109,7 @@ namespace Models
       shared_ptr<string> searchSource_ {};
       shared_ptr<string> searchSourceName_ {};
       shared_ptr<string> title_ {};
+      // URL
       shared_ptr<string> url_ {};
     };
 

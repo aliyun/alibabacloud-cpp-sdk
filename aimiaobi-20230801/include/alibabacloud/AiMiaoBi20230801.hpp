@@ -548,6 +548,23 @@ namespace AiMiaoBi20230801
       Models::DeleteMaterialByIdResponse deleteMaterialById(const Models::DeleteMaterialByIdRequest &request);
 
       /**
+       * @summary 删除PPT作品
+       *
+       * @param request DeletePptArtifactRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePptArtifactResponse
+       */
+      Models::DeletePptArtifactResponse deletePptArtifactWithOptions(const Models::DeletePptArtifactRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除PPT作品
+       *
+       * @param request DeletePptArtifactRequest
+       * @return DeletePptArtifactResponse
+       */
+      Models::DeletePptArtifactResponse deletePptArtifact(const Models::DeletePptArtifactRequest &request);
+
+      /**
        * @summary 删除指定自定义文体
        *
        * @param request DeleteStyleLearningResultRequest
@@ -1041,6 +1058,23 @@ namespace AiMiaoBi20230801
       Models::GetCategoriesByTaskIdResponse getCategoriesByTaskId(const Models::GetCategoriesByTaskIdRequest &request);
 
       /**
+       * @summary 获得智能混剪内置资源
+       *
+       * @param request GetClipsBuildInResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetClipsBuildInResourceResponse
+       */
+      Models::GetClipsBuildInResourceResponse getClipsBuildInResourceWithOptions(const Models::GetClipsBuildInResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获得智能混剪内置资源
+       *
+       * @param request GetClipsBuildInResourceRequest
+       * @return GetClipsBuildInResourceResponse
+       */
+      Models::GetClipsBuildInResourceResponse getClipsBuildInResource(const Models::GetClipsBuildInResourceRequest &request);
+
+      /**
        * @summary 获取自定义播报单任务结果
        *
        * @param request GetCustomHotTopicBroadcastJobRequest
@@ -1415,6 +1449,23 @@ namespace AiMiaoBi20230801
       Models::GetMaterialByIdResponse getMaterialById(const Models::GetMaterialByIdRequest &request);
 
       /**
+       * @summary 查询PPT作品信息
+       *
+       * @param request GetPptArtifactRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPptArtifactResponse
+       */
+      Models::GetPptArtifactResponse getPptArtifactWithOptions(const Models::GetPptArtifactRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PPT作品信息
+       *
+       * @param request GetPptArtifactRequest
+       * @return GetPptArtifactResponse
+       */
+      Models::GetPptArtifactResponse getPptArtifact(const Models::GetPptArtifactRequest &request);
+
+      /**
        * @summary 获取PPT组件的配置
        *
        * @param request GetPptConfigRequest
@@ -1685,6 +1736,23 @@ namespace AiMiaoBi20230801
        * @return ListAuditTermsResponse
        */
       Models::ListAuditTermsResponse listAuditTerms(const Models::ListAuditTermsRequest &request);
+
+      /**
+       * @summary 列出智能混剪任务列表
+       *
+       * @param request ListAutoClipsTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAutoClipsTaskResponse
+       */
+      Models::ListAutoClipsTaskResponse listAutoClipsTaskWithOptions(const Models::ListAutoClipsTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出智能混剪任务列表
+       *
+       * @param request ListAutoClipsTaskRequest
+       * @return ListAutoClipsTaskResponse
+       */
+      Models::ListAutoClipsTaskResponse listAutoClipsTask(const Models::ListAutoClipsTaskRequest &request);
 
       /**
        * @summary 获得标书写作任务列表
@@ -2059,6 +2127,23 @@ namespace AiMiaoBi20230801
        * @return ListPlanningProposalResponse
        */
       Models::ListPlanningProposalResponse listPlanningProposal(const Models::ListPlanningProposalRequest &request);
+
+      /**
+       * @summary PPT作品-列表
+       *
+       * @param request ListPptArtifactsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPptArtifactsResponse
+       */
+      Models::ListPptArtifactsResponse listPptArtifactsWithOptions(const Models::ListPptArtifactsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary PPT作品-列表
+       *
+       * @param request ListPptArtifactsRequest
+       * @return ListPptArtifactsResponse
+       */
+      Models::ListPptArtifactsResponse listPptArtifacts(const Models::ListPptArtifactsRequest &request);
 
       /**
        * @summary 查询搜索生成任务对话详情中数据列表

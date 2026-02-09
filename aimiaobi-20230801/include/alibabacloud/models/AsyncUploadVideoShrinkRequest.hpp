@@ -13,23 +13,29 @@ namespace Models
   class AsyncUploadVideoShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AsyncUploadVideoShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AdaptiveThreshold, adaptiveThreshold_);
       DARABONBA_PTR_TO_JSON(AnlysisPrompt, anlysisPrompt_);
       DARABONBA_PTR_TO_JSON(FaceIdentitySimilarityMinScore, faceIdentitySimilarityMinScore_);
       DARABONBA_PTR_TO_JSON(ReferenceVideo, referenceVideoShrink_);
       DARABONBA_PTR_TO_JSON(RemoveSubtitle, removeSubtitle_);
       DARABONBA_PTR_TO_JSON(SourceVideos, sourceVideosShrink_);
       DARABONBA_PTR_TO_JSON(SplitInterval, splitInterval_);
+      DARABONBA_PTR_TO_JSON(TaskName, taskName_);
+      DARABONBA_PTR_TO_JSON(TaskType, taskType_);
       DARABONBA_PTR_TO_JSON(VideoRoles, videoRolesShrink_);
       DARABONBA_PTR_TO_JSON(VideoShotFaceIdentityCount, videoShotFaceIdentityCount_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, AsyncUploadVideoShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AdaptiveThreshold, adaptiveThreshold_);
       DARABONBA_PTR_FROM_JSON(AnlysisPrompt, anlysisPrompt_);
       DARABONBA_PTR_FROM_JSON(FaceIdentitySimilarityMinScore, faceIdentitySimilarityMinScore_);
       DARABONBA_PTR_FROM_JSON(ReferenceVideo, referenceVideoShrink_);
       DARABONBA_PTR_FROM_JSON(RemoveSubtitle, removeSubtitle_);
       DARABONBA_PTR_FROM_JSON(SourceVideos, sourceVideosShrink_);
       DARABONBA_PTR_FROM_JSON(SplitInterval, splitInterval_);
+      DARABONBA_PTR_FROM_JSON(TaskName, taskName_);
+      DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
       DARABONBA_PTR_FROM_JSON(VideoRoles, videoRolesShrink_);
       DARABONBA_PTR_FROM_JSON(VideoShotFaceIdentityCount, videoShotFaceIdentityCount_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -45,9 +51,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->anlysisPrompt_ == nullptr
-        && this->faceIdentitySimilarityMinScore_ == nullptr && this->referenceVideoShrink_ == nullptr && this->removeSubtitle_ == nullptr && this->sourceVideosShrink_ == nullptr && this->splitInterval_ == nullptr
-        && this->videoRolesShrink_ == nullptr && this->videoShotFaceIdentityCount_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->adaptiveThreshold_ == nullptr
+        && this->anlysisPrompt_ == nullptr && this->faceIdentitySimilarityMinScore_ == nullptr && this->referenceVideoShrink_ == nullptr && this->removeSubtitle_ == nullptr && this->sourceVideosShrink_ == nullptr
+        && this->splitInterval_ == nullptr && this->taskName_ == nullptr && this->taskType_ == nullptr && this->videoRolesShrink_ == nullptr && this->videoShotFaceIdentityCount_ == nullptr
+        && this->workspaceId_ == nullptr; };
+    // adaptiveThreshold Field Functions 
+    bool hasAdaptiveThreshold() const { return this->adaptiveThreshold_ != nullptr;};
+    void deleteAdaptiveThreshold() { this->adaptiveThreshold_ = nullptr;};
+    inline float getAdaptiveThreshold() const { DARABONBA_PTR_GET_DEFAULT(adaptiveThreshold_, 0.0) };
+    inline AsyncUploadVideoShrinkRequest& setAdaptiveThreshold(float adaptiveThreshold) { DARABONBA_PTR_SET_VALUE(adaptiveThreshold_, adaptiveThreshold) };
+
+
     // anlysisPrompt Field Functions 
     bool hasAnlysisPrompt() const { return this->anlysisPrompt_ != nullptr;};
     void deleteAnlysisPrompt() { this->anlysisPrompt_ = nullptr;};
@@ -90,6 +104,20 @@ namespace Models
     inline AsyncUploadVideoShrinkRequest& setSplitInterval(int32_t splitInterval) { DARABONBA_PTR_SET_VALUE(splitInterval_, splitInterval) };
 
 
+    // taskName Field Functions 
+    bool hasTaskName() const { return this->taskName_ != nullptr;};
+    void deleteTaskName() { this->taskName_ = nullptr;};
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline AsyncUploadVideoShrinkRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
+
+
+    // taskType Field Functions 
+    bool hasTaskType() const { return this->taskType_ != nullptr;};
+    void deleteTaskType() { this->taskType_ = nullptr;};
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline AsyncUploadVideoShrinkRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
+
+
     // videoRolesShrink Field Functions 
     bool hasVideoRolesShrink() const { return this->videoRolesShrink_ != nullptr;};
     void deleteVideoRolesShrink() { this->videoRolesShrink_ = nullptr;};
@@ -112,6 +140,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<float> adaptiveThreshold_ {};
     shared_ptr<string> anlysisPrompt_ {};
     shared_ptr<double> faceIdentitySimilarityMinScore_ {};
     shared_ptr<string> referenceVideoShrink_ {};
@@ -119,6 +148,8 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> sourceVideosShrink_ {};
     shared_ptr<int32_t> splitInterval_ {};
+    shared_ptr<string> taskName_ {};
+    shared_ptr<string> taskType_ {};
     shared_ptr<string> videoRolesShrink_ {};
     shared_ptr<int32_t> videoShotFaceIdentityCount_ {};
     // This parameter is required.

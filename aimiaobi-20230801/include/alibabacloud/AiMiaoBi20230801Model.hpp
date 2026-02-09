@@ -112,6 +112,9 @@
 #include <alibabacloud/models/DeleteMaterialByIdRequest.hpp>
 #include <alibabacloud/models/DeleteMaterialByIdResponseBody.hpp>
 #include <alibabacloud/models/DeleteMaterialByIdResponse.hpp>
+#include <alibabacloud/models/DeletePptArtifactRequest.hpp>
+#include <alibabacloud/models/DeletePptArtifactResponseBody.hpp>
+#include <alibabacloud/models/DeletePptArtifactResponse.hpp>
 #include <alibabacloud/models/DeleteStyleLearningResultRequest.hpp>
 #include <alibabacloud/models/DeleteStyleLearningResultResponseBody.hpp>
 #include <alibabacloud/models/DeleteStyleLearningResultResponse.hpp>
@@ -207,6 +210,9 @@
 #include <alibabacloud/models/GetCategoriesByTaskIdRequest.hpp>
 #include <alibabacloud/models/GetCategoriesByTaskIdResponseBody.hpp>
 #include <alibabacloud/models/GetCategoriesByTaskIdResponse.hpp>
+#include <alibabacloud/models/GetClipsBuildInResourceRequest.hpp>
+#include <alibabacloud/models/GetClipsBuildInResourceResponseBody.hpp>
+#include <alibabacloud/models/GetClipsBuildInResourceResponse.hpp>
 #include <alibabacloud/models/GetCustomHotTopicBroadcastJobRequest.hpp>
 #include <alibabacloud/models/GetCustomHotTopicBroadcastJobResponseBody.hpp>
 #include <alibabacloud/models/GetCustomHotTopicBroadcastJobResponse.hpp>
@@ -275,6 +281,9 @@
 #include <alibabacloud/models/GetMaterialByIdRequest.hpp>
 #include <alibabacloud/models/GetMaterialByIdResponseBody.hpp>
 #include <alibabacloud/models/GetMaterialByIdResponse.hpp>
+#include <alibabacloud/models/GetPptArtifactRequest.hpp>
+#include <alibabacloud/models/GetPptArtifactResponseBody.hpp>
+#include <alibabacloud/models/GetPptArtifactResponse.hpp>
 #include <alibabacloud/models/GetPptConfigRequest.hpp>
 #include <alibabacloud/models/GetPptConfigResponseBody.hpp>
 #include <alibabacloud/models/GetPptConfigResponse.hpp>
@@ -327,6 +336,9 @@
 #include <alibabacloud/models/ListAuditTermsRequest.hpp>
 #include <alibabacloud/models/ListAuditTermsResponseBody.hpp>
 #include <alibabacloud/models/ListAuditTermsResponse.hpp>
+#include <alibabacloud/models/ListAutoClipsTaskRequest.hpp>
+#include <alibabacloud/models/ListAutoClipsTaskResponseBody.hpp>
+#include <alibabacloud/models/ListAutoClipsTaskResponse.hpp>
 #include <alibabacloud/models/ListBiddingDocRequest.hpp>
 #include <alibabacloud/models/ListBiddingDocResponseBody.hpp>
 #include <alibabacloud/models/ListBiddingDocResponse.hpp>
@@ -400,6 +412,9 @@
 #include <alibabacloud/models/ListPlanningProposalShrinkRequest.hpp>
 #include <alibabacloud/models/ListPlanningProposalResponseBody.hpp>
 #include <alibabacloud/models/ListPlanningProposalResponse.hpp>
+#include <alibabacloud/models/ListPptArtifactsRequest.hpp>
+#include <alibabacloud/models/ListPptArtifactsResponseBody.hpp>
+#include <alibabacloud/models/ListPptArtifactsResponse.hpp>
 #include <alibabacloud/models/ListSearchTaskDialogueDatasRequest.hpp>
 #include <alibabacloud/models/ListSearchTaskDialogueDatasResponseBody.hpp>
 #include <alibabacloud/models/ListSearchTaskDialogueDatasResponse.hpp>

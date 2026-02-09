@@ -17,12 +17,19 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CloseMusic, closeMusic_);
       DARABONBA_PTR_TO_JSON(CloseSubtitle, closeSubtitle_);
       DARABONBA_PTR_TO_JSON(CloseVoice, closeVoice_);
+      DARABONBA_PTR_TO_JSON(ClosingCreditsUrl, closingCreditsUrl_);
       DARABONBA_PTR_TO_JSON(ColorWords, colorWords_);
+      DARABONBA_PTR_TO_JSON(CosyVoiceAppKey, cosyVoiceAppKey_);
+      DARABONBA_PTR_TO_JSON(CosyVoiceToken, cosyVoiceToken_);
+      DARABONBA_PTR_TO_JSON(CustomVoiceStyle, customVoiceStyle_);
       DARABONBA_PTR_TO_JSON(CustomVoiceUrl, customVoiceUrl_);
       DARABONBA_PTR_TO_JSON(CustomVoiceVolume, customVoiceVolume_);
       DARABONBA_PTR_TO_JSON(Height, height_);
+      DARABONBA_PTR_TO_JSON(HighDefSourceVideos, highDefSourceVideos_);
+      DARABONBA_PTR_TO_JSON(MusicStyle, musicStyle_);
       DARABONBA_PTR_TO_JSON(MusicUrl, musicUrl_);
       DARABONBA_PTR_TO_JSON(MusicVolume, musicVolume_);
+      DARABONBA_PTR_TO_JSON(OpeningCreditsUrl, openingCreditsUrl_);
       DARABONBA_PTR_TO_JSON(Stickers, stickers_);
       DARABONBA_PTR_TO_JSON(SubtitleFontSize, subtitleFontSize_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
@@ -35,12 +42,19 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CloseMusic, closeMusic_);
       DARABONBA_PTR_FROM_JSON(CloseSubtitle, closeSubtitle_);
       DARABONBA_PTR_FROM_JSON(CloseVoice, closeVoice_);
+      DARABONBA_PTR_FROM_JSON(ClosingCreditsUrl, closingCreditsUrl_);
       DARABONBA_PTR_FROM_JSON(ColorWords, colorWords_);
+      DARABONBA_PTR_FROM_JSON(CosyVoiceAppKey, cosyVoiceAppKey_);
+      DARABONBA_PTR_FROM_JSON(CosyVoiceToken, cosyVoiceToken_);
+      DARABONBA_PTR_FROM_JSON(CustomVoiceStyle, customVoiceStyle_);
       DARABONBA_PTR_FROM_JSON(CustomVoiceUrl, customVoiceUrl_);
       DARABONBA_PTR_FROM_JSON(CustomVoiceVolume, customVoiceVolume_);
       DARABONBA_PTR_FROM_JSON(Height, height_);
+      DARABONBA_PTR_FROM_JSON(HighDefSourceVideos, highDefSourceVideos_);
+      DARABONBA_PTR_FROM_JSON(MusicStyle, musicStyle_);
       DARABONBA_PTR_FROM_JSON(MusicUrl, musicUrl_);
       DARABONBA_PTR_FROM_JSON(MusicVolume, musicVolume_);
+      DARABONBA_PTR_FROM_JSON(OpeningCreditsUrl, openingCreditsUrl_);
       DARABONBA_PTR_FROM_JSON(Stickers, stickers_);
       DARABONBA_PTR_FROM_JSON(SubtitleFontSize, subtitleFontSize_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -163,6 +177,58 @@ namespace Models
       shared_ptr<float> y_ {};
     };
 
+    class HighDefSourceVideos : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const HighDefSourceVideos& obj) { 
+        DARABONBA_PTR_TO_JSON(VideoId, videoId_);
+        DARABONBA_PTR_TO_JSON(VideoName, videoName_);
+        DARABONBA_PTR_TO_JSON(VideoUrl, videoUrl_);
+      };
+      friend void from_json(const Darabonba::Json& j, HighDefSourceVideos& obj) { 
+        DARABONBA_PTR_FROM_JSON(VideoId, videoId_);
+        DARABONBA_PTR_FROM_JSON(VideoName, videoName_);
+        DARABONBA_PTR_FROM_JSON(VideoUrl, videoUrl_);
+      };
+      HighDefSourceVideos() = default ;
+      HighDefSourceVideos(const HighDefSourceVideos &) = default ;
+      HighDefSourceVideos(HighDefSourceVideos &&) = default ;
+      HighDefSourceVideos(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~HighDefSourceVideos() = default ;
+      HighDefSourceVideos& operator=(const HighDefSourceVideos &) = default ;
+      HighDefSourceVideos& operator=(HighDefSourceVideos &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->videoId_ == nullptr
+        && this->videoName_ == nullptr && this->videoUrl_ == nullptr; };
+      // videoId Field Functions 
+      bool hasVideoId() const { return this->videoId_ != nullptr;};
+      void deleteVideoId() { this->videoId_ = nullptr;};
+      inline string getVideoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
+      inline HighDefSourceVideos& setVideoId(string videoId) { DARABONBA_PTR_SET_VALUE(videoId_, videoId) };
+
+
+      // videoName Field Functions 
+      bool hasVideoName() const { return this->videoName_ != nullptr;};
+      void deleteVideoName() { this->videoName_ = nullptr;};
+      inline string getVideoName() const { DARABONBA_PTR_GET_DEFAULT(videoName_, "") };
+      inline HighDefSourceVideos& setVideoName(string videoName) { DARABONBA_PTR_SET_VALUE(videoName_, videoName) };
+
+
+      // videoUrl Field Functions 
+      bool hasVideoUrl() const { return this->videoUrl_ != nullptr;};
+      void deleteVideoUrl() { this->videoUrl_ = nullptr;};
+      inline string getVideoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
+      inline HighDefSourceVideos& setVideoUrl(string videoUrl) { DARABONBA_PTR_SET_VALUE(videoUrl_, videoUrl) };
+
+
+    protected:
+      shared_ptr<string> videoId_ {};
+      shared_ptr<string> videoName_ {};
+      shared_ptr<string> videoUrl_ {};
+    };
+
     class ColorWords : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ColorWords& obj) { 
@@ -257,9 +323,11 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->closeMusic_ == nullptr
-        && this->closeSubtitle_ == nullptr && this->closeVoice_ == nullptr && this->colorWords_ == nullptr && this->customVoiceUrl_ == nullptr && this->customVoiceVolume_ == nullptr
-        && this->height_ == nullptr && this->musicUrl_ == nullptr && this->musicVolume_ == nullptr && this->stickers_ == nullptr && this->subtitleFontSize_ == nullptr
-        && this->taskId_ == nullptr && this->voiceStyle_ == nullptr && this->voiceVolume_ == nullptr && this->width_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->closeSubtitle_ == nullptr && this->closeVoice_ == nullptr && this->closingCreditsUrl_ == nullptr && this->colorWords_ == nullptr && this->cosyVoiceAppKey_ == nullptr
+        && this->cosyVoiceToken_ == nullptr && this->customVoiceStyle_ == nullptr && this->customVoiceUrl_ == nullptr && this->customVoiceVolume_ == nullptr && this->height_ == nullptr
+        && this->highDefSourceVideos_ == nullptr && this->musicStyle_ == nullptr && this->musicUrl_ == nullptr && this->musicVolume_ == nullptr && this->openingCreditsUrl_ == nullptr
+        && this->stickers_ == nullptr && this->subtitleFontSize_ == nullptr && this->taskId_ == nullptr && this->voiceStyle_ == nullptr && this->voiceVolume_ == nullptr
+        && this->width_ == nullptr && this->workspaceId_ == nullptr; };
     // closeMusic Field Functions 
     bool hasCloseMusic() const { return this->closeMusic_ != nullptr;};
     void deleteCloseMusic() { this->closeMusic_ = nullptr;};
@@ -281,6 +349,13 @@ namespace Models
     inline AsyncCreateClipsTaskRequest& setCloseVoice(bool closeVoice) { DARABONBA_PTR_SET_VALUE(closeVoice_, closeVoice) };
 
 
+    // closingCreditsUrl Field Functions 
+    bool hasClosingCreditsUrl() const { return this->closingCreditsUrl_ != nullptr;};
+    void deleteClosingCreditsUrl() { this->closingCreditsUrl_ = nullptr;};
+    inline string getClosingCreditsUrl() const { DARABONBA_PTR_GET_DEFAULT(closingCreditsUrl_, "") };
+    inline AsyncCreateClipsTaskRequest& setClosingCreditsUrl(string closingCreditsUrl) { DARABONBA_PTR_SET_VALUE(closingCreditsUrl_, closingCreditsUrl) };
+
+
     // colorWords Field Functions 
     bool hasColorWords() const { return this->colorWords_ != nullptr;};
     void deleteColorWords() { this->colorWords_ = nullptr;};
@@ -288,6 +363,27 @@ namespace Models
     inline vector<AsyncCreateClipsTaskRequest::ColorWords> getColorWords() { DARABONBA_PTR_GET(colorWords_, vector<AsyncCreateClipsTaskRequest::ColorWords>) };
     inline AsyncCreateClipsTaskRequest& setColorWords(const vector<AsyncCreateClipsTaskRequest::ColorWords> & colorWords) { DARABONBA_PTR_SET_VALUE(colorWords_, colorWords) };
     inline AsyncCreateClipsTaskRequest& setColorWords(vector<AsyncCreateClipsTaskRequest::ColorWords> && colorWords) { DARABONBA_PTR_SET_RVALUE(colorWords_, colorWords) };
+
+
+    // cosyVoiceAppKey Field Functions 
+    bool hasCosyVoiceAppKey() const { return this->cosyVoiceAppKey_ != nullptr;};
+    void deleteCosyVoiceAppKey() { this->cosyVoiceAppKey_ = nullptr;};
+    inline string getCosyVoiceAppKey() const { DARABONBA_PTR_GET_DEFAULT(cosyVoiceAppKey_, "") };
+    inline AsyncCreateClipsTaskRequest& setCosyVoiceAppKey(string cosyVoiceAppKey) { DARABONBA_PTR_SET_VALUE(cosyVoiceAppKey_, cosyVoiceAppKey) };
+
+
+    // cosyVoiceToken Field Functions 
+    bool hasCosyVoiceToken() const { return this->cosyVoiceToken_ != nullptr;};
+    void deleteCosyVoiceToken() { this->cosyVoiceToken_ = nullptr;};
+    inline string getCosyVoiceToken() const { DARABONBA_PTR_GET_DEFAULT(cosyVoiceToken_, "") };
+    inline AsyncCreateClipsTaskRequest& setCosyVoiceToken(string cosyVoiceToken) { DARABONBA_PTR_SET_VALUE(cosyVoiceToken_, cosyVoiceToken) };
+
+
+    // customVoiceStyle Field Functions 
+    bool hasCustomVoiceStyle() const { return this->customVoiceStyle_ != nullptr;};
+    void deleteCustomVoiceStyle() { this->customVoiceStyle_ = nullptr;};
+    inline string getCustomVoiceStyle() const { DARABONBA_PTR_GET_DEFAULT(customVoiceStyle_, "") };
+    inline AsyncCreateClipsTaskRequest& setCustomVoiceStyle(string customVoiceStyle) { DARABONBA_PTR_SET_VALUE(customVoiceStyle_, customVoiceStyle) };
 
 
     // customVoiceUrl Field Functions 
@@ -311,6 +407,22 @@ namespace Models
     inline AsyncCreateClipsTaskRequest& setHeight(int32_t height) { DARABONBA_PTR_SET_VALUE(height_, height) };
 
 
+    // highDefSourceVideos Field Functions 
+    bool hasHighDefSourceVideos() const { return this->highDefSourceVideos_ != nullptr;};
+    void deleteHighDefSourceVideos() { this->highDefSourceVideos_ = nullptr;};
+    inline const vector<AsyncCreateClipsTaskRequest::HighDefSourceVideos> & getHighDefSourceVideos() const { DARABONBA_PTR_GET_CONST(highDefSourceVideos_, vector<AsyncCreateClipsTaskRequest::HighDefSourceVideos>) };
+    inline vector<AsyncCreateClipsTaskRequest::HighDefSourceVideos> getHighDefSourceVideos() { DARABONBA_PTR_GET(highDefSourceVideos_, vector<AsyncCreateClipsTaskRequest::HighDefSourceVideos>) };
+    inline AsyncCreateClipsTaskRequest& setHighDefSourceVideos(const vector<AsyncCreateClipsTaskRequest::HighDefSourceVideos> & highDefSourceVideos) { DARABONBA_PTR_SET_VALUE(highDefSourceVideos_, highDefSourceVideos) };
+    inline AsyncCreateClipsTaskRequest& setHighDefSourceVideos(vector<AsyncCreateClipsTaskRequest::HighDefSourceVideos> && highDefSourceVideos) { DARABONBA_PTR_SET_RVALUE(highDefSourceVideos_, highDefSourceVideos) };
+
+
+    // musicStyle Field Functions 
+    bool hasMusicStyle() const { return this->musicStyle_ != nullptr;};
+    void deleteMusicStyle() { this->musicStyle_ = nullptr;};
+    inline string getMusicStyle() const { DARABONBA_PTR_GET_DEFAULT(musicStyle_, "") };
+    inline AsyncCreateClipsTaskRequest& setMusicStyle(string musicStyle) { DARABONBA_PTR_SET_VALUE(musicStyle_, musicStyle) };
+
+
     // musicUrl Field Functions 
     bool hasMusicUrl() const { return this->musicUrl_ != nullptr;};
     void deleteMusicUrl() { this->musicUrl_ = nullptr;};
@@ -323,6 +435,13 @@ namespace Models
     void deleteMusicVolume() { this->musicVolume_ = nullptr;};
     inline int32_t getMusicVolume() const { DARABONBA_PTR_GET_DEFAULT(musicVolume_, 0) };
     inline AsyncCreateClipsTaskRequest& setMusicVolume(int32_t musicVolume) { DARABONBA_PTR_SET_VALUE(musicVolume_, musicVolume) };
+
+
+    // openingCreditsUrl Field Functions 
+    bool hasOpeningCreditsUrl() const { return this->openingCreditsUrl_ != nullptr;};
+    void deleteOpeningCreditsUrl() { this->openingCreditsUrl_ = nullptr;};
+    inline string getOpeningCreditsUrl() const { DARABONBA_PTR_GET_DEFAULT(openingCreditsUrl_, "") };
+    inline AsyncCreateClipsTaskRequest& setOpeningCreditsUrl(string openingCreditsUrl) { DARABONBA_PTR_SET_VALUE(openingCreditsUrl_, openingCreditsUrl) };
 
 
     // stickers Field Functions 
@@ -380,12 +499,19 @@ namespace Models
     shared_ptr<bool> closeMusic_ {};
     shared_ptr<bool> closeSubtitle_ {};
     shared_ptr<bool> closeVoice_ {};
+    shared_ptr<string> closingCreditsUrl_ {};
     shared_ptr<vector<AsyncCreateClipsTaskRequest::ColorWords>> colorWords_ {};
+    shared_ptr<string> cosyVoiceAppKey_ {};
+    shared_ptr<string> cosyVoiceToken_ {};
+    shared_ptr<string> customVoiceStyle_ {};
     shared_ptr<string> customVoiceUrl_ {};
     shared_ptr<int32_t> customVoiceVolume_ {};
     shared_ptr<int32_t> height_ {};
+    shared_ptr<vector<AsyncCreateClipsTaskRequest::HighDefSourceVideos>> highDefSourceVideos_ {};
+    shared_ptr<string> musicStyle_ {};
     shared_ptr<string> musicUrl_ {};
     shared_ptr<int32_t> musicVolume_ {};
+    shared_ptr<string> openingCreditsUrl_ {};
     shared_ptr<vector<AsyncCreateClipsTaskRequest::Stickers>> stickers_ {};
     shared_ptr<int32_t> subtitleFontSize_ {};
     // This parameter is required.

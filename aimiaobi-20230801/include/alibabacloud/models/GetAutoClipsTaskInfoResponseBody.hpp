@@ -43,11 +43,14 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AnalysisResults, analysisResults_);
         DARABONBA_PTR_TO_JSON(CloseMusic, closeMusic_);
         DARABONBA_PTR_TO_JSON(CloseSubtitle, closeSubtitle_);
         DARABONBA_PTR_TO_JSON(CloseVoice, closeVoice_);
+        DARABONBA_PTR_TO_JSON(ClosingCreditsUrl, closingCreditsUrl_);
         DARABONBA_PTR_TO_JSON(ColorWords, colorWords_);
         DARABONBA_PTR_TO_JSON(Content, content_);
+        DARABONBA_PTR_TO_JSON(CustomVoiceStyle, customVoiceStyle_);
         DARABONBA_PTR_TO_JSON(CustomVoiceUrl, customVoiceUrl_);
         DARABONBA_PTR_TO_JSON(CustomVoiceVolume, customVoiceVolume_);
         DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
@@ -55,7 +58,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(MusicStyle, musicStyle_);
         DARABONBA_PTR_TO_JSON(MusicUrl, musicUrl_);
         DARABONBA_PTR_TO_JSON(MusicVolume, musicVolume_);
+        DARABONBA_PTR_TO_JSON(OpeningCreditsUrl, openingCreditsUrl_);
+        DARABONBA_PTR_TO_JSON(OutputVideoFileKey, outputVideoFileKey_);
         DARABONBA_PTR_TO_JSON(OutputVideoUrl, outputVideoUrl_);
+        DARABONBA_PTR_TO_JSON(ReferenceVideo, referenceVideo_);
+        DARABONBA_PTR_TO_JSON(SourceVideos, sourceVideos_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(Step, step_);
         DARABONBA_PTR_TO_JSON(Stickers, stickers_);
@@ -66,11 +73,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(VoiceVolume, voiceVolume_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AnalysisResults, analysisResults_);
         DARABONBA_PTR_FROM_JSON(CloseMusic, closeMusic_);
         DARABONBA_PTR_FROM_JSON(CloseSubtitle, closeSubtitle_);
         DARABONBA_PTR_FROM_JSON(CloseVoice, closeVoice_);
+        DARABONBA_PTR_FROM_JSON(ClosingCreditsUrl, closingCreditsUrl_);
         DARABONBA_PTR_FROM_JSON(ColorWords, colorWords_);
         DARABONBA_PTR_FROM_JSON(Content, content_);
+        DARABONBA_PTR_FROM_JSON(CustomVoiceStyle, customVoiceStyle_);
         DARABONBA_PTR_FROM_JSON(CustomVoiceUrl, customVoiceUrl_);
         DARABONBA_PTR_FROM_JSON(CustomVoiceVolume, customVoiceVolume_);
         DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
@@ -78,7 +88,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(MusicStyle, musicStyle_);
         DARABONBA_PTR_FROM_JSON(MusicUrl, musicUrl_);
         DARABONBA_PTR_FROM_JSON(MusicVolume, musicVolume_);
+        DARABONBA_PTR_FROM_JSON(OpeningCreditsUrl, openingCreditsUrl_);
+        DARABONBA_PTR_FROM_JSON(OutputVideoFileKey, outputVideoFileKey_);
         DARABONBA_PTR_FROM_JSON(OutputVideoUrl, outputVideoUrl_);
+        DARABONBA_PTR_FROM_JSON(ReferenceVideo, referenceVideo_);
+        DARABONBA_PTR_FROM_JSON(SourceVideos, sourceVideos_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(Step, step_);
         DARABONBA_PTR_FROM_JSON(Stickers, stickers_);
@@ -359,6 +373,110 @@ namespace Models
         shared_ptr<float> y_ {};
       };
 
+      class SourceVideos : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SourceVideos& obj) { 
+          DARABONBA_PTR_TO_JSON(VideoId, videoId_);
+          DARABONBA_PTR_TO_JSON(VideoName, videoName_);
+          DARABONBA_PTR_TO_JSON(VideoUrl, videoUrl_);
+        };
+        friend void from_json(const Darabonba::Json& j, SourceVideos& obj) { 
+          DARABONBA_PTR_FROM_JSON(VideoId, videoId_);
+          DARABONBA_PTR_FROM_JSON(VideoName, videoName_);
+          DARABONBA_PTR_FROM_JSON(VideoUrl, videoUrl_);
+        };
+        SourceVideos() = default ;
+        SourceVideos(const SourceVideos &) = default ;
+        SourceVideos(SourceVideos &&) = default ;
+        SourceVideos(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SourceVideos() = default ;
+        SourceVideos& operator=(const SourceVideos &) = default ;
+        SourceVideos& operator=(SourceVideos &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->videoId_ == nullptr
+        && this->videoName_ == nullptr && this->videoUrl_ == nullptr; };
+        // videoId Field Functions 
+        bool hasVideoId() const { return this->videoId_ != nullptr;};
+        void deleteVideoId() { this->videoId_ = nullptr;};
+        inline string getVideoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
+        inline SourceVideos& setVideoId(string videoId) { DARABONBA_PTR_SET_VALUE(videoId_, videoId) };
+
+
+        // videoName Field Functions 
+        bool hasVideoName() const { return this->videoName_ != nullptr;};
+        void deleteVideoName() { this->videoName_ = nullptr;};
+        inline string getVideoName() const { DARABONBA_PTR_GET_DEFAULT(videoName_, "") };
+        inline SourceVideos& setVideoName(string videoName) { DARABONBA_PTR_SET_VALUE(videoName_, videoName) };
+
+
+        // videoUrl Field Functions 
+        bool hasVideoUrl() const { return this->videoUrl_ != nullptr;};
+        void deleteVideoUrl() { this->videoUrl_ = nullptr;};
+        inline string getVideoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
+        inline SourceVideos& setVideoUrl(string videoUrl) { DARABONBA_PTR_SET_VALUE(videoUrl_, videoUrl) };
+
+
+      protected:
+        shared_ptr<string> videoId_ {};
+        shared_ptr<string> videoName_ {};
+        shared_ptr<string> videoUrl_ {};
+      };
+
+      class ReferenceVideo : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ReferenceVideo& obj) { 
+          DARABONBA_PTR_TO_JSON(VideoId, videoId_);
+          DARABONBA_PTR_TO_JSON(VideoName, videoName_);
+          DARABONBA_PTR_TO_JSON(VideoUrl, videoUrl_);
+        };
+        friend void from_json(const Darabonba::Json& j, ReferenceVideo& obj) { 
+          DARABONBA_PTR_FROM_JSON(VideoId, videoId_);
+          DARABONBA_PTR_FROM_JSON(VideoName, videoName_);
+          DARABONBA_PTR_FROM_JSON(VideoUrl, videoUrl_);
+        };
+        ReferenceVideo() = default ;
+        ReferenceVideo(const ReferenceVideo &) = default ;
+        ReferenceVideo(ReferenceVideo &&) = default ;
+        ReferenceVideo(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ReferenceVideo() = default ;
+        ReferenceVideo& operator=(const ReferenceVideo &) = default ;
+        ReferenceVideo& operator=(ReferenceVideo &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->videoId_ == nullptr
+        && this->videoName_ == nullptr && this->videoUrl_ == nullptr; };
+        // videoId Field Functions 
+        bool hasVideoId() const { return this->videoId_ != nullptr;};
+        void deleteVideoId() { this->videoId_ = nullptr;};
+        inline string getVideoId() const { DARABONBA_PTR_GET_DEFAULT(videoId_, "") };
+        inline ReferenceVideo& setVideoId(string videoId) { DARABONBA_PTR_SET_VALUE(videoId_, videoId) };
+
+
+        // videoName Field Functions 
+        bool hasVideoName() const { return this->videoName_ != nullptr;};
+        void deleteVideoName() { this->videoName_ = nullptr;};
+        inline string getVideoName() const { DARABONBA_PTR_GET_DEFAULT(videoName_, "") };
+        inline ReferenceVideo& setVideoName(string videoName) { DARABONBA_PTR_SET_VALUE(videoName_, videoName) };
+
+
+        // videoUrl Field Functions 
+        bool hasVideoUrl() const { return this->videoUrl_ != nullptr;};
+        void deleteVideoUrl() { this->videoUrl_ = nullptr;};
+        inline string getVideoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
+        inline ReferenceVideo& setVideoUrl(string videoUrl) { DARABONBA_PTR_SET_VALUE(videoUrl_, videoUrl) };
+
+
+      protected:
+        shared_ptr<string> videoId_ {};
+        shared_ptr<string> videoName_ {};
+        shared_ptr<string> videoUrl_ {};
+      };
+
       class ColorWords : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ColorWords& obj) { 
@@ -452,11 +570,266 @@ namespace Models
         shared_ptr<float> y_ {};
       };
 
-      virtual bool empty() const override { return this->closeMusic_ == nullptr
-        && this->closeSubtitle_ == nullptr && this->closeVoice_ == nullptr && this->colorWords_ == nullptr && this->content_ == nullptr && this->customVoiceUrl_ == nullptr
-        && this->customVoiceVolume_ == nullptr && this->errorMessage_ == nullptr && this->mediaCloudTimeline_ == nullptr && this->musicStyle_ == nullptr && this->musicUrl_ == nullptr
-        && this->musicVolume_ == nullptr && this->outputVideoUrl_ == nullptr && this->status_ == nullptr && this->step_ == nullptr && this->stickers_ == nullptr
-        && this->subtitleFontSize_ == nullptr && this->taskId_ == nullptr && this->timelines_ == nullptr && this->voiceStyle_ == nullptr && this->voiceVolume_ == nullptr; };
+      class AnalysisResults : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AnalysisResults& obj) { 
+          DARABONBA_PTR_TO_JSON(LensInfos, lensInfos_);
+          DARABONBA_PTR_TO_JSON(MediaId, mediaId_);
+          DARABONBA_PTR_TO_JSON(MediaName, mediaName_);
+          DARABONBA_PTR_TO_JSON(MediaUrl, mediaUrl_);
+        };
+        friend void from_json(const Darabonba::Json& j, AnalysisResults& obj) { 
+          DARABONBA_PTR_FROM_JSON(LensInfos, lensInfos_);
+          DARABONBA_PTR_FROM_JSON(MediaId, mediaId_);
+          DARABONBA_PTR_FROM_JSON(MediaName, mediaName_);
+          DARABONBA_PTR_FROM_JSON(MediaUrl, mediaUrl_);
+        };
+        AnalysisResults() = default ;
+        AnalysisResults(const AnalysisResults &) = default ;
+        AnalysisResults(AnalysisResults &&) = default ;
+        AnalysisResults(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AnalysisResults() = default ;
+        AnalysisResults& operator=(const AnalysisResults &) = default ;
+        AnalysisResults& operator=(AnalysisResults &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class LensInfos : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const LensInfos& obj) { 
+            DARABONBA_PTR_TO_JSON(AnalysisContent, analysisContent_);
+            DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+            DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+          };
+          friend void from_json(const Darabonba::Json& j, LensInfos& obj) { 
+            DARABONBA_PTR_FROM_JSON(AnalysisContent, analysisContent_);
+            DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+            DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+          };
+          LensInfos() = default ;
+          LensInfos(const LensInfos &) = default ;
+          LensInfos(LensInfos &&) = default ;
+          LensInfos(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~LensInfos() = default ;
+          LensInfos& operator=(const LensInfos &) = default ;
+          LensInfos& operator=(LensInfos &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class StartTime : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const StartTime& obj) { 
+              DARABONBA_PTR_TO_JSON(Hour, hour_);
+              DARABONBA_PTR_TO_JSON(MillSecond, millSecond_);
+              DARABONBA_PTR_TO_JSON(Minute, minute_);
+              DARABONBA_PTR_TO_JSON(Second, second_);
+            };
+            friend void from_json(const Darabonba::Json& j, StartTime& obj) { 
+              DARABONBA_PTR_FROM_JSON(Hour, hour_);
+              DARABONBA_PTR_FROM_JSON(MillSecond, millSecond_);
+              DARABONBA_PTR_FROM_JSON(Minute, minute_);
+              DARABONBA_PTR_FROM_JSON(Second, second_);
+            };
+            StartTime() = default ;
+            StartTime(const StartTime &) = default ;
+            StartTime(StartTime &&) = default ;
+            StartTime(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~StartTime() = default ;
+            StartTime& operator=(const StartTime &) = default ;
+            StartTime& operator=(StartTime &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->hour_ == nullptr
+        && this->millSecond_ == nullptr && this->minute_ == nullptr && this->second_ == nullptr; };
+            // hour Field Functions 
+            bool hasHour() const { return this->hour_ != nullptr;};
+            void deleteHour() { this->hour_ = nullptr;};
+            inline int32_t getHour() const { DARABONBA_PTR_GET_DEFAULT(hour_, 0) };
+            inline StartTime& setHour(int32_t hour) { DARABONBA_PTR_SET_VALUE(hour_, hour) };
+
+
+            // millSecond Field Functions 
+            bool hasMillSecond() const { return this->millSecond_ != nullptr;};
+            void deleteMillSecond() { this->millSecond_ = nullptr;};
+            inline int32_t getMillSecond() const { DARABONBA_PTR_GET_DEFAULT(millSecond_, 0) };
+            inline StartTime& setMillSecond(int32_t millSecond) { DARABONBA_PTR_SET_VALUE(millSecond_, millSecond) };
+
+
+            // minute Field Functions 
+            bool hasMinute() const { return this->minute_ != nullptr;};
+            void deleteMinute() { this->minute_ = nullptr;};
+            inline int32_t getMinute() const { DARABONBA_PTR_GET_DEFAULT(minute_, 0) };
+            inline StartTime& setMinute(int32_t minute) { DARABONBA_PTR_SET_VALUE(minute_, minute) };
+
+
+            // second Field Functions 
+            bool hasSecond() const { return this->second_ != nullptr;};
+            void deleteSecond() { this->second_ = nullptr;};
+            inline int32_t getSecond() const { DARABONBA_PTR_GET_DEFAULT(second_, 0) };
+            inline StartTime& setSecond(int32_t second) { DARABONBA_PTR_SET_VALUE(second_, second) };
+
+
+          protected:
+            shared_ptr<int32_t> hour_ {};
+            shared_ptr<int32_t> millSecond_ {};
+            shared_ptr<int32_t> minute_ {};
+            shared_ptr<int32_t> second_ {};
+          };
+
+          class EndTime : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const EndTime& obj) { 
+              DARABONBA_PTR_TO_JSON(Hour, hour_);
+              DARABONBA_PTR_TO_JSON(MillSecond, millSecond_);
+              DARABONBA_PTR_TO_JSON(Minute, minute_);
+              DARABONBA_PTR_TO_JSON(Second, second_);
+            };
+            friend void from_json(const Darabonba::Json& j, EndTime& obj) { 
+              DARABONBA_PTR_FROM_JSON(Hour, hour_);
+              DARABONBA_PTR_FROM_JSON(MillSecond, millSecond_);
+              DARABONBA_PTR_FROM_JSON(Minute, minute_);
+              DARABONBA_PTR_FROM_JSON(Second, second_);
+            };
+            EndTime() = default ;
+            EndTime(const EndTime &) = default ;
+            EndTime(EndTime &&) = default ;
+            EndTime(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~EndTime() = default ;
+            EndTime& operator=(const EndTime &) = default ;
+            EndTime& operator=(EndTime &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->hour_ == nullptr
+        && this->millSecond_ == nullptr && this->minute_ == nullptr && this->second_ == nullptr; };
+            // hour Field Functions 
+            bool hasHour() const { return this->hour_ != nullptr;};
+            void deleteHour() { this->hour_ = nullptr;};
+            inline int32_t getHour() const { DARABONBA_PTR_GET_DEFAULT(hour_, 0) };
+            inline EndTime& setHour(int32_t hour) { DARABONBA_PTR_SET_VALUE(hour_, hour) };
+
+
+            // millSecond Field Functions 
+            bool hasMillSecond() const { return this->millSecond_ != nullptr;};
+            void deleteMillSecond() { this->millSecond_ = nullptr;};
+            inline int32_t getMillSecond() const { DARABONBA_PTR_GET_DEFAULT(millSecond_, 0) };
+            inline EndTime& setMillSecond(int32_t millSecond) { DARABONBA_PTR_SET_VALUE(millSecond_, millSecond) };
+
+
+            // minute Field Functions 
+            bool hasMinute() const { return this->minute_ != nullptr;};
+            void deleteMinute() { this->minute_ = nullptr;};
+            inline int32_t getMinute() const { DARABONBA_PTR_GET_DEFAULT(minute_, 0) };
+            inline EndTime& setMinute(int32_t minute) { DARABONBA_PTR_SET_VALUE(minute_, minute) };
+
+
+            // second Field Functions 
+            bool hasSecond() const { return this->second_ != nullptr;};
+            void deleteSecond() { this->second_ = nullptr;};
+            inline int32_t getSecond() const { DARABONBA_PTR_GET_DEFAULT(second_, 0) };
+            inline EndTime& setSecond(int32_t second) { DARABONBA_PTR_SET_VALUE(second_, second) };
+
+
+          protected:
+            shared_ptr<int32_t> hour_ {};
+            shared_ptr<int32_t> millSecond_ {};
+            shared_ptr<int32_t> minute_ {};
+            shared_ptr<int32_t> second_ {};
+          };
+
+          virtual bool empty() const override { return this->analysisContent_ == nullptr
+        && this->endTime_ == nullptr && this->startTime_ == nullptr; };
+          // analysisContent Field Functions 
+          bool hasAnalysisContent() const { return this->analysisContent_ != nullptr;};
+          void deleteAnalysisContent() { this->analysisContent_ = nullptr;};
+          inline string getAnalysisContent() const { DARABONBA_PTR_GET_DEFAULT(analysisContent_, "") };
+          inline LensInfos& setAnalysisContent(string analysisContent) { DARABONBA_PTR_SET_VALUE(analysisContent_, analysisContent) };
+
+
+          // endTime Field Functions 
+          bool hasEndTime() const { return this->endTime_ != nullptr;};
+          void deleteEndTime() { this->endTime_ = nullptr;};
+          inline const LensInfos::EndTime & getEndTime() const { DARABONBA_PTR_GET_CONST(endTime_, LensInfos::EndTime) };
+          inline LensInfos::EndTime getEndTime() { DARABONBA_PTR_GET(endTime_, LensInfos::EndTime) };
+          inline LensInfos& setEndTime(const LensInfos::EndTime & endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+          inline LensInfos& setEndTime(LensInfos::EndTime && endTime) { DARABONBA_PTR_SET_RVALUE(endTime_, endTime) };
+
+
+          // startTime Field Functions 
+          bool hasStartTime() const { return this->startTime_ != nullptr;};
+          void deleteStartTime() { this->startTime_ = nullptr;};
+          inline const LensInfos::StartTime & getStartTime() const { DARABONBA_PTR_GET_CONST(startTime_, LensInfos::StartTime) };
+          inline LensInfos::StartTime getStartTime() { DARABONBA_PTR_GET(startTime_, LensInfos::StartTime) };
+          inline LensInfos& setStartTime(const LensInfos::StartTime & startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+          inline LensInfos& setStartTime(LensInfos::StartTime && startTime) { DARABONBA_PTR_SET_RVALUE(startTime_, startTime) };
+
+
+        protected:
+          shared_ptr<string> analysisContent_ {};
+          shared_ptr<LensInfos::EndTime> endTime_ {};
+          shared_ptr<LensInfos::StartTime> startTime_ {};
+        };
+
+        virtual bool empty() const override { return this->lensInfos_ == nullptr
+        && this->mediaId_ == nullptr && this->mediaName_ == nullptr && this->mediaUrl_ == nullptr; };
+        // lensInfos Field Functions 
+        bool hasLensInfos() const { return this->lensInfos_ != nullptr;};
+        void deleteLensInfos() { this->lensInfos_ = nullptr;};
+        inline const vector<AnalysisResults::LensInfos> & getLensInfos() const { DARABONBA_PTR_GET_CONST(lensInfos_, vector<AnalysisResults::LensInfos>) };
+        inline vector<AnalysisResults::LensInfos> getLensInfos() { DARABONBA_PTR_GET(lensInfos_, vector<AnalysisResults::LensInfos>) };
+        inline AnalysisResults& setLensInfos(const vector<AnalysisResults::LensInfos> & lensInfos) { DARABONBA_PTR_SET_VALUE(lensInfos_, lensInfos) };
+        inline AnalysisResults& setLensInfos(vector<AnalysisResults::LensInfos> && lensInfos) { DARABONBA_PTR_SET_RVALUE(lensInfos_, lensInfos) };
+
+
+        // mediaId Field Functions 
+        bool hasMediaId() const { return this->mediaId_ != nullptr;};
+        void deleteMediaId() { this->mediaId_ = nullptr;};
+        inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+        inline AnalysisResults& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
+
+
+        // mediaName Field Functions 
+        bool hasMediaName() const { return this->mediaName_ != nullptr;};
+        void deleteMediaName() { this->mediaName_ = nullptr;};
+        inline string getMediaName() const { DARABONBA_PTR_GET_DEFAULT(mediaName_, "") };
+        inline AnalysisResults& setMediaName(string mediaName) { DARABONBA_PTR_SET_VALUE(mediaName_, mediaName) };
+
+
+        // mediaUrl Field Functions 
+        bool hasMediaUrl() const { return this->mediaUrl_ != nullptr;};
+        void deleteMediaUrl() { this->mediaUrl_ = nullptr;};
+        inline string getMediaUrl() const { DARABONBA_PTR_GET_DEFAULT(mediaUrl_, "") };
+        inline AnalysisResults& setMediaUrl(string mediaUrl) { DARABONBA_PTR_SET_VALUE(mediaUrl_, mediaUrl) };
+
+
+      protected:
+        shared_ptr<vector<AnalysisResults::LensInfos>> lensInfos_ {};
+        shared_ptr<string> mediaId_ {};
+        shared_ptr<string> mediaName_ {};
+        shared_ptr<string> mediaUrl_ {};
+      };
+
+      virtual bool empty() const override { return this->analysisResults_ == nullptr
+        && this->closeMusic_ == nullptr && this->closeSubtitle_ == nullptr && this->closeVoice_ == nullptr && this->closingCreditsUrl_ == nullptr && this->colorWords_ == nullptr
+        && this->content_ == nullptr && this->customVoiceStyle_ == nullptr && this->customVoiceUrl_ == nullptr && this->customVoiceVolume_ == nullptr && this->errorMessage_ == nullptr
+        && this->mediaCloudTimeline_ == nullptr && this->musicStyle_ == nullptr && this->musicUrl_ == nullptr && this->musicVolume_ == nullptr && this->openingCreditsUrl_ == nullptr
+        && this->outputVideoFileKey_ == nullptr && this->outputVideoUrl_ == nullptr && this->referenceVideo_ == nullptr && this->sourceVideos_ == nullptr && this->status_ == nullptr
+        && this->step_ == nullptr && this->stickers_ == nullptr && this->subtitleFontSize_ == nullptr && this->taskId_ == nullptr && this->timelines_ == nullptr
+        && this->voiceStyle_ == nullptr && this->voiceVolume_ == nullptr; };
+      // analysisResults Field Functions 
+      bool hasAnalysisResults() const { return this->analysisResults_ != nullptr;};
+      void deleteAnalysisResults() { this->analysisResults_ = nullptr;};
+      inline const vector<Data::AnalysisResults> & getAnalysisResults() const { DARABONBA_PTR_GET_CONST(analysisResults_, vector<Data::AnalysisResults>) };
+      inline vector<Data::AnalysisResults> getAnalysisResults() { DARABONBA_PTR_GET(analysisResults_, vector<Data::AnalysisResults>) };
+      inline Data& setAnalysisResults(const vector<Data::AnalysisResults> & analysisResults) { DARABONBA_PTR_SET_VALUE(analysisResults_, analysisResults) };
+      inline Data& setAnalysisResults(vector<Data::AnalysisResults> && analysisResults) { DARABONBA_PTR_SET_RVALUE(analysisResults_, analysisResults) };
+
+
       // closeMusic Field Functions 
       bool hasCloseMusic() const { return this->closeMusic_ != nullptr;};
       void deleteCloseMusic() { this->closeMusic_ = nullptr;};
@@ -478,6 +851,13 @@ namespace Models
       inline Data& setCloseVoice(bool closeVoice) { DARABONBA_PTR_SET_VALUE(closeVoice_, closeVoice) };
 
 
+      // closingCreditsUrl Field Functions 
+      bool hasClosingCreditsUrl() const { return this->closingCreditsUrl_ != nullptr;};
+      void deleteClosingCreditsUrl() { this->closingCreditsUrl_ = nullptr;};
+      inline string getClosingCreditsUrl() const { DARABONBA_PTR_GET_DEFAULT(closingCreditsUrl_, "") };
+      inline Data& setClosingCreditsUrl(string closingCreditsUrl) { DARABONBA_PTR_SET_VALUE(closingCreditsUrl_, closingCreditsUrl) };
+
+
       // colorWords Field Functions 
       bool hasColorWords() const { return this->colorWords_ != nullptr;};
       void deleteColorWords() { this->colorWords_ = nullptr;};
@@ -492,6 +872,13 @@ namespace Models
       void deleteContent() { this->content_ = nullptr;};
       inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
       inline Data& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+      // customVoiceStyle Field Functions 
+      bool hasCustomVoiceStyle() const { return this->customVoiceStyle_ != nullptr;};
+      void deleteCustomVoiceStyle() { this->customVoiceStyle_ = nullptr;};
+      inline string getCustomVoiceStyle() const { DARABONBA_PTR_GET_DEFAULT(customVoiceStyle_, "") };
+      inline Data& setCustomVoiceStyle(string customVoiceStyle) { DARABONBA_PTR_SET_VALUE(customVoiceStyle_, customVoiceStyle) };
 
 
       // customVoiceUrl Field Functions 
@@ -543,11 +930,43 @@ namespace Models
       inline Data& setMusicVolume(int32_t musicVolume) { DARABONBA_PTR_SET_VALUE(musicVolume_, musicVolume) };
 
 
+      // openingCreditsUrl Field Functions 
+      bool hasOpeningCreditsUrl() const { return this->openingCreditsUrl_ != nullptr;};
+      void deleteOpeningCreditsUrl() { this->openingCreditsUrl_ = nullptr;};
+      inline string getOpeningCreditsUrl() const { DARABONBA_PTR_GET_DEFAULT(openingCreditsUrl_, "") };
+      inline Data& setOpeningCreditsUrl(string openingCreditsUrl) { DARABONBA_PTR_SET_VALUE(openingCreditsUrl_, openingCreditsUrl) };
+
+
+      // outputVideoFileKey Field Functions 
+      bool hasOutputVideoFileKey() const { return this->outputVideoFileKey_ != nullptr;};
+      void deleteOutputVideoFileKey() { this->outputVideoFileKey_ = nullptr;};
+      inline string getOutputVideoFileKey() const { DARABONBA_PTR_GET_DEFAULT(outputVideoFileKey_, "") };
+      inline Data& setOutputVideoFileKey(string outputVideoFileKey) { DARABONBA_PTR_SET_VALUE(outputVideoFileKey_, outputVideoFileKey) };
+
+
       // outputVideoUrl Field Functions 
       bool hasOutputVideoUrl() const { return this->outputVideoUrl_ != nullptr;};
       void deleteOutputVideoUrl() { this->outputVideoUrl_ = nullptr;};
       inline string getOutputVideoUrl() const { DARABONBA_PTR_GET_DEFAULT(outputVideoUrl_, "") };
       inline Data& setOutputVideoUrl(string outputVideoUrl) { DARABONBA_PTR_SET_VALUE(outputVideoUrl_, outputVideoUrl) };
+
+
+      // referenceVideo Field Functions 
+      bool hasReferenceVideo() const { return this->referenceVideo_ != nullptr;};
+      void deleteReferenceVideo() { this->referenceVideo_ = nullptr;};
+      inline const Data::ReferenceVideo & getReferenceVideo() const { DARABONBA_PTR_GET_CONST(referenceVideo_, Data::ReferenceVideo) };
+      inline Data::ReferenceVideo getReferenceVideo() { DARABONBA_PTR_GET(referenceVideo_, Data::ReferenceVideo) };
+      inline Data& setReferenceVideo(const Data::ReferenceVideo & referenceVideo) { DARABONBA_PTR_SET_VALUE(referenceVideo_, referenceVideo) };
+      inline Data& setReferenceVideo(Data::ReferenceVideo && referenceVideo) { DARABONBA_PTR_SET_RVALUE(referenceVideo_, referenceVideo) };
+
+
+      // sourceVideos Field Functions 
+      bool hasSourceVideos() const { return this->sourceVideos_ != nullptr;};
+      void deleteSourceVideos() { this->sourceVideos_ = nullptr;};
+      inline const vector<Data::SourceVideos> & getSourceVideos() const { DARABONBA_PTR_GET_CONST(sourceVideos_, vector<Data::SourceVideos>) };
+      inline vector<Data::SourceVideos> getSourceVideos() { DARABONBA_PTR_GET(sourceVideos_, vector<Data::SourceVideos>) };
+      inline Data& setSourceVideos(const vector<Data::SourceVideos> & sourceVideos) { DARABONBA_PTR_SET_VALUE(sourceVideos_, sourceVideos) };
+      inline Data& setSourceVideos(vector<Data::SourceVideos> && sourceVideos) { DARABONBA_PTR_SET_RVALUE(sourceVideos_, sourceVideos) };
 
 
       // status Field Functions 
@@ -611,11 +1030,14 @@ namespace Models
 
 
     protected:
+      shared_ptr<vector<Data::AnalysisResults>> analysisResults_ {};
       shared_ptr<bool> closeMusic_ {};
       shared_ptr<bool> closeSubtitle_ {};
       shared_ptr<bool> closeVoice_ {};
+      shared_ptr<string> closingCreditsUrl_ {};
       shared_ptr<vector<Data::ColorWords>> colorWords_ {};
       shared_ptr<string> content_ {};
+      shared_ptr<string> customVoiceStyle_ {};
       shared_ptr<string> customVoiceUrl_ {};
       shared_ptr<int32_t> customVoiceVolume_ {};
       shared_ptr<string> errorMessage_ {};
@@ -623,7 +1045,11 @@ namespace Models
       shared_ptr<string> musicStyle_ {};
       shared_ptr<string> musicUrl_ {};
       shared_ptr<int32_t> musicVolume_ {};
+      shared_ptr<string> openingCreditsUrl_ {};
+      shared_ptr<string> outputVideoFileKey_ {};
       shared_ptr<string> outputVideoUrl_ {};
+      shared_ptr<Data::ReferenceVideo> referenceVideo_ {};
+      shared_ptr<vector<Data::SourceVideos>> sourceVideos_ {};
       shared_ptr<int32_t> status_ {};
       shared_ptr<string> step_ {};
       shared_ptr<vector<Data::Stickers>> stickers_ {};
