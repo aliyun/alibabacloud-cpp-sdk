@@ -42,68 +42,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apkFileUrl_ == nullptr
-        && return this->appId_ == nullptr && return this->certRsaBase64_ == nullptr && return this->identifier_ == nullptr && return this->onexFlag_ == nullptr && return this->systemType_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->appId_ == nullptr && this->certRsaBase64_ == nullptr && this->identifier_ == nullptr && this->onexFlag_ == nullptr && this->systemType_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // apkFileUrl Field Functions 
     bool hasApkFileUrl() const { return this->apkFileUrl_ != nullptr;};
     void deleteApkFileUrl() { this->apkFileUrl_ = nullptr;};
-    inline string apkFileUrl() const { DARABONBA_PTR_GET_DEFAULT(apkFileUrl_, "") };
+    inline string getApkFileUrl() const { DARABONBA_PTR_GET_DEFAULT(apkFileUrl_, "") };
     inline ExportMappCenterAppConfigRequest& setApkFileUrl(string apkFileUrl) { DARABONBA_PTR_SET_VALUE(apkFileUrl_, apkFileUrl) };
 
 
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline ExportMappCenterAppConfigRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // certRsaBase64 Field Functions 
     bool hasCertRsaBase64() const { return this->certRsaBase64_ != nullptr;};
     void deleteCertRsaBase64() { this->certRsaBase64_ = nullptr;};
-    inline string certRsaBase64() const { DARABONBA_PTR_GET_DEFAULT(certRsaBase64_, "") };
+    inline string getCertRsaBase64() const { DARABONBA_PTR_GET_DEFAULT(certRsaBase64_, "") };
     inline ExportMappCenterAppConfigRequest& setCertRsaBase64(string certRsaBase64) { DARABONBA_PTR_SET_VALUE(certRsaBase64_, certRsaBase64) };
 
 
     // identifier Field Functions 
     bool hasIdentifier() const { return this->identifier_ != nullptr;};
     void deleteIdentifier() { this->identifier_ = nullptr;};
-    inline string identifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
+    inline string getIdentifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
     inline ExportMappCenterAppConfigRequest& setIdentifier(string identifier) { DARABONBA_PTR_SET_VALUE(identifier_, identifier) };
 
 
     // onexFlag Field Functions 
     bool hasOnexFlag() const { return this->onexFlag_ != nullptr;};
     void deleteOnexFlag() { this->onexFlag_ = nullptr;};
-    inline bool onexFlag() const { DARABONBA_PTR_GET_DEFAULT(onexFlag_, false) };
+    inline bool getOnexFlag() const { DARABONBA_PTR_GET_DEFAULT(onexFlag_, false) };
     inline ExportMappCenterAppConfigRequest& setOnexFlag(bool onexFlag) { DARABONBA_PTR_SET_VALUE(onexFlag_, onexFlag) };
 
 
     // systemType Field Functions 
     bool hasSystemType() const { return this->systemType_ != nullptr;};
     void deleteSystemType() { this->systemType_ = nullptr;};
-    inline string systemType() const { DARABONBA_PTR_GET_DEFAULT(systemType_, "") };
+    inline string getSystemType() const { DARABONBA_PTR_GET_DEFAULT(systemType_, "") };
     inline ExportMappCenterAppConfigRequest& setSystemType(string systemType) { DARABONBA_PTR_SET_VALUE(systemType_, systemType) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline ExportMappCenterAppConfigRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> apkFileUrl_ = nullptr;
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> certRsaBase64_ = nullptr;
+    shared_ptr<string> apkFileUrl_ {};
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> certRsaBase64_ {};
     // This parameter is required.
-    std::shared_ptr<string> identifier_ = nullptr;
+    shared_ptr<string> identifier_ {};
     // This parameter is required.
-    std::shared_ptr<bool> onexFlag_ = nullptr;
+    shared_ptr<bool> onexFlag_ {};
     // This parameter is required.
-    std::shared_ptr<string> systemType_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> systemType_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -72,192 +72,192 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apkProtector_ == nullptr
-        && return this->appId_ == nullptr && return this->assetsFileList_ == nullptr && return this->classes_ == nullptr && return this->dalvikDebugger_ == nullptr && return this->emulatorEnvironment_ == nullptr
-        && return this->id_ == nullptr && return this->javaHook_ == nullptr && return this->memoryDump_ == nullptr && return this->nativeDebugger_ == nullptr && return this->nativeHook_ == nullptr
-        && return this->newShieldConfig_ == nullptr && return this->packageTampered_ == nullptr && return this->root_ == nullptr && return this->runMode_ == nullptr && return this->soFileList_ == nullptr
-        && return this->taskType_ == nullptr && return this->tenantId_ == nullptr && return this->totalSwitch_ == nullptr && return this->useAShield_ == nullptr && return this->useYShield_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->appId_ == nullptr && this->assetsFileList_ == nullptr && this->classes_ == nullptr && this->dalvikDebugger_ == nullptr && this->emulatorEnvironment_ == nullptr
+        && this->id_ == nullptr && this->javaHook_ == nullptr && this->memoryDump_ == nullptr && this->nativeDebugger_ == nullptr && this->nativeHook_ == nullptr
+        && this->newShieldConfig_ == nullptr && this->packageTampered_ == nullptr && this->root_ == nullptr && this->runMode_ == nullptr && this->soFileList_ == nullptr
+        && this->taskType_ == nullptr && this->tenantId_ == nullptr && this->totalSwitch_ == nullptr && this->useAShield_ == nullptr && this->useYShield_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // apkProtector Field Functions 
     bool hasApkProtector() const { return this->apkProtector_ != nullptr;};
     void deleteApkProtector() { this->apkProtector_ = nullptr;};
-    inline bool apkProtector() const { DARABONBA_PTR_GET_DEFAULT(apkProtector_, false) };
+    inline bool getApkProtector() const { DARABONBA_PTR_GET_DEFAULT(apkProtector_, false) };
     inline StartUserAppAsyncEnhanceInMsaRequest& setApkProtector(bool apkProtector) { DARABONBA_PTR_SET_VALUE(apkProtector_, apkProtector) };
 
 
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline StartUserAppAsyncEnhanceInMsaRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // assetsFileList Field Functions 
     bool hasAssetsFileList() const { return this->assetsFileList_ != nullptr;};
     void deleteAssetsFileList() { this->assetsFileList_ = nullptr;};
-    inline string assetsFileList() const { DARABONBA_PTR_GET_DEFAULT(assetsFileList_, "") };
+    inline string getAssetsFileList() const { DARABONBA_PTR_GET_DEFAULT(assetsFileList_, "") };
     inline StartUserAppAsyncEnhanceInMsaRequest& setAssetsFileList(string assetsFileList) { DARABONBA_PTR_SET_VALUE(assetsFileList_, assetsFileList) };
 
 
     // classes Field Functions 
     bool hasClasses() const { return this->classes_ != nullptr;};
     void deleteClasses() { this->classes_ = nullptr;};
-    inline string classes() const { DARABONBA_PTR_GET_DEFAULT(classes_, "") };
+    inline string getClasses() const { DARABONBA_PTR_GET_DEFAULT(classes_, "") };
     inline StartUserAppAsyncEnhanceInMsaRequest& setClasses(string classes) { DARABONBA_PTR_SET_VALUE(classes_, classes) };
 
 
     // dalvikDebugger Field Functions 
     bool hasDalvikDebugger() const { return this->dalvikDebugger_ != nullptr;};
     void deleteDalvikDebugger() { this->dalvikDebugger_ = nullptr;};
-    inline int32_t dalvikDebugger() const { DARABONBA_PTR_GET_DEFAULT(dalvikDebugger_, 0) };
+    inline int32_t getDalvikDebugger() const { DARABONBA_PTR_GET_DEFAULT(dalvikDebugger_, 0) };
     inline StartUserAppAsyncEnhanceInMsaRequest& setDalvikDebugger(int32_t dalvikDebugger) { DARABONBA_PTR_SET_VALUE(dalvikDebugger_, dalvikDebugger) };
 
 
     // emulatorEnvironment Field Functions 
     bool hasEmulatorEnvironment() const { return this->emulatorEnvironment_ != nullptr;};
     void deleteEmulatorEnvironment() { this->emulatorEnvironment_ = nullptr;};
-    inline int32_t emulatorEnvironment() const { DARABONBA_PTR_GET_DEFAULT(emulatorEnvironment_, 0) };
+    inline int32_t getEmulatorEnvironment() const { DARABONBA_PTR_GET_DEFAULT(emulatorEnvironment_, 0) };
     inline StartUserAppAsyncEnhanceInMsaRequest& setEmulatorEnvironment(int32_t emulatorEnvironment) { DARABONBA_PTR_SET_VALUE(emulatorEnvironment_, emulatorEnvironment) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline StartUserAppAsyncEnhanceInMsaRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // javaHook Field Functions 
     bool hasJavaHook() const { return this->javaHook_ != nullptr;};
     void deleteJavaHook() { this->javaHook_ = nullptr;};
-    inline int32_t javaHook() const { DARABONBA_PTR_GET_DEFAULT(javaHook_, 0) };
+    inline int32_t getJavaHook() const { DARABONBA_PTR_GET_DEFAULT(javaHook_, 0) };
     inline StartUserAppAsyncEnhanceInMsaRequest& setJavaHook(int32_t javaHook) { DARABONBA_PTR_SET_VALUE(javaHook_, javaHook) };
 
 
     // memoryDump Field Functions 
     bool hasMemoryDump() const { return this->memoryDump_ != nullptr;};
     void deleteMemoryDump() { this->memoryDump_ = nullptr;};
-    inline int32_t memoryDump() const { DARABONBA_PTR_GET_DEFAULT(memoryDump_, 0) };
+    inline int32_t getMemoryDump() const { DARABONBA_PTR_GET_DEFAULT(memoryDump_, 0) };
     inline StartUserAppAsyncEnhanceInMsaRequest& setMemoryDump(int32_t memoryDump) { DARABONBA_PTR_SET_VALUE(memoryDump_, memoryDump) };
 
 
     // nativeDebugger Field Functions 
     bool hasNativeDebugger() const { return this->nativeDebugger_ != nullptr;};
     void deleteNativeDebugger() { this->nativeDebugger_ = nullptr;};
-    inline int32_t nativeDebugger() const { DARABONBA_PTR_GET_DEFAULT(nativeDebugger_, 0) };
+    inline int32_t getNativeDebugger() const { DARABONBA_PTR_GET_DEFAULT(nativeDebugger_, 0) };
     inline StartUserAppAsyncEnhanceInMsaRequest& setNativeDebugger(int32_t nativeDebugger) { DARABONBA_PTR_SET_VALUE(nativeDebugger_, nativeDebugger) };
 
 
     // nativeHook Field Functions 
     bool hasNativeHook() const { return this->nativeHook_ != nullptr;};
     void deleteNativeHook() { this->nativeHook_ = nullptr;};
-    inline int32_t nativeHook() const { DARABONBA_PTR_GET_DEFAULT(nativeHook_, 0) };
+    inline int32_t getNativeHook() const { DARABONBA_PTR_GET_DEFAULT(nativeHook_, 0) };
     inline StartUserAppAsyncEnhanceInMsaRequest& setNativeHook(int32_t nativeHook) { DARABONBA_PTR_SET_VALUE(nativeHook_, nativeHook) };
 
 
     // newShieldConfig Field Functions 
     bool hasNewShieldConfig() const { return this->newShieldConfig_ != nullptr;};
     void deleteNewShieldConfig() { this->newShieldConfig_ = nullptr;};
-    inline string newShieldConfig() const { DARABONBA_PTR_GET_DEFAULT(newShieldConfig_, "") };
+    inline string getNewShieldConfig() const { DARABONBA_PTR_GET_DEFAULT(newShieldConfig_, "") };
     inline StartUserAppAsyncEnhanceInMsaRequest& setNewShieldConfig(string newShieldConfig) { DARABONBA_PTR_SET_VALUE(newShieldConfig_, newShieldConfig) };
 
 
     // packageTampered Field Functions 
     bool hasPackageTampered() const { return this->packageTampered_ != nullptr;};
     void deletePackageTampered() { this->packageTampered_ = nullptr;};
-    inline int32_t packageTampered() const { DARABONBA_PTR_GET_DEFAULT(packageTampered_, 0) };
+    inline int32_t getPackageTampered() const { DARABONBA_PTR_GET_DEFAULT(packageTampered_, 0) };
     inline StartUserAppAsyncEnhanceInMsaRequest& setPackageTampered(int32_t packageTampered) { DARABONBA_PTR_SET_VALUE(packageTampered_, packageTampered) };
 
 
     // root Field Functions 
     bool hasRoot() const { return this->root_ != nullptr;};
     void deleteRoot() { this->root_ = nullptr;};
-    inline int32_t root() const { DARABONBA_PTR_GET_DEFAULT(root_, 0) };
+    inline int32_t getRoot() const { DARABONBA_PTR_GET_DEFAULT(root_, 0) };
     inline StartUserAppAsyncEnhanceInMsaRequest& setRoot(int32_t root) { DARABONBA_PTR_SET_VALUE(root_, root) };
 
 
     // runMode Field Functions 
     bool hasRunMode() const { return this->runMode_ != nullptr;};
     void deleteRunMode() { this->runMode_ = nullptr;};
-    inline string runMode() const { DARABONBA_PTR_GET_DEFAULT(runMode_, "") };
+    inline string getRunMode() const { DARABONBA_PTR_GET_DEFAULT(runMode_, "") };
     inline StartUserAppAsyncEnhanceInMsaRequest& setRunMode(string runMode) { DARABONBA_PTR_SET_VALUE(runMode_, runMode) };
 
 
     // soFileList Field Functions 
     bool hasSoFileList() const { return this->soFileList_ != nullptr;};
     void deleteSoFileList() { this->soFileList_ = nullptr;};
-    inline string soFileList() const { DARABONBA_PTR_GET_DEFAULT(soFileList_, "") };
+    inline string getSoFileList() const { DARABONBA_PTR_GET_DEFAULT(soFileList_, "") };
     inline StartUserAppAsyncEnhanceInMsaRequest& setSoFileList(string soFileList) { DARABONBA_PTR_SET_VALUE(soFileList_, soFileList) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline StartUserAppAsyncEnhanceInMsaRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline StartUserAppAsyncEnhanceInMsaRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // totalSwitch Field Functions 
     bool hasTotalSwitch() const { return this->totalSwitch_ != nullptr;};
     void deleteTotalSwitch() { this->totalSwitch_ = nullptr;};
-    inline bool totalSwitch() const { DARABONBA_PTR_GET_DEFAULT(totalSwitch_, false) };
+    inline bool getTotalSwitch() const { DARABONBA_PTR_GET_DEFAULT(totalSwitch_, false) };
     inline StartUserAppAsyncEnhanceInMsaRequest& setTotalSwitch(bool totalSwitch) { DARABONBA_PTR_SET_VALUE(totalSwitch_, totalSwitch) };
 
 
     // useAShield Field Functions 
     bool hasUseAShield() const { return this->useAShield_ != nullptr;};
     void deleteUseAShield() { this->useAShield_ = nullptr;};
-    inline bool useAShield() const { DARABONBA_PTR_GET_DEFAULT(useAShield_, false) };
+    inline bool getUseAShield() const { DARABONBA_PTR_GET_DEFAULT(useAShield_, false) };
     inline StartUserAppAsyncEnhanceInMsaRequest& setUseAShield(bool useAShield) { DARABONBA_PTR_SET_VALUE(useAShield_, useAShield) };
 
 
     // useYShield Field Functions 
     bool hasUseYShield() const { return this->useYShield_ != nullptr;};
     void deleteUseYShield() { this->useYShield_ = nullptr;};
-    inline bool useYShield() const { DARABONBA_PTR_GET_DEFAULT(useYShield_, false) };
+    inline bool getUseYShield() const { DARABONBA_PTR_GET_DEFAULT(useYShield_, false) };
     inline StartUserAppAsyncEnhanceInMsaRequest& setUseYShield(bool useYShield) { DARABONBA_PTR_SET_VALUE(useYShield_, useYShield) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline StartUserAppAsyncEnhanceInMsaRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<bool> apkProtector_ = nullptr;
+    shared_ptr<bool> apkProtector_ {};
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> assetsFileList_ = nullptr;
-    std::shared_ptr<string> classes_ = nullptr;
-    std::shared_ptr<int32_t> dalvikDebugger_ = nullptr;
-    std::shared_ptr<int32_t> emulatorEnvironment_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> assetsFileList_ {};
+    shared_ptr<string> classes_ {};
+    shared_ptr<int32_t> dalvikDebugger_ {};
+    shared_ptr<int32_t> emulatorEnvironment_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
-    std::shared_ptr<int32_t> javaHook_ = nullptr;
-    std::shared_ptr<int32_t> memoryDump_ = nullptr;
-    std::shared_ptr<int32_t> nativeDebugger_ = nullptr;
-    std::shared_ptr<int32_t> nativeHook_ = nullptr;
-    std::shared_ptr<string> newShieldConfig_ = nullptr;
-    std::shared_ptr<int32_t> packageTampered_ = nullptr;
-    std::shared_ptr<int32_t> root_ = nullptr;
-    std::shared_ptr<string> runMode_ = nullptr;
-    std::shared_ptr<string> soFileList_ = nullptr;
-    std::shared_ptr<string> taskType_ = nullptr;
+    shared_ptr<int64_t> id_ {};
+    shared_ptr<int32_t> javaHook_ {};
+    shared_ptr<int32_t> memoryDump_ {};
+    shared_ptr<int32_t> nativeDebugger_ {};
+    shared_ptr<int32_t> nativeHook_ {};
+    shared_ptr<string> newShieldConfig_ {};
+    shared_ptr<int32_t> packageTampered_ {};
+    shared_ptr<int32_t> root_ {};
+    shared_ptr<string> runMode_ {};
+    shared_ptr<string> soFileList_ {};
+    shared_ptr<string> taskType_ {};
     // This parameter is required.
-    std::shared_ptr<string> tenantId_ = nullptr;
-    std::shared_ptr<bool> totalSwitch_ = nullptr;
-    std::shared_ptr<bool> useAShield_ = nullptr;
-    std::shared_ptr<bool> useYShield_ = nullptr;
+    shared_ptr<string> tenantId_ {};
+    shared_ptr<bool> totalSwitch_ {};
+    shared_ptr<bool> useAShield_ {};
+    shared_ptr<bool> useYShield_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

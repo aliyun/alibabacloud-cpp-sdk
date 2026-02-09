@@ -60,138 +60,138 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidMaxVersion_ == nullptr
-        && return this->androidMinVersion_ == nullptr && return this->appId_ == nullptr && return this->extendInfo_ == nullptr && return this->fileUrl_ == nullptr && return this->iosMaxVersion_ == nullptr
-        && return this->iosMinVersion_ == nullptr && return this->mockDataUrl_ == nullptr && return this->onexFlag_ == nullptr && return this->platform_ == nullptr && return this->previewPictureUrl_ == nullptr
-        && return this->templateId_ == nullptr && return this->templateResourceDesc_ == nullptr && return this->templateResourceVersion_ == nullptr && return this->tenantId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->androidMinVersion_ == nullptr && this->appId_ == nullptr && this->extendInfo_ == nullptr && this->fileUrl_ == nullptr && this->iosMaxVersion_ == nullptr
+        && this->iosMinVersion_ == nullptr && this->mockDataUrl_ == nullptr && this->onexFlag_ == nullptr && this->platform_ == nullptr && this->previewPictureUrl_ == nullptr
+        && this->templateId_ == nullptr && this->templateResourceDesc_ == nullptr && this->templateResourceVersion_ == nullptr && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
     // androidMaxVersion Field Functions 
     bool hasAndroidMaxVersion() const { return this->androidMaxVersion_ != nullptr;};
     void deleteAndroidMaxVersion() { this->androidMaxVersion_ = nullptr;};
-    inline string androidMaxVersion() const { DARABONBA_PTR_GET_DEFAULT(androidMaxVersion_, "") };
+    inline string getAndroidMaxVersion() const { DARABONBA_PTR_GET_DEFAULT(androidMaxVersion_, "") };
     inline CreateMdsCubeResourceRequest& setAndroidMaxVersion(string androidMaxVersion) { DARABONBA_PTR_SET_VALUE(androidMaxVersion_, androidMaxVersion) };
 
 
     // androidMinVersion Field Functions 
     bool hasAndroidMinVersion() const { return this->androidMinVersion_ != nullptr;};
     void deleteAndroidMinVersion() { this->androidMinVersion_ = nullptr;};
-    inline string androidMinVersion() const { DARABONBA_PTR_GET_DEFAULT(androidMinVersion_, "") };
+    inline string getAndroidMinVersion() const { DARABONBA_PTR_GET_DEFAULT(androidMinVersion_, "") };
     inline CreateMdsCubeResourceRequest& setAndroidMinVersion(string androidMinVersion) { DARABONBA_PTR_SET_VALUE(androidMinVersion_, androidMinVersion) };
 
 
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateMdsCubeResourceRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // extendInfo Field Functions 
     bool hasExtendInfo() const { return this->extendInfo_ != nullptr;};
     void deleteExtendInfo() { this->extendInfo_ = nullptr;};
-    inline string extendInfo() const { DARABONBA_PTR_GET_DEFAULT(extendInfo_, "") };
+    inline string getExtendInfo() const { DARABONBA_PTR_GET_DEFAULT(extendInfo_, "") };
     inline CreateMdsCubeResourceRequest& setExtendInfo(string extendInfo) { DARABONBA_PTR_SET_VALUE(extendInfo_, extendInfo) };
 
 
     // fileUrl Field Functions 
     bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
     void deleteFileUrl() { this->fileUrl_ = nullptr;};
-    inline string fileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+    inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
     inline CreateMdsCubeResourceRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
     // iosMaxVersion Field Functions 
     bool hasIosMaxVersion() const { return this->iosMaxVersion_ != nullptr;};
     void deleteIosMaxVersion() { this->iosMaxVersion_ = nullptr;};
-    inline string iosMaxVersion() const { DARABONBA_PTR_GET_DEFAULT(iosMaxVersion_, "") };
+    inline string getIosMaxVersion() const { DARABONBA_PTR_GET_DEFAULT(iosMaxVersion_, "") };
     inline CreateMdsCubeResourceRequest& setIosMaxVersion(string iosMaxVersion) { DARABONBA_PTR_SET_VALUE(iosMaxVersion_, iosMaxVersion) };
 
 
     // iosMinVersion Field Functions 
     bool hasIosMinVersion() const { return this->iosMinVersion_ != nullptr;};
     void deleteIosMinVersion() { this->iosMinVersion_ = nullptr;};
-    inline string iosMinVersion() const { DARABONBA_PTR_GET_DEFAULT(iosMinVersion_, "") };
+    inline string getIosMinVersion() const { DARABONBA_PTR_GET_DEFAULT(iosMinVersion_, "") };
     inline CreateMdsCubeResourceRequest& setIosMinVersion(string iosMinVersion) { DARABONBA_PTR_SET_VALUE(iosMinVersion_, iosMinVersion) };
 
 
     // mockDataUrl Field Functions 
     bool hasMockDataUrl() const { return this->mockDataUrl_ != nullptr;};
     void deleteMockDataUrl() { this->mockDataUrl_ = nullptr;};
-    inline string mockDataUrl() const { DARABONBA_PTR_GET_DEFAULT(mockDataUrl_, "") };
+    inline string getMockDataUrl() const { DARABONBA_PTR_GET_DEFAULT(mockDataUrl_, "") };
     inline CreateMdsCubeResourceRequest& setMockDataUrl(string mockDataUrl) { DARABONBA_PTR_SET_VALUE(mockDataUrl_, mockDataUrl) };
 
 
     // onexFlag Field Functions 
     bool hasOnexFlag() const { return this->onexFlag_ != nullptr;};
     void deleteOnexFlag() { this->onexFlag_ = nullptr;};
-    inline bool onexFlag() const { DARABONBA_PTR_GET_DEFAULT(onexFlag_, false) };
+    inline bool getOnexFlag() const { DARABONBA_PTR_GET_DEFAULT(onexFlag_, false) };
     inline CreateMdsCubeResourceRequest& setOnexFlag(bool onexFlag) { DARABONBA_PTR_SET_VALUE(onexFlag_, onexFlag) };
 
 
     // platform Field Functions 
     bool hasPlatform() const { return this->platform_ != nullptr;};
     void deletePlatform() { this->platform_ = nullptr;};
-    inline string platform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+    inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
     inline CreateMdsCubeResourceRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
     // previewPictureUrl Field Functions 
     bool hasPreviewPictureUrl() const { return this->previewPictureUrl_ != nullptr;};
     void deletePreviewPictureUrl() { this->previewPictureUrl_ = nullptr;};
-    inline string previewPictureUrl() const { DARABONBA_PTR_GET_DEFAULT(previewPictureUrl_, "") };
+    inline string getPreviewPictureUrl() const { DARABONBA_PTR_GET_DEFAULT(previewPictureUrl_, "") };
     inline CreateMdsCubeResourceRequest& setPreviewPictureUrl(string previewPictureUrl) { DARABONBA_PTR_SET_VALUE(previewPictureUrl_, previewPictureUrl) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline CreateMdsCubeResourceRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // templateResourceDesc Field Functions 
     bool hasTemplateResourceDesc() const { return this->templateResourceDesc_ != nullptr;};
     void deleteTemplateResourceDesc() { this->templateResourceDesc_ = nullptr;};
-    inline string templateResourceDesc() const { DARABONBA_PTR_GET_DEFAULT(templateResourceDesc_, "") };
+    inline string getTemplateResourceDesc() const { DARABONBA_PTR_GET_DEFAULT(templateResourceDesc_, "") };
     inline CreateMdsCubeResourceRequest& setTemplateResourceDesc(string templateResourceDesc) { DARABONBA_PTR_SET_VALUE(templateResourceDesc_, templateResourceDesc) };
 
 
     // templateResourceVersion Field Functions 
     bool hasTemplateResourceVersion() const { return this->templateResourceVersion_ != nullptr;};
     void deleteTemplateResourceVersion() { this->templateResourceVersion_ = nullptr;};
-    inline string templateResourceVersion() const { DARABONBA_PTR_GET_DEFAULT(templateResourceVersion_, "") };
+    inline string getTemplateResourceVersion() const { DARABONBA_PTR_GET_DEFAULT(templateResourceVersion_, "") };
     inline CreateMdsCubeResourceRequest& setTemplateResourceVersion(string templateResourceVersion) { DARABONBA_PTR_SET_VALUE(templateResourceVersion_, templateResourceVersion) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline CreateMdsCubeResourceRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline CreateMdsCubeResourceRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> androidMaxVersion_ = nullptr;
-    std::shared_ptr<string> androidMinVersion_ = nullptr;
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> extendInfo_ = nullptr;
-    std::shared_ptr<string> fileUrl_ = nullptr;
-    std::shared_ptr<string> iosMaxVersion_ = nullptr;
-    std::shared_ptr<string> iosMinVersion_ = nullptr;
-    std::shared_ptr<string> mockDataUrl_ = nullptr;
-    std::shared_ptr<bool> onexFlag_ = nullptr;
-    std::shared_ptr<string> platform_ = nullptr;
-    std::shared_ptr<string> previewPictureUrl_ = nullptr;
-    std::shared_ptr<string> templateId_ = nullptr;
-    std::shared_ptr<string> templateResourceDesc_ = nullptr;
-    std::shared_ptr<string> templateResourceVersion_ = nullptr;
-    std::shared_ptr<string> tenantId_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> androidMaxVersion_ {};
+    shared_ptr<string> androidMinVersion_ {};
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> extendInfo_ {};
+    shared_ptr<string> fileUrl_ {};
+    shared_ptr<string> iosMaxVersion_ {};
+    shared_ptr<string> iosMinVersion_ {};
+    shared_ptr<string> mockDataUrl_ {};
+    shared_ptr<bool> onexFlag_ {};
+    shared_ptr<string> platform_ {};
+    shared_ptr<string> previewPictureUrl_ {};
+    shared_ptr<string> templateId_ {};
+    shared_ptr<string> templateResourceDesc_ {};
+    shared_ptr<string> templateResourceVersion_ {};
+    shared_ptr<string> tenantId_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

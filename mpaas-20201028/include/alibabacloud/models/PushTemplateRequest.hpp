@@ -86,259 +86,259 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activityContentState_ == nullptr
-        && return this->activityEvent_ == nullptr && return this->appId_ == nullptr && return this->channelId_ == nullptr && return this->classification_ == nullptr && return this->deliveryType_ == nullptr
-        && return this->dismissalDate_ == nullptr && return this->expiredSeconds_ == nullptr && return this->extendedParams_ == nullptr && return this->miChannelId_ == nullptr && return this->notifyLevel_ == nullptr
-        && return this->notifyType_ == nullptr && return this->pushAction_ == nullptr && return this->silent_ == nullptr && return this->smsSignName_ == nullptr && return this->smsStrategy_ == nullptr
-        && return this->smsTemplateCode_ == nullptr && return this->smsTemplateParam_ == nullptr && return this->strategyContent_ == nullptr && return this->strategyType_ == nullptr && return this->targetMsgkey_ == nullptr
-        && return this->taskName_ == nullptr && return this->templateKeyValue_ == nullptr && return this->templateName_ == nullptr && return this->tenantId_ == nullptr && return this->thirdChannelCategory_ == nullptr
-        && return this->transparentMessagePayload_ == nullptr && return this->transparentMessageUrgency_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->activityEvent_ == nullptr && this->appId_ == nullptr && this->channelId_ == nullptr && this->classification_ == nullptr && this->deliveryType_ == nullptr
+        && this->dismissalDate_ == nullptr && this->expiredSeconds_ == nullptr && this->extendedParams_ == nullptr && this->miChannelId_ == nullptr && this->notifyLevel_ == nullptr
+        && this->notifyType_ == nullptr && this->pushAction_ == nullptr && this->silent_ == nullptr && this->smsSignName_ == nullptr && this->smsStrategy_ == nullptr
+        && this->smsTemplateCode_ == nullptr && this->smsTemplateParam_ == nullptr && this->strategyContent_ == nullptr && this->strategyType_ == nullptr && this->targetMsgkey_ == nullptr
+        && this->taskName_ == nullptr && this->templateKeyValue_ == nullptr && this->templateName_ == nullptr && this->tenantId_ == nullptr && this->thirdChannelCategory_ == nullptr
+        && this->transparentMessagePayload_ == nullptr && this->transparentMessageUrgency_ == nullptr && this->workspaceId_ == nullptr; };
     // activityContentState Field Functions 
     bool hasActivityContentState() const { return this->activityContentState_ != nullptr;};
     void deleteActivityContentState() { this->activityContentState_ = nullptr;};
-    inline     const Darabonba::Json & activityContentState() const { DARABONBA_GET(activityContentState_) };
-    Darabonba::Json & activityContentState() { DARABONBA_GET(activityContentState_) };
+    inline     const Darabonba::Json & getActivityContentState() const { DARABONBA_GET(activityContentState_) };
+    Darabonba::Json & getActivityContentState() { DARABONBA_GET(activityContentState_) };
     inline PushTemplateRequest& setActivityContentState(const Darabonba::Json & activityContentState) { DARABONBA_SET_VALUE(activityContentState_, activityContentState) };
-    inline PushTemplateRequest& setActivityContentState(Darabonba::Json & activityContentState) { DARABONBA_SET_RVALUE(activityContentState_, activityContentState) };
+    inline PushTemplateRequest& setActivityContentState(Darabonba::Json && activityContentState) { DARABONBA_SET_RVALUE(activityContentState_, activityContentState) };
 
 
     // activityEvent Field Functions 
     bool hasActivityEvent() const { return this->activityEvent_ != nullptr;};
     void deleteActivityEvent() { this->activityEvent_ = nullptr;};
-    inline string activityEvent() const { DARABONBA_PTR_GET_DEFAULT(activityEvent_, "") };
+    inline string getActivityEvent() const { DARABONBA_PTR_GET_DEFAULT(activityEvent_, "") };
     inline PushTemplateRequest& setActivityEvent(string activityEvent) { DARABONBA_PTR_SET_VALUE(activityEvent_, activityEvent) };
 
 
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline PushTemplateRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // channelId Field Functions 
     bool hasChannelId() const { return this->channelId_ != nullptr;};
     void deleteChannelId() { this->channelId_ = nullptr;};
-    inline string channelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
+    inline string getChannelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
     inline PushTemplateRequest& setChannelId(string channelId) { DARABONBA_PTR_SET_VALUE(channelId_, channelId) };
 
 
     // classification Field Functions 
     bool hasClassification() const { return this->classification_ != nullptr;};
     void deleteClassification() { this->classification_ = nullptr;};
-    inline string classification() const { DARABONBA_PTR_GET_DEFAULT(classification_, "") };
+    inline string getClassification() const { DARABONBA_PTR_GET_DEFAULT(classification_, "") };
     inline PushTemplateRequest& setClassification(string classification) { DARABONBA_PTR_SET_VALUE(classification_, classification) };
 
 
     // deliveryType Field Functions 
     bool hasDeliveryType() const { return this->deliveryType_ != nullptr;};
     void deleteDeliveryType() { this->deliveryType_ = nullptr;};
-    inline int64_t deliveryType() const { DARABONBA_PTR_GET_DEFAULT(deliveryType_, 0L) };
+    inline int64_t getDeliveryType() const { DARABONBA_PTR_GET_DEFAULT(deliveryType_, 0L) };
     inline PushTemplateRequest& setDeliveryType(int64_t deliveryType) { DARABONBA_PTR_SET_VALUE(deliveryType_, deliveryType) };
 
 
     // dismissalDate Field Functions 
     bool hasDismissalDate() const { return this->dismissalDate_ != nullptr;};
     void deleteDismissalDate() { this->dismissalDate_ = nullptr;};
-    inline int64_t dismissalDate() const { DARABONBA_PTR_GET_DEFAULT(dismissalDate_, 0L) };
+    inline int64_t getDismissalDate() const { DARABONBA_PTR_GET_DEFAULT(dismissalDate_, 0L) };
     inline PushTemplateRequest& setDismissalDate(int64_t dismissalDate) { DARABONBA_PTR_SET_VALUE(dismissalDate_, dismissalDate) };
 
 
     // expiredSeconds Field Functions 
     bool hasExpiredSeconds() const { return this->expiredSeconds_ != nullptr;};
     void deleteExpiredSeconds() { this->expiredSeconds_ = nullptr;};
-    inline int64_t expiredSeconds() const { DARABONBA_PTR_GET_DEFAULT(expiredSeconds_, 0L) };
+    inline int64_t getExpiredSeconds() const { DARABONBA_PTR_GET_DEFAULT(expiredSeconds_, 0L) };
     inline PushTemplateRequest& setExpiredSeconds(int64_t expiredSeconds) { DARABONBA_PTR_SET_VALUE(expiredSeconds_, expiredSeconds) };
 
 
     // extendedParams Field Functions 
     bool hasExtendedParams() const { return this->extendedParams_ != nullptr;};
     void deleteExtendedParams() { this->extendedParams_ = nullptr;};
-    inline string extendedParams() const { DARABONBA_PTR_GET_DEFAULT(extendedParams_, "") };
+    inline string getExtendedParams() const { DARABONBA_PTR_GET_DEFAULT(extendedParams_, "") };
     inline PushTemplateRequest& setExtendedParams(string extendedParams) { DARABONBA_PTR_SET_VALUE(extendedParams_, extendedParams) };
 
 
     // miChannelId Field Functions 
     bool hasMiChannelId() const { return this->miChannelId_ != nullptr;};
     void deleteMiChannelId() { this->miChannelId_ = nullptr;};
-    inline string miChannelId() const { DARABONBA_PTR_GET_DEFAULT(miChannelId_, "") };
+    inline string getMiChannelId() const { DARABONBA_PTR_GET_DEFAULT(miChannelId_, "") };
     inline PushTemplateRequest& setMiChannelId(string miChannelId) { DARABONBA_PTR_SET_VALUE(miChannelId_, miChannelId) };
 
 
     // notifyLevel Field Functions 
     bool hasNotifyLevel() const { return this->notifyLevel_ != nullptr;};
     void deleteNotifyLevel() { this->notifyLevel_ = nullptr;};
-    inline     const Darabonba::Json & notifyLevel() const { DARABONBA_GET(notifyLevel_) };
-    Darabonba::Json & notifyLevel() { DARABONBA_GET(notifyLevel_) };
+    inline     const Darabonba::Json & getNotifyLevel() const { DARABONBA_GET(notifyLevel_) };
+    Darabonba::Json & getNotifyLevel() { DARABONBA_GET(notifyLevel_) };
     inline PushTemplateRequest& setNotifyLevel(const Darabonba::Json & notifyLevel) { DARABONBA_SET_VALUE(notifyLevel_, notifyLevel) };
-    inline PushTemplateRequest& setNotifyLevel(Darabonba::Json & notifyLevel) { DARABONBA_SET_RVALUE(notifyLevel_, notifyLevel) };
+    inline PushTemplateRequest& setNotifyLevel(Darabonba::Json && notifyLevel) { DARABONBA_SET_RVALUE(notifyLevel_, notifyLevel) };
 
 
     // notifyType Field Functions 
     bool hasNotifyType() const { return this->notifyType_ != nullptr;};
     void deleteNotifyType() { this->notifyType_ = nullptr;};
-    inline string notifyType() const { DARABONBA_PTR_GET_DEFAULT(notifyType_, "") };
+    inline string getNotifyType() const { DARABONBA_PTR_GET_DEFAULT(notifyType_, "") };
     inline PushTemplateRequest& setNotifyType(string notifyType) { DARABONBA_PTR_SET_VALUE(notifyType_, notifyType) };
 
 
     // pushAction Field Functions 
     bool hasPushAction() const { return this->pushAction_ != nullptr;};
     void deletePushAction() { this->pushAction_ = nullptr;};
-    inline int64_t pushAction() const { DARABONBA_PTR_GET_DEFAULT(pushAction_, 0L) };
+    inline int64_t getPushAction() const { DARABONBA_PTR_GET_DEFAULT(pushAction_, 0L) };
     inline PushTemplateRequest& setPushAction(int64_t pushAction) { DARABONBA_PTR_SET_VALUE(pushAction_, pushAction) };
 
 
     // silent Field Functions 
     bool hasSilent() const { return this->silent_ != nullptr;};
     void deleteSilent() { this->silent_ = nullptr;};
-    inline int64_t silent() const { DARABONBA_PTR_GET_DEFAULT(silent_, 0L) };
+    inline int64_t getSilent() const { DARABONBA_PTR_GET_DEFAULT(silent_, 0L) };
     inline PushTemplateRequest& setSilent(int64_t silent) { DARABONBA_PTR_SET_VALUE(silent_, silent) };
 
 
     // smsSignName Field Functions 
     bool hasSmsSignName() const { return this->smsSignName_ != nullptr;};
     void deleteSmsSignName() { this->smsSignName_ = nullptr;};
-    inline string smsSignName() const { DARABONBA_PTR_GET_DEFAULT(smsSignName_, "") };
+    inline string getSmsSignName() const { DARABONBA_PTR_GET_DEFAULT(smsSignName_, "") };
     inline PushTemplateRequest& setSmsSignName(string smsSignName) { DARABONBA_PTR_SET_VALUE(smsSignName_, smsSignName) };
 
 
     // smsStrategy Field Functions 
     bool hasSmsStrategy() const { return this->smsStrategy_ != nullptr;};
     void deleteSmsStrategy() { this->smsStrategy_ = nullptr;};
-    inline int32_t smsStrategy() const { DARABONBA_PTR_GET_DEFAULT(smsStrategy_, 0) };
+    inline int32_t getSmsStrategy() const { DARABONBA_PTR_GET_DEFAULT(smsStrategy_, 0) };
     inline PushTemplateRequest& setSmsStrategy(int32_t smsStrategy) { DARABONBA_PTR_SET_VALUE(smsStrategy_, smsStrategy) };
 
 
     // smsTemplateCode Field Functions 
     bool hasSmsTemplateCode() const { return this->smsTemplateCode_ != nullptr;};
     void deleteSmsTemplateCode() { this->smsTemplateCode_ = nullptr;};
-    inline string smsTemplateCode() const { DARABONBA_PTR_GET_DEFAULT(smsTemplateCode_, "") };
+    inline string getSmsTemplateCode() const { DARABONBA_PTR_GET_DEFAULT(smsTemplateCode_, "") };
     inline PushTemplateRequest& setSmsTemplateCode(string smsTemplateCode) { DARABONBA_PTR_SET_VALUE(smsTemplateCode_, smsTemplateCode) };
 
 
     // smsTemplateParam Field Functions 
     bool hasSmsTemplateParam() const { return this->smsTemplateParam_ != nullptr;};
     void deleteSmsTemplateParam() { this->smsTemplateParam_ = nullptr;};
-    inline string smsTemplateParam() const { DARABONBA_PTR_GET_DEFAULT(smsTemplateParam_, "") };
+    inline string getSmsTemplateParam() const { DARABONBA_PTR_GET_DEFAULT(smsTemplateParam_, "") };
     inline PushTemplateRequest& setSmsTemplateParam(string smsTemplateParam) { DARABONBA_PTR_SET_VALUE(smsTemplateParam_, smsTemplateParam) };
 
 
     // strategyContent Field Functions 
     bool hasStrategyContent() const { return this->strategyContent_ != nullptr;};
     void deleteStrategyContent() { this->strategyContent_ = nullptr;};
-    inline string strategyContent() const { DARABONBA_PTR_GET_DEFAULT(strategyContent_, "") };
+    inline string getStrategyContent() const { DARABONBA_PTR_GET_DEFAULT(strategyContent_, "") };
     inline PushTemplateRequest& setStrategyContent(string strategyContent) { DARABONBA_PTR_SET_VALUE(strategyContent_, strategyContent) };
 
 
     // strategyType Field Functions 
     bool hasStrategyType() const { return this->strategyType_ != nullptr;};
     void deleteStrategyType() { this->strategyType_ = nullptr;};
-    inline int32_t strategyType() const { DARABONBA_PTR_GET_DEFAULT(strategyType_, 0) };
+    inline int32_t getStrategyType() const { DARABONBA_PTR_GET_DEFAULT(strategyType_, 0) };
     inline PushTemplateRequest& setStrategyType(int32_t strategyType) { DARABONBA_PTR_SET_VALUE(strategyType_, strategyType) };
 
 
     // targetMsgkey Field Functions 
     bool hasTargetMsgkey() const { return this->targetMsgkey_ != nullptr;};
     void deleteTargetMsgkey() { this->targetMsgkey_ = nullptr;};
-    inline string targetMsgkey() const { DARABONBA_PTR_GET_DEFAULT(targetMsgkey_, "") };
+    inline string getTargetMsgkey() const { DARABONBA_PTR_GET_DEFAULT(targetMsgkey_, "") };
     inline PushTemplateRequest& setTargetMsgkey(string targetMsgkey) { DARABONBA_PTR_SET_VALUE(targetMsgkey_, targetMsgkey) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline PushTemplateRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
     // templateKeyValue Field Functions 
     bool hasTemplateKeyValue() const { return this->templateKeyValue_ != nullptr;};
     void deleteTemplateKeyValue() { this->templateKeyValue_ = nullptr;};
-    inline string templateKeyValue() const { DARABONBA_PTR_GET_DEFAULT(templateKeyValue_, "") };
+    inline string getTemplateKeyValue() const { DARABONBA_PTR_GET_DEFAULT(templateKeyValue_, "") };
     inline PushTemplateRequest& setTemplateKeyValue(string templateKeyValue) { DARABONBA_PTR_SET_VALUE(templateKeyValue_, templateKeyValue) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline PushTemplateRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline PushTemplateRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // thirdChannelCategory Field Functions 
     bool hasThirdChannelCategory() const { return this->thirdChannelCategory_ != nullptr;};
     void deleteThirdChannelCategory() { this->thirdChannelCategory_ = nullptr;};
-    inline     const Darabonba::Json & thirdChannelCategory() const { DARABONBA_GET(thirdChannelCategory_) };
-    Darabonba::Json & thirdChannelCategory() { DARABONBA_GET(thirdChannelCategory_) };
+    inline     const Darabonba::Json & getThirdChannelCategory() const { DARABONBA_GET(thirdChannelCategory_) };
+    Darabonba::Json & getThirdChannelCategory() { DARABONBA_GET(thirdChannelCategory_) };
     inline PushTemplateRequest& setThirdChannelCategory(const Darabonba::Json & thirdChannelCategory) { DARABONBA_SET_VALUE(thirdChannelCategory_, thirdChannelCategory) };
-    inline PushTemplateRequest& setThirdChannelCategory(Darabonba::Json & thirdChannelCategory) { DARABONBA_SET_RVALUE(thirdChannelCategory_, thirdChannelCategory) };
+    inline PushTemplateRequest& setThirdChannelCategory(Darabonba::Json && thirdChannelCategory) { DARABONBA_SET_RVALUE(thirdChannelCategory_, thirdChannelCategory) };
 
 
     // transparentMessagePayload Field Functions 
     bool hasTransparentMessagePayload() const { return this->transparentMessagePayload_ != nullptr;};
     void deleteTransparentMessagePayload() { this->transparentMessagePayload_ = nullptr;};
-    inline     const Darabonba::Json & transparentMessagePayload() const { DARABONBA_GET(transparentMessagePayload_) };
-    Darabonba::Json & transparentMessagePayload() { DARABONBA_GET(transparentMessagePayload_) };
+    inline     const Darabonba::Json & getTransparentMessagePayload() const { DARABONBA_GET(transparentMessagePayload_) };
+    Darabonba::Json & getTransparentMessagePayload() { DARABONBA_GET(transparentMessagePayload_) };
     inline PushTemplateRequest& setTransparentMessagePayload(const Darabonba::Json & transparentMessagePayload) { DARABONBA_SET_VALUE(transparentMessagePayload_, transparentMessagePayload) };
-    inline PushTemplateRequest& setTransparentMessagePayload(Darabonba::Json & transparentMessagePayload) { DARABONBA_SET_RVALUE(transparentMessagePayload_, transparentMessagePayload) };
+    inline PushTemplateRequest& setTransparentMessagePayload(Darabonba::Json && transparentMessagePayload) { DARABONBA_SET_RVALUE(transparentMessagePayload_, transparentMessagePayload) };
 
 
     // transparentMessageUrgency Field Functions 
     bool hasTransparentMessageUrgency() const { return this->transparentMessageUrgency_ != nullptr;};
     void deleteTransparentMessageUrgency() { this->transparentMessageUrgency_ = nullptr;};
-    inline string transparentMessageUrgency() const { DARABONBA_PTR_GET_DEFAULT(transparentMessageUrgency_, "") };
+    inline string getTransparentMessageUrgency() const { DARABONBA_PTR_GET_DEFAULT(transparentMessageUrgency_, "") };
     inline PushTemplateRequest& setTransparentMessageUrgency(string transparentMessageUrgency) { DARABONBA_PTR_SET_VALUE(transparentMessageUrgency_, transparentMessageUrgency) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline PushTemplateRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    Darabonba::Json activityContentState_ = nullptr;
-    std::shared_ptr<string> activityEvent_ = nullptr;
+    Darabonba::Json activityContentState_ {};
+    shared_ptr<string> activityEvent_ {};
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> channelId_ = nullptr;
-    std::shared_ptr<string> classification_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> channelId_ {};
+    shared_ptr<string> classification_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> deliveryType_ = nullptr;
-    std::shared_ptr<int64_t> dismissalDate_ = nullptr;
+    shared_ptr<int64_t> deliveryType_ {};
+    shared_ptr<int64_t> dismissalDate_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> expiredSeconds_ = nullptr;
-    std::shared_ptr<string> extendedParams_ = nullptr;
-    std::shared_ptr<string> miChannelId_ = nullptr;
-    Darabonba::Json notifyLevel_ = nullptr;
-    std::shared_ptr<string> notifyType_ = nullptr;
-    std::shared_ptr<int64_t> pushAction_ = nullptr;
-    std::shared_ptr<int64_t> silent_ = nullptr;
-    std::shared_ptr<string> smsSignName_ = nullptr;
-    std::shared_ptr<int32_t> smsStrategy_ = nullptr;
-    std::shared_ptr<string> smsTemplateCode_ = nullptr;
-    std::shared_ptr<string> smsTemplateParam_ = nullptr;
-    std::shared_ptr<string> strategyContent_ = nullptr;
-    std::shared_ptr<int32_t> strategyType_ = nullptr;
+    shared_ptr<int64_t> expiredSeconds_ {};
+    shared_ptr<string> extendedParams_ {};
+    shared_ptr<string> miChannelId_ {};
+    Darabonba::Json notifyLevel_ {};
+    shared_ptr<string> notifyType_ {};
+    shared_ptr<int64_t> pushAction_ {};
+    shared_ptr<int64_t> silent_ {};
+    shared_ptr<string> smsSignName_ {};
+    shared_ptr<int32_t> smsStrategy_ {};
+    shared_ptr<string> smsTemplateCode_ {};
+    shared_ptr<string> smsTemplateParam_ {};
+    shared_ptr<string> strategyContent_ {};
+    shared_ptr<int32_t> strategyType_ {};
     // This parameter is required.
-    std::shared_ptr<string> targetMsgkey_ = nullptr;
-    std::shared_ptr<string> taskName_ = nullptr;
-    std::shared_ptr<string> templateKeyValue_ = nullptr;
+    shared_ptr<string> targetMsgkey_ {};
+    shared_ptr<string> taskName_ {};
+    shared_ptr<string> templateKeyValue_ {};
     // This parameter is required.
-    std::shared_ptr<string> templateName_ = nullptr;
-    std::shared_ptr<string> tenantId_ = nullptr;
-    Darabonba::Json thirdChannelCategory_ = nullptr;
-    Darabonba::Json transparentMessagePayload_ = nullptr;
-    std::shared_ptr<string> transparentMessageUrgency_ = nullptr;
+    shared_ptr<string> templateName_ {};
+    shared_ptr<string> tenantId_ {};
+    Darabonba::Json thirdChannelCategory_ {};
+    Darabonba::Json transparentMessagePayload_ {};
+    shared_ptr<string> transparentMessageUrgency_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

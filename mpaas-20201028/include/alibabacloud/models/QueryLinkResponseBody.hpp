@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_QUERYLINKRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_QUERYLINKRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/QueryLinkResponseBodyResultContent.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,44 +35,98 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ResultContent : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResultContent& obj) { 
+        DARABONBA_ANY_TO_JSON(Data, data_);
+        DARABONBA_PTR_TO_JSON(Target, target_);
+        DARABONBA_PTR_TO_JSON(Version, version_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResultContent& obj) { 
+        DARABONBA_ANY_FROM_JSON(Data, data_);
+        DARABONBA_PTR_FROM_JSON(Target, target_);
+        DARABONBA_PTR_FROM_JSON(Version, version_);
+      };
+      ResultContent() = default ;
+      ResultContent(const ResultContent &) = default ;
+      ResultContent(ResultContent &&) = default ;
+      ResultContent(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResultContent() = default ;
+      ResultContent& operator=(const ResultContent &) = default ;
+      ResultContent& operator=(ResultContent &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->data_ == nullptr
+        && this->target_ == nullptr && this->version_ == nullptr; };
+      // data Field Functions 
+      bool hasData() const { return this->data_ != nullptr;};
+      void deleteData() { this->data_ = nullptr;};
+      inline       const Darabonba::Json & getData() const { DARABONBA_GET(data_) };
+      Darabonba::Json & getData() { DARABONBA_GET(data_) };
+      inline ResultContent& setData(const Darabonba::Json & data) { DARABONBA_SET_VALUE(data_, data) };
+      inline ResultContent& setData(Darabonba::Json && data) { DARABONBA_SET_RVALUE(data_, data) };
+
+
+      // target Field Functions 
+      bool hasTarget() const { return this->target_ != nullptr;};
+      void deleteTarget() { this->target_ = nullptr;};
+      inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+      inline ResultContent& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
+
+
+      // version Field Functions 
+      bool hasVersion() const { return this->version_ != nullptr;};
+      void deleteVersion() { this->version_ = nullptr;};
+      inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+      inline ResultContent& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
+    protected:
+      Darabonba::Json data_ {};
+      shared_ptr<string> target_ {};
+      shared_ptr<string> version_ {};
+    };
+
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->resultCode_ == nullptr && return this->resultContent_ == nullptr && return this->resultMessage_ == nullptr; };
+        && this->resultCode_ == nullptr && this->resultContent_ == nullptr && this->resultMessage_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryLinkResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resultCode Field Functions 
     bool hasResultCode() const { return this->resultCode_ != nullptr;};
     void deleteResultCode() { this->resultCode_ = nullptr;};
-    inline string resultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, "") };
+    inline string getResultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, "") };
     inline QueryLinkResponseBody& setResultCode(string resultCode) { DARABONBA_PTR_SET_VALUE(resultCode_, resultCode) };
 
 
     // resultContent Field Functions 
     bool hasResultContent() const { return this->resultContent_ != nullptr;};
     void deleteResultContent() { this->resultContent_ = nullptr;};
-    inline const QueryLinkResponseBodyResultContent & resultContent() const { DARABONBA_PTR_GET_CONST(resultContent_, QueryLinkResponseBodyResultContent) };
-    inline QueryLinkResponseBodyResultContent resultContent() { DARABONBA_PTR_GET(resultContent_, QueryLinkResponseBodyResultContent) };
-    inline QueryLinkResponseBody& setResultContent(const QueryLinkResponseBodyResultContent & resultContent) { DARABONBA_PTR_SET_VALUE(resultContent_, resultContent) };
-    inline QueryLinkResponseBody& setResultContent(QueryLinkResponseBodyResultContent && resultContent) { DARABONBA_PTR_SET_RVALUE(resultContent_, resultContent) };
+    inline const QueryLinkResponseBody::ResultContent & getResultContent() const { DARABONBA_PTR_GET_CONST(resultContent_, QueryLinkResponseBody::ResultContent) };
+    inline QueryLinkResponseBody::ResultContent getResultContent() { DARABONBA_PTR_GET(resultContent_, QueryLinkResponseBody::ResultContent) };
+    inline QueryLinkResponseBody& setResultContent(const QueryLinkResponseBody::ResultContent & resultContent) { DARABONBA_PTR_SET_VALUE(resultContent_, resultContent) };
+    inline QueryLinkResponseBody& setResultContent(QueryLinkResponseBody::ResultContent && resultContent) { DARABONBA_PTR_SET_RVALUE(resultContent_, resultContent) };
 
 
     // resultMessage Field Functions 
     bool hasResultMessage() const { return this->resultMessage_ != nullptr;};
     void deleteResultMessage() { this->resultMessage_ = nullptr;};
-    inline string resultMessage() const { DARABONBA_PTR_GET_DEFAULT(resultMessage_, "") };
+    inline string getResultMessage() const { DARABONBA_PTR_GET_DEFAULT(resultMessage_, "") };
     inline QueryLinkResponseBody& setResultMessage(string resultMessage) { DARABONBA_PTR_SET_VALUE(resultMessage_, resultMessage) };
 
 
   protected:
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> resultCode_ = nullptr;
-    std::shared_ptr<QueryLinkResponseBodyResultContent> resultContent_ = nullptr;
-    std::shared_ptr<string> resultMessage_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> resultCode_ {};
+    shared_ptr<QueryLinkResponseBody::ResultContent> resultContent_ {};
+    shared_ptr<string> resultMessage_ {};
   };
 
   } // namespace Models

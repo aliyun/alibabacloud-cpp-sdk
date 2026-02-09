@@ -42,68 +42,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->mobile_ == nullptr && return this->mobileMd5_ == nullptr && return this->mobileSha256_ == nullptr && return this->mobileSm3_ == nullptr && return this->riskScene_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->mobile_ == nullptr && this->mobileMd5_ == nullptr && this->mobileSha256_ == nullptr && this->mobileSm3_ == nullptr && this->riskScene_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline QueryInfoFromMdpRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // mobile Field Functions 
     bool hasMobile() const { return this->mobile_ != nullptr;};
     void deleteMobile() { this->mobile_ = nullptr;};
-    inline string mobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
+    inline string getMobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
     inline QueryInfoFromMdpRequest& setMobile(string mobile) { DARABONBA_PTR_SET_VALUE(mobile_, mobile) };
 
 
     // mobileMd5 Field Functions 
     bool hasMobileMd5() const { return this->mobileMd5_ != nullptr;};
     void deleteMobileMd5() { this->mobileMd5_ = nullptr;};
-    inline string mobileMd5() const { DARABONBA_PTR_GET_DEFAULT(mobileMd5_, "") };
+    inline string getMobileMd5() const { DARABONBA_PTR_GET_DEFAULT(mobileMd5_, "") };
     inline QueryInfoFromMdpRequest& setMobileMd5(string mobileMd5) { DARABONBA_PTR_SET_VALUE(mobileMd5_, mobileMd5) };
 
 
     // mobileSha256 Field Functions 
     bool hasMobileSha256() const { return this->mobileSha256_ != nullptr;};
     void deleteMobileSha256() { this->mobileSha256_ = nullptr;};
-    inline string mobileSha256() const { DARABONBA_PTR_GET_DEFAULT(mobileSha256_, "") };
+    inline string getMobileSha256() const { DARABONBA_PTR_GET_DEFAULT(mobileSha256_, "") };
     inline QueryInfoFromMdpRequest& setMobileSha256(string mobileSha256) { DARABONBA_PTR_SET_VALUE(mobileSha256_, mobileSha256) };
 
 
     // mobileSm3 Field Functions 
     bool hasMobileSm3() const { return this->mobileSm3_ != nullptr;};
     void deleteMobileSm3() { this->mobileSm3_ = nullptr;};
-    inline string mobileSm3() const { DARABONBA_PTR_GET_DEFAULT(mobileSm3_, "") };
+    inline string getMobileSm3() const { DARABONBA_PTR_GET_DEFAULT(mobileSm3_, "") };
     inline QueryInfoFromMdpRequest& setMobileSm3(string mobileSm3) { DARABONBA_PTR_SET_VALUE(mobileSm3_, mobileSm3) };
 
 
     // riskScene Field Functions 
     bool hasRiskScene() const { return this->riskScene_ != nullptr;};
     void deleteRiskScene() { this->riskScene_ = nullptr;};
-    inline string riskScene() const { DARABONBA_PTR_GET_DEFAULT(riskScene_, "") };
+    inline string getRiskScene() const { DARABONBA_PTR_GET_DEFAULT(riskScene_, "") };
     inline QueryInfoFromMdpRequest& setRiskScene(string riskScene) { DARABONBA_PTR_SET_VALUE(riskScene_, riskScene) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline QueryInfoFromMdpRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> mobile_ = nullptr;
-    std::shared_ptr<string> mobileMd5_ = nullptr;
-    std::shared_ptr<string> mobileSha256_ = nullptr;
-    std::shared_ptr<string> mobileSm3_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> mobile_ {};
+    shared_ptr<string> mobileMd5_ {};
+    shared_ptr<string> mobileSha256_ {};
+    shared_ptr<string> mobileSm3_ {};
     // This parameter is required.
-    std::shared_ptr<string> riskScene_ = nullptr;
+    shared_ptr<string> riskScene_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

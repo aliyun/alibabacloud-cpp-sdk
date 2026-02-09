@@ -56,126 +56,126 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->appVersion_ == nullptr && return this->channel_ == nullptr && return this->connectType_ == nullptr && return this->deliveryToken_ == nullptr && return this->imei_ == nullptr
-        && return this->imsi_ == nullptr && return this->model_ == nullptr && return this->osType_ == nullptr && return this->pushVersion_ == nullptr && return this->tenantId_ == nullptr
-        && return this->thirdChannel_ == nullptr && return this->thirdChannelDeviceToken_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->appVersion_ == nullptr && this->channel_ == nullptr && this->connectType_ == nullptr && this->deliveryToken_ == nullptr && this->imei_ == nullptr
+        && this->imsi_ == nullptr && this->model_ == nullptr && this->osType_ == nullptr && this->pushVersion_ == nullptr && this->tenantId_ == nullptr
+        && this->thirdChannel_ == nullptr && this->thirdChannelDeviceToken_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline PushReportRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appVersion Field Functions 
     bool hasAppVersion() const { return this->appVersion_ != nullptr;};
     void deleteAppVersion() { this->appVersion_ = nullptr;};
-    inline string appVersion() const { DARABONBA_PTR_GET_DEFAULT(appVersion_, "") };
+    inline string getAppVersion() const { DARABONBA_PTR_GET_DEFAULT(appVersion_, "") };
     inline PushReportRequest& setAppVersion(string appVersion) { DARABONBA_PTR_SET_VALUE(appVersion_, appVersion) };
 
 
     // channel Field Functions 
     bool hasChannel() const { return this->channel_ != nullptr;};
     void deleteChannel() { this->channel_ = nullptr;};
-    inline string channel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+    inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
     inline PushReportRequest& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
     // connectType Field Functions 
     bool hasConnectType() const { return this->connectType_ != nullptr;};
     void deleteConnectType() { this->connectType_ = nullptr;};
-    inline string connectType() const { DARABONBA_PTR_GET_DEFAULT(connectType_, "") };
+    inline string getConnectType() const { DARABONBA_PTR_GET_DEFAULT(connectType_, "") };
     inline PushReportRequest& setConnectType(string connectType) { DARABONBA_PTR_SET_VALUE(connectType_, connectType) };
 
 
     // deliveryToken Field Functions 
     bool hasDeliveryToken() const { return this->deliveryToken_ != nullptr;};
     void deleteDeliveryToken() { this->deliveryToken_ = nullptr;};
-    inline string deliveryToken() const { DARABONBA_PTR_GET_DEFAULT(deliveryToken_, "") };
+    inline string getDeliveryToken() const { DARABONBA_PTR_GET_DEFAULT(deliveryToken_, "") };
     inline PushReportRequest& setDeliveryToken(string deliveryToken) { DARABONBA_PTR_SET_VALUE(deliveryToken_, deliveryToken) };
 
 
     // imei Field Functions 
     bool hasImei() const { return this->imei_ != nullptr;};
     void deleteImei() { this->imei_ = nullptr;};
-    inline string imei() const { DARABONBA_PTR_GET_DEFAULT(imei_, "") };
+    inline string getImei() const { DARABONBA_PTR_GET_DEFAULT(imei_, "") };
     inline PushReportRequest& setImei(string imei) { DARABONBA_PTR_SET_VALUE(imei_, imei) };
 
 
     // imsi Field Functions 
     bool hasImsi() const { return this->imsi_ != nullptr;};
     void deleteImsi() { this->imsi_ = nullptr;};
-    inline string imsi() const { DARABONBA_PTR_GET_DEFAULT(imsi_, "") };
+    inline string getImsi() const { DARABONBA_PTR_GET_DEFAULT(imsi_, "") };
     inline PushReportRequest& setImsi(string imsi) { DARABONBA_PTR_SET_VALUE(imsi_, imsi) };
 
 
     // model Field Functions 
     bool hasModel() const { return this->model_ != nullptr;};
     void deleteModel() { this->model_ = nullptr;};
-    inline string model() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+    inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
     inline PushReportRequest& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
     // osType Field Functions 
     bool hasOsType() const { return this->osType_ != nullptr;};
     void deleteOsType() { this->osType_ = nullptr;};
-    inline int32_t osType() const { DARABONBA_PTR_GET_DEFAULT(osType_, 0) };
+    inline int32_t getOsType() const { DARABONBA_PTR_GET_DEFAULT(osType_, 0) };
     inline PushReportRequest& setOsType(int32_t osType) { DARABONBA_PTR_SET_VALUE(osType_, osType) };
 
 
     // pushVersion Field Functions 
     bool hasPushVersion() const { return this->pushVersion_ != nullptr;};
     void deletePushVersion() { this->pushVersion_ = nullptr;};
-    inline string pushVersion() const { DARABONBA_PTR_GET_DEFAULT(pushVersion_, "") };
+    inline string getPushVersion() const { DARABONBA_PTR_GET_DEFAULT(pushVersion_, "") };
     inline PushReportRequest& setPushVersion(string pushVersion) { DARABONBA_PTR_SET_VALUE(pushVersion_, pushVersion) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline PushReportRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // thirdChannel Field Functions 
     bool hasThirdChannel() const { return this->thirdChannel_ != nullptr;};
     void deleteThirdChannel() { this->thirdChannel_ = nullptr;};
-    inline int32_t thirdChannel() const { DARABONBA_PTR_GET_DEFAULT(thirdChannel_, 0) };
+    inline int32_t getThirdChannel() const { DARABONBA_PTR_GET_DEFAULT(thirdChannel_, 0) };
     inline PushReportRequest& setThirdChannel(int32_t thirdChannel) { DARABONBA_PTR_SET_VALUE(thirdChannel_, thirdChannel) };
 
 
     // thirdChannelDeviceToken Field Functions 
     bool hasThirdChannelDeviceToken() const { return this->thirdChannelDeviceToken_ != nullptr;};
     void deleteThirdChannelDeviceToken() { this->thirdChannelDeviceToken_ = nullptr;};
-    inline string thirdChannelDeviceToken() const { DARABONBA_PTR_GET_DEFAULT(thirdChannelDeviceToken_, "") };
+    inline string getThirdChannelDeviceToken() const { DARABONBA_PTR_GET_DEFAULT(thirdChannelDeviceToken_, "") };
     inline PushReportRequest& setThirdChannelDeviceToken(string thirdChannelDeviceToken) { DARABONBA_PTR_SET_VALUE(thirdChannelDeviceToken_, thirdChannelDeviceToken) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline PushReportRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> appVersion_ = nullptr;
-    std::shared_ptr<string> channel_ = nullptr;
-    std::shared_ptr<string> connectType_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> appVersion_ {};
+    shared_ptr<string> channel_ {};
+    shared_ptr<string> connectType_ {};
     // This parameter is required.
-    std::shared_ptr<string> deliveryToken_ = nullptr;
-    std::shared_ptr<string> imei_ = nullptr;
-    std::shared_ptr<string> imsi_ = nullptr;
-    std::shared_ptr<string> model_ = nullptr;
+    shared_ptr<string> deliveryToken_ {};
+    shared_ptr<string> imei_ {};
+    shared_ptr<string> imsi_ {};
+    shared_ptr<string> model_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> osType_ = nullptr;
-    std::shared_ptr<string> pushVersion_ = nullptr;
-    std::shared_ptr<string> tenantId_ = nullptr;
-    std::shared_ptr<int32_t> thirdChannel_ = nullptr;
-    std::shared_ptr<string> thirdChannelDeviceToken_ = nullptr;
+    shared_ptr<int32_t> osType_ {};
+    shared_ptr<string> pushVersion_ {};
+    shared_ptr<string> tenantId_ {};
+    shared_ptr<int32_t> thirdChannel_ {};
+    shared_ptr<string> thirdChannelDeviceToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

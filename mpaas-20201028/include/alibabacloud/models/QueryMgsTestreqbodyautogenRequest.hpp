@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->format_ == nullptr && return this->mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr_ == nullptr && return this->tenantId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->format_ == nullptr && this->mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr_ == nullptr && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline QueryMgsTestreqbodyautogenRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // format Field Functions 
     bool hasFormat() const { return this->format_ != nullptr;};
     void deleteFormat() { this->format_ = nullptr;};
-    inline string format() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
+    inline string getFormat() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
     inline QueryMgsTestreqbodyautogenRequest& setFormat(string format) { DARABONBA_PTR_SET_VALUE(format_, format) };
 
 
     // mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr Field Functions 
     bool hasMpaasMappcenterMgsTestreqbodyautogenQueryJsonStr() const { return this->mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr_ != nullptr;};
     void deleteMpaasMappcenterMgsTestreqbodyautogenQueryJsonStr() { this->mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr_ = nullptr;};
-    inline string mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr() const { DARABONBA_PTR_GET_DEFAULT(mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr_, "") };
+    inline string getMpaasMappcenterMgsTestreqbodyautogenQueryJsonStr() const { DARABONBA_PTR_GET_DEFAULT(mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr_, "") };
     inline QueryMgsTestreqbodyautogenRequest& setMpaasMappcenterMgsTestreqbodyautogenQueryJsonStr(string mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr) { DARABONBA_PTR_SET_VALUE(mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr_, mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline QueryMgsTestreqbodyautogenRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline QueryMgsTestreqbodyautogenRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> format_ = nullptr;
-    std::shared_ptr<string> mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr_ = nullptr;
-    std::shared_ptr<string> tenantId_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> format_ {};
+    shared_ptr<string> mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr_ {};
+    shared_ptr<string> tenantId_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

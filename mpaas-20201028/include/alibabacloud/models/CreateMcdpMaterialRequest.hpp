@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->mpaasMappcenterMcdpMaterialCreateJsonStr_ == nullptr && return this->tenantId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->mpaasMappcenterMcdpMaterialCreateJsonStr_ == nullptr && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateMcdpMaterialRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // mpaasMappcenterMcdpMaterialCreateJsonStr Field Functions 
     bool hasMpaasMappcenterMcdpMaterialCreateJsonStr() const { return this->mpaasMappcenterMcdpMaterialCreateJsonStr_ != nullptr;};
     void deleteMpaasMappcenterMcdpMaterialCreateJsonStr() { this->mpaasMappcenterMcdpMaterialCreateJsonStr_ = nullptr;};
-    inline string mpaasMappcenterMcdpMaterialCreateJsonStr() const { DARABONBA_PTR_GET_DEFAULT(mpaasMappcenterMcdpMaterialCreateJsonStr_, "") };
+    inline string getMpaasMappcenterMcdpMaterialCreateJsonStr() const { DARABONBA_PTR_GET_DEFAULT(mpaasMappcenterMcdpMaterialCreateJsonStr_, "") };
     inline CreateMcdpMaterialRequest& setMpaasMappcenterMcdpMaterialCreateJsonStr(string mpaasMappcenterMcdpMaterialCreateJsonStr) { DARABONBA_PTR_SET_VALUE(mpaasMappcenterMcdpMaterialCreateJsonStr_, mpaasMappcenterMcdpMaterialCreateJsonStr) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline CreateMcdpMaterialRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline CreateMcdpMaterialRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> mpaasMappcenterMcdpMaterialCreateJsonStr_ = nullptr;
-    std::shared_ptr<string> tenantId_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> mpaasMappcenterMcdpMaterialCreateJsonStr_ {};
+    shared_ptr<string> tenantId_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

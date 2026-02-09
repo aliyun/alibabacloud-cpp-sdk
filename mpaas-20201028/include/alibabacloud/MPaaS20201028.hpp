@@ -168,6 +168,57 @@ namespace MPaaS20201028
       Models::CreateMcdpZoneResponse createMcdpZone(const Models::CreateMcdpZoneRequest &request);
 
       /**
+       * @summary 创建热修复资源
+       *
+       * @param request CreateMcubeHotpatchResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMcubeHotpatchResourceResponse
+       */
+      Models::CreateMcubeHotpatchResourceResponse createMcubeHotpatchResourceWithOptions(const Models::CreateMcubeHotpatchResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建热修复资源
+       *
+       * @param request CreateMcubeHotpatchResourceRequest
+       * @return CreateMcubeHotpatchResourceResponse
+       */
+      Models::CreateMcubeHotpatchResourceResponse createMcubeHotpatchResource(const Models::CreateMcubeHotpatchResourceRequest &request);
+
+      /**
+       * @summary 创建热修复回滚任务
+       *
+       * @param request CreateMcubeHotpatchRollbackTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMcubeHotpatchRollbackTaskResponse
+       */
+      Models::CreateMcubeHotpatchRollbackTaskResponse createMcubeHotpatchRollbackTaskWithOptions(const Models::CreateMcubeHotpatchRollbackTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建热修复回滚任务
+       *
+       * @param request CreateMcubeHotpatchRollbackTaskRequest
+       * @return CreateMcubeHotpatchRollbackTaskResponse
+       */
+      Models::CreateMcubeHotpatchRollbackTaskResponse createMcubeHotpatchRollbackTask(const Models::CreateMcubeHotpatchRollbackTaskRequest &request);
+
+      /**
+       * @summary 创建热修复发布任务
+       *
+       * @param request CreateMcubeHotpatchTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMcubeHotpatchTaskResponse
+       */
+      Models::CreateMcubeHotpatchTaskResponse createMcubeHotpatchTaskWithOptions(const Models::CreateMcubeHotpatchTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建热修复发布任务
+       *
+       * @param request CreateMcubeHotpatchTaskRequest
+       * @return CreateMcubeHotpatchTaskResponse
+       */
+      Models::CreateMcubeHotpatchTaskResponse createMcubeHotpatchTask(const Models::CreateMcubeHotpatchTaskRequest &request);
+
+      /**
        * @param request CreateMcubeMiniAppRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateMcubeMiniAppResponse
@@ -445,6 +496,23 @@ namespace MPaaS20201028
       Models::DeleteMcdpZoneResponse deleteMcdpZone(const Models::DeleteMcdpZoneRequest &request);
 
       /**
+       * @summary 删除热修复资源包
+       *
+       * @param request DeleteMcubeHotpatchResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMcubeHotpatchResourceResponse
+       */
+      Models::DeleteMcubeHotpatchResourceResponse deleteMcubeHotpatchResourceWithOptions(const Models::DeleteMcubeHotpatchResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除热修复资源包
+       *
+       * @param request DeleteMcubeHotpatchResourceRequest
+       * @return DeleteMcubeHotpatchResourceResponse
+       */
+      Models::DeleteMcubeHotpatchResourceResponse deleteMcubeHotpatchResource(const Models::DeleteMcubeHotpatchResourceRequest &request);
+
+      /**
        * @param request DeleteMcubeMiniAppRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteMcubeMiniAppResponse
@@ -577,6 +645,23 @@ namespace MPaaS20201028
        * @return GetFileTokenForUploadToMsaResponse
        */
       Models::GetFileTokenForUploadToMsaResponse getFileTokenForUploadToMsa(const Models::GetFileTokenForUploadToMsaRequest &request);
+
+      /**
+       * @summary 查看全部审核记录
+       *
+       * @param request GetGameReviewByStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGameReviewByStatusResponse
+       */
+      Models::GetGameReviewByStatusResponse getGameReviewByStatusWithOptions(const Models::GetGameReviewByStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看全部审核记录
+       *
+       * @param request GetGameReviewByStatusRequest
+       * @return GetGameReviewByStatusResponse
+       */
+      Models::GetGameReviewByStatusResponse getGameReviewByStatus(const Models::GetGameReviewByStatusRequest &request);
 
       /**
        * @param request GetLogUrlInMsaRequest
@@ -790,6 +875,40 @@ namespace MPaaS20201028
        * @return ListMcdpAimResponse
        */
       Models::ListMcdpAimResponse listMcdpAim(const Models::ListMcdpAimRequest &request);
+
+      /**
+       * @summary 查询热修复资源包列表
+       *
+       * @param request ListMcubeHotpatchResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMcubeHotpatchResourcesResponse
+       */
+      Models::ListMcubeHotpatchResourcesResponse listMcubeHotpatchResourcesWithOptions(const Models::ListMcubeHotpatchResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询热修复资源包列表
+       *
+       * @param request ListMcubeHotpatchResourcesRequest
+       * @return ListMcubeHotpatchResourcesResponse
+       */
+      Models::ListMcubeHotpatchResourcesResponse listMcubeHotpatchResources(const Models::ListMcubeHotpatchResourcesRequest &request);
+
+      /**
+       * @summary 查询热修复发布任务列表
+       *
+       * @param request ListMcubeHotpatchTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMcubeHotpatchTasksResponse
+       */
+      Models::ListMcubeHotpatchTasksResponse listMcubeHotpatchTasksWithOptions(const Models::ListMcubeHotpatchTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询热修复发布任务列表
+       *
+       * @param request ListMcubeHotpatchTasksRequest
+       * @return ListMcubeHotpatchTasksResponse
+       */
+      Models::ListMcubeHotpatchTasksResponse listMcubeHotpatchTasks(const Models::ListMcubeHotpatchTasksRequest &request);
 
       /**
        * @param request ListMcubeMiniAppsRequest
@@ -1193,6 +1312,23 @@ namespace MPaaS20201028
       Models::QueryMcdpZoneResponse queryMcdpZone(const Models::QueryMcdpZoneRequest &request);
 
       /**
+       * @summary 查询热修复发布任务详情
+       *
+       * @param request QueryMcubeHotpatchTaskDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMcubeHotpatchTaskDetailResponse
+       */
+      Models::QueryMcubeHotpatchTaskDetailResponse queryMcubeHotpatchTaskDetailWithOptions(const Models::QueryMcubeHotpatchTaskDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询热修复发布任务详情
+       *
+       * @param request QueryMcubeHotpatchTaskDetailRequest
+       * @return QueryMcubeHotpatchTaskDetailResponse
+       */
+      Models::QueryMcubeHotpatchTaskDetailResponse queryMcubeHotpatchTaskDetail(const Models::QueryMcubeHotpatchTaskDetailRequest &request);
+
+      /**
        * @param request QueryMcubeMiniPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryMcubeMiniPackageResponse
@@ -1295,6 +1431,23 @@ namespace MPaaS20201028
        * @return QueryMpsSchedulerListResponse
        */
       Models::QueryMpsSchedulerListResponse queryMpsSchedulerList(const Models::QueryMpsSchedulerListRequest &request);
+
+      /**
+       * @summary 查询风险信息
+       *
+       * @param request QueryMscpRiskInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMscpRiskInfoResponse
+       */
+      Models::QueryMscpRiskInfoResponse queryMscpRiskInfoWithOptions(const Models::QueryMscpRiskInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询风险信息
+       *
+       * @param request QueryMscpRiskInfoRequest
+       * @return QueryMscpRiskInfoResponse
+       */
+      Models::QueryMscpRiskInfoResponse queryMscpRiskInfo(const Models::QueryMscpRiskInfoRequest &request);
 
       /**
        * @param request QueryPushAnalysisCoreIndexRequest
@@ -1429,6 +1582,23 @@ namespace MPaaS20201028
        * @return UpdateLinkResponse
        */
       Models::UpdateLinkResponse updateLink(const Models::UpdateLinkRequest &request);
+
+      /**
+       * @summary 更新热修复发布任务状态
+       *
+       * @param request UpdateMcubeHotpatchTaskStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMcubeHotpatchTaskStatusResponse
+       */
+      Models::UpdateMcubeHotpatchTaskStatusResponse updateMcubeHotpatchTaskStatusWithOptions(const Models::UpdateMcubeHotpatchTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新热修复发布任务状态
+       *
+       * @param request UpdateMcubeHotpatchTaskStatusRequest
+       * @return UpdateMcubeHotpatchTaskStatusResponse
+       */
+      Models::UpdateMcubeHotpatchTaskStatusResponse updateMcubeHotpatchTaskStatus(const Models::UpdateMcubeHotpatchTaskStatusRequest &request);
 
       /**
        * @param request UpdateMcubeWhitelistRequest

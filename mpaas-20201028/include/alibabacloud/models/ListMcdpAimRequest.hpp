@@ -50,97 +50,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->emptyTag_ == nullptr && return this->keyword_ == nullptr && return this->name_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr
-        && return this->sort_ == nullptr && return this->sortField_ == nullptr && return this->tenantId_ == nullptr && return this->type_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->emptyTag_ == nullptr && this->keyword_ == nullptr && this->name_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr
+        && this->sort_ == nullptr && this->sortField_ == nullptr && this->tenantId_ == nullptr && this->type_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline ListMcdpAimRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // emptyTag Field Functions 
     bool hasEmptyTag() const { return this->emptyTag_ != nullptr;};
     void deleteEmptyTag() { this->emptyTag_ = nullptr;};
-    inline string emptyTag() const { DARABONBA_PTR_GET_DEFAULT(emptyTag_, "") };
+    inline string getEmptyTag() const { DARABONBA_PTR_GET_DEFAULT(emptyTag_, "") };
     inline ListMcdpAimRequest& setEmptyTag(string emptyTag) { DARABONBA_PTR_SET_VALUE(emptyTag_, emptyTag) };
 
 
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline ListMcdpAimRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListMcdpAimRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int64_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0L) };
+    inline int64_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0L) };
     inline ListMcdpAimRequest& setPageNo(int64_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListMcdpAimRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // sort Field Functions 
     bool hasSort() const { return this->sort_ != nullptr;};
     void deleteSort() { this->sort_ = nullptr;};
-    inline string sort() const { DARABONBA_PTR_GET_DEFAULT(sort_, "") };
+    inline string getSort() const { DARABONBA_PTR_GET_DEFAULT(sort_, "") };
     inline ListMcdpAimRequest& setSort(string sort) { DARABONBA_PTR_SET_VALUE(sort_, sort) };
 
 
     // sortField Field Functions 
     bool hasSortField() const { return this->sortField_ != nullptr;};
     void deleteSortField() { this->sortField_ = nullptr;};
-    inline string sortField() const { DARABONBA_PTR_GET_DEFAULT(sortField_, "") };
+    inline string getSortField() const { DARABONBA_PTR_GET_DEFAULT(sortField_, "") };
     inline ListMcdpAimRequest& setSortField(string sortField) { DARABONBA_PTR_SET_VALUE(sortField_, sortField) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline ListMcdpAimRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListMcdpAimRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline ListMcdpAimRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> emptyTag_ = nullptr;
-    std::shared_ptr<string> keyword_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<int64_t> pageNo_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    std::shared_ptr<string> sort_ = nullptr;
-    std::shared_ptr<string> sortField_ = nullptr;
-    std::shared_ptr<string> tenantId_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> emptyTag_ {};
+    shared_ptr<string> keyword_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<int64_t> pageNo_ {};
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> sort_ {};
+    shared_ptr<string> sortField_ {};
+    shared_ptr<string> tenantId_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

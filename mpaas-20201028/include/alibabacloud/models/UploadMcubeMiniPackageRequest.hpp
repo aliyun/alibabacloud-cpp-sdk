@@ -78,232 +78,232 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->autoInstall_ == nullptr && return this->clientVersionMax_ == nullptr && return this->clientVersionMin_ == nullptr && return this->enableKeepAlive_ == nullptr && return this->enableOptionMenu_ == nullptr
-        && return this->enableTabBar_ == nullptr && return this->extendInfo_ == nullptr && return this->h5Id_ == nullptr && return this->h5Name_ == nullptr && return this->h5Version_ == nullptr
-        && return this->iconFileUrl_ == nullptr && return this->iconUrl_ == nullptr && return this->installType_ == nullptr && return this->mainUrl_ == nullptr && return this->onexFlag_ == nullptr
-        && return this->packageType_ == nullptr && return this->platform_ == nullptr && return this->resourceFileUrl_ == nullptr && return this->resourceType_ == nullptr && return this->tenantId_ == nullptr
-        && return this->userId_ == nullptr && return this->uuid_ == nullptr && return this->vhost_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->autoInstall_ == nullptr && this->clientVersionMax_ == nullptr && this->clientVersionMin_ == nullptr && this->enableKeepAlive_ == nullptr && this->enableOptionMenu_ == nullptr
+        && this->enableTabBar_ == nullptr && this->extendInfo_ == nullptr && this->h5Id_ == nullptr && this->h5Name_ == nullptr && this->h5Version_ == nullptr
+        && this->iconFileUrl_ == nullptr && this->iconUrl_ == nullptr && this->installType_ == nullptr && this->mainUrl_ == nullptr && this->onexFlag_ == nullptr
+        && this->packageType_ == nullptr && this->platform_ == nullptr && this->resourceFileUrl_ == nullptr && this->resourceType_ == nullptr && this->tenantId_ == nullptr
+        && this->userId_ == nullptr && this->uuid_ == nullptr && this->vhost_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UploadMcubeMiniPackageRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // autoInstall Field Functions 
     bool hasAutoInstall() const { return this->autoInstall_ != nullptr;};
     void deleteAutoInstall() { this->autoInstall_ = nullptr;};
-    inline int64_t autoInstall() const { DARABONBA_PTR_GET_DEFAULT(autoInstall_, 0L) };
+    inline int64_t getAutoInstall() const { DARABONBA_PTR_GET_DEFAULT(autoInstall_, 0L) };
     inline UploadMcubeMiniPackageRequest& setAutoInstall(int64_t autoInstall) { DARABONBA_PTR_SET_VALUE(autoInstall_, autoInstall) };
 
 
     // clientVersionMax Field Functions 
     bool hasClientVersionMax() const { return this->clientVersionMax_ != nullptr;};
     void deleteClientVersionMax() { this->clientVersionMax_ = nullptr;};
-    inline string clientVersionMax() const { DARABONBA_PTR_GET_DEFAULT(clientVersionMax_, "") };
+    inline string getClientVersionMax() const { DARABONBA_PTR_GET_DEFAULT(clientVersionMax_, "") };
     inline UploadMcubeMiniPackageRequest& setClientVersionMax(string clientVersionMax) { DARABONBA_PTR_SET_VALUE(clientVersionMax_, clientVersionMax) };
 
 
     // clientVersionMin Field Functions 
     bool hasClientVersionMin() const { return this->clientVersionMin_ != nullptr;};
     void deleteClientVersionMin() { this->clientVersionMin_ = nullptr;};
-    inline string clientVersionMin() const { DARABONBA_PTR_GET_DEFAULT(clientVersionMin_, "") };
+    inline string getClientVersionMin() const { DARABONBA_PTR_GET_DEFAULT(clientVersionMin_, "") };
     inline UploadMcubeMiniPackageRequest& setClientVersionMin(string clientVersionMin) { DARABONBA_PTR_SET_VALUE(clientVersionMin_, clientVersionMin) };
 
 
     // enableKeepAlive Field Functions 
     bool hasEnableKeepAlive() const { return this->enableKeepAlive_ != nullptr;};
     void deleteEnableKeepAlive() { this->enableKeepAlive_ = nullptr;};
-    inline string enableKeepAlive() const { DARABONBA_PTR_GET_DEFAULT(enableKeepAlive_, "") };
+    inline string getEnableKeepAlive() const { DARABONBA_PTR_GET_DEFAULT(enableKeepAlive_, "") };
     inline UploadMcubeMiniPackageRequest& setEnableKeepAlive(string enableKeepAlive) { DARABONBA_PTR_SET_VALUE(enableKeepAlive_, enableKeepAlive) };
 
 
     // enableOptionMenu Field Functions 
     bool hasEnableOptionMenu() const { return this->enableOptionMenu_ != nullptr;};
     void deleteEnableOptionMenu() { this->enableOptionMenu_ = nullptr;};
-    inline string enableOptionMenu() const { DARABONBA_PTR_GET_DEFAULT(enableOptionMenu_, "") };
+    inline string getEnableOptionMenu() const { DARABONBA_PTR_GET_DEFAULT(enableOptionMenu_, "") };
     inline UploadMcubeMiniPackageRequest& setEnableOptionMenu(string enableOptionMenu) { DARABONBA_PTR_SET_VALUE(enableOptionMenu_, enableOptionMenu) };
 
 
     // enableTabBar Field Functions 
     bool hasEnableTabBar() const { return this->enableTabBar_ != nullptr;};
     void deleteEnableTabBar() { this->enableTabBar_ = nullptr;};
-    inline int64_t enableTabBar() const { DARABONBA_PTR_GET_DEFAULT(enableTabBar_, 0L) };
+    inline int64_t getEnableTabBar() const { DARABONBA_PTR_GET_DEFAULT(enableTabBar_, 0L) };
     inline UploadMcubeMiniPackageRequest& setEnableTabBar(int64_t enableTabBar) { DARABONBA_PTR_SET_VALUE(enableTabBar_, enableTabBar) };
 
 
     // extendInfo Field Functions 
     bool hasExtendInfo() const { return this->extendInfo_ != nullptr;};
     void deleteExtendInfo() { this->extendInfo_ = nullptr;};
-    inline string extendInfo() const { DARABONBA_PTR_GET_DEFAULT(extendInfo_, "") };
+    inline string getExtendInfo() const { DARABONBA_PTR_GET_DEFAULT(extendInfo_, "") };
     inline UploadMcubeMiniPackageRequest& setExtendInfo(string extendInfo) { DARABONBA_PTR_SET_VALUE(extendInfo_, extendInfo) };
 
 
     // h5Id Field Functions 
     bool hasH5Id() const { return this->h5Id_ != nullptr;};
     void deleteH5Id() { this->h5Id_ = nullptr;};
-    inline string h5Id() const { DARABONBA_PTR_GET_DEFAULT(h5Id_, "") };
+    inline string getH5Id() const { DARABONBA_PTR_GET_DEFAULT(h5Id_, "") };
     inline UploadMcubeMiniPackageRequest& setH5Id(string h5Id) { DARABONBA_PTR_SET_VALUE(h5Id_, h5Id) };
 
 
     // h5Name Field Functions 
     bool hasH5Name() const { return this->h5Name_ != nullptr;};
     void deleteH5Name() { this->h5Name_ = nullptr;};
-    inline string h5Name() const { DARABONBA_PTR_GET_DEFAULT(h5Name_, "") };
+    inline string getH5Name() const { DARABONBA_PTR_GET_DEFAULT(h5Name_, "") };
     inline UploadMcubeMiniPackageRequest& setH5Name(string h5Name) { DARABONBA_PTR_SET_VALUE(h5Name_, h5Name) };
 
 
     // h5Version Field Functions 
     bool hasH5Version() const { return this->h5Version_ != nullptr;};
     void deleteH5Version() { this->h5Version_ = nullptr;};
-    inline string h5Version() const { DARABONBA_PTR_GET_DEFAULT(h5Version_, "") };
+    inline string getH5Version() const { DARABONBA_PTR_GET_DEFAULT(h5Version_, "") };
     inline UploadMcubeMiniPackageRequest& setH5Version(string h5Version) { DARABONBA_PTR_SET_VALUE(h5Version_, h5Version) };
 
 
     // iconFileUrl Field Functions 
     bool hasIconFileUrl() const { return this->iconFileUrl_ != nullptr;};
     void deleteIconFileUrl() { this->iconFileUrl_ = nullptr;};
-    inline string iconFileUrl() const { DARABONBA_PTR_GET_DEFAULT(iconFileUrl_, "") };
+    inline string getIconFileUrl() const { DARABONBA_PTR_GET_DEFAULT(iconFileUrl_, "") };
     inline UploadMcubeMiniPackageRequest& setIconFileUrl(string iconFileUrl) { DARABONBA_PTR_SET_VALUE(iconFileUrl_, iconFileUrl) };
 
 
     // iconUrl Field Functions 
     bool hasIconUrl() const { return this->iconUrl_ != nullptr;};
     void deleteIconUrl() { this->iconUrl_ = nullptr;};
-    inline string iconUrl() const { DARABONBA_PTR_GET_DEFAULT(iconUrl_, "") };
+    inline string getIconUrl() const { DARABONBA_PTR_GET_DEFAULT(iconUrl_, "") };
     inline UploadMcubeMiniPackageRequest& setIconUrl(string iconUrl) { DARABONBA_PTR_SET_VALUE(iconUrl_, iconUrl) };
 
 
     // installType Field Functions 
     bool hasInstallType() const { return this->installType_ != nullptr;};
     void deleteInstallType() { this->installType_ = nullptr;};
-    inline int64_t installType() const { DARABONBA_PTR_GET_DEFAULT(installType_, 0L) };
+    inline int64_t getInstallType() const { DARABONBA_PTR_GET_DEFAULT(installType_, 0L) };
     inline UploadMcubeMiniPackageRequest& setInstallType(int64_t installType) { DARABONBA_PTR_SET_VALUE(installType_, installType) };
 
 
     // mainUrl Field Functions 
     bool hasMainUrl() const { return this->mainUrl_ != nullptr;};
     void deleteMainUrl() { this->mainUrl_ = nullptr;};
-    inline string mainUrl() const { DARABONBA_PTR_GET_DEFAULT(mainUrl_, "") };
+    inline string getMainUrl() const { DARABONBA_PTR_GET_DEFAULT(mainUrl_, "") };
     inline UploadMcubeMiniPackageRequest& setMainUrl(string mainUrl) { DARABONBA_PTR_SET_VALUE(mainUrl_, mainUrl) };
 
 
     // onexFlag Field Functions 
     bool hasOnexFlag() const { return this->onexFlag_ != nullptr;};
     void deleteOnexFlag() { this->onexFlag_ = nullptr;};
-    inline bool onexFlag() const { DARABONBA_PTR_GET_DEFAULT(onexFlag_, false) };
+    inline bool getOnexFlag() const { DARABONBA_PTR_GET_DEFAULT(onexFlag_, false) };
     inline UploadMcubeMiniPackageRequest& setOnexFlag(bool onexFlag) { DARABONBA_PTR_SET_VALUE(onexFlag_, onexFlag) };
 
 
     // packageType Field Functions 
     bool hasPackageType() const { return this->packageType_ != nullptr;};
     void deletePackageType() { this->packageType_ = nullptr;};
-    inline int64_t packageType() const { DARABONBA_PTR_GET_DEFAULT(packageType_, 0L) };
+    inline int64_t getPackageType() const { DARABONBA_PTR_GET_DEFAULT(packageType_, 0L) };
     inline UploadMcubeMiniPackageRequest& setPackageType(int64_t packageType) { DARABONBA_PTR_SET_VALUE(packageType_, packageType) };
 
 
     // platform Field Functions 
     bool hasPlatform() const { return this->platform_ != nullptr;};
     void deletePlatform() { this->platform_ = nullptr;};
-    inline string platform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+    inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
     inline UploadMcubeMiniPackageRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
     // resourceFileUrl Field Functions 
     bool hasResourceFileUrl() const { return this->resourceFileUrl_ != nullptr;};
     void deleteResourceFileUrl() { this->resourceFileUrl_ = nullptr;};
-    inline string resourceFileUrl() const { DARABONBA_PTR_GET_DEFAULT(resourceFileUrl_, "") };
+    inline string getResourceFileUrl() const { DARABONBA_PTR_GET_DEFAULT(resourceFileUrl_, "") };
     inline UploadMcubeMiniPackageRequest& setResourceFileUrl(string resourceFileUrl) { DARABONBA_PTR_SET_VALUE(resourceFileUrl_, resourceFileUrl) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline int64_t resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, 0L) };
+    inline int64_t getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, 0L) };
     inline UploadMcubeMiniPackageRequest& setResourceType(int64_t resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline UploadMcubeMiniPackageRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline UploadMcubeMiniPackageRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline UploadMcubeMiniPackageRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
     // vhost Field Functions 
     bool hasVhost() const { return this->vhost_ != nullptr;};
     void deleteVhost() { this->vhost_ = nullptr;};
-    inline string vhost() const { DARABONBA_PTR_GET_DEFAULT(vhost_, "") };
+    inline string getVhost() const { DARABONBA_PTR_GET_DEFAULT(vhost_, "") };
     inline UploadMcubeMiniPackageRequest& setVhost(string vhost) { DARABONBA_PTR_SET_VALUE(vhost_, vhost) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline UploadMcubeMiniPackageRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> autoInstall_ = nullptr;
-    std::shared_ptr<string> clientVersionMax_ = nullptr;
+    shared_ptr<int64_t> autoInstall_ {};
+    shared_ptr<string> clientVersionMax_ {};
     // This parameter is required.
-    std::shared_ptr<string> clientVersionMin_ = nullptr;
+    shared_ptr<string> clientVersionMin_ {};
     // This parameter is required.
-    std::shared_ptr<string> enableKeepAlive_ = nullptr;
+    shared_ptr<string> enableKeepAlive_ {};
     // This parameter is required.
-    std::shared_ptr<string> enableOptionMenu_ = nullptr;
+    shared_ptr<string> enableOptionMenu_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> enableTabBar_ = nullptr;
-    std::shared_ptr<string> extendInfo_ = nullptr;
+    shared_ptr<int64_t> enableTabBar_ {};
+    shared_ptr<string> extendInfo_ {};
     // This parameter is required.
-    std::shared_ptr<string> h5Id_ = nullptr;
+    shared_ptr<string> h5Id_ {};
     // This parameter is required.
-    std::shared_ptr<string> h5Name_ = nullptr;
+    shared_ptr<string> h5Name_ {};
     // This parameter is required.
-    std::shared_ptr<string> h5Version_ = nullptr;
-    std::shared_ptr<string> iconFileUrl_ = nullptr;
-    std::shared_ptr<string> iconUrl_ = nullptr;
+    shared_ptr<string> h5Version_ {};
+    shared_ptr<string> iconFileUrl_ {};
+    shared_ptr<string> iconUrl_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> installType_ = nullptr;
+    shared_ptr<int64_t> installType_ {};
     // This parameter is required.
-    std::shared_ptr<string> mainUrl_ = nullptr;
+    shared_ptr<string> mainUrl_ {};
     // This parameter is required.
-    std::shared_ptr<bool> onexFlag_ = nullptr;
+    shared_ptr<bool> onexFlag_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> packageType_ = nullptr;
+    shared_ptr<int64_t> packageType_ {};
     // This parameter is required.
-    std::shared_ptr<string> platform_ = nullptr;
+    shared_ptr<string> platform_ {};
     // This parameter is required.
-    std::shared_ptr<string> resourceFileUrl_ = nullptr;
+    shared_ptr<string> resourceFileUrl_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> resourceType_ = nullptr;
+    shared_ptr<int64_t> resourceType_ {};
     // This parameter is required.
-    std::shared_ptr<string> tenantId_ = nullptr;
+    shared_ptr<string> tenantId_ {};
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> userId_ {};
+    shared_ptr<string> uuid_ {};
     // This parameter is required.
-    std::shared_ptr<string> vhost_ = nullptr;
+    shared_ptr<string> vhost_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

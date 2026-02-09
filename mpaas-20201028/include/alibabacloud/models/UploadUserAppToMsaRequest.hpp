@@ -40,59 +40,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->fileName_ == nullptr && return this->fileUrl_ == nullptr && return this->tenantId_ == nullptr && return this->useYShield_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->fileName_ == nullptr && this->fileUrl_ == nullptr && this->tenantId_ == nullptr && this->useYShield_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UploadUserAppToMsaRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline UploadUserAppToMsaRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileUrl Field Functions 
     bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
     void deleteFileUrl() { this->fileUrl_ = nullptr;};
-    inline string fileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+    inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
     inline UploadUserAppToMsaRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline UploadUserAppToMsaRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // useYShield Field Functions 
     bool hasUseYShield() const { return this->useYShield_ != nullptr;};
     void deleteUseYShield() { this->useYShield_ = nullptr;};
-    inline bool useYShield() const { DARABONBA_PTR_GET_DEFAULT(useYShield_, false) };
+    inline bool getUseYShield() const { DARABONBA_PTR_GET_DEFAULT(useYShield_, false) };
     inline UploadUserAppToMsaRequest& setUseYShield(bool useYShield) { DARABONBA_PTR_SET_VALUE(useYShield_, useYShield) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline UploadUserAppToMsaRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> fileName_ = nullptr;
-    std::shared_ptr<string> fileUrl_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> fileName_ {};
+    shared_ptr<string> fileUrl_ {};
     // This parameter is required.
-    std::shared_ptr<string> tenantId_ = nullptr;
-    std::shared_ptr<bool> useYShield_ = nullptr;
+    shared_ptr<string> tenantId_ {};
+    shared_ptr<bool> useYShield_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

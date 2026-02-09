@@ -1,0 +1,171 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATEMCUBEHOTPATCHTASKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_CREATEMCUBEHOTPATCHTASKREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace MPaaS20201028
+{
+namespace Models
+{
+  class CreateMcubeHotpatchTaskRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateMcubeHotpatchTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AppId, appId_);
+      DARABONBA_PTR_TO_JSON(GreyConfigInfo, greyConfigInfo_);
+      DARABONBA_PTR_TO_JSON(GreyEndtimeData, greyEndtimeData_);
+      DARABONBA_PTR_TO_JSON(GreyNum, greyNum_);
+      DARABONBA_PTR_TO_JSON(Memo, memo_);
+      DARABONBA_PTR_TO_JSON(PackageId, packageId_);
+      DARABONBA_PTR_TO_JSON(Platform, platform_);
+      DARABONBA_PTR_TO_JSON(PublishMode, publishMode_);
+      DARABONBA_PTR_TO_JSON(PublishType, publishType_);
+      DARABONBA_PTR_TO_JSON(SyncMode, syncMode_);
+      DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_TO_JSON(WhitelistIds, whitelistIds_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateMcubeHotpatchTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppId, appId_);
+      DARABONBA_PTR_FROM_JSON(GreyConfigInfo, greyConfigInfo_);
+      DARABONBA_PTR_FROM_JSON(GreyEndtimeData, greyEndtimeData_);
+      DARABONBA_PTR_FROM_JSON(GreyNum, greyNum_);
+      DARABONBA_PTR_FROM_JSON(Memo, memo_);
+      DARABONBA_PTR_FROM_JSON(PackageId, packageId_);
+      DARABONBA_PTR_FROM_JSON(Platform, platform_);
+      DARABONBA_PTR_FROM_JSON(PublishMode, publishMode_);
+      DARABONBA_PTR_FROM_JSON(PublishType, publishType_);
+      DARABONBA_PTR_FROM_JSON(SyncMode, syncMode_);
+      DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_FROM_JSON(WhitelistIds, whitelistIds_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
+    };
+    CreateMcubeHotpatchTaskRequest() = default ;
+    CreateMcubeHotpatchTaskRequest(const CreateMcubeHotpatchTaskRequest &) = default ;
+    CreateMcubeHotpatchTaskRequest(CreateMcubeHotpatchTaskRequest &&) = default ;
+    CreateMcubeHotpatchTaskRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateMcubeHotpatchTaskRequest() = default ;
+    CreateMcubeHotpatchTaskRequest& operator=(const CreateMcubeHotpatchTaskRequest &) = default ;
+    CreateMcubeHotpatchTaskRequest& operator=(CreateMcubeHotpatchTaskRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && this->greyConfigInfo_ == nullptr && this->greyEndtimeData_ == nullptr && this->greyNum_ == nullptr && this->memo_ == nullptr && this->packageId_ == nullptr
+        && this->platform_ == nullptr && this->publishMode_ == nullptr && this->publishType_ == nullptr && this->syncMode_ == nullptr && this->tenantId_ == nullptr
+        && this->whitelistIds_ == nullptr && this->workspaceId_ == nullptr; };
+    // appId Field Functions 
+    bool hasAppId() const { return this->appId_ != nullptr;};
+    void deleteAppId() { this->appId_ = nullptr;};
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline CreateMcubeHotpatchTaskRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+    // greyConfigInfo Field Functions 
+    bool hasGreyConfigInfo() const { return this->greyConfigInfo_ != nullptr;};
+    void deleteGreyConfigInfo() { this->greyConfigInfo_ = nullptr;};
+    inline string getGreyConfigInfo() const { DARABONBA_PTR_GET_DEFAULT(greyConfigInfo_, "") };
+    inline CreateMcubeHotpatchTaskRequest& setGreyConfigInfo(string greyConfigInfo) { DARABONBA_PTR_SET_VALUE(greyConfigInfo_, greyConfigInfo) };
+
+
+    // greyEndtimeData Field Functions 
+    bool hasGreyEndtimeData() const { return this->greyEndtimeData_ != nullptr;};
+    void deleteGreyEndtimeData() { this->greyEndtimeData_ = nullptr;};
+    inline string getGreyEndtimeData() const { DARABONBA_PTR_GET_DEFAULT(greyEndtimeData_, "") };
+    inline CreateMcubeHotpatchTaskRequest& setGreyEndtimeData(string greyEndtimeData) { DARABONBA_PTR_SET_VALUE(greyEndtimeData_, greyEndtimeData) };
+
+
+    // greyNum Field Functions 
+    bool hasGreyNum() const { return this->greyNum_ != nullptr;};
+    void deleteGreyNum() { this->greyNum_ = nullptr;};
+    inline int64_t getGreyNum() const { DARABONBA_PTR_GET_DEFAULT(greyNum_, 0L) };
+    inline CreateMcubeHotpatchTaskRequest& setGreyNum(int64_t greyNum) { DARABONBA_PTR_SET_VALUE(greyNum_, greyNum) };
+
+
+    // memo Field Functions 
+    bool hasMemo() const { return this->memo_ != nullptr;};
+    void deleteMemo() { this->memo_ = nullptr;};
+    inline string getMemo() const { DARABONBA_PTR_GET_DEFAULT(memo_, "") };
+    inline CreateMcubeHotpatchTaskRequest& setMemo(string memo) { DARABONBA_PTR_SET_VALUE(memo_, memo) };
+
+
+    // packageId Field Functions 
+    bool hasPackageId() const { return this->packageId_ != nullptr;};
+    void deletePackageId() { this->packageId_ = nullptr;};
+    inline int64_t getPackageId() const { DARABONBA_PTR_GET_DEFAULT(packageId_, 0L) };
+    inline CreateMcubeHotpatchTaskRequest& setPackageId(int64_t packageId) { DARABONBA_PTR_SET_VALUE(packageId_, packageId) };
+
+
+    // platform Field Functions 
+    bool hasPlatform() const { return this->platform_ != nullptr;};
+    void deletePlatform() { this->platform_ = nullptr;};
+    inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+    inline CreateMcubeHotpatchTaskRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
+
+
+    // publishMode Field Functions 
+    bool hasPublishMode() const { return this->publishMode_ != nullptr;};
+    void deletePublishMode() { this->publishMode_ = nullptr;};
+    inline int64_t getPublishMode() const { DARABONBA_PTR_GET_DEFAULT(publishMode_, 0L) };
+    inline CreateMcubeHotpatchTaskRequest& setPublishMode(int64_t publishMode) { DARABONBA_PTR_SET_VALUE(publishMode_, publishMode) };
+
+
+    // publishType Field Functions 
+    bool hasPublishType() const { return this->publishType_ != nullptr;};
+    void deletePublishType() { this->publishType_ = nullptr;};
+    inline int64_t getPublishType() const { DARABONBA_PTR_GET_DEFAULT(publishType_, 0L) };
+    inline CreateMcubeHotpatchTaskRequest& setPublishType(int64_t publishType) { DARABONBA_PTR_SET_VALUE(publishType_, publishType) };
+
+
+    // syncMode Field Functions 
+    bool hasSyncMode() const { return this->syncMode_ != nullptr;};
+    void deleteSyncMode() { this->syncMode_ = nullptr;};
+    inline string getSyncMode() const { DARABONBA_PTR_GET_DEFAULT(syncMode_, "") };
+    inline CreateMcubeHotpatchTaskRequest& setSyncMode(string syncMode) { DARABONBA_PTR_SET_VALUE(syncMode_, syncMode) };
+
+
+    // tenantId Field Functions 
+    bool hasTenantId() const { return this->tenantId_ != nullptr;};
+    void deleteTenantId() { this->tenantId_ = nullptr;};
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline CreateMcubeHotpatchTaskRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
+    // whitelistIds Field Functions 
+    bool hasWhitelistIds() const { return this->whitelistIds_ != nullptr;};
+    void deleteWhitelistIds() { this->whitelistIds_ = nullptr;};
+    inline string getWhitelistIds() const { DARABONBA_PTR_GET_DEFAULT(whitelistIds_, "") };
+    inline CreateMcubeHotpatchTaskRequest& setWhitelistIds(string whitelistIds) { DARABONBA_PTR_SET_VALUE(whitelistIds_, whitelistIds) };
+
+
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline CreateMcubeHotpatchTaskRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
+  protected:
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> greyConfigInfo_ {};
+    shared_ptr<string> greyEndtimeData_ {};
+    shared_ptr<int64_t> greyNum_ {};
+    shared_ptr<string> memo_ {};
+    // This parameter is required.
+    shared_ptr<int64_t> packageId_ {};
+    shared_ptr<string> platform_ {};
+    shared_ptr<int64_t> publishMode_ {};
+    shared_ptr<int64_t> publishType_ {};
+    shared_ptr<string> syncMode_ {};
+    shared_ptr<string> tenantId_ {};
+    shared_ptr<string> whitelistIds_ {};
+    shared_ptr<string> workspaceId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace MPaaS20201028
+#endif

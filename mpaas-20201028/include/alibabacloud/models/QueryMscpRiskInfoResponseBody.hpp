@@ -1,0 +1,95 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_QUERYMSCPRISKINFORESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_QUERYMSCPRISKINFORESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace MPaaS20201028
+{
+namespace Models
+{
+  class QueryMscpRiskInfoResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const QueryMscpRiskInfoResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Code, code_);
+      DARABONBA_ANY_TO_JSON(Data, data_);
+      DARABONBA_PTR_TO_JSON(Msg, msg_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
+    };
+    friend void from_json(const Darabonba::Json& j, QueryMscpRiskInfoResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Code, code_);
+      DARABONBA_ANY_FROM_JSON(Data, data_);
+      DARABONBA_PTR_FROM_JSON(Msg, msg_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
+    };
+    QueryMscpRiskInfoResponseBody() = default ;
+    QueryMscpRiskInfoResponseBody(const QueryMscpRiskInfoResponseBody &) = default ;
+    QueryMscpRiskInfoResponseBody(QueryMscpRiskInfoResponseBody &&) = default ;
+    QueryMscpRiskInfoResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~QueryMscpRiskInfoResponseBody() = default ;
+    QueryMscpRiskInfoResponseBody& operator=(const QueryMscpRiskInfoResponseBody &) = default ;
+    QueryMscpRiskInfoResponseBody& operator=(QueryMscpRiskInfoResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->msg_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline QueryMscpRiskInfoResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline     const Darabonba::Json & getData() const { DARABONBA_GET(data_) };
+    Darabonba::Json & getData() { DARABONBA_GET(data_) };
+    inline QueryMscpRiskInfoResponseBody& setData(const Darabonba::Json & data) { DARABONBA_SET_VALUE(data_, data) };
+    inline QueryMscpRiskInfoResponseBody& setData(Darabonba::Json && data) { DARABONBA_SET_RVALUE(data_, data) };
+
+
+    // msg Field Functions 
+    bool hasMsg() const { return this->msg_ != nullptr;};
+    void deleteMsg() { this->msg_ = nullptr;};
+    inline string getMsg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
+    inline QueryMscpRiskInfoResponseBody& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline QueryMscpRiskInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline QueryMscpRiskInfoResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+  protected:
+    // Code
+    shared_ptr<string> code_ {};
+    // Data
+    Darabonba::Json data_ {};
+    // Msg
+    shared_ptr<string> msg_ {};
+    // Id of the request
+    shared_ptr<string> requestId_ {};
+    // Success
+    shared_ptr<bool> success_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace MPaaS20201028
+#endif

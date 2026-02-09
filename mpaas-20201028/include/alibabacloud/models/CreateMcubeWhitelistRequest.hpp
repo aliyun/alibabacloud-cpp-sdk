@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->tenantId_ == nullptr && return this->whiteListName_ == nullptr && return this->whitelistType_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->tenantId_ == nullptr && this->whiteListName_ == nullptr && this->whitelistType_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateMcubeWhitelistRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline CreateMcubeWhitelistRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // whiteListName Field Functions 
     bool hasWhiteListName() const { return this->whiteListName_ != nullptr;};
     void deleteWhiteListName() { this->whiteListName_ = nullptr;};
-    inline string whiteListName() const { DARABONBA_PTR_GET_DEFAULT(whiteListName_, "") };
+    inline string getWhiteListName() const { DARABONBA_PTR_GET_DEFAULT(whiteListName_, "") };
     inline CreateMcubeWhitelistRequest& setWhiteListName(string whiteListName) { DARABONBA_PTR_SET_VALUE(whiteListName_, whiteListName) };
 
 
     // whitelistType Field Functions 
     bool hasWhitelistType() const { return this->whitelistType_ != nullptr;};
     void deleteWhitelistType() { this->whitelistType_ = nullptr;};
-    inline string whitelistType() const { DARABONBA_PTR_GET_DEFAULT(whitelistType_, "") };
+    inline string getWhitelistType() const { DARABONBA_PTR_GET_DEFAULT(whitelistType_, "") };
     inline CreateMcubeWhitelistRequest& setWhitelistType(string whitelistType) { DARABONBA_PTR_SET_VALUE(whitelistType_, whitelistType) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline CreateMcubeWhitelistRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> tenantId_ = nullptr;
+    shared_ptr<string> tenantId_ {};
     // This parameter is required.
-    std::shared_ptr<string> whiteListName_ = nullptr;
+    shared_ptr<string> whiteListName_ {};
     // This parameter is required.
-    std::shared_ptr<string> whitelistType_ = nullptr;
+    shared_ptr<string> whitelistType_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models
