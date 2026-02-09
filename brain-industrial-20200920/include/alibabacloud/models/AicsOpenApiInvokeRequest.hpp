@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobId_ == nullptr
-        && return this->nodeId_ == nullptr && return this->param_ == nullptr && return this->serviceId_ == nullptr && return this->type_ == nullptr; };
+        && this->nodeId_ == nullptr && this->param_ == nullptr && this->serviceId_ == nullptr && this->type_ == nullptr; };
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline AicsOpenApiInvokeRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline AicsOpenApiInvokeRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // param Field Functions 
     bool hasParam() const { return this->param_ != nullptr;};
     void deleteParam() { this->param_ = nullptr;};
-    inline     const Darabonba::Json & param() const { DARABONBA_GET(param_) };
-    Darabonba::Json & param() { DARABONBA_GET(param_) };
+    inline     const Darabonba::Json & getParam() const { DARABONBA_GET(param_) };
+    Darabonba::Json & getParam() { DARABONBA_GET(param_) };
     inline AicsOpenApiInvokeRequest& setParam(const Darabonba::Json & param) { DARABONBA_SET_VALUE(param_, param) };
-    inline AicsOpenApiInvokeRequest& setParam(Darabonba::Json & param) { DARABONBA_SET_RVALUE(param_, param) };
+    inline AicsOpenApiInvokeRequest& setParam(Darabonba::Json && param) { DARABONBA_SET_RVALUE(param_, param) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline AicsOpenApiInvokeRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline AicsOpenApiInvokeRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> jobId_ = nullptr;
-    std::shared_ptr<string> nodeId_ = nullptr;
-    Darabonba::Json param_ = nullptr;
+    shared_ptr<string> jobId_ {};
+    shared_ptr<string> nodeId_ {};
+    Darabonba::Json param_ {};
     // This parameter is required.
-    std::shared_ptr<string> serviceId_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> serviceId_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

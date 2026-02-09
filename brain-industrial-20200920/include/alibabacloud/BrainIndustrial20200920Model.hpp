@@ -46,32 +46,5 @@
 #include <alibabacloud/models/UpdateLicenseDescriptionRequest.hpp>
 #include <alibabacloud/models/UpdateLicenseDescriptionResponseBody.hpp>
 #include <alibabacloud/models/UpdateLicenseDescriptionResponse.hpp>
-#include <alibabacloud/models/ActivateLicenseResponseBodyDataActivateRecord.hpp>
-#include <alibabacloud/models/ActivateLicenseResponseBodyData.hpp>
-#include <alibabacloud/models/CreateEssOptJobRequestElecPrice.hpp>
-#include <alibabacloud/models/CreateEssOptJobRequestGenPrice.hpp>
-#include <alibabacloud/models/CreateEssOptJobRequestLocation.hpp>
-#include <alibabacloud/models/CreateEssOptJobRequestSystemData.hpp>
-#include <alibabacloud/models/CreateEssOptJobResponseBodyDataResponse.hpp>
-#include <alibabacloud/models/CreateEssOptJobResponseBodyData.hpp>
-#include <alibabacloud/models/CreateLoadForecastByFileUrlJobResponseBodyDataResponse.hpp>
-#include <alibabacloud/models/CreateLoadForecastByFileUrlJobResponseBodyData.hpp>
-#include <alibabacloud/models/CreateLoadForecastJobRequestHistoryData.hpp>
-#include <alibabacloud/models/CreateLoadForecastJobResponseBodyDataResponse.hpp>
-#include <alibabacloud/models/CreateLoadForecastJobResponseBodyData.hpp>
-#include <alibabacloud/models/CreatePowerForecastByFileUrlJobRequestLocation.hpp>
-#include <alibabacloud/models/CreatePowerForecastByFileUrlJobResponseBodyDataResponse.hpp>
-#include <alibabacloud/models/CreatePowerForecastByFileUrlJobResponseBodyData.hpp>
-#include <alibabacloud/models/CreatePowerForecastJobRequestHistoryData.hpp>
-#include <alibabacloud/models/CreatePowerForecastJobRequestLocation.hpp>
-#include <alibabacloud/models/CreatePowerForecastJobResponseBodyDataResponse.hpp>
-#include <alibabacloud/models/CreatePowerForecastJobResponseBodyData.hpp>
-#include <alibabacloud/models/GetAivppAlgoJobResponseBodyDataResponse.hpp>
-#include <alibabacloud/models/GetAivppAlgoJobResponseBodyData.hpp>
-#include <alibabacloud/models/GetLicenseResponseBodyDataActivateRecord.hpp>
-#include <alibabacloud/models/GetLicenseResponseBodyData.hpp>
-#include <alibabacloud/models/ListAivppResourcesResponseBodyData.hpp>
-#include <alibabacloud/models/ListLicensesResponseBodyLicenseList.hpp>
-#include <alibabacloud/models/ListUserResourcesResponseBodyData.hpp>
 
 #endif

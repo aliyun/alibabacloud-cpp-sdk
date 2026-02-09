@@ -50,97 +50,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessKey_ == nullptr
-        && return this->dataMode_ == nullptr && return this->deviceType_ == nullptr && return this->duration_ == nullptr && return this->forecastHorizon_ == nullptr && return this->freq_ == nullptr
-        && return this->historyDataShrink_ == nullptr && return this->modelVersion_ == nullptr && return this->runDate_ == nullptr && return this->systemType_ == nullptr && return this->timeZone_ == nullptr; };
+        && this->dataMode_ == nullptr && this->deviceType_ == nullptr && this->duration_ == nullptr && this->forecastHorizon_ == nullptr && this->freq_ == nullptr
+        && this->historyDataShrink_ == nullptr && this->modelVersion_ == nullptr && this->runDate_ == nullptr && this->systemType_ == nullptr && this->timeZone_ == nullptr; };
     // businessKey Field Functions 
     bool hasBusinessKey() const { return this->businessKey_ != nullptr;};
     void deleteBusinessKey() { this->businessKey_ = nullptr;};
-    inline string businessKey() const { DARABONBA_PTR_GET_DEFAULT(businessKey_, "") };
+    inline string getBusinessKey() const { DARABONBA_PTR_GET_DEFAULT(businessKey_, "") };
     inline CreateLoadForecastJobShrinkRequest& setBusinessKey(string businessKey) { DARABONBA_PTR_SET_VALUE(businessKey_, businessKey) };
 
 
     // dataMode Field Functions 
     bool hasDataMode() const { return this->dataMode_ != nullptr;};
     void deleteDataMode() { this->dataMode_ = nullptr;};
-    inline string dataMode() const { DARABONBA_PTR_GET_DEFAULT(dataMode_, "") };
+    inline string getDataMode() const { DARABONBA_PTR_GET_DEFAULT(dataMode_, "") };
     inline CreateLoadForecastJobShrinkRequest& setDataMode(string dataMode) { DARABONBA_PTR_SET_VALUE(dataMode_, dataMode) };
 
 
     // deviceType Field Functions 
     bool hasDeviceType() const { return this->deviceType_ != nullptr;};
     void deleteDeviceType() { this->deviceType_ = nullptr;};
-    inline string deviceType() const { DARABONBA_PTR_GET_DEFAULT(deviceType_, "") };
+    inline string getDeviceType() const { DARABONBA_PTR_GET_DEFAULT(deviceType_, "") };
     inline CreateLoadForecastJobShrinkRequest& setDeviceType(string deviceType) { DARABONBA_PTR_SET_VALUE(deviceType_, deviceType) };
 
 
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int32_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
+    inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
     inline CreateLoadForecastJobShrinkRequest& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // forecastHorizon Field Functions 
     bool hasForecastHorizon() const { return this->forecastHorizon_ != nullptr;};
     void deleteForecastHorizon() { this->forecastHorizon_ = nullptr;};
-    inline string forecastHorizon() const { DARABONBA_PTR_GET_DEFAULT(forecastHorizon_, "") };
+    inline string getForecastHorizon() const { DARABONBA_PTR_GET_DEFAULT(forecastHorizon_, "") };
     inline CreateLoadForecastJobShrinkRequest& setForecastHorizon(string forecastHorizon) { DARABONBA_PTR_SET_VALUE(forecastHorizon_, forecastHorizon) };
 
 
     // freq Field Functions 
     bool hasFreq() const { return this->freq_ != nullptr;};
     void deleteFreq() { this->freq_ = nullptr;};
-    inline string freq() const { DARABONBA_PTR_GET_DEFAULT(freq_, "") };
+    inline string getFreq() const { DARABONBA_PTR_GET_DEFAULT(freq_, "") };
     inline CreateLoadForecastJobShrinkRequest& setFreq(string freq) { DARABONBA_PTR_SET_VALUE(freq_, freq) };
 
 
     // historyDataShrink Field Functions 
     bool hasHistoryDataShrink() const { return this->historyDataShrink_ != nullptr;};
     void deleteHistoryDataShrink() { this->historyDataShrink_ = nullptr;};
-    inline string historyDataShrink() const { DARABONBA_PTR_GET_DEFAULT(historyDataShrink_, "") };
+    inline string getHistoryDataShrink() const { DARABONBA_PTR_GET_DEFAULT(historyDataShrink_, "") };
     inline CreateLoadForecastJobShrinkRequest& setHistoryDataShrink(string historyDataShrink) { DARABONBA_PTR_SET_VALUE(historyDataShrink_, historyDataShrink) };
 
 
     // modelVersion Field Functions 
     bool hasModelVersion() const { return this->modelVersion_ != nullptr;};
     void deleteModelVersion() { this->modelVersion_ = nullptr;};
-    inline string modelVersion() const { DARABONBA_PTR_GET_DEFAULT(modelVersion_, "") };
+    inline string getModelVersion() const { DARABONBA_PTR_GET_DEFAULT(modelVersion_, "") };
     inline CreateLoadForecastJobShrinkRequest& setModelVersion(string modelVersion) { DARABONBA_PTR_SET_VALUE(modelVersion_, modelVersion) };
 
 
     // runDate Field Functions 
     bool hasRunDate() const { return this->runDate_ != nullptr;};
     void deleteRunDate() { this->runDate_ = nullptr;};
-    inline string runDate() const { DARABONBA_PTR_GET_DEFAULT(runDate_, "") };
+    inline string getRunDate() const { DARABONBA_PTR_GET_DEFAULT(runDate_, "") };
     inline CreateLoadForecastJobShrinkRequest& setRunDate(string runDate) { DARABONBA_PTR_SET_VALUE(runDate_, runDate) };
 
 
     // systemType Field Functions 
     bool hasSystemType() const { return this->systemType_ != nullptr;};
     void deleteSystemType() { this->systemType_ = nullptr;};
-    inline string systemType() const { DARABONBA_PTR_GET_DEFAULT(systemType_, "") };
+    inline string getSystemType() const { DARABONBA_PTR_GET_DEFAULT(systemType_, "") };
     inline CreateLoadForecastJobShrinkRequest& setSystemType(string systemType) { DARABONBA_PTR_SET_VALUE(systemType_, systemType) };
 
 
     // timeZone Field Functions 
     bool hasTimeZone() const { return this->timeZone_ != nullptr;};
     void deleteTimeZone() { this->timeZone_ = nullptr;};
-    inline string timeZone() const { DARABONBA_PTR_GET_DEFAULT(timeZone_, "") };
+    inline string getTimeZone() const { DARABONBA_PTR_GET_DEFAULT(timeZone_, "") };
     inline CreateLoadForecastJobShrinkRequest& setTimeZone(string timeZone) { DARABONBA_PTR_SET_VALUE(timeZone_, timeZone) };
 
 
   protected:
-    std::shared_ptr<string> businessKey_ = nullptr;
-    std::shared_ptr<string> dataMode_ = nullptr;
-    std::shared_ptr<string> deviceType_ = nullptr;
-    std::shared_ptr<int32_t> duration_ = nullptr;
-    std::shared_ptr<string> forecastHorizon_ = nullptr;
-    std::shared_ptr<string> freq_ = nullptr;
-    std::shared_ptr<string> historyDataShrink_ = nullptr;
-    std::shared_ptr<string> modelVersion_ = nullptr;
-    std::shared_ptr<string> runDate_ = nullptr;
-    std::shared_ptr<string> systemType_ = nullptr;
-    std::shared_ptr<string> timeZone_ = nullptr;
+    shared_ptr<string> businessKey_ {};
+    shared_ptr<string> dataMode_ {};
+    shared_ptr<string> deviceType_ {};
+    shared_ptr<int32_t> duration_ {};
+    shared_ptr<string> forecastHorizon_ {};
+    shared_ptr<string> freq_ {};
+    shared_ptr<string> historyDataShrink_ {};
+    shared_ptr<string> modelVersion_ {};
+    shared_ptr<string> runDate_ {};
+    shared_ptr<string> systemType_ {};
+    shared_ptr<string> timeZone_ {};
   };
 
   } // namespace Models

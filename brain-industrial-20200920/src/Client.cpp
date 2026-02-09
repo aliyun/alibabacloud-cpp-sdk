@@ -46,19 +46,19 @@ ActivateLicenseResponse Client::activateLicenseWithOptions(const ActivateLicense
   request.validate();
   json body = {};
   if (!!request.hasFingerprint()) {
-    body["Fingerprint"] = request.fingerprint();
+    body["Fingerprint"] = request.getFingerprint();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOrderId()) {
-    body["OrderId"] = request.orderId();
+    body["OrderId"] = request.getOrderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -101,29 +101,29 @@ AicsOpenApiInvokeResponse Client::aicsOpenApiInvokeWithOptions(const AicsOpenApi
   AicsOpenApiInvokeShrinkRequest request = AicsOpenApiInvokeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasParam()) {
-    request.setParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.param(), "Param", "json"));
+    request.setParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParam(), "Param", "json"));
   }
 
   json query = {};
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasNodeId()) {
-    query["NodeId"] = request.nodeId();
+    query["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasServiceId()) {
-    query["ServiceId"] = request.serviceId();
+    query["ServiceId"] = request.getServiceId();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   json body = {};
   if (!!request.hasParamShrink()) {
-    body["Param"] = request.paramShrink();
+    body["Param"] = request.getParamShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -167,64 +167,64 @@ CreateEssOptJobResponse Client::createEssOptJobWithOptions(const CreateEssOptJob
   CreateEssOptJobShrinkRequest request = CreateEssOptJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasElecPrice()) {
-    request.setElecPriceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.elecPrice(), "ElecPrice", "json"));
+    request.setElecPriceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getElecPrice(), "ElecPrice", "json"));
   }
 
   if (!!tmpReq.hasGenPrice()) {
-    request.setGenPriceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.genPrice(), "GenPrice", "json"));
+    request.setGenPriceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGenPrice(), "GenPrice", "json"));
   }
 
   if (!!tmpReq.hasLocation()) {
-    request.setLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.location(), "Location", "json"));
+    request.setLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLocation(), "Location", "json"));
   }
 
   if (!!tmpReq.hasSystemData()) {
-    request.setSystemDataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.systemData(), "SystemData", "json"));
+    request.setSystemDataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSystemData(), "SystemData", "json"));
   }
 
   json body = {};
   if (!!request.hasBusinessKey()) {
-    body["BusinessKey"] = request.businessKey();
+    body["BusinessKey"] = request.getBusinessKey();
   }
 
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasElecPriceShrink()) {
-    body["ElecPrice"] = request.elecPriceShrink();
+    body["ElecPrice"] = request.getElecPriceShrink();
   }
 
   if (!!request.hasFreq()) {
-    body["Freq"] = request.freq();
+    body["Freq"] = request.getFreq();
   }
 
   if (!!request.hasGenPriceShrink()) {
-    body["GenPrice"] = request.genPriceShrink();
+    body["GenPrice"] = request.getGenPriceShrink();
   }
 
   if (!!request.hasLocationShrink()) {
-    body["Location"] = request.locationShrink();
+    body["Location"] = request.getLocationShrink();
   }
 
   if (!!request.hasModelVersion()) {
-    body["ModelVersion"] = request.modelVersion();
+    body["ModelVersion"] = request.getModelVersion();
   }
 
   if (!!request.hasRunDate()) {
-    body["RunDate"] = request.runDate();
+    body["RunDate"] = request.getRunDate();
   }
 
   if (!!request.hasSystemDataShrink()) {
-    body["SystemData"] = request.systemDataShrink();
+    body["SystemData"] = request.getSystemDataShrink();
   }
 
   if (!!request.hasTimeZone()) {
-    body["TimeZone"] = request.timeZone();
+    body["TimeZone"] = request.getTimeZone();
   }
 
   if (!!request.hasTopoType()) {
-    body["TopoType"] = request.topoType();
+    body["TopoType"] = request.getTopoType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -266,55 +266,55 @@ CreateLoadForecastByFileUrlJobResponse Client::createLoadForecastByFileUrlJobWit
   request.validate();
   json body = {};
   if (!!request.hasBusinessKey()) {
-    body["BusinessKey"] = request.businessKey();
+    body["BusinessKey"] = request.getBusinessKey();
   }
 
   if (!!request.hasDataMode()) {
-    body["DataMode"] = request.dataMode();
+    body["DataMode"] = request.getDataMode();
   }
 
   if (!!request.hasDeviceType()) {
-    body["DeviceType"] = request.deviceType();
+    body["DeviceType"] = request.getDeviceType();
   }
 
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasForecastHorizon()) {
-    body["ForecastHorizon"] = request.forecastHorizon();
+    body["ForecastHorizon"] = request.getForecastHorizon();
   }
 
   if (!!request.hasFreq()) {
-    body["Freq"] = request.freq();
+    body["Freq"] = request.getFreq();
   }
 
   if (!!request.hasHistoryUrl()) {
-    body["HistoryUrl"] = request.historyUrl();
+    body["HistoryUrl"] = request.getHistoryUrl();
   }
 
   if (!!request.hasModelVersion()) {
-    body["ModelVersion"] = request.modelVersion();
+    body["ModelVersion"] = request.getModelVersion();
   }
 
   if (!!request.hasRunDate()) {
-    body["RunDate"] = request.runDate();
+    body["RunDate"] = request.getRunDate();
   }
 
   if (!!request.hasSystemType()) {
-    body["SystemType"] = request.systemType();
+    body["SystemType"] = request.getSystemType();
   }
 
   if (!!request.hasTimeColumn()) {
-    body["TimeColumn"] = request.timeColumn();
+    body["TimeColumn"] = request.getTimeColumn();
   }
 
   if (!!request.hasTimeZone()) {
-    body["TimeZone"] = request.timeZone();
+    body["TimeZone"] = request.getTimeZone();
   }
 
   if (!!request.hasValueColumn()) {
-    body["ValueColumn"] = request.valueColumn();
+    body["ValueColumn"] = request.getValueColumn();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -357,52 +357,52 @@ CreateLoadForecastJobResponse Client::createLoadForecastJobWithOptions(const Cre
   CreateLoadForecastJobShrinkRequest request = CreateLoadForecastJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasHistoryData()) {
-    request.setHistoryDataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.historyData(), "HistoryData", "json"));
+    request.setHistoryDataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHistoryData(), "HistoryData", "json"));
   }
 
   json body = {};
   if (!!request.hasBusinessKey()) {
-    body["BusinessKey"] = request.businessKey();
+    body["BusinessKey"] = request.getBusinessKey();
   }
 
   if (!!request.hasDataMode()) {
-    body["DataMode"] = request.dataMode();
+    body["DataMode"] = request.getDataMode();
   }
 
   if (!!request.hasDeviceType()) {
-    body["DeviceType"] = request.deviceType();
+    body["DeviceType"] = request.getDeviceType();
   }
 
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasForecastHorizon()) {
-    body["ForecastHorizon"] = request.forecastHorizon();
+    body["ForecastHorizon"] = request.getForecastHorizon();
   }
 
   if (!!request.hasFreq()) {
-    body["Freq"] = request.freq();
+    body["Freq"] = request.getFreq();
   }
 
   if (!!request.hasHistoryDataShrink()) {
-    body["HistoryData"] = request.historyDataShrink();
+    body["HistoryData"] = request.getHistoryDataShrink();
   }
 
   if (!!request.hasModelVersion()) {
-    body["ModelVersion"] = request.modelVersion();
+    body["ModelVersion"] = request.getModelVersion();
   }
 
   if (!!request.hasRunDate()) {
-    body["RunDate"] = request.runDate();
+    body["RunDate"] = request.getRunDate();
   }
 
   if (!!request.hasSystemType()) {
-    body["SystemType"] = request.systemType();
+    body["SystemType"] = request.getSystemType();
   }
 
   if (!!request.hasTimeZone()) {
-    body["TimeZone"] = request.timeZone();
+    body["TimeZone"] = request.getTimeZone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -445,64 +445,64 @@ CreatePowerForecastByFileUrlJobResponse Client::createPowerForecastByFileUrlJobW
   CreatePowerForecastByFileUrlJobShrinkRequest request = CreatePowerForecastByFileUrlJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLocation()) {
-    request.setLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.location(), "Location", "json"));
+    request.setLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLocation(), "Location", "json"));
   }
 
   json body = {};
   if (!!request.hasBusinessKey()) {
-    body["BusinessKey"] = request.businessKey();
+    body["BusinessKey"] = request.getBusinessKey();
   }
 
   if (!!request.hasDataMode()) {
-    body["DataMode"] = request.dataMode();
+    body["DataMode"] = request.getDataMode();
   }
 
   if (!!request.hasDeviceType()) {
-    body["DeviceType"] = request.deviceType();
+    body["DeviceType"] = request.getDeviceType();
   }
 
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasForecastHorizon()) {
-    body["ForecastHorizon"] = request.forecastHorizon();
+    body["ForecastHorizon"] = request.getForecastHorizon();
   }
 
   if (!!request.hasFreq()) {
-    body["Freq"] = request.freq();
+    body["Freq"] = request.getFreq();
   }
 
   if (!!request.hasHistoryUrl()) {
-    body["HistoryUrl"] = request.historyUrl();
+    body["HistoryUrl"] = request.getHistoryUrl();
   }
 
   if (!!request.hasLocationShrink()) {
-    body["Location"] = request.locationShrink();
+    body["Location"] = request.getLocationShrink();
   }
 
   if (!!request.hasModelVersion()) {
-    body["ModelVersion"] = request.modelVersion();
+    body["ModelVersion"] = request.getModelVersion();
   }
 
   if (!!request.hasRunDate()) {
-    body["RunDate"] = request.runDate();
+    body["RunDate"] = request.getRunDate();
   }
 
   if (!!request.hasSystemType()) {
-    body["SystemType"] = request.systemType();
+    body["SystemType"] = request.getSystemType();
   }
 
   if (!!request.hasTimeColumn()) {
-    body["TimeColumn"] = request.timeColumn();
+    body["TimeColumn"] = request.getTimeColumn();
   }
 
   if (!!request.hasTimeZone()) {
-    body["TimeZone"] = request.timeZone();
+    body["TimeZone"] = request.getTimeZone();
   }
 
   if (!!request.hasValueColumn()) {
-    body["ValueColumn"] = request.valueColumn();
+    body["ValueColumn"] = request.getValueColumn();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -545,60 +545,60 @@ CreatePowerForecastJobResponse Client::createPowerForecastJobWithOptions(const C
   CreatePowerForecastJobShrinkRequest request = CreatePowerForecastJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasHistoryData()) {
-    request.setHistoryDataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.historyData(), "HistoryData", "json"));
+    request.setHistoryDataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHistoryData(), "HistoryData", "json"));
   }
 
   if (!!tmpReq.hasLocation()) {
-    request.setLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.location(), "Location", "json"));
+    request.setLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLocation(), "Location", "json"));
   }
 
   json body = {};
   if (!!request.hasBusinessKey()) {
-    body["BusinessKey"] = request.businessKey();
+    body["BusinessKey"] = request.getBusinessKey();
   }
 
   if (!!request.hasDataMode()) {
-    body["DataMode"] = request.dataMode();
+    body["DataMode"] = request.getDataMode();
   }
 
   if (!!request.hasDeviceType()) {
-    body["DeviceType"] = request.deviceType();
+    body["DeviceType"] = request.getDeviceType();
   }
 
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasForecastHorizon()) {
-    body["ForecastHorizon"] = request.forecastHorizon();
+    body["ForecastHorizon"] = request.getForecastHorizon();
   }
 
   if (!!request.hasFreq()) {
-    body["Freq"] = request.freq();
+    body["Freq"] = request.getFreq();
   }
 
   if (!!request.hasHistoryDataShrink()) {
-    body["HistoryData"] = request.historyDataShrink();
+    body["HistoryData"] = request.getHistoryDataShrink();
   }
 
   if (!!request.hasLocationShrink()) {
-    body["Location"] = request.locationShrink();
+    body["Location"] = request.getLocationShrink();
   }
 
   if (!!request.hasModelVersion()) {
-    body["ModelVersion"] = request.modelVersion();
+    body["ModelVersion"] = request.getModelVersion();
   }
 
   if (!!request.hasRunDate()) {
-    body["RunDate"] = request.runDate();
+    body["RunDate"] = request.getRunDate();
   }
 
   if (!!request.hasSystemType()) {
-    body["SystemType"] = request.systemType();
+    body["SystemType"] = request.getSystemType();
   }
 
   if (!!request.hasTimeZone()) {
-    body["TimeZone"] = request.timeZone();
+    body["TimeZone"] = request.getTimeZone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -640,7 +640,7 @@ GetAivppAlgoJobResponse Client::getAivppAlgoJobWithOptions(const GetAivppAlgoJob
   request.validate();
   json body = {};
   if (!!request.hasJobId()) {
-    body["JobId"] = request.jobId();
+    body["JobId"] = request.getJobId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -682,11 +682,11 @@ GetLicenseResponse Client::getLicenseWithOptions(const GetLicenseRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -728,11 +728,15 @@ ListAivppResourcesResponse Client::listAivppResourcesWithOptions(const ListAivpp
   request.validate();
   json body = {};
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasInstanceType()) {
+    body["InstanceType"] = request.getInstanceType();
   }
 
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -774,15 +778,15 @@ ListLicensesResponse Client::listLicensesWithOptions(const ListLicensesRequest &
   request.validate();
   json body = {};
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQueryStr()) {
-    body["QueryStr"] = request.queryStr();
+    body["QueryStr"] = request.getQueryStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -824,7 +828,7 @@ ListUserResourcesResponse Client::listUserResourcesWithOptions(const ListUserRes
   request.validate();
   json body = {};
   if (!!request.hasCommodityCode()) {
-    body["CommodityCode"] = request.commodityCode();
+    body["CommodityCode"] = request.getCommodityCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -866,11 +870,11 @@ UpdateLicenseDescriptionResponse Client::updateLicenseDescriptionWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

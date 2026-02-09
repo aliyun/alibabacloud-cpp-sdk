@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListAivppResourcesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
     };
     friend void from_json(const Darabonba::Json& j, ListAivppResourcesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
     };
     ListAivppResourcesRequest() = default ;
@@ -32,24 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->maxResults_ == nullptr; };
+        && this->instanceType_ == nullptr && this->maxResults_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListAivppResourcesRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
+
+
+    // instanceType Field Functions 
+    bool hasInstanceType() const { return this->instanceType_ != nullptr;};
+    void deleteInstanceType() { this->instanceType_ = nullptr;};
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline ListAivppResourcesRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListAivppResourcesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
   protected:
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<string> instanceType_ {};
+    shared_ptr<int32_t> maxResults_ {};
   };
 
   } // namespace Models
