@@ -111,13 +111,9 @@ namespace Models
 
 
       protected:
-        // The name of the collection.
         shared_ptr<string> collection_ {};
-        // The definition of the index.
         shared_ptr<string> indexDef_ {};
-        // The name of the index.
         shared_ptr<string> indexName_ {};
-        // The namespace to which the pod belongs.
         shared_ptr<string> namespace_ {};
       };
 
@@ -168,7 +164,6 @@ namespace Models
 
 
   protected:
-    // The queried indexes.
     shared_ptr<ListIndicesResponseBody::Indices> indices_ {};
     // The returned message.
     shared_ptr<string> message_ {};

@@ -632,16 +632,18 @@ FutureGenerator<ChatWithKnowledgeBaseStreamResponse> Client::chatWithKnowledgeBa
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<ChatWithKnowledgeBaseStreamResponse>();
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<ChatWithKnowledgeBaseStreamResponse>();
 return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -788,7 +790,7 @@ CheckHadoopDataSourceResponse Client::checkHadoopDataSource(const CheckHadoopDat
 }
 
 /**
- * @summary Check Hadoop Cluster Network Connectivity
+ * @summary Checks the network connectivity of a Hadoop external data source.
  *
  * @param request CheckHadoopNetConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -831,7 +833,7 @@ CheckHadoopNetConnectionResponse Client::checkHadoopNetConnectionWithOptions(con
 }
 
 /**
- * @summary Check Hadoop Cluster Network Connectivity
+ * @summary Checks the network connectivity of a Hadoop external data source.
  *
  * @param request CheckHadoopNetConnectionRequest
  * @return CheckHadoopNetConnectionResponse
@@ -896,7 +898,7 @@ CheckJDBCSourceNetConnectionResponse Client::checkJDBCSourceNetConnection(const 
 }
 
 /**
- * @summary Queries whether a service-linked role is created.
+ * @summary Checks whether a service-linked role is created.
  *
  * @param request CheckServiceLinkedRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -927,7 +929,7 @@ CheckServiceLinkedRoleResponse Client::checkServiceLinkedRoleWithOptions(const C
 }
 
 /**
- * @summary Queries whether a service-linked role is created.
+ * @summary Checks whether a service-linked role is created.
  *
  * @param request CheckServiceLinkedRoleRequest
  * @return CheckServiceLinkedRoleResponse
@@ -1874,7 +1876,7 @@ CreateDocumentCollectionResponse Client::createDocumentCollection(const CreateDo
 }
 
 /**
- * @summary Install extensions.
+ * @summary Installs extensions.
  *
  * @param request CreateExtensionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1917,7 +1919,7 @@ CreateExtensionsResponse Client::createExtensionsWithOptions(const CreateExtensi
 }
 
 /**
- * @summary Install extensions.
+ * @summary Installs extensions.
  *
  * @param request CreateExtensionsRequest
  * @return CreateExtensionsResponse
@@ -2702,7 +2704,7 @@ CreateStreamingDataServiceResponse Client::createStreamingDataService(const Crea
 }
 
 /**
- * @summary Create External Data Source Configuration
+ * @summary Creates a real-time data source.
  *
  * @param request CreateStreamingDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2757,7 +2759,7 @@ CreateStreamingDataSourceResponse Client::createStreamingDataSourceWithOptions(c
 }
 
 /**
- * @summary Create External Data Source Configuration
+ * @summary Creates a real-time data source.
  *
  * @param request CreateStreamingDataSourceRequest
  * @return CreateStreamingDataSourceResponse
@@ -2935,6 +2937,14 @@ CreateSupabaseProjectResponse Client::createSupabaseProjectWithOptions(const Cre
     query["DiskPerformanceLevel"] = request.getDiskPerformanceLevel();
   }
 
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.getPayType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
   if (!!request.hasProjectName()) {
     query["ProjectName"] = request.getProjectName();
   }
@@ -2953,6 +2963,10 @@ CreateSupabaseProjectResponse Client::createSupabaseProjectWithOptions(const Cre
 
   if (!!request.hasStorageSize()) {
     query["StorageSize"] = request.getStorageSize();
+  }
+
+  if (!!request.hasUsedTime()) {
+    query["UsedTime"] = request.getUsedTime();
   }
 
   if (!!request.hasVSwitchId()) {
@@ -3152,7 +3166,7 @@ DeleteAINodeResponse Client::deleteAINode(const DeleteAINodeRequest &request) {
 }
 
 /**
- * @summary 删除数据库账号
+ * @summary Deletes a database account.
  *
  * @param request DeleteAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3187,7 +3201,7 @@ DeleteAccountResponse Client::deleteAccountWithOptions(const DeleteAccountReques
 }
 
 /**
- * @summary 删除数据库账号
+ * @summary Deletes a database account.
  *
  * @param request DeleteAccountRequest
  * @return DeleteAccountResponse
@@ -3776,7 +3790,7 @@ DeleteDocumentCollectionResponse Client::deleteDocumentCollection(const DeleteDo
 }
 
 /**
- * @summary Uninstall an extension.
+ * @summary Uninstalls extensions.
  *
  * @param request DeleteExtensionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3819,7 +3833,7 @@ DeleteExtensionResponse Client::deleteExtensionWithOptions(const DeleteExtension
 }
 
 /**
- * @summary Uninstall an extension.
+ * @summary Uninstalls extensions.
  *
  * @param request DeleteExtensionRequest
  * @return DeleteExtensionResponse
@@ -3880,7 +3894,7 @@ DeleteExternalDataServiceResponse Client::deleteExternalDataService(const Delete
 }
 
 /**
- * @summary 删除hadoop数据源
+ * @summary Deletes a Hadoop external data source.
  *
  * @param request DeleteHadoopDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3919,7 +3933,7 @@ DeleteHadoopDataSourceResponse Client::deleteHadoopDataSourceWithOptions(const D
 }
 
 /**
- * @summary 删除hadoop数据源
+ * @summary Deletes a Hadoop external data source.
  *
  * @param request DeleteHadoopDataSourceRequest
  * @return DeleteHadoopDataSourceResponse
@@ -4320,7 +4334,7 @@ DeleteSecretResponse Client::deleteSecret(const DeleteSecretRequest &request) {
 }
 
 /**
- * @summary Deletes a real-time data service.
+ * @summary Deletes the configurations of an external data source.
  *
  * @param request DeleteStreamingDataServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4359,7 +4373,7 @@ DeleteStreamingDataServiceResponse Client::deleteStreamingDataServiceWithOptions
 }
 
 /**
- * @summary Deletes a real-time data service.
+ * @summary Deletes the configurations of an external data source.
  *
  * @param request DeleteStreamingDataServiceRequest
  * @return DeleteStreamingDataServiceResponse
@@ -4420,7 +4434,7 @@ DeleteStreamingDataSourceResponse Client::deleteStreamingDataSource(const Delete
 }
 
 /**
- * @summary Deletes a real-time data service job.
+ * @summary Deletes a real-time data synchronization job.
  *
  * @param request DeleteStreamingJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4459,7 +4473,7 @@ DeleteStreamingJobResponse Client::deleteStreamingJobWithOptions(const DeleteStr
 }
 
 /**
- * @summary Deletes a real-time data service job.
+ * @summary Deletes a real-time data synchronization job.
  *
  * @param request DeleteStreamingJobRequest
  * @return DeleteStreamingJobResponse
@@ -6324,7 +6338,7 @@ DescribeDataReDistributeInfoResponse Client::describeDataReDistributeInfo(const 
 }
 
 /**
- * @summary Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+ * @summary Queries the status of data sharing for AnalyticDB for PostgreSQL instances.
  *
  * @description Data sharing is supported only for instances in Serverless mode.
  *
@@ -6377,7 +6391,7 @@ DescribeDataShareInstancesResponse Client::describeDataShareInstancesWithOptions
 }
 
 /**
- * @summary Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+ * @summary Queries the status of data sharing for AnalyticDB for PostgreSQL instances.
  *
  * @description Data sharing is supported only for instances in Serverless mode.
  *
@@ -6502,7 +6516,7 @@ DescribeDatabaseResponse Client::describeDatabase(const DescribeDatabaseRequest 
 }
 
 /**
- * @summary Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+ * @summary Queries all databases and database accounts of an AnalyticDB for PostgreSQL instance.
  *
  * @description To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
  * ## Limits
@@ -6537,7 +6551,7 @@ DescribeDiagnosisDimensionsResponse Client::describeDiagnosisDimensionsWithOptio
 }
 
 /**
- * @summary Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+ * @summary Queries all databases and database accounts of an AnalyticDB for PostgreSQL instance.
  *
  * @description To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
  * ## Limits
@@ -6882,7 +6896,7 @@ DescribeDownloadRecordsResponse Client::describeDownloadRecords(const DescribeDo
 }
 
 /**
- * @summary Get download records
+ * @summary Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
  *
  * @param request DescribeDownloadSQLLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6913,7 +6927,7 @@ DescribeDownloadSQLLogsResponse Client::describeDownloadSQLLogsWithOptions(const
 }
 
 /**
- * @summary Get download records
+ * @summary Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
  *
  * @param request DescribeDownloadSQLLogsRequest
  * @return DescribeDownloadSQLLogsResponse
@@ -7024,7 +7038,7 @@ DescribeExternalDataServiceResponse Client::describeExternalDataService(const De
 }
 
 /**
- * @summary Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
+ * @summary Queries a list of E-MapReduce (EMR) clusters in a virtual private cloud (VPC).
  *
  * @param request DescribeHadoopClustersInSameNetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7059,7 +7073,7 @@ DescribeHadoopClustersInSameNetResponse Client::describeHadoopClustersInSameNetW
 }
 
 /**
- * @summary Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
+ * @summary Queries a list of E-MapReduce (EMR) clusters in a virtual private cloud (VPC).
  *
  * @param request DescribeHadoopClustersInSameNetRequest
  * @return DescribeHadoopClustersInSameNetResponse
@@ -7876,7 +7890,7 @@ DescribeRdsVpcsResponse Client::describeRdsVpcs(const DescribeRdsVpcsRequest &re
 }
 
 /**
- * @summary 描述一个实例是否处于平衡状态
+ * @summary Queries the rebalance status of an AnalyticDB for PostgreSQL instance.
  *
  * @param request DescribeRebalanceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7907,7 +7921,7 @@ DescribeRebalanceStatusResponse Client::describeRebalanceStatusWithOptions(const
 }
 
 /**
- * @summary 描述一个实例是否处于平衡状态
+ * @summary Queries the rebalance status of an AnalyticDB for PostgreSQL instance.
  *
  * @param request DescribeRebalanceStatusRequest
  * @return DescribeRebalanceStatusResponse
@@ -8474,7 +8488,7 @@ DescribeStreamingDataSourceResponse Client::describeStreamingDataSource(const De
 }
 
 /**
- * @summary Delete External Data Source Configuration
+ * @summary Queries a real-time data synchronization job.
  *
  * @param request DescribeStreamingJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8513,7 +8527,7 @@ DescribeStreamingJobResponse Client::describeStreamingJobWithOptions(const Descr
 }
 
 /**
- * @summary Delete External Data Source Configuration
+ * @summary Queries a real-time data synchronization job.
  *
  * @param request DescribeStreamingJobRequest
  * @return DescribeStreamingJobResponse
@@ -9512,7 +9526,7 @@ ExecuteStatementResponse Client::executeStatement(const ExecuteStatementRequest 
 }
 
 /**
- * @summary 获取特定的账号信息
+ * @summary Queries the information about a database account.
  *
  * @param request GetAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9547,7 +9561,7 @@ GetAccountResponse Client::getAccountWithOptions(const GetAccountRequest &reques
 }
 
 /**
- * @summary 获取特定的账号信息
+ * @summary Queries the information about a database account.
  *
  * @param request GetAccountRequest
  * @return GetAccountResponse
@@ -10690,7 +10704,7 @@ ListExternalDataServicesResponse Client::listExternalDataServices(const ListExte
 }
 
 /**
- * @summary 获取实例外表配置列表
+ * @summary Queries a list of data sources.
  *
  * @param request ListExternalDataSourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10733,7 +10747,7 @@ ListExternalDataSourcesResponse Client::listExternalDataSourcesWithOptions(const
 }
 
 /**
- * @summary 获取实例外表配置列表
+ * @summary Queries a list of data sources.
  *
  * @param request ListExternalDataSourcesRequest
  * @return ListExternalDataSourcesResponse
@@ -11048,7 +11062,7 @@ ListNamespacesResponse Client::listNamespaces(const ListNamespacesRequest &reque
 }
 
 /**
- * @summary Get Homogeneous Data Source
+ * @summary Queries remote AnalyticDB data sources.
  *
  * @param request ListRemoteADBDataSourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11087,7 +11101,7 @@ ListRemoteADBDataSourcesResponse Client::listRemoteADBDataSourcesWithOptions(con
 }
 
 /**
- * @summary Get Homogeneous Data Source
+ * @summary Queries remote AnalyticDB data sources.
  *
  * @param request ListRemoteADBDataSourcesRequest
  * @return ListRemoteADBDataSourcesResponse
@@ -11362,7 +11376,7 @@ ListStreamingDataServicesResponse Client::listStreamingDataServices(const ListSt
 }
 
 /**
- * @summary Queries real-time service data sources.
+ * @summary Queries a list of real-time service data sources.
  *
  * @param request ListStreamingDataSourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11405,7 +11419,7 @@ ListStreamingDataSourcesResponse Client::listStreamingDataSourcesWithOptions(con
 }
 
 /**
- * @summary Queries real-time service data sources.
+ * @summary Queries a list of real-time service data sources.
  *
  * @param request ListStreamingDataSourcesRequest
  * @return ListStreamingDataSourcesResponse
@@ -11652,7 +11666,7 @@ ListTablesResponse Client::listTables(const ListTablesRequest &request) {
 }
 
 /**
- * @summary Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+ * @summary Queries a list of AnalyticDB for PostgreSQL instances that have specific tags added.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11715,7 +11729,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+ * @summary Queries a list of AnalyticDB for PostgreSQL instances that have specific tags added.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -12270,7 +12284,7 @@ ModifyDBInstanceNetworkTypeResponse Client::modifyDBInstanceNetworkType(const Mo
 }
 
 /**
- * @summary 包年包月/按量付费转换改造
+ * @summary Switches between billing methods for an AnalyticDB for PostgreSQL instance.
  *
  * @param request ModifyDBInstancePayTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12313,7 +12327,7 @@ ModifyDBInstancePayTypeResponse Client::modifyDBInstancePayTypeWithOptions(const
 }
 
 /**
- * @summary 包年包月/按量付费转换改造
+ * @summary Switches between billing methods for an AnalyticDB for PostgreSQL instance.
  *
  * @param request ModifyDBInstancePayTypeRequest
  * @return ModifyDBInstancePayTypeResponse
@@ -12840,7 +12854,7 @@ ModifyParametersResponse Client::modifyParameters(const ModifyParametersRequest 
 }
 
 /**
- * @summary Modify Homogeneous Data Source
+ * @summary Modifies a remote AnalyticDB data source.
  *
  * @param request ModifyRemoteADBDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12891,7 +12905,7 @@ ModifyRemoteADBDataSourceResponse Client::modifyRemoteADBDataSourceWithOptions(c
 }
 
 /**
- * @summary Modify Homogeneous Data Source
+ * @summary Modifies a remote AnalyticDB data source.
  *
  * @param request ModifyRemoteADBDataSourceRequest
  * @return ModifyRemoteADBDataSourceResponse
@@ -13024,7 +13038,7 @@ ModifySecurityIpsResponse Client::modifySecurityIps(const ModifySecurityIpsReque
 }
 
 /**
- * @summary Modifies a real-time data service.
+ * @summary Modifies the configurations of an external data source.
  *
  * @param request ModifyStreamingDataServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13071,7 +13085,7 @@ ModifyStreamingDataServiceResponse Client::modifyStreamingDataServiceWithOptions
 }
 
 /**
- * @summary Modifies a real-time data service.
+ * @summary Modifies the configurations of an external data source.
  *
  * @param request ModifyStreamingDataServiceRequest
  * @return ModifyStreamingDataServiceResponse
@@ -13330,7 +13344,7 @@ ModifySupabaseProjectSecurityIpsResponse Client::modifySupabaseProjectSecurityIp
 }
 
 /**
- * @summary Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+ * @summary Modifies the vector search engine optimization configuration of an AnalyticDB for PostgreSQL instance.
  *
  * @param request ModifyVectorConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13369,7 +13383,7 @@ ModifyVectorConfigurationResponse Client::modifyVectorConfigurationWithOptions(c
 }
 
 /**
- * @summary Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+ * @summary Modifies the vector search engine optimization configuration of an AnalyticDB for PostgreSQL instance.
  *
  * @param request ModifyVectorConfigurationRequest
  * @return ModifyVectorConfigurationResponse
@@ -13626,7 +13640,7 @@ QueryCollectionDataResponse Client::queryCollectionData(const QueryCollectionDat
 }
 
 /**
- * @summary Query
+ * @summary Retrieves vector data and metadata from a document collection by using natural statements.
  *
  * @param tmpReq QueryContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13769,7 +13783,7 @@ QueryContentResponse Client::queryContentWithOptions(const QueryContentRequest &
 }
 
 /**
- * @summary Query
+ * @summary Retrieves vector data and metadata from a document collection by using natural statements.
  *
  * @param request QueryContentRequest
  * @return QueryContentResponse
@@ -14046,7 +14060,7 @@ ReleaseInstancePublicConnectionResponse Client::releaseInstancePublicConnection(
 }
 
 /**
- * @summary Score and re-order documents using a model
+ * @summary The Rerank operation can resolve the issue of inaccurate ranking of vector and full-text search results. It re-scores and reranks the retrieved data through semantic understanding to significantly improve the relevance and accuracy of the results. AnalyticDB for PostgreSQL allows you to rerank search results by using Rerank models, but does not provide models.
  *
  * @param tmpReq RerankRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14117,7 +14131,7 @@ RerankResponse Client::rerankWithOptions(const RerankRequest &tmpReq, const Dara
 }
 
 /**
- * @summary Score and re-order documents using a model
+ * @summary The Rerank operation can resolve the issue of inaccurate ranking of vector and full-text search results. It re-scores and reranks the retrieved data through semantic understanding to significantly improve the relevance and accuracy of the results. AnalyticDB for PostgreSQL allows you to rerank search results by using Rerank models, but does not provide models.
  *
  * @param request RerankRequest
  * @return RerankResponse
@@ -14820,7 +14834,7 @@ UnbindDBResourceGroupWithRoleResponse Client::unbindDBResourceGroupWithRole(cons
 }
 
 /**
- * @summary Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+ * @summary Releases the sample dataset from an AnalyticDB for PostgreSQL instance.
  *
  * @description You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
  * ## Limits
@@ -14859,7 +14873,7 @@ UnloadSampleDataResponse Client::unloadSampleDataWithOptions(const UnloadSampleD
 }
 
 /**
- * @summary Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+ * @summary Releases the sample dataset from an AnalyticDB for PostgreSQL instance.
  *
  * @description You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
  * ## Limits
@@ -14874,7 +14888,7 @@ UnloadSampleDataResponse Client::unloadSampleData(const UnloadSampleDataRequest 
 }
 
 /**
- * @summary Remove resource tags
+ * @summary Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14937,7 +14951,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Remove resource tags
+ * @summary Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse

@@ -236,6 +236,10 @@ namespace Models
     // 
     // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
     shared_ptr<string> DBInstanceId_ {};
+    // Filter conditions for the data to be queried, in SQL WHERE format. It is an expression that returns a boolean value (true or false). Conditions can be simple comparison operators such as equal (=), not equal (<> or !=), greater than (>), less than (<), greater than or equal to (>=), less than or equal to (<=), or more complex expressions combined with logical operators (AND, OR, NOT), as well as conditions using keywords like IN, BETWEEN, and LIKE.
+    // 
+    // > 
+    // > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
     shared_ptr<string> filter_ {};
     // Dual-path recall algorithm, default is empty (i.e., directly compare and sort the scores of vectors and full-text).
     // 

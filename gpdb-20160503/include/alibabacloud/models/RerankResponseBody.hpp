@@ -104,11 +104,8 @@ namespace Models
 
 
       protected:
-        // Re-ordered document information.
         shared_ptr<string> document_ {};
-        // Index of this document in the request parameter Documents, starting from 0.
         shared_ptr<int32_t> index_ {};
-        // Rerank similarity score.
         shared_ptr<float> relevanceScore_ {};
       };
 
@@ -170,7 +167,6 @@ namespace Models
     shared_ptr<string> message_ {};
     // Request ID.
     shared_ptr<string> requestId_ {};
-    // Rerank results.
     shared_ptr<RerankResponseBody::Results> results_ {};
     // API execution status, value description:
     // - **success**: Execution succeeded.

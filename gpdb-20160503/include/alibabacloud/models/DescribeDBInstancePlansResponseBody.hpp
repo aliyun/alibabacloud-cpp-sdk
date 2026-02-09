@@ -172,48 +172,15 @@ namespace Models
 
 
       protected:
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The execution information of the plan.
         shared_ptr<string> planConfig_ {};
-        // The description of the plan.
         shared_ptr<string> planDesc_ {};
-        // The end time of the plan. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-        // 
-        // > 
-        // 
-        // *   This parameter is returned only for the plans that are periodically executed.
-        // 
-        // *   If you did not specify the end time when you created the plan, this parameter is not returned.
         shared_ptr<string> planEndDate_ {};
-        // The plan ID.
         shared_ptr<string> planId_ {};
-        // The name of the plan.
         shared_ptr<string> planName_ {};
-        // The execution mode of the plan. Valid values:
-        // 
-        // *   **Postpone**: The plan is executed later.
-        // *   **Regular**: The plan is executed periodically.
         shared_ptr<string> planScheduleType_ {};
-        // The start time of the plan. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-        // 
-        // > 
-        // 
-        // *   This parameter is returned only for the plans that are periodically executed.
-        // 
-        // *   If you did not specify the start time when you created the plan, the current time is returned.
         shared_ptr<string> planStartDate_ {};
-        // The status of the plan. Valid values:
-        // 
-        // *   **active**
-        // *   **cancel**
-        // *   **deleted**
-        // *   **finished**
         shared_ptr<string> planStatus_ {};
-        // The type of the plan. Valid values:
-        // 
-        // *   **PauseResume**: pauses and resumes an instance.
-        // *   **Resize**: scales an instance.
         shared_ptr<string> planType_ {};
       };
 
@@ -290,7 +257,6 @@ namespace Models
     // 
     // This parameter is returned only if the request fails.
     shared_ptr<string> errorMessage_ {};
-    // The queried plans.
     shared_ptr<DescribeDBInstancePlansResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

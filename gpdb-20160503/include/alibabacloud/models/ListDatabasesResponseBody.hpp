@@ -111,7 +111,6 @@ namespace Models
 
 
   protected:
-    // The queried databases.
     shared_ptr<ListDatabasesResponseBody::Databases> databases_ {};
     // The returned message.
     shared_ptr<string> message_ {};

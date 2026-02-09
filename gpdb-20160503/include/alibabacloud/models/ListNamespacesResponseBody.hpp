@@ -136,7 +136,6 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The queried namespaces.
     shared_ptr<ListNamespacesResponseBody::Namespaces> namespaces_ {};
     // The region ID of the instance.
     shared_ptr<string> regionId_ {};

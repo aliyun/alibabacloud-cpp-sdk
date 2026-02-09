@@ -265,9 +265,7 @@ namespace Models
 
 
           protected:
-            // Tag key.
             shared_ptr<string> key_ {};
-            // Tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -793,233 +791,75 @@ namespace Models
 
 
       protected:
-        // Queries the current instance availability status, in percentage (%).
-        // 
-        // > This parameter is only applicable to instances in the storage reserved mode.
         shared_ptr<string> availabilityValue_ {};
         shared_ptr<string> cacheStorageSize_ {};
-        // Access mode, with the following values:
-        // 
-        // - **Performance**: Standard access mode.
-        // - **Safty**: High-security access mode.
-        // - **LVS**: LVS link mode.
         shared_ptr<string> connectionMode_ {};
-        // Instance connection address.
         shared_ptr<string> connectionString_ {};
-        // Minor version number of the kernel.
         shared_ptr<string> coreVersion_ {};
-        // Number of CPU cores for the compute node, unit: Core.
         shared_ptr<int32_t> cpuCores_ {};
-        // Number of CPU cores per node.
-        // 
-        // > This parameter is only applicable to instances in the storage reserved mode.
         shared_ptr<int32_t> cpuCoresPerNode_ {};
-        // Instance creation time.
         shared_ptr<string> creationTime_ {};
-        // Instance series, with the following values:
-        // 
-        // - **Basic**: Basic Edition.
-        // - **HighAvailability**: High Availability Edition.
         shared_ptr<string> DBInstanceCategory_ {};
-        // Instance specification.
-        // 
-        // > This parameter is only applicable to reserved storage mode instances.
         shared_ptr<string> DBInstanceClass_ {};
-        // Instance family, with the following values:
-        // 
-        // - **s**: Shared type.
-        // - **x**: General type.
-        // - **d**: Dedicated package.
-        // - **h**: Dedicated physical machine.
         shared_ptr<string> DBInstanceClassType_ {};
-        // Number of CPU cores.
         shared_ptr<int32_t> DBInstanceCpuCores_ {};
-        // Instance description.
         shared_ptr<string> DBInstanceDescription_ {};
-        // Maximum BPS (disk throughput) of the compute group, in Mbps.
-        // 
-        // > This parameter is only applicable to reserved storage mode instances.
         shared_ptr<int64_t> DBInstanceDiskMBPS_ {};
-        // Number of compute groups.
-        // 
-        // > This parameter is only applicable to reserved storage mode instances.
         shared_ptr<string> DBInstanceGroupCount_ {};
-        // Instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // Memory of the compute node.
-        // 
-        // > The unit for storage-reserved mode is MB; for Serverless and storage-elastic modes, it is GB.
         shared_ptr<int64_t> DBInstanceMemory_ {};
-        // Instance resource type, with the following values:
-        // 
-        // - **Serverless**: Serverless mode.
-        // - **StorageElastic**: Storage elastic mode.
-        // - **Classic**: Storage reserved mode.
         shared_ptr<string> DBInstanceMode_ {};
-        // This parameter is deprecated and will not return any value.
         shared_ptr<string> DBInstanceNetType_ {};
-        // Instance status. For more details, see the supplementary explanation of the DBInstanceStatus parameter.
         shared_ptr<string> DBInstanceStatus_ {};
-        // Maximum storage space of a single replica, in GB.
         shared_ptr<int64_t> DBInstanceStorage_ {};
-        // The deployment mode.
         shared_ptr<string> deployMode_ {};
-        // Encryption key.
-        // 
-        // > This parameter is returned only for instances with disk encryption enabled.
         shared_ptr<string> encryptionKey_ {};
-        // Encryption type, with the following value:
-        // 
-        // - **CloudDisk**: Cloud disk encryption.
-        // 
-        // > This parameter is returned only for instances with cloud disk encryption.
         shared_ptr<string> encryptionType_ {};
-        // Database engine.
         shared_ptr<string> engine_ {};
-        // Database version.
         shared_ptr<string> engineVersion_ {};
-        // Instance expiration time (in UTC).
-        // 
-        // > The expiration time for pay-as-you-go instances is `2999-09-08T16:00:00Z`.
         shared_ptr<string> expireTime_ {};
         shared_ptr<string> graphEngineStatus_ {};
-        // Compute group machine type, with the following values:
-        // - **0**: SSD
-        // - **1**: HDD
-        // 
-        // > This parameter applies only to storage-reserved mode instances.
         shared_ptr<string> hostType_ {};
-        // Idle release waiting time. Unit: seconds.
-        // 
-        // > This parameter is returned only for instances in the Serverless automatic scheduling mode.
         shared_ptr<int32_t> idleTime_ {};
-        // Instance network type, with the following values:
-        // 
-        // - **Classic**: Classic network.
-        // - **VPC**: VPC network.
         shared_ptr<string> instanceNetworkType_ {};
         shared_ptr<string> instanceSpec_ {};
-        // Lock mode, with the following values:
-        // 
-        // - **Unlock**: Normal.
-        // - **ManualLock**: Manually triggered lock.
-        // - **LockByExpiration**: Automatically locked when the instance expires.
-        // - **LockByRestoration**: Automatically locked before the instance rolls back.
-        // - **LockByDiskQuota**: Automatically locked when the instance space is full.
         shared_ptr<string> lockMode_ {};
-        // This parameter is deprecated and will not return any value.
         shared_ptr<string> lockReason_ {};
-        // Maintenance end time.
         shared_ptr<string> maintainEndTime_ {};
-        // Maintenance start time.
         shared_ptr<string> maintainStartTime_ {};
-        // The specifications of AI coordinator node resources of the instance. If the coordinator nodes of the instance are not AI nodes, null is returned.
         shared_ptr<string> masterAISpec_ {};
-        // Master resources.
         shared_ptr<int32_t> masterCU_ {};
-        // Number of Master nodes.
         shared_ptr<int32_t> masterNodeNum_ {};
-        // Maximum number of concurrent connections for the instance.
-        // 
-        // > This parameter is only applicable to reserved storage mode instances.
         shared_ptr<int32_t> maxConnections_ {};
-        // Memory size per replica, see the **MemoryUnit** parameter for the unit.
-        // 
-        // > This parameter is only applicable to instances in the storage reserved mode.
         shared_ptr<int32_t> memoryPerNode_ {};
-        // Memory size of the compute node.
-        // 
-        // > The unit is MB for the storage reserved mode; GB for Serverless and storage elastic modes.
         shared_ptr<int64_t> memorySize_ {};
-        // Memory unit.
-        // 
-        // > This parameter is only applicable to reserved storage mode instances.
         shared_ptr<string> memoryUnit_ {};
-        // Minor version of the kernel.
         shared_ptr<string> minorVersion_ {};
-        // Billing type, with the following values:
-        // 
-        // - **Postpaid**: Pay-as-you-go.
-        // - **Prepaid**: Subscription.
         shared_ptr<string> payType_ {};
-        // Instance port number.
         shared_ptr<string> port_ {};
-        // The service type.
         shared_ptr<string> prodType_ {};
-        // This parameter has been deprecated and will not return a value.
         shared_ptr<string> readDelayTime_ {};
-        // Region ID.
         shared_ptr<string> regionId_ {};
-        // ID of the resource group where the instance is located.
         shared_ptr<string> resourceGroupId_ {};
-        // Instance running time.
         shared_ptr<string> runningTime_ {};
-        // This parameter is deprecated and will not return any value.
         shared_ptr<string> securityIPList_ {};
-        // Performance Level (PL), currently only **PL1** is supported.
         shared_ptr<string> segDiskPerformanceLevel_ {};
-        // Number of Segment nodes.
-        // 
-        // > This parameter applies only to instances in the storage elastic mode and Serverless manual scheduling mode.
         shared_ptr<int32_t> segNodeNum_ {};
-        // The specifications of AI compute node resources of the instance. If the compute nodes of the instance are not AI nodes, null is returned.
         shared_ptr<string> segmentAISpec_ {};
-        // Number of compute groups.
-        // 
-        // > This parameter applies only to storage-reserved mode instances.
         shared_ptr<int32_t> segmentCounts_ {};
-        // The mode of the Serverless instance, with the following values:
-        // 
-        // - **Manual**: Manual scheduling.
-        // - **Auto**: Automatic scheduling.
-        // 
-        // > This parameter is returned only for Serverless mode instances.
         shared_ptr<string> serverlessMode_ {};
-        // Compute resource threshold. Unit: ACU.
-        // 
-        // > This parameter is returned only for instances in the Serverless automatic scheduling mode.
         shared_ptr<int32_t> serverlessResource_ {};
-        // The secondary zone ID.
         shared_ptr<string> standbyZoneId_ {};
-        // The time when the instance started running.
         shared_ptr<string> startTime_ {};
-        // Storage size per replica, see the **StorageUnit** parameter for units.
-        // 
-        // > This parameter applies only to storage-reserved mode instances.
         shared_ptr<int32_t> storagePerNode_ {};
-        // Storage space size, unit: GB.
         shared_ptr<int64_t> storageSize_ {};
-        // Storage type, with the following values:
-        // 
-        // - **cloud_essd**: ESSD cloud disk.
-        // - **cloud_efficiency**: Efficient cloud disk.
-        // 
-        // > This parameter is only applicable to instances in the storage elastic mode.
         shared_ptr<string> storageType_ {};
-        // Storage unit, with the following values:
-        // 
-        // - **GB SSD**
-        // - **TB SSD**
-        // - **GB HDD**
-        // 
-        // > This parameter is only applicable to instances in the storage reserved mode.
         shared_ptr<string> storageUnit_ {};
-        // Indicates whether backup recovery is supported, with the following values:
-        // 
-        // - **true**: Backup recovery is supported.
-        // - **false**: Backup recovery is not supported.
         shared_ptr<bool> supportRestore_ {};
-        // Tag key-value pairs.
         shared_ptr<DBInstanceAttribute::Tags> tags_ {};
-        // vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // Indicates whether vector engine optimization is enabled. The values are as follows:
-        // - **enabled**: Indicates that vector engine optimization is enabled.
-        // - **disabled**: Indicates that vector engine optimization is disabled.
         shared_ptr<string> vectorConfigurationStatus_ {};
-        // VPC ID.
         shared_ptr<string> vpcId_ {};
-        // Zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -1056,7 +896,6 @@ namespace Models
 
 
   protected:
-    // The queried instance.
     shared_ptr<DescribeDBInstanceAttributeResponseBody::Items> items_ {};
     // Request ID.
     shared_ptr<string> requestId_ {};

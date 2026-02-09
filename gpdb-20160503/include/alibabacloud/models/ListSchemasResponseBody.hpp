@@ -117,7 +117,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried schemas.
     shared_ptr<ListSchemasResponseBody::Schemas> schemas_ {};
     // The status of the operation. Valid values:
     // 

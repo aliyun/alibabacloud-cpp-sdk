@@ -16,11 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AccountPassword, accountPassword_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DiskPerformanceLevel, diskPerformanceLevel_);
+      DARABONBA_PTR_TO_JSON(PayType, payType_);
+      DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
       DARABONBA_PTR_TO_JSON(ProjectSpec, projectSpec_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SecurityIPList, securityIPList_);
       DARABONBA_PTR_TO_JSON(StorageSize, storageSize_);
+      DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
@@ -29,11 +32,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AccountPassword, accountPassword_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DiskPerformanceLevel, diskPerformanceLevel_);
+      DARABONBA_PTR_FROM_JSON(PayType, payType_);
+      DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
       DARABONBA_PTR_FROM_JSON(ProjectSpec, projectSpec_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SecurityIPList, securityIPList_);
       DARABONBA_PTR_FROM_JSON(StorageSize, storageSize_);
+      DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
@@ -50,8 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountPassword_ == nullptr
-        && this->clientToken_ == nullptr && this->diskPerformanceLevel_ == nullptr && this->projectName_ == nullptr && this->projectSpec_ == nullptr && this->regionId_ == nullptr
-        && this->securityIPList_ == nullptr && this->storageSize_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->clientToken_ == nullptr && this->diskPerformanceLevel_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->projectName_ == nullptr
+        && this->projectSpec_ == nullptr && this->regionId_ == nullptr && this->securityIPList_ == nullptr && this->storageSize_ == nullptr && this->usedTime_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // accountPassword Field Functions 
     bool hasAccountPassword() const { return this->accountPassword_ != nullptr;};
     void deleteAccountPassword() { this->accountPassword_ = nullptr;};
@@ -71,6 +78,20 @@ namespace Models
     void deleteDiskPerformanceLevel() { this->diskPerformanceLevel_ = nullptr;};
     inline string getDiskPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(diskPerformanceLevel_, "") };
     inline CreateSupabaseProjectRequest& setDiskPerformanceLevel(string diskPerformanceLevel) { DARABONBA_PTR_SET_VALUE(diskPerformanceLevel_, diskPerformanceLevel) };
+
+
+    // payType Field Functions 
+    bool hasPayType() const { return this->payType_ != nullptr;};
+    void deletePayType() { this->payType_ = nullptr;};
+    inline string getPayType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
+    inline CreateSupabaseProjectRequest& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
+
+
+    // period Field Functions 
+    bool hasPeriod() const { return this->period_ != nullptr;};
+    void deletePeriod() { this->period_ = nullptr;};
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline CreateSupabaseProjectRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // projectName Field Functions 
@@ -106,6 +127,13 @@ namespace Models
     void deleteStorageSize() { this->storageSize_ = nullptr;};
     inline int64_t getStorageSize() const { DARABONBA_PTR_GET_DEFAULT(storageSize_, 0L) };
     inline CreateSupabaseProjectRequest& setStorageSize(int64_t storageSize) { DARABONBA_PTR_SET_VALUE(storageSize_, storageSize) };
+
+
+    // usedTime Field Functions 
+    bool hasUsedTime() const { return this->usedTime_ != nullptr;};
+    void deleteUsedTime() { this->usedTime_ = nullptr;};
+    inline string getUsedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, "") };
+    inline CreateSupabaseProjectRequest& setUsedTime(string usedTime) { DARABONBA_PTR_SET_VALUE(usedTime_, usedTime) };
 
 
     // vSwitchId Field Functions 
@@ -145,6 +173,8 @@ namespace Models
     // *   PL0
     // *   PL1
     shared_ptr<string> diskPerformanceLevel_ {};
+    shared_ptr<string> payType_ {};
+    shared_ptr<string> period_ {};
     // The name of the Supabase project. The name must meet the following requirements:
     // 
     // *   The name must be 1 to 128 characters in length.
@@ -167,6 +197,7 @@ namespace Models
     shared_ptr<string> securityIPList_ {};
     // The storage size. Unit: GB. Default value: 1.
     shared_ptr<int64_t> storageSize_ {};
+    shared_ptr<string> usedTime_ {};
     // The vSwitch ID.
     // 
     // > 

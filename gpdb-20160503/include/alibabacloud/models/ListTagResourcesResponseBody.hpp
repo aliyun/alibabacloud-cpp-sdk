@@ -109,13 +109,9 @@ namespace Models
 
 
       protected:
-        // The ID of the instance.
         shared_ptr<string> resourceId_ {};
-        // The storage mode of the instance.
         shared_ptr<string> resourceType_ {};
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -163,7 +159,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Details about the instances and tags, including the instance IDs, instance modes, and tag key-value pairs.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

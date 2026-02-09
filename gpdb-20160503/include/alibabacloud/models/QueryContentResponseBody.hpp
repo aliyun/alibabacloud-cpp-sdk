@@ -171,15 +171,10 @@ namespace Models
 
 
           protected:
-            // Text content.
             shared_ptr<string> content_ {};
-            // File name.
             shared_ptr<string> fileName_ {};
-            // Unique ID of the vector data.
             shared_ptr<string> id_ {};
-            // Metadata information when the document loader was loaded.
             shared_ptr<string> loaderMetadata_ {};
-            // Metadata map.
             shared_ptr<map<string, string>> metadata_ {};
           };
 
@@ -208,7 +203,6 @@ namespace Models
 
 
       protected:
-        // List of individual top windowed matches.
         shared_ptr<WindowMatchesItem::WindowMatch> windowMatch_ {};
       };
 
@@ -357,15 +351,10 @@ namespace Models
 
 
       protected:
-        // The description of the relationship edge.
         shared_ptr<string> description_ {};
-        // The file name.
         shared_ptr<string> fileName_ {};
-        // The ID of the relationship edge.
         shared_ptr<string> id_ {};
-        // The source entity.
         shared_ptr<string> sourceEntity_ {};
-        // The destination entity.
         shared_ptr<string> targetEntity_ {};
       };
 
@@ -550,35 +539,15 @@ namespace Models
 
 
       protected:
-        // The content that is used for full-text search. If you leave this parameter empty, only vector search is used. If you do not leave this parameter empty, two-way retrieval based on vector search and full-text search is used.
-        // 
-        // >  You must specify at least one of the Content and Vector parameters.
         shared_ptr<string> content_ {};
-        // The name of the document.
-        // 
-        // >  You can call the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) operation to query a list of documents.
         shared_ptr<string> fileName_ {};
-        // The public URL of the query result image, valid for 2 hours
         shared_ptr<string> fileURL_ {};
-        // The unique ID of the vector data.
         shared_ptr<string> id_ {};
-        // Metadata during document loader loading.
         shared_ptr<string> loaderMetadata_ {};
-        // The metadata.
         shared_ptr<map<string, string>> metadata_ {};
-        // Re-ranking score.
         shared_ptr<double> rerankScore_ {};
-        // Source of the retrieval results:
-        // 
-        // - 1 indicates vector retrieval
-        // - 2 indicates full-text retrieval
-        // - 3 indicates dual-path recall
         shared_ptr<int32_t> retrievalSource_ {};
-        // The similarity score of the data. It is related to the `l2, ip, or cosine` algorithm that is specified when you create an index.
         shared_ptr<double> score_ {};
-        // The vector data. The length of the value must be the same as that of the Dimension parameter in the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) operation.
-        // 
-        // >  If you leave this parameter empty, only full-text search results are returned.
         shared_ptr<MatchList::Vector> vector_ {};
       };
 
@@ -680,15 +649,10 @@ namespace Models
 
 
       protected:
-        // Entity description.
         shared_ptr<string> description_ {};
-        // The entity name.
         shared_ptr<string> entity_ {};
-        // The file name.
         shared_ptr<string> fileName_ {};
-        // The entity ID.
         shared_ptr<string> id_ {};
-        // The entity type.
         shared_ptr<string> type_ {};
       };
 
@@ -787,13 +751,10 @@ namespace Models
     // 
     // > A token refers to the smallest unit into which the input text is divided; a token can be a word, a phrase, a punctuation mark, or a character, etc.
     shared_ptr<string> embeddingTokens_ {};
-    // The entities.
     shared_ptr<QueryContentResponseBody::Entities> entities_ {};
-    // The retrieved data.
     shared_ptr<QueryContentResponseBody::Matches> matches_ {};
     // Return message.
     shared_ptr<string> message_ {};
-    // The list of relationship edges.
     shared_ptr<QueryContentResponseBody::Relations> relations_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -804,7 +765,6 @@ namespace Models
     shared_ptr<string> status_ {};
     // Resource usage for this query.
     shared_ptr<QueryContentResponseBody::Usage> usage_ {};
-    // List of windowed matches.
     shared_ptr<QueryContentResponseBody::WindowMatches> windowMatches_ {};
   };
 

@@ -131,26 +131,11 @@ namespace Models
 
 
       protected:
-        // The ID of the instance.
         shared_ptr<string> DBInstanceId_ {};
-        // The resource type of the instance. Valid values:
-        // 
-        // *   **Serverless**: Serverless mode
-        // *   **StorageElasic**: elastic storage mode
-        // *   **Classic**: reserved storage mode
         shared_ptr<string> DBInstanceMode_ {};
-        // The state of data sharing. Valid values:
-        // 
-        // *   **opening**: Data sharing is being enabled.
-        // *   **opened**: Data sharing is enabled.
-        // *   **closing**: Data sharing is being disabled.
-        // *   **closed**: Data sharing is disabled.
         shared_ptr<string> dataShareStatus_ {};
-        // The description of the instance.
         shared_ptr<string> description_ {};
-        // The region ID of the instance.
         shared_ptr<string> regionId_ {};
-        // The zone ID of the instance.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -208,12 +193,6 @@ namespace Models
 
 
   protected:
-    // The state of data sharing. Valid values:
-    // 
-    // *   **opening**
-    // *   **opened**
-    // *   **closing**
-    // *   **closed**
     shared_ptr<DescribeDataShareInstancesResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

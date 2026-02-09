@@ -86,7 +86,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The roles.
     shared_ptr<DescribeRolesResponseBody::RoleList> roleList_ {};
   };
 

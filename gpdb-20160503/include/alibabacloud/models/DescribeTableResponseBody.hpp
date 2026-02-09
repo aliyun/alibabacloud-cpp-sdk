@@ -103,7 +103,6 @@ namespace Models
 
 
   protected:
-    // The columns of the table.
     shared_ptr<DescribeTableResponseBody::ColumnList> columnList_ {};
     // The returned message.
     shared_ptr<string> message_ {};

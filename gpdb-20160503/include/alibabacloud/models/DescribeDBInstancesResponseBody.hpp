@@ -187,9 +187,7 @@ namespace Models
 
 
           protected:
-            // The key of tag N.
             shared_ptr<string> key_ {};
-            // The value of tag N.
             shared_ptr<string> value_ {};
           };
 
@@ -413,109 +411,33 @@ namespace Models
 
 
       protected:
-        // An invalid parameter. It is no longer returned when you call this operation.
-        // 
-        // You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the access mode of an instance.
         shared_ptr<string> connectionMode_ {};
-        // The time when the instance was created. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The edition of the instance. Valid values:
-        // 
-        // *   **Basic**: Basic Edition.
-        // *   **HighAvailability**: High-availability Edition.
-        // *   **Finance**: Enterprise Edition.
         shared_ptr<string> DBInstanceCategory_ {};
-        // The description of the instance.
         shared_ptr<string> DBInstanceDescription_ {};
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The resource type of the instance. Valid values:
-        // 
-        // *   **Serverless**: Serverless mode.
-        // *   **StorageElastic**: elastic storage mode.
-        // *   **Classic**: reserved storage mode.
         shared_ptr<string> DBInstanceMode_ {};
-        // The type of the network interface card (NIC) that is used by the instance. Valid values:
-        // 
-        // *   **0**: Internet.
-        // *   **1**: internal network.
-        // *   **2**: VPC.
         shared_ptr<string> DBInstanceNetType_ {};
-        // The status of the instance. For more information, see [Instance statuses](https://help.aliyun.com/document_detail/86944.html).
         shared_ptr<string> DBInstanceStatus_ {};
-        // The database engine of the instance.
         shared_ptr<string> engine_ {};
-        // The database engine version of the instance.
         shared_ptr<string> engineVersion_ {};
-        // The expiration time of the instance. The time is displayed in UTC.
-        // 
-        // >  The expiration time of a pay-as-you-go instance is `2999-09-08T16:00:00Z`.
         shared_ptr<string> expireTime_ {};
-        // The resource type of the instance. Valid values:
-        // 
-        // *   **cluster**: Serverless mode or elastic storage mode.
-        // *   **replicaSet**: reserved storage mode.
         shared_ptr<string> instanceDeployType_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   **Classic**: classic network.
-        // *   **VPC**: VPC.
         shared_ptr<string> instanceNetworkType_ {};
-        // The lock mode of the instance. Valid values:
-        // 
-        // *   **Unlock**: The instance is not locked.
-        // *   **ManualLock**: The instance is manually locked.
-        // *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-        // *   **LockByRestoration**: The instance is automatically locked due to instance restoration.
-        // *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage.
-        // *   **LockReadInstanceByDiskQuota**: The instance is a read-only instance and is automatically locked when the disk space is full.
         shared_ptr<string> lockMode_ {};
-        // The reason why the instance is locked. Valid values:
-        // 
-        // *   **0**: The instance is not locked.
-        // *   **1**: The instance is manually locked.
-        // *   **2**: The instance is automatically locked due to instance expiration.
-        // *   **3**: The instance is automatically locked due to instance restoration.
-        // *   **4**: The instance is automatically locked due to exhausted storage.
-        // 
-        // >  If the instance is in reserved storage mode and is not locked, null is returned.
         shared_ptr<string> lockReason_ {};
-        // The number of coordinator nodes.
         shared_ptr<int32_t> masterNodeNum_ {};
-        // The billing method of the instance. Valid values:
-        // 
-        // *   **Postpaid**: pay-as-you-go.
-        // *   **Prepaid**: subscription.
         shared_ptr<string> payType_ {};
-        // product type
         shared_ptr<string> prodType_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The ID of the resource group to which the instance belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The number of compute nodes.
         shared_ptr<string> segNodeNum_ {};
-        // The type of the Serverless mode. Valid values:
-        // 
-        // *   **Manual**: manual scheduling.
-        // *   **Auto**: automatic scheduling.
-        // 
-        // >  This parameter is returned only for instances in Serverless mode.
         shared_ptr<string> serverlessMode_ {};
-        // The storage capacity of the instance. Unit: GB.
         shared_ptr<string> storageSize_ {};
-        // The storage type of the instance. Valid values:
-        // 
-        // *   **cloud_essd**: enhanced SSD (ESSD).
-        // *   **cloud_efficiency**: ultra disk.
         shared_ptr<string> storageType_ {};
-        // The tags that are added to the instance.
         shared_ptr<DBInstance::Tags> tags_ {};
-        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The VPC ID of the instance.
         shared_ptr<string> vpcId_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -573,7 +495,6 @@ namespace Models
 
 
   protected:
-    // The queried instances.
     shared_ptr<DescribeDBInstancesResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

@@ -98,15 +98,8 @@ namespace Models
 
 
       protected:
-        // The attribute of the IP address whitelist. By default, this parameter is empty. A whitelist with the `hidden` attribute is not displayed in the console.
         shared_ptr<string> DBInstanceIPArrayAttribute_ {};
-        // The name of the IP address whitelist.
         shared_ptr<string> DBInstanceIPArrayName_ {};
-        // The IP addresses listed in the whitelist. Up to 1,000 IP addresses are contained in a whitelist and separated by commas (,). The IP addresses must use one of the following formats:
-        // 
-        // *   0.0.0.0/0
-        // *   10.23.12.24. This is a standard IP address.
-        // *   10.23.12.24/24. This is a CIDR block. The value `/24` indicates that the prefix of the CIDR block is 24-bit long. You can replace 24 with a value in the range of `1 to 32`.
         shared_ptr<string> securityIPList_ {};
       };
 
@@ -143,7 +136,6 @@ namespace Models
 
 
   protected:
-    // The queried IP address whitelists.
     shared_ptr<DescribeDBInstanceIPArrayListResponseBody::Items> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

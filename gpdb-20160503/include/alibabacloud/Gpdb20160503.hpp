@@ -244,7 +244,7 @@ namespace Gpdb20160503
       Models::CheckHadoopDataSourceResponse checkHadoopDataSource(const Models::CheckHadoopDataSourceRequest &request);
 
       /**
-       * @summary Check Hadoop Cluster Network Connectivity
+       * @summary Checks the network connectivity of a Hadoop external data source.
        *
        * @param request CheckHadoopNetConnectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -253,7 +253,7 @@ namespace Gpdb20160503
       Models::CheckHadoopNetConnectionResponse checkHadoopNetConnectionWithOptions(const Models::CheckHadoopNetConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Check Hadoop Cluster Network Connectivity
+       * @summary Checks the network connectivity of a Hadoop external data source.
        *
        * @param request CheckHadoopNetConnectionRequest
        * @return CheckHadoopNetConnectionResponse
@@ -278,7 +278,7 @@ namespace Gpdb20160503
       Models::CheckJDBCSourceNetConnectionResponse checkJDBCSourceNetConnection(const Models::CheckJDBCSourceNetConnectionRequest &request);
 
       /**
-       * @summary Queries whether a service-linked role is created.
+       * @summary Checks whether a service-linked role is created.
        *
        * @param request CheckServiceLinkedRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -287,7 +287,7 @@ namespace Gpdb20160503
       Models::CheckServiceLinkedRoleResponse checkServiceLinkedRoleWithOptions(const Models::CheckServiceLinkedRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries whether a service-linked role is created.
+       * @summary Checks whether a service-linked role is created.
        *
        * @param request CheckServiceLinkedRoleRequest
        * @return CheckServiceLinkedRoleResponse
@@ -487,7 +487,7 @@ namespace Gpdb20160503
       Models::CreateDocumentCollectionResponse createDocumentCollection(const Models::CreateDocumentCollectionRequest &request);
 
       /**
-       * @summary Install extensions.
+       * @summary Installs extensions.
        *
        * @param request CreateExtensionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -496,7 +496,7 @@ namespace Gpdb20160503
       Models::CreateExtensionsResponse createExtensionsWithOptions(const Models::CreateExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Install extensions.
+       * @summary Installs extensions.
        *
        * @param request CreateExtensionsRequest
        * @return CreateExtensionsResponse
@@ -703,7 +703,7 @@ namespace Gpdb20160503
       Models::CreateStreamingDataServiceResponse createStreamingDataService(const Models::CreateStreamingDataServiceRequest &request);
 
       /**
-       * @summary Create External Data Source Configuration
+       * @summary Creates a real-time data source.
        *
        * @param request CreateStreamingDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -712,7 +712,7 @@ namespace Gpdb20160503
       Models::CreateStreamingDataSourceResponse createStreamingDataSourceWithOptions(const Models::CreateStreamingDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create External Data Source Configuration
+       * @summary Creates a real-time data source.
        *
        * @param request CreateStreamingDataSourceRequest
        * @return CreateStreamingDataSourceResponse
@@ -798,7 +798,7 @@ namespace Gpdb20160503
       Models::DeleteAINodeResponse deleteAINode(const Models::DeleteAINodeRequest &request);
 
       /**
-       * @summary 删除数据库账号
+       * @summary Deletes a database account.
        *
        * @param request DeleteAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -807,7 +807,7 @@ namespace Gpdb20160503
       Models::DeleteAccountResponse deleteAccountWithOptions(const Models::DeleteAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据库账号
+       * @summary Deletes a database account.
        *
        * @param request DeleteAccountRequest
        * @return DeleteAccountResponse
@@ -1003,7 +1003,7 @@ namespace Gpdb20160503
       Models::DeleteDocumentCollectionResponse deleteDocumentCollection(const Models::DeleteDocumentCollectionRequest &request);
 
       /**
-       * @summary Uninstall an extension.
+       * @summary Uninstalls extensions.
        *
        * @param request DeleteExtensionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1012,7 +1012,7 @@ namespace Gpdb20160503
       Models::DeleteExtensionResponse deleteExtensionWithOptions(const Models::DeleteExtensionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uninstall an extension.
+       * @summary Uninstalls extensions.
        *
        * @param request DeleteExtensionRequest
        * @return DeleteExtensionResponse
@@ -1037,7 +1037,7 @@ namespace Gpdb20160503
       Models::DeleteExternalDataServiceResponse deleteExternalDataService(const Models::DeleteExternalDataServiceRequest &request);
 
       /**
-       * @summary 删除hadoop数据源
+       * @summary Deletes a Hadoop external data source.
        *
        * @param request DeleteHadoopDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1046,7 +1046,7 @@ namespace Gpdb20160503
       Models::DeleteHadoopDataSourceResponse deleteHadoopDataSourceWithOptions(const Models::DeleteHadoopDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除hadoop数据源
+       * @summary Deletes a Hadoop external data source.
        *
        * @param request DeleteHadoopDataSourceRequest
        * @return DeleteHadoopDataSourceResponse
@@ -1177,7 +1177,7 @@ namespace Gpdb20160503
       Models::DeleteSecretResponse deleteSecret(const Models::DeleteSecretRequest &request);
 
       /**
-       * @summary Deletes a real-time data service.
+       * @summary Deletes the configurations of an external data source.
        *
        * @param request DeleteStreamingDataServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1186,7 +1186,7 @@ namespace Gpdb20160503
       Models::DeleteStreamingDataServiceResponse deleteStreamingDataServiceWithOptions(const Models::DeleteStreamingDataServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a real-time data service.
+       * @summary Deletes the configurations of an external data source.
        *
        * @param request DeleteStreamingDataServiceRequest
        * @return DeleteStreamingDataServiceResponse
@@ -1211,7 +1211,7 @@ namespace Gpdb20160503
       Models::DeleteStreamingDataSourceResponse deleteStreamingDataSource(const Models::DeleteStreamingDataSourceRequest &request);
 
       /**
-       * @summary Deletes a real-time data service job.
+       * @summary Deletes a real-time data synchronization job.
        *
        * @param request DeleteStreamingJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1220,7 +1220,7 @@ namespace Gpdb20160503
       Models::DeleteStreamingJobResponse deleteStreamingJobWithOptions(const Models::DeleteStreamingJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a real-time data service job.
+       * @summary Deletes a real-time data synchronization job.
        *
        * @param request DeleteStreamingJobRequest
        * @return DeleteStreamingJobResponse
@@ -1858,7 +1858,7 @@ namespace Gpdb20160503
       Models::DescribeDataReDistributeInfoResponse describeDataReDistributeInfo(const Models::DescribeDataReDistributeInfoRequest &request);
 
       /**
-       * @summary Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+       * @summary Queries the status of data sharing for AnalyticDB for PostgreSQL instances.
        *
        * @description Data sharing is supported only for instances in Serverless mode.
        *
@@ -1869,7 +1869,7 @@ namespace Gpdb20160503
       Models::DescribeDataShareInstancesResponse describeDataShareInstancesWithOptions(const Models::DescribeDataShareInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+       * @summary Queries the status of data sharing for AnalyticDB for PostgreSQL instances.
        *
        * @description Data sharing is supported only for instances in Serverless mode.
        *
@@ -1921,7 +1921,7 @@ namespace Gpdb20160503
       Models::DescribeDatabaseResponse describeDatabase(const Models::DescribeDatabaseRequest &request);
 
       /**
-       * @summary Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+       * @summary Queries all databases and database accounts of an AnalyticDB for PostgreSQL instance.
        *
        * @description To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
        * ## Limits
@@ -1934,7 +1934,7 @@ namespace Gpdb20160503
       Models::DescribeDiagnosisDimensionsResponse describeDiagnosisDimensionsWithOptions(const Models::DescribeDiagnosisDimensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+       * @summary Queries all databases and database accounts of an AnalyticDB for PostgreSQL instance.
        *
        * @description To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
        * ## Limits
@@ -2059,7 +2059,7 @@ namespace Gpdb20160503
       Models::DescribeDownloadRecordsResponse describeDownloadRecords(const Models::DescribeDownloadRecordsRequest &request);
 
       /**
-       * @summary Get download records
+       * @summary Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
        *
        * @param request DescribeDownloadSQLLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2068,7 +2068,7 @@ namespace Gpdb20160503
       Models::DescribeDownloadSQLLogsResponse describeDownloadSQLLogsWithOptions(const Models::DescribeDownloadSQLLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get download records
+       * @summary Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
        *
        * @param request DescribeDownloadSQLLogsRequest
        * @return DescribeDownloadSQLLogsResponse
@@ -2110,7 +2110,7 @@ namespace Gpdb20160503
       Models::DescribeExternalDataServiceResponse describeExternalDataService(const Models::DescribeExternalDataServiceRequest &request);
 
       /**
-       * @summary Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
+       * @summary Queries a list of E-MapReduce (EMR) clusters in a virtual private cloud (VPC).
        *
        * @param request DescribeHadoopClustersInSameNetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2119,7 +2119,7 @@ namespace Gpdb20160503
       Models::DescribeHadoopClustersInSameNetResponse describeHadoopClustersInSameNetWithOptions(const Models::DescribeHadoopClustersInSameNetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
+       * @summary Queries a list of E-MapReduce (EMR) clusters in a virtual private cloud (VPC).
        *
        * @param request DescribeHadoopClustersInSameNetRequest
        * @return DescribeHadoopClustersInSameNetResponse
@@ -2407,7 +2407,7 @@ namespace Gpdb20160503
       Models::DescribeRdsVpcsResponse describeRdsVpcs(const Models::DescribeRdsVpcsRequest &request);
 
       /**
-       * @summary 描述一个实例是否处于平衡状态
+       * @summary Queries the rebalance status of an AnalyticDB for PostgreSQL instance.
        *
        * @param request DescribeRebalanceStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2416,7 +2416,7 @@ namespace Gpdb20160503
       Models::DescribeRebalanceStatusResponse describeRebalanceStatusWithOptions(const Models::DescribeRebalanceStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 描述一个实例是否处于平衡状态
+       * @summary Queries the rebalance status of an AnalyticDB for PostgreSQL instance.
        *
        * @param request DescribeRebalanceStatusRequest
        * @return DescribeRebalanceStatusResponse
@@ -2588,7 +2588,7 @@ namespace Gpdb20160503
       Models::DescribeStreamingDataSourceResponse describeStreamingDataSource(const Models::DescribeStreamingDataSourceRequest &request);
 
       /**
-       * @summary Delete External Data Source Configuration
+       * @summary Queries a real-time data synchronization job.
        *
        * @param request DescribeStreamingJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2597,7 +2597,7 @@ namespace Gpdb20160503
       Models::DescribeStreamingJobResponse describeStreamingJobWithOptions(const Models::DescribeStreamingJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete External Data Source Configuration
+       * @summary Queries a real-time data synchronization job.
        *
        * @param request DescribeStreamingJobRequest
        * @return DescribeStreamingJobResponse
@@ -2885,7 +2885,7 @@ namespace Gpdb20160503
       Models::ExecuteStatementResponse executeStatement(const Models::ExecuteStatementRequest &request);
 
       /**
-       * @summary 获取特定的账号信息
+       * @summary Queries the information about a database account.
        *
        * @param request GetAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2894,7 +2894,7 @@ namespace Gpdb20160503
       Models::GetAccountResponse getAccountWithOptions(const Models::GetAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取特定的账号信息
+       * @summary Queries the information about a database account.
        *
        * @param request GetAccountRequest
        * @return GetAccountResponse
@@ -3255,7 +3255,7 @@ namespace Gpdb20160503
       Models::ListExternalDataServicesResponse listExternalDataServices(const Models::ListExternalDataServicesRequest &request);
 
       /**
-       * @summary 获取实例外表配置列表
+       * @summary Queries a list of data sources.
        *
        * @param request ListExternalDataSourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3264,7 +3264,7 @@ namespace Gpdb20160503
       Models::ListExternalDataSourcesResponse listExternalDataSourcesWithOptions(const Models::ListExternalDataSourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例外表配置列表
+       * @summary Queries a list of data sources.
        *
        * @param request ListExternalDataSourcesRequest
        * @return ListExternalDataSourcesResponse
@@ -3367,7 +3367,7 @@ namespace Gpdb20160503
       Models::ListNamespacesResponse listNamespaces(const Models::ListNamespacesRequest &request);
 
       /**
-       * @summary Get Homogeneous Data Source
+       * @summary Queries remote AnalyticDB data sources.
        *
        * @param request ListRemoteADBDataSourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3376,7 +3376,7 @@ namespace Gpdb20160503
       Models::ListRemoteADBDataSourcesResponse listRemoteADBDataSourcesWithOptions(const Models::ListRemoteADBDataSourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Homogeneous Data Source
+       * @summary Queries remote AnalyticDB data sources.
        *
        * @param request ListRemoteADBDataSourcesRequest
        * @return ListRemoteADBDataSourcesResponse
@@ -3452,7 +3452,7 @@ namespace Gpdb20160503
       Models::ListStreamingDataServicesResponse listStreamingDataServices(const Models::ListStreamingDataServicesRequest &request);
 
       /**
-       * @summary Queries real-time service data sources.
+       * @summary Queries a list of real-time service data sources.
        *
        * @param request ListStreamingDataSourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3461,7 +3461,7 @@ namespace Gpdb20160503
       Models::ListStreamingDataSourcesResponse listStreamingDataSourcesWithOptions(const Models::ListStreamingDataSourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries real-time service data sources.
+       * @summary Queries a list of real-time service data sources.
        *
        * @param request ListStreamingDataSourcesRequest
        * @return ListStreamingDataSourcesResponse
@@ -3545,7 +3545,7 @@ namespace Gpdb20160503
       Models::ListTablesResponse listTables(const Models::ListTablesRequest &request);
 
       /**
-       * @summary Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+       * @summary Queries a list of AnalyticDB for PostgreSQL instances that have specific tags added.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3554,7 +3554,7 @@ namespace Gpdb20160503
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+       * @summary Queries a list of AnalyticDB for PostgreSQL instances that have specific tags added.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -3741,7 +3741,7 @@ namespace Gpdb20160503
       Models::ModifyDBInstanceNetworkTypeResponse modifyDBInstanceNetworkType(const Models::ModifyDBInstanceNetworkTypeRequest &request);
 
       /**
-       * @summary 包年包月/按量付费转换改造
+       * @summary Switches between billing methods for an AnalyticDB for PostgreSQL instance.
        *
        * @param request ModifyDBInstancePayTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3750,7 +3750,7 @@ namespace Gpdb20160503
       Models::ModifyDBInstancePayTypeResponse modifyDBInstancePayTypeWithOptions(const Models::ModifyDBInstancePayTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 包年包月/按量付费转换改造
+       * @summary Switches between billing methods for an AnalyticDB for PostgreSQL instance.
        *
        * @param request ModifyDBInstancePayTypeRequest
        * @return ModifyDBInstancePayTypeResponse
@@ -3912,7 +3912,7 @@ namespace Gpdb20160503
       Models::ModifyParametersResponse modifyParameters(const Models::ModifyParametersRequest &request);
 
       /**
-       * @summary Modify Homogeneous Data Source
+       * @summary Modifies a remote AnalyticDB data source.
        *
        * @param request ModifyRemoteADBDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3921,7 +3921,7 @@ namespace Gpdb20160503
       Models::ModifyRemoteADBDataSourceResponse modifyRemoteADBDataSourceWithOptions(const Models::ModifyRemoteADBDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify Homogeneous Data Source
+       * @summary Modifies a remote AnalyticDB data source.
        *
        * @param request ModifyRemoteADBDataSourceRequest
        * @return ModifyRemoteADBDataSourceResponse
@@ -3977,7 +3977,7 @@ namespace Gpdb20160503
       Models::ModifySecurityIpsResponse modifySecurityIps(const Models::ModifySecurityIpsRequest &request);
 
       /**
-       * @summary Modifies a real-time data service.
+       * @summary Modifies the configurations of an external data source.
        *
        * @param request ModifyStreamingDataServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3986,7 +3986,7 @@ namespace Gpdb20160503
       Models::ModifyStreamingDataServiceResponse modifyStreamingDataServiceWithOptions(const Models::ModifyStreamingDataServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a real-time data service.
+       * @summary Modifies the configurations of an external data source.
        *
        * @param request ModifyStreamingDataServiceRequest
        * @return ModifyStreamingDataServiceResponse
@@ -4049,7 +4049,7 @@ namespace Gpdb20160503
       Models::ModifySupabaseProjectSecurityIpsResponse modifySupabaseProjectSecurityIps(const Models::ModifySupabaseProjectSecurityIpsRequest &request);
 
       /**
-       * @summary Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+       * @summary Modifies the vector search engine optimization configuration of an AnalyticDB for PostgreSQL instance.
        *
        * @param request ModifyVectorConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4058,7 +4058,7 @@ namespace Gpdb20160503
       Models::ModifyVectorConfigurationResponse modifyVectorConfigurationWithOptions(const Models::ModifyVectorConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+       * @summary Modifies the vector search engine optimization configuration of an AnalyticDB for PostgreSQL instance.
        *
        * @param request ModifyVectorConfigurationRequest
        * @return ModifyVectorConfigurationResponse
@@ -4129,7 +4129,7 @@ namespace Gpdb20160503
       Models::QueryCollectionDataResponse queryCollectionData(const Models::QueryCollectionDataRequest &request);
 
       /**
-       * @summary Query
+       * @summary Retrieves vector data and metadata from a document collection by using natural statements.
        *
        * @param tmpReq QueryContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4138,7 +4138,7 @@ namespace Gpdb20160503
       Models::QueryContentResponse queryContentWithOptions(const Models::QueryContentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query
+       * @summary Retrieves vector data and metadata from a document collection by using natural statements.
        *
        * @param request QueryContentRequest
        * @return QueryContentResponse
@@ -4199,7 +4199,7 @@ namespace Gpdb20160503
       Models::ReleaseInstancePublicConnectionResponse releaseInstancePublicConnection(const Models::ReleaseInstancePublicConnectionRequest &request);
 
       /**
-       * @summary Score and re-order documents using a model
+       * @summary The Rerank operation can resolve the issue of inaccurate ranking of vector and full-text search results. It re-scores and reranks the retrieved data through semantic understanding to significantly improve the relevance and accuracy of the results. AnalyticDB for PostgreSQL allows you to rerank search results by using Rerank models, but does not provide models.
        *
        * @param tmpReq RerankRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4208,7 +4208,7 @@ namespace Gpdb20160503
       Models::RerankResponse rerankWithOptions(const Models::RerankRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Score and re-order documents using a model
+       * @summary The Rerank operation can resolve the issue of inaccurate ranking of vector and full-text search results. It re-scores and reranks the retrieved data through semantic understanding to significantly improve the relevance and accuracy of the results. AnalyticDB for PostgreSQL allows you to rerank search results by using Rerank models, but does not provide models.
        *
        * @param request RerankRequest
        * @return RerankResponse
@@ -4464,7 +4464,7 @@ namespace Gpdb20160503
       Models::UnbindDBResourceGroupWithRoleResponse unbindDBResourceGroupWithRole(const Models::UnbindDBResourceGroupWithRoleRequest &request);
 
       /**
-       * @summary Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+       * @summary Releases the sample dataset from an AnalyticDB for PostgreSQL instance.
        *
        * @description You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
        * ## Limits
@@ -4477,7 +4477,7 @@ namespace Gpdb20160503
       Models::UnloadSampleDataResponse unloadSampleDataWithOptions(const Models::UnloadSampleDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+       * @summary Releases the sample dataset from an AnalyticDB for PostgreSQL instance.
        *
        * @description You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
        * ## Limits
@@ -4489,7 +4489,7 @@ namespace Gpdb20160503
       Models::UnloadSampleDataResponse unloadSampleData(const Models::UnloadSampleDataRequest &request);
 
       /**
-       * @summary Remove resource tags
+       * @summary Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4498,7 +4498,7 @@ namespace Gpdb20160503
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Remove resource tags
+       * @summary Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse

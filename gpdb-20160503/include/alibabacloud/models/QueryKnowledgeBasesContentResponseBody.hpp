@@ -177,15 +177,10 @@ namespace Models
 
 
       protected:
-        // The description of the relationship edge.
         shared_ptr<string> description_ {};
-        // The name of the file.
         shared_ptr<string> fileName_ {};
-        // The ID of the link.
         shared_ptr<string> id_ {};
-        // The source entity.
         shared_ptr<string> sourceEntity_ {};
-        // The destination entity.
         shared_ptr<string> targetEntity_ {};
       };
 
@@ -326,25 +321,14 @@ namespace Models
 
 
       protected:
-        // The content of the text.
         shared_ptr<string> content_ {};
-        // The name of the file.
         shared_ptr<string> fileName_ {};
-        // The public network URL of the image result. By default, the URL is valid for 2 hours.
-        // 
-        // You can use the UrlExpiration parameter to specify a validity period.
         shared_ptr<string> fileURL_ {};
-        // The unique ID of the vector data.
         shared_ptr<string> id_ {};
-        // Document loader metadata.
         shared_ptr<string> loaderMetadata_ {};
-        // The metadata map.
         shared_ptr<map<string, string>> metadata_ {};
-        // The rerank score.
         shared_ptr<double> rerankScore_ {};
-        // The source of the retrieval results. 1 indicates vector retrieval, 2 indicates full-text retrieval, and 3 indicates dual-path retrieval.
         shared_ptr<int32_t> retrievalSource_ {};
-        // The similarity score of the data. It is related to the algorithm (l2, ip, or cosine) that is specified when you create an index.
         shared_ptr<double> score_ {};
       };
 
@@ -446,15 +430,10 @@ namespace Models
 
 
       protected:
-        // The entity description.
         shared_ptr<string> description_ {};
-        // The name of the entity.
         shared_ptr<string> entity_ {};
-        // The name of the file.
         shared_ptr<string> fileName_ {};
-        // The entity ID.
         shared_ptr<string> id_ {};
-        // The entity type.
         shared_ptr<string> type_ {};
       };
 
@@ -544,13 +523,10 @@ namespace Models
     // 
     // >  A token is the minimum unit for segmenting text. A token can be a word, phrase, punctuation, or character.
     shared_ptr<string> embeddingTokens_ {};
-    // The details of the entity.
     shared_ptr<QueryKnowledgeBasesContentResponseBody::Entities> entities_ {};
-    // A single data record.
     shared_ptr<QueryKnowledgeBasesContentResponseBody::Matches> matches_ {};
     // The returned information.
     shared_ptr<string> message_ {};
-    // The details of the relationship edge.
     shared_ptr<QueryKnowledgeBasesContentResponseBody::Relations> relations_ {};
     // The unique ID of the request.
     shared_ptr<string> requestId_ {};

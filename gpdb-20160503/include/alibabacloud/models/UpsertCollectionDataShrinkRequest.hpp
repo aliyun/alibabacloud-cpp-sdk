@@ -126,6 +126,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The vector data that you want to upload.
     shared_ptr<string> rowsShrink_ {};
     // The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
     shared_ptr<string> workspaceId_ {};

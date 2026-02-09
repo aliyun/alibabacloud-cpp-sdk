@@ -305,6 +305,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> collection_ {};
+    // Text content for retrieval.
     shared_ptr<string> content_ {};
     // Instance ID.
     // 

@@ -13,10 +13,12 @@ namespace Models
   class CreateSupabaseProjectResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateSupabaseProjectResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(OrderId, orderId_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSupabaseProjectResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->projectId_ == nullptr
-        && this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->orderId_ == nullptr
+        && this->projectId_ == nullptr && this->requestId_ == nullptr; };
+    // orderId Field Functions 
+    bool hasOrderId() const { return this->orderId_ != nullptr;};
+    void deleteOrderId() { this->orderId_ = nullptr;};
+    inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+    inline CreateSupabaseProjectResponseBody& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
+
+
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
@@ -48,6 +57,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> orderId_ {};
     // The Supabase project ID.
     shared_ptr<string> projectId_ {};
     // The request ID.

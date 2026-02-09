@@ -285,15 +285,11 @@ namespace Models
 
 
       protected:
-        // The unique ID of the vector data.
         shared_ptr<string> id_ {};
-        // Metadata.
         shared_ptr<map<string, string>> metadata_ {};
         Darabonba::Json metadataV2_ {};
-        // The similarity score of this data, which is related to the algorithm `(l2/ip/cosine)` specified when creating the index.
         shared_ptr<double> score_ {};
         shared_ptr<Match::SparseValues> sparseValues_ {};
-        // List of vector data.
         shared_ptr<Match::Values> values_ {};
       };
 
@@ -351,7 +347,6 @@ namespace Models
 
 
   protected:
-    // Data list.
     shared_ptr<QueryCollectionDataResponseBody::Matches> matches_ {};
     // Detailed information when the request fails.
     shared_ptr<string> message_ {};

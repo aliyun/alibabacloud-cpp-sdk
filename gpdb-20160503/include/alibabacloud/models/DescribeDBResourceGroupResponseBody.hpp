@@ -133,23 +133,8 @@ namespace Models
 
 
       protected:
-        // The configurations of the resource group.
-        // 
-        // > 
-        // 
-        // *   CpuRateLimit: the percentage of CPU resources that are available for the resource group. Unit: %.
-        // 
-        // *   MemoryLimit: the percentage of memory resources that are available for the resource group. Unit: %.
-        // 
-        // *   MemorySharedQuota: the percentage of memory resources shared among transactions that are submitted to the resource group. Unit: %. Default value: 80.
-        // 
-        // *   MemorySpillRatio: the memory spill ratio for memory-intensive transactions. When the memory that is used by memory-intensive transactions reaches this value, data is spilled to disks. Unit: %. Default value: 0.
-        // 
-        // *   Concurrency: the maximum number of concurrent transactions or parallel queries that are allowed for a resource group. Default value: 20.
         shared_ptr<string> resourceGroupConfig_ {};
-        // The name of the resource group.
         shared_ptr<string> resourceGroupName_ {};
-        // The roles.
         shared_ptr<ResourceGroupItem::RoleList> roleList_ {};
       };
 
@@ -188,7 +173,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried resource group information.
     shared_ptr<DescribeDBResourceGroupResponseBody::ResourceGroupItems> resourceGroupItems_ {};
   };
 

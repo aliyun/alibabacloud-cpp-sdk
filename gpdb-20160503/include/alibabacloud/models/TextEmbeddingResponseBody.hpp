@@ -130,9 +130,7 @@ namespace Models
 
 
       protected:
-        // The embedding values.
         shared_ptr<ResultsItem::Embedding> embedding_ {};
-        // The number of the embedding in the Input request parameter, which starts from 0.
         shared_ptr<int32_t> index_ {};
       };
 
@@ -194,7 +192,6 @@ namespace Models
     shared_ptr<string> message_ {};
     // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The embedding results.
     shared_ptr<TextEmbeddingResponseBody::Results> results_ {};
     // The status of the operation. Valid values:
     // 

@@ -116,21 +116,10 @@ namespace Models
 
 
       protected:
-        // The backup job ID.
         shared_ptr<string> backupJobId_ {};
-        // The backup mode. Valid values:
-        // 
-        // *   **Automated**
-        // *   **Manual**
         shared_ptr<string> backupMode_ {};
-        // The backup status. Valid values:
-        // 
-        // *   **Success**
-        // *   **Failure**
         shared_ptr<string> backupStatus_ {};
-        // The progress of the backup job.
         shared_ptr<string> process_ {};
-        // The time when the backup job started. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> startTime_ {};
       };
 
@@ -167,7 +156,6 @@ namespace Models
 
 
   protected:
-    // The queried backup jobs.
     shared_ptr<ListBackupJobsResponseBody::Items> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

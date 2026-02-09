@@ -173,29 +173,16 @@ namespace Models
 
 
       protected:
-        // Data source name
         shared_ptr<string> dataSourceName_ {};
-        // Description.
         shared_ptr<string> description_ {};
-        // ID.
         shared_ptr<int64_t> id_ {};
-        // Local database name
         shared_ptr<string> localDatabase_ {};
-        // Local instance name
         shared_ptr<string> localInstanceName_ {};
-        // Manager user name
         shared_ptr<string> managerUserName_ {};
-        // Region ID.
-        // 
-        // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
         shared_ptr<string> regionId_ {};
-        // Remote database name
         shared_ptr<string> remoteDatabase_ {};
-        // Remote instance name
         shared_ptr<string> remoteInstanceName_ {};
-        // Data source status
         shared_ptr<string> status_ {};
-        // User name
         shared_ptr<string> userName_ {};
       };
 
@@ -239,7 +226,6 @@ namespace Models
 
 
   protected:
-    // Returns the successfully added data sharing service data.
     shared_ptr<ListRemoteADBDataSourcesResponseBody::DataSourceItems> dataSourceItems_ {};
     // Request ID.
     shared_ptr<string> requestId_ {};

@@ -109,13 +109,9 @@ namespace Models
 
 
       protected:
-        // The performance bottleneck type.
         shared_ptr<string> bottleneck_ {};
-        // The name of the performance metric.
         shared_ptr<string> key_ {};
-        // The unit of the performance metric.
         shared_ptr<string> unit_ {};
-        // The value of the performance metric.
         shared_ptr<string> value_ {};
       };
 
@@ -161,7 +157,6 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The queried performance metric.
     shared_ptr<DescribeDBInstanceSupportMaxPerformanceResponseBody::Performances> performances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

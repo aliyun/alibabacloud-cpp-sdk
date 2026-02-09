@@ -139,7 +139,6 @@ namespace Models
 
 
   protected:
-    // The queried vector collections.
     shared_ptr<ListCollectionsResponseBody::Collections> collections_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> count_ {};

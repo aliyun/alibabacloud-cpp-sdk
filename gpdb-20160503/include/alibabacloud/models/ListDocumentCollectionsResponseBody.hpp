@@ -159,19 +159,12 @@ namespace Models
 
 
       protected:
-        // The name of the document collection.
         shared_ptr<string> collectionName_ {};
-        // The number of vector dimensions.
         shared_ptr<int32_t> dimension_ {};
-        // The name of the vector algorithm.
         shared_ptr<string> embeddingModel_ {};
-        // The fields that are used for full-text search. Multiple fields are separated by commas (,).
         shared_ptr<string> fullTextRetrievalFields_ {};
-        // The metadata.
         shared_ptr<string> metadata_ {};
-        // The vector similarity algorithm.
         shared_ptr<string> metrics_ {};
-        // The analyzer that is used for full-text search.
         shared_ptr<string> parser_ {};
         shared_ptr<string> sparseRetrievalFields_ {};
         shared_ptr<bool> supportSparse_ {};
@@ -233,7 +226,6 @@ namespace Models
   protected:
     // The total number of entries returned.
     shared_ptr<int32_t> count_ {};
-    // The queried document collections.
     shared_ptr<ListDocumentCollectionsResponseBody::Items> items_ {};
     // The returned message.
     shared_ptr<string> message_ {};

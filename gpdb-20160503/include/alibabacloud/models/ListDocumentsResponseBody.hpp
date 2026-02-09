@@ -97,9 +97,7 @@ namespace Models
 
 
       protected:
-        // The name of the document.
         shared_ptr<string> fileName_ {};
-        // The source of the document.
         shared_ptr<string> source_ {};
       };
 
@@ -166,7 +164,6 @@ namespace Models
   protected:
     // The total number of entries returned.
     shared_ptr<int32_t> count_ {};
-    // The queried documents.
     shared_ptr<ListDocumentsResponseBody::Items> items_ {};
     // The returned message.
     shared_ptr<string> message_ {};

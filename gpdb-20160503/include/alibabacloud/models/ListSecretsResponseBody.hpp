@@ -141,19 +141,12 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud account.
         shared_ptr<string> accountId_ {};
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The description of the access credential.
         shared_ptr<string> description_ {};
-        // The region ID of the instance.
         shared_ptr<string> regionId_ {};
-        // The Alibaba Cloud Resource Name (ARN) of the access credential for the created Data API account. Format: `acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}`.
         shared_ptr<string> secretArn_ {};
-        // The name of the access credential.
         shared_ptr<string> secretName_ {};
-        // The name of the database account.
         shared_ptr<string> username_ {};
       };
 
@@ -217,7 +210,6 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried access credentials.
     shared_ptr<ListSecretsResponseBody::Secrets> secrets_ {};
     // The status of the operation. Valid values:
     // 

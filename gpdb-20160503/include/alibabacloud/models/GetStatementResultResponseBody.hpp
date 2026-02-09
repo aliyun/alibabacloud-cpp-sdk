@@ -188,9 +188,7 @@ namespace Models
 
 
     protected:
-      // List of column metadata.
       shared_ptr<Data::ColumnMetadata> columnMetadata_ {};
-      // Multiple rows of data.
       shared_ptr<Data::Records> records_ {};
       // Total number of entries.
       shared_ptr<int64_t> totalNumRows_ {};

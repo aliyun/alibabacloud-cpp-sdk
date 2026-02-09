@@ -116,19 +116,10 @@ namespace Models
 
 
       protected:
-        // The description of the account.
         shared_ptr<string> accountDescription_ {};
-        // The name of the account.
         shared_ptr<string> accountName_ {};
-        // The state of the account.
-        // 
-        // *   **0**: The account is being created.
-        // *   **1**: The account is in use.
-        // *   **3**: The account is being deleted.
         shared_ptr<string> accountStatus_ {};
-        // The type of the database account. Valid values: Super and Normal. Super indicates a privileged account and Normal indicates a standard account.
         shared_ptr<string> accountType_ {};
-        // The ID of the instance.
         shared_ptr<string> DBInstanceId_ {};
       };
 
@@ -165,7 +156,6 @@ namespace Models
 
 
   protected:
-    // The queried database accounts.
     shared_ptr<DescribeAccountsResponseBody::Accounts> accounts_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -84,7 +84,6 @@ namespace Models
 
 
   protected:
-    // The list of supported model names.
     shared_ptr<ListSupportModelsResponseBody::ModelNames> modelNames_ {};
     // The unique ID of the request.
     shared_ptr<string> requestId_ {};

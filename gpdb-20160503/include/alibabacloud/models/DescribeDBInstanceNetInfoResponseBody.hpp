@@ -146,24 +146,13 @@ namespace Models
 
 
       protected:
-        // The type of the endpoint.
         shared_ptr<string> addressType_ {};
-        // The endpoint that is used to connect to the instance.
         shared_ptr<string> connectionString_ {};
-        // The IP address.
         shared_ptr<string> IPAddress_ {};
-        // The type of the IP address.
-        // 
-        // *   Valid values for instances in the classic network: Inner and Public.
-        // *   Valid values for instances in a virtual private cloud (VPC): Private and Public.
         shared_ptr<string> IPType_ {};
-        // The port number.
         shared_ptr<string> port_ {};
-        // The VPC ID of the instance.
         shared_ptr<string> VPCId_ {};
-        // The vSwitch ID. Multiple IDs are separated by commas (,).
         shared_ptr<string> vSwitchId_ {};
-        // The ID of the instance that is deployed in a VPC.
         shared_ptr<string> vpcInstanceId_ {};
       };
 
@@ -207,7 +196,6 @@ namespace Models
 
 
   protected:
-    // The connection information of the instance.
     shared_ptr<DescribeDBInstanceNetInfoResponseBody::DBInstanceNetInfos> DBInstanceNetInfos_ {};
     // The network type of the instance. Valid values:
     // 

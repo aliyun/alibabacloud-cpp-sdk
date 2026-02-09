@@ -122,7 +122,6 @@ namespace Models
     // *   **success**
     // *   **fail**
     shared_ptr<string> status_ {};
-    // The queried tables.
     shared_ptr<ListTablesResponseBody::Tables> tables_ {};
   };
 
