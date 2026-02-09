@@ -105,12 +105,19 @@ namespace Models
 
 
   protected:
+    // The command parameters.
     shared_ptr<vector<string>> args_ {};
+    // The user command.
     shared_ptr<vector<string>> command_ {};
+    // The environment variables.
     shared_ptr<vector<EnvVar>> env_ {};
+    // The endpoint of the container image.
     shared_ptr<string> image_ {};
+    // The name of the container.
     shared_ptr<string> name_ {};
+    // The container resources.
     shared_ptr<ResourceRequirements> resources_ {};
+    // The working directory in the container.
     shared_ptr<string> workingDir_ {};
   };
 

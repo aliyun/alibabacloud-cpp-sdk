@@ -18,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const JobSettings& obj) { 
       DARABONBA_ANY_TO_JSON(AdvancedSettings, advancedSettings_);
       DARABONBA_PTR_TO_JSON(AllocateAllRDMADevices, allocateAllRDMADevices_);
+      DARABONBA_PTR_TO_JSON(AllowUnschedulableNodes, allowUnschedulableNodes_);
       DARABONBA_PTR_TO_JSON(BusinessUserId, businessUserId_);
       DARABONBA_PTR_TO_JSON(Caller, caller_);
       DARABONBA_PTR_TO_JSON(DataJuicerConfig, dataJuicerConfig_);
@@ -42,6 +43,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, JobSettings& obj) { 
       DARABONBA_ANY_FROM_JSON(AdvancedSettings, advancedSettings_);
       DARABONBA_PTR_FROM_JSON(AllocateAllRDMADevices, allocateAllRDMADevices_);
+      DARABONBA_PTR_FROM_JSON(AllowUnschedulableNodes, allowUnschedulableNodes_);
       DARABONBA_PTR_FROM_JSON(BusinessUserId, businessUserId_);
       DARABONBA_PTR_FROM_JSON(Caller, caller_);
       DARABONBA_PTR_FROM_JSON(DataJuicerConfig, dataJuicerConfig_);
@@ -75,11 +77,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->advancedSettings_ == nullptr
-        && this->allocateAllRDMADevices_ == nullptr && this->businessUserId_ == nullptr && this->caller_ == nullptr && this->dataJuicerConfig_ == nullptr && this->disableEcsStockCheck_ == nullptr
-        && this->driver_ == nullptr && this->enableCPUAffinity_ == nullptr && this->enableDSWDev_ == nullptr && this->enableErrorMonitoringInAIMaster_ == nullptr && this->enableOssAppend_ == nullptr
-        && this->enableRDMA_ == nullptr && this->enableSanityCheck_ == nullptr && this->enableTideResource_ == nullptr && this->errorMonitoringArgs_ == nullptr && this->jobReservedMinutes_ == nullptr
-        && this->jobReservedPolicy_ == nullptr && this->modelConfig_ == nullptr && this->oversoldType_ == nullptr && this->pipelineId_ == nullptr && this->sanityCheckArgs_ == nullptr
-        && this->tags_ == nullptr; };
+        && this->allocateAllRDMADevices_ == nullptr && this->allowUnschedulableNodes_ == nullptr && this->businessUserId_ == nullptr && this->caller_ == nullptr && this->dataJuicerConfig_ == nullptr
+        && this->disableEcsStockCheck_ == nullptr && this->driver_ == nullptr && this->enableCPUAffinity_ == nullptr && this->enableDSWDev_ == nullptr && this->enableErrorMonitoringInAIMaster_ == nullptr
+        && this->enableOssAppend_ == nullptr && this->enableRDMA_ == nullptr && this->enableSanityCheck_ == nullptr && this->enableTideResource_ == nullptr && this->errorMonitoringArgs_ == nullptr
+        && this->jobReservedMinutes_ == nullptr && this->jobReservedPolicy_ == nullptr && this->modelConfig_ == nullptr && this->oversoldType_ == nullptr && this->pipelineId_ == nullptr
+        && this->sanityCheckArgs_ == nullptr && this->tags_ == nullptr; };
     // advancedSettings Field Functions 
     bool hasAdvancedSettings() const { return this->advancedSettings_ != nullptr;};
     void deleteAdvancedSettings() { this->advancedSettings_ = nullptr;};
@@ -94,6 +96,13 @@ namespace Models
     void deleteAllocateAllRDMADevices() { this->allocateAllRDMADevices_ = nullptr;};
     inline bool getAllocateAllRDMADevices() const { DARABONBA_PTR_GET_DEFAULT(allocateAllRDMADevices_, false) };
     inline JobSettings& setAllocateAllRDMADevices(bool allocateAllRDMADevices) { DARABONBA_PTR_SET_VALUE(allocateAllRDMADevices_, allocateAllRDMADevices) };
+
+
+    // allowUnschedulableNodes Field Functions 
+    bool hasAllowUnschedulableNodes() const { return this->allowUnschedulableNodes_ != nullptr;};
+    void deleteAllowUnschedulableNodes() { this->allowUnschedulableNodes_ = nullptr;};
+    inline bool getAllowUnschedulableNodes() const { DARABONBA_PTR_GET_DEFAULT(allowUnschedulableNodes_, false) };
+    inline JobSettings& setAllowUnschedulableNodes(bool allowUnschedulableNodes) { DARABONBA_PTR_SET_VALUE(allowUnschedulableNodes_, allowUnschedulableNodes) };
 
 
     // businessUserId Field Functions 
@@ -243,27 +252,65 @@ namespace Models
 
 
   protected:
+    // The additional advanced parameter configurations.
     Darabonba::Json advancedSettings_ {};
+    // Whether to mount all RDMA network interface controllers
     shared_ptr<bool> allocateAllRDMADevices_ {};
+    shared_ptr<bool> allowUnschedulableNodes_ {};
+    // The ID of the user associated with the job.
     shared_ptr<string> businessUserId_ {};
+    // The caller.
     shared_ptr<string> caller_ {};
     shared_ptr<DataJuicerConfig> dataJuicerConfig_ {};
+    // Whether inventory check is skipped. Valid values:
+    // 
+    // *   true
+    // *   false
     shared_ptr<bool> disableEcsStockCheck_ {};
+    // The NVIDIA driver configurations.
     shared_ptr<string> driver_ {};
+    // Whether the CPU affinity is enabled. This parameter takes effect only when you use subscription general computing resources.
     shared_ptr<bool> enableCPUAffinity_ {};
     shared_ptr<bool> enableDSWDev_ {};
+    // Whether fault tolerance monitoring is enabled for the job. Valid values:
+    // 
+    // *   true
+    // *   false
     shared_ptr<bool> enableErrorMonitoringInAIMaster_ {};
+    // Whether data is written to Object Storage Service (OSS) in append mode. Valid values:
+    // 
+    // *   true
+    // *   false
     shared_ptr<bool> enableOssAppend_ {};
+    // Whether RDMA is enabled for the job. Valid values:
+    // 
+    // *   true
+    // *   false
     shared_ptr<bool> enableRDMA_ {};
+    // Whether sanity check is enabled for the job. Valid values:
+    // 
+    // *   true
+    // *   false
     shared_ptr<bool> enableSanityCheck_ {};
+    // Whether tidal resources are allowed for the job. Valid values:
+    // 
+    // *   true
+    // *   false
     shared_ptr<bool> enableTideResource_ {};
+    // The configuration parameters after you enable fault tolerance monitoring. For example, you can specify whether to enable log hang-based detection.
     shared_ptr<string> errorMonitoringArgs_ {};
+    // The retention period after the job ends. Unit: minutes.
     shared_ptr<int32_t> jobReservedMinutes_ {};
+    // The retention policy after the job ends.
     shared_ptr<string> jobReservedPolicy_ {};
     shared_ptr<ModelConfig> modelConfig_ {};
+    // Whether the job accepts oversold resources. Valid values: ForbiddenQuotaOverSold, AcceptQuotaOverSold, and ForceQuotaOverSold.
     shared_ptr<string> oversoldType_ {};
+    // The pipeline ID.
     shared_ptr<string> pipelineId_ {};
+    // The configuration parameters for sanity check.
     shared_ptr<string> sanityCheckArgs_ {};
+    // The custom tag.
     shared_ptr<map<string, string>> tags_ {};
   };
 

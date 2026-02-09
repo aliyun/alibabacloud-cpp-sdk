@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // The maximum discount. Specify only one of SpotDiscountLimit and SpotPriceLimit.
     shared_ptr<float> spotDiscountLimit_ {};
+    // The maximum price. Unit: CNY/minute. Specify only one of SpotDiscountLimit and SpotPriceLimit.
     shared_ptr<float> spotPriceLimit_ {};
+    // The spot policy. Valid values:
+    // 
+    // *   SpotWithPriceLimit
     shared_ptr<string> spotStrategy_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the environment variable.
     shared_ptr<string> name_ {};
+    // The value of the environment variable.
     shared_ptr<string> value_ {};
   };
 

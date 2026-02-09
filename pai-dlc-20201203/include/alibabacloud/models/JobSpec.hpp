@@ -226,23 +226,49 @@ namespace Models
 
 
   protected:
+    // The scheduling node configurations.
     shared_ptr<AssignNodeSpec> assignNodeSpec_ {};
+    // The auto scaling configurations.
     shared_ptr<AutoScalingSpec> autoScalingSpec_ {};
+    // The hardware specifications of the worker. For more information, see [Billing of DLC](https://help.aliyun.com/document_detail/171758.html) of PAI.
+    // 
+    // >  The price varies based on instance types.
     shared_ptr<string> ecsSpec_ {};
+    // The additional pod configurations.
     shared_ptr<ExtraPodSpec> extraPodSpec_ {};
+    // The address of the image that is run by the worker node. You can call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain the image provided by PAI. You can also specify a third-party public image.
     shared_ptr<string> image_ {};
+    // The configuration of the private image.
     shared_ptr<ImageConfig> imageConfig_ {};
+    // Deprecated.
     shared_ptr<bool> isCheif_ {};
+    // Whether the role is a Chief role. Chief role must be unique.
     shared_ptr<bool> isChief_ {};
+    // The list of local mount configurations.
     shared_ptr<vector<LocalMountSpec>> localMountSpecs_ {};
+    // The number of replicas.
     shared_ptr<int64_t> podCount_ {};
+    // The resource configurations.
     shared_ptr<ResourceConfig> resourceConfig_ {};
+    // The restart policy. Valid values: Always, Never, OnFailure, and ExitCode.
     shared_ptr<string> restartPolicy_ {};
+    // The service configurations.
     shared_ptr<ServiceSpec> serviceSpec_ {};
+    // The configurations of the preemptible instance.
     shared_ptr<SpotSpec> spotSpec_ {};
     shared_ptr<vector<StartupDependency>> startupDependencies_ {};
     shared_ptr<SystemDisk> systemDisk_ {};
+    // The worker type, which is related to JobType. The valid values of this parameter vary based on the value of JobType.
+    // 
+    // *   Valid values when JobType is set to **TFJob**: Chief, PS, Worker, Evaluator, and GraphLearn.
+    // *   Valid values when JobType is set to **PyTorchJob**: Worker and Master.
+    // *   Valid values when JobType is set to **XGBoostJob**: Worker and Master.
+    // *   Valid values when JobType is set to **OneFlowJob**: Worker and Master.
+    // *   Valid values when JobType is set to **ElasticBatch**: Worker and Master.
+    // 
+    // The Master node in jobs of the PyTorchJob, XGBoostJob, OneFlowJob, or ElasticBatch type is optional. If you do not specify the Master node, the system automatically uses the first Worker node as the Master node.
     shared_ptr<string> type_ {};
+    // Whether to use preemptible instances.
     shared_ptr<bool> useSpotInstance_ {};
   };
 

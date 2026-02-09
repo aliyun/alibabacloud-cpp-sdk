@@ -163,19 +163,42 @@ namespace Models
 
 
   protected:
+    // The accelerator type. Valid values:
+    // 
+    // *   CPU
+    // *   GPU
     shared_ptr<string> acceleratorType_ {};
+    // The number of CPU cores.
     shared_ptr<int32_t> cpu_ {};
+    // The default GPU driver version.
     shared_ptr<string> defaultGPUDriver_ {};
+    // The number of GPUs.
     shared_ptr<int32_t> gpu_ {};
+    // The GPU memory size.
     shared_ptr<int32_t> gpuMemory_ {};
+    // The GPU type.
     shared_ptr<string> gpuType_ {};
+    // The instance type.
     shared_ptr<string> instanceType_ {};
+    // Indicates whether the instance type is available. Valid values:
+    // 
+    // *   true
+    // *   false
     shared_ptr<bool> isAvailable_ {};
+    // The memory size. Unit: MiB or GiB.
     shared_ptr<int32_t> memory_ {};
+    // The discount on the current price of the preemptible instance.
     shared_ptr<float> nonProtectSpotDiscount_ {};
+    // The billing methods.
     shared_ptr<vector<string>> paymentTypes_ {};
+    // The resource type. Valid values:
+    // 
+    // *   ECS
+    // *   Lingjun
     shared_ptr<string> resourceType_ {};
+    // The inventory status of preemptible instance.
     shared_ptr<string> spotStockStatus_ {};
+    // The GPU driver versions.
     shared_ptr<vector<string>> supportedGPUDrivers_ {};
   };
 

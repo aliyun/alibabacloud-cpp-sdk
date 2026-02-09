@@ -217,10 +217,18 @@ namespace Models
 
 
     protected:
+      // The default route. Default value: false. Valid values:
+      // 
+      // *   eth0: The default network interface is used to access the Internet through the public gateway.
+      // *   eth1: The user\\"s Elastic Network Interface is used to access the Internet through the private gateway.
       shared_ptr<string> defaultRoute_ {};
+      // The extended CIDR blocks that need to be connected.
       shared_ptr<vector<string>> extendedCidrs_ {};
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
+      // The vSwitch ID.
       shared_ptr<string> switchId_ {};
+      // VPC ID
       shared_ptr<string> vpcId_ {};
     };
 
@@ -262,7 +270,9 @@ namespace Models
 
 
     protected:
+      // The data source ID.
       shared_ptr<string> dataSourceId_ {};
+      // The local mount path of the data source.
       shared_ptr<string> mountPath_ {};
     };
 
@@ -322,9 +332,13 @@ namespace Models
 
 
     protected:
+      // The code repository branch.
       shared_ptr<string> branch_ {};
+      // The code source ID.
       shared_ptr<string> codeSourceId_ {};
+      // The CommitID of the code repository used by the job.
       shared_ptr<string> commit_ {};
+      // The local mount path of the code.
       shared_ptr<string> mountPath_ {};
     };
 
@@ -769,62 +783,134 @@ namespace Models
 
 
   protected:
+    // The visibility of the job.
     shared_ptr<string> accessibility_ {};
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
+    // The code source used by the job.
     shared_ptr<JobItem::CodeSource> codeSource_ {};
+    // The credential configurations associated with the job.
     shared_ptr<CredentialConfig> credentialConfig_ {};
+    // A list of all data sources used by the job.
     shared_ptr<vector<JobItem::DataSources>> dataSources_ {};
+    // The job name.
     shared_ptr<string> displayName_ {};
+    // The duration of the job. Unit: seconds.
     shared_ptr<int64_t> duration_ {};
+    // The elastic parameters of the job.
     shared_ptr<JobElasticSpec> elasticSpec_ {};
+    // Indicates whether PreemptibleJob is enabled.
     shared_ptr<bool> enablePreemptibleJob_ {};
+    // Indicates whether DeBugger is enabled.
     shared_ptr<bool> enabledDebugger_ {};
+    // The environment variables that are injected into the job run time.
     shared_ptr<map<string, string>> envs_ {};
+    // The time when the job was created (UTC).
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the job failed (UTC).
     shared_ptr<string> gmtFailedTime_ {};
+    // The time when the job ended (UTC).
     shared_ptr<string> gmtFinishTime_ {};
+    // The time when the job was modified (UTC).
     shared_ptr<string> gmtModifiedTime_ {};
+    // The time when the job started (UTC).
     shared_ptr<string> gmtRunningTime_ {};
+    // The time when the job stopped (UTC).
     shared_ptr<string> gmtStoppedTime_ {};
+    // The time when the job was submitted (UTC).
     shared_ptr<string> gmtSubmittedTime_ {};
+    // The time when the job succeeded (UTC).
     shared_ptr<string> gmtSuccessedTime_ {};
+    // Indicates whether the job is deleted.
     shared_ptr<bool> isDeleted_ {};
+    // The ID of the job.
     shared_ptr<string> jobId_ {};
+    // The maximum running duration of the job.
     shared_ptr<int64_t> jobMaxRunningTimeMinutes_ {};
     shared_ptr<vector<JobReplicaStatus>> jobReplicaStatuses_ {};
+    // The node configurations of the job run time.
     shared_ptr<vector<JobSpec>> jobSpecs_ {};
+    // The job type. Valid values:
+    // 
+    // *   TFJob
+    // *   PyTorchJob
+    // *   MPIJob
+    // *   XGBoostJob
+    // *   OneFlowJob
+    // *   ElasticBatchJob
+    // *   RayJob
+    // *   SlurmJob
     shared_ptr<string> jobType_ {};
+    // The number of nodes.
     shared_ptr<string> nodeCount_ {};
+    // The node names.
     shared_ptr<vector<string>> nodeNames_ {};
+    // The pods.
     shared_ptr<vector<PodItem>> pods_ {};
+    // The priority of the job.
     shared_ptr<int32_t> priority_ {};
+    // The reason code for the job to enter the current status. Valid values:
+    // 
+    // *   InvalidParameter
+    // *   JobSucceeded
+    // *   JobStoppedByUser
     shared_ptr<string> reasonCode_ {};
+    // The detailed reason for the job to enter the current status.
     shared_ptr<string> reasonMessage_ {};
+    // The requested CPU cores.
     shared_ptr<int64_t> requestCPU_ {};
+    // The requested GPU cores.
     shared_ptr<string> requestGPU_ {};
+    // The requested memory.
     shared_ptr<string> requestMemory_ {};
+    // The ID of the resource group to which the resource belongs.
     shared_ptr<string> resourceId_ {};
+    // The resource level of the job run time.
     shared_ptr<string> resourceLevel_ {};
+    // The name of the resource on which the job runs.
     shared_ptr<string> resourceName_ {};
+    // The name of the resource quota.
     shared_ptr<string> resourceQuotaName_ {};
+    // The resource type. Valid values: ECS, Lingjun, and ACS.
     shared_ptr<string> resourceType_ {};
+    // The number of job restarts.
     shared_ptr<string> restartTimes_ {};
+    // The extra parameters of the job.
     shared_ptr<JobSettings> settings_ {};
+    // The job status. Valid values:
+    // 
+    // *   Succeeded
+    // *   Failed
     shared_ptr<string> status_ {};
+    // The status history of the job.
     shared_ptr<vector<StatusTransitionItem>> statusHistory_ {};
+    // The sub-status of the job, such as the preemption and retry status.
     shared_ptr<string> subStatus_ {};
+    // The system environment variables configured.
     shared_ptr<map<string, string>> systemEnvs_ {};
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
+    // The name of the folder in which the requirements.txt file resides.
     shared_ptr<string> thirdpartyLibDir_ {};
+    // The third-party Python libraries required for the job.
     shared_ptr<vector<string>> thirdpartyLibs_ {};
+    // Indicates whether the job uses idle resources.
     shared_ptr<bool> useOversoldResource_ {};
+    // The start command for each node of the job.
     shared_ptr<string> userCommand_ {};
+    // The UID of the user to which the job belongs.
     shared_ptr<string> userId_ {};
+    // The user script.
     shared_ptr<string> userScript_ {};
+    // The user VPC.
     shared_ptr<JobItem::UserVpc> userVpc_ {};
+    // The username that is used to submit the job.
     shared_ptr<string> username_ {};
+    // The working path.
     shared_ptr<string> workingDir_ {};
+    // The ID of the workspace to which the job belongs.
     shared_ptr<string> workspaceId_ {};
+    // The name of the workspace to which the job belongs.
     shared_ptr<string> workspaceName_ {};
   };
 

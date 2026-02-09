@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The number of GPU cores.
     shared_ptr<string> CPU_ {};
+    // The number of GPU cores.
     shared_ptr<string> GPU_ {};
+    // The memory capacity limit, in Gi.
     shared_ptr<string> memory_ {};
   };
 

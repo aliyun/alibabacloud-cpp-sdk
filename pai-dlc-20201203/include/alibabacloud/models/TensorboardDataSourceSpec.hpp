@@ -103,13 +103,24 @@ namespace Models
 
 
   protected:
+    // The file type that corresponds to the URI in the dataset configurations.
     shared_ptr<string> dataSourceType_ {};
+    // The directory prefix of the dataset in the TensorBoard task.
     shared_ptr<string> directoryName_ {};
+    // The full summary path.
     shared_ptr<string> fullSummaryPath_ {};
+    // The ID of the dataset configurations. In most cases, the ID of the dataset configurations is the ID of a dataset or task.
     shared_ptr<string> id_ {};
+    // The name of the dataset configurations. In most cases, the name of the dataset configurations is the name of a dataset or task.
     shared_ptr<string> name_ {};
+    // The dataset type.
+    // 
+    // *   datasource: configure a dataset based on the dataset type.
+    // *   dlcjob: configure a dataset based on the task type.
     shared_ptr<string> sourceType_ {};
+    // The summary path.
     shared_ptr<string> summaryPath_ {};
+    // The file system URI in the dataset configurations.
     shared_ptr<string> uri_ {};
   };
 

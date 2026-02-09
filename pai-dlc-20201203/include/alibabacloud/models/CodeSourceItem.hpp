@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The branch of the code repository. If you configure this parameter when you call the CreateJob API operation, the branch is overwritten.
     shared_ptr<string> codeBranch_ {};
+    // The commit ID. If you configure this parameter when you call the CreateJob API operation, the commit is overwritten.
     shared_ptr<string> codeCommit_ {};
+    // The URL of the code repository.
     shared_ptr<string> codeRepo_ {};
+    // The access token used to access the code repository.
     shared_ptr<string> codeRepoAccessToken_ {};
+    // The username used to access the private code repository.
     shared_ptr<string> codeRepoUserName_ {};
+    // The ID of the code source.
     shared_ptr<string> codeSourceId_ {};
+    // The description of the code source.
     shared_ptr<string> description_ {};
+    // The name of the code source.
     shared_ptr<string> displayName_ {};
+    // The time when the code source was created. The time is displayed in UTC.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the code source was modified. The time is displayed in UTC.
     shared_ptr<string> gmtModifyTime_ {};
+    // The UID of the Alibaba Cloud user who creates the code source.
     shared_ptr<string> userId_ {};
   };
 

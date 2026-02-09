@@ -94,12 +94,28 @@ namespace Models
 
 
   protected:
+    // The type of the image accelerator. Valid values:
+    // 
+    // *   cpu
+    // *   gpu
     shared_ptr<string> acceleratorType_ {};
+    // The creator of the image.
     shared_ptr<string> authorId_ {};
+    // The computing framework that is encapsulated by the image. Valid values:
+    // 
+    // *   TFJob
+    // *   PyTorchJob
     shared_ptr<string> framework_ {};
+    // The image type. Valid values:
+    // 
+    // *   Community
+    // *   PAI
     shared_ptr<string> imageProviderType_ {};
+    // The tag of the docker image.
     shared_ptr<string> imageTag_ {};
+    // The image URL address.
     shared_ptr<string> imageUrl_ {};
+    // The VPC endpoint of the image URL. This address provides faster access speed.
     shared_ptr<string> imageUrlVpc_ {};
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The specifications of the ECS instance configured for the pay-as-you-go Tensorboard task.
     shared_ptr<string> ecsType_ {};
+    // The ID of the security group configured for the pay-as-you-go Tensorboard task.
     shared_ptr<string> securityGroupId_ {};
+    // The ID of the vSwitch configured for the pay-as-you-go Tensorboard task.
     shared_ptr<string> switchId_ {};
+    // The ID of the virtual private cloud (VPC) configured for the pay-as-you-go Tensorboard task.
     shared_ptr<string> vpcId_ {};
   };
 

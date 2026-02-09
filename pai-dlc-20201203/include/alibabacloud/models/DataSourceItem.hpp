@@ -140,17 +140,29 @@ namespace Models
 
 
   protected:
+    // The data source ID.
     shared_ptr<string> dataSourceId_ {};
+    // The data source type. Only File Storage NAS (NAS) file systems are supported.
     shared_ptr<string> dataSourceType_ {};
+    // The data source description.
     shared_ptr<string> description_ {};
+    // The data source name.
     shared_ptr<string> displayName_ {};
+    // The endpoint of the Alibaba Cloud OSS file system.
     shared_ptr<string> endpoint_ {};
+    // The ID of the NAS file system. For more information, see [Alibaba Cloud documentation](https://help.aliyun.com/document_detail/185212.html).
     shared_ptr<string> fileSystemId_ {};
+    // The time when the data source was created. The time is displayed in UTC.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the data source was last modified. The time is displayed in UTC.
     shared_ptr<string> gmtModifyTime_ {};
+    // The local path of the container that is attached to the runtime of the task.
     shared_ptr<string> mountPath_ {};
+    // The configuration options of the Alibaba Cloud OSS file system.
     shared_ptr<string> options_ {};
+    // The path of the Alibaba Cloud Object Storage Service (OSS) file system.
     shared_ptr<string> path_ {};
+    // The ID of the Alibaba Cloud account that creates the data source.
     shared_ptr<string> userId_ {};
   };
 

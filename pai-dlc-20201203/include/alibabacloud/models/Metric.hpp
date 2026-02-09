@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The timestamp. Unit: milliseconds.
     shared_ptr<int64_t> time_ {};
+    // The value of the monitoring data.
     shared_ptr<float> value_ {};
   };
 

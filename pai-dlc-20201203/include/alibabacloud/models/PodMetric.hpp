@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The metrics list.
     shared_ptr<vector<Metric>> metrics_ {};
+    // The node ID.
     shared_ptr<string> podId_ {};
   };
 

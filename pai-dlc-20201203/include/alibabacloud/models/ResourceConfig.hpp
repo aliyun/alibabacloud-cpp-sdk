@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The number of vCPUs.
     shared_ptr<string> CPU_ {};
+    // The number of GPUs.
     shared_ptr<string> GPU_ {};
+    // The GPU type.
     shared_ptr<string> GPUType_ {};
+    // The memory size.
     shared_ptr<string> memory_ {};
+    // The shared memory capacity.
     shared_ptr<string> sharedMemory_ {};
   };
 
