@@ -432,7 +432,7 @@ namespace Models
   protected:
     // The status code returned.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<GetDomainResponseBody::Data> data_ {};
     // The response message returned.
     shared_ptr<string> message_ {};

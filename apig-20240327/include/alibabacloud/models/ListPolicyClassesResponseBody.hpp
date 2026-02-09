@@ -95,13 +95,13 @@ namespace Models
 
 
     protected:
-      // List of policy templates
+      // The templates.
       shared_ptr<vector<PolicyClassInfo>> items_ {};
-      // Page number.
+      // The page number of the returned page.
       shared_ptr<int32_t> pageNumber_ {};
-      // Page size
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Total number of items.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -138,13 +138,13 @@ namespace Models
 
 
   protected:
-    // Response code.
+    // The status code returned.
     shared_ptr<string> code_ {};
-    // Policy template information.
+    // An array of policy template information.
     shared_ptr<ListPolicyClassesResponseBody::Data> data_ {};
-    // ResponseMessage
+    // The response message returned.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

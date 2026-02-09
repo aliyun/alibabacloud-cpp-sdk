@@ -137,18 +137,43 @@ namespace Models
 
 
   protected:
+    // The authentication configurations.
     shared_ptr<AuthConfig> authConfig_ {};
+    // The deployment configurations.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
+    // The operation description.
     shared_ptr<string> description_ {};
+    // Specifies whether to enable authentication.
     shared_ptr<bool> enableAuth_ {};
+    // The HTTP method.
+    // 
+    // Valid values:
+    // 
+    // *   TRACE
+    // *   HEAD
+    // *   DELETE
+    // *   POST
+    // *   GET
+    // *   CONNECT
+    // *   OPTIONS
+    // *   PUT
+    // *   PATCH
+    // 
     // This parameter is required.
     shared_ptr<string> method_ {};
+    // The mocking configuration of the operation. This field takes effect only when the API publishing scenario is Mock.
     shared_ptr<HttpApiMockContract> mock_ {};
+    // The operation name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The operation path.
+    // 
     // This parameter is required.
     shared_ptr<string> path_ {};
+    // The request parameters of the operation.
     shared_ptr<HttpApiRequestContract> request_ {};
+    // The response parameters of the operation.
     shared_ptr<HttpApiResponseContract> response_ {};
   };
 

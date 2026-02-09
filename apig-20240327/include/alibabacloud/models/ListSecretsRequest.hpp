@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Gateway type for filtering secrets of specific gateway type
     shared_ptr<string> gatewayType_ {};
+    // Secret name for fuzzy matching, supports filtering secrets by name
     shared_ptr<string> nameLike_ {};
+    // Page number
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of items per page
     shared_ptr<int32_t> pageSize_ {};
   };
 

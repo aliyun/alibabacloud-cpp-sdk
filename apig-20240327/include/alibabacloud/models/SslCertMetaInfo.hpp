@@ -204,24 +204,43 @@ namespace Models
 
 
   protected:
+    // The algorithm.
     shared_ptr<string> algorithm_ {};
+    // The certificate ID.
     shared_ptr<int64_t> certId_ {};
+    // The certificate ID.
     shared_ptr<string> certIdentifier_ {};
+    // The certificate name.
     shared_ptr<string> certName_ {};
+    // The name.
     shared_ptr<string> commonName_ {};
+    // The domain name.
     shared_ptr<string> domain_ {};
+    // The certificate matching the domain name.
     shared_ptr<bool> domainMatchCert_ {};
+    // The certificate fingerprint.
     shared_ptr<string> fingerprint_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // isChainCompleted
     shared_ptr<bool> isChainCompleted_ {};
+    // The certificate issuer.
     shared_ptr<string> issuer_ {};
+    // The key size.
     shared_ptr<string> keySize_ {};
+    // The md5 value.
     shared_ptr<string> md5_ {};
+    // The time when the certificate expires.
     shared_ptr<int64_t> notAfterTimestamp_ {};
+    // The time when the certificate starts to take effect.
     shared_ptr<int64_t> notBeforeTimestamp_ {};
+    // sans
     shared_ptr<string> sans_ {};
+    // The serial number.
     shared_ptr<string> serialNo_ {};
+    // The sha2 value.
     shared_ptr<string> sha2_ {};
+    // The signature algorithm.
     shared_ptr<string> signAlgorithm_ {};
   };
 

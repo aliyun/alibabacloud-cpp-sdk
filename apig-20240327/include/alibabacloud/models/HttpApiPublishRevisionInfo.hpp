@@ -108,8 +108,11 @@ namespace Models
 
 
     protected:
+      // The IP addresses.
       shared_ptr<vector<string>> endpoints_ {};
+      // The matching condition. This condition is valid only in content-based routing.
       shared_ptr<HttpApiBackendMatchConditions> match_ {};
+      // The weight. Valid values: [1,100]. This parameter is valid only in proportional routing.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -189,11 +192,17 @@ namespace Models
 
 
     protected:
+      // The service ID.
       shared_ptr<string> gatewayServiceId_ {};
+      // The matching conditions.
       shared_ptr<HttpApiBackendMatchConditions> match_ {};
+      // The service port.
       shared_ptr<int32_t> port_ {};
+      // The service protocol.
       shared_ptr<string> protocol_ {};
+      // The service version.
       shared_ptr<string> version_ {};
+      // The service weight.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -260,7 +269,9 @@ namespace Models
 
 
       protected:
+        // The instance ID.
         shared_ptr<string> gatewayId_ {};
+        // The instance name.
         shared_ptr<string> name_ {};
       };
 
@@ -297,9 +308,13 @@ namespace Models
 
 
     protected:
+      // The environment alias.
       shared_ptr<string> alias_ {};
+      // The environment ID.
       shared_ptr<string> environmentId_ {};
+      // The instance information.
       shared_ptr<EnvironmentInfo::GatewayInfo> gatewayInfo_ {};
+      // The environment name.
       shared_ptr<string> name_ {};
     };
 
@@ -354,8 +369,11 @@ namespace Models
 
 
     protected:
+      // The DNS domain names.
       shared_ptr<vector<string>> dnsList_ {};
+      // The matching condition. This condition is valid only in content-based routing.
       shared_ptr<HttpApiBackendMatchConditions> match_ {};
+      // The weight. Valid values: [1,100]. This parameter is valid only in proportional routing.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -460,11 +478,17 @@ namespace Models
 
 
       protected:
+        // The associated service ID.
         shared_ptr<string> gatewayServiceId_ {};
+        // The service group.
         shared_ptr<string> groupName_ {};
+        // The matching conditions.
         shared_ptr<HttpApiBackendMatchConditions> match_ {};
+        // The Nacos service name.
         shared_ptr<string> name_ {};
+        // The Nacos namespace.
         shared_ptr<string> namespace_ {};
+        // The service weight.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -535,10 +559,15 @@ namespace Models
 
 
       protected:
+        // The associated service ID.
         shared_ptr<string> gatewayServiceId_ {};
+        // The matching conditions.
         shared_ptr<HttpApiBackendMatchConditions> match_ {};
+        // The function name.
         shared_ptr<string> name_ {};
+        // The function version or alias.
         shared_ptr<string> qualifier_ {};
+        // The service weight.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -628,12 +657,19 @@ namespace Models
 
 
       protected:
+        // The associated service ID.
         shared_ptr<string> gatewayServiceId_ {};
+        // The matching conditions.
         shared_ptr<HttpApiBackendMatchConditions> match_ {};
+        // The K8s service name.
         shared_ptr<string> name_ {};
+        // The K8s namespace.
         shared_ptr<string> namespace_ {};
+        // The service port.
         shared_ptr<int32_t> port_ {};
+        // The service protocol.
         shared_ptr<string> protocol_ {};
+        // The service weight.
         shared_ptr<string> weight_ {};
       };
 
@@ -674,9 +710,13 @@ namespace Models
 
 
     protected:
+      // The type of the cloud service.
       shared_ptr<string> cloudProductType_ {};
+      // The ACK configurations.
       shared_ptr<vector<CloudProductConfig::ContainerServiceConfigs>> containerServiceConfigs_ {};
+      // The Function Compute configurations.
       shared_ptr<vector<CloudProductConfig::FunctionConfigs>> functionConfigs_ {};
+      // The MSE Nacos configurations.
       shared_ptr<vector<CloudProductConfig::MseNacosConfigs>> mseNacosConfigs_ {};
     };
 
@@ -792,18 +832,46 @@ namespace Models
 
 
   protected:
+    // The publishing scenario.
+    // 
+    // Valid values:
+    // 
+    // *   SingleService
+    // *   MultiServiceByRatio
+    // *   MultiServiceByContent
+    // *   MultiServiceByTag
+    // *   Mock
     shared_ptr<string> backendScene_ {};
+    // The type of the backend service.
+    // 
+    // Valid values:
+    // 
+    // *   DNS: a DNS domain name
+    // *   Service: an existing service
+    // *   VIP: a fixed IP address
+    // *   CloudProduct: a cloud service
     shared_ptr<string> backendType_ {};
+    // The cloud service configurations.
     shared_ptr<HttpApiPublishRevisionInfo::CloudProductConfig> cloudProductConfig_ {};
+    // The publishing timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
+    // The custom domain names.
     shared_ptr<vector<HttpApiDomainInfo>> customDomains_ {};
+    // The configurations of DNS domain names. For single-service publishing, only one entry is allowed. For other scenarios, multiple entries are allowed.
     shared_ptr<vector<HttpApiPublishRevisionInfo::DnsConfigs>> dnsConfigs_ {};
+    // The environment information.
     shared_ptr<HttpApiPublishRevisionInfo::EnvironmentInfo> environmentInfo_ {};
+    // Specifies whether the current version is used.
     shared_ptr<bool> isCurrentVersion_ {};
+    // The operations.
     shared_ptr<vector<HttpApiOperationInfo>> operations_ {};
+    // The published version.
     shared_ptr<string> revisionId_ {};
+    // The configurations of existing services. For single-service publishing, only one entry is allowed. For other scenarios, multiple entries are allowed.
     shared_ptr<vector<HttpApiPublishRevisionInfo::ServiceConfigs>> serviceConfigs_ {};
+    // The default domain names of the environment.
     shared_ptr<vector<HttpApiDomainInfo>> subDomains_ {};
+    // The configurations of fixed IP addresses. For single-service publishing, only one entry is allowed. For other scenarios, multiple entries are allowed.
     shared_ptr<vector<HttpApiPublishRevisionInfo::VipConfigs>> vipConfigs_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether to return online resource info.
+    // The request ID, which is used to trace the API call link.
     shared_ptr<bool> withStatistics_ {};
-    // Option for vpc info.
+    // Schema of Response
     shared_ptr<bool> withVpcInfo_ {};
   };
 

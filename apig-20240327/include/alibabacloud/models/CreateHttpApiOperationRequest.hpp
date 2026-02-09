@@ -42,7 +42,7 @@ namespace Models
 
 
   protected:
-    // List of operation definitions.
+    // The operation definitions.
     shared_ptr<vector<HttpApiOperation>> operations_ {};
   };
 

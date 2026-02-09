@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The resource ID.
     shared_ptr<string> resourceId_ {};
+    // The resource name.
     shared_ptr<string> resourceName_ {};
+    // The resource type. Valid values: HttpApi, Operation, GatewayRoute, Gateway, and GatewayDomain.
     shared_ptr<string> resourceType_ {};
+    // The resource version.
     shared_ptr<string> resourceVersion_ {};
   };
 

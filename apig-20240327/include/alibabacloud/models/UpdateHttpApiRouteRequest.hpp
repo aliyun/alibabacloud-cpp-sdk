@@ -2366,6 +2366,7 @@ namespace Models
 
 
         protected:
+          // apiKey
           shared_ptr<string> apiKey_ {};
           shared_ptr<string> collectionId_ {};
           shared_ptr<string> serviceHost_ {};
@@ -2882,9 +2883,9 @@ namespace Models
 
 
       protected:
-        // The service port. If you want to use a dynamic port, do not pass this parameter.
+        // The service port (omit for dynamic ports).
         shared_ptr<int32_t> port_ {};
-        // The protocol. Valid values:
+        // The service protocol. Valid values:
         // 
         // *   HTTP
         // *   HTTPS
@@ -2893,7 +2894,7 @@ namespace Models
         shared_ptr<string> serviceId_ {};
         // The service version.
         shared_ptr<string> version_ {};
-        // The percentage value of traffic.
+        // The traffic weight percentage.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -2916,16 +2917,14 @@ namespace Models
 
 
     protected:
-      // The backend service scenario.
-      // 
-      // Valid values:
+      // The backend service scenario. Valid values:
       // 
       // *   SingleService
       // *   MultiServiceByRatio
       // *   Redirect
       // *   Mock
       shared_ptr<string> scene_ {};
-      // The backend services.
+      // The list of backend services.
       shared_ptr<vector<BackendConfig::Services>> services_ {};
     };
 
@@ -3008,16 +3007,16 @@ namespace Models
 
 
   protected:
-    // The backend service configurations of the route.
+    // The backend service configurations for the route.
     shared_ptr<UpdateHttpApiRouteRequest::BackendConfig> backendConfig_ {};
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
     // The route description.
     shared_ptr<string> description_ {};
-    // The domain IDs.
+    // The list of domain IDs.
     shared_ptr<vector<string>> domainIds_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // The rules for matching the route.
+    // The route match rule.
     shared_ptr<HttpRouteMatch> match_ {};
     shared_ptr<UpdateHttpApiRouteRequest::McpRouteConfig> mcpRouteConfig_ {};
     shared_ptr<string> name_ {};

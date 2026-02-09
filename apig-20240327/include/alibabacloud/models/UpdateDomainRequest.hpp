@@ -130,7 +130,7 @@ namespace Models
     shared_ptr<string> certIdentifier_ {};
     // The client CA certificate.
     shared_ptr<string> clientCACert_ {};
-    // Specifies whether to enable HTTPS redirection. If protocol is set to HTTPS, forceHttps is required.
+    // Specifies whether to enable forcible HTTPS redirection. If protocol is set to HTTPS, forceHttps is required.
     shared_ptr<bool> forceHttps_ {};
     // The HTTP/2 configuration.
     // 

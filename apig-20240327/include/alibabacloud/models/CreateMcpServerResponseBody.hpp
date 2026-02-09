@@ -73,9 +73,9 @@ namespace Models
 
 
     protected:
-      // The ID of the MCP server.
+      // MCP Server ID
       shared_ptr<string> mcpServerId_ {};
-      // The name of the MCP server.
+      // MCP server name
       shared_ptr<string> name_ {};
     };
 
@@ -112,13 +112,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // code
     shared_ptr<string> code_ {};
-    // The response payload.
+    // object
     shared_ptr<CreateMcpServerResponseBody::Data> data_ {};
-    // The status message.
+    // message
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

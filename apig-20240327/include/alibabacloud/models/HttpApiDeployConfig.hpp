@@ -114,9 +114,13 @@ namespace Models
 
 
     protected:
+      // The domain name ID.
       shared_ptr<string> domainId_ {};
+      // The domain name.
       shared_ptr<string> name_ {};
+      // The network type.
       shared_ptr<string> networkType_ {};
+      // The protocol.
       shared_ptr<string> protocol_ {};
     };
 
@@ -196,11 +200,17 @@ namespace Models
 
 
     protected:
+      // Intent classification code
       shared_ptr<string> intentCode_ {};
+      // Match conditions
       shared_ptr<HttpApiBackendMatchConditions> match_ {};
+      // The model name.
       shared_ptr<string> modelName_ {};
+      // The model name matching rule.
       shared_ptr<string> modelNamePattern_ {};
+      // The service ID.
       shared_ptr<string> serviceId_ {};
+      // The service weight.
       shared_ptr<int64_t> weight_ {};
     };
 
@@ -328,11 +338,17 @@ namespace Models
 
 
         protected:
+          // Limit mode
           shared_ptr<string> limitMode_ {};
+          // Limit type
           shared_ptr<string> limitType_ {};
+          // Limit value
           shared_ptr<int32_t> limitValue_ {};
+          // Match key
           shared_ptr<string> matchKey_ {};
+          // Match type
           shared_ptr<string> matchType_ {};
+          // Match value
           shared_ptr<string> matchValue_ {};
         };
 
@@ -410,11 +426,17 @@ namespace Models
 
 
         protected:
+          // Limit mode for global rules
           shared_ptr<string> limitMode_ {};
+          // Limit type for global rules
           shared_ptr<string> limitType_ {};
+          // Limit value for global rules
           shared_ptr<int32_t> limitValue_ {};
+          // Match key
           shared_ptr<string> matchKey_ {};
+          // Match type
           shared_ptr<string> matchType_ {};
+          // Match value
           shared_ptr<string> matchValue_ {};
         };
 
@@ -446,8 +468,11 @@ namespace Models
 
 
       protected:
+        // Whether to enable global rate limit rules
         shared_ptr<bool> enableGlobalRules_ {};
+        // List of global rate limit rules
         shared_ptr<vector<AiTokenRateLimitConfig::GlobalRules>> globalRules_ {};
+        // List of rate limit rules
         shared_ptr<vector<AiTokenRateLimitConfig::Rules>> rules_ {};
       };
 
@@ -559,7 +584,9 @@ namespace Models
 
 
           protected:
+            // Match type
             shared_ptr<string> matchType_ {};
+            // Pattern for matching
             shared_ptr<string> pattern_ {};
           };
 
@@ -589,8 +616,11 @@ namespace Models
 
 
         protected:
+          // Consumer-specific rules
           shared_ptr<RiskConfig::ConsumerRules> consumerRules_ {};
+          // Risk alert level
           shared_ptr<string> level_ {};
+          // Risk type identifier
           shared_ptr<string> type_ {};
         };
 
@@ -650,9 +680,13 @@ namespace Models
 
 
         protected:
+          // Risk alert level
           shared_ptr<string> level_ {};
+          // Match type
           shared_ptr<string> matchType_ {};
+          // Consumer name for matching
           shared_ptr<string> name_ {};
+          // Risk type
           shared_ptr<string> type_ {};
         };
 
@@ -721,10 +755,15 @@ namespace Models
 
 
         protected:
+          // Match type
           shared_ptr<string> matchType_ {};
+          // Modality type
           shared_ptr<string> modalityType_ {};
+          // Consumer name for matching
           shared_ptr<string> name_ {};
+          // Response check service name
           shared_ptr<string> responseCheckService_ {};
+          // responseImageCheckService
           shared_ptr<string> responseImageCheckService_ {};
         };
 
@@ -793,10 +832,15 @@ namespace Models
 
 
         protected:
+          // Match type
           shared_ptr<string> matchType_ {};
+          // Modality type
           shared_ptr<string> modalityType_ {};
+          // Consumer name for matching
           shared_ptr<string> name_ {};
+          // Request check service name
           shared_ptr<string> requestCheckService_ {};
+          // requestImageCheckService
           shared_ptr<string> requestImageCheckService_ {};
         };
 
@@ -918,20 +962,35 @@ namespace Models
 
 
       protected:
+        // bufferLimit
         shared_ptr<int32_t> bufferLimit_ {};
+        // Whether to check request content
         shared_ptr<bool> checkRequest_ {};
+        // Whether to check request content
         shared_ptr<bool> checkRequestImage_ {};
+        // Whether to check response content
         shared_ptr<bool> checkResponse_ {};
+        // Whether to check response content
         shared_ptr<bool> checkResponseImage_ {};
+        // Consumer-specific request check configs
         shared_ptr<vector<AiSecurityGuardConfig::ConsumerRequestCheckService>> consumerRequestCheckService_ {};
+        // Consumer-specific Response check configs
         shared_ptr<vector<AiSecurityGuardConfig::ConsumerResponseCheckService>> consumerResponseCheckService_ {};
+        // Consumer-specific risk level configs
         shared_ptr<vector<AiSecurityGuardConfig::ConsumerRiskLevel>> consumerRiskLevel_ {};
+        // Request check service name
         shared_ptr<string> requestCheckService_ {};
+        // Request check service name
         shared_ptr<string> requestImageCheckService_ {};
+        // Response check service name
         shared_ptr<string> responseCheckService_ {};
+        // Response check service name
         shared_ptr<string> responseImageCheckService_ {};
+        // Risk alert level for content moderation
         shared_ptr<string> riskAlertLevel_ {};
+        // riskConfig
         shared_ptr<vector<AiSecurityGuardConfig::RiskConfig>> riskConfig_ {};
+        // Security guard service address
         shared_ptr<string> serviceAddress_ {};
       };
 
@@ -992,7 +1051,9 @@ namespace Models
 
 
         protected:
+          // Service ID for fallback
           shared_ptr<string> serviceId_ {};
+          // targetModelName
           shared_ptr<string> targetModelName_ {};
         };
 
@@ -1007,6 +1068,7 @@ namespace Models
 
 
       protected:
+        // List of fallback service configurations
         shared_ptr<vector<AiFallbackConfig::ServiceConfigs>> serviceConfigs_ {};
       };
 
@@ -1054,10 +1116,15 @@ namespace Models
 
 
     protected:
+      // The fallback configurations
       shared_ptr<PolicyConfigs::AiFallbackConfig> aiFallbackConfig_ {};
+      // AI Security Guard configuration
       shared_ptr<PolicyConfigs::AiSecurityGuardConfig> aiSecurityGuardConfig_ {};
+      // AI Token Rate Limit configuration
       shared_ptr<PolicyConfigs::AiTokenRateLimitConfig> aiTokenRateLimitConfig_ {};
+      // Specifies whether to enable the policy.
       shared_ptr<bool> enable_ {};
+      // The type of the policy. Valid values:
       shared_ptr<string> type_ {};
     };
 
@@ -1108,8 +1175,11 @@ namespace Models
 
 
     protected:
+      // The domain name ID.
       shared_ptr<string> domainId_ {};
+      // The domain name.
       shared_ptr<string> name_ {};
+      // The protocol.
       shared_ptr<string> protocol_ {};
     };
 
@@ -1225,18 +1295,31 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable automatic deployment.
     shared_ptr<bool> autoDeploy_ {};
+    // The publishing scenario.
     shared_ptr<string> backendScene_ {};
+    // The IDs of the custom domain names.
     shared_ptr<vector<string>> customDomainIds_ {};
+    // The information about the custom domain names.
     shared_ptr<vector<HttpApiDeployConfig::CustomDomainInfos>> customDomainInfos_ {};
+    // The environment ID.
     shared_ptr<string> environmentId_ {};
+    // The instance ID.
     shared_ptr<string> gatewayId_ {};
+    // The instance information.
     shared_ptr<GatewayInfo> gatewayInfo_ {};
+    // 网关类型
     shared_ptr<string> gatewayType_ {};
+    // The Mock settings.
     shared_ptr<HttpApiMockContract> mock_ {};
+    // The policy configurations.
     shared_ptr<vector<HttpApiDeployConfig::PolicyConfigs>> policyConfigs_ {};
+    // routeBackend
     shared_ptr<Backend> routeBackend_ {};
+    // The service configurations.
     shared_ptr<vector<HttpApiDeployConfig::ServiceConfigs>> serviceConfigs_ {};
+    // The information about the sub-domain names.
     shared_ptr<vector<HttpApiDeployConfig::SubDomains>> subDomains_ {};
   };
 

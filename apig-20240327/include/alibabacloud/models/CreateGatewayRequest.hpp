@@ -111,9 +111,7 @@ namespace Models
 
 
       protected:
-        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -143,16 +141,9 @@ namespace Models
 
 
     protected:
-      // The option for selecting the zone.
-      // 
-      // Valid values:
-      // 
-      // *   Auto
-      // *   Manual
+      // The response payload.
       shared_ptr<string> selectOption_ {};
-      // The ID of the vSwitch.
       shared_ptr<string> vSwitchId_ {};
-      // The supported zones.
       shared_ptr<vector<ZoneConfig::Zones>> zones_ {};
     };
 
@@ -194,9 +185,7 @@ namespace Models
 
 
     protected:
-      // The tag key.
       shared_ptr<string> key_ {};
-      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -228,13 +217,7 @@ namespace Models
 
 
     protected:
-      // The network access type.
-      // 
-      // Valid values:
-      // 
-      // *   InternetAndIntranet
-      // *   Intranet
-      // *   Internet
+      // -
       shared_ptr<string> type_ {};
     };
 
@@ -285,7 +268,6 @@ namespace Models
 
 
       protected:
-        // Indicates if enabled.
         shared_ptr<bool> enable_ {};
       };
 
@@ -300,7 +282,6 @@ namespace Models
 
 
     protected:
-      // The Simple Log Service configurations.
       shared_ptr<LogConfig::Sls> sls_ {};
     };
 
@@ -393,37 +374,23 @@ namespace Models
 
 
   protected:
-    // The billing method.
-    // 
-    // Valid values:
-    // 
-    // *   POSTPAY
-    // *   PREPAY
-    shared_ptr<string> chargeType_ {};
-    // The gateway edition.
-    shared_ptr<string> gatewayEdition_ {};
-    // The type of the gateway.
-    // 
-    // Valid values:
-    // 
-    // *   AI
-    // *   API
-    shared_ptr<string> gatewayType_ {};
     // The logging configurations.
-    shared_ptr<CreateGatewayRequest::LogConfig> logConfig_ {};
-    // The name of the gateway instance.
-    shared_ptr<string> name_ {};
-    // The network access configuration.
-    shared_ptr<CreateGatewayRequest::NetworkAccessConfig> networkAccessConfig_ {};
+    shared_ptr<string> chargeType_ {};
+    shared_ptr<string> gatewayEdition_ {};
     // The ID of the resource group.
+    shared_ptr<string> gatewayType_ {};
+    shared_ptr<CreateGatewayRequest::LogConfig> logConfig_ {};
+    // The ID of the vSwitch.
+    shared_ptr<string> name_ {};
+    // The gateway edition.
+    shared_ptr<CreateGatewayRequest::NetworkAccessConfig> networkAccessConfig_ {};
     shared_ptr<string> resourceGroupId_ {};
-    // The specifications of the node.
+    // The tag key.
     shared_ptr<string> spec_ {};
-    // The tags.
     shared_ptr<vector<CreateGatewayRequest::Tag>> tag_ {};
-    // The ID of the VPC.
+    // The tag value.
     shared_ptr<string> vpcId_ {};
-    // The zone settings.
+    // The status message.
     shared_ptr<CreateGatewayRequest::ZoneConfig> zoneConfig_ {};
   };
 

@@ -95,7 +95,7 @@ namespace Models
 
 
     protected:
-      // The information about the domain names.
+      // The list of domain information.
       shared_ptr<vector<DomainInfo>> items_ {};
       // The page number of the returned page.
       shared_ptr<int32_t> pageNumber_ {};
@@ -140,7 +140,7 @@ namespace Models
   protected:
     // The status code returned.
     shared_ptr<string> code_ {};
-    // The response data.
+    // Response parameters.
     shared_ptr<ListDomainsResponseBody::Data> data_ {};
     // The message returned.
     shared_ptr<string> message_ {};

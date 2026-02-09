@@ -41,6 +41,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(environment, environment_);
         DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
+        DARABONBA_PTR_TO_JSON(operationDeployments, operationDeployments_);
         DARABONBA_PTR_TO_JSON(operationIds, operationIds_);
         DARABONBA_PTR_TO_JSON(revisionId, revisionId_);
       };
@@ -48,6 +49,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(environment, environment_);
         DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
+        DARABONBA_PTR_FROM_JSON(operationDeployments, operationDeployments_);
         DARABONBA_PTR_FROM_JSON(operationIds, operationIds_);
         DARABONBA_PTR_FROM_JSON(revisionId, revisionId_);
       };
@@ -62,6 +64,48 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class OperationDeployments : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const OperationDeployments& obj) { 
+          DARABONBA_PTR_TO_JSON(action, action_);
+          DARABONBA_PTR_TO_JSON(operationId, operationId_);
+        };
+        friend void from_json(const Darabonba::Json& j, OperationDeployments& obj) { 
+          DARABONBA_PTR_FROM_JSON(action, action_);
+          DARABONBA_PTR_FROM_JSON(operationId, operationId_);
+        };
+        OperationDeployments() = default ;
+        OperationDeployments(const OperationDeployments &) = default ;
+        OperationDeployments(OperationDeployments &&) = default ;
+        OperationDeployments(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~OperationDeployments() = default ;
+        OperationDeployments& operator=(const OperationDeployments &) = default ;
+        OperationDeployments& operator=(OperationDeployments &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->action_ == nullptr
+        && this->operationId_ == nullptr; };
+        // action Field Functions 
+        bool hasAction() const { return this->action_ != nullptr;};
+        void deleteAction() { this->action_ = nullptr;};
+        inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+        inline OperationDeployments& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
+
+
+        // operationId Field Functions 
+        bool hasOperationId() const { return this->operationId_ != nullptr;};
+        void deleteOperationId() { this->operationId_ = nullptr;};
+        inline string getOperationId() const { DARABONBA_PTR_GET_DEFAULT(operationId_, "") };
+        inline OperationDeployments& setOperationId(string operationId) { DARABONBA_PTR_SET_VALUE(operationId_, operationId) };
+
+
+      protected:
+        shared_ptr<string> action_ {};
+        shared_ptr<string> operationId_ {};
+      };
+
       class Environment : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Environment& obj) { 
@@ -163,19 +207,20 @@ namespace Models
 
 
         protected:
-          // Configuration of matching conditions related to API deployment.
+          // The matching condition configurations related to API publishing.
           shared_ptr<HttpApiBackendMatchConditions> match_ {};
-          // Service port, do not provide for dynamic ports.
+          // The service port. If you want to use a dynamic port, do not pass this parameter.
           shared_ptr<int32_t> port_ {};
-          // Service protocol:
-          // - HTTP.
-          // - HTTPS.
+          // The service protocol. Valid values:
+          // 
+          // *   HTTP
+          // *   HTTPS
           shared_ptr<string> protocol_ {};
-          // Service ID.
+          // The service ID.
           shared_ptr<string> serviceId_ {};
-          // Service version.
+          // The version of the microservice.
           shared_ptr<string> version_ {};
-          // Weight, range [1,100], valid only in the by-ratio scenario.
+          // The weight. Valid values: [1,100]. This parameter is valid only in proportional routing.
           shared_ptr<int32_t> weight_ {};
         };
 
@@ -214,18 +259,25 @@ namespace Models
 
 
       protected:
-        // API publication scenario.
+        // The publishing scenario.
+        // 
+        // Valid values:
+        // 
+        // *   SingleService
+        // *   MultiServiceByRatio
+        // *   MultiServiceByContent
+        // *   Mock
         shared_ptr<string> backendScene_ {};
-        // List of user domains.
+        // The custom domain names.
         shared_ptr<vector<string>> customDomainIds_ {};
-        // Environment ID.
+        // The environment ID.
         shared_ptr<string> environmentId_ {};
-        // Existing service configurations. Only one entry is allowed in a single-service scenario, while multiple entries are allowed in scenarios such as by ratio or by content.
+        // The configurations of existing services. For single-service publishing, only one entry is allowed. For other scenarios, multiple entries are allowed.
         shared_ptr<vector<Environment::ServiceConfigs>> serviceConfigs_ {};
       };
 
       virtual bool empty() const override { return this->description_ == nullptr
-        && this->environment_ == nullptr && this->gatewayId_ == nullptr && this->operationIds_ == nullptr && this->revisionId_ == nullptr; };
+        && this->environment_ == nullptr && this->gatewayId_ == nullptr && this->operationDeployments_ == nullptr && this->operationIds_ == nullptr && this->revisionId_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -249,6 +301,15 @@ namespace Models
       inline RestApiConfig& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
 
 
+      // operationDeployments Field Functions 
+      bool hasOperationDeployments() const { return this->operationDeployments_ != nullptr;};
+      void deleteOperationDeployments() { this->operationDeployments_ = nullptr;};
+      inline const vector<RestApiConfig::OperationDeployments> & getOperationDeployments() const { DARABONBA_PTR_GET_CONST(operationDeployments_, vector<RestApiConfig::OperationDeployments>) };
+      inline vector<RestApiConfig::OperationDeployments> getOperationDeployments() { DARABONBA_PTR_GET(operationDeployments_, vector<RestApiConfig::OperationDeployments>) };
+      inline RestApiConfig& setOperationDeployments(const vector<RestApiConfig::OperationDeployments> & operationDeployments) { DARABONBA_PTR_SET_VALUE(operationDeployments_, operationDeployments) };
+      inline RestApiConfig& setOperationDeployments(vector<RestApiConfig::OperationDeployments> && operationDeployments) { DARABONBA_PTR_SET_RVALUE(operationDeployments_, operationDeployments) };
+
+
       // operationIds Field Functions 
       bool hasOperationIds() const { return this->operationIds_ != nullptr;};
       void deleteOperationIds() { this->operationIds_ = nullptr;};
@@ -266,13 +327,16 @@ namespace Models
 
 
     protected:
-      // Publication description.
+      // The publish description.
       shared_ptr<string> description_ {};
-      // Publication environment configuration.
+      // The environment configurations.
       shared_ptr<RestApiConfig::Environment> environment_ {};
+      // The gateway ID.
       shared_ptr<string> gatewayId_ {};
+      shared_ptr<vector<RestApiConfig::OperationDeployments>> operationDeployments_ {};
+      // operationIds
       shared_ptr<vector<string>> operationIds_ {};
-      // Historical version number. If this field is specified, the publication information will be based on the historical version information.
+      // The historical version of the API. If you specify this parameter, the corresponding version of the API is published.
       shared_ptr<string> revisionId_ {};
     };
 
@@ -316,7 +380,9 @@ namespace Models
 
 
     protected:
+      // The gateway ID.
       shared_ptr<string> gatewayId_ {};
+      // routeIds
       shared_ptr<vector<string>> routeIds_ {};
     };
 
@@ -348,10 +414,11 @@ namespace Models
 
 
   protected:
+    // httpApiConfig
     shared_ptr<DeployHttpApiRequest::HttpApiConfig> httpApiConfig_ {};
-    // Rest API deployment configuration. Required when deploying an HTTP API as a Rest API.
+    // The REST API deployment configuration. This parameter is required when you publish a REST API.
     shared_ptr<DeployHttpApiRequest::RestApiConfig> restApiConfig_ {};
-    // Route ID. This must be provided when publishing the route of an HTTP API.
+    // The route ID. You must specify this parameter when you publish an HTTP API.
     shared_ptr<string> routeId_ {};
   };
 

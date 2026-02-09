@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The configurations of the matching conditions.
     shared_ptr<vector<HttpApiBackendMatchCondition>> conditions_ {};
+    // Specifies whether the matching condition is the default one.
     shared_ptr<bool> default_ {};
   };
 

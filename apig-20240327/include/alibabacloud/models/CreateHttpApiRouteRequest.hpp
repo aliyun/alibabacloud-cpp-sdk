@@ -96,8 +96,11 @@ namespace Models
 
 
     protected:
+      // The exposed URI path
       shared_ptr<string> exposedUriPath_ {};
+      // mcpStatisticsEnable
       shared_ptr<bool> mcpStatisticsEnable_ {};
+      // The MCP protocol
       shared_ptr<string> protocol_ {};
     };
 
@@ -187,18 +190,18 @@ namespace Models
 
 
       protected:
-        // The service port. If you want to use a dynamic port, do not pass this parameter.
+        // The service port (omit for dynamic ports).
         shared_ptr<int32_t> port_ {};
-        // The protocol. Valid values:
+        // The service protocol. Valid values:
         // 
         // *   HTTP
         // *   HTTPS
         shared_ptr<string> protocol_ {};
         // The service ID.
         shared_ptr<string> serviceId_ {};
-        // The service version. Pass this parameter for tag-based routing.
+        // The service version (valid only in tag-based scenarios).
         shared_ptr<string> version_ {};
-        // The percentage value of traffic.
+        // The traffic weight percentage.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -221,14 +224,14 @@ namespace Models
 
 
     protected:
-      // The scenario of the backend service.
+      // The backend service scenario. Valid values:
       // 
       // *   SingleService
       // *   MultiServiceByRatio
       // *   Mock
       // *   Redirect
       shared_ptr<string> scene_ {};
-      // The backend services.
+      // The list of backend services.
       shared_ptr<vector<BackendConfig::Services>> services_ {};
     };
 
@@ -311,20 +314,23 @@ namespace Models
 
 
   protected:
-    // The backend service configurations of the route.
+    // The backend service configurations for the route.
     shared_ptr<CreateHttpApiRouteRequest::BackendConfig> backendConfig_ {};
+    // deployConfigs
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
     // The route description.
     shared_ptr<string> description_ {};
-    // The domain name IDs.
+    // The list of domain IDs.
     shared_ptr<vector<string>> domainIds_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // The rule for matching the route.
+    // The route match rule.
     shared_ptr<HttpRouteMatch> match_ {};
+    // The MCP route configuration
     shared_ptr<CreateHttpApiRouteRequest::McpRouteConfig> mcpRouteConfig_ {};
     // The route name.
     shared_ptr<string> name_ {};
+    // The route-level policy configurations
     shared_ptr<vector<HttpApiPolicyConfigs>> policyConfigs_ {};
   };
 

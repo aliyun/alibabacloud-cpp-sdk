@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // Base64编码的API定义。
+      // The Base64-encoded API definition.
       shared_ptr<string> specContentBase64_ {};
     };
 
@@ -100,13 +100,13 @@ namespace Models
 
 
   protected:
-    // Response status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // API definition information.
+    // The API definition.
     shared_ptr<ExportHttpApiResponseBody::Data> data_ {};
-    // Response message.
+    // The response message returned.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

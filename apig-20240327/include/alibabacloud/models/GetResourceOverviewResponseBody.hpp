@@ -149,10 +149,15 @@ namespace Models
 
 
         protected:
+          // The gateway ID.
           shared_ptr<string> gatewayId_ {};
+          // The gateway name.
           shared_ptr<string> gatewayName_ {};
+          // The risk level.
           shared_ptr<string> riskLevel_ {};
+          // The risk name list.
           shared_ptr<vector<string>> riskNames_ {};
+          // The risk score.
           shared_ptr<string> score_ {};
         };
 
@@ -182,8 +187,11 @@ namespace Models
 
 
       protected:
+        // The number of instances at a risk level.
         shared_ptr<string> count_ {};
+        // The risk details list.
         shared_ptr<vector<RiskOverview::RiskDetails>> riskDetails_ {};
+        // The risk level.
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -309,6 +317,7 @@ namespace Models
       shared_ptr<Data::Api> api_ {};
       // Gateway information.
       shared_ptr<Data::Gateway> gateway_ {};
+      // The risk overview.
       shared_ptr<vector<Data::RiskOverview>> riskOverview_ {};
     };
 
@@ -347,7 +356,7 @@ namespace Models
   protected:
     // Response status code.
     shared_ptr<string> code_ {};
-    // Resource information.
+    // The resource information.
     shared_ptr<GetResourceOverviewResponseBody::Data> data_ {};
     // Response message.
     shared_ptr<string> message_ {};

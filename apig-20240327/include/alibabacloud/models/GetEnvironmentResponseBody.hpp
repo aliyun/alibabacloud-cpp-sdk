@@ -118,9 +118,9 @@ namespace Models
 
 
       protected:
-        // The array of related resource information.
+        // 4
         shared_ptr<vector<ResourceStatistic>> resourceStatistics_ {};
-        // The total number of entries returned.
+        // The total number of entries.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -211,27 +211,27 @@ namespace Models
 
 
     protected:
-      // Environment alias.
+      // Test environment
       shared_ptr<string> alias_ {};
-      // Creation timestamp.
+      // The update timestamp.
       shared_ptr<int64_t> createTimestamp_ {};
-      // Whether it is the default environment.
+      // The creation timestamp.
       shared_ptr<bool> default_ {};
-      // Environment description.
+      // Testing environment for xx project of xxx
       shared_ptr<string> description_ {};
-      // Environment ID.
+      // The environment name.
       shared_ptr<string> environmentId_ {};
-      // Gateway information
+      // The subdomains.
       shared_ptr<GatewayInfo> gatewayInfo_ {};
-      // Environment name.
+      // The environment alias.
       shared_ptr<string> name_ {};
-      // The ID of the resource group.
+      // rg-aekzzzntl5njbpi
       shared_ptr<string> resourceGroupId_ {};
-      // Related resource information.
+      // The information about online resources.
       shared_ptr<Data::StatisticsInfo> statisticsInfo_ {};
-      // List of subdomains.
+      // The subdomain information.
       shared_ptr<vector<SubDomainInfo>> subDomainInfos_ {};
-      // Update timestamp.
+      // The resource group ID.
       shared_ptr<int64_t> updateTimestamp_ {};
     };
 
@@ -268,13 +268,13 @@ namespace Models
 
 
   protected:
-    // Response code.
+    // The response message returned.
     shared_ptr<string> code_ {};
-    // Response data.
+    // The environment ID.
     shared_ptr<GetEnvironmentResponseBody::Data> data_ {};
-    // Response message.
+    // The response data.
     shared_ptr<string> message_ {};
-    // Request ID, used for tracing the API call chain.
+    // The status code returned.
     shared_ptr<string> requestId_ {};
   };
 

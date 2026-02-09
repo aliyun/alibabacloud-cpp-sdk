@@ -151,8 +151,11 @@ namespace Models
   protected:
     // Filter the operation list based on a specific consumer authorization rule ID, and the interface list in the response only contains authorized operations.
     shared_ptr<string> consumerAuthorizationRuleId_ {};
+    // Filter operations by authentication status
     shared_ptr<bool> enableAuth_ {};
+    // Whether to filter for deployment scenario
     shared_ptr<bool> forDeploy_ {};
+    // The gateway ID
     shared_ptr<string> gatewayId_ {};
     // List interfaces by Method.
     shared_ptr<string> method_ {};

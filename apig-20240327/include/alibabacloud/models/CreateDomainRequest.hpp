@@ -154,14 +154,20 @@ namespace Models
   protected:
     // The CA certificate ID.
     shared_ptr<string> caCertIdentifier_ {};
-    // The certificate ID.
+    // The certificate identifier.
     shared_ptr<string> certIdentifier_ {};
-    // The client CA certificate.
+    // The client CA certificate content.
     shared_ptr<string> clientCACert_ {};
-    // Specifies whether to enable forcible HTTPS redirection.
+    // Specifies whether to enable forced HTTP to HTTPS redirection.
     shared_ptr<bool> forceHttps_ {};
+    // The gateway type.
+    // 
+    // Valid values:
+    // 
+    // *   AI
+    // *   API
     shared_ptr<string> gatewayType_ {};
-    // The HTTP/2 configuration.
+    // HTTP/2 configuration options.
     // 
     // Valid values:
     // 
@@ -169,7 +175,7 @@ namespace Models
     // *   Close
     // *   Open
     shared_ptr<string> http2Option_ {};
-    // Specifies whether to enable mutual authentication.
+    // Specifies whether to enable mutual Transport Layer Security (mTLS) authentication.
     shared_ptr<bool> mTLSEnabled_ {};
     // The domain name.
     // 
@@ -177,8 +183,8 @@ namespace Models
     shared_ptr<string> name_ {};
     // The protocol type supported by the domain name.
     // 
-    // *   HTTP: Only HTTP is supported.
-    // *   HTTPS: Only HTTPS is supported.
+    // *   HTTP: HTTP only
+    // *   HTTPS: HTTPS only
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
@@ -186,9 +192,9 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The cipher suite configuration.
     shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig_ {};
-    // The maximum version of the TLS protocol. Up to TLS 1.3 is supported.
+    // The maximum TLS protocol version (up to TLS 1.3).
     shared_ptr<string> tlsMax_ {};
-    // The minimum version of the TLS protocol. Down to TLS 1.0 is supported.
+    // The minimum TLS protocol version (minimum TLS 1.0).
     shared_ptr<string> tlsMin_ {};
   };
 

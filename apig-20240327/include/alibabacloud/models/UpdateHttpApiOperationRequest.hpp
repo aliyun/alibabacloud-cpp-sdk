@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // operation definition.
+    // The operation definition.
     shared_ptr<HttpApiOperation> operation_ {};
   };
 

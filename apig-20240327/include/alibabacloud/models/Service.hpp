@@ -121,8 +121,11 @@ namespace Models
 
 
     protected:
+      // The port name.
       shared_ptr<string> name_ {};
+      // The port number.
       shared_ptr<int32_t> port_ {};
+      // The protocol. Valid values: TCP and UDP.
       shared_ptr<string> protocol_ {};
     };
 
@@ -295,26 +298,52 @@ namespace Models
 
 
   protected:
+    // The address details, which can be IP addresses or domain names.
     shared_ptr<vector<string>> addresses_ {};
+    // The agent service configuration
     shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
+    // The AI service configurations.
     shared_ptr<AiServiceConfig> aiServiceConfig_ {};
+    // The creation time (unix timestamp).
     shared_ptr<int64_t> createTimestamp_ {};
+    // The express type
     shared_ptr<string> expressType_ {};
+    // The gateway instance ID.
     shared_ptr<string> gatewayId_ {};
+    // The service group name.
     shared_ptr<string> groupName_ {};
+    // The health check configurations.
     shared_ptr<ServiceHealthCheck> healthCheck_ {};
+    // The health check status.
+    // 
+    // Valid values:
+    // 
+    // *   Unhealthy
+    // *   Healthy
     shared_ptr<string> healthStatus_ {};
+    // The label details for service version configuration
     shared_ptr<vector<LabelDetail>> labelDetails_ {};
+    // The service name.
     shared_ptr<string> name_ {};
+    // The namespace of the service.
     shared_ptr<string> namespace_ {};
+    // The outlier endpoints list
     shared_ptr<vector<string>> outlierEndpoints_ {};
+    // The list of objects containing port details.
     shared_ptr<vector<Service::Ports>> ports_ {};
+    // The service protocol type.
     shared_ptr<string> protocol_ {};
+    // The function qualifier name.
     shared_ptr<string> qualifier_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The service unique ID.
     shared_ptr<string> serviceId_ {};
+    // The source type.
     shared_ptr<string> sourceType_ {};
+    // The list of unhealthy endpoints.
     shared_ptr<vector<string>> unhealthyEndpoints_ {};
+    // The last modified time (unix timestamp).
     shared_ptr<int64_t> updateTimestamp_ {};
   };
 

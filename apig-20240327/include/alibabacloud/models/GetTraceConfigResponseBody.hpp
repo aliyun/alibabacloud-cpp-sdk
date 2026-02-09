@@ -102,21 +102,20 @@ namespace Models
 
 
     protected:
-      // Whether to Enable Tracing:
-      // true: Enabled
-      // false: Disabled
+      // Indicates whether tracing analysis is enabled. Valid values: true and false
       shared_ptr<bool> enable_ {};
-      // Sampling Rate
+      // The sampling rate.
       shared_ptr<int32_t> sampleRatio_ {};
-      // Service ID, present when the tracing type is SKYWALKING
+      // The service ID. This parameter exists when the traceType value is SKYWALKING.
       shared_ptr<string> serviceId_ {};
-      // 服务端口，链路追踪类型为SKYWALKING时存在该参数
+      // The service port. This parameter exists when the traceType value is SKYWALKING.
       shared_ptr<string> servicePort_ {};
-      // Tracing Type:
-      // - XTRACE
-      // - SKYWALKING
-      // - OPENTELEMETRY
-      // - OTSKYWALKING
+      // The type of tracing analysis. Valid values:
+      // 
+      // *   XTRACE
+      // *   SKYWALKING
+      // *   OPENTELEMETRY
+      // *   OTSKYWALKING
       shared_ptr<string> traceType_ {};
     };
 
@@ -160,17 +159,15 @@ namespace Models
 
 
   protected:
-    // Response Code
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // Response Data
+    // The data returned.
     shared_ptr<GetTraceConfigResponseBody::Data> data_ {};
-    // Error Message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Boolean	Request Result, with the following values:
-    // true: Request succeeded.
-    // false: Request failed.
+    // Indicates whether the request was successful. Valid values: true false
     shared_ptr<bool> success_ {};
   };
 

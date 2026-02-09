@@ -152,18 +152,31 @@ namespace Models
 
 
   protected:
+    // The template alias.
     shared_ptr<string> alias_ {};
+    // The list of resource types that can be mounted.
     shared_ptr<vector<string>> attachableResourceTypes_ {};
+    // The template identifier.
     shared_ptr<string> classId_ {};
+    // A configuration example.
     shared_ptr<string> configExample_ {};
+    // Specifies whether the policy has been deprecated.
     shared_ptr<bool> deprecated_ {};
+    // The template description.
     shared_ptr<string> description_ {};
+    // The direction of traffic on which the policy takes effect.
     shared_ptr<string> direction_ {};
+    // Specifies whether to enable logging.
     shared_ptr<bool> enableLog_ {};
+    // The execution priority.
     shared_ptr<string> executePriority_ {};
+    // The execution phase.
     shared_ptr<string> executeStage_ {};
+    // The template name.
     shared_ptr<string> name_ {};
+    // The policy type.
     shared_ptr<string> type_ {};
+    // The template version.
     shared_ptr<string> version_ {};
   };
 

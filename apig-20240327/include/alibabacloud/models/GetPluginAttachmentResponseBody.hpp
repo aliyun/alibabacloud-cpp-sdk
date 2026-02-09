@@ -169,7 +169,7 @@ namespace Models
       shared_ptr<string> pluginConfig_ {};
       // The plug-in ID.
       shared_ptr<string> pluginId_ {};
-      // The resource details.
+      // The resource information.
       shared_ptr<vector<ResourceInfo>> resourceInfos_ {};
     };
 
@@ -212,7 +212,7 @@ namespace Models
     shared_ptr<GetPluginAttachmentResponseBody::Data> data_ {};
     // The status message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

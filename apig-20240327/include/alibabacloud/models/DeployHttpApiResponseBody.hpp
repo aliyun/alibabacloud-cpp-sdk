@@ -59,7 +59,7 @@ namespace Models
   protected:
     // Response status code.
     shared_ptr<string> code_ {};
-    // 响应消息。
+    // Response message.
     shared_ptr<string> message_ {};
     // Request ID.
     shared_ptr<string> requestId_ {};

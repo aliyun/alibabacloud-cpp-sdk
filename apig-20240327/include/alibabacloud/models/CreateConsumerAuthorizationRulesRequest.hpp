@@ -117,9 +117,11 @@ namespace Models
       protected:
         // The environment ID.
         shared_ptr<string> environmentId_ {};
+        // Parent resource ID
         shared_ptr<string> parentResourceId_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
+        // List of resources
         shared_ptr<vector<string>> resources_ {};
       };
 

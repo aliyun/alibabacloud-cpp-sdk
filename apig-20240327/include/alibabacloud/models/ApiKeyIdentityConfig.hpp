@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The API key configuration.
       shared_ptr<string> apikey_ {};
+      // The production mode.
       shared_ptr<string> generateMode_ {};
     };
 
@@ -114,7 +116,15 @@ namespace Models
 
 
     protected:
+      // The source of the API key.
+      // 
+      // Valid values:
+      // 
+      // *   Header
+      // *   QueryString
+      // *   Default
       shared_ptr<string> source_ {};
+      // The value of the API key.
       shared_ptr<string> value_ {};
     };
 
@@ -146,8 +156,11 @@ namespace Models
 
 
   protected:
+    // The source configuration of the API key.
     shared_ptr<ApiKeyIdentityConfig::ApikeySource> apikeySource_ {};
+    // The list of certificates.
     shared_ptr<vector<ApiKeyIdentityConfig::Credentials>> credentials_ {};
+    // The type.
     shared_ptr<string> type_ {};
   };
 

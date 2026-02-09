@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The API information.
     shared_ptr<HttpApiApiInfo> apiInfo_ {};
+    // The resource type. Valid values: HttpApi/Operation/GatewayRoute/Gateway/GatewayDomain
     shared_ptr<string> resourceType_ {};
   };
 

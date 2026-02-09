@@ -137,16 +137,17 @@ namespace Models
 
 
     protected:
+      // Cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The environment ID.
+      // $.parameters[0].schema.properties.deployConfigs.enumValueTitles
       shared_ptr<string> environmentId_ {};
-      // The Ingress Class for listening.
+      // $.parameters[0].schema.properties.enableAuth.example
       shared_ptr<string> ingressClass_ {};
-      // Specifies whether to update the address in Ingress Status.
+      // $.parameters[0].schema.properties.authConfig.description
       shared_ptr<bool> overrideIngressIp_ {};
-      // The source ID.
+      // $.parameters[0].schema.properties.enableAuth.description
       shared_ptr<string> sourceId_ {};
-      // The namespace for listening.
+      // $.parameters[0].schema.properties.enableAuth.enumValueTitles
       shared_ptr<string> watchNamespace_ {};
     };
 
@@ -281,42 +282,39 @@ namespace Models
 
 
   protected:
+    // Agent protocols
     shared_ptr<vector<string>> agentProtocols_ {};
-    // The AI API protocols. Valid value:
-    // 
-    // *   OpenAI/v1
+    // $.parameters[0].schema.properties.authConfig.enumValueTitles
     shared_ptr<vector<string>> aiProtocols_ {};
-    // The authentication configurations.
+    // The request parameters for API creation.
     shared_ptr<AuthConfig> authConfig_ {};
-    // The API base path, which must start with a forward slash (/).
+    // $.parameters[0].schema.properties.deployConfigs.items.example
     shared_ptr<string> basePath_ {};
-    // The API deployment configurations. Currently, only AI APIs support deployment configurations, and only a single deployment configuration can be passed.
+    // $.parameters[0].schema.example
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
-    // The API description.
+    // $.parameters[0].schema.properties.aiProtocols.items.description
     shared_ptr<string> description_ {};
-    // Specifies whether to enable authentication.
+    // Create an API of HTTP type
     shared_ptr<bool> enableAuth_ {};
+    // First byte timeout
     shared_ptr<int32_t> firstByteTimeout_ {};
-    // The HTTP Ingress configurations.
+    // $.parameters[0].schema.properties.deployConfigs.example
     shared_ptr<CreateHttpApiRequest::IngressConfig> ingressConfig_ {};
+    // Model category
     shared_ptr<string> modelCategory_ {};
-    // The API name.
+    // $.parameters[0].schema.example
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The protocols that are used to call the API.
+    // $.parameters[0].schema.properties.aiProtocols.description
     shared_ptr<vector<string>> protocols_ {};
+    // Whether to remove base path when forwarding
     shared_ptr<bool> removeBasePathOnForward_ {};
-    // The resource group ID.
+    // $.parameters[0].schema.properties.authConfig.example
     shared_ptr<string> resourceGroupId_ {};
-    // The API type. Valid values:
-    // 
-    // *   Http
-    // *   Rest
-    // *   WebSocket
-    // *   HttpIngress
+    // $.parameters[0].schema.properties.deployConfigs.description
     shared_ptr<string> type_ {};
-    // The versioning configuration of the API.
+    // $.parameters[0].schema.properties.deployConfigs.items.enumValueTitles
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
   };
 

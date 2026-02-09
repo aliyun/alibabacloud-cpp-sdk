@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Whether to cascade delete the security group rules.
+    // Specifies whether to delete the cascaded security group rule.
     shared_ptr<bool> cascadingDelete_ {};
   };
 

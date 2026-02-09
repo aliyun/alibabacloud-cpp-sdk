@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // consumerId
     shared_ptr<string> consumerId_ {};
+    // enable
     shared_ptr<bool> enable_ {};
+    // name
     shared_ptr<string> name_ {};
   };
 

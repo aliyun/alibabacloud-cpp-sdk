@@ -263,10 +263,15 @@ namespace Models
 
 
           protected:
+            // The service port
             shared_ptr<int32_t> port_ {};
+            // The service protocol
             shared_ptr<string> protocol_ {};
+            // The gray service ID
             shared_ptr<string> serviceId_ {};
+            // The service version
             shared_ptr<string> version_ {};
+            // The service weight
             shared_ptr<int32_t> weight_ {};
           };
 
@@ -289,7 +294,9 @@ namespace Models
 
 
         protected:
+          // The backend scene type
           shared_ptr<string> scene_ {};
+          // List of backend services
           shared_ptr<vector<BackendConfig::Services>> services_ {};
         };
 
@@ -321,8 +328,11 @@ namespace Models
 
 
       protected:
+        // The gray route backend configuration
         shared_ptr<GrayMcpServerConfigs::BackendConfig> backendConfig_ {};
+        // The gray route matching rules
         shared_ptr<HttpRouteMatch> match_ {};
+        // The gray route ID
         shared_ptr<string> routeId_ {};
       };
 
@@ -639,6 +649,7 @@ namespace Models
       shared_ptr<string> exposedUriPath_ {};
       // The gateway instance ID.
       shared_ptr<string> gatewayId_ {};
+      // List of gray MCP server configurations
       shared_ptr<vector<Data::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
       // The route match rule.
       shared_ptr<HttpRouteMatch> match_ {};

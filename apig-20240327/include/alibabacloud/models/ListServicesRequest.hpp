@@ -120,6 +120,7 @@ namespace Models
     // *   VIP
     // *   MSE_NACOS
     shared_ptr<string> sourceType_ {};
+    // List of service source types
     shared_ptr<string> sourceTypes_ {};
   };
 

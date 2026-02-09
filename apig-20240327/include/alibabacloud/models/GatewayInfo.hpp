@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // The VPC name.
       shared_ptr<string> name_ {};
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -110,9 +112,13 @@ namespace Models
 
 
   protected:
+    // The instance engine version.
     shared_ptr<string> engineVersion_ {};
+    // The instance ID.
     shared_ptr<string> gatewayId_ {};
+    // The instance name.
     shared_ptr<string> name_ {};
+    // The virtual private cloud (VPC) information.
     shared_ptr<GatewayInfo::VpcInfo> vpcInfo_ {};
   };
 

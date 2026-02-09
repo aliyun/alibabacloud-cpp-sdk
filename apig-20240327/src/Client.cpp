@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Authorize the security group for gateway to access services
+ * @summary Adds a security group that authorizes an instance to access services.
  *
  * @param request AddGatewaySecurityGroupRuleRequest
  * @param headers map
@@ -78,7 +78,7 @@ AddGatewaySecurityGroupRuleResponse Client::addGatewaySecurityGroupRuleWithOptio
 }
 
 /**
- * @summary Authorize the security group for gateway to access services
+ * @summary Adds a security group that authorizes an instance to access services.
  *
  * @param request AddGatewaySecurityGroupRuleRequest
  * @return AddGatewaySecurityGroupRuleResponse
@@ -135,7 +135,7 @@ BatchDeleteConsumerAuthorizationRuleResponse Client::batchDeleteConsumerAuthoriz
 }
 
 /**
- * @summary Resource Group Transfer
+ * @summary Moves a resource from one resource group to another.
  *
  * @param request ChangeResourceGroupRequest
  * @param headers map
@@ -180,7 +180,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Resource Group Transfer
+ * @summary Moves a resource from one resource group to another.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -539,9 +539,7 @@ CreateDomainResponse Client::createDomain(const CreateDomainRequest &request) {
 /**
  * @deprecated OpenAPI CreateEnvironment is deprecated
  *
- * @summary CreateEnvironment
- *
- * @description Create environment.
+ * @summary Creates an environment.
  *
  * @param request CreateEnvironmentRequest
  * @param headers map
@@ -592,9 +590,7 @@ CreateEnvironmentResponse Client::createEnvironmentWithOptions(const CreateEnvir
 /**
  * @deprecated OpenAPI CreateEnvironment is deprecated
  *
- * @summary CreateEnvironment
- *
- * @description Create environment.
+ * @summary Creates an environment.
  *
  * @param request CreateEnvironmentRequest
  * @return CreateEnvironmentResponse
@@ -1084,7 +1080,7 @@ CreatePluginAttachmentResponse Client::createPluginAttachment(const CreatePlugin
 }
 
 /**
- * @summary Create Policy
+ * @summary Creates a policy.
  *
  * @param request CreatePolicyRequest
  * @param headers map
@@ -1129,7 +1125,7 @@ CreatePolicyResponse Client::createPolicyWithOptions(const CreatePolicyRequest &
 }
 
 /**
- * @summary Create Policy
+ * @summary Creates a policy.
  *
  * @param request CreatePolicyRequest
  * @return CreatePolicyResponse
@@ -1141,7 +1137,7 @@ CreatePolicyResponse Client::createPolicy(const CreatePolicyRequest &request) {
 }
 
 /**
- * @summary Create policy resource mount
+ * @summary Creates a policy attachment.
  *
  * @param request CreatePolicyAttachmentRequest
  * @param headers map
@@ -1190,7 +1186,7 @@ CreatePolicyAttachmentResponse Client::createPolicyAttachmentWithOptions(const C
 }
 
 /**
- * @summary Create policy resource mount
+ * @summary Creates a policy attachment.
  *
  * @param request CreatePolicyAttachmentRequest
  * @return CreatePolicyAttachmentResponse
@@ -1383,7 +1379,7 @@ CreateServiceVersionResponse Client::createServiceVersion(const string &serviceI
 }
 
 /**
- * @summary 创建服务来源
+ * @summary Creates a service source.
  *
  * @param request CreateSourceRequest
  * @param headers map
@@ -1432,7 +1428,7 @@ CreateSourceResponse Client::createSourceWithOptions(const CreateSourceRequest &
 }
 
 /**
- * @summary 创建服务来源
+ * @summary Creates a service source.
  *
  * @param request CreateSourceRequest
  * @return CreateSourceResponse
@@ -1516,7 +1512,7 @@ DeleteConsumerAuthorizationRuleResponse Client::deleteConsumerAuthorizationRule(
 }
 
 /**
- * @summary DeleteDomain
+ * @summary Deletes a domain name.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1541,7 +1537,7 @@ DeleteDomainResponse Client::deleteDomainWithOptions(const string &domainId, con
 }
 
 /**
- * @summary DeleteDomain
+ * @summary Deletes a domain name.
  *
  * @return DeleteDomainResponse
  */
@@ -1554,7 +1550,7 @@ DeleteDomainResponse Client::deleteDomain(const string &domainId) {
 /**
  * @deprecated OpenAPI DeleteEnvironment is deprecated
  *
- * @summary DeleteEnvironment
+ * @summary Deletes an environment.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1581,7 +1577,7 @@ DeleteEnvironmentResponse Client::deleteEnvironmentWithOptions(const string &env
 /**
  * @deprecated OpenAPI DeleteEnvironment is deprecated
  *
- * @summary DeleteEnvironment
+ * @summary Deletes an environment.
  *
  * @return DeleteEnvironmentResponse
  */
@@ -1592,7 +1588,7 @@ DeleteEnvironmentResponse Client::deleteEnvironment(const string &environmentId)
 }
 
 /**
- * @summary Delete Gateway
+ * @summary Deletes a Cloud-native API Gateway instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1617,7 +1613,7 @@ DeleteGatewayResponse Client::deleteGatewayWithOptions(const string &gatewayId, 
 }
 
 /**
- * @summary Delete Gateway
+ * @summary Deletes a Cloud-native API Gateway instance.
  *
  * @return DeleteGatewayResponse
  */
@@ -1628,7 +1624,7 @@ DeleteGatewayResponse Client::deleteGateway(const string &gatewayId) {
 }
 
 /**
- * @summary Delete the security group rule of a gateway
+ * @summary Deletes a security group rule from a Cloud-native API Gateway instance.
  *
  * @param request DeleteGatewaySecurityGroupRuleRequest
  * @param headers map
@@ -1661,7 +1657,7 @@ DeleteGatewaySecurityGroupRuleResponse Client::deleteGatewaySecurityGroupRuleWit
 }
 
 /**
- * @summary Delete the security group rule of a gateway
+ * @summary Deletes a security group rule from a Cloud-native API Gateway instance.
  *
  * @param request DeleteGatewaySecurityGroupRuleRequest
  * @return DeleteGatewaySecurityGroupRuleResponse
@@ -1709,7 +1705,7 @@ DeleteHttpApiResponse Client::deleteHttpApi(const string &httpApiId) {
 }
 
 /**
- * @summary Delete Operation
+ * @summary Deletes an operation from an HTTP API.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1734,7 +1730,7 @@ DeleteHttpApiOperationResponse Client::deleteHttpApiOperationWithOptions(const s
 }
 
 /**
- * @summary Delete Operation
+ * @summary Deletes an operation from an HTTP API.
  *
  * @return DeleteHttpApiOperationResponse
  */
@@ -1745,7 +1741,7 @@ DeleteHttpApiOperationResponse Client::deleteHttpApiOperation(const string &http
 }
 
 /**
- * @summary Delete the route of an HttpApi
+ * @summary Deletes a route in an HTTP API.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1770,7 +1766,7 @@ DeleteHttpApiRouteResponse Client::deleteHttpApiRouteWithOptions(const string &h
 }
 
 /**
- * @summary Delete the route of an HttpApi
+ * @summary Deletes a route in an HTTP API.
  *
  * @return DeleteHttpApiRouteResponse
  */
@@ -1781,7 +1777,7 @@ DeleteHttpApiRouteResponse Client::deleteHttpApiRoute(const string &httpApiId, c
 }
 
 /**
- * @summary 删除MCP server
+ * @summary Deletes an MCP server.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1806,7 +1802,7 @@ DeleteMcpServerResponse Client::deleteMcpServerWithOptions(const string &mcpServ
 }
 
 /**
- * @summary 删除MCP server
+ * @summary Deletes an MCP server.
  *
  * @return DeleteMcpServerResponse
  */
@@ -1853,7 +1849,7 @@ DeletePluginAttachmentResponse Client::deletePluginAttachment(const string &plug
 }
 
 /**
- * @summary Delete Policy
+ * @summary Deletes a policy.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1878,7 +1874,7 @@ DeletePolicyResponse Client::deletePolicyWithOptions(const string &policyId, con
 }
 
 /**
- * @summary Delete Policy
+ * @summary Deletes a policy.
  *
  * @return DeletePolicyResponse
  */
@@ -1889,7 +1885,7 @@ DeletePolicyResponse Client::deletePolicy(const string &policyId) {
 }
 
 /**
- * @summary Delete policy resource attachment
+ * @summary Deletes a policy attachment.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1914,7 +1910,7 @@ DeletePolicyAttachmentResponse Client::deletePolicyAttachmentWithOptions(const s
 }
 
 /**
- * @summary Delete policy resource attachment
+ * @summary Deletes a policy attachment.
  *
  * @return DeletePolicyAttachmentResponse
  */
@@ -2033,7 +2029,7 @@ DeleteServiceVersionResponse Client::deleteServiceVersion(const string &serviceI
 }
 
 /**
- * @summary 删除服务来源
+ * @summary Deletes a service source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2058,7 +2054,7 @@ DeleteSourceResponse Client::deleteSourceWithOptions(const string &sourceId, con
 }
 
 /**
- * @summary 删除服务来源
+ * @summary Deletes a service source.
  *
  * @return DeleteSourceResponse
  */
@@ -2158,7 +2154,7 @@ DeployMcpServerResponse Client::deployMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary Export HTTP API
+ * @summary Exports an HTTP API.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2183,7 +2179,7 @@ ExportHttpApiResponse Client::exportHttpApiWithOptions(const string &httpApiId, 
 }
 
 /**
- * @summary Export HTTP API
+ * @summary Exports an HTTP API.
  *
  * @return ExportHttpApiResponse
  */
@@ -2396,7 +2392,7 @@ GetDomainResponse Client::getDomain(const string &domainId, const GetDomainReque
 /**
  * @deprecated OpenAPI GetEnvironment is deprecated
  *
- * @summary GetEnvironment
+ * @summary Queries an environment.
  *
  * @param request GetEnvironmentRequest
  * @param headers map
@@ -2435,7 +2431,7 @@ GetEnvironmentResponse Client::getEnvironmentWithOptions(const string &environme
 /**
  * @deprecated OpenAPI GetEnvironment is deprecated
  *
- * @summary GetEnvironment
+ * @summary Queries an environment.
  *
  * @param request GetEnvironmentRequest
  * @return GetEnvironmentResponse
@@ -2703,7 +2699,7 @@ GetPolicyResponse Client::getPolicy(const string &policyId) {
 }
 
 /**
- * @summary Query Policy Resource Attachment
+ * @summary Queries a policy attachment.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2728,7 +2724,7 @@ GetPolicyAttachmentResponse Client::getPolicyAttachmentWithOptions(const string 
 }
 
 /**
- * @summary Query Policy Resource Attachment
+ * @summary Queries a policy attachment.
  *
  * @return GetPolicyAttachmentResponse
  */
@@ -2856,7 +2852,7 @@ GetSecretValueResponse Client::getSecretValue(const string &name) {
 }
 
 /**
- * @summary Queries the details of a service.
+ * @summary Queries a service.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2881,7 +2877,7 @@ GetServiceResponse Client::getServiceWithOptions(const string &serviceId, const 
 }
 
 /**
- * @summary Queries the details of a service.
+ * @summary Queries a service.
  *
  * @return GetServiceResponse
  */
@@ -2928,7 +2924,7 @@ GetSourceResponse Client::getSource(const string &sourceId) {
 }
 
 /**
- * @summary Retrieve Tracing Configuration
+ * @summary Queries the tracing configurations of a Cloud-native API Gateway instance.
  *
  * @param request GetTraceConfigRequest
  * @param headers map
@@ -2961,7 +2957,7 @@ GetTraceConfigResponse Client::getTraceConfigWithOptions(const string &gatewayId
 }
 
 /**
- * @summary Retrieve Tracing Configuration
+ * @summary Queries the tracing configurations of a Cloud-native API Gateway instance.
  *
  * @param request GetTraceConfigRequest
  * @return GetTraceConfigResponse
@@ -4162,7 +4158,7 @@ ListPoliciesResponse Client::listPolicies(const ListPoliciesRequest &request) {
 }
 
 /**
- * @summary ListPolicyClasses
+ * @summary Queries policy templates.
  *
  * @param request ListPolicyClassesRequest
  * @param headers map
@@ -4219,7 +4215,7 @@ ListPolicyClassesResponse Client::listPolicyClassesWithOptions(const ListPolicyC
 }
 
 /**
- * @summary ListPolicyClasses
+ * @summary Queries policy templates.
  *
  * @param request ListPolicyClassesRequest
  * @return ListPolicyClassesResponse
@@ -4406,7 +4402,7 @@ ListServicesResponse Client::listServices(const ListServicesRequest &request) {
 }
 
 /**
- * @summary ListSslCerts
+ * @summary Queries SSL certificates.
  *
  * @param request ListSslCertsRequest
  * @param headers map
@@ -4451,7 +4447,7 @@ ListSslCertsResponse Client::listSslCertsWithOptions(const ListSslCertsRequest &
 }
 
 /**
- * @summary ListSslCerts
+ * @summary Queries SSL certificates.
  *
  * @param request ListSslCertsRequest
  * @return ListSslCertsResponse
@@ -4620,7 +4616,7 @@ RemoveConsumerAuthorizationRuleResponse Client::removeConsumerAuthorizationRule(
 }
 
 /**
- * @summary Gateway Restart
+ * @summary Restarts an instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4645,7 +4641,7 @@ RestartGatewayResponse Client::restartGatewayWithOptions(const string &gatewayId
 }
 
 /**
- * @summary Gateway Restart
+ * @summary Restarts an instance.
  *
  * @return RestartGatewayResponse
  */
@@ -5031,6 +5027,8 @@ UpdateConsumerAuthorizationRuleResponse Client::updateConsumerAuthorizationRule(
 /**
  * @summary Updates a domain name.
  *
+ * @description You can update the listening Ingress only for sources whose types are **ACK**.
+ *
  * @param request UpdateDomainRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5100,6 +5098,8 @@ UpdateDomainResponse Client::updateDomainWithOptions(const string &domainId, con
 /**
  * @summary Updates a domain name.
  *
+ * @description You can update the listening Ingress only for sources whose types are **ACK**.
+ *
  * @param request UpdateDomainRequest
  * @return UpdateDomainResponse
  */
@@ -5112,7 +5112,7 @@ UpdateDomainResponse Client::updateDomain(const string &domainId, const UpdateDo
 /**
  * @deprecated OpenAPI UpdateEnvironment is deprecated
  *
- * @summary UpdateEnvironment
+ * @summary Modifies an environment.
  *
  * @param request UpdateEnvironmentRequest
  * @param headers map
@@ -5151,7 +5151,7 @@ UpdateEnvironmentResponse Client::updateEnvironmentWithOptions(const string &env
 /**
  * @deprecated OpenAPI UpdateEnvironment is deprecated
  *
- * @summary UpdateEnvironment
+ * @summary Modifies an environment.
  *
  * @param request UpdateEnvironmentRequest
  * @return UpdateEnvironmentResponse
@@ -5163,7 +5163,7 @@ UpdateEnvironmentResponse Client::updateEnvironment(const string &environmentId,
 }
 
 /**
- * @summary Get the feature configuration of the gateway
+ * @summary Updates the configuration of an instance feature parameter.
  *
  * @param request UpdateGatewayFeatureRequest
  * @param headers map
@@ -5196,7 +5196,7 @@ UpdateGatewayFeatureResponse Client::updateGatewayFeatureWithOptions(const strin
 }
 
 /**
- * @summary Get the feature configuration of the gateway
+ * @summary Updates the configuration of an instance feature parameter.
  *
  * @param request UpdateGatewayFeatureRequest
  * @return UpdateGatewayFeatureResponse
@@ -5208,7 +5208,7 @@ UpdateGatewayFeatureResponse Client::updateGatewayFeature(const string &gatewayI
 }
 
 /**
- * @summary Change the name of a gateway instance
+ * @summary Changes the name of a Cloud-native API Gateway instance.
  *
  * @param request UpdateGatewayNameRequest
  * @param headers map
@@ -5241,7 +5241,7 @@ UpdateGatewayNameResponse Client::updateGatewayNameWithOptions(const string &gat
 }
 
 /**
- * @summary Change the name of a gateway instance
+ * @summary Changes the name of a Cloud-native API Gateway instance.
  *
  * @param request UpdateGatewayNameRequest
  * @return UpdateGatewayNameResponse
@@ -5346,7 +5346,7 @@ UpdateHttpApiResponse Client::updateHttpApi(const string &httpApiId, const Updat
 }
 
 /**
- * @summary Update Operation
+ * @summary Updates an operation of an HTTP API.
  *
  * @param request UpdateHttpApiOperationRequest
  * @param headers map
@@ -5379,7 +5379,7 @@ UpdateHttpApiOperationResponse Client::updateHttpApiOperationWithOptions(const s
 }
 
 /**
- * @summary Update Operation
+ * @summary Updates an operation of an HTTP API.
  *
  * @param request UpdateHttpApiOperationRequest
  * @return UpdateHttpApiOperationResponse
@@ -5614,7 +5614,7 @@ UpdatePluginAttachmentResponse Client::updatePluginAttachment(const string &plug
 }
 
 /**
- * @summary Update Policy
+ * @summary Updates a policy.
  *
  * @param request UpdatePolicyRequest
  * @param headers map
@@ -5655,7 +5655,7 @@ UpdatePolicyResponse Client::updatePolicyWithOptions(const string &policyId, con
 }
 
 /**
- * @summary Update Policy
+ * @summary Updates a policy.
  *
  * @param request UpdatePolicyRequest
  * @return UpdatePolicyResponse
@@ -5712,7 +5712,7 @@ UpdateSecretResponse Client::updateSecret(const string &secretId, const UpdateSe
 }
 
 /**
- * @summary 更新服务
+ * @summary Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
  *
  * @param request UpdateServiceRequest
  * @param headers map
@@ -5777,7 +5777,7 @@ UpdateServiceResponse Client::updateServiceWithOptions(const string &serviceId, 
 }
 
 /**
- * @summary 更新服务
+ * @summary Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
  *
  * @param request UpdateServiceRequest
  * @return UpdateServiceResponse
@@ -5834,7 +5834,7 @@ UpdateServiceVersionResponse Client::updateServiceVersion(const string &serviceI
 }
 
 /**
- * @summary Upgrade the gateway version
+ * @summary Updates the version of a Cloud-native API Gateway instance.
  *
  * @param request UpgradeGatewayRequest
  * @param headers map
@@ -5867,7 +5867,7 @@ UpgradeGatewayResponse Client::upgradeGatewayWithOptions(const string &gatewayId
 }
 
 /**
- * @summary Upgrade the gateway version
+ * @summary Updates the version of a Cloud-native API Gateway instance.
  *
  * @param request UpgradeGatewayRequest
  * @return UpgradeGatewayResponse

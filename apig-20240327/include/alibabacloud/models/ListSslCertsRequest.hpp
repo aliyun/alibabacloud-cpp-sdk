@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Name matching keyword.
+    // The name keyword for matching.
     shared_ptr<string> certNameLike_ {};
-    // Domain name.
+    // The domain name.
     shared_ptr<string> domainName_ {};
-    // Page number, default is 1
+    // The page number of the page to return. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size, default is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

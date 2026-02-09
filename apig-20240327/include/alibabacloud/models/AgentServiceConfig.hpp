@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // API Key
       shared_ptr<string> apiKey_ {};
+      // The interaction type.
       shared_ptr<string> botType_ {};
     };
 
@@ -143,7 +145,9 @@ namespace Models
 
 
       protected:
+        // apiKey
         shared_ptr<string> apiKey_ {};
+        // The application ID.
         shared_ptr<string> appId_ {};
       };
 
@@ -158,6 +162,7 @@ namespace Models
 
 
     protected:
+      // The application configuration.
       shared_ptr<vector<DashScopeConfig::AppCredentials>> appCredentials_ {};
     };
 
@@ -199,7 +204,9 @@ namespace Models
 
 
     protected:
+      // apiKey
       shared_ptr<string> apiKey_ {};
+      // API key generation mode.
       shared_ptr<string> apiKeyGenerateMode_ {};
     };
 
@@ -271,14 +278,24 @@ namespace Models
 
 
   protected:
+    // The address.
+    // 
     // This parameter is required.
     shared_ptr<string> address_ {};
+    // User-defined configuration
     shared_ptr<AgentServiceConfig::CustomConfig> customConfig_ {};
+    // The Model Studio service configuration.
     shared_ptr<AgentServiceConfig::DashScopeConfig> dashScopeConfig_ {};
+    // The Dify service configuration.
     shared_ptr<AgentServiceConfig::DifyConfig> difyConfig_ {};
+    // Specifies whether to enable health check.
     shared_ptr<bool> enableHealthCheck_ {};
+    // Whether to enable outlier detection
     shared_ptr<bool> enableOutlierDetection_ {};
+    // The protocol.
     shared_ptr<vector<string>> protocols_ {};
+    // The service provider.
+    // 
     // This parameter is required.
     shared_ptr<string> provider_ {};
   };

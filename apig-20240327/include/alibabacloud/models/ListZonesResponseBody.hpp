@@ -93,8 +93,9 @@ namespace Models
 
 
       protected:
+        // Whether QAT (Quality Assurance Testing) is supported in this zone
         shared_ptr<string> supportQat_ {};
-        // 可用区ID。
+        // The zone identifier
         shared_ptr<string> zoneId_ {};
       };
 
@@ -109,7 +110,7 @@ namespace Models
 
 
     protected:
-      // List of availability zones.
+      // The list of queried zones.
       shared_ptr<vector<Data::Items>> items_ {};
     };
 
@@ -148,7 +149,7 @@ namespace Models
   protected:
     // Response status code.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The data returned.
     shared_ptr<ListZonesResponseBody::Data> data_ {};
     // Response message.
     shared_ptr<string> message_ {};

@@ -165,18 +165,43 @@ namespace Models
 
 
   protected:
+    // The authentication configurations of the operation.
     shared_ptr<AuthConfig> authConfig_ {};
+    // The creation timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
+    // The backend service deployment information of the operation.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
+    // The operation description.
     shared_ptr<string> description_ {};
+    // Specifies whether to enable authentication.
     shared_ptr<bool> enableAuth_ {};
+    // The HTTP method of the operation.
+    // 
+    // Valid values:
+    // 
+    // *   TRACE
+    // *   HEAD
+    // *   DELETE
+    // *   POST
+    // *   GET
+    // *   CONNECT
+    // *   OPTIONS
+    // *   PUT
+    // *   PATCH
     shared_ptr<string> method_ {};
+    // The mocked parameters of the operation.
     shared_ptr<HttpApiMockContract> mock_ {};
+    // The operation name.
     shared_ptr<string> name_ {};
+    // The operation ID.
     shared_ptr<string> operationId_ {};
+    // The operation path.
     shared_ptr<string> path_ {};
+    // The request parameters of the operation.
     shared_ptr<HttpApiRequestContract> request_ {};
+    // The response parameters of the operation.
     shared_ptr<HttpApiResponseContract> response_ {};
+    // The operation publishing status on the instance.
     shared_ptr<string> status_ {};
   };
 

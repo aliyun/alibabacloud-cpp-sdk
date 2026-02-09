@@ -123,14 +123,17 @@ namespace Models
     // *   LOG: access logs
     // *   PLUGIN: plug-in logs
     shared_ptr<string> name_ {};
-    // The plug-in ID.
+    // The plug-in type ID.
     shared_ptr<string> pluginClassId_ {};
+    // The plug-in ID.
     shared_ptr<string> pluginId_ {};
+    // The route ID.
     shared_ptr<string> routeId_ {};
     // The dashboard source. Valid values:
     // 
     // *   SLS: Simple Log Service
     shared_ptr<string> source_ {};
+    // The AI service identifier.
     shared_ptr<string> upstreamCluster_ {};
   };
 

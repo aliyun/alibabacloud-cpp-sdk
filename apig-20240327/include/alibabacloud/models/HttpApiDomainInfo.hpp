@@ -57,8 +57,16 @@ namespace Models
 
 
   protected:
+    // The domain name ID.
     shared_ptr<string> domainId_ {};
+    // The domain name.
     shared_ptr<string> name_ {};
+    // The protocol.
+    // 
+    // Valid values:
+    // 
+    // *   HTTPS
+    // *   HTTP
     shared_ptr<string> protocol_ {};
   };
 

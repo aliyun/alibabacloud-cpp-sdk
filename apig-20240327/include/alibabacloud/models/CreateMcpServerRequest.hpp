@@ -95,7 +95,9 @@ namespace Models
 
 
     protected:
+      // Converted MCP server spec YAML
       shared_ptr<string> mcpServerSpec_ {};
+      // Raw Swagger/OpenAPI document
       shared_ptr<string> swaggerConfig_ {};
     };
 
@@ -208,10 +210,15 @@ namespace Models
 
 
         protected:
+          // Service port number
           shared_ptr<int32_t> port_ {};
+          // Service protocol type
           shared_ptr<string> protocol_ {};
+          // Service ID
           shared_ptr<string> serviceId_ {};
+          // Service version
           shared_ptr<string> version_ {};
+          // Service weight for load balancing
           shared_ptr<int32_t> weight_ {};
         };
 
@@ -234,7 +241,9 @@ namespace Models
 
 
       protected:
+        // Must be SingleService
         shared_ptr<string> scene_ {};
+        // Exactly one service
         shared_ptr<vector<BackendConfig::Services>> services_ {};
       };
 
@@ -266,8 +275,11 @@ namespace Models
 
 
     protected:
+      // Backend configuration for gray route
       shared_ptr<GrayMcpServerConfigs::BackendConfig> backendConfig_ {};
+      // Route matching rules
       shared_ptr<HttpRouteMatch> match_ {};
+      // Route ID for update operations
       shared_ptr<string> routeId_ {};
     };
 
@@ -357,18 +369,15 @@ namespace Models
 
 
       protected:
-        // The backend node port of the service.
+        // Service port
         shared_ptr<int32_t> port_ {};
-        // The service protocol. Valid values:
-        // 
-        // *   HTTP
-        // *   HTTPS
+        // Service protocol
         shared_ptr<string> protocol_ {};
-        // The service ID.
+        // Service ID
         shared_ptr<string> serviceId_ {};
-        // The service version.
+        // Service version
         shared_ptr<string> version_ {};
-        // The weight.
+        // Service weight
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -391,9 +400,9 @@ namespace Models
 
 
     protected:
-      // The scenario of the backend service.
+      // Backend scene type
       shared_ptr<string> scene_ {};
-      // The backend services.
+      // List of backend services
       shared_ptr<vector<BackendConfig::Services>> services_ {};
     };
 
@@ -446,11 +455,11 @@ namespace Models
 
 
     protected:
-      // The MCP server ID.
+      // MCP Server ID
       shared_ptr<string> mcpServerId_ {};
-      // The name of the MCP server.
+      // Source MCP server name
       shared_ptr<string> mcpServerName_ {};
-      // The list of the MCP tools.
+      // List of tool names to include
       shared_ptr<vector<string>> tools_ {};
     };
 
@@ -569,37 +578,37 @@ namespace Models
 
 
   protected:
-    // The list of assembly sources. This parameter is required when the type parameter is set to AssemblyMCP.
+    // Assembled MCP server sources
     shared_ptr<vector<CreateMcpServerRequest::AssembledSources>> assembledSources_ {};
-    // The backend service configurations for the route.
+    // Backend configuration
     shared_ptr<CreateMcpServerRequest::BackendConfig> backendConfig_ {};
-    // Creates the MCP server from the specified type.
+    // Creation source type
     shared_ptr<string> createFromType_ {};
-    // The MCP server description.
+    // MCP server description
     shared_ptr<string> description_ {};
-    // The domain IDs.
+    // List of domain IDs for the MCP server
     shared_ptr<vector<string>> domainIds_ {};
-    // The exposed URI path. This parameter is required when the protocol parameter is set to SSE or StreamableHTTP, and the type parameter is set to RealMCP.
+    // Exposed URI path for SSE/StreamableHTTP protocols
     shared_ptr<string> exposedUriPath_ {};
-    // The ID of the gateway.
+    // Gateway ID
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
+    // Gray route configurations
     shared_ptr<vector<CreateMcpServerRequest::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
-    // The route match rule.
+    // Route matching conditions
     shared_ptr<HttpRouteMatch> match_ {};
+    // MCP server specification
     shared_ptr<CreateMcpServerRequest::McpServerConfig> mcpServerConfig_ {};
-    // Specifies whether MCP observability is enabled. Default: false.
+    // Enable MCP statistics
     shared_ptr<bool> mcpStatisticsEnable_ {};
-    // The name of the MCP server. The name must match the regular expression ^[a-z0-9](%5B-a-z0-9%5D\\*%5Ba-z0-9%5D)?(.[a-z0-9](%5B-a-z0-9%5D\\*%5Ba-z0-9%5D)?)\\*$ and can be up to 64 characters in length.
+    // MCP server name
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The protocol type. Valid values: HTTP, HTTPS, SSE, and StreamableHTTP
+    // MCP protocol
     shared_ptr<string> protocol_ {};
-    // The type. Valid value:
-    // 
-    // RealMCP: regular MCP service
+    // MCP server type
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

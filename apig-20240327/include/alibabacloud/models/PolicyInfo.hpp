@@ -125,15 +125,59 @@ namespace Models
 
 
   protected:
+    // The mount information.
     shared_ptr<vector<Attachment>> attachments_ {};
+    // The policy class alias.
     shared_ptr<string> classAlias_ {};
+    // The class name supported by the policy. Different policies support different mount points. This parameter is used in combination with AttachResourceType.
+    // 
+    // *   RateLimit: throttles traffic. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   ConcurrencyLimit: controls concurrency. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   CircuitBreaker: breaks circuits and downgrades traffic. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   HttpRewrite: rewrites HTTP traffic. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   HeaderModify: modifies headers. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   Cors: supports CORS. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   FlowCopy: replicates traffic. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   Timeout: times out requests. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   Retry: retries requests. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   IpAccessControl: implements IP address-based access control. Supported: HttpApi, Operation, GatewayRoute, Domain, and Gateway.
+    // *   DirectResponse: mocks responses. Supported: Operation and GatewayRoute.
+    // *   Redirect: redirects traffic. Supported: GatewayRoute.
+    // *   Fallback: implements fallback. Supported: Operation and GatewayRoute.
+    // *   ServiceTls: implements TLS authentication. Supported: GatewayService.
+    // *   ServiceLb: balances loads. Supported: GatewayService.
+    // *   ServicePortTls: implements service port TLS authentication. Supported: GatewayServicePort.
+    // *   Waf: implements WAF protection. Supported: GatewayRoute and Gateway.
+    // *   JWTAuth: implements global JWT authentication. Supported: Gateway.
+    // *   OIDCAuth: implements global OIDC authentication. Supported: Gateway.
+    // *   ExternalZAuth: implements custom authentication. Supported: Gateway.
     shared_ptr<string> className_ {};
+    // The policy configurations.
     shared_ptr<string> config_ {};
+    // The direction of traffic on which the policy takes effect. Valid values:
+    // 
+    // *   OutBound
+    // *   InBound
+    // *   Both
     shared_ptr<string> direction_ {};
+    // The execution priority.
     shared_ptr<string> executePriority_ {};
+    // The execution phase.
+    // 
+    // Valid values:
+    // 
+    // *   PluginStatistic
+    // *   PluginAuthorization
+    // *   PluginPre
+    // *   PluginAuthentication
+    // *   PluginDefault
+    // *   PluginPost
     shared_ptr<string> executeStage_ {};
+    // The policy name.
     shared_ptr<string> name_ {};
+    // The policy ID.
     shared_ptr<string> policyId_ {};
+    // The policy type.
     shared_ptr<string> type_ {};
   };
 

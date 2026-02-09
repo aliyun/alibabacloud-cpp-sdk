@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // deployedCnt
     shared_ptr<int64_t> deployedCnt_ {};
+    // Cnt
     shared_ptr<int64_t> cnt_ {};
   };
 

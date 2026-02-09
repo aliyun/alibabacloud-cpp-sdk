@@ -109,6 +109,7 @@ namespace Models
     shared_ptr<string> gatewayId_ {};
     // Gateway name, fuzzy search.
     shared_ptr<string> gatewayNameLike_ {};
+    // The gateway type
     shared_ptr<string> gatewayType_ {};
     // Environment name, fuzzy search.
     shared_ptr<string> nameLike_ {};

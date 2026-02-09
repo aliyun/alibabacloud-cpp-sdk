@@ -140,17 +140,42 @@ namespace Models
 
 
   protected:
+    // The certificate identifier.
     shared_ptr<string> certIdentifier_ {};
+    // The client CA certificate.
     shared_ptr<string> clientCACert_ {};
+    // The creation source of the domain name.
+    // 
+    // Valid values:
+    // 
+    // *   Console
+    // *   Ingress
     shared_ptr<string> createFrom_ {};
+    // The creation timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
+    // The domain name ID.
     shared_ptr<string> domainId_ {};
+    // Specifies whether to enable forcible HTTPS redirection when HTTPS is used as the protocol.
     shared_ptr<bool> forceHttps_ {};
+    // Specifies whether to enable mutual authentication.
     shared_ptr<bool> mTLSEnabled_ {};
+    // The domain name.
     shared_ptr<string> name_ {};
+    // The supported protocol. Valid values:
+    // 
+    // *   HTTP
+    // *   HTTPS
     shared_ptr<string> protocol_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The domain name status.
+    // 
+    // Valid values:
+    // 
+    // *   UnPublished
+    // *   Published
     shared_ptr<string> status_ {};
+    // The update timestamp.
     shared_ptr<int64_t> updateTimestamp_ {};
   };
 

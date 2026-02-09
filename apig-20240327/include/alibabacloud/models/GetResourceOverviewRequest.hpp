@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The gateway type.
     shared_ptr<string> gatewayType_ {};
   };
 

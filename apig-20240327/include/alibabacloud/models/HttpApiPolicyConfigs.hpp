@@ -77,6 +77,7 @@ namespace Models
 
 
     protected:
+      // Timeout in milliseconds
       shared_ptr<int32_t> timeoutMillisecond_ {};
     };
 
@@ -181,8 +182,11 @@ namespace Models
 
 
         protected:
+          // Model name
           shared_ptr<string> modelName_ {};
+          // Service ID
           shared_ptr<string> serviceId_ {};
+          // Timeout in milliseconds
           shared_ptr<int32_t> timeoutMillisecond_ {};
         };
 
@@ -233,11 +237,17 @@ namespace Models
 
 
       protected:
+        // Fallback strategy: skip/error
         shared_ptr<string> fallbackStrategy_ {};
+        // Filtering method: topK/topN/combined
         shared_ptr<string> filteringMethod_ {};
+        // Model service configuration
         shared_ptr<ToolReranking::ModelService> modelService_ {};
+        // Score threshold (0.0-1.0, 0 means disabled)
         shared_ptr<float> scoreThreshold_ {};
+        // TopK percentage (1-100)
         shared_ptr<int32_t> topKPercent_ {};
+        // TopN count
         shared_ptr<int32_t> topNCount_ {};
       };
 
@@ -300,6 +310,7 @@ namespace Models
 
 
         protected:
+          // Message count threshold (≥0)
           shared_ptr<int32_t> messageCountThreshold_ {};
         };
 
@@ -341,7 +352,9 @@ namespace Models
 
 
         protected:
+          // Custom prompt (required when type=custom)
           shared_ptr<string> customPrompt_ {};
+          // Prompt type: builtIn/custom
           shared_ptr<string> type_ {};
         };
 
@@ -392,8 +405,11 @@ namespace Models
 
 
         protected:
+          // Model name
           shared_ptr<string> modelName_ {};
+          // Service ID
           shared_ptr<string> serviceId_ {};
+          // Timeout in milliseconds
           shared_ptr<int32_t> timeoutMillisecond_ {};
         };
 
@@ -435,7 +451,9 @@ namespace Models
 
 
         protected:
+          // Context type
           shared_ptr<string> type_ {};
+          // Value
           shared_ptr<int32_t> value_ {};
         };
 
@@ -500,12 +518,19 @@ namespace Models
 
 
       protected:
+        // Context selection
         shared_ptr<QueryRewriting::ContextSelection> contextSelection_ {};
+        // Enable query rewriting
         shared_ptr<bool> enabled_ {};
+        // Fallback strategy
         shared_ptr<string> fallbackStrategy_ {};
+        // Max output tokens
         shared_ptr<int32_t> maxOutputTokens_ {};
+        // Model service configuration
         shared_ptr<QueryRewriting::ModelService> modelService_ {};
+        // Prompt configuration
         shared_ptr<QueryRewriting::PromptConfig> promptConfig_ {};
+        // Trigger conditions
         shared_ptr<QueryRewriting::TriggerConditions> triggerConditions_ {};
       };
 
@@ -558,8 +583,11 @@ namespace Models
 
 
       protected:
+        // errorLogs
         shared_ptr<map<string, string>> errorLogs_ {};
+        // pluginId
         shared_ptr<string> pluginId_ {};
+        // serviceHealthy
         shared_ptr<bool> serviceHealthy_ {};
       };
 
@@ -591,6 +619,7 @@ namespace Models
 
 
       protected:
+        // Tool count threshold
         shared_ptr<int32_t> toolCountThreshold_ {};
       };
 
@@ -633,9 +662,13 @@ namespace Models
 
 
     protected:
+      // Enable conditions configuration
       shared_ptr<AiToolSelectionConfig::EnableConditions> enableConditions_ {};
+      // Plugin status
       shared_ptr<AiToolSelectionConfig::PluginStatus> pluginStatus_ {};
+      // Query rewriting configuration
       shared_ptr<AiToolSelectionConfig::QueryRewriting> queryRewriting_ {};
+      // Tool reranking configuration
       shared_ptr<AiToolSelectionConfig::ToolReranking> toolReranking_ {};
     };
 
@@ -740,11 +773,17 @@ namespace Models
 
 
       protected:
+        // Limit mode
         shared_ptr<string> limitMode_ {};
+        // Limit type
         shared_ptr<string> limitType_ {};
+        // Limit value
         shared_ptr<string> limitValue_ {};
+        // Match key
         shared_ptr<string> matchKey_ {};
+        // Match type
         shared_ptr<string> matchType_ {};
+        // Match value
         shared_ptr<string> matchValue_ {};
       };
 
@@ -822,11 +861,17 @@ namespace Models
 
 
       protected:
+        // Redis database number
         shared_ptr<int32_t> databaseNumber_ {};
+        // Redis host
         shared_ptr<string> host_ {};
+        // Redis password
         shared_ptr<string> password_ {};
+        // Redis port
         shared_ptr<int32_t> port_ {};
+        // Redis timeout
         shared_ptr<int32_t> timeout_ {};
+        // Redis username
         shared_ptr<string> username_ {};
       };
 
@@ -879,8 +924,11 @@ namespace Models
 
 
       protected:
+        // Array of plugin execution error logs
         shared_ptr<map<string, string>> errorLogs_ {};
+        // Plugin instance unique identifier
         shared_ptr<string> pluginId_ {};
+        // Health status of the cache service
         shared_ptr<bool> serviceHealthy_ {};
       };
 
@@ -958,11 +1006,17 @@ namespace Models
 
 
       protected:
+        // Limit mode
         shared_ptr<string> limitMode_ {};
+        // Limit type
         shared_ptr<string> limitType_ {};
+        // Limit value
         shared_ptr<string> limitValue_ {};
+        // Match key
         shared_ptr<string> matchKey_ {};
+        // Match type
         shared_ptr<string> matchType_ {};
+        // Match value
         shared_ptr<string> matchValue_ {};
       };
 
@@ -1012,10 +1066,15 @@ namespace Models
 
 
     protected:
+      // Enable global rate limit rules
       shared_ptr<bool> enableGlobalRules_ {};
+      // List of global rate limit rules
       shared_ptr<vector<AiTokenRateLimitConfig::GlobalRules>> globalRules_ {};
+      // pluginStatus
       shared_ptr<AiTokenRateLimitConfig::PluginStatus> pluginStatus_ {};
+      // Redis Config
       shared_ptr<AiTokenRateLimitConfig::RedisConfig> redisConfig_ {};
+      // List of rate limit rules
       shared_ptr<vector<AiTokenRateLimitConfig::Rules>> rules_ {};
     };
 
@@ -1057,7 +1116,9 @@ namespace Models
 
 
     protected:
+      // Log request content
       shared_ptr<bool> logRequestContent_ {};
+      // Log response content
       shared_ptr<bool> logResponseContent_ {};
     };
 
@@ -1171,7 +1232,9 @@ namespace Models
 
 
         protected:
+          // matchType
           shared_ptr<string> matchType_ {};
+          // pattern
           shared_ptr<string> pattern_ {};
         };
 
@@ -1201,8 +1264,11 @@ namespace Models
 
 
       protected:
+        // consumerRules
         shared_ptr<RiskConfig::ConsumerRules> consumerRules_ {};
+        // Risk level
         shared_ptr<string> level_ {};
+        // Risk type
         shared_ptr<string> type_ {};
       };
 
@@ -1255,8 +1321,11 @@ namespace Models
 
 
       protected:
+        // errorLogs
         shared_ptr<map<string, string>> errorLogs_ {};
+        // pluginId
         shared_ptr<string> pluginId_ {};
+        // serviceHealthy
         shared_ptr<bool> serviceHealthy_ {};
       };
 
@@ -1316,9 +1385,13 @@ namespace Models
 
 
       protected:
+        // Risk level
         shared_ptr<string> level_ {};
+        // Match type
         shared_ptr<string> matchType_ {};
+        // Consumer name
         shared_ptr<string> name_ {};
+        // Risk type
         shared_ptr<string> type_ {};
       };
 
@@ -1387,10 +1460,15 @@ namespace Models
 
 
       protected:
+        // Match type
         shared_ptr<string> matchType_ {};
+        // Modality type
         shared_ptr<string> modalityType_ {};
+        // Consumer name
         shared_ptr<string> name_ {};
+        // responseCheckService
         shared_ptr<string> responseCheckService_ {};
+        // responseImageCheckService
         shared_ptr<string> responseImageCheckService_ {};
       };
 
@@ -1459,10 +1537,15 @@ namespace Models
 
 
       protected:
+        // Match type
         shared_ptr<string> matchType_ {};
+        // Modality type
         shared_ptr<string> modalityType_ {};
+        // Consumer name
         shared_ptr<string> name_ {};
+        // requestCheckService
         shared_ptr<string> requestCheckService_ {};
+        // requestImageCheckService
         shared_ptr<string> requestImageCheckService_ {};
       };
 
@@ -1593,21 +1676,37 @@ namespace Models
 
 
     protected:
+      // Buffer limit for content checking
       shared_ptr<int32_t> bufferLimit_ {};
+      // Enable request content checking
       shared_ptr<bool> checkRequest_ {};
+      // Enable request image checking
       shared_ptr<bool> checkRequestImage_ {};
+      // Enable response content checking
       shared_ptr<bool> checkResponse_ {};
+      // Enable response image checking
       shared_ptr<bool> checkResponseImage_ {};
+      // consumerRequestCheckService
       shared_ptr<vector<AiSecurityGuardConfig::ConsumerRequestCheckService>> consumerRequestCheckService_ {};
+      // consumerResponseCheckService
       shared_ptr<vector<AiSecurityGuardConfig::ConsumerResponseCheckService>> consumerResponseCheckService_ {};
+      // consumerRiskLevel
       shared_ptr<vector<AiSecurityGuardConfig::ConsumerRiskLevel>> consumerRiskLevel_ {};
+      // pluginStatus
       shared_ptr<AiSecurityGuardConfig::PluginStatus> pluginStatus_ {};
+      // Request text check service type
       shared_ptr<string> requestCheckService_ {};
+      // Request image check service type
       shared_ptr<string> requestImageCheckService_ {};
+      // Response text check service type
       shared_ptr<string> responseCheckService_ {};
+      // Response image check service type
       shared_ptr<string> responseImageCheckService_ {};
+      // Global risk alert level
       shared_ptr<string> riskAlertLevel_ {};
+      // RiskConfig
       shared_ptr<vector<AiSecurityGuardConfig::RiskConfig>> riskConfig_ {};
+      // Security guard service endpoint URL
       shared_ptr<string> serviceAddress_ {};
     };
 
@@ -1711,10 +1810,15 @@ namespace Models
 
 
       protected:
+        // Enable search rewrite
         shared_ptr<bool> enable_ {};
+        // Max rewrite count (1-5)
         shared_ptr<int32_t> maxCount_ {};
+        // Model name
         shared_ptr<string> modelName_ {};
+        // Service ID
         shared_ptr<string> serviceId_ {};
+        // Timeout in milliseconds
         shared_ptr<int32_t> timeoutMillisecond_ {};
       };
 
@@ -1831,15 +1935,25 @@ namespace Models
 
 
       protected:
+        // Search engine API key
         shared_ptr<string> apiKey_ {};
+        // Content mode
         shared_ptr<string> contentMode_ {};
+        // Result count
         shared_ptr<int32_t> count_ {};
+        // Search engine endpoint
         shared_ptr<string> endpoint_ {};
+        // Industry
         shared_ptr<string> industry_ {};
+        // Additional parameters
         shared_ptr<map<string, string>> optionArgs_ {};
+        // Result offset
         shared_ptr<int32_t> start_ {};
+        // Time range
         shared_ptr<string> timeRange_ {};
+        // API call timeout in milliseconds
         shared_ptr<int32_t> timeoutMillisecond_ {};
+        // Search engine type
         shared_ptr<string> type_ {};
       };
 
@@ -1956,15 +2070,25 @@ namespace Models
 
 
       protected:
+        // Search engine API key
         shared_ptr<string> apiKey_ {};
+        // Content mode
         shared_ptr<string> contentMode_ {};
+        // Result count
         shared_ptr<int32_t> count_ {};
+        // Search engine endpoint
         shared_ptr<string> endpoint_ {};
+        // Industry
         shared_ptr<string> industry_ {};
+        // Additional parameters
         shared_ptr<map<string, string>> optionArgs_ {};
+        // Result offset
         shared_ptr<int32_t> start_ {};
+        // Time range
         shared_ptr<string> timeRange_ {};
+        // API call timeout in milliseconds
         shared_ptr<int32_t> timeoutMillisecond_ {};
+        // Search engine type: Bing/aliyunQuark
         shared_ptr<string> type_ {};
       };
 
@@ -2017,8 +2141,11 @@ namespace Models
 
 
       protected:
+        // errorLogs
         shared_ptr<map<string, string>> errorLogs_ {};
+        // pluginId
         shared_ptr<string> pluginId_ {};
+        // serviceHealthy
         shared_ptr<bool> serviceHealthy_ {};
       };
 
@@ -2097,14 +2224,23 @@ namespace Models
 
 
     protected:
+      // Default enable
       shared_ptr<bool> defaultEnable_ {};
+      // Default search language code
       shared_ptr<string> defaultLang_ {};
+      // Add reference sources in answer
       shared_ptr<bool> needReference_ {};
+      // pluginStatus
       shared_ptr<AiNetworkSearchConfig::PluginStatus> pluginStatus_ {};
+      // Reference format
       shared_ptr<string> referenceFormat_ {};
+      // Reference location
       shared_ptr<string> referenceLocation_ {};
+      // Search engine configuration
       shared_ptr<AiNetworkSearchConfig::SearchEngineConfig> searchEngineConfig_ {};
+      // Search engine list
       shared_ptr<vector<AiNetworkSearchConfig::SearchFrom>> searchFrom_ {};
+      // Search rewrite configuration
       shared_ptr<AiNetworkSearchConfig::SearchRewrite> searchRewrite_ {};
     };
 
@@ -2187,9 +2323,13 @@ namespace Models
 
 
       protected:
+        // Service name for frontend display
         shared_ptr<string> name_ {};
+        // Whether to pass through the original model name
         shared_ptr<bool> passThroughModelName_ {};
+        // Fallback service ID
         shared_ptr<string> serviceId_ {};
+        // Target model name for fallback
         shared_ptr<string> targetModelName_ {};
       };
 
@@ -2219,8 +2359,11 @@ namespace Models
 
 
     protected:
+      // Only trigger fallback when backend returns 4xx/5xx status codes
       shared_ptr<bool> onlyRedirectUpstreamCode_ {};
+      // Whether the policy is generated from route embedded configuration
       shared_ptr<bool> routeEmbedded_ {};
+      // List of fallback service configurations
       shared_ptr<vector<AiFallbackConfig::ServiceConfigs>> serviceConfigs_ {};
     };
 
@@ -2329,11 +2472,17 @@ namespace Models
 
 
       protected:
+        // Vector database API key for authentication
         shared_ptr<string> apiKey_ {};
+        // Vector database collection ID for storing vector embeddings
         shared_ptr<string> collectionId_ {};
+        // Vector database service host address
         shared_ptr<string> serviceHost_ {};
+        // Similarity threshold for semantic matching
         shared_ptr<float> threshold_ {};
+        // Vector database request timeout in milliseconds
         shared_ptr<int32_t> timeout_ {};
+        // Vector database service type
         shared_ptr<string> type_ {};
       };
 
@@ -2411,11 +2560,17 @@ namespace Models
 
 
       protected:
+        // Redis database number
         shared_ptr<int32_t> databaseNumber_ {};
+        // Redis host
         shared_ptr<string> host_ {};
+        // Redis password
         shared_ptr<string> password_ {};
+        // Redis port
         shared_ptr<int32_t> port_ {};
+        // Redis timeout
         shared_ptr<int32_t> timeout_ {};
+        // Redis username
         shared_ptr<string> username_ {};
       };
 
@@ -2468,8 +2623,11 @@ namespace Models
 
 
       protected:
+        // errorLogs
         shared_ptr<map<string, string>> errorLogs_ {};
+        // pluginId
         shared_ptr<string> pluginId_ {};
+        // serviceHealthy
         shared_ptr<bool> serviceHealthy_ {};
       };
 
@@ -2529,9 +2687,13 @@ namespace Models
 
 
       protected:
+        // Embedding model name
         shared_ptr<string> modelName_ {};
+        // Embedding service ID
         shared_ptr<string> serviceId_ {};
+        // Embedding service request timeout in milliseconds
         shared_ptr<int32_t> timeout_ {};
+        // Embedding service provider type
         shared_ptr<string> type_ {};
       };
 
@@ -2596,12 +2758,19 @@ namespace Models
 
 
     protected:
+      // Strategy for generating cache keys
       shared_ptr<string> cacheKeyStrategy_ {};
+      // Cache mode type
       shared_ptr<string> cacheMode_ {};
+      // Cache time-to-live in seconds
       shared_ptr<int32_t> cacheTTL_ {};
+      // Embedding Config
       shared_ptr<AiCacheConfig::EmbeddingConfig> embeddingConfig_ {};
+      // pluginStatus
       shared_ptr<AiCacheConfig::PluginStatus> pluginStatus_ {};
+      // Redis configuration for cache storage
       shared_ptr<AiCacheConfig::RedisConfig> redisConfig_ {};
+      // vectorConfig
       shared_ptr<AiCacheConfig::VectorConfig> vectorConfig_ {};
     };
 
@@ -2695,15 +2864,25 @@ namespace Models
 
 
   protected:
+    // AiCacheConfig
     shared_ptr<HttpApiPolicyConfigs::AiCacheConfig> aiCacheConfig_ {};
+    // AiFallbackConfig
     shared_ptr<HttpApiPolicyConfigs::AiFallbackConfig> aiFallbackConfig_ {};
+    // AiNetworkSearchConfig
     shared_ptr<HttpApiPolicyConfigs::AiNetworkSearchConfig> aiNetworkSearchConfig_ {};
+    // AiSecurityGuardConfig
     shared_ptr<HttpApiPolicyConfigs::AiSecurityGuardConfig> aiSecurityGuardConfig_ {};
+    // AiStatisticsConfig
     shared_ptr<HttpApiPolicyConfigs::AiStatisticsConfig> aiStatisticsConfig_ {};
+    // AiTokenRateLimitConfig
     shared_ptr<HttpApiPolicyConfigs::AiTokenRateLimitConfig> aiTokenRateLimitConfig_ {};
+    // AiToolSelectionConfig
     shared_ptr<HttpApiPolicyConfigs::AiToolSelectionConfig> aiToolSelectionConfig_ {};
+    // Policy Enable
     shared_ptr<bool> enable_ {};
+    // SemanticRouterConfig
     shared_ptr<HttpApiPolicyConfigs::SemanticRouterConfig> semanticRouterConfig_ {};
+    // Policy Type
     shared_ptr<string> type_ {};
   };
 

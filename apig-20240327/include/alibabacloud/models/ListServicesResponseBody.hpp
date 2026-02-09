@@ -95,7 +95,7 @@ namespace Models
 
 
     protected:
-      // The services.
+      // The list of services.
       shared_ptr<vector<Service>> items_ {};
       // The page number of the returned page.
       shared_ptr<int32_t> pageNumber_ {};
@@ -140,7 +140,7 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // The response payload.
     shared_ptr<ListServicesResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};

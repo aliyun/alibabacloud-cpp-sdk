@@ -91,7 +91,9 @@ namespace Models
 
 
     protected:
+      // The converted mcp server spec yaml
       shared_ptr<string> mcpServerSpec_ {};
+      // The raw swagger/openapi document
       shared_ptr<string> swaggerConfig_ {};
     };
 
@@ -204,10 +206,15 @@ namespace Models
 
 
         protected:
+          // The service port
           shared_ptr<int32_t> port_ {};
+          // The service protocol
           shared_ptr<string> protocol_ {};
+          // The service ID
           shared_ptr<string> serviceId_ {};
+          // The service version
           shared_ptr<string> version_ {};
+          // The service weight
           shared_ptr<int32_t> weight_ {};
         };
 
@@ -230,7 +237,9 @@ namespace Models
 
 
       protected:
+        // The backend scene
         shared_ptr<string> scene_ {};
+        // The list of backend services
         shared_ptr<vector<BackendConfig::Services>> services_ {};
       };
 
@@ -262,8 +271,11 @@ namespace Models
 
 
     protected:
+      // The backend configuration
       shared_ptr<GrayMcpServerConfigs::BackendConfig> backendConfig_ {};
+      // The route match rules
       shared_ptr<HttpRouteMatch> match_ {};
+      // The route ID
       shared_ptr<string> routeId_ {};
     };
 
@@ -564,9 +576,11 @@ namespace Models
     shared_ptr<vector<string>> domainIds_ {};
     // The exposed URI path. This parameter is required when the protocol parameter is set to SSE or StreamableHTTP and the type parameter is set to RealMCP.
     shared_ptr<string> exposedUriPath_ {};
+    // The gray MCP server configurations
     shared_ptr<vector<UpdateMcpServerRequest::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
     // The route match rule.
     shared_ptr<HttpRouteMatch> match_ {};
+    // The MCP server configuration
     shared_ptr<UpdateMcpServerRequest::McpServerConfig> mcpServerConfig_ {};
     // Specifies if MCP observability is enabled. Default value: false.
     shared_ptr<bool> mcpStatisticsEnable_ {};

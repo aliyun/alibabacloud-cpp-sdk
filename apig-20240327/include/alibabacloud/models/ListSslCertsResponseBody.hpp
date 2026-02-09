@@ -95,13 +95,13 @@ namespace Models
 
 
     protected:
-      // List of certificate information.
+      // The list of certificate information.
       shared_ptr<vector<SslCertMetaInfo>> items_ {};
-      // Page number.
+      // The page number of the returned page.
       shared_ptr<int32_t> pageNumber_ {};
-      // Page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Total count.
+      // The total number of entries returned.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -138,13 +138,13 @@ namespace Models
 
 
   protected:
-    // Response status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // Returned data
+    // The data returned.
     shared_ptr<ListSslCertsResponseBody::Data> data_ {};
-    // Response message.
+    // The response message returned.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

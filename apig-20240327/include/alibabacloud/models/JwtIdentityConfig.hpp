@@ -93,9 +93,13 @@ namespace Models
 
 
     protected:
+      // The key used for the JWT.
       shared_ptr<string> key_ {};
+      // Indicates whether acceptance is granted.
       shared_ptr<bool> pass_ {};
+      // The location where the JWT is stored.
       shared_ptr<string> position_ {};
+      // The token prefix configuration.
       shared_ptr<string> prefix_ {};
     };
 
@@ -137,7 +141,9 @@ namespace Models
 
 
     protected:
+      // The key in the JWT payload.
       shared_ptr<string> payloadKeyName_ {};
+      // The value for the JWT payload key.
       shared_ptr<string> payloadKeyValue_ {};
     };
 
@@ -183,10 +189,20 @@ namespace Models
 
 
   protected:
+    // The JWKS configuration.
     shared_ptr<string> jwks_ {};
+    // The JWT payload configuration.
     shared_ptr<JwtIdentityConfig::JwtPayloadConfig> jwtPayloadConfig_ {};
+    // The JWT token configuration.
     shared_ptr<JwtIdentityConfig::JwtTokenConfig> jwtTokenConfig_ {};
+    // The type of the secret used.
+    // 
+    // Valid values:
+    // 
+    // *   Asymmetry: asymmetric encryption.
+    // *   Symmetry: symmetric encryption.
     shared_ptr<string> secretType_ {};
+    // The authentication configuration type.
     shared_ptr<string> type_ {};
   };
 

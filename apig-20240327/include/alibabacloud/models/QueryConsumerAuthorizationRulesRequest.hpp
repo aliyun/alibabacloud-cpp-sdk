@@ -150,6 +150,7 @@ namespace Models
     shared_ptr<string> resourceId_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};
+    // The resource types.
     shared_ptr<string> resourceTypes_ {};
   };
 

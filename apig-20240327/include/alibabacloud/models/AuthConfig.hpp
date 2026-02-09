@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The authentication mode.
     shared_ptr<string> authMode_ {};
+    // The authentication type.
     shared_ptr<string> authType_ {};
   };
 

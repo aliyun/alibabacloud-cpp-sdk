@@ -86,6 +86,7 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> gatewayId_ {};
+    // The gateway type to filter. Valid values: **AI** and **API**.
     shared_ptr<string> gatewayType_ {};
     // The domain name keyword for fuzzy search.
     shared_ptr<string> nameLike_ {};

@@ -186,41 +186,39 @@ namespace Models
 
 
   protected:
-    // The ID of the Cloud-native API Gateway instance.
+    // Specifies whether to include policy configurations.
     shared_ptr<string> gatewayId_ {};
+    // The API information.
     shared_ptr<string> gatewayType_ {};
-    // The search keyword. You can fuzzy-search by API name or exact-search by API ID.
-    shared_ptr<string> keyword_ {};
-    // The API name that is used for the search. In this case, exact search is performed.
-    shared_ptr<string> name_ {};
-    // The page number of the page to return. Pages start from page 1. Default value: 1.
-    shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
-    shared_ptr<int32_t> pageSize_ {};
-    // The resource group ID.
-    shared_ptr<string> resourceGroupId_ {};
-    // The API type. You can specify multiple types and separate them with a comma (,).
-    // 
-    // *   Http
-    // *   Rest
-    // *   WebSocket
-    // *   HttpIngress
-    shared_ptr<string> types_ {};
-    shared_ptr<bool> withAPIsPublishedToEnvironment_ {};
     // The consumer authentication policy in the specified environment in each returned API.
-    shared_ptr<string> withAuthPolicyInEnvironmentId_ {};
+    shared_ptr<string> keyword_ {};
     // Specifies whether authentication is enabled.
-    shared_ptr<bool> withAuthPolicyList_ {};
-    // The authorization rules of the specified consumer in each returned API.
-    shared_ptr<string> withConsumerInfoById_ {};
+    shared_ptr<string> name_ {};
     // The environment information.
-    shared_ptr<bool> withEnvironmentInfo_ {};
-    // The environment ID.
-    shared_ptr<string> withEnvironmentInfoById_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    // The resource group ID.
+    shared_ptr<int32_t> pageSize_ {};
+    // The returned message.
+    shared_ptr<string> resourceGroupId_ {};
     // The Ingress information.
+    shared_ptr<string> types_ {};
+    // Whether to return all APIs published to a specific environment
+    shared_ptr<bool> withAPIsPublishedToEnvironment_ {};
+    // The gateway type to filter. Valid values: **AI** and **API**.
+    shared_ptr<string> withAuthPolicyInEnvironmentId_ {};
+    // The page number of the returned page.
+    shared_ptr<bool> withAuthPolicyList_ {};
+    // The response body.
+    shared_ptr<string> withConsumerInfoById_ {};
+    // The request ID.
+    shared_ptr<bool> withEnvironmentInfo_ {};
+    // The APIs.
+    shared_ptr<string> withEnvironmentInfoById_ {};
+    // The number of entries per page.
     shared_ptr<bool> withIngressInfo_ {};
-    // The plug-in ID. You can use the returned value of this parameter to query the plug-in.
+    // The status code.
     shared_ptr<string> withPluginAttachmentByPluginId_ {};
+    // The total number of entries returned.
     shared_ptr<bool> withPolicyConfigs_ {};
   };
 

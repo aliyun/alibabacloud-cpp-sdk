@@ -160,25 +160,25 @@ namespace Models
 
 
     protected:
-      // 执行检测的模块名称
+      // The check module
       shared_ptr<string> checkModule_ {};
-      // 风险相关的详细数据，不同风险类型数据结构不同
+      // The risk detailed data
       shared_ptr<map<string, string>> data_ {};
-      // 风险的详细描述，JSON字符串格式
+      // The risk description
       shared_ptr<string> description_ {};
-      // 该风险项的告警通知是否已被屏蔽
+      // Whether to mute notifications
       shared_ptr<bool> isNoticeMute_ {};
-      // 风险项的唯一标识码
+      // The risk code
       shared_ptr<string> riskCode_ {};
-      // 该风险项的等级，可选值：LOW、MEDIUM、HIGH、CRITICAL
+      // The risk level
       shared_ptr<string> riskLevel_ {};
-      // 风险项的名称
+      // The risk title
       shared_ptr<string> riskName_ {};
-      // 风险分类，可选值：SYSTEM（系统风险）、VERSION（版本风险）、SAFE（安全风险）、CAPACITY（容量风险）
+      // The risk type
       shared_ptr<string> riskType_ {};
-      // 当前实例的风险现状，JSON字符串格式
+      // The risk situation
       shared_ptr<string> situation_ {};
-      // 针对该风险的优化建议，JSON字符串格式，包含描述和操作链接
+      // The fix suggestion
       shared_ptr<string> suggestion_ {};
     };
 
@@ -238,9 +238,13 @@ namespace Models
 
 
     protected:
+      // The cluster type
       shared_ptr<string> clusterType_ {};
+      // The replica count
       shared_ptr<int32_t> replica_ {};
+      // The specification
       shared_ptr<string> spec_ {};
+      // The version
       shared_ptr<string> version_ {};
     };
 
@@ -315,21 +319,23 @@ namespace Models
 
 
   protected:
+    // The check time
     shared_ptr<int64_t> checkTime_ {};
-    // 网关实例的唯一标识符
+    // The gateway ID
     shared_ptr<string> gatewayId_ {};
-    // 实例的基本信息
+    // The instance metadata
     shared_ptr<RiskCheckResults::Metadata> metadata_ {};
-    // 详细的风险项信息列表
+    // The risk details list
     shared_ptr<vector<RiskCheckResults::RiskDetails>> riskDetails_ {};
-    // 整体风险等级，可选值：LOW（低风险）、MEDIUM（中风险）、HIGH（高风险）、CRITICAL（严重风险）
+    // The risk level
     shared_ptr<string> riskLevel_ {};
-    // 风险综合评分，取值范围0-100分，分数越高表示风险越低
+    // The risk score
     shared_ptr<int32_t> score_ {};
+    // The snapshot time
     shared_ptr<int64_t> snapshotTime_ {};
-    // 风险检测状态，可选值：SUCCESS（成功）、FAIL（失败）、RUNNING（运行中）
+    // The execution status
     shared_ptr<string> status_ {};
-    // 检测到的风险项总数量
+    // The total number of risks
     shared_ptr<int32_t> totalRisk_ {};
   };
 

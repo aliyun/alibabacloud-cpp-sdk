@@ -124,7 +124,9 @@ namespace Models
 
 
       protected:
+        // mcp route path
         shared_ptr<string> exposedUriPath_ {};
+        // The MCP protocol
         shared_ptr<string> protocol_ {};
       };
 
@@ -175,11 +177,17 @@ namespace Models
 
 
     protected:
+      // The creation type
       shared_ptr<string> createFromType_ {};
+      // The imported instance ID
       shared_ptr<string> importInstanceId_ {};
+      // The imported Nacos MCP server ID
       shared_ptr<string> importMcpServerId_ {};
+      // The imported namespace
       shared_ptr<string> importNamespace_ {};
+      // The MCP route configuration
       shared_ptr<McpServerInfo::McpRouteConfig> mcpRouteConfig_ {};
+      // The MCP server configuration content
       shared_ptr<string> mcpServerConfig_ {};
     };
 
@@ -266,9 +274,13 @@ namespace Models
 
 
       protected:
+        // The subdomain ID
         shared_ptr<string> domainId_ {};
+        // The subdomain name
         shared_ptr<string> name_ {};
+        // networkType
         shared_ptr<string> networkType_ {};
+        // The subdomain protocol
         shared_ptr<string> protocol_ {};
       };
 
@@ -310,7 +322,9 @@ namespace Models
 
 
       protected:
+        // The gateway ID
         shared_ptr<string> gatewayId_ {};
+        // The gateway name
         shared_ptr<string> name_ {};
       };
 
@@ -356,10 +370,15 @@ namespace Models
 
 
     protected:
+      // The environment alias
       shared_ptr<string> alias_ {};
+      // The environment ID
       shared_ptr<string> environmentId_ {};
+      // The gateway information
       shared_ptr<EnvironmentInfo::GatewayInfo> gatewayInfo_ {};
+      // The environment name
       shared_ptr<string> name_ {};
+      // List of subdomain information
       shared_ptr<vector<EnvironmentInfo::SubDomains>> subDomains_ {};
     };
 
@@ -410,8 +429,11 @@ namespace Models
 
 
     protected:
+      // The domain ID
       shared_ptr<string> domainId_ {};
+      // The domain name
       shared_ptr<string> name_ {};
+      // The domain protocol
       shared_ptr<string> protocol_ {};
     };
 
@@ -523,18 +545,31 @@ namespace Models
 
 
   protected:
+    // The backend configuration
     shared_ptr<Backend> backend_ {};
+    // builtin
     shared_ptr<string> builtin_ {};
+    // The creation timestamp in milliseconds
     shared_ptr<int64_t> createTimestamp_ {};
+    // The deployment status
     shared_ptr<string> deployStatus_ {};
+    // The description of the route
     shared_ptr<string> description_ {};
+    // List of domain information
     shared_ptr<vector<HttpRoute::DomainInfos>> domainInfos_ {};
+    // The environment information
     shared_ptr<HttpRoute::EnvironmentInfo> environmentInfo_ {};
+    // gatewayStatus
     shared_ptr<map<string, string>> gatewayStatus_ {};
+    // The route matching rules
     shared_ptr<HttpRouteMatch> match_ {};
+    // The MCP server information
     shared_ptr<HttpRoute::McpServerInfo> mcpServerInfo_ {};
+    // The name of the route
     shared_ptr<string> name_ {};
+    // The unique identifier of the route
     shared_ptr<string> routeId_ {};
+    // The last update timestamp in milliseconds
     shared_ptr<int64_t> updateTimestamp_ {};
   };
 

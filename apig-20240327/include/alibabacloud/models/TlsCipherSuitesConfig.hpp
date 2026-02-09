@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The suite name.
       shared_ptr<string> name_ {};
+      // The supported versions.
       shared_ptr<vector<string>> supportVersions_ {};
     };
 
@@ -95,7 +97,9 @@ namespace Models
 
 
   protected:
+    // The configuration type.
     shared_ptr<string> configType_ {};
+    // tlsCipherSuite
     shared_ptr<vector<TlsCipherSuitesConfig::TlsCipherSuite>> tlsCipherSuite_ {};
   };
 

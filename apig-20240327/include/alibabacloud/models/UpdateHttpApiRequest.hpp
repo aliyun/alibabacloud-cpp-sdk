@@ -122,15 +122,15 @@ namespace Models
 
 
     protected:
-      // The environment ID.
+      // The authentication configuration.
       shared_ptr<string> environmentId_ {};
-      // The Ingress class for listening.
+      // The response parameters.
       shared_ptr<string> ingressClass_ {};
-      // Specifies whether to update the address in Ingress Status.
+      // The returned message.
       shared_ptr<bool> overrideIngressIp_ {};
-      // The source ID.
+      // json
       shared_ptr<string> sourceId_ {};
-      // The namespace for listening.
+      // The request ID.
       shared_ptr<string> watchNamespace_ {};
     };
 
@@ -244,29 +244,33 @@ namespace Models
 
 
   protected:
+    // The list of agent protocols
     shared_ptr<vector<string>> agentProtocols_ {};
-    // The AI protocols.
+    // The status code.
     shared_ptr<vector<string>> aiProtocols_ {};
-    // The authentication configuration.
+    // The authentication configuration
     shared_ptr<AuthConfig> authConfig_ {};
-    // The API base path, which must start with a forward slash (/).
+    // The list of API deployment configurations.
     // 
     // This parameter is required.
     shared_ptr<string> basePath_ {};
-    // The deployment configurations.
+    // The deployment configurations
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
-    // The API description.
+    // The environment ID.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable authentication.
+    // Whether authentication is enabled
     shared_ptr<bool> enableAuth_ {};
+    // The first byte timeout in nanoseconds
     shared_ptr<int32_t> firstByteTimeout_ {};
-    // The HTTP Ingress API configurations.
+    // Specifies whether to enable authentication.
     shared_ptr<UpdateHttpApiRequest::IngressConfig> ingressConfig_ {};
+    // Whether to only change configuration without redeployment
     shared_ptr<bool> onlyChangeConfig_ {};
-    // The protocols that are used to access the API.
+    // The listened namespace.
     shared_ptr<vector<string>> protocols_ {};
+    // Whether to remove base path when forwarding
     shared_ptr<bool> removeBasePathOnForward_ {};
-    // The versioning configurations.
+    // A deployment configuration.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
   };
 

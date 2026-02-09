@@ -176,6 +176,7 @@ namespace Models
     shared_ptr<string> domainId_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
+    // Whether to filter for deployment scenario
     shared_ptr<bool> forDeploy_ {};
     // The ID of the Cloud-native API Gateway instance.
     shared_ptr<string> gatewayId_ {};

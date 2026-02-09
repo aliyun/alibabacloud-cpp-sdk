@@ -38,7 +38,6 @@ namespace Models
 
 
   protected:
-    // Gateway name.
     shared_ptr<string> name_ {};
   };
 

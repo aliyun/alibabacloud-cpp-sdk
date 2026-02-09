@@ -85,8 +85,15 @@ namespace Models
 
 
     protected:
+      // The parameter name.
       shared_ptr<string> name_ {};
+      // The match type. Valid values:
+      // 
+      // *   Exact: exact match
+      // *   Prefix: prefix match
+      // *   Regex: regular expression
       shared_ptr<string> type_ {};
+      // The parameter value.
       shared_ptr<string> value_ {};
     };
 
@@ -128,7 +135,13 @@ namespace Models
 
 
     protected:
+      // The path matching type. Valid values:
+      // 
+      // *   Exact: exact match
+      // *   Prefix: prefix match
+      // *   Regex: regular expression
       shared_ptr<string> type_ {};
+      // The path.
       shared_ptr<string> value_ {};
     };
 
@@ -179,8 +192,15 @@ namespace Models
 
 
     protected:
+      // The header name.
       shared_ptr<string> name_ {};
+      // The match type. Valid values:
+      // 
+      // *   Exact: exact match
+      // *   Prefix: prefix match
+      // *   Regex: regular expression
       shared_ptr<string> type_ {};
+      // The header value.
       shared_ptr<string> value_ {};
     };
 
@@ -230,10 +250,15 @@ namespace Models
 
 
   protected:
+    // The rules for matching based on HTTP request headers.
     shared_ptr<vector<HttpRouteMatch::Headers>> headers_ {};
+    // Specifies whether the path is case-insensitive.
     shared_ptr<bool> ignoreUriCase_ {};
+    // The HTTP methods.
     shared_ptr<vector<string>> methods_ {};
+    // The path rule.
     shared_ptr<HttpRouteMatch::Path> path_ {};
+    // The rules for matching based on query parameters.
     shared_ptr<vector<HttpRouteMatch::QueryParams>> queryParams_ {};
   };
 

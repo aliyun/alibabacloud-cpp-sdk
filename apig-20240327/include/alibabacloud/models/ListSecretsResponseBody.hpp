@@ -166,14 +166,23 @@ namespace Models
 
 
       protected:
+        // Unix timestamp when the secret was created
         shared_ptr<int64_t> createTimestamp_ {};
+        // Gateway type associated with the secret
         shared_ptr<string> gatewayType_ {};
+        // KMS configuration object
         shared_ptr<KMSConfig> kmsConfig_ {};
+        // Name of the secret
         shared_ptr<string> name_ {};
+        // Number of resources referencing this secret
         shared_ptr<int32_t> referenceCount_ {};
+        // Source of the ID
         shared_ptr<string> secretId_ {};
+        // Source of the secret
         shared_ptr<string> secretSource_ {};
+        // Current status of the secret
         shared_ptr<string> status_ {};
+        // Unix timestamp when the secret was last updated
         shared_ptr<int64_t> updateTimestamp_ {};
       };
 
@@ -210,9 +219,13 @@ namespace Models
 
 
     protected:
+      // Array of secret details
       shared_ptr<vector<Data::Items>> items_ {};
+      // Page number
       shared_ptr<int32_t> pageNumber_ {};
+      // Number of items per page
       shared_ptr<int32_t> pageSize_ {};
+      // Total number of records matching the query
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -249,8 +262,11 @@ namespace Models
 
 
   protected:
+    // Code of the request
     shared_ptr<string> code_ {};
+    // Data
     shared_ptr<ListSecretsResponseBody::Data> data_ {};
+    // message
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

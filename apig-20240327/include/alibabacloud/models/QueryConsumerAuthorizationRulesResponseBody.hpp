@@ -392,7 +392,7 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // The response payload.
     shared_ptr<QueryConsumerAuthorizationRulesResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};

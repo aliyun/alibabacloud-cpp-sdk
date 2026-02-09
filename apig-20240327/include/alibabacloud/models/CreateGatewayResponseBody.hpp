@@ -63,7 +63,6 @@ namespace Models
 
 
     protected:
-      // The instance ID.
       shared_ptr<string> gatewayId_ {};
     };
 
@@ -100,13 +99,10 @@ namespace Models
 
 
   protected:
-    // The status code.
     shared_ptr<string> code_ {};
-    // The response payload.
     shared_ptr<CreateGatewayResponseBody::Data> data_ {};
-    // The status message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

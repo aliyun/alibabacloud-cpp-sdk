@@ -78,10 +78,23 @@ namespace Models
 
 
   protected:
+    // The resource IDs.
     shared_ptr<vector<string>> attachResourceIds_ {};
+    // The supported mount point type. Valid values:
+    // 
+    // *   HttpApi: an HTTP API
+    // *   Operation: an operation in an HTTP API
+    // *   GatewayRoute: a gateway route
+    // *   GatewayService: a gateway service
+    // *   GatewayServicePort: a gateway service port
+    // *   Domain: a gateway domain name
+    // *   Gateway: a gateway instance
     shared_ptr<string> attachResourceType_ {};
+    // The environment to which the mounted resource belongs. If an asterisk (\\*) is returned as the environment ID, the mounted resource is not related to the environment.
     shared_ptr<string> environmentId_ {};
+    // The instance to which the mounted resource belongs.
     shared_ptr<string> gatewayId_ {};
+    // The mount ID.
     shared_ptr<string> policyAttachmentId_ {};
   };
 

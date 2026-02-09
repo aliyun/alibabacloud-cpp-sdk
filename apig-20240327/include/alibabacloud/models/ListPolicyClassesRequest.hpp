@@ -94,28 +94,31 @@ namespace Models
 
 
   protected:
+    // The resource ID to attach the policy
     shared_ptr<string> attachResourceId_ {};
-    // Types of attachment points supported by the policy.
+    // The supported mount point type. Valid values:
     // 
-    // - HttpApi: HttpApi.
-    // - Operation: Operation of HttpApi.
-    // - GatewayRoute: Gateway route.
-    // - GatewayService: Gateway service.
-    // - GatewayServicePort: Gateway service port.
-    // - Domain: Gateway domain.
-    // - Gateway: Gateway.
+    // *   HttpApi: an HTTP API
+    // *   Operation: an operation in an HTTP API
+    // *   GatewayRoute: a route
+    // *   GatewayService: a service
+    // *   GatewayServicePort: a service port
+    // *   Domain: a domain name
+    // *   Gateway: an instance
     shared_ptr<string> attachResourceType_ {};
-    // Direction of the policy.
-    // - Outbound: OutBound.
-    // - Inbound: InBound.
-    // - Both directions: Both.
+    // The direction of traffic on which the policy takes effect. Valid values:
+    // 
+    // *   OutBound
+    // *   InBound
+    // *   Both
     shared_ptr<string> direction_ {};
+    // The gateway ID
     shared_ptr<string> gatewayId_ {};
-    // Page number, default is 1.
+    // The page number of the page to return. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Type of the policy template.
+    // The template type.
     shared_ptr<string> type_ {};
   };
 

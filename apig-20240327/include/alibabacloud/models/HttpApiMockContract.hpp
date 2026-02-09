@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the Mock feature.
     shared_ptr<bool> enable_ {};
+    // The response code.
     shared_ptr<int32_t> responseCode_ {};
+    // The response content.
     shared_ptr<string> responseContent_ {};
   };
 

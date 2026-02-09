@@ -150,18 +150,19 @@ namespace Models
 
 
   protected:
-    // The instance ID. If you specify an ID, an exact search is performed.
+    // Retrieve the list of created cloud-native gateways
     shared_ptr<string> gatewayId_ {};
-    shared_ptr<string> gatewayType_ {};
     // The search keyword. A full match is performed. The search is case-insensitive.
-    shared_ptr<string> keyword_ {};
+    shared_ptr<string> gatewayType_ {};
     // The instance name. If you specify a name, an exact search is performed.
-    shared_ptr<string> name_ {};
-    // The number of the page to return.
-    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<string> keyword_ {};
     // The number of entries per page.
+    shared_ptr<string> name_ {};
+    // The instance ID. If you specify an ID, an exact search is performed.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of the page to return.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource group ID.
+    // rg-aekz3wes3hnre5a
     shared_ptr<string> resourceGroupId_ {};
     // The tags that you want to use for the search.
     shared_ptr<vector<ListGatewaysRequest::Tag>> tag_ {};

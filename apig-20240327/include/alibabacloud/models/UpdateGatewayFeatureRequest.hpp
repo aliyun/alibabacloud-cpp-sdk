@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Parameter value.
+    // The parameter value.
     shared_ptr<string> value_ {};
   };
 

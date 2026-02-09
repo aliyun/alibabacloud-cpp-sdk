@@ -107,6 +107,7 @@ namespace Models
 
 
       protected:
+        // Skip AI chat completion verification
         shared_ptr<bool> skipVerifyAIChatCompletion_ {};
       };
 
@@ -201,13 +202,15 @@ namespace Models
 
 
     protected:
-      // The list of domain names or fixed addresses.
+      // The list of domain names or fixed IP addresses.
       shared_ptr<vector<string>> addresses_ {};
+      // Agent service configuration
       shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
       // The AI service configurations.
       shared_ptr<AiServiceConfig> aiServiceConfig_ {};
       // The list of DNS service addresses.
       shared_ptr<vector<string>> dnsServers_ {};
+      // Express type
       shared_ptr<string> expressType_ {};
       // The service group name. This parameter is required if sourceType is set to MSE_NACOS.
       shared_ptr<string> groupName_ {};
@@ -217,10 +220,14 @@ namespace Models
       // 
       // *   If sourceType is set to K8S, this parameter specifies the namespace where the K8s service resides.
       // *   If sourceType is set to MSE_NACOS, this parameter specifies a namespace in Nacos.
+      // 
+      // This parameter is required if sourceType is set to K8S or MSE_NACOS.
       shared_ptr<string> namespace_ {};
-      // The function version or alias.
+      // The function version/alias.
       shared_ptr<string> qualifier_ {};
+      // Service source ID
       shared_ptr<string> sourceId_ {};
+      // Validation options
       shared_ptr<ServiceConfigs::ValidationOptions> validationOptions_ {};
     };
 
@@ -270,16 +277,16 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The list of service configurations.
     shared_ptr<vector<CreateServiceRequest::ServiceConfigs>> serviceConfigs_ {};
-    // The service source. Valid values:
+    // The service source type. Valid values:
     // 
-    // *   MSE_NACOS: a service in an MSE Nacos instance
-    // *   K8S: a service in a Kubernetes (K8s) cluster in Container Service for Kubernetes (ACK)
-    // *   VIP: a fixed IP address
-    // *   DNS: a Domain Name System (DNS) domain name
-    // *   FC3: a service in Function Compute
-    // *   SAE_K8S_SERVICE: a service in a K8s cluster in Serverless App Engine (SAE)
+    // *   MSE_NACOS: MSE Nacos instance services
+    // *   K8S: Container Service for Kubernetes (ACK) cluster services
+    // *   VIP: fixed IP addresses
+    // *   DNS: Domain Name System (DNS) domains
+    // *   FC3: Function Compute services
+    // *   SAE_K8S_SERVICE: Serverless App Engine (SAE) Kubernetes services
     // 
-    // Enumerated values:
+    // Valid values:
     // 
     // *   SAE_K8S_SERVICE
     // *   K8S
@@ -288,6 +295,7 @@ namespace Models
     // *   VIP
     // *   MSE_NACOS
     shared_ptr<string> sourceType_ {};
+    // clientToken
     shared_ptr<string> clientToken_ {};
   };
 
