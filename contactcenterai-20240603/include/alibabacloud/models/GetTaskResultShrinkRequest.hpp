@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requiredFieldListShrink_ != nullptr
-        && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->requiredFieldListShrink_ == nullptr
+        && this->taskId_ == nullptr; };
     // requiredFieldListShrink Field Functions 
     bool hasRequiredFieldListShrink() const { return this->requiredFieldListShrink_ != nullptr;};
     void deleteRequiredFieldListShrink() { this->requiredFieldListShrink_ = nullptr;};
-    inline string requiredFieldListShrink() const { DARABONBA_PTR_GET_DEFAULT(requiredFieldListShrink_, "") };
+    inline string getRequiredFieldListShrink() const { DARABONBA_PTR_GET_DEFAULT(requiredFieldListShrink_, "") };
     inline GetTaskResultShrinkRequest& setRequiredFieldListShrink(string requiredFieldListShrink) { DARABONBA_PTR_SET_VALUE(requiredFieldListShrink_, requiredFieldListShrink) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline GetTaskResultShrinkRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
-    std::shared_ptr<string> requiredFieldListShrink_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> requiredFieldListShrink_ {};
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

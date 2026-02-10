@@ -45,82 +45,82 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->errorCode_ != nullptr
-        && this->errorInfo_ != nullptr && this->finishReason_ != nullptr && this->inputTokens_ != nullptr && this->outputTokens_ != nullptr && this->requestId_ != nullptr
-        && this->success_ != nullptr && this->text_ != nullptr && this->totalTokens_ != nullptr; };
+    virtual bool empty() const override { return this->errorCode_ == nullptr
+        && this->errorInfo_ == nullptr && this->finishReason_ == nullptr && this->inputTokens_ == nullptr && this->outputTokens_ == nullptr && this->requestId_ == nullptr
+        && this->success_ == nullptr && this->text_ == nullptr && this->totalTokens_ == nullptr; };
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline AnalyzeConversationResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorInfo Field Functions 
     bool hasErrorInfo() const { return this->errorInfo_ != nullptr;};
     void deleteErrorInfo() { this->errorInfo_ = nullptr;};
-    inline string errorInfo() const { DARABONBA_PTR_GET_DEFAULT(errorInfo_, "") };
+    inline string getErrorInfo() const { DARABONBA_PTR_GET_DEFAULT(errorInfo_, "") };
     inline AnalyzeConversationResponseBody& setErrorInfo(string errorInfo) { DARABONBA_PTR_SET_VALUE(errorInfo_, errorInfo) };
 
 
     // finishReason Field Functions 
     bool hasFinishReason() const { return this->finishReason_ != nullptr;};
     void deleteFinishReason() { this->finishReason_ = nullptr;};
-    inline string finishReason() const { DARABONBA_PTR_GET_DEFAULT(finishReason_, "") };
+    inline string getFinishReason() const { DARABONBA_PTR_GET_DEFAULT(finishReason_, "") };
     inline AnalyzeConversationResponseBody& setFinishReason(string finishReason) { DARABONBA_PTR_SET_VALUE(finishReason_, finishReason) };
 
 
     // inputTokens Field Functions 
     bool hasInputTokens() const { return this->inputTokens_ != nullptr;};
     void deleteInputTokens() { this->inputTokens_ = nullptr;};
-    inline string inputTokens() const { DARABONBA_PTR_GET_DEFAULT(inputTokens_, "") };
+    inline string getInputTokens() const { DARABONBA_PTR_GET_DEFAULT(inputTokens_, "") };
     inline AnalyzeConversationResponseBody& setInputTokens(string inputTokens) { DARABONBA_PTR_SET_VALUE(inputTokens_, inputTokens) };
 
 
     // outputTokens Field Functions 
     bool hasOutputTokens() const { return this->outputTokens_ != nullptr;};
     void deleteOutputTokens() { this->outputTokens_ = nullptr;};
-    inline string outputTokens() const { DARABONBA_PTR_GET_DEFAULT(outputTokens_, "") };
+    inline string getOutputTokens() const { DARABONBA_PTR_GET_DEFAULT(outputTokens_, "") };
     inline AnalyzeConversationResponseBody& setOutputTokens(string outputTokens) { DARABONBA_PTR_SET_VALUE(outputTokens_, outputTokens) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AnalyzeConversationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline AnalyzeConversationResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // text Field Functions 
     bool hasText() const { return this->text_ != nullptr;};
     void deleteText() { this->text_ = nullptr;};
-    inline string text() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+    inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
     inline AnalyzeConversationResponseBody& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
 
 
     // totalTokens Field Functions 
     bool hasTotalTokens() const { return this->totalTokens_ != nullptr;};
     void deleteTotalTokens() { this->totalTokens_ = nullptr;};
-    inline string totalTokens() const { DARABONBA_PTR_GET_DEFAULT(totalTokens_, "") };
+    inline string getTotalTokens() const { DARABONBA_PTR_GET_DEFAULT(totalTokens_, "") };
     inline AnalyzeConversationResponseBody& setTotalTokens(string totalTokens) { DARABONBA_PTR_SET_VALUE(totalTokens_, totalTokens) };
 
 
   protected:
-    std::shared_ptr<string> errorCode_ = nullptr;
-    std::shared_ptr<string> errorInfo_ = nullptr;
-    std::shared_ptr<string> finishReason_ = nullptr;
-    std::shared_ptr<string> inputTokens_ = nullptr;
-    std::shared_ptr<string> outputTokens_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
-    std::shared_ptr<string> text_ = nullptr;
-    std::shared_ptr<string> totalTokens_ = nullptr;
+    shared_ptr<string> errorCode_ {};
+    shared_ptr<string> errorInfo_ {};
+    shared_ptr<string> finishReason_ {};
+    shared_ptr<string> inputTokens_ {};
+    shared_ptr<string> outputTokens_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
+    shared_ptr<string> text_ {};
+    shared_ptr<string> totalTokens_ {};
   };
 
   } // namespace Models

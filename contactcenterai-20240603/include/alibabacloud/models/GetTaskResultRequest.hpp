@@ -32,13 +32,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requiredFieldList_ != nullptr
-        && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->requiredFieldList_ == nullptr
+        && this->taskId_ == nullptr; };
     // requiredFieldList Field Functions 
     bool hasRequiredFieldList() const { return this->requiredFieldList_ != nullptr;};
     void deleteRequiredFieldList() { this->requiredFieldList_ = nullptr;};
-    inline const vector<string> & requiredFieldList() const { DARABONBA_PTR_GET_CONST(requiredFieldList_, vector<string>) };
-    inline vector<string> requiredFieldList() { DARABONBA_PTR_GET(requiredFieldList_, vector<string>) };
+    inline const vector<string> & getRequiredFieldList() const { DARABONBA_PTR_GET_CONST(requiredFieldList_, vector<string>) };
+    inline vector<string> getRequiredFieldList() { DARABONBA_PTR_GET(requiredFieldList_, vector<string>) };
     inline GetTaskResultRequest& setRequiredFieldList(const vector<string> & requiredFieldList) { DARABONBA_PTR_SET_VALUE(requiredFieldList_, requiredFieldList) };
     inline GetTaskResultRequest& setRequiredFieldList(vector<string> && requiredFieldList) { DARABONBA_PTR_SET_RVALUE(requiredFieldList_, requiredFieldList) };
 
@@ -46,13 +46,13 @@ namespace Models
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline GetTaskResultRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> requiredFieldList_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<vector<string>> requiredFieldList_ {};
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

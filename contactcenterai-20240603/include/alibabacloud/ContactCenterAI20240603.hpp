@@ -28,7 +28,7 @@ namespace ContactCenterAI20240603
        * @param runtime runtime options for this request RuntimeOptions
        * @return AnalyzeAudioSyncResponse
        */
-      FutrueGenerator<Models::AnalyzeAudioSyncResponse> analyzeAudioSyncWithSSE(const string &workspaceId, const string &appId, const Models::AnalyzeAudioSyncRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::AnalyzeAudioSyncResponse> analyzeAudioSyncWithSSE(const string &workspaceId, const string &appId, const Models::AnalyzeAudioSyncRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 语音文件分析任务极速版
@@ -56,7 +56,7 @@ namespace ContactCenterAI20240603
        * @param runtime runtime options for this request RuntimeOptions
        * @return AnalyzeConversationResponse
        */
-      FutrueGenerator<Models::AnalyzeConversationResponse> analyzeConversationWithSSE(const string &workspaceId, const string &appId, const Models::AnalyzeConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::AnalyzeConversationResponse> analyzeConversationWithSSE(const string &workspaceId, const string &appId, const Models::AnalyzeConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 根据类型调用大模型
@@ -84,7 +84,7 @@ namespace ContactCenterAI20240603
        * @param runtime runtime options for this request RuntimeOptions
        * @return AnalyzeImageResponse
        */
-      FutrueGenerator<Models::AnalyzeImageResponse> analyzeImageWithSSE(const string &workspaceId, const string &appId, const Models::AnalyzeImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::AnalyzeImageResponse> analyzeImageWithSSE(const string &workspaceId, const string &appId, const Models::AnalyzeImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 图片分析
@@ -166,7 +166,7 @@ namespace ContactCenterAI20240603
        * @param runtime runtime options for this request RuntimeOptions
        * @return GeneralAnalyzeImageResponse
        */
-      FutrueGenerator<Models::GeneralAnalyzeImageResponse> generalAnalyzeImageWithSSE(const string &workspaceId, const string &appId, const Models::GeneralAnalyzeImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::GeneralAnalyzeImageResponse> generalAnalyzeImageWithSSE(const string &workspaceId, const string &appId, const Models::GeneralAnalyzeImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 通用图片分析
@@ -248,7 +248,7 @@ namespace ContactCenterAI20240603
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunCompletionResponse
        */
-      FutrueGenerator<Models::RunCompletionResponse> runCompletionWithSSE(const string &workspaceId, const string &appId, const Models::RunCompletionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunCompletionResponse> runCompletionWithSSE(const string &workspaceId, const string &appId, const Models::RunCompletionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary CCAI服务面API
@@ -276,7 +276,7 @@ namespace ContactCenterAI20240603
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunCompletionMessageResponse
        */
-      FutrueGenerator<Models::RunCompletionMessageResponse> runCompletionMessageWithSSE(const string &workspaceId, const string &appId, const Models::RunCompletionMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunCompletionMessageResponse> runCompletionMessageWithSSE(const string &workspaceId, const string &appId, const Models::RunCompletionMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary CCAI服务面API

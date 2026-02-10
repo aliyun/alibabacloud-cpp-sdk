@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -45,51 +45,51 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
  * @param runtime runtime options for this request RuntimeOptions
  * @return AnalyzeAudioSyncResponse
  */
-FutrueGenerator<AnalyzeAudioSyncResponse> Client::analyzeAudioSyncWithSSE(const string &workspaceId, const string &appId, const AnalyzeAudioSyncRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<AnalyzeAudioSyncResponse> Client::analyzeAudioSyncWithSSE(const string &workspaceId, const string &appId, const AnalyzeAudioSyncRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasCategoryTags()) {
-    body["categoryTags"] = request.categoryTags();
+    body["categoryTags"] = request.getCategoryTags();
   }
 
   if (!!request.hasCustomPrompt()) {
-    body["customPrompt"] = request.customPrompt();
+    body["customPrompt"] = request.getCustomPrompt();
   }
 
   if (!!request.hasFields()) {
-    body["fields"] = request.fields();
+    body["fields"] = request.getFields();
   }
 
   if (!!request.hasModelCode()) {
-    body["modelCode"] = request.modelCode();
+    body["modelCode"] = request.getModelCode();
   }
 
   if (!!request.hasResponseFormatType()) {
-    body["responseFormatType"] = request.responseFormatType();
+    body["responseFormatType"] = request.getResponseFormatType();
   }
 
   if (!!request.hasResultTypes()) {
-    body["resultTypes"] = request.resultTypes();
+    body["resultTypes"] = request.getResultTypes();
   }
 
   if (!!request.hasServiceInspection()) {
-    body["serviceInspection"] = request.serviceInspection();
+    body["serviceInspection"] = request.getServiceInspection();
   }
 
   if (!!request.hasStream()) {
-    body["stream"] = request.stream();
+    body["stream"] = request.getStream();
   }
 
   if (!!request.hasTemplateIds()) {
-    body["templateIds"] = request.templateIds();
+    body["templateIds"] = request.getTemplateIds();
   }
 
   if (!!request.hasTranscription()) {
-    body["transcription"] = request.transcription();
+    body["transcription"] = request.getTranscription();
   }
 
   if (!!request.hasVariables()) {
-    body["variables"] = request.variables();
+    body["variables"] = request.getVariables();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -100,25 +100,27 @@ FutrueGenerator<AnalyzeAudioSyncResponse> Client::analyzeAudioSyncWithSSE(const 
     {"action" , "AnalyzeAudioSync"},
     {"version" , "2024-06-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/analyzeAudioSync")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Encode::Encoder::percentEncode(appId) , "/analyzeAudioSync")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
-json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
-      )}
-    })).get<AnalyzeAudioSyncResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<AnalyzeAudioSyncResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -134,47 +136,47 @@ AnalyzeAudioSyncResponse Client::analyzeAudioSyncWithOptions(const string &works
   request.validate();
   json body = {};
   if (!!request.hasCategoryTags()) {
-    body["categoryTags"] = request.categoryTags();
+    body["categoryTags"] = request.getCategoryTags();
   }
 
   if (!!request.hasCustomPrompt()) {
-    body["customPrompt"] = request.customPrompt();
+    body["customPrompt"] = request.getCustomPrompt();
   }
 
   if (!!request.hasFields()) {
-    body["fields"] = request.fields();
+    body["fields"] = request.getFields();
   }
 
   if (!!request.hasModelCode()) {
-    body["modelCode"] = request.modelCode();
+    body["modelCode"] = request.getModelCode();
   }
 
   if (!!request.hasResponseFormatType()) {
-    body["responseFormatType"] = request.responseFormatType();
+    body["responseFormatType"] = request.getResponseFormatType();
   }
 
   if (!!request.hasResultTypes()) {
-    body["resultTypes"] = request.resultTypes();
+    body["resultTypes"] = request.getResultTypes();
   }
 
   if (!!request.hasServiceInspection()) {
-    body["serviceInspection"] = request.serviceInspection();
+    body["serviceInspection"] = request.getServiceInspection();
   }
 
   if (!!request.hasStream()) {
-    body["stream"] = request.stream();
+    body["stream"] = request.getStream();
   }
 
   if (!!request.hasTemplateIds()) {
-    body["templateIds"] = request.templateIds();
+    body["templateIds"] = request.getTemplateIds();
   }
 
   if (!!request.hasTranscription()) {
-    body["transcription"] = request.transcription();
+    body["transcription"] = request.getTranscription();
   }
 
   if (!!request.hasVariables()) {
-    body["variables"] = request.variables();
+    body["variables"] = request.getVariables();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -185,7 +187,7 @@ AnalyzeAudioSyncResponse Client::analyzeAudioSyncWithOptions(const string &works
     {"action" , "AnalyzeAudioSync"},
     {"version" , "2024-06-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/analyzeAudioSync")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Encode::Encoder::percentEncode(appId) , "/analyzeAudioSync")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -215,63 +217,63 @@ AnalyzeAudioSyncResponse Client::analyzeAudioSync(const string &workspaceId, con
  * @param runtime runtime options for this request RuntimeOptions
  * @return AnalyzeConversationResponse
  */
-FutrueGenerator<AnalyzeConversationResponse> Client::analyzeConversationWithSSE(const string &workspaceId, const string &appId, const AnalyzeConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<AnalyzeConversationResponse> Client::analyzeConversationWithSSE(const string &workspaceId, const string &appId, const AnalyzeConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasCategoryTags()) {
-    body["categoryTags"] = request.categoryTags();
+    body["categoryTags"] = request.getCategoryTags();
   }
 
   if (!!request.hasCustomPrompt()) {
-    body["customPrompt"] = request.customPrompt();
+    body["customPrompt"] = request.getCustomPrompt();
   }
 
   if (!!request.hasDialogue()) {
-    body["dialogue"] = request.dialogue();
+    body["dialogue"] = request.getDialogue();
   }
 
   if (!!request.hasExamples()) {
-    body["examples"] = request.examples();
+    body["examples"] = request.getExamples();
   }
 
   if (!!request.hasFields()) {
-    body["fields"] = request.fields();
+    body["fields"] = request.getFields();
   }
 
   if (!!request.hasModelCode()) {
-    body["modelCode"] = request.modelCode();
+    body["modelCode"] = request.getModelCode();
   }
 
   if (!!request.hasResponseFormatType()) {
-    body["responseFormatType"] = request.responseFormatType();
+    body["responseFormatType"] = request.getResponseFormatType();
   }
 
   if (!!request.hasResultTypes()) {
-    body["resultTypes"] = request.resultTypes();
+    body["resultTypes"] = request.getResultTypes();
   }
 
   if (!!request.hasSceneName()) {
-    body["sceneName"] = request.sceneName();
+    body["sceneName"] = request.getSceneName();
   }
 
   if (!!request.hasServiceInspection()) {
-    body["serviceInspection"] = request.serviceInspection();
+    body["serviceInspection"] = request.getServiceInspection();
   }
 
   if (!!request.hasSourceCallerUid()) {
-    body["sourceCallerUid"] = request.sourceCallerUid();
+    body["sourceCallerUid"] = request.getSourceCallerUid();
   }
 
   if (!!request.hasStream()) {
-    body["stream"] = request.stream();
+    body["stream"] = request.getStream();
   }
 
   if (!!request.hasTimeConstraintList()) {
-    body["timeConstraintList"] = request.timeConstraintList();
+    body["timeConstraintList"] = request.getTimeConstraintList();
   }
 
   if (!!request.hasUserProfiles()) {
-    body["userProfiles"] = request.userProfiles();
+    body["userProfiles"] = request.getUserProfiles();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -282,25 +284,27 @@ FutrueGenerator<AnalyzeConversationResponse> Client::analyzeConversationWithSSE(
     {"action" , "AnalyzeConversation"},
     {"version" , "2024-06-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/analyze_conversation")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Encode::Encoder::percentEncode(appId) , "/analyze_conversation")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
-json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
-      )}
-    })).get<AnalyzeConversationResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<AnalyzeConversationResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -316,59 +320,59 @@ AnalyzeConversationResponse Client::analyzeConversationWithOptions(const string 
   request.validate();
   json body = {};
   if (!!request.hasCategoryTags()) {
-    body["categoryTags"] = request.categoryTags();
+    body["categoryTags"] = request.getCategoryTags();
   }
 
   if (!!request.hasCustomPrompt()) {
-    body["customPrompt"] = request.customPrompt();
+    body["customPrompt"] = request.getCustomPrompt();
   }
 
   if (!!request.hasDialogue()) {
-    body["dialogue"] = request.dialogue();
+    body["dialogue"] = request.getDialogue();
   }
 
   if (!!request.hasExamples()) {
-    body["examples"] = request.examples();
+    body["examples"] = request.getExamples();
   }
 
   if (!!request.hasFields()) {
-    body["fields"] = request.fields();
+    body["fields"] = request.getFields();
   }
 
   if (!!request.hasModelCode()) {
-    body["modelCode"] = request.modelCode();
+    body["modelCode"] = request.getModelCode();
   }
 
   if (!!request.hasResponseFormatType()) {
-    body["responseFormatType"] = request.responseFormatType();
+    body["responseFormatType"] = request.getResponseFormatType();
   }
 
   if (!!request.hasResultTypes()) {
-    body["resultTypes"] = request.resultTypes();
+    body["resultTypes"] = request.getResultTypes();
   }
 
   if (!!request.hasSceneName()) {
-    body["sceneName"] = request.sceneName();
+    body["sceneName"] = request.getSceneName();
   }
 
   if (!!request.hasServiceInspection()) {
-    body["serviceInspection"] = request.serviceInspection();
+    body["serviceInspection"] = request.getServiceInspection();
   }
 
   if (!!request.hasSourceCallerUid()) {
-    body["sourceCallerUid"] = request.sourceCallerUid();
+    body["sourceCallerUid"] = request.getSourceCallerUid();
   }
 
   if (!!request.hasStream()) {
-    body["stream"] = request.stream();
+    body["stream"] = request.getStream();
   }
 
   if (!!request.hasTimeConstraintList()) {
-    body["timeConstraintList"] = request.timeConstraintList();
+    body["timeConstraintList"] = request.getTimeConstraintList();
   }
 
   if (!!request.hasUserProfiles()) {
-    body["userProfiles"] = request.userProfiles();
+    body["userProfiles"] = request.getUserProfiles();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -379,7 +383,7 @@ AnalyzeConversationResponse Client::analyzeConversationWithOptions(const string 
     {"action" , "AnalyzeConversation"},
     {"version" , "2024-06-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/analyze_conversation")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Encode::Encoder::percentEncode(appId) , "/analyze_conversation")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -409,23 +413,23 @@ AnalyzeConversationResponse Client::analyzeConversation(const string &workspaceI
  * @param runtime runtime options for this request RuntimeOptions
  * @return AnalyzeImageResponse
  */
-FutrueGenerator<AnalyzeImageResponse> Client::analyzeImageWithSSE(const string &workspaceId, const string &appId, const AnalyzeImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<AnalyzeImageResponse> Client::analyzeImageWithSSE(const string &workspaceId, const string &appId, const AnalyzeImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasImageUrls()) {
-    body["imageUrls"] = request.imageUrls();
+    body["imageUrls"] = request.getImageUrls();
   }
 
   if (!!request.hasResponseFormatType()) {
-    body["responseFormatType"] = request.responseFormatType();
+    body["responseFormatType"] = request.getResponseFormatType();
   }
 
   if (!!request.hasResultTypes()) {
-    body["resultTypes"] = request.resultTypes();
+    body["resultTypes"] = request.getResultTypes();
   }
 
   if (!!request.hasStream()) {
-    body["stream"] = request.stream();
+    body["stream"] = request.getStream();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -436,25 +440,27 @@ FutrueGenerator<AnalyzeImageResponse> Client::analyzeImageWithSSE(const string &
     {"action" , "AnalyzeImage"},
     {"version" , "2024-06-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/analyzeImage")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Encode::Encoder::percentEncode(appId) , "/analyzeImage")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
-json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
-      )}
-    })).get<AnalyzeImageResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<AnalyzeImageResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -470,19 +476,19 @@ AnalyzeImageResponse Client::analyzeImageWithOptions(const string &workspaceId, 
   request.validate();
   json body = {};
   if (!!request.hasImageUrls()) {
-    body["imageUrls"] = request.imageUrls();
+    body["imageUrls"] = request.getImageUrls();
   }
 
   if (!!request.hasResponseFormatType()) {
-    body["responseFormatType"] = request.responseFormatType();
+    body["responseFormatType"] = request.getResponseFormatType();
   }
 
   if (!!request.hasResultTypes()) {
-    body["resultTypes"] = request.resultTypes();
+    body["resultTypes"] = request.getResultTypes();
   }
 
   if (!!request.hasStream()) {
-    body["stream"] = request.stream();
+    body["stream"] = request.getStream();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -493,7 +499,7 @@ AnalyzeImageResponse Client::analyzeImageWithOptions(const string &workspaceId, 
     {"action" , "AnalyzeImage"},
     {"version" , "2024-06-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/analyzeImage")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Encode::Encoder::percentEncode(appId) , "/analyzeImage")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -527,59 +533,59 @@ CreateTaskResponse Client::createTaskWithOptions(const string &workspaceId, cons
   request.validate();
   json body = {};
   if (!!request.hasCallBackUrl()) {
-    body["callBackUrl"] = request.callBackUrl();
+    body["callBackUrl"] = request.getCallBackUrl();
   }
 
   if (!!request.hasCategoryTags()) {
-    body["categoryTags"] = request.categoryTags();
+    body["categoryTags"] = request.getCategoryTags();
   }
 
   if (!!request.hasCustomPrompt()) {
-    body["customPrompt"] = request.customPrompt();
+    body["customPrompt"] = request.getCustomPrompt();
   }
 
   if (!!request.hasDialogue()) {
-    body["dialogue"] = request.dialogue();
+    body["dialogue"] = request.getDialogue();
   }
 
   if (!!request.hasExamples()) {
-    body["examples"] = request.examples();
+    body["examples"] = request.getExamples();
   }
 
   if (!!request.hasFields()) {
-    body["fields"] = request.fields();
+    body["fields"] = request.getFields();
   }
 
   if (!!request.hasModelCode()) {
-    body["modelCode"] = request.modelCode();
+    body["modelCode"] = request.getModelCode();
   }
 
   if (!!request.hasResponseFormatType()) {
-    body["responseFormatType"] = request.responseFormatType();
+    body["responseFormatType"] = request.getResponseFormatType();
   }
 
   if (!!request.hasResultTypes()) {
-    body["resultTypes"] = request.resultTypes();
+    body["resultTypes"] = request.getResultTypes();
   }
 
   if (!!request.hasServiceInspection()) {
-    body["serviceInspection"] = request.serviceInspection();
+    body["serviceInspection"] = request.getServiceInspection();
   }
 
   if (!!request.hasTaskType()) {
-    body["taskType"] = request.taskType();
+    body["taskType"] = request.getTaskType();
   }
 
   if (!!request.hasTemplateIds()) {
-    body["templateIds"] = request.templateIds();
+    body["templateIds"] = request.getTemplateIds();
   }
 
   if (!!request.hasTranscription()) {
-    body["transcription"] = request.transcription();
+    body["transcription"] = request.getTranscription();
   }
 
   if (!!request.hasVariables()) {
-    body["variables"] = request.variables();
+    body["variables"] = request.getVariables();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -590,7 +596,7 @@ CreateTaskResponse Client::createTaskWithOptions(const string &workspaceId, cons
     {"action" , "CreateTask"},
     {"version" , "2024-06-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/createTask")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Encode::Encoder::percentEncode(appId) , "/createTask")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -624,23 +630,23 @@ CreateVocabResponse Client::createVocabWithOptions(const CreateVocabRequest &req
   request.validate();
   json body = {};
   if (!!request.hasAudioModelCode()) {
-    body["audioModelCode"] = request.audioModelCode();
+    body["audioModelCode"] = request.getAudioModelCode();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasWordWeightList()) {
-    body["wordWeightList"] = request.wordWeightList();
+    body["wordWeightList"] = request.getWordWeightList();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -685,11 +691,11 @@ DeleteVocabResponse Client::deleteVocabWithOptions(const DeleteVocabRequest &req
   request.validate();
   json body = {};
   if (!!request.hasVocabularyId()) {
-    body["vocabularyId"] = request.vocabularyId();
+    body["vocabularyId"] = request.getVocabularyId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -730,23 +736,23 @@ DeleteVocabResponse Client::deleteVocab(const DeleteVocabRequest &request) {
  * @param runtime runtime options for this request RuntimeOptions
  * @return GeneralAnalyzeImageResponse
  */
-FutrueGenerator<GeneralAnalyzeImageResponse> Client::generalAnalyzeImageWithSSE(const string &workspaceId, const string &appId, const GeneralAnalyzeImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<GeneralAnalyzeImageResponse> Client::generalAnalyzeImageWithSSE(const string &workspaceId, const string &appId, const GeneralAnalyzeImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasCustomPrompt()) {
-    body["customPrompt"] = request.customPrompt();
+    body["customPrompt"] = request.getCustomPrompt();
   }
 
   if (!!request.hasImageUrls()) {
-    body["imageUrls"] = request.imageUrls();
+    body["imageUrls"] = request.getImageUrls();
   }
 
   if (!!request.hasStream()) {
-    body["stream"] = request.stream();
+    body["stream"] = request.getStream();
   }
 
   if (!!request.hasTemplateIds()) {
-    body["templateIds"] = request.templateIds();
+    body["templateIds"] = request.getTemplateIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -757,25 +763,27 @@ FutrueGenerator<GeneralAnalyzeImageResponse> Client::generalAnalyzeImageWithSSE(
     {"action" , "GeneralAnalyzeImage"},
     {"version" , "2024-06-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/generalanalyzeImage")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Encode::Encoder::percentEncode(appId) , "/generalanalyzeImage")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
-json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
-      )}
-    })).get<GeneralAnalyzeImageResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<GeneralAnalyzeImageResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -791,19 +799,19 @@ GeneralAnalyzeImageResponse Client::generalAnalyzeImageWithOptions(const string 
   request.validate();
   json body = {};
   if (!!request.hasCustomPrompt()) {
-    body["customPrompt"] = request.customPrompt();
+    body["customPrompt"] = request.getCustomPrompt();
   }
 
   if (!!request.hasImageUrls()) {
-    body["imageUrls"] = request.imageUrls();
+    body["imageUrls"] = request.getImageUrls();
   }
 
   if (!!request.hasStream()) {
-    body["stream"] = request.stream();
+    body["stream"] = request.getStream();
   }
 
   if (!!request.hasTemplateIds()) {
-    body["templateIds"] = request.templateIds();
+    body["templateIds"] = request.getTemplateIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -814,7 +822,7 @@ GeneralAnalyzeImageResponse Client::generalAnalyzeImageWithOptions(const string 
     {"action" , "GeneralAnalyzeImage"},
     {"version" , "2024-06-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/generalanalyzeImage")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Encode::Encoder::percentEncode(appId) , "/generalanalyzeImage")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -849,16 +857,16 @@ GetTaskResultResponse Client::getTaskResultWithOptions(const GetTaskResultReques
   GetTaskResultShrinkRequest request = GetTaskResultShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRequiredFieldList()) {
-    request.setRequiredFieldListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.requiredFieldList(), "requiredFieldList", "simple"));
+    request.setRequiredFieldListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRequiredFieldList(), "requiredFieldList", "simple"));
   }
 
   json query = {};
   if (!!request.hasRequiredFieldListShrink()) {
-    query["requiredFieldList"] = request.requiredFieldListShrink();
+    query["requiredFieldList"] = request.getRequiredFieldListShrink();
   }
 
   if (!!request.hasTaskId()) {
-    query["taskId"] = request.taskId();
+    query["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -903,11 +911,11 @@ GetVocabResponse Client::getVocabWithOptions(const GetVocabRequest &request, con
   request.validate();
   json body = {};
   if (!!request.hasVocabularyId()) {
-    body["vocabularyId"] = request.vocabularyId();
+    body["vocabularyId"] = request.getVocabularyId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -952,7 +960,7 @@ ListVocabResponse Client::listVocabWithOptions(const ListVocabRequest &request, 
   request.validate();
   json body = {};
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -993,39 +1001,39 @@ ListVocabResponse Client::listVocab(const ListVocabRequest &request) {
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunCompletionResponse
  */
-FutrueGenerator<RunCompletionResponse> Client::runCompletionWithSSE(const string &workspaceId, const string &appId, const RunCompletionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunCompletionResponse> Client::runCompletionWithSSE(const string &workspaceId, const string &appId, const RunCompletionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasDialogue()) {
-    body["Dialogue"] = request.dialogue();
+    body["Dialogue"] = request.getDialogue();
   }
 
   if (!!request.hasFields()) {
-    body["Fields"] = request.fields();
+    body["Fields"] = request.getFields();
   }
 
   if (!!request.hasModelCode()) {
-    body["ModelCode"] = request.modelCode();
+    body["ModelCode"] = request.getModelCode();
   }
 
   if (!!request.hasServiceInspection()) {
-    body["ServiceInspection"] = request.serviceInspection();
+    body["ServiceInspection"] = request.getServiceInspection();
   }
 
   if (!!request.hasStream()) {
-    body["Stream"] = request.stream();
+    body["Stream"] = request.getStream();
   }
 
   if (!!request.hasTemplateIds()) {
-    body["TemplateIds"] = request.templateIds();
+    body["TemplateIds"] = request.getTemplateIds();
   }
 
   if (!!request.hasResponseFormatType()) {
-    body["responseFormatType"] = request.responseFormatType();
+    body["responseFormatType"] = request.getResponseFormatType();
   }
 
   if (!!request.hasVariables()) {
-    body["variables"] = request.variables();
+    body["variables"] = request.getVariables();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1036,25 +1044,27 @@ FutrueGenerator<RunCompletionResponse> Client::runCompletionWithSSE(const string
     {"action" , "RunCompletion"},
     {"version" , "2024-06-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/completion")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Encode::Encoder::percentEncode(appId) , "/completion")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
-json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
-      )}
-    })).get<RunCompletionResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<RunCompletionResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -1070,35 +1080,35 @@ RunCompletionResponse Client::runCompletionWithOptions(const string &workspaceId
   request.validate();
   json body = {};
   if (!!request.hasDialogue()) {
-    body["Dialogue"] = request.dialogue();
+    body["Dialogue"] = request.getDialogue();
   }
 
   if (!!request.hasFields()) {
-    body["Fields"] = request.fields();
+    body["Fields"] = request.getFields();
   }
 
   if (!!request.hasModelCode()) {
-    body["ModelCode"] = request.modelCode();
+    body["ModelCode"] = request.getModelCode();
   }
 
   if (!!request.hasServiceInspection()) {
-    body["ServiceInspection"] = request.serviceInspection();
+    body["ServiceInspection"] = request.getServiceInspection();
   }
 
   if (!!request.hasStream()) {
-    body["Stream"] = request.stream();
+    body["Stream"] = request.getStream();
   }
 
   if (!!request.hasTemplateIds()) {
-    body["TemplateIds"] = request.templateIds();
+    body["TemplateIds"] = request.getTemplateIds();
   }
 
   if (!!request.hasResponseFormatType()) {
-    body["responseFormatType"] = request.responseFormatType();
+    body["responseFormatType"] = request.getResponseFormatType();
   }
 
   if (!!request.hasVariables()) {
-    body["variables"] = request.variables();
+    body["variables"] = request.getVariables();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1109,7 +1119,7 @@ RunCompletionResponse Client::runCompletionWithOptions(const string &workspaceId
     {"action" , "RunCompletion"},
     {"version" , "2024-06-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/completion")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Encode::Encoder::percentEncode(appId) , "/completion")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1139,23 +1149,23 @@ RunCompletionResponse Client::runCompletion(const string &workspaceId, const str
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunCompletionMessageResponse
  */
-FutrueGenerator<RunCompletionMessageResponse> Client::runCompletionMessageWithSSE(const string &workspaceId, const string &appId, const RunCompletionMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunCompletionMessageResponse> Client::runCompletionMessageWithSSE(const string &workspaceId, const string &appId, const RunCompletionMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasMessages()) {
-    body["Messages"] = request.messages();
+    body["Messages"] = request.getMessages();
   }
 
   if (!!request.hasModelCode()) {
-    body["ModelCode"] = request.modelCode();
+    body["ModelCode"] = request.getModelCode();
   }
 
   if (!!request.hasStream()) {
-    body["Stream"] = request.stream();
+    body["Stream"] = request.getStream();
   }
 
   if (!!request.hasResponseFormatType()) {
-    body["responseFormatType"] = request.responseFormatType();
+    body["responseFormatType"] = request.getResponseFormatType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1166,25 +1176,27 @@ FutrueGenerator<RunCompletionMessageResponse> Client::runCompletionMessageWithSS
     {"action" , "RunCompletionMessage"},
     {"version" , "2024-06-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/completion_message")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Encode::Encoder::percentEncode(appId) , "/completion_message")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
-json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
-      )}
-    })).get<RunCompletionMessageResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<RunCompletionMessageResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -1200,19 +1212,19 @@ RunCompletionMessageResponse Client::runCompletionMessageWithOptions(const strin
   request.validate();
   json body = {};
   if (!!request.hasMessages()) {
-    body["Messages"] = request.messages();
+    body["Messages"] = request.getMessages();
   }
 
   if (!!request.hasModelCode()) {
-    body["ModelCode"] = request.modelCode();
+    body["ModelCode"] = request.getModelCode();
   }
 
   if (!!request.hasStream()) {
-    body["Stream"] = request.stream();
+    body["Stream"] = request.getStream();
   }
 
   if (!!request.hasResponseFormatType()) {
-    body["responseFormatType"] = request.responseFormatType();
+    body["responseFormatType"] = request.getResponseFormatType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1223,7 +1235,7 @@ RunCompletionMessageResponse Client::runCompletionMessageWithOptions(const strin
     {"action" , "RunCompletionMessage"},
     {"version" , "2024-06-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/completion_message")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Encode::Encoder::percentEncode(appId) , "/completion_message")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1257,23 +1269,23 @@ UpdateVocabResponse Client::updateVocabWithOptions(const UpdateVocabRequest &req
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasVocabularyId()) {
-    body["vocabularyId"] = request.vocabularyId();
+    body["vocabularyId"] = request.getVocabularyId();
   }
 
   if (!!request.hasWordWeightList()) {
-    body["wordWeightList"] = request.wordWeightList();
+    body["wordWeightList"] = request.getWordWeightList();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
