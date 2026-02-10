@@ -43,20 +43,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->imageList_ == nullptr && return this->namespace_ == nullptr && return this->tagList_ == nullptr && return this->targetId_ == nullptr && return this->targetName_ == nullptr
-        && return this->targetType_ == nullptr; };
+        && this->imageList_ == nullptr && this->namespace_ == nullptr && this->tagList_ == nullptr && this->targetId_ == nullptr && this->targetName_ == nullptr
+        && this->targetType_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline ModifyInterceptionTargetRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // imageList Field Functions 
     bool hasImageList() const { return this->imageList_ != nullptr;};
     void deleteImageList() { this->imageList_ = nullptr;};
-    inline const vector<string> & imageList() const { DARABONBA_PTR_GET_CONST(imageList_, vector<string>) };
-    inline vector<string> imageList() { DARABONBA_PTR_GET(imageList_, vector<string>) };
+    inline const vector<string> & getImageList() const { DARABONBA_PTR_GET_CONST(imageList_, vector<string>) };
+    inline vector<string> getImageList() { DARABONBA_PTR_GET(imageList_, vector<string>) };
     inline ModifyInterceptionTargetRequest& setImageList(const vector<string> & imageList) { DARABONBA_PTR_SET_VALUE(imageList_, imageList) };
     inline ModifyInterceptionTargetRequest& setImageList(vector<string> && imageList) { DARABONBA_PTR_SET_RVALUE(imageList_, imageList) };
 
@@ -64,15 +64,15 @@ namespace Models
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline ModifyInterceptionTargetRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // tagList Field Functions 
     bool hasTagList() const { return this->tagList_ != nullptr;};
     void deleteTagList() { this->tagList_ = nullptr;};
-    inline const vector<string> & tagList() const { DARABONBA_PTR_GET_CONST(tagList_, vector<string>) };
-    inline vector<string> tagList() { DARABONBA_PTR_GET(tagList_, vector<string>) };
+    inline const vector<string> & getTagList() const { DARABONBA_PTR_GET_CONST(tagList_, vector<string>) };
+    inline vector<string> getTagList() { DARABONBA_PTR_GET(tagList_, vector<string>) };
     inline ModifyInterceptionTargetRequest& setTagList(const vector<string> & tagList) { DARABONBA_PTR_SET_VALUE(tagList_, tagList) };
     inline ModifyInterceptionTargetRequest& setTagList(vector<string> && tagList) { DARABONBA_PTR_SET_RVALUE(tagList_, tagList) };
 
@@ -80,21 +80,21 @@ namespace Models
     // targetId Field Functions 
     bool hasTargetId() const { return this->targetId_ != nullptr;};
     void deleteTargetId() { this->targetId_ = nullptr;};
-    inline int64_t targetId() const { DARABONBA_PTR_GET_DEFAULT(targetId_, 0L) };
+    inline int64_t getTargetId() const { DARABONBA_PTR_GET_DEFAULT(targetId_, 0L) };
     inline ModifyInterceptionTargetRequest& setTargetId(int64_t targetId) { DARABONBA_PTR_SET_VALUE(targetId_, targetId) };
 
 
     // targetName Field Functions 
     bool hasTargetName() const { return this->targetName_ != nullptr;};
     void deleteTargetName() { this->targetName_ = nullptr;};
-    inline string targetName() const { DARABONBA_PTR_GET_DEFAULT(targetName_, "") };
+    inline string getTargetName() const { DARABONBA_PTR_GET_DEFAULT(targetName_, "") };
     inline ModifyInterceptionTargetRequest& setTargetName(string targetName) { DARABONBA_PTR_SET_VALUE(targetName_, targetName) };
 
 
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
-    inline string targetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
+    inline string getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
     inline ModifyInterceptionTargetRequest& setTargetType(string targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
 
 
@@ -102,37 +102,37 @@ namespace Models
     // The name of the application.
     // 
     // > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // An array that consists of images.
     // 
     // > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
-    std::shared_ptr<vector<string>> imageList_ = nullptr;
+    shared_ptr<vector<string>> imageList_ {};
     // The namespace.
     // 
     // > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // An array that consists of tags.
     // 
     // > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
-    std::shared_ptr<vector<string>> tagList_ = nullptr;
+    shared_ptr<vector<string>> tagList_ {};
     // The ID of the network object.
     // 
     // > You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> targetId_ = nullptr;
+    shared_ptr<int64_t> targetId_ {};
     // The name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetName_ = nullptr;
+    shared_ptr<string> targetName_ {};
     // The object type. Valid values:
     // 
     // *   **IMAGE**
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetType_ = nullptr;
+    shared_ptr<string> targetType_ {};
   };
 
   } // namespace Models

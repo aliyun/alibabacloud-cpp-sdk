@@ -42,78 +42,78 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkIdsShrink_ == nullptr
-        && return this->checkItemFuzzy_ == nullptr && return this->currentPage_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->recordIdsShrink_ == nullptr
-        && return this->source_ == nullptr; };
+        && this->checkItemFuzzy_ == nullptr && this->currentPage_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->recordIdsShrink_ == nullptr
+        && this->source_ == nullptr; };
     // checkIdsShrink Field Functions 
     bool hasCheckIdsShrink() const { return this->checkIdsShrink_ != nullptr;};
     void deleteCheckIdsShrink() { this->checkIdsShrink_ = nullptr;};
-    inline string checkIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(checkIdsShrink_, "") };
+    inline string getCheckIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(checkIdsShrink_, "") };
     inline ListBaselineCheckWhiteRecordShrinkRequest& setCheckIdsShrink(string checkIdsShrink) { DARABONBA_PTR_SET_VALUE(checkIdsShrink_, checkIdsShrink) };
 
 
     // checkItemFuzzy Field Functions 
     bool hasCheckItemFuzzy() const { return this->checkItemFuzzy_ != nullptr;};
     void deleteCheckItemFuzzy() { this->checkItemFuzzy_ = nullptr;};
-    inline string checkItemFuzzy() const { DARABONBA_PTR_GET_DEFAULT(checkItemFuzzy_, "") };
+    inline string getCheckItemFuzzy() const { DARABONBA_PTR_GET_DEFAULT(checkItemFuzzy_, "") };
     inline ListBaselineCheckWhiteRecordShrinkRequest& setCheckItemFuzzy(string checkItemFuzzy) { DARABONBA_PTR_SET_VALUE(checkItemFuzzy_, checkItemFuzzy) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListBaselineCheckWhiteRecordShrinkRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ListBaselineCheckWhiteRecordShrinkRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListBaselineCheckWhiteRecordShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // recordIdsShrink Field Functions 
     bool hasRecordIdsShrink() const { return this->recordIdsShrink_ != nullptr;};
     void deleteRecordIdsShrink() { this->recordIdsShrink_ = nullptr;};
-    inline string recordIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(recordIdsShrink_, "") };
+    inline string getRecordIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(recordIdsShrink_, "") };
     inline ListBaselineCheckWhiteRecordShrinkRequest& setRecordIdsShrink(string recordIdsShrink) { DARABONBA_PTR_SET_VALUE(recordIdsShrink_, recordIdsShrink) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline ListBaselineCheckWhiteRecordShrinkRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
   protected:
     // The IDs of check items.
-    std::shared_ptr<string> checkIdsShrink_ = nullptr;
+    shared_ptr<string> checkIdsShrink_ {};
     // The name of the check item. Fuzzy match is supported.
-    std::shared_ptr<string> checkItemFuzzy_ = nullptr;
+    shared_ptr<string> checkItemFuzzy_ {};
     // The page number. Pages start from page 1. Default value: 1.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The IDs of the whitelist rules.
-    std::shared_ptr<string> recordIdsShrink_ = nullptr;
+    shared_ptr<string> recordIdsShrink_ {};
     // The data source. If you leave this parameter empty, the default value is used. Valid values:
     // 
     // *   **default**: server
     // *   **agentless**: agentless detection
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

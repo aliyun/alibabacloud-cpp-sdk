@@ -33,7 +33,7 @@ namespace Models
     // serviceLinkedRole Field Functions 
     bool hasServiceLinkedRole() const { return this->serviceLinkedRole_ != nullptr;};
     void deleteServiceLinkedRole() { this->serviceLinkedRole_ = nullptr;};
-    inline string serviceLinkedRole() const { DARABONBA_PTR_GET_DEFAULT(serviceLinkedRole_, "") };
+    inline string getServiceLinkedRole() const { DARABONBA_PTR_GET_DEFAULT(serviceLinkedRole_, "") };
     inline DescribeServiceLinkedRoleStatusRequest& setServiceLinkedRole(string serviceLinkedRole) { DARABONBA_PTR_SET_VALUE(serviceLinkedRole_, serviceLinkedRole) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   **AliyunServiceRoleForSas**: the service-linked role of Security Center. Security Center assumes this role to access the resources of other cloud services within your account.
     // *   **AliyunServiceRoleForSasCspm**: the service-linked role of Security Center-CSPM. Security Center-CSPM assumes this role to access the resources of other cloud services within your account.
-    std::shared_ptr<string> serviceLinkedRole_ = nullptr;
+    shared_ptr<string> serviceLinkedRole_ {};
   };
 
   } // namespace Models

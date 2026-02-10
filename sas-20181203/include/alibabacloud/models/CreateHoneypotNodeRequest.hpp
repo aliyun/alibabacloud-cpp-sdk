@@ -37,33 +37,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowHoneypotAccessInternet_ == nullptr
-        && return this->availableProbeNum_ == nullptr && return this->nodeName_ == nullptr && return this->securityGroupProbeIpList_ == nullptr; };
+        && this->availableProbeNum_ == nullptr && this->nodeName_ == nullptr && this->securityGroupProbeIpList_ == nullptr; };
     // allowHoneypotAccessInternet Field Functions 
     bool hasAllowHoneypotAccessInternet() const { return this->allowHoneypotAccessInternet_ != nullptr;};
     void deleteAllowHoneypotAccessInternet() { this->allowHoneypotAccessInternet_ = nullptr;};
-    inline bool allowHoneypotAccessInternet() const { DARABONBA_PTR_GET_DEFAULT(allowHoneypotAccessInternet_, false) };
+    inline bool getAllowHoneypotAccessInternet() const { DARABONBA_PTR_GET_DEFAULT(allowHoneypotAccessInternet_, false) };
     inline CreateHoneypotNodeRequest& setAllowHoneypotAccessInternet(bool allowHoneypotAccessInternet) { DARABONBA_PTR_SET_VALUE(allowHoneypotAccessInternet_, allowHoneypotAccessInternet) };
 
 
     // availableProbeNum Field Functions 
     bool hasAvailableProbeNum() const { return this->availableProbeNum_ != nullptr;};
     void deleteAvailableProbeNum() { this->availableProbeNum_ = nullptr;};
-    inline int32_t availableProbeNum() const { DARABONBA_PTR_GET_DEFAULT(availableProbeNum_, 0) };
+    inline int32_t getAvailableProbeNum() const { DARABONBA_PTR_GET_DEFAULT(availableProbeNum_, 0) };
     inline CreateHoneypotNodeRequest& setAvailableProbeNum(int32_t availableProbeNum) { DARABONBA_PTR_SET_VALUE(availableProbeNum_, availableProbeNum) };
 
 
     // nodeName Field Functions 
     bool hasNodeName() const { return this->nodeName_ != nullptr;};
     void deleteNodeName() { this->nodeName_ = nullptr;};
-    inline string nodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
+    inline string getNodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
     inline CreateHoneypotNodeRequest& setNodeName(string nodeName) { DARABONBA_PTR_SET_VALUE(nodeName_, nodeName) };
 
 
     // securityGroupProbeIpList Field Functions 
     bool hasSecurityGroupProbeIpList() const { return this->securityGroupProbeIpList_ != nullptr;};
     void deleteSecurityGroupProbeIpList() { this->securityGroupProbeIpList_ = nullptr;};
-    inline const vector<string> & securityGroupProbeIpList() const { DARABONBA_PTR_GET_CONST(securityGroupProbeIpList_, vector<string>) };
-    inline vector<string> securityGroupProbeIpList() { DARABONBA_PTR_GET(securityGroupProbeIpList_, vector<string>) };
+    inline const vector<string> & getSecurityGroupProbeIpList() const { DARABONBA_PTR_GET_CONST(securityGroupProbeIpList_, vector<string>) };
+    inline vector<string> getSecurityGroupProbeIpList() { DARABONBA_PTR_GET(securityGroupProbeIpList_, vector<string>) };
     inline CreateHoneypotNodeRequest& setSecurityGroupProbeIpList(const vector<string> & securityGroupProbeIpList) { DARABONBA_PTR_SET_VALUE(securityGroupProbeIpList_, securityGroupProbeIpList) };
     inline CreateHoneypotNodeRequest& setSecurityGroupProbeIpList(vector<string> && securityGroupProbeIpList) { DARABONBA_PTR_SET_RVALUE(securityGroupProbeIpList_, securityGroupProbeIpList) };
 
@@ -73,15 +73,15 @@ namespace Models
     // 
     // *   **true**: allows honeypots to access the Internet.
     // *   **false**: does not allow honeypots to access the Internet.
-    std::shared_ptr<bool> allowHoneypotAccessInternet_ = nullptr;
+    shared_ptr<bool> allowHoneypotAccessInternet_ {};
     // The number of available probes.
-    std::shared_ptr<int32_t> availableProbeNum_ = nullptr;
+    shared_ptr<int32_t> availableProbeNum_ {};
     // The name of the management node.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeName_ = nullptr;
+    shared_ptr<string> nodeName_ {};
     // The CIDR blocks that are allowed to access the management node.
-    std::shared_ptr<vector<string>> securityGroupProbeIpList_ = nullptr;
+    shared_ptr<vector<string>> securityGroupProbeIpList_ {};
   };
 
   } // namespace Models

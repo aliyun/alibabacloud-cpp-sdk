@@ -38,44 +38,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && return this->project_ == nullptr && return this->route_ == nullptr && return this->sourceIp_ == nullptr && return this->timeLimit_ == nullptr; };
+        && this->project_ == nullptr && this->route_ == nullptr && this->sourceIp_ == nullptr && this->timeLimit_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline ModifyNoticeConfigRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // project Field Functions 
     bool hasProject() const { return this->project_ != nullptr;};
     void deleteProject() { this->project_ = nullptr;};
-    inline string project() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
+    inline string getProject() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
     inline ModifyNoticeConfigRequest& setProject(string project) { DARABONBA_PTR_SET_VALUE(project_, project) };
 
 
     // route Field Functions 
     bool hasRoute() const { return this->route_ != nullptr;};
     void deleteRoute() { this->route_ = nullptr;};
-    inline int32_t route() const { DARABONBA_PTR_GET_DEFAULT(route_, 0) };
+    inline int32_t getRoute() const { DARABONBA_PTR_GET_DEFAULT(route_, 0) };
     inline ModifyNoticeConfigRequest& setRoute(int32_t route) { DARABONBA_PTR_SET_VALUE(route_, route) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline ModifyNoticeConfigRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // timeLimit Field Functions 
     bool hasTimeLimit() const { return this->timeLimit_ != nullptr;};
     void deleteTimeLimit() { this->timeLimit_ = nullptr;};
-    inline int32_t timeLimit() const { DARABONBA_PTR_GET_DEFAULT(timeLimit_, 0) };
+    inline int32_t getTimeLimit() const { DARABONBA_PTR_GET_DEFAULT(timeLimit_, 0) };
     inline ModifyNoticeConfigRequest& setTimeLimit(int32_t timeLimit) { DARABONBA_PTR_SET_VALUE(timeLimit_, timeLimit) };
 
 
   protected:
-    std::shared_ptr<string> bizType_ = nullptr;
+    // Notification configuration type, default is SMS/email/in-site message. Value:
+    // - **cms**: Cloud Monitor push
+    shared_ptr<string> bizType_ {};
     // The identifier of the notification item. Valid values:
     // 
     // *   **yundun_security_Weekreport**: notification for vulnerabilities
@@ -108,7 +110,7 @@ namespace Models
     // *   **yundun_sas_cloudsiem_log**: notifications of insufficient threat analysis log capacity
     // 
     // > If the value is **yundun_security_Weekreport**, weekly reports are sent to notify you of unhandled vulnerabilities.
-    std::shared_ptr<string> project_ = nullptr;
+    shared_ptr<string> project_ {};
     // The notification method. Valid values:
     // 
     // *   **1**: text message
@@ -118,14 +120,14 @@ namespace Models
     // *   **5**: text message and internal message
     // *   **6**: email and internal message
     // *   **7**: text message, email, and internal message
-    std::shared_ptr<int32_t> route_ = nullptr;
+    shared_ptr<int32_t> route_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The time period during which Security Center sends notifications. Valid values:
     // 
     // *   **0**: any time
     // *   **1**: 08:00 to 22:00
-    std::shared_ptr<int32_t> timeLimit_ = nullptr;
+    shared_ptr<int32_t> timeLimit_ {};
   };
 
   } // namespace Models

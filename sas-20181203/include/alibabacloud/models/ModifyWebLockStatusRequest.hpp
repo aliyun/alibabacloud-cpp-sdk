@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->sourceIp_ == nullptr && return this->status_ == nullptr && return this->uuid_ == nullptr; };
+        && this->sourceIp_ == nullptr && this->status_ == nullptr && this->uuid_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyWebLockStatusRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline ModifyWebLockStatusRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ModifyWebLockStatusRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline ModifyWebLockStatusRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
@@ -70,9 +70,9 @@ namespace Models
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // Specifies whether to enable or disable web tamper proofing for the specified server. Valid values:
     // 
     // *   **on**: enables web tamper proofing
@@ -81,11 +81,11 @@ namespace Models
     // > After you disable web tamper proofing for the specified server, one quota is released.
     // 
     // This parameter is required.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The UUID of the server for which you want to enable or disable web tamper proofing. You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

@@ -39,33 +39,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isItemStatistic_ == nullptr
-        && return this->lang_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->taskSources_ == nullptr && return this->vendors_ == nullptr; };
+        && this->lang_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->taskSources_ == nullptr && this->vendors_ == nullptr; };
     // isItemStatistic Field Functions 
     bool hasIsItemStatistic() const { return this->isItemStatistic_ != nullptr;};
     void deleteIsItemStatistic() { this->isItemStatistic_ = nullptr;};
-    inline bool isItemStatistic() const { DARABONBA_PTR_GET_DEFAULT(isItemStatistic_, false) };
+    inline bool getIsItemStatistic() const { DARABONBA_PTR_GET_DEFAULT(isItemStatistic_, false) };
     inline GetCheckSummaryRequest& setIsItemStatistic(bool isItemStatistic) { DARABONBA_PTR_SET_VALUE(isItemStatistic_, isItemStatistic) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline GetCheckSummaryRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // resourceDirectoryAccountId Field Functions 
     bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
     void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
-    inline string resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, "") };
+    inline string getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, "") };
     inline GetCheckSummaryRequest& setResourceDirectoryAccountId(string resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // taskSources Field Functions 
     bool hasTaskSources() const { return this->taskSources_ != nullptr;};
     void deleteTaskSources() { this->taskSources_ = nullptr;};
-    inline const vector<string> & taskSources() const { DARABONBA_PTR_GET_CONST(taskSources_, vector<string>) };
-    inline vector<string> taskSources() { DARABONBA_PTR_GET(taskSources_, vector<string>) };
+    inline const vector<string> & getTaskSources() const { DARABONBA_PTR_GET_CONST(taskSources_, vector<string>) };
+    inline vector<string> getTaskSources() { DARABONBA_PTR_GET(taskSources_, vector<string>) };
     inline GetCheckSummaryRequest& setTaskSources(const vector<string> & taskSources) { DARABONBA_PTR_SET_VALUE(taskSources_, taskSources) };
     inline GetCheckSummaryRequest& setTaskSources(vector<string> && taskSources) { DARABONBA_PTR_SET_RVALUE(taskSources_, taskSources) };
 
@@ -73,8 +73,8 @@ namespace Models
     // vendors Field Functions 
     bool hasVendors() const { return this->vendors_ != nullptr;};
     void deleteVendors() { this->vendors_ = nullptr;};
-    inline const vector<string> & vendors() const { DARABONBA_PTR_GET_CONST(vendors_, vector<string>) };
-    inline vector<string> vendors() { DARABONBA_PTR_GET(vendors_, vector<string>) };
+    inline const vector<string> & getVendors() const { DARABONBA_PTR_GET_CONST(vendors_, vector<string>) };
+    inline vector<string> getVendors() { DARABONBA_PTR_GET(vendors_, vector<string>) };
     inline GetCheckSummaryRequest& setVendors(const vector<string> & vendors) { DARABONBA_PTR_SET_VALUE(vendors_, vendors) };
     inline GetCheckSummaryRequest& setVendors(vector<string> && vendors) { DARABONBA_PTR_SET_RVALUE(vendors_, vendors) };
 
@@ -84,20 +84,20 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> isItemStatistic_ = nullptr;
+    shared_ptr<bool> isItemStatistic_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The Alibaba Cloud account ID of the member in the resource directory.
     // 
     // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the IDs of Alibaba Cloud accounts.
-    std::shared_ptr<string> resourceDirectoryAccountId_ = nullptr;
+    shared_ptr<string> resourceDirectoryAccountId_ {};
     // List of task sources.
-    std::shared_ptr<vector<string>> taskSources_ = nullptr;
+    shared_ptr<vector<string>> taskSources_ {};
     // The cloud service providers.
-    std::shared_ptr<vector<string>> vendors_ = nullptr;
+    shared_ptr<vector<string>> vendors_ {};
   };
 
   } // namespace Models

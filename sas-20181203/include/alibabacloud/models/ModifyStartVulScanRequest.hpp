@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->types_ == nullptr
-        && return this->uuids_ == nullptr; };
+        && this->uuids_ == nullptr; };
     // types Field Functions 
     bool hasTypes() const { return this->types_ != nullptr;};
     void deleteTypes() { this->types_ = nullptr;};
-    inline string types() const { DARABONBA_PTR_GET_DEFAULT(types_, "") };
+    inline string getTypes() const { DARABONBA_PTR_GET_DEFAULT(types_, "") };
     inline ModifyStartVulScanRequest& setTypes(string types) { DARABONBA_PTR_SET_VALUE(types_, types) };
 
 
     // uuids Field Functions 
     bool hasUuids() const { return this->uuids_ != nullptr;};
     void deleteUuids() { this->uuids_ = nullptr;};
-    inline string uuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
+    inline string getUuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
     inline ModifyStartVulScanRequest& setUuids(string uuids) { DARABONBA_PTR_SET_VALUE(uuids_, uuids) };
 
 
@@ -59,9 +59,9 @@ namespace Models
     // *   **sca**: vulnerabilities that are detected based on software component analysis
     // 
     // > If you leave this parameter empty, all types of vulnerabilities can be detected.
-    std::shared_ptr<string> types_ = nullptr;
+    shared_ptr<string> types_ {};
     // The UUIDs of servers.
-    std::shared_ptr<string> uuids_ = nullptr;
+    shared_ptr<string> uuids_ {};
   };
 
   } // namespace Models

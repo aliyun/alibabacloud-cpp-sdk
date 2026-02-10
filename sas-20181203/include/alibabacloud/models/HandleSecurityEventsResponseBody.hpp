@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_HANDLESECURITYEVENTSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_HANDLESECURITYEVENTSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/HandleSecurityEventsResponseBodyHandleSecurityEventsResponse.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +31,61 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class HandleSecurityEventsResponse : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const HandleSecurityEventsResponse& obj) { 
+        DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+      };
+      friend void from_json(const Darabonba::Json& j, HandleSecurityEventsResponse& obj) { 
+        DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+      };
+      HandleSecurityEventsResponse() = default ;
+      HandleSecurityEventsResponse(const HandleSecurityEventsResponse &) = default ;
+      HandleSecurityEventsResponse(HandleSecurityEventsResponse &&) = default ;
+      HandleSecurityEventsResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~HandleSecurityEventsResponse() = default ;
+      HandleSecurityEventsResponse& operator=(const HandleSecurityEventsResponse &) = default ;
+      HandleSecurityEventsResponse& operator=(HandleSecurityEventsResponse &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->taskId_ == nullptr; };
+      // taskId Field Functions 
+      bool hasTaskId() const { return this->taskId_ != nullptr;};
+      void deleteTaskId() { this->taskId_ = nullptr;};
+      inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+      inline HandleSecurityEventsResponse& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+    protected:
+      // The ID of the task to handle the alert events.
+      shared_ptr<int64_t> taskId_ {};
+    };
+
     virtual bool empty() const override { return this->handleSecurityEventsResponse_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // handleSecurityEventsResponse Field Functions 
     bool hasHandleSecurityEventsResponse() const { return this->handleSecurityEventsResponse_ != nullptr;};
     void deleteHandleSecurityEventsResponse() { this->handleSecurityEventsResponse_ = nullptr;};
-    inline const HandleSecurityEventsResponseBodyHandleSecurityEventsResponse & handleSecurityEventsResponse() const { DARABONBA_PTR_GET_CONST(handleSecurityEventsResponse_, HandleSecurityEventsResponseBodyHandleSecurityEventsResponse) };
-    inline HandleSecurityEventsResponseBodyHandleSecurityEventsResponse handleSecurityEventsResponse() { DARABONBA_PTR_GET(handleSecurityEventsResponse_, HandleSecurityEventsResponseBodyHandleSecurityEventsResponse) };
-    inline HandleSecurityEventsResponseBody& setHandleSecurityEventsResponse(const HandleSecurityEventsResponseBodyHandleSecurityEventsResponse & handleSecurityEventsResponse) { DARABONBA_PTR_SET_VALUE(handleSecurityEventsResponse_, handleSecurityEventsResponse) };
-    inline HandleSecurityEventsResponseBody& setHandleSecurityEventsResponse(HandleSecurityEventsResponseBodyHandleSecurityEventsResponse && handleSecurityEventsResponse) { DARABONBA_PTR_SET_RVALUE(handleSecurityEventsResponse_, handleSecurityEventsResponse) };
+    inline const HandleSecurityEventsResponseBody::HandleSecurityEventsResponse & getHandleSecurityEventsResponse() const { DARABONBA_PTR_GET_CONST(handleSecurityEventsResponse_, HandleSecurityEventsResponseBody::HandleSecurityEventsResponse) };
+    inline HandleSecurityEventsResponseBody::HandleSecurityEventsResponse getHandleSecurityEventsResponse() { DARABONBA_PTR_GET(handleSecurityEventsResponse_, HandleSecurityEventsResponseBody::HandleSecurityEventsResponse) };
+    inline HandleSecurityEventsResponseBody& setHandleSecurityEventsResponse(const HandleSecurityEventsResponseBody::HandleSecurityEventsResponse & handleSecurityEventsResponse) { DARABONBA_PTR_SET_VALUE(handleSecurityEventsResponse_, handleSecurityEventsResponse) };
+    inline HandleSecurityEventsResponseBody& setHandleSecurityEventsResponse(HandleSecurityEventsResponseBody::HandleSecurityEventsResponse && handleSecurityEventsResponse) { DARABONBA_PTR_SET_RVALUE(handleSecurityEventsResponse_, handleSecurityEventsResponse) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline HandleSecurityEventsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The handling result of the alert events.
-    std::shared_ptr<HandleSecurityEventsResponseBodyHandleSecurityEventsResponse> handleSecurityEventsResponse_ = nullptr;
+    shared_ptr<HandleSecurityEventsResponseBody::HandleSecurityEventsResponse> handleSecurityEventsResponse_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

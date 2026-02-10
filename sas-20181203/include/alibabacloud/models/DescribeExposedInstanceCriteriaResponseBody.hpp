@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEEXPOSEDINSTANCECRITERIARESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeExposedInstanceCriteriaResponseBodyCriteriaList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,29 +32,89 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class CriteriaList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CriteriaList& obj) { 
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+        DARABONBA_PTR_TO_JSON(Values, values_);
+      };
+      friend void from_json(const Darabonba::Json& j, CriteriaList& obj) { 
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+        DARABONBA_PTR_FROM_JSON(Values, values_);
+      };
+      CriteriaList() = default ;
+      CriteriaList(const CriteriaList &) = default ;
+      CriteriaList(CriteriaList &&) = default ;
+      CriteriaList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CriteriaList() = default ;
+      CriteriaList& operator=(const CriteriaList &) = default ;
+      CriteriaList& operator=(CriteriaList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->name_ == nullptr
+        && this->type_ == nullptr && this->values_ == nullptr; };
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline CriteriaList& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline CriteriaList& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      // values Field Functions 
+      bool hasValues() const { return this->values_ != nullptr;};
+      void deleteValues() { this->values_ = nullptr;};
+      inline string getValues() const { DARABONBA_PTR_GET_DEFAULT(values_, "") };
+      inline CriteriaList& setValues(string values) { DARABONBA_PTR_SET_VALUE(values_, values) };
+
+
+    protected:
+      // The name of the search condition.
+      shared_ptr<string> name_ {};
+      // The type of the search condition. Valid values:
+      // 
+      // *   **input**: You must configure the search condition.
+      // *   **select**: You must select a search condition from the **Values** list.
+      shared_ptr<string> type_ {};
+      // The value of the search condition. This parameter is returned only when the value of the **Type** parameter is **select**.
+      // 
+      // >  If the value of the **Type** parameter is **input**, this parameter is empty.
+      shared_ptr<string> values_ {};
+    };
+
     virtual bool empty() const override { return this->criteriaList_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // criteriaList Field Functions 
     bool hasCriteriaList() const { return this->criteriaList_ != nullptr;};
     void deleteCriteriaList() { this->criteriaList_ = nullptr;};
-    inline const vector<DescribeExposedInstanceCriteriaResponseBodyCriteriaList> & criteriaList() const { DARABONBA_PTR_GET_CONST(criteriaList_, vector<DescribeExposedInstanceCriteriaResponseBodyCriteriaList>) };
-    inline vector<DescribeExposedInstanceCriteriaResponseBodyCriteriaList> criteriaList() { DARABONBA_PTR_GET(criteriaList_, vector<DescribeExposedInstanceCriteriaResponseBodyCriteriaList>) };
-    inline DescribeExposedInstanceCriteriaResponseBody& setCriteriaList(const vector<DescribeExposedInstanceCriteriaResponseBodyCriteriaList> & criteriaList) { DARABONBA_PTR_SET_VALUE(criteriaList_, criteriaList) };
-    inline DescribeExposedInstanceCriteriaResponseBody& setCriteriaList(vector<DescribeExposedInstanceCriteriaResponseBodyCriteriaList> && criteriaList) { DARABONBA_PTR_SET_RVALUE(criteriaList_, criteriaList) };
+    inline const vector<DescribeExposedInstanceCriteriaResponseBody::CriteriaList> & getCriteriaList() const { DARABONBA_PTR_GET_CONST(criteriaList_, vector<DescribeExposedInstanceCriteriaResponseBody::CriteriaList>) };
+    inline vector<DescribeExposedInstanceCriteriaResponseBody::CriteriaList> getCriteriaList() { DARABONBA_PTR_GET(criteriaList_, vector<DescribeExposedInstanceCriteriaResponseBody::CriteriaList>) };
+    inline DescribeExposedInstanceCriteriaResponseBody& setCriteriaList(const vector<DescribeExposedInstanceCriteriaResponseBody::CriteriaList> & criteriaList) { DARABONBA_PTR_SET_VALUE(criteriaList_, criteriaList) };
+    inline DescribeExposedInstanceCriteriaResponseBody& setCriteriaList(vector<DescribeExposedInstanceCriteriaResponseBody::CriteriaList> && criteriaList) { DARABONBA_PTR_SET_RVALUE(criteriaList_, criteriaList) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeExposedInstanceCriteriaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The search conditions that are used to search for exposed assets.
-    std::shared_ptr<vector<DescribeExposedInstanceCriteriaResponseBodyCriteriaList>> criteriaList_ = nullptr;
+    shared_ptr<vector<DescribeExposedInstanceCriteriaResponseBody::CriteriaList>> criteriaList_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

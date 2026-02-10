@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->images_ == nullptr
-        && return this->sourceIp_ == nullptr; };
+        && this->sourceIp_ == nullptr; };
     // images Field Functions 
     bool hasImages() const { return this->images_ != nullptr;};
     void deleteImages() { this->images_ = nullptr;};
-    inline string images() const { DARABONBA_PTR_GET_DEFAULT(images_, "") };
+    inline string getImages() const { DARABONBA_PTR_GET_DEFAULT(images_, "") };
     inline PublicSyncAndCreateImageScanTaskRequest& setImages(string images) { DARABONBA_PTR_SET_VALUE(images_, images) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline PublicSyncAndCreateImageScanTaskRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
@@ -75,9 +75,9 @@ namespace Models
     // *   **UpdateTime**: the timestamp when the image was updated. Unit: milliseconds.
     // 
     // This parameter is required.
-    std::shared_ptr<string> images_ = nullptr;
+    shared_ptr<string> images_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

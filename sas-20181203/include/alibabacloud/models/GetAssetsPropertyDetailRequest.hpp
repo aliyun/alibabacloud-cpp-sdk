@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETASSETSPROPERTYDETAILREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetAssetsPropertyDetailRequestSearchCriteriaList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -49,115 +48,167 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SearchCriteriaList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SearchCriteriaList& obj) { 
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, SearchCriteriaList& obj) { 
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      SearchCriteriaList() = default ;
+      SearchCriteriaList(const SearchCriteriaList &) = default ;
+      SearchCriteriaList(SearchCriteriaList &&) = default ;
+      SearchCriteriaList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SearchCriteriaList() = default ;
+      SearchCriteriaList& operator=(const SearchCriteriaList &) = default ;
+      SearchCriteriaList& operator=(SearchCriteriaList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->name_ == nullptr
+        && this->value_ == nullptr; };
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline SearchCriteriaList& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline SearchCriteriaList& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The name of the condition to be queried. Values are as follows:
+      // - **remarkItemName**: The aggregated item name of the asset fingerprint, supporting fuzzy matching
+      // 
+      // 
+      // >-   - When **Biz** is **web_server**, **remarkItemName** represents the domain name as the search condition.
+      // >-   - When **Biz** is **lkm**, **remarkItemName** represents the module name as the search condition.
+      // >-   - When **Biz** is **autorun**, **remarkItemName** represents the startup item path as the search condition.
+      shared_ptr<string> name_ {};
+      // The value of the condition to be queried.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->biz_ == nullptr
-        && return this->currentPage_ == nullptr && return this->itemName_ == nullptr && return this->lang_ == nullptr && return this->nextToken_ == nullptr && return this->pageSize_ == nullptr
-        && return this->remark_ == nullptr && return this->searchCriteriaList_ == nullptr && return this->useNextToken_ == nullptr && return this->uuid_ == nullptr; };
+        && this->currentPage_ == nullptr && this->itemName_ == nullptr && this->lang_ == nullptr && this->nextToken_ == nullptr && this->pageSize_ == nullptr
+        && this->remark_ == nullptr && this->searchCriteriaList_ == nullptr && this->useNextToken_ == nullptr && this->uuid_ == nullptr; };
     // biz Field Functions 
     bool hasBiz() const { return this->biz_ != nullptr;};
     void deleteBiz() { this->biz_ = nullptr;};
-    inline string biz() const { DARABONBA_PTR_GET_DEFAULT(biz_, "") };
+    inline string getBiz() const { DARABONBA_PTR_GET_DEFAULT(biz_, "") };
     inline GetAssetsPropertyDetailRequest& setBiz(string biz) { DARABONBA_PTR_SET_VALUE(biz_, biz) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline GetAssetsPropertyDetailRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // itemName Field Functions 
     bool hasItemName() const { return this->itemName_ != nullptr;};
     void deleteItemName() { this->itemName_ = nullptr;};
-    inline string itemName() const { DARABONBA_PTR_GET_DEFAULT(itemName_, "") };
+    inline string getItemName() const { DARABONBA_PTR_GET_DEFAULT(itemName_, "") };
     inline GetAssetsPropertyDetailRequest& setItemName(string itemName) { DARABONBA_PTR_SET_VALUE(itemName_, itemName) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline GetAssetsPropertyDetailRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline GetAssetsPropertyDetailRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetAssetsPropertyDetailRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline GetAssetsPropertyDetailRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // searchCriteriaList Field Functions 
     bool hasSearchCriteriaList() const { return this->searchCriteriaList_ != nullptr;};
     void deleteSearchCriteriaList() { this->searchCriteriaList_ = nullptr;};
-    inline const vector<GetAssetsPropertyDetailRequestSearchCriteriaList> & searchCriteriaList() const { DARABONBA_PTR_GET_CONST(searchCriteriaList_, vector<GetAssetsPropertyDetailRequestSearchCriteriaList>) };
-    inline vector<GetAssetsPropertyDetailRequestSearchCriteriaList> searchCriteriaList() { DARABONBA_PTR_GET(searchCriteriaList_, vector<GetAssetsPropertyDetailRequestSearchCriteriaList>) };
-    inline GetAssetsPropertyDetailRequest& setSearchCriteriaList(const vector<GetAssetsPropertyDetailRequestSearchCriteriaList> & searchCriteriaList) { DARABONBA_PTR_SET_VALUE(searchCriteriaList_, searchCriteriaList) };
-    inline GetAssetsPropertyDetailRequest& setSearchCriteriaList(vector<GetAssetsPropertyDetailRequestSearchCriteriaList> && searchCriteriaList) { DARABONBA_PTR_SET_RVALUE(searchCriteriaList_, searchCriteriaList) };
+    inline const vector<GetAssetsPropertyDetailRequest::SearchCriteriaList> & getSearchCriteriaList() const { DARABONBA_PTR_GET_CONST(searchCriteriaList_, vector<GetAssetsPropertyDetailRequest::SearchCriteriaList>) };
+    inline vector<GetAssetsPropertyDetailRequest::SearchCriteriaList> getSearchCriteriaList() { DARABONBA_PTR_GET(searchCriteriaList_, vector<GetAssetsPropertyDetailRequest::SearchCriteriaList>) };
+    inline GetAssetsPropertyDetailRequest& setSearchCriteriaList(const vector<GetAssetsPropertyDetailRequest::SearchCriteriaList> & searchCriteriaList) { DARABONBA_PTR_SET_VALUE(searchCriteriaList_, searchCriteriaList) };
+    inline GetAssetsPropertyDetailRequest& setSearchCriteriaList(vector<GetAssetsPropertyDetailRequest::SearchCriteriaList> && searchCriteriaList) { DARABONBA_PTR_SET_RVALUE(searchCriteriaList_, searchCriteriaList) };
 
 
     // useNextToken Field Functions 
     bool hasUseNextToken() const { return this->useNextToken_ != nullptr;};
     void deleteUseNextToken() { this->useNextToken_ = nullptr;};
-    inline bool useNextToken() const { DARABONBA_PTR_GET_DEFAULT(useNextToken_, false) };
+    inline bool getUseNextToken() const { DARABONBA_PTR_GET_DEFAULT(useNextToken_, false) };
     inline GetAssetsPropertyDetailRequest& setUseNextToken(bool useNextToken) { DARABONBA_PTR_SET_VALUE(useNextToken_, useNextToken) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline GetAssetsPropertyDetailRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
-    // The type of the asset fingerprint that you want to query. Default value: **sca**. Valid values:
+    // The type of asset fingerprint to be queried, with a default value of **sca**. Values:
     // 
-    // *   **lkm**: kernel module
-    // *   **autorun**: startup item
-    // *   **web_server**: website
+    // - **lkm**: Kernel module
+    // - **autorun**: Startup item
+    // - **web_server**: Web site
     // 
     // This parameter is required.
-    std::shared_ptr<string> biz_ = nullptr;
-    // The number of the page to return. Default value: **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    // The name of the aggregation item for the asset fingerprint that you want to query.
+    shared_ptr<string> biz_ {};
+    // Set the page number from which to start displaying the query results. The default value is **1**, indicating that the display starts from the first page.
+    shared_ptr<int32_t> currentPage_ {};
+    // The aggregated item name of the asset fingerprint to be queried.
+    // > Call the [GetAssetsPropertyItem](~~GetAssetsPropertyItem~~) API to obtain this parameter.
+    shared_ptr<string> itemName_ {};
+    // The language type for the request and response. Values:
+    // - **zh**: Chinese
+    // - **en**: English
+    shared_ptr<string> lang_ {};
+    // Used to mark the current read position. Leave it empty to start from the beginning.
+    // > Do not fill in for the first call; the response will include the NextToken for the second call. Each subsequent call\\"s response will contain the NextToken for the next call.
+    shared_ptr<string> nextToken_ {};
+    // Specify the maximum number of data entries per page in a paginated query. The default number of data entries per page is 20. If the PageSize parameter is empty, 20 data entries will be returned by default.
+    // > It is recommended that the PageSize value is not empty.
+    shared_ptr<int32_t> pageSize_ {};
+    // Server name or IP.
+    shared_ptr<string> remark_ {};
+    // A set of conditions for querying asset fingerprint details.
+    shared_ptr<vector<GetAssetsPropertyDetailRequest::SearchCriteriaList>> searchCriteriaList_ {};
+    // Whether to use the NextToken method to fetch the list of vulnerabilities. If this parameter is used, TotalCount will not be returned. Values:
     // 
-    // > You can call the [GetAssetsPropertyItem](~~GetAssetsPropertyItem~~) operation to query the names of aggregation items.
-    std::shared_ptr<string> itemName_ = nullptr;
-    // The language of the content within the request and response. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    // The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // > We recommend that you do not leave this parameter empty.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // The name or IP address of the server.
-    std::shared_ptr<string> remark_ = nullptr;
-    // The conditions that are used to query the details about the asset fingerprint.
-    std::shared_ptr<vector<GetAssetsPropertyDetailRequestSearchCriteriaList>> searchCriteriaList_ = nullptr;
-    std::shared_ptr<bool> useNextToken_ = nullptr;
-    // The UUID of the server.
-    // 
-    // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
-    std::shared_ptr<string> uuid_ = nullptr;
+    // - **true**: Use the NextToken method.
+    // - **false**: Do not use the NextToken method.
+    shared_ptr<bool> useNextToken_ {};
+    // The UUID of the asset to be queried.
+    // > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) API to obtain this parameter.
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

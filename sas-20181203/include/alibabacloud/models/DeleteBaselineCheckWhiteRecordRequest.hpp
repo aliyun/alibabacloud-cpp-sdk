@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkIds_ == nullptr
-        && return this->lang_ == nullptr && return this->recordIds_ == nullptr && return this->source_ == nullptr; };
+        && this->lang_ == nullptr && this->recordIds_ == nullptr && this->source_ == nullptr; };
     // checkIds Field Functions 
     bool hasCheckIds() const { return this->checkIds_ != nullptr;};
     void deleteCheckIds() { this->checkIds_ = nullptr;};
-    inline const vector<int64_t> & checkIds() const { DARABONBA_PTR_GET_CONST(checkIds_, vector<int64_t>) };
-    inline vector<int64_t> checkIds() { DARABONBA_PTR_GET(checkIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getCheckIds() const { DARABONBA_PTR_GET_CONST(checkIds_, vector<int64_t>) };
+    inline vector<int64_t> getCheckIds() { DARABONBA_PTR_GET(checkIds_, vector<int64_t>) };
     inline DeleteBaselineCheckWhiteRecordRequest& setCheckIds(const vector<int64_t> & checkIds) { DARABONBA_PTR_SET_VALUE(checkIds_, checkIds) };
     inline DeleteBaselineCheckWhiteRecordRequest& setCheckIds(vector<int64_t> && checkIds) { DARABONBA_PTR_SET_RVALUE(checkIds_, checkIds) };
 
@@ -50,15 +50,15 @@ namespace Models
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DeleteBaselineCheckWhiteRecordRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // recordIds Field Functions 
     bool hasRecordIds() const { return this->recordIds_ != nullptr;};
     void deleteRecordIds() { this->recordIds_ = nullptr;};
-    inline const vector<int64_t> & recordIds() const { DARABONBA_PTR_GET_CONST(recordIds_, vector<int64_t>) };
-    inline vector<int64_t> recordIds() { DARABONBA_PTR_GET(recordIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getRecordIds() const { DARABONBA_PTR_GET_CONST(recordIds_, vector<int64_t>) };
+    inline vector<int64_t> getRecordIds() { DARABONBA_PTR_GET(recordIds_, vector<int64_t>) };
     inline DeleteBaselineCheckWhiteRecordRequest& setRecordIds(const vector<int64_t> & recordIds) { DARABONBA_PTR_SET_VALUE(recordIds_, recordIds) };
     inline DeleteBaselineCheckWhiteRecordRequest& setRecordIds(vector<int64_t> && recordIds) { DARABONBA_PTR_SET_RVALUE(recordIds_, recordIds) };
 
@@ -66,25 +66,25 @@ namespace Models
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline DeleteBaselineCheckWhiteRecordRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
   protected:
     // The IDs of check items.
-    std::shared_ptr<vector<int64_t>> checkIds_ = nullptr;
+    shared_ptr<vector<int64_t>> checkIds_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The IDs of the whitelist records.
-    std::shared_ptr<vector<int64_t>> recordIds_ = nullptr;
+    shared_ptr<vector<int64_t>> recordIds_ {};
     // The data source. Valid values:
     // 
     // *   **default**: host baseline
     // *   **agentless**: agentless detection
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

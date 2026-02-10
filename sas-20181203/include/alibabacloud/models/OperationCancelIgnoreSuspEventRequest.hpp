@@ -33,30 +33,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->remark_ == nullptr
-        && return this->securityEventIds_ == nullptr; };
+        && this->securityEventIds_ == nullptr; };
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline OperationCancelIgnoreSuspEventRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // securityEventIds Field Functions 
     bool hasSecurityEventIds() const { return this->securityEventIds_ != nullptr;};
     void deleteSecurityEventIds() { this->securityEventIds_ = nullptr;};
-    inline const vector<int64_t> & securityEventIds() const { DARABONBA_PTR_GET_CONST(securityEventIds_, vector<int64_t>) };
-    inline vector<int64_t> securityEventIds() { DARABONBA_PTR_GET(securityEventIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getSecurityEventIds() const { DARABONBA_PTR_GET_CONST(securityEventIds_, vector<int64_t>) };
+    inline vector<int64_t> getSecurityEventIds() { DARABONBA_PTR_GET(securityEventIds_, vector<int64_t>) };
     inline OperationCancelIgnoreSuspEventRequest& setSecurityEventIds(const vector<int64_t> & securityEventIds) { DARABONBA_PTR_SET_VALUE(securityEventIds_, securityEventIds) };
     inline OperationCancelIgnoreSuspEventRequest& setSecurityEventIds(vector<int64_t> && securityEventIds) { DARABONBA_PTR_SET_RVALUE(securityEventIds_, securityEventIds) };
 
 
   protected:
     // The remarks.
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> remark_ {};
     // The IDs of alert events.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> securityEventIds_ = nullptr;
+    shared_ptr<vector<int64_t>> securityEventIds_ {};
   };
 
   } // namespace Models

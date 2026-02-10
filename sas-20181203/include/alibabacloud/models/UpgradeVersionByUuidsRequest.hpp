@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->upgradeVersion_ == nullptr
-        && return this->uuidList_ == nullptr; };
+        && this->uuidList_ == nullptr; };
     // upgradeVersion Field Functions 
     bool hasUpgradeVersion() const { return this->upgradeVersion_ != nullptr;};
     void deleteUpgradeVersion() { this->upgradeVersion_ = nullptr;};
-    inline string upgradeVersion() const { DARABONBA_PTR_GET_DEFAULT(upgradeVersion_, "") };
+    inline string getUpgradeVersion() const { DARABONBA_PTR_GET_DEFAULT(upgradeVersion_, "") };
     inline UpgradeVersionByUuidsRequest& setUpgradeVersion(string upgradeVersion) { DARABONBA_PTR_SET_VALUE(upgradeVersion_, upgradeVersion) };
 
 
     // uuidList Field Functions 
     bool hasUuidList() const { return this->uuidList_ != nullptr;};
     void deleteUuidList() { this->uuidList_ = nullptr;};
-    inline const vector<string> & uuidList() const { DARABONBA_PTR_GET_CONST(uuidList_, vector<string>) };
-    inline vector<string> uuidList() { DARABONBA_PTR_GET(uuidList_, vector<string>) };
+    inline const vector<string> & getUuidList() const { DARABONBA_PTR_GET_CONST(uuidList_, vector<string>) };
+    inline vector<string> getUuidList() { DARABONBA_PTR_GET(uuidList_, vector<string>) };
     inline UpgradeVersionByUuidsRequest& setUuidList(const vector<string> & uuidList) { DARABONBA_PTR_SET_VALUE(uuidList_, uuidList) };
     inline UpgradeVersionByUuidsRequest& setUuidList(vector<string> && uuidList) { DARABONBA_PTR_SET_RVALUE(uuidList_, uuidList) };
 
@@ -54,11 +54,11 @@ namespace Models
     // The version to which you want to upgrade the client.
     // 
     // This parameter is required.
-    std::shared_ptr<string> upgradeVersion_ = nullptr;
+    shared_ptr<string> upgradeVersion_ {};
     // The UUIDs of the assets on which you want to run the detection task.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> uuidList_ = nullptr;
+    shared_ptr<vector<string>> uuidList_ {};
   };
 
   } // namespace Models

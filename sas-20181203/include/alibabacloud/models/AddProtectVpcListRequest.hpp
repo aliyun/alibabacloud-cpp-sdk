@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addVpcInstanceIdList_ == nullptr
-        && return this->delVpcInstanceIdList_ == nullptr; };
+        && this->delVpcInstanceIdList_ == nullptr; };
     // addVpcInstanceIdList Field Functions 
     bool hasAddVpcInstanceIdList() const { return this->addVpcInstanceIdList_ != nullptr;};
     void deleteAddVpcInstanceIdList() { this->addVpcInstanceIdList_ = nullptr;};
-    inline string addVpcInstanceIdList() const { DARABONBA_PTR_GET_DEFAULT(addVpcInstanceIdList_, "") };
+    inline string getAddVpcInstanceIdList() const { DARABONBA_PTR_GET_DEFAULT(addVpcInstanceIdList_, "") };
     inline AddProtectVpcListRequest& setAddVpcInstanceIdList(string addVpcInstanceIdList) { DARABONBA_PTR_SET_VALUE(addVpcInstanceIdList_, addVpcInstanceIdList) };
 
 
     // delVpcInstanceIdList Field Functions 
     bool hasDelVpcInstanceIdList() const { return this->delVpcInstanceIdList_ != nullptr;};
     void deleteDelVpcInstanceIdList() { this->delVpcInstanceIdList_ = nullptr;};
-    inline string delVpcInstanceIdList() const { DARABONBA_PTR_GET_DEFAULT(delVpcInstanceIdList_, "") };
+    inline string getDelVpcInstanceIdList() const { DARABONBA_PTR_GET_DEFAULT(delVpcInstanceIdList_, "") };
     inline AddProtectVpcListRequest& setDelVpcInstanceIdList(string delVpcInstanceIdList) { DARABONBA_PTR_SET_VALUE(delVpcInstanceIdList_, delVpcInstanceIdList) };
 
 
   protected:
     // Collection of new VPC instance IDs.
     // > Call the [DescribeVpcList](~~DescribeVpcList~~) interface to obtain this parameter.
-    std::shared_ptr<string> addVpcInstanceIdList_ = nullptr;
+    shared_ptr<string> addVpcInstanceIdList_ {};
     // Collection of VPC instance IDs to be deleted.
     // > Call the [DescribeVpcList](~~DescribeVpcList~~) interface to obtain this parameter.
-    std::shared_ptr<string> delVpcInstanceIdList_ = nullptr;
+    shared_ptr<string> delVpcInstanceIdList_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exportType_ == nullptr
-        && return this->reportId_ == nullptr; };
+        && this->reportId_ == nullptr; };
     // exportType Field Functions 
     bool hasExportType() const { return this->exportType_ != nullptr;};
     void deleteExportType() { this->exportType_ = nullptr;};
-    inline string exportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
+    inline string getExportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
     inline ExportCustomizeReportRequest& setExportType(string exportType) { DARABONBA_PTR_SET_VALUE(exportType_, exportType) };
 
 
     // reportId Field Functions 
     bool hasReportId() const { return this->reportId_ != nullptr;};
     void deleteReportId() { this->reportId_ = nullptr;};
-    inline int64_t reportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
+    inline int64_t getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
     inline ExportCustomizeReportRequest& setReportId(int64_t reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
 
 
@@ -54,13 +54,13 @@ namespace Models
     // *   **PDF**
     // 
     // >  The default value is HTML. PDF is supported only for security reports in version 2.0.0.
-    std::shared_ptr<string> exportType_ = nullptr;
+    shared_ptr<string> exportType_ {};
     // The ID of the security report.
     // 
     // >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> reportId_ = nullptr;
+    shared_ptr<int64_t> reportId_ {};
   };
 
   } // namespace Models

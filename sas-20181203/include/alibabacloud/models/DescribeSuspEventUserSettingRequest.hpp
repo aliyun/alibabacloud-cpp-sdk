@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && return this->id_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->id_ == nullptr && this->sourceIp_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
-    inline string from() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
+    inline string getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
     inline DescribeSuspEventUserSettingRequest& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int32_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0) };
+    inline int32_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0) };
     inline DescribeSuspEventUserSettingRequest& setId(int32_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeSuspEventUserSettingRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
   protected:
     // The ID of the request source. Set the value to **sas**.
-    std::shared_ptr<string> from_ = nullptr;
+    shared_ptr<string> from_ {};
     // The ID. You do not need to specify this parameter.
-    std::shared_ptr<int32_t> id_ = nullptr;
+    shared_ptr<int32_t> id_ {};
     // The IP address of the request. You do not need to specify this parameter.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

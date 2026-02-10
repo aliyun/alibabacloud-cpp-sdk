@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->target_ == nullptr
-        && return this->targetType_ == nullptr; };
+        && this->targetType_ == nullptr; };
     // target Field Functions 
     bool hasTarget() const { return this->target_ != nullptr;};
     void deleteTarget() { this->target_ = nullptr;};
-    inline string target() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+    inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
     inline GetAgentlessTaskCountRequest& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
 
 
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
-    inline int32_t targetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, 0) };
+    inline int32_t getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, 0) };
     inline GetAgentlessTaskCountRequest& setTargetType(int32_t targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
 
 
   protected:
     // The instance ID of the asset.
-    std::shared_ptr<string> target_ = nullptr;
+    shared_ptr<string> target_ {};
     // Specifies the type of the object being inspected. Valid values:
     // 
     // *   **3**: User Snapshot.
     // *   **4**: User Image.
-    std::shared_ptr<int32_t> targetType_ = nullptr;
+    shared_ptr<int32_t> targetType_ {};
   };
 
   } // namespace Models

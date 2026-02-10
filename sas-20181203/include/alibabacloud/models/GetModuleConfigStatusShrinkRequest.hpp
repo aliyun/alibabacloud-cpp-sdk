@@ -33,7 +33,7 @@ namespace Models
     // moduleNamesShrink Field Functions 
     bool hasModuleNamesShrink() const { return this->moduleNamesShrink_ != nullptr;};
     void deleteModuleNamesShrink() { this->moduleNamesShrink_ = nullptr;};
-    inline string moduleNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(moduleNamesShrink_, "") };
+    inline string getModuleNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(moduleNamesShrink_, "") };
     inline GetModuleConfigStatusShrinkRequest& setModuleNamesShrink(string moduleNamesShrink) { DARABONBA_PTR_SET_VALUE(moduleNamesShrink_, moduleNamesShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The service modules that you want to query.
     // 
     // This parameter is required.
-    std::shared_ptr<string> moduleNamesShrink_ = nullptr;
+    shared_ptr<string> moduleNamesShrink_ {};
   };
 
   } // namespace Models

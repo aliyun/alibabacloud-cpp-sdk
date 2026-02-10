@@ -41,19 +41,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->honeypotIds_ == nullptr && return this->honeypotName_ == nullptr && return this->nodeId_ == nullptr && return this->nodeName_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->honeypotIds_ == nullptr && this->honeypotName_ == nullptr && this->nodeId_ == nullptr && this->nodeName_ == nullptr && this->pageSize_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListHoneypotRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // honeypotIds Field Functions 
     bool hasHoneypotIds() const { return this->honeypotIds_ != nullptr;};
     void deleteHoneypotIds() { this->honeypotIds_ = nullptr;};
-    inline const vector<string> & honeypotIds() const { DARABONBA_PTR_GET_CONST(honeypotIds_, vector<string>) };
-    inline vector<string> honeypotIds() { DARABONBA_PTR_GET(honeypotIds_, vector<string>) };
+    inline const vector<string> & getHoneypotIds() const { DARABONBA_PTR_GET_CONST(honeypotIds_, vector<string>) };
+    inline vector<string> getHoneypotIds() { DARABONBA_PTR_GET(honeypotIds_, vector<string>) };
     inline ListHoneypotRequest& setHoneypotIds(const vector<string> & honeypotIds) { DARABONBA_PTR_SET_VALUE(honeypotIds_, honeypotIds) };
     inline ListHoneypotRequest& setHoneypotIds(vector<string> && honeypotIds) { DARABONBA_PTR_SET_RVALUE(honeypotIds_, honeypotIds) };
 
@@ -61,44 +61,44 @@ namespace Models
     // honeypotName Field Functions 
     bool hasHoneypotName() const { return this->honeypotName_ != nullptr;};
     void deleteHoneypotName() { this->honeypotName_ = nullptr;};
-    inline string honeypotName() const { DARABONBA_PTR_GET_DEFAULT(honeypotName_, "") };
+    inline string getHoneypotName() const { DARABONBA_PTR_GET_DEFAULT(honeypotName_, "") };
     inline ListHoneypotRequest& setHoneypotName(string honeypotName) { DARABONBA_PTR_SET_VALUE(honeypotName_, honeypotName) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline ListHoneypotRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // nodeName Field Functions 
     bool hasNodeName() const { return this->nodeName_ != nullptr;};
     void deleteNodeName() { this->nodeName_ = nullptr;};
-    inline string nodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
+    inline string getNodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
     inline ListHoneypotRequest& setNodeName(string nodeName) { DARABONBA_PTR_SET_VALUE(nodeName_, nodeName) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListHoneypotRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
     // The number of the page to return.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The IDs of the honeypots.
-    std::shared_ptr<vector<string>> honeypotIds_ = nullptr;
+    shared_ptr<vector<string>> honeypotIds_ {};
     // The name of the honeypot.
-    std::shared_ptr<string> honeypotName_ = nullptr;
+    shared_ptr<string> honeypotName_ {};
     // The ID of the management node.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
     // The name of the management node.
-    std::shared_ptr<string> nodeName_ = nullptr;
+    shared_ptr<string> nodeName_ {};
     // The number of entries to return on each page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

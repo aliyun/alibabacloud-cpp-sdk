@@ -33,7 +33,7 @@ namespace Models
     // uuids Field Functions 
     bool hasUuids() const { return this->uuids_ != nullptr;};
     void deleteUuids() { this->uuids_ = nullptr;};
-    inline string uuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
+    inline string getUuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
     inline DescribeImageInfoListRequest& setUuids(string uuids) { DARABONBA_PTR_SET_VALUE(uuids_, uuids) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuids_ = nullptr;
+    shared_ptr<string> uuids_ {};
   };
 
   } // namespace Models

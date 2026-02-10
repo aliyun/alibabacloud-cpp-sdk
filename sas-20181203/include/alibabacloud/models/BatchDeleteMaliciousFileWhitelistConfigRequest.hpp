@@ -34,15 +34,15 @@ namespace Models
     // configIdList Field Functions 
     bool hasConfigIdList() const { return this->configIdList_ != nullptr;};
     void deleteConfigIdList() { this->configIdList_ = nullptr;};
-    inline const vector<int64_t> & configIdList() const { DARABONBA_PTR_GET_CONST(configIdList_, vector<int64_t>) };
-    inline vector<int64_t> configIdList() { DARABONBA_PTR_GET(configIdList_, vector<int64_t>) };
+    inline const vector<int64_t> & getConfigIdList() const { DARABONBA_PTR_GET_CONST(configIdList_, vector<int64_t>) };
+    inline vector<int64_t> getConfigIdList() { DARABONBA_PTR_GET(configIdList_, vector<int64_t>) };
     inline BatchDeleteMaliciousFileWhitelistConfigRequest& setConfigIdList(const vector<int64_t> & configIdList) { DARABONBA_PTR_SET_VALUE(configIdList_, configIdList) };
     inline BatchDeleteMaliciousFileWhitelistConfigRequest& setConfigIdList(vector<int64_t> && configIdList) { DARABONBA_PTR_SET_RVALUE(configIdList_, configIdList) };
 
 
   protected:
     // The IDs of the whitelist rules. You can call the [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) operation to query the IDs of whitelist rules.
-    std::shared_ptr<vector<int64_t>> configIdList_ = nullptr;
+    shared_ptr<vector<int64_t>> configIdList_ {};
   };
 
   } // namespace Models

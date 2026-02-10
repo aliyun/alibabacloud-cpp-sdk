@@ -33,7 +33,7 @@ namespace Models
     // digest Field Functions 
     bool hasDigest() const { return this->digest_ != nullptr;};
     void deleteDigest() { this->digest_ = nullptr;};
-    inline string digest() const { DARABONBA_PTR_GET_DEFAULT(digest_, "") };
+    inline string getDigest() const { DARABONBA_PTR_GET_DEFAULT(digest_, "") };
     inline DescribeImageLatestScanTaskRequest& setDigest(string digest) { DARABONBA_PTR_SET_VALUE(digest_, digest) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The digest value of the image.
     // 
     // This parameter is required.
-    std::shared_ptr<string> digest_ = nullptr;
+    shared_ptr<string> digest_ {};
   };
 
   } // namespace Models

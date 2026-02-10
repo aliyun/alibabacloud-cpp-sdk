@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chartIds_ == nullptr
-        && return this->reportId_ == nullptr; };
+        && this->reportId_ == nullptr; };
     // chartIds Field Functions 
     bool hasChartIds() const { return this->chartIds_ != nullptr;};
     void deleteChartIds() { this->chartIds_ = nullptr;};
-    inline string chartIds() const { DARABONBA_PTR_GET_DEFAULT(chartIds_, "") };
+    inline string getChartIds() const { DARABONBA_PTR_GET_DEFAULT(chartIds_, "") };
     inline OperationCustomizeReportChartRequest& setChartIds(string chartIds) { DARABONBA_PTR_SET_VALUE(chartIds_, chartIds) };
 
 
     // reportId Field Functions 
     bool hasReportId() const { return this->reportId_ != nullptr;};
     void deleteReportId() { this->reportId_ = nullptr;};
-    inline int64_t reportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
+    inline int64_t getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
     inline OperationCustomizeReportChartRequest& setReportId(int64_t reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
 
 
@@ -53,13 +53,13 @@ namespace Models
     // >  You can call the [DescribeChartList](~~DescribeChartList~~) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> chartIds_ = nullptr;
+    shared_ptr<string> chartIds_ {};
     // The ID of the report.
     // 
     // >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> reportId_ = nullptr;
+    shared_ptr<int64_t> reportId_ {};
   };
 
   } // namespace Models

@@ -34,38 +34,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && return this->lang_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->lang_ == nullptr && this->sourceIp_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
-    inline string from() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
+    inline string getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
     inline DescribeDomainSecureRiskListRequest& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeDomainSecureRiskListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeDomainSecureRiskListRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
   protected:
     // The identifier of the request source. Set the value to sas.
-    std::shared_ptr<string> from_ = nullptr;
+    shared_ptr<string> from_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The source IP address.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

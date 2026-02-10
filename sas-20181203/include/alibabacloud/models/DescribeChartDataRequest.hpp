@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->charId_ == nullptr
-        && return this->chartId_ == nullptr && return this->lang_ == nullptr && return this->reportId_ == nullptr && return this->timeEnd_ == nullptr && return this->timeStart_ == nullptr; };
+        && this->chartId_ == nullptr && this->lang_ == nullptr && this->reportId_ == nullptr && this->timeEnd_ == nullptr && this->timeStart_ == nullptr; };
     // charId Field Functions 
     bool hasCharId() const { return this->charId_ != nullptr;};
     void deleteCharId() { this->charId_ = nullptr;};
-    inline string charId() const { DARABONBA_PTR_GET_DEFAULT(charId_, "") };
+    inline string getCharId() const { DARABONBA_PTR_GET_DEFAULT(charId_, "") };
     inline DescribeChartDataRequest& setCharId(string charId) { DARABONBA_PTR_SET_VALUE(charId_, charId) };
 
 
     // chartId Field Functions 
     bool hasChartId() const { return this->chartId_ != nullptr;};
     void deleteChartId() { this->chartId_ = nullptr;};
-    inline string chartId() const { DARABONBA_PTR_GET_DEFAULT(chartId_, "") };
+    inline string getChartId() const { DARABONBA_PTR_GET_DEFAULT(chartId_, "") };
     inline DescribeChartDataRequest& setChartId(string chartId) { DARABONBA_PTR_SET_VALUE(chartId_, chartId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeChartDataRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // reportId Field Functions 
     bool hasReportId() const { return this->reportId_ != nullptr;};
     void deleteReportId() { this->reportId_ = nullptr;};
-    inline int64_t reportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
+    inline int64_t getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
     inline DescribeChartDataRequest& setReportId(int64_t reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
 
 
     // timeEnd Field Functions 
     bool hasTimeEnd() const { return this->timeEnd_ != nullptr;};
     void deleteTimeEnd() { this->timeEnd_ = nullptr;};
-    inline int64_t timeEnd() const { DARABONBA_PTR_GET_DEFAULT(timeEnd_, 0L) };
+    inline int64_t getTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(timeEnd_, 0L) };
     inline DescribeChartDataRequest& setTimeEnd(int64_t timeEnd) { DARABONBA_PTR_SET_VALUE(timeEnd_, timeEnd) };
 
 
     // timeStart Field Functions 
     bool hasTimeStart() const { return this->timeStart_ != nullptr;};
     void deleteTimeStart() { this->timeStart_ = nullptr;};
-    inline int64_t timeStart() const { DARABONBA_PTR_GET_DEFAULT(timeStart_, 0L) };
+    inline int64_t getTimeStart() const { DARABONBA_PTR_GET_DEFAULT(timeStart_, 0L) };
     inline DescribeChartDataRequest& setTimeStart(int64_t timeStart) { DARABONBA_PTR_SET_VALUE(timeStart_, timeStart) };
 
 
@@ -87,24 +87,24 @@ namespace Models
     // The ID of the chart.
     // 
     // >  You can call the [DescribeChartList](~~DescribeChartList~~) operation to query the ID. This parameter is required if the report version is 1.0.0.
-    std::shared_ptr<string> charId_ = nullptr;
+    shared_ptr<string> charId_ {};
     // The ID of the chart.
     // 
     // >  You can call the [DescribeChartList](~~DescribeChartList~~) operation to query the ID. This parameter is required if the report version is 2.0.0.
-    std::shared_ptr<string> chartId_ = nullptr;
+    shared_ptr<string> chartId_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the security report.
     // 
     // >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
-    std::shared_ptr<int64_t> reportId_ = nullptr;
+    shared_ptr<int64_t> reportId_ {};
     // The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
-    std::shared_ptr<int64_t> timeEnd_ = nullptr;
+    shared_ptr<int64_t> timeEnd_ {};
     // The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
-    std::shared_ptr<int64_t> timeStart_ = nullptr;
+    shared_ptr<int64_t> timeStart_ {};
   };
 
   } // namespace Models

@@ -38,57 +38,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callMethod_ == nullptr
-        && return this->feedback_ == nullptr && return this->region_ == nullptr && return this->sourceIp_ == nullptr && return this->uuids_ == nullptr; };
+        && this->feedback_ == nullptr && this->region_ == nullptr && this->sourceIp_ == nullptr && this->uuids_ == nullptr; };
     // callMethod Field Functions 
     bool hasCallMethod() const { return this->callMethod_ != nullptr;};
     void deleteCallMethod() { this->callMethod_ = nullptr;};
-    inline string callMethod() const { DARABONBA_PTR_GET_DEFAULT(callMethod_, "") };
+    inline string getCallMethod() const { DARABONBA_PTR_GET_DEFAULT(callMethod_, "") };
     inline AddUninstallClientsByUuidsRequest& setCallMethod(string callMethod) { DARABONBA_PTR_SET_VALUE(callMethod_, callMethod) };
 
 
     // feedback Field Functions 
     bool hasFeedback() const { return this->feedback_ != nullptr;};
     void deleteFeedback() { this->feedback_ = nullptr;};
-    inline string feedback() const { DARABONBA_PTR_GET_DEFAULT(feedback_, "") };
+    inline string getFeedback() const { DARABONBA_PTR_GET_DEFAULT(feedback_, "") };
     inline AddUninstallClientsByUuidsRequest& setFeedback(string feedback) { DARABONBA_PTR_SET_VALUE(feedback_, feedback) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline AddUninstallClientsByUuidsRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline AddUninstallClientsByUuidsRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // uuids Field Functions 
     bool hasUuids() const { return this->uuids_ != nullptr;};
     void deleteUuids() { this->uuids_ = nullptr;};
-    inline string uuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
+    inline string getUuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
     inline AddUninstallClientsByUuidsRequest& setUuids(string uuids) { DARABONBA_PTR_SET_VALUE(uuids_, uuids) };
 
 
   protected:
     // The method name. Default value: init.
-    std::shared_ptr<string> callMethod_ = nullptr;
+    shared_ptr<string> callMethod_ {};
     // The feedback.
-    std::shared_ptr<string> feedback_ = nullptr;
+    shared_ptr<string> feedback_ {};
     // The region in which the server resides.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // The source IP address of the request. You do not need to specify this parameter. It is automatically obtained by the system.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The UUID of the server that you want to unbind. Separate multiple UUIDs with commas (,).
     // 
     // >  You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuids_ = nullptr;
+    shared_ptr<string> uuids_ {};
   };
 
   } // namespace Models

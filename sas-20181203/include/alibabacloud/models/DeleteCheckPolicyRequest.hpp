@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->policyIds_ == nullptr
-        && return this->policyType_ == nullptr; };
+        && this->policyType_ == nullptr; };
     // policyIds Field Functions 
     bool hasPolicyIds() const { return this->policyIds_ != nullptr;};
     void deletePolicyIds() { this->policyIds_ = nullptr;};
-    inline const vector<int64_t> & policyIds() const { DARABONBA_PTR_GET_CONST(policyIds_, vector<int64_t>) };
-    inline vector<int64_t> policyIds() { DARABONBA_PTR_GET(policyIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getPolicyIds() const { DARABONBA_PTR_GET_CONST(policyIds_, vector<int64_t>) };
+    inline vector<int64_t> getPolicyIds() { DARABONBA_PTR_GET(policyIds_, vector<int64_t>) };
     inline DeleteCheckPolicyRequest& setPolicyIds(const vector<int64_t> & policyIds) { DARABONBA_PTR_SET_VALUE(policyIds_, policyIds) };
     inline DeleteCheckPolicyRequest& setPolicyIds(vector<int64_t> && policyIds) { DARABONBA_PTR_SET_RVALUE(policyIds_, policyIds) };
 
@@ -46,7 +46,7 @@ namespace Models
     // policyType Field Functions 
     bool hasPolicyType() const { return this->policyType_ != nullptr;};
     void deletePolicyType() { this->policyType_ = nullptr;};
-    inline string policyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
+    inline string getPolicyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
     inline DeleteCheckPolicyRequest& setPolicyType(string policyType) { DARABONBA_PTR_SET_VALUE(policyType_, policyType) };
 
 
@@ -54,7 +54,7 @@ namespace Models
     // Array of policies to delete
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> policyIds_ = nullptr;
+    shared_ptr<vector<int64_t>> policyIds_ {};
     // Policy type for custom check rule:
     // 
     // *   **STANDARD**: Standard-level policy
@@ -62,7 +62,7 @@ namespace Models
     // *   **SECTION**: Section-level policy
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyType_ = nullptr;
+    shared_ptr<string> policyType_ {};
   };
 
   } // namespace Models

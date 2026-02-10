@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupField_ == nullptr
-        && return this->value_ == nullptr; };
+        && this->value_ == nullptr; };
     // groupField Field Functions 
     bool hasGroupField() const { return this->groupField_ != nullptr;};
     void deleteGroupField() { this->groupField_ = nullptr;};
-    inline string groupField() const { DARABONBA_PTR_GET_DEFAULT(groupField_, "") };
+    inline string getGroupField() const { DARABONBA_PTR_GET_DEFAULT(groupField_, "") };
     inline DescribeContainerCriteriaRequest& setGroupField(string groupField) { DARABONBA_PTR_SET_VALUE(groupField_, groupField) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline DescribeContainerCriteriaRequest& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
@@ -56,9 +56,9 @@ namespace Models
     // *   **namespace**: namespace
     // *   **image**: image
     // *   **containerScan**: container scan
-    std::shared_ptr<string> groupField_ = nullptr;
+    shared_ptr<string> groupField_ {};
     // The value of the filter condition. The value can be an application name, node name, namespace, cluster name, public IP address, pod address, region, pod, instance ID, cluster ID, or container ID. Fuzzy match is supported.
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && return this->groupId_ == nullptr && return this->remark_ == nullptr; };
+        && this->groupId_ == nullptr && this->remark_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
-    inline string from() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
+    inline string getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
     inline DescribeTotalStatisticsRequest& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline int64_t groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
+    inline int64_t getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
     inline DescribeTotalStatisticsRequest& setGroupId(int64_t groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline DescribeTotalStatisticsRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
@@ -61,13 +61,13 @@ namespace Models
     // 
     // *   **sas**: Security Center
     // *   **aqs**: Server Guard
-    std::shared_ptr<string> from_ = nullptr;
+    shared_ptr<string> from_ {};
     // The ID of the asset group.
     // 
     // > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to query the IDs of asset groups.
-    std::shared_ptr<int64_t> groupId_ = nullptr;
+    shared_ptr<int64_t> groupId_ {};
     // The name or public IP address of the asset.
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> remark_ {};
   };
 
   } // namespace Models

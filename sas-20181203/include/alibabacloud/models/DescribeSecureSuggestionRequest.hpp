@@ -38,51 +38,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calType_ == nullptr
-        && return this->lang_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->source_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->lang_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->source_ == nullptr && this->sourceIp_ == nullptr; };
     // calType Field Functions 
     bool hasCalType() const { return this->calType_ != nullptr;};
     void deleteCalType() { this->calType_ = nullptr;};
-    inline string calType() const { DARABONBA_PTR_GET_DEFAULT(calType_, "") };
+    inline string getCalType() const { DARABONBA_PTR_GET_DEFAULT(calType_, "") };
     inline DescribeSecureSuggestionRequest& setCalType(string calType) { DARABONBA_PTR_SET_VALUE(calType_, calType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeSecureSuggestionRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // resourceDirectoryAccountId Field Functions 
     bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
     void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
-    inline int64_t resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
     inline DescribeSecureSuggestionRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline int32_t source() const { DARABONBA_PTR_GET_DEFAULT(source_, 0) };
+    inline int32_t getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, 0) };
     inline DescribeSecureSuggestionRequest& setSource(int32_t source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeSecureSuggestionRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
   protected:
-    std::shared_ptr<string> calType_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    // The Alibaba Cloud account ID of the member in the resource directory.
+    // Choose to query the new or old version of the security score rules. When the value is **home_security_score**, it queries the new version of the security score rules; otherwise, it defaults to querying the old version of the security score rules.
+    shared_ptr<string> calType_ {};
+    // The language type for request and response messages, default is **zh**. Values:
+    // - **zh**: Chinese
+    // - **en**: English
+    shared_ptr<string> lang_ {};
+    // Resource directory member account ID (Alibaba Cloud account).
+    // > You can obtain this parameter by calling the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) API.
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
+    // Source of the security score. If left empty, it defaults to Cloud Security Center. Enumerated values:
     // 
-    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
-    std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
-    std::shared_ptr<int32_t> source_ = nullptr;
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    // - 0: Cloud Security Center.
+    // 
+    // - 1: Yaochi Console.
+    shared_ptr<int32_t> source_ {};
+    // The IP address of the access source.
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

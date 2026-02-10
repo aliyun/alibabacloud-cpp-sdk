@@ -39,40 +39,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->policyShrink_ == nullptr && return this->policyRegionId_ == nullptr && return this->policyVersion_ == nullptr && return this->uuidList_ == nullptr; };
+        && this->policyShrink_ == nullptr && this->policyRegionId_ == nullptr && this->policyVersion_ == nullptr && this->uuidList_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateBackupPolicyShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // policyShrink Field Functions 
     bool hasPolicyShrink() const { return this->policyShrink_ != nullptr;};
     void deletePolicyShrink() { this->policyShrink_ = nullptr;};
-    inline string policyShrink() const { DARABONBA_PTR_GET_DEFAULT(policyShrink_, "") };
+    inline string getPolicyShrink() const { DARABONBA_PTR_GET_DEFAULT(policyShrink_, "") };
     inline CreateBackupPolicyShrinkRequest& setPolicyShrink(string policyShrink) { DARABONBA_PTR_SET_VALUE(policyShrink_, policyShrink) };
 
 
     // policyRegionId Field Functions 
     bool hasPolicyRegionId() const { return this->policyRegionId_ != nullptr;};
     void deletePolicyRegionId() { this->policyRegionId_ = nullptr;};
-    inline string policyRegionId() const { DARABONBA_PTR_GET_DEFAULT(policyRegionId_, "") };
+    inline string getPolicyRegionId() const { DARABONBA_PTR_GET_DEFAULT(policyRegionId_, "") };
     inline CreateBackupPolicyShrinkRequest& setPolicyRegionId(string policyRegionId) { DARABONBA_PTR_SET_VALUE(policyRegionId_, policyRegionId) };
 
 
     // policyVersion Field Functions 
     bool hasPolicyVersion() const { return this->policyVersion_ != nullptr;};
     void deletePolicyVersion() { this->policyVersion_ = nullptr;};
-    inline string policyVersion() const { DARABONBA_PTR_GET_DEFAULT(policyVersion_, "") };
+    inline string getPolicyVersion() const { DARABONBA_PTR_GET_DEFAULT(policyVersion_, "") };
     inline CreateBackupPolicyShrinkRequest& setPolicyVersion(string policyVersion) { DARABONBA_PTR_SET_VALUE(policyVersion_, policyVersion) };
 
 
     // uuidList Field Functions 
     bool hasUuidList() const { return this->uuidList_ != nullptr;};
     void deleteUuidList() { this->uuidList_ = nullptr;};
-    inline const vector<string> & uuidList() const { DARABONBA_PTR_GET_CONST(uuidList_, vector<string>) };
-    inline vector<string> uuidList() { DARABONBA_PTR_GET(uuidList_, vector<string>) };
+    inline const vector<string> & getUuidList() const { DARABONBA_PTR_GET_CONST(uuidList_, vector<string>) };
+    inline vector<string> getUuidList() { DARABONBA_PTR_GET(uuidList_, vector<string>) };
     inline CreateBackupPolicyShrinkRequest& setUuidList(const vector<string> & uuidList) { DARABONBA_PTR_SET_VALUE(uuidList_, uuidList) };
     inline CreateBackupPolicyShrinkRequest& setUuidList(vector<string> && uuidList) { DARABONBA_PTR_SET_RVALUE(uuidList_, uuidList) };
 
@@ -81,7 +81,7 @@ namespace Models
     // The name of the anti-ransomware policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // *   **IsDefault**: the type of the anti-ransomware policy. Valid values:
     // 
     //     *   **1**: recommended policy
@@ -112,19 +112,19 @@ namespace Models
     // >  The VSS feature is available only if you create the anti-ransomware policy for Windows servers. After you enable the feature, the number of backup failures due to running processes is significantly reduced. We recommend that you enable the VSS feature. After you enable the feature, the data of disks that are in the exFAT and FAT32 formats cannot be backed up.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyShrink_ = nullptr;
+    shared_ptr<string> policyShrink_ {};
     // The region ID of the server that is not deployed on Alibaba Cloud.
     // 
     // >  We recommend that you specify the ID of the supported region that is the nearest to the location of the server. You can call the [DescribeSupportRegion](~~DescribeSupportRegion~~) operation to query the supported regions of the anti-ransomware feature.
-    std::shared_ptr<string> policyRegionId_ = nullptr;
+    shared_ptr<string> policyRegionId_ {};
     // The version of the anti-ransomware policy. Set the value to **2.0.0**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyVersion_ = nullptr;
+    shared_ptr<string> policyVersion_ {};
     // The UUIDs of the servers that you want to protect.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> uuidList_ = nullptr;
+    shared_ptr<vector<string>> uuidList_ {};
   };
 
   } // namespace Models

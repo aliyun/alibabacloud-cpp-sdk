@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assetType_ == nullptr
-        && return this->cloudAssetSubType_ == nullptr && return this->cloudAssetType_ == nullptr && return this->vendor_ == nullptr; };
+        && this->cloudAssetSubType_ == nullptr && this->cloudAssetType_ == nullptr && this->vendor_ == nullptr; };
     // assetType Field Functions 
     bool hasAssetType() const { return this->assetType_ != nullptr;};
     void deleteAssetType() { this->assetType_ = nullptr;};
-    inline string assetType() const { DARABONBA_PTR_GET_DEFAULT(assetType_, "") };
+    inline string getAssetType() const { DARABONBA_PTR_GET_DEFAULT(assetType_, "") };
     inline RefreshAssetsRequest& setAssetType(string assetType) { DARABONBA_PTR_SET_VALUE(assetType_, assetType) };
 
 
     // cloudAssetSubType Field Functions 
     bool hasCloudAssetSubType() const { return this->cloudAssetSubType_ != nullptr;};
     void deleteCloudAssetSubType() { this->cloudAssetSubType_ = nullptr;};
-    inline int32_t cloudAssetSubType() const { DARABONBA_PTR_GET_DEFAULT(cloudAssetSubType_, 0) };
+    inline int32_t getCloudAssetSubType() const { DARABONBA_PTR_GET_DEFAULT(cloudAssetSubType_, 0) };
     inline RefreshAssetsRequest& setCloudAssetSubType(int32_t cloudAssetSubType) { DARABONBA_PTR_SET_VALUE(cloudAssetSubType_, cloudAssetSubType) };
 
 
     // cloudAssetType Field Functions 
     bool hasCloudAssetType() const { return this->cloudAssetType_ != nullptr;};
     void deleteCloudAssetType() { this->cloudAssetType_ = nullptr;};
-    inline int32_t cloudAssetType() const { DARABONBA_PTR_GET_DEFAULT(cloudAssetType_, 0) };
+    inline int32_t getCloudAssetType() const { DARABONBA_PTR_GET_DEFAULT(cloudAssetType_, 0) };
     inline RefreshAssetsRequest& setCloudAssetType(int32_t cloudAssetType) { DARABONBA_PTR_SET_VALUE(cloudAssetType_, cloudAssetType) };
 
 
     // vendor Field Functions 
     bool hasVendor() const { return this->vendor_ != nullptr;};
     void deleteVendor() { this->vendor_ = nullptr;};
-    inline int32_t vendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, 0) };
+    inline int32_t getVendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, 0) };
     inline RefreshAssetsRequest& setVendor(int32_t vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
 
 
@@ -71,11 +71,11 @@ namespace Models
     // *   **cloud_product**: Alibaba Cloud service
     // *   **ecs**: Elastic Compute Service (ECS) instance
     // *   **container_image**: container image
-    std::shared_ptr<string> assetType_ = nullptr;
+    shared_ptr<string> assetType_ {};
     // The subtype of the cloud service.
     // 
     // >  The following list describes the subtypes of cloud services.
-    std::shared_ptr<int32_t> cloudAssetSubType_ = nullptr;
+    shared_ptr<int32_t> cloudAssetSubType_ {};
     // The type of the cloud service. Valid values:
     // 
     // *   **0**: ECS
@@ -100,7 +100,7 @@ namespace Models
     // *   **22**: File Storage NAS (NAS)
     // *   **23**: Data Security Center (DSC)
     // *   **24**: Elastic IP Address (EIP)
-    std::shared_ptr<int32_t> cloudAssetType_ = nullptr;
+    shared_ptr<int32_t> cloudAssetType_ {};
     // The type of the server. Valid values:
     // 
     // *   **0**: an asset provided by Alibaba Cloud
@@ -108,7 +108,7 @@ namespace Models
     // *   **2**: an asset in a data center
     // *   **3**, **4**, **5**, and **7**: an asset provided by another cloud
     // *   **8**: a lightweight asset
-    std::shared_ptr<int32_t> vendor_ = nullptr;
+    shared_ptr<int32_t> vendor_ {};
   };
 
   } // namespace Models

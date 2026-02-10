@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->source_ == nullptr && return this->strategyId_ == nullptr; };
+        && this->source_ == nullptr && this->strategyId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeImageBaselineStrategyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline DescribeImageBaselineStrategyRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // strategyId Field Functions 
     bool hasStrategyId() const { return this->strategyId_ != nullptr;};
     void deleteStrategyId() { this->strategyId_ = nullptr;};
-    inline int64_t strategyId() const { DARABONBA_PTR_GET_DEFAULT(strategyId_, 0L) };
+    inline int64_t getStrategyId() const { DARABONBA_PTR_GET_DEFAULT(strategyId_, 0L) };
     inline DescribeImageBaselineStrategyRequest& setStrategyId(int64_t strategyId) { DARABONBA_PTR_SET_VALUE(strategyId_, strategyId) };
 
 
@@ -61,14 +61,14 @@ namespace Models
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The data source. Default value: default. Valid values:
     // 
     // *   **default**: queries the information about a baseline check policy for images.
     // *   **agentless**: queries the information about a baseline check policy for agentless detection.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
     // The ID of the baseline check policy.
-    std::shared_ptr<int64_t> strategyId_ = nullptr;
+    shared_ptr<int64_t> strategyId_ {};
   };
 
   } // namespace Models

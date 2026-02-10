@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->blockIp_ == nullptr
-        && return this->bound_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->bound_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // blockIp Field Functions 
     bool hasBlockIp() const { return this->blockIp_ != nullptr;};
     void deleteBlockIp() { this->blockIp_ = nullptr;};
-    inline string blockIp() const { DARABONBA_PTR_GET_DEFAULT(blockIp_, "") };
+    inline string getBlockIp() const { DARABONBA_PTR_GET_DEFAULT(blockIp_, "") };
     inline DisableCustomBlockRecordRequest& setBlockIp(string blockIp) { DARABONBA_PTR_SET_VALUE(blockIp_, blockIp) };
 
 
     // bound Field Functions 
     bool hasBound() const { return this->bound_ != nullptr;};
     void deleteBound() { this->bound_ = nullptr;};
-    inline string bound() const { DARABONBA_PTR_GET_DEFAULT(bound_, "") };
+    inline string getBound() const { DARABONBA_PTR_GET_DEFAULT(bound_, "") };
     inline DisableCustomBlockRecordRequest& setBound(string bound) { DARABONBA_PTR_SET_VALUE(bound_, bound) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DisableCustomBlockRecordRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
@@ -62,15 +62,15 @@ namespace Models
     // > You can call the [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) operation to query the IP address.
     // 
     // This parameter is required.
-    std::shared_ptr<string> blockIp_ = nullptr;
+    shared_ptr<string> blockIp_ {};
     // The traffic direction that is specified in the policy. Valid values:
     // 
     // *   **in**: inbound
     // *   **out**: outbound
     // 
     // This parameter is required.
-    std::shared_ptr<string> bound_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> bound_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

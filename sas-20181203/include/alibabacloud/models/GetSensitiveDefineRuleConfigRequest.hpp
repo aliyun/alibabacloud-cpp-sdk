@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->source_ == nullptr; };
+        && this->source_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline GetSensitiveDefineRuleConfigRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline GetSensitiveDefineRuleConfigRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
@@ -52,12 +52,12 @@ namespace Models
     // 
     // *   **zh**: Chinese.
     // *   **en**: English.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The source of the check rules. Valid values:
     // 
     // *   **image**: image.
     // *   **agentless**: agentless detection.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

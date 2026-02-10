@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->uuids_ == nullptr
-        && return this->value_ == nullptr; };
+        && this->value_ == nullptr; };
     // uuids Field Functions 
     bool hasUuids() const { return this->uuids_ != nullptr;};
     void deleteUuids() { this->uuids_ = nullptr;};
-    inline string uuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
+    inline string getUuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
     inline PauseClientRequest& setUuids(string uuids) { DARABONBA_PTR_SET_VALUE(uuids_, uuids) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline PauseClientRequest& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
@@ -51,14 +51,14 @@ namespace Models
     // The UUIDs of servers for which you want to enable or disable the Security Center agent.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuids_ = nullptr;
+    shared_ptr<string> uuids_ {};
     // The status of the Security Center agent. Valid values:
     // 
     // *   **0**: disabled
     // *   **1**: enabled
     // 
     // This parameter is required.
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

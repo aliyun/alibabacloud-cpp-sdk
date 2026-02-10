@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->sourceIp_ == nullptr && return this->type_ == nullptr && return this->uuids_ == nullptr; };
+        && this->sourceIp_ == nullptr && this->type_ == nullptr && this->uuids_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline InstallPmAgentRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline InstallPmAgentRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline InstallPmAgentRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // uuids Field Functions 
     bool hasUuids() const { return this->uuids_ != nullptr;};
     void deleteUuids() { this->uuids_ = nullptr;};
-    inline string uuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
+    inline string getUuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
     inline InstallPmAgentRequest& setUuids(string uuids) { DARABONBA_PTR_SET_VALUE(uuids_, uuids) };
 
 
@@ -70,20 +70,20 @@ namespace Models
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The type of the client.
     // 
     // *   **aliyun_assist**: Cloud Assistant client
     // *   **aliyun_monitor**: CloudMonitor client
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // The UUID of the server. If you specify multiple UUIDs, separate the UUIDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuids_ = nullptr;
+    shared_ptr<string> uuids_ {};
   };
 
   } // namespace Models

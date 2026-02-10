@@ -33,7 +33,7 @@ namespace Models
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline int64_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
+    inline int64_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
     inline GetSasContainerWebDefenseRuleApplicationRequest& setRuleId(int64_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the rule.
     // 
     // >  You can call the ListSasContainerWebDefenseRule operation to query the IDs of rules.
-    std::shared_ptr<int64_t> ruleId_ = nullptr;
+    shared_ptr<int64_t> ruleId_ {};
   };
 
   } // namespace Models

@@ -34,15 +34,15 @@ namespace Models
     // uuids Field Functions 
     bool hasUuids() const { return this->uuids_ != nullptr;};
     void deleteUuids() { this->uuids_ = nullptr;};
-    inline const vector<string> & uuids() const { DARABONBA_PTR_GET_CONST(uuids_, vector<string>) };
-    inline vector<string> uuids() { DARABONBA_PTR_GET(uuids_, vector<string>) };
+    inline const vector<string> & getUuids() const { DARABONBA_PTR_GET_CONST(uuids_, vector<string>) };
+    inline vector<string> getUuids() { DARABONBA_PTR_GET(uuids_, vector<string>) };
     inline InstallAegisForLingjunRequest& setUuids(const vector<string> & uuids) { DARABONBA_PTR_SET_VALUE(uuids_, uuids) };
     inline InstallAegisForLingjunRequest& setUuids(vector<string> && uuids) { DARABONBA_PTR_SET_RVALUE(uuids_, uuids) };
 
 
   protected:
     // List of unique UUIDs for Lingjun bare metal.
-    std::shared_ptr<vector<string>> uuids_ = nullptr;
+    shared_ptr<vector<string>> uuids_ {};
   };
 
   } // namespace Models

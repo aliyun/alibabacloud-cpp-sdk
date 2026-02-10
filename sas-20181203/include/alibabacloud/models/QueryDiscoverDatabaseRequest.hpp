@@ -33,7 +33,7 @@ namespace Models
     // createMark Field Functions 
     bool hasCreateMark() const { return this->createMark_ != nullptr;};
     void deleteCreateMark() { this->createMark_ = nullptr;};
-    inline string createMark() const { DARABONBA_PTR_GET_DEFAULT(createMark_, "") };
+    inline string getCreateMark() const { DARABONBA_PTR_GET_DEFAULT(createMark_, "") };
     inline QueryDiscoverDatabaseRequest& setCreateMark(string createMark) { DARABONBA_PTR_SET_VALUE(createMark_, createMark) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the scan task.
     // 
     // > You can call the [StartDiscoverDatabaseTask](~~StartDiscoverDatabaseTask~~) operation to query the ID of the task.
-    std::shared_ptr<string> createMark_ = nullptr;
+    shared_ptr<string> createMark_ {};
   };
 
   } // namespace Models

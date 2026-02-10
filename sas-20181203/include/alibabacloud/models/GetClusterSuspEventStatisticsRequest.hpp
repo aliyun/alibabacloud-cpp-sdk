@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->from_ == nullptr; };
+        && this->from_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetClusterSuspEventStatisticsRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
-    inline string from() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
+    inline string getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
     inline GetClusterSuspEventStatisticsRequest& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The ID of the container cluster.
     // 
     // >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The ID of the request source. Set the value to sas.
-    std::shared_ptr<string> from_ = nullptr;
+    shared_ptr<string> from_ {};
   };
 
   } // namespace Models

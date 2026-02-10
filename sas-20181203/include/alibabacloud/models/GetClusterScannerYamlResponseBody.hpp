@@ -44,83 +44,83 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->caCertBase64_ == nullptr
-        && return this->clusterEnvInfo_ == nullptr && return this->clusterId_ == nullptr && return this->image_ == nullptr && return this->requestId_ == nullptr && return this->tlsCertBase64_ == nullptr
-        && return this->tlsKeyBase64_ == nullptr && return this->webhookOpen_ == nullptr; };
+        && this->clusterEnvInfo_ == nullptr && this->clusterId_ == nullptr && this->image_ == nullptr && this->requestId_ == nullptr && this->tlsCertBase64_ == nullptr
+        && this->tlsKeyBase64_ == nullptr && this->webhookOpen_ == nullptr; };
     // caCertBase64 Field Functions 
     bool hasCaCertBase64() const { return this->caCertBase64_ != nullptr;};
     void deleteCaCertBase64() { this->caCertBase64_ = nullptr;};
-    inline string caCertBase64() const { DARABONBA_PTR_GET_DEFAULT(caCertBase64_, "") };
+    inline string getCaCertBase64() const { DARABONBA_PTR_GET_DEFAULT(caCertBase64_, "") };
     inline GetClusterScannerYamlResponseBody& setCaCertBase64(string caCertBase64) { DARABONBA_PTR_SET_VALUE(caCertBase64_, caCertBase64) };
 
 
     // clusterEnvInfo Field Functions 
     bool hasClusterEnvInfo() const { return this->clusterEnvInfo_ != nullptr;};
     void deleteClusterEnvInfo() { this->clusterEnvInfo_ = nullptr;};
-    inline string clusterEnvInfo() const { DARABONBA_PTR_GET_DEFAULT(clusterEnvInfo_, "") };
+    inline string getClusterEnvInfo() const { DARABONBA_PTR_GET_DEFAULT(clusterEnvInfo_, "") };
     inline GetClusterScannerYamlResponseBody& setClusterEnvInfo(string clusterEnvInfo) { DARABONBA_PTR_SET_VALUE(clusterEnvInfo_, clusterEnvInfo) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetClusterScannerYamlResponseBody& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
-    inline string image() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+    inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
     inline GetClusterScannerYamlResponseBody& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetClusterScannerYamlResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // tlsCertBase64 Field Functions 
     bool hasTlsCertBase64() const { return this->tlsCertBase64_ != nullptr;};
     void deleteTlsCertBase64() { this->tlsCertBase64_ = nullptr;};
-    inline string tlsCertBase64() const { DARABONBA_PTR_GET_DEFAULT(tlsCertBase64_, "") };
+    inline string getTlsCertBase64() const { DARABONBA_PTR_GET_DEFAULT(tlsCertBase64_, "") };
     inline GetClusterScannerYamlResponseBody& setTlsCertBase64(string tlsCertBase64) { DARABONBA_PTR_SET_VALUE(tlsCertBase64_, tlsCertBase64) };
 
 
     // tlsKeyBase64 Field Functions 
     bool hasTlsKeyBase64() const { return this->tlsKeyBase64_ != nullptr;};
     void deleteTlsKeyBase64() { this->tlsKeyBase64_ = nullptr;};
-    inline string tlsKeyBase64() const { DARABONBA_PTR_GET_DEFAULT(tlsKeyBase64_, "") };
+    inline string getTlsKeyBase64() const { DARABONBA_PTR_GET_DEFAULT(tlsKeyBase64_, "") };
     inline GetClusterScannerYamlResponseBody& setTlsKeyBase64(string tlsKeyBase64) { DARABONBA_PTR_SET_VALUE(tlsKeyBase64_, tlsKeyBase64) };
 
 
     // webhookOpen Field Functions 
     bool hasWebhookOpen() const { return this->webhookOpen_ != nullptr;};
     void deleteWebhookOpen() { this->webhookOpen_ = nullptr;};
-    inline int32_t webhookOpen() const { DARABONBA_PTR_GET_DEFAULT(webhookOpen_, 0) };
+    inline int32_t getWebhookOpen() const { DARABONBA_PTR_GET_DEFAULT(webhookOpen_, 0) };
     inline GetClusterScannerYamlResponseBody& setWebhookOpen(int32_t webhookOpen) { DARABONBA_PTR_SET_VALUE(webhookOpen_, webhookOpen) };
 
 
   protected:
     // Base64 encoded CA certificate.
-    std::shared_ptr<string> caCertBase64_ = nullptr;
+    shared_ptr<string> caCertBase64_ {};
     // Cluster environment information.
-    std::shared_ptr<string> clusterEnvInfo_ = nullptr;
+    shared_ptr<string> clusterEnvInfo_ {};
     // The ID of the cluster that you want to scan.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The name of the image.
-    std::shared_ptr<string> image_ = nullptr;
+    shared_ptr<string> image_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Base64 encoded webhook certificate.
-    std::shared_ptr<string> tlsCertBase64_ = nullptr;
+    shared_ptr<string> tlsCertBase64_ {};
     // Base64 encoded webhook private key.
-    std::shared_ptr<string> tlsKeyBase64_ = nullptr;
+    shared_ptr<string> tlsKeyBase64_ {};
     // Indicates whether the incremental scan switch is enabled. Values:
     // - **0**: Not enabled
     // - **1**: Enabled
-    std::shared_ptr<int32_t> webhookOpen_ = nullptr;
+    shared_ptr<int32_t> webhookOpen_ {};
   };
 
   } // namespace Models

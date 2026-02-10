@@ -39,26 +39,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dealAll_ == nullptr
-        && return this->operateInfo_ == nullptr && return this->processPath_ == nullptr && return this->status_ == nullptr && return this->uuid_ == nullptr; };
+        && this->operateInfo_ == nullptr && this->processPath_ == nullptr && this->status_ == nullptr && this->uuid_ == nullptr; };
     // dealAll Field Functions 
     bool hasDealAll() const { return this->dealAll_ != nullptr;};
     void deleteDealAll() { this->dealAll_ = nullptr;};
-    inline int32_t dealAll() const { DARABONBA_PTR_GET_DEFAULT(dealAll_, 0) };
+    inline int32_t getDealAll() const { DARABONBA_PTR_GET_DEFAULT(dealAll_, 0) };
     inline ModifyWebLockProcessStatusRequest& setDealAll(int32_t dealAll) { DARABONBA_PTR_SET_VALUE(dealAll_, dealAll) };
 
 
     // operateInfo Field Functions 
     bool hasOperateInfo() const { return this->operateInfo_ != nullptr;};
     void deleteOperateInfo() { this->operateInfo_ = nullptr;};
-    inline string operateInfo() const { DARABONBA_PTR_GET_DEFAULT(operateInfo_, "") };
+    inline string getOperateInfo() const { DARABONBA_PTR_GET_DEFAULT(operateInfo_, "") };
     inline ModifyWebLockProcessStatusRequest& setOperateInfo(string operateInfo) { DARABONBA_PTR_SET_VALUE(operateInfo_, operateInfo) };
 
 
     // processPath Field Functions 
     bool hasProcessPath() const { return this->processPath_ != nullptr;};
     void deleteProcessPath() { this->processPath_ = nullptr;};
-    inline const vector<string> & processPath() const { DARABONBA_PTR_GET_CONST(processPath_, vector<string>) };
-    inline vector<string> processPath() { DARABONBA_PTR_GET(processPath_, vector<string>) };
+    inline const vector<string> & getProcessPath() const { DARABONBA_PTR_GET_CONST(processPath_, vector<string>) };
+    inline vector<string> getProcessPath() { DARABONBA_PTR_GET(processPath_, vector<string>) };
     inline ModifyWebLockProcessStatusRequest& setProcessPath(const vector<string> & processPath) { DARABONBA_PTR_SET_VALUE(processPath_, processPath) };
     inline ModifyWebLockProcessStatusRequest& setProcessPath(vector<string> && processPath) { DARABONBA_PTR_SET_RVALUE(processPath_, processPath) };
 
@@ -66,14 +66,14 @@ namespace Models
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline ModifyWebLockProcessStatusRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline ModifyWebLockProcessStatusRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
@@ -82,18 +82,18 @@ namespace Models
     // 
     // *   **0**: no
     // *   **1**: yes
-    std::shared_ptr<int32_t> dealAll_ = nullptr;
+    shared_ptr<int32_t> dealAll_ {};
     // The parameters required to change the status of multiple processes at a time. The value is in the JSON format.
-    std::shared_ptr<string> operateInfo_ = nullptr;
+    shared_ptr<string> operateInfo_ {};
     // The paths to the processes.
-    std::shared_ptr<vector<string>> processPath_ = nullptr;
+    shared_ptr<vector<string>> processPath_ {};
     // The status of the process. Valid values:
     // 
     // *   **0**: cancels adding the process to the process whitelist
     // *   **1**: adds the process to the process whitelist
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
     // The UUID of the server.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

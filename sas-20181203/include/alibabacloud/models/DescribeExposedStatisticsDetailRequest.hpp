@@ -48,95 +48,95 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->criteria_ == nullptr
-        && return this->currentPage_ == nullptr && return this->exposureIp_ == nullptr && return this->instanceId_ == nullptr && return this->pageSize_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr
-        && return this->statisticsType_ == nullptr && return this->statisticsTypeGatewayType_ == nullptr && return this->statisticsTypeInstanceValue_ == nullptr && return this->uuid_ == nullptr; };
+        && this->currentPage_ == nullptr && this->exposureIp_ == nullptr && this->instanceId_ == nullptr && this->pageSize_ == nullptr && this->resourceDirectoryAccountId_ == nullptr
+        && this->statisticsType_ == nullptr && this->statisticsTypeGatewayType_ == nullptr && this->statisticsTypeInstanceValue_ == nullptr && this->uuid_ == nullptr; };
     // criteria Field Functions 
     bool hasCriteria() const { return this->criteria_ != nullptr;};
     void deleteCriteria() { this->criteria_ = nullptr;};
-    inline string criteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
+    inline string getCriteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
     inline DescribeExposedStatisticsDetailRequest& setCriteria(string criteria) { DARABONBA_PTR_SET_VALUE(criteria_, criteria) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeExposedStatisticsDetailRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // exposureIp Field Functions 
     bool hasExposureIp() const { return this->exposureIp_ != nullptr;};
     void deleteExposureIp() { this->exposureIp_ = nullptr;};
-    inline string exposureIp() const { DARABONBA_PTR_GET_DEFAULT(exposureIp_, "") };
+    inline string getExposureIp() const { DARABONBA_PTR_GET_DEFAULT(exposureIp_, "") };
     inline DescribeExposedStatisticsDetailRequest& setExposureIp(string exposureIp) { DARABONBA_PTR_SET_VALUE(exposureIp_, exposureIp) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeExposedStatisticsDetailRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeExposedStatisticsDetailRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // resourceDirectoryAccountId Field Functions 
     bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
     void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
-    inline int64_t resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
     inline DescribeExposedStatisticsDetailRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // statisticsType Field Functions 
     bool hasStatisticsType() const { return this->statisticsType_ != nullptr;};
     void deleteStatisticsType() { this->statisticsType_ = nullptr;};
-    inline string statisticsType() const { DARABONBA_PTR_GET_DEFAULT(statisticsType_, "") };
+    inline string getStatisticsType() const { DARABONBA_PTR_GET_DEFAULT(statisticsType_, "") };
     inline DescribeExposedStatisticsDetailRequest& setStatisticsType(string statisticsType) { DARABONBA_PTR_SET_VALUE(statisticsType_, statisticsType) };
 
 
     // statisticsTypeGatewayType Field Functions 
     bool hasStatisticsTypeGatewayType() const { return this->statisticsTypeGatewayType_ != nullptr;};
     void deleteStatisticsTypeGatewayType() { this->statisticsTypeGatewayType_ = nullptr;};
-    inline string statisticsTypeGatewayType() const { DARABONBA_PTR_GET_DEFAULT(statisticsTypeGatewayType_, "") };
+    inline string getStatisticsTypeGatewayType() const { DARABONBA_PTR_GET_DEFAULT(statisticsTypeGatewayType_, "") };
     inline DescribeExposedStatisticsDetailRequest& setStatisticsTypeGatewayType(string statisticsTypeGatewayType) { DARABONBA_PTR_SET_VALUE(statisticsTypeGatewayType_, statisticsTypeGatewayType) };
 
 
     // statisticsTypeInstanceValue Field Functions 
     bool hasStatisticsTypeInstanceValue() const { return this->statisticsTypeInstanceValue_ != nullptr;};
     void deleteStatisticsTypeInstanceValue() { this->statisticsTypeInstanceValue_ = nullptr;};
-    inline string statisticsTypeInstanceValue() const { DARABONBA_PTR_GET_DEFAULT(statisticsTypeInstanceValue_, "") };
+    inline string getStatisticsTypeInstanceValue() const { DARABONBA_PTR_GET_DEFAULT(statisticsTypeInstanceValue_, "") };
     inline DescribeExposedStatisticsDetailRequest& setStatisticsTypeInstanceValue(string statisticsTypeInstanceValue) { DARABONBA_PTR_SET_VALUE(statisticsTypeInstanceValue_, statisticsTypeInstanceValue) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline DescribeExposedStatisticsDetailRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
     // The search condition for components.
-    std::shared_ptr<string> criteria_ = nullptr;
+    shared_ptr<string> criteria_ {};
     // The number of the page to return.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The public IP address of the server or the cloud asset.
-    std::shared_ptr<string> exposureIp_ = nullptr;
+    shared_ptr<string> exposureIp_ {};
     // The instance ID of the asset.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
     // 
     // >  We recommend that you do not leave this parameter empty.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The Alibaba Cloud account ID of the member in the resource directory.
     // 
     // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the ID.
-    std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The type of the exposed asset. Valid values:
     // 
     // *   **exposureType**: gateway assets
@@ -145,16 +145,16 @@ namespace Models
     // *   **exposureIp**: IP addresses
     // 
     // This parameter is required.
-    std::shared_ptr<string> statisticsType_ = nullptr;
+    shared_ptr<string> statisticsType_ {};
     // The type of the gateway asset. This parameter is required when the **StatisticsType** parameter is set to **exposureType**. Valid values:
     // 
     // *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance
     // *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
-    std::shared_ptr<string> statisticsTypeGatewayType_ = nullptr;
+    shared_ptr<string> statisticsTypeGatewayType_ {};
     // The ID of the gateway asset. This parameter is required when the **StatisticsType** parameter is set to **exposureType**.
-    std::shared_ptr<string> statisticsTypeInstanceValue_ = nullptr;
+    shared_ptr<string> statisticsTypeInstanceValue_ {};
     // The UUID of the server.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

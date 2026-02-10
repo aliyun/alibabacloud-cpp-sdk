@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && return this->uuid_ == nullptr; };
+        && this->uuid_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
-    inline string from() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
+    inline string getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
     inline GetInstanceAlarmStatisticsRequest& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline GetInstanceAlarmStatisticsRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
@@ -52,10 +52,10 @@ namespace Models
     // - *sas*: Situation Awareness data source
     // - *aqs*: Alarm event data
     // - *honeypot*: Honeypot
-    std::shared_ptr<string> from_ = nullptr;
+    shared_ptr<string> from_ {};
     // The UUID of the server to be queried.
     // > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) API to obtain this parameter.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

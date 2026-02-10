@@ -40,56 +40,69 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->dealed_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->securityEventId_ == nullptr; };
+        && this->dealed_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->securityEventId_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListHoneypotEventFlowsRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // dealed Field Functions 
     bool hasDealed() const { return this->dealed_ != nullptr;};
     void deleteDealed() { this->dealed_ = nullptr;};
-    inline string dealed() const { DARABONBA_PTR_GET_DEFAULT(dealed_, "") };
+    inline string getDealed() const { DARABONBA_PTR_GET_DEFAULT(dealed_, "") };
     inline ListHoneypotEventFlowsRequest& setDealed(string dealed) { DARABONBA_PTR_SET_VALUE(dealed_, dealed) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ListHoneypotEventFlowsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListHoneypotEventFlowsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListHoneypotEventFlowsRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // securityEventId Field Functions 
     bool hasSecurityEventId() const { return this->securityEventId_ != nullptr;};
     void deleteSecurityEventId() { this->securityEventId_ = nullptr;};
-    inline int64_t securityEventId() const { DARABONBA_PTR_GET_DEFAULT(securityEventId_, 0L) };
+    inline int64_t getSecurityEventId() const { DARABONBA_PTR_GET_DEFAULT(securityEventId_, 0L) };
     inline ListHoneypotEventFlowsRequest& setSecurityEventId(int64_t securityEventId) { DARABONBA_PTR_SET_VALUE(securityEventId_, securityEventId) };
 
 
   protected:
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    std::shared_ptr<string> dealed_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> securityEventId_ = nullptr;
+    // The page number. Default value: **1**.
+    shared_ptr<int32_t> currentPage_ {};
+    // The status of the event. Valid values: y, n, and a. The value y indicates handled. The value n indicates unhandled. The value a indicates all.
+    shared_ptr<string> dealed_ {};
+    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // 
+    // *   **zh**: Chinese
+    // *   **en**: English
+    shared_ptr<string> lang_ {};
+    // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+    // 
+    // >  We recommend that you do not leave this parameter empty.
+    shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // The ID of the alert event. The ID of the management account of the ListHoneypotEvents resource directory.
+    // 
+    // >  You can call the [ListHoneypotEvents](~~ListHoneypotEvents~~) operation to query the IDs of alert events.
+    shared_ptr<int64_t> securityEventId_ {};
   };
 
   } // namespace Models

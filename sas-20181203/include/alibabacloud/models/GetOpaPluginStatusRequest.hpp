@@ -34,8 +34,8 @@ namespace Models
     // clusterIds Field Functions 
     bool hasClusterIds() const { return this->clusterIds_ != nullptr;};
     void deleteClusterIds() { this->clusterIds_ = nullptr;};
-    inline const vector<string> & clusterIds() const { DARABONBA_PTR_GET_CONST(clusterIds_, vector<string>) };
-    inline vector<string> clusterIds() { DARABONBA_PTR_GET(clusterIds_, vector<string>) };
+    inline const vector<string> & getClusterIds() const { DARABONBA_PTR_GET_CONST(clusterIds_, vector<string>) };
+    inline vector<string> getClusterIds() { DARABONBA_PTR_GET(clusterIds_, vector<string>) };
     inline GetOpaPluginStatusRequest& setClusterIds(const vector<string> & clusterIds) { DARABONBA_PTR_SET_VALUE(clusterIds_, clusterIds) };
     inline GetOpaPluginStatusRequest& setClusterIds(vector<string> && clusterIds) { DARABONBA_PTR_SET_RVALUE(clusterIds_, clusterIds) };
 
@@ -46,7 +46,7 @@ namespace Models
     // >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> clusterIds_ = nullptr;
+    shared_ptr<vector<string>> clusterIds_ {};
   };
 
   } // namespace Models

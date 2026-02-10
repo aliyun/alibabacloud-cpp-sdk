@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customType_ == nullptr
-        && return this->lang_ == nullptr && return this->sourceIp_ == nullptr && return this->strategyIds_ == nullptr; };
+        && this->lang_ == nullptr && this->sourceIp_ == nullptr && this->strategyIds_ == nullptr; };
     // customType Field Functions 
     bool hasCustomType() const { return this->customType_ != nullptr;};
     void deleteCustomType() { this->customType_ = nullptr;};
-    inline string customType() const { DARABONBA_PTR_GET_DEFAULT(customType_, "") };
+    inline string getCustomType() const { DARABONBA_PTR_GET_DEFAULT(customType_, "") };
     inline DescribeStrategyRequest& setCustomType(string customType) { DARABONBA_PTR_SET_VALUE(customType_, customType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeStrategyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeStrategyRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // strategyIds Field Functions 
     bool hasStrategyIds() const { return this->strategyIds_ != nullptr;};
     void deleteStrategyIds() { this->strategyIds_ = nullptr;};
-    inline string strategyIds() const { DARABONBA_PTR_GET_DEFAULT(strategyIds_, "") };
+    inline string getStrategyIds() const { DARABONBA_PTR_GET_DEFAULT(strategyIds_, "") };
     inline DescribeStrategyRequest& setStrategyIds(string strategyIds) { DARABONBA_PTR_SET_VALUE(strategyIds_, strategyIds) };
 
 
@@ -70,16 +70,16 @@ namespace Models
     // 
     // *   **common**: standard baseline check policy
     // *   **custom**: custom baseline check policy
-    std::shared_ptr<string> customType_ = nullptr;
+    shared_ptr<string> customType_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The ID of the baseline check policy that you want to query. Separate multiple IDs with commas (,).
-    std::shared_ptr<string> strategyIds_ = nullptr;
+    shared_ptr<string> strategyIds_ {};
   };
 
   } // namespace Models

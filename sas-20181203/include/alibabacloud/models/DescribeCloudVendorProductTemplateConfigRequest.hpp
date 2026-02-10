@@ -32,24 +32,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->vendor_ == nullptr; };
+        && this->vendor_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeCloudVendorProductTemplateConfigRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // vendor Field Functions 
     bool hasVendor() const { return this->vendor_ != nullptr;};
     void deleteVendor() { this->vendor_ = nullptr;};
-    inline string vendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
+    inline string getVendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
     inline DescribeCloudVendorProductTemplateConfigRequest& setVendor(string vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
 
 
   protected:
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> vendor_ = nullptr;
+    // Set the language type for request and response messages, default is **zh**. Values:
+    // 
+    // - **zh**: Chinese
+    // - **en**: English
+    shared_ptr<string> lang_ {};
+    // Cloud asset vendor. Values:
+    // - **CHAITIN**: Chaitin Technology
+    // - **FORTINET**: Fortinet
+    // - **THREATBOOK**: ThreatBook
+    shared_ptr<string> vendor_ {};
   };
 
   } // namespace Models

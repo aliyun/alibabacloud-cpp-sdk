@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterName_ == nullptr
-        && return this->uuid_ == nullptr; };
+        && this->uuid_ == nullptr; };
     // clusterName Field Functions 
     bool hasClusterName() const { return this->clusterName_ != nullptr;};
     void deleteClusterName() { this->clusterName_ = nullptr;};
-    inline string clusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
+    inline string getClusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
     inline DeleteHybridProxyRequest& setClusterName(string clusterName) { DARABONBA_PTR_SET_VALUE(clusterName_, clusterName) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline DeleteHybridProxyRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The name of the proxy cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterName_ = nullptr;
+    shared_ptr<string> clusterName_ {};
     // The UUID of the proxy node that you want to remove. The value starts with inet-proxy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cron_ == nullptr
-        && return this->cronDay_ == nullptr && return this->cronTime_ == nullptr && return this->cronType_ == nullptr && return this->duration_ == nullptr; };
+        && this->cronDay_ == nullptr && this->cronTime_ == nullptr && this->cronType_ == nullptr && this->duration_ == nullptr; };
     // cron Field Functions 
     bool hasCron() const { return this->cron_ != nullptr;};
     void deleteCron() { this->cron_ = nullptr;};
-    inline string cron() const { DARABONBA_PTR_GET_DEFAULT(cron_, "") };
+    inline string getCron() const { DARABONBA_PTR_GET_DEFAULT(cron_, "") };
     inline UpdatePublishCronRequest& setCron(string cron) { DARABONBA_PTR_SET_VALUE(cron_, cron) };
 
 
     // cronDay Field Functions 
     bool hasCronDay() const { return this->cronDay_ != nullptr;};
     void deleteCronDay() { this->cronDay_ = nullptr;};
-    inline string cronDay() const { DARABONBA_PTR_GET_DEFAULT(cronDay_, "") };
+    inline string getCronDay() const { DARABONBA_PTR_GET_DEFAULT(cronDay_, "") };
     inline UpdatePublishCronRequest& setCronDay(string cronDay) { DARABONBA_PTR_SET_VALUE(cronDay_, cronDay) };
 
 
     // cronTime Field Functions 
     bool hasCronTime() const { return this->cronTime_ != nullptr;};
     void deleteCronTime() { this->cronTime_ = nullptr;};
-    inline int64_t cronTime() const { DARABONBA_PTR_GET_DEFAULT(cronTime_, 0L) };
+    inline int64_t getCronTime() const { DARABONBA_PTR_GET_DEFAULT(cronTime_, 0L) };
     inline UpdatePublishCronRequest& setCronTime(int64_t cronTime) { DARABONBA_PTR_SET_VALUE(cronTime_, cronTime) };
 
 
     // cronType Field Functions 
     bool hasCronType() const { return this->cronType_ != nullptr;};
     void deleteCronType() { this->cronType_ = nullptr;};
-    inline string cronType() const { DARABONBA_PTR_GET_DEFAULT(cronType_, "") };
+    inline string getCronType() const { DARABONBA_PTR_GET_DEFAULT(cronType_, "") };
     inline UpdatePublishCronRequest& setCronType(string cronType) { DARABONBA_PTR_SET_VALUE(cronType_, cronType) };
 
 
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int32_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
+    inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
     inline UpdatePublishCronRequest& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
@@ -78,7 +78,7 @@ namespace Models
     // The cron expression that is used to specify the start time of the upgrade.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cron_ = nullptr;
+    shared_ptr<string> cron_ {};
     // The day of a week on which you want to perform the upgrade. Valid values:
     // 
     // *   **MON**
@@ -88,18 +88,18 @@ namespace Models
     // *   **FRI**
     // *   **SAT**
     // *   **SUN**
-    std::shared_ptr<string> cronDay_ = nullptr;
+    shared_ptr<string> cronDay_ {};
     // The start timestamp. Unit: milliseconds.
-    std::shared_ptr<int64_t> cronTime_ = nullptr;
+    shared_ptr<int64_t> cronTime_ {};
     // The type of the upgrade cycle. Valid values:
     // 
     // *   **day**: every day
     // *   **week**: every week
-    std::shared_ptr<string> cronType_ = nullptr;
+    shared_ptr<string> cronType_ {};
     // The duration of the upgrade. Unit: hours.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> duration_ = nullptr;
+    shared_ptr<int32_t> duration_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->param_ == nullptr
-        && return this->source_ == nullptr && return this->taskName_ == nullptr && return this->taskType_ == nullptr; };
+        && this->source_ == nullptr && this->taskName_ == nullptr && this->taskType_ == nullptr; };
     // param Field Functions 
     bool hasParam() const { return this->param_ != nullptr;};
     void deleteParam() { this->param_ = nullptr;};
-    inline string param() const { DARABONBA_PTR_GET_DEFAULT(param_, "") };
+    inline string getParam() const { DARABONBA_PTR_GET_DEFAULT(param_, "") };
     inline GenerateOnceTaskRequest& setParam(string param) { DARABONBA_PTR_SET_VALUE(param_, param) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline GenerateOnceTaskRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline GenerateOnceTaskRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline GenerateOnceTaskRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
@@ -69,9 +69,9 @@ namespace Models
     // The additional information.
     // 
     // This parameter is required.
-    std::shared_ptr<string> param_ = nullptr;
+    shared_ptr<string> param_ {};
     // The source of the scan task.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
     // The name of the scan task. Valid values:
     // 
     // *   **CLIENT_PROBLEM_CHECK**: a client diagnosis task
@@ -79,7 +79,7 @@ namespace Models
     // *   **ASSET_SECURITY_CHECK**: a task of asset information collection
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
     // The type of the scan task. Valid values:
     // 
     // *   **CLIENT_PROBLEM_CHECK**: a client diagnosis task
@@ -87,7 +87,7 @@ namespace Models
     // *   **ASSET_SECURITY_CHECK**: a task of asset information collection
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskType_ = nullptr;
+    shared_ptr<string> taskType_ {};
   };
 
   } // namespace Models

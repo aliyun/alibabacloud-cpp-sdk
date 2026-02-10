@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->scanTaskId_ == nullptr; };
+        && this->scanTaskId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline StartVirusScanTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // scanTaskId Field Functions 
     bool hasScanTaskId() const { return this->scanTaskId_ != nullptr;};
     void deleteScanTaskId() { this->scanTaskId_ = nullptr;};
-    inline int64_t scanTaskId() const { DARABONBA_PTR_GET_DEFAULT(scanTaskId_, 0L) };
+    inline int64_t getScanTaskId() const { DARABONBA_PTR_GET_DEFAULT(scanTaskId_, 0L) };
     inline StartVirusScanTaskResponseBody& setScanTaskId(int64_t scanTaskId) { DARABONBA_PTR_SET_VALUE(scanTaskId_, scanTaskId) };
 
 
   protected:
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the virus scan task.
-    std::shared_ptr<int64_t> scanTaskId_ = nullptr;
+    shared_ptr<int64_t> scanTaskId_ {};
   };
 
   } // namespace Models

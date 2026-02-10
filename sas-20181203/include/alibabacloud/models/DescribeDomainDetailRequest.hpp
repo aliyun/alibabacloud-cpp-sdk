@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->sourceIp_ == nullptr; };
+        && this->sourceIp_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline DescribeDomainDetailRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeDomainDetailRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
@@ -53,9 +53,9 @@ namespace Models
     // >  Fuzzy match is not supported. You must enter a complete domain name or a website.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

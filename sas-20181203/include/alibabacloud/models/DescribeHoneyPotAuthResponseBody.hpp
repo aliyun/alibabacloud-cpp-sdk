@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->honeyPotAuthCount_ == nullptr
-        && return this->honeyPotCount_ == nullptr && return this->requestId_ == nullptr; };
+        && this->honeyPotCount_ == nullptr && this->requestId_ == nullptr; };
     // honeyPotAuthCount Field Functions 
     bool hasHoneyPotAuthCount() const { return this->honeyPotAuthCount_ != nullptr;};
     void deleteHoneyPotAuthCount() { this->honeyPotAuthCount_ = nullptr;};
-    inline int64_t honeyPotAuthCount() const { DARABONBA_PTR_GET_DEFAULT(honeyPotAuthCount_, 0L) };
+    inline int64_t getHoneyPotAuthCount() const { DARABONBA_PTR_GET_DEFAULT(honeyPotAuthCount_, 0L) };
     inline DescribeHoneyPotAuthResponseBody& setHoneyPotAuthCount(int64_t honeyPotAuthCount) { DARABONBA_PTR_SET_VALUE(honeyPotAuthCount_, honeyPotAuthCount) };
 
 
     // honeyPotCount Field Functions 
     bool hasHoneyPotCount() const { return this->honeyPotCount_ != nullptr;};
     void deleteHoneyPotCount() { this->honeyPotCount_ = nullptr;};
-    inline int32_t honeyPotCount() const { DARABONBA_PTR_GET_DEFAULT(honeyPotCount_, 0) };
+    inline int32_t getHoneyPotCount() const { DARABONBA_PTR_GET_DEFAULT(honeyPotCount_, 0) };
     inline DescribeHoneyPotAuthResponseBody& setHoneyPotCount(int32_t honeyPotCount) { DARABONBA_PTR_SET_VALUE(honeyPotCount_, honeyPotCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeHoneyPotAuthResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The total quota.
-    std::shared_ptr<int64_t> honeyPotAuthCount_ = nullptr;
+    shared_ptr<int64_t> honeyPotAuthCount_ {};
     // The quota that is consumed.
-    std::shared_ptr<int32_t> honeyPotCount_ = nullptr;
+    shared_ptr<int32_t> honeyPotCount_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

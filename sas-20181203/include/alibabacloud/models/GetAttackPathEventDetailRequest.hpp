@@ -34,40 +34,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventId_ == nullptr
-        && return this->eventSource_ == nullptr && return this->lang_ == nullptr; };
+        && this->eventSource_ == nullptr && this->lang_ == nullptr; };
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
-    inline int64_t eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, 0L) };
+    inline int64_t getEventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, 0L) };
     inline GetAttackPathEventDetailRequest& setEventId(int64_t eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
 
 
     // eventSource Field Functions 
     bool hasEventSource() const { return this->eventSource_ != nullptr;};
     void deleteEventSource() { this->eventSource_ = nullptr;};
-    inline string eventSource() const { DARABONBA_PTR_GET_DEFAULT(eventSource_, "") };
+    inline string getEventSource() const { DARABONBA_PTR_GET_DEFAULT(eventSource_, "") };
     inline GetAttackPathEventDetailRequest& setEventSource(string eventSource) { DARABONBA_PTR_SET_VALUE(eventSource_, eventSource) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline GetAttackPathEventDetailRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
     // Event ID.
     // > You can call [ListAttackPathEvent](~~ListAttackPathEvent~~) to query the event ID.
-    std::shared_ptr<int64_t> eventId_ = nullptr;
+    shared_ptr<int64_t> eventId_ {};
     // 数据来源。默认值为**default**。取值：
     // - **caasm**：攻击面
     // - **default**：攻击路径
-    std::shared_ptr<string> eventSource_ = nullptr;
+    shared_ptr<string> eventSource_ {};
     // The language type for request and response, default is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

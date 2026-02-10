@@ -33,7 +33,7 @@ namespace Models
     // accountIds Field Functions 
     bool hasAccountIds() const { return this->accountIds_ != nullptr;};
     void deleteAccountIds() { this->accountIds_ = nullptr;};
-    inline string accountIds() const { DARABONBA_PTR_GET_DEFAULT(accountIds_, "") };
+    inline string getAccountIds() const { DARABONBA_PTR_GET_DEFAULT(accountIds_, "") };
     inline UnMarkMonitorAccountsRequest& setAccountIds(string accountIds) { DARABONBA_PTR_SET_VALUE(accountIds_, accountIds) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The IDs of the members.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountIds_ = nullptr;
+    shared_ptr<string> accountIds_ {};
   };
 
   } // namespace Models

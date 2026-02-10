@@ -44,101 +44,101 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->dstTarget_ == nullptr && return this->interceptType_ == nullptr && return this->orderIndex_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr
-        && return this->ruleSwitch_ == nullptr && return this->srcTarget_ == nullptr; };
+        && this->dstTarget_ == nullptr && this->interceptType_ == nullptr && this->orderIndex_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr
+        && this->ruleSwitch_ == nullptr && this->srcTarget_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ModifyInterceptionRuleRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // dstTarget Field Functions 
     bool hasDstTarget() const { return this->dstTarget_ != nullptr;};
     void deleteDstTarget() { this->dstTarget_ = nullptr;};
-    inline     const Darabonba::Json & dstTarget() const { DARABONBA_GET(dstTarget_) };
-    Darabonba::Json & dstTarget() { DARABONBA_GET(dstTarget_) };
+    inline     const Darabonba::Json & getDstTarget() const { DARABONBA_GET(dstTarget_) };
+    Darabonba::Json & getDstTarget() { DARABONBA_GET(dstTarget_) };
     inline ModifyInterceptionRuleRequest& setDstTarget(const Darabonba::Json & dstTarget) { DARABONBA_SET_VALUE(dstTarget_, dstTarget) };
-    inline ModifyInterceptionRuleRequest& setDstTarget(Darabonba::Json & dstTarget) { DARABONBA_SET_RVALUE(dstTarget_, dstTarget) };
+    inline ModifyInterceptionRuleRequest& setDstTarget(Darabonba::Json && dstTarget) { DARABONBA_SET_RVALUE(dstTarget_, dstTarget) };
 
 
     // interceptType Field Functions 
     bool hasInterceptType() const { return this->interceptType_ != nullptr;};
     void deleteInterceptType() { this->interceptType_ = nullptr;};
-    inline int32_t interceptType() const { DARABONBA_PTR_GET_DEFAULT(interceptType_, 0) };
+    inline int32_t getInterceptType() const { DARABONBA_PTR_GET_DEFAULT(interceptType_, 0) };
     inline ModifyInterceptionRuleRequest& setInterceptType(int32_t interceptType) { DARABONBA_PTR_SET_VALUE(interceptType_, interceptType) };
 
 
     // orderIndex Field Functions 
     bool hasOrderIndex() const { return this->orderIndex_ != nullptr;};
     void deleteOrderIndex() { this->orderIndex_ = nullptr;};
-    inline int64_t orderIndex() const { DARABONBA_PTR_GET_DEFAULT(orderIndex_, 0L) };
+    inline int64_t getOrderIndex() const { DARABONBA_PTR_GET_DEFAULT(orderIndex_, 0L) };
     inline ModifyInterceptionRuleRequest& setOrderIndex(int64_t orderIndex) { DARABONBA_PTR_SET_VALUE(orderIndex_, orderIndex) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline int64_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
+    inline int64_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
     inline ModifyInterceptionRuleRequest& setRuleId(int64_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline ModifyInterceptionRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // ruleSwitch Field Functions 
     bool hasRuleSwitch() const { return this->ruleSwitch_ != nullptr;};
     void deleteRuleSwitch() { this->ruleSwitch_ = nullptr;};
-    inline int32_t ruleSwitch() const { DARABONBA_PTR_GET_DEFAULT(ruleSwitch_, 0) };
+    inline int32_t getRuleSwitch() const { DARABONBA_PTR_GET_DEFAULT(ruleSwitch_, 0) };
     inline ModifyInterceptionRuleRequest& setRuleSwitch(int32_t ruleSwitch) { DARABONBA_PTR_SET_VALUE(ruleSwitch_, ruleSwitch) };
 
 
     // srcTarget Field Functions 
     bool hasSrcTarget() const { return this->srcTarget_ != nullptr;};
     void deleteSrcTarget() { this->srcTarget_ = nullptr;};
-    inline     const Darabonba::Json & srcTarget() const { DARABONBA_GET(srcTarget_) };
-    Darabonba::Json & srcTarget() { DARABONBA_GET(srcTarget_) };
+    inline     const Darabonba::Json & getSrcTarget() const { DARABONBA_GET(srcTarget_) };
+    Darabonba::Json & getSrcTarget() { DARABONBA_GET(srcTarget_) };
     inline ModifyInterceptionRuleRequest& setSrcTarget(const Darabonba::Json & srcTarget) { DARABONBA_SET_VALUE(srcTarget_, srcTarget) };
-    inline ModifyInterceptionRuleRequest& setSrcTarget(Darabonba::Json & srcTarget) { DARABONBA_SET_RVALUE(srcTarget_, srcTarget) };
+    inline ModifyInterceptionRuleRequest& setSrcTarget(Darabonba::Json && srcTarget) { DARABONBA_SET_RVALUE(srcTarget_, srcTarget) };
 
 
   protected:
     // The ID of the container cluster.
     // 
     // > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of container clusters.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The destination objects of the rule. The following parameters are included:
     // 
     // *   targetId: the ID of the destination object. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the ID.
     // *   ports: the destination port ranges.
-    Darabonba::Json dstTarget_ = nullptr;
+    Darabonba::Json dstTarget_ {};
     // The interception mode. Valid values:
     // 
     // *   **1**: block
     // *   **2**: alert
     // *   **3**: allow
-    std::shared_ptr<int32_t> interceptType_ = nullptr;
+    shared_ptr<int32_t> interceptType_ {};
     // The priority of the rule. Valid values: 1 to 1000. A smaller value indicates a higher priority.
-    std::shared_ptr<int64_t> orderIndex_ = nullptr;
+    shared_ptr<int64_t> orderIndex_ {};
     // The ID of the rule.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> ruleId_ = nullptr;
+    shared_ptr<int64_t> ruleId_ {};
     // The name of the rule.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // Specifies whether the rule is enabled. Valid values:
     // 
     // *   **1**: enabled
     // *   **0**: disabled
-    std::shared_ptr<int32_t> ruleSwitch_ = nullptr;
+    shared_ptr<int32_t> ruleSwitch_ {};
     // The source object of the rule. The following parameters are included:
     // 
     // *   targetId: the ID of the source object. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the ID.
-    Darabonba::Json srcTarget_ = nullptr;
+    Darabonba::Json srcTarget_ {};
   };
 
   } // namespace Models

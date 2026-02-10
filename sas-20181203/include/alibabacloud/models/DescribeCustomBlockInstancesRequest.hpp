@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->blockIp_ == nullptr
-        && return this->bound_ == nullptr && return this->currentPage_ == nullptr && return this->pageSize_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->status_ == nullptr; };
+        && this->bound_ == nullptr && this->currentPage_ == nullptr && this->pageSize_ == nullptr && this->resourceOwnerId_ == nullptr && this->status_ == nullptr; };
     // blockIp Field Functions 
     bool hasBlockIp() const { return this->blockIp_ != nullptr;};
     void deleteBlockIp() { this->blockIp_ = nullptr;};
-    inline string blockIp() const { DARABONBA_PTR_GET_DEFAULT(blockIp_, "") };
+    inline string getBlockIp() const { DARABONBA_PTR_GET_DEFAULT(blockIp_, "") };
     inline DescribeCustomBlockInstancesRequest& setBlockIp(string blockIp) { DARABONBA_PTR_SET_VALUE(blockIp_, blockIp) };
 
 
     // bound Field Functions 
     bool hasBound() const { return this->bound_ != nullptr;};
     void deleteBound() { this->bound_ = nullptr;};
-    inline string bound() const { DARABONBA_PTR_GET_DEFAULT(bound_, "") };
+    inline string getBound() const { DARABONBA_PTR_GET_DEFAULT(bound_, "") };
     inline DescribeCustomBlockInstancesRequest& setBound(string bound) { DARABONBA_PTR_SET_VALUE(bound_, bound) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeCustomBlockInstancesRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeCustomBlockInstancesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeCustomBlockInstancesRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline DescribeCustomBlockInstancesRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -87,23 +87,23 @@ namespace Models
     // The IP address that you want to specify in the rule.
     // 
     // >  You can call the [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) operation to obtain the IP address.
-    std::shared_ptr<string> blockIp_ = nullptr;
+    shared_ptr<string> blockIp_ {};
     // The traffic direction that you want to specify in the custom rule. Valid values:
     // 
     // *   **in**: inbound
     // *   **out**: outbound
-    std::shared_ptr<string> bound_ = nullptr;
+    shared_ptr<string> bound_ {};
     // The page number. Default value: **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The number of entries per page. Default value: **20**.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether the rule is enabled for the server.
     // 
     // *   **2**: enabling failed
     // *   **1**: enabled
     // *   **0**: disabled
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

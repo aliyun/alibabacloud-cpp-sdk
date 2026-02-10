@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkAll_ == nullptr
-        && return this->expression_ == nullptr && return this->ruleDesc_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->tagContext_ == nullptr
-        && return this->tagType_ == nullptr; };
+        && this->expression_ == nullptr && this->ruleDesc_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->tagContext_ == nullptr
+        && this->tagType_ == nullptr; };
     // checkAll Field Functions 
     bool hasCheckAll() const { return this->checkAll_ != nullptr;};
     void deleteCheckAll() { this->checkAll_ = nullptr;};
-    inline bool checkAll() const { DARABONBA_PTR_GET_DEFAULT(checkAll_, false) };
+    inline bool getCheckAll() const { DARABONBA_PTR_GET_DEFAULT(checkAll_, false) };
     inline CreateOrUpdateAutoTagRuleRequest& setCheckAll(bool checkAll) { DARABONBA_PTR_SET_VALUE(checkAll_, checkAll) };
 
 
     // expression Field Functions 
     bool hasExpression() const { return this->expression_ != nullptr;};
     void deleteExpression() { this->expression_ = nullptr;};
-    inline string expression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
+    inline string getExpression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
     inline CreateOrUpdateAutoTagRuleRequest& setExpression(string expression) { DARABONBA_PTR_SET_VALUE(expression_, expression) };
 
 
     // ruleDesc Field Functions 
     bool hasRuleDesc() const { return this->ruleDesc_ != nullptr;};
     void deleteRuleDesc() { this->ruleDesc_ = nullptr;};
-    inline string ruleDesc() const { DARABONBA_PTR_GET_DEFAULT(ruleDesc_, "") };
+    inline string getRuleDesc() const { DARABONBA_PTR_GET_DEFAULT(ruleDesc_, "") };
     inline CreateOrUpdateAutoTagRuleRequest& setRuleDesc(string ruleDesc) { DARABONBA_PTR_SET_VALUE(ruleDesc_, ruleDesc) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline int64_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
+    inline int64_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
     inline CreateOrUpdateAutoTagRuleRequest& setRuleId(int64_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline CreateOrUpdateAutoTagRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // tagContext Field Functions 
     bool hasTagContext() const { return this->tagContext_ != nullptr;};
     void deleteTagContext() { this->tagContext_ = nullptr;};
-    inline string tagContext() const { DARABONBA_PTR_GET_DEFAULT(tagContext_, "") };
+    inline string getTagContext() const { DARABONBA_PTR_GET_DEFAULT(tagContext_, "") };
     inline CreateOrUpdateAutoTagRuleRequest& setTagContext(string tagContext) { DARABONBA_PTR_SET_VALUE(tagContext_, tagContext) };
 
 
     // tagType Field Functions 
     bool hasTagType() const { return this->tagType_ != nullptr;};
     void deleteTagType() { this->tagType_ = nullptr;};
-    inline string tagType() const { DARABONBA_PTR_GET_DEFAULT(tagType_, "") };
+    inline string getTagType() const { DARABONBA_PTR_GET_DEFAULT(tagType_, "") };
     inline CreateOrUpdateAutoTagRuleRequest& setTagType(string tagType) { DARABONBA_PTR_SET_VALUE(tagType_, tagType) };
 
 
@@ -98,31 +98,31 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> checkAll_ = nullptr;
+    shared_ptr<bool> checkAll_ {};
     // The expression of the rule.
-    std::shared_ptr<string> expression_ = nullptr;
+    shared_ptr<string> expression_ {};
     // The description of the rule.
-    std::shared_ptr<string> ruleDesc_ = nullptr;
+    shared_ptr<string> ruleDesc_ {};
     // The ID of the rule.
     // 
     // >  You can call the [ListAutoTagRules](~~ListAutoTagRules~~) operation to query the ID.
-    std::shared_ptr<int64_t> ruleId_ = nullptr;
+    shared_ptr<int64_t> ruleId_ {};
     // The name of the rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // The tag specified by the operation type of the rule.
     // 
     // *   If TagType is set to group, set this parameter to {"groupId":XXX}. XXX specifies the ID of the group. You can call the [DescribeGroupStruct](~~DescribeGroupStruct~~) operation to query the ID.
     // *   If TagType is set to tag, set this parameter to {"tagId":XXX}. XXX specifies the ID of the tag. You can call the [DescribeGroupedTags](~~DescribeGroupedTags~~) operation to query the ID.
-    std::shared_ptr<string> tagContext_ = nullptr;
+    shared_ptr<string> tagContext_ {};
     // The operation type of the rule. Valid values:
     // 
     // *   **group**
     // *   **tag**
     // 
     // This parameter is required.
-    std::shared_ptr<string> tagType_ = nullptr;
+    shared_ptr<string> tagType_ {};
   };
 
   } // namespace Models

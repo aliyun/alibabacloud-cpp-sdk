@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterIds_ == nullptr
-        && return this->switchOn_ == nullptr && return this->switchType_ == nullptr; };
+        && this->switchOn_ == nullptr && this->switchType_ == nullptr; };
     // clusterIds Field Functions 
     bool hasClusterIds() const { return this->clusterIds_ != nullptr;};
     void deleteClusterIds() { this->clusterIds_ = nullptr;};
-    inline string clusterIds() const { DARABONBA_PTR_GET_DEFAULT(clusterIds_, "") };
+    inline string getClusterIds() const { DARABONBA_PTR_GET_DEFAULT(clusterIds_, "") };
     inline SetClusterInterceptionConfigRequest& setClusterIds(string clusterIds) { DARABONBA_PTR_SET_VALUE(clusterIds_, clusterIds) };
 
 
     // switchOn Field Functions 
     bool hasSwitchOn() const { return this->switchOn_ != nullptr;};
     void deleteSwitchOn() { this->switchOn_ = nullptr;};
-    inline int32_t switchOn() const { DARABONBA_PTR_GET_DEFAULT(switchOn_, 0) };
+    inline int32_t getSwitchOn() const { DARABONBA_PTR_GET_DEFAULT(switchOn_, 0) };
     inline SetClusterInterceptionConfigRequest& setSwitchOn(int32_t switchOn) { DARABONBA_PTR_SET_VALUE(switchOn_, switchOn) };
 
 
     // switchType Field Functions 
     bool hasSwitchType() const { return this->switchType_ != nullptr;};
     void deleteSwitchType() { this->switchType_ = nullptr;};
-    inline int32_t switchType() const { DARABONBA_PTR_GET_DEFAULT(switchType_, 0) };
+    inline int32_t getSwitchType() const { DARABONBA_PTR_GET_DEFAULT(switchType_, 0) };
     inline SetClusterInterceptionConfigRequest& setSwitchType(int32_t switchType) { DARABONBA_PTR_SET_VALUE(switchType_, switchType) };
 
 
@@ -62,14 +62,14 @@ namespace Models
     // > You can call the [ListClusterInterceptionConfig](~~ListClusterInterceptionConfig~~) operation to query the IDs of clusters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterIds_ = nullptr;
+    shared_ptr<string> clusterIds_ {};
     // Specifies whether to turn on the switch. Valid values:
     // 
     // *   **1**: yes
     // *   **0**: no
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> switchOn_ = nullptr;
+    shared_ptr<int32_t> switchOn_ {};
     // The type of the switch that you want to configure. Valid values:
     // 
     // *   **0**: the interception switch
@@ -77,7 +77,7 @@ namespace Models
     // *   **2**: the interception history switch
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> switchType_ = nullptr;
+    shared_ptr<int32_t> switchType_ {};
   };
 
   } // namespace Models

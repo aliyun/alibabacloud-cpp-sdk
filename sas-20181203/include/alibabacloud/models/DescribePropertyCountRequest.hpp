@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->type_ == nullptr
-        && return this->uuidList_ == nullptr; };
+        && this->uuidList_ == nullptr; };
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribePropertyCountRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // uuidList Field Functions 
     bool hasUuidList() const { return this->uuidList_ != nullptr;};
     void deleteUuidList() { this->uuidList_ = nullptr;};
-    inline string uuidList() const { DARABONBA_PTR_GET_DEFAULT(uuidList_, "") };
+    inline string getUuidList() const { DARABONBA_PTR_GET_DEFAULT(uuidList_, "") };
     inline DescribePropertyCountRequest& setUuidList(string uuidList) { DARABONBA_PTR_SET_VALUE(uuidList_, uuidList) };
 
 
@@ -61,9 +61,9 @@ namespace Models
     // *   **lkm**: kernel module
     // *   **autorun**: startup item
     // *   **web_server**: web service
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // The UUIDs of the assets. Separate multiple UUIDs with commas (,).
-    std::shared_ptr<string> uuidList_ = nullptr;
+    shared_ptr<string> uuidList_ {};
   };
 
   } // namespace Models

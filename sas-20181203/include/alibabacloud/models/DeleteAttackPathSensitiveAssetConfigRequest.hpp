@@ -33,7 +33,7 @@ namespace Models
     // attackPathSensitiveAssetConfigId Field Functions 
     bool hasAttackPathSensitiveAssetConfigId() const { return this->attackPathSensitiveAssetConfigId_ != nullptr;};
     void deleteAttackPathSensitiveAssetConfigId() { this->attackPathSensitiveAssetConfigId_ = nullptr;};
-    inline string attackPathSensitiveAssetConfigId() const { DARABONBA_PTR_GET_DEFAULT(attackPathSensitiveAssetConfigId_, "") };
+    inline string getAttackPathSensitiveAssetConfigId() const { DARABONBA_PTR_GET_DEFAULT(attackPathSensitiveAssetConfigId_, "") };
     inline DeleteAttackPathSensitiveAssetConfigRequest& setAttackPathSensitiveAssetConfigId(string attackPathSensitiveAssetConfigId) { DARABONBA_PTR_SET_VALUE(attackPathSensitiveAssetConfigId_, attackPathSensitiveAssetConfigId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // ID of the attack path sensitive asset configuration.
     // 
     // This parameter is required.
-    std::shared_ptr<string> attackPathSensitiveAssetConfigId_ = nullptr;
+    shared_ptr<string> attackPathSensitiveAssetConfigId_ {};
   };
 
   } // namespace Models

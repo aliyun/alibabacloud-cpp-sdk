@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterIds_ == nullptr
-        && return this->userConfirm_ == nullptr; };
+        && this->userConfirm_ == nullptr; };
     // clusterIds Field Functions 
     bool hasClusterIds() const { return this->clusterIds_ != nullptr;};
     void deleteClusterIds() { this->clusterIds_ = nullptr;};
-    inline const vector<string> & clusterIds() const { DARABONBA_PTR_GET_CONST(clusterIds_, vector<string>) };
-    inline vector<string> clusterIds() { DARABONBA_PTR_GET(clusterIds_, vector<string>) };
+    inline const vector<string> & getClusterIds() const { DARABONBA_PTR_GET_CONST(clusterIds_, vector<string>) };
+    inline vector<string> getClusterIds() { DARABONBA_PTR_GET(clusterIds_, vector<string>) };
     inline ModifyClusterCnnfStatusUserConfirmRequest& setClusterIds(const vector<string> & clusterIds) { DARABONBA_PTR_SET_VALUE(clusterIds_, clusterIds) };
     inline ModifyClusterCnnfStatusUserConfirmRequest& setClusterIds(vector<string> && clusterIds) { DARABONBA_PTR_SET_RVALUE(clusterIds_, clusterIds) };
 
@@ -46,18 +46,18 @@ namespace Models
     // userConfirm Field Functions 
     bool hasUserConfirm() const { return this->userConfirm_ != nullptr;};
     void deleteUserConfirm() { this->userConfirm_ = nullptr;};
-    inline bool userConfirm() const { DARABONBA_PTR_GET_DEFAULT(userConfirm_, false) };
+    inline bool getUserConfirm() const { DARABONBA_PTR_GET_DEFAULT(userConfirm_, false) };
     inline ModifyClusterCnnfStatusUserConfirmRequest& setUserConfirm(bool userConfirm) { DARABONBA_PTR_SET_VALUE(userConfirm_, userConfirm) };
 
 
   protected:
     // The cluster IDs.
-    std::shared_ptr<vector<string>> clusterIds_ = nullptr;
+    shared_ptr<vector<string>> clusterIds_ {};
     // Specifies whether to fix the blocking status of the cluster. Valid values:
     // 
     // *   true: yes
     // *   false: no
-    std::shared_ptr<bool> userConfirm_ = nullptr;
+    shared_ptr<bool> userConfirm_ {};
   };
 
   } // namespace Models

@@ -34,15 +34,15 @@ namespace Models
     // strategyIds Field Functions 
     bool hasStrategyIds() const { return this->strategyIds_ != nullptr;};
     void deleteStrategyIds() { this->strategyIds_ = nullptr;};
-    inline const vector<int64_t> & strategyIds() const { DARABONBA_PTR_GET_CONST(strategyIds_, vector<int64_t>) };
-    inline vector<int64_t> strategyIds() { DARABONBA_PTR_GET(strategyIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getStrategyIds() const { DARABONBA_PTR_GET_CONST(strategyIds_, vector<int64_t>) };
+    inline vector<int64_t> getStrategyIds() { DARABONBA_PTR_GET(strategyIds_, vector<int64_t>) };
     inline DeleteOpaStrategyNewRequest& setStrategyIds(const vector<int64_t> & strategyIds) { DARABONBA_PTR_SET_VALUE(strategyIds_, strategyIds) };
     inline DeleteOpaStrategyNewRequest& setStrategyIds(vector<int64_t> && strategyIds) { DARABONBA_PTR_SET_RVALUE(strategyIds_, strategyIds) };
 
 
   protected:
     // The IDs of rules.
-    std::shared_ptr<vector<int64_t>> strategyIds_ = nullptr;
+    shared_ptr<vector<int64_t>> strategyIds_ {};
   };
 
   } // namespace Models

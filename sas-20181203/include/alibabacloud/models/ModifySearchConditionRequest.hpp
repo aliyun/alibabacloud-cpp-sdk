@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filterConditions_ == nullptr
-        && return this->name_ == nullptr && return this->sourceIp_ == nullptr && return this->type_ == nullptr; };
+        && this->name_ == nullptr && this->sourceIp_ == nullptr && this->type_ == nullptr; };
     // filterConditions Field Functions 
     bool hasFilterConditions() const { return this->filterConditions_ != nullptr;};
     void deleteFilterConditions() { this->filterConditions_ = nullptr;};
-    inline string filterConditions() const { DARABONBA_PTR_GET_DEFAULT(filterConditions_, "") };
+    inline string getFilterConditions() const { DARABONBA_PTR_GET_DEFAULT(filterConditions_, "") };
     inline ModifySearchConditionRequest& setFilterConditions(string filterConditions) { DARABONBA_PTR_SET_VALUE(filterConditions_, filterConditions) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ModifySearchConditionRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline ModifySearchConditionRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ModifySearchConditionRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -87,18 +87,18 @@ namespace Models
     // *   If **Type** is set to **ecs**, you can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported filter conditions.
     // 
     // *   If **Type** is set to **cloud_product**, you can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the supported filter conditions.
-    std::shared_ptr<string> filterConditions_ = nullptr;
+    shared_ptr<string> filterConditions_ {};
     // The name of the common filter condition.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The source IP address of the request. You do not need to specify this parameter. It is automatically obtained by the system.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The type of the asset. Default value: **ecs**. Valid values:
     // 
     // *   **ecs**: host
     // *   **cloud_product**: Alibaba Cloud service
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

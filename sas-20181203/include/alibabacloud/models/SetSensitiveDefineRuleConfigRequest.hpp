@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->enableNewRule_ == nullptr && return this->source_ == nullptr; };
+        && this->enableNewRule_ == nullptr && this->source_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline SetSensitiveDefineRuleConfigRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // enableNewRule Field Functions 
     bool hasEnableNewRule() const { return this->enableNewRule_ != nullptr;};
     void deleteEnableNewRule() { this->enableNewRule_ = nullptr;};
-    inline int32_t enableNewRule() const { DARABONBA_PTR_GET_DEFAULT(enableNewRule_, 0) };
+    inline int32_t getEnableNewRule() const { DARABONBA_PTR_GET_DEFAULT(enableNewRule_, 0) };
     inline SetSensitiveDefineRuleConfigRequest& setEnableNewRule(int32_t enableNewRule) { DARABONBA_PTR_SET_VALUE(enableNewRule_, enableNewRule) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline SetSensitiveDefineRuleConfigRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
@@ -61,17 +61,17 @@ namespace Models
     // 
     // *   **classKey**: the category keyword of the check rule.
     // *   **ruleList**: the keyword of the check rule.
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
     // Specifies whether to enable the new ruled for automatic check only on agentless detection. Valid values:
     // 
     // *   **0**: no.
     // *   **1**: yes.
-    std::shared_ptr<int32_t> enableNewRule_ = nullptr;
+    shared_ptr<int32_t> enableNewRule_ {};
     // The source of the check rules. Valid values:
     // 
     // *   **image**: image.
     // *   **agentless**: agentless detection.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

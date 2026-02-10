@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && return this->incidentTime_ == nullptr && return this->lang_ == nullptr && return this->sourceIp_ == nullptr && return this->type_ == nullptr && return this->uuid_ == nullptr
-        && return this->vertexId_ == nullptr; };
+        && this->incidentTime_ == nullptr && this->lang_ == nullptr && this->sourceIp_ == nullptr && this->type_ == nullptr && this->uuid_ == nullptr
+        && this->vertexId_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
-    inline string from() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
+    inline string getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
     inline DescribeTraceInfoDetailRequest& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
 
 
     // incidentTime Field Functions 
     bool hasIncidentTime() const { return this->incidentTime_ != nullptr;};
     void deleteIncidentTime() { this->incidentTime_ = nullptr;};
-    inline int64_t incidentTime() const { DARABONBA_PTR_GET_DEFAULT(incidentTime_, 0L) };
+    inline int64_t getIncidentTime() const { DARABONBA_PTR_GET_DEFAULT(incidentTime_, 0L) };
     inline DescribeTraceInfoDetailRequest& setIncidentTime(int64_t incidentTime) { DARABONBA_PTR_SET_VALUE(incidentTime_, incidentTime) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeTraceInfoDetailRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeTraceInfoDetailRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeTraceInfoDetailRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline DescribeTraceInfoDetailRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
     // vertexId Field Functions 
     bool hasVertexId() const { return this->vertexId_ != nullptr;};
     void deleteVertexId() { this->vertexId_ = nullptr;};
-    inline string vertexId() const { DARABONBA_PTR_GET_DEFAULT(vertexId_, "") };
+    inline string getVertexId() const { DARABONBA_PTR_GET_DEFAULT(vertexId_, "") };
     inline DescribeTraceInfoDetailRequest& setVertexId(string vertexId) { DARABONBA_PTR_SET_VALUE(vertexId_, vertexId) };
 
 
@@ -97,28 +97,28 @@ namespace Models
     // The ID of the request source. Set the value to **sas**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> from_ = nullptr;
+    shared_ptr<string> from_ {};
     // The timestamp of the detection. Unit: milliseconds.
-    std::shared_ptr<int64_t> incidentTime_ = nullptr;
+    shared_ptr<int64_t> incidentTime_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The source IP address of the request. The value of this parameter is specified by the system.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The type of the vertex. Set the value to **SAS_INCIDENT**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // The UUID of the server.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
     // Vertex ID, which can be obtained from the AlarmUniqueInfo in the response of the [DescribeSuspEvents](~~DescribeSuspEvents~~) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vertexId_ = nullptr;
+    shared_ptr<string> vertexId_ {};
   };
 
   } // namespace Models

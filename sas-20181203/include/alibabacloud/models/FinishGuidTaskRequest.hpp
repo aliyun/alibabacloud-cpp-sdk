@@ -33,7 +33,7 @@ namespace Models
     // taskTypeName Field Functions 
     bool hasTaskTypeName() const { return this->taskTypeName_ != nullptr;};
     void deleteTaskTypeName() { this->taskTypeName_ = nullptr;};
-    inline string taskTypeName() const { DARABONBA_PTR_GET_DEFAULT(taskTypeName_, "") };
+    inline string getTaskTypeName() const { DARABONBA_PTR_GET_DEFAULT(taskTypeName_, "") };
     inline FinishGuidTaskRequest& setTaskTypeName(string taskTypeName) { DARABONBA_PTR_SET_VALUE(taskTypeName_, taskTypeName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the task type.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskTypeName_ = nullptr;
+    shared_ptr<string> taskTypeName_ {};
   };
 
   } // namespace Models

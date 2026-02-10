@@ -39,19 +39,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkGroupId_ == nullptr
-        && return this->checkIds_ == nullptr && return this->instanceIds_ == nullptr && return this->ruleId_ == nullptr && return this->type_ == nullptr; };
+        && this->checkIds_ == nullptr && this->instanceIds_ == nullptr && this->ruleId_ == nullptr && this->type_ == nullptr; };
     // checkGroupId Field Functions 
     bool hasCheckGroupId() const { return this->checkGroupId_ != nullptr;};
     void deleteCheckGroupId() { this->checkGroupId_ = nullptr;};
-    inline string checkGroupId() const { DARABONBA_PTR_GET_DEFAULT(checkGroupId_, "") };
+    inline string getCheckGroupId() const { DARABONBA_PTR_GET_DEFAULT(checkGroupId_, "") };
     inline RemoveCheckResultWhiteListRequest& setCheckGroupId(string checkGroupId) { DARABONBA_PTR_SET_VALUE(checkGroupId_, checkGroupId) };
 
 
     // checkIds Field Functions 
     bool hasCheckIds() const { return this->checkIds_ != nullptr;};
     void deleteCheckIds() { this->checkIds_ = nullptr;};
-    inline const vector<int64_t> & checkIds() const { DARABONBA_PTR_GET_CONST(checkIds_, vector<int64_t>) };
-    inline vector<int64_t> checkIds() { DARABONBA_PTR_GET(checkIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getCheckIds() const { DARABONBA_PTR_GET_CONST(checkIds_, vector<int64_t>) };
+    inline vector<int64_t> getCheckIds() { DARABONBA_PTR_GET(checkIds_, vector<int64_t>) };
     inline RemoveCheckResultWhiteListRequest& setCheckIds(const vector<int64_t> & checkIds) { DARABONBA_PTR_SET_VALUE(checkIds_, checkIds) };
     inline RemoveCheckResultWhiteListRequest& setCheckIds(vector<int64_t> && checkIds) { DARABONBA_PTR_SET_RVALUE(checkIds_, checkIds) };
 
@@ -59,8 +59,8 @@ namespace Models
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline RemoveCheckResultWhiteListRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline RemoveCheckResultWhiteListRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -68,30 +68,30 @@ namespace Models
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline int64_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
+    inline int64_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
     inline RemoveCheckResultWhiteListRequest& setRuleId(int64_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline RemoveCheckResultWhiteListRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // This parameter is deprecated.
-    std::shared_ptr<string> checkGroupId_ = nullptr;
+    shared_ptr<string> checkGroupId_ {};
     // The IDs of the check items.
-    std::shared_ptr<vector<int64_t>> checkIds_ = nullptr;
+    shared_ptr<vector<int64_t>> checkIds_ {};
     // A set of cloud product instance IDs that require validation.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
     // The ID of the whitelist rule.
     // 
     // >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of whitelist rules.
-    std::shared_ptr<int64_t> ruleId_ = nullptr;
+    shared_ptr<int64_t> ruleId_ {};
     // This parameter is deprecated.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

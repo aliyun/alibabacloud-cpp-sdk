@@ -33,7 +33,7 @@ namespace Models
     // exportId Field Functions 
     bool hasExportId() const { return this->exportId_ != nullptr;};
     void deleteExportId() { this->exportId_ = nullptr;};
-    inline int64_t exportId() const { DARABONBA_PTR_GET_DEFAULT(exportId_, 0L) };
+    inline int64_t getExportId() const { DARABONBA_PTR_GET_DEFAULT(exportId_, 0L) };
     inline DescribeHcExportInfoRequest& setExportId(int64_t exportId) { DARABONBA_PTR_SET_VALUE(exportId_, exportId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the export task.
     // 
     // >  You can call the [ExportWarning](~~ExportWarning~~) operation to query the IDs of export tasks.
-    std::shared_ptr<int64_t> exportId_ = nullptr;
+    shared_ptr<int64_t> exportId_ {};
   };
 
   } // namespace Models

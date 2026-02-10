@@ -46,94 +46,94 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->digests_ == nullptr
-        && return this->instanceIds_ == nullptr && return this->regionIds_ == nullptr && return this->registryTypes_ == nullptr && return this->repoIds_ == nullptr && return this->repoNames_ == nullptr
-        && return this->repoNamespaces_ == nullptr && return this->sourceIp_ == nullptr && return this->tags_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->regionIds_ == nullptr && this->registryTypes_ == nullptr && this->repoIds_ == nullptr && this->repoNames_ == nullptr
+        && this->repoNamespaces_ == nullptr && this->sourceIp_ == nullptr && this->tags_ == nullptr; };
     // digests Field Functions 
     bool hasDigests() const { return this->digests_ != nullptr;};
     void deleteDigests() { this->digests_ = nullptr;};
-    inline string digests() const { DARABONBA_PTR_GET_DEFAULT(digests_, "") };
+    inline string getDigests() const { DARABONBA_PTR_GET_DEFAULT(digests_, "") };
     inline PublicCreateImageScanTaskRequest& setDigests(string digests) { DARABONBA_PTR_SET_VALUE(digests_, digests) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline PublicCreateImageScanTaskRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
     // regionIds Field Functions 
     bool hasRegionIds() const { return this->regionIds_ != nullptr;};
     void deleteRegionIds() { this->regionIds_ = nullptr;};
-    inline string regionIds() const { DARABONBA_PTR_GET_DEFAULT(regionIds_, "") };
+    inline string getRegionIds() const { DARABONBA_PTR_GET_DEFAULT(regionIds_, "") };
     inline PublicCreateImageScanTaskRequest& setRegionIds(string regionIds) { DARABONBA_PTR_SET_VALUE(regionIds_, regionIds) };
 
 
     // registryTypes Field Functions 
     bool hasRegistryTypes() const { return this->registryTypes_ != nullptr;};
     void deleteRegistryTypes() { this->registryTypes_ = nullptr;};
-    inline string registryTypes() const { DARABONBA_PTR_GET_DEFAULT(registryTypes_, "") };
+    inline string getRegistryTypes() const { DARABONBA_PTR_GET_DEFAULT(registryTypes_, "") };
     inline PublicCreateImageScanTaskRequest& setRegistryTypes(string registryTypes) { DARABONBA_PTR_SET_VALUE(registryTypes_, registryTypes) };
 
 
     // repoIds Field Functions 
     bool hasRepoIds() const { return this->repoIds_ != nullptr;};
     void deleteRepoIds() { this->repoIds_ = nullptr;};
-    inline string repoIds() const { DARABONBA_PTR_GET_DEFAULT(repoIds_, "") };
+    inline string getRepoIds() const { DARABONBA_PTR_GET_DEFAULT(repoIds_, "") };
     inline PublicCreateImageScanTaskRequest& setRepoIds(string repoIds) { DARABONBA_PTR_SET_VALUE(repoIds_, repoIds) };
 
 
     // repoNames Field Functions 
     bool hasRepoNames() const { return this->repoNames_ != nullptr;};
     void deleteRepoNames() { this->repoNames_ = nullptr;};
-    inline string repoNames() const { DARABONBA_PTR_GET_DEFAULT(repoNames_, "") };
+    inline string getRepoNames() const { DARABONBA_PTR_GET_DEFAULT(repoNames_, "") };
     inline PublicCreateImageScanTaskRequest& setRepoNames(string repoNames) { DARABONBA_PTR_SET_VALUE(repoNames_, repoNames) };
 
 
     // repoNamespaces Field Functions 
     bool hasRepoNamespaces() const { return this->repoNamespaces_ != nullptr;};
     void deleteRepoNamespaces() { this->repoNamespaces_ = nullptr;};
-    inline string repoNamespaces() const { DARABONBA_PTR_GET_DEFAULT(repoNamespaces_, "") };
+    inline string getRepoNamespaces() const { DARABONBA_PTR_GET_DEFAULT(repoNamespaces_, "") };
     inline PublicCreateImageScanTaskRequest& setRepoNamespaces(string repoNamespaces) { DARABONBA_PTR_SET_VALUE(repoNamespaces_, repoNamespaces) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline PublicCreateImageScanTaskRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline string tags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+    inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
     inline PublicCreateImageScanTaskRequest& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
   protected:
     // The SHA-256 value of the image digest. Separate multiple SHA-256 values with commas (,).
-    std::shared_ptr<string> digests_ = nullptr;
+    shared_ptr<string> digests_ {};
     // The ID of the Container Registry instance in which the image repository is created. Separate multiple IDs with commas (,).
-    std::shared_ptr<string> instanceIds_ = nullptr;
+    shared_ptr<string> instanceIds_ {};
     // The region ID of the image. Separate multiple IDs with commas (,).
-    std::shared_ptr<string> regionIds_ = nullptr;
+    shared_ptr<string> regionIds_ {};
     // The type of the image repository. Separate multiple types with commas (,). Valid values:
     // 
     // *   **acr**
     // *   **harbor**
     // *   **quay**
-    std::shared_ptr<string> registryTypes_ = nullptr;
+    shared_ptr<string> registryTypes_ {};
     // The ID of the image repository. Separate multiple IDs with commas (,).
-    std::shared_ptr<string> repoIds_ = nullptr;
+    shared_ptr<string> repoIds_ {};
     // The name of the image repository. Separate multiple names with commas (,).
-    std::shared_ptr<string> repoNames_ = nullptr;
+    shared_ptr<string> repoNames_ {};
     // The namespace to which the image repository belongs. Separate multiple namespaces with commas (,).
-    std::shared_ptr<string> repoNamespaces_ = nullptr;
+    shared_ptr<string> repoNamespaces_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The tag that is added to the image. Separate multiple tags with commas (,).
-    std::shared_ptr<string> tags_ = nullptr;
+    shared_ptr<string> tags_ {};
   };
 
   } // namespace Models

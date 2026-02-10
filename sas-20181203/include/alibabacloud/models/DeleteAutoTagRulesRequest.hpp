@@ -33,7 +33,7 @@ namespace Models
     // ruleIdList Field Functions 
     bool hasRuleIdList() const { return this->ruleIdList_ != nullptr;};
     void deleteRuleIdList() { this->ruleIdList_ = nullptr;};
-    inline string ruleIdList() const { DARABONBA_PTR_GET_DEFAULT(ruleIdList_, "") };
+    inline string getRuleIdList() const { DARABONBA_PTR_GET_DEFAULT(ruleIdList_, "") };
     inline DeleteAutoTagRulesRequest& setRuleIdList(string ruleIdList) { DARABONBA_PTR_SET_VALUE(ruleIdList_, ruleIdList) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // >  You can call the [ListAutoTagRules](~~ListAutoTagRules~~) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleIdList_ = nullptr;
+    shared_ptr<string> ruleIdList_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->policyId_ == nullptr
-        && return this->policyIds_ == nullptr; };
+        && this->policyIds_ == nullptr; };
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline int64_t policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, 0L) };
+    inline int64_t getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, 0L) };
     inline DeleteUniBackupPolicyRequest& setPolicyId(int64_t policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
     // policyIds Field Functions 
     bool hasPolicyIds() const { return this->policyIds_ != nullptr;};
     void deletePolicyIds() { this->policyIds_ = nullptr;};
-    inline string policyIds() const { DARABONBA_PTR_GET_DEFAULT(policyIds_, "") };
+    inline string getPolicyIds() const { DARABONBA_PTR_GET_DEFAULT(policyIds_, "") };
     inline DeleteUniBackupPolicyRequest& setPolicyIds(string policyIds) { DARABONBA_PTR_SET_VALUE(policyIds_, policyIds) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the anti-ransomware policy.
     // 
     // >  You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies. You must specify at least one of the PolicyId parameter and the **PolicyIds** parameter.
-    std::shared_ptr<int64_t> policyId_ = nullptr;
+    shared_ptr<int64_t> policyId_ {};
     // The IDs of anti-ransomware policies.
     // 
     // >  You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies. You must specify at least one of the **PolicyId** parameter and the PolicyIds parameter.
-    std::shared_ptr<string> policyIds_ = nullptr;
+    shared_ptr<string> policyIds_ {};
   };
 
   } // namespace Models

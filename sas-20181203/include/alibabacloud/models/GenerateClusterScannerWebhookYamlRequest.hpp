@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->webhookOpen_ == nullptr; };
+        && this->webhookOpen_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GenerateClusterScannerWebhookYamlRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // webhookOpen Field Functions 
     bool hasWebhookOpen() const { return this->webhookOpen_ != nullptr;};
     void deleteWebhookOpen() { this->webhookOpen_ = nullptr;};
-    inline int32_t webhookOpen() const { DARABONBA_PTR_GET_DEFAULT(webhookOpen_, 0) };
+    inline int32_t getWebhookOpen() const { DARABONBA_PTR_GET_DEFAULT(webhookOpen_, 0) };
     inline GenerateClusterScannerWebhookYamlRequest& setWebhookOpen(int32_t webhookOpen) { DARABONBA_PTR_SET_VALUE(webhookOpen_, webhookOpen) };
 
 
@@ -52,11 +52,11 @@ namespace Models
     // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) API to obtain this parameter from the ClusterId field.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // Indicates whether the incremental scan switch is enabled. Values:
     // - **0**: Not enabled
     // - **1**: Enabled
-    std::shared_ptr<int32_t> webhookOpen_ = nullptr;
+    shared_ptr<int32_t> webhookOpen_ {};
   };
 
   } // namespace Models

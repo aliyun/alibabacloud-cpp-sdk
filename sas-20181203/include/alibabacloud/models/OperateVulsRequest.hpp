@@ -37,26 +37,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->operateType_ == nullptr
-        && return this->type_ == nullptr && return this->uuids_ == nullptr && return this->vulNames_ == nullptr; };
+        && this->type_ == nullptr && this->uuids_ == nullptr && this->vulNames_ == nullptr; };
     // operateType Field Functions 
     bool hasOperateType() const { return this->operateType_ != nullptr;};
     void deleteOperateType() { this->operateType_ = nullptr;};
-    inline string operateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
+    inline string getOperateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
     inline OperateVulsRequest& setOperateType(string operateType) { DARABONBA_PTR_SET_VALUE(operateType_, operateType) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline OperateVulsRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // uuids Field Functions 
     bool hasUuids() const { return this->uuids_ != nullptr;};
     void deleteUuids() { this->uuids_ = nullptr;};
-    inline const vector<string> & uuids() const { DARABONBA_PTR_GET_CONST(uuids_, vector<string>) };
-    inline vector<string> uuids() { DARABONBA_PTR_GET(uuids_, vector<string>) };
+    inline const vector<string> & getUuids() const { DARABONBA_PTR_GET_CONST(uuids_, vector<string>) };
+    inline vector<string> getUuids() { DARABONBA_PTR_GET(uuids_, vector<string>) };
     inline OperateVulsRequest& setUuids(const vector<string> & uuids) { DARABONBA_PTR_SET_VALUE(uuids_, uuids) };
     inline OperateVulsRequest& setUuids(vector<string> && uuids) { DARABONBA_PTR_SET_RVALUE(uuids_, uuids) };
 
@@ -64,8 +64,8 @@ namespace Models
     // vulNames Field Functions 
     bool hasVulNames() const { return this->vulNames_ != nullptr;};
     void deleteVulNames() { this->vulNames_ = nullptr;};
-    inline const vector<string> & vulNames() const { DARABONBA_PTR_GET_CONST(vulNames_, vector<string>) };
-    inline vector<string> vulNames() { DARABONBA_PTR_GET(vulNames_, vector<string>) };
+    inline const vector<string> & getVulNames() const { DARABONBA_PTR_GET_CONST(vulNames_, vector<string>) };
+    inline vector<string> getVulNames() { DARABONBA_PTR_GET(vulNames_, vector<string>) };
     inline OperateVulsRequest& setVulNames(const vector<string> & vulNames) { DARABONBA_PTR_SET_VALUE(vulNames_, vulNames) };
     inline OperateVulsRequest& setVulNames(vector<string> && vulNames) { DARABONBA_PTR_SET_RVALUE(vulNames_, vulNames) };
 
@@ -74,19 +74,19 @@ namespace Models
     // The operation on the vulnerabilities. Set the value to **vul_fix**, which indicates vulnerability fixing.
     // 
     // This parameter is required.
-    std::shared_ptr<string> operateType_ = nullptr;
+    shared_ptr<string> operateType_ {};
     // The type of the vulnerabilities that you want to fix. Set the value to **cve**, which indicates Linux software vulnerabilities.
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // The UUIDs of servers for which you want to fix vulnerabilities.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> uuids_ = nullptr;
+    shared_ptr<vector<string>> uuids_ {};
     // The names of the vulnerabilities that you want to fix.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> vulNames_ = nullptr;
+    shared_ptr<vector<string>> vulNames_ {};
   };
 
   } // namespace Models

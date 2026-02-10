@@ -52,107 +52,107 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && return this->accountPassword_ == nullptr && return this->databaseAddByUser_ == nullptr && return this->databaseType_ == nullptr && return this->fullPlan_ == nullptr && return this->incPlan_ == nullptr
-        && return this->instanceId_ == nullptr && return this->policyName_ == nullptr && return this->retention_ == nullptr && return this->speedLimiter_ == nullptr && return this->uniRegionId_ == nullptr
-        && return this->uuid_ == nullptr; };
+        && this->accountPassword_ == nullptr && this->databaseAddByUser_ == nullptr && this->databaseType_ == nullptr && this->fullPlan_ == nullptr && this->incPlan_ == nullptr
+        && this->instanceId_ == nullptr && this->policyName_ == nullptr && this->retention_ == nullptr && this->speedLimiter_ == nullptr && this->uniRegionId_ == nullptr
+        && this->uuid_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
-    inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline CreateUniBackupPolicyRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
     // accountPassword Field Functions 
     bool hasAccountPassword() const { return this->accountPassword_ != nullptr;};
     void deleteAccountPassword() { this->accountPassword_ = nullptr;};
-    inline string accountPassword() const { DARABONBA_PTR_GET_DEFAULT(accountPassword_, "") };
+    inline string getAccountPassword() const { DARABONBA_PTR_GET_DEFAULT(accountPassword_, "") };
     inline CreateUniBackupPolicyRequest& setAccountPassword(string accountPassword) { DARABONBA_PTR_SET_VALUE(accountPassword_, accountPassword) };
 
 
     // databaseAddByUser Field Functions 
     bool hasDatabaseAddByUser() const { return this->databaseAddByUser_ != nullptr;};
     void deleteDatabaseAddByUser() { this->databaseAddByUser_ = nullptr;};
-    inline string databaseAddByUser() const { DARABONBA_PTR_GET_DEFAULT(databaseAddByUser_, "") };
+    inline string getDatabaseAddByUser() const { DARABONBA_PTR_GET_DEFAULT(databaseAddByUser_, "") };
     inline CreateUniBackupPolicyRequest& setDatabaseAddByUser(string databaseAddByUser) { DARABONBA_PTR_SET_VALUE(databaseAddByUser_, databaseAddByUser) };
 
 
     // databaseType Field Functions 
     bool hasDatabaseType() const { return this->databaseType_ != nullptr;};
     void deleteDatabaseType() { this->databaseType_ = nullptr;};
-    inline string databaseType() const { DARABONBA_PTR_GET_DEFAULT(databaseType_, "") };
+    inline string getDatabaseType() const { DARABONBA_PTR_GET_DEFAULT(databaseType_, "") };
     inline CreateUniBackupPolicyRequest& setDatabaseType(string databaseType) { DARABONBA_PTR_SET_VALUE(databaseType_, databaseType) };
 
 
     // fullPlan Field Functions 
     bool hasFullPlan() const { return this->fullPlan_ != nullptr;};
     void deleteFullPlan() { this->fullPlan_ = nullptr;};
-    inline     const Darabonba::Json & fullPlan() const { DARABONBA_GET(fullPlan_) };
-    Darabonba::Json & fullPlan() { DARABONBA_GET(fullPlan_) };
+    inline     const Darabonba::Json & getFullPlan() const { DARABONBA_GET(fullPlan_) };
+    Darabonba::Json & getFullPlan() { DARABONBA_GET(fullPlan_) };
     inline CreateUniBackupPolicyRequest& setFullPlan(const Darabonba::Json & fullPlan) { DARABONBA_SET_VALUE(fullPlan_, fullPlan) };
-    inline CreateUniBackupPolicyRequest& setFullPlan(Darabonba::Json & fullPlan) { DARABONBA_SET_RVALUE(fullPlan_, fullPlan) };
+    inline CreateUniBackupPolicyRequest& setFullPlan(Darabonba::Json && fullPlan) { DARABONBA_SET_RVALUE(fullPlan_, fullPlan) };
 
 
     // incPlan Field Functions 
     bool hasIncPlan() const { return this->incPlan_ != nullptr;};
     void deleteIncPlan() { this->incPlan_ = nullptr;};
-    inline     const Darabonba::Json & incPlan() const { DARABONBA_GET(incPlan_) };
-    Darabonba::Json & incPlan() { DARABONBA_GET(incPlan_) };
+    inline     const Darabonba::Json & getIncPlan() const { DARABONBA_GET(incPlan_) };
+    Darabonba::Json & getIncPlan() { DARABONBA_GET(incPlan_) };
     inline CreateUniBackupPolicyRequest& setIncPlan(const Darabonba::Json & incPlan) { DARABONBA_SET_VALUE(incPlan_, incPlan) };
-    inline CreateUniBackupPolicyRequest& setIncPlan(Darabonba::Json & incPlan) { DARABONBA_SET_RVALUE(incPlan_, incPlan) };
+    inline CreateUniBackupPolicyRequest& setIncPlan(Darabonba::Json && incPlan) { DARABONBA_SET_RVALUE(incPlan_, incPlan) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateUniBackupPolicyRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // policyName Field Functions 
     bool hasPolicyName() const { return this->policyName_ != nullptr;};
     void deletePolicyName() { this->policyName_ = nullptr;};
-    inline string policyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
+    inline string getPolicyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
     inline CreateUniBackupPolicyRequest& setPolicyName(string policyName) { DARABONBA_PTR_SET_VALUE(policyName_, policyName) };
 
 
     // retention Field Functions 
     bool hasRetention() const { return this->retention_ != nullptr;};
     void deleteRetention() { this->retention_ = nullptr;};
-    inline int32_t retention() const { DARABONBA_PTR_GET_DEFAULT(retention_, 0) };
+    inline int32_t getRetention() const { DARABONBA_PTR_GET_DEFAULT(retention_, 0) };
     inline CreateUniBackupPolicyRequest& setRetention(int32_t retention) { DARABONBA_PTR_SET_VALUE(retention_, retention) };
 
 
     // speedLimiter Field Functions 
     bool hasSpeedLimiter() const { return this->speedLimiter_ != nullptr;};
     void deleteSpeedLimiter() { this->speedLimiter_ = nullptr;};
-    inline int64_t speedLimiter() const { DARABONBA_PTR_GET_DEFAULT(speedLimiter_, 0L) };
+    inline int64_t getSpeedLimiter() const { DARABONBA_PTR_GET_DEFAULT(speedLimiter_, 0L) };
     inline CreateUniBackupPolicyRequest& setSpeedLimiter(int64_t speedLimiter) { DARABONBA_PTR_SET_VALUE(speedLimiter_, speedLimiter) };
 
 
     // uniRegionId Field Functions 
     bool hasUniRegionId() const { return this->uniRegionId_ != nullptr;};
     void deleteUniRegionId() { this->uniRegionId_ = nullptr;};
-    inline string uniRegionId() const { DARABONBA_PTR_GET_DEFAULT(uniRegionId_, "") };
+    inline string getUniRegionId() const { DARABONBA_PTR_GET_DEFAULT(uniRegionId_, "") };
     inline CreateUniBackupPolicyRequest& setUniRegionId(string uniRegionId) { DARABONBA_PTR_SET_VALUE(uniRegionId_, uniRegionId) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline CreateUniBackupPolicyRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
     // The name of the database account.
-    std::shared_ptr<string> accountName_ = nullptr;
+    shared_ptr<string> accountName_ {};
     // The password of the database account.
-    std::shared_ptr<string> accountPassword_ = nullptr;
+    shared_ptr<string> accountPassword_ {};
     // Specifies whether the database is manually added. Valid values:
     // 
     // *   **true**: yes
     // *   **false**: no
-    std::shared_ptr<string> databaseAddByUser_ = nullptr;
+    shared_ptr<string> databaseAddByUser_ {};
     // The type of the database. Valid values:
     // 
     // *   **MYSQL**
@@ -160,7 +160,7 @@ namespace Models
     // *   **MSSQL**
     // 
     // This parameter is required.
-    std::shared_ptr<string> databaseType_ = nullptr;
+    shared_ptr<string> databaseType_ {};
     // The policy for full data backup. The value of this parameter is a JSON string. The JSON string contains the following fields:
     // 
     // *   **start**: the start time of a backup task.
@@ -169,7 +169,7 @@ namespace Models
     // *   **days**: the days of a week on which a backup task is performed.
     // 
     // This parameter is required.
-    Darabonba::Json fullPlan_ = nullptr;
+    Darabonba::Json fullPlan_ {};
     // The policy for incremental data backup. The value of this parameter is a JSON string. The JSON string contains the following fields:
     // 
     // *   **start**: the start time of a backup task.
@@ -178,33 +178,33 @@ namespace Models
     // *   **days**: the days of a week on which a backup task is performed.
     // 
     // This parameter is required.
-    Darabonba::Json incPlan_ = nullptr;
+    Darabonba::Json incPlan_ {};
     // The ID of the Elastic Compute Service (ECS) instance.
     // 
     // >  You can call the [DescribeUniBackupDatabase](~~DescribeUniBackupDatabase~~) operation to query the IDs of ECS instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The name of the anti-ransomware policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyName_ = nullptr;
+    shared_ptr<string> policyName_ {};
     // The retention period of backup data.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> retention_ = nullptr;
+    shared_ptr<int32_t> retention_ {};
     // The maximum network bandwidth that is allowed during data backup. Unit: bytes.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> speedLimiter_ = nullptr;
+    shared_ptr<int64_t> speedLimiter_ {};
     // The region in which the server resides.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uniRegionId_ = nullptr;
+    shared_ptr<string> uniRegionId_ {};
     // The UUID of the server whose data is backed up based on the anti-ransomware policy.
     // 
     // >  You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

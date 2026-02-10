@@ -41,49 +41,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->name_ == nullptr && return this->policy_ == nullptr && return this->policyRegionId_ == nullptr && return this->policyVersion_ == nullptr && return this->uuidList_ == nullptr; };
+        && this->name_ == nullptr && this->policy_ == nullptr && this->policyRegionId_ == nullptr && this->policyVersion_ == nullptr && this->uuidList_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline ModifyBackupPolicyRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ModifyBackupPolicyRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // policy Field Functions 
     bool hasPolicy() const { return this->policy_ != nullptr;};
     void deletePolicy() { this->policy_ = nullptr;};
-    inline     const Darabonba::Json & policy() const { DARABONBA_GET(policy_) };
-    Darabonba::Json & policy() { DARABONBA_GET(policy_) };
+    inline     const Darabonba::Json & getPolicy() const { DARABONBA_GET(policy_) };
+    Darabonba::Json & getPolicy() { DARABONBA_GET(policy_) };
     inline ModifyBackupPolicyRequest& setPolicy(const Darabonba::Json & policy) { DARABONBA_SET_VALUE(policy_, policy) };
-    inline ModifyBackupPolicyRequest& setPolicy(Darabonba::Json & policy) { DARABONBA_SET_RVALUE(policy_, policy) };
+    inline ModifyBackupPolicyRequest& setPolicy(Darabonba::Json && policy) { DARABONBA_SET_RVALUE(policy_, policy) };
 
 
     // policyRegionId Field Functions 
     bool hasPolicyRegionId() const { return this->policyRegionId_ != nullptr;};
     void deletePolicyRegionId() { this->policyRegionId_ = nullptr;};
-    inline string policyRegionId() const { DARABONBA_PTR_GET_DEFAULT(policyRegionId_, "") };
+    inline string getPolicyRegionId() const { DARABONBA_PTR_GET_DEFAULT(policyRegionId_, "") };
     inline ModifyBackupPolicyRequest& setPolicyRegionId(string policyRegionId) { DARABONBA_PTR_SET_VALUE(policyRegionId_, policyRegionId) };
 
 
     // policyVersion Field Functions 
     bool hasPolicyVersion() const { return this->policyVersion_ != nullptr;};
     void deletePolicyVersion() { this->policyVersion_ = nullptr;};
-    inline string policyVersion() const { DARABONBA_PTR_GET_DEFAULT(policyVersion_, "") };
+    inline string getPolicyVersion() const { DARABONBA_PTR_GET_DEFAULT(policyVersion_, "") };
     inline ModifyBackupPolicyRequest& setPolicyVersion(string policyVersion) { DARABONBA_PTR_SET_VALUE(policyVersion_, policyVersion) };
 
 
     // uuidList Field Functions 
     bool hasUuidList() const { return this->uuidList_ != nullptr;};
     void deleteUuidList() { this->uuidList_ = nullptr;};
-    inline const vector<string> & uuidList() const { DARABONBA_PTR_GET_CONST(uuidList_, vector<string>) };
-    inline vector<string> uuidList() { DARABONBA_PTR_GET(uuidList_, vector<string>) };
+    inline const vector<string> & getUuidList() const { DARABONBA_PTR_GET_CONST(uuidList_, vector<string>) };
+    inline vector<string> getUuidList() { DARABONBA_PTR_GET(uuidList_, vector<string>) };
     inline ModifyBackupPolicyRequest& setUuidList(const vector<string> & uuidList) { DARABONBA_PTR_SET_VALUE(uuidList_, uuidList) };
     inline ModifyBackupPolicyRequest& setUuidList(vector<string> && uuidList) { DARABONBA_PTR_SET_RVALUE(uuidList_, uuidList) };
 
@@ -92,11 +92,11 @@ namespace Models
     // The ID of the anti-ransomware policy that you want to modify.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The name of the anti-ransomware policy that you want to modify.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The configurations of the anti-ransomware policy that you want to modify. The value is a JSON string that contains the following fields:
     // 
     // *   **Source**: the directory that you want to protect. If you want to protect all directories, set this field to brackets [].
@@ -117,20 +117,20 @@ namespace Models
     // If you back up data on an Elastic Compute Service (ECS) instance that is connected over an internal network, we recommend that you leave this field empty. If this field is left empty, the bandwidth for data backup tasks is unlimited.
     // 
     // This parameter is required.
-    Darabonba::Json policy_ = nullptr;
+    Darabonba::Json policy_ {};
     // The region ID of the server to which the anti-ransomware policy is applied.
     // 
     // You can call the [DescribeSupportRegion](~~DescribeSupportRegion~~) operation to query the regions in which the anti-ransomware feature is supported.
-    std::shared_ptr<string> policyRegionId_ = nullptr;
+    shared_ptr<string> policyRegionId_ {};
     // The version of the anti-ransomware policy. You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the versions of anti-ransomware policies.
     // 
     // *   **1.0.0**
     // *   **2.0.0**
-    std::shared_ptr<string> policyVersion_ = nullptr;
+    shared_ptr<string> policyVersion_ {};
     // The UUIDs of the servers to which the anti-ransomware policy is applied.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> uuidList_ = nullptr;
+    shared_ptr<vector<string>> uuidList_ {};
   };
 
   } // namespace Models

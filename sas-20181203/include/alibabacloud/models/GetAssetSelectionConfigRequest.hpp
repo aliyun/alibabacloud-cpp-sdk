@@ -33,7 +33,7 @@ namespace Models
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};
-    inline string businessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
+    inline string getBusinessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
     inline GetAssetSelectionConfigRequest& setBusinessType(string businessType) { DARABONBA_PTR_SET_VALUE(businessType_, businessType) };
 
 
@@ -47,7 +47,7 @@ namespace Models
     // *   **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**: core file protectioion
     // 
     // This parameter is required.
-    std::shared_ptr<string> businessType_ = nullptr;
+    shared_ptr<string> businessType_ {};
   };
 
   } // namespace Models

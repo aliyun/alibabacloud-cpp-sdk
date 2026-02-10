@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->criteria_ == nullptr
-        && return this->currentPage_ == nullptr && return this->logicalExp_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->currentPage_ == nullptr && this->logicalExp_ == nullptr && this->pageSize_ == nullptr; };
     // criteria Field Functions 
     bool hasCriteria() const { return this->criteria_ != nullptr;};
     void deleteCriteria() { this->criteria_ = nullptr;};
-    inline string criteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
+    inline string getCriteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
     inline ListSasContainerWebDefenseRuleRequest& setCriteria(string criteria) { DARABONBA_PTR_SET_VALUE(criteria_, criteria) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListSasContainerWebDefenseRuleRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // logicalExp Field Functions 
     bool hasLogicalExp() const { return this->logicalExp_ != nullptr;};
     void deleteLogicalExp() { this->logicalExp_ = nullptr;};
-    inline string logicalExp() const { DARABONBA_PTR_GET_DEFAULT(logicalExp_, "") };
+    inline string getLogicalExp() const { DARABONBA_PTR_GET_DEFAULT(logicalExp_, "") };
     inline ListSasContainerWebDefenseRuleRequest& setLogicalExp(string logicalExp) { DARABONBA_PTR_SET_VALUE(logicalExp_, logicalExp) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListSasContainerWebDefenseRuleRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
@@ -76,16 +76,16 @@ namespace Models
     // 
     //     *   **OR**: The search conditions use a logical **OR**.
     //     *   **AND**: The search conditions use a logical **AND**.
-    std::shared_ptr<string> criteria_ = nullptr;
+    shared_ptr<string> criteria_ {};
     // The page number. Pages start from page 1. Default value: 1.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The logical relation for multiple search conditions. Valid values:
     // 
     // *   **OR**: The search conditions use a logical **OR**.
     // *   **AND**: The search conditions use a logical **AND**.
-    std::shared_ptr<string> logicalExp_ = nullptr;
+    shared_ptr<string> logicalExp_ {};
     // The number of entries per page. Default value: **20**.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

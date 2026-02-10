@@ -39,33 +39,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentAccessKey_ == nullptr
-        && return this->agentSecretKey_ == nullptr && return this->argusVersion_ == nullptr && return this->instanceIdList_ == nullptr && return this->uuidList_ == nullptr; };
+        && this->agentSecretKey_ == nullptr && this->argusVersion_ == nullptr && this->instanceIdList_ == nullptr && this->uuidList_ == nullptr; };
     // agentAccessKey Field Functions 
     bool hasAgentAccessKey() const { return this->agentAccessKey_ != nullptr;};
     void deleteAgentAccessKey() { this->agentAccessKey_ = nullptr;};
-    inline string agentAccessKey() const { DARABONBA_PTR_GET_DEFAULT(agentAccessKey_, "") };
+    inline string getAgentAccessKey() const { DARABONBA_PTR_GET_DEFAULT(agentAccessKey_, "") };
     inline InstallCloudMonitorRequest& setAgentAccessKey(string agentAccessKey) { DARABONBA_PTR_SET_VALUE(agentAccessKey_, agentAccessKey) };
 
 
     // agentSecretKey Field Functions 
     bool hasAgentSecretKey() const { return this->agentSecretKey_ != nullptr;};
     void deleteAgentSecretKey() { this->agentSecretKey_ = nullptr;};
-    inline string agentSecretKey() const { DARABONBA_PTR_GET_DEFAULT(agentSecretKey_, "") };
+    inline string getAgentSecretKey() const { DARABONBA_PTR_GET_DEFAULT(agentSecretKey_, "") };
     inline InstallCloudMonitorRequest& setAgentSecretKey(string agentSecretKey) { DARABONBA_PTR_SET_VALUE(agentSecretKey_, agentSecretKey) };
 
 
     // argusVersion Field Functions 
     bool hasArgusVersion() const { return this->argusVersion_ != nullptr;};
     void deleteArgusVersion() { this->argusVersion_ = nullptr;};
-    inline string argusVersion() const { DARABONBA_PTR_GET_DEFAULT(argusVersion_, "") };
+    inline string getArgusVersion() const { DARABONBA_PTR_GET_DEFAULT(argusVersion_, "") };
     inline InstallCloudMonitorRequest& setArgusVersion(string argusVersion) { DARABONBA_PTR_SET_VALUE(argusVersion_, argusVersion) };
 
 
     // instanceIdList Field Functions 
     bool hasInstanceIdList() const { return this->instanceIdList_ != nullptr;};
     void deleteInstanceIdList() { this->instanceIdList_ = nullptr;};
-    inline const vector<string> & instanceIdList() const { DARABONBA_PTR_GET_CONST(instanceIdList_, vector<string>) };
-    inline vector<string> instanceIdList() { DARABONBA_PTR_GET(instanceIdList_, vector<string>) };
+    inline const vector<string> & getInstanceIdList() const { DARABONBA_PTR_GET_CONST(instanceIdList_, vector<string>) };
+    inline vector<string> getInstanceIdList() { DARABONBA_PTR_GET(instanceIdList_, vector<string>) };
     inline InstallCloudMonitorRequest& setInstanceIdList(const vector<string> & instanceIdList) { DARABONBA_PTR_SET_VALUE(instanceIdList_, instanceIdList) };
     inline InstallCloudMonitorRequest& setInstanceIdList(vector<string> && instanceIdList) { DARABONBA_PTR_SET_RVALUE(instanceIdList_, instanceIdList) };
 
@@ -73,8 +73,8 @@ namespace Models
     // uuidList Field Functions 
     bool hasUuidList() const { return this->uuidList_ != nullptr;};
     void deleteUuidList() { this->uuidList_ = nullptr;};
-    inline const vector<string> & uuidList() const { DARABONBA_PTR_GET_CONST(uuidList_, vector<string>) };
-    inline vector<string> uuidList() { DARABONBA_PTR_GET(uuidList_, vector<string>) };
+    inline const vector<string> & getUuidList() const { DARABONBA_PTR_GET_CONST(uuidList_, vector<string>) };
+    inline vector<string> getUuidList() { DARABONBA_PTR_GET(uuidList_, vector<string>) };
     inline InstallCloudMonitorRequest& setUuidList(const vector<string> & uuidList) { DARABONBA_PTR_SET_VALUE(uuidList_, uuidList) };
     inline InstallCloudMonitorRequest& setUuidList(vector<string> && uuidList) { DARABONBA_PTR_SET_RVALUE(uuidList_, uuidList) };
 
@@ -83,19 +83,19 @@ namespace Models
     // The AccessKey ID that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](https://help.aliyun.com/document_detail/114948.html) operation to query the AccessKey ID.
     // 
     // > This parameter is required only when you install the CloudMonitor agent on servers that are not deployed on Alibaba Cloud.
-    std::shared_ptr<string> agentAccessKey_ = nullptr;
+    shared_ptr<string> agentAccessKey_ {};
     // The AccessKey secret that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](https://help.aliyun.com/document_detail/114948.html) operation to query the AccessKey secret.
     // 
     // > This parameter is required only when you install the CloudMonitor agent on servers that are not deployed on Alibaba Cloud.
-    std::shared_ptr<string> agentSecretKey_ = nullptr;
+    shared_ptr<string> agentSecretKey_ {};
     // The version of the CloudMonitor agent that you want to install on the servers. For more information about the latest version of the CloudMonitor agent, see [Overview](https://help.aliyun.com/document_detail/183431.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> argusVersion_ = nullptr;
+    shared_ptr<string> argusVersion_ {};
     // The IDs of the servers on which you want to install the CloudMonitor agent. Separate multiple IDs with commas (,).
-    std::shared_ptr<vector<string>> instanceIdList_ = nullptr;
+    shared_ptr<vector<string>> instanceIdList_ {};
     // The UUIDs of the servers on which you want to install the CloudMonitor agent. Separate multiple UUIDs with commas (,).
-    std::shared_ptr<vector<string>> uuidList_ = nullptr;
+    shared_ptr<vector<string>> uuidList_ {};
   };
 
   } // namespace Models

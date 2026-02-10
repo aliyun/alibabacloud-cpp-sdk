@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageUuids_ == nullptr
-        && return this->riskKey_ == nullptr && return this->status_ == nullptr; };
+        && this->riskKey_ == nullptr && this->status_ == nullptr; };
     // imageUuids Field Functions 
     bool hasImageUuids() const { return this->imageUuids_ != nullptr;};
     void deleteImageUuids() { this->imageUuids_ = nullptr;};
-    inline string imageUuids() const { DARABONBA_PTR_GET_DEFAULT(imageUuids_, "") };
+    inline string getImageUuids() const { DARABONBA_PTR_GET_DEFAULT(imageUuids_, "") };
     inline SetImageBuildRiskStatusRequest& setImageUuids(string imageUuids) { DARABONBA_PTR_SET_VALUE(imageUuids_, imageUuids) };
 
 
     // riskKey Field Functions 
     bool hasRiskKey() const { return this->riskKey_ != nullptr;};
     void deleteRiskKey() { this->riskKey_ = nullptr;};
-    inline string riskKey() const { DARABONBA_PTR_GET_DEFAULT(riskKey_, "") };
+    inline string getRiskKey() const { DARABONBA_PTR_GET_DEFAULT(riskKey_, "") };
     inline SetImageBuildRiskStatusRequest& setRiskKey(string riskKey) { DARABONBA_PTR_SET_VALUE(riskKey_, riskKey) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline SetImageBuildRiskStatusRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The UUIDs of images. Separate multiple UUIDs with commas (,).
     // 
     // >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the UUIDs of images.
-    std::shared_ptr<string> imageUuids_ = nullptr;
+    shared_ptr<string> imageUuids_ {};
     // The keyword of the image build command risk.
-    std::shared_ptr<string> riskKey_ = nullptr;
+    shared_ptr<string> riskKey_ {};
     // The status of the image build command risk. Valid values:
     // 
     // *   **0**: unhandled.
     // *   **1**: ignored.
     // *   **2**: false positive.
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

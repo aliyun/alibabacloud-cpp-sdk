@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->securityEventIds_ == nullptr
-        && return this->uuid_ == nullptr; };
+        && this->uuid_ == nullptr; };
     // securityEventIds Field Functions 
     bool hasSecurityEventIds() const { return this->securityEventIds_ != nullptr;};
     void deleteSecurityEventIds() { this->securityEventIds_ = nullptr;};
-    inline const vector<string> & securityEventIds() const { DARABONBA_PTR_GET_CONST(securityEventIds_, vector<string>) };
-    inline vector<string> securityEventIds() { DARABONBA_PTR_GET(securityEventIds_, vector<string>) };
+    inline const vector<string> & getSecurityEventIds() const { DARABONBA_PTR_GET_CONST(securityEventIds_, vector<string>) };
+    inline vector<string> getSecurityEventIds() { DARABONBA_PTR_GET(securityEventIds_, vector<string>) };
     inline CheckSecurityEventIdRequest& setSecurityEventIds(const vector<string> & securityEventIds) { DARABONBA_PTR_SET_VALUE(securityEventIds_, securityEventIds) };
     inline CheckSecurityEventIdRequest& setSecurityEventIds(vector<string> && securityEventIds) { DARABONBA_PTR_SET_RVALUE(securityEventIds_, securityEventIds) };
 
@@ -46,7 +46,7 @@ namespace Models
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline CheckSecurityEventIdRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
@@ -54,13 +54,13 @@ namespace Models
     // The IDs of alert events. You can specify up to 100 IDs. If you do not specify this parameter, the value of the response parameter **Data** is **false**. The value false indicates that no alert events are generated on the server.
     // 
     // > You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the IDs of alert events.
-    std::shared_ptr<vector<string>> securityEventIds_ = nullptr;
+    shared_ptr<vector<string>> securityEventIds_ {};
     // The UUID of the server.
     // 
     // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->stackInfo_ == nullptr; };
+        && this->stackInfo_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAlarmEventStackInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // stackInfo Field Functions 
     bool hasStackInfo() const { return this->stackInfo_ != nullptr;};
     void deleteStackInfo() { this->stackInfo_ = nullptr;};
-    inline string stackInfo() const { DARABONBA_PTR_GET_DEFAULT(stackInfo_, "") };
+    inline string getStackInfo() const { DARABONBA_PTR_GET_DEFAULT(stackInfo_, "") };
     inline DescribeAlarmEventStackInfoResponseBody& setStackInfo(string stackInfo) { DARABONBA_PTR_SET_VALUE(stackInfo_, stackInfo) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The stack information of the alert details.
-    std::shared_ptr<string> stackInfo_ = nullptr;
+    shared_ptr<string> stackInfo_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // vulWhitelistId Field Functions 
     bool hasVulWhitelistId() const { return this->vulWhitelistId_ != nullptr;};
     void deleteVulWhitelistId() { this->vulWhitelistId_ = nullptr;};
-    inline int64_t vulWhitelistId() const { DARABONBA_PTR_GET_DEFAULT(vulWhitelistId_, 0L) };
+    inline int64_t getVulWhitelistId() const { DARABONBA_PTR_GET_DEFAULT(vulWhitelistId_, 0L) };
     inline GetVulWhitelistRequest& setVulWhitelistId(int64_t vulWhitelistId) { DARABONBA_PTR_SET_VALUE(vulWhitelistId_, vulWhitelistId) };
 
 
   protected:
     // The ID of the whitelist.
-    std::shared_ptr<int64_t> vulWhitelistId_ = nullptr;
+    shared_ptr<int64_t> vulWhitelistId_ {};
   };
 
   } // namespace Models

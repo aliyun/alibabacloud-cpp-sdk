@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowHoneypotAccessInternet_ == nullptr
-        && return this->lang_ == nullptr && return this->nodeId_ == nullptr; };
+        && this->lang_ == nullptr && this->nodeId_ == nullptr; };
     // allowHoneypotAccessInternet Field Functions 
     bool hasAllowHoneypotAccessInternet() const { return this->allowHoneypotAccessInternet_ != nullptr;};
     void deleteAllowHoneypotAccessInternet() { this->allowHoneypotAccessInternet_ = nullptr;};
-    inline bool allowHoneypotAccessInternet() const { DARABONBA_PTR_GET_DEFAULT(allowHoneypotAccessInternet_, false) };
+    inline bool getAllowHoneypotAccessInternet() const { DARABONBA_PTR_GET_DEFAULT(allowHoneypotAccessInternet_, false) };
     inline UpgradeHoneypotNodeRequest& setAllowHoneypotAccessInternet(bool allowHoneypotAccessInternet) { DARABONBA_PTR_SET_VALUE(allowHoneypotAccessInternet_, allowHoneypotAccessInternet) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline UpgradeHoneypotNodeRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline UpgradeHoneypotNodeRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
@@ -61,16 +61,16 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> allowHoneypotAccessInternet_ = nullptr;
+    shared_ptr<bool> allowHoneypotAccessInternet_ {};
     // The language of the content within the request and response.
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the management node that you want to upgrade.
     // 
     // >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the ID.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
   };
 
   } // namespace Models

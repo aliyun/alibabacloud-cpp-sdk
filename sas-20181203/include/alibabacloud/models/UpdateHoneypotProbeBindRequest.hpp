@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_UPDATEHONEYPOTPROBEBINDREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/UpdateHoneypotProbeBindRequestBindPortList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -53,87 +52,196 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class BindPortList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const BindPortList& obj) { 
+        DARABONBA_PTR_TO_JSON(BindPort, bindPort_);
+        DARABONBA_PTR_TO_JSON(EndPort, endPort_);
+        DARABONBA_PTR_TO_JSON(Fixed, fixed_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(Proto, proto_);
+        DARABONBA_PTR_TO_JSON(StartPort, startPort_);
+        DARABONBA_PTR_TO_JSON(TargetPort, targetPort_);
+      };
+      friend void from_json(const Darabonba::Json& j, BindPortList& obj) { 
+        DARABONBA_PTR_FROM_JSON(BindPort, bindPort_);
+        DARABONBA_PTR_FROM_JSON(EndPort, endPort_);
+        DARABONBA_PTR_FROM_JSON(Fixed, fixed_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(Proto, proto_);
+        DARABONBA_PTR_FROM_JSON(StartPort, startPort_);
+        DARABONBA_PTR_FROM_JSON(TargetPort, targetPort_);
+      };
+      BindPortList() = default ;
+      BindPortList(const BindPortList &) = default ;
+      BindPortList(BindPortList &&) = default ;
+      BindPortList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~BindPortList() = default ;
+      BindPortList& operator=(const BindPortList &) = default ;
+      BindPortList& operator=(BindPortList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->bindPort_ == nullptr
+        && this->endPort_ == nullptr && this->fixed_ == nullptr && this->id_ == nullptr && this->proto_ == nullptr && this->startPort_ == nullptr
+        && this->targetPort_ == nullptr; };
+      // bindPort Field Functions 
+      bool hasBindPort() const { return this->bindPort_ != nullptr;};
+      void deleteBindPort() { this->bindPort_ = nullptr;};
+      inline bool getBindPort() const { DARABONBA_PTR_GET_DEFAULT(bindPort_, false) };
+      inline BindPortList& setBindPort(bool bindPort) { DARABONBA_PTR_SET_VALUE(bindPort_, bindPort) };
+
+
+      // endPort Field Functions 
+      bool hasEndPort() const { return this->endPort_ != nullptr;};
+      void deleteEndPort() { this->endPort_ = nullptr;};
+      inline int32_t getEndPort() const { DARABONBA_PTR_GET_DEFAULT(endPort_, 0) };
+      inline BindPortList& setEndPort(int32_t endPort) { DARABONBA_PTR_SET_VALUE(endPort_, endPort) };
+
+
+      // fixed Field Functions 
+      bool hasFixed() const { return this->fixed_ != nullptr;};
+      void deleteFixed() { this->fixed_ = nullptr;};
+      inline bool getFixed() const { DARABONBA_PTR_GET_DEFAULT(fixed_, false) };
+      inline BindPortList& setFixed(bool fixed) { DARABONBA_PTR_SET_VALUE(fixed_, fixed) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+      inline BindPortList& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // proto Field Functions 
+      bool hasProto() const { return this->proto_ != nullptr;};
+      void deleteProto() { this->proto_ = nullptr;};
+      inline string getProto() const { DARABONBA_PTR_GET_DEFAULT(proto_, "") };
+      inline BindPortList& setProto(string proto) { DARABONBA_PTR_SET_VALUE(proto_, proto) };
+
+
+      // startPort Field Functions 
+      bool hasStartPort() const { return this->startPort_ != nullptr;};
+      void deleteStartPort() { this->startPort_ = nullptr;};
+      inline int32_t getStartPort() const { DARABONBA_PTR_GET_DEFAULT(startPort_, 0) };
+      inline BindPortList& setStartPort(int32_t startPort) { DARABONBA_PTR_SET_VALUE(startPort_, startPort) };
+
+
+      // targetPort Field Functions 
+      bool hasTargetPort() const { return this->targetPort_ != nullptr;};
+      void deleteTargetPort() { this->targetPort_ = nullptr;};
+      inline int32_t getTargetPort() const { DARABONBA_PTR_GET_DEFAULT(targetPort_, 0) };
+      inline BindPortList& setTargetPort(int32_t targetPort) { DARABONBA_PTR_SET_VALUE(targetPort_, targetPort) };
+
+
+    protected:
+      // Specifies whether to bind a port. Valid values:
+      // 
+      // *   **true**
+      // *   **false**
+      shared_ptr<bool> bindPort_ {};
+      // The end port on which the probe monitors.
+      shared_ptr<int32_t> endPort_ {};
+      // Specifies whether the port is fixed. Valid values:
+      // 
+      // *   **0**: no
+      // *   **1**: yes
+      shared_ptr<bool> fixed_ {};
+      // The UUID of the port.
+      shared_ptr<int64_t> id_ {};
+      // The type of the protocol. Valid values:
+      // 
+      // *   **tcp**
+      // *   **udp**
+      shared_ptr<string> proto_ {};
+      // The start port on which the probe monitors.
+      shared_ptr<int32_t> startPort_ {};
+      // The destination port.
+      shared_ptr<int32_t> targetPort_ {};
+    };
+
     virtual bool empty() const override { return this->bindId_ == nullptr
-        && return this->bindPortList_ == nullptr && return this->bindType_ == nullptr && return this->currentPage_ == nullptr && return this->honeypotId_ == nullptr && return this->id_ == nullptr
-        && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->ports_ == nullptr && return this->probeId_ == nullptr && return this->serviceIpList_ == nullptr
-        && return this->setStatus_ == nullptr; };
+        && this->bindPortList_ == nullptr && this->bindType_ == nullptr && this->currentPage_ == nullptr && this->honeypotId_ == nullptr && this->id_ == nullptr
+        && this->lang_ == nullptr && this->pageSize_ == nullptr && this->ports_ == nullptr && this->probeId_ == nullptr && this->serviceIpList_ == nullptr
+        && this->setStatus_ == nullptr; };
     // bindId Field Functions 
     bool hasBindId() const { return this->bindId_ != nullptr;};
     void deleteBindId() { this->bindId_ = nullptr;};
-    inline string bindId() const { DARABONBA_PTR_GET_DEFAULT(bindId_, "") };
+    inline string getBindId() const { DARABONBA_PTR_GET_DEFAULT(bindId_, "") };
     inline UpdateHoneypotProbeBindRequest& setBindId(string bindId) { DARABONBA_PTR_SET_VALUE(bindId_, bindId) };
 
 
     // bindPortList Field Functions 
     bool hasBindPortList() const { return this->bindPortList_ != nullptr;};
     void deleteBindPortList() { this->bindPortList_ = nullptr;};
-    inline const vector<UpdateHoneypotProbeBindRequestBindPortList> & bindPortList() const { DARABONBA_PTR_GET_CONST(bindPortList_, vector<UpdateHoneypotProbeBindRequestBindPortList>) };
-    inline vector<UpdateHoneypotProbeBindRequestBindPortList> bindPortList() { DARABONBA_PTR_GET(bindPortList_, vector<UpdateHoneypotProbeBindRequestBindPortList>) };
-    inline UpdateHoneypotProbeBindRequest& setBindPortList(const vector<UpdateHoneypotProbeBindRequestBindPortList> & bindPortList) { DARABONBA_PTR_SET_VALUE(bindPortList_, bindPortList) };
-    inline UpdateHoneypotProbeBindRequest& setBindPortList(vector<UpdateHoneypotProbeBindRequestBindPortList> && bindPortList) { DARABONBA_PTR_SET_RVALUE(bindPortList_, bindPortList) };
+    inline const vector<UpdateHoneypotProbeBindRequest::BindPortList> & getBindPortList() const { DARABONBA_PTR_GET_CONST(bindPortList_, vector<UpdateHoneypotProbeBindRequest::BindPortList>) };
+    inline vector<UpdateHoneypotProbeBindRequest::BindPortList> getBindPortList() { DARABONBA_PTR_GET(bindPortList_, vector<UpdateHoneypotProbeBindRequest::BindPortList>) };
+    inline UpdateHoneypotProbeBindRequest& setBindPortList(const vector<UpdateHoneypotProbeBindRequest::BindPortList> & bindPortList) { DARABONBA_PTR_SET_VALUE(bindPortList_, bindPortList) };
+    inline UpdateHoneypotProbeBindRequest& setBindPortList(vector<UpdateHoneypotProbeBindRequest::BindPortList> && bindPortList) { DARABONBA_PTR_SET_RVALUE(bindPortList_, bindPortList) };
 
 
     // bindType Field Functions 
     bool hasBindType() const { return this->bindType_ != nullptr;};
     void deleteBindType() { this->bindType_ = nullptr;};
-    inline string bindType() const { DARABONBA_PTR_GET_DEFAULT(bindType_, "") };
+    inline string getBindType() const { DARABONBA_PTR_GET_DEFAULT(bindType_, "") };
     inline UpdateHoneypotProbeBindRequest& setBindType(string bindType) { DARABONBA_PTR_SET_VALUE(bindType_, bindType) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline UpdateHoneypotProbeBindRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // honeypotId Field Functions 
     bool hasHoneypotId() const { return this->honeypotId_ != nullptr;};
     void deleteHoneypotId() { this->honeypotId_ = nullptr;};
-    inline string honeypotId() const { DARABONBA_PTR_GET_DEFAULT(honeypotId_, "") };
+    inline string getHoneypotId() const { DARABONBA_PTR_GET_DEFAULT(honeypotId_, "") };
     inline UpdateHoneypotProbeBindRequest& setHoneypotId(string honeypotId) { DARABONBA_PTR_SET_VALUE(honeypotId_, honeypotId) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline UpdateHoneypotProbeBindRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline UpdateHoneypotProbeBindRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline UpdateHoneypotProbeBindRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // ports Field Functions 
     bool hasPorts() const { return this->ports_ != nullptr;};
     void deletePorts() { this->ports_ = nullptr;};
-    inline string ports() const { DARABONBA_PTR_GET_DEFAULT(ports_, "") };
+    inline string getPorts() const { DARABONBA_PTR_GET_DEFAULT(ports_, "") };
     inline UpdateHoneypotProbeBindRequest& setPorts(string ports) { DARABONBA_PTR_SET_VALUE(ports_, ports) };
 
 
     // probeId Field Functions 
     bool hasProbeId() const { return this->probeId_ != nullptr;};
     void deleteProbeId() { this->probeId_ = nullptr;};
-    inline string probeId() const { DARABONBA_PTR_GET_DEFAULT(probeId_, "") };
+    inline string getProbeId() const { DARABONBA_PTR_GET_DEFAULT(probeId_, "") };
     inline UpdateHoneypotProbeBindRequest& setProbeId(string probeId) { DARABONBA_PTR_SET_VALUE(probeId_, probeId) };
 
 
     // serviceIpList Field Functions 
     bool hasServiceIpList() const { return this->serviceIpList_ != nullptr;};
     void deleteServiceIpList() { this->serviceIpList_ = nullptr;};
-    inline const vector<string> & serviceIpList() const { DARABONBA_PTR_GET_CONST(serviceIpList_, vector<string>) };
-    inline vector<string> serviceIpList() { DARABONBA_PTR_GET(serviceIpList_, vector<string>) };
+    inline const vector<string> & getServiceIpList() const { DARABONBA_PTR_GET_CONST(serviceIpList_, vector<string>) };
+    inline vector<string> getServiceIpList() { DARABONBA_PTR_GET(serviceIpList_, vector<string>) };
     inline UpdateHoneypotProbeBindRequest& setServiceIpList(const vector<string> & serviceIpList) { DARABONBA_PTR_SET_VALUE(serviceIpList_, serviceIpList) };
     inline UpdateHoneypotProbeBindRequest& setServiceIpList(vector<string> && serviceIpList) { DARABONBA_PTR_SET_RVALUE(serviceIpList_, serviceIpList) };
 
@@ -141,47 +249,47 @@ namespace Models
     // setStatus Field Functions 
     bool hasSetStatus() const { return this->setStatus_ != nullptr;};
     void deleteSetStatus() { this->setStatus_ = nullptr;};
-    inline int32_t setStatus() const { DARABONBA_PTR_GET_DEFAULT(setStatus_, 0) };
+    inline int32_t getSetStatus() const { DARABONBA_PTR_GET_DEFAULT(setStatus_, 0) };
     inline UpdateHoneypotProbeBindRequest& setSetStatus(int32_t setStatus) { DARABONBA_PTR_SET_VALUE(setStatus_, setStatus) };
 
 
   protected:
     // The unique ID of the honeypot to which the probe is bound.
-    std::shared_ptr<string> bindId_ = nullptr;
+    shared_ptr<string> bindId_ {};
     // The ports that are bound to the probe.
-    std::shared_ptr<vector<UpdateHoneypotProbeBindRequestBindPortList>> bindPortList_ = nullptr;
+    shared_ptr<vector<UpdateHoneypotProbeBindRequest::BindPortList>> bindPortList_ {};
     // The operation that the probe performs. Valid values:
     // 
     // *   **forward_honey**: forward traffic to a honeypot
     // *   **scan_port**: monitor and scan
-    std::shared_ptr<string> bindType_ = nullptr;
+    shared_ptr<string> bindType_ {};
     // The page number. Pages start from page **1**. Default value: **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The honeypot ID.
     // 
     // >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to obtain the IDs of honeypots.
-    std::shared_ptr<string> honeypotId_ = nullptr;
+    shared_ptr<string> honeypotId_ {};
     // The port ID of the probe service.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
     // 
     // >  We recommend that you do not leave this parameter empty.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The ports that are monitored.
-    std::shared_ptr<string> ports_ = nullptr;
+    shared_ptr<string> ports_ {};
     // The probe ID.
     // 
     // >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
-    std::shared_ptr<string> probeId_ = nullptr;
+    shared_ptr<string> probeId_ {};
     // The IP addresses that are monitored.
-    std::shared_ptr<vector<string>> serviceIpList_ = nullptr;
+    shared_ptr<vector<string>> serviceIpList_ {};
     // The status of the port.
-    std::shared_ptr<int32_t> setStatus_ = nullptr;
+    shared_ptr<int32_t> setStatus_ {};
   };
 
   } // namespace Models

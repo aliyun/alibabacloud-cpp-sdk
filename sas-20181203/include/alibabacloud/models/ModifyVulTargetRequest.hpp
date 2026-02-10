@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->target_ == nullptr; };
+        && this->target_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline ModifyVulTargetRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // target Field Functions 
     bool hasTarget() const { return this->target_ != nullptr;};
     void deleteTarget() { this->target_ = nullptr;};
-    inline string target() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+    inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
     inline ModifyVulTargetRequest& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
 
 
@@ -56,7 +56,7 @@ namespace Models
     //     *   **sys**: Windows system vulnerabilities
     //     *   **cms**: Web-CMS vulnerabilities
     //     *   **emg**: urgent vulnerabilities
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
     // The operation. The value of this parameter is in the JSON format and contains the following fields:
     // 
     // *   **target**: the UUID of the server.
@@ -67,7 +67,7 @@ namespace Models
     // 
     //     *   **add**: select
     //     *   **del**: deselect
-    std::shared_ptr<string> target_ = nullptr;
+    shared_ptr<string> target_ {};
   };
 
   } // namespace Models

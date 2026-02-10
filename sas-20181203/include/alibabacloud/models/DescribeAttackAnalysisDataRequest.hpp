@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->base64_ == nullptr
-        && return this->currentPage_ == nullptr && return this->data_ == nullptr && return this->endTime_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr
-        && return this->startTime_ == nullptr && return this->type_ == nullptr; };
+        && this->currentPage_ == nullptr && this->data_ == nullptr && this->endTime_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr
+        && this->startTime_ == nullptr && this->type_ == nullptr; };
     // base64 Field Functions 
     bool hasBase64() const { return this->base64_ != nullptr;};
     void deleteBase64() { this->base64_ = nullptr;};
-    inline string base64() const { DARABONBA_PTR_GET_DEFAULT(base64_, "") };
+    inline string getBase64() const { DARABONBA_PTR_GET_DEFAULT(base64_, "") };
     inline DescribeAttackAnalysisDataRequest& setBase64(string base64) { DARABONBA_PTR_SET_VALUE(base64_, base64) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeAttackAnalysisDataRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline DescribeAttackAnalysisDataRequest& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline DescribeAttackAnalysisDataRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeAttackAnalysisDataRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeAttackAnalysisDataRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline DescribeAttackAnalysisDataRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeAttackAnalysisDataRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -107,11 +107,11 @@ namespace Models
     // 
     // *   **true**: yes
     // *   **false**: no
-    std::shared_ptr<string> base64_ = nullptr;
+    shared_ptr<string> base64_ {};
     // The number of the page to return. Pages start from page **1**.
     // 
     // >  If the Type parameter is set to **DETAILS**, you must specify the CurrentPage parameter.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The condition that is used to filter attack events.
     // 
     // >  The following list describes the valid values of crack_type:
@@ -159,26 +159,26 @@ namespace Models
     // *   crlf: carriage return line feed (CRLF)
     // 
     // *   other: others
-    std::shared_ptr<string> data_ = nullptr;
+    shared_ptr<string> data_ {};
     // The timestamp when the attack stops. Unit: seconds.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The number of entries to return on each page.
     // 
     // >  If the Type parameter is set to **DETAILS**, you must specify the PageSize parameter.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The timestamp at which the attack starts. By default, the statistics of the previous seven days are queried. Unit: seconds.
     // 
     // >  The start time that you specify must be within the previous 40 days.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
     // The details of attack analysis. Valid values:
     // 
     // *   **TOTAL**: number of attacks
@@ -191,7 +191,7 @@ namespace Models
     // >  If the Type parameter is set to **DETAILS**, you must specify the CurrentPage and PageSize parameters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

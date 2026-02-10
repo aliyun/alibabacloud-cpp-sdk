@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->pageSize_ == nullptr && return this->path_ == nullptr && return this->snapshotHash_ == nullptr && return this->uuid_ == nullptr; };
+        && this->pageSize_ == nullptr && this->path_ == nullptr && this->snapshotHash_ == nullptr && this->uuid_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline string currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
+    inline string getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
     inline DescribeBackupFilesRequest& setCurrentPage(string currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeBackupFilesRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // path Field Functions 
     bool hasPath() const { return this->path_ != nullptr;};
     void deletePath() { this->path_ = nullptr;};
-    inline string path() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+    inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
     inline DescribeBackupFilesRequest& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
     // snapshotHash Field Functions 
     bool hasSnapshotHash() const { return this->snapshotHash_ != nullptr;};
     void deleteSnapshotHash() { this->snapshotHash_ = nullptr;};
-    inline string snapshotHash() const { DARABONBA_PTR_GET_DEFAULT(snapshotHash_, "") };
+    inline string getSnapshotHash() const { DARABONBA_PTR_GET_DEFAULT(snapshotHash_, "") };
     inline DescribeBackupFilesRequest& setSnapshotHash(string snapshotHash) { DARABONBA_PTR_SET_VALUE(snapshotHash_, snapshotHash) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline DescribeBackupFilesRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
@@ -78,21 +78,21 @@ namespace Models
     // The number of the page to return. Default value: **1**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> currentPage_ = nullptr;
+    shared_ptr<string> currentPage_ {};
     // The number of entries to return on each page. Default value: **10**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // The path to the backup file.
-    std::shared_ptr<string> path_ = nullptr;
+    shared_ptr<string> path_ {};
     // The hash value of the backup file.
     // 
     // This parameter is required.
-    std::shared_ptr<string> snapshotHash_ = nullptr;
+    shared_ptr<string> snapshotHash_ {};
     // The UUID of the server to which an anti-ransomware policy is applied.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

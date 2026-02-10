@@ -33,7 +33,7 @@ namespace Models
     // registryId Field Functions 
     bool hasRegistryId() const { return this->registryId_ != nullptr;};
     void deleteRegistryId() { this->registryId_ = nullptr;};
-    inline int64_t registryId() const { DARABONBA_PTR_GET_DEFAULT(registryId_, 0L) };
+    inline int64_t getRegistryId() const { DARABONBA_PTR_GET_DEFAULT(registryId_, 0L) };
     inline DeletePrivateRegistryRequest& setRegistryId(int64_t registryId) { DARABONBA_PTR_SET_VALUE(registryId_, registryId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // > You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to query the IDs of image repositories.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> registryId_ = nullptr;
+    shared_ptr<int64_t> registryId_ {};
   };
 
   } // namespace Models

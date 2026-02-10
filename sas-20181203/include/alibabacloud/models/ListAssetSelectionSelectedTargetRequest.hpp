@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->selectionKey_ == nullptr
-        && return this->targetList_ == nullptr; };
+        && this->targetList_ == nullptr; };
     // selectionKey Field Functions 
     bool hasSelectionKey() const { return this->selectionKey_ != nullptr;};
     void deleteSelectionKey() { this->selectionKey_ = nullptr;};
-    inline string selectionKey() const { DARABONBA_PTR_GET_DEFAULT(selectionKey_, "") };
+    inline string getSelectionKey() const { DARABONBA_PTR_GET_DEFAULT(selectionKey_, "") };
     inline ListAssetSelectionSelectedTargetRequest& setSelectionKey(string selectionKey) { DARABONBA_PTR_SET_VALUE(selectionKey_, selectionKey) };
 
 
     // targetList Field Functions 
     bool hasTargetList() const { return this->targetList_ != nullptr;};
     void deleteTargetList() { this->targetList_ = nullptr;};
-    inline const vector<string> & targetList() const { DARABONBA_PTR_GET_CONST(targetList_, vector<string>) };
-    inline vector<string> targetList() { DARABONBA_PTR_GET(targetList_, vector<string>) };
+    inline const vector<string> & getTargetList() const { DARABONBA_PTR_GET_CONST(targetList_, vector<string>) };
+    inline vector<string> getTargetList() { DARABONBA_PTR_GET(targetList_, vector<string>) };
     inline ListAssetSelectionSelectedTargetRequest& setTargetList(const vector<string> & targetList) { DARABONBA_PTR_SET_VALUE(targetList_, targetList) };
     inline ListAssetSelectionSelectedTargetRequest& setTargetList(vector<string> && targetList) { DARABONBA_PTR_SET_RVALUE(targetList_, targetList) };
 
@@ -54,9 +54,9 @@ namespace Models
     // The unique ID of the asset.
     // 
     // This parameter is required.
-    std::shared_ptr<string> selectionKey_ = nullptr;
+    shared_ptr<string> selectionKey_ {};
     // The details of queries.
-    std::shared_ptr<vector<string>> targetList_ = nullptr;
+    shared_ptr<vector<string>> targetList_ {};
   };
 
   } // namespace Models

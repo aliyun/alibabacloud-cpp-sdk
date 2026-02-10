@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->taskIds_ == nullptr
-        && return this->types_ == nullptr && return this->uuid_ == nullptr; };
+        && this->types_ == nullptr && this->uuid_ == nullptr; };
     // taskIds Field Functions 
     bool hasTaskIds() const { return this->taskIds_ != nullptr;};
     void deleteTaskIds() { this->taskIds_ = nullptr;};
-    inline const vector<string> & taskIds() const { DARABONBA_PTR_GET_CONST(taskIds_, vector<string>) };
-    inline vector<string> taskIds() { DARABONBA_PTR_GET(taskIds_, vector<string>) };
+    inline const vector<string> & getTaskIds() const { DARABONBA_PTR_GET_CONST(taskIds_, vector<string>) };
+    inline vector<string> getTaskIds() { DARABONBA_PTR_GET(taskIds_, vector<string>) };
     inline DescribeVulCheckTaskStatusDetailRequest& setTaskIds(const vector<string> & taskIds) { DARABONBA_PTR_SET_VALUE(taskIds_, taskIds) };
     inline DescribeVulCheckTaskStatusDetailRequest& setTaskIds(vector<string> && taskIds) { DARABONBA_PTR_SET_RVALUE(taskIds_, taskIds) };
 
@@ -48,8 +48,8 @@ namespace Models
     // types Field Functions 
     bool hasTypes() const { return this->types_ != nullptr;};
     void deleteTypes() { this->types_ = nullptr;};
-    inline const vector<string> & types() const { DARABONBA_PTR_GET_CONST(types_, vector<string>) };
-    inline vector<string> types() { DARABONBA_PTR_GET(types_, vector<string>) };
+    inline const vector<string> & getTypes() const { DARABONBA_PTR_GET_CONST(types_, vector<string>) };
+    inline vector<string> getTypes() { DARABONBA_PTR_GET(types_, vector<string>) };
     inline DescribeVulCheckTaskStatusDetailRequest& setTypes(const vector<string> & types) { DARABONBA_PTR_SET_VALUE(types_, types) };
     inline DescribeVulCheckTaskStatusDetailRequest& setTypes(vector<string> && types) { DARABONBA_PTR_SET_RVALUE(types_, types) };
 
@@ -57,17 +57,17 @@ namespace Models
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline DescribeVulCheckTaskStatusDetailRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
     // The task IDs.
-    std::shared_ptr<vector<string>> taskIds_ = nullptr;
+    shared_ptr<vector<string>> taskIds_ {};
     // The types of the vulnerabilities that are detected by the tasks.
-    std::shared_ptr<vector<string>> types_ = nullptr;
+    shared_ptr<vector<string>> types_ {};
     // The UUID of the server.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

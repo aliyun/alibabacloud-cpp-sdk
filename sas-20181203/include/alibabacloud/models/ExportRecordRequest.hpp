@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exportFileType_ == nullptr
-        && return this->exportType_ == nullptr && return this->lang_ == nullptr && return this->params_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr; };
+        && this->exportType_ == nullptr && this->lang_ == nullptr && this->params_ == nullptr && this->resourceDirectoryAccountId_ == nullptr; };
     // exportFileType Field Functions 
     bool hasExportFileType() const { return this->exportFileType_ != nullptr;};
     void deleteExportFileType() { this->exportFileType_ = nullptr;};
-    inline string exportFileType() const { DARABONBA_PTR_GET_DEFAULT(exportFileType_, "") };
+    inline string getExportFileType() const { DARABONBA_PTR_GET_DEFAULT(exportFileType_, "") };
     inline ExportRecordRequest& setExportFileType(string exportFileType) { DARABONBA_PTR_SET_VALUE(exportFileType_, exportFileType) };
 
 
     // exportType Field Functions 
     bool hasExportType() const { return this->exportType_ != nullptr;};
     void deleteExportType() { this->exportType_ = nullptr;};
-    inline string exportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
+    inline string getExportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
     inline ExportRecordRequest& setExportType(string exportType) { DARABONBA_PTR_SET_VALUE(exportType_, exportType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ExportRecordRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline ExportRecordRequest& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
     // resourceDirectoryAccountId Field Functions 
     bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
     void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
-    inline int64_t resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
     inline ExportRecordRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
@@ -78,7 +78,7 @@ namespace Models
     // The type of the file to export. Valid values:
     // 
     // *   **virusScanExport**: The details of the virus scan tasks are exported. This parameter is available and required when ExportType is set to virusScanExport.
-    std::shared_ptr<string> exportFileType_ = nullptr;
+    shared_ptr<string> exportFileType_ {};
     // The type of detection result list to be exported. Values:
     // - **assetInstance**: List of servers in the asset center 
     // - **user**: List of asset fingerprints for accounts 
@@ -110,17 +110,20 @@ namespace Models
     // - **raspInMemoryWebshellInsertion**: List of in-memory webshell insertion alerts for Application Protection
     // 
     // This parameter is required.
-    std::shared_ptr<string> exportType_ = nullptr;
+    shared_ptr<string> exportType_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The conditions that are used to filter check results.
     // 
     // > This operation is a common export operation for multiple features of Security Center. The available configuration fields of this parameter vary based on the features. We recommend that you do not specify this parameter when you call the operation. You can export an information list without specifying this parameter, and then filter data in the exported Excel file.
-    std::shared_ptr<string> params_ = nullptr;
-    std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
+    shared_ptr<string> params_ {};
+    // The Alibaba Cloud account ID of the member in the resource directory.
+    // 
+    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the ID.
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 
   } // namespace Models

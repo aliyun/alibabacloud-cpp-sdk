@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->conditions_ == nullptr
-        && return this->eventKey_ == nullptr && return this->eventName_ == nullptr && return this->eventType_ == nullptr && return this->note_ == nullptr && return this->operationCode_ == nullptr
-        && return this->scenarios_ == nullptr && return this->source_ == nullptr; };
+        && this->eventKey_ == nullptr && this->eventName_ == nullptr && this->eventType_ == nullptr && this->note_ == nullptr && this->operationCode_ == nullptr
+        && this->scenarios_ == nullptr && this->source_ == nullptr; };
     // conditions Field Functions 
     bool hasConditions() const { return this->conditions_ != nullptr;};
     void deleteConditions() { this->conditions_ = nullptr;};
-    inline string conditions() const { DARABONBA_PTR_GET_DEFAULT(conditions_, "") };
+    inline string getConditions() const { DARABONBA_PTR_GET_DEFAULT(conditions_, "") };
     inline AddImageEventOperationRequest& setConditions(string conditions) { DARABONBA_PTR_SET_VALUE(conditions_, conditions) };
 
 
     // eventKey Field Functions 
     bool hasEventKey() const { return this->eventKey_ != nullptr;};
     void deleteEventKey() { this->eventKey_ = nullptr;};
-    inline string eventKey() const { DARABONBA_PTR_GET_DEFAULT(eventKey_, "") };
+    inline string getEventKey() const { DARABONBA_PTR_GET_DEFAULT(eventKey_, "") };
     inline AddImageEventOperationRequest& setEventKey(string eventKey) { DARABONBA_PTR_SET_VALUE(eventKey_, eventKey) };
 
 
     // eventName Field Functions 
     bool hasEventName() const { return this->eventName_ != nullptr;};
     void deleteEventName() { this->eventName_ = nullptr;};
-    inline string eventName() const { DARABONBA_PTR_GET_DEFAULT(eventName_, "") };
+    inline string getEventName() const { DARABONBA_PTR_GET_DEFAULT(eventName_, "") };
     inline AddImageEventOperationRequest& setEventName(string eventName) { DARABONBA_PTR_SET_VALUE(eventName_, eventName) };
 
 
     // eventType Field Functions 
     bool hasEventType() const { return this->eventType_ != nullptr;};
     void deleteEventType() { this->eventType_ = nullptr;};
-    inline string eventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
+    inline string getEventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
     inline AddImageEventOperationRequest& setEventType(string eventType) { DARABONBA_PTR_SET_VALUE(eventType_, eventType) };
 
 
     // note Field Functions 
     bool hasNote() const { return this->note_ != nullptr;};
     void deleteNote() { this->note_ = nullptr;};
-    inline string note() const { DARABONBA_PTR_GET_DEFAULT(note_, "") };
+    inline string getNote() const { DARABONBA_PTR_GET_DEFAULT(note_, "") };
     inline AddImageEventOperationRequest& setNote(string note) { DARABONBA_PTR_SET_VALUE(note_, note) };
 
 
     // operationCode Field Functions 
     bool hasOperationCode() const { return this->operationCode_ != nullptr;};
     void deleteOperationCode() { this->operationCode_ = nullptr;};
-    inline string operationCode() const { DARABONBA_PTR_GET_DEFAULT(operationCode_, "") };
+    inline string getOperationCode() const { DARABONBA_PTR_GET_DEFAULT(operationCode_, "") };
     inline AddImageEventOperationRequest& setOperationCode(string operationCode) { DARABONBA_PTR_SET_VALUE(operationCode_, operationCode) };
 
 
     // scenarios Field Functions 
     bool hasScenarios() const { return this->scenarios_ != nullptr;};
     void deleteScenarios() { this->scenarios_ = nullptr;};
-    inline string scenarios() const { DARABONBA_PTR_GET_DEFAULT(scenarios_, "") };
+    inline string getScenarios() const { DARABONBA_PTR_GET_DEFAULT(scenarios_, "") };
     inline AddImageEventOperationRequest& setScenarios(string scenarios) { DARABONBA_PTR_SET_VALUE(scenarios_, scenarios) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline AddImageEventOperationRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
@@ -108,31 +108,31 @@ namespace Models
     // *   **condition**: the matching condition.
     // *   **type**: the matching type.
     // *   **value**: the matching value.
-    std::shared_ptr<string> conditions_ = nullptr;
+    shared_ptr<string> conditions_ {};
     // The keyword of the alert item.
-    std::shared_ptr<string> eventKey_ = nullptr;
+    shared_ptr<string> eventKey_ {};
     // The name of the alert item.
-    std::shared_ptr<string> eventName_ = nullptr;
+    shared_ptr<string> eventName_ {};
     // The alert type.
     // 
     // *   Set the value to **sensitiveFile**.
-    std::shared_ptr<string> eventType_ = nullptr;
+    shared_ptr<string> eventType_ {};
     // The remarks that you want to add.
-    std::shared_ptr<string> note_ = nullptr;
+    shared_ptr<string> note_ {};
     // The operation code.
     // 
     // *   Set the value to **whitelist** to add the alert item to the whitelist.
-    std::shared_ptr<string> operationCode_ = nullptr;
+    shared_ptr<string> operationCode_ {};
     // The application scope of the rule. The value is in the JSON format. Valid values of keys:
     // 
     // *   **type**
     // *   **value**
-    std::shared_ptr<string> scenarios_ = nullptr;
+    shared_ptr<string> scenarios_ {};
     // The source of the whitelist. Valid values:
     // 
     // *   **image**: image.
     // *   **agentless**: agentless detection.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

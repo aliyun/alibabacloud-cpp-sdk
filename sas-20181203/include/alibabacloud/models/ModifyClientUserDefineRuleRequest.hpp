@@ -64,133 +64,133 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionType_ == nullptr
-        && return this->cmdline_ == nullptr && return this->domain_ == nullptr && return this->filePath_ == nullptr && return this->IP_ == nullptr && return this->id_ == nullptr
-        && return this->md5List_ == nullptr && return this->name_ == nullptr && return this->newFilePath_ == nullptr && return this->parentCmdline_ == nullptr && return this->parentProcPath_ == nullptr
-        && return this->platform_ == nullptr && return this->port_ == nullptr && return this->portStr_ == nullptr && return this->procPath_ == nullptr && return this->registryContent_ == nullptr
-        && return this->registryKey_ == nullptr && return this->type_ == nullptr; };
+        && this->cmdline_ == nullptr && this->domain_ == nullptr && this->filePath_ == nullptr && this->IP_ == nullptr && this->id_ == nullptr
+        && this->md5List_ == nullptr && this->name_ == nullptr && this->newFilePath_ == nullptr && this->parentCmdline_ == nullptr && this->parentProcPath_ == nullptr
+        && this->platform_ == nullptr && this->port_ == nullptr && this->portStr_ == nullptr && this->procPath_ == nullptr && this->registryContent_ == nullptr
+        && this->registryKey_ == nullptr && this->type_ == nullptr; };
     // actionType Field Functions 
     bool hasActionType() const { return this->actionType_ != nullptr;};
     void deleteActionType() { this->actionType_ = nullptr;};
-    inline int32_t actionType() const { DARABONBA_PTR_GET_DEFAULT(actionType_, 0) };
+    inline int32_t getActionType() const { DARABONBA_PTR_GET_DEFAULT(actionType_, 0) };
     inline ModifyClientUserDefineRuleRequest& setActionType(int32_t actionType) { DARABONBA_PTR_SET_VALUE(actionType_, actionType) };
 
 
     // cmdline Field Functions 
     bool hasCmdline() const { return this->cmdline_ != nullptr;};
     void deleteCmdline() { this->cmdline_ = nullptr;};
-    inline string cmdline() const { DARABONBA_PTR_GET_DEFAULT(cmdline_, "") };
+    inline string getCmdline() const { DARABONBA_PTR_GET_DEFAULT(cmdline_, "") };
     inline ModifyClientUserDefineRuleRequest& setCmdline(string cmdline) { DARABONBA_PTR_SET_VALUE(cmdline_, cmdline) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ModifyClientUserDefineRuleRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // filePath Field Functions 
     bool hasFilePath() const { return this->filePath_ != nullptr;};
     void deleteFilePath() { this->filePath_ = nullptr;};
-    inline string filePath() const { DARABONBA_PTR_GET_DEFAULT(filePath_, "") };
+    inline string getFilePath() const { DARABONBA_PTR_GET_DEFAULT(filePath_, "") };
     inline ModifyClientUserDefineRuleRequest& setFilePath(string filePath) { DARABONBA_PTR_SET_VALUE(filePath_, filePath) };
 
 
     // IP Field Functions 
     bool hasIP() const { return this->IP_ != nullptr;};
     void deleteIP() { this->IP_ = nullptr;};
-    inline string IP() const { DARABONBA_PTR_GET_DEFAULT(IP_, "") };
+    inline string getIP() const { DARABONBA_PTR_GET_DEFAULT(IP_, "") };
     inline ModifyClientUserDefineRuleRequest& setIP(string IP) { DARABONBA_PTR_SET_VALUE(IP_, IP) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline ModifyClientUserDefineRuleRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // md5List Field Functions 
     bool hasMd5List() const { return this->md5List_ != nullptr;};
     void deleteMd5List() { this->md5List_ = nullptr;};
-    inline string md5List() const { DARABONBA_PTR_GET_DEFAULT(md5List_, "") };
+    inline string getMd5List() const { DARABONBA_PTR_GET_DEFAULT(md5List_, "") };
     inline ModifyClientUserDefineRuleRequest& setMd5List(string md5List) { DARABONBA_PTR_SET_VALUE(md5List_, md5List) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ModifyClientUserDefineRuleRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // newFilePath Field Functions 
     bool hasNewFilePath() const { return this->newFilePath_ != nullptr;};
     void deleteNewFilePath() { this->newFilePath_ = nullptr;};
-    inline string newFilePath() const { DARABONBA_PTR_GET_DEFAULT(newFilePath_, "") };
+    inline string getNewFilePath() const { DARABONBA_PTR_GET_DEFAULT(newFilePath_, "") };
     inline ModifyClientUserDefineRuleRequest& setNewFilePath(string newFilePath) { DARABONBA_PTR_SET_VALUE(newFilePath_, newFilePath) };
 
 
     // parentCmdline Field Functions 
     bool hasParentCmdline() const { return this->parentCmdline_ != nullptr;};
     void deleteParentCmdline() { this->parentCmdline_ = nullptr;};
-    inline string parentCmdline() const { DARABONBA_PTR_GET_DEFAULT(parentCmdline_, "") };
+    inline string getParentCmdline() const { DARABONBA_PTR_GET_DEFAULT(parentCmdline_, "") };
     inline ModifyClientUserDefineRuleRequest& setParentCmdline(string parentCmdline) { DARABONBA_PTR_SET_VALUE(parentCmdline_, parentCmdline) };
 
 
     // parentProcPath Field Functions 
     bool hasParentProcPath() const { return this->parentProcPath_ != nullptr;};
     void deleteParentProcPath() { this->parentProcPath_ = nullptr;};
-    inline string parentProcPath() const { DARABONBA_PTR_GET_DEFAULT(parentProcPath_, "") };
+    inline string getParentProcPath() const { DARABONBA_PTR_GET_DEFAULT(parentProcPath_, "") };
     inline ModifyClientUserDefineRuleRequest& setParentProcPath(string parentProcPath) { DARABONBA_PTR_SET_VALUE(parentProcPath_, parentProcPath) };
 
 
     // platform Field Functions 
     bool hasPlatform() const { return this->platform_ != nullptr;};
     void deletePlatform() { this->platform_ = nullptr;};
-    inline string platform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+    inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
     inline ModifyClientUserDefineRuleRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline int32_t port() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+    inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
     inline ModifyClientUserDefineRuleRequest& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // portStr Field Functions 
     bool hasPortStr() const { return this->portStr_ != nullptr;};
     void deletePortStr() { this->portStr_ = nullptr;};
-    inline string portStr() const { DARABONBA_PTR_GET_DEFAULT(portStr_, "") };
+    inline string getPortStr() const { DARABONBA_PTR_GET_DEFAULT(portStr_, "") };
     inline ModifyClientUserDefineRuleRequest& setPortStr(string portStr) { DARABONBA_PTR_SET_VALUE(portStr_, portStr) };
 
 
     // procPath Field Functions 
     bool hasProcPath() const { return this->procPath_ != nullptr;};
     void deleteProcPath() { this->procPath_ = nullptr;};
-    inline string procPath() const { DARABONBA_PTR_GET_DEFAULT(procPath_, "") };
+    inline string getProcPath() const { DARABONBA_PTR_GET_DEFAULT(procPath_, "") };
     inline ModifyClientUserDefineRuleRequest& setProcPath(string procPath) { DARABONBA_PTR_SET_VALUE(procPath_, procPath) };
 
 
     // registryContent Field Functions 
     bool hasRegistryContent() const { return this->registryContent_ != nullptr;};
     void deleteRegistryContent() { this->registryContent_ = nullptr;};
-    inline string registryContent() const { DARABONBA_PTR_GET_DEFAULT(registryContent_, "") };
+    inline string getRegistryContent() const { DARABONBA_PTR_GET_DEFAULT(registryContent_, "") };
     inline ModifyClientUserDefineRuleRequest& setRegistryContent(string registryContent) { DARABONBA_PTR_SET_VALUE(registryContent_, registryContent) };
 
 
     // registryKey Field Functions 
     bool hasRegistryKey() const { return this->registryKey_ != nullptr;};
     void deleteRegistryKey() { this->registryKey_ = nullptr;};
-    inline string registryKey() const { DARABONBA_PTR_GET_DEFAULT(registryKey_, "") };
+    inline string getRegistryKey() const { DARABONBA_PTR_GET_DEFAULT(registryKey_, "") };
     inline ModifyClientUserDefineRuleRequest& setRegistryKey(string registryKey) { DARABONBA_PTR_SET_VALUE(registryKey_, registryKey) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline int32_t type() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
+    inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
     inline ModifyClientUserDefineRuleRequest& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -201,47 +201,47 @@ namespace Models
     // *   **1**: block
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> actionType_ = nullptr;
+    shared_ptr<int32_t> actionType_ {};
     // The command line.
-    std::shared_ptr<string> cmdline_ = nullptr;
+    shared_ptr<string> cmdline_ {};
     // The domain name.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The file path.
-    std::shared_ptr<string> filePath_ = nullptr;
+    shared_ptr<string> filePath_ {};
     // The IP address.
-    std::shared_ptr<string> IP_ = nullptr;
+    shared_ptr<string> IP_ {};
     // The ID of the rule.
     // 
     // >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) operation to query the IDs of rules.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The hash values of processes.
-    std::shared_ptr<string> md5List_ = nullptr;
+    shared_ptr<string> md5List_ {};
     // The name of the rule.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The new file path after the file is renamed.
-    std::shared_ptr<string> newFilePath_ = nullptr;
+    shared_ptr<string> newFilePath_ {};
     // The parent command line.
-    std::shared_ptr<string> parentCmdline_ = nullptr;
+    shared_ptr<string> parentCmdline_ {};
     // The path to the parent process.
-    std::shared_ptr<string> parentProcPath_ = nullptr;
+    shared_ptr<string> parentProcPath_ {};
     // The type of the operating system. Valid values:
     // 
     // *   **windows**: Windows
     // *   **linux**: Linux
     // *   **all**: all types
-    std::shared_ptr<string> platform_ = nullptr;
+    shared_ptr<string> platform_ {};
     // The port number. This parameter is deprecated.
-    std::shared_ptr<int32_t> port_ = nullptr;
+    shared_ptr<int32_t> port_ {};
     // The port number. Valid values: 1 to 65535.
-    std::shared_ptr<string> portStr_ = nullptr;
+    shared_ptr<string> portStr_ {};
     // The path to the process.
-    std::shared_ptr<string> procPath_ = nullptr;
+    shared_ptr<string> procPath_ {};
     // The registry value.
-    std::shared_ptr<string> registryContent_ = nullptr;
+    shared_ptr<string> registryContent_ {};
     // The registry key.
-    std::shared_ptr<string> registryKey_ = nullptr;
+    shared_ptr<string> registryKey_ {};
     // The type of the rule. Valid values:
     // 
     // *   **1**: Process hash
@@ -251,7 +251,7 @@ namespace Models
     // *   **5**: Operation on Registry
     // *   **6**: Dynamic-link Library Loading
     // *   **7**: File Renaming
-    std::shared_ptr<int32_t> type_ = nullptr;
+    shared_ptr<int32_t> type_ {};
   };
 
   } // namespace Models

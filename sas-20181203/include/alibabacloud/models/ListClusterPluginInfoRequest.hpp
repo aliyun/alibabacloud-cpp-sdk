@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterIds_ == nullptr
-        && return this->lang_ == nullptr && return this->pluginName_ == nullptr; };
+        && this->lang_ == nullptr && this->pluginName_ == nullptr; };
     // clusterIds Field Functions 
     bool hasClusterIds() const { return this->clusterIds_ != nullptr;};
     void deleteClusterIds() { this->clusterIds_ = nullptr;};
-    inline const vector<string> & clusterIds() const { DARABONBA_PTR_GET_CONST(clusterIds_, vector<string>) };
-    inline vector<string> clusterIds() { DARABONBA_PTR_GET(clusterIds_, vector<string>) };
+    inline const vector<string> & getClusterIds() const { DARABONBA_PTR_GET_CONST(clusterIds_, vector<string>) };
+    inline vector<string> getClusterIds() { DARABONBA_PTR_GET(clusterIds_, vector<string>) };
     inline ListClusterPluginInfoRequest& setClusterIds(const vector<string> & clusterIds) { DARABONBA_PTR_SET_VALUE(clusterIds_, clusterIds) };
     inline ListClusterPluginInfoRequest& setClusterIds(vector<string> && clusterIds) { DARABONBA_PTR_SET_RVALUE(clusterIds_, clusterIds) };
 
@@ -48,14 +48,14 @@ namespace Models
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ListClusterPluginInfoRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pluginName Field Functions 
     bool hasPluginName() const { return this->pluginName_ != nullptr;};
     void deletePluginName() { this->pluginName_ = nullptr;};
-    inline string pluginName() const { DARABONBA_PTR_GET_DEFAULT(pluginName_, "") };
+    inline string getPluginName() const { DARABONBA_PTR_GET_DEFAULT(pluginName_, "") };
     inline ListClusterPluginInfoRequest& setPluginName(string pluginName) { DARABONBA_PTR_SET_VALUE(pluginName_, pluginName) };
 
 
@@ -63,14 +63,14 @@ namespace Models
     // The IDs of the clusters.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> clusterIds_ = nullptr;
+    shared_ptr<vector<string>> clusterIds_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The name of the plug-in.
-    std::shared_ptr<string> pluginName_ = nullptr;
+    shared_ptr<string> pluginName_ {};
   };
 
   } // namespace Models

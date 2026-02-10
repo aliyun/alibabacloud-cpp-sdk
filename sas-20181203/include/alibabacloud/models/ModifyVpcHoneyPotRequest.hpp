@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->honeyPotAction_ == nullptr
-        && return this->vpcId_ == nullptr; };
+        && this->vpcId_ == nullptr; };
     // honeyPotAction Field Functions 
     bool hasHoneyPotAction() const { return this->honeyPotAction_ != nullptr;};
     void deleteHoneyPotAction() { this->honeyPotAction_ = nullptr;};
-    inline string honeyPotAction() const { DARABONBA_PTR_GET_DEFAULT(honeyPotAction_, "") };
+    inline string getHoneyPotAction() const { DARABONBA_PTR_GET_DEFAULT(honeyPotAction_, "") };
     inline ModifyVpcHoneyPotRequest& setHoneyPotAction(string honeyPotAction) { DARABONBA_PTR_SET_VALUE(honeyPotAction_, honeyPotAction) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline ModifyVpcHoneyPotRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
@@ -54,13 +54,13 @@ namespace Models
     // *   **enable**
     // 
     // This parameter is required.
-    std::shared_ptr<string> honeyPotAction_ = nullptr;
+    shared_ptr<string> honeyPotAction_ {};
     // The ID of the virtual private cloud (VPC) on which the honeypot is deployed.
     // 
     // >  You can call the [DescribeVpcHoneyPotList](~~DescribeVpcHoneyPotList~~) operation to query the IDs of VPCs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models

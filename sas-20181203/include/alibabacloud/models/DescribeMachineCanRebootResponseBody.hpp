@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->canReboot_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // canReboot Field Functions 
     bool hasCanReboot() const { return this->canReboot_ != nullptr;};
     void deleteCanReboot() { this->canReboot_ = nullptr;};
-    inline bool canReboot() const { DARABONBA_PTR_GET_DEFAULT(canReboot_, false) };
+    inline bool getCanReboot() const { DARABONBA_PTR_GET_DEFAULT(canReboot_, false) };
     inline DescribeMachineCanRebootResponseBody& setCanReboot(bool canReboot) { DARABONBA_PTR_SET_VALUE(canReboot_, canReboot) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeMachineCanRebootResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   **true**: yes
     // *   **false**: no
-    std::shared_ptr<bool> canReboot_ = nullptr;
+    shared_ptr<bool> canReboot_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

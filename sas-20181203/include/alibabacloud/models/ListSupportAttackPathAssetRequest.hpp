@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nodeType_ == nullptr
-        && return this->pathName_ == nullptr && return this->pathType_ == nullptr && return this->supportType_ == nullptr; };
+        && this->pathName_ == nullptr && this->pathType_ == nullptr && this->supportType_ == nullptr; };
     // nodeType Field Functions 
     bool hasNodeType() const { return this->nodeType_ != nullptr;};
     void deleteNodeType() { this->nodeType_ = nullptr;};
-    inline string nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
     inline ListSupportAttackPathAssetRequest& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
     // pathName Field Functions 
     bool hasPathName() const { return this->pathName_ != nullptr;};
     void deletePathName() { this->pathName_ = nullptr;};
-    inline string pathName() const { DARABONBA_PTR_GET_DEFAULT(pathName_, "") };
+    inline string getPathName() const { DARABONBA_PTR_GET_DEFAULT(pathName_, "") };
     inline ListSupportAttackPathAssetRequest& setPathName(string pathName) { DARABONBA_PTR_SET_VALUE(pathName_, pathName) };
 
 
     // pathType Field Functions 
     bool hasPathType() const { return this->pathType_ != nullptr;};
     void deletePathType() { this->pathType_ = nullptr;};
-    inline string pathType() const { DARABONBA_PTR_GET_DEFAULT(pathType_, "") };
+    inline string getPathType() const { DARABONBA_PTR_GET_DEFAULT(pathType_, "") };
     inline ListSupportAttackPathAssetRequest& setPathType(string pathType) { DARABONBA_PTR_SET_VALUE(pathType_, pathType) };
 
 
     // supportType Field Functions 
     bool hasSupportType() const { return this->supportType_ != nullptr;};
     void deleteSupportType() { this->supportType_ = nullptr;};
-    inline string supportType() const { DARABONBA_PTR_GET_DEFAULT(supportType_, "") };
+    inline string getSupportType() const { DARABONBA_PTR_GET_DEFAULT(supportType_, "") };
     inline ListSupportAttackPathAssetRequest& setSupportType(string supportType) { DARABONBA_PTR_SET_VALUE(supportType_, supportType) };
 
 
@@ -69,21 +69,21 @@ namespace Models
     // Node type, with values:
     // - **start**: Start point.
     // - **end**: End point.
-    std::shared_ptr<string> nodeType_ = nullptr;
+    shared_ptr<string> nodeType_ {};
     // Path name.
     // 
     // > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path names.
-    std::shared_ptr<string> pathName_ = nullptr;
+    shared_ptr<string> pathName_ {};
     // Path type.
     // > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path types.
-    std::shared_ptr<string> pathType_ = nullptr;
+    shared_ptr<string> pathType_ {};
     // Support type, with values:
     // - **event**: Attack path alert event.
     // - **whitelist**: Attack path whitelist.
     // - **sensitive**: Sensitive assets in the attack path.
     // 
     // This parameter is required.
-    std::shared_ptr<string> supportType_ = nullptr;
+    shared_ptr<string> supportType_ {};
   };
 
   } // namespace Models

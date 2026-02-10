@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETAEGISCONTAINERPLUGINRULERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETAEGISCONTAINERPLUGINRULERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetAegisContainerPluginRuleResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +32,181 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
+        DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
+        DARABONBA_PTR_TO_JSON(Mode, mode_);
+        DARABONBA_PTR_TO_JSON(RuleDescription, ruleDescription_);
+        DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
+        DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
+        DARABONBA_PTR_TO_JSON(RuleTemplateId, ruleTemplateId_);
+        DARABONBA_PTR_TO_JSON(RuleTemplateName, ruleTemplateName_);
+        DARABONBA_PTR_TO_JSON(SelectedPolicy, selectedPolicy_);
+        DARABONBA_PTR_TO_JSON(SwitchId, switchId_);
+        DARABONBA_PTR_TO_JSON(WhiteImages, whiteImages_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
+        DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
+        DARABONBA_PTR_FROM_JSON(Mode, mode_);
+        DARABONBA_PTR_FROM_JSON(RuleDescription, ruleDescription_);
+        DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
+        DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
+        DARABONBA_PTR_FROM_JSON(RuleTemplateId, ruleTemplateId_);
+        DARABONBA_PTR_FROM_JSON(RuleTemplateName, ruleTemplateName_);
+        DARABONBA_PTR_FROM_JSON(SelectedPolicy, selectedPolicy_);
+        DARABONBA_PTR_FROM_JSON(SwitchId, switchId_);
+        DARABONBA_PTR_FROM_JSON(WhiteImages, whiteImages_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->gmtCreate_ == nullptr
+        && this->gmtModified_ == nullptr && this->mode_ == nullptr && this->ruleDescription_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr
+        && this->ruleTemplateId_ == nullptr && this->ruleTemplateName_ == nullptr && this->selectedPolicy_ == nullptr && this->switchId_ == nullptr && this->whiteImages_ == nullptr; };
+      // gmtCreate Field Functions 
+      bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
+      void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
+      inline int64_t getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, 0L) };
+      inline Data& setGmtCreate(int64_t gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
+
+
+      // gmtModified Field Functions 
+      bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
+      void deleteGmtModified() { this->gmtModified_ = nullptr;};
+      inline int64_t getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, 0L) };
+      inline Data& setGmtModified(int64_t gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
+
+
+      // mode Field Functions 
+      bool hasMode() const { return this->mode_ != nullptr;};
+      void deleteMode() { this->mode_ = nullptr;};
+      inline int32_t getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, 0) };
+      inline Data& setMode(int32_t mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
+      // ruleDescription Field Functions 
+      bool hasRuleDescription() const { return this->ruleDescription_ != nullptr;};
+      void deleteRuleDescription() { this->ruleDescription_ = nullptr;};
+      inline string getRuleDescription() const { DARABONBA_PTR_GET_DEFAULT(ruleDescription_, "") };
+      inline Data& setRuleDescription(string ruleDescription) { DARABONBA_PTR_SET_VALUE(ruleDescription_, ruleDescription) };
+
+
+      // ruleId Field Functions 
+      bool hasRuleId() const { return this->ruleId_ != nullptr;};
+      void deleteRuleId() { this->ruleId_ = nullptr;};
+      inline int64_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
+      inline Data& setRuleId(int64_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
+
+
+      // ruleName Field Functions 
+      bool hasRuleName() const { return this->ruleName_ != nullptr;};
+      void deleteRuleName() { this->ruleName_ = nullptr;};
+      inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+      inline Data& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
+
+
+      // ruleTemplateId Field Functions 
+      bool hasRuleTemplateId() const { return this->ruleTemplateId_ != nullptr;};
+      void deleteRuleTemplateId() { this->ruleTemplateId_ = nullptr;};
+      inline string getRuleTemplateId() const { DARABONBA_PTR_GET_DEFAULT(ruleTemplateId_, "") };
+      inline Data& setRuleTemplateId(string ruleTemplateId) { DARABONBA_PTR_SET_VALUE(ruleTemplateId_, ruleTemplateId) };
+
+
+      // ruleTemplateName Field Functions 
+      bool hasRuleTemplateName() const { return this->ruleTemplateName_ != nullptr;};
+      void deleteRuleTemplateName() { this->ruleTemplateName_ = nullptr;};
+      inline string getRuleTemplateName() const { DARABONBA_PTR_GET_DEFAULT(ruleTemplateName_, "") };
+      inline Data& setRuleTemplateName(string ruleTemplateName) { DARABONBA_PTR_SET_VALUE(ruleTemplateName_, ruleTemplateName) };
+
+
+      // selectedPolicy Field Functions 
+      bool hasSelectedPolicy() const { return this->selectedPolicy_ != nullptr;};
+      void deleteSelectedPolicy() { this->selectedPolicy_ = nullptr;};
+      inline const vector<string> & getSelectedPolicy() const { DARABONBA_PTR_GET_CONST(selectedPolicy_, vector<string>) };
+      inline vector<string> getSelectedPolicy() { DARABONBA_PTR_GET(selectedPolicy_, vector<string>) };
+      inline Data& setSelectedPolicy(const vector<string> & selectedPolicy) { DARABONBA_PTR_SET_VALUE(selectedPolicy_, selectedPolicy) };
+      inline Data& setSelectedPolicy(vector<string> && selectedPolicy) { DARABONBA_PTR_SET_RVALUE(selectedPolicy_, selectedPolicy) };
+
+
+      // switchId Field Functions 
+      bool hasSwitchId() const { return this->switchId_ != nullptr;};
+      void deleteSwitchId() { this->switchId_ = nullptr;};
+      inline string getSwitchId() const { DARABONBA_PTR_GET_DEFAULT(switchId_, "") };
+      inline Data& setSwitchId(string switchId) { DARABONBA_PTR_SET_VALUE(switchId_, switchId) };
+
+
+      // whiteImages Field Functions 
+      bool hasWhiteImages() const { return this->whiteImages_ != nullptr;};
+      void deleteWhiteImages() { this->whiteImages_ = nullptr;};
+      inline const vector<string> & getWhiteImages() const { DARABONBA_PTR_GET_CONST(whiteImages_, vector<string>) };
+      inline vector<string> getWhiteImages() { DARABONBA_PTR_GET(whiteImages_, vector<string>) };
+      inline Data& setWhiteImages(const vector<string> & whiteImages) { DARABONBA_PTR_SET_VALUE(whiteImages_, whiteImages) };
+      inline Data& setWhiteImages(vector<string> && whiteImages) { DARABONBA_PTR_SET_RVALUE(whiteImages_, whiteImages) };
+
+
+    protected:
+      // The timestamp when the rule was created. Unit: milliseconds.
+      shared_ptr<int64_t> gmtCreate_ {};
+      // The timestamp when the rule was modified. Unit: milliseconds.
+      shared_ptr<int64_t> gmtModified_ {};
+      // The action mode of the rule. Valid values:
+      // 
+      // *   **0**: allows escape behavior.
+      // *   **1**: triggers alerts.
+      // *   **2**: blocks escape behavior.
+      shared_ptr<int32_t> mode_ {};
+      // The description of the rule.
+      shared_ptr<string> ruleDescription_ {};
+      // The ID of the rule.
+      shared_ptr<int64_t> ruleId_ {};
+      // The name of the rule.
+      shared_ptr<string> ruleName_ {};
+      // The template ID of the rule.
+      shared_ptr<string> ruleTemplateId_ {};
+      // The template name of the rule.
+      shared_ptr<string> ruleTemplateName_ {};
+      // The rule items.
+      shared_ptr<vector<string>> selectedPolicy_ {};
+      // The ID of the switch.
+      shared_ptr<string> switchId_ {};
+      // The images that are added to the whitelist.
+      shared_ptr<vector<string>> whiteImages_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetAegisContainerPluginRuleResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetAegisContainerPluginRuleResponseBodyData) };
-    inline GetAegisContainerPluginRuleResponseBodyData data() { DARABONBA_PTR_GET(data_, GetAegisContainerPluginRuleResponseBodyData) };
-    inline GetAegisContainerPluginRuleResponseBody& setData(const GetAegisContainerPluginRuleResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetAegisContainerPluginRuleResponseBody& setData(GetAegisContainerPluginRuleResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetAegisContainerPluginRuleResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetAegisContainerPluginRuleResponseBody::Data) };
+    inline GetAegisContainerPluginRuleResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetAegisContainerPluginRuleResponseBody::Data) };
+    inline GetAegisContainerPluginRuleResponseBody& setData(const GetAegisContainerPluginRuleResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetAegisContainerPluginRuleResponseBody& setData(GetAegisContainerPluginRuleResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetAegisContainerPluginRuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The returned data.
-    std::shared_ptr<GetAegisContainerPluginRuleResponseBodyData> data_ = nullptr;
+    shared_ptr<GetAegisContainerPluginRuleResponseBody::Data> data_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

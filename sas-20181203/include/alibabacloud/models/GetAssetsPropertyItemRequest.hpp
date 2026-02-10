@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->biz_ == nullptr
-        && return this->currentPage_ == nullptr && return this->forceFlush_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->searchInfo_ == nullptr
-        && return this->searchItem_ == nullptr; };
+        && this->currentPage_ == nullptr && this->forceFlush_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->searchInfo_ == nullptr
+        && this->searchItem_ == nullptr; };
     // biz Field Functions 
     bool hasBiz() const { return this->biz_ != nullptr;};
     void deleteBiz() { this->biz_ = nullptr;};
-    inline string biz() const { DARABONBA_PTR_GET_DEFAULT(biz_, "") };
+    inline string getBiz() const { DARABONBA_PTR_GET_DEFAULT(biz_, "") };
     inline GetAssetsPropertyItemRequest& setBiz(string biz) { DARABONBA_PTR_SET_VALUE(biz_, biz) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline GetAssetsPropertyItemRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // forceFlush Field Functions 
     bool hasForceFlush() const { return this->forceFlush_ != nullptr;};
     void deleteForceFlush() { this->forceFlush_ = nullptr;};
-    inline bool forceFlush() const { DARABONBA_PTR_GET_DEFAULT(forceFlush_, false) };
+    inline bool getForceFlush() const { DARABONBA_PTR_GET_DEFAULT(forceFlush_, false) };
     inline GetAssetsPropertyItemRequest& setForceFlush(bool forceFlush) { DARABONBA_PTR_SET_VALUE(forceFlush_, forceFlush) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline GetAssetsPropertyItemRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetAssetsPropertyItemRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // searchInfo Field Functions 
     bool hasSearchInfo() const { return this->searchInfo_ != nullptr;};
     void deleteSearchInfo() { this->searchInfo_ = nullptr;};
-    inline string searchInfo() const { DARABONBA_PTR_GET_DEFAULT(searchInfo_, "") };
+    inline string getSearchInfo() const { DARABONBA_PTR_GET_DEFAULT(searchInfo_, "") };
     inline GetAssetsPropertyItemRequest& setSearchInfo(string searchInfo) { DARABONBA_PTR_SET_VALUE(searchInfo_, searchInfo) };
 
 
     // searchItem Field Functions 
     bool hasSearchItem() const { return this->searchItem_ != nullptr;};
     void deleteSearchItem() { this->searchItem_ = nullptr;};
-    inline string searchItem() const { DARABONBA_PTR_GET_DEFAULT(searchItem_, "") };
+    inline string getSearchItem() const { DARABONBA_PTR_GET_DEFAULT(searchItem_, "") };
     inline GetAssetsPropertyItemRequest& setSearchItem(string searchItem) { DARABONBA_PTR_SET_VALUE(searchItem_, searchItem) };
 
 
@@ -101,23 +101,23 @@ namespace Models
     // *   **web_server**: website
     // 
     // This parameter is required.
-    std::shared_ptr<string> biz_ = nullptr;
+    shared_ptr<string> biz_ {};
     // The number of the page to return. Default value: **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // Specifies whether to forcefully refresh the data that you want to query. Valid values:
     // 
     // *   **true**: yes
     // *   **false**: no
-    std::shared_ptr<bool> forceFlush_ = nullptr;
+    shared_ptr<bool> forceFlush_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
     // 
     // > We recommend that you do not leave this parameter empty.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The value of the search condition. You must specify this parameter based on the value of the **SearchItem** parameter.
     // 
     // *   If you set **SearchItem** to **domain**, you must enter the domain name.
@@ -125,7 +125,7 @@ namespace Models
     // *   If you set **SearchItem** to **path**, you must enter the path to the self-starting item.
     // 
     // >  You must specify both the **SearchItem** and **SearchInfo** parameters before you can query the information about asset fingerprints by asset fingerprint name.
-    std::shared_ptr<string> searchInfo_ = nullptr;
+    shared_ptr<string> searchInfo_ {};
     // The type of the search condition. You must specify this parameter based on the value of the **Biz** parameter. Valid values:
     // 
     // *   If you set **Biz** to **web_server**, set **SearchItem** to the following value:
@@ -141,7 +141,7 @@ namespace Models
     //     *   **path**: the path to the self-starting item
     // 
     // >  You must specify both the **SearchItem** and **SearchInfo** parameters before you can query the information about asset fingerprints by asset fingerprint name.
-    std::shared_ptr<string> searchItem_ = nullptr;
+    shared_ptr<string> searchItem_ {};
   };
 
   } // namespace Models

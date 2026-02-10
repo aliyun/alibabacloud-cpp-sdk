@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->target_ == nullptr && return this->type_ == nullptr; };
+        && this->target_ == nullptr && this->type_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline ModifyLoginBaseConfigRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // target Field Functions 
     bool hasTarget() const { return this->target_ != nullptr;};
     void deleteTarget() { this->target_ = nullptr;};
-    inline string target() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+    inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
     inline ModifyLoginBaseConfigRequest& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ModifyLoginBaseConfigRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -83,7 +83,7 @@ namespace Models
     // > You must specify this field if the Type parameter is set to login_common_account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
     // The details of the server to which the configuration is applied. The value of this parameter is in the JSON format and contains the following fields:
     // 
     // *   **Target**: the UUID of the server.
@@ -99,7 +99,7 @@ namespace Models
     //     *   **add**: adds the server to the configuration.
     // 
     // This parameter is required.
-    std::shared_ptr<string> target_ = nullptr;
+    shared_ptr<string> target_ {};
     // The logon type of the configuration to modify. Valid values:
     // 
     // *   **login_common_location**: common logon location
@@ -108,7 +108,7 @@ namespace Models
     // *   **login_common_account**: common logon account
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

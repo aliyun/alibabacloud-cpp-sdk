@@ -43,48 +43,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->mode_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->ruleType_ == nullptr && return this->selectedPolicy_ == nullptr
-        && return this->whiteImages_ == nullptr; };
+        && this->mode_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->ruleType_ == nullptr && this->selectedPolicy_ == nullptr
+        && this->whiteImages_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyContainerPluginRuleRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline int32_t mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, 0) };
+    inline int32_t getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, 0) };
     inline ModifyContainerPluginRuleRequest& setMode(int32_t mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline int32_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0) };
+    inline int32_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0) };
     inline ModifyContainerPluginRuleRequest& setRuleId(int32_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline ModifyContainerPluginRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // ruleType Field Functions 
     bool hasRuleType() const { return this->ruleType_ != nullptr;};
     void deleteRuleType() { this->ruleType_ = nullptr;};
-    inline int32_t ruleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, 0) };
+    inline int32_t getRuleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, 0) };
     inline ModifyContainerPluginRuleRequest& setRuleType(int32_t ruleType) { DARABONBA_PTR_SET_VALUE(ruleType_, ruleType) };
 
 
     // selectedPolicy Field Functions 
     bool hasSelectedPolicy() const { return this->selectedPolicy_ != nullptr;};
     void deleteSelectedPolicy() { this->selectedPolicy_ = nullptr;};
-    inline const vector<string> & selectedPolicy() const { DARABONBA_PTR_GET_CONST(selectedPolicy_, vector<string>) };
-    inline vector<string> selectedPolicy() { DARABONBA_PTR_GET(selectedPolicy_, vector<string>) };
+    inline const vector<string> & getSelectedPolicy() const { DARABONBA_PTR_GET_CONST(selectedPolicy_, vector<string>) };
+    inline vector<string> getSelectedPolicy() { DARABONBA_PTR_GET(selectedPolicy_, vector<string>) };
     inline ModifyContainerPluginRuleRequest& setSelectedPolicy(const vector<string> & selectedPolicy) { DARABONBA_PTR_SET_VALUE(selectedPolicy_, selectedPolicy) };
     inline ModifyContainerPluginRuleRequest& setSelectedPolicy(vector<string> && selectedPolicy) { DARABONBA_PTR_SET_RVALUE(selectedPolicy_, selectedPolicy) };
 
@@ -92,8 +92,8 @@ namespace Models
     // whiteImages Field Functions 
     bool hasWhiteImages() const { return this->whiteImages_ != nullptr;};
     void deleteWhiteImages() { this->whiteImages_ = nullptr;};
-    inline const vector<string> & whiteImages() const { DARABONBA_PTR_GET_CONST(whiteImages_, vector<string>) };
-    inline vector<string> whiteImages() { DARABONBA_PTR_GET(whiteImages_, vector<string>) };
+    inline const vector<string> & getWhiteImages() const { DARABONBA_PTR_GET_CONST(whiteImages_, vector<string>) };
+    inline vector<string> getWhiteImages() { DARABONBA_PTR_GET(whiteImages_, vector<string>) };
     inline ModifyContainerPluginRuleRequest& setWhiteImages(const vector<string> & whiteImages) { DARABONBA_PTR_SET_VALUE(whiteImages_, whiteImages) };
     inline ModifyContainerPluginRuleRequest& setWhiteImages(vector<string> && whiteImages) { DARABONBA_PTR_SET_RVALUE(whiteImages_, whiteImages) };
 
@@ -103,27 +103,27 @@ namespace Models
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The action mode of the rule. Valid values:
     // 
     // *   **1**: alerts
     // *   **2**: block
-    std::shared_ptr<int32_t> mode_ = nullptr;
+    shared_ptr<int32_t> mode_ {};
     // The ID of the rule.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> ruleId_ = nullptr;
+    shared_ptr<int32_t> ruleId_ {};
     // The name of the rule.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // The type of the rule. Valid values:
     // 
     // *   **0**: user-defined rule
     // *   **1**: built-in rule
-    std::shared_ptr<int32_t> ruleType_ = nullptr;
+    shared_ptr<int32_t> ruleType_ {};
     // The rule items.
-    std::shared_ptr<vector<string>> selectedPolicy_ = nullptr;
+    shared_ptr<vector<string>> selectedPolicy_ {};
     // The images that are added to the whitelist.
-    std::shared_ptr<vector<string>> whiteImages_ = nullptr;
+    shared_ptr<vector<string>> whiteImages_ {};
   };
 
   } // namespace Models

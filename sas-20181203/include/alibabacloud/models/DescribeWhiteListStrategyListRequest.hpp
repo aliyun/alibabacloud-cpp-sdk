@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->sourceIp_ == nullptr && return this->strategyIds_ == nullptr; };
+        && this->sourceIp_ == nullptr && this->strategyIds_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeWhiteListStrategyListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeWhiteListStrategyListRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // strategyIds Field Functions 
     bool hasStrategyIds() const { return this->strategyIds_ != nullptr;};
     void deleteStrategyIds() { this->strategyIds_ = nullptr;};
-    inline string strategyIds() const { DARABONBA_PTR_GET_DEFAULT(strategyIds_, "") };
+    inline string getStrategyIds() const { DARABONBA_PTR_GET_DEFAULT(strategyIds_, "") };
     inline DescribeWhiteListStrategyListRequest& setStrategyIds(string strategyIds) { DARABONBA_PTR_SET_VALUE(strategyIds_, strategyIds) };
 
 
@@ -61,11 +61,11 @@ namespace Models
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The source IP address of the request. You do not need to specify this parameter. It is automatically obtained by the system.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The ID of the policy. Separate multiple IDs with commas (,).
-    std::shared_ptr<string> strategyIds_ = nullptr;
+    shared_ptr<string> strategyIds_ {};
   };
 
   } // namespace Models

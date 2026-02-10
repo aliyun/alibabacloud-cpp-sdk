@@ -37,33 +37,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->availableProbeNum_ == nullptr
-        && return this->nodeId_ == nullptr && return this->nodeName_ == nullptr && return this->securityGroupProbeIpList_ == nullptr; };
+        && this->nodeId_ == nullptr && this->nodeName_ == nullptr && this->securityGroupProbeIpList_ == nullptr; };
     // availableProbeNum Field Functions 
     bool hasAvailableProbeNum() const { return this->availableProbeNum_ != nullptr;};
     void deleteAvailableProbeNum() { this->availableProbeNum_ = nullptr;};
-    inline int32_t availableProbeNum() const { DARABONBA_PTR_GET_DEFAULT(availableProbeNum_, 0) };
+    inline int32_t getAvailableProbeNum() const { DARABONBA_PTR_GET_DEFAULT(availableProbeNum_, 0) };
     inline UpdateHoneypotNodeRequest& setAvailableProbeNum(int32_t availableProbeNum) { DARABONBA_PTR_SET_VALUE(availableProbeNum_, availableProbeNum) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline UpdateHoneypotNodeRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // nodeName Field Functions 
     bool hasNodeName() const { return this->nodeName_ != nullptr;};
     void deleteNodeName() { this->nodeName_ = nullptr;};
-    inline string nodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
+    inline string getNodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
     inline UpdateHoneypotNodeRequest& setNodeName(string nodeName) { DARABONBA_PTR_SET_VALUE(nodeName_, nodeName) };
 
 
     // securityGroupProbeIpList Field Functions 
     bool hasSecurityGroupProbeIpList() const { return this->securityGroupProbeIpList_ != nullptr;};
     void deleteSecurityGroupProbeIpList() { this->securityGroupProbeIpList_ = nullptr;};
-    inline const vector<string> & securityGroupProbeIpList() const { DARABONBA_PTR_GET_CONST(securityGroupProbeIpList_, vector<string>) };
-    inline vector<string> securityGroupProbeIpList() { DARABONBA_PTR_GET(securityGroupProbeIpList_, vector<string>) };
+    inline const vector<string> & getSecurityGroupProbeIpList() const { DARABONBA_PTR_GET_CONST(securityGroupProbeIpList_, vector<string>) };
+    inline vector<string> getSecurityGroupProbeIpList() { DARABONBA_PTR_GET(securityGroupProbeIpList_, vector<string>) };
     inline UpdateHoneypotNodeRequest& setSecurityGroupProbeIpList(const vector<string> & securityGroupProbeIpList) { DARABONBA_PTR_SET_VALUE(securityGroupProbeIpList_, securityGroupProbeIpList) };
     inline UpdateHoneypotNodeRequest& setSecurityGroupProbeIpList(vector<string> && securityGroupProbeIpList) { DARABONBA_PTR_SET_RVALUE(securityGroupProbeIpList_, securityGroupProbeIpList) };
 
@@ -72,19 +72,19 @@ namespace Models
     // The number of available probes.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> availableProbeNum_ = nullptr;
+    shared_ptr<int32_t> availableProbeNum_ {};
     // The ID of the management node.
     // 
     // > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
     // The name of the management node.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeName_ = nullptr;
+    shared_ptr<string> nodeName_ {};
     // The CIDR blocks that are allowed to access the management node.
-    std::shared_ptr<vector<string>> securityGroupProbeIpList_ = nullptr;
+    shared_ptr<vector<string>> securityGroupProbeIpList_ {};
   };
 
   } // namespace Models

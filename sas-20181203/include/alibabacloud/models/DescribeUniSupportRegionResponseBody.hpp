@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->uniSupportRegion_ == nullptr; };
+        && this->uniSupportRegion_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeUniSupportRegionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // uniSupportRegion Field Functions 
     bool hasUniSupportRegion() const { return this->uniSupportRegion_ != nullptr;};
     void deleteUniSupportRegion() { this->uniSupportRegion_ = nullptr;};
-    inline const vector<string> & uniSupportRegion() const { DARABONBA_PTR_GET_CONST(uniSupportRegion_, vector<string>) };
-    inline vector<string> uniSupportRegion() { DARABONBA_PTR_GET(uniSupportRegion_, vector<string>) };
+    inline const vector<string> & getUniSupportRegion() const { DARABONBA_PTR_GET_CONST(uniSupportRegion_, vector<string>) };
+    inline vector<string> getUniSupportRegion() { DARABONBA_PTR_GET(uniSupportRegion_, vector<string>) };
     inline DescribeUniSupportRegionResponseBody& setUniSupportRegion(const vector<string> & uniSupportRegion) { DARABONBA_PTR_SET_VALUE(uniSupportRegion_, uniSupportRegion) };
     inline DescribeUniSupportRegionResponseBody& setUniSupportRegion(vector<string> && uniSupportRegion) { DARABONBA_PTR_SET_RVALUE(uniSupportRegion_, uniSupportRegion) };
 
 
   protected:
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // An array consisting of the region that is supported by anti-ransomware for databases.
-    std::shared_ptr<vector<string>> uniSupportRegion_ = nullptr;
+    shared_ptr<vector<string>> uniSupportRegion_ {};
   };
 
   } // namespace Models

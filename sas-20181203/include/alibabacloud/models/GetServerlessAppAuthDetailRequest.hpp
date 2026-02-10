@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->appRegionId_ == nullptr && return this->machineType_ == nullptr && return this->vendorType_ == nullptr; };
+        && this->appRegionId_ == nullptr && this->machineType_ == nullptr && this->vendorType_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline GetServerlessAppAuthDetailRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appRegionId Field Functions 
     bool hasAppRegionId() const { return this->appRegionId_ != nullptr;};
     void deleteAppRegionId() { this->appRegionId_ = nullptr;};
-    inline string appRegionId() const { DARABONBA_PTR_GET_DEFAULT(appRegionId_, "") };
+    inline string getAppRegionId() const { DARABONBA_PTR_GET_DEFAULT(appRegionId_, "") };
     inline GetServerlessAppAuthDetailRequest& setAppRegionId(string appRegionId) { DARABONBA_PTR_SET_VALUE(appRegionId_, appRegionId) };
 
 
     // machineType Field Functions 
     bool hasMachineType() const { return this->machineType_ != nullptr;};
     void deleteMachineType() { this->machineType_ = nullptr;};
-    inline string machineType() const { DARABONBA_PTR_GET_DEFAULT(machineType_, "") };
+    inline string getMachineType() const { DARABONBA_PTR_GET_DEFAULT(machineType_, "") };
     inline GetServerlessAppAuthDetailRequest& setMachineType(string machineType) { DARABONBA_PTR_SET_VALUE(machineType_, machineType) };
 
 
     // vendorType Field Functions 
     bool hasVendorType() const { return this->vendorType_ != nullptr;};
     void deleteVendorType() { this->vendorType_ = nullptr;};
-    inline string vendorType() const { DARABONBA_PTR_GET_DEFAULT(vendorType_, "") };
+    inline string getVendorType() const { DARABONBA_PTR_GET_DEFAULT(vendorType_, "") };
     inline GetServerlessAppAuthDetailRequest& setVendorType(string vendorType) { DARABONBA_PTR_SET_VALUE(vendorType_, vendorType) };
 
 
@@ -69,18 +69,18 @@ namespace Models
     // SAE application ID.
     // 
     // > Obtain through the [ListMachineApps](~~ListMachineApps~~) interface.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // Application region ID.
-    std::shared_ptr<string> appRegionId_ = nullptr;
+    shared_ptr<string> appRegionId_ {};
     // Server type: 
     // - **RunD**
     // - **ECI**
-    std::shared_ptr<string> machineType_ = nullptr;
+    shared_ptr<string> machineType_ {};
     // Cloud product: 
     // - **ASK**
     // - **SAE**
     // - **ACS**
-    std::shared_ptr<string> vendorType_ = nullptr;
+    shared_ptr<string> vendorType_ {};
   };
 
   } // namespace Models

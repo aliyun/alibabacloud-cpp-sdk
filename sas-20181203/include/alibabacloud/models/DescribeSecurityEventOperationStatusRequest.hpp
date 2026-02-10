@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceOwnerId_ == nullptr
-        && return this->securityEventIds_ == nullptr && return this->sourceIp_ == nullptr && return this->taskId_ == nullptr; };
+        && this->securityEventIds_ == nullptr && this->sourceIp_ == nullptr && this->taskId_ == nullptr; };
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeSecurityEventOperationStatusRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // securityEventIds Field Functions 
     bool hasSecurityEventIds() const { return this->securityEventIds_ != nullptr;};
     void deleteSecurityEventIds() { this->securityEventIds_ = nullptr;};
-    inline const vector<string> & securityEventIds() const { DARABONBA_PTR_GET_CONST(securityEventIds_, vector<string>) };
-    inline vector<string> securityEventIds() { DARABONBA_PTR_GET(securityEventIds_, vector<string>) };
+    inline const vector<string> & getSecurityEventIds() const { DARABONBA_PTR_GET_CONST(securityEventIds_, vector<string>) };
+    inline vector<string> getSecurityEventIds() { DARABONBA_PTR_GET(securityEventIds_, vector<string>) };
     inline DescribeSecurityEventOperationStatusRequest& setSecurityEventIds(const vector<string> & securityEventIds) { DARABONBA_PTR_SET_VALUE(securityEventIds_, securityEventIds) };
     inline DescribeSecurityEventOperationStatusRequest& setSecurityEventIds(vector<string> && securityEventIds) { DARABONBA_PTR_SET_RVALUE(securityEventIds_, securityEventIds) };
 
@@ -57,33 +57,33 @@ namespace Models
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeSecurityEventOperationStatusRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline DescribeSecurityEventOperationStatusRequest& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The IDs of the alert events.
     // 
     // >  You must specify at least one of the TaskId and SecurityEventIds parameters.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> securityEventIds_ = nullptr;
+    shared_ptr<vector<string>> securityEventIds_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The ID of the task that handles the alert events.
     // 
     // >  You must specify at least one of the TaskId and SecurityEventIds parameters.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
   };
 
   } // namespace Models

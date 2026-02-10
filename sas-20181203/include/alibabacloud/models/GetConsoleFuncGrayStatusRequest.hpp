@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->condition_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // condition Field Functions 
     bool hasCondition() const { return this->condition_ != nullptr;};
     void deleteCondition() { this->condition_ = nullptr;};
-    inline string condition() const { DARABONBA_PTR_GET_DEFAULT(condition_, "") };
+    inline string getCondition() const { DARABONBA_PTR_GET_DEFAULT(condition_, "") };
     inline GetConsoleFuncGrayStatusRequest& setCondition(string condition) { DARABONBA_PTR_SET_VALUE(condition_, condition) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline GetConsoleFuncGrayStatusRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
     // Name of the function module.
-    std::shared_ptr<string> condition_ = nullptr;
+    shared_ptr<string> condition_ {};
     // Set the language type for request and response messages. Default value: **zh**. Values:
     // 
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->targetType_ == nullptr && return this->type_ == nullptr; };
+        && this->targetType_ == nullptr && this->type_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DescribeClusterBasicInfoRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
-    inline string targetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
+    inline string getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
     inline DescribeClusterBasicInfoRequest& setTargetType(string targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeClusterBasicInfoRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -62,20 +62,20 @@ namespace Models
     // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The dimension from which you want to configure the feature. Valid values:
     // 
     // *   **Cluster**: the ID of the cluster
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetType_ = nullptr;
+    shared_ptr<string> targetType_ {};
     // The type of the feature. Valid values:
     // 
     // *   **containerNetwork**: container network topology
     // *   **interceptionSwitch**: cluster microsegmentation
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

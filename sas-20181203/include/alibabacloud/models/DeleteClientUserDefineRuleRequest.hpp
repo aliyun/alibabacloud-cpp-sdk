@@ -34,8 +34,8 @@ namespace Models
     // idList Field Functions 
     bool hasIdList() const { return this->idList_ != nullptr;};
     void deleteIdList() { this->idList_ = nullptr;};
-    inline const vector<int64_t> & idList() const { DARABONBA_PTR_GET_CONST(idList_, vector<int64_t>) };
-    inline vector<int64_t> idList() { DARABONBA_PTR_GET(idList_, vector<int64_t>) };
+    inline const vector<int64_t> & getIdList() const { DARABONBA_PTR_GET_CONST(idList_, vector<int64_t>) };
+    inline vector<int64_t> getIdList() { DARABONBA_PTR_GET(idList_, vector<int64_t>) };
     inline DeleteClientUserDefineRuleRequest& setIdList(const vector<int64_t> & idList) { DARABONBA_PTR_SET_VALUE(idList_, idList) };
     inline DeleteClientUserDefineRuleRequest& setIdList(vector<int64_t> && idList) { DARABONBA_PTR_SET_RVALUE(idList_, idList) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The IDs of the custom defense rules.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> idList_ = nullptr;
+    shared_ptr<vector<int64_t>> idList_ {};
   };
 
   } // namespace Models

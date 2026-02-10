@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETCLOUDASSETDETAILREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetCloudAssetDetailRequestCloudAssetInstances.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -37,41 +36,87 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class CloudAssetInstances : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CloudAssetInstances& obj) { 
+        DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      };
+      friend void from_json(const Darabonba::Json& j, CloudAssetInstances& obj) { 
+        DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      };
+      CloudAssetInstances() = default ;
+      CloudAssetInstances(const CloudAssetInstances &) = default ;
+      CloudAssetInstances(CloudAssetInstances &&) = default ;
+      CloudAssetInstances(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CloudAssetInstances() = default ;
+      CloudAssetInstances& operator=(const CloudAssetInstances &) = default ;
+      CloudAssetInstances& operator=(CloudAssetInstances &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->regionId_ == nullptr; };
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline CloudAssetInstances& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // regionId Field Functions 
+      bool hasRegionId() const { return this->regionId_ != nullptr;};
+      void deleteRegionId() { this->regionId_ = nullptr;};
+      inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+      inline CloudAssetInstances& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    protected:
+      // The instance ID of the cloud asset.
+      shared_ptr<string> instanceId_ {};
+      // The region in which the cloud asset resides.
+      // 
+      // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+      shared_ptr<string> regionId_ {};
+    };
+
     virtual bool empty() const override { return this->assetSubType_ == nullptr
-        && return this->assetType_ == nullptr && return this->cloudAssetInstances_ == nullptr && return this->vendor_ == nullptr; };
+        && this->assetType_ == nullptr && this->cloudAssetInstances_ == nullptr && this->vendor_ == nullptr; };
     // assetSubType Field Functions 
     bool hasAssetSubType() const { return this->assetSubType_ != nullptr;};
     void deleteAssetSubType() { this->assetSubType_ = nullptr;};
-    inline int32_t assetSubType() const { DARABONBA_PTR_GET_DEFAULT(assetSubType_, 0) };
+    inline int32_t getAssetSubType() const { DARABONBA_PTR_GET_DEFAULT(assetSubType_, 0) };
     inline GetCloudAssetDetailRequest& setAssetSubType(int32_t assetSubType) { DARABONBA_PTR_SET_VALUE(assetSubType_, assetSubType) };
 
 
     // assetType Field Functions 
     bool hasAssetType() const { return this->assetType_ != nullptr;};
     void deleteAssetType() { this->assetType_ = nullptr;};
-    inline int32_t assetType() const { DARABONBA_PTR_GET_DEFAULT(assetType_, 0) };
+    inline int32_t getAssetType() const { DARABONBA_PTR_GET_DEFAULT(assetType_, 0) };
     inline GetCloudAssetDetailRequest& setAssetType(int32_t assetType) { DARABONBA_PTR_SET_VALUE(assetType_, assetType) };
 
 
     // cloudAssetInstances Field Functions 
     bool hasCloudAssetInstances() const { return this->cloudAssetInstances_ != nullptr;};
     void deleteCloudAssetInstances() { this->cloudAssetInstances_ = nullptr;};
-    inline const vector<GetCloudAssetDetailRequestCloudAssetInstances> & cloudAssetInstances() const { DARABONBA_PTR_GET_CONST(cloudAssetInstances_, vector<GetCloudAssetDetailRequestCloudAssetInstances>) };
-    inline vector<GetCloudAssetDetailRequestCloudAssetInstances> cloudAssetInstances() { DARABONBA_PTR_GET(cloudAssetInstances_, vector<GetCloudAssetDetailRequestCloudAssetInstances>) };
-    inline GetCloudAssetDetailRequest& setCloudAssetInstances(const vector<GetCloudAssetDetailRequestCloudAssetInstances> & cloudAssetInstances) { DARABONBA_PTR_SET_VALUE(cloudAssetInstances_, cloudAssetInstances) };
-    inline GetCloudAssetDetailRequest& setCloudAssetInstances(vector<GetCloudAssetDetailRequestCloudAssetInstances> && cloudAssetInstances) { DARABONBA_PTR_SET_RVALUE(cloudAssetInstances_, cloudAssetInstances) };
+    inline const vector<GetCloudAssetDetailRequest::CloudAssetInstances> & getCloudAssetInstances() const { DARABONBA_PTR_GET_CONST(cloudAssetInstances_, vector<GetCloudAssetDetailRequest::CloudAssetInstances>) };
+    inline vector<GetCloudAssetDetailRequest::CloudAssetInstances> getCloudAssetInstances() { DARABONBA_PTR_GET(cloudAssetInstances_, vector<GetCloudAssetDetailRequest::CloudAssetInstances>) };
+    inline GetCloudAssetDetailRequest& setCloudAssetInstances(const vector<GetCloudAssetDetailRequest::CloudAssetInstances> & cloudAssetInstances) { DARABONBA_PTR_SET_VALUE(cloudAssetInstances_, cloudAssetInstances) };
+    inline GetCloudAssetDetailRequest& setCloudAssetInstances(vector<GetCloudAssetDetailRequest::CloudAssetInstances> && cloudAssetInstances) { DARABONBA_PTR_SET_RVALUE(cloudAssetInstances_, cloudAssetInstances) };
 
 
     // vendor Field Functions 
     bool hasVendor() const { return this->vendor_ != nullptr;};
     void deleteVendor() { this->vendor_ = nullptr;};
-    inline int32_t vendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, 0) };
+    inline int32_t getVendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, 0) };
     inline GetCloudAssetDetailRequest& setVendor(int32_t vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
 
 
   protected:
     // The subtype of the cloud service.
-    std::shared_ptr<int32_t> assetSubType_ = nullptr;
+    shared_ptr<int32_t> assetSubType_ {};
     // The type of the cloud asset. Valid values:
     // 
     // *   **0**: Elastic Compute Service (ECS).
@@ -99,9 +144,9 @@ namespace Models
     // *   **25**: Identity as a Service (IDaaS)-Employee Identity and Access Management (EIAM).
     // *   **26**: PolarDB-X.
     // *   **27**: Elasticsearch.
-    std::shared_ptr<int32_t> assetType_ = nullptr;
+    shared_ptr<int32_t> assetType_ {};
     // The details of the assets.
-    std::shared_ptr<vector<GetCloudAssetDetailRequestCloudAssetInstances>> cloudAssetInstances_ = nullptr;
+    shared_ptr<vector<GetCloudAssetDetailRequest::CloudAssetInstances>> cloudAssetInstances_ {};
     // The service provider of the cloud asset. Valid values:
     // 
     // *   **0**: Alibaba Cloud.
@@ -109,7 +154,7 @@ namespace Models
     // *   **2**: data center.
     // *   **3**, **4**, **5**, and **7**: third-party service provider.
     // *   **8**: simple application server.
-    std::shared_ptr<int32_t> vendor_ = nullptr;
+    shared_ptr<int32_t> vendor_ {};
   };
 
   } // namespace Models

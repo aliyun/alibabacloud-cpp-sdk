@@ -46,74 +46,74 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->containerFieldName_ == nullptr && return this->containerFieldValue_ == nullptr && return this->imageDigest_ == nullptr && return this->imageRepoName_ == nullptr && return this->imageRepoNamespace_ == nullptr
-        && return this->imageTag_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->containerFieldName_ == nullptr && this->containerFieldValue_ == nullptr && this->imageDigest_ == nullptr && this->imageRepoName_ == nullptr && this->imageRepoNamespace_ == nullptr
+        && this->imageTag_ == nullptr && this->resourceOwnerId_ == nullptr && this->sourceIp_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DescribeClusterImageSecuritySummaryRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // containerFieldName Field Functions 
     bool hasContainerFieldName() const { return this->containerFieldName_ != nullptr;};
     void deleteContainerFieldName() { this->containerFieldName_ = nullptr;};
-    inline string containerFieldName() const { DARABONBA_PTR_GET_DEFAULT(containerFieldName_, "") };
+    inline string getContainerFieldName() const { DARABONBA_PTR_GET_DEFAULT(containerFieldName_, "") };
     inline DescribeClusterImageSecuritySummaryRequest& setContainerFieldName(string containerFieldName) { DARABONBA_PTR_SET_VALUE(containerFieldName_, containerFieldName) };
 
 
     // containerFieldValue Field Functions 
     bool hasContainerFieldValue() const { return this->containerFieldValue_ != nullptr;};
     void deleteContainerFieldValue() { this->containerFieldValue_ = nullptr;};
-    inline string containerFieldValue() const { DARABONBA_PTR_GET_DEFAULT(containerFieldValue_, "") };
+    inline string getContainerFieldValue() const { DARABONBA_PTR_GET_DEFAULT(containerFieldValue_, "") };
     inline DescribeClusterImageSecuritySummaryRequest& setContainerFieldValue(string containerFieldValue) { DARABONBA_PTR_SET_VALUE(containerFieldValue_, containerFieldValue) };
 
 
     // imageDigest Field Functions 
     bool hasImageDigest() const { return this->imageDigest_ != nullptr;};
     void deleteImageDigest() { this->imageDigest_ = nullptr;};
-    inline string imageDigest() const { DARABONBA_PTR_GET_DEFAULT(imageDigest_, "") };
+    inline string getImageDigest() const { DARABONBA_PTR_GET_DEFAULT(imageDigest_, "") };
     inline DescribeClusterImageSecuritySummaryRequest& setImageDigest(string imageDigest) { DARABONBA_PTR_SET_VALUE(imageDigest_, imageDigest) };
 
 
     // imageRepoName Field Functions 
     bool hasImageRepoName() const { return this->imageRepoName_ != nullptr;};
     void deleteImageRepoName() { this->imageRepoName_ = nullptr;};
-    inline string imageRepoName() const { DARABONBA_PTR_GET_DEFAULT(imageRepoName_, "") };
+    inline string getImageRepoName() const { DARABONBA_PTR_GET_DEFAULT(imageRepoName_, "") };
     inline DescribeClusterImageSecuritySummaryRequest& setImageRepoName(string imageRepoName) { DARABONBA_PTR_SET_VALUE(imageRepoName_, imageRepoName) };
 
 
     // imageRepoNamespace Field Functions 
     bool hasImageRepoNamespace() const { return this->imageRepoNamespace_ != nullptr;};
     void deleteImageRepoNamespace() { this->imageRepoNamespace_ = nullptr;};
-    inline string imageRepoNamespace() const { DARABONBA_PTR_GET_DEFAULT(imageRepoNamespace_, "") };
+    inline string getImageRepoNamespace() const { DARABONBA_PTR_GET_DEFAULT(imageRepoNamespace_, "") };
     inline DescribeClusterImageSecuritySummaryRequest& setImageRepoNamespace(string imageRepoNamespace) { DARABONBA_PTR_SET_VALUE(imageRepoNamespace_, imageRepoNamespace) };
 
 
     // imageTag Field Functions 
     bool hasImageTag() const { return this->imageTag_ != nullptr;};
     void deleteImageTag() { this->imageTag_ = nullptr;};
-    inline string imageTag() const { DARABONBA_PTR_GET_DEFAULT(imageTag_, "") };
+    inline string getImageTag() const { DARABONBA_PTR_GET_DEFAULT(imageTag_, "") };
     inline DescribeClusterImageSecuritySummaryRequest& setImageTag(string imageTag) { DARABONBA_PTR_SET_VALUE(imageTag_, imageTag) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeClusterImageSecuritySummaryRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeClusterImageSecuritySummaryRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
   protected:
     // The ID of the cluster.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The key of the condition that is used to query containers. Valid values:
     // 
     // *   **instanceId**: the instance ID of the container
@@ -135,20 +135,20 @@ namespace Models
     // *   **riskStatus**: whether risks are detected on the container
     // *   **riskLevel**: the risk level of the container
     // *   **containerScope**: the type of the container
-    std::shared_ptr<string> containerFieldName_ = nullptr;
+    shared_ptr<string> containerFieldName_ {};
     // The value of the condition that is used to query containers.
-    std::shared_ptr<string> containerFieldValue_ = nullptr;
+    shared_ptr<string> containerFieldValue_ {};
     // The digest of the image.
-    std::shared_ptr<string> imageDigest_ = nullptr;
+    shared_ptr<string> imageDigest_ {};
     // The name of the image repository.
-    std::shared_ptr<string> imageRepoName_ = nullptr;
+    shared_ptr<string> imageRepoName_ {};
     // The namespace of the image repository.
-    std::shared_ptr<string> imageRepoNamespace_ = nullptr;
+    shared_ptr<string> imageRepoNamespace_ {};
     // The tag of the image.
-    std::shared_ptr<string> imageTag_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> imageTag_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The source IP address.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

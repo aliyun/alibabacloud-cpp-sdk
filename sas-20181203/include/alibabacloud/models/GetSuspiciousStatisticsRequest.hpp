@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupIdList_ == nullptr
-        && return this->sourceIp_ == nullptr; };
+        && this->sourceIp_ == nullptr; };
     // groupIdList Field Functions 
     bool hasGroupIdList() const { return this->groupIdList_ != nullptr;};
     void deleteGroupIdList() { this->groupIdList_ = nullptr;};
-    inline string groupIdList() const { DARABONBA_PTR_GET_DEFAULT(groupIdList_, "") };
+    inline string getGroupIdList() const { DARABONBA_PTR_GET_DEFAULT(groupIdList_, "") };
     inline GetSuspiciousStatisticsRequest& setGroupIdList(string groupIdList) { DARABONBA_PTR_SET_VALUE(groupIdList_, groupIdList) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline GetSuspiciousStatisticsRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
@@ -53,9 +53,9 @@ namespace Models
     // > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupIdList_ = nullptr;
+    shared_ptr<string> groupIdList_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // probeId Field Functions 
     bool hasProbeId() const { return this->probeId_ != nullptr;};
     void deleteProbeId() { this->probeId_ = nullptr;};
-    inline string probeId() const { DARABONBA_PTR_GET_DEFAULT(probeId_, "") };
+    inline string getProbeId() const { DARABONBA_PTR_GET_DEFAULT(probeId_, "") };
     inline RetryInstallProbeRequest& setProbeId(string probeId) { DARABONBA_PTR_SET_VALUE(probeId_, probeId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The probe ID.
     // 
     // >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
-    std::shared_ptr<string> probeId_ = nullptr;
+    shared_ptr<string> probeId_ {};
   };
 
   } // namespace Models

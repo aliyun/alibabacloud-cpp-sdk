@@ -33,7 +33,7 @@ namespace Models
     // assetSelectionType Field Functions 
     bool hasAssetSelectionType() const { return this->assetSelectionType_ != nullptr;};
     void deleteAssetSelectionType() { this->assetSelectionType_ = nullptr;};
-    inline string assetSelectionType() const { DARABONBA_PTR_GET_DEFAULT(assetSelectionType_, "") };
+    inline string getAssetSelectionType() const { DARABONBA_PTR_GET_DEFAULT(assetSelectionType_, "") };
     inline GetAgentlessTaskUsedSizeEstimateRequest& setAssetSelectionType(string assetSelectionType) { DARABONBA_PTR_SET_VALUE(assetSelectionType_, assetSelectionType) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // Asset selection identifier.
     // 
     // This parameter is required.
-    std::shared_ptr<string> assetSelectionType_ = nullptr;
+    shared_ptr<string> assetSelectionType_ {};
   };
 
   } // namespace Models

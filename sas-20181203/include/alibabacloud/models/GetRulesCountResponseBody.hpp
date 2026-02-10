@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->totalSystemClientRuleCount_ == nullptr && return this->totalUserDefineRuleCount_ == nullptr; };
+        && this->totalSystemClientRuleCount_ == nullptr && this->totalUserDefineRuleCount_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetRulesCountResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalSystemClientRuleCount Field Functions 
     bool hasTotalSystemClientRuleCount() const { return this->totalSystemClientRuleCount_ != nullptr;};
     void deleteTotalSystemClientRuleCount() { this->totalSystemClientRuleCount_ = nullptr;};
-    inline int64_t totalSystemClientRuleCount() const { DARABONBA_PTR_GET_DEFAULT(totalSystemClientRuleCount_, 0L) };
+    inline int64_t getTotalSystemClientRuleCount() const { DARABONBA_PTR_GET_DEFAULT(totalSystemClientRuleCount_, 0L) };
     inline GetRulesCountResponseBody& setTotalSystemClientRuleCount(int64_t totalSystemClientRuleCount) { DARABONBA_PTR_SET_VALUE(totalSystemClientRuleCount_, totalSystemClientRuleCount) };
 
 
     // totalUserDefineRuleCount Field Functions 
     bool hasTotalUserDefineRuleCount() const { return this->totalUserDefineRuleCount_ != nullptr;};
     void deleteTotalUserDefineRuleCount() { this->totalUserDefineRuleCount_ = nullptr;};
-    inline int64_t totalUserDefineRuleCount() const { DARABONBA_PTR_GET_DEFAULT(totalUserDefineRuleCount_, 0L) };
+    inline int64_t getTotalUserDefineRuleCount() const { DARABONBA_PTR_GET_DEFAULT(totalUserDefineRuleCount_, 0L) };
     inline GetRulesCountResponseBody& setTotalUserDefineRuleCount(int64_t totalUserDefineRuleCount) { DARABONBA_PTR_SET_VALUE(totalUserDefineRuleCount_, totalUserDefineRuleCount) };
 
 
   protected:
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of system defense rules.
-    std::shared_ptr<int64_t> totalSystemClientRuleCount_ = nullptr;
+    shared_ptr<int64_t> totalSystemClientRuleCount_ {};
     // The total number of custom defense rules.
-    std::shared_ptr<int64_t> totalUserDefineRuleCount_ = nullptr;
+    shared_ptr<int64_t> totalUserDefineRuleCount_ {};
   };
 
   } // namespace Models

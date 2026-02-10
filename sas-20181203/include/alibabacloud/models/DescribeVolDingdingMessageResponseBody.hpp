@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dingdingUrl_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // dingdingUrl Field Functions 
     bool hasDingdingUrl() const { return this->dingdingUrl_ != nullptr;};
     void deleteDingdingUrl() { this->dingdingUrl_ = nullptr;};
-    inline string dingdingUrl() const { DARABONBA_PTR_GET_DEFAULT(dingdingUrl_, "") };
+    inline string getDingdingUrl() const { DARABONBA_PTR_GET_DEFAULT(dingdingUrl_, "") };
     inline DescribeVolDingdingMessageResponseBody& setDingdingUrl(string dingdingUrl) { DARABONBA_PTR_SET_VALUE(dingdingUrl_, dingdingUrl) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeVolDingdingMessageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The QR code address of the DingTalk group.
-    std::shared_ptr<string> dingdingUrl_ = nullptr;
+    shared_ptr<string> dingdingUrl_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

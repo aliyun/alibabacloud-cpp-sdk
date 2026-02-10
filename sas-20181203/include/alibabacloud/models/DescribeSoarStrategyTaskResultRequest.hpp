@@ -36,45 +36,45 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->condition_ == nullptr
-        && return this->currentPage_ == nullptr && return this->pageSize_ == nullptr && return this->strategyTaskId_ == nullptr; };
+        && this->currentPage_ == nullptr && this->pageSize_ == nullptr && this->strategyTaskId_ == nullptr; };
     // condition Field Functions 
     bool hasCondition() const { return this->condition_ != nullptr;};
     void deleteCondition() { this->condition_ = nullptr;};
-    inline string condition() const { DARABONBA_PTR_GET_DEFAULT(condition_, "") };
+    inline string getCondition() const { DARABONBA_PTR_GET_DEFAULT(condition_, "") };
     inline DescribeSoarStrategyTaskResultRequest& setCondition(string condition) { DARABONBA_PTR_SET_VALUE(condition_, condition) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeSoarStrategyTaskResultRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeSoarStrategyTaskResultRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // strategyTaskId Field Functions 
     bool hasStrategyTaskId() const { return this->strategyTaskId_ != nullptr;};
     void deleteStrategyTaskId() { this->strategyTaskId_ = nullptr;};
-    inline int64_t strategyTaskId() const { DARABONBA_PTR_GET_DEFAULT(strategyTaskId_, 0L) };
+    inline int64_t getStrategyTaskId() const { DARABONBA_PTR_GET_DEFAULT(strategyTaskId_, 0L) };
     inline DescribeSoarStrategyTaskResultRequest& setStrategyTaskId(int64_t strategyTaskId) { DARABONBA_PTR_SET_VALUE(strategyTaskId_, strategyTaskId) };
 
 
   protected:
     // Condition parameters for task scheduling.
-    std::shared_ptr<string> condition_ = nullptr;
+    shared_ptr<string> condition_ {};
     // The current page number during paginated queries.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The maximum number of entries to display per page during paginated queries.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Strategy task ID.
     // > You can obtain this parameter by calling the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) interface.
-    std::shared_ptr<int64_t> strategyTaskId_ = nullptr;
+    shared_ptr<int64_t> strategyTaskId_ {};
   };
 
   } // namespace Models

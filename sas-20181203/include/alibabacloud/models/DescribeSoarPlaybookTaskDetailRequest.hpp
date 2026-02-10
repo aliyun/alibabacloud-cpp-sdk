@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->playbookId_ == nullptr
-        && return this->recordId_ == nullptr && return this->requestUuid_ == nullptr; };
+        && this->recordId_ == nullptr && this->requestUuid_ == nullptr; };
     // playbookId Field Functions 
     bool hasPlaybookId() const { return this->playbookId_ != nullptr;};
     void deletePlaybookId() { this->playbookId_ = nullptr;};
-    inline int64_t playbookId() const { DARABONBA_PTR_GET_DEFAULT(playbookId_, 0L) };
+    inline int64_t getPlaybookId() const { DARABONBA_PTR_GET_DEFAULT(playbookId_, 0L) };
     inline DescribeSoarPlaybookTaskDetailRequest& setPlaybookId(int64_t playbookId) { DARABONBA_PTR_SET_VALUE(playbookId_, playbookId) };
 
 
     // recordId Field Functions 
     bool hasRecordId() const { return this->recordId_ != nullptr;};
     void deleteRecordId() { this->recordId_ = nullptr;};
-    inline int64_t recordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, 0L) };
+    inline int64_t getRecordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, 0L) };
     inline DescribeSoarPlaybookTaskDetailRequest& setRecordId(int64_t recordId) { DARABONBA_PTR_SET_VALUE(recordId_, recordId) };
 
 
     // requestUuid Field Functions 
     bool hasRequestUuid() const { return this->requestUuid_ != nullptr;};
     void deleteRequestUuid() { this->requestUuid_ = nullptr;};
-    inline string requestUuid() const { DARABONBA_PTR_GET_DEFAULT(requestUuid_, "") };
+    inline string getRequestUuid() const { DARABONBA_PTR_GET_DEFAULT(requestUuid_, "") };
     inline DescribeSoarPlaybookTaskDetailRequest& setRequestUuid(string requestUuid) { DARABONBA_PTR_SET_VALUE(requestUuid_, requestUuid) };
 
 
@@ -61,17 +61,17 @@ namespace Models
     // > You can obtain this parameter by calling the [DescribePlaybooks](https://help.aliyun.com/document_detail/2627461.html) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> playbookId_ = nullptr;
+    shared_ptr<int64_t> playbookId_ {};
     // The vulnerability ID passed when creating the policy task.
     // > You can obtain this parameter by calling the [DescribeVulList](~~DescribeVulList~~) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> recordId_ = nullptr;
+    shared_ptr<int64_t> recordId_ {};
     // UUID of the playbook task execution.
     // > You can obtain this parameter by calling the [DescribeSoarRecords](https://help.aliyun.com/document_detail/2627455.html) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<string> requestUuid_ = nullptr;
+    shared_ptr<string> requestUuid_ {};
   };
 
   } // namespace Models

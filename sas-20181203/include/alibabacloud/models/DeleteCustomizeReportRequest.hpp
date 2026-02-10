@@ -33,7 +33,7 @@ namespace Models
     // reportId Field Functions 
     bool hasReportId() const { return this->reportId_ != nullptr;};
     void deleteReportId() { this->reportId_ = nullptr;};
-    inline int64_t reportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
+    inline int64_t getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
     inline DeleteCustomizeReportRequest& setReportId(int64_t reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> reportId_ = nullptr;
+    shared_ptr<int64_t> reportId_ {};
   };
 
   } // namespace Models

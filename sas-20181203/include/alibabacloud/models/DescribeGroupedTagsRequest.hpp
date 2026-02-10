@@ -33,7 +33,7 @@ namespace Models
     // machineTypes Field Functions 
     bool hasMachineTypes() const { return this->machineTypes_ != nullptr;};
     void deleteMachineTypes() { this->machineTypes_ = nullptr;};
-    inline string machineTypes() const { DARABONBA_PTR_GET_DEFAULT(machineTypes_, "") };
+    inline string getMachineTypes() const { DARABONBA_PTR_GET_DEFAULT(machineTypes_, "") };
     inline DescribeGroupedTagsRequest& setMachineTypes(string machineTypes) { DARABONBA_PTR_SET_VALUE(machineTypes_, machineTypes) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   **ecs**: server
     // *   **cloud_product**: Alibaba Cloud service
-    std::shared_ptr<string> machineTypes_ = nullptr;
+    shared_ptr<string> machineTypes_ {};
   };
 
   } // namespace Models

@@ -38,45 +38,45 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventId_ == nullptr
-        && return this->field_ == nullptr && return this->fileHash_ == nullptr && return this->lang_ == nullptr && return this->sourceType_ == nullptr; };
+        && this->field_ == nullptr && this->fileHash_ == nullptr && this->lang_ == nullptr && this->sourceType_ == nullptr; };
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
-    inline int64_t eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, 0L) };
+    inline int64_t getEventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, 0L) };
     inline GetFileDetectReportRequest& setEventId(int64_t eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
 
 
     // field Field Functions 
     bool hasField() const { return this->field_ != nullptr;};
     void deleteField() { this->field_ = nullptr;};
-    inline string field() const { DARABONBA_PTR_GET_DEFAULT(field_, "") };
+    inline string getField() const { DARABONBA_PTR_GET_DEFAULT(field_, "") };
     inline GetFileDetectReportRequest& setField(string field) { DARABONBA_PTR_SET_VALUE(field_, field) };
 
 
     // fileHash Field Functions 
     bool hasFileHash() const { return this->fileHash_ != nullptr;};
     void deleteFileHash() { this->fileHash_ = nullptr;};
-    inline string fileHash() const { DARABONBA_PTR_GET_DEFAULT(fileHash_, "") };
+    inline string getFileHash() const { DARABONBA_PTR_GET_DEFAULT(fileHash_, "") };
     inline GetFileDetectReportRequest& setFileHash(string fileHash) { DARABONBA_PTR_SET_VALUE(fileHash_, fileHash) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline GetFileDetectReportRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline GetFileDetectReportRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
   protected:
     // The event ID that corresponds to the file to be detected.
-    std::shared_ptr<int64_t> eventId_ = nullptr;
+    shared_ptr<int64_t> eventId_ {};
     // The field that you want to query. You can enter multiple fields and separate them with commas (,).
     // 
     // Valid values:
@@ -86,19 +86,19 @@ namespace Models
     // *   **ThreatLevel**: the level of the threat intelligence event
     // *   **Basic**: the basic information about the report (the scan result)
     // *   **Sandbox**: the cloud sandbox check report
-    std::shared_ptr<string> field_ = nullptr;
+    shared_ptr<string> field_ {};
     // The hash value of the file to be detected.
-    std::shared_ptr<string> fileHash_ = nullptr;
+    shared_ptr<string> fileHash_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The data source type. Valid values:
     // 
     // *   **machine**: host alerts
     // *   **object_scan**: file detection alerts
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
   };
 
   } // namespace Models

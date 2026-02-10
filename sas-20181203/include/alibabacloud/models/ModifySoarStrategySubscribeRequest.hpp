@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->strategyId_ == nullptr
-        && return this->subscribeStatus_ == nullptr; };
+        && this->subscribeStatus_ == nullptr; };
     // strategyId Field Functions 
     bool hasStrategyId() const { return this->strategyId_ != nullptr;};
     void deleteStrategyId() { this->strategyId_ = nullptr;};
-    inline int64_t strategyId() const { DARABONBA_PTR_GET_DEFAULT(strategyId_, 0L) };
+    inline int64_t getStrategyId() const { DARABONBA_PTR_GET_DEFAULT(strategyId_, 0L) };
     inline ModifySoarStrategySubscribeRequest& setStrategyId(int64_t strategyId) { DARABONBA_PTR_SET_VALUE(strategyId_, strategyId) };
 
 
     // subscribeStatus Field Functions 
     bool hasSubscribeStatus() const { return this->subscribeStatus_ != nullptr;};
     void deleteSubscribeStatus() { this->subscribeStatus_ = nullptr;};
-    inline bool subscribeStatus() const { DARABONBA_PTR_GET_DEFAULT(subscribeStatus_, false) };
+    inline bool getSubscribeStatus() const { DARABONBA_PTR_GET_DEFAULT(subscribeStatus_, false) };
     inline ModifySoarStrategySubscribeRequest& setSubscribeStatus(bool subscribeStatus) { DARABONBA_PTR_SET_VALUE(subscribeStatus_, subscribeStatus) };
 
 
@@ -53,14 +53,14 @@ namespace Models
     // >  You can call the [DescribeSoarStrategies](~~DescribeSoarStrategies~~) operation to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> strategyId_ = nullptr;
+    shared_ptr<int64_t> strategyId_ {};
     // Specifies whether to create the policy template. Valid values:
     // 
     // *   true: creates the policy template
     // *   false: deletes the policy template
     // 
     // This parameter is required.
-    std::shared_ptr<bool> subscribeStatus_ = nullptr;
+    shared_ptr<bool> subscribeStatus_ {};
   };
 
   } // namespace Models

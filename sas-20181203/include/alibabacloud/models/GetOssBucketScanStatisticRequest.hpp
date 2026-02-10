@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketNameList_ == nullptr
-        && return this->source_ == nullptr; };
+        && this->source_ == nullptr; };
     // bucketNameList Field Functions 
     bool hasBucketNameList() const { return this->bucketNameList_ != nullptr;};
     void deleteBucketNameList() { this->bucketNameList_ = nullptr;};
-    inline const vector<string> & bucketNameList() const { DARABONBA_PTR_GET_CONST(bucketNameList_, vector<string>) };
-    inline vector<string> bucketNameList() { DARABONBA_PTR_GET(bucketNameList_, vector<string>) };
+    inline const vector<string> & getBucketNameList() const { DARABONBA_PTR_GET_CONST(bucketNameList_, vector<string>) };
+    inline vector<string> getBucketNameList() { DARABONBA_PTR_GET(bucketNameList_, vector<string>) };
     inline GetOssBucketScanStatisticRequest& setBucketNameList(const vector<string> & bucketNameList) { DARABONBA_PTR_SET_VALUE(bucketNameList_, bucketNameList) };
     inline GetOssBucketScanStatisticRequest& setBucketNameList(vector<string> && bucketNameList) { DARABONBA_PTR_SET_RVALUE(bucketNameList_, bucketNameList) };
 
@@ -46,18 +46,18 @@ namespace Models
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline GetOssBucketScanStatisticRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
   protected:
     // The names of the buckets.
-    std::shared_ptr<vector<string>> bucketNameList_ = nullptr;
+    shared_ptr<vector<string>> bucketNameList_ {};
     // The data source. Valid values:
     // 
     // *   **API**: API operations.
     // *   **OSS**: Object Storage Service (OSS) file check.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

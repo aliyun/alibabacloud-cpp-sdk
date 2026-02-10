@@ -34,31 +34,31 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->reason_ == nullptr
-        && return this->targetInfo_ == nullptr && return this->whitelist_ == nullptr; };
+        && this->targetInfo_ == nullptr && this->whitelist_ == nullptr; };
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline ModifyCreateVulWhitelistRequest& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
     // targetInfo Field Functions 
     bool hasTargetInfo() const { return this->targetInfo_ != nullptr;};
     void deleteTargetInfo() { this->targetInfo_ = nullptr;};
-    inline string targetInfo() const { DARABONBA_PTR_GET_DEFAULT(targetInfo_, "") };
+    inline string getTargetInfo() const { DARABONBA_PTR_GET_DEFAULT(targetInfo_, "") };
     inline ModifyCreateVulWhitelistRequest& setTargetInfo(string targetInfo) { DARABONBA_PTR_SET_VALUE(targetInfo_, targetInfo) };
 
 
     // whitelist Field Functions 
     bool hasWhitelist() const { return this->whitelist_ != nullptr;};
     void deleteWhitelist() { this->whitelist_ = nullptr;};
-    inline string whitelist() const { DARABONBA_PTR_GET_DEFAULT(whitelist_, "") };
+    inline string getWhitelist() const { DARABONBA_PTR_GET_DEFAULT(whitelist_, "") };
     inline ModifyCreateVulWhitelistRequest& setWhitelist(string whitelist) { DARABONBA_PTR_SET_VALUE(whitelist_, whitelist) };
 
 
   protected:
     // The reason why you add the vulnerability to the whitelist.
-    std::shared_ptr<string> reason_ = nullptr;
+    shared_ptr<string> reason_ {};
     // The applicable scope of the whitelist. The value of this parameter is in the JSON format and contains the following fields:
     // 
     // *   **type**: the type of the applicable scope. Valid values:
@@ -71,7 +71,7 @@ namespace Models
     // *   **groupIds**: the IDs of server groups. This field is of the long type.
     // 
     // >  If you leave this parameter empty, the applicable scope is all servers. If you set the **type** field to **GroupId**, you must also specify the **groupIds** field. If you set the **type** field to **Uuid**, you must also specify the **uuids** field.
-    std::shared_ptr<string> targetInfo_ = nullptr;
+    shared_ptr<string> targetInfo_ {};
     // The information about the vulnerability that you want to add to the whitelist. The value is a JSON string that contains the following fields:
     // 
     // *   **Status**: the status of the vulnerability.
@@ -109,7 +109,7 @@ namespace Models
     // >  You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) operation to query the information about the vulnerability that you want to add to the whitelist.
     // 
     // This parameter is required.
-    std::shared_ptr<string> whitelist_ = nullptr;
+    shared_ptr<string> whitelist_ {};
   };
 
   } // namespace Models

@@ -33,32 +33,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->sourceIp_ == nullptr
-        && return this->typeList_ == nullptr; };
+        && this->typeList_ == nullptr; };
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeCommonOverallConfigListRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // typeList Field Functions 
     bool hasTypeList() const { return this->typeList_ != nullptr;};
     void deleteTypeList() { this->typeList_ = nullptr;};
-    inline const vector<string> & typeList() const { DARABONBA_PTR_GET_CONST(typeList_, vector<string>) };
-    inline vector<string> typeList() { DARABONBA_PTR_GET(typeList_, vector<string>) };
+    inline const vector<string> & getTypeList() const { DARABONBA_PTR_GET_CONST(typeList_, vector<string>) };
+    inline vector<string> getTypeList() { DARABONBA_PTR_GET(typeList_, vector<string>) };
     inline DescribeCommonOverallConfigListRequest& setTypeList(const vector<string> & typeList) { DARABONBA_PTR_SET_VALUE(typeList_, typeList) };
     inline DescribeCommonOverallConfigListRequest& setTypeList(vector<string> && typeList) { DARABONBA_PTR_SET_RVALUE(typeList_, typeList) };
 
 
   protected:
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The types of the configuration items.
     // 
     // >  You can query up to 50 types at a time.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> typeList_ = nullptr;
+    shared_ptr<vector<string>> typeList_ {};
   };
 
   } // namespace Models

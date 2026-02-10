@@ -33,7 +33,7 @@ namespace Models
     // vendor Field Functions 
     bool hasVendor() const { return this->vendor_ != nullptr;};
     void deleteVendor() { this->vendor_ = nullptr;};
-    inline string vendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
+    inline string getVendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
     inline GetLocalDefaultRegionRequest& setVendor(string vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
 
 
@@ -44,7 +44,7 @@ namespace Models
     // *   **HUAWEICLOUD**: Huawei Cloud.
     // *   **Azure**: Microsoft Azure.
     // *   **AWS**: Amazon Web Services (AWS).
-    std::shared_ptr<string> vendor_ = nullptr;
+    shared_ptr<string> vendor_ {};
   };
 
   } // namespace Models

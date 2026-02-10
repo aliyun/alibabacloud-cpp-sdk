@@ -33,7 +33,7 @@ namespace Models
     // strategyId Field Functions 
     bool hasStrategyId() const { return this->strategyId_ != nullptr;};
     void deleteStrategyId() { this->strategyId_ = nullptr;};
-    inline int64_t strategyId() const { DARABONBA_PTR_GET_DEFAULT(strategyId_, 0L) };
+    inline int64_t getStrategyId() const { DARABONBA_PTR_GET_DEFAULT(strategyId_, 0L) };
     inline GetStrategyTemplateDetailRequest& setStrategyId(int64_t strategyId) { DARABONBA_PTR_SET_VALUE(strategyId_, strategyId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the template.
     // 
     // >  You can call the [GetOpaStrategyTemplateSummary](~~GetOpaStrategyTemplateSummary~~) operation to query the IDs of templates.
-    std::shared_ptr<int64_t> strategyId_ = nullptr;
+    shared_ptr<int64_t> strategyId_ {};
   };
 
   } // namespace Models

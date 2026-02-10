@@ -33,7 +33,7 @@ namespace Models
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline DescribeUniBackupPolicyDetailRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // > You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyId_ = nullptr;
+    shared_ptr<string> policyId_ {};
   };
 
   } // namespace Models

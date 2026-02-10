@@ -44,84 +44,84 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->endTimeQuery_ == nullptr && return this->pageSize_ == nullptr && return this->rootTaskId_ == nullptr && return this->source_ == nullptr && return this->startTimeQuery_ == nullptr
-        && return this->taskId_ == nullptr && return this->taskType_ == nullptr; };
+        && this->endTimeQuery_ == nullptr && this->pageSize_ == nullptr && this->rootTaskId_ == nullptr && this->source_ == nullptr && this->startTimeQuery_ == nullptr
+        && this->taskId_ == nullptr && this->taskType_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeOnceTaskRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // endTimeQuery Field Functions 
     bool hasEndTimeQuery() const { return this->endTimeQuery_ != nullptr;};
     void deleteEndTimeQuery() { this->endTimeQuery_ = nullptr;};
-    inline int64_t endTimeQuery() const { DARABONBA_PTR_GET_DEFAULT(endTimeQuery_, 0L) };
+    inline int64_t getEndTimeQuery() const { DARABONBA_PTR_GET_DEFAULT(endTimeQuery_, 0L) };
     inline DescribeOnceTaskRequest& setEndTimeQuery(int64_t endTimeQuery) { DARABONBA_PTR_SET_VALUE(endTimeQuery_, endTimeQuery) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeOnceTaskRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // rootTaskId Field Functions 
     bool hasRootTaskId() const { return this->rootTaskId_ != nullptr;};
     void deleteRootTaskId() { this->rootTaskId_ = nullptr;};
-    inline string rootTaskId() const { DARABONBA_PTR_GET_DEFAULT(rootTaskId_, "") };
+    inline string getRootTaskId() const { DARABONBA_PTR_GET_DEFAULT(rootTaskId_, "") };
     inline DescribeOnceTaskRequest& setRootTaskId(string rootTaskId) { DARABONBA_PTR_SET_VALUE(rootTaskId_, rootTaskId) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline DescribeOnceTaskRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // startTimeQuery Field Functions 
     bool hasStartTimeQuery() const { return this->startTimeQuery_ != nullptr;};
     void deleteStartTimeQuery() { this->startTimeQuery_ = nullptr;};
-    inline int64_t startTimeQuery() const { DARABONBA_PTR_GET_DEFAULT(startTimeQuery_, 0L) };
+    inline int64_t getStartTimeQuery() const { DARABONBA_PTR_GET_DEFAULT(startTimeQuery_, 0L) };
     inline DescribeOnceTaskRequest& setStartTimeQuery(int64_t startTimeQuery) { DARABONBA_PTR_SET_VALUE(startTimeQuery_, startTimeQuery) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline DescribeOnceTaskRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline DescribeOnceTaskRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
   protected:
     // The number of the page to return. Default value: **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The timestamp when the root task ends. Unit: milliseconds.
-    std::shared_ptr<int64_t> endTimeQuery_ = nullptr;
+    shared_ptr<int64_t> endTimeQuery_ {};
     // The number of entries to return on each page. Default value: **20**.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The ID of the root task.
     // 
     // > You must specify at least one of the **TaskType** and **RootTaskId** parameters.
-    std::shared_ptr<string> rootTaskId_ = nullptr;
+    shared_ptr<string> rootTaskId_ {};
     // The source of the task. Valid values include the following values:
     // 
     // *   **schedule**: automatic scheduling of Cloud Security Scanner.
     // *   **console**: one-click detection in the Cloud Security Scanner console.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
     // The timestamp when the root task starts. Unit: milliseconds.
-    std::shared_ptr<int64_t> startTimeQuery_ = nullptr;
+    shared_ptr<int64_t> startTimeQuery_ {};
     // The ID of the task.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
     // The type of the task. Valid values:
     // 
     // *   **CLIENT_PROBLEM_CHECK**: a task of the Security Center agent
@@ -129,7 +129,7 @@ namespace Models
     // *   **ASSET_SECURITY_CHECK**: a task of asset information collection
     // 
     // > You must specify at least one of the **TaskType** and **RootTaskId** parameters.
-    std::shared_ptr<string> taskType_ = nullptr;
+    shared_ptr<string> taskType_ {};
   };
 
   } // namespace Models

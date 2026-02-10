@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->canTry_ == nullptr
-        && return this->requestId_ == nullptr && return this->sasVersion_ == nullptr && return this->weakPasswordCount_ == nullptr; };
+        && this->requestId_ == nullptr && this->sasVersion_ == nullptr && this->weakPasswordCount_ == nullptr; };
     // canTry Field Functions 
     bool hasCanTry() const { return this->canTry_ != nullptr;};
     void deleteCanTry() { this->canTry_ = nullptr;};
-    inline string canTry() const { DARABONBA_PTR_GET_DEFAULT(canTry_, "") };
+    inline string getCanTry() const { DARABONBA_PTR_GET_DEFAULT(canTry_, "") };
     inline DescribeCheckEcsWarningsResponseBody& setCanTry(string canTry) { DARABONBA_PTR_SET_VALUE(canTry_, canTry) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeCheckEcsWarningsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sasVersion Field Functions 
     bool hasSasVersion() const { return this->sasVersion_ != nullptr;};
     void deleteSasVersion() { this->sasVersion_ = nullptr;};
-    inline string sasVersion() const { DARABONBA_PTR_GET_DEFAULT(sasVersion_, "") };
+    inline string getSasVersion() const { DARABONBA_PTR_GET_DEFAULT(sasVersion_, "") };
     inline DescribeCheckEcsWarningsResponseBody& setSasVersion(string sasVersion) { DARABONBA_PTR_SET_VALUE(sasVersion_, sasVersion) };
 
 
     // weakPasswordCount Field Functions 
     bool hasWeakPasswordCount() const { return this->weakPasswordCount_ != nullptr;};
     void deleteWeakPasswordCount() { this->weakPasswordCount_ = nullptr;};
-    inline string weakPasswordCount() const { DARABONBA_PTR_GET_DEFAULT(weakPasswordCount_, "") };
+    inline string getWeakPasswordCount() const { DARABONBA_PTR_GET_DEFAULT(weakPasswordCount_, "") };
     inline DescribeCheckEcsWarningsResponseBody& setWeakPasswordCount(string weakPasswordCount) { DARABONBA_PTR_SET_VALUE(weakPasswordCount_, weakPasswordCount) };
 
 
@@ -69,9 +69,9 @@ namespace Models
     // Indicates whether you use the free trial of Security Center. Valid values:
     // - **0**: no
     // - **1**: yes
-    std::shared_ptr<string> canTry_ = nullptr;
+    shared_ptr<string> canTry_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The edition of Security Center that you use. Valid values:
     // 
     // *   **1**: Basic edition
@@ -80,9 +80,9 @@ namespace Models
     // *   **6**: Anti-virus edition
     // 
     // >  Both the value 2 and the value 3 indicate the Enterprise edition.
-    std::shared_ptr<string> sasVersion_ = nullptr;
+    shared_ptr<string> sasVersion_ {};
     // The number of weak passwords that can cause high risks to your assets.
-    std::shared_ptr<string> weakPasswordCount_ = nullptr;
+    shared_ptr<string> weakPasswordCount_ {};
   };
 
   } // namespace Models

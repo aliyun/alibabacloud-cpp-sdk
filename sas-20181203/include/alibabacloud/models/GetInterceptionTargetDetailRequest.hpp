@@ -33,7 +33,7 @@ namespace Models
     // targetId Field Functions 
     bool hasTargetId() const { return this->targetId_ != nullptr;};
     void deleteTargetId() { this->targetId_ = nullptr;};
-    inline int64_t targetId() const { DARABONBA_PTR_GET_DEFAULT(targetId_, 0L) };
+    inline int64_t getTargetId() const { DARABONBA_PTR_GET_DEFAULT(targetId_, 0L) };
     inline GetInterceptionTargetDetailRequest& setTargetId(int64_t targetId) { DARABONBA_PTR_SET_VALUE(targetId_, targetId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // > You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the IDs of network objects.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> targetId_ = nullptr;
+    shared_ptr<int64_t> targetId_ {};
   };
 
   } // namespace Models

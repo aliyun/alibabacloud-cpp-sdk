@@ -37,26 +37,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->info_ == nullptr
-        && return this->type_ == nullptr && return this->uuids_ == nullptr && return this->vulNames_ == nullptr; };
+        && this->type_ == nullptr && this->uuids_ == nullptr && this->vulNames_ == nullptr; };
     // info Field Functions 
     bool hasInfo() const { return this->info_ != nullptr;};
     void deleteInfo() { this->info_ = nullptr;};
-    inline string info() const { DARABONBA_PTR_GET_DEFAULT(info_, "") };
+    inline string getInfo() const { DARABONBA_PTR_GET_DEFAULT(info_, "") };
     inline CheckTrialFixCountRequest& setInfo(string info) { DARABONBA_PTR_SET_VALUE(info_, info) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CheckTrialFixCountRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // uuids Field Functions 
     bool hasUuids() const { return this->uuids_ != nullptr;};
     void deleteUuids() { this->uuids_ = nullptr;};
-    inline const vector<string> & uuids() const { DARABONBA_PTR_GET_CONST(uuids_, vector<string>) };
-    inline vector<string> uuids() { DARABONBA_PTR_GET(uuids_, vector<string>) };
+    inline const vector<string> & getUuids() const { DARABONBA_PTR_GET_CONST(uuids_, vector<string>) };
+    inline vector<string> getUuids() { DARABONBA_PTR_GET(uuids_, vector<string>) };
     inline CheckTrialFixCountRequest& setUuids(const vector<string> & uuids) { DARABONBA_PTR_SET_VALUE(uuids_, uuids) };
     inline CheckTrialFixCountRequest& setUuids(vector<string> && uuids) { DARABONBA_PTR_SET_RVALUE(uuids_, uuids) };
 
@@ -64,8 +64,8 @@ namespace Models
     // vulNames Field Functions 
     bool hasVulNames() const { return this->vulNames_ != nullptr;};
     void deleteVulNames() { this->vulNames_ = nullptr;};
-    inline const vector<string> & vulNames() const { DARABONBA_PTR_GET_CONST(vulNames_, vector<string>) };
-    inline vector<string> vulNames() { DARABONBA_PTR_GET(vulNames_, vector<string>) };
+    inline const vector<string> & getVulNames() const { DARABONBA_PTR_GET_CONST(vulNames_, vector<string>) };
+    inline vector<string> getVulNames() { DARABONBA_PTR_GET(vulNames_, vector<string>) };
     inline CheckTrialFixCountRequest& setVulNames(const vector<string> & vulNames) { DARABONBA_PTR_SET_VALUE(vulNames_, vulNames) };
     inline CheckTrialFixCountRequest& setVulNames(vector<string> && vulNames) { DARABONBA_PTR_SET_RVALUE(vulNames_, vulNames) };
 
@@ -84,7 +84,7 @@ namespace Models
     //     *   **cms**: Web-CMS vulnerability.
     // 
     // >  You must specify a value for Info or values for VulNames and Uuids to identify a vulnerability.
-    std::shared_ptr<string> info_ = nullptr;
+    shared_ptr<string> info_ {};
     // The type of the vulnerability that you want to fix. Valid values:
     // 
     // *   **cve**: Linux software vulnerability.
@@ -92,11 +92,11 @@ namespace Models
     // *   **cms**: Web-CMS vulnerability.
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // The UUIDs of the servers.
-    std::shared_ptr<vector<string>> uuids_ = nullptr;
+    shared_ptr<vector<string>> uuids_ {};
     // The names of the vulnerabilities.
-    std::shared_ptr<vector<string>> vulNames_ = nullptr;
+    shared_ptr<vector<string>> vulNames_ {};
   };
 
   } // namespace Models

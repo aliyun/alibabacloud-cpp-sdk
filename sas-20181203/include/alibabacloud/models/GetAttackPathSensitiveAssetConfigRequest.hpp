@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attackPathSensitiveAssetConfigId_ == nullptr
-        && return this->configType_ == nullptr; };
+        && this->configType_ == nullptr; };
     // attackPathSensitiveAssetConfigId Field Functions 
     bool hasAttackPathSensitiveAssetConfigId() const { return this->attackPathSensitiveAssetConfigId_ != nullptr;};
     void deleteAttackPathSensitiveAssetConfigId() { this->attackPathSensitiveAssetConfigId_ = nullptr;};
-    inline string attackPathSensitiveAssetConfigId() const { DARABONBA_PTR_GET_DEFAULT(attackPathSensitiveAssetConfigId_, "") };
+    inline string getAttackPathSensitiveAssetConfigId() const { DARABONBA_PTR_GET_DEFAULT(attackPathSensitiveAssetConfigId_, "") };
     inline GetAttackPathSensitiveAssetConfigRequest& setAttackPathSensitiveAssetConfigId(string attackPathSensitiveAssetConfigId) { DARABONBA_PTR_SET_VALUE(attackPathSensitiveAssetConfigId_, attackPathSensitiveAssetConfigId) };
 
 
     // configType Field Functions 
     bool hasConfigType() const { return this->configType_ != nullptr;};
     void deleteConfigType() { this->configType_ = nullptr;};
-    inline string configType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
+    inline string getConfigType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
     inline GetAttackPathSensitiveAssetConfigRequest& setConfigType(string configType) { DARABONBA_PTR_SET_VALUE(configType_, configType) };
 
 
   protected:
     // ID of the created attack path sensitive asset setting.
-    std::shared_ptr<string> attackPathSensitiveAssetConfigId_ = nullptr;
+    shared_ptr<string> attackPathSensitiveAssetConfigId_ {};
     // Configuration type. Possible values:
     // - asset_instance: Asset.
     // 
     // This parameter is required.
-    std::shared_ptr<string> configType_ = nullptr;
+    shared_ptr<string> configType_ {};
   };
 
   } // namespace Models

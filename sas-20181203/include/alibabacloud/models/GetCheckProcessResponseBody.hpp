@@ -38,47 +38,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->finishCount_ == nullptr
-        && return this->requestId_ == nullptr && return this->statusCode_ == nullptr && return this->taskId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->requestId_ == nullptr && this->statusCode_ == nullptr && this->taskId_ == nullptr && this->totalCount_ == nullptr; };
     // finishCount Field Functions 
     bool hasFinishCount() const { return this->finishCount_ != nullptr;};
     void deleteFinishCount() { this->finishCount_ = nullptr;};
-    inline int32_t finishCount() const { DARABONBA_PTR_GET_DEFAULT(finishCount_, 0) };
+    inline int32_t getFinishCount() const { DARABONBA_PTR_GET_DEFAULT(finishCount_, 0) };
     inline GetCheckProcessResponseBody& setFinishCount(int32_t finishCount) { DARABONBA_PTR_SET_VALUE(finishCount_, finishCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetCheckProcessResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
-    inline string statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, "") };
+    inline string getStatusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, "") };
     inline GetCheckProcessResponseBody& setStatusCode(string statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline GetCheckProcessResponseBody& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline GetCheckProcessResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The total number of assets on which the task is complete.
-    std::shared_ptr<int32_t> finishCount_ = nullptr;
+    shared_ptr<int32_t> finishCount_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The status code of the Cloud Security Posture Management (CSPM) task. Valid values:
     // 
     // *   0: The task is being initialized. The system is calculating the total number of subtasks.
@@ -87,11 +87,11 @@ namespace Models
     // *   3: The task times out.
     // *   4: The task is invalid. Check whether assets exist.
     // *   5: No task record is found. Check whether the TaskId parameter is valid.
-    std::shared_ptr<string> statusCode_ = nullptr;
+    shared_ptr<string> statusCode_ {};
     // The ID of the task.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
     // The total number of assets on which the task is performed.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

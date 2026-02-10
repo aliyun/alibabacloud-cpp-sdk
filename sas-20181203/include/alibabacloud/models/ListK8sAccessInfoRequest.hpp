@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunYundunGatewayApiName_ == nullptr
-        && return this->aliyunYundunGatewayPopName_ == nullptr && return this->aliyunYundunGatewayProjectName_ == nullptr && return this->lang_ == nullptr; };
+        && this->aliyunYundunGatewayPopName_ == nullptr && this->aliyunYundunGatewayProjectName_ == nullptr && this->lang_ == nullptr; };
     // aliyunYundunGatewayApiName Field Functions 
     bool hasAliyunYundunGatewayApiName() const { return this->aliyunYundunGatewayApiName_ != nullptr;};
     void deleteAliyunYundunGatewayApiName() { this->aliyunYundunGatewayApiName_ = nullptr;};
-    inline string aliyunYundunGatewayApiName() const { DARABONBA_PTR_GET_DEFAULT(aliyunYundunGatewayApiName_, "") };
+    inline string getAliyunYundunGatewayApiName() const { DARABONBA_PTR_GET_DEFAULT(aliyunYundunGatewayApiName_, "") };
     inline ListK8sAccessInfoRequest& setAliyunYundunGatewayApiName(string aliyunYundunGatewayApiName) { DARABONBA_PTR_SET_VALUE(aliyunYundunGatewayApiName_, aliyunYundunGatewayApiName) };
 
 
     // aliyunYundunGatewayPopName Field Functions 
     bool hasAliyunYundunGatewayPopName() const { return this->aliyunYundunGatewayPopName_ != nullptr;};
     void deleteAliyunYundunGatewayPopName() { this->aliyunYundunGatewayPopName_ = nullptr;};
-    inline string aliyunYundunGatewayPopName() const { DARABONBA_PTR_GET_DEFAULT(aliyunYundunGatewayPopName_, "") };
+    inline string getAliyunYundunGatewayPopName() const { DARABONBA_PTR_GET_DEFAULT(aliyunYundunGatewayPopName_, "") };
     inline ListK8sAccessInfoRequest& setAliyunYundunGatewayPopName(string aliyunYundunGatewayPopName) { DARABONBA_PTR_SET_VALUE(aliyunYundunGatewayPopName_, aliyunYundunGatewayPopName) };
 
 
     // aliyunYundunGatewayProjectName Field Functions 
     bool hasAliyunYundunGatewayProjectName() const { return this->aliyunYundunGatewayProjectName_ != nullptr;};
     void deleteAliyunYundunGatewayProjectName() { this->aliyunYundunGatewayProjectName_ = nullptr;};
-    inline string aliyunYundunGatewayProjectName() const { DARABONBA_PTR_GET_DEFAULT(aliyunYundunGatewayProjectName_, "") };
+    inline string getAliyunYundunGatewayProjectName() const { DARABONBA_PTR_GET_DEFAULT(aliyunYundunGatewayProjectName_, "") };
     inline ListK8sAccessInfoRequest& setAliyunYundunGatewayProjectName(string aliyunYundunGatewayProjectName) { DARABONBA_PTR_SET_VALUE(aliyunYundunGatewayProjectName_, aliyunYundunGatewayProjectName) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ListK8sAccessInfoRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
     // This parameter is deprecated.
-    std::shared_ptr<string> aliyunYundunGatewayApiName_ = nullptr;
+    shared_ptr<string> aliyunYundunGatewayApiName_ {};
     // This parameter is deprecated.
-    std::shared_ptr<string> aliyunYundunGatewayPopName_ = nullptr;
+    shared_ptr<string> aliyunYundunGatewayPopName_ {};
     // This parameter is deprecated.
-    std::shared_ptr<string> aliyunYundunGatewayProjectName_ = nullptr;
+    shared_ptr<string> aliyunYundunGatewayProjectName_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

@@ -34,8 +34,8 @@ namespace Models
     // checkIds Field Functions 
     bool hasCheckIds() const { return this->checkIds_ != nullptr;};
     void deleteCheckIds() { this->checkIds_ = nullptr;};
-    inline const vector<int64_t> & checkIds() const { DARABONBA_PTR_GET_CONST(checkIds_, vector<int64_t>) };
-    inline vector<int64_t> checkIds() { DARABONBA_PTR_GET(checkIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getCheckIds() const { DARABONBA_PTR_GET_CONST(checkIds_, vector<int64_t>) };
+    inline vector<int64_t> getCheckIds() { DARABONBA_PTR_GET(checkIds_, vector<int64_t>) };
     inline DeleteCheckItemRequest& setCheckIds(const vector<int64_t> & checkIds) { DARABONBA_PTR_SET_VALUE(checkIds_, checkIds) };
     inline DeleteCheckItemRequest& setCheckIds(vector<int64_t> && checkIds) { DARABONBA_PTR_SET_RVALUE(checkIds_, checkIds) };
 
@@ -44,7 +44,7 @@ namespace Models
     // List of check item IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> checkIds_ = nullptr;
+    shared_ptr<vector<int64_t>> checkIds_ {};
   };
 
   } // namespace Models

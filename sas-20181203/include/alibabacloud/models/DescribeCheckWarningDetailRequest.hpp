@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkId_ == nullptr
-        && return this->checkWarningId_ == nullptr && return this->containerName_ == nullptr && return this->lang_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->sourceIp_ == nullptr
-        && return this->uuid_ == nullptr; };
+        && this->checkWarningId_ == nullptr && this->containerName_ == nullptr && this->lang_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->sourceIp_ == nullptr
+        && this->uuid_ == nullptr; };
     // checkId Field Functions 
     bool hasCheckId() const { return this->checkId_ != nullptr;};
     void deleteCheckId() { this->checkId_ = nullptr;};
-    inline string checkId() const { DARABONBA_PTR_GET_DEFAULT(checkId_, "") };
+    inline string getCheckId() const { DARABONBA_PTR_GET_DEFAULT(checkId_, "") };
     inline DescribeCheckWarningDetailRequest& setCheckId(string checkId) { DARABONBA_PTR_SET_VALUE(checkId_, checkId) };
 
 
     // checkWarningId Field Functions 
     bool hasCheckWarningId() const { return this->checkWarningId_ != nullptr;};
     void deleteCheckWarningId() { this->checkWarningId_ = nullptr;};
-    inline int64_t checkWarningId() const { DARABONBA_PTR_GET_DEFAULT(checkWarningId_, 0L) };
+    inline int64_t getCheckWarningId() const { DARABONBA_PTR_GET_DEFAULT(checkWarningId_, 0L) };
     inline DescribeCheckWarningDetailRequest& setCheckWarningId(int64_t checkWarningId) { DARABONBA_PTR_SET_VALUE(checkWarningId_, checkWarningId) };
 
 
     // containerName Field Functions 
     bool hasContainerName() const { return this->containerName_ != nullptr;};
     void deleteContainerName() { this->containerName_ = nullptr;};
-    inline string containerName() const { DARABONBA_PTR_GET_DEFAULT(containerName_, "") };
+    inline string getContainerName() const { DARABONBA_PTR_GET_DEFAULT(containerName_, "") };
     inline DescribeCheckWarningDetailRequest& setContainerName(string containerName) { DARABONBA_PTR_SET_VALUE(containerName_, containerName) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeCheckWarningDetailRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // resourceDirectoryAccountId Field Functions 
     bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
     void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
-    inline int64_t resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
     inline DescribeCheckWarningDetailRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeCheckWarningDetailRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline DescribeCheckWarningDetailRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
@@ -99,32 +99,32 @@ namespace Models
     // >  You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to query the IDs of check items.
     // 
     // >  If you specify this parameter, you must also specify the Uuid parameter.
-    std::shared_ptr<string> checkId_ = nullptr;
+    shared_ptr<string> checkId_ {};
     // The ID of the alert triggered by the check item.
     // 
     // >  To query the details of a check item, you must provide the ID of the alert that is triggered by the check item. You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to query the IDs of alerts.
     // 
     // >  If the Uuid and CheckId parameters are not specified, this parameter is required.
-    std::shared_ptr<int64_t> checkWarningId_ = nullptr;
+    shared_ptr<int64_t> checkWarningId_ {};
     // Container name.
-    std::shared_ptr<string> containerName_ = nullptr;
+    shared_ptr<string> containerName_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The Alibaba Cloud account ID of the member in the resource directory.
     // 
     // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the IDs of Alibaba Cloud accounts.
-    std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The UUID of the server.
     // 
     // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
     // 
     // >  If you specify this parameter, you must also specify the CheckId parameter.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

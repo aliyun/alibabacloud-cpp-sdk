@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->strategyId_ == nullptr
-        && return this->strategyName_ == nullptr && return this->strategyTaskName_ == nullptr && return this->strategyTaskParams_ == nullptr && return this->strategyTaskPlanExeTime_ == nullptr; };
+        && this->strategyName_ == nullptr && this->strategyTaskName_ == nullptr && this->strategyTaskParams_ == nullptr && this->strategyTaskPlanExeTime_ == nullptr; };
     // strategyId Field Functions 
     bool hasStrategyId() const { return this->strategyId_ != nullptr;};
     void deleteStrategyId() { this->strategyId_ = nullptr;};
-    inline int64_t strategyId() const { DARABONBA_PTR_GET_DEFAULT(strategyId_, 0L) };
+    inline int64_t getStrategyId() const { DARABONBA_PTR_GET_DEFAULT(strategyId_, 0L) };
     inline CreateSoarStrategyTaskRequest& setStrategyId(int64_t strategyId) { DARABONBA_PTR_SET_VALUE(strategyId_, strategyId) };
 
 
     // strategyName Field Functions 
     bool hasStrategyName() const { return this->strategyName_ != nullptr;};
     void deleteStrategyName() { this->strategyName_ = nullptr;};
-    inline string strategyName() const { DARABONBA_PTR_GET_DEFAULT(strategyName_, "") };
+    inline string getStrategyName() const { DARABONBA_PTR_GET_DEFAULT(strategyName_, "") };
     inline CreateSoarStrategyTaskRequest& setStrategyName(string strategyName) { DARABONBA_PTR_SET_VALUE(strategyName_, strategyName) };
 
 
     // strategyTaskName Field Functions 
     bool hasStrategyTaskName() const { return this->strategyTaskName_ != nullptr;};
     void deleteStrategyTaskName() { this->strategyTaskName_ = nullptr;};
-    inline string strategyTaskName() const { DARABONBA_PTR_GET_DEFAULT(strategyTaskName_, "") };
+    inline string getStrategyTaskName() const { DARABONBA_PTR_GET_DEFAULT(strategyTaskName_, "") };
     inline CreateSoarStrategyTaskRequest& setStrategyTaskName(string strategyTaskName) { DARABONBA_PTR_SET_VALUE(strategyTaskName_, strategyTaskName) };
 
 
     // strategyTaskParams Field Functions 
     bool hasStrategyTaskParams() const { return this->strategyTaskParams_ != nullptr;};
     void deleteStrategyTaskParams() { this->strategyTaskParams_ = nullptr;};
-    inline string strategyTaskParams() const { DARABONBA_PTR_GET_DEFAULT(strategyTaskParams_, "") };
+    inline string getStrategyTaskParams() const { DARABONBA_PTR_GET_DEFAULT(strategyTaskParams_, "") };
     inline CreateSoarStrategyTaskRequest& setStrategyTaskParams(string strategyTaskParams) { DARABONBA_PTR_SET_VALUE(strategyTaskParams_, strategyTaskParams) };
 
 
     // strategyTaskPlanExeTime Field Functions 
     bool hasStrategyTaskPlanExeTime() const { return this->strategyTaskPlanExeTime_ != nullptr;};
     void deleteStrategyTaskPlanExeTime() { this->strategyTaskPlanExeTime_ = nullptr;};
-    inline int64_t strategyTaskPlanExeTime() const { DARABONBA_PTR_GET_DEFAULT(strategyTaskPlanExeTime_, 0L) };
+    inline int64_t getStrategyTaskPlanExeTime() const { DARABONBA_PTR_GET_DEFAULT(strategyTaskPlanExeTime_, 0L) };
     inline CreateSoarStrategyTaskRequest& setStrategyTaskPlanExeTime(int64_t strategyTaskPlanExeTime) { DARABONBA_PTR_SET_VALUE(strategyTaskPlanExeTime_, strategyTaskPlanExeTime) };
 
 
@@ -80,15 +80,15 @@ namespace Models
     // >  You can call the [DescribeSoarSubscribedStrategy](~~DescribeSoarSubscribedStrategy~~) operation to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> strategyId_ = nullptr;
+    shared_ptr<int64_t> strategyId_ {};
     // The name of the policy. Set the value to Automated Batch Vulnerability Fixing Policy for Multiple Servers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> strategyName_ = nullptr;
+    shared_ptr<string> strategyName_ {};
     // The name of.the policy task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> strategyTaskName_ = nullptr;
+    shared_ptr<string> strategyTaskName_ {};
     // The parameters of the policy task. The value is a JSON array.
     // 
     // Vulnerability-related parameters:
@@ -110,9 +110,9 @@ namespace Models
     // *   value: email or DingTalk configuration information
     // 
     // This parameter is required.
-    std::shared_ptr<string> strategyTaskParams_ = nullptr;
+    shared_ptr<string> strategyTaskParams_ {};
     // The timestamp when the task is scheduled to start. Unit: milliseconds.
-    std::shared_ptr<int64_t> strategyTaskPlanExeTime_ = nullptr;
+    shared_ptr<int64_t> strategyTaskPlanExeTime_ {};
   };
 
   } // namespace Models

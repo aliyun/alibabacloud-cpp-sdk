@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->info_ == nullptr
-        && return this->operateType_ == nullptr && return this->type_ == nullptr; };
+        && this->operateType_ == nullptr && this->type_ == nullptr; };
     // info Field Functions 
     bool hasInfo() const { return this->info_ != nullptr;};
     void deleteInfo() { this->info_ = nullptr;};
-    inline string info() const { DARABONBA_PTR_GET_DEFAULT(info_, "") };
+    inline string getInfo() const { DARABONBA_PTR_GET_DEFAULT(info_, "") };
     inline OperateImageVulRequest& setInfo(string info) { DARABONBA_PTR_SET_VALUE(info_, info) };
 
 
     // operateType Field Functions 
     bool hasOperateType() const { return this->operateType_ != nullptr;};
     void deleteOperateType() { this->operateType_ = nullptr;};
-    inline string operateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
+    inline string getOperateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
     inline OperateImageVulRequest& setOperateType(string operateType) { DARABONBA_PTR_SET_VALUE(operateType_, operateType) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline OperateImageVulRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -69,11 +69,11 @@ namespace Models
     // *   newTag: the tag added to the image after the vulnerability is fixed
     // *   uuid: the UUID of the image
     // *   ids: the IDs of the vulnerability primary keys
-    std::shared_ptr<string> info_ = nullptr;
+    shared_ptr<string> info_ {};
     // If you want to fix the vulnerability, set the value to vul_fix.
-    std::shared_ptr<string> operateType_ = nullptr;
+    shared_ptr<string> operateType_ {};
     // The type of the vulnerability. Set the value to cve.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->currentPage_ == nullptr && return this->nameSpaceName_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->currentPage_ == nullptr && this->nameSpaceName_ == nullptr && this->pageSize_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetOpaClusterNamespaceListRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline GetOpaClusterNamespaceListRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // nameSpaceName Field Functions 
     bool hasNameSpaceName() const { return this->nameSpaceName_ != nullptr;};
     void deleteNameSpaceName() { this->nameSpaceName_ = nullptr;};
-    inline string nameSpaceName() const { DARABONBA_PTR_GET_DEFAULT(nameSpaceName_, "") };
+    inline string getNameSpaceName() const { DARABONBA_PTR_GET_DEFAULT(nameSpaceName_, "") };
     inline GetOpaClusterNamespaceListRequest& setNameSpaceName(string nameSpaceName) { DARABONBA_PTR_SET_VALUE(nameSpaceName_, nameSpaceName) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetOpaClusterNamespaceListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
@@ -69,13 +69,13 @@ namespace Models
     // The ID of the cluster that you want to query.
     // 
     // >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The page number.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The name of the namespace.
-    std::shared_ptr<string> nameSpaceName_ = nullptr;
+    shared_ptr<string> nameSpaceName_ {};
     // The number of entries per page. Default value: **20**.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

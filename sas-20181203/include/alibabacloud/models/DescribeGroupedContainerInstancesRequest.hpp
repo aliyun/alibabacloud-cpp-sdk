@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->criteria_ == nullptr
-        && return this->currentPage_ == nullptr && return this->fieldValue_ == nullptr && return this->groupField_ == nullptr && return this->logicalExp_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->currentPage_ == nullptr && this->fieldValue_ == nullptr && this->groupField_ == nullptr && this->logicalExp_ == nullptr && this->pageSize_ == nullptr; };
     // criteria Field Functions 
     bool hasCriteria() const { return this->criteria_ != nullptr;};
     void deleteCriteria() { this->criteria_ = nullptr;};
-    inline string criteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
+    inline string getCriteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
     inline DescribeGroupedContainerInstancesRequest& setCriteria(string criteria) { DARABONBA_PTR_SET_VALUE(criteria_, criteria) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeGroupedContainerInstancesRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // fieldValue Field Functions 
     bool hasFieldValue() const { return this->fieldValue_ != nullptr;};
     void deleteFieldValue() { this->fieldValue_ = nullptr;};
-    inline string fieldValue() const { DARABONBA_PTR_GET_DEFAULT(fieldValue_, "") };
+    inline string getFieldValue() const { DARABONBA_PTR_GET_DEFAULT(fieldValue_, "") };
     inline DescribeGroupedContainerInstancesRequest& setFieldValue(string fieldValue) { DARABONBA_PTR_SET_VALUE(fieldValue_, fieldValue) };
 
 
     // groupField Field Functions 
     bool hasGroupField() const { return this->groupField_ != nullptr;};
     void deleteGroupField() { this->groupField_ = nullptr;};
-    inline string groupField() const { DARABONBA_PTR_GET_DEFAULT(groupField_, "") };
+    inline string getGroupField() const { DARABONBA_PTR_GET_DEFAULT(groupField_, "") };
     inline DescribeGroupedContainerInstancesRequest& setGroupField(string groupField) { DARABONBA_PTR_SET_VALUE(groupField_, groupField) };
 
 
     // logicalExp Field Functions 
     bool hasLogicalExp() const { return this->logicalExp_ != nullptr;};
     void deleteLogicalExp() { this->logicalExp_ = nullptr;};
-    inline string logicalExp() const { DARABONBA_PTR_GET_DEFAULT(logicalExp_, "") };
+    inline string getLogicalExp() const { DARABONBA_PTR_GET_DEFAULT(logicalExp_, "") };
     inline DescribeGroupedContainerInstancesRequest& setLogicalExp(string logicalExp) { DARABONBA_PTR_SET_VALUE(logicalExp_, logicalExp) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeGroupedContainerInstancesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
@@ -87,9 +87,9 @@ namespace Models
     // The search conditions for assets. Specify the value in the JSON format. Separate multiple search conditions with commas (,). Example: `[{"name":"riskStatus","value":"YES"},{"name":"riskLevel","value":"2"}]`.
     // 
     // >  Supported search conditions include the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
-    std::shared_ptr<string> criteria_ = nullptr;
+    shared_ptr<string> criteria_ {};
     // The number of the page to return. Default value: **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The keyword that you want to use to query containers. This parameter depends on the value of the GroupField parameter.
     // 
     // *   If the **GroupField** parameter is set to **pod**, set this parameter to the name of the pod that you want to query.
@@ -99,7 +99,7 @@ namespace Models
     // *   If the **GroupField** parameter is set to **image**, set this parameter to the name of the image that you want to query.
     // 
     // >  Fuzzy match is supported.
-    std::shared_ptr<string> fieldValue_ = nullptr;
+    shared_ptr<string> fieldValue_ {};
     // The group type that you want to use to query containers. Valid values:
     // 
     // *   **pod**
@@ -109,16 +109,16 @@ namespace Models
     // *   **image**
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupField_ = nullptr;
+    shared_ptr<string> groupField_ {};
     // The logical relationship that you want to use to evaluate multiple search conditions. Valid values:
     // 
     // *   **OR**: Search conditions are evaluated by using a logical **OR**.
     // *   **AND**: Search conditions are evaluated by using a logical **AND**.
-    std::shared_ptr<string> logicalExp_ = nullptr;
+    shared_ptr<string> logicalExp_ {};
     // The number of entries to return on each page. Default value: **20**.
     // 
     // >  We recommend that you do not leave this parameter empty.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // buildTaskId Field Functions 
     bool hasBuildTaskId() const { return this->buildTaskId_ != nullptr;};
     void deleteBuildTaskId() { this->buildTaskId_ = nullptr;};
-    inline string buildTaskId() const { DARABONBA_PTR_GET_DEFAULT(buildTaskId_, "") };
+    inline string getBuildTaskId() const { DARABONBA_PTR_GET_DEFAULT(buildTaskId_, "") };
     inline DescribeTaskErrorLogRequest& setBuildTaskId(string buildTaskId) { DARABONBA_PTR_SET_VALUE(buildTaskId_, buildTaskId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // >  You can call the DescribeImageFixTask operation to query the IDs of tasks.
     // 
     // This parameter is required.
-    std::shared_ptr<string> buildTaskId_ = nullptr;
+    shared_ptr<string> buildTaskId_ {};
   };
 
   } // namespace Models

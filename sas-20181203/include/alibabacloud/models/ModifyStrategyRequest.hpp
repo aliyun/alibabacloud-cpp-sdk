@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customType_ == nullptr
-        && return this->cycleDays_ == nullptr && return this->cycleStartTime_ == nullptr && return this->endTime_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr
-        && return this->riskCustomParams_ == nullptr && return this->riskSubTypeName_ == nullptr && return this->sourceIp_ == nullptr && return this->startTime_ == nullptr && return this->targetType_ == nullptr; };
+        && this->cycleDays_ == nullptr && this->cycleStartTime_ == nullptr && this->endTime_ == nullptr && this->id_ == nullptr && this->name_ == nullptr
+        && this->riskCustomParams_ == nullptr && this->riskSubTypeName_ == nullptr && this->sourceIp_ == nullptr && this->startTime_ == nullptr && this->targetType_ == nullptr; };
     // customType Field Functions 
     bool hasCustomType() const { return this->customType_ != nullptr;};
     void deleteCustomType() { this->customType_ = nullptr;};
-    inline string customType() const { DARABONBA_PTR_GET_DEFAULT(customType_, "") };
+    inline string getCustomType() const { DARABONBA_PTR_GET_DEFAULT(customType_, "") };
     inline ModifyStrategyRequest& setCustomType(string customType) { DARABONBA_PTR_SET_VALUE(customType_, customType) };
 
 
     // cycleDays Field Functions 
     bool hasCycleDays() const { return this->cycleDays_ != nullptr;};
     void deleteCycleDays() { this->cycleDays_ = nullptr;};
-    inline string cycleDays() const { DARABONBA_PTR_GET_DEFAULT(cycleDays_, "") };
+    inline string getCycleDays() const { DARABONBA_PTR_GET_DEFAULT(cycleDays_, "") };
     inline ModifyStrategyRequest& setCycleDays(string cycleDays) { DARABONBA_PTR_SET_VALUE(cycleDays_, cycleDays) };
 
 
     // cycleStartTime Field Functions 
     bool hasCycleStartTime() const { return this->cycleStartTime_ != nullptr;};
     void deleteCycleStartTime() { this->cycleStartTime_ = nullptr;};
-    inline string cycleStartTime() const { DARABONBA_PTR_GET_DEFAULT(cycleStartTime_, "") };
+    inline string getCycleStartTime() const { DARABONBA_PTR_GET_DEFAULT(cycleStartTime_, "") };
     inline ModifyStrategyRequest& setCycleStartTime(string cycleStartTime) { DARABONBA_PTR_SET_VALUE(cycleStartTime_, cycleStartTime) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline ModifyStrategyRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline ModifyStrategyRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ModifyStrategyRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // riskCustomParams Field Functions 
     bool hasRiskCustomParams() const { return this->riskCustomParams_ != nullptr;};
     void deleteRiskCustomParams() { this->riskCustomParams_ = nullptr;};
-    inline string riskCustomParams() const { DARABONBA_PTR_GET_DEFAULT(riskCustomParams_, "") };
+    inline string getRiskCustomParams() const { DARABONBA_PTR_GET_DEFAULT(riskCustomParams_, "") };
     inline ModifyStrategyRequest& setRiskCustomParams(string riskCustomParams) { DARABONBA_PTR_SET_VALUE(riskCustomParams_, riskCustomParams) };
 
 
     // riskSubTypeName Field Functions 
     bool hasRiskSubTypeName() const { return this->riskSubTypeName_ != nullptr;};
     void deleteRiskSubTypeName() { this->riskSubTypeName_ = nullptr;};
-    inline string riskSubTypeName() const { DARABONBA_PTR_GET_DEFAULT(riskSubTypeName_, "") };
+    inline string getRiskSubTypeName() const { DARABONBA_PTR_GET_DEFAULT(riskSubTypeName_, "") };
     inline ModifyStrategyRequest& setRiskSubTypeName(string riskSubTypeName) { DARABONBA_PTR_SET_VALUE(riskSubTypeName_, riskSubTypeName) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline ModifyStrategyRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline ModifyStrategyRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
-    inline string targetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
+    inline string getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
     inline ModifyStrategyRequest& setTargetType(string targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
 
 
@@ -136,7 +136,7 @@ namespace Models
     // *   **common**: a standard baseline check policy
     // 
     // This parameter is required.
-    std::shared_ptr<string> customType_ = nullptr;
+    shared_ptr<string> customType_ {};
     // The new interval of the baseline check. Valid values:
     // 
     // *   **1**: every 2 days
@@ -145,7 +145,7 @@ namespace Models
     // *   **30**: every 31 days
     // 
     // This parameter is required.
-    std::shared_ptr<string> cycleDays_ = nullptr;
+    shared_ptr<string> cycleDays_ {};
     // The new time range during which the baseline check starts. Valid values:
     // 
     // *   **0**: The baseline check starts within the time range from 00:00 to 06:00.
@@ -154,17 +154,17 @@ namespace Models
     // *   **18**: The baseline check starts within the time range from 18:00 to 24:00.
     // 
     // >  This parameter is deprecated.
-    std::shared_ptr<string> cycleStartTime_ = nullptr;
+    shared_ptr<string> cycleStartTime_ {};
     // The time when the baseline check based on the baseline check policy ends. Specify the time in the hh:mm:ss format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The ID of the baseline check policy.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // The new name of the baseline check policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The custom configurations of the baseline. The value of this parameter is in the JSON format and contains the following fields:
     // 
     // *   **typeName**: the name of the baseline.
@@ -181,24 +181,24 @@ namespace Models
     // 
     //             *   **paramName**: the name of the parameter.
     //             *   **value**: the value of the parameter.
-    std::shared_ptr<string> riskCustomParams_ = nullptr;
+    shared_ptr<string> riskCustomParams_ {};
     // The subtype of the baselines. You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the subtypes of baselines.
     // 
     // This parameter is required.
-    std::shared_ptr<string> riskSubTypeName_ = nullptr;
+    shared_ptr<string> riskSubTypeName_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The time when the baseline check based on the baseline check policy starts. Specify the time in the hh:mm:ss format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The method that is used to apply the baseline check policy. Valid values:
     // 
     // *   **groupId**: asset groups
     // *   **uuid**: assets
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetType_ = nullptr;
+    shared_ptr<string> targetType_ {};
   };
 
   } // namespace Models

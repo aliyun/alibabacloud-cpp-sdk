@@ -33,7 +33,7 @@ namespace Models
     // userLang Field Functions 
     bool hasUserLang() const { return this->userLang_ != nullptr;};
     void deleteUserLang() { this->userLang_ = nullptr;};
-    inline string userLang() const { DARABONBA_PTR_GET_DEFAULT(userLang_, "") };
+    inline string getUserLang() const { DARABONBA_PTR_GET_DEFAULT(userLang_, "") };
     inline ChangeUserLangRequest& setUserLang(string userLang) { DARABONBA_PTR_SET_VALUE(userLang_, userLang) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   zh: Chinese
     // *   en: English
-    std::shared_ptr<string> userLang_ = nullptr;
+    shared_ptr<string> userLang_ {};
   };
 
   } // namespace Models

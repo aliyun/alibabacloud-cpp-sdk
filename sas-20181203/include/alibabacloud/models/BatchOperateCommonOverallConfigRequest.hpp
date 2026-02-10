@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->typeList_ == nullptr; };
+        && this->typeList_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline BatchOperateCommonOverallConfigRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // typeList Field Functions 
     bool hasTypeList() const { return this->typeList_ != nullptr;};
     void deleteTypeList() { this->typeList_ = nullptr;};
-    inline const vector<string> & typeList() const { DARABONBA_PTR_GET_CONST(typeList_, vector<string>) };
-    inline vector<string> typeList() { DARABONBA_PTR_GET(typeList_, vector<string>) };
+    inline const vector<string> & getTypeList() const { DARABONBA_PTR_GET_CONST(typeList_, vector<string>) };
+    inline vector<string> getTypeList() { DARABONBA_PTR_GET(typeList_, vector<string>) };
     inline BatchOperateCommonOverallConfigRequest& setTypeList(const vector<string> & typeList) { DARABONBA_PTR_SET_VALUE(typeList_, typeList) };
     inline BatchOperateCommonOverallConfigRequest& setTypeList(vector<string> && typeList) { DARABONBA_PTR_SET_RVALUE(typeList_, typeList) };
 
@@ -57,7 +57,7 @@ namespace Models
     // *   **off**: disabled
     // 
     // This parameter is required.
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
     // The type of the feature in proactive defense. Valid values:
     // 
     // *   **kdump_switch**: Active defense experience optimization
@@ -132,7 +132,7 @@ namespace Models
     // *   **USER-ENABLE-SWITCH-TYPE_52829**: delete system backup behavior (Windows)
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> typeList_ = nullptr;
+    shared_ptr<vector<string>> typeList_ {};
   };
 
   } // namespace Models

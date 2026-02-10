@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->statisticType_ == nullptr
-        && return this->taskSources_ == nullptr && return this->vendors_ == nullptr; };
+        && this->taskSources_ == nullptr && this->vendors_ == nullptr; };
     // statisticType Field Functions 
     bool hasStatisticType() const { return this->statisticType_ != nullptr;};
     void deleteStatisticType() { this->statisticType_ = nullptr;};
-    inline string statisticType() const { DARABONBA_PTR_GET_DEFAULT(statisticType_, "") };
+    inline string getStatisticType() const { DARABONBA_PTR_GET_DEFAULT(statisticType_, "") };
     inline GetCheckCountStatisticRequest& setStatisticType(string statisticType) { DARABONBA_PTR_SET_VALUE(statisticType_, statisticType) };
 
 
     // taskSources Field Functions 
     bool hasTaskSources() const { return this->taskSources_ != nullptr;};
     void deleteTaskSources() { this->taskSources_ = nullptr;};
-    inline const vector<string> & taskSources() const { DARABONBA_PTR_GET_CONST(taskSources_, vector<string>) };
-    inline vector<string> taskSources() { DARABONBA_PTR_GET(taskSources_, vector<string>) };
+    inline const vector<string> & getTaskSources() const { DARABONBA_PTR_GET_CONST(taskSources_, vector<string>) };
+    inline vector<string> getTaskSources() { DARABONBA_PTR_GET(taskSources_, vector<string>) };
     inline GetCheckCountStatisticRequest& setTaskSources(const vector<string> & taskSources) { DARABONBA_PTR_SET_VALUE(taskSources_, taskSources) };
     inline GetCheckCountStatisticRequest& setTaskSources(vector<string> && taskSources) { DARABONBA_PTR_SET_RVALUE(taskSources_, taskSources) };
 
@@ -55,8 +55,8 @@ namespace Models
     // vendors Field Functions 
     bool hasVendors() const { return this->vendors_ != nullptr;};
     void deleteVendors() { this->vendors_ = nullptr;};
-    inline const vector<string> & vendors() const { DARABONBA_PTR_GET_CONST(vendors_, vector<string>) };
-    inline vector<string> vendors() { DARABONBA_PTR_GET(vendors_, vector<string>) };
+    inline const vector<string> & getVendors() const { DARABONBA_PTR_GET_CONST(vendors_, vector<string>) };
+    inline vector<string> getVendors() { DARABONBA_PTR_GET(vendors_, vector<string>) };
     inline GetCheckCountStatisticRequest& setVendors(const vector<string> & vendors) { DARABONBA_PTR_SET_VALUE(vendors_, vendors) };
     inline GetCheckCountStatisticRequest& setVendors(vector<string> && vendors) { DARABONBA_PTR_SET_RVALUE(vendors_, vendors) };
 
@@ -68,11 +68,11 @@ namespace Models
     // *   **role**: the top five roles that are granted excessive permissions.
     // *   **instance**: the top five cloud services on which risks are detected.
     // *   **host**: the top five servers on which baseline risks are detected.
-    std::shared_ptr<string> statisticType_ = nullptr;
+    shared_ptr<string> statisticType_ {};
     // Task source.
-    std::shared_ptr<vector<string>> taskSources_ = nullptr;
+    shared_ptr<vector<string>> taskSources_ {};
     // The cloud service providers.
-    std::shared_ptr<vector<string>> vendors_ = nullptr;
+    shared_ptr<vector<string>> vendors_ {};
   };
 
   } // namespace Models

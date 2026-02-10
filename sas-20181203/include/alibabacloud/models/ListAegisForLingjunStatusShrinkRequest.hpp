@@ -33,13 +33,13 @@ namespace Models
     // uuidsShrink Field Functions 
     bool hasUuidsShrink() const { return this->uuidsShrink_ != nullptr;};
     void deleteUuidsShrink() { this->uuidsShrink_ = nullptr;};
-    inline string uuidsShrink() const { DARABONBA_PTR_GET_DEFAULT(uuidsShrink_, "") };
+    inline string getUuidsShrink() const { DARABONBA_PTR_GET_DEFAULT(uuidsShrink_, "") };
     inline ListAegisForLingjunStatusShrinkRequest& setUuidsShrink(string uuidsShrink) { DARABONBA_PTR_SET_VALUE(uuidsShrink_, uuidsShrink) };
 
 
   protected:
     // List of unique UUIDs for Lingjun bare metal.
-    std::shared_ptr<string> uuidsShrink_ = nullptr;
+    shared_ptr<string> uuidsShrink_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // assetType Field Functions 
     bool hasAssetType() const { return this->assetType_ != nullptr;};
     void deleteAssetType() { this->assetType_ = nullptr;};
-    inline string assetType() const { DARABONBA_PTR_GET_DEFAULT(assetType_, "") };
+    inline string getAssetType() const { DARABONBA_PTR_GET_DEFAULT(assetType_, "") };
     inline RefreshContainerAssetsRequest& setAssetType(string assetType) { DARABONBA_PTR_SET_VALUE(assetType_, assetType) };
 
 
@@ -44,7 +44,7 @@ namespace Models
     // *   **CONTAINER**
     // 
     // This parameter is required.
-    std::shared_ptr<string> assetType_ = nullptr;
+    shared_ptr<string> assetType_ {};
   };
 
   } // namespace Models

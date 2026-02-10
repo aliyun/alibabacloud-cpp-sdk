@@ -34,8 +34,8 @@ namespace Models
     // moduleNames Field Functions 
     bool hasModuleNames() const { return this->moduleNames_ != nullptr;};
     void deleteModuleNames() { this->moduleNames_ = nullptr;};
-    inline const vector<string> & moduleNames() const { DARABONBA_PTR_GET_CONST(moduleNames_, vector<string>) };
-    inline vector<string> moduleNames() { DARABONBA_PTR_GET(moduleNames_, vector<string>) };
+    inline const vector<string> & getModuleNames() const { DARABONBA_PTR_GET_CONST(moduleNames_, vector<string>) };
+    inline vector<string> getModuleNames() { DARABONBA_PTR_GET(moduleNames_, vector<string>) };
     inline GetModuleConfigStatusRequest& setModuleNames(const vector<string> & moduleNames) { DARABONBA_PTR_SET_VALUE(moduleNames_, moduleNames) };
     inline GetModuleConfigStatusRequest& setModuleNames(vector<string> && moduleNames) { DARABONBA_PTR_SET_RVALUE(moduleNames_, moduleNames) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The service modules that you want to query.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> moduleNames_ = nullptr;
+    shared_ptr<vector<string>> moduleNames_ {};
   };
 
   } // namespace Models

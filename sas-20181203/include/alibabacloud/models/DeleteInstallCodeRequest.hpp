@@ -33,7 +33,7 @@ namespace Models
     // captchaCode Field Functions 
     bool hasCaptchaCode() const { return this->captchaCode_ != nullptr;};
     void deleteCaptchaCode() { this->captchaCode_ = nullptr;};
-    inline string captchaCode() const { DARABONBA_PTR_GET_DEFAULT(captchaCode_, "") };
+    inline string getCaptchaCode() const { DARABONBA_PTR_GET_DEFAULT(captchaCode_, "") };
     inline DeleteInstallCodeRequest& setCaptchaCode(string captchaCode) { DARABONBA_PTR_SET_VALUE(captchaCode_, captchaCode) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // >  You can call the [DescribeInstallCodes](~~DescribeInstallCodes~~) operation to query installation commands.
     // 
     // This parameter is required.
-    std::shared_ptr<string> captchaCode_ = nullptr;
+    shared_ptr<string> captchaCode_ {};
   };
 
   } // namespace Models

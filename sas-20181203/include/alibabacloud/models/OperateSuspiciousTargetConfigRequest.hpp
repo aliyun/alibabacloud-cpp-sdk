@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->sourceIp_ == nullptr && return this->targetOperations_ == nullptr && return this->targetType_ == nullptr && return this->type_ == nullptr; };
+        && this->sourceIp_ == nullptr && this->targetOperations_ == nullptr && this->targetType_ == nullptr && this->type_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline OperateSuspiciousTargetConfigRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline OperateSuspiciousTargetConfigRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // targetOperations Field Functions 
     bool hasTargetOperations() const { return this->targetOperations_ != nullptr;};
     void deleteTargetOperations() { this->targetOperations_ = nullptr;};
-    inline string targetOperations() const { DARABONBA_PTR_GET_DEFAULT(targetOperations_, "") };
+    inline string getTargetOperations() const { DARABONBA_PTR_GET_DEFAULT(targetOperations_, "") };
     inline OperateSuspiciousTargetConfigRequest& setTargetOperations(string targetOperations) { DARABONBA_PTR_SET_VALUE(targetOperations_, targetOperations) };
 
 
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
-    inline string targetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
+    inline string getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
     inline OperateSuspiciousTargetConfigRequest& setTargetType(string targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline OperateSuspiciousTargetConfigRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -79,9 +79,9 @@ namespace Models
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The configuration of proactive defense for your server. The value includes the following fields:
     // 
     // *   **targetType**: specifies the dimension from which you manage proactive defense. UUIDs are supported. Set the value to **uuid**.
@@ -89,13 +89,13 @@ namespace Models
     // *   **flag**: specifies whether to enable or disable proactive defense for your server. Valid values are **add** and **del**. The value add indicates that proactive defense will be enabled for your server. The value del indicates that proactive defense will be disabled for your server.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetOperations_ = nullptr;
+    shared_ptr<string> targetOperations_ {};
     // The dimension from which you manage proactive defense. Only the server UUID dimension is supported.
     // 
     // Set the value to **uuid**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetType_ = nullptr;
+    shared_ptr<string> targetType_ {};
     // The type of proactive defense. Valid Values:
     // 
     // *   **auto_breaking**: automatic blocking
@@ -105,7 +105,7 @@ namespace Models
     // *   **alisecguard**: client protection
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

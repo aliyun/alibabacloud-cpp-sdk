@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->userDefineRuleTypes_ == nullptr; };
+        && this->userDefineRuleTypes_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListClientUserDefineRuleTypesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // userDefineRuleTypes Field Functions 
     bool hasUserDefineRuleTypes() const { return this->userDefineRuleTypes_ != nullptr;};
     void deleteUserDefineRuleTypes() { this->userDefineRuleTypes_ = nullptr;};
-    inline const vector<string> & userDefineRuleTypes() const { DARABONBA_PTR_GET_CONST(userDefineRuleTypes_, vector<string>) };
-    inline vector<string> userDefineRuleTypes() { DARABONBA_PTR_GET(userDefineRuleTypes_, vector<string>) };
+    inline const vector<string> & getUserDefineRuleTypes() const { DARABONBA_PTR_GET_CONST(userDefineRuleTypes_, vector<string>) };
+    inline vector<string> getUserDefineRuleTypes() { DARABONBA_PTR_GET(userDefineRuleTypes_, vector<string>) };
     inline ListClientUserDefineRuleTypesResponseBody& setUserDefineRuleTypes(const vector<string> & userDefineRuleTypes) { DARABONBA_PTR_SET_VALUE(userDefineRuleTypes_, userDefineRuleTypes) };
     inline ListClientUserDefineRuleTypesResponseBody& setUserDefineRuleTypes(vector<string> && userDefineRuleTypes) { DARABONBA_PTR_SET_RVALUE(userDefineRuleTypes_, userDefineRuleTypes) };
 
 
   protected:
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // An array consisting of the rule types that are supported.
-    std::shared_ptr<vector<string>> userDefineRuleTypes_ = nullptr;
+    shared_ptr<vector<string>> userDefineRuleTypes_ {};
   };
 
   } // namespace Models

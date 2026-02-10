@@ -34,15 +34,15 @@ namespace Models
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline const vector<int64_t> & id() const { DARABONBA_PTR_GET_CONST(id_, vector<int64_t>) };
-    inline vector<int64_t> id() { DARABONBA_PTR_GET(id_, vector<int64_t>) };
+    inline const vector<int64_t> & getId() const { DARABONBA_PTR_GET_CONST(id_, vector<int64_t>) };
+    inline vector<int64_t> getId() { DARABONBA_PTR_GET(id_, vector<int64_t>) };
     inline DeleteFileProtectRuleRequest& setId(const vector<int64_t> & id) { DARABONBA_PTR_SET_VALUE(id_, id) };
     inline DeleteFileProtectRuleRequest& setId(vector<int64_t> && id) { DARABONBA_PTR_SET_RVALUE(id_, id) };
 
 
   protected:
     // The IDs of the core file monitoring rules that you want to delete.
-    std::shared_ptr<vector<int64_t>> id_ = nullptr;
+    shared_ptr<vector<int64_t>> id_ {};
   };
 
   } // namespace Models

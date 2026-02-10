@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->reason_ == nullptr && return this->sourceIp_ == nullptr && return this->targetInfo_ == nullptr; };
+        && this->reason_ == nullptr && this->sourceIp_ == nullptr && this->targetInfo_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline ModifyVulWhitelistTargetRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline ModifyVulWhitelistTargetRequest& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline ModifyVulWhitelistTargetRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // targetInfo Field Functions 
     bool hasTargetInfo() const { return this->targetInfo_ != nullptr;};
     void deleteTargetInfo() { this->targetInfo_ = nullptr;};
-    inline string targetInfo() const { DARABONBA_PTR_GET_DEFAULT(targetInfo_, "") };
+    inline string getTargetInfo() const { DARABONBA_PTR_GET_DEFAULT(targetInfo_, "") };
     inline ModifyVulWhitelistTargetRequest& setTargetInfo(string targetInfo) { DARABONBA_PTR_SET_VALUE(targetInfo_, targetInfo) };
 
 
@@ -71,11 +71,11 @@ namespace Models
     // >  You can call the [DescribeVulWhitelist](~~DescribeVulWhitelist~~) operation to query the IDs of whitelists.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The reason why you add the server to the whitelist.
-    std::shared_ptr<string> reason_ = nullptr;
+    shared_ptr<string> reason_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The applicable scope of the whitelist. The value of this parameter is in the JSON format and contains the following fields:
     // 
     // *   **type**: the type of the applicable scope. Valid values:
@@ -88,7 +88,7 @@ namespace Models
     // *   **groupIds**: the IDs of server groups
     // 
     // >  If you leave this parameter empty, all servers are added to the whitelist. If you set the **type** field to **GroupId**, you must also specify the **groupIds** field. If you set the **type** field to **Uuid**, you must also specify the **uuids** field.
-    std::shared_ptr<string> targetInfo_ = nullptr;
+    shared_ptr<string> targetInfo_ {};
   };
 
   } // namespace Models

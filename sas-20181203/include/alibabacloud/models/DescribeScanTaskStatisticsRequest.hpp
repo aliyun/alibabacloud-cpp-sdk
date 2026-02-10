@@ -33,7 +33,7 @@ namespace Models
     // levels Field Functions 
     bool hasLevels() const { return this->levels_ != nullptr;};
     void deleteLevels() { this->levels_ = nullptr;};
-    inline string levels() const { DARABONBA_PTR_GET_DEFAULT(levels_, "") };
+    inline string getLevels() const { DARABONBA_PTR_GET_DEFAULT(levels_, "") };
     inline DescribeScanTaskStatisticsRequest& setLevels(string levels) { DARABONBA_PTR_SET_VALUE(levels_, levels) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // *   **serious**
     // *   **suspicious**
     // *   **remind**
-    std::shared_ptr<string> levels_ = nullptr;
+    shared_ptr<string> levels_ {};
   };
 
   } // namespace Models

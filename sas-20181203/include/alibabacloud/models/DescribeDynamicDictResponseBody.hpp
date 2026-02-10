@@ -42,72 +42,72 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->count_ == nullptr
-        && return this->fileName_ == nullptr && return this->fileSize_ == nullptr && return this->limit_ == nullptr && return this->ossUrl_ == nullptr && return this->requestId_ == nullptr
-        && return this->uploadTime_ == nullptr; };
+        && this->fileName_ == nullptr && this->fileSize_ == nullptr && this->limit_ == nullptr && this->ossUrl_ == nullptr && this->requestId_ == nullptr
+        && this->uploadTime_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int32_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
     inline DescribeDynamicDictResponseBody& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline DescribeDynamicDictResponseBody& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileSize Field Functions 
     bool hasFileSize() const { return this->fileSize_ != nullptr;};
     void deleteFileSize() { this->fileSize_ = nullptr;};
-    inline int64_t fileSize() const { DARABONBA_PTR_GET_DEFAULT(fileSize_, 0L) };
+    inline int64_t getFileSize() const { DARABONBA_PTR_GET_DEFAULT(fileSize_, 0L) };
     inline DescribeDynamicDictResponseBody& setFileSize(int64_t fileSize) { DARABONBA_PTR_SET_VALUE(fileSize_, fileSize) };
 
 
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int32_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
+    inline int32_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
     inline DescribeDynamicDictResponseBody& setLimit(int32_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // ossUrl Field Functions 
     bool hasOssUrl() const { return this->ossUrl_ != nullptr;};
     void deleteOssUrl() { this->ossUrl_ = nullptr;};
-    inline string ossUrl() const { DARABONBA_PTR_GET_DEFAULT(ossUrl_, "") };
+    inline string getOssUrl() const { DARABONBA_PTR_GET_DEFAULT(ossUrl_, "") };
     inline DescribeDynamicDictResponseBody& setOssUrl(string ossUrl) { DARABONBA_PTR_SET_VALUE(ossUrl_, ossUrl) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDynamicDictResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // uploadTime Field Functions 
     bool hasUploadTime() const { return this->uploadTime_ != nullptr;};
     void deleteUploadTime() { this->uploadTime_ = nullptr;};
-    inline int64_t uploadTime() const { DARABONBA_PTR_GET_DEFAULT(uploadTime_, 0L) };
+    inline int64_t getUploadTime() const { DARABONBA_PTR_GET_DEFAULT(uploadTime_, 0L) };
     inline DescribeDynamicDictResponseBody& setUploadTime(int64_t uploadTime) { DARABONBA_PTR_SET_VALUE(uploadTime_, uploadTime) };
 
 
   protected:
     // The number of weak password rules that are added.
-    std::shared_ptr<int32_t> count_ = nullptr;
+    shared_ptr<int32_t> count_ {};
     // The name of the OSS object that contains custom weak passwords.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // The size of the OSS object. Unit: bytes.
-    std::shared_ptr<int64_t> fileSize_ = nullptr;
+    shared_ptr<int64_t> fileSize_ {};
     // The maximum number of weak password rules that can be added.
-    std::shared_ptr<int32_t> limit_ = nullptr;
+    shared_ptr<int32_t> limit_ {};
     // The IP address of the Object Storage Service (OSS) object.
-    std::shared_ptr<string> ossUrl_ = nullptr;
+    shared_ptr<string> ossUrl_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The timestamp when the OSS object was uploaded. Unit: milliseconds.
-    std::shared_ptr<int64_t> uploadTime_ = nullptr;
+    shared_ptr<int64_t> uploadTime_ {};
   };
 
   } // namespace Models

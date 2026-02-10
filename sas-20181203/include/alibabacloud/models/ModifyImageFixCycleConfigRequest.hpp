@@ -36,50 +36,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageFixCycle_ == nullptr
-        && return this->imageFixSwitch_ == nullptr && return this->imageFixTarget_ == nullptr && return this->imageTimeRange_ == nullptr; };
+        && this->imageFixSwitch_ == nullptr && this->imageFixTarget_ == nullptr && this->imageTimeRange_ == nullptr; };
     // imageFixCycle Field Functions 
     bool hasImageFixCycle() const { return this->imageFixCycle_ != nullptr;};
     void deleteImageFixCycle() { this->imageFixCycle_ = nullptr;};
-    inline int32_t imageFixCycle() const { DARABONBA_PTR_GET_DEFAULT(imageFixCycle_, 0) };
+    inline int32_t getImageFixCycle() const { DARABONBA_PTR_GET_DEFAULT(imageFixCycle_, 0) };
     inline ModifyImageFixCycleConfigRequest& setImageFixCycle(int32_t imageFixCycle) { DARABONBA_PTR_SET_VALUE(imageFixCycle_, imageFixCycle) };
 
 
     // imageFixSwitch Field Functions 
     bool hasImageFixSwitch() const { return this->imageFixSwitch_ != nullptr;};
     void deleteImageFixSwitch() { this->imageFixSwitch_ = nullptr;};
-    inline string imageFixSwitch() const { DARABONBA_PTR_GET_DEFAULT(imageFixSwitch_, "") };
+    inline string getImageFixSwitch() const { DARABONBA_PTR_GET_DEFAULT(imageFixSwitch_, "") };
     inline ModifyImageFixCycleConfigRequest& setImageFixSwitch(string imageFixSwitch) { DARABONBA_PTR_SET_VALUE(imageFixSwitch_, imageFixSwitch) };
 
 
     // imageFixTarget Field Functions 
     bool hasImageFixTarget() const { return this->imageFixTarget_ != nullptr;};
     void deleteImageFixTarget() { this->imageFixTarget_ = nullptr;};
-    inline string imageFixTarget() const { DARABONBA_PTR_GET_DEFAULT(imageFixTarget_, "") };
+    inline string getImageFixTarget() const { DARABONBA_PTR_GET_DEFAULT(imageFixTarget_, "") };
     inline ModifyImageFixCycleConfigRequest& setImageFixTarget(string imageFixTarget) { DARABONBA_PTR_SET_VALUE(imageFixTarget_, imageFixTarget) };
 
 
     // imageTimeRange Field Functions 
     bool hasImageTimeRange() const { return this->imageTimeRange_ != nullptr;};
     void deleteImageTimeRange() { this->imageTimeRange_ = nullptr;};
-    inline int32_t imageTimeRange() const { DARABONBA_PTR_GET_DEFAULT(imageTimeRange_, 0) };
+    inline int32_t getImageTimeRange() const { DARABONBA_PTR_GET_DEFAULT(imageTimeRange_, 0) };
     inline ModifyImageFixCycleConfigRequest& setImageTimeRange(int32_t imageTimeRange) { DARABONBA_PTR_SET_VALUE(imageTimeRange_, imageTimeRange) };
 
 
   protected:
     // The cycle of the scheduled fix. Unit: day.
-    std::shared_ptr<int32_t> imageFixCycle_ = nullptr;
+    shared_ptr<int32_t> imageFixCycle_ {};
     // Specifies whether to enable the schedule image fix.
     // 
     // *   **on**: enable
     // *   **off**: disable
-    std::shared_ptr<string> imageFixSwitch_ = nullptr;
+    shared_ptr<string> imageFixSwitch_ {};
     // The range of the scheduled fix. The value of this parameter is in the JSON format and contains the following fields:
     // 
     // *   **type**: The type of the image. The value is fixed to repo.
     // *   **target**: The content of the image. The value is in the format of Namespace/Image repository.
-    std::shared_ptr<string> imageFixTarget_ = nullptr;
+    shared_ptr<string> imageFixTarget_ {};
     // The time range during which the image was modified. Unit: day.
-    std::shared_ptr<int32_t> imageTimeRange_ = nullptr;
+    shared_ptr<int32_t> imageTimeRange_ {};
   };
 
   } // namespace Models

@@ -39,40 +39,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->baselineItemKeyList_ == nullptr
-        && return this->imageUuid_ == nullptr && return this->lang_ == nullptr && return this->operation_ == nullptr && return this->scanRange_ == nullptr; };
+        && this->imageUuid_ == nullptr && this->lang_ == nullptr && this->operation_ == nullptr && this->scanRange_ == nullptr; };
     // baselineItemKeyList Field Functions 
     bool hasBaselineItemKeyList() const { return this->baselineItemKeyList_ != nullptr;};
     void deleteBaselineItemKeyList() { this->baselineItemKeyList_ = nullptr;};
-    inline string baselineItemKeyList() const { DARABONBA_PTR_GET_DEFAULT(baselineItemKeyList_, "") };
+    inline string getBaselineItemKeyList() const { DARABONBA_PTR_GET_DEFAULT(baselineItemKeyList_, "") };
     inline OperateImageBaselineWhitelistRequest& setBaselineItemKeyList(string baselineItemKeyList) { DARABONBA_PTR_SET_VALUE(baselineItemKeyList_, baselineItemKeyList) };
 
 
     // imageUuid Field Functions 
     bool hasImageUuid() const { return this->imageUuid_ != nullptr;};
     void deleteImageUuid() { this->imageUuid_ = nullptr;};
-    inline string imageUuid() const { DARABONBA_PTR_GET_DEFAULT(imageUuid_, "") };
+    inline string getImageUuid() const { DARABONBA_PTR_GET_DEFAULT(imageUuid_, "") };
     inline OperateImageBaselineWhitelistRequest& setImageUuid(string imageUuid) { DARABONBA_PTR_SET_VALUE(imageUuid_, imageUuid) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline OperateImageBaselineWhitelistRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // operation Field Functions 
     bool hasOperation() const { return this->operation_ != nullptr;};
     void deleteOperation() { this->operation_ = nullptr;};
-    inline string operation() const { DARABONBA_PTR_GET_DEFAULT(operation_, "") };
+    inline string getOperation() const { DARABONBA_PTR_GET_DEFAULT(operation_, "") };
     inline OperateImageBaselineWhitelistRequest& setOperation(string operation) { DARABONBA_PTR_SET_VALUE(operation_, operation) };
 
 
     // scanRange Field Functions 
     bool hasScanRange() const { return this->scanRange_ != nullptr;};
     void deleteScanRange() { this->scanRange_ = nullptr;};
-    inline const vector<string> & scanRange() const { DARABONBA_PTR_GET_CONST(scanRange_, vector<string>) };
-    inline vector<string> scanRange() { DARABONBA_PTR_GET(scanRange_, vector<string>) };
+    inline const vector<string> & getScanRange() const { DARABONBA_PTR_GET_CONST(scanRange_, vector<string>) };
+    inline vector<string> getScanRange() { DARABONBA_PTR_GET(scanRange_, vector<string>) };
     inline OperateImageBaselineWhitelistRequest& setScanRange(const vector<string> & scanRange) { DARABONBA_PTR_SET_VALUE(scanRange_, scanRange) };
     inline OperateImageBaselineWhitelistRequest& setScanRange(vector<string> && scanRange) { DARABONBA_PTR_SET_RVALUE(scanRange_, scanRange) };
 
@@ -81,23 +81,23 @@ namespace Models
     // The keys of baseline check items.
     // 
     // This parameter is required.
-    std::shared_ptr<string> baselineItemKeyList_ = nullptr;
+    shared_ptr<string> baselineItemKeyList_ {};
     // The UUID of the image.
-    std::shared_ptr<string> imageUuid_ = nullptr;
+    shared_ptr<string> imageUuid_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The operation that you want to perform on the check items. Valid values:
     // 
     // *   **add**: adds the check items to the whitelist
     // *   **del**: removes the check items from the whitelist
     // 
     // This parameter is required.
-    std::shared_ptr<string> operation_ = nullptr;
+    shared_ptr<string> operation_ {};
     // The types of the assets that you want to scan.
-    std::shared_ptr<vector<string>> scanRange_ = nullptr;
+    shared_ptr<vector<string>> scanRange_ {};
   };
 
   } // namespace Models

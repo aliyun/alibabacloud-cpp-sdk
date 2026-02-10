@@ -34,31 +34,31 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->sourceIp_ == nullptr
-        && return this->tasks_ == nullptr && return this->uuids_ == nullptr; };
+        && this->tasks_ == nullptr && this->uuids_ == nullptr; };
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline ModifyPushAllTaskRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // tasks Field Functions 
     bool hasTasks() const { return this->tasks_ != nullptr;};
     void deleteTasks() { this->tasks_ = nullptr;};
-    inline string tasks() const { DARABONBA_PTR_GET_DEFAULT(tasks_, "") };
+    inline string getTasks() const { DARABONBA_PTR_GET_DEFAULT(tasks_, "") };
     inline ModifyPushAllTaskRequest& setTasks(string tasks) { DARABONBA_PTR_SET_VALUE(tasks_, tasks) };
 
 
     // uuids Field Functions 
     bool hasUuids() const { return this->uuids_ != nullptr;};
     void deleteUuids() { this->uuids_ = nullptr;};
-    inline string uuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
+    inline string getUuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
     inline ModifyPushAllTaskRequest& setUuids(string uuids) { DARABONBA_PTR_SET_VALUE(uuids_, uuids) };
 
 
   protected:
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The check items. Separate multiple check items with commas (,). Valid values:
     // 
     // *   **OVAL_ENTITY**: Common Vulnerabilities and Exposures (CVE) vulnerabilities.
@@ -78,11 +78,11 @@ namespace Models
     // *   **SCA_PROXY_SNAPSHOT**: websites.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tasks_ = nullptr;
+    shared_ptr<string> tasks_ {};
     // The UUIDs of servers on which you want to perform security check tasks. Separate multiple UUIDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuids_ = nullptr;
+    shared_ptr<string> uuids_ {};
   };
 
   } // namespace Models

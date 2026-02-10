@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileKey_ == nullptr
-        && return this->fileName_ == nullptr && return this->fileType_ == nullptr && return this->honeypotImageName_ == nullptr && return this->lang_ == nullptr && return this->nodeId_ == nullptr
-        && return this->templateExtra_ == nullptr; };
+        && this->fileName_ == nullptr && this->fileType_ == nullptr && this->honeypotImageName_ == nullptr && this->lang_ == nullptr && this->nodeId_ == nullptr
+        && this->templateExtra_ == nullptr; };
     // fileKey Field Functions 
     bool hasFileKey() const { return this->fileKey_ != nullptr;};
     void deleteFileKey() { this->fileKey_ = nullptr;};
-    inline string fileKey() const { DARABONBA_PTR_GET_DEFAULT(fileKey_, "") };
+    inline string getFileKey() const { DARABONBA_PTR_GET_DEFAULT(fileKey_, "") };
     inline UploadedHoneyPotFileRequest& setFileKey(string fileKey) { DARABONBA_PTR_SET_VALUE(fileKey_, fileKey) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline UploadedHoneyPotFileRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
-    inline string fileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
+    inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
     inline UploadedHoneyPotFileRequest& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
 
 
     // honeypotImageName Field Functions 
     bool hasHoneypotImageName() const { return this->honeypotImageName_ != nullptr;};
     void deleteHoneypotImageName() { this->honeypotImageName_ = nullptr;};
-    inline string honeypotImageName() const { DARABONBA_PTR_GET_DEFAULT(honeypotImageName_, "") };
+    inline string getHoneypotImageName() const { DARABONBA_PTR_GET_DEFAULT(honeypotImageName_, "") };
     inline UploadedHoneyPotFileRequest& setHoneypotImageName(string honeypotImageName) { DARABONBA_PTR_SET_VALUE(honeypotImageName_, honeypotImageName) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline UploadedHoneyPotFileRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline UploadedHoneyPotFileRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // templateExtra Field Functions 
     bool hasTemplateExtra() const { return this->templateExtra_ != nullptr;};
     void deleteTemplateExtra() { this->templateExtra_ = nullptr;};
-    inline string templateExtra() const { DARABONBA_PTR_GET_DEFAULT(templateExtra_, "") };
+    inline string getTemplateExtra() const { DARABONBA_PTR_GET_DEFAULT(templateExtra_, "") };
     inline UploadedHoneyPotFileRequest& setTemplateExtra(string templateExtra) { DARABONBA_PTR_SET_VALUE(templateExtra_, templateExtra) };
 
 
@@ -99,32 +99,32 @@ namespace Models
     // >  The key is in the format of HONEYPOT_FILE/{Timestamp}_{Custom file name}.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileKey_ = nullptr;
+    shared_ptr<string> fileKey_ {};
     // The name of the file that you want to upload.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // The file type.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileType_ = nullptr;
+    shared_ptr<string> fileType_ {};
     // The name of the honeypot image.
     // 
     // This parameter is required.
-    std::shared_ptr<string> honeypotImageName_ = nullptr;
+    shared_ptr<string> honeypotImageName_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the management node to which the honeypot belongs.
     // 
     // >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the IDs of management nodes. operation to query the management node ID.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
     // The prompt template that corresponds to the file.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateExtra_ = nullptr;
+    shared_ptr<string> templateExtra_ {};
   };
 
   } // namespace Models

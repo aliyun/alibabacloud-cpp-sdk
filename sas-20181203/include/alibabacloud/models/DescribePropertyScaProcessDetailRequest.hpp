@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && return this->cmdline_ == nullptr && return this->currentPage_ == nullptr && return this->pageSize_ == nullptr && return this->pid_ == nullptr && return this->remark_ == nullptr
-        && return this->uuid_ == nullptr; };
+        && this->cmdline_ == nullptr && this->currentPage_ == nullptr && this->pageSize_ == nullptr && this->pid_ == nullptr && this->remark_ == nullptr
+        && this->uuid_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline DescribePropertyScaProcessDetailRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // cmdline Field Functions 
     bool hasCmdline() const { return this->cmdline_ != nullptr;};
     void deleteCmdline() { this->cmdline_ = nullptr;};
-    inline string cmdline() const { DARABONBA_PTR_GET_DEFAULT(cmdline_, "") };
+    inline string getCmdline() const { DARABONBA_PTR_GET_DEFAULT(cmdline_, "") };
     inline DescribePropertyScaProcessDetailRequest& setCmdline(string cmdline) { DARABONBA_PTR_SET_VALUE(cmdline_, cmdline) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribePropertyScaProcessDetailRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribePropertyScaProcessDetailRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // pid Field Functions 
     bool hasPid() const { return this->pid_ != nullptr;};
     void deletePid() { this->pid_ = nullptr;};
-    inline string pid() const { DARABONBA_PTR_GET_DEFAULT(pid_, "") };
+    inline string getPid() const { DARABONBA_PTR_GET_DEFAULT(pid_, "") };
     inline DescribePropertyScaProcessDetailRequest& setPid(string pid) { DARABONBA_PTR_SET_VALUE(pid_, pid) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline DescribePropertyScaProcessDetailRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline DescribePropertyScaProcessDetailRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
@@ -98,23 +98,23 @@ namespace Models
     // 
     // *   **java**: Java process.
     // *   **php**: PHP process.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // The startup parameter.
     // 
     // >  This parameter supports only prefix queries. Fuzzy match is not supported.
-    std::shared_ptr<string> cmdline_ = nullptr;
+    shared_ptr<string> cmdline_ {};
     // The page number. Default value: **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The number of entries per page. Default value: 10. If you leave this parameter empty, 10 entries are returned on each page.
     // 
     // >  We recommend that you do not leave this parameter empty.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The process ID.
     // 
     // >  Only exact match is supported.
-    std::shared_ptr<string> pid_ = nullptr;
+    shared_ptr<string> pid_ {};
     // The information about the server that you want to query. The value can be the public IP address, private IP address, or name of the server. Fuzzy match is supported.
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> remark_ {};
     // The UUID of the server.
     // 
     // > 
@@ -122,7 +122,7 @@ namespace Models
     // *   You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
     // 
     // *   Only exact match is supported.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

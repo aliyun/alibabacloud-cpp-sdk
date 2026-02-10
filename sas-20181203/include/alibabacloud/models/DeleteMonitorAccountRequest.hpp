@@ -33,7 +33,7 @@ namespace Models
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline DeleteMonitorAccountRequest& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the IDs of the members in the Security Center console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountId_ = nullptr;
+    shared_ptr<string> accountId_ {};
   };
 
   } // namespace Models

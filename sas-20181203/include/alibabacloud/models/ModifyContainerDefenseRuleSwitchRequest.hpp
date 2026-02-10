@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ruleIds_ == nullptr
-        && return this->ruleSwitch_ == nullptr; };
+        && this->ruleSwitch_ == nullptr; };
     // ruleIds Field Functions 
     bool hasRuleIds() const { return this->ruleIds_ != nullptr;};
     void deleteRuleIds() { this->ruleIds_ = nullptr;};
-    inline const vector<int64_t> & ruleIds() const { DARABONBA_PTR_GET_CONST(ruleIds_, vector<int64_t>) };
-    inline vector<int64_t> ruleIds() { DARABONBA_PTR_GET(ruleIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getRuleIds() const { DARABONBA_PTR_GET_CONST(ruleIds_, vector<int64_t>) };
+    inline vector<int64_t> getRuleIds() { DARABONBA_PTR_GET(ruleIds_, vector<int64_t>) };
     inline ModifyContainerDefenseRuleSwitchRequest& setRuleIds(const vector<int64_t> & ruleIds) { DARABONBA_PTR_SET_VALUE(ruleIds_, ruleIds) };
     inline ModifyContainerDefenseRuleSwitchRequest& setRuleIds(vector<int64_t> && ruleIds) { DARABONBA_PTR_SET_RVALUE(ruleIds_, ruleIds) };
 
@@ -46,18 +46,18 @@ namespace Models
     // ruleSwitch Field Functions 
     bool hasRuleSwitch() const { return this->ruleSwitch_ != nullptr;};
     void deleteRuleSwitch() { this->ruleSwitch_ = nullptr;};
-    inline int32_t ruleSwitch() const { DARABONBA_PTR_GET_DEFAULT(ruleSwitch_, 0) };
+    inline int32_t getRuleSwitch() const { DARABONBA_PTR_GET_DEFAULT(ruleSwitch_, 0) };
     inline ModifyContainerDefenseRuleSwitchRequest& setRuleSwitch(int32_t ruleSwitch) { DARABONBA_PTR_SET_VALUE(ruleSwitch_, ruleSwitch) };
 
 
   protected:
     // The IDs of the rules.
-    std::shared_ptr<vector<int64_t>> ruleIds_ = nullptr;
+    shared_ptr<vector<int64_t>> ruleIds_ {};
     // The status of the rule. Valid values:
     // 
     // *   **1**: enabled
     // *   **0**: disabled
-    std::shared_ptr<int32_t> ruleSwitch_ = nullptr;
+    shared_ptr<int32_t> ruleSwitch_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->httpStatusCode_ == nullptr && return this->requestId_ == nullptr && return this->timeCost_ == nullptr; };
+        && this->httpStatusCode_ == nullptr && this->requestId_ == nullptr && this->timeCost_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline bool data() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
+    inline bool getData() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
     inline UpdateJenkinsImageRegistryNameResponseBody& setData(bool data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline UpdateJenkinsImageRegistryNameResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UpdateJenkinsImageRegistryNameResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // timeCost Field Functions 
     bool hasTimeCost() const { return this->timeCost_ != nullptr;};
     void deleteTimeCost() { this->timeCost_ = nullptr;};
-    inline int64_t timeCost() const { DARABONBA_PTR_GET_DEFAULT(timeCost_, 0L) };
+    inline int64_t getTimeCost() const { DARABONBA_PTR_GET_DEFAULT(timeCost_, 0L) };
     inline UpdateJenkinsImageRegistryNameResponseBody& setTimeCost(int64_t timeCost) { DARABONBA_PTR_SET_VALUE(timeCost_, timeCost) };
 
 
@@ -70,13 +70,13 @@ namespace Models
     // 
     // *   **true**: successful
     // *   **false**: failed
-    std::shared_ptr<bool> data_ = nullptr;
+    shared_ptr<bool> data_ {};
     // The HTTP status code returned.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The time consumed. Unit: seconds.
-    std::shared_ptr<int64_t> timeCost_ = nullptr;
+    shared_ptr<int64_t> timeCost_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // functionName Field Functions 
     bool hasFunctionName() const { return this->functionName_ != nullptr;};
     void deleteFunctionName() { this->functionName_ = nullptr;};
-    inline string functionName() const { DARABONBA_PTR_GET_DEFAULT(functionName_, "") };
+    inline string getFunctionName() const { DARABONBA_PTR_GET_DEFAULT(functionName_, "") };
     inline GetFunctionTrialStatusRequest& setFunctionName(string functionName) { DARABONBA_PTR_SET_VALUE(functionName_, functionName) };
 
 
   protected:
     // The name of the function module.
-    std::shared_ptr<string> functionName_ = nullptr;
+    shared_ptr<string> functionName_ {};
   };
 
   } // namespace Models

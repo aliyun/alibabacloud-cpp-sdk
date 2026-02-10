@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->argKeywords_ == nullptr
-        && return this->domains_ == nullptr && return this->names_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->domains_ == nullptr && this->names_ == nullptr && this->sourceIp_ == nullptr; };
     // argKeywords Field Functions 
     bool hasArgKeywords() const { return this->argKeywords_ != nullptr;};
     void deleteArgKeywords() { this->argKeywords_ = nullptr;};
-    inline string argKeywords() const { DARABONBA_PTR_GET_DEFAULT(argKeywords_, "") };
+    inline string getArgKeywords() const { DARABONBA_PTR_GET_DEFAULT(argKeywords_, "") };
     inline GenerateDynamicDictRequest& setArgKeywords(string argKeywords) { DARABONBA_PTR_SET_VALUE(argKeywords_, argKeywords) };
 
 
     // domains Field Functions 
     bool hasDomains() const { return this->domains_ != nullptr;};
     void deleteDomains() { this->domains_ = nullptr;};
-    inline string domains() const { DARABONBA_PTR_GET_DEFAULT(domains_, "") };
+    inline string getDomains() const { DARABONBA_PTR_GET_DEFAULT(domains_, "") };
     inline GenerateDynamicDictRequest& setDomains(string domains) { DARABONBA_PTR_SET_VALUE(domains_, domains) };
 
 
     // names Field Functions 
     bool hasNames() const { return this->names_ != nullptr;};
     void deleteNames() { this->names_ = nullptr;};
-    inline string names() const { DARABONBA_PTR_GET_DEFAULT(names_, "") };
+    inline string getNames() const { DARABONBA_PTR_GET_DEFAULT(names_, "") };
     inline GenerateDynamicDictRequest& setNames(string names) { DARABONBA_PTR_SET_VALUE(names_, names) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline GenerateDynamicDictRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
   protected:
     // The keyword of the dictionary.
-    std::shared_ptr<string> argKeywords_ = nullptr;
+    shared_ptr<string> argKeywords_ {};
     // The domain name for custom weak passwords.
-    std::shared_ptr<string> domains_ = nullptr;
+    shared_ptr<string> domains_ {};
     // The company name for custom weak passwords.
-    std::shared_ptr<string> names_ = nullptr;
+    shared_ptr<string> names_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

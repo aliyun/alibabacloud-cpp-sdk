@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->item_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->status_ == nullptr; };
     // item Field Functions 
     bool hasItem() const { return this->item_ != nullptr;};
     void deleteItem() { this->item_ = nullptr;};
-    inline string item() const { DARABONBA_PTR_GET_DEFAULT(item_, "") };
+    inline string getItem() const { DARABONBA_PTR_GET_DEFAULT(item_, "") };
     inline ModifyLoginSwitchConfigRequest& setItem(string item) { DARABONBA_PTR_SET_VALUE(item_, item) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline ModifyLoginSwitchConfigRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -55,14 +55,14 @@ namespace Models
     // *   **login_common_account**: unapproved logon accounts
     // 
     // This parameter is required.
-    std::shared_ptr<string> item_ = nullptr;
+    shared_ptr<string> item_ {};
     // Specifies whether to enable the logon security settings. Valid values:
     // 
     // *   **0**: no
     // *   **1**: yes
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

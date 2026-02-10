@@ -50,108 +50,113 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bindIp_ == nullptr
-        && return this->currentPage_ == nullptr && return this->extend_ == nullptr && return this->nextToken_ == nullptr && return this->pageSize_ == nullptr && return this->port_ == nullptr
-        && return this->procName_ == nullptr && return this->remark_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->useNextToken_ == nullptr && return this->uuid_ == nullptr; };
+        && this->currentPage_ == nullptr && this->extend_ == nullptr && this->nextToken_ == nullptr && this->pageSize_ == nullptr && this->port_ == nullptr
+        && this->procName_ == nullptr && this->remark_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->useNextToken_ == nullptr && this->uuid_ == nullptr; };
     // bindIp Field Functions 
     bool hasBindIp() const { return this->bindIp_ != nullptr;};
     void deleteBindIp() { this->bindIp_ = nullptr;};
-    inline string bindIp() const { DARABONBA_PTR_GET_DEFAULT(bindIp_, "") };
+    inline string getBindIp() const { DARABONBA_PTR_GET_DEFAULT(bindIp_, "") };
     inline DescribePropertyPortDetailRequest& setBindIp(string bindIp) { DARABONBA_PTR_SET_VALUE(bindIp_, bindIp) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribePropertyPortDetailRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // extend Field Functions 
     bool hasExtend() const { return this->extend_ != nullptr;};
     void deleteExtend() { this->extend_ = nullptr;};
-    inline string extend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
+    inline string getExtend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
     inline DescribePropertyPortDetailRequest& setExtend(string extend) { DARABONBA_PTR_SET_VALUE(extend_, extend) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribePropertyPortDetailRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribePropertyPortDetailRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline string port() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
+    inline string getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
     inline DescribePropertyPortDetailRequest& setPort(string port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // procName Field Functions 
     bool hasProcName() const { return this->procName_ != nullptr;};
     void deleteProcName() { this->procName_ = nullptr;};
-    inline string procName() const { DARABONBA_PTR_GET_DEFAULT(procName_, "") };
+    inline string getProcName() const { DARABONBA_PTR_GET_DEFAULT(procName_, "") };
     inline DescribePropertyPortDetailRequest& setProcName(string procName) { DARABONBA_PTR_SET_VALUE(procName_, procName) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline DescribePropertyPortDetailRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // resourceDirectoryAccountId Field Functions 
     bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
     void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
-    inline int64_t resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
     inline DescribePropertyPortDetailRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // useNextToken Field Functions 
     bool hasUseNextToken() const { return this->useNextToken_ != nullptr;};
     void deleteUseNextToken() { this->useNextToken_ = nullptr;};
-    inline bool useNextToken() const { DARABONBA_PTR_GET_DEFAULT(useNextToken_, false) };
+    inline bool getUseNextToken() const { DARABONBA_PTR_GET_DEFAULT(useNextToken_, false) };
     inline DescribePropertyPortDetailRequest& setUseNextToken(bool useNextToken) { DARABONBA_PTR_SET_VALUE(useNextToken_, useNextToken) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline DescribePropertyPortDetailRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
     // The IP address bound to the port.
-    std::shared_ptr<string> bindIp_ = nullptr;
+    shared_ptr<string> bindIp_ {};
     // The number of the page to return. Default value: **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // Specifies whether fuzzy search by port number is supported. If you want to use fuzzy search, set the parameter to **1**. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
-    std::shared_ptr<string> extend_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> extend_ {};
+    // The value of NextToken that is returned when the NextToken method is used. You do not need to specify this parameter for the first request.
+    shared_ptr<string> nextToken_ {};
     // The number of entries to return on each page. Default value: **10**.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The listening port of the server.
-    std::shared_ptr<string> port_ = nullptr;
+    shared_ptr<string> port_ {};
     // The name of the server process.
-    std::shared_ptr<string> procName_ = nullptr;
+    shared_ptr<string> procName_ {};
     // The name or IP address of the server.
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> remark_ {};
     // The Alibaba Cloud account ID of the member in the resource directory.
     // 
     // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
-    std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
-    std::shared_ptr<bool> useNextToken_ = nullptr;
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
+    // Specifies whether to use the NextToken method to retrieve a new page of results. If you set UseNextToken to true, the value of TotalCount is not returned. Valid values:
+    // 
+    // - **true**: The NextToken method is used.
+    // - **false**: The NextToken method is not used.
+    shared_ptr<bool> useNextToken_ {};
     // The UUID of the server.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

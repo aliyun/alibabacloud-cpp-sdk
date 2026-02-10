@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketName_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
-    inline string bucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+    inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
     inline ListOssBucketRequest& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ListOssBucketRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
     // The name of the bucket.
-    std::shared_ptr<string> bucketName_ = nullptr;
+    shared_ptr<string> bucketName_ {};
     // The language of the content in the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese.
     // *   **en**: English.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

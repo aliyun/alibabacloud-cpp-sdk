@@ -33,7 +33,7 @@ namespace Models
     // concernNecessity Field Functions 
     bool hasConcernNecessity() const { return this->concernNecessity_ != nullptr;};
     void deleteConcernNecessity() { this->concernNecessity_ = nullptr;};
-    inline string concernNecessity() const { DARABONBA_PTR_GET_DEFAULT(concernNecessity_, "") };
+    inline string getConcernNecessity() const { DARABONBA_PTR_GET_DEFAULT(concernNecessity_, "") };
     inline ModifyConcernNecessityRequest& setConcernNecessity(string concernNecessity) { DARABONBA_PTR_SET_VALUE(concernNecessity_, concernNecessity) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // *   asap: high
     // *   later: medium
     // *   nntf: low
-    std::shared_ptr<string> concernNecessity_ = nullptr;
+    shared_ptr<string> concernNecessity_ {};
   };
 
   } // namespace Models

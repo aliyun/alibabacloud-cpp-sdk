@@ -34,8 +34,8 @@ namespace Models
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};
-    inline const vector<int64_t> & ids() const { DARABONBA_PTR_GET_CONST(ids_, vector<int64_t>) };
-    inline vector<int64_t> ids() { DARABONBA_PTR_GET(ids_, vector<int64_t>) };
+    inline const vector<int64_t> & getIds() const { DARABONBA_PTR_GET_CONST(ids_, vector<int64_t>) };
+    inline vector<int64_t> getIds() { DARABONBA_PTR_GET(ids_, vector<int64_t>) };
     inline DeleteAntiBruteForceRuleRequest& setIds(const vector<int64_t> & ids) { DARABONBA_PTR_SET_VALUE(ids_, ids) };
     inline DeleteAntiBruteForceRuleRequest& setIds(vector<int64_t> && ids) { DARABONBA_PTR_SET_RVALUE(ids_, ids) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The IDs of the defense rules against brute-force attacks to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> ids_ = nullptr;
+    shared_ptr<vector<int64_t>> ids_ {};
   };
 
   } // namespace Models

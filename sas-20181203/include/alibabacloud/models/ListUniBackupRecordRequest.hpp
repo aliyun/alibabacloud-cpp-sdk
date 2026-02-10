@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupRegionId_ == nullptr
-        && return this->currentPage_ == nullptr && return this->machineRemark_ == nullptr && return this->pageSize_ == nullptr && return this->state_ == nullptr; };
+        && this->currentPage_ == nullptr && this->machineRemark_ == nullptr && this->pageSize_ == nullptr && this->state_ == nullptr; };
     // backupRegionId Field Functions 
     bool hasBackupRegionId() const { return this->backupRegionId_ != nullptr;};
     void deleteBackupRegionId() { this->backupRegionId_ = nullptr;};
-    inline string backupRegionId() const { DARABONBA_PTR_GET_DEFAULT(backupRegionId_, "") };
+    inline string getBackupRegionId() const { DARABONBA_PTR_GET_DEFAULT(backupRegionId_, "") };
     inline ListUniBackupRecordRequest& setBackupRegionId(string backupRegionId) { DARABONBA_PTR_SET_VALUE(backupRegionId_, backupRegionId) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListUniBackupRecordRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // machineRemark Field Functions 
     bool hasMachineRemark() const { return this->machineRemark_ != nullptr;};
     void deleteMachineRemark() { this->machineRemark_ = nullptr;};
-    inline string machineRemark() const { DARABONBA_PTR_GET_DEFAULT(machineRemark_, "") };
+    inline string getMachineRemark() const { DARABONBA_PTR_GET_DEFAULT(machineRemark_, "") };
     inline ListUniBackupRecordRequest& setMachineRemark(string machineRemark) { DARABONBA_PTR_SET_VALUE(machineRemark_, machineRemark) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListUniBackupRecordRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
-    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline ListUniBackupRecordRequest& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
@@ -78,18 +78,18 @@ namespace Models
     // The region where the anti-ransomware backup service is located.
     // 
     // This parameter is required.
-    std::shared_ptr<string> backupRegionId_ = nullptr;
+    shared_ptr<string> backupRegionId_ {};
     // When performing a paginated query, set the page number for the current page. The default value is **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The identification information of the server protected by the anti-ransomware policy. You can enter the IP address or instance ID of the server.
-    std::shared_ptr<string> machineRemark_ = nullptr;
+    shared_ptr<string> machineRemark_ {};
     // The maximum number of data entries to display per page in a paginated query.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Backup status. Values:
     // - **completed**: Success
     // - **error**: Failure
     // - **canceled**: Closed
-    std::shared_ptr<string> state_ = nullptr;
+    shared_ptr<string> state_ {};
   };
 
   } // namespace Models

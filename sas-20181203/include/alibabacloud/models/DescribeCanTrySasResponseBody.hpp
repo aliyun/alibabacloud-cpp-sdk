@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->canTry_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // canTry Field Functions 
     bool hasCanTry() const { return this->canTry_ != nullptr;};
     void deleteCanTry() { this->canTry_ = nullptr;};
-    inline int32_t canTry() const { DARABONBA_PTR_GET_DEFAULT(canTry_, 0) };
+    inline int32_t getCanTry() const { DARABONBA_PTR_GET_DEFAULT(canTry_, 0) };
     inline DescribeCanTrySasResponseBody& setCanTry(int32_t canTry) { DARABONBA_PTR_SET_VALUE(canTry_, canTry) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeCanTrySasResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   **1**: yes
     // *   **0**: no
-    std::shared_ptr<int32_t> canTry_ = nullptr;
+    shared_ptr<int32_t> canTry_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

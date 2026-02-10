@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusters_ == nullptr
-        && return this->name_ == nullptr && return this->policy_ == nullptr && return this->remark_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->sourceIp_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->name_ == nullptr && this->policy_ == nullptr && this->remark_ == nullptr && this->resourceOwnerId_ == nullptr && this->sourceIp_ == nullptr
+        && this->status_ == nullptr; };
     // clusters Field Functions 
     bool hasClusters() const { return this->clusters_ != nullptr;};
     void deleteClusters() { this->clusters_ = nullptr;};
-    inline string clusters() const { DARABONBA_PTR_GET_DEFAULT(clusters_, "") };
+    inline string getClusters() const { DARABONBA_PTR_GET_DEFAULT(clusters_, "") };
     inline ModifyBinarySecurityPolicyRequest& setClusters(string clusters) { DARABONBA_PTR_SET_VALUE(clusters_, clusters) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ModifyBinarySecurityPolicyRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // policy Field Functions 
     bool hasPolicy() const { return this->policy_ != nullptr;};
     void deletePolicy() { this->policy_ = nullptr;};
-    inline string policy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
+    inline string getPolicy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
     inline ModifyBinarySecurityPolicyRequest& setPolicy(string policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline ModifyBinarySecurityPolicyRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ModifyBinarySecurityPolicyRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline ModifyBinarySecurityPolicyRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ModifyBinarySecurityPolicyRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -97,25 +97,25 @@ namespace Models
     // Cluster information.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusters_ = nullptr;
+    shared_ptr<string> clusters_ {};
     // Policy name.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // Policy content. JSON format, Key values:
     // - **policyMode**: Type of policy, default is requireAttestor.
     // - **requiredAttestors**: Required attestors.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policy_ = nullptr;
+    shared_ptr<string> policy_ {};
     // Remark.
-    std::shared_ptr<string> remark_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> remark_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The IP address of the access source.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // Set to enable or disable the policy. Values:
     // 
     // - **enabled**: Enable the protection policy.
     // - **disabled**: Disable the protection policy.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

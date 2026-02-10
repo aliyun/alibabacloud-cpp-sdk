@@ -33,7 +33,7 @@ namespace Models
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline ModifyGroupPropertyRequest& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
@@ -48,7 +48,7 @@ namespace Models
     // >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to obtain the values of the groupFlag and groupId parameters. You cannot change the value of the groupFlag or groupId parameter. You can change only the value of the groupName parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> data_ = nullptr;
+    shared_ptr<string> data_ {};
   };
 
   } // namespace Models

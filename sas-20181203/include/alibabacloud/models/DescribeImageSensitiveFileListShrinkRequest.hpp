@@ -44,67 +44,67 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->criteria_ == nullptr
-        && return this->criteriaType_ == nullptr && return this->currentPage_ == nullptr && return this->imageUuid_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr
-        && return this->riskLevel_ == nullptr && return this->scanRangeShrink_ == nullptr; };
+        && this->criteriaType_ == nullptr && this->currentPage_ == nullptr && this->imageUuid_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr
+        && this->riskLevel_ == nullptr && this->scanRangeShrink_ == nullptr; };
     // criteria Field Functions 
     bool hasCriteria() const { return this->criteria_ != nullptr;};
     void deleteCriteria() { this->criteria_ = nullptr;};
-    inline string criteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
+    inline string getCriteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
     inline DescribeImageSensitiveFileListShrinkRequest& setCriteria(string criteria) { DARABONBA_PTR_SET_VALUE(criteria_, criteria) };
 
 
     // criteriaType Field Functions 
     bool hasCriteriaType() const { return this->criteriaType_ != nullptr;};
     void deleteCriteriaType() { this->criteriaType_ = nullptr;};
-    inline string criteriaType() const { DARABONBA_PTR_GET_DEFAULT(criteriaType_, "") };
+    inline string getCriteriaType() const { DARABONBA_PTR_GET_DEFAULT(criteriaType_, "") };
     inline DescribeImageSensitiveFileListShrinkRequest& setCriteriaType(string criteriaType) { DARABONBA_PTR_SET_VALUE(criteriaType_, criteriaType) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeImageSensitiveFileListShrinkRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // imageUuid Field Functions 
     bool hasImageUuid() const { return this->imageUuid_ != nullptr;};
     void deleteImageUuid() { this->imageUuid_ = nullptr;};
-    inline string imageUuid() const { DARABONBA_PTR_GET_DEFAULT(imageUuid_, "") };
+    inline string getImageUuid() const { DARABONBA_PTR_GET_DEFAULT(imageUuid_, "") };
     inline DescribeImageSensitiveFileListShrinkRequest& setImageUuid(string imageUuid) { DARABONBA_PTR_SET_VALUE(imageUuid_, imageUuid) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeImageSensitiveFileListShrinkRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeImageSensitiveFileListShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // riskLevel Field Functions 
     bool hasRiskLevel() const { return this->riskLevel_ != nullptr;};
     void deleteRiskLevel() { this->riskLevel_ = nullptr;};
-    inline string riskLevel() const { DARABONBA_PTR_GET_DEFAULT(riskLevel_, "") };
+    inline string getRiskLevel() const { DARABONBA_PTR_GET_DEFAULT(riskLevel_, "") };
     inline DescribeImageSensitiveFileListShrinkRequest& setRiskLevel(string riskLevel) { DARABONBA_PTR_SET_VALUE(riskLevel_, riskLevel) };
 
 
     // scanRangeShrink Field Functions 
     bool hasScanRangeShrink() const { return this->scanRangeShrink_ != nullptr;};
     void deleteScanRangeShrink() { this->scanRangeShrink_ = nullptr;};
-    inline string scanRangeShrink() const { DARABONBA_PTR_GET_DEFAULT(scanRangeShrink_, "") };
+    inline string getScanRangeShrink() const { DARABONBA_PTR_GET_DEFAULT(scanRangeShrink_, "") };
     inline DescribeImageSensitiveFileListShrinkRequest& setScanRangeShrink(string scanRangeShrink) { DARABONBA_PTR_SET_VALUE(scanRangeShrink_, scanRangeShrink) };
 
 
   protected:
     // The value of the sensitive file type.
-    std::shared_ptr<string> criteria_ = nullptr;
+    shared_ptr<string> criteria_ {};
     // The type of the sensitive files that you want to query. Valid values:
     // 
     // *   **SensitiveFileKey**: the type of alerts for sensitive files. Valid values:
@@ -223,31 +223,31 @@ namespace Models
     //     *   **rubygem**: RubyGem token
     // 
     // *   **SensitiveFileName**: the name of the alert type for sensitive files.
-    std::shared_ptr<string> criteriaType_ = nullptr;
+    shared_ptr<string> criteriaType_ {};
     // The number of the page to return. Pages start from page **1**. Default value: **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The UUID of the image.
     // 
     // >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation of Container Registry to query the image UUID from the value of the **ImageUuid** response parameter.
-    std::shared_ptr<string> imageUuid_ = nullptr;
+    shared_ptr<string> imageUuid_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The number of entries to return on each page. Default value: 20.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The risk level. Valid values:
     // 
     // *   **high**
     // *   **medium**
     // *   **low**
-    std::shared_ptr<string> riskLevel_ = nullptr;
+    shared_ptr<string> riskLevel_ {};
     // An array that consists of the types of the assets that you want to scan. Valid values:
     // 
     // *   **image**
     // *   **container**
-    std::shared_ptr<string> scanRangeShrink_ = nullptr;
+    shared_ptr<string> scanRangeShrink_ {};
   };
 
   } // namespace Models

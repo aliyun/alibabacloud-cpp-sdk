@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->canFix_ == nullptr
-        && return this->expendCount_ == nullptr && return this->remainCount_ == nullptr && return this->repairedCount_ == nullptr && return this->requestId_ == nullptr && return this->isTrial_ == nullptr; };
+        && this->expendCount_ == nullptr && this->remainCount_ == nullptr && this->repairedCount_ == nullptr && this->requestId_ == nullptr && this->isTrial_ == nullptr; };
     // canFix Field Functions 
     bool hasCanFix() const { return this->canFix_ != nullptr;};
     void deleteCanFix() { this->canFix_ = nullptr;};
-    inline bool canFix() const { DARABONBA_PTR_GET_DEFAULT(canFix_, false) };
+    inline bool getCanFix() const { DARABONBA_PTR_GET_DEFAULT(canFix_, false) };
     inline CheckTrialFixCountResponseBody& setCanFix(bool canFix) { DARABONBA_PTR_SET_VALUE(canFix_, canFix) };
 
 
     // expendCount Field Functions 
     bool hasExpendCount() const { return this->expendCount_ != nullptr;};
     void deleteExpendCount() { this->expendCount_ = nullptr;};
-    inline int32_t expendCount() const { DARABONBA_PTR_GET_DEFAULT(expendCount_, 0) };
+    inline int32_t getExpendCount() const { DARABONBA_PTR_GET_DEFAULT(expendCount_, 0) };
     inline CheckTrialFixCountResponseBody& setExpendCount(int32_t expendCount) { DARABONBA_PTR_SET_VALUE(expendCount_, expendCount) };
 
 
     // remainCount Field Functions 
     bool hasRemainCount() const { return this->remainCount_ != nullptr;};
     void deleteRemainCount() { this->remainCount_ = nullptr;};
-    inline int32_t remainCount() const { DARABONBA_PTR_GET_DEFAULT(remainCount_, 0) };
+    inline int32_t getRemainCount() const { DARABONBA_PTR_GET_DEFAULT(remainCount_, 0) };
     inline CheckTrialFixCountResponseBody& setRemainCount(int32_t remainCount) { DARABONBA_PTR_SET_VALUE(remainCount_, remainCount) };
 
 
     // repairedCount Field Functions 
     bool hasRepairedCount() const { return this->repairedCount_ != nullptr;};
     void deleteRepairedCount() { this->repairedCount_ = nullptr;};
-    inline int32_t repairedCount() const { DARABONBA_PTR_GET_DEFAULT(repairedCount_, 0) };
+    inline int32_t getRepairedCount() const { DARABONBA_PTR_GET_DEFAULT(repairedCount_, 0) };
     inline CheckTrialFixCountResponseBody& setRepairedCount(int32_t repairedCount) { DARABONBA_PTR_SET_VALUE(repairedCount_, repairedCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckTrialFixCountResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // isTrial Field Functions 
     bool hasIsTrial() const { return this->isTrial_ != nullptr;};
     void deleteIsTrial() { this->isTrial_ = nullptr;};
-    inline bool isTrial() const { DARABONBA_PTR_GET_DEFAULT(isTrial_, false) };
+    inline bool getIsTrial() const { DARABONBA_PTR_GET_DEFAULT(isTrial_, false) };
     inline CheckTrialFixCountResponseBody& setIsTrial(bool isTrial) { DARABONBA_PTR_SET_VALUE(isTrial_, isTrial) };
 
 
@@ -88,20 +88,20 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> canFix_ = nullptr;
+    shared_ptr<bool> canFix_ {};
     // The quota usage required for the current fix operation.
-    std::shared_ptr<int32_t> expendCount_ = nullptr;
+    shared_ptr<int32_t> expendCount_ {};
     // The quota that remains after the current fix operation is complete.
-    std::shared_ptr<int32_t> remainCount_ = nullptr;
+    shared_ptr<int32_t> remainCount_ {};
     // The number of the vulnerabilities that are fixed.
-    std::shared_ptr<int32_t> repairedCount_ = nullptr;
+    shared_ptr<int32_t> repairedCount_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether Security Center is in free trial. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> isTrial_ = nullptr;
+    shared_ptr<bool> isTrial_ {};
   };
 
   } // namespace Models

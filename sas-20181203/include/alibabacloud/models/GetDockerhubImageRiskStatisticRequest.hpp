@@ -34,15 +34,15 @@ namespace Models
     // types Field Functions 
     bool hasTypes() const { return this->types_ != nullptr;};
     void deleteTypes() { this->types_ = nullptr;};
-    inline const vector<string> & types() const { DARABONBA_PTR_GET_CONST(types_, vector<string>) };
-    inline vector<string> types() { DARABONBA_PTR_GET(types_, vector<string>) };
+    inline const vector<string> & getTypes() const { DARABONBA_PTR_GET_CONST(types_, vector<string>) };
+    inline vector<string> getTypes() { DARABONBA_PTR_GET(types_, vector<string>) };
     inline GetDockerhubImageRiskStatisticRequest& setTypes(const vector<string> & types) { DARABONBA_PTR_SET_VALUE(types_, types) };
     inline GetDockerhubImageRiskStatisticRequest& setTypes(vector<string> && types) { DARABONBA_PTR_SET_RVALUE(types_, types) };
 
 
   protected:
     // The risk types that you want to query.
-    std::shared_ptr<vector<string>> types_ = nullptr;
+    shared_ptr<vector<string>> types_ {};
   };
 
   } // namespace Models

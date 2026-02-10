@@ -33,7 +33,7 @@ namespace Models
     // graySwitchStatus Field Functions 
     bool hasGraySwitchStatus() const { return this->graySwitchStatus_ != nullptr;};
     void deleteGraySwitchStatus() { this->graySwitchStatus_ = nullptr;};
-    inline int32_t graySwitchStatus() const { DARABONBA_PTR_GET_DEFAULT(graySwitchStatus_, 0) };
+    inline int32_t getGraySwitchStatus() const { DARABONBA_PTR_GET_DEFAULT(graySwitchStatus_, 0) };
     inline UpdatePublishGraySwitchRequest& setGraySwitchStatus(int32_t graySwitchStatus) { DARABONBA_PTR_SET_VALUE(graySwitchStatus_, graySwitchStatus) };
 
 
@@ -44,7 +44,7 @@ namespace Models
     // *   **0**: disabled.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> graySwitchStatus_ = nullptr;
+    shared_ptr<int32_t> graySwitchStatus_ {};
   };
 
   } // namespace Models

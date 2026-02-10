@@ -33,7 +33,7 @@ namespace Models
     // cycle Field Functions 
     bool hasCycle() const { return this->cycle_ != nullptr;};
     void deleteCycle() { this->cycle_ = nullptr;};
-    inline string cycle() const { DARABONBA_PTR_GET_DEFAULT(cycle_, "") };
+    inline string getCycle() const { DARABONBA_PTR_GET_DEFAULT(cycle_, "") };
     inline ModifyAppVulScanCycleRequest& setCycle(string cycle) { DARABONBA_PTR_SET_VALUE(cycle_, cycle) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // *   1week
     // *   2weeks
     // *   3days
-    std::shared_ptr<string> cycle_ = nullptr;
+    shared_ptr<string> cycle_ {};
   };
 
   } // namespace Models

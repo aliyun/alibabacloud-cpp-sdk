@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->strategyConfig_ == nullptr
-        && return this->strategyTag_ == nullptr && return this->strategyTagValue_ == nullptr; };
+        && this->strategyTag_ == nullptr && this->strategyTagValue_ == nullptr; };
     // strategyConfig Field Functions 
     bool hasStrategyConfig() const { return this->strategyConfig_ != nullptr;};
     void deleteStrategyConfig() { this->strategyConfig_ = nullptr;};
-    inline string strategyConfig() const { DARABONBA_PTR_GET_DEFAULT(strategyConfig_, "") };
+    inline string getStrategyConfig() const { DARABONBA_PTR_GET_DEFAULT(strategyConfig_, "") };
     inline ModifyClientConfSetupRequest& setStrategyConfig(string strategyConfig) { DARABONBA_PTR_SET_VALUE(strategyConfig_, strategyConfig) };
 
 
     // strategyTag Field Functions 
     bool hasStrategyTag() const { return this->strategyTag_ != nullptr;};
     void deleteStrategyTag() { this->strategyTag_ = nullptr;};
-    inline string strategyTag() const { DARABONBA_PTR_GET_DEFAULT(strategyTag_, "") };
+    inline string getStrategyTag() const { DARABONBA_PTR_GET_DEFAULT(strategyTag_, "") };
     inline ModifyClientConfSetupRequest& setStrategyTag(string strategyTag) { DARABONBA_PTR_SET_VALUE(strategyTag_, strategyTag) };
 
 
     // strategyTagValue Field Functions 
     bool hasStrategyTagValue() const { return this->strategyTagValue_ != nullptr;};
     void deleteStrategyTagValue() { this->strategyTagValue_ = nullptr;};
-    inline string strategyTagValue() const { DARABONBA_PTR_GET_DEFAULT(strategyTagValue_, "") };
+    inline string getStrategyTagValue() const { DARABONBA_PTR_GET_DEFAULT(strategyTagValue_, "") };
     inline ModifyClientConfSetupRequest& setStrategyTagValue(string strategyTagValue) { DARABONBA_PTR_SET_VALUE(strategyTagValue_, strategyTagValue) };
 
 
@@ -61,11 +61,11 @@ namespace Models
     // 
     // *   cpu: the maximum CPU utilization that can be occupied by the Security Center agent on the server
     // *   mem: the maximum memory usage that can be occupied by the Security Center agent on the server
-    std::shared_ptr<string> strategyConfig_ = nullptr;
+    shared_ptr<string> strategyConfig_ {};
     // The type of the tag.
     // 
     // This parameter is required.
-    std::shared_ptr<string> strategyTag_ = nullptr;
+    shared_ptr<string> strategyTag_ {};
     // The value of the tag. Valid values:
     // 
     // *   major
@@ -73,7 +73,7 @@ namespace Models
     // *   basic
     // 
     // This parameter is required.
-    std::shared_ptr<string> strategyTagValue_ = nullptr;
+    shared_ptr<string> strategyTagValue_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // targetIds Field Functions 
     bool hasTargetIds() const { return this->targetIds_ != nullptr;};
     void deleteTargetIds() { this->targetIds_ = nullptr;};
-    inline string targetIds() const { DARABONBA_PTR_GET_DEFAULT(targetIds_, "") };
+    inline string getTargetIds() const { DARABONBA_PTR_GET_DEFAULT(targetIds_, "") };
     inline DeleteInterceptionTargetRequest& setTargetIds(string targetIds) { DARABONBA_PTR_SET_VALUE(targetIds_, targetIds) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The IDs of the network objects that you want to remove. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the IDs of the network objects.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetIds_ = nullptr;
+    shared_ptr<string> targetIds_ {};
   };
 
   } // namespace Models

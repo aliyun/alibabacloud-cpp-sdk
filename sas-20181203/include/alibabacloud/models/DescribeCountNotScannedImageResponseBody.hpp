@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->notScannedCnt_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // notScannedCnt Field Functions 
     bool hasNotScannedCnt() const { return this->notScannedCnt_ != nullptr;};
     void deleteNotScannedCnt() { this->notScannedCnt_ = nullptr;};
-    inline int32_t notScannedCnt() const { DARABONBA_PTR_GET_DEFAULT(notScannedCnt_, 0) };
+    inline int32_t getNotScannedCnt() const { DARABONBA_PTR_GET_DEFAULT(notScannedCnt_, 0) };
     inline DescribeCountNotScannedImageResponseBody& setNotScannedCnt(int32_t notScannedCnt) { DARABONBA_PTR_SET_VALUE(notScannedCnt_, notScannedCnt) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeCountNotScannedImageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The number of images that are not scanned.
-    std::shared_ptr<int32_t> notScannedCnt_ = nullptr;
+    shared_ptr<int32_t> notScannedCnt_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

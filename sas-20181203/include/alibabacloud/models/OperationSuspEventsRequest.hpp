@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && return this->operation_ == nullptr && return this->sourceIp_ == nullptr && return this->subOperation_ == nullptr && return this->suspiciousEventIds_ == nullptr && return this->warnType_ == nullptr; };
+        && this->operation_ == nullptr && this->sourceIp_ == nullptr && this->subOperation_ == nullptr && this->suspiciousEventIds_ == nullptr && this->warnType_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
-    inline string from() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
+    inline string getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
     inline OperationSuspEventsRequest& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
 
 
     // operation Field Functions 
     bool hasOperation() const { return this->operation_ != nullptr;};
     void deleteOperation() { this->operation_ = nullptr;};
-    inline string operation() const { DARABONBA_PTR_GET_DEFAULT(operation_, "") };
+    inline string getOperation() const { DARABONBA_PTR_GET_DEFAULT(operation_, "") };
     inline OperationSuspEventsRequest& setOperation(string operation) { DARABONBA_PTR_SET_VALUE(operation_, operation) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline OperationSuspEventsRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // subOperation Field Functions 
     bool hasSubOperation() const { return this->subOperation_ != nullptr;};
     void deleteSubOperation() { this->subOperation_ = nullptr;};
-    inline string subOperation() const { DARABONBA_PTR_GET_DEFAULT(subOperation_, "") };
+    inline string getSubOperation() const { DARABONBA_PTR_GET_DEFAULT(subOperation_, "") };
     inline OperationSuspEventsRequest& setSubOperation(string subOperation) { DARABONBA_PTR_SET_VALUE(subOperation_, subOperation) };
 
 
     // suspiciousEventIds Field Functions 
     bool hasSuspiciousEventIds() const { return this->suspiciousEventIds_ != nullptr;};
     void deleteSuspiciousEventIds() { this->suspiciousEventIds_ = nullptr;};
-    inline string suspiciousEventIds() const { DARABONBA_PTR_GET_DEFAULT(suspiciousEventIds_, "") };
+    inline string getSuspiciousEventIds() const { DARABONBA_PTR_GET_DEFAULT(suspiciousEventIds_, "") };
     inline OperationSuspEventsRequest& setSuspiciousEventIds(string suspiciousEventIds) { DARABONBA_PTR_SET_VALUE(suspiciousEventIds_, suspiciousEventIds) };
 
 
     // warnType Field Functions 
     bool hasWarnType() const { return this->warnType_ != nullptr;};
     void deleteWarnType() { this->warnType_ = nullptr;};
-    inline string warnType() const { DARABONBA_PTR_GET_DEFAULT(warnType_, "") };
+    inline string getWarnType() const { DARABONBA_PTR_GET_DEFAULT(warnType_, "") };
     inline OperationSuspEventsRequest& setWarnType(string warnType) { DARABONBA_PTR_SET_VALUE(warnType_, warnType) };
 
 
@@ -87,7 +87,7 @@ namespace Models
     // The ID of the request source.
     // 
     // Set the value to **sas**, which indicates that the request is sent from Security Center.
-    std::shared_ptr<string> from_ = nullptr;
+    shared_ptr<string> from_ {};
     // The operation that you want to perform on alerts. Valid values:
     // 
     // *   **deal**: quarantines the source file of the malicious process.
@@ -97,26 +97,26 @@ namespace Models
     // *   **offline_handled**: marks the alerts as handled.
     // 
     // This parameter is required.
-    std::shared_ptr<string> operation_ = nullptr;
+    shared_ptr<string> operation_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The suboperation that you want to perform when you quarantine the source file of the malicious process. Valid values:
     // 
     // *   **killAndQuaraFileByPidAndMd5andPath**: terminates the process based on its process ID (PID) and quarantines the source file of the process.
     // *   **quaraFileByMd5andPath**: quarantines the source file of the process.
     // *   **killAndQuaraFileByMd5andPath**: terminates the process and quarantines the source file of the process.
-    std::shared_ptr<string> subOperation_ = nullptr;
+    shared_ptr<string> subOperation_ {};
     // The IDs of alert events.
     // 
     // > You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the IDs of alert events from the SecurityEventIds response parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> suspiciousEventIds_ = nullptr;
+    shared_ptr<string> suspiciousEventIds_ {};
     // The type of the exceptions. Valid values:
     // 
     // *   **alarm**: alerts
     // *   **null**: exceptions
-    std::shared_ptr<string> warnType_ = nullptr;
+    shared_ptr<string> warnType_ {};
   };
 
   } // namespace Models

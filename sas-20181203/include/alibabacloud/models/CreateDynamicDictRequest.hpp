@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->override_ == nullptr
-        && return this->sourceIp_ == nullptr; };
+        && this->sourceIp_ == nullptr; };
     // override Field Functions 
     bool hasOverride() const { return this->override_ != nullptr;};
     void deleteOverride() { this->override_ = nullptr;};
-    inline bool override() const { DARABONBA_PTR_GET_DEFAULT(override_, false) };
+    inline bool getOverride() const { DARABONBA_PTR_GET_DEFAULT(override_, false) };
     inline CreateDynamicDictRequest& setOverride(bool override) { DARABONBA_PTR_SET_VALUE(override_, override) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline CreateDynamicDictRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> override_ = nullptr;
+    shared_ptr<bool> override_ {};
     // The source IP address.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

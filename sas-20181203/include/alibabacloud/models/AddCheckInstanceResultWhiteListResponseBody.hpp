@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr && return this->ruleId_ == nullptr; };
+        && this->requestId_ == nullptr && this->ruleId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline     const Darabonba::Json & data() const { DARABONBA_GET(data_) };
-    Darabonba::Json & data() { DARABONBA_GET(data_) };
+    inline     const Darabonba::Json & getData() const { DARABONBA_GET(data_) };
+    Darabonba::Json & getData() { DARABONBA_GET(data_) };
     inline AddCheckInstanceResultWhiteListResponseBody& setData(const Darabonba::Json & data) { DARABONBA_SET_VALUE(data_, data) };
-    inline AddCheckInstanceResultWhiteListResponseBody& setData(Darabonba::Json & data) { DARABONBA_SET_RVALUE(data_, data) };
+    inline AddCheckInstanceResultWhiteListResponseBody& setData(Darabonba::Json && data) { DARABONBA_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AddCheckInstanceResultWhiteListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline string ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
+    inline string getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
     inline AddCheckInstanceResultWhiteListResponseBody& setRuleId(string ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
   protected:
     // The data returned. This parameter is deprecated.
-    Darabonba::Json data_ = nullptr;
+    Darabonba::Json data_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the whitelist rule.
-    std::shared_ptr<string> ruleId_ = nullptr;
+    shared_ptr<string> ruleId_ {};
   };
 
   } // namespace Models

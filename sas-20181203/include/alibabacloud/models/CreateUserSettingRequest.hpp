@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertLevels_ == nullptr
-        && return this->invalidWarningKeepDays_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->invalidWarningKeepDays_ == nullptr && this->sourceIp_ == nullptr; };
     // alertLevels Field Functions 
     bool hasAlertLevels() const { return this->alertLevels_ != nullptr;};
     void deleteAlertLevels() { this->alertLevels_ = nullptr;};
-    inline string alertLevels() const { DARABONBA_PTR_GET_DEFAULT(alertLevels_, "") };
+    inline string getAlertLevels() const { DARABONBA_PTR_GET_DEFAULT(alertLevels_, "") };
     inline CreateUserSettingRequest& setAlertLevels(string alertLevels) { DARABONBA_PTR_SET_VALUE(alertLevels_, alertLevels) };
 
 
     // invalidWarningKeepDays Field Functions 
     bool hasInvalidWarningKeepDays() const { return this->invalidWarningKeepDays_ != nullptr;};
     void deleteInvalidWarningKeepDays() { this->invalidWarningKeepDays_ = nullptr;};
-    inline int32_t invalidWarningKeepDays() const { DARABONBA_PTR_GET_DEFAULT(invalidWarningKeepDays_, 0) };
+    inline int32_t getInvalidWarningKeepDays() const { DARABONBA_PTR_GET_DEFAULT(invalidWarningKeepDays_, 0) };
     inline CreateUserSettingRequest& setInvalidWarningKeepDays(int32_t invalidWarningKeepDays) { DARABONBA_PTR_SET_VALUE(invalidWarningKeepDays_, invalidWarningKeepDays) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline CreateUserSettingRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
   protected:
     // The severities of alerts.
-    std::shared_ptr<string> alertLevels_ = nullptr;
+    shared_ptr<string> alertLevels_ {};
     // The number of days during which you want to retain invalid alerts.
-    std::shared_ptr<int32_t> invalidWarningKeepDays_ = nullptr;
+    shared_ptr<int32_t> invalidWarningKeepDays_ {};
     // The source IP address.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

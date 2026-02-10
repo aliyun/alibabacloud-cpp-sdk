@@ -40,66 +40,66 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->pathNameDesc_ == nullptr && return this->pathType_ == nullptr && return this->whitelistName_ == nullptr; };
+        && this->lang_ == nullptr && this->pageSize_ == nullptr && this->pathNameDesc_ == nullptr && this->pathType_ == nullptr && this->whitelistName_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListAttackPathWhitelistRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ListAttackPathWhitelistRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListAttackPathWhitelistRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // pathNameDesc Field Functions 
     bool hasPathNameDesc() const { return this->pathNameDesc_ != nullptr;};
     void deletePathNameDesc() { this->pathNameDesc_ = nullptr;};
-    inline string pathNameDesc() const { DARABONBA_PTR_GET_DEFAULT(pathNameDesc_, "") };
+    inline string getPathNameDesc() const { DARABONBA_PTR_GET_DEFAULT(pathNameDesc_, "") };
     inline ListAttackPathWhitelistRequest& setPathNameDesc(string pathNameDesc) { DARABONBA_PTR_SET_VALUE(pathNameDesc_, pathNameDesc) };
 
 
     // pathType Field Functions 
     bool hasPathType() const { return this->pathType_ != nullptr;};
     void deletePathType() { this->pathType_ = nullptr;};
-    inline string pathType() const { DARABONBA_PTR_GET_DEFAULT(pathType_, "") };
+    inline string getPathType() const { DARABONBA_PTR_GET_DEFAULT(pathType_, "") };
     inline ListAttackPathWhitelistRequest& setPathType(string pathType) { DARABONBA_PTR_SET_VALUE(pathType_, pathType) };
 
 
     // whitelistName Field Functions 
     bool hasWhitelistName() const { return this->whitelistName_ != nullptr;};
     void deleteWhitelistName() { this->whitelistName_ = nullptr;};
-    inline string whitelistName() const { DARABONBA_PTR_GET_DEFAULT(whitelistName_, "") };
+    inline string getWhitelistName() const { DARABONBA_PTR_GET_DEFAULT(whitelistName_, "") };
     inline ListAttackPathWhitelistRequest& setWhitelistName(string whitelistName) { DARABONBA_PTR_SET_VALUE(whitelistName_, whitelistName) };
 
 
   protected:
     // When performing a paginated query, set the current page number. The default value is **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The language type for requests and responses. The default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // When performing a paginated query, set the maximum number of items per page. The default value is 20.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Path name description.
     // > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path name descriptions.
-    std::shared_ptr<string> pathNameDesc_ = nullptr;
+    shared_ptr<string> pathNameDesc_ {};
     // Path type.
     // > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path types.
-    std::shared_ptr<string> pathType_ = nullptr;
+    shared_ptr<string> pathType_ {};
     // Whitelist name.
-    std::shared_ptr<string> whitelistName_ = nullptr;
+    shared_ptr<string> whitelistName_ {};
   };
 
   } // namespace Models

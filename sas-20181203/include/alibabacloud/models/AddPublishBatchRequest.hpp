@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->batchName_ == nullptr
-        && return this->interval_ == nullptr && return this->operationBase_ == nullptr && return this->upgradeVersion_ == nullptr; };
+        && this->interval_ == nullptr && this->operationBase_ == nullptr && this->upgradeVersion_ == nullptr; };
     // batchName Field Functions 
     bool hasBatchName() const { return this->batchName_ != nullptr;};
     void deleteBatchName() { this->batchName_ = nullptr;};
-    inline string batchName() const { DARABONBA_PTR_GET_DEFAULT(batchName_, "") };
+    inline string getBatchName() const { DARABONBA_PTR_GET_DEFAULT(batchName_, "") };
     inline AddPublishBatchRequest& setBatchName(string batchName) { DARABONBA_PTR_SET_VALUE(batchName_, batchName) };
 
 
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
-    inline int32_t interval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0) };
+    inline int32_t getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0) };
     inline AddPublishBatchRequest& setInterval(int32_t interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
 
 
     // operationBase Field Functions 
     bool hasOperationBase() const { return this->operationBase_ != nullptr;};
     void deleteOperationBase() { this->operationBase_ = nullptr;};
-    inline int32_t operationBase() const { DARABONBA_PTR_GET_DEFAULT(operationBase_, 0) };
+    inline int32_t getOperationBase() const { DARABONBA_PTR_GET_DEFAULT(operationBase_, 0) };
     inline AddPublishBatchRequest& setOperationBase(int32_t operationBase) { DARABONBA_PTR_SET_VALUE(operationBase_, operationBase) };
 
 
     // upgradeVersion Field Functions 
     bool hasUpgradeVersion() const { return this->upgradeVersion_ != nullptr;};
     void deleteUpgradeVersion() { this->upgradeVersion_ = nullptr;};
-    inline string upgradeVersion() const { DARABONBA_PTR_GET_DEFAULT(upgradeVersion_, "") };
+    inline string getUpgradeVersion() const { DARABONBA_PTR_GET_DEFAULT(upgradeVersion_, "") };
     inline AddPublishBatchRequest& setUpgradeVersion(string upgradeVersion) { DARABONBA_PTR_SET_VALUE(upgradeVersion_, upgradeVersion) };
 
 
@@ -69,21 +69,21 @@ namespace Models
     // The name of the release batch.
     // 
     // This parameter is required.
-    std::shared_ptr<string> batchName_ = nullptr;
+    shared_ptr<string> batchName_ {};
     // The interval between two release batches.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> interval_ = nullptr;
+    shared_ptr<int32_t> interval_ {};
     // The dimension based on which the asset is selected. Valid values:
     // 
     // *   **0**: selects the asset by instance.
     // *   **1**: selects the asset by machine group.
     // *   **2**: selects the asset by the ID of the instance that is deployed in the virtual private cloud (VPC).
-    std::shared_ptr<int32_t> operationBase_ = nullptr;
+    shared_ptr<int32_t> operationBase_ {};
     // The version to which you want to upgrade the agent.
     // 
     // This parameter is required.
-    std::shared_ptr<string> upgradeVersion_ = nullptr;
+    shared_ptr<string> upgradeVersion_ {};
   };
 
   } // namespace Models

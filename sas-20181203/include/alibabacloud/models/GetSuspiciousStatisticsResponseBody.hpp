@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->remindCount_ == nullptr
-        && return this->requestId_ == nullptr && return this->seriousCount_ == nullptr && return this->suspiciousCount_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->requestId_ == nullptr && this->seriousCount_ == nullptr && this->suspiciousCount_ == nullptr && this->totalCount_ == nullptr; };
     // remindCount Field Functions 
     bool hasRemindCount() const { return this->remindCount_ != nullptr;};
     void deleteRemindCount() { this->remindCount_ = nullptr;};
-    inline int32_t remindCount() const { DARABONBA_PTR_GET_DEFAULT(remindCount_, 0) };
+    inline int32_t getRemindCount() const { DARABONBA_PTR_GET_DEFAULT(remindCount_, 0) };
     inline GetSuspiciousStatisticsResponseBody& setRemindCount(int32_t remindCount) { DARABONBA_PTR_SET_VALUE(remindCount_, remindCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetSuspiciousStatisticsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // seriousCount Field Functions 
     bool hasSeriousCount() const { return this->seriousCount_ != nullptr;};
     void deleteSeriousCount() { this->seriousCount_ = nullptr;};
-    inline int32_t seriousCount() const { DARABONBA_PTR_GET_DEFAULT(seriousCount_, 0) };
+    inline int32_t getSeriousCount() const { DARABONBA_PTR_GET_DEFAULT(seriousCount_, 0) };
     inline GetSuspiciousStatisticsResponseBody& setSeriousCount(int32_t seriousCount) { DARABONBA_PTR_SET_VALUE(seriousCount_, seriousCount) };
 
 
     // suspiciousCount Field Functions 
     bool hasSuspiciousCount() const { return this->suspiciousCount_ != nullptr;};
     void deleteSuspiciousCount() { this->suspiciousCount_ = nullptr;};
-    inline int32_t suspiciousCount() const { DARABONBA_PTR_GET_DEFAULT(suspiciousCount_, 0) };
+    inline int32_t getSuspiciousCount() const { DARABONBA_PTR_GET_DEFAULT(suspiciousCount_, 0) };
     inline GetSuspiciousStatisticsResponseBody& setSuspiciousCount(int32_t suspiciousCount) { DARABONBA_PTR_SET_VALUE(suspiciousCount_, suspiciousCount) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline GetSuspiciousStatisticsResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The number of alerts whose Emergency level is Reminder.
-    std::shared_ptr<int32_t> remindCount_ = nullptr;
+    shared_ptr<int32_t> remindCount_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The number of alerts whose Emergency level is Urgent.
-    std::shared_ptr<int32_t> seriousCount_ = nullptr;
+    shared_ptr<int32_t> seriousCount_ {};
     // The number of alerts whose Emergency level is Suspicious.
-    std::shared_ptr<int32_t> suspiciousCount_ = nullptr;
+    shared_ptr<int32_t> suspiciousCount_ {};
     // The total number of alerts.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

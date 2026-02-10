@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->strategyTag_ == nullptr
-        && return this->strategyTagValue_ == nullptr; };
+        && this->strategyTagValue_ == nullptr; };
     // strategyTag Field Functions 
     bool hasStrategyTag() const { return this->strategyTag_ != nullptr;};
     void deleteStrategyTag() { this->strategyTag_ = nullptr;};
-    inline string strategyTag() const { DARABONBA_PTR_GET_DEFAULT(strategyTag_, "") };
+    inline string getStrategyTag() const { DARABONBA_PTR_GET_DEFAULT(strategyTag_, "") };
     inline DescribeClientConfSetupRequest& setStrategyTag(string strategyTag) { DARABONBA_PTR_SET_VALUE(strategyTag_, strategyTag) };
 
 
     // strategyTagValue Field Functions 
     bool hasStrategyTagValue() const { return this->strategyTagValue_ != nullptr;};
     void deleteStrategyTagValue() { this->strategyTagValue_ = nullptr;};
-    inline string strategyTagValue() const { DARABONBA_PTR_GET_DEFAULT(strategyTagValue_, "") };
+    inline string getStrategyTagValue() const { DARABONBA_PTR_GET_DEFAULT(strategyTagValue_, "") };
     inline DescribeClientConfSetupRequest& setStrategyTagValue(string strategyTagValue) { DARABONBA_PTR_SET_VALUE(strategyTagValue_, strategyTagValue) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The tag that is added to the server.
     // 
     // This parameter is required.
-    std::shared_ptr<string> strategyTag_ = nullptr;
+    shared_ptr<string> strategyTag_ {};
     // The value of the tag. Valid values:
     // 
     // *   major
@@ -59,7 +59,7 @@ namespace Models
     // *   basic
     // 
     // This parameter is required.
-    std::shared_ptr<string> strategyTagValue_ = nullptr;
+    shared_ptr<string> strategyTagValue_ {};
   };
 
   } // namespace Models

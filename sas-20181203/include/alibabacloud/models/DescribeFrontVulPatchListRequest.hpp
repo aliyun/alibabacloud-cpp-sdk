@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->info_ == nullptr
-        && return this->lang_ == nullptr && return this->operateType_ == nullptr && return this->type_ == nullptr; };
+        && this->lang_ == nullptr && this->operateType_ == nullptr && this->type_ == nullptr; };
     // info Field Functions 
     bool hasInfo() const { return this->info_ != nullptr;};
     void deleteInfo() { this->info_ = nullptr;};
-    inline string info() const { DARABONBA_PTR_GET_DEFAULT(info_, "") };
+    inline string getInfo() const { DARABONBA_PTR_GET_DEFAULT(info_, "") };
     inline DescribeFrontVulPatchListRequest& setInfo(string info) { DARABONBA_PTR_SET_VALUE(info_, info) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeFrontVulPatchListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // operateType Field Functions 
     bool hasOperateType() const { return this->operateType_ != nullptr;};
     void deleteOperateType() { this->operateType_ = nullptr;};
-    inline string operateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
+    inline string getOperateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
     inline DescribeFrontVulPatchListRequest& setOperateType(string operateType) { DARABONBA_PTR_SET_VALUE(operateType_, operateType) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeFrontVulPatchListRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -73,20 +73,20 @@ namespace Models
     // *   **tag**: the tag that is added to the vulnerability. Set this field to **system**, which indicates Windows system vulnerabilities.
     // 
     // This parameter is required.
-    std::shared_ptr<string> info_ = nullptr;
+    shared_ptr<string> info_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The operation that you want to perform on the vulnerability. Set the value to **vul_fix**, which indicates vulnerability fixing.
     // 
     // This parameter is required.
-    std::shared_ptr<string> operateType_ = nullptr;
+    shared_ptr<string> operateType_ {};
     // The type of the vulnerability. Set the value to **sys**, which indicates Windows system vulnerabilities.
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

@@ -44,81 +44,81 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessid_ == nullptr
-        && return this->expire_ == nullptr && return this->host_ == nullptr && return this->key_ == nullptr && return this->policy_ == nullptr && return this->requestId_ == nullptr
-        && return this->securityToken_ == nullptr && return this->signature_ == nullptr; };
+        && this->expire_ == nullptr && this->host_ == nullptr && this->key_ == nullptr && this->policy_ == nullptr && this->requestId_ == nullptr
+        && this->securityToken_ == nullptr && this->signature_ == nullptr; };
     // accessid Field Functions 
     bool hasAccessid() const { return this->accessid_ != nullptr;};
     void deleteAccessid() { this->accessid_ = nullptr;};
-    inline string accessid() const { DARABONBA_PTR_GET_DEFAULT(accessid_, "") };
+    inline string getAccessid() const { DARABONBA_PTR_GET_DEFAULT(accessid_, "") };
     inline DescribeCustomizedDictUploadInfoResponseBody& setAccessid(string accessid) { DARABONBA_PTR_SET_VALUE(accessid_, accessid) };
 
 
     // expire Field Functions 
     bool hasExpire() const { return this->expire_ != nullptr;};
     void deleteExpire() { this->expire_ = nullptr;};
-    inline string expire() const { DARABONBA_PTR_GET_DEFAULT(expire_, "") };
+    inline string getExpire() const { DARABONBA_PTR_GET_DEFAULT(expire_, "") };
     inline DescribeCustomizedDictUploadInfoResponseBody& setExpire(string expire) { DARABONBA_PTR_SET_VALUE(expire_, expire) };
 
 
     // host Field Functions 
     bool hasHost() const { return this->host_ != nullptr;};
     void deleteHost() { this->host_ = nullptr;};
-    inline string host() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
+    inline string getHost() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
     inline DescribeCustomizedDictUploadInfoResponseBody& setHost(string host) { DARABONBA_PTR_SET_VALUE(host_, host) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline DescribeCustomizedDictUploadInfoResponseBody& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // policy Field Functions 
     bool hasPolicy() const { return this->policy_ != nullptr;};
     void deletePolicy() { this->policy_ = nullptr;};
-    inline string policy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
+    inline string getPolicy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
     inline DescribeCustomizedDictUploadInfoResponseBody& setPolicy(string policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeCustomizedDictUploadInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DescribeCustomizedDictUploadInfoResponseBody& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // signature Field Functions 
     bool hasSignature() const { return this->signature_ != nullptr;};
     void deleteSignature() { this->signature_ = nullptr;};
-    inline string signature() const { DARABONBA_PTR_GET_DEFAULT(signature_, "") };
+    inline string getSignature() const { DARABONBA_PTR_GET_DEFAULT(signature_, "") };
     inline DescribeCustomizedDictUploadInfoResponseBody& setSignature(string signature) { DARABONBA_PTR_SET_VALUE(signature_, signature) };
 
 
   protected:
     // The AccessKey ID that is required to access the OSS object.
-    std::shared_ptr<string> accessid_ = nullptr;
+    shared_ptr<string> accessid_ {};
     // The time when the OSS signature expires. This value is a UNIX timestamp.
-    std::shared_ptr<string> expire_ = nullptr;
+    shared_ptr<string> expire_ {};
     // The OSS endpoint.
-    std::shared_ptr<string> host_ = nullptr;
+    shared_ptr<string> host_ {};
     // The key of the OSS object.
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<string> key_ {};
     // The policy of the OSS bucket.
-    std::shared_ptr<string> policy_ = nullptr;
+    shared_ptr<string> policy_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The security token.
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> securityToken_ {};
     // The OSS signature.
-    std::shared_ptr<string> signature_ = nullptr;
+    shared_ptr<string> signature_ {};
   };
 
   } // namespace Models

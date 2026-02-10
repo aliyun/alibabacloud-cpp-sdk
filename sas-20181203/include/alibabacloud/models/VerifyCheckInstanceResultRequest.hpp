@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkId_ == nullptr
-        && return this->checkIds_ == nullptr && return this->instanceIds_ == nullptr && return this->taskSource_ == nullptr; };
+        && this->checkIds_ == nullptr && this->instanceIds_ == nullptr && this->taskSource_ == nullptr; };
     // checkId Field Functions 
     bool hasCheckId() const { return this->checkId_ != nullptr;};
     void deleteCheckId() { this->checkId_ = nullptr;};
-    inline int64_t checkId() const { DARABONBA_PTR_GET_DEFAULT(checkId_, 0L) };
+    inline int64_t getCheckId() const { DARABONBA_PTR_GET_DEFAULT(checkId_, 0L) };
     inline VerifyCheckInstanceResultRequest& setCheckId(int64_t checkId) { DARABONBA_PTR_SET_VALUE(checkId_, checkId) };
 
 
     // checkIds Field Functions 
     bool hasCheckIds() const { return this->checkIds_ != nullptr;};
     void deleteCheckIds() { this->checkIds_ = nullptr;};
-    inline const vector<int64_t> & checkIds() const { DARABONBA_PTR_GET_CONST(checkIds_, vector<int64_t>) };
-    inline vector<int64_t> checkIds() { DARABONBA_PTR_GET(checkIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getCheckIds() const { DARABONBA_PTR_GET_CONST(checkIds_, vector<int64_t>) };
+    inline vector<int64_t> getCheckIds() { DARABONBA_PTR_GET(checkIds_, vector<int64_t>) };
     inline VerifyCheckInstanceResultRequest& setCheckIds(const vector<int64_t> & checkIds) { DARABONBA_PTR_SET_VALUE(checkIds_, checkIds) };
     inline VerifyCheckInstanceResultRequest& setCheckIds(vector<int64_t> && checkIds) { DARABONBA_PTR_SET_RVALUE(checkIds_, checkIds) };
 
@@ -57,8 +57,8 @@ namespace Models
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline VerifyCheckInstanceResultRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline VerifyCheckInstanceResultRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -66,7 +66,7 @@ namespace Models
     // taskSource Field Functions 
     bool hasTaskSource() const { return this->taskSource_ != nullptr;};
     void deleteTaskSource() { this->taskSource_ = nullptr;};
-    inline string taskSource() const { DARABONBA_PTR_GET_DEFAULT(taskSource_, "") };
+    inline string getTaskSource() const { DARABONBA_PTR_GET_DEFAULT(taskSource_, "") };
     inline VerifyCheckInstanceResultRequest& setTaskSource(string taskSource) { DARABONBA_PTR_SET_VALUE(taskSource_, taskSource) };
 
 
@@ -74,13 +74,13 @@ namespace Models
     // The ID of the check item.
     // 
     // > You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of check items.
-    std::shared_ptr<int64_t> checkId_ = nullptr;
+    shared_ptr<int64_t> checkId_ {};
     // List of item IDs to be checked.
-    std::shared_ptr<vector<int64_t>> checkIds_ = nullptr;
+    shared_ptr<vector<int64_t>> checkIds_ {};
     // The instance IDs of the assets on which risks are detected based on the check item.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
     // The source of task.
-    std::shared_ptr<string> taskSource_ = nullptr;
+    shared_ptr<string> taskSource_ {};
   };
 
   } // namespace Models

@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mode_ == nullptr
-        && return this->uuids_ == nullptr; };
+        && this->uuids_ == nullptr; };
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline string mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
     inline UpdateClientAlertModeRequest& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // uuids Field Functions 
     bool hasUuids() const { return this->uuids_ != nullptr;};
     void deleteUuids() { this->uuids_ = nullptr;};
-    inline const vector<string> & uuids() const { DARABONBA_PTR_GET_CONST(uuids_, vector<string>) };
-    inline vector<string> uuids() { DARABONBA_PTR_GET(uuids_, vector<string>) };
+    inline const vector<string> & getUuids() const { DARABONBA_PTR_GET_CONST(uuids_, vector<string>) };
+    inline vector<string> getUuids() { DARABONBA_PTR_GET(uuids_, vector<string>) };
     inline UpdateClientAlertModeRequest& setUuids(const vector<string> & uuids) { DARABONBA_PTR_SET_VALUE(uuids_, uuids) };
     inline UpdateClientAlertModeRequest& setUuids(vector<string> && uuids) { DARABONBA_PTR_SET_RVALUE(uuids_, uuids) };
 
@@ -55,9 +55,9 @@ namespace Models
     // 
     // *   **strict**: The strict mode. False positives may be generated. We recommend that you enable this mode during major events.
     // *   **balance**: The balanced mode. More risks can be detected with less false positives in this mode.
-    std::shared_ptr<string> mode_ = nullptr;
+    shared_ptr<string> mode_ {};
     // The UUIDs of servers.
-    std::shared_ptr<vector<string>> uuids_ = nullptr;
+    shared_ptr<vector<string>> uuids_ {};
   };
 
   } // namespace Models

@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceDirectoryAccountId_ == nullptr
-        && return this->statisticTypes_ == nullptr && return this->timeEnd_ == nullptr && return this->timeStart_ == nullptr; };
+        && this->statisticTypes_ == nullptr && this->timeEnd_ == nullptr && this->timeStart_ == nullptr; };
     // resourceDirectoryAccountId Field Functions 
     bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
     void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
-    inline int64_t resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
     inline GetClientRatioStatisticRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // statisticTypes Field Functions 
     bool hasStatisticTypes() const { return this->statisticTypes_ != nullptr;};
     void deleteStatisticTypes() { this->statisticTypes_ = nullptr;};
-    inline const vector<string> & statisticTypes() const { DARABONBA_PTR_GET_CONST(statisticTypes_, vector<string>) };
-    inline vector<string> statisticTypes() { DARABONBA_PTR_GET(statisticTypes_, vector<string>) };
+    inline const vector<string> & getStatisticTypes() const { DARABONBA_PTR_GET_CONST(statisticTypes_, vector<string>) };
+    inline vector<string> getStatisticTypes() { DARABONBA_PTR_GET(statisticTypes_, vector<string>) };
     inline GetClientRatioStatisticRequest& setStatisticTypes(const vector<string> & statisticTypes) { DARABONBA_PTR_SET_VALUE(statisticTypes_, statisticTypes) };
     inline GetClientRatioStatisticRequest& setStatisticTypes(vector<string> && statisticTypes) { DARABONBA_PTR_SET_RVALUE(statisticTypes_, statisticTypes) };
 
@@ -57,31 +57,27 @@ namespace Models
     // timeEnd Field Functions 
     bool hasTimeEnd() const { return this->timeEnd_ != nullptr;};
     void deleteTimeEnd() { this->timeEnd_ = nullptr;};
-    inline int64_t timeEnd() const { DARABONBA_PTR_GET_DEFAULT(timeEnd_, 0L) };
+    inline int64_t getTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(timeEnd_, 0L) };
     inline GetClientRatioStatisticRequest& setTimeEnd(int64_t timeEnd) { DARABONBA_PTR_SET_VALUE(timeEnd_, timeEnd) };
 
 
     // timeStart Field Functions 
     bool hasTimeStart() const { return this->timeStart_ != nullptr;};
     void deleteTimeStart() { this->timeStart_ = nullptr;};
-    inline int64_t timeStart() const { DARABONBA_PTR_GET_DEFAULT(timeStart_, 0L) };
+    inline int64_t getTimeStart() const { DARABONBA_PTR_GET_DEFAULT(timeStart_, 0L) };
     inline GetClientRatioStatisticRequest& setTimeStart(int64_t timeStart) { DARABONBA_PTR_SET_VALUE(timeStart_, timeStart) };
 
 
   protected:
     // The ID of the primary account of the Resource Directory member account.
     // > call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) interface to obtain this parameter.
-    std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // An array that consists of the details of a statistical type.
-    std::shared_ptr<vector<string>> statisticTypes_ = nullptr;
+    shared_ptr<vector<string>> statisticTypes_ {};
     // The timestamp that specifies the end of the time range to collect statistics. Unit: milliseconds.
-    // 
-    // This parameter is required.
-    std::shared_ptr<int64_t> timeEnd_ = nullptr;
+    shared_ptr<int64_t> timeEnd_ {};
     // The timestamp that specifies the beginning of the time range to collect statistics. Unit: milliseconds.
-    // 
-    // This parameter is required.
-    std::shared_ptr<int64_t> timeStart_ = nullptr;
+    shared_ptr<int64_t> timeStart_ {};
   };
 
   } // namespace Models

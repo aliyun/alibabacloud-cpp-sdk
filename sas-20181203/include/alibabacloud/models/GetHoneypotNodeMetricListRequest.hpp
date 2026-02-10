@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->express_ == nullptr && return this->length_ == nullptr && return this->metricName_ == nullptr && return this->namespace_ == nullptr && return this->nodeId_ == nullptr
-        && return this->period_ == nullptr && return this->startTime_ == nullptr; };
+        && this->express_ == nullptr && this->length_ == nullptr && this->metricName_ == nullptr && this->namespace_ == nullptr && this->nodeId_ == nullptr
+        && this->period_ == nullptr && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetHoneypotNodeMetricListRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // express Field Functions 
     bool hasExpress() const { return this->express_ != nullptr;};
     void deleteExpress() { this->express_ = nullptr;};
-    inline string express() const { DARABONBA_PTR_GET_DEFAULT(express_, "") };
+    inline string getExpress() const { DARABONBA_PTR_GET_DEFAULT(express_, "") };
     inline GetHoneypotNodeMetricListRequest& setExpress(string express) { DARABONBA_PTR_SET_VALUE(express_, express) };
 
 
     // length Field Functions 
     bool hasLength() const { return this->length_ != nullptr;};
     void deleteLength() { this->length_ = nullptr;};
-    inline string length() const { DARABONBA_PTR_GET_DEFAULT(length_, "") };
+    inline string getLength() const { DARABONBA_PTR_GET_DEFAULT(length_, "") };
     inline GetHoneypotNodeMetricListRequest& setLength(string length) { DARABONBA_PTR_SET_VALUE(length_, length) };
 
 
     // metricName Field Functions 
     bool hasMetricName() const { return this->metricName_ != nullptr;};
     void deleteMetricName() { this->metricName_ = nullptr;};
-    inline string metricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
+    inline string getMetricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
     inline GetHoneypotNodeMetricListRequest& setMetricName(string metricName) { DARABONBA_PTR_SET_VALUE(metricName_, metricName) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline GetHoneypotNodeMetricListRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline GetHoneypotNodeMetricListRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline string period() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
     inline GetHoneypotNodeMetricListRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetHoneypotNodeMetricListRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
@@ -107,29 +107,29 @@ namespace Models
     // 
     // *   UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC
     // *   Date format: YYYY-MM-DDThh:mm:ssZ
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The expression that is used to compute the query results in real time.
     // 
     // >  Only the groupby expression is supported. This expression is similar to the GROUP BY statement that applies to databases.
-    std::shared_ptr<string> express_ = nullptr;
+    shared_ptr<string> express_ {};
     // The number of entries per page.
     // 
     // >  The maximum value of the Length parameter in a request is 1440.
-    std::shared_ptr<string> length_ = nullptr;
+    shared_ptr<string> length_ {};
     // The metric that is used to monitor the cloud service.
-    std::shared_ptr<string> metricName_ = nullptr;
+    shared_ptr<string> metricName_ {};
     // The namespace of the cloud service. Format: acs_cloud service name.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The management node ID.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
     // The time interval. Unit: seconds. Valid values: 60, 300, and 900.
-    std::shared_ptr<string> period_ = nullptr;
+    shared_ptr<string> period_ {};
     // The beginning of the time range to query. The following formats are supported:
     // 
     // *   UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC
     // *   Date format: YYYY-MM-DDThh:mm:ssZ
     // *   The interval between the start time and the end time is less than or equal to 31 days.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

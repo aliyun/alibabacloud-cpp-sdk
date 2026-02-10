@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->operateCode_ == nullptr
-        && return this->requestId_ == nullptr && return this->rootTaskId_ == nullptr; };
+        && this->requestId_ == nullptr && this->rootTaskId_ == nullptr; };
     // operateCode Field Functions 
     bool hasOperateCode() const { return this->operateCode_ != nullptr;};
     void deleteOperateCode() { this->operateCode_ = nullptr;};
-    inline string operateCode() const { DARABONBA_PTR_GET_DEFAULT(operateCode_, "") };
+    inline string getOperateCode() const { DARABONBA_PTR_GET_DEFAULT(operateCode_, "") };
     inline SubmitOperationTaskResponseBody& setOperateCode(string operateCode) { DARABONBA_PTR_SET_VALUE(operateCode_, operateCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SubmitOperationTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // rootTaskId Field Functions 
     bool hasRootTaskId() const { return this->rootTaskId_ != nullptr;};
     void deleteRootTaskId() { this->rootTaskId_ = nullptr;};
-    inline string rootTaskId() const { DARABONBA_PTR_GET_DEFAULT(rootTaskId_, "") };
+    inline string getRootTaskId() const { DARABONBA_PTR_GET_DEFAULT(rootTaskId_, "") };
     inline SubmitOperationTaskResponseBody& setRootTaskId(string rootTaskId) { DARABONBA_PTR_SET_VALUE(rootTaskId_, rootTaskId) };
 
 
@@ -61,11 +61,11 @@ namespace Models
     // 
     // *   Insufficient authorization: AuthorizationExhaust
     // *   Unauthorized: ActionTrialUnauthorized
-    std::shared_ptr<string> operateCode_ = nullptr;
+    shared_ptr<string> operateCode_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The main task ID that is returned when the task is submitted.
-    std::shared_ptr<string> rootTaskId_ = nullptr;
+    shared_ptr<string> rootTaskId_ {};
   };
 
   } // namespace Models

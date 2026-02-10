@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && return this->lang_ == nullptr && return this->statisticsDays_ == nullptr && return this->statisticsKeyType_ == nullptr; };
+        && this->lang_ == nullptr && this->statisticsDays_ == nullptr && this->statisticsKeyType_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
-    inline string from() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
+    inline string getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
     inline DescribeHoneyPotSuspStatisticsRequest& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeHoneyPotSuspStatisticsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // statisticsDays Field Functions 
     bool hasStatisticsDays() const { return this->statisticsDays_ != nullptr;};
     void deleteStatisticsDays() { this->statisticsDays_ = nullptr;};
-    inline int32_t statisticsDays() const { DARABONBA_PTR_GET_DEFAULT(statisticsDays_, 0) };
+    inline int32_t getStatisticsDays() const { DARABONBA_PTR_GET_DEFAULT(statisticsDays_, 0) };
     inline DescribeHoneyPotSuspStatisticsRequest& setStatisticsDays(int32_t statisticsDays) { DARABONBA_PTR_SET_VALUE(statisticsDays_, statisticsDays) };
 
 
     // statisticsKeyType Field Functions 
     bool hasStatisticsKeyType() const { return this->statisticsKeyType_ != nullptr;};
     void deleteStatisticsKeyType() { this->statisticsKeyType_ = nullptr;};
-    inline string statisticsKeyType() const { DARABONBA_PTR_GET_DEFAULT(statisticsKeyType_, "") };
+    inline string getStatisticsKeyType() const { DARABONBA_PTR_GET_DEFAULT(statisticsKeyType_, "") };
     inline DescribeHoneyPotSuspStatisticsRequest& setStatisticsKeyType(string statisticsKeyType) { DARABONBA_PTR_SET_VALUE(statisticsKeyType_, statisticsKeyType) };
 
 
@@ -69,23 +69,23 @@ namespace Models
     // The source of the request. Set the value to **honeypot**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> from_ = nullptr;
+    shared_ptr<string> from_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese.
     // *   **en**: English.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The time range of the data to query. Unit: days.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> statisticsDays_ = nullptr;
+    shared_ptr<int32_t> statisticsDays_ {};
     // The type of the asset to query. Valid values:
     // 
     // *   **vpcInstanceId**: VPC
     // *   **uuid**: server
     // 
     // This parameter is required.
-    std::shared_ptr<string> statisticsKeyType_ = nullptr;
+    shared_ptr<string> statisticsKeyType_ {};
   };
 
   } // namespace Models

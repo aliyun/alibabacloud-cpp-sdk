@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authId_ == nullptr
-        && return this->vendor_ == nullptr; };
+        && this->vendor_ == nullptr; };
     // authId Field Functions 
     bool hasAuthId() const { return this->authId_ != nullptr;};
     void deleteAuthId() { this->authId_ = nullptr;};
-    inline int64_t authId() const { DARABONBA_PTR_GET_DEFAULT(authId_, 0L) };
+    inline int64_t getAuthId() const { DARABONBA_PTR_GET_DEFAULT(authId_, 0L) };
     inline DescribeCloudVendorTrialConfigRequest& setAuthId(int64_t authId) { DARABONBA_PTR_SET_VALUE(authId_, authId) };
 
 
     // vendor Field Functions 
     bool hasVendor() const { return this->vendor_ != nullptr;};
     void deleteVendor() { this->vendor_ = nullptr;};
-    inline string vendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
+    inline string getVendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
     inline DescribeCloudVendorTrialConfigRequest& setVendor(string vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
 
 
@@ -54,13 +54,13 @@ namespace Models
     // > -
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> authId_ = nullptr;
+    shared_ptr<int64_t> authId_ {};
     // Cloud asset vendor. Values:
     // - **Tencent**: Tencent Cloud
     // - **AWS**: Amazon Web Services
     // 
     // This parameter is required.
-    std::shared_ptr<string> vendor_ = nullptr;
+    shared_ptr<string> vendor_ {};
   };
 
   } // namespace Models

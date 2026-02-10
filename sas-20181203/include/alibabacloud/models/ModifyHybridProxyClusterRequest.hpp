@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterName_ == nullptr
-        && return this->remark_ == nullptr; };
+        && this->remark_ == nullptr; };
     // clusterName Field Functions 
     bool hasClusterName() const { return this->clusterName_ != nullptr;};
     void deleteClusterName() { this->clusterName_ = nullptr;};
-    inline string clusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
+    inline string getClusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
     inline ModifyHybridProxyClusterRequest& setClusterName(string clusterName) { DARABONBA_PTR_SET_VALUE(clusterName_, clusterName) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline ModifyHybridProxyClusterRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The name of the proxy cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterName_ = nullptr;
+    shared_ptr<string> clusterName_ {};
     // The remarks.
     // 
     // This parameter is required.
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> remark_ {};
   };
 
   } // namespace Models

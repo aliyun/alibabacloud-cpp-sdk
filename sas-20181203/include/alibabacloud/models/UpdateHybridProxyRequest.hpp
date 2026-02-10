@@ -33,7 +33,7 @@ namespace Models
     // proxyUuid Field Functions 
     bool hasProxyUuid() const { return this->proxyUuid_ != nullptr;};
     void deleteProxyUuid() { this->proxyUuid_ = nullptr;};
-    inline string proxyUuid() const { DARABONBA_PTR_GET_DEFAULT(proxyUuid_, "") };
+    inline string getProxyUuid() const { DARABONBA_PTR_GET_DEFAULT(proxyUuid_, "") };
     inline UpdateHybridProxyRequest& setProxyUuid(string proxyUuid) { DARABONBA_PTR_SET_VALUE(proxyUuid_, proxyUuid) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The UUID of the Security Center agent.
     // 
     // This parameter is required.
-    std::shared_ptr<string> proxyUuid_ = nullptr;
+    shared_ptr<string> proxyUuid_ {};
   };
 
   } // namespace Models

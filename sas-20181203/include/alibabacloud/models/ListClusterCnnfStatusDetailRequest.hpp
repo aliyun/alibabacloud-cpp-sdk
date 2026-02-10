@@ -34,15 +34,15 @@ namespace Models
     // clusterIds Field Functions 
     bool hasClusterIds() const { return this->clusterIds_ != nullptr;};
     void deleteClusterIds() { this->clusterIds_ = nullptr;};
-    inline const vector<string> & clusterIds() const { DARABONBA_PTR_GET_CONST(clusterIds_, vector<string>) };
-    inline vector<string> clusterIds() { DARABONBA_PTR_GET(clusterIds_, vector<string>) };
+    inline const vector<string> & getClusterIds() const { DARABONBA_PTR_GET_CONST(clusterIds_, vector<string>) };
+    inline vector<string> getClusterIds() { DARABONBA_PTR_GET(clusterIds_, vector<string>) };
     inline ListClusterCnnfStatusDetailRequest& setClusterIds(const vector<string> & clusterIds) { DARABONBA_PTR_SET_VALUE(clusterIds_, clusterIds) };
     inline ListClusterCnnfStatusDetailRequest& setClusterIds(vector<string> && clusterIds) { DARABONBA_PTR_SET_RVALUE(clusterIds_, clusterIds) };
 
 
   protected:
     // An array that consists of the ID of the cluster.
-    std::shared_ptr<vector<string>> clusterIds_ = nullptr;
+    shared_ptr<vector<string>> clusterIds_ {};
   };
 
   } // namespace Models

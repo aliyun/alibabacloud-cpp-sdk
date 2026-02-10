@@ -33,7 +33,7 @@ namespace Models
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int64_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0L) };
+    inline int64_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0L) };
     inline UpdateFileUploadLimitRequest& setLimit(int64_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The QPS limit on the files uploaded from the client. Valid values: 100 to 10000.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> limit_ = nullptr;
+    shared_ptr<int64_t> limit_ {};
   };
 
   } // namespace Models

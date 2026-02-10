@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keywordList_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // keywordList Field Functions 
     bool hasKeywordList() const { return this->keywordList_ != nullptr;};
     void deleteKeywordList() { this->keywordList_ = nullptr;};
-    inline const vector<string> & keywordList() const { DARABONBA_PTR_GET_CONST(keywordList_, vector<string>) };
-    inline vector<string> keywordList() { DARABONBA_PTR_GET(keywordList_, vector<string>) };
+    inline const vector<string> & getKeywordList() const { DARABONBA_PTR_GET_CONST(keywordList_, vector<string>) };
+    inline vector<string> getKeywordList() { DARABONBA_PTR_GET(keywordList_, vector<string>) };
     inline GenerateDynamicDictResponseBody& setKeywordList(const vector<string> & keywordList) { DARABONBA_PTR_SET_VALUE(keywordList_, keywordList) };
     inline GenerateDynamicDictResponseBody& setKeywordList(vector<string> && keywordList) { DARABONBA_PTR_SET_RVALUE(keywordList_, keywordList) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GenerateDynamicDictResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The custom weak passwords.
-    std::shared_ptr<vector<string>> keywordList_ = nullptr;
+    shared_ptr<vector<string>> keywordList_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

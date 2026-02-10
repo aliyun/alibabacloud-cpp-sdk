@@ -68,147 +68,147 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupType_ == nullptr
-        && return this->memberAccountSyncFlag_ == nullptr && return this->pinnedTime_ == nullptr && return this->recipients_ == nullptr && return this->reportDays_ == nullptr && return this->reportEndDate_ == nullptr
-        && return this->reportId_ == nullptr && return this->reportLang_ == nullptr && return this->reportSendType_ == nullptr && return this->reportStartDate_ == nullptr && return this->reportStatus_ == nullptr
-        && return this->reportType_ == nullptr && return this->reportVersion_ == nullptr && return this->sendEndTime_ == nullptr && return this->sendPeriodDays_ == nullptr && return this->sendPeriodType_ == nullptr
-        && return this->sendStartTime_ == nullptr && return this->targetGroups_ == nullptr && return this->targetUids_ == nullptr && return this->title_ == nullptr; };
+        && this->memberAccountSyncFlag_ == nullptr && this->pinnedTime_ == nullptr && this->recipients_ == nullptr && this->reportDays_ == nullptr && this->reportEndDate_ == nullptr
+        && this->reportId_ == nullptr && this->reportLang_ == nullptr && this->reportSendType_ == nullptr && this->reportStartDate_ == nullptr && this->reportStatus_ == nullptr
+        && this->reportType_ == nullptr && this->reportVersion_ == nullptr && this->sendEndTime_ == nullptr && this->sendPeriodDays_ == nullptr && this->sendPeriodType_ == nullptr
+        && this->sendStartTime_ == nullptr && this->targetGroups_ == nullptr && this->targetUids_ == nullptr && this->title_ == nullptr; };
     // groupType Field Functions 
     bool hasGroupType() const { return this->groupType_ != nullptr;};
     void deleteGroupType() { this->groupType_ = nullptr;};
-    inline string groupType() const { DARABONBA_PTR_GET_DEFAULT(groupType_, "") };
+    inline string getGroupType() const { DARABONBA_PTR_GET_DEFAULT(groupType_, "") };
     inline SaveCustomizeReportConfigRequest& setGroupType(string groupType) { DARABONBA_PTR_SET_VALUE(groupType_, groupType) };
 
 
     // memberAccountSyncFlag Field Functions 
     bool hasMemberAccountSyncFlag() const { return this->memberAccountSyncFlag_ != nullptr;};
     void deleteMemberAccountSyncFlag() { this->memberAccountSyncFlag_ = nullptr;};
-    inline bool memberAccountSyncFlag() const { DARABONBA_PTR_GET_DEFAULT(memberAccountSyncFlag_, false) };
+    inline bool getMemberAccountSyncFlag() const { DARABONBA_PTR_GET_DEFAULT(memberAccountSyncFlag_, false) };
     inline SaveCustomizeReportConfigRequest& setMemberAccountSyncFlag(bool memberAccountSyncFlag) { DARABONBA_PTR_SET_VALUE(memberAccountSyncFlag_, memberAccountSyncFlag) };
 
 
     // pinnedTime Field Functions 
     bool hasPinnedTime() const { return this->pinnedTime_ != nullptr;};
     void deletePinnedTime() { this->pinnedTime_ = nullptr;};
-    inline int64_t pinnedTime() const { DARABONBA_PTR_GET_DEFAULT(pinnedTime_, 0L) };
+    inline int64_t getPinnedTime() const { DARABONBA_PTR_GET_DEFAULT(pinnedTime_, 0L) };
     inline SaveCustomizeReportConfigRequest& setPinnedTime(int64_t pinnedTime) { DARABONBA_PTR_SET_VALUE(pinnedTime_, pinnedTime) };
 
 
     // recipients Field Functions 
     bool hasRecipients() const { return this->recipients_ != nullptr;};
     void deleteRecipients() { this->recipients_ = nullptr;};
-    inline string recipients() const { DARABONBA_PTR_GET_DEFAULT(recipients_, "") };
+    inline string getRecipients() const { DARABONBA_PTR_GET_DEFAULT(recipients_, "") };
     inline SaveCustomizeReportConfigRequest& setRecipients(string recipients) { DARABONBA_PTR_SET_VALUE(recipients_, recipients) };
 
 
     // reportDays Field Functions 
     bool hasReportDays() const { return this->reportDays_ != nullptr;};
     void deleteReportDays() { this->reportDays_ = nullptr;};
-    inline int32_t reportDays() const { DARABONBA_PTR_GET_DEFAULT(reportDays_, 0) };
+    inline int32_t getReportDays() const { DARABONBA_PTR_GET_DEFAULT(reportDays_, 0) };
     inline SaveCustomizeReportConfigRequest& setReportDays(int32_t reportDays) { DARABONBA_PTR_SET_VALUE(reportDays_, reportDays) };
 
 
     // reportEndDate Field Functions 
     bool hasReportEndDate() const { return this->reportEndDate_ != nullptr;};
     void deleteReportEndDate() { this->reportEndDate_ = nullptr;};
-    inline string reportEndDate() const { DARABONBA_PTR_GET_DEFAULT(reportEndDate_, "") };
+    inline string getReportEndDate() const { DARABONBA_PTR_GET_DEFAULT(reportEndDate_, "") };
     inline SaveCustomizeReportConfigRequest& setReportEndDate(string reportEndDate) { DARABONBA_PTR_SET_VALUE(reportEndDate_, reportEndDate) };
 
 
     // reportId Field Functions 
     bool hasReportId() const { return this->reportId_ != nullptr;};
     void deleteReportId() { this->reportId_ = nullptr;};
-    inline int64_t reportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
+    inline int64_t getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
     inline SaveCustomizeReportConfigRequest& setReportId(int64_t reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
 
 
     // reportLang Field Functions 
     bool hasReportLang() const { return this->reportLang_ != nullptr;};
     void deleteReportLang() { this->reportLang_ = nullptr;};
-    inline string reportLang() const { DARABONBA_PTR_GET_DEFAULT(reportLang_, "") };
+    inline string getReportLang() const { DARABONBA_PTR_GET_DEFAULT(reportLang_, "") };
     inline SaveCustomizeReportConfigRequest& setReportLang(string reportLang) { DARABONBA_PTR_SET_VALUE(reportLang_, reportLang) };
 
 
     // reportSendType Field Functions 
     bool hasReportSendType() const { return this->reportSendType_ != nullptr;};
     void deleteReportSendType() { this->reportSendType_ = nullptr;};
-    inline int32_t reportSendType() const { DARABONBA_PTR_GET_DEFAULT(reportSendType_, 0) };
+    inline int32_t getReportSendType() const { DARABONBA_PTR_GET_DEFAULT(reportSendType_, 0) };
     inline SaveCustomizeReportConfigRequest& setReportSendType(int32_t reportSendType) { DARABONBA_PTR_SET_VALUE(reportSendType_, reportSendType) };
 
 
     // reportStartDate Field Functions 
     bool hasReportStartDate() const { return this->reportStartDate_ != nullptr;};
     void deleteReportStartDate() { this->reportStartDate_ = nullptr;};
-    inline string reportStartDate() const { DARABONBA_PTR_GET_DEFAULT(reportStartDate_, "") };
+    inline string getReportStartDate() const { DARABONBA_PTR_GET_DEFAULT(reportStartDate_, "") };
     inline SaveCustomizeReportConfigRequest& setReportStartDate(string reportStartDate) { DARABONBA_PTR_SET_VALUE(reportStartDate_, reportStartDate) };
 
 
     // reportStatus Field Functions 
     bool hasReportStatus() const { return this->reportStatus_ != nullptr;};
     void deleteReportStatus() { this->reportStatus_ = nullptr;};
-    inline int32_t reportStatus() const { DARABONBA_PTR_GET_DEFAULT(reportStatus_, 0) };
+    inline int32_t getReportStatus() const { DARABONBA_PTR_GET_DEFAULT(reportStatus_, 0) };
     inline SaveCustomizeReportConfigRequest& setReportStatus(int32_t reportStatus) { DARABONBA_PTR_SET_VALUE(reportStatus_, reportStatus) };
 
 
     // reportType Field Functions 
     bool hasReportType() const { return this->reportType_ != nullptr;};
     void deleteReportType() { this->reportType_ = nullptr;};
-    inline int32_t reportType() const { DARABONBA_PTR_GET_DEFAULT(reportType_, 0) };
+    inline int32_t getReportType() const { DARABONBA_PTR_GET_DEFAULT(reportType_, 0) };
     inline SaveCustomizeReportConfigRequest& setReportType(int32_t reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
 
 
     // reportVersion Field Functions 
     bool hasReportVersion() const { return this->reportVersion_ != nullptr;};
     void deleteReportVersion() { this->reportVersion_ = nullptr;};
-    inline string reportVersion() const { DARABONBA_PTR_GET_DEFAULT(reportVersion_, "") };
+    inline string getReportVersion() const { DARABONBA_PTR_GET_DEFAULT(reportVersion_, "") };
     inline SaveCustomizeReportConfigRequest& setReportVersion(string reportVersion) { DARABONBA_PTR_SET_VALUE(reportVersion_, reportVersion) };
 
 
     // sendEndTime Field Functions 
     bool hasSendEndTime() const { return this->sendEndTime_ != nullptr;};
     void deleteSendEndTime() { this->sendEndTime_ = nullptr;};
-    inline string sendEndTime() const { DARABONBA_PTR_GET_DEFAULT(sendEndTime_, "") };
+    inline string getSendEndTime() const { DARABONBA_PTR_GET_DEFAULT(sendEndTime_, "") };
     inline SaveCustomizeReportConfigRequest& setSendEndTime(string sendEndTime) { DARABONBA_PTR_SET_VALUE(sendEndTime_, sendEndTime) };
 
 
     // sendPeriodDays Field Functions 
     bool hasSendPeriodDays() const { return this->sendPeriodDays_ != nullptr;};
     void deleteSendPeriodDays() { this->sendPeriodDays_ = nullptr;};
-    inline int32_t sendPeriodDays() const { DARABONBA_PTR_GET_DEFAULT(sendPeriodDays_, 0) };
+    inline int32_t getSendPeriodDays() const { DARABONBA_PTR_GET_DEFAULT(sendPeriodDays_, 0) };
     inline SaveCustomizeReportConfigRequest& setSendPeriodDays(int32_t sendPeriodDays) { DARABONBA_PTR_SET_VALUE(sendPeriodDays_, sendPeriodDays) };
 
 
     // sendPeriodType Field Functions 
     bool hasSendPeriodType() const { return this->sendPeriodType_ != nullptr;};
     void deleteSendPeriodType() { this->sendPeriodType_ = nullptr;};
-    inline string sendPeriodType() const { DARABONBA_PTR_GET_DEFAULT(sendPeriodType_, "") };
+    inline string getSendPeriodType() const { DARABONBA_PTR_GET_DEFAULT(sendPeriodType_, "") };
     inline SaveCustomizeReportConfigRequest& setSendPeriodType(string sendPeriodType) { DARABONBA_PTR_SET_VALUE(sendPeriodType_, sendPeriodType) };
 
 
     // sendStartTime Field Functions 
     bool hasSendStartTime() const { return this->sendStartTime_ != nullptr;};
     void deleteSendStartTime() { this->sendStartTime_ = nullptr;};
-    inline string sendStartTime() const { DARABONBA_PTR_GET_DEFAULT(sendStartTime_, "") };
+    inline string getSendStartTime() const { DARABONBA_PTR_GET_DEFAULT(sendStartTime_, "") };
     inline SaveCustomizeReportConfigRequest& setSendStartTime(string sendStartTime) { DARABONBA_PTR_SET_VALUE(sendStartTime_, sendStartTime) };
 
 
     // targetGroups Field Functions 
     bool hasTargetGroups() const { return this->targetGroups_ != nullptr;};
     void deleteTargetGroups() { this->targetGroups_ = nullptr;};
-    inline string targetGroups() const { DARABONBA_PTR_GET_DEFAULT(targetGroups_, "") };
+    inline string getTargetGroups() const { DARABONBA_PTR_GET_DEFAULT(targetGroups_, "") };
     inline SaveCustomizeReportConfigRequest& setTargetGroups(string targetGroups) { DARABONBA_PTR_SET_VALUE(targetGroups_, targetGroups) };
 
 
     // targetUids Field Functions 
     bool hasTargetUids() const { return this->targetUids_ != nullptr;};
     void deleteTargetUids() { this->targetUids_ = nullptr;};
-    inline string targetUids() const { DARABONBA_PTR_GET_DEFAULT(targetUids_, "") };
+    inline string getTargetUids() const { DARABONBA_PTR_GET_DEFAULT(targetUids_, "") };
     inline SaveCustomizeReportConfigRequest& setTargetUids(string targetUids) { DARABONBA_PTR_SET_VALUE(targetUids_, targetUids) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline SaveCustomizeReportConfigRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
@@ -219,55 +219,55 @@ namespace Models
     // *   **SAS_GROUP**
     // 
     // >  This parameter is supported only in version 2.0.0.
-    std::shared_ptr<string> groupType_ = nullptr;
+    shared_ptr<string> groupType_ {};
     // Whether the new account is connected by default. Values: 
     // - **true**: Yes. 
     // - **false**: No. 
     // > Only supported in version 2.0.0.
-    std::shared_ptr<bool> memberAccountSyncFlag_ = nullptr;
+    shared_ptr<bool> memberAccountSyncFlag_ {};
     // The time when the report is pinned. Unit: milliseconds.
     // 
     // >  This parameter is supported only in version 2.0.0.
-    std::shared_ptr<int64_t> pinnedTime_ = nullptr;
+    shared_ptr<int64_t> pinnedTime_ {};
     // The email address of the recipient. Separate multiple email addresses with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> recipients_ = nullptr;
+    shared_ptr<string> recipients_ {};
     // The most recent days for report statistics.
     // 
     // >  This parameter is supported only in version 2.0.0.
-    std::shared_ptr<int32_t> reportDays_ = nullptr;
+    shared_ptr<int32_t> reportDays_ {};
     // The end date on which the report is sent. The value is in the yyyy-MM-dd format.
     // 
     // >  This parameter is required if the ReportType parameter is set to 3.
-    std::shared_ptr<string> reportEndDate_ = nullptr;
+    shared_ptr<string> reportEndDate_ {};
     // The ID of the report.
     // 
     // >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
-    std::shared_ptr<int64_t> reportId_ = nullptr;
+    shared_ptr<int64_t> reportId_ {};
     // The language of the report. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> reportLang_ = nullptr;
+    shared_ptr<string> reportLang_ {};
     // The time range in which the report is sent. Valid values:
     // 
     // *   **1**: 00:00 to 06:00.
     // *   **2**: 06:00 to 12:00.
     // *   **3**: 12:00 to 18:00.
     // *   **4**: 18:00 to 24:00.
-    std::shared_ptr<int32_t> reportSendType_ = nullptr;
+    shared_ptr<int32_t> reportSendType_ {};
     // The start date on which the report is sent. The value is in the yyyy-MM-dd format.
     // 
     // >  This parameter is required if the ReportType parameter is set to 3.
-    std::shared_ptr<string> reportStartDate_ = nullptr;
+    shared_ptr<string> reportStartDate_ {};
     // The status of the report. Valid values:
     // 
     // *   **0**: disabled.
     // *   **1**: enabled.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> reportStatus_ = nullptr;
+    shared_ptr<int32_t> reportStatus_ {};
     // The type of the report. Valid values:
     // 
     // *   **0**: daily report.
@@ -277,20 +277,20 @@ namespace Models
     // *   **4**: report of the most recent time range.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> reportType_ = nullptr;
+    shared_ptr<int32_t> reportType_ {};
     // The version of the report. Valid values:
     // 
     // *   **1.0.0**
     // *   **2.0.0**
-    std::shared_ptr<string> reportVersion_ = nullptr;
+    shared_ptr<string> reportVersion_ {};
     // The end time at which the report is sent. The value is in the HH:mm:ss format.
     // 
     // >  This parameter is required if the ReportType parameter is set to 0, 1, 2, or 4.
-    std::shared_ptr<string> sendEndTime_ = nullptr;
+    shared_ptr<string> sendEndTime_ {};
     // The exact day within the sending period.
     // 
     // >  This parameter is supported only in version 2.0.0.
-    std::shared_ptr<int32_t> sendPeriodDays_ = nullptr;
+    shared_ptr<int32_t> sendPeriodDays_ {};
     // The interval at which the report is sent. Valid values:
     // 
     // *   **DAY**
@@ -298,23 +298,23 @@ namespace Models
     // *   **MONTH**
     // 
     // >  This parameter is supported only in version 2.0.0.
-    std::shared_ptr<string> sendPeriodType_ = nullptr;
+    shared_ptr<string> sendPeriodType_ {};
     // The start time at which the report is sent. The value is in the HH:mm:ss format.
     // 
     // >  This parameter is required if the ReportType parameter is set to 0, 1, 2, or 4.
-    std::shared_ptr<string> sendStartTime_ = nullptr;
+    shared_ptr<string> sendStartTime_ {};
     // The groups.
     // 
     // >  This parameter is supported only in version 2.0.0.
-    std::shared_ptr<string> targetGroups_ = nullptr;
+    shared_ptr<string> targetGroups_ {};
     // The ID of the Alibaba Cloud account. Separate multiple IDs with commas (,).
     // 
     // >  This parameter is supported only in version 2.0.0.
-    std::shared_ptr<string> targetUids_ = nullptr;
+    shared_ptr<string> targetUids_ {};
     // The title of the report.
     // 
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

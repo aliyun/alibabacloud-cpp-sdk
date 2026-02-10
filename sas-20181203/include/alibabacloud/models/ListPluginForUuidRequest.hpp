@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->types_ == nullptr
-        && return this->uuid_ == nullptr; };
+        && this->uuid_ == nullptr; };
     // types Field Functions 
     bool hasTypes() const { return this->types_ != nullptr;};
     void deleteTypes() { this->types_ = nullptr;};
-    inline const vector<string> & types() const { DARABONBA_PTR_GET_CONST(types_, vector<string>) };
-    inline vector<string> types() { DARABONBA_PTR_GET(types_, vector<string>) };
+    inline const vector<string> & getTypes() const { DARABONBA_PTR_GET_CONST(types_, vector<string>) };
+    inline vector<string> getTypes() { DARABONBA_PTR_GET(types_, vector<string>) };
     inline ListPluginForUuidRequest& setTypes(const vector<string> & types) { DARABONBA_PTR_SET_VALUE(types_, types) };
     inline ListPluginForUuidRequest& setTypes(vector<string> && types) { DARABONBA_PTR_SET_RVALUE(types_, types) };
 
@@ -46,19 +46,19 @@ namespace Models
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline ListPluginForUuidRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
     // The plug-in types.
-    std::shared_ptr<vector<string>> types_ = nullptr;
+    shared_ptr<vector<string>> types_ {};
     // The UUID of the server.
     // 
     // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

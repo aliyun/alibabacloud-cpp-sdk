@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->machineTypes_ == nullptr
-        && return this->supportAutoTag_ == nullptr && return this->value_ == nullptr; };
+        && this->supportAutoTag_ == nullptr && this->value_ == nullptr; };
     // machineTypes Field Functions 
     bool hasMachineTypes() const { return this->machineTypes_ != nullptr;};
     void deleteMachineTypes() { this->machineTypes_ = nullptr;};
-    inline string machineTypes() const { DARABONBA_PTR_GET_DEFAULT(machineTypes_, "") };
+    inline string getMachineTypes() const { DARABONBA_PTR_GET_DEFAULT(machineTypes_, "") };
     inline DescribeCriteriaRequest& setMachineTypes(string machineTypes) { DARABONBA_PTR_SET_VALUE(machineTypes_, machineTypes) };
 
 
     // supportAutoTag Field Functions 
     bool hasSupportAutoTag() const { return this->supportAutoTag_ != nullptr;};
     void deleteSupportAutoTag() { this->supportAutoTag_ = nullptr;};
-    inline bool supportAutoTag() const { DARABONBA_PTR_GET_DEFAULT(supportAutoTag_, false) };
+    inline bool getSupportAutoTag() const { DARABONBA_PTR_GET_DEFAULT(supportAutoTag_, false) };
     inline DescribeCriteriaRequest& setSupportAutoTag(bool supportAutoTag) { DARABONBA_PTR_SET_VALUE(supportAutoTag_, supportAutoTag) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline DescribeCriteriaRequest& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
@@ -60,14 +60,14 @@ namespace Models
     // The type of the asset. Valid values:
     // 
     // *   Set the value to **ecs**, which specifies to query all Elastic Compute Service (ECS) instances.
-    std::shared_ptr<string> machineTypes_ = nullptr;
+    shared_ptr<string> machineTypes_ {};
     // Specifies whether the keyword that you specify for fuzzy search can be automatically matched. Default value: **false**. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> supportAutoTag_ = nullptr;
+    shared_ptr<bool> supportAutoTag_ {};
     // The keyword that you specify for fuzzy search when you query the asset.
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

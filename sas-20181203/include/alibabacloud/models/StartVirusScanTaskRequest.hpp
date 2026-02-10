@@ -33,7 +33,7 @@ namespace Models
     // targetInfo Field Functions 
     bool hasTargetInfo() const { return this->targetInfo_ != nullptr;};
     void deleteTargetInfo() { this->targetInfo_ = nullptr;};
-    inline string targetInfo() const { DARABONBA_PTR_GET_DEFAULT(targetInfo_, "") };
+    inline string getTargetInfo() const { DARABONBA_PTR_GET_DEFAULT(targetInfo_, "") };
     inline StartVirusScanTaskRequest& setTargetInfo(string targetInfo) { DARABONBA_PTR_SET_VALUE(targetInfo_, targetInfo) };
 
 
@@ -53,7 +53,7 @@ namespace Models
     //     *   If you set **type** to **uuid**, you must set this field to the UUID of the server. You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetInfo_ = nullptr;
+    shared_ptr<string> targetInfo_ {};
   };
 
   } // namespace Models

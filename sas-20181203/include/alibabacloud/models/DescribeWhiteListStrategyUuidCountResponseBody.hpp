@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->uuidCount_ == nullptr; };
+        && this->uuidCount_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeWhiteListStrategyUuidCountResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // uuidCount Field Functions 
     bool hasUuidCount() const { return this->uuidCount_ != nullptr;};
     void deleteUuidCount() { this->uuidCount_ = nullptr;};
-    inline int32_t uuidCount() const { DARABONBA_PTR_GET_DEFAULT(uuidCount_, 0) };
+    inline int32_t getUuidCount() const { DARABONBA_PTR_GET_DEFAULT(uuidCount_, 0) };
     inline DescribeWhiteListStrategyUuidCountResponseBody& setUuidCount(int32_t uuidCount) { DARABONBA_PTR_SET_VALUE(uuidCount_, uuidCount) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The number of the servers on which the application whitelist policy takes effect.
-    std::shared_ptr<int32_t> uuidCount_ = nullptr;
+    shared_ptr<int32_t> uuidCount_ {};
   };
 
   } // namespace Models

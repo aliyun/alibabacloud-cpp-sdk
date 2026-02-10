@@ -34,44 +34,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->target_ == nullptr
-        && return this->targetType_ == nullptr && return this->type_ == nullptr; };
+        && this->targetType_ == nullptr && this->type_ == nullptr; };
     // target Field Functions 
     bool hasTarget() const { return this->target_ != nullptr;};
     void deleteTarget() { this->target_ = nullptr;};
-    inline string target() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+    inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
     inline DescribeClusterInfoListRequest& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
 
 
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
-    inline string targetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
+    inline string getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
     inline DescribeClusterInfoListRequest& setTargetType(string targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeClusterInfoListRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // The operation value. The value specifies the ID of the cluster.
-    std::shared_ptr<string> target_ = nullptr;
+    shared_ptr<string> target_ {};
     // The dimension based on which you want to configure the feature. Valid values:
     // 
     // *   **Cluster**: the ID of the cluster
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetType_ = nullptr;
+    shared_ptr<string> targetType_ {};
     // The type of the feature. Valid values:
     // 
     // *   **containerNetwork**: container network
     // *   **interceptionSwitch**: cluster microsegmentation
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

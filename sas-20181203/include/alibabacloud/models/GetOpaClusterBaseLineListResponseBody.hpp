@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETOPACLUSTERBASELINELISTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetOpaClusterBaseLineListResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,59 +38,125 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Alias, alias_);
+        DARABONBA_PTR_TO_JSON(ClassKey, classKey_);
+        DARABONBA_PTR_TO_JSON(ItemKey, itemKey_);
+        DARABONBA_PTR_TO_JSON(NameKey, nameKey_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Alias, alias_);
+        DARABONBA_PTR_FROM_JSON(ClassKey, classKey_);
+        DARABONBA_PTR_FROM_JSON(ItemKey, itemKey_);
+        DARABONBA_PTR_FROM_JSON(NameKey, nameKey_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->alias_ == nullptr
+        && this->classKey_ == nullptr && this->itemKey_ == nullptr && this->nameKey_ == nullptr; };
+      // alias Field Functions 
+      bool hasAlias() const { return this->alias_ != nullptr;};
+      void deleteAlias() { this->alias_ = nullptr;};
+      inline string getAlias() const { DARABONBA_PTR_GET_DEFAULT(alias_, "") };
+      inline Data& setAlias(string alias) { DARABONBA_PTR_SET_VALUE(alias_, alias) };
+
+
+      // classKey Field Functions 
+      bool hasClassKey() const { return this->classKey_ != nullptr;};
+      void deleteClassKey() { this->classKey_ = nullptr;};
+      inline string getClassKey() const { DARABONBA_PTR_GET_DEFAULT(classKey_, "") };
+      inline Data& setClassKey(string classKey) { DARABONBA_PTR_SET_VALUE(classKey_, classKey) };
+
+
+      // itemKey Field Functions 
+      bool hasItemKey() const { return this->itemKey_ != nullptr;};
+      void deleteItemKey() { this->itemKey_ = nullptr;};
+      inline string getItemKey() const { DARABONBA_PTR_GET_DEFAULT(itemKey_, "") };
+      inline Data& setItemKey(string itemKey) { DARABONBA_PTR_SET_VALUE(itemKey_, itemKey) };
+
+
+      // nameKey Field Functions 
+      bool hasNameKey() const { return this->nameKey_ != nullptr;};
+      void deleteNameKey() { this->nameKey_ = nullptr;};
+      inline string getNameKey() const { DARABONBA_PTR_GET_DEFAULT(nameKey_, "") };
+      inline Data& setNameKey(string nameKey) { DARABONBA_PTR_SET_VALUE(nameKey_, nameKey) };
+
+
+    protected:
+      // The alias of the baseline.
+      shared_ptr<string> alias_ {};
+      // The key of the baseline type.
+      shared_ptr<string> classKey_ {};
+      // The key of the name for the baseline check item.
+      shared_ptr<string> itemKey_ {};
+      // The key of the name for the baseline.
+      shared_ptr<string> nameKey_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetOpaClusterBaseLineListResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<GetOpaClusterBaseLineListResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<GetOpaClusterBaseLineListResponseBodyData>) };
-    inline vector<GetOpaClusterBaseLineListResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<GetOpaClusterBaseLineListResponseBodyData>) };
-    inline GetOpaClusterBaseLineListResponseBody& setData(const vector<GetOpaClusterBaseLineListResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetOpaClusterBaseLineListResponseBody& setData(vector<GetOpaClusterBaseLineListResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<GetOpaClusterBaseLineListResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<GetOpaClusterBaseLineListResponseBody::Data>) };
+    inline vector<GetOpaClusterBaseLineListResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<GetOpaClusterBaseLineListResponseBody::Data>) };
+    inline GetOpaClusterBaseLineListResponseBody& setData(const vector<GetOpaClusterBaseLineListResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetOpaClusterBaseLineListResponseBody& setData(vector<GetOpaClusterBaseLineListResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetOpaClusterBaseLineListResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetOpaClusterBaseLineListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetOpaClusterBaseLineListResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The information about baselines.
-    std::shared_ptr<vector<GetOpaClusterBaseLineListResponseBodyData>> data_ = nullptr;
+    shared_ptr<vector<GetOpaClusterBaseLineListResponseBody::Data>> data_ {};
     // The returned message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

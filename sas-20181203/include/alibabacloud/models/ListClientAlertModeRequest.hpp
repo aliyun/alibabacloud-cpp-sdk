@@ -33,7 +33,7 @@ namespace Models
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline string mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
     inline ListClientAlertModeRequest& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   **strict**: The strict mode. False positives may be generated. We recommend that you enable this mode during major events.
     // *   **balance**: The balanced mode. More risks can be detected with less false positives in this mode.
-    std::shared_ptr<string> mode_ = nullptr;
+    shared_ptr<string> mode_ {};
   };
 
   } // namespace Models

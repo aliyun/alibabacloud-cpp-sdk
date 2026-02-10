@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->moduleCode_ == nullptr; };
+        && this->moduleCode_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline AddSasModuleTrialRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // moduleCode Field Functions 
     bool hasModuleCode() const { return this->moduleCode_ != nullptr;};
     void deleteModuleCode() { this->moduleCode_ = nullptr;};
-    inline string moduleCode() const { DARABONBA_PTR_GET_DEFAULT(moduleCode_, "") };
+    inline string getModuleCode() const { DARABONBA_PTR_GET_DEFAULT(moduleCode_, "") };
     inline AddSasModuleTrialRequest& setModuleCode(string moduleCode) { DARABONBA_PTR_SET_VALUE(moduleCode_, moduleCode) };
 
 
@@ -52,12 +52,12 @@ namespace Models
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The code of the feature. Valid values:
     // 
     // *   **vulFix**: vulnerability fixing.
     // *   **cloudSiem**: threat analysis and response.
-    std::shared_ptr<string> moduleCode_ = nullptr;
+    shared_ptr<string> moduleCode_ {};
   };
 
   } // namespace Models

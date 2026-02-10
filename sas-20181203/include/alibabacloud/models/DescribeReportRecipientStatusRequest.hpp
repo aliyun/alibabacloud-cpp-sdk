@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->recipients_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->recipients_ == nullptr && this->sourceIp_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeReportRecipientStatusRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // recipients Field Functions 
     bool hasRecipients() const { return this->recipients_ != nullptr;};
     void deleteRecipients() { this->recipients_ = nullptr;};
-    inline string recipients() const { DARABONBA_PTR_GET_DEFAULT(recipients_, "") };
+    inline string getRecipients() const { DARABONBA_PTR_GET_DEFAULT(recipients_, "") };
     inline DescribeReportRecipientStatusRequest& setRecipients(string recipients) { DARABONBA_PTR_SET_VALUE(recipients_, recipients) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeReportRecipientStatusRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
@@ -61,13 +61,13 @@ namespace Models
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The email address of the recipient. Separate multiple email addresses with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> recipients_ = nullptr;
+    shared_ptr<string> recipients_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

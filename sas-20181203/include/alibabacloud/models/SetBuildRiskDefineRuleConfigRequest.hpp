@@ -33,7 +33,7 @@ namespace Models
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline SetBuildRiskDefineRuleConfigRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
@@ -44,7 +44,7 @@ namespace Models
     // *   **ruleList**: Set the value to a valid value of the RuleKey parameter in RuleList.
     // 
     // >  You can call the [GetBuildRiskDefineRuleConfig](~~GetBuildRiskDefineRuleConfig~~) operation to query the valid values.
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
   };
 
   } // namespace Models

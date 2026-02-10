@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEEVENTONSTAGERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEEVENTONSTAGERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeEventOnStageResponseBodySecurityEventStageResponse.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +31,67 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SecurityEventStageResponse : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SecurityEventStageResponse& obj) { 
+        DARABONBA_ANY_TO_JSON(SecurityEventOnStag, securityEventOnStag_);
+      };
+      friend void from_json(const Darabonba::Json& j, SecurityEventStageResponse& obj) { 
+        DARABONBA_ANY_FROM_JSON(SecurityEventOnStag, securityEventOnStag_);
+      };
+      SecurityEventStageResponse() = default ;
+      SecurityEventStageResponse(const SecurityEventStageResponse &) = default ;
+      SecurityEventStageResponse(SecurityEventStageResponse &&) = default ;
+      SecurityEventStageResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SecurityEventStageResponse() = default ;
+      SecurityEventStageResponse& operator=(const SecurityEventStageResponse &) = default ;
+      SecurityEventStageResponse& operator=(SecurityEventStageResponse &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->securityEventOnStag_ == nullptr; };
+      // securityEventOnStag Field Functions 
+      bool hasSecurityEventOnStag() const { return this->securityEventOnStag_ != nullptr;};
+      void deleteSecurityEventOnStag() { this->securityEventOnStag_ = nullptr;};
+      inline       const Darabonba::Json & getSecurityEventOnStag() const { DARABONBA_GET(securityEventOnStag_) };
+      Darabonba::Json & getSecurityEventOnStag() { DARABONBA_GET(securityEventOnStag_) };
+      inline SecurityEventStageResponse& setSecurityEventOnStag(const Darabonba::Json & securityEventOnStag) { DARABONBA_SET_VALUE(securityEventOnStag_, securityEventOnStag) };
+      inline SecurityEventStageResponse& setSecurityEventOnStag(Darabonba::Json && securityEventOnStag) { DARABONBA_SET_RVALUE(securityEventOnStag_, securityEventOnStag) };
+
+
+    protected:
+      // The platform that is supported by the feature of container threat detection. Valid values:
+      // 
+      // *   **container**
+      // *   **linux**
+      // *   **windows**
+      Darabonba::Json securityEventOnStag_ {};
+    };
+
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->securityEventStageResponse_ == nullptr; };
+        && this->securityEventStageResponse_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeEventOnStageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // securityEventStageResponse Field Functions 
     bool hasSecurityEventStageResponse() const { return this->securityEventStageResponse_ != nullptr;};
     void deleteSecurityEventStageResponse() { this->securityEventStageResponse_ = nullptr;};
-    inline const DescribeEventOnStageResponseBodySecurityEventStageResponse & securityEventStageResponse() const { DARABONBA_PTR_GET_CONST(securityEventStageResponse_, DescribeEventOnStageResponseBodySecurityEventStageResponse) };
-    inline DescribeEventOnStageResponseBodySecurityEventStageResponse securityEventStageResponse() { DARABONBA_PTR_GET(securityEventStageResponse_, DescribeEventOnStageResponseBodySecurityEventStageResponse) };
-    inline DescribeEventOnStageResponseBody& setSecurityEventStageResponse(const DescribeEventOnStageResponseBodySecurityEventStageResponse & securityEventStageResponse) { DARABONBA_PTR_SET_VALUE(securityEventStageResponse_, securityEventStageResponse) };
-    inline DescribeEventOnStageResponseBody& setSecurityEventStageResponse(DescribeEventOnStageResponseBodySecurityEventStageResponse && securityEventStageResponse) { DARABONBA_PTR_SET_RVALUE(securityEventStageResponse_, securityEventStageResponse) };
+    inline const DescribeEventOnStageResponseBody::SecurityEventStageResponse & getSecurityEventStageResponse() const { DARABONBA_PTR_GET_CONST(securityEventStageResponse_, DescribeEventOnStageResponseBody::SecurityEventStageResponse) };
+    inline DescribeEventOnStageResponseBody::SecurityEventStageResponse getSecurityEventStageResponse() { DARABONBA_PTR_GET(securityEventStageResponse_, DescribeEventOnStageResponseBody::SecurityEventStageResponse) };
+    inline DescribeEventOnStageResponseBody& setSecurityEventStageResponse(const DescribeEventOnStageResponseBody::SecurityEventStageResponse & securityEventStageResponse) { DARABONBA_PTR_SET_VALUE(securityEventStageResponse_, securityEventStageResponse) };
+    inline DescribeEventOnStageResponseBody& setSecurityEventStageResponse(DescribeEventOnStageResponseBody::SecurityEventStageResponse && securityEventStageResponse) { DARABONBA_PTR_SET_RVALUE(securityEventStageResponse_, securityEventStageResponse) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The platforms that are supported by the feature of container threat detection.
-    std::shared_ptr<DescribeEventOnStageResponseBodySecurityEventStageResponse> securityEventStageResponse_ = nullptr;
+    shared_ptr<DescribeEventOnStageResponseBody::SecurityEventStageResponse> securityEventStageResponse_ {};
   };
 
   } // namespace Models

@@ -54,97 +54,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defenceMode_ == nullptr
-        && return this->dir_ == nullptr && return this->exclusiveDir_ == nullptr && return this->exclusiveFile_ == nullptr && return this->exclusiveFileType_ == nullptr && return this->id_ == nullptr
-        && return this->inclusiveFile_ == nullptr && return this->inclusiveFileType_ == nullptr && return this->lang_ == nullptr && return this->localBackupDir_ == nullptr && return this->mode_ == nullptr
-        && return this->sourceIp_ == nullptr && return this->uuid_ == nullptr; };
+        && this->dir_ == nullptr && this->exclusiveDir_ == nullptr && this->exclusiveFile_ == nullptr && this->exclusiveFileType_ == nullptr && this->id_ == nullptr
+        && this->inclusiveFile_ == nullptr && this->inclusiveFileType_ == nullptr && this->lang_ == nullptr && this->localBackupDir_ == nullptr && this->mode_ == nullptr
+        && this->sourceIp_ == nullptr && this->uuid_ == nullptr; };
     // defenceMode Field Functions 
     bool hasDefenceMode() const { return this->defenceMode_ != nullptr;};
     void deleteDefenceMode() { this->defenceMode_ = nullptr;};
-    inline string defenceMode() const { DARABONBA_PTR_GET_DEFAULT(defenceMode_, "") };
+    inline string getDefenceMode() const { DARABONBA_PTR_GET_DEFAULT(defenceMode_, "") };
     inline ModifyWebLockUpdateConfigRequest& setDefenceMode(string defenceMode) { DARABONBA_PTR_SET_VALUE(defenceMode_, defenceMode) };
 
 
     // dir Field Functions 
     bool hasDir() const { return this->dir_ != nullptr;};
     void deleteDir() { this->dir_ = nullptr;};
-    inline string dir() const { DARABONBA_PTR_GET_DEFAULT(dir_, "") };
+    inline string getDir() const { DARABONBA_PTR_GET_DEFAULT(dir_, "") };
     inline ModifyWebLockUpdateConfigRequest& setDir(string dir) { DARABONBA_PTR_SET_VALUE(dir_, dir) };
 
 
     // exclusiveDir Field Functions 
     bool hasExclusiveDir() const { return this->exclusiveDir_ != nullptr;};
     void deleteExclusiveDir() { this->exclusiveDir_ = nullptr;};
-    inline string exclusiveDir() const { DARABONBA_PTR_GET_DEFAULT(exclusiveDir_, "") };
+    inline string getExclusiveDir() const { DARABONBA_PTR_GET_DEFAULT(exclusiveDir_, "") };
     inline ModifyWebLockUpdateConfigRequest& setExclusiveDir(string exclusiveDir) { DARABONBA_PTR_SET_VALUE(exclusiveDir_, exclusiveDir) };
 
 
     // exclusiveFile Field Functions 
     bool hasExclusiveFile() const { return this->exclusiveFile_ != nullptr;};
     void deleteExclusiveFile() { this->exclusiveFile_ = nullptr;};
-    inline string exclusiveFile() const { DARABONBA_PTR_GET_DEFAULT(exclusiveFile_, "") };
+    inline string getExclusiveFile() const { DARABONBA_PTR_GET_DEFAULT(exclusiveFile_, "") };
     inline ModifyWebLockUpdateConfigRequest& setExclusiveFile(string exclusiveFile) { DARABONBA_PTR_SET_VALUE(exclusiveFile_, exclusiveFile) };
 
 
     // exclusiveFileType Field Functions 
     bool hasExclusiveFileType() const { return this->exclusiveFileType_ != nullptr;};
     void deleteExclusiveFileType() { this->exclusiveFileType_ = nullptr;};
-    inline string exclusiveFileType() const { DARABONBA_PTR_GET_DEFAULT(exclusiveFileType_, "") };
+    inline string getExclusiveFileType() const { DARABONBA_PTR_GET_DEFAULT(exclusiveFileType_, "") };
     inline ModifyWebLockUpdateConfigRequest& setExclusiveFileType(string exclusiveFileType) { DARABONBA_PTR_SET_VALUE(exclusiveFileType_, exclusiveFileType) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int32_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0) };
+    inline int32_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0) };
     inline ModifyWebLockUpdateConfigRequest& setId(int32_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // inclusiveFile Field Functions 
     bool hasInclusiveFile() const { return this->inclusiveFile_ != nullptr;};
     void deleteInclusiveFile() { this->inclusiveFile_ = nullptr;};
-    inline string inclusiveFile() const { DARABONBA_PTR_GET_DEFAULT(inclusiveFile_, "") };
+    inline string getInclusiveFile() const { DARABONBA_PTR_GET_DEFAULT(inclusiveFile_, "") };
     inline ModifyWebLockUpdateConfigRequest& setInclusiveFile(string inclusiveFile) { DARABONBA_PTR_SET_VALUE(inclusiveFile_, inclusiveFile) };
 
 
     // inclusiveFileType Field Functions 
     bool hasInclusiveFileType() const { return this->inclusiveFileType_ != nullptr;};
     void deleteInclusiveFileType() { this->inclusiveFileType_ = nullptr;};
-    inline string inclusiveFileType() const { DARABONBA_PTR_GET_DEFAULT(inclusiveFileType_, "") };
+    inline string getInclusiveFileType() const { DARABONBA_PTR_GET_DEFAULT(inclusiveFileType_, "") };
     inline ModifyWebLockUpdateConfigRequest& setInclusiveFileType(string inclusiveFileType) { DARABONBA_PTR_SET_VALUE(inclusiveFileType_, inclusiveFileType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyWebLockUpdateConfigRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // localBackupDir Field Functions 
     bool hasLocalBackupDir() const { return this->localBackupDir_ != nullptr;};
     void deleteLocalBackupDir() { this->localBackupDir_ = nullptr;};
-    inline string localBackupDir() const { DARABONBA_PTR_GET_DEFAULT(localBackupDir_, "") };
+    inline string getLocalBackupDir() const { DARABONBA_PTR_GET_DEFAULT(localBackupDir_, "") };
     inline ModifyWebLockUpdateConfigRequest& setLocalBackupDir(string localBackupDir) { DARABONBA_PTR_SET_VALUE(localBackupDir_, localBackupDir) };
 
 
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline string mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
     inline ModifyWebLockUpdateConfigRequest& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline ModifyWebLockUpdateConfigRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline ModifyWebLockUpdateConfigRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
@@ -155,19 +155,19 @@ namespace Models
     // *   **audit**: Alert Mode
     // 
     // This parameter is required.
-    std::shared_ptr<string> defenceMode_ = nullptr;
+    shared_ptr<string> defenceMode_ {};
     // The directory for which you want to enable web tamper proofing.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dir_ = nullptr;
+    shared_ptr<string> dir_ {};
     // The directory for which you want to disable web tamper proofing.
     // 
     // > If you set **Mode** to **blacklist**, you must specify this parameter.
-    std::shared_ptr<string> exclusiveDir_ = nullptr;
+    shared_ptr<string> exclusiveDir_ {};
     // The file for which you want to disable web tamper proofing.
     // 
     // > If you set **Mode** to **blacklist**, you must specify this parameter.
-    std::shared_ptr<string> exclusiveFile_ = nullptr;
+    shared_ptr<string> exclusiveFile_ {};
     // The type of the file for which you want to disable web tamper proofing. Separate multiple types with semicolons (;). Valid values:
     // 
     // *   php
@@ -186,17 +186,17 @@ namespace Models
     // *   png
     // 
     // > If you set **Mode** to **blacklist**, you must specify this parameter.
-    std::shared_ptr<string> exclusiveFileType_ = nullptr;
+    shared_ptr<string> exclusiveFileType_ {};
     // The ID of the protected directory for which you want to change the status of web tamper proofing.
     // 
     // > You can call the [DescribeWebLockConfigList](~~DescribeWebLockConfigList~~) operation to query the IDs of protected directories.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> id_ = nullptr;
+    shared_ptr<int32_t> id_ {};
     // The file for which you want to enable web tamper proofing.
     // 
     // > If you set **Mode** to **whitelist**, you must specify this parameter.
-    std::shared_ptr<string> inclusiveFile_ = nullptr;
+    shared_ptr<string> inclusiveFile_ {};
     // The type of the file for which you want to enable web tamper proofing. Separate multiple types with semicolons (;). Valid values:
     // 
     // *   php
@@ -215,12 +215,12 @@ namespace Models
     // *   png
     // 
     // > If you set **Mode** to **whitelist**, you must specify this parameter.
-    std::shared_ptr<string> inclusiveFileType_ = nullptr;
+    shared_ptr<string> inclusiveFileType_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The local path to the backup files of the protected directory.\\
     // The directory format of a Linux server is different from that of a Windows server. You must enter the directory in the required format based on your operating system. Examples:
     // 
@@ -228,20 +228,20 @@ namespace Models
     // *   Windows server: C:\\Program Files (x86)\\Alibaba\\Aegis\\bak
     // 
     // This parameter is required.
-    std::shared_ptr<string> localBackupDir_ = nullptr;
+    shared_ptr<string> localBackupDir_ {};
     // The protection mode of web tamper proofing. Valid values:
     // 
     // *   **whitelist**: In this mode, web tamper proofing is enabled for the specified directories and file types.
     // *   **blacklist**: In this mode, web tamper proofing is enabled for the unspecified subdirectories, file types, and files in the protected directory.
-    std::shared_ptr<string> mode_ = nullptr;
+    shared_ptr<string> mode_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The UUID of the server on which the protected directory is located.
     // 
     // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

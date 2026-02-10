@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->idList_ == nullptr
-        && return this->imageUuids_ == nullptr && return this->scanRange_ == nullptr && return this->sensitiveFileKey_ == nullptr && return this->status_ == nullptr; };
+        && this->imageUuids_ == nullptr && this->scanRange_ == nullptr && this->sensitiveFileKey_ == nullptr && this->status_ == nullptr; };
     // idList Field Functions 
     bool hasIdList() const { return this->idList_ != nullptr;};
     void deleteIdList() { this->idList_ = nullptr;};
-    inline const vector<int64_t> & idList() const { DARABONBA_PTR_GET_CONST(idList_, vector<int64_t>) };
-    inline vector<int64_t> idList() { DARABONBA_PTR_GET(idList_, vector<int64_t>) };
+    inline const vector<int64_t> & getIdList() const { DARABONBA_PTR_GET_CONST(idList_, vector<int64_t>) };
+    inline vector<int64_t> getIdList() { DARABONBA_PTR_GET(idList_, vector<int64_t>) };
     inline SetImageSensitiveFileStatusRequest& setIdList(const vector<int64_t> & idList) { DARABONBA_PTR_SET_VALUE(idList_, idList) };
     inline SetImageSensitiveFileStatusRequest& setIdList(vector<int64_t> && idList) { DARABONBA_PTR_SET_RVALUE(idList_, idList) };
 
@@ -52,15 +52,15 @@ namespace Models
     // imageUuids Field Functions 
     bool hasImageUuids() const { return this->imageUuids_ != nullptr;};
     void deleteImageUuids() { this->imageUuids_ = nullptr;};
-    inline string imageUuids() const { DARABONBA_PTR_GET_DEFAULT(imageUuids_, "") };
+    inline string getImageUuids() const { DARABONBA_PTR_GET_DEFAULT(imageUuids_, "") };
     inline SetImageSensitiveFileStatusRequest& setImageUuids(string imageUuids) { DARABONBA_PTR_SET_VALUE(imageUuids_, imageUuids) };
 
 
     // scanRange Field Functions 
     bool hasScanRange() const { return this->scanRange_ != nullptr;};
     void deleteScanRange() { this->scanRange_ = nullptr;};
-    inline const vector<string> & scanRange() const { DARABONBA_PTR_GET_CONST(scanRange_, vector<string>) };
-    inline vector<string> scanRange() { DARABONBA_PTR_GET(scanRange_, vector<string>) };
+    inline const vector<string> & getScanRange() const { DARABONBA_PTR_GET_CONST(scanRange_, vector<string>) };
+    inline vector<string> getScanRange() { DARABONBA_PTR_GET(scanRange_, vector<string>) };
     inline SetImageSensitiveFileStatusRequest& setScanRange(const vector<string> & scanRange) { DARABONBA_PTR_SET_VALUE(scanRange_, scanRange) };
     inline SetImageSensitiveFileStatusRequest& setScanRange(vector<string> && scanRange) { DARABONBA_PTR_SET_RVALUE(scanRange_, scanRange) };
 
@@ -68,24 +68,24 @@ namespace Models
     // sensitiveFileKey Field Functions 
     bool hasSensitiveFileKey() const { return this->sensitiveFileKey_ != nullptr;};
     void deleteSensitiveFileKey() { this->sensitiveFileKey_ = nullptr;};
-    inline string sensitiveFileKey() const { DARABONBA_PTR_GET_DEFAULT(sensitiveFileKey_, "") };
+    inline string getSensitiveFileKey() const { DARABONBA_PTR_GET_DEFAULT(sensitiveFileKey_, "") };
     inline SetImageSensitiveFileStatusRequest& setSensitiveFileKey(string sensitiveFileKey) { DARABONBA_PTR_SET_VALUE(sensitiveFileKey_, sensitiveFileKey) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline SetImageSensitiveFileStatusRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The IDs of the sensitive files.
-    std::shared_ptr<vector<int64_t>> idList_ = nullptr;
+    shared_ptr<vector<int64_t>> idList_ {};
     // The UUID of the image. Separate multiple UUIDs with commas (,).
-    std::shared_ptr<string> imageUuids_ = nullptr;
+    shared_ptr<string> imageUuids_ {};
     // The types of the assets that are scanned.
-    std::shared_ptr<vector<string>> scanRange_ = nullptr;
+    shared_ptr<vector<string>> scanRange_ {};
     // The alert type of the sensitive file. Valid values:
     // 
     // *   **npm_token**: Node Package Manager (NPM) access token.
@@ -200,13 +200,13 @@ namespace Models
     // *   **newrelic_api_key**: User API key for New Relic.
     // *   **github_hub**: hub configuration for storing GitHub tokens.
     // *   **rubygem**: RubyGem token.
-    std::shared_ptr<string> sensitiveFileKey_ = nullptr;
+    shared_ptr<string> sensitiveFileKey_ {};
     // The status of the sensitive file. Valid values:
     // 
     // *   **0**: The sensitive file is not handled.
     // *   **1**: The sensitive file is added to a whitelist.
     // *   **2**: The sensitive file is reported by mistake.
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

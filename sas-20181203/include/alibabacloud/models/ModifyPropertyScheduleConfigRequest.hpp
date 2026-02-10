@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->scheduleTime_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->type_ == nullptr; };
     // scheduleTime Field Functions 
     bool hasScheduleTime() const { return this->scheduleTime_ != nullptr;};
     void deleteScheduleTime() { this->scheduleTime_ = nullptr;};
-    inline string scheduleTime() const { DARABONBA_PTR_GET_DEFAULT(scheduleTime_, "") };
+    inline string getScheduleTime() const { DARABONBA_PTR_GET_DEFAULT(scheduleTime_, "") };
     inline ModifyPropertyScheduleConfigRequest& setScheduleTime(string scheduleTime) { DARABONBA_PTR_SET_VALUE(scheduleTime_, scheduleTime) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ModifyPropertyScheduleConfigRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -58,7 +58,7 @@ namespace Models
     // *   **168**: collects asset fingerprints once every 7 days.
     // 
     // This parameter is required.
-    std::shared_ptr<string> scheduleTime_ = nullptr;
+    shared_ptr<string> scheduleTime_ {};
     // The type of the asset fingerprints for which you want to modify the collection frequency. Valid values:
     // 
     // *   **scheduler_port_period**: listening port
@@ -72,7 +72,7 @@ namespace Models
     // *   **scheduler_sca_proxy_period**: website
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

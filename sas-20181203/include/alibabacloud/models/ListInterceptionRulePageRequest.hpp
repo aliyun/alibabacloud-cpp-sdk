@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->criteria_ == nullptr && return this->criteriaType_ == nullptr && return this->currentPage_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->criteria_ == nullptr && this->criteriaType_ == nullptr && this->currentPage_ == nullptr && this->pageSize_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ListInterceptionRulePageRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // criteria Field Functions 
     bool hasCriteria() const { return this->criteria_ != nullptr;};
     void deleteCriteria() { this->criteria_ = nullptr;};
-    inline string criteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
+    inline string getCriteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
     inline ListInterceptionRulePageRequest& setCriteria(string criteria) { DARABONBA_PTR_SET_VALUE(criteria_, criteria) };
 
 
     // criteriaType Field Functions 
     bool hasCriteriaType() const { return this->criteriaType_ != nullptr;};
     void deleteCriteriaType() { this->criteriaType_ = nullptr;};
-    inline string criteriaType() const { DARABONBA_PTR_GET_DEFAULT(criteriaType_, "") };
+    inline string getCriteriaType() const { DARABONBA_PTR_GET_DEFAULT(criteriaType_, "") };
     inline ListInterceptionRulePageRequest& setCriteriaType(string criteriaType) { DARABONBA_PTR_SET_VALUE(criteriaType_, criteriaType) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListInterceptionRulePageRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListInterceptionRulePageRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
@@ -78,9 +78,9 @@ namespace Models
     // The ID of the container cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The query condition.
-    std::shared_ptr<string> criteria_ = nullptr;
+    shared_ptr<string> criteria_ {};
     // The type of the query condition. Valid values:
     // 
     // *   **ID**
@@ -90,15 +90,15 @@ namespace Models
     // *   **DST_PORT**
     // *   **RULE_SWITCH**
     // *   **INTERCEPTOR_TYPE**
-    std::shared_ptr<string> criteriaType_ = nullptr;
+    shared_ptr<string> criteriaType_ {};
     // The number of the page to return.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The number of entries to return on each page.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

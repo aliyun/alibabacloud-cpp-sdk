@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertLevel_ == nullptr
-        && return this->currentPage_ == nullptr && return this->pageSize_ == nullptr && return this->platform_ == nullptr && return this->ruleAction_ == nullptr && return this->ruleName_ == nullptr; };
+        && this->currentPage_ == nullptr && this->pageSize_ == nullptr && this->platform_ == nullptr && this->ruleAction_ == nullptr && this->ruleName_ == nullptr; };
     // alertLevel Field Functions 
     bool hasAlertLevel() const { return this->alertLevel_ != nullptr;};
     void deleteAlertLevel() { this->alertLevel_ = nullptr;};
-    inline int32_t alertLevel() const { DARABONBA_PTR_GET_DEFAULT(alertLevel_, 0) };
+    inline int32_t getAlertLevel() const { DARABONBA_PTR_GET_DEFAULT(alertLevel_, 0) };
     inline ListFileProtectRuleRequest& setAlertLevel(int32_t alertLevel) { DARABONBA_PTR_SET_VALUE(alertLevel_, alertLevel) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListFileProtectRuleRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListFileProtectRuleRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // platform Field Functions 
     bool hasPlatform() const { return this->platform_ != nullptr;};
     void deletePlatform() { this->platform_ = nullptr;};
-    inline string platform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+    inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
     inline ListFileProtectRuleRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
     // ruleAction Field Functions 
     bool hasRuleAction() const { return this->ruleAction_ != nullptr;};
     void deleteRuleAction() { this->ruleAction_ = nullptr;};
-    inline string ruleAction() const { DARABONBA_PTR_GET_DEFAULT(ruleAction_, "") };
+    inline string getRuleAction() const { DARABONBA_PTR_GET_DEFAULT(ruleAction_, "") };
     inline ListFileProtectRuleRequest& setRuleAction(string ruleAction) { DARABONBA_PTR_SET_VALUE(ruleAction_, ruleAction) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline ListFileProtectRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
@@ -90,23 +90,23 @@ namespace Models
     // *   1: sends notifications
     // *   2: suspicious
     // *   3: high-risk
-    std::shared_ptr<int32_t> alertLevel_ = nullptr;
+    shared_ptr<int32_t> alertLevel_ {};
     // The page number.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The type of the operating system. Valid values:
     // 
     // *   **windows**: Windows
     // *   **linux**: Linux
-    std::shared_ptr<string> platform_ = nullptr;
+    shared_ptr<string> platform_ {};
     // The handling method of the rule. Valid values:
     // 
     // *   pass: allow
     // *   alert
-    std::shared_ptr<string> ruleAction_ = nullptr;
+    shared_ptr<string> ruleAction_ {};
     // The name of the rule.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
   };
 
   } // namespace Models

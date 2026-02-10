@@ -33,7 +33,7 @@ namespace Models
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
-    inline string query() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
     inline ListDockerhubImageRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The query condition for images. You can query images in the `[namespace/]repoName[:version]` format. Conditions in `[]` are optional.
     // 
     // This parameter is required.
-    std::shared_ptr<string> query_ = nullptr;
+    shared_ptr<string> query_ {};
   };
 
   } // namespace Models

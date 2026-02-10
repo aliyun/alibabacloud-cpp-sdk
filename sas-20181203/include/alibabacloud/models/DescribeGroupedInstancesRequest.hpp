@@ -48,83 +48,83 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->fieldValue_ == nullptr && return this->groupField_ == nullptr && return this->lang_ == nullptr && return this->machineTypes_ == nullptr && return this->noPage_ == nullptr
-        && return this->pageSize_ == nullptr && return this->saleVersionCheckCode_ == nullptr && return this->vendor_ == nullptr && return this->vendors_ == nullptr; };
+        && this->fieldValue_ == nullptr && this->groupField_ == nullptr && this->lang_ == nullptr && this->machineTypes_ == nullptr && this->noPage_ == nullptr
+        && this->pageSize_ == nullptr && this->saleVersionCheckCode_ == nullptr && this->vendor_ == nullptr && this->vendors_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeGroupedInstancesRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // fieldValue Field Functions 
     bool hasFieldValue() const { return this->fieldValue_ != nullptr;};
     void deleteFieldValue() { this->fieldValue_ = nullptr;};
-    inline string fieldValue() const { DARABONBA_PTR_GET_DEFAULT(fieldValue_, "") };
+    inline string getFieldValue() const { DARABONBA_PTR_GET_DEFAULT(fieldValue_, "") };
     inline DescribeGroupedInstancesRequest& setFieldValue(string fieldValue) { DARABONBA_PTR_SET_VALUE(fieldValue_, fieldValue) };
 
 
     // groupField Field Functions 
     bool hasGroupField() const { return this->groupField_ != nullptr;};
     void deleteGroupField() { this->groupField_ = nullptr;};
-    inline string groupField() const { DARABONBA_PTR_GET_DEFAULT(groupField_, "") };
+    inline string getGroupField() const { DARABONBA_PTR_GET_DEFAULT(groupField_, "") };
     inline DescribeGroupedInstancesRequest& setGroupField(string groupField) { DARABONBA_PTR_SET_VALUE(groupField_, groupField) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeGroupedInstancesRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // machineTypes Field Functions 
     bool hasMachineTypes() const { return this->machineTypes_ != nullptr;};
     void deleteMachineTypes() { this->machineTypes_ = nullptr;};
-    inline string machineTypes() const { DARABONBA_PTR_GET_DEFAULT(machineTypes_, "") };
+    inline string getMachineTypes() const { DARABONBA_PTR_GET_DEFAULT(machineTypes_, "") };
     inline DescribeGroupedInstancesRequest& setMachineTypes(string machineTypes) { DARABONBA_PTR_SET_VALUE(machineTypes_, machineTypes) };
 
 
     // noPage Field Functions 
     bool hasNoPage() const { return this->noPage_ != nullptr;};
     void deleteNoPage() { this->noPage_ = nullptr;};
-    inline bool noPage() const { DARABONBA_PTR_GET_DEFAULT(noPage_, false) };
+    inline bool getNoPage() const { DARABONBA_PTR_GET_DEFAULT(noPage_, false) };
     inline DescribeGroupedInstancesRequest& setNoPage(bool noPage) { DARABONBA_PTR_SET_VALUE(noPage_, noPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeGroupedInstancesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // saleVersionCheckCode Field Functions 
     bool hasSaleVersionCheckCode() const { return this->saleVersionCheckCode_ != nullptr;};
     void deleteSaleVersionCheckCode() { this->saleVersionCheckCode_ = nullptr;};
-    inline string saleVersionCheckCode() const { DARABONBA_PTR_GET_DEFAULT(saleVersionCheckCode_, "") };
+    inline string getSaleVersionCheckCode() const { DARABONBA_PTR_GET_DEFAULT(saleVersionCheckCode_, "") };
     inline DescribeGroupedInstancesRequest& setSaleVersionCheckCode(string saleVersionCheckCode) { DARABONBA_PTR_SET_VALUE(saleVersionCheckCode_, saleVersionCheckCode) };
 
 
     // vendor Field Functions 
     bool hasVendor() const { return this->vendor_ != nullptr;};
     void deleteVendor() { this->vendor_ = nullptr;};
-    inline int32_t vendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, 0) };
+    inline int32_t getVendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, 0) };
     inline DescribeGroupedInstancesRequest& setVendor(int32_t vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
 
 
     // vendors Field Functions 
     bool hasVendors() const { return this->vendors_ != nullptr;};
     void deleteVendors() { this->vendors_ = nullptr;};
-    inline string vendors() const { DARABONBA_PTR_GET_DEFAULT(vendors_, "") };
+    inline string getVendors() const { DARABONBA_PTR_GET_DEFAULT(vendors_, "") };
     inline DescribeGroupedInstancesRequest& setVendors(string vendors) { DARABONBA_PTR_SET_VALUE(vendors_, vendors) };
 
 
   protected:
     // The number of the page to return. Default value: **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The name of the group to which the assets belong. Fuzzy search is supported.
-    std::shared_ptr<string> fieldValue_ = nullptr;
+    shared_ptr<string> fieldValue_ {};
     // The filter condition that you want to use to query the assets. Valid values:
     // 
     // *   **groupId**: the group to which the assets belong
@@ -132,21 +132,21 @@ namespace Models
     // *   **vpcInstanceId**: the virtual private cloud (VPC) in which the assets reside
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupField_ = nullptr;
+    shared_ptr<string> groupField_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The type of the assets that you want to query. Set the value to **ecs**, which indicates Elastic Compute Service (ECS) instances.
-    std::shared_ptr<string> machineTypes_ = nullptr;
+    shared_ptr<string> machineTypes_ {};
     // Specifies whether to enable paged query. Default value: **true**. Valid values:
     // 
     // *   **true**: yes
     // *   **false**: no
-    std::shared_ptr<bool> noPage_ = nullptr;
+    shared_ptr<bool> noPage_ {};
     // The number of entries to return on each page. Default value: **20**.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The edition of Security Center that protects the asset. Valid values:
     // 
     // * **sas_gte_advanced**: the Advanced edition or higher
@@ -154,7 +154,7 @@ namespace Models
     // * **sas_gt_basic:** a paid edition
     // * **sas_eq_advanced:** the Advanced edition
     // * **sas_gt_anti_virus:** an edition higher than the Anti-virus edition
-    std::shared_ptr<string> saleVersionCheckCode_ = nullptr;
+    shared_ptr<string> saleVersionCheckCode_ {};
     // The source of the server. Valid values:
     // 
     // *   **0**: an asset provided by Alibaba Cloud.
@@ -162,7 +162,7 @@ namespace Models
     // *   **2**: a server in a data center
     // *   **3**, **4**, **5**, and **7**: other cloud asset
     // *   **8**: a lightweight asset
-    std::shared_ptr<int32_t> vendor_ = nullptr;
+    shared_ptr<int32_t> vendor_ {};
     // The source of the server. Separate multiple sources with commas (,).Valid values:
     // 
     // *   **0**: an asset provided by Alibaba Cloud.
@@ -170,7 +170,7 @@ namespace Models
     // *   **2**: a server in a data center
     // *   **3**, **4**, **5**, and **7**: other cloud asset
     // *   **8**: a lightweight asset
-    std::shared_ptr<string> vendors_ = nullptr;
+    shared_ptr<string> vendors_ {};
   };
 
   } // namespace Models

@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->ruleTypes_ == nullptr; };
+        && this->ruleTypes_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListSystemClientRuleTypesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // ruleTypes Field Functions 
     bool hasRuleTypes() const { return this->ruleTypes_ != nullptr;};
     void deleteRuleTypes() { this->ruleTypes_ = nullptr;};
-    inline const vector<string> & ruleTypes() const { DARABONBA_PTR_GET_CONST(ruleTypes_, vector<string>) };
-    inline vector<string> ruleTypes() { DARABONBA_PTR_GET(ruleTypes_, vector<string>) };
+    inline const vector<string> & getRuleTypes() const { DARABONBA_PTR_GET_CONST(ruleTypes_, vector<string>) };
+    inline vector<string> getRuleTypes() { DARABONBA_PTR_GET(ruleTypes_, vector<string>) };
     inline ListSystemClientRuleTypesResponseBody& setRuleTypes(const vector<string> & ruleTypes) { DARABONBA_PTR_SET_VALUE(ruleTypes_, ruleTypes) };
     inline ListSystemClientRuleTypesResponseBody& setRuleTypes(vector<string> && ruleTypes) { DARABONBA_PTR_SET_RVALUE(ruleTypes_, ruleTypes) };
 
 
   protected:
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // An array that consists of the rule types.
-    std::shared_ptr<vector<string>> ruleTypes_ = nullptr;
+    shared_ptr<vector<string>> ruleTypes_ {};
   };
 
   } // namespace Models

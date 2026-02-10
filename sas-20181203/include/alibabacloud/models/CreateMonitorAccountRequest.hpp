@@ -33,7 +33,7 @@ namespace Models
     // accountIds Field Functions 
     bool hasAccountIds() const { return this->accountIds_ != nullptr;};
     void deleteAccountIds() { this->accountIds_ = nullptr;};
-    inline string accountIds() const { DARABONBA_PTR_GET_DEFAULT(accountIds_, "") };
+    inline string getAccountIds() const { DARABONBA_PTR_GET_DEFAULT(accountIds_, "") };
     inline CreateMonitorAccountRequest& setAccountIds(string accountIds) { DARABONBA_PTR_SET_VALUE(accountIds_, accountIds) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The account IDs of members in the resource directory.
     // 
     // >  You can call the [ListAccountsInResourceDirectory](~~ListAccountsInResourceDirectory~~) operation to obtain the account IDs. Separate multiple account IDs with commas (,). If you specify a value for this parameter, the existing list of members is replaced by the new list that you specify. Otherwise, the existing list is cleared.
-    std::shared_ptr<string> accountIds_ = nullptr;
+    shared_ptr<string> accountIds_ {};
   };
 
   } // namespace Models

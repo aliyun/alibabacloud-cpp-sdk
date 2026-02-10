@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->probeId_ == nullptr; };
+        && this->probeId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline GetHoneypotProbeRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // probeId Field Functions 
     bool hasProbeId() const { return this->probeId_ != nullptr;};
     void deleteProbeId() { this->probeId_ = nullptr;};
-    inline string probeId() const { DARABONBA_PTR_GET_DEFAULT(probeId_, "") };
+    inline string getProbeId() const { DARABONBA_PTR_GET_DEFAULT(probeId_, "") };
     inline GetHoneypotProbeRequest& setProbeId(string probeId) { DARABONBA_PTR_SET_VALUE(probeId_, probeId) };
 
 
@@ -52,13 +52,13 @@ namespace Models
     // 
     // *   **zh**: Chinese.
     // *   **en**: English.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The probe ID.
     // 
     // > You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
     // 
     // This parameter is required.
-    std::shared_ptr<string> probeId_ = nullptr;
+    shared_ptr<string> probeId_ {};
   };
 
   } // namespace Models

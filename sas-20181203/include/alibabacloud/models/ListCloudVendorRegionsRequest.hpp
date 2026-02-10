@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->vendor_ == nullptr; };
+        && this->vendor_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ListCloudVendorRegionsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // vendor Field Functions 
     bool hasVendor() const { return this->vendor_ != nullptr;};
     void deleteVendor() { this->vendor_ = nullptr;};
-    inline string vendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
+    inline string getVendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
     inline ListCloudVendorRegionsRequest& setVendor(string vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
 
 
@@ -52,11 +52,11 @@ namespace Models
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The service provider of cloud assets. Valid values:
     // 
     // *   **Tencent**, **HUAWEICLOUD**, **Azure**, and **AWS**: other service providers of cloud assets.
-    std::shared_ptr<string> vendor_ = nullptr;
+    shared_ptr<string> vendor_ {};
   };
 
   } // namespace Models

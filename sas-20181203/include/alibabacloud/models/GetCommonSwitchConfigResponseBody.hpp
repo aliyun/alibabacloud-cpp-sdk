@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETCOMMONSWITCHCONFIGRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETCOMMONSWITCHCONFIGRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetCommonSwitchConfigResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +31,79 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(TargetDefault, targetDefault_);
+        DARABONBA_PTR_TO_JSON(TargetSyncStatus, targetSyncStatus_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(TargetDefault, targetDefault_);
+        DARABONBA_PTR_FROM_JSON(TargetSyncStatus, targetSyncStatus_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->targetDefault_ == nullptr
+        && this->targetSyncStatus_ == nullptr; };
+      // targetDefault Field Functions 
+      bool hasTargetDefault() const { return this->targetDefault_ != nullptr;};
+      void deleteTargetDefault() { this->targetDefault_ = nullptr;};
+      inline string getTargetDefault() const { DARABONBA_PTR_GET_DEFAULT(targetDefault_, "") };
+      inline Data& setTargetDefault(string targetDefault) { DARABONBA_PTR_SET_VALUE(targetDefault_, targetDefault) };
+
+
+      // targetSyncStatus Field Functions 
+      bool hasTargetSyncStatus() const { return this->targetSyncStatus_ != nullptr;};
+      void deleteTargetSyncStatus() { this->targetSyncStatus_ = nullptr;};
+      inline string getTargetSyncStatus() const { DARABONBA_PTR_GET_DEFAULT(targetSyncStatus_, "") };
+      inline Data& setTargetSyncStatus(string targetSyncStatus) { DARABONBA_PTR_SET_VALUE(targetSyncStatus_, targetSyncStatus) };
+
+
+    protected:
+      // Specifies whether to turn on the switch for newly added servers. Valid values:
+      // 
+      // *   **add**: By default, the switch is turned on for newly added servers.
+      // *   **del**: By default, the switch is turned off for newly added servers.
+      shared_ptr<string> targetDefault_ {};
+      // The status of the synchronization. Valid values:
+      // 
+      // *   **sync**: The modifications are being synchronized.
+      // *   **valid**: The modifications has taken effect.
+      shared_ptr<string> targetSyncStatus_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetCommonSwitchConfigResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetCommonSwitchConfigResponseBodyData) };
-    inline GetCommonSwitchConfigResponseBodyData data() { DARABONBA_PTR_GET(data_, GetCommonSwitchConfigResponseBodyData) };
-    inline GetCommonSwitchConfigResponseBody& setData(const GetCommonSwitchConfigResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetCommonSwitchConfigResponseBody& setData(GetCommonSwitchConfigResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetCommonSwitchConfigResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetCommonSwitchConfigResponseBody::Data) };
+    inline GetCommonSwitchConfigResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetCommonSwitchConfigResponseBody::Data) };
+    inline GetCommonSwitchConfigResponseBody& setData(const GetCommonSwitchConfigResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetCommonSwitchConfigResponseBody& setData(GetCommonSwitchConfigResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetCommonSwitchConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The data returned.
-    std::shared_ptr<GetCommonSwitchConfigResponseBodyData> data_ = nullptr;
+    shared_ptr<GetCommonSwitchConfigResponseBody::Data> data_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

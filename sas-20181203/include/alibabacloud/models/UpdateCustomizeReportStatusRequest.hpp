@@ -34,44 +34,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pinnedTime_ == nullptr
-        && return this->reportId_ == nullptr && return this->reportStatus_ == nullptr; };
+        && this->reportId_ == nullptr && this->reportStatus_ == nullptr; };
     // pinnedTime Field Functions 
     bool hasPinnedTime() const { return this->pinnedTime_ != nullptr;};
     void deletePinnedTime() { this->pinnedTime_ = nullptr;};
-    inline int64_t pinnedTime() const { DARABONBA_PTR_GET_DEFAULT(pinnedTime_, 0L) };
+    inline int64_t getPinnedTime() const { DARABONBA_PTR_GET_DEFAULT(pinnedTime_, 0L) };
     inline UpdateCustomizeReportStatusRequest& setPinnedTime(int64_t pinnedTime) { DARABONBA_PTR_SET_VALUE(pinnedTime_, pinnedTime) };
 
 
     // reportId Field Functions 
     bool hasReportId() const { return this->reportId_ != nullptr;};
     void deleteReportId() { this->reportId_ = nullptr;};
-    inline int64_t reportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
+    inline int64_t getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
     inline UpdateCustomizeReportStatusRequest& setReportId(int64_t reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
 
 
     // reportStatus Field Functions 
     bool hasReportStatus() const { return this->reportStatus_ != nullptr;};
     void deleteReportStatus() { this->reportStatus_ = nullptr;};
-    inline int32_t reportStatus() const { DARABONBA_PTR_GET_DEFAULT(reportStatus_, 0) };
+    inline int32_t getReportStatus() const { DARABONBA_PTR_GET_DEFAULT(reportStatus_, 0) };
     inline UpdateCustomizeReportStatusRequest& setReportStatus(int32_t reportStatus) { DARABONBA_PTR_SET_VALUE(reportStatus_, reportStatus) };
 
 
   protected:
     // The time when the report is pinned. Unit: milliseconds.
-    std::shared_ptr<int64_t> pinnedTime_ = nullptr;
+    shared_ptr<int64_t> pinnedTime_ {};
     // The ID of the report.
     // 
     // >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> reportId_ = nullptr;
+    shared_ptr<int64_t> reportId_ {};
     // The status of the report. Valid values:
     // 
     // *   **0**: disabled.
     // *   **1**: enabled.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> reportStatus_ = nullptr;
+    shared_ptr<int32_t> reportStatus_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETOSSBUCKETSCANSTATISTICRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETOSSBUCKETSCANSTATISTICRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetOssBucketScanStatisticResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +31,196 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
+        DARABONBA_PTR_TO_JSON(HighRisk, highRisk_);
+        DARABONBA_PTR_TO_JSON(LowRisk, lowRisk_);
+        DARABONBA_PTR_TO_JSON(MediumRisk, mediumRisk_);
+        DARABONBA_PTR_TO_JSON(NoScanBucket, noScanBucket_);
+        DARABONBA_PTR_TO_JSON(PostPayInvokeCount, postPayInvokeCount_);
+        DARABONBA_PTR_TO_JSON(PrePayAuthCount, prePayAuthCount_);
+        DARABONBA_PTR_TO_JSON(PrePayInvokeCount, prePayInvokeCount_);
+        DARABONBA_PTR_TO_JSON(RemainAuth, remainAuth_);
+        DARABONBA_PTR_TO_JSON(RiskBucket, riskBucket_);
+        DARABONBA_PTR_TO_JSON(ScanObject, scanObject_);
+        DARABONBA_PTR_TO_JSON(TotalBucket, totalBucket_);
+        DARABONBA_PTR_TO_JSON(TotalObject, totalObject_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
+        DARABONBA_PTR_FROM_JSON(HighRisk, highRisk_);
+        DARABONBA_PTR_FROM_JSON(LowRisk, lowRisk_);
+        DARABONBA_PTR_FROM_JSON(MediumRisk, mediumRisk_);
+        DARABONBA_PTR_FROM_JSON(NoScanBucket, noScanBucket_);
+        DARABONBA_PTR_FROM_JSON(PostPayInvokeCount, postPayInvokeCount_);
+        DARABONBA_PTR_FROM_JSON(PrePayAuthCount, prePayAuthCount_);
+        DARABONBA_PTR_FROM_JSON(PrePayInvokeCount, prePayInvokeCount_);
+        DARABONBA_PTR_FROM_JSON(RemainAuth, remainAuth_);
+        DARABONBA_PTR_FROM_JSON(RiskBucket, riskBucket_);
+        DARABONBA_PTR_FROM_JSON(ScanObject, scanObject_);
+        DARABONBA_PTR_FROM_JSON(TotalBucket, totalBucket_);
+        DARABONBA_PTR_FROM_JSON(TotalObject, totalObject_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->expireTime_ == nullptr
+        && this->highRisk_ == nullptr && this->lowRisk_ == nullptr && this->mediumRisk_ == nullptr && this->noScanBucket_ == nullptr && this->postPayInvokeCount_ == nullptr
+        && this->prePayAuthCount_ == nullptr && this->prePayInvokeCount_ == nullptr && this->remainAuth_ == nullptr && this->riskBucket_ == nullptr && this->scanObject_ == nullptr
+        && this->totalBucket_ == nullptr && this->totalObject_ == nullptr; };
+      // expireTime Field Functions 
+      bool hasExpireTime() const { return this->expireTime_ != nullptr;};
+      void deleteExpireTime() { this->expireTime_ = nullptr;};
+      inline int64_t getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0L) };
+      inline Data& setExpireTime(int64_t expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
+
+
+      // highRisk Field Functions 
+      bool hasHighRisk() const { return this->highRisk_ != nullptr;};
+      void deleteHighRisk() { this->highRisk_ = nullptr;};
+      inline int64_t getHighRisk() const { DARABONBA_PTR_GET_DEFAULT(highRisk_, 0L) };
+      inline Data& setHighRisk(int64_t highRisk) { DARABONBA_PTR_SET_VALUE(highRisk_, highRisk) };
+
+
+      // lowRisk Field Functions 
+      bool hasLowRisk() const { return this->lowRisk_ != nullptr;};
+      void deleteLowRisk() { this->lowRisk_ = nullptr;};
+      inline int64_t getLowRisk() const { DARABONBA_PTR_GET_DEFAULT(lowRisk_, 0L) };
+      inline Data& setLowRisk(int64_t lowRisk) { DARABONBA_PTR_SET_VALUE(lowRisk_, lowRisk) };
+
+
+      // mediumRisk Field Functions 
+      bool hasMediumRisk() const { return this->mediumRisk_ != nullptr;};
+      void deleteMediumRisk() { this->mediumRisk_ = nullptr;};
+      inline int64_t getMediumRisk() const { DARABONBA_PTR_GET_DEFAULT(mediumRisk_, 0L) };
+      inline Data& setMediumRisk(int64_t mediumRisk) { DARABONBA_PTR_SET_VALUE(mediumRisk_, mediumRisk) };
+
+
+      // noScanBucket Field Functions 
+      bool hasNoScanBucket() const { return this->noScanBucket_ != nullptr;};
+      void deleteNoScanBucket() { this->noScanBucket_ = nullptr;};
+      inline int32_t getNoScanBucket() const { DARABONBA_PTR_GET_DEFAULT(noScanBucket_, 0) };
+      inline Data& setNoScanBucket(int32_t noScanBucket) { DARABONBA_PTR_SET_VALUE(noScanBucket_, noScanBucket) };
+
+
+      // postPayInvokeCount Field Functions 
+      bool hasPostPayInvokeCount() const { return this->postPayInvokeCount_ != nullptr;};
+      void deletePostPayInvokeCount() { this->postPayInvokeCount_ = nullptr;};
+      inline int64_t getPostPayInvokeCount() const { DARABONBA_PTR_GET_DEFAULT(postPayInvokeCount_, 0L) };
+      inline Data& setPostPayInvokeCount(int64_t postPayInvokeCount) { DARABONBA_PTR_SET_VALUE(postPayInvokeCount_, postPayInvokeCount) };
+
+
+      // prePayAuthCount Field Functions 
+      bool hasPrePayAuthCount() const { return this->prePayAuthCount_ != nullptr;};
+      void deletePrePayAuthCount() { this->prePayAuthCount_ = nullptr;};
+      inline int64_t getPrePayAuthCount() const { DARABONBA_PTR_GET_DEFAULT(prePayAuthCount_, 0L) };
+      inline Data& setPrePayAuthCount(int64_t prePayAuthCount) { DARABONBA_PTR_SET_VALUE(prePayAuthCount_, prePayAuthCount) };
+
+
+      // prePayInvokeCount Field Functions 
+      bool hasPrePayInvokeCount() const { return this->prePayInvokeCount_ != nullptr;};
+      void deletePrePayInvokeCount() { this->prePayInvokeCount_ = nullptr;};
+      inline int64_t getPrePayInvokeCount() const { DARABONBA_PTR_GET_DEFAULT(prePayInvokeCount_, 0L) };
+      inline Data& setPrePayInvokeCount(int64_t prePayInvokeCount) { DARABONBA_PTR_SET_VALUE(prePayInvokeCount_, prePayInvokeCount) };
+
+
+      // remainAuth Field Functions 
+      bool hasRemainAuth() const { return this->remainAuth_ != nullptr;};
+      void deleteRemainAuth() { this->remainAuth_ = nullptr;};
+      inline int32_t getRemainAuth() const { DARABONBA_PTR_GET_DEFAULT(remainAuth_, 0) };
+      inline Data& setRemainAuth(int32_t remainAuth) { DARABONBA_PTR_SET_VALUE(remainAuth_, remainAuth) };
+
+
+      // riskBucket Field Functions 
+      bool hasRiskBucket() const { return this->riskBucket_ != nullptr;};
+      void deleteRiskBucket() { this->riskBucket_ = nullptr;};
+      inline int32_t getRiskBucket() const { DARABONBA_PTR_GET_DEFAULT(riskBucket_, 0) };
+      inline Data& setRiskBucket(int32_t riskBucket) { DARABONBA_PTR_SET_VALUE(riskBucket_, riskBucket) };
+
+
+      // scanObject Field Functions 
+      bool hasScanObject() const { return this->scanObject_ != nullptr;};
+      void deleteScanObject() { this->scanObject_ = nullptr;};
+      inline int64_t getScanObject() const { DARABONBA_PTR_GET_DEFAULT(scanObject_, 0L) };
+      inline Data& setScanObject(int64_t scanObject) { DARABONBA_PTR_SET_VALUE(scanObject_, scanObject) };
+
+
+      // totalBucket Field Functions 
+      bool hasTotalBucket() const { return this->totalBucket_ != nullptr;};
+      void deleteTotalBucket() { this->totalBucket_ = nullptr;};
+      inline int32_t getTotalBucket() const { DARABONBA_PTR_GET_DEFAULT(totalBucket_, 0) };
+      inline Data& setTotalBucket(int32_t totalBucket) { DARABONBA_PTR_SET_VALUE(totalBucket_, totalBucket) };
+
+
+      // totalObject Field Functions 
+      bool hasTotalObject() const { return this->totalObject_ != nullptr;};
+      void deleteTotalObject() { this->totalObject_ = nullptr;};
+      inline int64_t getTotalObject() const { DARABONBA_PTR_GET_DEFAULT(totalObject_, 0L) };
+      inline Data& setTotalObject(int64_t totalObject) { DARABONBA_PTR_SET_VALUE(totalObject_, totalObject) };
+
+
+    protected:
+      // The expiration time of the purchased quota.
+      shared_ptr<int64_t> expireTime_ {};
+      // The number of high-risk objects.
+      shared_ptr<int64_t> highRisk_ {};
+      // The number of low-risk objects.
+      shared_ptr<int64_t> lowRisk_ {};
+      // The number of medium-risk objects.
+      shared_ptr<int64_t> mediumRisk_ {};
+      // The number of buckets that are not checked.
+      shared_ptr<int32_t> noScanBucket_ {};
+      // Postpaid usage count.
+      shared_ptr<int64_t> postPayInvokeCount_ {};
+      // Prepaid authorized count.
+      shared_ptr<int64_t> prePayAuthCount_ {};
+      // Prepaid usage count.
+      shared_ptr<int64_t> prePayInvokeCount_ {};
+      // The remaining quota.
+      shared_ptr<int32_t> remainAuth_ {};
+      // The number of buckets in which at-risk objects exist.
+      shared_ptr<int32_t> riskBucket_ {};
+      // The number of objects that are checked.
+      shared_ptr<int64_t> scanObject_ {};
+      // The total number of buckets.
+      shared_ptr<int32_t> totalBucket_ {};
+      // The total number of objects in the bucket.
+      shared_ptr<int64_t> totalObject_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetOssBucketScanStatisticResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetOssBucketScanStatisticResponseBodyData) };
-    inline GetOssBucketScanStatisticResponseBodyData data() { DARABONBA_PTR_GET(data_, GetOssBucketScanStatisticResponseBodyData) };
-    inline GetOssBucketScanStatisticResponseBody& setData(const GetOssBucketScanStatisticResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetOssBucketScanStatisticResponseBody& setData(GetOssBucketScanStatisticResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetOssBucketScanStatisticResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetOssBucketScanStatisticResponseBody::Data) };
+    inline GetOssBucketScanStatisticResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetOssBucketScanStatisticResponseBody::Data) };
+    inline GetOssBucketScanStatisticResponseBody& setData(const GetOssBucketScanStatisticResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetOssBucketScanStatisticResponseBody& setData(GetOssBucketScanStatisticResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetOssBucketScanStatisticResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The response parameters.
-    std::shared_ptr<GetOssBucketScanStatisticResponseBodyData> data_ = nullptr;
+    shared_ptr<GetOssBucketScanStatisticResponseBody::Data> data_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

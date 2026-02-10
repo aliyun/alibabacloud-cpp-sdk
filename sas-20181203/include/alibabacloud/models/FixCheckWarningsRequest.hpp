@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkParams_ == nullptr
-        && return this->lang_ == nullptr && return this->retentionDays_ == nullptr && return this->riskId_ == nullptr && return this->snapshotName_ == nullptr && return this->sourceIp_ == nullptr
-        && return this->uuids_ == nullptr; };
+        && this->lang_ == nullptr && this->retentionDays_ == nullptr && this->riskId_ == nullptr && this->snapshotName_ == nullptr && this->sourceIp_ == nullptr
+        && this->uuids_ == nullptr; };
     // checkParams Field Functions 
     bool hasCheckParams() const { return this->checkParams_ != nullptr;};
     void deleteCheckParams() { this->checkParams_ = nullptr;};
-    inline string checkParams() const { DARABONBA_PTR_GET_DEFAULT(checkParams_, "") };
+    inline string getCheckParams() const { DARABONBA_PTR_GET_DEFAULT(checkParams_, "") };
     inline FixCheckWarningsRequest& setCheckParams(string checkParams) { DARABONBA_PTR_SET_VALUE(checkParams_, checkParams) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline FixCheckWarningsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // retentionDays Field Functions 
     bool hasRetentionDays() const { return this->retentionDays_ != nullptr;};
     void deleteRetentionDays() { this->retentionDays_ = nullptr;};
-    inline int32_t retentionDays() const { DARABONBA_PTR_GET_DEFAULT(retentionDays_, 0) };
+    inline int32_t getRetentionDays() const { DARABONBA_PTR_GET_DEFAULT(retentionDays_, 0) };
     inline FixCheckWarningsRequest& setRetentionDays(int32_t retentionDays) { DARABONBA_PTR_SET_VALUE(retentionDays_, retentionDays) };
 
 
     // riskId Field Functions 
     bool hasRiskId() const { return this->riskId_ != nullptr;};
     void deleteRiskId() { this->riskId_ = nullptr;};
-    inline int64_t riskId() const { DARABONBA_PTR_GET_DEFAULT(riskId_, 0L) };
+    inline int64_t getRiskId() const { DARABONBA_PTR_GET_DEFAULT(riskId_, 0L) };
     inline FixCheckWarningsRequest& setRiskId(int64_t riskId) { DARABONBA_PTR_SET_VALUE(riskId_, riskId) };
 
 
     // snapshotName Field Functions 
     bool hasSnapshotName() const { return this->snapshotName_ != nullptr;};
     void deleteSnapshotName() { this->snapshotName_ = nullptr;};
-    inline string snapshotName() const { DARABONBA_PTR_GET_DEFAULT(snapshotName_, "") };
+    inline string getSnapshotName() const { DARABONBA_PTR_GET_DEFAULT(snapshotName_, "") };
     inline FixCheckWarningsRequest& setSnapshotName(string snapshotName) { DARABONBA_PTR_SET_VALUE(snapshotName_, snapshotName) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline FixCheckWarningsRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // uuids Field Functions 
     bool hasUuids() const { return this->uuids_ != nullptr;};
     void deleteUuids() { this->uuids_ = nullptr;};
-    inline string uuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
+    inline string getUuids() const { DARABONBA_PTR_GET_DEFAULT(uuids_, "") };
     inline FixCheckWarningsRequest& setUuids(string uuids) { DARABONBA_PTR_SET_VALUE(uuids_, uuids) };
 
 
@@ -107,24 +107,24 @@ namespace Models
     //         • **value**: the value of the fix method.
     // 
     // This parameter is required.
-    std::shared_ptr<string> checkParams_ = nullptr;
+    shared_ptr<string> checkParams_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The retention period of the snapshot that is created when you fix the baseline risk. Valid values: 1 to 365. Unit: days.
-    std::shared_ptr<int32_t> retentionDays_ = nullptr;
+    shared_ptr<int32_t> retentionDays_ {};
     // The ID of the risk item.
     // 
     // >  To query the information about the risk items and check items of a server, you must specify the IDs of the risk items. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of risk items.
-    std::shared_ptr<int64_t> riskId_ = nullptr;
+    shared_ptr<int64_t> riskId_ {};
     // The name of the snapshot that is created when you fix the baseline risk.
-    std::shared_ptr<string> snapshotName_ = nullptr;
+    shared_ptr<string> snapshotName_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The UUID of the asset for which you want to fix the baseline risk item. You can call the [DescribeWarningMachines](~~DescribeWarningMachines~~) operation to query the UUIDs of assets.
-    std::shared_ptr<string> uuids_ = nullptr;
+    shared_ptr<string> uuids_ {};
   };
 
   } // namespace Models

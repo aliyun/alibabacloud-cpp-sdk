@@ -33,7 +33,7 @@ namespace Models
     // days Field Functions 
     bool hasDays() const { return this->days_ != nullptr;};
     void deleteDays() { this->days_ = nullptr;};
-    inline int32_t days() const { DARABONBA_PTR_GET_DEFAULT(days_, 0) };
+    inline int32_t getDays() const { DARABONBA_PTR_GET_DEFAULT(days_, 0) };
     inline ModifyAutoDelConfigRequest& setDays(int32_t days) { DARABONBA_PTR_SET_VALUE(days_, days) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // *   7
     // *   30
     // *   90
-    std::shared_ptr<int32_t> days_ = nullptr;
+    shared_ptr<int32_t> days_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dependentPolicyId_ == nullptr
-        && return this->policyShowName_ == nullptr && return this->policyType_ == nullptr && return this->type_ == nullptr; };
+        && this->policyShowName_ == nullptr && this->policyType_ == nullptr && this->type_ == nullptr; };
     // dependentPolicyId Field Functions 
     bool hasDependentPolicyId() const { return this->dependentPolicyId_ != nullptr;};
     void deleteDependentPolicyId() { this->dependentPolicyId_ = nullptr;};
-    inline int64_t dependentPolicyId() const { DARABONBA_PTR_GET_DEFAULT(dependentPolicyId_, 0L) };
+    inline int64_t getDependentPolicyId() const { DARABONBA_PTR_GET_DEFAULT(dependentPolicyId_, 0L) };
     inline CreateCheckPolicyRequest& setDependentPolicyId(int64_t dependentPolicyId) { DARABONBA_PTR_SET_VALUE(dependentPolicyId_, dependentPolicyId) };
 
 
     // policyShowName Field Functions 
     bool hasPolicyShowName() const { return this->policyShowName_ != nullptr;};
     void deletePolicyShowName() { this->policyShowName_ = nullptr;};
-    inline string policyShowName() const { DARABONBA_PTR_GET_DEFAULT(policyShowName_, "") };
+    inline string getPolicyShowName() const { DARABONBA_PTR_GET_DEFAULT(policyShowName_, "") };
     inline CreateCheckPolicyRequest& setPolicyShowName(string policyShowName) { DARABONBA_PTR_SET_VALUE(policyShowName_, policyShowName) };
 
 
     // policyType Field Functions 
     bool hasPolicyType() const { return this->policyType_ != nullptr;};
     void deletePolicyType() { this->policyType_ = nullptr;};
-    inline string policyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
+    inline string getPolicyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
     inline CreateCheckPolicyRequest& setPolicyType(string policyType) { DARABONBA_PTR_SET_VALUE(policyType_, policyType) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateCheckPolicyRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -69,24 +69,24 @@ namespace Models
     // The ID of the parent policy.
     //       
     // (The specific dependency order from low to high is Section -> Requirement -> Standard)
-    std::shared_ptr<int64_t> dependentPolicyId_ = nullptr;
+    shared_ptr<int64_t> dependentPolicyId_ {};
     // The name of the custom policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyShowName_ = nullptr;
+    shared_ptr<string> policyShowName_ {};
     // The policy category type for custom check rules:
     // - **STANDARD**: Add to a standard.
     // - **REQUIREMENT**: Add to a requirement.
     // - **SECTION**: Add to a section.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyType_ = nullptr;
+    shared_ptr<string> policyType_ {};
     // The name of the major policy category (required when PolicyType is STANDARD):
     // - **AISPM**: AI Configuration Management (AISPM).
     // - **IDENTITY_PERMISSION**: Identity and Permission Management (CIEM).
     // - **RISK**: Security Risk.
     // - **COMPLIANCE**: Compliance Risk.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // pastDay Field Functions 
     bool hasPastDay() const { return this->pastDay_ != nullptr;};
     void deletePastDay() { this->pastDay_ = nullptr;};
-    inline string pastDay() const { DARABONBA_PTR_GET_DEFAULT(pastDay_, "") };
+    inline string getPastDay() const { DARABONBA_PTR_GET_DEFAULT(pastDay_, "") };
     inline GetImageScanNumInPeriodRequest& setPastDay(string pastDay) { DARABONBA_PTR_SET_VALUE(pastDay_, pastDay) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The number of days.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pastDay_ = nullptr;
+    shared_ptr<string> pastDay_ {};
   };
 
   } // namespace Models

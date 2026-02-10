@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainList_ == nullptr
-        && return this->names_ == nullptr && return this->requestId_ == nullptr; };
+        && this->names_ == nullptr && this->requestId_ == nullptr; };
     // domainList Field Functions 
     bool hasDomainList() const { return this->domainList_ != nullptr;};
     void deleteDomainList() { this->domainList_ = nullptr;};
-    inline const vector<string> & domainList() const { DARABONBA_PTR_GET_CONST(domainList_, vector<string>) };
-    inline vector<string> domainList() { DARABONBA_PTR_GET(domainList_, vector<string>) };
+    inline const vector<string> & getDomainList() const { DARABONBA_PTR_GET_CONST(domainList_, vector<string>) };
+    inline vector<string> getDomainList() { DARABONBA_PTR_GET(domainList_, vector<string>) };
     inline DescribeDefaultKeyInfoResponseBody& setDomainList(const vector<string> & domainList) { DARABONBA_PTR_SET_VALUE(domainList_, domainList) };
     inline DescribeDefaultKeyInfoResponseBody& setDomainList(vector<string> && domainList) { DARABONBA_PTR_SET_RVALUE(domainList_, domainList) };
 
@@ -48,24 +48,24 @@ namespace Models
     // names Field Functions 
     bool hasNames() const { return this->names_ != nullptr;};
     void deleteNames() { this->names_ = nullptr;};
-    inline string names() const { DARABONBA_PTR_GET_DEFAULT(names_, "") };
+    inline string getNames() const { DARABONBA_PTR_GET_DEFAULT(names_, "") };
     inline DescribeDefaultKeyInfoResponseBody& setNames(string names) { DARABONBA_PTR_SET_VALUE(names_, names) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDefaultKeyInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The domain names.
-    std::shared_ptr<vector<string>> domainList_ = nullptr;
+    shared_ptr<vector<string>> domainList_ {};
     // The company name.
-    std::shared_ptr<string> names_ = nullptr;
+    shared_ptr<string> names_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exclusiveFileType_ == nullptr
-        && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // exclusiveFileType Field Functions 
     bool hasExclusiveFileType() const { return this->exclusiveFileType_ != nullptr;};
     void deleteExclusiveFileType() { this->exclusiveFileType_ = nullptr;};
-    inline const vector<string> & exclusiveFileType() const { DARABONBA_PTR_GET_CONST(exclusiveFileType_, vector<string>) };
-    inline vector<string> exclusiveFileType() { DARABONBA_PTR_GET(exclusiveFileType_, vector<string>) };
+    inline const vector<string> & getExclusiveFileType() const { DARABONBA_PTR_GET_CONST(exclusiveFileType_, vector<string>) };
+    inline vector<string> getExclusiveFileType() { DARABONBA_PTR_GET(exclusiveFileType_, vector<string>) };
     inline DescribeWebLockExclusiveFileTypeResponseBody& setExclusiveFileType(const vector<string> & exclusiveFileType) { DARABONBA_PTR_SET_VALUE(exclusiveFileType_, exclusiveFileType) };
     inline DescribeWebLockExclusiveFileTypeResponseBody& setExclusiveFileType(vector<string> && exclusiveFileType) { DARABONBA_PTR_SET_RVALUE(exclusiveFileType_, exclusiveFileType) };
 
@@ -48,24 +48,24 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeWebLockExclusiveFileTypeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline DescribeWebLockExclusiveFileTypeResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // An array that consists of the types of the files that are excluded from web tamper proofing.
-    std::shared_ptr<vector<string>> exclusiveFileType_ = nullptr;
+    shared_ptr<vector<string>> exclusiveFileType_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of types of the files that are excluded from web tamper proofing.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

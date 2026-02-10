@@ -34,14 +34,15 @@ namespace Models
     // vertexIdAndTypeList Field Functions 
     bool hasVertexIdAndTypeList() const { return this->vertexIdAndTypeList_ != nullptr;};
     void deleteVertexIdAndTypeList() { this->vertexIdAndTypeList_ = nullptr;};
-    inline const vector<vector<string>> & vertexIdAndTypeList() const { DARABONBA_PTR_GET_CONST(vertexIdAndTypeList_, vector<vector<string>>) };
-    inline vector<vector<string>> vertexIdAndTypeList() { DARABONBA_PTR_GET(vertexIdAndTypeList_, vector<vector<string>>) };
+    inline const vector<vector<string>> & getVertexIdAndTypeList() const { DARABONBA_PTR_GET_CONST(vertexIdAndTypeList_, vector<vector<string>>) };
+    inline vector<vector<string>> getVertexIdAndTypeList() { DARABONBA_PTR_GET(vertexIdAndTypeList_, vector<vector<string>>) };
     inline QueryIncidentTracingSubNodesCountRequest& setVertexIdAndTypeList(const vector<vector<string>> & vertexIdAndTypeList) { DARABONBA_PTR_SET_VALUE(vertexIdAndTypeList_, vertexIdAndTypeList) };
     inline QueryIncidentTracingSubNodesCountRequest& setVertexIdAndTypeList(vector<vector<string>> && vertexIdAndTypeList) { DARABONBA_PTR_SET_RVALUE(vertexIdAndTypeList_, vertexIdAndTypeList) };
 
 
   protected:
-    std::shared_ptr<vector<vector<string>>> vertexIdAndTypeList_ = nullptr;
+    // The key-value pairs that consist of node IDs and node types. A key-value pair is an array.
+    shared_ptr<vector<vector<string>>> vertexIdAndTypeList_ {};
   };
 
   } // namespace Models

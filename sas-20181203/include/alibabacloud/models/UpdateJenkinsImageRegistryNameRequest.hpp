@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->registryId_ == nullptr
-        && return this->registryName_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->registryName_ == nullptr && this->sourceIp_ == nullptr; };
     // registryId Field Functions 
     bool hasRegistryId() const { return this->registryId_ != nullptr;};
     void deleteRegistryId() { this->registryId_ = nullptr;};
-    inline int64_t registryId() const { DARABONBA_PTR_GET_DEFAULT(registryId_, 0L) };
+    inline int64_t getRegistryId() const { DARABONBA_PTR_GET_DEFAULT(registryId_, 0L) };
     inline UpdateJenkinsImageRegistryNameRequest& setRegistryId(int64_t registryId) { DARABONBA_PTR_SET_VALUE(registryId_, registryId) };
 
 
     // registryName Field Functions 
     bool hasRegistryName() const { return this->registryName_ != nullptr;};
     void deleteRegistryName() { this->registryName_ = nullptr;};
-    inline string registryName() const { DARABONBA_PTR_GET_DEFAULT(registryName_, "") };
+    inline string getRegistryName() const { DARABONBA_PTR_GET_DEFAULT(registryName_, "") };
     inline UpdateJenkinsImageRegistryNameRequest& setRegistryName(string registryName) { DARABONBA_PTR_SET_VALUE(registryName_, registryName) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline UpdateJenkinsImageRegistryNameRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The ID of the image repository.
     // 
     // > You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to query the IDs of image repositories.
-    std::shared_ptr<int64_t> registryId_ = nullptr;
+    shared_ptr<int64_t> registryId_ {};
     // The name of the image repository.
-    std::shared_ptr<string> registryName_ = nullptr;
+    shared_ptr<string> registryName_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

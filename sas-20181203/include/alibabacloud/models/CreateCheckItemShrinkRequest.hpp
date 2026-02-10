@@ -53,70 +53,70 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assistInfoShrink_ == nullptr
-        && return this->checkRule_ == nullptr && return this->checkShowName_ == nullptr && return this->descriptionShrink_ == nullptr && return this->instanceSubType_ == nullptr && return this->instanceType_ == nullptr
-        && return this->remark_ == nullptr && return this->riskLevel_ == nullptr && return this->sectionIds_ == nullptr && return this->solutionShrink_ == nullptr && return this->status_ == nullptr
-        && return this->vendor_ == nullptr; };
+        && this->checkRule_ == nullptr && this->checkShowName_ == nullptr && this->descriptionShrink_ == nullptr && this->instanceSubType_ == nullptr && this->instanceType_ == nullptr
+        && this->remark_ == nullptr && this->riskLevel_ == nullptr && this->sectionIds_ == nullptr && this->solutionShrink_ == nullptr && this->status_ == nullptr
+        && this->vendor_ == nullptr; };
     // assistInfoShrink Field Functions 
     bool hasAssistInfoShrink() const { return this->assistInfoShrink_ != nullptr;};
     void deleteAssistInfoShrink() { this->assistInfoShrink_ = nullptr;};
-    inline string assistInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(assistInfoShrink_, "") };
+    inline string getAssistInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(assistInfoShrink_, "") };
     inline CreateCheckItemShrinkRequest& setAssistInfoShrink(string assistInfoShrink) { DARABONBA_PTR_SET_VALUE(assistInfoShrink_, assistInfoShrink) };
 
 
     // checkRule Field Functions 
     bool hasCheckRule() const { return this->checkRule_ != nullptr;};
     void deleteCheckRule() { this->checkRule_ = nullptr;};
-    inline string checkRule() const { DARABONBA_PTR_GET_DEFAULT(checkRule_, "") };
+    inline string getCheckRule() const { DARABONBA_PTR_GET_DEFAULT(checkRule_, "") };
     inline CreateCheckItemShrinkRequest& setCheckRule(string checkRule) { DARABONBA_PTR_SET_VALUE(checkRule_, checkRule) };
 
 
     // checkShowName Field Functions 
     bool hasCheckShowName() const { return this->checkShowName_ != nullptr;};
     void deleteCheckShowName() { this->checkShowName_ = nullptr;};
-    inline string checkShowName() const { DARABONBA_PTR_GET_DEFAULT(checkShowName_, "") };
+    inline string getCheckShowName() const { DARABONBA_PTR_GET_DEFAULT(checkShowName_, "") };
     inline CreateCheckItemShrinkRequest& setCheckShowName(string checkShowName) { DARABONBA_PTR_SET_VALUE(checkShowName_, checkShowName) };
 
 
     // descriptionShrink Field Functions 
     bool hasDescriptionShrink() const { return this->descriptionShrink_ != nullptr;};
     void deleteDescriptionShrink() { this->descriptionShrink_ = nullptr;};
-    inline string descriptionShrink() const { DARABONBA_PTR_GET_DEFAULT(descriptionShrink_, "") };
+    inline string getDescriptionShrink() const { DARABONBA_PTR_GET_DEFAULT(descriptionShrink_, "") };
     inline CreateCheckItemShrinkRequest& setDescriptionShrink(string descriptionShrink) { DARABONBA_PTR_SET_VALUE(descriptionShrink_, descriptionShrink) };
 
 
     // instanceSubType Field Functions 
     bool hasInstanceSubType() const { return this->instanceSubType_ != nullptr;};
     void deleteInstanceSubType() { this->instanceSubType_ = nullptr;};
-    inline string instanceSubType() const { DARABONBA_PTR_GET_DEFAULT(instanceSubType_, "") };
+    inline string getInstanceSubType() const { DARABONBA_PTR_GET_DEFAULT(instanceSubType_, "") };
     inline CreateCheckItemShrinkRequest& setInstanceSubType(string instanceSubType) { DARABONBA_PTR_SET_VALUE(instanceSubType_, instanceSubType) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline CreateCheckItemShrinkRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline CreateCheckItemShrinkRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // riskLevel Field Functions 
     bool hasRiskLevel() const { return this->riskLevel_ != nullptr;};
     void deleteRiskLevel() { this->riskLevel_ = nullptr;};
-    inline string riskLevel() const { DARABONBA_PTR_GET_DEFAULT(riskLevel_, "") };
+    inline string getRiskLevel() const { DARABONBA_PTR_GET_DEFAULT(riskLevel_, "") };
     inline CreateCheckItemShrinkRequest& setRiskLevel(string riskLevel) { DARABONBA_PTR_SET_VALUE(riskLevel_, riskLevel) };
 
 
     // sectionIds Field Functions 
     bool hasSectionIds() const { return this->sectionIds_ != nullptr;};
     void deleteSectionIds() { this->sectionIds_ = nullptr;};
-    inline const vector<int64_t> & sectionIds() const { DARABONBA_PTR_GET_CONST(sectionIds_, vector<int64_t>) };
-    inline vector<int64_t> sectionIds() { DARABONBA_PTR_GET(sectionIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getSectionIds() const { DARABONBA_PTR_GET_CONST(sectionIds_, vector<int64_t>) };
+    inline vector<int64_t> getSectionIds() { DARABONBA_PTR_GET(sectionIds_, vector<int64_t>) };
     inline CreateCheckItemShrinkRequest& setSectionIds(const vector<int64_t> & sectionIds) { DARABONBA_PTR_SET_VALUE(sectionIds_, sectionIds) };
     inline CreateCheckItemShrinkRequest& setSectionIds(vector<int64_t> && sectionIds) { DARABONBA_PTR_SET_RVALUE(sectionIds_, sectionIds) };
 
@@ -124,62 +124,62 @@ namespace Models
     // solutionShrink Field Functions 
     bool hasSolutionShrink() const { return this->solutionShrink_ != nullptr;};
     void deleteSolutionShrink() { this->solutionShrink_ = nullptr;};
-    inline string solutionShrink() const { DARABONBA_PTR_GET_DEFAULT(solutionShrink_, "") };
+    inline string getSolutionShrink() const { DARABONBA_PTR_GET_DEFAULT(solutionShrink_, "") };
     inline CreateCheckItemShrinkRequest& setSolutionShrink(string solutionShrink) { DARABONBA_PTR_SET_VALUE(solutionShrink_, solutionShrink) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline CreateCheckItemShrinkRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // vendor Field Functions 
     bool hasVendor() const { return this->vendor_ != nullptr;};
     void deleteVendor() { this->vendor_ = nullptr;};
-    inline string vendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
+    inline string getVendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
     inline CreateCheckItemShrinkRequest& setVendor(string vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
 
 
   protected:
     // Help information for the check item.
-    std::shared_ptr<string> assistInfoShrink_ = nullptr;
+    shared_ptr<string> assistInfoShrink_ {};
     // Definition rule for the custom check item.
     // 
     // This parameter is required.
-    std::shared_ptr<string> checkRule_ = nullptr;
+    shared_ptr<string> checkRule_ {};
     // Name of the custom check item.
     // 
     // This parameter is required.
-    std::shared_ptr<string> checkShowName_ = nullptr;
+    shared_ptr<string> checkShowName_ {};
     // Description information of the check item.
-    std::shared_ptr<string> descriptionShrink_ = nullptr;
+    shared_ptr<string> descriptionShrink_ {};
     // Sub-asset type of the cloud product.
     // > You can call the [ListCloudAssetSchemas](~~ListCloudAssetSchemas~~) API to get this parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceSubType_ = nullptr;
+    shared_ptr<string> instanceSubType_ {};
     // Asset type of the cloud product.
     // > You can call the [ListCloudAssetSchemas](~~ListCloudAssetSchemas~~) API to get this parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceType_ = nullptr;
+    shared_ptr<string> instanceType_ {};
     // Remark information.
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> remark_ {};
     // Risk level of the check item. Values:
     // - **HIGH**: High risk
     // - **MEDIUM**: Medium risk
     // - **LOW**: Low risk
     // 
     // This parameter is required.
-    std::shared_ptr<string> riskLevel_ = nullptr;
+    shared_ptr<string> riskLevel_ {};
     // Array of section IDs associated with the check item.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> sectionIds_ = nullptr;
+    shared_ptr<vector<int64_t>> sectionIds_ {};
     // Solution information for the check item.
-    std::shared_ptr<string> solutionShrink_ = nullptr;
+    shared_ptr<string> solutionShrink_ {};
     // Status of the check item. Values:
     // - **EDIT**: In editing
     // - **RELEASE**: Released
@@ -188,12 +188,12 @@ namespace Models
     // > - Only the **Released** status allows the use of the check item for inspection.
     // 
     // This parameter is required.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // Cloud asset vendor.
     // > You can call the [ListCloudAssetSchemas](~~ListCloudAssetSchemas~~) API to get the available vendors.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vendor_ = nullptr;
+    shared_ptr<string> vendor_ {};
   };
 
   } // namespace Models

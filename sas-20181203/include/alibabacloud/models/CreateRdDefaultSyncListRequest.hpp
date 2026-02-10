@@ -33,7 +33,7 @@ namespace Models
     // folderIds Field Functions 
     bool hasFolderIds() const { return this->folderIds_ != nullptr;};
     void deleteFolderIds() { this->folderIds_ = nullptr;};
-    inline string folderIds() const { DARABONBA_PTR_GET_DEFAULT(folderIds_, "") };
+    inline string getFolderIds() const { DARABONBA_PTR_GET_DEFAULT(folderIds_, "") };
     inline CreateRdDefaultSyncListRequest& setFolderIds(string folderIds) { DARABONBA_PTR_SET_VALUE(folderIds_, folderIds) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The IDs of the folders in the resource directory.
     // 
     // >  You can call the [GetRdTree](~~GetRdTree~~) operation to obtain the IDs of the folders. Separate multiple folder IDs with commas (,). If you do not specify a value for this parameter, the existing member list is cleared.
-    std::shared_ptr<string> folderIds_ = nullptr;
+    shared_ptr<string> folderIds_ {};
   };
 
   } // namespace Models

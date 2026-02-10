@@ -49,69 +49,69 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->dealed_ == nullptr && return this->imageDigest_ == nullptr && return this->imageTag_ == nullptr && return this->imageUuid_ == nullptr && return this->repoId_ == nullptr
-        && return this->repoInstanceId_ == nullptr && return this->repoRegionId_ == nullptr && return this->scanRange_ == nullptr && return this->uuids_ == nullptr; };
+        && this->dealed_ == nullptr && this->imageDigest_ == nullptr && this->imageTag_ == nullptr && this->imageUuid_ == nullptr && this->repoId_ == nullptr
+        && this->repoInstanceId_ == nullptr && this->repoRegionId_ == nullptr && this->scanRange_ == nullptr && this->uuids_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DescribeImageSecurityScanCountRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // dealed Field Functions 
     bool hasDealed() const { return this->dealed_ != nullptr;};
     void deleteDealed() { this->dealed_ = nullptr;};
-    inline string dealed() const { DARABONBA_PTR_GET_DEFAULT(dealed_, "") };
+    inline string getDealed() const { DARABONBA_PTR_GET_DEFAULT(dealed_, "") };
     inline DescribeImageSecurityScanCountRequest& setDealed(string dealed) { DARABONBA_PTR_SET_VALUE(dealed_, dealed) };
 
 
     // imageDigest Field Functions 
     bool hasImageDigest() const { return this->imageDigest_ != nullptr;};
     void deleteImageDigest() { this->imageDigest_ = nullptr;};
-    inline string imageDigest() const { DARABONBA_PTR_GET_DEFAULT(imageDigest_, "") };
+    inline string getImageDigest() const { DARABONBA_PTR_GET_DEFAULT(imageDigest_, "") };
     inline DescribeImageSecurityScanCountRequest& setImageDigest(string imageDigest) { DARABONBA_PTR_SET_VALUE(imageDigest_, imageDigest) };
 
 
     // imageTag Field Functions 
     bool hasImageTag() const { return this->imageTag_ != nullptr;};
     void deleteImageTag() { this->imageTag_ = nullptr;};
-    inline string imageTag() const { DARABONBA_PTR_GET_DEFAULT(imageTag_, "") };
+    inline string getImageTag() const { DARABONBA_PTR_GET_DEFAULT(imageTag_, "") };
     inline DescribeImageSecurityScanCountRequest& setImageTag(string imageTag) { DARABONBA_PTR_SET_VALUE(imageTag_, imageTag) };
 
 
     // imageUuid Field Functions 
     bool hasImageUuid() const { return this->imageUuid_ != nullptr;};
     void deleteImageUuid() { this->imageUuid_ = nullptr;};
-    inline string imageUuid() const { DARABONBA_PTR_GET_DEFAULT(imageUuid_, "") };
+    inline string getImageUuid() const { DARABONBA_PTR_GET_DEFAULT(imageUuid_, "") };
     inline DescribeImageSecurityScanCountRequest& setImageUuid(string imageUuid) { DARABONBA_PTR_SET_VALUE(imageUuid_, imageUuid) };
 
 
     // repoId Field Functions 
     bool hasRepoId() const { return this->repoId_ != nullptr;};
     void deleteRepoId() { this->repoId_ = nullptr;};
-    inline string repoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
+    inline string getRepoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
     inline DescribeImageSecurityScanCountRequest& setRepoId(string repoId) { DARABONBA_PTR_SET_VALUE(repoId_, repoId) };
 
 
     // repoInstanceId Field Functions 
     bool hasRepoInstanceId() const { return this->repoInstanceId_ != nullptr;};
     void deleteRepoInstanceId() { this->repoInstanceId_ = nullptr;};
-    inline string repoInstanceId() const { DARABONBA_PTR_GET_DEFAULT(repoInstanceId_, "") };
+    inline string getRepoInstanceId() const { DARABONBA_PTR_GET_DEFAULT(repoInstanceId_, "") };
     inline DescribeImageSecurityScanCountRequest& setRepoInstanceId(string repoInstanceId) { DARABONBA_PTR_SET_VALUE(repoInstanceId_, repoInstanceId) };
 
 
     // repoRegionId Field Functions 
     bool hasRepoRegionId() const { return this->repoRegionId_ != nullptr;};
     void deleteRepoRegionId() { this->repoRegionId_ = nullptr;};
-    inline string repoRegionId() const { DARABONBA_PTR_GET_DEFAULT(repoRegionId_, "") };
+    inline string getRepoRegionId() const { DARABONBA_PTR_GET_DEFAULT(repoRegionId_, "") };
     inline DescribeImageSecurityScanCountRequest& setRepoRegionId(string repoRegionId) { DARABONBA_PTR_SET_VALUE(repoRegionId_, repoRegionId) };
 
 
     // scanRange Field Functions 
     bool hasScanRange() const { return this->scanRange_ != nullptr;};
     void deleteScanRange() { this->scanRange_ = nullptr;};
-    inline const vector<string> & scanRange() const { DARABONBA_PTR_GET_CONST(scanRange_, vector<string>) };
-    inline vector<string> scanRange() { DARABONBA_PTR_GET(scanRange_, vector<string>) };
+    inline const vector<string> & getScanRange() const { DARABONBA_PTR_GET_CONST(scanRange_, vector<string>) };
+    inline vector<string> getScanRange() { DARABONBA_PTR_GET(scanRange_, vector<string>) };
     inline DescribeImageSecurityScanCountRequest& setScanRange(const vector<string> & scanRange) { DARABONBA_PTR_SET_VALUE(scanRange_, scanRange) };
     inline DescribeImageSecurityScanCountRequest& setScanRange(vector<string> && scanRange) { DARABONBA_PTR_SET_RVALUE(scanRange_, scanRange) };
 
@@ -119,39 +119,39 @@ namespace Models
     // uuids Field Functions 
     bool hasUuids() const { return this->uuids_ != nullptr;};
     void deleteUuids() { this->uuids_ = nullptr;};
-    inline const vector<string> & uuids() const { DARABONBA_PTR_GET_CONST(uuids_, vector<string>) };
-    inline vector<string> uuids() { DARABONBA_PTR_GET(uuids_, vector<string>) };
+    inline const vector<string> & getUuids() const { DARABONBA_PTR_GET_CONST(uuids_, vector<string>) };
+    inline vector<string> getUuids() { DARABONBA_PTR_GET(uuids_, vector<string>) };
     inline DescribeImageSecurityScanCountRequest& setUuids(const vector<string> & uuids) { DARABONBA_PTR_SET_VALUE(uuids_, uuids) };
     inline DescribeImageSecurityScanCountRequest& setUuids(vector<string> && uuids) { DARABONBA_PTR_SET_RVALUE(uuids_, uuids) };
 
 
   protected:
     // The ID of the cluster that you want to scan.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The handling status. Valid values:
     // 
     // *   **Y**: handled.
     // *   **N**: unhandled.
     // *   **A**: all.
-    std::shared_ptr<string> dealed_ = nullptr;
+    shared_ptr<string> dealed_ {};
     // The SHA-256 value of the image digest.
-    std::shared_ptr<string> imageDigest_ = nullptr;
+    shared_ptr<string> imageDigest_ {};
     // The tag of the image.
-    std::shared_ptr<string> imageTag_ = nullptr;
+    shared_ptr<string> imageTag_ {};
     // The UUID of the image.
-    std::shared_ptr<string> imageUuid_ = nullptr;
+    shared_ptr<string> imageUuid_ {};
     // The ID of the Container Registry repository.
-    std::shared_ptr<string> repoId_ = nullptr;
+    shared_ptr<string> repoId_ {};
     // The ID of the Container Registry instance.
     // 
     // >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain the ID.
-    std::shared_ptr<string> repoInstanceId_ = nullptr;
+    shared_ptr<string> repoInstanceId_ {};
     // The region ID of the Container Registry repository.
-    std::shared_ptr<string> repoRegionId_ = nullptr;
+    shared_ptr<string> repoRegionId_ {};
     // The assets that you want to scan.
-    std::shared_ptr<vector<string>> scanRange_ = nullptr;
+    shared_ptr<vector<string>> scanRange_ {};
     // The IDs of the instances that you want to scan.
-    std::shared_ptr<vector<string>> uuids_ = nullptr;
+    shared_ptr<vector<string>> uuids_ {};
   };
 
   } // namespace Models

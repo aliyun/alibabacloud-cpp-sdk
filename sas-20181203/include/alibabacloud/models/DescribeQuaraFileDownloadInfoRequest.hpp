@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && return this->quaraFileId_ == nullptr; };
+        && this->quaraFileId_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
-    inline string from() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
+    inline string getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
     inline DescribeQuaraFileDownloadInfoRequest& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
 
 
     // quaraFileId Field Functions 
     bool hasQuaraFileId() const { return this->quaraFileId_ != nullptr;};
     void deleteQuaraFileId() { this->quaraFileId_ = nullptr;};
-    inline int32_t quaraFileId() const { DARABONBA_PTR_GET_DEFAULT(quaraFileId_, 0) };
+    inline int32_t getQuaraFileId() const { DARABONBA_PTR_GET_DEFAULT(quaraFileId_, 0) };
     inline DescribeQuaraFileDownloadInfoRequest& setQuaraFileId(int32_t quaraFileId) { DARABONBA_PTR_SET_VALUE(quaraFileId_, quaraFileId) };
 
 
   protected:
     // The ID of the request source. Set the value to sas.
-    std::shared_ptr<string> from_ = nullptr;
+    shared_ptr<string> from_ {};
     // The ID of the quarantined file.
     // 
     // > If you do not specify this parameter, you cannot call the RollbackSuspEventQuaraFile operation to restore a quarantined file. You can call the [DescribeSuspEventQuaraFiles](~~DescribeSuspEventQuaraFiles~~) operation to query the IDs of quarantined files.
-    std::shared_ptr<int32_t> quaraFileId_ = nullptr;
+    shared_ptr<int32_t> quaraFileId_ {};
   };
 
   } // namespace Models

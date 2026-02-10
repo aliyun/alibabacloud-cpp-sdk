@@ -33,7 +33,7 @@ namespace Models
     // noteId Field Functions 
     bool hasNoteId() const { return this->noteId_ != nullptr;};
     void deleteNoteId() { this->noteId_ = nullptr;};
-    inline int64_t noteId() const { DARABONBA_PTR_GET_DEFAULT(noteId_, 0L) };
+    inline int64_t getNoteId() const { DARABONBA_PTR_GET_DEFAULT(noteId_, 0L) };
     inline DeleteSuspEventNodeRequest& setNoteId(int64_t noteId) { DARABONBA_PTR_SET_VALUE(noteId_, noteId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // > You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the ID of the description by using the EventNotes field.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> noteId_ = nullptr;
+    shared_ptr<int64_t> noteId_ {};
   };
 
   } // namespace Models

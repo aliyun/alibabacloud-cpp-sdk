@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessType_ == nullptr
-        && return this->platform_ == nullptr && return this->targetType_ == nullptr; };
+        && this->platform_ == nullptr && this->targetType_ == nullptr; };
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};
-    inline string businessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
+    inline string getBusinessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
     inline CreateAssetSelectionConfigRequest& setBusinessType(string businessType) { DARABONBA_PTR_SET_VALUE(businessType_, businessType) };
 
 
     // platform Field Functions 
     bool hasPlatform() const { return this->platform_ != nullptr;};
     void deletePlatform() { this->platform_ = nullptr;};
-    inline string platform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+    inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
     inline CreateAssetSelectionConfigRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
-    inline string targetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
+    inline string getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
     inline CreateAssetSelectionConfigRequest& setTargetType(string targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
 
 
@@ -66,7 +66,7 @@ namespace Models
     // *   **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**: core file protection
     // 
     // This parameter is required.
-    std::shared_ptr<string> businessType_ = nullptr;
+    shared_ptr<string> businessType_ {};
     // The operating system of the asset. Valid values:
     // 
     // *   **all**: all operating systems
@@ -84,7 +84,7 @@ namespace Models
     // *   If the BusinessType parameter is set to **AGENTLESS_VUL_WHITE_LIST_[ID]** the value of the Platform parameter is **all**.
     // 
     // *   If the BusinessType parameter is set to **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**, the value of the Platform parameter is **linux**.
-    std::shared_ptr<string> platform_ = nullptr;
+    shared_ptr<string> platform_ {};
     // The dimension based on which you want to select the asset. Valid values:
     // 
     // *   **instance**: selects the asset by server.
@@ -92,7 +92,7 @@ namespace Models
     // *   **vpc**: selects the asset by virtual private cloud (VPC).
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetType_ = nullptr;
+    shared_ptr<string> targetType_ {};
   };
 
   } // namespace Models

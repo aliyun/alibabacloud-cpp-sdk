@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->importantCode_ == nullptr
-        && return this->uuidList_ == nullptr; };
+        && this->uuidList_ == nullptr; };
     // importantCode Field Functions 
     bool hasImportantCode() const { return this->importantCode_ != nullptr;};
     void deleteImportantCode() { this->importantCode_ = nullptr;};
-    inline int32_t importantCode() const { DARABONBA_PTR_GET_DEFAULT(importantCode_, 0) };
+    inline int32_t getImportantCode() const { DARABONBA_PTR_GET_DEFAULT(importantCode_, 0) };
     inline ModifyAssetImportantRequest& setImportantCode(int32_t importantCode) { DARABONBA_PTR_SET_VALUE(importantCode_, importantCode) };
 
 
     // uuidList Field Functions 
     bool hasUuidList() const { return this->uuidList_ != nullptr;};
     void deleteUuidList() { this->uuidList_ = nullptr;};
-    inline string uuidList() const { DARABONBA_PTR_GET_DEFAULT(uuidList_, "") };
+    inline string getUuidList() const { DARABONBA_PTR_GET_DEFAULT(uuidList_, "") };
     inline ModifyAssetImportantRequest& setUuidList(string uuidList) { DARABONBA_PTR_SET_VALUE(uuidList_, uuidList) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // *   **0**: test
     // *   **1**: normal
     // *   **2**: important
-    std::shared_ptr<int32_t> importantCode_ = nullptr;
+    shared_ptr<int32_t> importantCode_ {};
     // The UUIDs of servers. Separate multiple UUIDs with commas (,).
     // 
     // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
-    std::shared_ptr<string> uuidList_ = nullptr;
+    shared_ptr<string> uuidList_ {};
   };
 
   } // namespace Models

@@ -32,30 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->typesShrink_ == nullptr
-        && return this->uuid_ == nullptr; };
+        && this->uuid_ == nullptr; };
     // typesShrink Field Functions 
     bool hasTypesShrink() const { return this->typesShrink_ != nullptr;};
     void deleteTypesShrink() { this->typesShrink_ = nullptr;};
-    inline string typesShrink() const { DARABONBA_PTR_GET_DEFAULT(typesShrink_, "") };
+    inline string getTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(typesShrink_, "") };
     inline ListPluginForUuidShrinkRequest& setTypesShrink(string typesShrink) { DARABONBA_PTR_SET_VALUE(typesShrink_, typesShrink) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline ListPluginForUuidShrinkRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
     // The plug-in types.
-    std::shared_ptr<string> typesShrink_ = nullptr;
+    shared_ptr<string> typesShrink_ {};
     // The UUID of the server.
     // 
     // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

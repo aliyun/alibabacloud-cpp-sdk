@@ -33,7 +33,7 @@ namespace Models
     // noteId Field Functions 
     bool hasNoteId() const { return this->noteId_ != nullptr;};
     void deleteNoteId() { this->noteId_ = nullptr;};
-    inline int64_t noteId() const { DARABONBA_PTR_GET_DEFAULT(noteId_, 0L) };
+    inline int64_t getNoteId() const { DARABONBA_PTR_GET_DEFAULT(noteId_, 0L) };
     inline DeleteMaliciousNoteRequest& setNoteId(int64_t noteId) { DARABONBA_PTR_SET_VALUE(noteId_, noteId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the remarks.
     // 
     // >  You can call the [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) operation to obtain the ID from the NoteId parameter.
-    std::shared_ptr<int64_t> noteId_ = nullptr;
+    shared_ptr<int64_t> noteId_ {};
   };
 
   } // namespace Models

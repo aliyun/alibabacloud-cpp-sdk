@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->ruleIds_ == nullptr && return this->ruleSwitch_ == nullptr; };
+        && this->ruleIds_ == nullptr && this->ruleSwitch_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ModifyInterceptionRuleSwitchRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // ruleIds Field Functions 
     bool hasRuleIds() const { return this->ruleIds_ != nullptr;};
     void deleteRuleIds() { this->ruleIds_ = nullptr;};
-    inline string ruleIds() const { DARABONBA_PTR_GET_DEFAULT(ruleIds_, "") };
+    inline string getRuleIds() const { DARABONBA_PTR_GET_DEFAULT(ruleIds_, "") };
     inline ModifyInterceptionRuleSwitchRequest& setRuleIds(string ruleIds) { DARABONBA_PTR_SET_VALUE(ruleIds_, ruleIds) };
 
 
     // ruleSwitch Field Functions 
     bool hasRuleSwitch() const { return this->ruleSwitch_ != nullptr;};
     void deleteRuleSwitch() { this->ruleSwitch_ = nullptr;};
-    inline int32_t ruleSwitch() const { DARABONBA_PTR_GET_DEFAULT(ruleSwitch_, 0) };
+    inline int32_t getRuleSwitch() const { DARABONBA_PTR_GET_DEFAULT(ruleSwitch_, 0) };
     inline ModifyInterceptionRuleSwitchRequest& setRuleSwitch(int32_t ruleSwitch) { DARABONBA_PTR_SET_VALUE(ruleSwitch_, ruleSwitch) };
 
 
@@ -60,16 +60,16 @@ namespace Models
     // The ID of the cluster.
     // 
     // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The IDs of the rules whose status you want to change. Separate multiple IDs with commas (,).
     // 
     // > You can call the [ListInterceptionRulePage](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of rules.
-    std::shared_ptr<string> ruleIds_ = nullptr;
+    shared_ptr<string> ruleIds_ {};
     // Specifies whether the rule is enabled. Valid values:
     // 
     // *   **1**: enabled
     // *   **0**: disabled
-    std::shared_ptr<int32_t> ruleSwitch_ = nullptr;
+    shared_ptr<int32_t> ruleSwitch_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
-    inline string from() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
+    inline string getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
     inline GetAlarmMachineCountRequest& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
 
 
   protected:
     // The ID of the request source. Set the value to sas.
-    std::shared_ptr<string> from_ = nullptr;
+    shared_ptr<string> from_ {};
   };
 
   } // namespace Models

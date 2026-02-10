@@ -41,76 +41,76 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assetSelectionType_ == nullptr
-        && return this->autoDeleteDays_ == nullptr && return this->releaseAfterScan_ == nullptr && return this->scanDataDisk_ == nullptr && return this->targetType_ == nullptr && return this->uuidList_ == nullptr; };
+        && this->autoDeleteDays_ == nullptr && this->releaseAfterScan_ == nullptr && this->scanDataDisk_ == nullptr && this->targetType_ == nullptr && this->uuidList_ == nullptr; };
     // assetSelectionType Field Functions 
     bool hasAssetSelectionType() const { return this->assetSelectionType_ != nullptr;};
     void deleteAssetSelectionType() { this->assetSelectionType_ = nullptr;};
-    inline string assetSelectionType() const { DARABONBA_PTR_GET_DEFAULT(assetSelectionType_, "") };
+    inline string getAssetSelectionType() const { DARABONBA_PTR_GET_DEFAULT(assetSelectionType_, "") };
     inline CreateAgentlessScanTaskRequest& setAssetSelectionType(string assetSelectionType) { DARABONBA_PTR_SET_VALUE(assetSelectionType_, assetSelectionType) };
 
 
     // autoDeleteDays Field Functions 
     bool hasAutoDeleteDays() const { return this->autoDeleteDays_ != nullptr;};
     void deleteAutoDeleteDays() { this->autoDeleteDays_ = nullptr;};
-    inline int32_t autoDeleteDays() const { DARABONBA_PTR_GET_DEFAULT(autoDeleteDays_, 0) };
+    inline int32_t getAutoDeleteDays() const { DARABONBA_PTR_GET_DEFAULT(autoDeleteDays_, 0) };
     inline CreateAgentlessScanTaskRequest& setAutoDeleteDays(int32_t autoDeleteDays) { DARABONBA_PTR_SET_VALUE(autoDeleteDays_, autoDeleteDays) };
 
 
     // releaseAfterScan Field Functions 
     bool hasReleaseAfterScan() const { return this->releaseAfterScan_ != nullptr;};
     void deleteReleaseAfterScan() { this->releaseAfterScan_ = nullptr;};
-    inline bool releaseAfterScan() const { DARABONBA_PTR_GET_DEFAULT(releaseAfterScan_, false) };
+    inline bool getReleaseAfterScan() const { DARABONBA_PTR_GET_DEFAULT(releaseAfterScan_, false) };
     inline CreateAgentlessScanTaskRequest& setReleaseAfterScan(bool releaseAfterScan) { DARABONBA_PTR_SET_VALUE(releaseAfterScan_, releaseAfterScan) };
 
 
     // scanDataDisk Field Functions 
     bool hasScanDataDisk() const { return this->scanDataDisk_ != nullptr;};
     void deleteScanDataDisk() { this->scanDataDisk_ = nullptr;};
-    inline bool scanDataDisk() const { DARABONBA_PTR_GET_DEFAULT(scanDataDisk_, false) };
+    inline bool getScanDataDisk() const { DARABONBA_PTR_GET_DEFAULT(scanDataDisk_, false) };
     inline CreateAgentlessScanTaskRequest& setScanDataDisk(bool scanDataDisk) { DARABONBA_PTR_SET_VALUE(scanDataDisk_, scanDataDisk) };
 
 
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
-    inline int32_t targetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, 0) };
+    inline int32_t getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, 0) };
     inline CreateAgentlessScanTaskRequest& setTargetType(int32_t targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
 
 
     // uuidList Field Functions 
     bool hasUuidList() const { return this->uuidList_ != nullptr;};
     void deleteUuidList() { this->uuidList_ = nullptr;};
-    inline const vector<string> & uuidList() const { DARABONBA_PTR_GET_CONST(uuidList_, vector<string>) };
-    inline vector<string> uuidList() { DARABONBA_PTR_GET(uuidList_, vector<string>) };
+    inline const vector<string> & getUuidList() const { DARABONBA_PTR_GET_CONST(uuidList_, vector<string>) };
+    inline vector<string> getUuidList() { DARABONBA_PTR_GET(uuidList_, vector<string>) };
     inline CreateAgentlessScanTaskRequest& setUuidList(const vector<string> & uuidList) { DARABONBA_PTR_SET_VALUE(uuidList_, uuidList) };
     inline CreateAgentlessScanTaskRequest& setUuidList(vector<string> && uuidList) { DARABONBA_PTR_SET_RVALUE(uuidList_, uuidList) };
 
 
   protected:
     // Identification of asset selection.
-    std::shared_ptr<string> assetSelectionType_ = nullptr;
+    shared_ptr<string> assetSelectionType_ {};
     // The retention period of images. Unit: days.
-    std::shared_ptr<int32_t> autoDeleteDays_ = nullptr;
+    shared_ptr<int32_t> autoDeleteDays_ {};
     // Specifies whether to enable the cost-saving mode. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> releaseAfterScan_ = nullptr;
+    shared_ptr<bool> releaseAfterScan_ {};
     // Specifies whether to check data disks. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> scanDataDisk_ = nullptr;
+    shared_ptr<bool> scanDataDisk_ {};
     // The type of the detection object. Valid values:
     // 
     // *   **2**: image
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> targetType_ = nullptr;
+    shared_ptr<int32_t> targetType_ {};
     // The UUIDs of the assets on which you want to run the detection task.
     // 
     // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
-    std::shared_ptr<vector<string>> uuidList_ = nullptr;
+    shared_ptr<vector<string>> uuidList_ {};
   };
 
   } // namespace Models

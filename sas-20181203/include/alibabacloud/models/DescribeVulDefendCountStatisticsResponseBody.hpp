@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->raspDefendedCount_ == nullptr
-        && return this->raspDefensibleCount_ == nullptr && return this->requestId_ == nullptr; };
+        && this->raspDefensibleCount_ == nullptr && this->requestId_ == nullptr; };
     // raspDefendedCount Field Functions 
     bool hasRaspDefendedCount() const { return this->raspDefendedCount_ != nullptr;};
     void deleteRaspDefendedCount() { this->raspDefendedCount_ = nullptr;};
-    inline int32_t raspDefendedCount() const { DARABONBA_PTR_GET_DEFAULT(raspDefendedCount_, 0) };
+    inline int32_t getRaspDefendedCount() const { DARABONBA_PTR_GET_DEFAULT(raspDefendedCount_, 0) };
     inline DescribeVulDefendCountStatisticsResponseBody& setRaspDefendedCount(int32_t raspDefendedCount) { DARABONBA_PTR_SET_VALUE(raspDefendedCount_, raspDefendedCount) };
 
 
     // raspDefensibleCount Field Functions 
     bool hasRaspDefensibleCount() const { return this->raspDefensibleCount_ != nullptr;};
     void deleteRaspDefensibleCount() { this->raspDefensibleCount_ = nullptr;};
-    inline int32_t raspDefensibleCount() const { DARABONBA_PTR_GET_DEFAULT(raspDefensibleCount_, 0) };
+    inline int32_t getRaspDefensibleCount() const { DARABONBA_PTR_GET_DEFAULT(raspDefensibleCount_, 0) };
     inline DescribeVulDefendCountStatisticsResponseBody& setRaspDefensibleCount(int32_t raspDefensibleCount) { DARABONBA_PTR_SET_VALUE(raspDefensibleCount_, raspDefensibleCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeVulDefendCountStatisticsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The number of defended vulnerabilities.
-    std::shared_ptr<int32_t> raspDefendedCount_ = nullptr;
+    shared_ptr<int32_t> raspDefendedCount_ {};
     // The number of supported vulnerabilities.
-    std::shared_ptr<int32_t> raspDefensibleCount_ = nullptr;
+    shared_ptr<int32_t> raspDefensibleCount_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

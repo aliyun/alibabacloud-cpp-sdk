@@ -33,7 +33,7 @@ namespace Models
     // clusterName Field Functions 
     bool hasClusterName() const { return this->clusterName_ != nullptr;};
     void deleteClusterName() { this->clusterName_ = nullptr;};
-    inline string clusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
+    inline string getClusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
     inline DescribeHybridProxyPolicyRequest& setClusterName(string clusterName) { DARABONBA_PTR_SET_VALUE(clusterName_, clusterName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the proxy cluster. You can query the name of the proxy cluster in the Security Center console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterName_ = nullptr;
+    shared_ptr<string> clusterName_ {};
   };
 
   } // namespace Models

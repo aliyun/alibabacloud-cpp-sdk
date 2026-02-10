@@ -34,40 +34,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bindId_ == nullptr
-        && return this->lang_ == nullptr && return this->probeId_ == nullptr; };
+        && this->lang_ == nullptr && this->probeId_ == nullptr; };
     // bindId Field Functions 
     bool hasBindId() const { return this->bindId_ != nullptr;};
     void deleteBindId() { this->bindId_ = nullptr;};
-    inline string bindId() const { DARABONBA_PTR_GET_DEFAULT(bindId_, "") };
+    inline string getBindId() const { DARABONBA_PTR_GET_DEFAULT(bindId_, "") };
     inline DeleteHoneypotProbeBindRequest& setBindId(string bindId) { DARABONBA_PTR_SET_VALUE(bindId_, bindId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DeleteHoneypotProbeBindRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // probeId Field Functions 
     bool hasProbeId() const { return this->probeId_ != nullptr;};
     void deleteProbeId() { this->probeId_ = nullptr;};
-    inline string probeId() const { DARABONBA_PTR_GET_DEFAULT(probeId_, "") };
+    inline string getProbeId() const { DARABONBA_PTR_GET_DEFAULT(probeId_, "") };
     inline DeleteHoneypotProbeBindRequest& setProbeId(string probeId) { DARABONBA_PTR_SET_VALUE(probeId_, probeId) };
 
 
   protected:
     // The unique ID of the bound service.
-    std::shared_ptr<string> bindId_ = nullptr;
+    shared_ptr<string> bindId_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The probe ID.
     // 
     // >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
-    std::shared_ptr<string> probeId_ = nullptr;
+    shared_ptr<string> probeId_ {};
   };
 
   } // namespace Models

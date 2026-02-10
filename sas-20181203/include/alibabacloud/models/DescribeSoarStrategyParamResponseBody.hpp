@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->params_ == nullptr
-        && return this->processInfo_ == nullptr && return this->requestId_ == nullptr; };
+        && this->processInfo_ == nullptr && this->requestId_ == nullptr; };
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline DescribeSoarStrategyParamResponseBody& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
     // processInfo Field Functions 
     bool hasProcessInfo() const { return this->processInfo_ != nullptr;};
     void deleteProcessInfo() { this->processInfo_ = nullptr;};
-    inline string processInfo() const { DARABONBA_PTR_GET_DEFAULT(processInfo_, "") };
+    inline string getProcessInfo() const { DARABONBA_PTR_GET_DEFAULT(processInfo_, "") };
     inline DescribeSoarStrategyParamResponseBody& setProcessInfo(string processInfo) { DARABONBA_PTR_SET_VALUE(processInfo_, processInfo) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSoarStrategyParamResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The parameters of the policy.
-    std::shared_ptr<string> params_ = nullptr;
+    shared_ptr<string> params_ {};
     // The process information of the policy.
-    std::shared_ptr<string> processInfo_ = nullptr;
+    shared_ptr<string> processInfo_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

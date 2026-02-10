@@ -47,55 +47,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->endTime_ == nullptr && return this->pageSize_ == nullptr && return this->relateInfo_ == nullptr && return this->source_ == nullptr && return this->startTime_ == nullptr
-        && return this->statusList_ == nullptr && return this->taskId_ == nullptr && return this->taskType_ == nullptr; };
+        && this->endTime_ == nullptr && this->pageSize_ == nullptr && this->relateInfo_ == nullptr && this->source_ == nullptr && this->startTime_ == nullptr
+        && this->statusList_ == nullptr && this->taskId_ == nullptr && this->taskType_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeOnceTaskLeafRecordPageRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline DescribeOnceTaskLeafRecordPageRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeOnceTaskLeafRecordPageRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // relateInfo Field Functions 
     bool hasRelateInfo() const { return this->relateInfo_ != nullptr;};
     void deleteRelateInfo() { this->relateInfo_ = nullptr;};
-    inline bool relateInfo() const { DARABONBA_PTR_GET_DEFAULT(relateInfo_, false) };
+    inline bool getRelateInfo() const { DARABONBA_PTR_GET_DEFAULT(relateInfo_, false) };
     inline DescribeOnceTaskLeafRecordPageRequest& setRelateInfo(bool relateInfo) { DARABONBA_PTR_SET_VALUE(relateInfo_, relateInfo) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline DescribeOnceTaskLeafRecordPageRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline DescribeOnceTaskLeafRecordPageRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // statusList Field Functions 
     bool hasStatusList() const { return this->statusList_ != nullptr;};
     void deleteStatusList() { this->statusList_ = nullptr;};
-    inline const vector<string> & statusList() const { DARABONBA_PTR_GET_CONST(statusList_, vector<string>) };
-    inline vector<string> statusList() { DARABONBA_PTR_GET(statusList_, vector<string>) };
+    inline const vector<string> & getStatusList() const { DARABONBA_PTR_GET_CONST(statusList_, vector<string>) };
+    inline vector<string> getStatusList() { DARABONBA_PTR_GET(statusList_, vector<string>) };
     inline DescribeOnceTaskLeafRecordPageRequest& setStatusList(const vector<string> & statusList) { DARABONBA_PTR_SET_VALUE(statusList_, statusList) };
     inline DescribeOnceTaskLeafRecordPageRequest& setStatusList(vector<string> && statusList) { DARABONBA_PTR_SET_RVALUE(statusList_, statusList) };
 
@@ -103,14 +103,14 @@ namespace Models
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline DescribeOnceTaskLeafRecordPageRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline DescribeOnceTaskLeafRecordPageRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
@@ -118,32 +118,32 @@ namespace Models
     // The number of the page to return.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The end timestamp of the sub-task.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
     // The number of entries to return on each page. Default value: 20
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Specifies whether extension information is associated.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> relateInfo_ = nullptr;
+    shared_ptr<bool> relateInfo_ {};
     // The source of the request.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
     // The start timestamp of the sub-task.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
     // The status information.
-    std::shared_ptr<vector<string>> statusList_ = nullptr;
+    shared_ptr<vector<string>> statusList_ {};
     // The ID of the sub-task.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
     // The type of the sub-task. Valid values:
     // 
     // *   **IMAGE_SCAN**: image scan task
     // *   **IMAGE_REGISTRY_PULL**: image asset synchronization task
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskType_ = nullptr;
+    shared_ptr<string> taskType_ {};
   };
 
   } // namespace Models

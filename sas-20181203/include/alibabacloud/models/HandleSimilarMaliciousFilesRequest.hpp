@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventId_ == nullptr
-        && return this->lang_ == nullptr && return this->operation_ == nullptr && return this->scanRange_ == nullptr && return this->scenario_ == nullptr; };
+        && this->lang_ == nullptr && this->operation_ == nullptr && this->scanRange_ == nullptr && this->scenario_ == nullptr; };
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
-    inline int64_t eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, 0L) };
+    inline int64_t getEventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, 0L) };
     inline HandleSimilarMaliciousFilesRequest& setEventId(int64_t eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline HandleSimilarMaliciousFilesRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // operation Field Functions 
     bool hasOperation() const { return this->operation_ != nullptr;};
     void deleteOperation() { this->operation_ = nullptr;};
-    inline string operation() const { DARABONBA_PTR_GET_DEFAULT(operation_, "") };
+    inline string getOperation() const { DARABONBA_PTR_GET_DEFAULT(operation_, "") };
     inline HandleSimilarMaliciousFilesRequest& setOperation(string operation) { DARABONBA_PTR_SET_VALUE(operation_, operation) };
 
 
     // scanRange Field Functions 
     bool hasScanRange() const { return this->scanRange_ != nullptr;};
     void deleteScanRange() { this->scanRange_ = nullptr;};
-    inline string scanRange() const { DARABONBA_PTR_GET_DEFAULT(scanRange_, "") };
+    inline string getScanRange() const { DARABONBA_PTR_GET_DEFAULT(scanRange_, "") };
     inline HandleSimilarMaliciousFilesRequest& setScanRange(string scanRange) { DARABONBA_PTR_SET_VALUE(scanRange_, scanRange) };
 
 
     // scenario Field Functions 
     bool hasScenario() const { return this->scenario_ != nullptr;};
     void deleteScenario() { this->scenario_ = nullptr;};
-    inline string scenario() const { DARABONBA_PTR_GET_DEFAULT(scenario_, "") };
+    inline string getScenario() const { DARABONBA_PTR_GET_DEFAULT(scenario_, "") };
     inline HandleSimilarMaliciousFilesRequest& setScenario(string scenario) { DARABONBA_PTR_SET_VALUE(scenario_, scenario) };
 
 
@@ -78,11 +78,11 @@ namespace Models
     // Target alert ID
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> eventId_ = nullptr;
+    shared_ptr<int64_t> eventId_ {};
     // Language type for request and response messages. Values include:
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Handling action:
     // - addWhitelist: Add to whitelist;
     // - offWhitelist: Remove from whitelist;
@@ -91,16 +91,16 @@ namespace Models
     // - ignore: Ignore.
     // 
     // This parameter is required.
-    std::shared_ptr<string> operation_ = nullptr;
+    shared_ptr<string> operation_ {};
     // File source. Values include:
     // - agentless: Host detection;
     // - ecs_snapshot: User snapshot detection;
     // - ecs_image: User-defined image detection.
-    std::shared_ptr<string> scanRange_ = nullptr;
+    shared_ptr<string> scanRange_ {};
     // Batch processing scenario:
     // - same_file_md5: Same file MD5;
     // - default (default value): Same alert type.
-    std::shared_ptr<string> scenario_ = nullptr;
+    shared_ptr<string> scenario_ {};
   };
 
   } // namespace Models

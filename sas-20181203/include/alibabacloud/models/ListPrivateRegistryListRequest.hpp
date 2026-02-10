@@ -33,7 +33,7 @@ namespace Models
     // registryType Field Functions 
     bool hasRegistryType() const { return this->registryType_ != nullptr;};
     void deleteRegistryType() { this->registryType_ = nullptr;};
-    inline string registryType() const { DARABONBA_PTR_GET_DEFAULT(registryType_, "") };
+    inline string getRegistryType() const { DARABONBA_PTR_GET_DEFAULT(registryType_, "") };
     inline ListPrivateRegistryListRequest& setRegistryType(string registryType) { DARABONBA_PTR_SET_VALUE(registryType_, registryType) };
 
 
@@ -44,7 +44,7 @@ namespace Models
     // *   **harbor**: Harbor
     // *   **quay**: Quay
     // *   **CI/CD**: Jenkins
-    std::shared_ptr<string> registryType_ = nullptr;
+    shared_ptr<string> registryType_ {};
   };
 
   } // namespace Models

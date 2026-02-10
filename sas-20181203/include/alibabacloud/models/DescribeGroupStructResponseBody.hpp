@@ -47,55 +47,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupFather_ == nullptr
-        && return this->groupFlag_ == nullptr && return this->groupId_ == nullptr && return this->groupIndex_ == nullptr && return this->groupLevel_ == nullptr && return this->groupName_ == nullptr
-        && return this->groups_ == nullptr && return this->machineNum_ == nullptr && return this->requestId_ == nullptr; };
+        && this->groupFlag_ == nullptr && this->groupId_ == nullptr && this->groupIndex_ == nullptr && this->groupLevel_ == nullptr && this->groupName_ == nullptr
+        && this->groups_ == nullptr && this->machineNum_ == nullptr && this->requestId_ == nullptr; };
     // groupFather Field Functions 
     bool hasGroupFather() const { return this->groupFather_ != nullptr;};
     void deleteGroupFather() { this->groupFather_ = nullptr;};
-    inline int32_t groupFather() const { DARABONBA_PTR_GET_DEFAULT(groupFather_, 0) };
+    inline int32_t getGroupFather() const { DARABONBA_PTR_GET_DEFAULT(groupFather_, 0) };
     inline DescribeGroupStructResponseBody& setGroupFather(int32_t groupFather) { DARABONBA_PTR_SET_VALUE(groupFather_, groupFather) };
 
 
     // groupFlag Field Functions 
     bool hasGroupFlag() const { return this->groupFlag_ != nullptr;};
     void deleteGroupFlag() { this->groupFlag_ = nullptr;};
-    inline int32_t groupFlag() const { DARABONBA_PTR_GET_DEFAULT(groupFlag_, 0) };
+    inline int32_t getGroupFlag() const { DARABONBA_PTR_GET_DEFAULT(groupFlag_, 0) };
     inline DescribeGroupStructResponseBody& setGroupFlag(int32_t groupFlag) { DARABONBA_PTR_SET_VALUE(groupFlag_, groupFlag) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline int64_t groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
+    inline int64_t getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
     inline DescribeGroupStructResponseBody& setGroupId(int64_t groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // groupIndex Field Functions 
     bool hasGroupIndex() const { return this->groupIndex_ != nullptr;};
     void deleteGroupIndex() { this->groupIndex_ = nullptr;};
-    inline int32_t groupIndex() const { DARABONBA_PTR_GET_DEFAULT(groupIndex_, 0) };
+    inline int32_t getGroupIndex() const { DARABONBA_PTR_GET_DEFAULT(groupIndex_, 0) };
     inline DescribeGroupStructResponseBody& setGroupIndex(int32_t groupIndex) { DARABONBA_PTR_SET_VALUE(groupIndex_, groupIndex) };
 
 
     // groupLevel Field Functions 
     bool hasGroupLevel() const { return this->groupLevel_ != nullptr;};
     void deleteGroupLevel() { this->groupLevel_ = nullptr;};
-    inline int32_t groupLevel() const { DARABONBA_PTR_GET_DEFAULT(groupLevel_, 0) };
+    inline int32_t getGroupLevel() const { DARABONBA_PTR_GET_DEFAULT(groupLevel_, 0) };
     inline DescribeGroupStructResponseBody& setGroupLevel(int32_t groupLevel) { DARABONBA_PTR_SET_VALUE(groupLevel_, groupLevel) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline DescribeGroupStructResponseBody& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // groups Field Functions 
     bool hasGroups() const { return this->groups_ != nullptr;};
     void deleteGroups() { this->groups_ = nullptr;};
-    inline const vector<string> & groups() const { DARABONBA_PTR_GET_CONST(groups_, vector<string>) };
-    inline vector<string> groups() { DARABONBA_PTR_GET(groups_, vector<string>) };
+    inline const vector<string> & getGroups() const { DARABONBA_PTR_GET_CONST(groups_, vector<string>) };
+    inline vector<string> getGroups() { DARABONBA_PTR_GET(groups_, vector<string>) };
     inline DescribeGroupStructResponseBody& setGroups(const vector<string> & groups) { DARABONBA_PTR_SET_VALUE(groups_, groups) };
     inline DescribeGroupStructResponseBody& setGroups(vector<string> && groups) { DARABONBA_PTR_SET_RVALUE(groups_, groups) };
 
@@ -103,39 +103,39 @@ namespace Models
     // machineNum Field Functions 
     bool hasMachineNum() const { return this->machineNum_ != nullptr;};
     void deleteMachineNum() { this->machineNum_ = nullptr;};
-    inline int32_t machineNum() const { DARABONBA_PTR_GET_DEFAULT(machineNum_, 0) };
+    inline int32_t getMachineNum() const { DARABONBA_PTR_GET_DEFAULT(machineNum_, 0) };
     inline DescribeGroupStructResponseBody& setMachineNum(int32_t machineNum) { DARABONBA_PTR_SET_VALUE(machineNum_, machineNum) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeGroupStructResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The parent node of the group.
-    std::shared_ptr<int32_t> groupFather_ = nullptr;
+    shared_ptr<int32_t> groupFather_ {};
     // The type of the server group. Valid values:
     // 
     // *   **0**: the default group
     // *   **1**: other groups
-    std::shared_ptr<int32_t> groupFlag_ = nullptr;
+    shared_ptr<int32_t> groupFlag_ {};
     // The ID of the server group.
-    std::shared_ptr<int64_t> groupId_ = nullptr;
+    shared_ptr<int64_t> groupId_ {};
     // The sequence number.
-    std::shared_ptr<int32_t> groupIndex_ = nullptr;
+    shared_ptr<int32_t> groupIndex_ {};
     // The level of the application group.
-    std::shared_ptr<int32_t> groupLevel_ = nullptr;
+    shared_ptr<int32_t> groupLevel_ {};
     // The name of the server group.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
     // An array that consists of child groups.
-    std::shared_ptr<vector<string>> groups_ = nullptr;
+    shared_ptr<vector<string>> groups_ {};
     // The number of servers in the group.
-    std::shared_ptr<int32_t> machineNum_ = nullptr;
+    shared_ptr<int32_t> machineNum_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

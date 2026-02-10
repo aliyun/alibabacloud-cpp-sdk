@@ -33,13 +33,13 @@ namespace Models
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};
-    inline int64_t configId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
+    inline int64_t getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
     inline DeleteMaliciousFileWhitelistConfigRequest& setConfigId(int64_t configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
 
 
   protected:
     // The ID of the alert whitelist rule of sensitive files that are detected by using the agentless detection feature. You can call the [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) operation to query the IDs of alert whitelist rules.
-    std::shared_ptr<int64_t> configId_ = nullptr;
+    shared_ptr<int64_t> configId_ {};
   };
 
   } // namespace Models

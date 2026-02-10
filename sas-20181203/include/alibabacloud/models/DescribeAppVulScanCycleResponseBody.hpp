@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cycle_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // cycle Field Functions 
     bool hasCycle() const { return this->cycle_ != nullptr;};
     void deleteCycle() { this->cycle_ = nullptr;};
-    inline string cycle() const { DARABONBA_PTR_GET_DEFAULT(cycle_, "") };
+    inline string getCycle() const { DARABONBA_PTR_GET_DEFAULT(cycle_, "") };
     inline DescribeAppVulScanCycleResponseBody& setCycle(string cycle) { DARABONBA_PTR_SET_VALUE(cycle_, cycle) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAppVulScanCycleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -53,9 +53,9 @@ namespace Models
     // *   1week
     // *   2weeks
     // *   3days
-    std::shared_ptr<string> cycle_ = nullptr;
+    shared_ptr<string> cycle_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

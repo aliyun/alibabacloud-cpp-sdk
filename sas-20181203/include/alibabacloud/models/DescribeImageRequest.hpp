@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageInstanceId_ == nullptr
-        && return this->imageRegionId_ == nullptr && return this->imageRepoId_ == nullptr && return this->imageTag_ == nullptr; };
+        && this->imageRegionId_ == nullptr && this->imageRepoId_ == nullptr && this->imageTag_ == nullptr; };
     // imageInstanceId Field Functions 
     bool hasImageInstanceId() const { return this->imageInstanceId_ != nullptr;};
     void deleteImageInstanceId() { this->imageInstanceId_ = nullptr;};
-    inline string imageInstanceId() const { DARABONBA_PTR_GET_DEFAULT(imageInstanceId_, "") };
+    inline string getImageInstanceId() const { DARABONBA_PTR_GET_DEFAULT(imageInstanceId_, "") };
     inline DescribeImageRequest& setImageInstanceId(string imageInstanceId) { DARABONBA_PTR_SET_VALUE(imageInstanceId_, imageInstanceId) };
 
 
     // imageRegionId Field Functions 
     bool hasImageRegionId() const { return this->imageRegionId_ != nullptr;};
     void deleteImageRegionId() { this->imageRegionId_ = nullptr;};
-    inline string imageRegionId() const { DARABONBA_PTR_GET_DEFAULT(imageRegionId_, "") };
+    inline string getImageRegionId() const { DARABONBA_PTR_GET_DEFAULT(imageRegionId_, "") };
     inline DescribeImageRequest& setImageRegionId(string imageRegionId) { DARABONBA_PTR_SET_VALUE(imageRegionId_, imageRegionId) };
 
 
     // imageRepoId Field Functions 
     bool hasImageRepoId() const { return this->imageRepoId_ != nullptr;};
     void deleteImageRepoId() { this->imageRepoId_ = nullptr;};
-    inline string imageRepoId() const { DARABONBA_PTR_GET_DEFAULT(imageRepoId_, "") };
+    inline string getImageRepoId() const { DARABONBA_PTR_GET_DEFAULT(imageRepoId_, "") };
     inline DescribeImageRequest& setImageRepoId(string imageRepoId) { DARABONBA_PTR_SET_VALUE(imageRepoId_, imageRepoId) };
 
 
     // imageTag Field Functions 
     bool hasImageTag() const { return this->imageTag_ != nullptr;};
     void deleteImageTag() { this->imageTag_ = nullptr;};
-    inline string imageTag() const { DARABONBA_PTR_GET_DEFAULT(imageTag_, "") };
+    inline string getImageTag() const { DARABONBA_PTR_GET_DEFAULT(imageTag_, "") };
     inline DescribeImageRequest& setImageTag(string imageTag) { DARABONBA_PTR_SET_VALUE(imageTag_, imageTag) };
 
 
@@ -71,25 +71,25 @@ namespace Models
     // >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageInstanceId_ = nullptr;
+    shared_ptr<string> imageInstanceId_ {};
     // The region ID of the image.
     // 
     // >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of regions.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageRegionId_ = nullptr;
+    shared_ptr<string> imageRegionId_ {};
     // The ID of the image repository.
     // 
     // >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of image repositories.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageRepoId_ = nullptr;
+    shared_ptr<string> imageRepoId_ {};
     // The tag that is added to the image.
     // 
     // >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query tags.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageTag_ = nullptr;
+    shared_ptr<string> imageTag_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};
-    inline int64_t configId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
+    inline int64_t getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
     inline GetMaliciousFileWhitelistConfigRequest& setConfigId(int64_t configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
 
 
   protected:
     // The ID of the whitelist rule.
-    std::shared_ptr<int64_t> configId_ = nullptr;
+    shared_ptr<int64_t> configId_ {};
   };
 
   } // namespace Models

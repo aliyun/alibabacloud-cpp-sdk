@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->types_ == nullptr
-        && return this->uuid_ == nullptr; };
+        && this->uuid_ == nullptr; };
     // types Field Functions 
     bool hasTypes() const { return this->types_ != nullptr;};
     void deleteTypes() { this->types_ = nullptr;};
-    inline string types() const { DARABONBA_PTR_GET_DEFAULT(types_, "") };
+    inline string getTypes() const { DARABONBA_PTR_GET_DEFAULT(types_, "") };
     inline DescribeInstanceVulStatisticsRequest& setTypes(string types) { DARABONBA_PTR_SET_VALUE(types_, types) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline DescribeInstanceVulStatisticsRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
@@ -54,13 +54,13 @@ namespace Models
     // *   **app**: application vulnerabilities detected by using a scanner
     // 
     // >  Serverless instances allow you to detect only application vulnerabilities by using a scanner.
-    std::shared_ptr<string> types_ = nullptr;
+    shared_ptr<string> types_ {};
     // The UUID of the instance to query.
     // 
     // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

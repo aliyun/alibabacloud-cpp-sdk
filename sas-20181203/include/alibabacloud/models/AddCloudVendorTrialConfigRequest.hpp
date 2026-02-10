@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authId_ == nullptr
-        && return this->authInfo_ == nullptr && return this->vendor_ == nullptr; };
+        && this->authInfo_ == nullptr && this->vendor_ == nullptr; };
     // authId Field Functions 
     bool hasAuthId() const { return this->authId_ != nullptr;};
     void deleteAuthId() { this->authId_ = nullptr;};
-    inline int64_t authId() const { DARABONBA_PTR_GET_DEFAULT(authId_, 0L) };
+    inline int64_t getAuthId() const { DARABONBA_PTR_GET_DEFAULT(authId_, 0L) };
     inline AddCloudVendorTrialConfigRequest& setAuthId(int64_t authId) { DARABONBA_PTR_SET_VALUE(authId_, authId) };
 
 
     // authInfo Field Functions 
     bool hasAuthInfo() const { return this->authInfo_ != nullptr;};
     void deleteAuthInfo() { this->authInfo_ = nullptr;};
-    inline string authInfo() const { DARABONBA_PTR_GET_DEFAULT(authInfo_, "") };
+    inline string getAuthInfo() const { DARABONBA_PTR_GET_DEFAULT(authInfo_, "") };
     inline AddCloudVendorTrialConfigRequest& setAuthInfo(string authInfo) { DARABONBA_PTR_SET_VALUE(authInfo_, authInfo) };
 
 
     // vendor Field Functions 
     bool hasVendor() const { return this->vendor_ != nullptr;};
     void deleteVendor() { this->vendor_ = nullptr;};
-    inline string vendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
+    inline string getVendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
     inline AddCloudVendorTrialConfigRequest& setVendor(string vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
 
 
@@ -62,21 +62,21 @@ namespace Models
     // >  [](#-describecloudvendoraccountaklist--authid)You can call the [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) operation to query the AccessKey ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> authId_ = nullptr;
+    shared_ptr<int64_t> authId_ {};
     // The configurations of the third-party cloud asset. Valid values:
     // 
     // *   *AWS*: Configure the sqsQueueName and sqsRegion parameters.
     // *   *Tencent*: Configure the kafkaUserName, kafkaBootstrapServers, and kafkaTopic parameters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> authInfo_ = nullptr;
+    shared_ptr<string> authInfo_ {};
     // The service provider of the cloud asset. Valid values:
     // 
     // *   **Tencent**: Tencent Cloud.
     // *   **AWS**: Amazon Web Services (AWS).
     // 
     // This parameter is required.
-    std::shared_ptr<string> vendor_ = nullptr;
+    shared_ptr<string> vendor_ {};
   };
 
   } // namespace Models

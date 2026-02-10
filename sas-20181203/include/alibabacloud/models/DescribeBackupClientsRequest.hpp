@@ -33,7 +33,7 @@ namespace Models
     // supportRegionId Field Functions 
     bool hasSupportRegionId() const { return this->supportRegionId_ != nullptr;};
     void deleteSupportRegionId() { this->supportRegionId_ = nullptr;};
-    inline string supportRegionId() const { DARABONBA_PTR_GET_DEFAULT(supportRegionId_, "") };
+    inline string getSupportRegionId() const { DARABONBA_PTR_GET_DEFAULT(supportRegionId_, "") };
     inline DescribeBackupClientsRequest& setSupportRegionId(string supportRegionId) { DARABONBA_PTR_SET_VALUE(supportRegionId_, supportRegionId) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // > You can call the [DescribeSupportRegion](~~DescribeSupportRegion~~) operation to query the regions in which the anti-ransomware feature is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> supportRegionId_ = nullptr;
+    shared_ptr<string> supportRegionId_ {};
   };
 
   } // namespace Models

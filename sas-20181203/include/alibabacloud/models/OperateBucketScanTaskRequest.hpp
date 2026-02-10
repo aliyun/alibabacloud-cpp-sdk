@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketName_ == nullptr
-        && return this->operateCode_ == nullptr; };
+        && this->operateCode_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
-    inline string bucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+    inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
     inline OperateBucketScanTaskRequest& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
 
 
     // operateCode Field Functions 
     bool hasOperateCode() const { return this->operateCode_ != nullptr;};
     void deleteOperateCode() { this->operateCode_ = nullptr;};
-    inline int32_t operateCode() const { DARABONBA_PTR_GET_DEFAULT(operateCode_, 0) };
+    inline int32_t getOperateCode() const { DARABONBA_PTR_GET_DEFAULT(operateCode_, 0) };
     inline OperateBucketScanTaskRequest& setOperateCode(int32_t operateCode) { DARABONBA_PTR_SET_VALUE(operateCode_, operateCode) };
 
 
   protected:
     // The name of the bucket.
-    std::shared_ptr<string> bucketName_ = nullptr;
+    shared_ptr<string> bucketName_ {};
     // The operation that you want to perform on the bucket. Valid value:
     // 
     // *   **1**: cancels the bucket check.
-    std::shared_ptr<int32_t> operateCode_ = nullptr;
+    shared_ptr<int32_t> operateCode_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // attackPathWhitelistId Field Functions 
     bool hasAttackPathWhitelistId() const { return this->attackPathWhitelistId_ != nullptr;};
     void deleteAttackPathWhitelistId() { this->attackPathWhitelistId_ = nullptr;};
-    inline string attackPathWhitelistId() const { DARABONBA_PTR_GET_DEFAULT(attackPathWhitelistId_, "") };
+    inline string getAttackPathWhitelistId() const { DARABONBA_PTR_GET_DEFAULT(attackPathWhitelistId_, "") };
     inline DeleteAttackPathWhitelistRequest& setAttackPathWhitelistId(string attackPathWhitelistId) { DARABONBA_PTR_SET_VALUE(attackPathWhitelistId_, attackPathWhitelistId) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // > You can call [ListAttackPathWhitelist](~~ListAttackPathWhitelist~~) to query the attack path whitelist ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> attackPathWhitelistId_ = nullptr;
+    shared_ptr<string> attackPathWhitelistId_ {};
   };
 
   } // namespace Models

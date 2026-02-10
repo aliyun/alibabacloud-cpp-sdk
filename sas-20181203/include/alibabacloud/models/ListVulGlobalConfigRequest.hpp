@@ -33,7 +33,7 @@ namespace Models
     // configKey Field Functions 
     bool hasConfigKey() const { return this->configKey_ != nullptr;};
     void deleteConfigKey() { this->configKey_ = nullptr;};
-    inline string configKey() const { DARABONBA_PTR_GET_DEFAULT(configKey_, "") };
+    inline string getConfigKey() const { DARABONBA_PTR_GET_DEFAULT(configKey_, "") };
     inline ListVulGlobalConfigRequest& setConfigKey(string configKey) { DARABONBA_PTR_SET_VALUE(configKey_, configKey) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The key of the configuration item. Valid values:
     // 
     // *   **vul_scan_ip_list**: The IP addresses that are detected.
-    std::shared_ptr<string> configKey_ = nullptr;
+    shared_ptr<string> configKey_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->honeypotId_ == nullptr
-        && return this->honeypotName_ == nullptr && return this->lang_ == nullptr && return this->meta_ == nullptr; };
+        && this->honeypotName_ == nullptr && this->lang_ == nullptr && this->meta_ == nullptr; };
     // honeypotId Field Functions 
     bool hasHoneypotId() const { return this->honeypotId_ != nullptr;};
     void deleteHoneypotId() { this->honeypotId_ = nullptr;};
-    inline string honeypotId() const { DARABONBA_PTR_GET_DEFAULT(honeypotId_, "") };
+    inline string getHoneypotId() const { DARABONBA_PTR_GET_DEFAULT(honeypotId_, "") };
     inline UpdateHoneypotRequest& setHoneypotId(string honeypotId) { DARABONBA_PTR_SET_VALUE(honeypotId_, honeypotId) };
 
 
     // honeypotName Field Functions 
     bool hasHoneypotName() const { return this->honeypotName_ != nullptr;};
     void deleteHoneypotName() { this->honeypotName_ = nullptr;};
-    inline string honeypotName() const { DARABONBA_PTR_GET_DEFAULT(honeypotName_, "") };
+    inline string getHoneypotName() const { DARABONBA_PTR_GET_DEFAULT(honeypotName_, "") };
     inline UpdateHoneypotRequest& setHoneypotName(string honeypotName) { DARABONBA_PTR_SET_VALUE(honeypotName_, honeypotName) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline UpdateHoneypotRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // meta Field Functions 
     bool hasMeta() const { return this->meta_ != nullptr;};
     void deleteMeta() { this->meta_ = nullptr;};
-    inline string meta() const { DARABONBA_PTR_GET_DEFAULT(meta_, "") };
+    inline string getMeta() const { DARABONBA_PTR_GET_DEFAULT(meta_, "") };
     inline UpdateHoneypotRequest& setMeta(string meta) { DARABONBA_PTR_SET_VALUE(meta_, meta) };
 
 
@@ -71,18 +71,18 @@ namespace Models
     // >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
     // 
     // This parameter is required.
-    std::shared_ptr<string> honeypotId_ = nullptr;
+    shared_ptr<string> honeypotId_ {};
     // The custom name of the honeypot.
-    std::shared_ptr<string> honeypotName_ = nullptr;
+    shared_ptr<string> honeypotName_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The custom configuration of the honeypot.
     // 
     // > You can call the [ListAvailableHoneypot](~~ListAvailableHoneypot~~) operation to query the configurations of honeypots from the **Template** response parameter.
-    std::shared_ptr<string> meta_ = nullptr;
+    shared_ptr<string> meta_ {};
   };
 
   } // namespace Models

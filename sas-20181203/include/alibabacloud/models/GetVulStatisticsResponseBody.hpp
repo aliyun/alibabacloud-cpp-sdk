@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->vulAsapSum_ == nullptr && return this->vulLaterSum_ == nullptr && return this->vulNntfSum_ == nullptr; };
+        && this->vulAsapSum_ == nullptr && this->vulLaterSum_ == nullptr && this->vulNntfSum_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetVulStatisticsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // vulAsapSum Field Functions 
     bool hasVulAsapSum() const { return this->vulAsapSum_ != nullptr;};
     void deleteVulAsapSum() { this->vulAsapSum_ = nullptr;};
-    inline int32_t vulAsapSum() const { DARABONBA_PTR_GET_DEFAULT(vulAsapSum_, 0) };
+    inline int32_t getVulAsapSum() const { DARABONBA_PTR_GET_DEFAULT(vulAsapSum_, 0) };
     inline GetVulStatisticsResponseBody& setVulAsapSum(int32_t vulAsapSum) { DARABONBA_PTR_SET_VALUE(vulAsapSum_, vulAsapSum) };
 
 
     // vulLaterSum Field Functions 
     bool hasVulLaterSum() const { return this->vulLaterSum_ != nullptr;};
     void deleteVulLaterSum() { this->vulLaterSum_ = nullptr;};
-    inline int32_t vulLaterSum() const { DARABONBA_PTR_GET_DEFAULT(vulLaterSum_, 0) };
+    inline int32_t getVulLaterSum() const { DARABONBA_PTR_GET_DEFAULT(vulLaterSum_, 0) };
     inline GetVulStatisticsResponseBody& setVulLaterSum(int32_t vulLaterSum) { DARABONBA_PTR_SET_VALUE(vulLaterSum_, vulLaterSum) };
 
 
     // vulNntfSum Field Functions 
     bool hasVulNntfSum() const { return this->vulNntfSum_ != nullptr;};
     void deleteVulNntfSum() { this->vulNntfSum_ = nullptr;};
-    inline int32_t vulNntfSum() const { DARABONBA_PTR_GET_DEFAULT(vulNntfSum_, 0) };
+    inline int32_t getVulNntfSum() const { DARABONBA_PTR_GET_DEFAULT(vulNntfSum_, 0) };
     inline GetVulStatisticsResponseBody& setVulNntfSum(int32_t vulNntfSum) { DARABONBA_PTR_SET_VALUE(vulNntfSum_, vulNntfSum) };
 
 
   protected:
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The number of vulnerabilities that have the high priority.
-    std::shared_ptr<int32_t> vulAsapSum_ = nullptr;
+    shared_ptr<int32_t> vulAsapSum_ {};
     // The number of vulnerabilities that have the medium priority.
-    std::shared_ptr<int32_t> vulLaterSum_ = nullptr;
+    shared_ptr<int32_t> vulLaterSum_ {};
     // The number of vulnerabilities that have the low priority.
-    std::shared_ptr<int32_t> vulNntfSum_ = nullptr;
+    shared_ptr<int32_t> vulNntfSum_ {};
   };
 
   } // namespace Models

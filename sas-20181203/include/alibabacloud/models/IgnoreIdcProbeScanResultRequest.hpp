@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ignoreAction_ == nullptr
-        && return this->scanResultIds_ == nullptr; };
+        && this->scanResultIds_ == nullptr; };
     // ignoreAction Field Functions 
     bool hasIgnoreAction() const { return this->ignoreAction_ != nullptr;};
     void deleteIgnoreAction() { this->ignoreAction_ = nullptr;};
-    inline int32_t ignoreAction() const { DARABONBA_PTR_GET_DEFAULT(ignoreAction_, 0) };
+    inline int32_t getIgnoreAction() const { DARABONBA_PTR_GET_DEFAULT(ignoreAction_, 0) };
     inline IgnoreIdcProbeScanResultRequest& setIgnoreAction(int32_t ignoreAction) { DARABONBA_PTR_SET_VALUE(ignoreAction_, ignoreAction) };
 
 
     // scanResultIds Field Functions 
     bool hasScanResultIds() const { return this->scanResultIds_ != nullptr;};
     void deleteScanResultIds() { this->scanResultIds_ = nullptr;};
-    inline string scanResultIds() const { DARABONBA_PTR_GET_DEFAULT(scanResultIds_, "") };
+    inline string getScanResultIds() const { DARABONBA_PTR_GET_DEFAULT(scanResultIds_, "") };
     inline IgnoreIdcProbeScanResultRequest& setScanResultIds(string scanResultIds) { DARABONBA_PTR_SET_VALUE(scanResultIds_, scanResultIds) };
 
 
@@ -54,13 +54,13 @@ namespace Models
     // *   **2**: ignores the scan result.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> ignoreAction_ = nullptr;
+    shared_ptr<int32_t> ignoreAction_ {};
     // The ID of the scan result. Separate multiple IDs with commas (,).
     // 
     // >  You can call the [DescribeIdcProbeScanResultList](~~DescribeIdcProbeScanResultList~~) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> scanResultIds_ = nullptr;
+    shared_ptr<string> scanResultIds_ {};
   };
 
   } // namespace Models

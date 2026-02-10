@@ -33,7 +33,7 @@ namespace Models
     // vulType Field Functions 
     bool hasVulType() const { return this->vulType_ != nullptr;};
     void deleteVulType() { this->vulType_ = nullptr;};
-    inline string vulType() const { DARABONBA_PTR_GET_DEFAULT(vulType_, "") };
+    inline string getVulType() const { DARABONBA_PTR_GET_DEFAULT(vulType_, "") };
     inline DescribeVulDefendCountStatisticsRequest& setVulType(string vulType) { DARABONBA_PTR_SET_VALUE(vulType_, vulType) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   app: application vulnerabilities
     // *   emg: urgent vulnerabilities
-    std::shared_ptr<string> vulType_ = nullptr;
+    shared_ptr<string> vulType_ {};
   };
 
   } // namespace Models

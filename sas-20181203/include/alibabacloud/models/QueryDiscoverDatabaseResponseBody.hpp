@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->taskProgress_ == nullptr; };
+        && this->taskProgress_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryDiscoverDatabaseResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // taskProgress Field Functions 
     bool hasTaskProgress() const { return this->taskProgress_ != nullptr;};
     void deleteTaskProgress() { this->taskProgress_ = nullptr;};
-    inline int32_t taskProgress() const { DARABONBA_PTR_GET_DEFAULT(taskProgress_, 0) };
+    inline int32_t getTaskProgress() const { DARABONBA_PTR_GET_DEFAULT(taskProgress_, 0) };
     inline QueryDiscoverDatabaseResponseBody& setTaskProgress(int32_t taskProgress) { DARABONBA_PTR_SET_VALUE(taskProgress_, taskProgress) };
 
 
   protected:
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The progress of the database scan task in percentage.
-    std::shared_ptr<int32_t> taskProgress_ = nullptr;
+    shared_ptr<int32_t> taskProgress_ {};
   };
 
   } // namespace Models

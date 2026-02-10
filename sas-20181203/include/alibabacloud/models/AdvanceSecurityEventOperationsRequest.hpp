@@ -36,38 +36,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventName_ == nullptr
-        && return this->eventType_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->ruleId_ == nullptr; };
+        && this->eventType_ == nullptr && this->resourceOwnerId_ == nullptr && this->ruleId_ == nullptr; };
     // eventName Field Functions 
     bool hasEventName() const { return this->eventName_ != nullptr;};
     void deleteEventName() { this->eventName_ = nullptr;};
-    inline string eventName() const { DARABONBA_PTR_GET_DEFAULT(eventName_, "") };
+    inline string getEventName() const { DARABONBA_PTR_GET_DEFAULT(eventName_, "") };
     inline AdvanceSecurityEventOperationsRequest& setEventName(string eventName) { DARABONBA_PTR_SET_VALUE(eventName_, eventName) };
 
 
     // eventType Field Functions 
     bool hasEventType() const { return this->eventType_ != nullptr;};
     void deleteEventType() { this->eventType_ = nullptr;};
-    inline string eventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
+    inline string getEventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
     inline AdvanceSecurityEventOperationsRequest& setEventType(string eventType) { DARABONBA_PTR_SET_VALUE(eventType_, eventType) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline AdvanceSecurityEventOperationsRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline int32_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0) };
+    inline int32_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0) };
     inline AdvanceSecurityEventOperationsRequest& setRuleId(int32_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
   protected:
     // The alert name.
-    std::shared_ptr<string> eventName_ = nullptr;
+    shared_ptr<string> eventName_ {};
     // The alert event type. Valid values:
     // 
     // *   Suspicious process
@@ -95,10 +95,10 @@ namespace Models
     // *   Others
     // 
     // For more information about alert types, see [Alerts](https://help.aliyun.com/document_detail/68388.html).
-    std::shared_ptr<string> eventType_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> eventType_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The rule ID.
-    std::shared_ptr<int32_t> ruleId_ = nullptr;
+    shared_ptr<int32_t> ruleId_ {};
   };
 
   } // namespace Models

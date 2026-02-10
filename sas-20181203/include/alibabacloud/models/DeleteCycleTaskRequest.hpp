@@ -33,7 +33,7 @@ namespace Models
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};
-    inline string configId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
+    inline string getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
     inline DeleteCycleTaskRequest& setConfigId(string configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // >  You can call the [DescribeCycleTaskList](~~DescribeCycleTaskList~~) operation to query the IDs of task configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<string> configId_ = nullptr;
+    shared_ptr<string> configId_ {};
   };
 
   } // namespace Models

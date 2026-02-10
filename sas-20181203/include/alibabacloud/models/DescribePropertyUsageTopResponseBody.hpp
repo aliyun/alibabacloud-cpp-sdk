@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEPROPERTYUSAGETOPRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribePropertyUsageTopResponseBodyTopStatisticItems.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -37,45 +36,89 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TopStatisticItems : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TopStatisticItems& obj) { 
+        DARABONBA_PTR_TO_JSON(Count, count_);
+        DARABONBA_PTR_TO_JSON(Name, name_);
+      };
+      friend void from_json(const Darabonba::Json& j, TopStatisticItems& obj) { 
+        DARABONBA_PTR_FROM_JSON(Count, count_);
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+      };
+      TopStatisticItems() = default ;
+      TopStatisticItems(const TopStatisticItems &) = default ;
+      TopStatisticItems(TopStatisticItems &&) = default ;
+      TopStatisticItems(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TopStatisticItems() = default ;
+      TopStatisticItems& operator=(const TopStatisticItems &) = default ;
+      TopStatisticItems& operator=(TopStatisticItems &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->count_ == nullptr
+        && this->name_ == nullptr; };
+      // count Field Functions 
+      bool hasCount() const { return this->count_ != nullptr;};
+      void deleteCount() { this->count_ = nullptr;};
+      inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+      inline TopStatisticItems& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline TopStatisticItems& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    protected:
+      // The quantity.
+      shared_ptr<int32_t> count_ {};
+      // The statistical item.
+      shared_ptr<string> name_ {};
+    };
+
     virtual bool empty() const override { return this->itemCount_ == nullptr
-        && return this->requestId_ == nullptr && return this->topStatisticItems_ == nullptr && return this->type_ == nullptr; };
+        && this->requestId_ == nullptr && this->topStatisticItems_ == nullptr && this->type_ == nullptr; };
     // itemCount Field Functions 
     bool hasItemCount() const { return this->itemCount_ != nullptr;};
     void deleteItemCount() { this->itemCount_ = nullptr;};
-    inline int32_t itemCount() const { DARABONBA_PTR_GET_DEFAULT(itemCount_, 0) };
+    inline int32_t getItemCount() const { DARABONBA_PTR_GET_DEFAULT(itemCount_, 0) };
     inline DescribePropertyUsageTopResponseBody& setItemCount(int32_t itemCount) { DARABONBA_PTR_SET_VALUE(itemCount_, itemCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribePropertyUsageTopResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // topStatisticItems Field Functions 
     bool hasTopStatisticItems() const { return this->topStatisticItems_ != nullptr;};
     void deleteTopStatisticItems() { this->topStatisticItems_ = nullptr;};
-    inline const vector<DescribePropertyUsageTopResponseBodyTopStatisticItems> & topStatisticItems() const { DARABONBA_PTR_GET_CONST(topStatisticItems_, vector<DescribePropertyUsageTopResponseBodyTopStatisticItems>) };
-    inline vector<DescribePropertyUsageTopResponseBodyTopStatisticItems> topStatisticItems() { DARABONBA_PTR_GET(topStatisticItems_, vector<DescribePropertyUsageTopResponseBodyTopStatisticItems>) };
-    inline DescribePropertyUsageTopResponseBody& setTopStatisticItems(const vector<DescribePropertyUsageTopResponseBodyTopStatisticItems> & topStatisticItems) { DARABONBA_PTR_SET_VALUE(topStatisticItems_, topStatisticItems) };
-    inline DescribePropertyUsageTopResponseBody& setTopStatisticItems(vector<DescribePropertyUsageTopResponseBodyTopStatisticItems> && topStatisticItems) { DARABONBA_PTR_SET_RVALUE(topStatisticItems_, topStatisticItems) };
+    inline const vector<DescribePropertyUsageTopResponseBody::TopStatisticItems> & getTopStatisticItems() const { DARABONBA_PTR_GET_CONST(topStatisticItems_, vector<DescribePropertyUsageTopResponseBody::TopStatisticItems>) };
+    inline vector<DescribePropertyUsageTopResponseBody::TopStatisticItems> getTopStatisticItems() { DARABONBA_PTR_GET(topStatisticItems_, vector<DescribePropertyUsageTopResponseBody::TopStatisticItems>) };
+    inline DescribePropertyUsageTopResponseBody& setTopStatisticItems(const vector<DescribePropertyUsageTopResponseBody::TopStatisticItems> & topStatisticItems) { DARABONBA_PTR_SET_VALUE(topStatisticItems_, topStatisticItems) };
+    inline DescribePropertyUsageTopResponseBody& setTopStatisticItems(vector<DescribePropertyUsageTopResponseBody::TopStatisticItems> && topStatisticItems) { DARABONBA_PTR_SET_RVALUE(topStatisticItems_, topStatisticItems) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribePropertyUsageTopResponseBody& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // The number of fingerprints.
-    std::shared_ptr<int32_t> itemCount_ = nullptr;
+    shared_ptr<int32_t> itemCount_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The statistical results.
-    std::shared_ptr<vector<DescribePropertyUsageTopResponseBodyTopStatisticItems>> topStatisticItems_ = nullptr;
+    shared_ptr<vector<DescribePropertyUsageTopResponseBody::TopStatisticItems>> topStatisticItems_ {};
     // The type of the asset fingerprint. Valid value:
     // 
     // *   **port**: port
@@ -83,7 +126,7 @@ namespace Models
     // *   **software**: software
     // *   **user**: account
     // *   **sca**: middleware
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

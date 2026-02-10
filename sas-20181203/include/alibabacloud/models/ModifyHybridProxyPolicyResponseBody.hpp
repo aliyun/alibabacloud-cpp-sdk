@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->messgae_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // messgae Field Functions 
     bool hasMessgae() const { return this->messgae_ != nullptr;};
     void deleteMessgae() { this->messgae_ = nullptr;};
-    inline string messgae() const { DARABONBA_PTR_GET_DEFAULT(messgae_, "") };
+    inline string getMessgae() const { DARABONBA_PTR_GET_DEFAULT(messgae_, "") };
     inline ModifyHybridProxyPolicyResponseBody& setMessgae(string messgae) { DARABONBA_PTR_SET_VALUE(messgae_, messgae) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyHybridProxyPolicyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The message of the request.
-    std::shared_ptr<string> messgae_ = nullptr;
+    shared_ptr<string> messgae_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

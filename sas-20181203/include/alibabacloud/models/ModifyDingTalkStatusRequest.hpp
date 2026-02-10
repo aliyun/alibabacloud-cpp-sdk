@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ids_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->status_ == nullptr; };
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};
-    inline string ids() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
+    inline string getIds() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
     inline ModifyDingTalkStatusRequest& setIds(string ids) { DARABONBA_PTR_SET_VALUE(ids_, ids) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline ModifyDingTalkStatusRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -53,14 +53,14 @@ namespace Models
     // >  You can call the [DescribeDingTalk](~~DescribeDingTalk~~) operation to query the notification IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ids_ = nullptr;
+    shared_ptr<string> ids_ {};
     // The notification status of a DingTalk chatbot. Valid values:
     // 
     // *   **0**: disabled
     // *   **1**: enabled
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

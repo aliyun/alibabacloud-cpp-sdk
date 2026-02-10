@@ -33,7 +33,7 @@ namespace Models
     // k8sRegionId Field Functions 
     bool hasK8sRegionId() const { return this->k8sRegionId_ != nullptr;};
     void deleteK8sRegionId() { this->k8sRegionId_ = nullptr;};
-    inline string k8sRegionId() const { DARABONBA_PTR_GET_DEFAULT(k8sRegionId_, "") };
+    inline string getK8sRegionId() const { DARABONBA_PTR_GET_DEFAULT(k8sRegionId_, "") };
     inline ListUserVpcRequest& setK8sRegionId(string k8sRegionId) { DARABONBA_PTR_SET_VALUE(k8sRegionId_, k8sRegionId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // Region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> k8sRegionId_ = nullptr;
+    shared_ptr<string> k8sRegionId_ {};
   };
 
   } // namespace Models

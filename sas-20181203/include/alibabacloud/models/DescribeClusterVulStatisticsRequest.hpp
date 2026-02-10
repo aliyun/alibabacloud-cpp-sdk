@@ -32,30 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->types_ == nullptr; };
+        && this->types_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DescribeClusterVulStatisticsRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // types Field Functions 
     bool hasTypes() const { return this->types_ != nullptr;};
     void deleteTypes() { this->types_ = nullptr;};
-    inline string types() const { DARABONBA_PTR_GET_DEFAULT(types_, "") };
+    inline string getTypes() const { DARABONBA_PTR_GET_DEFAULT(types_, "") };
     inline DescribeClusterVulStatisticsRequest& setTypes(string types) { DARABONBA_PTR_SET_VALUE(types_, types) };
 
 
   protected:
     // The ID of the container cluster.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The type of the vulnerabilities. Valid values:
     // 
     // *   **cve**: Linux software vulnerabilities
     // *   **app**: application vulnerabilities
     // *   **sca**: vulnerabilities that are detected based on software component analysis
-    std::shared_ptr<string> types_ = nullptr;
+    shared_ptr<string> types_ {};
   };
 
   } // namespace Models

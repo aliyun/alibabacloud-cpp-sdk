@@ -33,7 +33,7 @@ namespace Models
     // scanDayNum Field Functions 
     bool hasScanDayNum() const { return this->scanDayNum_ != nullptr;};
     void deleteScanDayNum() { this->scanDayNum_ = nullptr;};
-    inline int32_t scanDayNum() const { DARABONBA_PTR_GET_DEFAULT(scanDayNum_, 0) };
+    inline int32_t getScanDayNum() const { DARABONBA_PTR_GET_DEFAULT(scanDayNum_, 0) };
     inline SetRegistryScanDayNumRequest& setScanDayNum(int32_t scanDayNum) { DARABONBA_PTR_SET_VALUE(scanDayNum_, scanDayNum) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The cycle at which you want to scan your images. Unit: days.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> scanDayNum_ = nullptr;
+    shared_ptr<int32_t> scanDayNum_ {};
   };
 
   } // namespace Models

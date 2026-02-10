@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defaultRegion_ == nullptr
-        && return this->regionIds_ == nullptr && return this->vendor_ == nullptr; };
+        && this->regionIds_ == nullptr && this->vendor_ == nullptr; };
     // defaultRegion Field Functions 
     bool hasDefaultRegion() const { return this->defaultRegion_ != nullptr;};
     void deleteDefaultRegion() { this->defaultRegion_ = nullptr;};
-    inline int32_t defaultRegion() const { DARABONBA_PTR_GET_DEFAULT(defaultRegion_, 0) };
+    inline int32_t getDefaultRegion() const { DARABONBA_PTR_GET_DEFAULT(defaultRegion_, 0) };
     inline SetSyncRefreshRegionRequest& setDefaultRegion(int32_t defaultRegion) { DARABONBA_PTR_SET_VALUE(defaultRegion_, defaultRegion) };
 
 
     // regionIds Field Functions 
     bool hasRegionIds() const { return this->regionIds_ != nullptr;};
     void deleteRegionIds() { this->regionIds_ = nullptr;};
-    inline const vector<string> & regionIds() const { DARABONBA_PTR_GET_CONST(regionIds_, vector<string>) };
-    inline vector<string> regionIds() { DARABONBA_PTR_GET(regionIds_, vector<string>) };
+    inline const vector<string> & getRegionIds() const { DARABONBA_PTR_GET_CONST(regionIds_, vector<string>) };
+    inline vector<string> getRegionIds() { DARABONBA_PTR_GET(regionIds_, vector<string>) };
     inline SetSyncRefreshRegionRequest& setRegionIds(const vector<string> & regionIds) { DARABONBA_PTR_SET_VALUE(regionIds_, regionIds) };
     inline SetSyncRefreshRegionRequest& setRegionIds(vector<string> && regionIds) { DARABONBA_PTR_SET_RVALUE(regionIds_, regionIds) };
 
@@ -55,7 +55,7 @@ namespace Models
     // vendor Field Functions 
     bool hasVendor() const { return this->vendor_ != nullptr;};
     void deleteVendor() { this->vendor_ = nullptr;};
-    inline string vendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
+    inline string getVendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, "") };
     inline SetSyncRefreshRegionRequest& setVendor(string vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
 
 
@@ -64,16 +64,16 @@ namespace Models
     // 
     // *   **0**: The current site is not the default site of multi-cloud site. You can specify the current site as the default site of the multi-cloud site.
     // *   **1**: The current site is the default site of multi-cloud site.
-    std::shared_ptr<int32_t> defaultRegion_ = nullptr;
+    shared_ptr<int32_t> defaultRegion_ {};
     // The regions from which you want to synchronize assets at the current site.
-    std::shared_ptr<vector<string>> regionIds_ = nullptr;
+    shared_ptr<vector<string>> regionIds_ {};
     // The cloud service provider. Valid values:
     // 
     // *   **Tencent**: Tencent Cloud
     // *   **HUAWEICLOUD**: Huawei Cloud
     // *   **Azure**: Microsoft Azure
     // *   **AWS**: Amazon Web Services (AWS)
-    std::shared_ptr<string> vendor_ = nullptr;
+    shared_ptr<string> vendor_ {};
   };
 
   } // namespace Models

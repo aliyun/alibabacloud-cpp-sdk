@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliasName_ == nullptr
-        && return this->configIdList_ == nullptr && return this->type_ == nullptr; };
+        && this->configIdList_ == nullptr && this->type_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};
-    inline string aliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
+    inline string getAliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
     inline DeleteVulAutoRepairConfigRequest& setAliasName(string aliasName) { DARABONBA_PTR_SET_VALUE(aliasName_, aliasName) };
 
 
     // configIdList Field Functions 
     bool hasConfigIdList() const { return this->configIdList_ != nullptr;};
     void deleteConfigIdList() { this->configIdList_ = nullptr;};
-    inline const vector<int64_t> & configIdList() const { DARABONBA_PTR_GET_CONST(configIdList_, vector<int64_t>) };
-    inline vector<int64_t> configIdList() { DARABONBA_PTR_GET(configIdList_, vector<int64_t>) };
+    inline const vector<int64_t> & getConfigIdList() const { DARABONBA_PTR_GET_CONST(configIdList_, vector<int64_t>) };
+    inline vector<int64_t> getConfigIdList() { DARABONBA_PTR_GET(configIdList_, vector<int64_t>) };
     inline DeleteVulAutoRepairConfigRequest& setConfigIdList(const vector<int64_t> & configIdList) { DARABONBA_PTR_SET_VALUE(configIdList_, configIdList) };
     inline DeleteVulAutoRepairConfigRequest& setConfigIdList(vector<int64_t> && configIdList) { DARABONBA_PTR_SET_RVALUE(configIdList_, configIdList) };
 
@@ -55,22 +55,22 @@ namespace Models
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DeleteVulAutoRepairConfigRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // The alias of the vulnerability.
-    std::shared_ptr<string> aliasName_ = nullptr;
+    shared_ptr<string> aliasName_ {};
     // The IDs of the configurations.
     // 
     // >  You can call the [ListVulAutoRepairConfig](~~ListVulAutoRepairConfig~~) operation to query the IDs.
-    std::shared_ptr<vector<int64_t>> configIdList_ = nullptr;
+    shared_ptr<vector<int64_t>> configIdList_ {};
     // The type of the vulnerability. Valid values:
     // 
     // *   cve: Linux software vulnerability
     // *   sys: Windows system vulnerability
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

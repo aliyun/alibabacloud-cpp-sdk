@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETLASTONCETASKINFORESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETLASTONCETASKINFORESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetLastOnceTaskInfoResponseBodyTaskInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,65 +39,129 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TaskInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TaskInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(Progress, progress_);
+        DARABONBA_PTR_TO_JSON(Result, result_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, TaskInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(Progress, progress_);
+        DARABONBA_PTR_FROM_JSON(Result, result_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      TaskInfo() = default ;
+      TaskInfo(const TaskInfo &) = default ;
+      TaskInfo(TaskInfo &&) = default ;
+      TaskInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TaskInfo() = default ;
+      TaskInfo& operator=(const TaskInfo &) = default ;
+      TaskInfo& operator=(TaskInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->progress_ == nullptr
+        && this->result_ == nullptr && this->status_ == nullptr; };
+      // progress Field Functions 
+      bool hasProgress() const { return this->progress_ != nullptr;};
+      void deleteProgress() { this->progress_ = nullptr;};
+      inline int32_t getProgress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
+      inline TaskInfo& setProgress(int32_t progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
+
+
+      // result Field Functions 
+      bool hasResult() const { return this->result_ != nullptr;};
+      void deleteResult() { this->result_ = nullptr;};
+      inline string getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
+      inline TaskInfo& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline TaskInfo& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      // The progress of the task in percentage.
+      shared_ptr<int32_t> progress_ {};
+      // The result of the scan task. Valid values:
+      // 
+      // *   **SUCCESS**: The task is successful.
+      // *   **TASK_NOT_SUPPORT_REGION**: The images are deployed in a region that is not supported by container image scan.
+      // *   **TASK_NOT_EXISTS**: The task does not exist.
+      shared_ptr<string> result_ {};
+      // The status of the task. Valid values:
+      // 
+      // *   **INIT**: The task is not started.
+      // *   **START**: The task is started.
+      // *   **SUCCESS**: The task is complete.
+      // *   **TIMEOUT**: The task timed out.
+      shared_ptr<string> status_ {};
+    };
+
     virtual bool empty() const override { return this->collectTime_ == nullptr
-        && return this->finishCount_ == nullptr && return this->requestId_ == nullptr && return this->taskId_ == nullptr && return this->taskInfo_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->finishCount_ == nullptr && this->requestId_ == nullptr && this->taskId_ == nullptr && this->taskInfo_ == nullptr && this->totalCount_ == nullptr; };
     // collectTime Field Functions 
     bool hasCollectTime() const { return this->collectTime_ != nullptr;};
     void deleteCollectTime() { this->collectTime_ = nullptr;};
-    inline int64_t collectTime() const { DARABONBA_PTR_GET_DEFAULT(collectTime_, 0L) };
+    inline int64_t getCollectTime() const { DARABONBA_PTR_GET_DEFAULT(collectTime_, 0L) };
     inline GetLastOnceTaskInfoResponseBody& setCollectTime(int64_t collectTime) { DARABONBA_PTR_SET_VALUE(collectTime_, collectTime) };
 
 
     // finishCount Field Functions 
     bool hasFinishCount() const { return this->finishCount_ != nullptr;};
     void deleteFinishCount() { this->finishCount_ = nullptr;};
-    inline int32_t finishCount() const { DARABONBA_PTR_GET_DEFAULT(finishCount_, 0) };
+    inline int32_t getFinishCount() const { DARABONBA_PTR_GET_DEFAULT(finishCount_, 0) };
     inline GetLastOnceTaskInfoResponseBody& setFinishCount(int32_t finishCount) { DARABONBA_PTR_SET_VALUE(finishCount_, finishCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetLastOnceTaskInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline GetLastOnceTaskInfoResponseBody& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // taskInfo Field Functions 
     bool hasTaskInfo() const { return this->taskInfo_ != nullptr;};
     void deleteTaskInfo() { this->taskInfo_ = nullptr;};
-    inline const GetLastOnceTaskInfoResponseBodyTaskInfo & taskInfo() const { DARABONBA_PTR_GET_CONST(taskInfo_, GetLastOnceTaskInfoResponseBodyTaskInfo) };
-    inline GetLastOnceTaskInfoResponseBodyTaskInfo taskInfo() { DARABONBA_PTR_GET(taskInfo_, GetLastOnceTaskInfoResponseBodyTaskInfo) };
-    inline GetLastOnceTaskInfoResponseBody& setTaskInfo(const GetLastOnceTaskInfoResponseBodyTaskInfo & taskInfo) { DARABONBA_PTR_SET_VALUE(taskInfo_, taskInfo) };
-    inline GetLastOnceTaskInfoResponseBody& setTaskInfo(GetLastOnceTaskInfoResponseBodyTaskInfo && taskInfo) { DARABONBA_PTR_SET_RVALUE(taskInfo_, taskInfo) };
+    inline const GetLastOnceTaskInfoResponseBody::TaskInfo & getTaskInfo() const { DARABONBA_PTR_GET_CONST(taskInfo_, GetLastOnceTaskInfoResponseBody::TaskInfo) };
+    inline GetLastOnceTaskInfoResponseBody::TaskInfo getTaskInfo() { DARABONBA_PTR_GET(taskInfo_, GetLastOnceTaskInfoResponseBody::TaskInfo) };
+    inline GetLastOnceTaskInfoResponseBody& setTaskInfo(const GetLastOnceTaskInfoResponseBody::TaskInfo & taskInfo) { DARABONBA_PTR_SET_VALUE(taskInfo_, taskInfo) };
+    inline GetLastOnceTaskInfoResponseBody& setTaskInfo(GetLastOnceTaskInfoResponseBody::TaskInfo && taskInfo) { DARABONBA_PTR_SET_RVALUE(taskInfo_, taskInfo) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline GetLastOnceTaskInfoResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The time at which the task was run.
-    std::shared_ptr<int64_t> collectTime_ = nullptr;
+    shared_ptr<int64_t> collectTime_ {};
     // The number of tasks that have been completed.
-    std::shared_ptr<int32_t> finishCount_ = nullptr;
+    shared_ptr<int32_t> finishCount_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the latest scan task.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
     // The information about the latest task.
-    std::shared_ptr<GetLastOnceTaskInfoResponseBodyTaskInfo> taskInfo_ = nullptr;
+    shared_ptr<GetLastOnceTaskInfoResponseBody::TaskInfo> taskInfo_ {};
     // The total number of entries returned.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

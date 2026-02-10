@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->criteria_ == nullptr
-        && return this->groupField_ == nullptr; };
+        && this->groupField_ == nullptr; };
     // criteria Field Functions 
     bool hasCriteria() const { return this->criteria_ != nullptr;};
     void deleteCriteria() { this->criteria_ = nullptr;};
-    inline string criteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
+    inline string getCriteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
     inline DescribeContainerGroupedFieldDetailRequest& setCriteria(string criteria) { DARABONBA_PTR_SET_VALUE(criteria_, criteria) };
 
 
     // groupField Field Functions 
     bool hasGroupField() const { return this->groupField_ != nullptr;};
     void deleteGroupField() { this->groupField_ = nullptr;};
-    inline string groupField() const { DARABONBA_PTR_GET_DEFAULT(groupField_, "") };
+    inline string getGroupField() const { DARABONBA_PTR_GET_DEFAULT(groupField_, "") };
     inline DescribeContainerGroupedFieldDetailRequest& setGroupField(string groupField) { DARABONBA_PTR_SET_VALUE(groupField_, groupField) };
 
 
@@ -53,7 +53,7 @@ namespace Models
     // >  Supported search conditions include the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
     // 
     // This parameter is required.
-    std::shared_ptr<string> criteria_ = nullptr;
+    shared_ptr<string> criteria_ {};
     // The filter condition for a grouping and aggregation query. Valid values:
     // 
     // *   **pod**
@@ -64,7 +64,7 @@ namespace Models
     // *   **containerScan**
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupField_ = nullptr;
+    shared_ptr<string> groupField_ {};
   };
 
   } // namespace Models

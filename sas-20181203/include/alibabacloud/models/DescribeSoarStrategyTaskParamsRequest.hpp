@@ -33,14 +33,14 @@ namespace Models
     // strategyTaskId Field Functions 
     bool hasStrategyTaskId() const { return this->strategyTaskId_ != nullptr;};
     void deleteStrategyTaskId() { this->strategyTaskId_ = nullptr;};
-    inline int64_t strategyTaskId() const { DARABONBA_PTR_GET_DEFAULT(strategyTaskId_, 0L) };
+    inline int64_t getStrategyTaskId() const { DARABONBA_PTR_GET_DEFAULT(strategyTaskId_, 0L) };
     inline DescribeSoarStrategyTaskParamsRequest& setStrategyTaskId(int64_t strategyTaskId) { DARABONBA_PTR_SET_VALUE(strategyTaskId_, strategyTaskId) };
 
 
   protected:
     // Strategy task ID.
     // > You can obtain this parameter by calling the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) interface.
-    std::shared_ptr<int64_t> strategyTaskId_ = nullptr;
+    shared_ptr<int64_t> strategyTaskId_ {};
   };
 
   } // namespace Models

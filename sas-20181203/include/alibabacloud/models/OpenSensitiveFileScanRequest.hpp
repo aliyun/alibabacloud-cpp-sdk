@@ -33,7 +33,7 @@ namespace Models
     // switchOn Field Functions 
     bool hasSwitchOn() const { return this->switchOn_ != nullptr;};
     void deleteSwitchOn() { this->switchOn_ = nullptr;};
-    inline string switchOn() const { DARABONBA_PTR_GET_DEFAULT(switchOn_, "") };
+    inline string getSwitchOn() const { DARABONBA_PTR_GET_DEFAULT(switchOn_, "") };
     inline OpenSensitiveFileScanRequest& setSwitchOn(string switchOn) { DARABONBA_PTR_SET_VALUE(switchOn_, switchOn) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   **on**: enables sensitive file scan
     // *   **off**: disables sensitive file scan
-    std::shared_ptr<string> switchOn_ = nullptr;
+    shared_ptr<string> switchOn_ {};
   };
 
   } // namespace Models

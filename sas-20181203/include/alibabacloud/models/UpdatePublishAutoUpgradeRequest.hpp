@@ -33,7 +33,7 @@ namespace Models
     // autoUpgrade Field Functions 
     bool hasAutoUpgrade() const { return this->autoUpgrade_ != nullptr;};
     void deleteAutoUpgrade() { this->autoUpgrade_ = nullptr;};
-    inline int32_t autoUpgrade() const { DARABONBA_PTR_GET_DEFAULT(autoUpgrade_, 0) };
+    inline int32_t getAutoUpgrade() const { DARABONBA_PTR_GET_DEFAULT(autoUpgrade_, 0) };
     inline UpdatePublishAutoUpgradeRequest& setAutoUpgrade(int32_t autoUpgrade) { DARABONBA_PTR_SET_VALUE(autoUpgrade_, autoUpgrade) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   **1**: yes
     // *   **0**: no
-    std::shared_ptr<int32_t> autoUpgrade_ = nullptr;
+    shared_ptr<int32_t> autoUpgrade_ {};
   };
 
   } // namespace Models

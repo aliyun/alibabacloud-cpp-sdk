@@ -35,26 +35,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->policyVersion_ == nullptr
-        && return this->uuid_ == nullptr && return this->uuidList_ == nullptr; };
+        && this->uuid_ == nullptr && this->uuidList_ == nullptr; };
     // policyVersion Field Functions 
     bool hasPolicyVersion() const { return this->policyVersion_ != nullptr;};
     void deletePolicyVersion() { this->policyVersion_ = nullptr;};
-    inline string policyVersion() const { DARABONBA_PTR_GET_DEFAULT(policyVersion_, "") };
+    inline string getPolicyVersion() const { DARABONBA_PTR_GET_DEFAULT(policyVersion_, "") };
     inline UninstallBackupClientRequest& setPolicyVersion(string policyVersion) { DARABONBA_PTR_SET_VALUE(policyVersion_, policyVersion) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline UninstallBackupClientRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
     // uuidList Field Functions 
     bool hasUuidList() const { return this->uuidList_ != nullptr;};
     void deleteUuidList() { this->uuidList_ = nullptr;};
-    inline const vector<string> & uuidList() const { DARABONBA_PTR_GET_CONST(uuidList_, vector<string>) };
-    inline vector<string> uuidList() { DARABONBA_PTR_GET(uuidList_, vector<string>) };
+    inline const vector<string> & getUuidList() const { DARABONBA_PTR_GET_CONST(uuidList_, vector<string>) };
+    inline vector<string> getUuidList() { DARABONBA_PTR_GET(uuidList_, vector<string>) };
     inline UninstallBackupClientRequest& setUuidList(const vector<string> & uuidList) { DARABONBA_PTR_SET_VALUE(uuidList_, uuidList) };
     inline UninstallBackupClientRequest& setUuidList(vector<string> && uuidList) { DARABONBA_PTR_SET_RVALUE(uuidList_, uuidList) };
 
@@ -66,15 +66,15 @@ namespace Models
     // *   **2.0.0**
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyVersion_ = nullptr;
+    shared_ptr<string> policyVersion_ {};
     // The UUID of the server from which you want to uninstall the anti-ransomware agent.
     // 
     // > You must specify at least one of the UuidList and Uuid parameters.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
     // The UUIDs of the servers from which you want to uninstall the anti-ransomware agent.
     // 
     // > You must specify at least one of the UuidList and Uuid parameters.
-    std::shared_ptr<vector<string>> uuidList_ = nullptr;
+    shared_ptr<vector<string>> uuidList_ {};
   };
 
   } // namespace Models

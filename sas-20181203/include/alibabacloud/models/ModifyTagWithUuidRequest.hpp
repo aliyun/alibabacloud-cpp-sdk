@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->machineTypes_ == nullptr
-        && return this->tagId_ == nullptr && return this->tagList_ == nullptr && return this->target_ == nullptr && return this->uuidList_ == nullptr; };
+        && this->tagId_ == nullptr && this->tagList_ == nullptr && this->target_ == nullptr && this->uuidList_ == nullptr; };
     // machineTypes Field Functions 
     bool hasMachineTypes() const { return this->machineTypes_ != nullptr;};
     void deleteMachineTypes() { this->machineTypes_ = nullptr;};
-    inline string machineTypes() const { DARABONBA_PTR_GET_DEFAULT(machineTypes_, "") };
+    inline string getMachineTypes() const { DARABONBA_PTR_GET_DEFAULT(machineTypes_, "") };
     inline ModifyTagWithUuidRequest& setMachineTypes(string machineTypes) { DARABONBA_PTR_SET_VALUE(machineTypes_, machineTypes) };
 
 
     // tagId Field Functions 
     bool hasTagId() const { return this->tagId_ != nullptr;};
     void deleteTagId() { this->tagId_ = nullptr;};
-    inline string tagId() const { DARABONBA_PTR_GET_DEFAULT(tagId_, "") };
+    inline string getTagId() const { DARABONBA_PTR_GET_DEFAULT(tagId_, "") };
     inline ModifyTagWithUuidRequest& setTagId(string tagId) { DARABONBA_PTR_SET_VALUE(tagId_, tagId) };
 
 
     // tagList Field Functions 
     bool hasTagList() const { return this->tagList_ != nullptr;};
     void deleteTagList() { this->tagList_ = nullptr;};
-    inline string tagList() const { DARABONBA_PTR_GET_DEFAULT(tagList_, "") };
+    inline string getTagList() const { DARABONBA_PTR_GET_DEFAULT(tagList_, "") };
     inline ModifyTagWithUuidRequest& setTagList(string tagList) { DARABONBA_PTR_SET_VALUE(tagList_, tagList) };
 
 
     // target Field Functions 
     bool hasTarget() const { return this->target_ != nullptr;};
     void deleteTarget() { this->target_ = nullptr;};
-    inline string target() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+    inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
     inline ModifyTagWithUuidRequest& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
 
 
     // uuidList Field Functions 
     bool hasUuidList() const { return this->uuidList_ != nullptr;};
     void deleteUuidList() { this->uuidList_ = nullptr;};
-    inline string uuidList() const { DARABONBA_PTR_GET_DEFAULT(uuidList_, "") };
+    inline string getUuidList() const { DARABONBA_PTR_GET_DEFAULT(uuidList_, "") };
     inline ModifyTagWithUuidRequest& setUuidList(string uuidList) { DARABONBA_PTR_SET_VALUE(uuidList_, uuidList) };
 
 
@@ -79,17 +79,17 @@ namespace Models
     // 
     // *   **ecs**: server
     // *   **cloud_product**: Alibaba Cloud service
-    std::shared_ptr<string> machineTypes_ = nullptr;
+    shared_ptr<string> machineTypes_ {};
     // The ID of the tag that you want to manage.
     // 
     // >  You can call the [DescribeGroupedTags](~~DescribeGroupedTags~~) operation to query the IDs of tags.
-    std::shared_ptr<string> tagId_ = nullptr;
+    shared_ptr<string> tagId_ {};
     // The names of the tags that you want to manage. Separate multiple tag names with commas (,).
     // 
     // >  You can call the [DescribeGroupedTags](~~DescribeGroupedTags~~) operation to query the names of tags.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tagList_ = nullptr;
+    shared_ptr<string> tagList_ {};
     // The details of the server for which you want to manage the tag. The value of this parameter is in the JSON format and contains the following fields:
     // 
     // *   **Target**: the UUID of the server that you want to add or remove.
@@ -103,11 +103,11 @@ namespace Models
     // 
     //     *   **del**: removes the tag from the server.
     //     *   **add**: adds the tag to the server.
-    std::shared_ptr<string> target_ = nullptr;
+    shared_ptr<string> target_ {};
     // The UUIDs of the servers.
     // 
     // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
-    std::shared_ptr<string> uuidList_ = nullptr;
+    shared_ptr<string> uuidList_ {};
   };
 
   } // namespace Models

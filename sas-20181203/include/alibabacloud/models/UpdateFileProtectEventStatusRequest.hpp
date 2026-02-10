@@ -55,14 +55,14 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertLevels_ == nullptr
-        && return this->endTime_ == nullptr && return this->id_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr
-        && return this->intranetIp_ == nullptr && return this->operation_ == nullptr && return this->ruleName_ == nullptr && return this->selectAllAcrossPages_ == nullptr && return this->startTime_ == nullptr
-        && return this->status_ == nullptr && return this->uuid_ == nullptr; };
+        && this->endTime_ == nullptr && this->id_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->internetIp_ == nullptr
+        && this->intranetIp_ == nullptr && this->operation_ == nullptr && this->ruleName_ == nullptr && this->selectAllAcrossPages_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr && this->uuid_ == nullptr; };
     // alertLevels Field Functions 
     bool hasAlertLevels() const { return this->alertLevels_ != nullptr;};
     void deleteAlertLevels() { this->alertLevels_ = nullptr;};
-    inline const vector<int32_t> & alertLevels() const { DARABONBA_PTR_GET_CONST(alertLevels_, vector<int32_t>) };
-    inline vector<int32_t> alertLevels() { DARABONBA_PTR_GET(alertLevels_, vector<int32_t>) };
+    inline const vector<int32_t> & getAlertLevels() const { DARABONBA_PTR_GET_CONST(alertLevels_, vector<int32_t>) };
+    inline vector<int32_t> getAlertLevels() { DARABONBA_PTR_GET(alertLevels_, vector<int32_t>) };
     inline UpdateFileProtectEventStatusRequest& setAlertLevels(const vector<int32_t> & alertLevels) { DARABONBA_PTR_SET_VALUE(alertLevels_, alertLevels) };
     inline UpdateFileProtectEventStatusRequest& setAlertLevels(vector<int32_t> && alertLevels) { DARABONBA_PTR_SET_RVALUE(alertLevels_, alertLevels) };
 
@@ -70,15 +70,15 @@ namespace Models
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline UpdateFileProtectEventStatusRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline const vector<int64_t> & id() const { DARABONBA_PTR_GET_CONST(id_, vector<int64_t>) };
-    inline vector<int64_t> id() { DARABONBA_PTR_GET(id_, vector<int64_t>) };
+    inline const vector<int64_t> & getId() const { DARABONBA_PTR_GET_CONST(id_, vector<int64_t>) };
+    inline vector<int64_t> getId() { DARABONBA_PTR_GET(id_, vector<int64_t>) };
     inline UpdateFileProtectEventStatusRequest& setId(const vector<int64_t> & id) { DARABONBA_PTR_SET_VALUE(id_, id) };
     inline UpdateFileProtectEventStatusRequest& setId(vector<int64_t> && id) { DARABONBA_PTR_SET_RVALUE(id_, id) };
 
@@ -86,93 +86,115 @@ namespace Models
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateFileProtectEventStatusRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline UpdateFileProtectEventStatusRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // internetIp Field Functions 
     bool hasInternetIp() const { return this->internetIp_ != nullptr;};
     void deleteInternetIp() { this->internetIp_ = nullptr;};
-    inline string internetIp() const { DARABONBA_PTR_GET_DEFAULT(internetIp_, "") };
+    inline string getInternetIp() const { DARABONBA_PTR_GET_DEFAULT(internetIp_, "") };
     inline UpdateFileProtectEventStatusRequest& setInternetIp(string internetIp) { DARABONBA_PTR_SET_VALUE(internetIp_, internetIp) };
 
 
     // intranetIp Field Functions 
     bool hasIntranetIp() const { return this->intranetIp_ != nullptr;};
     void deleteIntranetIp() { this->intranetIp_ = nullptr;};
-    inline string intranetIp() const { DARABONBA_PTR_GET_DEFAULT(intranetIp_, "") };
+    inline string getIntranetIp() const { DARABONBA_PTR_GET_DEFAULT(intranetIp_, "") };
     inline UpdateFileProtectEventStatusRequest& setIntranetIp(string intranetIp) { DARABONBA_PTR_SET_VALUE(intranetIp_, intranetIp) };
 
 
     // operation Field Functions 
     bool hasOperation() const { return this->operation_ != nullptr;};
     void deleteOperation() { this->operation_ = nullptr;};
-    inline string operation() const { DARABONBA_PTR_GET_DEFAULT(operation_, "") };
+    inline string getOperation() const { DARABONBA_PTR_GET_DEFAULT(operation_, "") };
     inline UpdateFileProtectEventStatusRequest& setOperation(string operation) { DARABONBA_PTR_SET_VALUE(operation_, operation) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline UpdateFileProtectEventStatusRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // selectAllAcrossPages Field Functions 
     bool hasSelectAllAcrossPages() const { return this->selectAllAcrossPages_ != nullptr;};
     void deleteSelectAllAcrossPages() { this->selectAllAcrossPages_ = nullptr;};
-    inline bool selectAllAcrossPages() const { DARABONBA_PTR_GET_DEFAULT(selectAllAcrossPages_, false) };
+    inline bool getSelectAllAcrossPages() const { DARABONBA_PTR_GET_DEFAULT(selectAllAcrossPages_, false) };
     inline UpdateFileProtectEventStatusRequest& setSelectAllAcrossPages(bool selectAllAcrossPages) { DARABONBA_PTR_SET_VALUE(selectAllAcrossPages_, selectAllAcrossPages) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline UpdateFileProtectEventStatusRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline UpdateFileProtectEventStatusRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline UpdateFileProtectEventStatusRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
-    std::shared_ptr<vector<int32_t>> alertLevels_ = nullptr;
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    // The severities of alerts.
+    shared_ptr<vector<int32_t>> alertLevels_ {};
+    // The end of the time range to query. Unit: milliseconds.
+    shared_ptr<int64_t> endTime_ {};
     // The IDs of the events.
-    std::shared_ptr<vector<int64_t>> id_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> instanceName_ = nullptr;
-    std::shared_ptr<string> internetIp_ = nullptr;
-    std::shared_ptr<string> intranetIp_ = nullptr;
-    std::shared_ptr<string> operation_ = nullptr;
-    std::shared_ptr<string> ruleName_ = nullptr;
-    std::shared_ptr<bool> selectAllAcrossPages_ = nullptr;
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<vector<int64_t>> id_ {};
+    // The instance ID of the asset.
+    shared_ptr<string> instanceId_ {};
+    // The name of the server.
+    shared_ptr<string> instanceName_ {};
+    // The public IP address of the server.
+    shared_ptr<string> internetIp_ {};
+    // The private IP address of the server.
+    shared_ptr<string> intranetIp_ {};
+    // Type of operation on a file. eg:
+    // 
+    // - **DELETE**: delete the file.
+    // - **WRITE**: write the file.
+    // - **READ**: read the file.
+    // - **RENAME**: rename the file.
+    // - **CHOWN**: set the file owner and file association group operations.
+    shared_ptr<string> operation_ {};
+    // The name of the defense rule.
+    shared_ptr<string> ruleName_ {};
+    // Whether to choose all fields across industries.
+    // 
+    // - **true**: yes
+    // - **false**: no
+    shared_ptr<bool> selectAllAcrossPages_ {};
+    // The beginning of the time range to query. Unit: milliseconds.
+    shared_ptr<int64_t> startTime_ {};
     // The handling status of the event. Valid values:
     // 
     // *   **0**: unhandled
     // *   **1**: handled
     // *   **2**: added to the whitelist
-    std::shared_ptr<int32_t> status_ = nullptr;
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<int32_t> status_ {};
+    // The UUID of the server.
+    // 
+    // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

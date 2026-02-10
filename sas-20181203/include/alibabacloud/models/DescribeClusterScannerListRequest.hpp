@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterIdList_ == nullptr
-        && return this->lang_ == nullptr && return this->statusList_ == nullptr; };
+        && this->lang_ == nullptr && this->statusList_ == nullptr; };
     // clusterIdList Field Functions 
     bool hasClusterIdList() const { return this->clusterIdList_ != nullptr;};
     void deleteClusterIdList() { this->clusterIdList_ = nullptr;};
-    inline const vector<string> & clusterIdList() const { DARABONBA_PTR_GET_CONST(clusterIdList_, vector<string>) };
-    inline vector<string> clusterIdList() { DARABONBA_PTR_GET(clusterIdList_, vector<string>) };
+    inline const vector<string> & getClusterIdList() const { DARABONBA_PTR_GET_CONST(clusterIdList_, vector<string>) };
+    inline vector<string> getClusterIdList() { DARABONBA_PTR_GET(clusterIdList_, vector<string>) };
     inline DescribeClusterScannerListRequest& setClusterIdList(const vector<string> & clusterIdList) { DARABONBA_PTR_SET_VALUE(clusterIdList_, clusterIdList) };
     inline DescribeClusterScannerListRequest& setClusterIdList(vector<string> && clusterIdList) { DARABONBA_PTR_SET_RVALUE(clusterIdList_, clusterIdList) };
 
@@ -48,31 +48,31 @@ namespace Models
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeClusterScannerListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // statusList Field Functions 
     bool hasStatusList() const { return this->statusList_ != nullptr;};
     void deleteStatusList() { this->statusList_ = nullptr;};
-    inline const vector<string> & statusList() const { DARABONBA_PTR_GET_CONST(statusList_, vector<string>) };
-    inline vector<string> statusList() { DARABONBA_PTR_GET(statusList_, vector<string>) };
+    inline const vector<string> & getStatusList() const { DARABONBA_PTR_GET_CONST(statusList_, vector<string>) };
+    inline vector<string> getStatusList() { DARABONBA_PTR_GET(statusList_, vector<string>) };
     inline DescribeClusterScannerListRequest& setStatusList(const vector<string> & statusList) { DARABONBA_PTR_SET_VALUE(statusList_, statusList) };
     inline DescribeClusterScannerListRequest& setStatusList(vector<string> && statusList) { DARABONBA_PTR_SET_RVALUE(statusList_, statusList) };
 
 
   protected:
     // List of cluster IDs.
-    std::shared_ptr<vector<string>> clusterIdList_ = nullptr;
+    shared_ptr<vector<string>> clusterIdList_ {};
     // The language type for requests and responses.
     // - **zh**: Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // List of scanner statuses. Values:
     // - **online**: Running
     // - **offline**: Offline
     // - **not_installed**: Not Installed
-    std::shared_ptr<vector<string>> statusList_ = nullptr;
+    shared_ptr<vector<string>> statusList_ {};
   };
 
   } // namespace Models

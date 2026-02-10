@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->scanRange_ == nullptr
-        && return this->taskSource_ == nullptr; };
+        && this->taskSource_ == nullptr; };
     // scanRange Field Functions 
     bool hasScanRange() const { return this->scanRange_ != nullptr;};
     void deleteScanRange() { this->scanRange_ = nullptr;};
-    inline string scanRange() const { DARABONBA_PTR_GET_DEFAULT(scanRange_, "") };
+    inline string getScanRange() const { DARABONBA_PTR_GET_DEFAULT(scanRange_, "") };
     inline SubmitCheckRequest& setScanRange(string scanRange) { DARABONBA_PTR_SET_VALUE(scanRange_, scanRange) };
 
 
     // taskSource Field Functions 
     bool hasTaskSource() const { return this->taskSource_ != nullptr;};
     void deleteTaskSource() { this->taskSource_ = nullptr;};
-    inline string taskSource() const { DARABONBA_PTR_GET_DEFAULT(taskSource_, "") };
+    inline string getTaskSource() const { DARABONBA_PTR_GET_DEFAULT(taskSource_, "") };
     inline SubmitCheckRequest& setTaskSource(string taskSource) { DARABONBA_PTR_SET_VALUE(taskSource_, taskSource) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   **FULL**: All check items are scanned.
     // *   **FULL**: Only the check items that are configured are scanned.
-    std::shared_ptr<string> scanRange_ = nullptr;
+    shared_ptr<string> scanRange_ {};
     // The source of task.
-    std::shared_ptr<string> taskSource_ = nullptr;
+    shared_ptr<string> taskSource_ {};
   };
 
   } // namespace Models

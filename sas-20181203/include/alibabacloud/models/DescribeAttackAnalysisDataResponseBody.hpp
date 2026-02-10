@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->page_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->total_ == nullptr; };
+        && this->page_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->total_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline DescribeAttackAnalysisDataResponseBody& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // page Field Functions 
     bool hasPage() const { return this->page_ != nullptr;};
     void deletePage() { this->page_ = nullptr;};
-    inline int32_t page() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
+    inline int32_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
     inline DescribeAttackAnalysisDataResponseBody& setPage(int32_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeAttackAnalysisDataResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAttackAnalysisDataResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline int32_t total() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+    inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
     inline DescribeAttackAnalysisDataResponseBody& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
@@ -166,15 +166,15 @@ namespace Models
     //     *   **alinet_webrce**: adaptive web attack defense.
     //     *   **210**: JSP webshell upload.
     //     *   **161**: webshell upload.
-    std::shared_ptr<string> data_ = nullptr;
+    shared_ptr<string> data_ {};
     // The page number of the returned page.
-    std::shared_ptr<int32_t> page_ = nullptr;
+    shared_ptr<int32_t> page_ {};
     // The number of entries returned per page. Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of attack events returned.
-    std::shared_ptr<int32_t> total_ = nullptr;
+    shared_ptr<int32_t> total_ {};
   };
 
   } // namespace Models

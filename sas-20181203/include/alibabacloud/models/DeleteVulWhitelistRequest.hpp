@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->whitelist_ == nullptr; };
+        && this->whitelist_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline DeleteVulWhitelistRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // whitelist Field Functions 
     bool hasWhitelist() const { return this->whitelist_ != nullptr;};
     void deleteWhitelist() { this->whitelist_ = nullptr;};
-    inline string whitelist() const { DARABONBA_PTR_GET_DEFAULT(whitelist_, "") };
+    inline string getWhitelist() const { DARABONBA_PTR_GET_DEFAULT(whitelist_, "") };
     inline DeleteVulWhitelistRequest& setWhitelist(string whitelist) { DARABONBA_PTR_SET_VALUE(whitelist_, whitelist) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The ID of the whitelist.
     // 
     // >  To delete a vulnerability whitelist, you must provide the ID of the whitelist. You can call the [DescribeVulWhitelist](~~DescribeVulWhitelist~~) operation to query the IDs of whitelists.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // The information about the whitelist. The value is a JSON string that contains the following fields:
     // 
     // *   **Name**: the name of the vulnerability.
@@ -65,7 +65,7 @@ namespace Models
     //     *   **emg**: urgent vulnerability
     // 
     // *   **AliasName**: the alias of the vulnerability.
-    std::shared_ptr<string> whitelist_ = nullptr;
+    shared_ptr<string> whitelist_ {};
   };
 
   } // namespace Models

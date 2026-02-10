@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->tag_ == nullptr
-        && return this->tagValue_ == nullptr; };
+        && this->tagValue_ == nullptr; };
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline string tag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
+    inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
     inline DescribeClientConfStrategyRequest& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
 
 
     // tagValue Field Functions 
     bool hasTagValue() const { return this->tagValue_ != nullptr;};
     void deleteTagValue() { this->tagValue_ = nullptr;};
-    inline string tagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
+    inline string getTagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
     inline DescribeClientConfStrategyRequest& setTagValue(string tagValue) { DARABONBA_PTR_SET_VALUE(tagValue_, tagValue) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The tag that is added to the server.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tag_ = nullptr;
+    shared_ptr<string> tag_ {};
     // The value of the tag. Valid values:
     // 
     // *   major
@@ -59,7 +59,7 @@ namespace Models
     // *   basic
     // 
     // This parameter is required.
-    std::shared_ptr<string> tagValue_ = nullptr;
+    shared_ptr<string> tagValue_ {};
   };
 
   } // namespace Models

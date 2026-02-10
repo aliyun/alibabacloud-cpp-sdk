@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->operationAll_ == nullptr
-        && return this->operationCode_ == nullptr && return this->operationRange_ == nullptr; };
+        && this->operationCode_ == nullptr && this->operationRange_ == nullptr; };
     // operationAll Field Functions 
     bool hasOperationAll() const { return this->operationAll_ != nullptr;};
     void deleteOperationAll() { this->operationAll_ = nullptr;};
-    inline int32_t operationAll() const { DARABONBA_PTR_GET_DEFAULT(operationAll_, 0) };
+    inline int32_t getOperationAll() const { DARABONBA_PTR_GET_DEFAULT(operationAll_, 0) };
     inline OperateVirusEventsRequest& setOperationAll(int32_t operationAll) { DARABONBA_PTR_SET_VALUE(operationAll_, operationAll) };
 
 
     // operationCode Field Functions 
     bool hasOperationCode() const { return this->operationCode_ != nullptr;};
     void deleteOperationCode() { this->operationCode_ = nullptr;};
-    inline string operationCode() const { DARABONBA_PTR_GET_DEFAULT(operationCode_, "") };
+    inline string getOperationCode() const { DARABONBA_PTR_GET_DEFAULT(operationCode_, "") };
     inline OperateVirusEventsRequest& setOperationCode(string operationCode) { DARABONBA_PTR_SET_VALUE(operationCode_, operationCode) };
 
 
     // operationRange Field Functions 
     bool hasOperationRange() const { return this->operationRange_ != nullptr;};
     void deleteOperationRange() { this->operationRange_ = nullptr;};
-    inline string operationRange() const { DARABONBA_PTR_GET_DEFAULT(operationRange_, "") };
+    inline string getOperationRange() const { DARABONBA_PTR_GET_DEFAULT(operationRange_, "") };
     inline OperateVirusEventsRequest& setOperationRange(string operationRange) { DARABONBA_PTR_SET_VALUE(operationRange_, operationRange) };
 
 
@@ -63,7 +63,7 @@ namespace Models
     // *   **0**: no
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> operationAll_ = nullptr;
+    shared_ptr<int32_t> operationAll_ {};
     // The operation that you want to perform on the alert events. Valid values:
     // 
     // *   **default**: performs in-depth detection and removal
@@ -72,9 +72,9 @@ namespace Models
     // *   **manual_handled**: marks the alert events as manually handled
     // 
     // This parameter is required.
-    std::shared_ptr<string> operationCode_ = nullptr;
+    shared_ptr<string> operationCode_ {};
     // The handling scope.
-    std::shared_ptr<string> operationRange_ = nullptr;
+    shared_ptr<string> operationRange_ {};
   };
 
   } // namespace Models

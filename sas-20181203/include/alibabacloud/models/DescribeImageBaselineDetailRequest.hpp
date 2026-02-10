@@ -34,38 +34,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->baselineItemKey_ == nullptr
-        && return this->imageUuid_ == nullptr && return this->lang_ == nullptr; };
+        && this->imageUuid_ == nullptr && this->lang_ == nullptr; };
     // baselineItemKey Field Functions 
     bool hasBaselineItemKey() const { return this->baselineItemKey_ != nullptr;};
     void deleteBaselineItemKey() { this->baselineItemKey_ = nullptr;};
-    inline string baselineItemKey() const { DARABONBA_PTR_GET_DEFAULT(baselineItemKey_, "") };
+    inline string getBaselineItemKey() const { DARABONBA_PTR_GET_DEFAULT(baselineItemKey_, "") };
     inline DescribeImageBaselineDetailRequest& setBaselineItemKey(string baselineItemKey) { DARABONBA_PTR_SET_VALUE(baselineItemKey_, baselineItemKey) };
 
 
     // imageUuid Field Functions 
     bool hasImageUuid() const { return this->imageUuid_ != nullptr;};
     void deleteImageUuid() { this->imageUuid_ = nullptr;};
-    inline string imageUuid() const { DARABONBA_PTR_GET_DEFAULT(imageUuid_, "") };
+    inline string getImageUuid() const { DARABONBA_PTR_GET_DEFAULT(imageUuid_, "") };
     inline DescribeImageBaselineDetailRequest& setImageUuid(string imageUuid) { DARABONBA_PTR_SET_VALUE(imageUuid_, imageUuid) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeImageBaselineDetailRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
     // The information about the baseline.
-    std::shared_ptr<string> baselineItemKey_ = nullptr;
+    shared_ptr<string> baselineItemKey_ {};
     // The UUID of the image.
-    std::shared_ptr<string> imageUuid_ = nullptr;
+    shared_ptr<string> imageUuid_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

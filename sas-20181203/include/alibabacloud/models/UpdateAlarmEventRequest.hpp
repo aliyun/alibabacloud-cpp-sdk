@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alarmEventIdList_ == nullptr
-        && return this->lang_ == nullptr && return this->operationCode_ == nullptr; };
+        && this->lang_ == nullptr && this->operationCode_ == nullptr; };
     // alarmEventIdList Field Functions 
     bool hasAlarmEventIdList() const { return this->alarmEventIdList_ != nullptr;};
     void deleteAlarmEventIdList() { this->alarmEventIdList_ = nullptr;};
-    inline const vector<int64_t> & alarmEventIdList() const { DARABONBA_PTR_GET_CONST(alarmEventIdList_, vector<int64_t>) };
-    inline vector<int64_t> alarmEventIdList() { DARABONBA_PTR_GET(alarmEventIdList_, vector<int64_t>) };
+    inline const vector<int64_t> & getAlarmEventIdList() const { DARABONBA_PTR_GET_CONST(alarmEventIdList_, vector<int64_t>) };
+    inline vector<int64_t> getAlarmEventIdList() { DARABONBA_PTR_GET(alarmEventIdList_, vector<int64_t>) };
     inline UpdateAlarmEventRequest& setAlarmEventIdList(const vector<int64_t> & alarmEventIdList) { DARABONBA_PTR_SET_VALUE(alarmEventIdList_, alarmEventIdList) };
     inline UpdateAlarmEventRequest& setAlarmEventIdList(vector<int64_t> && alarmEventIdList) { DARABONBA_PTR_SET_RVALUE(alarmEventIdList_, alarmEventIdList) };
 
@@ -48,31 +48,31 @@ namespace Models
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline UpdateAlarmEventRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // operationCode Field Functions 
     bool hasOperationCode() const { return this->operationCode_ != nullptr;};
     void deleteOperationCode() { this->operationCode_ = nullptr;};
-    inline string operationCode() const { DARABONBA_PTR_GET_DEFAULT(operationCode_, "") };
+    inline string getOperationCode() const { DARABONBA_PTR_GET_DEFAULT(operationCode_, "") };
     inline UpdateAlarmEventRequest& setOperationCode(string operationCode) { DARABONBA_PTR_SET_VALUE(operationCode_, operationCode) };
 
 
   protected:
     // The IDs of the alert events.
-    std::shared_ptr<vector<int64_t>> alarmEventIdList_ = nullptr;
+    shared_ptr<vector<int64_t>> alarmEventIdList_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The operation that you want to perform on the alert events. Valid values:
     // 
     // *   **manual_handled**: handle the alert events.
     // *   **ignore**: igore the alert events.
     // *   **cancel_ignore**: remove the alert events from the whitelist.
-    std::shared_ptr<string> operationCode_ = nullptr;
+    shared_ptr<string> operationCode_ {};
   };
 
   } // namespace Models

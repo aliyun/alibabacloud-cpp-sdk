@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->dstTargetShrink_ == nullptr && return this->interceptType_ == nullptr && return this->orderIndex_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr
-        && return this->ruleSwitch_ == nullptr && return this->srcTargetShrink_ == nullptr; };
+        && this->dstTargetShrink_ == nullptr && this->interceptType_ == nullptr && this->orderIndex_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr
+        && this->ruleSwitch_ == nullptr && this->srcTargetShrink_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ModifyInterceptionRuleShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // dstTargetShrink Field Functions 
     bool hasDstTargetShrink() const { return this->dstTargetShrink_ != nullptr;};
     void deleteDstTargetShrink() { this->dstTargetShrink_ = nullptr;};
-    inline string dstTargetShrink() const { DARABONBA_PTR_GET_DEFAULT(dstTargetShrink_, "") };
+    inline string getDstTargetShrink() const { DARABONBA_PTR_GET_DEFAULT(dstTargetShrink_, "") };
     inline ModifyInterceptionRuleShrinkRequest& setDstTargetShrink(string dstTargetShrink) { DARABONBA_PTR_SET_VALUE(dstTargetShrink_, dstTargetShrink) };
 
 
     // interceptType Field Functions 
     bool hasInterceptType() const { return this->interceptType_ != nullptr;};
     void deleteInterceptType() { this->interceptType_ = nullptr;};
-    inline int32_t interceptType() const { DARABONBA_PTR_GET_DEFAULT(interceptType_, 0) };
+    inline int32_t getInterceptType() const { DARABONBA_PTR_GET_DEFAULT(interceptType_, 0) };
     inline ModifyInterceptionRuleShrinkRequest& setInterceptType(int32_t interceptType) { DARABONBA_PTR_SET_VALUE(interceptType_, interceptType) };
 
 
     // orderIndex Field Functions 
     bool hasOrderIndex() const { return this->orderIndex_ != nullptr;};
     void deleteOrderIndex() { this->orderIndex_ = nullptr;};
-    inline int64_t orderIndex() const { DARABONBA_PTR_GET_DEFAULT(orderIndex_, 0L) };
+    inline int64_t getOrderIndex() const { DARABONBA_PTR_GET_DEFAULT(orderIndex_, 0L) };
     inline ModifyInterceptionRuleShrinkRequest& setOrderIndex(int64_t orderIndex) { DARABONBA_PTR_SET_VALUE(orderIndex_, orderIndex) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline int64_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
+    inline int64_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
     inline ModifyInterceptionRuleShrinkRequest& setRuleId(int64_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline ModifyInterceptionRuleShrinkRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // ruleSwitch Field Functions 
     bool hasRuleSwitch() const { return this->ruleSwitch_ != nullptr;};
     void deleteRuleSwitch() { this->ruleSwitch_ = nullptr;};
-    inline int32_t ruleSwitch() const { DARABONBA_PTR_GET_DEFAULT(ruleSwitch_, 0) };
+    inline int32_t getRuleSwitch() const { DARABONBA_PTR_GET_DEFAULT(ruleSwitch_, 0) };
     inline ModifyInterceptionRuleShrinkRequest& setRuleSwitch(int32_t ruleSwitch) { DARABONBA_PTR_SET_VALUE(ruleSwitch_, ruleSwitch) };
 
 
     // srcTargetShrink Field Functions 
     bool hasSrcTargetShrink() const { return this->srcTargetShrink_ != nullptr;};
     void deleteSrcTargetShrink() { this->srcTargetShrink_ = nullptr;};
-    inline string srcTargetShrink() const { DARABONBA_PTR_GET_DEFAULT(srcTargetShrink_, "") };
+    inline string getSrcTargetShrink() const { DARABONBA_PTR_GET_DEFAULT(srcTargetShrink_, "") };
     inline ModifyInterceptionRuleShrinkRequest& setSrcTargetShrink(string srcTargetShrink) { DARABONBA_PTR_SET_VALUE(srcTargetShrink_, srcTargetShrink) };
 
 
@@ -106,35 +106,35 @@ namespace Models
     // The ID of the container cluster.
     // 
     // > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of container clusters.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The destination objects of the rule. The following parameters are included:
     // 
     // *   targetId: the ID of the destination object. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the ID.
     // *   ports: the destination port ranges.
-    std::shared_ptr<string> dstTargetShrink_ = nullptr;
+    shared_ptr<string> dstTargetShrink_ {};
     // The interception mode. Valid values:
     // 
     // *   **1**: block
     // *   **2**: alert
     // *   **3**: allow
-    std::shared_ptr<int32_t> interceptType_ = nullptr;
+    shared_ptr<int32_t> interceptType_ {};
     // The priority of the rule. Valid values: 1 to 1000. A smaller value indicates a higher priority.
-    std::shared_ptr<int64_t> orderIndex_ = nullptr;
+    shared_ptr<int64_t> orderIndex_ {};
     // The ID of the rule.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> ruleId_ = nullptr;
+    shared_ptr<int64_t> ruleId_ {};
     // The name of the rule.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // Specifies whether the rule is enabled. Valid values:
     // 
     // *   **1**: enabled
     // *   **0**: disabled
-    std::shared_ptr<int32_t> ruleSwitch_ = nullptr;
+    shared_ptr<int32_t> ruleSwitch_ {};
     // The source object of the rule. The following parameters are included:
     // 
     // *   targetId: the ID of the source object. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the ID.
-    std::shared_ptr<string> srcTargetShrink_ = nullptr;
+    shared_ptr<string> srcTargetShrink_ {};
   };
 
   } // namespace Models

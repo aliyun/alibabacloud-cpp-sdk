@@ -42,72 +42,72 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->completedTime_ == nullptr
-        && return this->createdTime_ == nullptr && return this->description_ == nullptr && return this->progress_ == nullptr && return this->requestId_ == nullptr && return this->result_ == nullptr
-        && return this->updatedTime_ == nullptr; };
+        && this->createdTime_ == nullptr && this->description_ == nullptr && this->progress_ == nullptr && this->requestId_ == nullptr && this->result_ == nullptr
+        && this->updatedTime_ == nullptr; };
     // completedTime Field Functions 
     bool hasCompletedTime() const { return this->completedTime_ != nullptr;};
     void deleteCompletedTime() { this->completedTime_ = nullptr;};
-    inline int64_t completedTime() const { DARABONBA_PTR_GET_DEFAULT(completedTime_, 0L) };
+    inline int64_t getCompletedTime() const { DARABONBA_PTR_GET_DEFAULT(completedTime_, 0L) };
     inline QueryPreCheckDatabaseResponseBody& setCompletedTime(int64_t completedTime) { DARABONBA_PTR_SET_VALUE(completedTime_, completedTime) };
 
 
     // createdTime Field Functions 
     bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
     void deleteCreatedTime() { this->createdTime_ = nullptr;};
-    inline int64_t createdTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, 0L) };
+    inline int64_t getCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, 0L) };
     inline QueryPreCheckDatabaseResponseBody& setCreatedTime(int64_t createdTime) { DARABONBA_PTR_SET_VALUE(createdTime_, createdTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline QueryPreCheckDatabaseResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // progress Field Functions 
     bool hasProgress() const { return this->progress_ != nullptr;};
     void deleteProgress() { this->progress_ = nullptr;};
-    inline int32_t progress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
+    inline int32_t getProgress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
     inline QueryPreCheckDatabaseResponseBody& setProgress(int32_t progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryPreCheckDatabaseResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline string result() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
+    inline string getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
     inline QueryPreCheckDatabaseResponseBody& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
     // updatedTime Field Functions 
     bool hasUpdatedTime() const { return this->updatedTime_ != nullptr;};
     void deleteUpdatedTime() { this->updatedTime_ = nullptr;};
-    inline int64_t updatedTime() const { DARABONBA_PTR_GET_DEFAULT(updatedTime_, 0L) };
+    inline int64_t getUpdatedTime() const { DARABONBA_PTR_GET_DEFAULT(updatedTime_, 0L) };
     inline QueryPreCheckDatabaseResponseBody& setUpdatedTime(int64_t updatedTime) { DARABONBA_PTR_SET_VALUE(updatedTime_, updatedTime) };
 
 
   protected:
     // The time when the precheck task was complete.
-    std::shared_ptr<int64_t> completedTime_ = nullptr;
+    shared_ptr<int64_t> completedTime_ {};
     // The time when the precheck task was started.
-    std::shared_ptr<int64_t> createdTime_ = nullptr;
+    shared_ptr<int64_t> createdTime_ {};
     // The status of the precheck task. Valid values:
     // 
     // *   **completed**: complete
     // *   **created**: started
     // *   **error**: failed
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The precheck progress in percentage. Valid values: 0 to 100.
-    std::shared_ptr<int32_t> progress_ = nullptr;
+    shared_ptr<int32_t> progress_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The result of the precheck task. The value is a JSON string that contains the following fields:
     // 
     // *   **instanceId**: the ID of the server that hosts the database
@@ -144,9 +144,9 @@ namespace Models
     //     *   **SERVICE_CONNECTIVITY**: control network connectivity check
     //     *   **MYSQL_VERSION**: Supports full backup version checking
     //     *   **MYSQL_BINLOG**: BINLOG check
-    std::shared_ptr<string> result_ = nullptr;
+    shared_ptr<string> result_ {};
     // The time when the precheck task was last updated.
-    std::shared_ptr<int64_t> updatedTime_ = nullptr;
+    shared_ptr<int64_t> updatedTime_ {};
   };
 
   } // namespace Models

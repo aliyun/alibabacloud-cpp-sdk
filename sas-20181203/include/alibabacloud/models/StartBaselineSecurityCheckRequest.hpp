@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->itemIds_ == nullptr
-        && return this->lang_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->sourceIp_ == nullptr && return this->type_ == nullptr; };
+        && this->lang_ == nullptr && this->resourceOwnerId_ == nullptr && this->sourceIp_ == nullptr && this->type_ == nullptr; };
     // itemIds Field Functions 
     bool hasItemIds() const { return this->itemIds_ != nullptr;};
     void deleteItemIds() { this->itemIds_ = nullptr;};
-    inline const vector<int64_t> & itemIds() const { DARABONBA_PTR_GET_CONST(itemIds_, vector<int64_t>) };
-    inline vector<int64_t> itemIds() { DARABONBA_PTR_GET(itemIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getItemIds() const { DARABONBA_PTR_GET_CONST(itemIds_, vector<int64_t>) };
+    inline vector<int64_t> getItemIds() { DARABONBA_PTR_GET(itemIds_, vector<int64_t>) };
     inline StartBaselineSecurityCheckRequest& setItemIds(const vector<int64_t> & itemIds) { DARABONBA_PTR_SET_VALUE(itemIds_, itemIds) };
     inline StartBaselineSecurityCheckRequest& setItemIds(vector<int64_t> && itemIds) { DARABONBA_PTR_SET_RVALUE(itemIds_, itemIds) };
 
@@ -52,28 +52,28 @@ namespace Models
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline StartBaselineSecurityCheckRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline StartBaselineSecurityCheckRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline StartBaselineSecurityCheckRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline StartBaselineSecurityCheckRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -81,22 +81,22 @@ namespace Models
     // The IDs of the check items.
     // 
     // > To perform a check task on cloud service configurations, you must specify the ID of the check item. You can call the [DescribeRiskItemType](~~DescribeRiskItemType~~) operation to query the IDs of check items.
-    std::shared_ptr<vector<int64_t>> itemIds_ = nullptr;
+    shared_ptr<vector<int64_t>> itemIds_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> lang_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The type of the check task. Valid values:
     // 
     // *   **check**
     // *   **verify**
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

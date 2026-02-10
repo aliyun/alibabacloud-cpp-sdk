@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->controlNodeId_ == nullptr
-        && return this->lang_ == nullptr && return this->probeType_ == nullptr; };
+        && this->lang_ == nullptr && this->probeType_ == nullptr; };
     // controlNodeId Field Functions 
     bool hasControlNodeId() const { return this->controlNodeId_ != nullptr;};
     void deleteControlNodeId() { this->controlNodeId_ = nullptr;};
-    inline string controlNodeId() const { DARABONBA_PTR_GET_DEFAULT(controlNodeId_, "") };
+    inline string getControlNodeId() const { DARABONBA_PTR_GET_DEFAULT(controlNodeId_, "") };
     inline ListHoneypotProbeUuidRequest& setControlNodeId(string controlNodeId) { DARABONBA_PTR_SET_VALUE(controlNodeId_, controlNodeId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ListHoneypotProbeUuidRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // probeType Field Functions 
     bool hasProbeType() const { return this->probeType_ != nullptr;};
     void deleteProbeType() { this->probeType_ = nullptr;};
-    inline string probeType() const { DARABONBA_PTR_GET_DEFAULT(probeType_, "") };
+    inline string getProbeType() const { DARABONBA_PTR_GET_DEFAULT(probeType_, "") };
     inline ListHoneypotProbeUuidRequest& setProbeType(string probeType) { DARABONBA_PTR_SET_VALUE(probeType_, probeType) };
 
 
@@ -60,17 +60,17 @@ namespace Models
     // The ID of the management node.
     // 
     // >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the ID.
-    std::shared_ptr<string> controlNodeId_ = nullptr;
+    shared_ptr<string> controlNodeId_ {};
     // The language of the content within the request and the response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The type of the probe. Valid values:
     // 
     // *   **host_probe**: host probe
     // *   **vpc_black_hole_probe**: virtual private cloud (VPC) probe
-    std::shared_ptr<string> probeType_ = nullptr;
+    shared_ptr<string> probeType_ {};
   };
 
   } // namespace Models

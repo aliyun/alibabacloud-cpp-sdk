@@ -34,38 +34,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->scanTaskProgress_ == nullptr && return this->targetInfo_ == nullptr; };
+        && this->scanTaskProgress_ == nullptr && this->targetInfo_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeScanTaskProgressResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // scanTaskProgress Field Functions 
     bool hasScanTaskProgress() const { return this->scanTaskProgress_ != nullptr;};
     void deleteScanTaskProgress() { this->scanTaskProgress_ = nullptr;};
-    inline string scanTaskProgress() const { DARABONBA_PTR_GET_DEFAULT(scanTaskProgress_, "") };
+    inline string getScanTaskProgress() const { DARABONBA_PTR_GET_DEFAULT(scanTaskProgress_, "") };
     inline DescribeScanTaskProgressResponseBody& setScanTaskProgress(string scanTaskProgress) { DARABONBA_PTR_SET_VALUE(scanTaskProgress_, scanTaskProgress) };
 
 
     // targetInfo Field Functions 
     bool hasTargetInfo() const { return this->targetInfo_ != nullptr;};
     void deleteTargetInfo() { this->targetInfo_ = nullptr;};
-    inline string targetInfo() const { DARABONBA_PTR_GET_DEFAULT(targetInfo_, "") };
+    inline string getTargetInfo() const { DARABONBA_PTR_GET_DEFAULT(targetInfo_, "") };
     inline DescribeScanTaskProgressResponseBody& setTargetInfo(string targetInfo) { DARABONBA_PTR_SET_VALUE(targetInfo_, targetInfo) };
 
 
   protected:
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The progress of the virus scan task. Valid values:
     // 
     // *   **init**: The task is being initialized.
     // *   **Processing**: The task is running.
     // *   **Success**: The task is complete.
     // *   **Failed**: The task fails.
-    std::shared_ptr<string> scanTaskProgress_ = nullptr;
+    shared_ptr<string> scanTaskProgress_ {};
     // The information about the asset on which the virus scan task runs. The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
     // 
     // *   **type**: the type of the asset on which you want to perform a virus scan task. Valid values:
@@ -79,7 +79,7 @@ namespace Models
     // 
     //     *   If the **type** field is set to **groupId**, the value of this field is the ID of the server group.
     //     *   If the **type** field is set to **uuid**, the value of this field is the universally unique identifier (UUID) of the server.
-    std::shared_ptr<string> targetInfo_ = nullptr;
+    shared_ptr<string> targetInfo_ {};
   };
 
   } // namespace Models

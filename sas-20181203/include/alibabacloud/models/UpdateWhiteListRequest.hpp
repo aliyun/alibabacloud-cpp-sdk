@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->registryId_ == nullptr
-        && return this->whiteList_ == nullptr; };
+        && this->whiteList_ == nullptr; };
     // registryId Field Functions 
     bool hasRegistryId() const { return this->registryId_ != nullptr;};
     void deleteRegistryId() { this->registryId_ = nullptr;};
-    inline int64_t registryId() const { DARABONBA_PTR_GET_DEFAULT(registryId_, 0L) };
+    inline int64_t getRegistryId() const { DARABONBA_PTR_GET_DEFAULT(registryId_, 0L) };
     inline UpdateWhiteListRequest& setRegistryId(int64_t registryId) { DARABONBA_PTR_SET_VALUE(registryId_, registryId) };
 
 
     // whiteList Field Functions 
     bool hasWhiteList() const { return this->whiteList_ != nullptr;};
     void deleteWhiteList() { this->whiteList_ = nullptr;};
-    inline string whiteList() const { DARABONBA_PTR_GET_DEFAULT(whiteList_, "") };
+    inline string getWhiteList() const { DARABONBA_PTR_GET_DEFAULT(whiteList_, "") };
     inline UpdateWhiteListRequest& setWhiteList(string whiteList) { DARABONBA_PTR_SET_VALUE(whiteList_, whiteList) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // >  You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> registryId_ = nullptr;
+    shared_ptr<int64_t> registryId_ {};
     // The IP address whitelist. Separate multiple IP addresses with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> whiteList_ = nullptr;
+    shared_ptr<string> whiteList_ {};
   };
 
   } // namespace Models

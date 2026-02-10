@@ -41,33 +41,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->pageSize_ == nullptr && return this->registryNameLike_ == nullptr && return this->registryTypeInList_ == nullptr && return this->registryTypeNotInList_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->pageSize_ == nullptr && this->registryNameLike_ == nullptr && this->registryTypeInList_ == nullptr && this->registryTypeNotInList_ == nullptr && this->sourceIp_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline PageImageRegistryRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline PageImageRegistryRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // registryNameLike Field Functions 
     bool hasRegistryNameLike() const { return this->registryNameLike_ != nullptr;};
     void deleteRegistryNameLike() { this->registryNameLike_ = nullptr;};
-    inline string registryNameLike() const { DARABONBA_PTR_GET_DEFAULT(registryNameLike_, "") };
+    inline string getRegistryNameLike() const { DARABONBA_PTR_GET_DEFAULT(registryNameLike_, "") };
     inline PageImageRegistryRequest& setRegistryNameLike(string registryNameLike) { DARABONBA_PTR_SET_VALUE(registryNameLike_, registryNameLike) };
 
 
     // registryTypeInList Field Functions 
     bool hasRegistryTypeInList() const { return this->registryTypeInList_ != nullptr;};
     void deleteRegistryTypeInList() { this->registryTypeInList_ = nullptr;};
-    inline const vector<string> & registryTypeInList() const { DARABONBA_PTR_GET_CONST(registryTypeInList_, vector<string>) };
-    inline vector<string> registryTypeInList() { DARABONBA_PTR_GET(registryTypeInList_, vector<string>) };
+    inline const vector<string> & getRegistryTypeInList() const { DARABONBA_PTR_GET_CONST(registryTypeInList_, vector<string>) };
+    inline vector<string> getRegistryTypeInList() { DARABONBA_PTR_GET(registryTypeInList_, vector<string>) };
     inline PageImageRegistryRequest& setRegistryTypeInList(const vector<string> & registryTypeInList) { DARABONBA_PTR_SET_VALUE(registryTypeInList_, registryTypeInList) };
     inline PageImageRegistryRequest& setRegistryTypeInList(vector<string> && registryTypeInList) { DARABONBA_PTR_SET_RVALUE(registryTypeInList_, registryTypeInList) };
 
@@ -75,8 +75,8 @@ namespace Models
     // registryTypeNotInList Field Functions 
     bool hasRegistryTypeNotInList() const { return this->registryTypeNotInList_ != nullptr;};
     void deleteRegistryTypeNotInList() { this->registryTypeNotInList_ = nullptr;};
-    inline const vector<string> & registryTypeNotInList() const { DARABONBA_PTR_GET_CONST(registryTypeNotInList_, vector<string>) };
-    inline vector<string> registryTypeNotInList() { DARABONBA_PTR_GET(registryTypeNotInList_, vector<string>) };
+    inline const vector<string> & getRegistryTypeNotInList() const { DARABONBA_PTR_GET_CONST(registryTypeNotInList_, vector<string>) };
+    inline vector<string> getRegistryTypeNotInList() { DARABONBA_PTR_GET(registryTypeNotInList_, vector<string>) };
     inline PageImageRegistryRequest& setRegistryTypeNotInList(const vector<string> & registryTypeNotInList) { DARABONBA_PTR_SET_VALUE(registryTypeNotInList_, registryTypeNotInList) };
     inline PageImageRegistryRequest& setRegistryTypeNotInList(vector<string> && registryTypeNotInList) { DARABONBA_PTR_SET_RVALUE(registryTypeNotInList_, registryTypeNotInList) };
 
@@ -84,23 +84,23 @@ namespace Models
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline PageImageRegistryRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
   protected:
     // The number of the page to return.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The number of entries to return on each page. Default value: 20.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The name of the image repository. Fuzzy match is supported.
-    std::shared_ptr<string> registryNameLike_ = nullptr;
+    shared_ptr<string> registryNameLike_ {};
     // The types of image repositories.
-    std::shared_ptr<vector<string>> registryTypeInList_ = nullptr;
+    shared_ptr<vector<string>> registryTypeInList_ {};
     // The types of excluded image repositories.
-    std::shared_ptr<vector<string>> registryTypeNotInList_ = nullptr;
+    shared_ptr<vector<string>> registryTypeNotInList_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

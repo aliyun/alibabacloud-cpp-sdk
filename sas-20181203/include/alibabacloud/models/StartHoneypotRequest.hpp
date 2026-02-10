@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->honeypotId_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // honeypotId Field Functions 
     bool hasHoneypotId() const { return this->honeypotId_ != nullptr;};
     void deleteHoneypotId() { this->honeypotId_ = nullptr;};
-    inline string honeypotId() const { DARABONBA_PTR_GET_DEFAULT(honeypotId_, "") };
+    inline string getHoneypotId() const { DARABONBA_PTR_GET_DEFAULT(honeypotId_, "") };
     inline StartHoneypotRequest& setHoneypotId(string honeypotId) { DARABONBA_PTR_SET_VALUE(honeypotId_, honeypotId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline StartHoneypotRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
@@ -53,12 +53,12 @@ namespace Models
     // >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
     // 
     // This parameter is required.
-    std::shared_ptr<string> honeypotId_ = nullptr;
+    shared_ptr<string> honeypotId_ {};
     // The language of the content in the request and response messages. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

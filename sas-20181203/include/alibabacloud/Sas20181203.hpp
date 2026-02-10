@@ -607,7 +607,7 @@ namespace Sas20181203
       Models::ChangeUserLangResponse changeUserLang(const Models::ChangeUserLangRequest &request);
 
       /**
-       * @summary Checks whether one or more alert events are generated on a specified server based on the IDs of the alert events.
+       * @summary Checks whether one or more alerts are generated on a specified server based on alert IDs.
        *
        * @param request CheckSecurityEventIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -616,7 +616,7 @@ namespace Sas20181203
       Models::CheckSecurityEventIdResponse checkSecurityEventIdWithOptions(const Models::CheckSecurityEventIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether one or more alert events are generated on a specified server based on the IDs of the alert events.
+       * @summary Checks whether one or more alerts are generated on a specified server based on alert IDs.
        *
        * @param request CheckSecurityEventIdRequest
        * @return CheckSecurityEventIdResponse
@@ -1770,7 +1770,7 @@ namespace Sas20181203
       Models::DeleteBackupPolicyResponse deleteBackupPolicy(const Models::DeleteBackupPolicyRequest &request);
 
       /**
-       * @summary Disables a specified anti-ransomware policy that is applied to specified servers and uninstalls the anti-ransomware agent from the servers. If the backup vaults of the servers contain only backup data of the servers, the backup vaults are deleted.
+       * @summary Deletes a server from a specified anti-ransomware policy.
        *
        * @param request DeleteBackupPolicyMachineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1779,7 +1779,7 @@ namespace Sas20181203
       Models::DeleteBackupPolicyMachineResponse deleteBackupPolicyMachineWithOptions(const Models::DeleteBackupPolicyMachineRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables a specified anti-ransomware policy that is applied to specified servers and uninstalls the anti-ransomware agent from the servers. If the backup vaults of the servers contain only backup data of the servers, the backup vaults are deleted.
+       * @summary Deletes a server from a specified anti-ransomware policy.
        *
        * @param request DeleteBackupPolicyMachineRequest
        * @return DeleteBackupPolicyMachineResponse
@@ -2762,7 +2762,7 @@ namespace Sas20181203
       Models::DescribeAgentlessSensitiveFileByKeyResponse describeAgentlessSensitiveFileByKey(const Models::DescribeAgentlessSensitiveFileByKeyRequest &request);
 
       /**
-       * @summary Queries the details of an alert event. An alert event consists of alerts and exceptions. Each alert event is associated with multiple exceptions.
+       * @summary Queries the details about an alert event. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
        *
        * @param request DescribeAlarmEventDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2771,7 +2771,7 @@ namespace Sas20181203
       Models::DescribeAlarmEventDetailResponse describeAlarmEventDetailWithOptions(const Models::DescribeAlarmEventDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an alert event. An alert event consists of alerts and exceptions. Each alert event is associated with multiple exceptions.
+       * @summary Queries the details about an alert event. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
        *
        * @param request DescribeAlarmEventDetailRequest
        * @return DescribeAlarmEventDetailResponse
@@ -2800,7 +2800,7 @@ namespace Sas20181203
       Models::DescribeAlarmEventStackInfoResponse describeAlarmEventStackInfo(const Models::DescribeAlarmEventStackInfoRequest &request);
 
       /**
-       * @summary Queries the information about all server assets, including the asset group IDs and asset names.
+       * @summary Queries the information about all assets. The information includes asset group IDs and asset names.
        *
        * @param request DescribeAllEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2809,14 +2809,14 @@ namespace Sas20181203
       Models::DescribeAllEntityResponse describeAllEntityWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about all server assets, including the asset group IDs and asset names.
+       * @summary Queries the information about all assets. The information includes asset group IDs and asset names.
        *
        * @return DescribeAllEntityResponse
        */
       Models::DescribeAllEntityResponse describeAllEntity();
 
       /**
-       * @summary Queries the information about all server groups.
+       * @summary Queries the information about server groups.
        *
        * @param request DescribeAllGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2825,7 +2825,7 @@ namespace Sas20181203
       Models::DescribeAllGroupsResponse describeAllGroupsWithOptions(const Models::DescribeAllGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about all server groups.
+       * @summary Queries the information about server groups.
        *
        * @param request DescribeAllGroupsRequest
        * @return DescribeAllGroupsResponse
@@ -3202,7 +3202,7 @@ namespace Sas20181203
       Models::DescribeBruteForceRecordsResponse describeBruteForceRecords(const Models::DescribeBruteForceRecordsRequest &request);
 
       /**
-       * @summary The source IP address of the request.
+       * @summary Queries the statistics of IP address blocking policies that are used to defend against brute-force attacks and trigger alerts.
        *
        * @param request DescribeBruteForceSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3211,7 +3211,7 @@ namespace Sas20181203
       Models::DescribeBruteForceSummaryResponse describeBruteForceSummaryWithOptions(const Models::DescribeBruteForceSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The source IP address of the request.
+       * @summary Queries the statistics of IP address blocking policies that are used to defend against brute-force attacks and trigger alerts.
        *
        * @param request DescribeBruteForceSummaryRequest
        * @return DescribeBruteForceSummaryResponse
@@ -3511,7 +3511,7 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead.
        *
-       * @summary Queries the statistics of cloud services.
+       * @summary Queries the statistics of cloud services whose instances are protected by Security Center.
        *
        * @param request DescribeCloudProductFieldStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3522,7 +3522,7 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead.
        *
-       * @summary Queries the statistics of cloud services.
+       * @summary Queries the statistics of cloud services whose instances are protected by Security Center.
        *
        * @return DescribeCloudProductFieldStatisticsResponse
        */
@@ -3546,7 +3546,7 @@ namespace Sas20181203
       Models::DescribeCloudVendorAccountAKListResponse describeCloudVendorAccountAKList(const Models::DescribeCloudVendorAccountAKListRequest &request);
 
       /**
-       * @summary 获取厂商云产品接入模板
+       * @summary Get the cloud product access template for vendors
        *
        * @param request DescribeCloudVendorProductTemplateConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3555,7 +3555,7 @@ namespace Sas20181203
       Models::DescribeCloudVendorProductTemplateConfigResponse describeCloudVendorProductTemplateConfigWithOptions(const Models::DescribeCloudVendorProductTemplateConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取厂商云产品接入模板
+       * @summary Get the cloud product access template for vendors
        *
        * @param request DescribeCloudVendorProductTemplateConfigRequest
        * @return DescribeCloudVendorProductTemplateConfigResponse
@@ -3936,7 +3936,7 @@ namespace Sas20181203
       Models::DescribeContainerServiceK8sClustersResponse describeContainerServiceK8sClusters(const Models::DescribeContainerServiceK8sClustersRequest &request);
 
       /**
-       * @summary Queries the alert statistics on container assets.
+       * @summary Queries the alert statistics of container assets.
        *
        * @description Only users who created a Container Registry Enterprise Edition instance can call this operation.
        *
@@ -3947,7 +3947,7 @@ namespace Sas20181203
       Models::DescribeContainerStatisticsResponse describeContainerStatisticsWithOptions(const Models::DescribeContainerStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the alert statistics on container assets.
+       * @summary Queries the alert statistics of container assets.
        *
        * @description Only users who created a Container Registry Enterprise Edition instance can call this operation.
        *
@@ -4809,7 +4809,7 @@ namespace Sas20181203
       Models::DescribeHcExportInfoResponse describeHcExportInfo(const Models::DescribeHcExportInfoRequest &request);
 
       /**
-       * @summary Queries statistics on the quota of honeypots.
+       * @summary Queries the statistics about the quota on honeypots.
        *
        * @param request DescribeHoneyPotAuthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4818,7 +4818,7 @@ namespace Sas20181203
       Models::DescribeHoneyPotAuthResponse describeHoneyPotAuthWithOptions(const Models::DescribeHoneyPotAuthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries statistics on the quota of honeypots.
+       * @summary Queries the statistics about the quota on honeypots.
        *
        * @param request DescribeHoneyPotAuthRequest
        * @return DescribeHoneyPotAuthResponse
@@ -4826,7 +4826,7 @@ namespace Sas20181203
       Models::DescribeHoneyPotAuthResponse describeHoneyPotAuth(const Models::DescribeHoneyPotAuthRequest &request);
 
       /**
-       * @summary Queries the top five virtual private clouds (VPCs) or assets for which alerts are most frequently generated.
+       * @summary Queries the information about top 5 virtual private clouds (VPCs) or assets for which alerts are most frequently generated.
        *
        * @param request DescribeHoneyPotSuspStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4835,7 +4835,7 @@ namespace Sas20181203
       Models::DescribeHoneyPotSuspStatisticsResponse describeHoneyPotSuspStatisticsWithOptions(const Models::DescribeHoneyPotSuspStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the top five virtual private clouds (VPCs) or assets for which alerts are most frequently generated.
+       * @summary Queries the information about top 5 virtual private clouds (VPCs) or assets for which alerts are most frequently generated.
        *
        * @param request DescribeHoneyPotSuspStatisticsRequest
        * @return DescribeHoneyPotSuspStatisticsResponse
@@ -5435,7 +5435,7 @@ namespace Sas20181203
       Models::DescribeImageSensitiveFileListResponse describeImageSensitiveFileList(const Models::DescribeImageSensitiveFileListRequest &request);
 
       /**
-       * @summary Queries the risk statistics on container images.
+       * @summary Queries the risk statistics of container images.
        *
        * @description Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
        * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
@@ -5447,7 +5447,7 @@ namespace Sas20181203
       Models::DescribeImageStatisticsResponse describeImageStatisticsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the risk statistics on container images.
+       * @summary Queries the risk statistics of container images.
        *
        * @description Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
        * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
@@ -5495,7 +5495,7 @@ namespace Sas20181203
       Models::DescribeImageVulWhiteListResponse describeImageVulWhiteList(const Models::DescribeImageVulWhiteListRequest &request);
 
       /**
-       * @summary Queries the verification codes that are used to manually install the Security Center agent.
+       * @summary Queries the verification code for you to manually install the Security Center agent.
        *
        * @param request DescribeInstallCaptchaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5504,7 +5504,7 @@ namespace Sas20181203
       Models::DescribeInstallCaptchaResponse describeInstallCaptchaWithOptions(const Models::DescribeInstallCaptchaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the verification codes that are used to manually install the Security Center agent.
+       * @summary Queries the verification code for you to manually install the Security Center agent.
        *
        * @param request DescribeInstallCaptchaRequest
        * @return DescribeInstallCaptchaResponse
@@ -5569,7 +5569,7 @@ namespace Sas20181203
       Models::DescribeInstanceAntiBruteForceRulesResponse describeInstanceAntiBruteForceRules(const Models::DescribeInstanceAntiBruteForceRulesRequest &request);
 
       /**
-       * @summary Queries the status of the instance that you restart.
+       * @summary Queries the status of the servers that you restart.
        *
        * @param request DescribeInstanceRebootStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5578,7 +5578,7 @@ namespace Sas20181203
       Models::DescribeInstanceRebootStatusResponse describeInstanceRebootStatusWithOptions(const Models::DescribeInstanceRebootStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of the instance that you restart.
+       * @summary Queries the status of the servers that you restart.
        *
        * @param request DescribeInstanceRebootStatusRequest
        * @return DescribeInstanceRebootStatusResponse
@@ -5922,7 +5922,7 @@ namespace Sas20181203
       Models::DescribePropertyCountResponse describePropertyCount(const Models::DescribePropertyCountRequest &request);
 
       /**
-       * @summary Queries the details of scheduled tasks on the Host page.
+       * @summary Query Asset Fingerprint Scheduled Task Details
        *
        * @param request DescribePropertyCronDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5931,7 +5931,7 @@ namespace Sas20181203
       Models::DescribePropertyCronDetailResponse describePropertyCronDetailWithOptions(const Models::DescribePropertyCronDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of scheduled tasks on the Host page.
+       * @summary Query Asset Fingerprint Scheduled Task Details
        *
        * @param request DescribePropertyCronDetailRequest
        * @return DescribePropertyCronDetailResponse
@@ -5956,7 +5956,7 @@ namespace Sas20181203
       Models::DescribePropertyCronItemResponse describePropertyCronItem(const Models::DescribePropertyCronItemRequest &request);
 
       /**
-       * @summary Queries the fingerprints of ports on a specified server.
+       * @summary Query Details of Asset Fingerprint Port Collection
        *
        * @param request DescribePropertyPortDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5965,7 +5965,7 @@ namespace Sas20181203
       Models::DescribePropertyPortDetailResponse describePropertyPortDetailWithOptions(const Models::DescribePropertyPortDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the fingerprints of ports on a specified server.
+       * @summary Query Details of Asset Fingerprint Port Collection
        *
        * @param request DescribePropertyPortDetailRequest
        * @return DescribePropertyPortDetailResponse
@@ -5990,7 +5990,7 @@ namespace Sas20181203
       Models::DescribePropertyPortItemResponse describePropertyPortItem(const Models::DescribePropertyPortItemRequest &request);
 
       /**
-       * @summary Queries the fingerprints of processes on a specified server.
+       * @summary Query Details of Asset Fingerprint Collection Process
        *
        * @param request DescribePropertyProcDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5999,7 +5999,7 @@ namespace Sas20181203
       Models::DescribePropertyProcDetailResponse describePropertyProcDetailWithOptions(const Models::DescribePropertyProcDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the fingerprints of processes on a specified server.
+       * @summary Query Details of Asset Fingerprint Collection Process
        *
        * @param request DescribePropertyProcDetailRequest
        * @return DescribePropertyProcDetailResponse
@@ -6024,7 +6024,7 @@ namespace Sas20181203
       Models::DescribePropertyProcItemResponse describePropertyProcItem(const Models::DescribePropertyProcItemRequest &request);
 
       /**
-       * @summary Queries middleware fingerprints.
+       * @summary Query Asset Fingerprint Collection Middleware Details
        *
        * @param request DescribePropertyScaDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6033,7 +6033,7 @@ namespace Sas20181203
       Models::DescribePropertyScaDetailResponse describePropertyScaDetailWithOptions(const Models::DescribePropertyScaDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries middleware fingerprints.
+       * @summary Query Asset Fingerprint Collection Middleware Details
        *
        * @param request DescribePropertyScaDetailRequest
        * @return DescribePropertyScaDetailResponse
@@ -6092,7 +6092,7 @@ namespace Sas20181203
       Models::DescribePropertyScheduleConfigResponse describePropertyScheduleConfig(const Models::DescribePropertyScheduleConfigRequest &request);
 
       /**
-       * @summary Queries the details of a software asset.
+       * @summary Query details of asset fingerprint software collection
        *
        * @param request DescribePropertySoftwareDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6101,7 +6101,7 @@ namespace Sas20181203
       Models::DescribePropertySoftwareDetailResponse describePropertySoftwareDetailWithOptions(const Models::DescribePropertySoftwareDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a software asset.
+       * @summary Query details of asset fingerprint software collection
        *
        * @param request DescribePropertySoftwareDetailRequest
        * @return DescribePropertySoftwareDetailResponse
@@ -6164,7 +6164,7 @@ namespace Sas20181203
       Models::DescribePropertyUsageTopResponse describePropertyUsageTop(const Models::DescribePropertyUsageTopRequest &request);
 
       /**
-       * @summary Queries the asset fingerprints for an account to which a server belongs.
+       * @summary Query asset fingerprint user details
        *
        * @param request DescribePropertyUserDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6173,7 +6173,7 @@ namespace Sas20181203
       Models::DescribePropertyUserDetailResponse describePropertyUserDetailWithOptions(const Models::DescribePropertyUserDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the asset fingerprints for an account to which a server belongs.
+       * @summary Query asset fingerprint user details
        *
        * @param request DescribePropertyUserDetailRequest
        * @return DescribePropertyUserDetailResponse
@@ -6341,7 +6341,7 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI DescribeRiskCheckSummary is deprecated
        *
-       * @summary Queries the summary information about the check results of cloud service configurations. The information includes the number of risk items, the risk rate, the number of affected assets, the check time, and the statistics for each type of check item.
+       * @summary Queries the summary information about the check results of cloud service configurations. The information includes the number of risk items, the risk rate, the number of affected assets, the check time, and the statistics about each type of check items.
        *
        * @description This operation is phased out. You can use the GetCheckSummary operation.
        *
@@ -6354,7 +6354,7 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI DescribeRiskCheckSummary is deprecated
        *
-       * @summary Queries the summary information about the check results of cloud service configurations. The information includes the number of risk items, the risk rate, the number of affected assets, the check time, and the statistics for each type of check item.
+       * @summary Queries the summary information about the check results of cloud service configurations. The information includes the number of risk items, the risk rate, the number of affected assets, the check time, and the statistics about each type of check items.
        *
        * @description This operation is phased out. You can use the GetCheckSummary operation.
        *
@@ -6448,7 +6448,7 @@ namespace Sas20181203
       Models::DescribeRisksResponse describeRisks(const Models::DescribeRisksRequest &request);
 
       /**
-       * @summary Queries the servers on which you want to install Cloud Assistant or the CloudMonitor agent.
+       * @summary Queries the servers on which you want to install the CloudMonitor agent.
        *
        * @param request DescribeSasPmAgentListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6457,7 +6457,7 @@ namespace Sas20181203
       Models::DescribeSasPmAgentListResponse describeSasPmAgentListWithOptions(const Models::DescribeSasPmAgentListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the servers on which you want to install Cloud Assistant or the CloudMonitor agent.
+       * @summary Queries the servers on which you want to install the CloudMonitor agent.
        *
        * @param request DescribeSasPmAgentListRequest
        * @return DescribeSasPmAgentListResponse
@@ -6533,7 +6533,7 @@ namespace Sas20181203
       Models::DescribeSearchConditionResponse describeSearchCondition(const Models::DescribeSearchConditionRequest &request);
 
       /**
-       * @summary Queries suggestions on how to handle the risks that affect the security score.
+       * @summary Query Security Risk Handling Suggestions Details
        *
        * @param request DescribeSecureSuggestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6542,7 +6542,7 @@ namespace Sas20181203
       Models::DescribeSecureSuggestionResponse describeSecureSuggestionWithOptions(const Models::DescribeSecureSuggestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries suggestions on how to handle the risks that affect the security score.
+       * @summary Query Security Risk Handling Suggestions Details
        *
        * @param request DescribeSecureSuggestionRequest
        * @return DescribeSecureSuggestionResponse
@@ -7367,7 +7367,7 @@ namespace Sas20181203
       Models::DescribeUserBackupMachinesResponse describeUserBackupMachines();
 
       /**
-       * @summary The source IP address of the request.
+       * @summary Queries whether Security Center is authorized to run configuration checks on cloud services.
        *
        * @param request DescribeUserBaselineAuthorizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7376,7 +7376,7 @@ namespace Sas20181203
       Models::DescribeUserBaselineAuthorizationResponse describeUserBaselineAuthorizationWithOptions(const Models::DescribeUserBaselineAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The source IP address of the request.
+       * @summary Queries whether Security Center is authorized to run configuration checks on cloud services.
        *
        * @param request DescribeUserBaselineAuthorizationRequest
        * @return DescribeUserBaselineAuthorizationResponse
@@ -7485,7 +7485,7 @@ namespace Sas20181203
       Models::DescribeVpcHoneyPotCriteriaResponse describeVpcHoneyPotCriteria(const Models::DescribeVpcHoneyPotCriteriaRequest &request);
 
       /**
-       * @summary Queries virtual private clouds (VPCs) on which honeypots are deployed.
+       * @summary Queries honeypots.
        *
        * @description If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
        *
@@ -7496,7 +7496,7 @@ namespace Sas20181203
       Models::DescribeVpcHoneyPotListResponse describeVpcHoneyPotListWithOptions(const Models::DescribeVpcHoneyPotListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries virtual private clouds (VPCs) on which honeypots are deployed.
+       * @summary Queries honeypots.
        *
        * @description If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
        *
@@ -7863,7 +7863,7 @@ namespace Sas20181203
       Models::DescribeWebLockFileEventsResponse describeWebLockFileEvents(const Models::DescribeWebLockFileEventsRequest &request);
 
       /**
-       * @summary The number of attempts.
+       * @summary Queries the summary information about the types of files for which web tamper proofing is enabled.
        *
        * @param request DescribeWebLockFileTypeSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7872,7 +7872,7 @@ namespace Sas20181203
       Models::DescribeWebLockFileTypeSummaryResponse describeWebLockFileTypeSummaryWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The number of attempts.
+       * @summary Queries the summary information about the types of files for which web tamper proofing is enabled.
        *
        * @return DescribeWebLockFileTypeSummaryResponse
        */
@@ -8376,7 +8376,7 @@ namespace Sas20181203
       Models::ExportWarningResponse exportWarning(const Models::ExportWarningRequest &request);
 
       /**
-       * @summary 容器网络连接
+       * @summary Container Network Connection
        *
        * @param tmpReq FindContainerNetworkConnectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8385,7 +8385,7 @@ namespace Sas20181203
       Models::FindContainerNetworkConnectResponse findContainerNetworkConnectWithOptions(const Models::FindContainerNetworkConnectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 容器网络连接
+       * @summary Container Network Connection
        *
        * @param request FindContainerNetworkConnectRequest
        * @return FindContainerNetworkConnectResponse
@@ -8652,7 +8652,7 @@ namespace Sas20181203
       Models::GetAssetSelectionConfigResponse getAssetSelectionConfig(const Models::GetAssetSelectionConfigRequest &request);
 
       /**
-       * @summary Queries the details about the asset fingerprints of the startup item, kernel module, or website type.
+       * @summary Query detailed information of asset fingerprints
        *
        * @param request GetAssetsPropertyDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8661,7 +8661,7 @@ namespace Sas20181203
       Models::GetAssetsPropertyDetailResponse getAssetsPropertyDetailWithOptions(const Models::GetAssetsPropertyDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details about the asset fingerprints of the startup item, kernel module, or website type.
+       * @summary Query detailed information of asset fingerprints
        *
        * @param request GetAssetsPropertyDetailRequest
        * @return GetAssetsPropertyDetailResponse
@@ -9497,7 +9497,7 @@ namespace Sas20181203
       Models::GetHoneyPotUploadPolicyInfoResponse getHoneyPotUploadPolicyInfo(const Models::GetHoneyPotUploadPolicyInfoRequest &request);
 
       /**
-       * @summary 获取蜜罐攻击统计数据
+       * @summary 获取蜜罐攻击事件的统计数据。
        *
        * @param request GetHoneypotAttackStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9506,7 +9506,7 @@ namespace Sas20181203
       Models::GetHoneypotAttackStatisticsResponse getHoneypotAttackStatisticsWithOptions(const Models::GetHoneypotAttackStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取蜜罐攻击统计数据
+       * @summary 获取蜜罐攻击事件的统计数据。
        *
        * @param request GetHoneypotAttackStatisticsRequest
        * @return GetHoneypotAttackStatisticsResponse
@@ -10310,7 +10310,7 @@ namespace Sas20181203
       Models::GetSupportedModulesResponse getSupportedModules(const Models::GetSupportedModulesRequest &request);
 
       /**
-       * @summary Queries the statistics on alerts in one or more asset groups.
+       * @summary Queries the statistics of alerts in one or more asset groups.
        *
        * @param request GetSuspiciousStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10319,7 +10319,7 @@ namespace Sas20181203
       Models::GetSuspiciousStatisticsResponse getSuspiciousStatisticsWithOptions(const Models::GetSuspiciousStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the statistics on alerts in one or more asset groups.
+       * @summary Queries the statistics of alerts in one or more asset groups.
        *
        * @param request GetSuspiciousStatisticsRequest
        * @return GetSuspiciousStatisticsResponse
@@ -10551,7 +10551,7 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI IgnoreHcCheckWarnings is deprecated, please use Sas::2018-12-03::IgnoreCheckItems instead.
        *
-       * @summary Ignores multiple baseline risk items at a time or cancels the ignore action that is performed on multiple baseline risk items at a time.
+       * @summary Ignores or cancels ignoring multiple baseline risk items at a time.
        *
        * @param request IgnoreHcCheckWarningsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10562,7 +10562,7 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI IgnoreHcCheckWarnings is deprecated, please use Sas::2018-12-03::IgnoreCheckItems instead.
        *
-       * @summary Ignores multiple baseline risk items at a time or cancels the ignore action that is performed on multiple baseline risk items at a time.
+       * @summary Ignores or cancels ignoring multiple baseline risk items at a time.
        *
        * @param request IgnoreHcCheckWarningsRequest
        * @return IgnoreHcCheckWarningsResponse
@@ -11796,7 +11796,7 @@ namespace Sas20181203
       Models::ListImageRegistryExtraResponse listImageRegistryExtra(const Models::ListImageRegistryExtraRequest &request);
 
       /**
-       * @summary The region ID of the image.
+       * @summary Queries the regions in which you can add self-managed image repositories to Security Center.
        *
        * @param request ListImageRegistryRegionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11805,7 +11805,7 @@ namespace Sas20181203
       Models::ListImageRegistryRegionResponse listImageRegistryRegionWithOptions(const Models::ListImageRegistryRegionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The region ID of the image.
+       * @summary Queries the regions in which you can add self-managed image repositories to Security Center.
        *
        * @param request ListImageRegistryRegionRequest
        * @return ListImageRegistryRegionResponse
@@ -12733,7 +12733,7 @@ namespace Sas20181203
       Models::ModifyAssetCleanConfigResponse modifyAssetCleanConfig(const Models::ModifyAssetCleanConfigRequest &request);
 
       /**
-       * @summary Changes the server group to which specified servers belong.
+       * @summary Changes the server group to which one or more servers belong.
        *
        * @description You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
        * ### Limits
@@ -12746,7 +12746,7 @@ namespace Sas20181203
       Models::ModifyAssetGroupResponse modifyAssetGroupWithOptions(const Models::ModifyAssetGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the server group to which specified servers belong.
+       * @summary Changes the server group to which one or more servers belong.
        *
        * @description You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
        * ### Limits
@@ -13378,7 +13378,7 @@ namespace Sas20181203
       Models::ModifyLoginBaseConfigResponse modifyLoginBaseConfig(const Models::ModifyLoginBaseConfigRequest &request);
 
       /**
-       * @summary Enables or disables the logon security settings for an asset.
+       * @summary Enables or disables the logon security settings for a specific asset.
        *
        * @param request ModifyLoginSwitchConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13387,7 +13387,7 @@ namespace Sas20181203
       Models::ModifyLoginSwitchConfigResponse modifyLoginSwitchConfigWithOptions(const Models::ModifyLoginSwitchConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables the logon security settings for an asset.
+       * @summary Enables or disables the logon security settings for a specific asset.
        *
        * @param request ModifyLoginSwitchConfigRequest
        * @return ModifyLoginSwitchConfigResponse
@@ -13450,16 +13450,16 @@ namespace Sas20181203
       Models::ModifyOperateVulResponse modifyOperateVul(const Models::ModifyOperateVulRequest &request);
 
       /**
-       * @summary Modifies the switch settings of pay-as-you-go modules.
+       * @summary Operate the Postpaid Module Switch
        *
-       * @param request ModifyPostPayModuleSwitchRequest
+       * @param tmpReq ModifyPostPayModuleSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyPostPayModuleSwitchResponse
        */
-      Models::ModifyPostPayModuleSwitchResponse modifyPostPayModuleSwitchWithOptions(const Models::ModifyPostPayModuleSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ModifyPostPayModuleSwitchResponse modifyPostPayModuleSwitchWithOptions(const Models::ModifyPostPayModuleSwitchRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the switch settings of pay-as-you-go modules.
+       * @summary Operate the Postpaid Module Switch
        *
        * @param request ModifyPostPayModuleSwitchRequest
        * @return ModifyPostPayModuleSwitchResponse
@@ -13575,7 +13575,7 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated, please use Sas::2018-12-03::ChangeCheckConfig instead.
        *
-       * @summary Specifies the time when an automatic configuration check is performed on cloud services.
+       * @summary Specifies the time when an automatic configuration check on cloud services runs.
        *
        * @description This operation is phased out. You can use the ChangeCheckConfig operation.
        *
@@ -13588,7 +13588,7 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated, please use Sas::2018-12-03::ChangeCheckConfig instead.
        *
-       * @summary Specifies the time when an automatic configuration check is performed on cloud services.
+       * @summary Specifies the time when an automatic configuration check on cloud services runs.
        *
        * @description This operation is phased out. You can use the ChangeCheckConfig operation.
        *
@@ -13793,7 +13793,7 @@ namespace Sas20181203
       Models::ModifyVulTargetResponse modifyVulTarget(const Models::ModifyVulTargetRequest &request);
 
       /**
-       * @summary Configures vulnerability scan for a server.
+       * @summary Configures vulnerability detection for a server.
        *
        * @param request ModifyVulTargetConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13802,7 +13802,7 @@ namespace Sas20181203
       Models::ModifyVulTargetConfigResponse modifyVulTargetConfigWithOptions(const Models::ModifyVulTargetConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures vulnerability scan for a server.
+       * @summary Configures vulnerability detection for a server.
        *
        * @param request ModifyVulTargetConfigRequest
        * @return ModifyVulTargetConfigResponse
@@ -13903,7 +13903,7 @@ namespace Sas20181203
       Models::ModifyWebLockRefreshResponse modifyWebLockRefresh(const Models::ModifyWebLockRefreshRequest &request);
 
       /**
-       * @summary Enables web tamper proofing for a specified server.
+       * @summary Configures and enables web tamper proofing for a specified server.
        *
        * @param request ModifyWebLockStartRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13912,7 +13912,7 @@ namespace Sas20181203
       Models::ModifyWebLockStartResponse modifyWebLockStartWithOptions(const Models::ModifyWebLockStartRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables web tamper proofing for a specified server.
+       * @summary Configures and enables web tamper proofing for a specified server.
        *
        * @param request ModifyWebLockStartRequest
        * @return ModifyWebLockStartResponse
@@ -13954,7 +13954,7 @@ namespace Sas20181203
       Models::ModifyWebLockUnbindResponse modifyWebLockUnbind(const Models::ModifyWebLockUnbindRequest &request);
 
       /**
-       * @summary Modifies the protection policy for a specified server.
+       * @summary Modifies protection policy for a specified server.
        *
        * @param request ModifyWebLockUpdateConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13963,7 +13963,7 @@ namespace Sas20181203
       Models::ModifyWebLockUpdateConfigResponse modifyWebLockUpdateConfigWithOptions(const Models::ModifyWebLockUpdateConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the protection policy for a specified server.
+       * @summary Modifies protection policy for a specified server.
        *
        * @param request ModifyWebLockUpdateConfigRequest
        * @return ModifyWebLockUpdateConfigResponse
@@ -15034,7 +15034,7 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI StartBaselineSecurityCheck is deprecated, please use Sas::2018-12-03::SubmitCheck instead.
        *
-       * @summary Checks cloud service configurations. You can check all items or a single item and verify whether an item is checked.
+       * @summary Checks cloud service configurations. You can check all items or a specific item and verify whether an item is checked.
        *
        * @param request StartBaselineSecurityCheckRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -15045,7 +15045,7 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI StartBaselineSecurityCheck is deprecated, please use Sas::2018-12-03::SubmitCheck instead.
        *
-       * @summary Checks cloud service configurations. You can check all items or a single item and verify whether an item is checked.
+       * @summary Checks cloud service configurations. You can check all items or a specific item and verify whether an item is checked.
        *
        * @param request StartBaselineSecurityCheckRequest
        * @return StartBaselineSecurityCheckResponse
@@ -15486,7 +15486,7 @@ namespace Sas20181203
       Models::UpdateFileProtectEventStatusResponse updateFileProtectEventStatus(const Models::UpdateFileProtectEventStatusRequest &request);
 
       /**
-       * @summary Adds remarks to core file monitoring events reported by the Security Center agent.
+       * @summary Modify Alert Remarks
        *
        * @param request UpdateFileProtectRemarkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -15495,7 +15495,7 @@ namespace Sas20181203
       Models::UpdateFileProtectRemarkResponse updateFileProtectRemarkWithOptions(const Models::UpdateFileProtectRemarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds remarks to core file monitoring events reported by the Security Center agent.
+       * @summary Modify Alert Remarks
        *
        * @param request UpdateFileProtectRemarkRequest
        * @return UpdateFileProtectRemarkResponse

@@ -51,69 +51,69 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->imageDigest_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->repoInstanceId_ == nullptr && return this->repoName_ == nullptr
-        && return this->repoNamespace_ == nullptr && return this->riskLevel_ == nullptr && return this->scanRange_ == nullptr && return this->sensitiveFileKey_ == nullptr && return this->status_ == nullptr; };
+        && this->imageDigest_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->repoInstanceId_ == nullptr && this->repoName_ == nullptr
+        && this->repoNamespace_ == nullptr && this->riskLevel_ == nullptr && this->scanRange_ == nullptr && this->sensitiveFileKey_ == nullptr && this->status_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeImageListBySensitiveFileRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // imageDigest Field Functions 
     bool hasImageDigest() const { return this->imageDigest_ != nullptr;};
     void deleteImageDigest() { this->imageDigest_ = nullptr;};
-    inline string imageDigest() const { DARABONBA_PTR_GET_DEFAULT(imageDigest_, "") };
+    inline string getImageDigest() const { DARABONBA_PTR_GET_DEFAULT(imageDigest_, "") };
     inline DescribeImageListBySensitiveFileRequest& setImageDigest(string imageDigest) { DARABONBA_PTR_SET_VALUE(imageDigest_, imageDigest) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeImageListBySensitiveFileRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeImageListBySensitiveFileRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // repoInstanceId Field Functions 
     bool hasRepoInstanceId() const { return this->repoInstanceId_ != nullptr;};
     void deleteRepoInstanceId() { this->repoInstanceId_ = nullptr;};
-    inline string repoInstanceId() const { DARABONBA_PTR_GET_DEFAULT(repoInstanceId_, "") };
+    inline string getRepoInstanceId() const { DARABONBA_PTR_GET_DEFAULT(repoInstanceId_, "") };
     inline DescribeImageListBySensitiveFileRequest& setRepoInstanceId(string repoInstanceId) { DARABONBA_PTR_SET_VALUE(repoInstanceId_, repoInstanceId) };
 
 
     // repoName Field Functions 
     bool hasRepoName() const { return this->repoName_ != nullptr;};
     void deleteRepoName() { this->repoName_ = nullptr;};
-    inline string repoName() const { DARABONBA_PTR_GET_DEFAULT(repoName_, "") };
+    inline string getRepoName() const { DARABONBA_PTR_GET_DEFAULT(repoName_, "") };
     inline DescribeImageListBySensitiveFileRequest& setRepoName(string repoName) { DARABONBA_PTR_SET_VALUE(repoName_, repoName) };
 
 
     // repoNamespace Field Functions 
     bool hasRepoNamespace() const { return this->repoNamespace_ != nullptr;};
     void deleteRepoNamespace() { this->repoNamespace_ = nullptr;};
-    inline string repoNamespace() const { DARABONBA_PTR_GET_DEFAULT(repoNamespace_, "") };
+    inline string getRepoNamespace() const { DARABONBA_PTR_GET_DEFAULT(repoNamespace_, "") };
     inline DescribeImageListBySensitiveFileRequest& setRepoNamespace(string repoNamespace) { DARABONBA_PTR_SET_VALUE(repoNamespace_, repoNamespace) };
 
 
     // riskLevel Field Functions 
     bool hasRiskLevel() const { return this->riskLevel_ != nullptr;};
     void deleteRiskLevel() { this->riskLevel_ = nullptr;};
-    inline string riskLevel() const { DARABONBA_PTR_GET_DEFAULT(riskLevel_, "") };
+    inline string getRiskLevel() const { DARABONBA_PTR_GET_DEFAULT(riskLevel_, "") };
     inline DescribeImageListBySensitiveFileRequest& setRiskLevel(string riskLevel) { DARABONBA_PTR_SET_VALUE(riskLevel_, riskLevel) };
 
 
     // scanRange Field Functions 
     bool hasScanRange() const { return this->scanRange_ != nullptr;};
     void deleteScanRange() { this->scanRange_ = nullptr;};
-    inline const vector<string> & scanRange() const { DARABONBA_PTR_GET_CONST(scanRange_, vector<string>) };
-    inline vector<string> scanRange() { DARABONBA_PTR_GET(scanRange_, vector<string>) };
+    inline const vector<string> & getScanRange() const { DARABONBA_PTR_GET_CONST(scanRange_, vector<string>) };
+    inline vector<string> getScanRange() { DARABONBA_PTR_GET(scanRange_, vector<string>) };
     inline DescribeImageListBySensitiveFileRequest& setScanRange(const vector<string> & scanRange) { DARABONBA_PTR_SET_VALUE(scanRange_, scanRange) };
     inline DescribeImageListBySensitiveFileRequest& setScanRange(vector<string> && scanRange) { DARABONBA_PTR_SET_RVALUE(scanRange_, scanRange) };
 
@@ -121,51 +121,51 @@ namespace Models
     // sensitiveFileKey Field Functions 
     bool hasSensitiveFileKey() const { return this->sensitiveFileKey_ != nullptr;};
     void deleteSensitiveFileKey() { this->sensitiveFileKey_ = nullptr;};
-    inline string sensitiveFileKey() const { DARABONBA_PTR_GET_DEFAULT(sensitiveFileKey_, "") };
+    inline string getSensitiveFileKey() const { DARABONBA_PTR_GET_DEFAULT(sensitiveFileKey_, "") };
     inline DescribeImageListBySensitiveFileRequest& setSensitiveFileKey(string sensitiveFileKey) { DARABONBA_PTR_SET_VALUE(sensitiveFileKey_, sensitiveFileKey) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeImageListBySensitiveFileRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The number of the page to return. Pages start from page 1. Default value: 1.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The image digest.
     // > Fuzzy match is supported.
-    std::shared_ptr<string> imageDigest_ = nullptr;
+    shared_ptr<string> imageDigest_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The number of entries to return on each page. Default value: 20.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The ID of the specified container image.
     // 
     // > You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation to obtain the IDs of container images from the value of the **InstanceId** response parameter.
-    std::shared_ptr<string> repoInstanceId_ = nullptr;
+    shared_ptr<string> repoInstanceId_ {};
     // The name of the image repository.
     // 
     // > Fuzzy match is supported.
-    std::shared_ptr<string> repoName_ = nullptr;
+    shared_ptr<string> repoName_ {};
     // The namespace to which the image repository belongs.
     // > Fuzzy match is supported.
-    std::shared_ptr<string> repoNamespace_ = nullptr;
+    shared_ptr<string> repoNamespace_ {};
     // The risk level of the file. Separate multiple levels with commas (,). Valid values:
     // 
     // - **high**
     // - **medium**
     // - **low**
-    std::shared_ptr<string> riskLevel_ = nullptr;
+    shared_ptr<string> riskLevel_ {};
     // An array consisting of the types of the assets that you want to scan. Valid values:
     // - **image**
     // - **container**
-    std::shared_ptr<vector<string>> scanRange_ = nullptr;
+    shared_ptr<vector<string>> scanRange_ {};
     // The type of the alert for the sensitive file. Valid values:
     // 
     // *   **npm_token**: npm access token.
@@ -280,13 +280,13 @@ namespace Models
     // *   **newrelic_api_key**: User API key for New Relic.
     // *   **github_hub**: hub configuration for storing GitHub tokens.
     // *   **rubygem**: RubyGem token.
-    std::shared_ptr<string> sensitiveFileKey_ = nullptr;
+    shared_ptr<string> sensitiveFileKey_ {};
     // The sensitive file status. Valid values:
     // 
     // *   **0**: unhandled
     // *   **1**: ignored
     // *   **2**: false positive
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

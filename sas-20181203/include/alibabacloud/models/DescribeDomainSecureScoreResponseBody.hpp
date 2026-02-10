@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->securityScore_ == nullptr; };
+        && this->securityScore_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDomainSecureScoreResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // securityScore Field Functions 
     bool hasSecurityScore() const { return this->securityScore_ != nullptr;};
     void deleteSecurityScore() { this->securityScore_ = nullptr;};
-    inline int32_t securityScore() const { DARABONBA_PTR_GET_DEFAULT(securityScore_, 0) };
+    inline int32_t getSecurityScore() const { DARABONBA_PTR_GET_DEFAULT(securityScore_, 0) };
     inline DescribeDomainSecureScoreResponseBody& setSecurityScore(int32_t securityScore) { DARABONBA_PTR_SET_VALUE(securityScore_, securityScore) };
 
 
   protected:
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The security score of the website.
-    std::shared_ptr<int32_t> securityScore_ = nullptr;
+    shared_ptr<int32_t> securityScore_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->projectCode_ == nullptr && return this->reportId_ == nullptr; };
+        && this->projectCode_ == nullptr && this->reportId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeChartListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // projectCode Field Functions 
     bool hasProjectCode() const { return this->projectCode_ != nullptr;};
     void deleteProjectCode() { this->projectCode_ = nullptr;};
-    inline string projectCode() const { DARABONBA_PTR_GET_DEFAULT(projectCode_, "") };
+    inline string getProjectCode() const { DARABONBA_PTR_GET_DEFAULT(projectCode_, "") };
     inline DescribeChartListRequest& setProjectCode(string projectCode) { DARABONBA_PTR_SET_VALUE(projectCode_, projectCode) };
 
 
     // reportId Field Functions 
     bool hasReportId() const { return this->reportId_ != nullptr;};
     void deleteReportId() { this->reportId_ = nullptr;};
-    inline string reportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, "") };
+    inline string getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, "") };
     inline DescribeChartListRequest& setReportId(string reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
 
 
@@ -61,17 +61,17 @@ namespace Models
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The code of the report. Valid value:
     // 
     // *   **customize_report**
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectCode_ = nullptr;
+    shared_ptr<string> projectCode_ {};
     // The ID of the report.
     // 
     // >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
-    std::shared_ptr<string> reportId_ = nullptr;
+    shared_ptr<string> reportId_ {};
   };
 
   } // namespace Models
