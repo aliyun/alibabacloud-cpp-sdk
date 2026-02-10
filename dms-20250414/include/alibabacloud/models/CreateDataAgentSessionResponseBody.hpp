@@ -79,18 +79,26 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
           DARABONBA_PTR_TO_JSON(CustomAgentStage, customAgentStage_);
           DARABONBA_PTR_TO_JSON(EnableSearch, enableSearch_);
+          DARABONBA_PTR_TO_JSON(EncryptKey, encryptKey_);
+          DARABONBA_PTR_TO_JSON(EncryptType, encryptType_);
           DARABONBA_PTR_TO_JSON(Language, language_);
           DARABONBA_PTR_TO_JSON(McpServerIds, mcpServerIds_);
           DARABONBA_PTR_TO_JSON(Mode, mode_);
+          DARABONBA_PTR_TO_JSON(ReportPageWidth, reportPageWidth_);
+          DARABONBA_PTR_TO_JSON(ReportWaterMark, reportWaterMark_);
           DARABONBA_PTR_TO_JSON(UserOssBucket, userOssBucket_);
         };
         friend void from_json(const Darabonba::Json& j, SessionConfig& obj) { 
           DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
           DARABONBA_PTR_FROM_JSON(CustomAgentStage, customAgentStage_);
           DARABONBA_PTR_FROM_JSON(EnableSearch, enableSearch_);
+          DARABONBA_PTR_FROM_JSON(EncryptKey, encryptKey_);
+          DARABONBA_PTR_FROM_JSON(EncryptType, encryptType_);
           DARABONBA_PTR_FROM_JSON(Language, language_);
           DARABONBA_PTR_FROM_JSON(McpServerIds, mcpServerIds_);
           DARABONBA_PTR_FROM_JSON(Mode, mode_);
+          DARABONBA_PTR_FROM_JSON(ReportPageWidth, reportPageWidth_);
+          DARABONBA_PTR_FROM_JSON(ReportWaterMark, reportWaterMark_);
           DARABONBA_PTR_FROM_JSON(UserOssBucket, userOssBucket_);
         };
         SessionConfig() = default ;
@@ -105,8 +113,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && this->customAgentStage_ == nullptr && this->enableSearch_ == nullptr && this->language_ == nullptr && this->mcpServerIds_ == nullptr && this->mode_ == nullptr
-        && this->userOssBucket_ == nullptr; };
+        && this->customAgentStage_ == nullptr && this->enableSearch_ == nullptr && this->encryptKey_ == nullptr && this->encryptType_ == nullptr && this->language_ == nullptr
+        && this->mcpServerIds_ == nullptr && this->mode_ == nullptr && this->reportPageWidth_ == nullptr && this->reportWaterMark_ == nullptr && this->userOssBucket_ == nullptr; };
         // customAgentId Field Functions 
         bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
         void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -126,6 +134,20 @@ namespace Models
         void deleteEnableSearch() { this->enableSearch_ = nullptr;};
         inline bool getEnableSearch() const { DARABONBA_PTR_GET_DEFAULT(enableSearch_, false) };
         inline SessionConfig& setEnableSearch(bool enableSearch) { DARABONBA_PTR_SET_VALUE(enableSearch_, enableSearch) };
+
+
+        // encryptKey Field Functions 
+        bool hasEncryptKey() const { return this->encryptKey_ != nullptr;};
+        void deleteEncryptKey() { this->encryptKey_ = nullptr;};
+        inline string getEncryptKey() const { DARABONBA_PTR_GET_DEFAULT(encryptKey_, "") };
+        inline SessionConfig& setEncryptKey(string encryptKey) { DARABONBA_PTR_SET_VALUE(encryptKey_, encryptKey) };
+
+
+        // encryptType Field Functions 
+        bool hasEncryptType() const { return this->encryptType_ != nullptr;};
+        void deleteEncryptType() { this->encryptType_ = nullptr;};
+        inline string getEncryptType() const { DARABONBA_PTR_GET_DEFAULT(encryptType_, "") };
+        inline SessionConfig& setEncryptType(string encryptType) { DARABONBA_PTR_SET_VALUE(encryptType_, encryptType) };
 
 
         // language Field Functions 
@@ -151,6 +173,20 @@ namespace Models
         inline SessionConfig& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
+        // reportPageWidth Field Functions 
+        bool hasReportPageWidth() const { return this->reportPageWidth_ != nullptr;};
+        void deleteReportPageWidth() { this->reportPageWidth_ = nullptr;};
+        inline int64_t getReportPageWidth() const { DARABONBA_PTR_GET_DEFAULT(reportPageWidth_, 0L) };
+        inline SessionConfig& setReportPageWidth(int64_t reportPageWidth) { DARABONBA_PTR_SET_VALUE(reportPageWidth_, reportPageWidth) };
+
+
+        // reportWaterMark Field Functions 
+        bool hasReportWaterMark() const { return this->reportWaterMark_ != nullptr;};
+        void deleteReportWaterMark() { this->reportWaterMark_ = nullptr;};
+        inline string getReportWaterMark() const { DARABONBA_PTR_GET_DEFAULT(reportWaterMark_, "") };
+        inline SessionConfig& setReportWaterMark(string reportWaterMark) { DARABONBA_PTR_SET_VALUE(reportWaterMark_, reportWaterMark) };
+
+
         // userOssBucket Field Functions 
         bool hasUserOssBucket() const { return this->userOssBucket_ != nullptr;};
         void deleteUserOssBucket() { this->userOssBucket_ = nullptr;};
@@ -162,9 +198,13 @@ namespace Models
         shared_ptr<string> customAgentId_ {};
         shared_ptr<string> customAgentStage_ {};
         shared_ptr<bool> enableSearch_ {};
+        shared_ptr<string> encryptKey_ {};
+        shared_ptr<string> encryptType_ {};
         shared_ptr<string> language_ {};
         shared_ptr<vector<string>> mcpServerIds_ {};
         shared_ptr<string> mode_ {};
+        shared_ptr<int64_t> reportPageWidth_ {};
+        shared_ptr<string> reportWaterMark_ {};
         shared_ptr<string> userOssBucket_ {};
       };
 

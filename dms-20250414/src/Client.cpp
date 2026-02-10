@@ -1520,16 +1520,18 @@ FutureGenerator<GetChatContentResponse> Client::getChatContentWithSSE(const GetC
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<GetChatContentResponse>();
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<GetChatContentResponse>();
 return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 

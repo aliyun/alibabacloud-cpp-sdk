@@ -106,13 +106,28 @@ namespace Models
 
 
   protected:
+    // The name of the data link.
     shared_ptr<string> dataLinkName_ {};
+    // The endpoint that is used to connect to the database instance.
     shared_ptr<string> host_ {};
+    // The source of the database instance. Valid values:
+    // 
+    // *   **PUBLIC_OWN:** a self-managed database instance that is deployed on the Internet.
+    // *   **RDS**: an ApsaraDB RDS instance.
+    // *   **ECS_OWN**: a self-managed database that is hosted on an Elastic Compute Service (ECS) instance.
+    // *   **VPC_IDC**: a self-managed database instance that is deployed in the data center over a virtual private cloud (VPC).
     shared_ptr<string> instanceSource_ {};
+    // The type of the instance.
     shared_ptr<string> instanceType_ {};
+    // The port number that is used to connect to the database instance.
     shared_ptr<int32_t> port_ {};
+    // The information of the properties.
     shared_ptr<map<string, string>> properties_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The system identifier (SID) of the database.
+    // 
+    // >  The SID uniquely identifies an Oracle database. After a database is created, a SID is generated for the database.
     shared_ptr<string> sid_ {};
   };
 

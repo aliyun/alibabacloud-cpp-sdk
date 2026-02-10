@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The information about the credential.
     shared_ptr<map<string, string>> credInfo_ {};
+    // The type of the credential. Set the value to DEFAULT.
     shared_ptr<string> credType_ {};
   };
 
