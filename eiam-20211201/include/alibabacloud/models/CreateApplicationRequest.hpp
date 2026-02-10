@@ -13,6 +13,7 @@ namespace Models
   class CreateApplicationRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateApplicationRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ApplicationIdentityType, applicationIdentityType_);
       DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_TO_JSON(ApplicationSourceType, applicationSourceType_);
       DARABONBA_PTR_TO_JSON(ApplicationTemplateId, applicationTemplateId_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SsoType, ssoType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateApplicationRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ApplicationIdentityType, applicationIdentityType_);
       DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_FROM_JSON(ApplicationSourceType, applicationSourceType_);
       DARABONBA_PTR_FROM_JSON(ApplicationTemplateId, applicationTemplateId_);
@@ -41,9 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->applicationName_ == nullptr
-        && this->applicationSourceType_ == nullptr && this->applicationTemplateId_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr && this->logoUrl_ == nullptr
-        && this->ssoType_ == nullptr; };
+    virtual bool empty() const override { return this->applicationIdentityType_ == nullptr
+        && this->applicationName_ == nullptr && this->applicationSourceType_ == nullptr && this->applicationTemplateId_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr
+        && this->logoUrl_ == nullptr && this->ssoType_ == nullptr; };
+    // applicationIdentityType Field Functions 
+    bool hasApplicationIdentityType() const { return this->applicationIdentityType_ != nullptr;};
+    void deleteApplicationIdentityType() { this->applicationIdentityType_ = nullptr;};
+    inline string getApplicationIdentityType() const { DARABONBA_PTR_GET_DEFAULT(applicationIdentityType_, "") };
+    inline CreateApplicationRequest& setApplicationIdentityType(string applicationIdentityType) { DARABONBA_PTR_SET_VALUE(applicationIdentityType_, applicationIdentityType) };
+
+
     // applicationName Field Functions 
     bool hasApplicationName() const { return this->applicationName_ != nullptr;};
     void deleteApplicationName() { this->applicationName_ = nullptr;};
@@ -94,6 +103,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> applicationIdentityType_ {};
     // The name of the application.
     // 
     // This parameter is required.

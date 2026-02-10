@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(ResourceServerScopeId, resourceServerScopeId_);
     };
     friend void from_json(const Darabonba::Json& j, ListUsersForResourceServerRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(ResourceServerScopeId, resourceServerScopeId_);
     };
     ListUsersForResourceServerRequest() = default ;
     ListUsersForResourceServerRequest(const ListUsersForResourceServerRequest &) = default ;
@@ -83,7 +85,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->filter_ == nullptr && this->instanceId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr; };
+        && this->filter_ == nullptr && this->instanceId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->resourceServerScopeId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -121,6 +123,13 @@ namespace Models
     inline ListUsersForResourceServerRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // resourceServerScopeId Field Functions 
+    bool hasResourceServerScopeId() const { return this->resourceServerScopeId_ != nullptr;};
+    void deleteResourceServerScopeId() { this->resourceServerScopeId_ = nullptr;};
+    inline string getResourceServerScopeId() const { DARABONBA_PTR_GET_DEFAULT(resourceServerScopeId_, "") };
+    inline ListUsersForResourceServerRequest& setResourceServerScopeId(string resourceServerScopeId) { DARABONBA_PTR_SET_VALUE(resourceServerScopeId_, resourceServerScopeId) };
+
+
   protected:
     // IDaaS的应用资源ID。
     // 
@@ -134,6 +143,8 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
     shared_ptr<string> nextToken_ {};
+    // 权限唯一标识。
+    shared_ptr<string> resourceServerScopeId_ {};
   };
 
   } // namespace Models

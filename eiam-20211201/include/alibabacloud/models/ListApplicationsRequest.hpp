@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListApplicationsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApplicationCreationType, applicationCreationType_);
+      DARABONBA_PTR_TO_JSON(ApplicationIdentityType, applicationIdentityType_);
       DARABONBA_PTR_TO_JSON(ApplicationIds, applicationIds_);
       DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_TO_JSON(AuthorizationType, authorizationType_);
@@ -28,6 +29,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListApplicationsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationCreationType, applicationCreationType_);
+      DARABONBA_PTR_FROM_JSON(ApplicationIdentityType, applicationIdentityType_);
       DARABONBA_PTR_FROM_JSON(ApplicationIds, applicationIds_);
       DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_FROM_JSON(AuthorizationType, authorizationType_);
@@ -51,13 +53,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationCreationType_ == nullptr
-        && this->applicationIds_ == nullptr && this->applicationName_ == nullptr && this->authorizationType_ == nullptr && this->instanceId_ == nullptr && this->m2MClientStatus_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceServerStatus_ == nullptr && this->ssoType_ == nullptr && this->status_ == nullptr; };
+        && this->applicationIdentityType_ == nullptr && this->applicationIds_ == nullptr && this->applicationName_ == nullptr && this->authorizationType_ == nullptr && this->instanceId_ == nullptr
+        && this->m2MClientStatus_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceServerStatus_ == nullptr && this->ssoType_ == nullptr
+        && this->status_ == nullptr; };
     // applicationCreationType Field Functions 
     bool hasApplicationCreationType() const { return this->applicationCreationType_ != nullptr;};
     void deleteApplicationCreationType() { this->applicationCreationType_ = nullptr;};
     inline string getApplicationCreationType() const { DARABONBA_PTR_GET_DEFAULT(applicationCreationType_, "") };
     inline ListApplicationsRequest& setApplicationCreationType(string applicationCreationType) { DARABONBA_PTR_SET_VALUE(applicationCreationType_, applicationCreationType) };
+
+
+    // applicationIdentityType Field Functions 
+    bool hasApplicationIdentityType() const { return this->applicationIdentityType_ != nullptr;};
+    void deleteApplicationIdentityType() { this->applicationIdentityType_ = nullptr;};
+    inline string getApplicationIdentityType() const { DARABONBA_PTR_GET_DEFAULT(applicationIdentityType_, "") };
+    inline ListApplicationsRequest& setApplicationIdentityType(string applicationIdentityType) { DARABONBA_PTR_SET_VALUE(applicationIdentityType_, applicationIdentityType) };
 
 
     // applicationIds Field Functions 
@@ -134,6 +144,7 @@ namespace Models
 
   protected:
     shared_ptr<string> applicationCreationType_ {};
+    shared_ptr<string> applicationIdentityType_ {};
     // The IDs of the applications.
     shared_ptr<vector<string>> applicationIds_ {};
     // The name of the application. Only fuzzy match from the leftmost character is supported.

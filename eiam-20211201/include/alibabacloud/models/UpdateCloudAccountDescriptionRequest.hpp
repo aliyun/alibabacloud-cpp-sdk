@@ -72,7 +72,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cloudAccountId_ {};
-    // This parameter is required.
     shared_ptr<string> description_ {};
     // IDaaS EIAM实例的ID。
     // 

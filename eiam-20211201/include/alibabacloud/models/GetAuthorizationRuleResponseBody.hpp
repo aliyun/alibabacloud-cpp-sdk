@@ -38,6 +38,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AuthorizationRuleCreationType, authorizationRuleCreationType_);
         DARABONBA_PTR_TO_JSON(AuthorizationRuleId, authorizationRuleId_);
         DARABONBA_PTR_TO_JSON(AuthorizationRuleName, authorizationRuleName_);
+        DARABONBA_PTR_TO_JSON(AuthorizationRuleSubjectId, authorizationRuleSubjectId_);
+        DARABONBA_PTR_TO_JSON(AuthorizationRuleSubjectScope, authorizationRuleSubjectScope_);
+        DARABONBA_PTR_TO_JSON(AuthorizationRuleSubjectType, authorizationRuleSubjectType_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -50,6 +53,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleCreationType, authorizationRuleCreationType_);
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleId, authorizationRuleId_);
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleName, authorizationRuleName_);
+        DARABONBA_PTR_FROM_JSON(AuthorizationRuleSubjectId, authorizationRuleSubjectId_);
+        DARABONBA_PTR_FROM_JSON(AuthorizationRuleSubjectScope, authorizationRuleSubjectScope_);
+        DARABONBA_PTR_FROM_JSON(AuthorizationRuleSubjectType, authorizationRuleSubjectType_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -69,8 +75,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->authorizationResourceScope_ == nullptr
-        && this->authorizationRuleCreationType_ == nullptr && this->authorizationRuleId_ == nullptr && this->authorizationRuleName_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr
-        && this->instanceId_ == nullptr && this->projectId_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
+        && this->authorizationRuleCreationType_ == nullptr && this->authorizationRuleId_ == nullptr && this->authorizationRuleName_ == nullptr && this->authorizationRuleSubjectId_ == nullptr && this->authorizationRuleSubjectScope_ == nullptr
+        && this->authorizationRuleSubjectType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr && this->projectId_ == nullptr
+        && this->status_ == nullptr && this->updateTime_ == nullptr; };
       // authorizationResourceScope Field Functions 
       bool hasAuthorizationResourceScope() const { return this->authorizationResourceScope_ != nullptr;};
       void deleteAuthorizationResourceScope() { this->authorizationResourceScope_ = nullptr;};
@@ -97,6 +104,27 @@ namespace Models
       void deleteAuthorizationRuleName() { this->authorizationRuleName_ = nullptr;};
       inline string getAuthorizationRuleName() const { DARABONBA_PTR_GET_DEFAULT(authorizationRuleName_, "") };
       inline AuthorizationRule& setAuthorizationRuleName(string authorizationRuleName) { DARABONBA_PTR_SET_VALUE(authorizationRuleName_, authorizationRuleName) };
+
+
+      // authorizationRuleSubjectId Field Functions 
+      bool hasAuthorizationRuleSubjectId() const { return this->authorizationRuleSubjectId_ != nullptr;};
+      void deleteAuthorizationRuleSubjectId() { this->authorizationRuleSubjectId_ = nullptr;};
+      inline string getAuthorizationRuleSubjectId() const { DARABONBA_PTR_GET_DEFAULT(authorizationRuleSubjectId_, "") };
+      inline AuthorizationRule& setAuthorizationRuleSubjectId(string authorizationRuleSubjectId) { DARABONBA_PTR_SET_VALUE(authorizationRuleSubjectId_, authorizationRuleSubjectId) };
+
+
+      // authorizationRuleSubjectScope Field Functions 
+      bool hasAuthorizationRuleSubjectScope() const { return this->authorizationRuleSubjectScope_ != nullptr;};
+      void deleteAuthorizationRuleSubjectScope() { this->authorizationRuleSubjectScope_ = nullptr;};
+      inline string getAuthorizationRuleSubjectScope() const { DARABONBA_PTR_GET_DEFAULT(authorizationRuleSubjectScope_, "") };
+      inline AuthorizationRule& setAuthorizationRuleSubjectScope(string authorizationRuleSubjectScope) { DARABONBA_PTR_SET_VALUE(authorizationRuleSubjectScope_, authorizationRuleSubjectScope) };
+
+
+      // authorizationRuleSubjectType Field Functions 
+      bool hasAuthorizationRuleSubjectType() const { return this->authorizationRuleSubjectType_ != nullptr;};
+      void deleteAuthorizationRuleSubjectType() { this->authorizationRuleSubjectType_ = nullptr;};
+      inline string getAuthorizationRuleSubjectType() const { DARABONBA_PTR_GET_DEFAULT(authorizationRuleSubjectType_, "") };
+      inline AuthorizationRule& setAuthorizationRuleSubjectType(string authorizationRuleSubjectType) { DARABONBA_PTR_SET_VALUE(authorizationRuleSubjectType_, authorizationRuleSubjectType) };
 
 
       // createTime Field Functions 
@@ -150,6 +178,12 @@ namespace Models
       shared_ptr<string> authorizationRuleId_ {};
       // 授权规则名称。
       shared_ptr<string> authorizationRuleName_ {};
+      // 授权规则主体ID，主体类型对应的主体ID。
+      shared_ptr<string> authorizationRuleSubjectId_ {};
+      // 授权规则主体范围，枚举类型：shared（共享型，即支持所有主体，包括账户、应用），exclusive（专属类型）
+      shared_ptr<string> authorizationRuleSubjectScope_ {};
+      // 授权规则主体类型，枚举类型：application（应用)，user（账户)。
+      shared_ptr<string> authorizationRuleSubjectType_ {};
       // 创建时间，Unix时间戳格式，单位为毫秒。
       shared_ptr<int64_t> createTime_ {};
       // 授权规则描述，长度限制为128字符。

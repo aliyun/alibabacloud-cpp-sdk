@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 在当前应用下给指定员工添加一个应用账号
+ * @summary 在当前应用下给指定员工添加一个应用账号。
  *
  * @param request AddApplicationAccountToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -79,7 +79,7 @@ AddApplicationAccountToUserResponse Client::addApplicationAccountToUserWithOptio
 }
 
 /**
- * @summary 在当前应用下给指定员工添加一个应用账号
+ * @summary 在当前应用下给指定员工添加一个应用账号。
  *
  * @param request AddApplicationAccountToUserRequest
  * @return AddApplicationAccountToUserResponse
@@ -976,7 +976,7 @@ CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::checkA
 }
 
 /**
- * @summary 实例删除检查
+ * @summary 实例删除检查。
  *
  * @param request CheckInstanceForDeleteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1007,7 +1007,7 @@ CheckInstanceForDeleteResponse Client::checkInstanceForDeleteWithOptions(const C
 }
 
 /**
- * @summary 实例删除检查
+ * @summary 实例删除检查。
  *
  * @param request CheckInstanceForDeleteRequest
  * @return CheckInstanceForDeleteResponse
@@ -1083,6 +1083,10 @@ CheckInstanceModuleStatusResponse Client::checkInstanceModuleStatus(const CheckI
 CreateApplicationResponse Client::createApplicationWithOptions(const CreateApplicationRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApplicationIdentityType()) {
+    query["ApplicationIdentityType"] = request.getApplicationIdentityType();
+  }
+
   if (!!request.hasApplicationName()) {
     query["ApplicationName"] = request.getApplicationName();
   }
@@ -3692,7 +3696,7 @@ DeleteIdentityProviderResponse Client::deleteIdentityProvider(const DeleteIdenti
 }
 
 /**
- * @summary Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
+ * @summary Deletes an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
  *
  * @description Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
  *
@@ -3725,7 +3729,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 }
 
 /**
- * @summary Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
+ * @summary Deletes an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
  *
  * @description Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
  *
@@ -3876,7 +3880,7 @@ DeleteOrganizationalUnitResponse Client::deleteOrganizationalUnit(const DeleteOr
 }
 
 /**
- * @summary Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it
+ * @summary Deletes information about an organization and forcefully deletes all accounts and sub-organizations in the organization.
  *
  * @param request DeleteOrganizationalUnitChildrenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3911,7 +3915,7 @@ DeleteOrganizationalUnitChildrenResponse Client::deleteOrganizationalUnitChildre
 }
 
 /**
- * @summary Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it
+ * @summary Deletes information about an organization and forcefully deletes all accounts and sub-organizations in the organization.
  *
  * @param request DeleteOrganizationalUnitChildrenRequest
  * @return DeleteOrganizationalUnitChildrenResponse
@@ -4356,7 +4360,7 @@ DisableApplicationM2MClientResponse Client::disableApplicationM2MClient(const Di
 }
 
 /**
- * @summary Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
  *
  * @param request DisableApplicationProvisioningRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4391,7 +4395,7 @@ DisableApplicationProvisioningResponse Client::disableApplicationProvisioningWit
 }
 
 /**
- * @summary Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
  *
  * @param request DisableApplicationProvisioningRequest
  * @return DisableApplicationProvisioningResponse
@@ -5398,7 +5402,7 @@ EnableApplicationApiInvokeResponse Client::enableApplicationApiInvoke(const Enab
 }
 
 /**
- * @summary Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Enables the client key of an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
  *
  * @param request EnableApplicationClientSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5437,7 +5441,7 @@ EnableApplicationClientSecretResponse Client::enableApplicationClientSecretWithO
 }
 
 /**
- * @summary Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Enables the client key of an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
  *
  * @param request EnableApplicationClientSecretRequest
  * @return EnableApplicationClientSecretResponse
@@ -5544,7 +5548,7 @@ EnableApplicationM2MClientResponse Client::enableApplicationM2MClient(const Enab
 }
 
 /**
- * @summary Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
  *
  * @param request EnableApplicationProvisioningRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5579,7 +5583,7 @@ EnableApplicationProvisioningResponse Client::enableApplicationProvisioningWithO
 }
 
 /**
- * @summary Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
  *
  * @param request EnableApplicationProvisioningRequest
  * @return EnableApplicationProvisioningResponse
@@ -8806,7 +8810,7 @@ GetResourceServerScopeResponse Client::getResourceServerScope(const GetResourceS
 }
 
 /**
- * @summary Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
  *
  * @param request GetRootOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8837,7 +8841,7 @@ GetRootOrganizationalUnitResponse Client::getRootOrganizationalUnitWithOptions(c
 }
 
 /**
- * @summary Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
  *
  * @param request GetRootOrganizationalUnitRequest
  * @return GetRootOrganizationalUnitResponse
@@ -9364,7 +9368,7 @@ ListApplicationRolesResponse Client::listApplicationRoles(const ListApplicationR
 }
 
 /**
- * @summary 应用支持账户同步类型列表
+ * @summary Queries the synchronization protocol types that are supported by an application.
  *
  * @param request ListApplicationSupportedProvisionProtocolTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9399,7 +9403,7 @@ ListApplicationSupportedProvisionProtocolTypesResponse Client::listApplicationSu
 }
 
 /**
- * @summary 应用支持账户同步类型列表
+ * @summary Queries the synchronization protocol types that are supported by an application.
  *
  * @param request ListApplicationSupportedProvisionProtocolTypesRequest
  * @return ListApplicationSupportedProvisionProtocolTypesResponse
@@ -9471,6 +9475,10 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
   json query = {};
   if (!!request.hasApplicationCreationType()) {
     query["ApplicationCreationType"] = request.getApplicationCreationType();
+  }
+
+  if (!!request.hasApplicationIdentityType()) {
+    query["ApplicationIdentityType"] = request.getApplicationIdentityType();
   }
 
   if (!!request.hasApplicationIds()) {
@@ -11049,7 +11057,7 @@ ListGroupsResponse Client::listGroups(const ListGroupsRequest &request) {
 }
 
 /**
- * @summary Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
+ * @summary Queries the account groups that are granted permissions to access an application and displays the results by page. The IDs of the account groups are returned. To query the detailed information about the account groups, call the GetGroup operation.
  *
  * @param request ListGroupsForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11100,7 +11108,7 @@ ListGroupsForApplicationResponse Client::listGroupsForApplicationWithOptions(con
 }
 
 /**
- * @summary Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
+ * @summary Queries the account groups that are granted permissions to access an application and displays the results by page. The IDs of the account groups are returned. To query the detailed information about the account groups, call the GetGroup operation.
  *
  * @param request ListGroupsForApplicationRequest
  * @return ListGroupsForApplicationResponse
@@ -11196,6 +11204,10 @@ ListGroupsForResourceServerResponse Client::listGroupsForResourceServerWithOptio
 
   if (!!request.hasNextToken()) {
     query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasResourceServerScopeId()) {
+    query["ResourceServerScopeId"] = request.getResourceServerScopeId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11389,7 +11401,7 @@ ListIdentityProvidersForNetworkAccessEndpointResponse Client::listIdentityProvid
 }
 
 /**
- * @summary Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+ * @summary Queries the information about one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
  *
  * @param request ListInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11432,7 +11444,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+ * @summary Queries the information about one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -11476,7 +11488,7 @@ ListNetworkAccessEndpointAvailableRegionsResponse Client::listNetworkAccessEndpo
 }
 
 /**
- * @summary 获取支持NAE的可用区列表
+ * @summary Queries the zones that support dedicated network endpoints in the specified region of Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
  *
  * @param request ListNetworkAccessEndpointAvailableZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11507,7 +11519,7 @@ ListNetworkAccessEndpointAvailableZonesResponse Client::listNetworkAccessEndpoin
 }
 
 /**
- * @summary 获取支持NAE的可用区列表
+ * @summary Queries the zones that support dedicated network endpoints in the specified region of Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
  *
  * @param request ListNetworkAccessEndpointAvailableZonesRequest
  * @return ListNetworkAccessEndpointAvailableZonesResponse
@@ -11518,7 +11530,7 @@ ListNetworkAccessEndpointAvailableZonesResponse Client::listNetworkAccessEndpoin
 }
 
 /**
- * @summary 列表查询专属网络端点。
+ * @summary List query dedicated network endpoint
  *
  * @param request ListNetworkAccessEndpointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11573,7 +11585,7 @@ ListNetworkAccessEndpointsResponse Client::listNetworkAccessEndpointsWithOptions
 }
 
 /**
- * @summary 列表查询专属网络端点。
+ * @summary List query dedicated network endpoint
  *
  * @param request ListNetworkAccessEndpointsRequest
  * @return ListNetworkAccessEndpointsResponse
@@ -11891,6 +11903,10 @@ ListOrganizationalUnitsForResourceServerResponse Client::listOrganizationalUnits
     query["NextToken"] = request.getNextToken();
   }
 
+  if (!!request.hasResourceServerScopeId()) {
+    query["ResourceServerScopeId"] = request.getResourceServerScopeId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -11920,7 +11936,7 @@ ListOrganizationalUnitsForResourceServerResponse Client::listOrganizationalUnits
 }
 
 /**
- * @summary Queries the supported Alibaba Cloud regions.
+ * @summary Queries a list of supported Alibaba Cloud regions.
  *
  * @param request ListRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11943,7 +11959,7 @@ ListRegionsResponse Client::listRegionsWithOptions(const Darabonba::RuntimeOptio
 }
 
 /**
- * @summary Queries the supported Alibaba Cloud regions.
+ * @summary Queries a list of supported Alibaba Cloud regions.
  *
  * @return ListRegionsResponse
  */
@@ -12011,7 +12027,7 @@ ListResourceServersForUserResponse Client::listResourceServersForUser(const List
 }
 
 /**
- * @summary 查询同步任务
+ * @summary Queries a list of synchronization jobs.
  *
  * @param request ListSynchronizationJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12086,7 +12102,7 @@ ListSynchronizationJobsResponse Client::listSynchronizationJobsWithOptions(const
 }
 
 /**
- * @summary 查询同步任务
+ * @summary Queries a list of synchronization jobs.
  *
  * @param request ListSynchronizationJobsRequest
  * @return ListSynchronizationJobsResponse
@@ -12462,6 +12478,10 @@ ListUsersForResourceServerResponse Client::listUsersForResourceServerWithOptions
 
   if (!!request.hasNextToken()) {
     query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasResourceServerScopeId()) {
+    query["ResourceServerScopeId"] = request.getResourceServerScopeId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

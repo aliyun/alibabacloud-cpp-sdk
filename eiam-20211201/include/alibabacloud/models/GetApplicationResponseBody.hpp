@@ -38,6 +38,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ApiInvokeStatus, apiInvokeStatus_);
         DARABONBA_PTR_TO_JSON(ApplicationCreationType, applicationCreationType_);
         DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
+        DARABONBA_PTR_TO_JSON(ApplicationIdentityType, applicationIdentityType_);
         DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
         DARABONBA_PTR_TO_JSON(ApplicationSourceType, applicationSourceType_);
         DARABONBA_PTR_TO_JSON(ApplicationTemplateId, applicationTemplateId_);
@@ -64,6 +65,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ApiInvokeStatus, apiInvokeStatus_);
         DARABONBA_PTR_FROM_JSON(ApplicationCreationType, applicationCreationType_);
         DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
+        DARABONBA_PTR_FROM_JSON(ApplicationIdentityType, applicationIdentityType_);
         DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
         DARABONBA_PTR_FROM_JSON(ApplicationSourceType, applicationSourceType_);
         DARABONBA_PTR_FROM_JSON(ApplicationTemplateId, applicationTemplateId_);
@@ -98,11 +100,11 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->apiInvokeStatus_ == nullptr
-        && this->applicationCreationType_ == nullptr && this->applicationId_ == nullptr && this->applicationName_ == nullptr && this->applicationSourceType_ == nullptr && this->applicationTemplateId_ == nullptr
-        && this->applicationVisibility_ == nullptr && this->authorizationType_ == nullptr && this->clientId_ == nullptr && this->createTime_ == nullptr && this->customSubjectStatus_ == nullptr
-        && this->description_ == nullptr && this->features_ == nullptr && this->instanceId_ == nullptr && this->logoUrl_ == nullptr && this->m2MClientStatus_ == nullptr
-        && this->managedServiceCode_ == nullptr && this->resourceServerIdentifier_ == nullptr && this->resourceServerSourceType_ == nullptr && this->resourceServerStatus_ == nullptr && this->serviceManaged_ == nullptr
-        && this->ssoType_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
+        && this->applicationCreationType_ == nullptr && this->applicationId_ == nullptr && this->applicationIdentityType_ == nullptr && this->applicationName_ == nullptr && this->applicationSourceType_ == nullptr
+        && this->applicationTemplateId_ == nullptr && this->applicationVisibility_ == nullptr && this->authorizationType_ == nullptr && this->clientId_ == nullptr && this->createTime_ == nullptr
+        && this->customSubjectStatus_ == nullptr && this->description_ == nullptr && this->features_ == nullptr && this->instanceId_ == nullptr && this->logoUrl_ == nullptr
+        && this->m2MClientStatus_ == nullptr && this->managedServiceCode_ == nullptr && this->resourceServerIdentifier_ == nullptr && this->resourceServerSourceType_ == nullptr && this->resourceServerStatus_ == nullptr
+        && this->serviceManaged_ == nullptr && this->ssoType_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
       // apiInvokeStatus Field Functions 
       bool hasApiInvokeStatus() const { return this->apiInvokeStatus_ != nullptr;};
       void deleteApiInvokeStatus() { this->apiInvokeStatus_ = nullptr;};
@@ -122,6 +124,13 @@ namespace Models
       void deleteApplicationId() { this->applicationId_ = nullptr;};
       inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
       inline Application& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
+
+
+      // applicationIdentityType Field Functions 
+      bool hasApplicationIdentityType() const { return this->applicationIdentityType_ != nullptr;};
+      void deleteApplicationIdentityType() { this->applicationIdentityType_ = nullptr;};
+      inline string getApplicationIdentityType() const { DARABONBA_PTR_GET_DEFAULT(applicationIdentityType_, "") };
+      inline Application& setApplicationIdentityType(string applicationIdentityType) { DARABONBA_PTR_SET_VALUE(applicationIdentityType_, applicationIdentityType) };
 
 
       // applicationName Field Functions 
@@ -282,6 +291,7 @@ namespace Models
       shared_ptr<string> applicationCreationType_ {};
       // The ID of the application.
       shared_ptr<string> applicationId_ {};
+      shared_ptr<string> applicationIdentityType_ {};
       // The name of the application.
       shared_ptr<string> applicationName_ {};
       // The origin of the application. Valid values:
