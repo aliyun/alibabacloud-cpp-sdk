@@ -150,28 +150,13 @@ namespace Models
 
 
       protected:
-        // The content of the message.
         shared_ptr<string> content_ {};
-        // The status code returned by the carrier.
-        // 
-        // *   If the message is delivered, "DELIVERED" is returned.
-        // *   For information about the error codes that may be returned if the message is not delivered, see [error codes](https://help.aliyun.com/document_detail/101347.html).
         shared_ptr<string> errCode_ {};
-        // The extended field.
         shared_ptr<string> outId_ {};
-        // The mobile numbers of the recipients.
         shared_ptr<string> phoneNum_ {};
-        // The date and time when the message was received.
         shared_ptr<string> receiveDate_ {};
-        // The date and time when the message was sent.
         shared_ptr<string> sendDate_ {};
-        // The delivery status of the message. Valid values:
-        // 
-        // *   **1**: The message has not received a delivery receipt yet.
-        // *   **2**: The message failed to be delivered.
-        // *   **3**: The message was delivered.
         shared_ptr<int64_t> sendStatus_ {};
-        // The ID of the message template.
         shared_ptr<string> templateCode_ {};
       };
 
@@ -238,7 +223,6 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the message.
     shared_ptr<QuerySendDetailsResponseBody::SmsSendDetailDTOs> smsSendDetailDTOs_ {};
     // The number of sent messages.
     shared_ptr<string> totalCount_ {};

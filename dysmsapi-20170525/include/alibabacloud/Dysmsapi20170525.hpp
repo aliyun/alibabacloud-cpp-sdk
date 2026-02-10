@@ -162,7 +162,7 @@ namespace Dysmsapi20170525
       Models::ChangeSignatureQualificationResponse changeSignatureQualification(const Models::ChangeSignatureQualificationRequest &request);
 
       /**
-       * @summary Checks whether a mobile phone number can receive card messages.
+       * @summary Queries whether some mobile phone numbers support card messages.
        *
        * @description ### QPS limit
        * You can call this operation up to 2,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -174,7 +174,7 @@ namespace Dysmsapi20170525
       Models::CheckMobilesCardSupportResponse checkMobilesCardSupportWithOptions(const Models::CheckMobilesCardSupportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether a mobile phone number can receive card messages.
+       * @summary Queries whether some mobile phone numbers support card messages.
        *
        * @description ### QPS limit
        * You can call this operation up to 2,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -231,7 +231,41 @@ namespace Dysmsapi20170525
       Models::CreateCardSmsTemplateResponse createCardSmsTemplate(const Models::CreateCardSmsTemplateRequest &request);
 
       /**
-       * @summary 创建短链
+       * @summary 数字短信签名操作订单
+       *
+       * @param tmpReq CreateDigitalSignOrderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDigitalSignOrderResponse
+       */
+      Models::CreateDigitalSignOrderResponse createDigitalSignOrderWithOptions(const Models::CreateDigitalSignOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 数字短信签名操作订单
+       *
+       * @param request CreateDigitalSignOrderRequest
+       * @return CreateDigitalSignOrderResponse
+       */
+      Models::CreateDigitalSignOrderResponse createDigitalSignOrder(const Models::CreateDigitalSignOrderRequest &request);
+
+      /**
+       * @summary 创建数字短信模板
+       *
+       * @param request CreateDigitalSmsTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDigitalSmsTemplateResponse
+       */
+      Models::CreateDigitalSmsTemplateResponse createDigitalSmsTemplateWithOptions(const Models::CreateDigitalSmsTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数字短信模板
+       *
+       * @param request CreateDigitalSmsTemplateRequest
+       * @return CreateDigitalSmsTemplateResponse
+       */
+      Models::CreateDigitalSmsTemplateResponse createDigitalSmsTemplate(const Models::CreateDigitalSmsTemplateRequest &request);
+
+      /**
+       * @summary Creates personalized short URLs. You can specify multiple mobile numbers and source URLs in the request. The operation returns the short URLs corresponding to the specified mobile numbers. You can obtain the click information of end users based on different short URLs. The click information helps you realize secondary marketing. QPS limit You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request CreateSmartShortUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -240,7 +274,7 @@ namespace Dysmsapi20170525
       Models::CreateSmartShortUrlResponse createSmartShortUrlWithOptions(const Models::CreateSmartShortUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建短链
+       * @summary Creates personalized short URLs. You can specify multiple mobile numbers and source URLs in the request. The operation returns the short URLs corresponding to the specified mobile numbers. You can obtain the click information of end users based on different short URLs. The click information helps you realize secondary marketing. QPS limit You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request CreateSmartShortUrlRequest
        * @return CreateSmartShortUrlResponse
@@ -820,6 +854,23 @@ namespace Dysmsapi20170525
       Models::QueryCardSmsTemplateReportResponse queryCardSmsTemplateReport(const Models::QueryCardSmsTemplateReportRequest &request);
 
       /**
+       * @summary 获取数字短信签名通过签名name
+       *
+       * @param request QueryDigitalSignByNameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryDigitalSignByNameResponse
+       */
+      Models::QueryDigitalSignByNameResponse queryDigitalSignByNameWithOptions(const Models::QueryDigitalSignByNameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数字短信签名通过签名name
+       *
+       * @param request QueryDigitalSignByNameRequest
+       * @return QueryDigitalSignByNameResponse
+       */
+      Models::QueryDigitalSignByNameResponse queryDigitalSignByName(const Models::QueryDigitalSignByNameRequest &request);
+
+      /**
        * @summary 查询验证码签名
        *
        * @param request QueryExtCodeSignRequest
@@ -837,7 +888,7 @@ namespace Dysmsapi20170525
       Models::QueryExtCodeSignResponse queryExtCodeSign(const Models::QueryExtCodeSignRequest &request);
 
       /**
-       * @summary Checks whether a mobile phone number can receive card messages.
+       * @summary Queries whether some mobile phone numbers support card messages.
        *
        * @param tmpReq QueryMobilesCardSupportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -846,7 +897,7 @@ namespace Dysmsapi20170525
       Models::QueryMobilesCardSupportResponse queryMobilesCardSupportWithOptions(const Models::QueryMobilesCardSupportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether a mobile phone number can receive card messages.
+       * @summary Queries whether some mobile phone numbers support card messages.
        *
        * @param request QueryMobilesCardSupportRequest
        * @return QueryMobilesCardSupportResponse
@@ -854,7 +905,7 @@ namespace Dysmsapi20170525
       Models::QueryMobilesCardSupportResponse queryMobilesCardSupport(const Models::QueryMobilesCardSupportRequest &request);
 
       /**
-       * @summary 点击明细查询
+       * @summary Queries the information about clicks within a specific time range or related to a mobile number. QPS limit You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request QueryPageSmartShortUrlLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -863,7 +914,7 @@ namespace Dysmsapi20170525
       Models::QueryPageSmartShortUrlLogResponse queryPageSmartShortUrlLogWithOptions(const Models::QueryPageSmartShortUrlLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 点击明细查询
+       * @summary Queries the information about clicks within a specific time range or related to a mobile number. QPS limit You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request QueryPageSmartShortUrlLogRequest
        * @return QueryPageSmartShortUrlLogResponse

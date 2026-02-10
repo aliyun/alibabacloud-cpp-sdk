@@ -343,7 +343,6 @@ namespace Models
     shared_ptr<string> code_ {};
     // The time when the SMS template was created.
     shared_ptr<string> createDate_ {};
-    // File information, compatible with signatures created by the [AddSmsSign](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-addsmstemplate?spm) API.
     shared_ptr<GetSmsTemplateResponseBody::FileUrlList> fileUrlList_ {};
     // International/Hong Kong, Macao, and Taiwan template type. When the **TemplateType** parameter is **3**, this parameter is required for international/Hong Kong, Macao, and Taiwan templates, with values:
     // - **0**: Verification code.
@@ -352,7 +351,6 @@ namespace Models
     shared_ptr<int32_t> intlType_ {};
     // Description of the status code.
     shared_ptr<string> message_ {};
-    // Additional documentation information, supplementing uploaded business proof files or operational screenshots file list.
     shared_ptr<GetSmsTemplateResponseBody::MoreDataFileUrlList> moreDataFileUrlList_ {};
     // Work order number.
     // 

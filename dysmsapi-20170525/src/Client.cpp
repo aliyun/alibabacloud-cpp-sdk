@@ -422,7 +422,7 @@ ChangeSignatureQualificationResponse Client::changeSignatureQualification(const 
 }
 
 /**
- * @summary Checks whether a mobile phone number can receive card messages.
+ * @summary Queries whether some mobile phone numbers support card messages.
  *
  * @description ### QPS limit
  * You can call this operation up to 2,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -460,7 +460,7 @@ CheckMobilesCardSupportResponse Client::checkMobilesCardSupportWithOptions(const
 }
 
 /**
- * @summary Checks whether a mobile phone number can receive card messages.
+ * @summary Queries whether some mobile phone numbers support card messages.
  *
  * @description ### QPS limit
  * You can call this operation up to 2,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -604,7 +604,169 @@ CreateCardSmsTemplateResponse Client::createCardSmsTemplate(const CreateCardSmsT
 }
 
 /**
- * @summary 创建短链
+ * @summary 数字短信签名操作订单
+ *
+ * @param tmpReq CreateDigitalSignOrderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDigitalSignOrderResponse
+ */
+CreateDigitalSignOrderResponse Client::createDigitalSignOrderWithOptions(const CreateDigitalSignOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateDigitalSignOrderShrinkRequest request = CreateDigitalSignOrderShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOrderContext()) {
+    request.setOrderContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOrderContext(), "OrderContext", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasExtendMessage()) {
+    query["ExtendMessage"] = request.getExtendMessage();
+  }
+
+  if (!!request.hasOrderContextShrink()) {
+    query["OrderContext"] = request.getOrderContextShrink();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasQualificationId()) {
+    query["QualificationId"] = request.getQualificationId();
+  }
+
+  if (!!request.hasQualificationVersion()) {
+    query["QualificationVersion"] = request.getQualificationVersion();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSignId()) {
+    query["SignId"] = request.getSignId();
+  }
+
+  if (!!request.hasSignIndustry()) {
+    query["SignIndustry"] = request.getSignIndustry();
+  }
+
+  if (!!request.hasSignName()) {
+    query["SignName"] = request.getSignName();
+  }
+
+  if (!!request.hasSignSource()) {
+    query["SignSource"] = request.getSignSource();
+  }
+
+  if (!!request.hasSubmitter()) {
+    query["Submitter"] = request.getSubmitter();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDigitalSignOrder"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDigitalSignOrderResponse>();
+}
+
+/**
+ * @summary 数字短信签名操作订单
+ *
+ * @param request CreateDigitalSignOrderRequest
+ * @return CreateDigitalSignOrderResponse
+ */
+CreateDigitalSignOrderResponse Client::createDigitalSignOrder(const CreateDigitalSignOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDigitalSignOrderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建数字短信模板
+ *
+ * @param request CreateDigitalSmsTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDigitalSmsTemplateResponse
+ */
+CreateDigitalSmsTemplateResponse Client::createDigitalSmsTemplateWithOptions(const CreateDigitalSmsTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSignName()) {
+    query["SignName"] = request.getSignName();
+  }
+
+  if (!!request.hasTemplateContents()) {
+    query["TemplateContents"] = request.getTemplateContents();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["TemplateName"] = request.getTemplateName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDigitalSmsTemplate"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDigitalSmsTemplateResponse>();
+}
+
+/**
+ * @summary 创建数字短信模板
+ *
+ * @param request CreateDigitalSmsTemplateRequest
+ * @return CreateDigitalSmsTemplateResponse
+ */
+CreateDigitalSmsTemplateResponse Client::createDigitalSmsTemplate(const CreateDigitalSmsTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDigitalSmsTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates personalized short URLs. You can specify multiple mobile numbers and source URLs in the request. The operation returns the short URLs corresponding to the specified mobile numbers. You can obtain the click information of end users based on different short URLs. The click information helps you realize secondary marketing. QPS limit You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request CreateSmartShortUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -655,7 +817,7 @@ CreateSmartShortUrlResponse Client::createSmartShortUrlWithOptions(const CreateS
 }
 
 /**
- * @summary 创建短链
+ * @summary Creates personalized short URLs. You can specify multiple mobile numbers and source URLs in the request. The operation returns the short URLs corresponding to the specified mobile numbers. You can obtain the click information of end users based on different short URLs. The click information helps you realize secondary marketing. QPS limit You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request CreateSmartShortUrlRequest
  * @return CreateSmartShortUrlResponse
@@ -2435,6 +2597,60 @@ QueryCardSmsTemplateReportResponse Client::queryCardSmsTemplateReport(const Quer
 }
 
 /**
+ * @summary 获取数字短信签名通过签名name
+ *
+ * @param request QueryDigitalSignByNameRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryDigitalSignByNameResponse
+ */
+QueryDigitalSignByNameResponse Client::queryDigitalSignByNameWithOptions(const QueryDigitalSignByNameRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSignName()) {
+    query["SignName"] = request.getSignName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryDigitalSignByName"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryDigitalSignByNameResponse>();
+}
+
+/**
+ * @summary 获取数字短信签名通过签名name
+ *
+ * @param request QueryDigitalSignByNameRequest
+ * @return QueryDigitalSignByNameResponse
+ */
+QueryDigitalSignByNameResponse Client::queryDigitalSignByName(const QueryDigitalSignByNameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryDigitalSignByNameWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询验证码签名
  *
  * @param request QueryExtCodeSignRequest
@@ -2501,7 +2717,7 @@ QueryExtCodeSignResponse Client::queryExtCodeSign(const QueryExtCodeSignRequest 
 }
 
 /**
- * @summary Checks whether a mobile phone number can receive card messages.
+ * @summary Queries whether some mobile phone numbers support card messages.
  *
  * @param tmpReq QueryMobilesCardSupportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2546,7 +2762,7 @@ QueryMobilesCardSupportResponse Client::queryMobilesCardSupportWithOptions(const
 }
 
 /**
- * @summary Checks whether a mobile phone number can receive card messages.
+ * @summary Queries whether some mobile phone numbers support card messages.
  *
  * @param request QueryMobilesCardSupportRequest
  * @return QueryMobilesCardSupportResponse
@@ -2557,7 +2773,7 @@ QueryMobilesCardSupportResponse Client::queryMobilesCardSupport(const QueryMobil
 }
 
 /**
- * @summary 点击明细查询
+ * @summary Queries the information about clicks within a specific time range or related to a mobile number. QPS limit You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request QueryPageSmartShortUrlLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2620,7 +2836,7 @@ QueryPageSmartShortUrlLogResponse Client::queryPageSmartShortUrlLogWithOptions(c
 }
 
 /**
- * @summary 点击明细查询
+ * @summary Queries the information about clicks within a specific time range or related to a mobile number. QPS limit You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request QueryPageSmartShortUrlLogRequest
  * @return QueryPageSmartShortUrlLogResponse
