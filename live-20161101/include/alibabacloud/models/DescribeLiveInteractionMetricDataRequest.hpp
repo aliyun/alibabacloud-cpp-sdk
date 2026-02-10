@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeLiveInteractionMetricDataRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(BeginTs, beginTs_);
+      DARABONBA_PTR_TO_JSON(ChannelId, channelId_);
       DARABONBA_PTR_TO_JSON(EndTs, endTs_);
       DARABONBA_PTR_TO_JSON(MetricType, metricType_);
       DARABONBA_PTR_TO_JSON(Os, os_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeLiveInteractionMetricDataRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(BeginTs, beginTs_);
+      DARABONBA_PTR_FROM_JSON(ChannelId, channelId_);
       DARABONBA_PTR_FROM_JSON(EndTs, endTs_);
       DARABONBA_PTR_FROM_JSON(MetricType, metricType_);
       DARABONBA_PTR_FROM_JSON(Os, os_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && this->beginTs_ == nullptr && this->endTs_ == nullptr && this->metricType_ == nullptr && this->os_ == nullptr && this->terminalType_ == nullptr; };
+        && this->beginTs_ == nullptr && this->channelId_ == nullptr && this->endTs_ == nullptr && this->metricType_ == nullptr && this->os_ == nullptr
+        && this->terminalType_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -53,6 +56,13 @@ namespace Models
     void deleteBeginTs() { this->beginTs_ = nullptr;};
     inline int64_t getBeginTs() const { DARABONBA_PTR_GET_DEFAULT(beginTs_, 0L) };
     inline DescribeLiveInteractionMetricDataRequest& setBeginTs(int64_t beginTs) { DARABONBA_PTR_SET_VALUE(beginTs_, beginTs) };
+
+
+    // channelId Field Functions 
+    bool hasChannelId() const { return this->channelId_ != nullptr;};
+    void deleteChannelId() { this->channelId_ = nullptr;};
+    inline string getChannelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
+    inline DescribeLiveInteractionMetricDataRequest& setChannelId(string channelId) { DARABONBA_PTR_SET_VALUE(channelId_, channelId) };
 
 
     // endTs Field Functions 
@@ -92,6 +102,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> beginTs_ {};
+    shared_ptr<string> channelId_ {};
     // The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
     // 
     // This parameter is required.

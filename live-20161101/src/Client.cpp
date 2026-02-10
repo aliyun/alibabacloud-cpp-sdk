@@ -13525,6 +13525,10 @@ DescribeLiveInteractionMetricDataResponse Client::describeLiveInteractionMetricD
     query["BeginTs"] = request.getBeginTs();
   }
 
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.getChannelId();
+  }
+
   if (!!request.hasEndTs()) {
     query["EndTs"] = request.getEndTs();
   }
