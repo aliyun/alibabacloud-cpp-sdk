@@ -3861,6 +3861,10 @@ ListTrafficStatisticsResponse Client::listTrafficStatisticsWithOptions(const Lis
     body["TrafficStatisticType"] = request.getTrafficStatisticType();
   }
 
+  if (!!request.hasTrafficType()) {
+    body["TrafficType"] = request.getTrafficType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
   }).get<map<string, json>>());

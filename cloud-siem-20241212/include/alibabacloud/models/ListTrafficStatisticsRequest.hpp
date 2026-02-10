@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TrafficStatisticPeriod, trafficStatisticPeriod_);
       DARABONBA_PTR_TO_JSON(TrafficStatisticPeriodType, trafficStatisticPeriodType_);
       DARABONBA_PTR_TO_JSON(TrafficStatisticType, trafficStatisticType_);
+      DARABONBA_PTR_TO_JSON(TrafficType, trafficType_);
     };
     friend void from_json(const Darabonba::Json& j, ListTrafficStatisticsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TrafficStatisticPeriod, trafficStatisticPeriod_);
       DARABONBA_PTR_FROM_JSON(TrafficStatisticPeriodType, trafficStatisticPeriodType_);
       DARABONBA_PTR_FROM_JSON(TrafficStatisticType, trafficStatisticType_);
+      DARABONBA_PTR_FROM_JSON(TrafficType, trafficType_);
     };
     ListTrafficStatisticsRequest() = default ;
     ListTrafficStatisticsRequest(const ListTrafficStatisticsRequest &) = default ;
@@ -48,7 +50,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
         && this->logUserIds_ == nullptr && this->productId_ == nullptr && this->regionId_ == nullptr && this->regionTag_ == nullptr && this->roleFor_ == nullptr
-        && this->trafficStatisticPeriod_ == nullptr && this->trafficStatisticPeriodType_ == nullptr && this->trafficStatisticType_ == nullptr; };
+        && this->trafficStatisticPeriod_ == nullptr && this->trafficStatisticPeriodType_ == nullptr && this->trafficStatisticType_ == nullptr && this->trafficType_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -114,6 +116,13 @@ namespace Models
     inline ListTrafficStatisticsRequest& setTrafficStatisticType(string trafficStatisticType) { DARABONBA_PTR_SET_VALUE(trafficStatisticType_, trafficStatisticType) };
 
 
+    // trafficType Field Functions 
+    bool hasTrafficType() const { return this->trafficType_ != nullptr;};
+    void deleteTrafficType() { this->trafficType_ = nullptr;};
+    inline string getTrafficType() const { DARABONBA_PTR_GET_DEFAULT(trafficType_, "") };
+    inline ListTrafficStatisticsRequest& setTrafficType(string trafficType) { DARABONBA_PTR_SET_VALUE(trafficType_, trafficType) };
+
+
   protected:
     shared_ptr<string> lang_ {};
     shared_ptr<vector<int64_t>> logUserIds_ {};
@@ -124,6 +133,7 @@ namespace Models
     shared_ptr<string> trafficStatisticPeriod_ {};
     shared_ptr<string> trafficStatisticPeriodType_ {};
     shared_ptr<string> trafficStatisticType_ {};
+    shared_ptr<string> trafficType_ {};
   };
 
   } // namespace Models
