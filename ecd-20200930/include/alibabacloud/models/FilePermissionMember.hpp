@@ -73,8 +73,17 @@ namespace Models
 
 
     protected:
+      // The user ID or a team ID.
+      // 
       // This parameter is required.
       shared_ptr<string> id_ {};
+      // The object type.
+      // 
+      // Valid values:
+      // 
+      // *   IT_Group: team
+      // *   IT_User: user
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -112,10 +121,32 @@ namespace Models
 
 
   protected:
+    // The object that you want to grant permissions. The object can be a user or a group.
+    // 
     // This parameter is required.
     shared_ptr<FilePermissionMember::CdsIdentity> cdsIdentity_ {};
+    // Indicates whether to disable the permission from users in the subgroup.
     shared_ptr<bool> disinheritSubGroup_ {};
+    // The expiration time. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC
     shared_ptr<int64_t> expireTime_ {};
+    // The role.
+    // 
+    // Valid values:
+    // 
+    // *   SystemFileEditorWithoutShareLink: The role that can edit but cannot share files.
+    // *   SystemFileUploaderAndDownloaderWithShareLink: The role that can upload, download, and share files.
+    // *   SystemFileDownloader: The role that can download files.
+    // *   SystemFileEditorWithoutDelete: The role that can edit but cannot edit files.
+    // *   SystemFileOwner: The role that can collaborate with others on files.
+    // *   SystemFileDownloaderWithShareLink: The role that can download and share files.
+    // *   SystemFileUploaderAndViewer: The role that can preview and upload files.
+    // *   SystemFileViewer: The role that can preview files.
+    // *   SystemFileEditor: The role that can edit files.
+    // *   SystemFileUploaderWithShareLink: The role that can upload and share files.
+    // *   SystemFileUploader: The role that can upload files.
+    // *   SystemFileUploaderAndDownloader: The role that can upload and download files.
+    // *   SystemFileMetaViewer: The role that can view file list.
+    // 
     // This parameter is required.
     shared_ptr<string> roleId_ {};
   };

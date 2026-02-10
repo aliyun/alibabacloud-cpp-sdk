@@ -259,30 +259,111 @@ namespace Models
 
 
   protected:
+    // The number of times to access the shared file.
     shared_ptr<int64_t> accessCount_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The user that creates the file sharing task.
     shared_ptr<string> creator_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The shared file is forbidden from being downloaded.
     shared_ptr<bool> disableDownload_ {};
+    // The shared file is forbidden from being previewed.
     shared_ptr<bool> disablePreview_ {};
+    // The shared file is forbidden from being dumped.
     shared_ptr<bool> disableSave_ {};
+    // The number of times that the shared file can be downloaded.
     shared_ptr<int64_t> downloadCount_ {};
+    // The maximum number of times that the shared file can be downloaded.
     shared_ptr<int64_t> downloadLimit_ {};
+    // The team space ID.
     shared_ptr<string> driveId_ {};
+    // The time when the file sharing link expires.
+    // 
+    // >  The value must be in the FC3339 format. Example: 2020-06-28T11:33:00.000+08:00. If the parameter is left empty, the file sharing link is permanently valid.
     shared_ptr<string> expiration_ {};
+    // Specifies whether the file sharing link expires.
     shared_ptr<bool> expired_ {};
+    // The file sharing task IDs.
     shared_ptr<string> fileIds_ {};
+    // The modification time.
     shared_ptr<string> modifiyTime_ {};
+    // The number of times that the shared file is previewed.
     shared_ptr<int64_t> previewCount_ {};
+    // The maximum number of times that the shared file can be previewed.
     shared_ptr<int64_t> previewLimit_ {};
+    // The number of times that the shared file is reported due to content violation.
     shared_ptr<int64_t> reportCount_ {};
+    // The number of times that the shared files can be dumped.
     shared_ptr<int64_t> saveCount_ {};
+    // The maximum number of times that the shared file can be saved.
     shared_ptr<int64_t> saveLimit_ {};
+    // The file sharing task ID.
     shared_ptr<string> shareId_ {};
+    // The file sharing link.
     shared_ptr<string> shareLink_ {};
+    // The shared file name. By default, the name of the first shared file is used.
     shared_ptr<string> shareName_ {};
+    // The access code. It must contain up to 64 characters in length. 0 characters indicates that there is no access code.
     shared_ptr<string> sharePwd_ {};
+    // The status of the file sharing link.
+    // 
+    // Valid values:
+    // 
+    // *   forbidden_disabled
+    // 
+    //     <!-- -->
+    // 
+    //     : The file sharing link is canceled
+    // 
+    //     <!-- -->
+    // 
+    //     after it
+    // 
+    //     <!-- -->
+    // 
+    //     is not allowed.
+    // 
+    // *   forbidden
+    // 
+    //     <!-- -->
+    // 
+    //     :
+    // 
+    //     <!-- -->
+    // 
+    //     The file sharing link is not allowed
+    // 
+    //     <!-- -->
+    // 
+    //     .
+    // 
+    // *   disabled
+    // 
+    //     <!-- -->
+    // 
+    //     :
+    // 
+    //     <!-- -->
+    // 
+    //     The file sharing link is canceled.
+    // 
+    //     <!-- -->
+    // 
+    // *   enabled
+    // 
+    //     <!-- -->
+    // 
+    //     :
+    // 
+    //     <!-- -->
+    // 
+    //     The file sharing link is valid.
+    // 
+    //     <!-- -->
     shared_ptr<string> status_ {};
+    // The number of times that the audio and video file is played.
     shared_ptr<int64_t> videoPreviewCount_ {};
   };
 

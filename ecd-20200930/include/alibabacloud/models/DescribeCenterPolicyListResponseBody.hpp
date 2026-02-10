@@ -37,12 +37,16 @@ namespace Models
     class DescribePolicyGroups : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const DescribePolicyGroups& obj) { 
+        DARABONBA_PTR_TO_JSON(AcademicProxy, academicProxy_);
         DARABONBA_PTR_TO_JSON(AdminAccess, adminAccess_);
         DARABONBA_PTR_TO_JSON(AppContentProtection, appContentProtection_);
         DARABONBA_PTR_TO_JSON(AuthorizeAccessPolicyRules, authorizeAccessPolicyRules_);
         DARABONBA_PTR_TO_JSON(AuthorizeSecurityPolicyRules, authorizeSecurityPolicyRules_);
         DARABONBA_PTR_TO_JSON(CameraRedirect, cameraRedirect_);
         DARABONBA_PTR_TO_JSON(ClientControlMenu, clientControlMenu_);
+        DARABONBA_PTR_TO_JSON(ClientHibernate, clientHibernate_);
+        DARABONBA_PTR_TO_JSON(ClientRestart, clientRestart_);
+        DARABONBA_PTR_TO_JSON(ClientShutdown, clientShutdown_);
         DARABONBA_PTR_TO_JSON(ClientTypes, clientTypes_);
         DARABONBA_PTR_TO_JSON(Clipboard, clipboard_);
         DARABONBA_PTR_TO_JSON(ColorEnhancement, colorEnhancement_);
@@ -70,6 +74,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(FileTransferSpeedLocation, fileTransferSpeedLocation_);
         DARABONBA_PTR_TO_JSON(GpuAcceleration, gpuAcceleration_);
         DARABONBA_PTR_TO_JSON(HoverConfigMsg, hoverConfigMsg_);
+        DARABONBA_PTR_TO_JSON(HoverHibernate, hoverHibernate_);
+        DARABONBA_PTR_TO_JSON(HoverRestart, hoverRestart_);
+        DARABONBA_PTR_TO_JSON(HoverShutdown, hoverShutdown_);
         DARABONBA_PTR_TO_JSON(Html5Access, html5Access_);
         DARABONBA_PTR_TO_JSON(Html5FileTransfer, html5FileTransfer_);
         DARABONBA_PTR_TO_JSON(InternetCommunicationProtocol, internetCommunicationProtocol_);
@@ -83,7 +90,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(MemorySampleDuration, memorySampleDuration_);
         DARABONBA_PTR_TO_JSON(MemorySingleRateLimit, memorySingleRateLimit_);
         DARABONBA_PTR_TO_JSON(MobileRestart, mobileRestart_);
+        DARABONBA_PTR_TO_JSON(MobileSafeMenu, mobileSafeMenu_);
         DARABONBA_PTR_TO_JSON(MobileShutdown, mobileShutdown_);
+        DARABONBA_PTR_TO_JSON(MobileWuyingKeeper, mobileWuyingKeeper_);
+        DARABONBA_PTR_TO_JSON(MobileWyAssistant, mobileWyAssistant_);
+        DARABONBA_PTR_TO_JSON(ModelLibrary, modelLibrary_);
+        DARABONBA_PTR_TO_JSON(MultiScreen, multiScreen_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(NetRedirect, netRedirect_);
         DARABONBA_PTR_TO_JSON(NetRedirectRule, netRedirectRule_);
@@ -92,6 +104,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
         DARABONBA_PTR_TO_JSON(PolicyGroupType, policyGroupType_);
         DARABONBA_PTR_TO_JSON(PolicyStatus, policyStatus_);
+        DARABONBA_PTR_TO_JSON(PortProxy, portProxy_);
         DARABONBA_PTR_TO_JSON(PrinterRedirection, printerRedirection_);
         DARABONBA_PTR_TO_JSON(QualityEnhancement, qualityEnhancement_);
         DARABONBA_PTR_TO_JSON(RecordContent, recordContent_);
@@ -143,17 +156,22 @@ namespace Models
         DARABONBA_PTR_TO_JSON(WatermarkPower, watermarkPower_);
         DARABONBA_PTR_TO_JSON(WatermarkRowAmount, watermarkRowAmount_);
         DARABONBA_PTR_TO_JSON(WatermarkSecurity, watermarkSecurity_);
+        DARABONBA_PTR_TO_JSON(WatermarkShadow, watermarkShadow_);
         DARABONBA_PTR_TO_JSON(WatermarkTransparencyValue, watermarkTransparencyValue_);
         DARABONBA_PTR_TO_JSON(WatermarkType, watermarkType_);
         DARABONBA_PTR_TO_JSON(WyAssistant, wyAssistant_);
       };
       friend void from_json(const Darabonba::Json& j, DescribePolicyGroups& obj) { 
+        DARABONBA_PTR_FROM_JSON(AcademicProxy, academicProxy_);
         DARABONBA_PTR_FROM_JSON(AdminAccess, adminAccess_);
         DARABONBA_PTR_FROM_JSON(AppContentProtection, appContentProtection_);
         DARABONBA_PTR_FROM_JSON(AuthorizeAccessPolicyRules, authorizeAccessPolicyRules_);
         DARABONBA_PTR_FROM_JSON(AuthorizeSecurityPolicyRules, authorizeSecurityPolicyRules_);
         DARABONBA_PTR_FROM_JSON(CameraRedirect, cameraRedirect_);
         DARABONBA_PTR_FROM_JSON(ClientControlMenu, clientControlMenu_);
+        DARABONBA_PTR_FROM_JSON(ClientHibernate, clientHibernate_);
+        DARABONBA_PTR_FROM_JSON(ClientRestart, clientRestart_);
+        DARABONBA_PTR_FROM_JSON(ClientShutdown, clientShutdown_);
         DARABONBA_PTR_FROM_JSON(ClientTypes, clientTypes_);
         DARABONBA_PTR_FROM_JSON(Clipboard, clipboard_);
         DARABONBA_PTR_FROM_JSON(ColorEnhancement, colorEnhancement_);
@@ -181,6 +199,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(FileTransferSpeedLocation, fileTransferSpeedLocation_);
         DARABONBA_PTR_FROM_JSON(GpuAcceleration, gpuAcceleration_);
         DARABONBA_PTR_FROM_JSON(HoverConfigMsg, hoverConfigMsg_);
+        DARABONBA_PTR_FROM_JSON(HoverHibernate, hoverHibernate_);
+        DARABONBA_PTR_FROM_JSON(HoverRestart, hoverRestart_);
+        DARABONBA_PTR_FROM_JSON(HoverShutdown, hoverShutdown_);
         DARABONBA_PTR_FROM_JSON(Html5Access, html5Access_);
         DARABONBA_PTR_FROM_JSON(Html5FileTransfer, html5FileTransfer_);
         DARABONBA_PTR_FROM_JSON(InternetCommunicationProtocol, internetCommunicationProtocol_);
@@ -194,7 +215,12 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(MemorySampleDuration, memorySampleDuration_);
         DARABONBA_PTR_FROM_JSON(MemorySingleRateLimit, memorySingleRateLimit_);
         DARABONBA_PTR_FROM_JSON(MobileRestart, mobileRestart_);
+        DARABONBA_PTR_FROM_JSON(MobileSafeMenu, mobileSafeMenu_);
         DARABONBA_PTR_FROM_JSON(MobileShutdown, mobileShutdown_);
+        DARABONBA_PTR_FROM_JSON(MobileWuyingKeeper, mobileWuyingKeeper_);
+        DARABONBA_PTR_FROM_JSON(MobileWyAssistant, mobileWyAssistant_);
+        DARABONBA_PTR_FROM_JSON(ModelLibrary, modelLibrary_);
+        DARABONBA_PTR_FROM_JSON(MultiScreen, multiScreen_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(NetRedirect, netRedirect_);
         DARABONBA_PTR_FROM_JSON(NetRedirectRule, netRedirectRule_);
@@ -203,6 +229,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
         DARABONBA_PTR_FROM_JSON(PolicyGroupType, policyGroupType_);
         DARABONBA_PTR_FROM_JSON(PolicyStatus, policyStatus_);
+        DARABONBA_PTR_FROM_JSON(PortProxy, portProxy_);
         DARABONBA_PTR_FROM_JSON(PrinterRedirection, printerRedirection_);
         DARABONBA_PTR_FROM_JSON(QualityEnhancement, qualityEnhancement_);
         DARABONBA_PTR_FROM_JSON(RecordContent, recordContent_);
@@ -254,6 +281,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(WatermarkPower, watermarkPower_);
         DARABONBA_PTR_FROM_JSON(WatermarkRowAmount, watermarkRowAmount_);
         DARABONBA_PTR_FROM_JSON(WatermarkSecurity, watermarkSecurity_);
+        DARABONBA_PTR_FROM_JSON(WatermarkShadow, watermarkShadow_);
         DARABONBA_PTR_FROM_JSON(WatermarkTransparencyValue, watermarkTransparencyValue_);
         DARABONBA_PTR_FROM_JSON(WatermarkType, watermarkType_);
         DARABONBA_PTR_FROM_JSON(WyAssistant, wyAssistant_);
@@ -787,29 +815,39 @@ namespace Models
         shared_ptr<string> description_ {};
       };
 
-      virtual bool empty() const override { return this->adminAccess_ == nullptr
-        && this->appContentProtection_ == nullptr && this->authorizeAccessPolicyRules_ == nullptr && this->authorizeSecurityPolicyRules_ == nullptr && this->cameraRedirect_ == nullptr && this->clientControlMenu_ == nullptr
-        && this->clientTypes_ == nullptr && this->clipboard_ == nullptr && this->colorEnhancement_ == nullptr && this->cpdDriveClipboard_ == nullptr && this->cpuDownGradeDuration_ == nullptr
-        && this->cpuProcessors_ == nullptr && this->cpuProtectedMode_ == nullptr && this->cpuRateLimit_ == nullptr && this->cpuSampleDuration_ == nullptr && this->cpuSingleRateLimit_ == nullptr
-        && this->desktopCount_ == nullptr && this->desktopGroupCount_ == nullptr && this->deviceRedirects_ == nullptr && this->deviceRules_ == nullptr && this->disconnectKeepSession_ == nullptr
-        && this->disconnectKeepSessionTime_ == nullptr && this->displayMode_ == nullptr && this->domainRegisterValue_ == nullptr && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr
-        && this->endUserApplyAdminCoordinate_ == nullptr && this->endUserGroupCoordinate_ == nullptr && this->fileTransferAddress_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr
-        && this->gpuAcceleration_ == nullptr && this->hoverConfigMsg_ == nullptr && this->html5Access_ == nullptr && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr
-        && this->internetPrinter_ == nullptr && this->localDrive_ == nullptr && this->maxReconnectTime_ == nullptr && this->memoryDownGradeDuration_ == nullptr && this->memoryProcessors_ == nullptr
-        && this->memoryProtectedMode_ == nullptr && this->memoryRateLimit_ == nullptr && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr
-        && this->mobileShutdown_ == nullptr && this->name_ == nullptr && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->noOperationDisconnect_ == nullptr
-        && this->noOperationDisconnectTime_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupType_ == nullptr && this->policyStatus_ == nullptr && this->printerRedirection_ == nullptr
-        && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFilePaths_ == nullptr
-        && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr && this->recordingAudio_ == nullptr && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr
-        && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr
-        && this->remoteCoordinate_ == nullptr && this->resolutionDpi_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr
-        && this->resourceGroupCount_ == nullptr && this->safeMenu_ == nullptr && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr
-        && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr && this->targetFps_ == nullptr && this->taskbar_ == nullptr
-        && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr
-        && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr
-        && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr
-        && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr
-        && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr && this->wyAssistant_ == nullptr; };
+      virtual bool empty() const override { return this->academicProxy_ == nullptr
+        && this->adminAccess_ == nullptr && this->appContentProtection_ == nullptr && this->authorizeAccessPolicyRules_ == nullptr && this->authorizeSecurityPolicyRules_ == nullptr && this->cameraRedirect_ == nullptr
+        && this->clientControlMenu_ == nullptr && this->clientHibernate_ == nullptr && this->clientRestart_ == nullptr && this->clientShutdown_ == nullptr && this->clientTypes_ == nullptr
+        && this->clipboard_ == nullptr && this->colorEnhancement_ == nullptr && this->cpdDriveClipboard_ == nullptr && this->cpuDownGradeDuration_ == nullptr && this->cpuProcessors_ == nullptr
+        && this->cpuProtectedMode_ == nullptr && this->cpuRateLimit_ == nullptr && this->cpuSampleDuration_ == nullptr && this->cpuSingleRateLimit_ == nullptr && this->desktopCount_ == nullptr
+        && this->desktopGroupCount_ == nullptr && this->deviceRedirects_ == nullptr && this->deviceRules_ == nullptr && this->disconnectKeepSession_ == nullptr && this->disconnectKeepSessionTime_ == nullptr
+        && this->displayMode_ == nullptr && this->domainRegisterValue_ == nullptr && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr && this->endUserApplyAdminCoordinate_ == nullptr
+        && this->endUserGroupCoordinate_ == nullptr && this->fileTransferAddress_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr && this->gpuAcceleration_ == nullptr
+        && this->hoverConfigMsg_ == nullptr && this->hoverHibernate_ == nullptr && this->hoverRestart_ == nullptr && this->hoverShutdown_ == nullptr && this->html5Access_ == nullptr
+        && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr && this->localDrive_ == nullptr && this->maxReconnectTime_ == nullptr
+        && this->memoryDownGradeDuration_ == nullptr && this->memoryProcessors_ == nullptr && this->memoryProtectedMode_ == nullptr && this->memoryRateLimit_ == nullptr && this->memorySampleDuration_ == nullptr
+        && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr && this->mobileSafeMenu_ == nullptr && this->mobileShutdown_ == nullptr && this->mobileWuyingKeeper_ == nullptr
+        && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr && this->multiScreen_ == nullptr && this->name_ == nullptr && this->netRedirect_ == nullptr
+        && this->netRedirectRule_ == nullptr && this->noOperationDisconnect_ == nullptr && this->noOperationDisconnectTime_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupType_ == nullptr
+        && this->policyStatus_ == nullptr && this->portProxy_ == nullptr && this->printerRedirection_ == nullptr && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr
+        && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFilePaths_ == nullptr && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr
+        && this->recordingAudio_ == nullptr && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr
+        && this->recordingStartTime_ == nullptr && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->remoteCoordinate_ == nullptr && this->resolutionDpi_ == nullptr
+        && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceGroupCount_ == nullptr && this->safeMenu_ == nullptr
+        && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr
+        && this->streamingMode_ == nullptr && this->targetFps_ == nullptr && this->taskbar_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr
+        && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr
+        && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr
+        && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr
+        && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr && this->watermarkTransparencyValue_ == nullptr
+        && this->watermarkType_ == nullptr && this->wyAssistant_ == nullptr; };
+      // academicProxy Field Functions 
+      bool hasAcademicProxy() const { return this->academicProxy_ != nullptr;};
+      void deleteAcademicProxy() { this->academicProxy_ = nullptr;};
+      inline string getAcademicProxy() const { DARABONBA_PTR_GET_DEFAULT(academicProxy_, "") };
+      inline DescribePolicyGroups& setAcademicProxy(string academicProxy) { DARABONBA_PTR_SET_VALUE(academicProxy_, academicProxy) };
+
+
       // adminAccess Field Functions 
       bool hasAdminAccess() const { return this->adminAccess_ != nullptr;};
       void deleteAdminAccess() { this->adminAccess_ = nullptr;};
@@ -854,6 +892,27 @@ namespace Models
       void deleteClientControlMenu() { this->clientControlMenu_ = nullptr;};
       inline string getClientControlMenu() const { DARABONBA_PTR_GET_DEFAULT(clientControlMenu_, "") };
       inline DescribePolicyGroups& setClientControlMenu(string clientControlMenu) { DARABONBA_PTR_SET_VALUE(clientControlMenu_, clientControlMenu) };
+
+
+      // clientHibernate Field Functions 
+      bool hasClientHibernate() const { return this->clientHibernate_ != nullptr;};
+      void deleteClientHibernate() { this->clientHibernate_ = nullptr;};
+      inline string getClientHibernate() const { DARABONBA_PTR_GET_DEFAULT(clientHibernate_, "") };
+      inline DescribePolicyGroups& setClientHibernate(string clientHibernate) { DARABONBA_PTR_SET_VALUE(clientHibernate_, clientHibernate) };
+
+
+      // clientRestart Field Functions 
+      bool hasClientRestart() const { return this->clientRestart_ != nullptr;};
+      void deleteClientRestart() { this->clientRestart_ = nullptr;};
+      inline string getClientRestart() const { DARABONBA_PTR_GET_DEFAULT(clientRestart_, "") };
+      inline DescribePolicyGroups& setClientRestart(string clientRestart) { DARABONBA_PTR_SET_VALUE(clientRestart_, clientRestart) };
+
+
+      // clientShutdown Field Functions 
+      bool hasClientShutdown() const { return this->clientShutdown_ != nullptr;};
+      void deleteClientShutdown() { this->clientShutdown_ = nullptr;};
+      inline string getClientShutdown() const { DARABONBA_PTR_GET_DEFAULT(clientShutdown_, "") };
+      inline DescribePolicyGroups& setClientShutdown(string clientShutdown) { DARABONBA_PTR_SET_VALUE(clientShutdown_, clientShutdown) };
 
 
       // clientTypes Field Functions 
@@ -1055,6 +1114,27 @@ namespace Models
       inline DescribePolicyGroups& setHoverConfigMsg(string hoverConfigMsg) { DARABONBA_PTR_SET_VALUE(hoverConfigMsg_, hoverConfigMsg) };
 
 
+      // hoverHibernate Field Functions 
+      bool hasHoverHibernate() const { return this->hoverHibernate_ != nullptr;};
+      void deleteHoverHibernate() { this->hoverHibernate_ = nullptr;};
+      inline string getHoverHibernate() const { DARABONBA_PTR_GET_DEFAULT(hoverHibernate_, "") };
+      inline DescribePolicyGroups& setHoverHibernate(string hoverHibernate) { DARABONBA_PTR_SET_VALUE(hoverHibernate_, hoverHibernate) };
+
+
+      // hoverRestart Field Functions 
+      bool hasHoverRestart() const { return this->hoverRestart_ != nullptr;};
+      void deleteHoverRestart() { this->hoverRestart_ = nullptr;};
+      inline string getHoverRestart() const { DARABONBA_PTR_GET_DEFAULT(hoverRestart_, "") };
+      inline DescribePolicyGroups& setHoverRestart(string hoverRestart) { DARABONBA_PTR_SET_VALUE(hoverRestart_, hoverRestart) };
+
+
+      // hoverShutdown Field Functions 
+      bool hasHoverShutdown() const { return this->hoverShutdown_ != nullptr;};
+      void deleteHoverShutdown() { this->hoverShutdown_ = nullptr;};
+      inline string getHoverShutdown() const { DARABONBA_PTR_GET_DEFAULT(hoverShutdown_, "") };
+      inline DescribePolicyGroups& setHoverShutdown(string hoverShutdown) { DARABONBA_PTR_SET_VALUE(hoverShutdown_, hoverShutdown) };
+
+
       // html5Access Field Functions 
       bool hasHtml5Access() const { return this->html5Access_ != nullptr;};
       void deleteHtml5Access() { this->html5Access_ = nullptr;};
@@ -1148,11 +1228,46 @@ namespace Models
       inline DescribePolicyGroups& setMobileRestart(string mobileRestart) { DARABONBA_PTR_SET_VALUE(mobileRestart_, mobileRestart) };
 
 
+      // mobileSafeMenu Field Functions 
+      bool hasMobileSafeMenu() const { return this->mobileSafeMenu_ != nullptr;};
+      void deleteMobileSafeMenu() { this->mobileSafeMenu_ = nullptr;};
+      inline string getMobileSafeMenu() const { DARABONBA_PTR_GET_DEFAULT(mobileSafeMenu_, "") };
+      inline DescribePolicyGroups& setMobileSafeMenu(string mobileSafeMenu) { DARABONBA_PTR_SET_VALUE(mobileSafeMenu_, mobileSafeMenu) };
+
+
       // mobileShutdown Field Functions 
       bool hasMobileShutdown() const { return this->mobileShutdown_ != nullptr;};
       void deleteMobileShutdown() { this->mobileShutdown_ = nullptr;};
       inline string getMobileShutdown() const { DARABONBA_PTR_GET_DEFAULT(mobileShutdown_, "") };
       inline DescribePolicyGroups& setMobileShutdown(string mobileShutdown) { DARABONBA_PTR_SET_VALUE(mobileShutdown_, mobileShutdown) };
+
+
+      // mobileWuyingKeeper Field Functions 
+      bool hasMobileWuyingKeeper() const { return this->mobileWuyingKeeper_ != nullptr;};
+      void deleteMobileWuyingKeeper() { this->mobileWuyingKeeper_ = nullptr;};
+      inline string getMobileWuyingKeeper() const { DARABONBA_PTR_GET_DEFAULT(mobileWuyingKeeper_, "") };
+      inline DescribePolicyGroups& setMobileWuyingKeeper(string mobileWuyingKeeper) { DARABONBA_PTR_SET_VALUE(mobileWuyingKeeper_, mobileWuyingKeeper) };
+
+
+      // mobileWyAssistant Field Functions 
+      bool hasMobileWyAssistant() const { return this->mobileWyAssistant_ != nullptr;};
+      void deleteMobileWyAssistant() { this->mobileWyAssistant_ = nullptr;};
+      inline string getMobileWyAssistant() const { DARABONBA_PTR_GET_DEFAULT(mobileWyAssistant_, "") };
+      inline DescribePolicyGroups& setMobileWyAssistant(string mobileWyAssistant) { DARABONBA_PTR_SET_VALUE(mobileWyAssistant_, mobileWyAssistant) };
+
+
+      // modelLibrary Field Functions 
+      bool hasModelLibrary() const { return this->modelLibrary_ != nullptr;};
+      void deleteModelLibrary() { this->modelLibrary_ = nullptr;};
+      inline string getModelLibrary() const { DARABONBA_PTR_GET_DEFAULT(modelLibrary_, "") };
+      inline DescribePolicyGroups& setModelLibrary(string modelLibrary) { DARABONBA_PTR_SET_VALUE(modelLibrary_, modelLibrary) };
+
+
+      // multiScreen Field Functions 
+      bool hasMultiScreen() const { return this->multiScreen_ != nullptr;};
+      void deleteMultiScreen() { this->multiScreen_ = nullptr;};
+      inline string getMultiScreen() const { DARABONBA_PTR_GET_DEFAULT(multiScreen_, "") };
+      inline DescribePolicyGroups& setMultiScreen(string multiScreen) { DARABONBA_PTR_SET_VALUE(multiScreen_, multiScreen) };
 
 
       // name Field Functions 
@@ -1211,6 +1326,13 @@ namespace Models
       void deletePolicyStatus() { this->policyStatus_ = nullptr;};
       inline string getPolicyStatus() const { DARABONBA_PTR_GET_DEFAULT(policyStatus_, "") };
       inline DescribePolicyGroups& setPolicyStatus(string policyStatus) { DARABONBA_PTR_SET_VALUE(policyStatus_, policyStatus) };
+
+
+      // portProxy Field Functions 
+      bool hasPortProxy() const { return this->portProxy_ != nullptr;};
+      void deletePortProxy() { this->portProxy_ = nullptr;};
+      inline string getPortProxy() const { DARABONBA_PTR_GET_DEFAULT(portProxy_, "") };
+      inline DescribePolicyGroups& setPortProxy(string portProxy) { DARABONBA_PTR_SET_VALUE(portProxy_, portProxy) };
 
 
       // printerRedirection Field Functions 
@@ -1578,6 +1700,13 @@ namespace Models
       inline DescribePolicyGroups& setWatermarkSecurity(string watermarkSecurity) { DARABONBA_PTR_SET_VALUE(watermarkSecurity_, watermarkSecurity) };
 
 
+      // watermarkShadow Field Functions 
+      bool hasWatermarkShadow() const { return this->watermarkShadow_ != nullptr;};
+      void deleteWatermarkShadow() { this->watermarkShadow_ = nullptr;};
+      inline string getWatermarkShadow() const { DARABONBA_PTR_GET_DEFAULT(watermarkShadow_, "") };
+      inline DescribePolicyGroups& setWatermarkShadow(string watermarkShadow) { DARABONBA_PTR_SET_VALUE(watermarkShadow_, watermarkShadow) };
+
+
       // watermarkTransparencyValue Field Functions 
       bool hasWatermarkTransparencyValue() const { return this->watermarkTransparencyValue_ != nullptr;};
       void deleteWatermarkTransparencyValue() { this->watermarkTransparencyValue_ = nullptr;};
@@ -1600,6 +1729,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> academicProxy_ {};
       // Indicates whether the admin permissions are granted to end users.
       // 
       // >  This parameter is in private preview and only available to specific users.
@@ -1613,6 +1743,9 @@ namespace Models
       // Indicates whether on-premises webcam redirection is enabled.
       shared_ptr<string> cameraRedirect_ {};
       shared_ptr<string> clientControlMenu_ {};
+      shared_ptr<string> clientHibernate_ {};
+      shared_ptr<string> clientRestart_ {};
+      shared_ptr<string> clientShutdown_ {};
       // The logon method control rules.
       shared_ptr<vector<DescribePolicyGroups::ClientTypes>> clientTypes_ {};
       // The read/write permissions on the clipboard.
@@ -1666,6 +1799,9 @@ namespace Models
       // Indicates whether image quality control is enabled. For optimal computer performance and user experience in professional design scenarios, we recommend enabling this feature.
       shared_ptr<string> gpuAcceleration_ {};
       shared_ptr<string> hoverConfigMsg_ {};
+      shared_ptr<string> hoverHibernate_ {};
+      shared_ptr<string> hoverRestart_ {};
+      shared_ptr<string> hoverShutdown_ {};
       // The web client access policy.
       shared_ptr<string> html5Access_ {};
       // The file transfer feature on the web client.
@@ -1693,10 +1829,15 @@ namespace Models
       // 
       // >  This feature applies to only mobile clients of version 7.4.0 or later.
       shared_ptr<string> mobileRestart_ {};
+      shared_ptr<string> mobileSafeMenu_ {};
       // Indicates whether the Stop button is displayed in the DesktopAssistant menu when end users connect to cloud computers from Android clients.
       // 
       // >  This feature applies to only mobile clients of version 7.4.0 or later.
       shared_ptr<string> mobileShutdown_ {};
+      shared_ptr<string> mobileWuyingKeeper_ {};
+      shared_ptr<string> mobileWyAssistant_ {};
+      shared_ptr<string> modelLibrary_ {};
+      shared_ptr<string> multiScreen_ {};
       // The policy name.
       shared_ptr<string> name_ {};
       // The network redirection policy.
@@ -1721,6 +1862,7 @@ namespace Models
       shared_ptr<string> policyGroupType_ {};
       // The status of the cloud computer policy.
       shared_ptr<string> policyStatus_ {};
+      shared_ptr<string> portProxy_ {};
       // The printer redirection policy.
       shared_ptr<string> printerRedirection_ {};
       // Indicates whether image quality enhancement is enabled for design and 3D applications.
@@ -1821,6 +1963,7 @@ namespace Models
       shared_ptr<int32_t> watermarkRowAmount_ {};
       // Indicates whether security priority is enabled for invisible watermarks.
       shared_ptr<string> watermarkSecurity_ {};
+      shared_ptr<string> watermarkShadow_ {};
       // The watermark transparency. A higher value means the watermark is less transparent. Valid values: 10 to 100.
       shared_ptr<int32_t> watermarkTransparencyValue_ {};
       // The watermark type.

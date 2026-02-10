@@ -192,7 +192,7 @@ namespace Ecd20200930
       Models::ApplyCoordinatePrivilegeResponse applyCoordinatePrivilege(const Models::ApplyCoordinatePrivilegeRequest &request);
 
       /**
-       * @summary Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+       * @summary (Administrator) initiates a remote assistance request to the end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
        *
        * @param request ApplyCoordinationForMonitoringRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -201,7 +201,7 @@ namespace Ecd20200930
       Models::ApplyCoordinationForMonitoringResponse applyCoordinationForMonitoringWithOptions(const Models::ApplyCoordinationForMonitoringRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+       * @summary (Administrator) initiates a remote assistance request to the end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
        *
        * @param request ApplyCoordinationForMonitoringRequest
        * @return ApplyCoordinationForMonitoringResponse
@@ -401,7 +401,7 @@ namespace Ecd20200930
       Models::CancelCdsFileShareLinkResponse cancelCdsFileShareLink(const Models::CancelCdsFileShareLinkRequest &request);
 
       /**
-       * @summary Cancels monitoring on stream collaboration.
+       * @summary Cancels a remote assistance request to the end user.
        *
        * @param request CancelCoordinationForMonitoringRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -410,7 +410,7 @@ namespace Ecd20200930
       Models::CancelCoordinationForMonitoringResponse cancelCoordinationForMonitoringWithOptions(const Models::CancelCoordinationForMonitoringRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels monitoring on stream collaboration.
+       * @summary Cancels a remote assistance request to the end user.
        *
        * @param request CancelCoordinationForMonitoringRequest
        * @return CancelCoordinationForMonitoringResponse
@@ -516,7 +516,7 @@ namespace Ecd20200930
       Models::ConfigADConnectorUserResponse configADConnectorUser(const Models::ConfigADConnectorUserRequest &request);
 
       /**
-       * @summary Copies a file or a directory.
+       * @summary Makes a copy of a file or folder on a drive.
        *
        * @param request CopyCdsFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -525,7 +525,7 @@ namespace Ecd20200930
       Models::CopyCdsFileResponse copyCdsFileWithOptions(const Models::CopyCdsFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Copies a file or a directory.
+       * @summary Makes a copy of a file or folder on a drive.
        *
        * @param request CopyCdsFileRequest
        * @return CopyCdsFileResponse
@@ -604,7 +604,7 @@ namespace Ecd20200930
       Models::CreateADConnectorOfficeSiteResponse createADConnectorOfficeSite(const Models::CreateADConnectorOfficeSiteRequest &request);
 
       /**
-       * @summary Creates a File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+       * @summary Creates a NAS file system and associate it with the office network of the shared cloud computer.
        *
        * @param request CreateAndBindNasFileSystemRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -613,7 +613,7 @@ namespace Ecd20200930
       Models::CreateAndBindNasFileSystemResponse createAndBindNasFileSystemWithOptions(const Models::CreateAndBindNasFileSystemRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+       * @summary Creates a NAS file system and associate it with the office network of the shared cloud computer.
        *
        * @param request CreateAndBindNasFileSystemRequest
        * @return CreateAndBindNasFileSystemResponse
@@ -884,7 +884,7 @@ namespace Ecd20200930
       Models::CreateDesktopsResponse createDesktops(const Models::CreateDesktopsRequest &request);
 
       /**
-       * @summary Enables the disk encryption feature and adds the service-linked role that is encrypted by Cloud Drive Service to a Resource Access Management (RAM) user.
+       * @summary Enables disk encryption and creates the required service-linked role in your Resource Access Management (RAM) user account for the Enterprise Drive.
        *
        * @param request CreateDiskEncryptionServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -893,7 +893,7 @@ namespace Ecd20200930
       Models::CreateDiskEncryptionServiceResponse createDiskEncryptionServiceWithOptions(const Models::CreateDiskEncryptionServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the disk encryption feature and adds the service-linked role that is encrypted by Cloud Drive Service to a Resource Access Management (RAM) user.
+       * @summary Enables disk encryption and creates the required service-linked role in your Resource Access Management (RAM) user account for the Enterprise Drive.
        *
        * @param request CreateDiskEncryptionServiceRequest
        * @return CreateDiskEncryptionServiceResponse
@@ -1063,7 +1063,7 @@ namespace Ecd20200930
       Models::CreatePolicyGroupResponse createPolicyGroup(const Models::CreatePolicyGroupRequest &request);
 
       /**
-       * @summary 新建限速组
+       * @summary Creates a Quality of Service (QoS) rule.
        *
        * @param request CreateQosRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1072,7 +1072,7 @@ namespace Ecd20200930
       Models::CreateQosRuleResponse createQosRuleWithOptions(const Models::CreateQosRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建限速组
+       * @summary Creates a Quality of Service (QoS) rule.
        *
        * @param request CreateQosRuleRequest
        * @return CreateQosRuleResponse
@@ -1287,7 +1287,7 @@ namespace Ecd20200930
       Models::DeleteCdsFileResponse deleteCdsFile(const Models::DeleteCdsFileRequest &request);
 
       /**
-       * @summary Deletes a center policy
+       * @summary Deletes a global policy.
        *
        * @param request DeleteCenterPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1296,7 +1296,7 @@ namespace Ecd20200930
       Models::DeleteCenterPolicyResponse deleteCenterPolicyWithOptions(const Models::DeleteCenterPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a center policy
+       * @summary Deletes a global policy.
        *
        * @param request DeleteCenterPolicyRequest
        * @return DeleteCenterPolicyResponse
@@ -1321,7 +1321,7 @@ namespace Ecd20200930
       Models::DeleteCloudDriveGroupsResponse deleteCloudDriveGroups(const Models::DeleteCloudDriveGroupsRequest &request);
 
       /**
-       * @summary 删除无影网盘中的终端用户
+       * @summary Deletes users from a cloud disk in Cloud Drive Service.
        *
        * @param request DeleteCloudDriveUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1330,7 +1330,7 @@ namespace Ecd20200930
       Models::DeleteCloudDriveUsersResponse deleteCloudDriveUsersWithOptions(const Models::DeleteCloudDriveUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除无影网盘中的终端用户
+       * @summary Deletes users from a cloud disk in Cloud Drive Service.
        *
        * @param request DeleteCloudDriveUsersRequest
        * @return DeleteCloudDriveUsersResponse
@@ -1616,6 +1616,8 @@ namespace Ecd20200930
       Models::DeletePolicyGroupsResponse deletePolicyGroups(const Models::DeletePolicyGroupsRequest &request);
 
       /**
+       * @summary Deletes a traffic throttling rule from a QoS policy.
+       *
        * @param request DeleteQosRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteQosRulesResponse
@@ -1623,6 +1625,8 @@ namespace Ecd20200930
       Models::DeleteQosRulesResponse deleteQosRulesWithOptions(const Models::DeleteQosRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a traffic throttling rule from a QoS policy.
+       *
        * @param request DeleteQosRulesRequest
        * @return DeleteQosRulesResponse
        */
@@ -1739,7 +1743,7 @@ namespace Ecd20200930
       Models::DeleteTemplatesResponse deleteTemplates(const Models::DeleteTemplatesRequest &request);
 
       /**
-       * @summary Delete virtual multi-factor authentication (MFA) devices.
+       * @summary Removes a virtual multi-factor authentication (MFA) device that is associated with an Active Directory (AD) account.
        *
        * @description If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
        *
@@ -1750,7 +1754,7 @@ namespace Ecd20200930
       Models::DeleteVirtualMFADeviceResponse deleteVirtualMFADeviceWithOptions(const Models::DeleteVirtualMFADeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete virtual multi-factor authentication (MFA) devices.
+       * @summary Removes a virtual multi-factor authentication (MFA) device that is associated with an Active Directory (AD) account.
        *
        * @description If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
        *
@@ -1887,7 +1891,7 @@ namespace Ecd20200930
       Models::DescribeClientEventsResponse describeClientEvents(const Models::DescribeClientEventsRequest &request);
 
       /**
-       * @summary 查询云盘团队空间列表
+       * @summary Queries team spaces in a cloud disk.
        *
        * @param request DescribeCloudDiskGroupDrivesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1896,7 +1900,7 @@ namespace Ecd20200930
       Models::DescribeCloudDiskGroupDrivesResponse describeCloudDiskGroupDrivesWithOptions(const Models::DescribeCloudDiskGroupDrivesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询云盘团队空间列表
+       * @summary Queries team spaces in a cloud disk.
        *
        * @param request DescribeCloudDiskGroupDrivesRequest
        * @return DescribeCloudDiskGroupDrivesResponse
@@ -1904,7 +1908,7 @@ namespace Ecd20200930
       Models::DescribeCloudDiskGroupDrivesResponse describeCloudDiskGroupDrives(const Models::DescribeCloudDiskGroupDrivesRequest &request);
 
       /**
-       * @summary 查询云盘团队列表
+       * @summary Queries team spaces from the drive.
        *
        * @param request DescribeCloudDiskGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1913,7 +1917,7 @@ namespace Ecd20200930
       Models::DescribeCloudDiskGroupsResponse describeCloudDiskGroupsWithOptions(const Models::DescribeCloudDiskGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询云盘团队列表
+       * @summary Queries team spaces from the drive.
        *
        * @param request DescribeCloudDiskGroupsRequest
        * @return DescribeCloudDiskGroupsResponse
@@ -1921,7 +1925,7 @@ namespace Ecd20200930
       Models::DescribeCloudDiskGroupsResponse describeCloudDiskGroups(const Models::DescribeCloudDiskGroupsRequest &request);
 
       /**
-       * @summary Queries a list of authorized team spaces.
+       * @summary Queries the list and basic information of all team shared disks in an enterprise drive.
        *
        * @param request DescribeCloudDriveGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1930,7 +1934,7 @@ namespace Ecd20200930
       Models::DescribeCloudDriveGroupsResponse describeCloudDriveGroupsWithOptions(const Models::DescribeCloudDriveGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of authorized team spaces.
+       * @summary Queries the list and basic information of all team shared disks in an enterprise drive.
        *
        * @param request DescribeCloudDriveGroupsRequest
        * @return DescribeCloudDriveGroupsResponse
@@ -1938,7 +1942,7 @@ namespace Ecd20200930
       Models::DescribeCloudDriveGroupsResponse describeCloudDriveGroups(const Models::DescribeCloudDriveGroupsRequest &request);
 
       /**
-       * @summary 查询pds用户权限
+       * @summary Queries the permission settings on the enterprise drive.
        *
        * @param request DescribeCloudDrivePermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1947,7 +1951,7 @@ namespace Ecd20200930
       Models::DescribeCloudDrivePermissionsResponse describeCloudDrivePermissionsWithOptions(const Models::DescribeCloudDrivePermissionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询pds用户权限
+       * @summary Queries the permission settings on the enterprise drive.
        *
        * @param request DescribeCloudDrivePermissionsRequest
        * @return DescribeCloudDrivePermissionsResponse
@@ -1955,7 +1959,7 @@ namespace Ecd20200930
       Models::DescribeCloudDrivePermissionsResponse describeCloudDrivePermissions(const Models::DescribeCloudDrivePermissionsRequest &request);
 
       /**
-       * @summary 查询所有无影网盘终端用户的信息
+       * @summary Queries users of cloud disks in Cloud Drive Service.
        *
        * @param request DescribeCloudDriveUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1964,7 +1968,7 @@ namespace Ecd20200930
       Models::DescribeCloudDriveUsersResponse describeCloudDriveUsersWithOptions(const Models::DescribeCloudDriveUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询所有无影网盘终端用户的信息
+       * @summary Queries users of cloud disks in Cloud Drive Service.
        *
        * @param request DescribeCloudDriveUsersRequest
        * @return DescribeCloudDriveUsersResponse
@@ -1989,6 +1993,8 @@ namespace Ecd20200930
       Models::DescribeConfigGroupResponse describeConfigGroup(const Models::DescribeConfigGroupRequest &request);
 
       /**
+       * @summary Queries the header information of the cloud computer list.
+       *
        * @param request DescribeCustomizedListHeadersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCustomizedListHeadersResponse
@@ -1996,6 +2002,8 @@ namespace Ecd20200930
       Models::DescribeCustomizedListHeadersResponse describeCustomizedListHeadersWithOptions(const Models::DescribeCustomizedListHeadersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the header information of the cloud computer list.
+       *
        * @param request DescribeCustomizedListHeadersRequest
        * @return DescribeCustomizedListHeadersResponse
        */
@@ -2053,7 +2061,7 @@ namespace Ecd20200930
       Models::DescribeDesktopInfoResponse describeDesktopInfo(const Models::DescribeDesktopInfoRequest &request);
 
       /**
-       * @summary 查询云电脑基础元数据
+       * @summary Queries the list and metadata of cloud computers in a specific region.
        *
        * @param request DescribeDesktopMetadataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2062,7 +2070,7 @@ namespace Ecd20200930
       Models::DescribeDesktopMetadataResponse describeDesktopMetadataWithOptions(const Models::DescribeDesktopMetadataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询云电脑基础元数据
+       * @summary Queries the list and metadata of cloud computers in a specific region.
        *
        * @param request DescribeDesktopMetadataRequest
        * @return DescribeDesktopMetadataResponse
@@ -2265,7 +2273,7 @@ namespace Ecd20200930
       Models::DescribeEcdReportTasksResponse describeEcdReportTasks(const Models::DescribeEcdReportTasksRequest &request);
 
       /**
-       * @summary 查询EIP监控
+       * @summary Queries the monitoring data of the desktop inbound bandwidth and the desktop outbound bandwidth, or the monitoring data of the workspace bandwidth originated from or destined for the Internet.
        *
        * @param request DescribeFlowMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2274,7 +2282,7 @@ namespace Ecd20200930
       Models::DescribeFlowMetricResponse describeFlowMetricWithOptions(const Models::DescribeFlowMetricRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询EIP监控
+       * @summary Queries the monitoring data of the desktop inbound bandwidth and the desktop outbound bandwidth, or the monitoring data of the workspace bandwidth originated from or destined for the Internet.
        *
        * @param request DescribeFlowMetricRequest
        * @return DescribeFlowMetricResponse
@@ -2381,7 +2389,7 @@ namespace Ecd20200930
       Models::DescribeGlobalDesktopRecordsResponse describeGlobalDesktopRecords(const Models::DescribeGlobalDesktopRecordsRequest &request);
 
       /**
-       * @summary 查询全局定时任务Batch记录
+       * @summary Queries the batch information in the execution history of scheduled tasks and returns the summary task execution results.
        *
        * @param request DescribeGlobalTimerBatchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2390,7 +2398,7 @@ namespace Ecd20200930
       Models::DescribeGlobalTimerBatchesResponse describeGlobalTimerBatchesWithOptions(const Models::DescribeGlobalTimerBatchesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询全局定时任务Batch记录
+       * @summary Queries the batch information in the execution history of scheduled tasks and returns the summary task execution results.
        *
        * @param request DescribeGlobalTimerBatchesRequest
        * @return DescribeGlobalTimerBatchesResponse
@@ -2724,6 +2732,8 @@ namespace Ecd20200930
       Models::DescribePriceForRenewDesktopOversoldGroupResponse describePriceForRenewDesktopOversoldGroup(const Models::DescribePriceForRenewDesktopOversoldGroupRequest &request);
 
       /**
+       * @summary Queries Quality of Service (QoS) rules.
+       *
        * @param request DescribeQosRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeQosRulesResponse
@@ -2731,13 +2741,15 @@ namespace Ecd20200930
       Models::DescribeQosRulesResponse describeQosRulesWithOptions(const Models::DescribeQosRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries Quality of Service (QoS) rules.
+       *
        * @param request DescribeQosRulesRequest
        * @return DescribeQosRulesResponse
        */
       Models::DescribeQosRulesResponse describeQosRules(const Models::DescribeQosRulesRequest &request);
 
       /**
-       * @summary 查询录屏文件列表
+       * @summary Queries the screen recording files in all regions.
        *
        * @param request DescribeRecordFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2746,7 +2758,7 @@ namespace Ecd20200930
       Models::DescribeRecordFileResponse describeRecordFileWithOptions(const Models::DescribeRecordFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询录屏文件列表
+       * @summary Queries the screen recording files in all regions.
        *
        * @param request DescribeRecordFileRequest
        * @return DescribeRecordFileResponse
@@ -2822,6 +2834,8 @@ namespace Ecd20200930
       Models::DescribeRenewalPriceResponse describeRenewalPrice(const Models::DescribeRenewalPriceRequest &request);
 
       /**
+       * @summary Queries cloud resources that are associated with a global policy.
+       *
        * @param request DescribeResourceByCenterPolicyIdRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeResourceByCenterPolicyIdResponse
@@ -2829,6 +2843,8 @@ namespace Ecd20200930
       Models::DescribeResourceByCenterPolicyIdResponse describeResourceByCenterPolicyIdWithOptions(const Models::DescribeResourceByCenterPolicyIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries cloud resources that are associated with a global policy.
+       *
        * @param request DescribeResourceByCenterPolicyIdRequest
        * @return DescribeResourceByCenterPolicyIdResponse
        */
@@ -3062,7 +3078,7 @@ namespace Ecd20200930
       Models::DescribeUsersInGroupResponse describeUsersInGroup(const Models::DescribeUsersInGroupRequest &request);
 
       /**
-       * @summary Queries the passwords of authorized users of a cloud computer.
+       * @summary Queries the passwords for the accounts within a cloud computer image. For example, when the Chrome browser on the cloud computer queries the cached password, it requires the end user to enter the password for identity verification.
        *
        * @param request DescribeUsersPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3071,7 +3087,7 @@ namespace Ecd20200930
       Models::DescribeUsersPasswordResponse describeUsersPasswordWithOptions(const Models::DescribeUsersPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the passwords of authorized users of a cloud computer.
+       * @summary Queries the passwords for the accounts within a cloud computer image. For example, when the Chrome browser on the cloud computer queries the cached password, it requires the end user to enter the password for identity verification.
        *
        * @param request DescribeUsersPasswordRequest
        * @return DescribeUsersPasswordResponse
@@ -3079,7 +3095,7 @@ namespace Ecd20200930
       Models::DescribeUsersPasswordResponse describeUsersPassword(const Models::DescribeUsersPasswordRequest &request);
 
       /**
-       * @summary Queries multi-factor authentication (MFA) devices that are bound to an Active Directory (AD) account.
+       * @summary Queries the virtual multi-factor authentication (MFA) devices that are associated with Active Directory (AD) accounts.
        *
        * @param request DescribeVirtualMFADevicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3088,7 +3104,7 @@ namespace Ecd20200930
       Models::DescribeVirtualMFADevicesResponse describeVirtualMFADevicesWithOptions(const Models::DescribeVirtualMFADevicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries multi-factor authentication (MFA) devices that are bound to an Active Directory (AD) account.
+       * @summary Queries the virtual multi-factor authentication (MFA) devices that are associated with Active Directory (AD) accounts.
        *
        * @param request DescribeVirtualMFADevicesRequest
        * @return DescribeVirtualMFADevicesResponse
@@ -3164,7 +3180,7 @@ namespace Ecd20200930
       Models::DisableDesktopsInGroupResponse disableDesktopsInGroup(const Models::DisableDesktopsInGroupRequest &request);
 
       /**
-       * @summary Disconnects from desktop sessions.
+       * @summary Disconnects cloud computer sessions.
        *
        * @param request DisconnectDesktopSessionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3173,7 +3189,7 @@ namespace Ecd20200930
       Models::DisconnectDesktopSessionsResponse disconnectDesktopSessionsWithOptions(const Models::DisconnectDesktopSessionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disconnects from desktop sessions.
+       * @summary Disconnects cloud computer sessions.
        *
        * @param request DisconnectDesktopSessionsRequest
        * @return DisconnectDesktopSessionsResponse
@@ -3317,7 +3333,7 @@ namespace Ecd20200930
       Models::ExportDesktopListInfoResponse exportDesktopListInfo(const Models::ExportDesktopListInfoRequest &request);
 
       /**
-       * @summary Obtains the information about an asynchronous task based on the value of the AsyncTaskId parameter that you obtain by calling the CopyCdsFile operation.
+       * @summary When you call the CopyCdsFile operation to copy a folder, the operation returns AsyncTaskId. Call this operation specifying the obtained AsyncTaskId, and you can query the information about the asynchronous task.
        *
        * @param request GetAsyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3326,7 +3342,7 @@ namespace Ecd20200930
       Models::GetAsyncTaskResponse getAsyncTaskWithOptions(const Models::GetAsyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the information about an asynchronous task based on the value of the AsyncTaskId parameter that you obtain by calling the CopyCdsFile operation.
+       * @summary When you call the CopyCdsFile operation to copy a folder, the operation returns AsyncTaskId. Call this operation specifying the obtained AsyncTaskId, and you can query the information about the asynchronous task.
        *
        * @param request GetAsyncTaskRequest
        * @return GetAsyncTaskResponse
@@ -3355,7 +3371,7 @@ namespace Ecd20200930
       Models::GetConnectionTicketResponse getConnectionTicket(const Models::GetConnectionTicketRequest &request);
 
       /**
-       * @summary Obtains the credentials of the stream collaboration
+       * @summary Get the stream collaboration credentials for remote assistance or shared collaboration.
        *
        * @param request GetCoordinateTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3364,7 +3380,7 @@ namespace Ecd20200930
       Models::GetCoordinateTicketResponse getCoordinateTicketWithOptions(const Models::GetCoordinateTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the credentials of the stream collaboration
+       * @summary Get the stream collaboration credentials for remote assistance or shared collaboration.
        *
        * @param request GetCoordinateTicketRequest
        * @return GetCoordinateTicketResponse
@@ -3389,7 +3405,7 @@ namespace Ecd20200930
       Models::GetDesktopGroupDetailResponse getDesktopGroupDetail(const Models::GetDesktopGroupDetailRequest &request);
 
       /**
-       * @summary Queries whether single sign-on (SSO) is enabled for a workspace.
+       * @summary Queries whether single sign-on (SSO) is enabled for an office network.
        *
        * @param request GetOfficeSiteSsoStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3398,7 +3414,7 @@ namespace Ecd20200930
       Models::GetOfficeSiteSsoStatusResponse getOfficeSiteSsoStatusWithOptions(const Models::GetOfficeSiteSsoStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries whether single sign-on (SSO) is enabled for a workspace.
+       * @summary Queries whether single sign-on (SSO) is enabled for an office network.
        *
        * @param request GetOfficeSiteSsoStatusRequest
        * @return GetOfficeSiteSsoStatusResponse
@@ -3575,7 +3591,7 @@ namespace Ecd20200930
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary 获取文件列表
+       * @summary Gets the download URL of the transferred file.
        *
        * @param request ListTransferFileDownloadUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3584,7 +3600,7 @@ namespace Ecd20200930
       Models::ListTransferFileDownloadUrlResponse listTransferFileDownloadUrlWithOptions(const Models::ListTransferFileDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文件列表
+       * @summary Gets the download URL of the transferred file.
        *
        * @param request ListTransferFileDownloadUrlRequest
        * @return ListTransferFileDownloadUrlResponse
@@ -3799,7 +3815,7 @@ namespace Ecd20200930
       Models::ModifyCdsFileResponse modifyCdsFile(const Models::ModifyCdsFileRequest &request);
 
       /**
-       * @summary Modifies the link for file sharing.
+       * @summary Modify the file sharing settings.
        *
        * @param request ModifyCdsFileShareLinkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3808,7 +3824,7 @@ namespace Ecd20200930
       Models::ModifyCdsFileShareLinkResponse modifyCdsFileShareLinkWithOptions(const Models::ModifyCdsFileShareLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the link for file sharing.
+       * @summary Modify the file sharing settings.
        *
        * @param request ModifyCdsFileShareLinkRequest
        * @return ModifyCdsFileShareLinkResponse
@@ -3867,7 +3883,7 @@ namespace Ecd20200930
       Models::ModifyCloudDrivePermissionResponse modifyCloudDrivePermission(const Models::ModifyCloudDrivePermissionRequest &request);
 
       /**
-       * @summary 修改无影网盘终端用户的属性
+       * @summary Modifies users of a cloud disk in Cloud Drive Service.
        *
        * @param request ModifyCloudDriveUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3876,7 +3892,7 @@ namespace Ecd20200930
       Models::ModifyCloudDriveUsersResponse modifyCloudDriveUsersWithOptions(const Models::ModifyCloudDriveUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改无影网盘终端用户的属性
+       * @summary Modifies users of a cloud disk in Cloud Drive Service.
        *
        * @param request ModifyCloudDriveUsersRequest
        * @return ModifyCloudDriveUsersResponse
@@ -4388,7 +4404,7 @@ namespace Ecd20200930
       Models::ModifyPolicyGroupResponse modifyPolicyGroup(const Models::ModifyPolicyGroupRequest &request);
 
       /**
-       * @summary 修改限速组资源绑定关系
+       * @summary Modifies the resources that a Quality of Service (QoS) rule applies to.
        *
        * @param request ModifyQosEntriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4397,7 +4413,7 @@ namespace Ecd20200930
       Models::ModifyQosEntriesResponse modifyQosEntriesWithOptions(const Models::ModifyQosEntriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改限速组资源绑定关系
+       * @summary Modifies the resources that a Quality of Service (QoS) rule applies to.
        *
        * @param request ModifyQosEntriesRequest
        * @return ModifyQosEntriesResponse
@@ -4405,6 +4421,8 @@ namespace Ecd20200930
       Models::ModifyQosEntriesResponse modifyQosEntries(const Models::ModifyQosEntriesRequest &request);
 
       /**
+       * @summary Modifies a Quality of Service (QoS) rule.
+       *
        * @param request ModifyQosRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyQosRuleResponse
@@ -4412,12 +4430,16 @@ namespace Ecd20200930
       Models::ModifyQosRuleResponse modifyQosRuleWithOptions(const Models::ModifyQosRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies a Quality of Service (QoS) rule.
+       *
        * @param request ModifyQosRuleRequest
        * @return ModifyQosRuleResponse
        */
       Models::ModifyQosRuleResponse modifyQosRule(const Models::ModifyQosRuleRequest &request);
 
       /**
+       * @summary Modifies a global policy that is associated with a cloud resource.
+       *
        * @param request ModifyResourceCenterPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyResourceCenterPolicyResponse
@@ -4425,6 +4447,8 @@ namespace Ecd20200930
       Models::ModifyResourceCenterPolicyResponse modifyResourceCenterPolicyWithOptions(const Models::ModifyResourceCenterPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies a global policy that is associated with a cloud resource.
+       *
        * @param request ModifyResourceCenterPolicyRequest
        * @return ModifyResourceCenterPolicyResponse
        */
@@ -4547,7 +4571,7 @@ namespace Ecd20200930
       Models::ModifyUserToDesktopGroupResponse modifyUserToDesktopGroup(const Models::ModifyUserToDesktopGroupRequest &request);
 
       /**
-       * @summary Move files or folders.
+       * @summary Moves a file or folder on the drive to a new location.
        *
        * @param request MoveCdsFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4556,7 +4580,7 @@ namespace Ecd20200930
       Models::MoveCdsFileResponse moveCdsFileWithOptions(const Models::MoveCdsFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Move files or folders.
+       * @summary Moves a file or folder on the drive to a new location.
        *
        * @param request MoveCdsFileRequest
        * @return MoveCdsFileResponse
@@ -4838,7 +4862,7 @@ namespace Ecd20200930
       Models::RevokeCoordinatePrivilegeResponse revokeCoordinatePrivilege(const Models::RevokeCoordinatePrivilegeRequest &request);
 
       /**
-       * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
+       * @summary Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
        *
        * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
        *
@@ -4849,7 +4873,7 @@ namespace Ecd20200930
       Models::RunCommandResponse runCommandWithOptions(const Models::RunCommandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
+       * @summary Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
        *
        * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
        *
@@ -4952,7 +4976,7 @@ namespace Ecd20200930
       Models::SetDesktopMaintenanceResponse setDesktopMaintenance(const Models::SetDesktopMaintenanceRequest &request);
 
       /**
-       * @summary Configures the single sign-on (SSO) status of an Active Directory (AD) directory.
+       * @summary Enables or disables the single sign-on (SSO) feature for an Active Directory (AD) account-based office network.
        *
        * @description This operation is supported only for AD directories, not for RAM directories.
        *
@@ -4963,7 +4987,7 @@ namespace Ecd20200930
       Models::SetDirectorySsoStatusResponse setDirectorySsoStatusWithOptions(const Models::SetDirectorySsoStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the single sign-on (SSO) status of an Active Directory (AD) directory.
+       * @summary Enables or disables the single sign-on (SSO) feature for an Active Directory (AD) account-based office network.
        *
        * @description This operation is supported only for AD directories, not for RAM directories.
        *
@@ -4994,7 +5018,7 @@ namespace Ecd20200930
       Models::SetIdpMetadataResponse setIdpMetadata(const Models::SetIdpMetadataRequest &request);
 
       /**
-       * @summary Enables or disables single sign-on (SSO) for a workspace.
+       * @summary Enables or disables single sign-on (SSO) for an office network.
        *
        * @param request SetOfficeSiteSsoStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5003,7 +5027,7 @@ namespace Ecd20200930
       Models::SetOfficeSiteSsoStatusResponse setOfficeSiteSsoStatusWithOptions(const Models::SetOfficeSiteSsoStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables single sign-on (SSO) for a workspace.
+       * @summary Enables or disables single sign-on (SSO) for an office network.
        *
        * @param request SetOfficeSiteSsoStatusRequest
        * @return SetOfficeSiteSsoStatusResponse
@@ -5070,7 +5094,7 @@ namespace Ecd20200930
       Models::StopDesktopsResponse stopDesktops(const Models::StopDesktopsRequest &request);
 
       /**
-       * @summary Stops a Cloud Assistant command that is running on one or more cloud desktops.
+       * @summary Stop a process that executes the Cloud Assistant script in one or more cloud computers.
        *
        * @description When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
        *
@@ -5081,7 +5105,7 @@ namespace Ecd20200930
       Models::StopInvocationResponse stopInvocationWithOptions(const Models::StopInvocationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a Cloud Assistant command that is running on one or more cloud desktops.
+       * @summary Stop a process that executes the Cloud Assistant script in one or more cloud computers.
        *
        * @description When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
        *

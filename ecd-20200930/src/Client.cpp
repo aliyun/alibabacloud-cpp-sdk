@@ -570,7 +570,7 @@ ApplyCoordinatePrivilegeResponse Client::applyCoordinatePrivilege(const ApplyCoo
 }
 
 /**
- * @summary Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+ * @summary (Administrator) initiates a remote assistance request to the end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
  *
  * @param request ApplyCoordinationForMonitoringRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -621,7 +621,7 @@ ApplyCoordinationForMonitoringResponse Client::applyCoordinationForMonitoringWit
 }
 
 /**
- * @summary Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+ * @summary (Administrator) initiates a remote assistance request to the end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
  *
  * @param request ApplyCoordinationForMonitoringRequest
  * @return ApplyCoordinationForMonitoringResponse
@@ -1198,7 +1198,7 @@ CancelCdsFileShareLinkResponse Client::cancelCdsFileShareLink(const CancelCdsFil
 }
 
 /**
- * @summary Cancels monitoring on stream collaboration.
+ * @summary Cancels a remote assistance request to the end user.
  *
  * @param request CancelCoordinationForMonitoringRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1241,7 +1241,7 @@ CancelCoordinationForMonitoringResponse Client::cancelCoordinationForMonitoringW
 }
 
 /**
- * @summary Cancels monitoring on stream collaboration.
+ * @summary Cancels a remote assistance request to the end user.
  *
  * @param request CancelCoordinationForMonitoringRequest
  * @return CancelCoordinationForMonitoringResponse
@@ -1576,7 +1576,7 @@ ConfigADConnectorUserResponse Client::configADConnectorUser(const ConfigADConnec
 }
 
 /**
- * @summary Copies a file or a directory.
+ * @summary Makes a copy of a file or folder on a drive.
  *
  * @param request CopyCdsFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1639,7 +1639,7 @@ CopyCdsFileResponse Client::copyCdsFileWithOptions(const CopyCdsFileRequest &req
 }
 
 /**
- * @summary Copies a file or a directory.
+ * @summary Makes a copy of a file or folder on a drive.
  *
  * @param request CopyCdsFileRequest
  * @return CopyCdsFileResponse
@@ -1948,7 +1948,7 @@ CreateADConnectorOfficeSiteResponse Client::createADConnectorOfficeSite(const Cr
 }
 
 /**
- * @summary Creates a File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+ * @summary Creates a NAS file system and associate it with the office network of the shared cloud computer.
  *
  * @param request CreateAndBindNasFileSystemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2007,7 +2007,7 @@ CreateAndBindNasFileSystemResponse Client::createAndBindNasFileSystemWithOptions
 }
 
 /**
- * @summary Creates a File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+ * @summary Creates a NAS file system and associate it with the office network of the shared cloud computer.
  *
  * @param request CreateAndBindNasFileSystemRequest
  * @return CreateAndBindNasFileSystemResponse
@@ -3856,7 +3856,7 @@ CreateDesktopsResponse Client::createDesktops(const CreateDesktopsRequest &reque
 }
 
 /**
- * @summary Enables the disk encryption feature and adds the service-linked role that is encrypted by Cloud Drive Service to a Resource Access Management (RAM) user.
+ * @summary Enables disk encryption and creates the required service-linked role in your Resource Access Management (RAM) user account for the Enterprise Drive.
  *
  * @param request CreateDiskEncryptionServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3887,7 +3887,7 @@ CreateDiskEncryptionServiceResponse Client::createDiskEncryptionServiceWithOptio
 }
 
 /**
- * @summary Enables the disk encryption feature and adds the service-linked role that is encrypted by Cloud Drive Service to a Resource Access Management (RAM) user.
+ * @summary Enables disk encryption and creates the required service-linked role in your Resource Access Management (RAM) user account for the Enterprise Drive.
  *
  * @param request CreateDiskEncryptionServiceRequest
  * @return CreateDiskEncryptionServiceResponse
@@ -4672,7 +4672,7 @@ CreatePolicyGroupResponse Client::createPolicyGroup(const CreatePolicyGroupReque
 }
 
 /**
- * @summary 新建限速组
+ * @summary Creates a Quality of Service (QoS) rule.
  *
  * @param request CreateQosRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4723,7 +4723,7 @@ CreateQosRuleResponse Client::createQosRuleWithOptions(const CreateQosRuleReques
 }
 
 /**
- * @summary 新建限速组
+ * @summary Creates a Quality of Service (QoS) rule.
  *
  * @param request CreateQosRuleRequest
  * @return CreateQosRuleResponse
@@ -5520,7 +5520,7 @@ DeleteCdsFileResponse Client::deleteCdsFile(const DeleteCdsFileRequest &request)
 }
 
 /**
- * @summary Deletes a center policy
+ * @summary Deletes a global policy.
  *
  * @param request DeleteCenterPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5563,7 +5563,7 @@ DeleteCenterPolicyResponse Client::deleteCenterPolicyWithOptions(const DeleteCen
 }
 
 /**
- * @summary Deletes a center policy
+ * @summary Deletes a global policy.
  *
  * @param request DeleteCenterPolicyRequest
  * @return DeleteCenterPolicyResponse
@@ -5624,7 +5624,7 @@ DeleteCloudDriveGroupsResponse Client::deleteCloudDriveGroups(const DeleteCloudD
 }
 
 /**
- * @summary 删除无影网盘中的终端用户
+ * @summary Deletes users from a cloud disk in Cloud Drive Service.
  *
  * @param request DeleteCloudDriveUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5663,7 +5663,7 @@ DeleteCloudDriveUsersResponse Client::deleteCloudDriveUsersWithOptions(const Del
 }
 
 /**
- * @summary 删除无影网盘中的终端用户
+ * @summary Deletes users from a cloud disk in Cloud Drive Service.
  *
  * @param request DeleteCloudDriveUsersRequest
  * @return DeleteCloudDriveUsersResponse
@@ -6386,6 +6386,8 @@ DeletePolicyGroupsResponse Client::deletePolicyGroups(const DeletePolicyGroupsRe
 }
 
 /**
+ * @summary Deletes a traffic throttling rule from a QoS policy.
+ *
  * @param request DeleteQosRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteQosRulesResponse
@@ -6415,6 +6417,8 @@ DeleteQosRulesResponse Client::deleteQosRulesWithOptions(const DeleteQosRulesReq
 }
 
 /**
+ * @summary Deletes a traffic throttling rule from a QoS policy.
+ *
  * @param request DeleteQosRulesRequest
  * @return DeleteQosRulesResponse
  */
@@ -6724,7 +6728,7 @@ DeleteTemplatesResponse Client::deleteTemplates(const DeleteTemplatesRequest &re
 }
 
 /**
- * @summary Delete virtual multi-factor authentication (MFA) devices.
+ * @summary Removes a virtual multi-factor authentication (MFA) device that is associated with an Active Directory (AD) account.
  *
  * @description If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
  *
@@ -6761,7 +6765,7 @@ DeleteVirtualMFADeviceResponse Client::deleteVirtualMFADeviceWithOptions(const D
 }
 
 /**
- * @summary Delete virtual multi-factor authentication (MFA) devices.
+ * @summary Removes a virtual multi-factor authentication (MFA) device that is associated with an Active Directory (AD) account.
  *
  * @description If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
  *
@@ -7316,7 +7320,7 @@ DescribeClientEventsResponse Client::describeClientEvents(const DescribeClientEv
 }
 
 /**
- * @summary 查询云盘团队空间列表
+ * @summary Queries team spaces in a cloud disk.
  *
  * @param request DescribeCloudDiskGroupDrivesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7363,7 +7367,7 @@ DescribeCloudDiskGroupDrivesResponse Client::describeCloudDiskGroupDrivesWithOpt
 }
 
 /**
- * @summary 查询云盘团队空间列表
+ * @summary Queries team spaces in a cloud disk.
  *
  * @param request DescribeCloudDiskGroupDrivesRequest
  * @return DescribeCloudDiskGroupDrivesResponse
@@ -7374,7 +7378,7 @@ DescribeCloudDiskGroupDrivesResponse Client::describeCloudDiskGroupDrives(const 
 }
 
 /**
- * @summary 查询云盘团队列表
+ * @summary Queries team spaces from the drive.
  *
  * @param request DescribeCloudDiskGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7421,7 +7425,7 @@ DescribeCloudDiskGroupsResponse Client::describeCloudDiskGroupsWithOptions(const
 }
 
 /**
- * @summary 查询云盘团队列表
+ * @summary Queries team spaces from the drive.
  *
  * @param request DescribeCloudDiskGroupsRequest
  * @return DescribeCloudDiskGroupsResponse
@@ -7432,7 +7436,7 @@ DescribeCloudDiskGroupsResponse Client::describeCloudDiskGroups(const DescribeCl
 }
 
 /**
- * @summary Queries a list of authorized team spaces.
+ * @summary Queries the list and basic information of all team shared disks in an enterprise drive.
  *
  * @param request DescribeCloudDriveGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7507,7 +7511,7 @@ DescribeCloudDriveGroupsResponse Client::describeCloudDriveGroupsWithOptions(con
 }
 
 /**
- * @summary Queries a list of authorized team spaces.
+ * @summary Queries the list and basic information of all team shared disks in an enterprise drive.
  *
  * @param request DescribeCloudDriveGroupsRequest
  * @return DescribeCloudDriveGroupsResponse
@@ -7518,7 +7522,7 @@ DescribeCloudDriveGroupsResponse Client::describeCloudDriveGroups(const Describe
 }
 
 /**
- * @summary 查询pds用户权限
+ * @summary Queries the permission settings on the enterprise drive.
  *
  * @param request DescribeCloudDrivePermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7553,7 +7557,7 @@ DescribeCloudDrivePermissionsResponse Client::describeCloudDrivePermissionsWithO
 }
 
 /**
- * @summary 查询pds用户权限
+ * @summary Queries the permission settings on the enterprise drive.
  *
  * @param request DescribeCloudDrivePermissionsRequest
  * @return DescribeCloudDrivePermissionsResponse
@@ -7564,7 +7568,7 @@ DescribeCloudDrivePermissionsResponse Client::describeCloudDrivePermissions(cons
 }
 
 /**
- * @summary 查询所有无影网盘终端用户的信息
+ * @summary Queries users of cloud disks in Cloud Drive Service.
  *
  * @param request DescribeCloudDriveUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7611,7 +7615,7 @@ DescribeCloudDriveUsersResponse Client::describeCloudDriveUsersWithOptions(const
 }
 
 /**
- * @summary 查询所有无影网盘终端用户的信息
+ * @summary Queries users of cloud disks in Cloud Drive Service.
  *
  * @param request DescribeCloudDriveUsersRequest
  * @return DescribeCloudDriveUsersResponse
@@ -7696,6 +7700,8 @@ DescribeConfigGroupResponse Client::describeConfigGroup(const DescribeConfigGrou
 }
 
 /**
+ * @summary Queries the header information of the cloud computer list.
+ *
  * @param request DescribeCustomizedListHeadersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCustomizedListHeadersResponse
@@ -7733,6 +7739,8 @@ DescribeCustomizedListHeadersResponse Client::describeCustomizedListHeadersWithO
 }
 
 /**
+ * @summary Queries the header information of the cloud computer list.
+ *
  * @param request DescribeCustomizedListHeadersRequest
  * @return DescribeCustomizedListHeadersResponse
  */
@@ -7996,7 +8004,7 @@ DescribeDesktopInfoResponse Client::describeDesktopInfo(const DescribeDesktopInf
 }
 
 /**
- * @summary 查询云电脑基础元数据
+ * @summary Queries the list and metadata of cloud computers in a specific region.
  *
  * @param request DescribeDesktopMetadataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8075,7 +8083,7 @@ DescribeDesktopMetadataResponse Client::describeDesktopMetadataWithOptions(const
 }
 
 /**
- * @summary 查询云电脑基础元数据
+ * @summary Queries the list and metadata of cloud computers in a specific region.
  *
  * @param request DescribeDesktopMetadataRequest
  * @return DescribeDesktopMetadataResponse
@@ -9004,7 +9012,7 @@ DescribeEcdReportTasksResponse Client::describeEcdReportTasks(const DescribeEcdR
 }
 
 /**
- * @summary 查询EIP监控
+ * @summary Queries the monitoring data of the desktop inbound bandwidth and the desktop outbound bandwidth, or the monitoring data of the workspace bandwidth originated from or destined for the Internet.
  *
  * @param request DescribeFlowMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9059,7 +9067,7 @@ DescribeFlowMetricResponse Client::describeFlowMetricWithOptions(const DescribeF
 }
 
 /**
- * @summary 查询EIP监控
+ * @summary Queries the monitoring data of the desktop inbound bandwidth and the desktop outbound bandwidth, or the monitoring data of the workspace bandwidth originated from or destined for the Internet.
  *
  * @param request DescribeFlowMetricRequest
  * @return DescribeFlowMetricResponse
@@ -9446,7 +9454,7 @@ DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecords(const 
 }
 
 /**
- * @summary 查询全局定时任务Batch记录
+ * @summary Queries the batch information in the execution history of scheduled tasks and returns the summary task execution results.
  *
  * @param request DescribeGlobalTimerBatchesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9497,7 +9505,7 @@ DescribeGlobalTimerBatchesResponse Client::describeGlobalTimerBatchesWithOptions
 }
 
 /**
- * @summary 查询全局定时任务Batch记录
+ * @summary Queries the batch information in the execution history of scheduled tasks and returns the summary task execution results.
  *
  * @param request DescribeGlobalTimerBatchesRequest
  * @return DescribeGlobalTimerBatchesResponse
@@ -10744,6 +10752,8 @@ DescribePriceForRenewDesktopOversoldGroupResponse Client::describePriceForRenewD
 }
 
 /**
+ * @summary Queries Quality of Service (QoS) rules.
+ *
  * @param request DescribeQosRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeQosRulesResponse
@@ -10777,6 +10787,8 @@ DescribeQosRulesResponse Client::describeQosRulesWithOptions(const DescribeQosRu
 }
 
 /**
+ * @summary Queries Quality of Service (QoS) rules.
+ *
  * @param request DescribeQosRulesRequest
  * @return DescribeQosRulesResponse
  */
@@ -10786,7 +10798,7 @@ DescribeQosRulesResponse Client::describeQosRules(const DescribeQosRulesRequest 
 }
 
 /**
- * @summary 查询录屏文件列表
+ * @summary Queries the screen recording files in all regions.
  *
  * @param request DescribeRecordFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10861,7 +10873,7 @@ DescribeRecordFileResponse Client::describeRecordFileWithOptions(const DescribeR
 }
 
 /**
- * @summary 查询录屏文件列表
+ * @summary Queries the screen recording files in all regions.
  *
  * @param request DescribeRecordFileRequest
  * @return DescribeRecordFileResponse
@@ -11124,6 +11136,8 @@ DescribeRenewalPriceResponse Client::describeRenewalPrice(const DescribeRenewalP
 }
 
 /**
+ * @summary Queries cloud resources that are associated with a global policy.
+ *
  * @param request DescribeResourceByCenterPolicyIdRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeResourceByCenterPolicyIdResponse
@@ -11169,6 +11183,8 @@ DescribeResourceByCenterPolicyIdResponse Client::describeResourceByCenterPolicyI
 }
 
 /**
+ * @summary Queries cloud resources that are associated with a global policy.
+ *
  * @param request DescribeResourceByCenterPolicyIdRequest
  * @return DescribeResourceByCenterPolicyIdResponse
  */
@@ -12038,7 +12054,7 @@ DescribeUsersInGroupResponse Client::describeUsersInGroup(const DescribeUsersInG
 }
 
 /**
- * @summary Queries the passwords of authorized users of a cloud computer.
+ * @summary Queries the passwords for the accounts within a cloud computer image. For example, when the Chrome browser on the cloud computer queries the cached password, it requires the end user to enter the password for identity verification.
  *
  * @param request DescribeUsersPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12073,7 +12089,7 @@ DescribeUsersPasswordResponse Client::describeUsersPasswordWithOptions(const Des
 }
 
 /**
- * @summary Queries the passwords of authorized users of a cloud computer.
+ * @summary Queries the passwords for the accounts within a cloud computer image. For example, when the Chrome browser on the cloud computer queries the cached password, it requires the end user to enter the password for identity verification.
  *
  * @param request DescribeUsersPasswordRequest
  * @return DescribeUsersPasswordResponse
@@ -12084,7 +12100,7 @@ DescribeUsersPasswordResponse Client::describeUsersPassword(const DescribeUsersP
 }
 
 /**
- * @summary Queries multi-factor authentication (MFA) devices that are bound to an Active Directory (AD) account.
+ * @summary Queries the virtual multi-factor authentication (MFA) devices that are associated with Active Directory (AD) accounts.
  *
  * @param request DescribeVirtualMFADevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12135,7 +12151,7 @@ DescribeVirtualMFADevicesResponse Client::describeVirtualMFADevicesWithOptions(c
 }
 
 /**
- * @summary Queries multi-factor authentication (MFA) devices that are bound to an Active Directory (AD) account.
+ * @summary Queries the virtual multi-factor authentication (MFA) devices that are associated with Active Directory (AD) accounts.
  *
  * @param request DescribeVirtualMFADevicesRequest
  * @return DescribeVirtualMFADevicesResponse
@@ -12350,7 +12366,7 @@ DisableDesktopsInGroupResponse Client::disableDesktopsInGroup(const DisableDeskt
 }
 
 /**
- * @summary Disconnects from desktop sessions.
+ * @summary Disconnects cloud computer sessions.
  *
  * @param request DisconnectDesktopSessionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12389,7 +12405,7 @@ DisconnectDesktopSessionsResponse Client::disconnectDesktopSessionsWithOptions(c
 }
 
 /**
- * @summary Disconnects from desktop sessions.
+ * @summary Disconnects cloud computer sessions.
  *
  * @param request DisconnectDesktopSessionsRequest
  * @return DisconnectDesktopSessionsResponse
@@ -12854,7 +12870,7 @@ ExportDesktopListInfoResponse Client::exportDesktopListInfo(const ExportDesktopL
 }
 
 /**
- * @summary Obtains the information about an asynchronous task based on the value of the AsyncTaskId parameter that you obtain by calling the CopyCdsFile operation.
+ * @summary When you call the CopyCdsFile operation to copy a folder, the operation returns AsyncTaskId. Call this operation specifying the obtained AsyncTaskId, and you can query the information about the asynchronous task.
  *
  * @param request GetAsyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12889,7 +12905,7 @@ GetAsyncTaskResponse Client::getAsyncTaskWithOptions(const GetAsyncTaskRequest &
 }
 
 /**
- * @summary Obtains the information about an asynchronous task based on the value of the AsyncTaskId parameter that you obtain by calling the CopyCdsFile operation.
+ * @summary When you call the CopyCdsFile operation to copy a folder, the operation returns AsyncTaskId. Call this operation specifying the obtained AsyncTaskId, and you can query the information about the asynchronous task.
  *
  * @param request GetAsyncTaskRequest
  * @return GetAsyncTaskResponse
@@ -12982,7 +12998,7 @@ GetConnectionTicketResponse Client::getConnectionTicket(const GetConnectionTicke
 }
 
 /**
- * @summary Obtains the credentials of the stream collaboration
+ * @summary Get the stream collaboration credentials for remote assistance or shared collaboration.
  *
  * @param request GetCoordinateTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13029,7 +13045,7 @@ GetCoordinateTicketResponse Client::getCoordinateTicketWithOptions(const GetCoor
 }
 
 /**
- * @summary Obtains the credentials of the stream collaboration
+ * @summary Get the stream collaboration credentials for remote assistance or shared collaboration.
  *
  * @param request GetCoordinateTicketRequest
  * @return GetCoordinateTicketResponse
@@ -13086,7 +13102,7 @@ GetDesktopGroupDetailResponse Client::getDesktopGroupDetail(const GetDesktopGrou
 }
 
 /**
- * @summary Queries whether single sign-on (SSO) is enabled for a workspace.
+ * @summary Queries whether single sign-on (SSO) is enabled for an office network.
  *
  * @param request GetOfficeSiteSsoStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13121,7 +13137,7 @@ GetOfficeSiteSsoStatusResponse Client::getOfficeSiteSsoStatusWithOptions(const G
 }
 
 /**
- * @summary Queries whether single sign-on (SSO) is enabled for a workspace.
+ * @summary Queries whether single sign-on (SSO) is enabled for an office network.
  *
  * @param request GetOfficeSiteSsoStatusRequest
  * @return GetOfficeSiteSsoStatusResponse
@@ -13708,7 +13724,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary 获取文件列表
+ * @summary Gets the download URL of the transferred file.
  *
  * @param request ListTransferFileDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13743,7 +13759,7 @@ ListTransferFileDownloadUrlResponse Client::listTransferFileDownloadUrlWithOptio
 }
 
 /**
- * @summary 获取文件列表
+ * @summary Gets the download URL of the transferred file.
  *
  * @param request ListTransferFileDownloadUrlRequest
  * @return ListTransferFileDownloadUrlResponse
@@ -14452,7 +14468,7 @@ ModifyCdsFileResponse Client::modifyCdsFile(const ModifyCdsFileRequest &request)
 }
 
 /**
- * @summary Modifies the link for file sharing.
+ * @summary Modify the file sharing settings.
  *
  * @param request ModifyCdsFileShareLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14551,7 +14567,7 @@ ModifyCdsFileShareLinkResponse Client::modifyCdsFileShareLinkWithOptions(const M
 }
 
 /**
- * @summary Modifies the link for file sharing.
+ * @summary Modify the file sharing settings.
  *
  * @param request ModifyCdsFileShareLinkRequest
  * @return ModifyCdsFileShareLinkResponse
@@ -15244,7 +15260,7 @@ ModifyCloudDrivePermissionResponse Client::modifyCloudDrivePermission(const Modi
 }
 
 /**
- * @summary 修改无影网盘终端用户的属性
+ * @summary Modifies users of a cloud disk in Cloud Drive Service.
  *
  * @param request ModifyCloudDriveUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15291,7 +15307,7 @@ ModifyCloudDriveUsersResponse Client::modifyCloudDriveUsersWithOptions(const Mod
 }
 
 /**
- * @summary 修改无影网盘终端用户的属性
+ * @summary Modifies users of a cloud disk in Cloud Drive Service.
  *
  * @param request ModifyCloudDriveUsersRequest
  * @return ModifyCloudDriveUsersResponse
@@ -17102,7 +17118,7 @@ ModifyPolicyGroupResponse Client::modifyPolicyGroup(const ModifyPolicyGroupReque
 }
 
 /**
- * @summary 修改限速组资源绑定关系
+ * @summary Modifies the resources that a Quality of Service (QoS) rule applies to.
  *
  * @param request ModifyQosEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17149,7 +17165,7 @@ ModifyQosEntriesResponse Client::modifyQosEntriesWithOptions(const ModifyQosEntr
 }
 
 /**
- * @summary 修改限速组资源绑定关系
+ * @summary Modifies the resources that a Quality of Service (QoS) rule applies to.
  *
  * @param request ModifyQosEntriesRequest
  * @return ModifyQosEntriesResponse
@@ -17160,6 +17176,8 @@ ModifyQosEntriesResponse Client::modifyQosEntries(const ModifyQosEntriesRequest 
 }
 
 /**
+ * @summary Modifies a Quality of Service (QoS) rule.
+ *
  * @param request ModifyQosRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyQosRuleResponse
@@ -17201,6 +17219,8 @@ ModifyQosRuleResponse Client::modifyQosRuleWithOptions(const ModifyQosRuleReques
 }
 
 /**
+ * @summary Modifies a Quality of Service (QoS) rule.
+ *
  * @param request ModifyQosRuleRequest
  * @return ModifyQosRuleResponse
  */
@@ -17210,6 +17230,8 @@ ModifyQosRuleResponse Client::modifyQosRule(const ModifyQosRuleRequest &request)
 }
 
 /**
+ * @summary Modifies a global policy that is associated with a cloud resource.
+ *
  * @param request ModifyResourceCenterPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyResourceCenterPolicyResponse
@@ -17259,6 +17281,8 @@ ModifyResourceCenterPolicyResponse Client::modifyResourceCenterPolicyWithOptions
 }
 
 /**
+ * @summary Modifies a global policy that is associated with a cloud resource.
+ *
  * @param request ModifyResourceCenterPolicyRequest
  * @return ModifyResourceCenterPolicyResponse
  */
@@ -17686,7 +17710,7 @@ ModifyUserToDesktopGroupResponse Client::modifyUserToDesktopGroup(const ModifyUs
 }
 
 /**
- * @summary Move files or folders.
+ * @summary Moves a file or folder on the drive to a new location.
  *
  * @param request MoveCdsFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17741,7 +17765,7 @@ MoveCdsFileResponse Client::moveCdsFileWithOptions(const MoveCdsFileRequest &req
 }
 
 /**
- * @summary Move files or folders.
+ * @summary Moves a file or folder on the drive to a new location.
  *
  * @param request MoveCdsFileRequest
  * @return MoveCdsFileResponse
@@ -18622,7 +18646,7 @@ RevokeCoordinatePrivilegeResponse Client::revokeCoordinatePrivilege(const Revoke
 }
 
 /**
- * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
+ * @summary Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
  *
  * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
  *
@@ -18683,7 +18707,7 @@ RunCommandResponse Client::runCommandWithOptions(const RunCommandRequest &reques
 }
 
 /**
- * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
+ * @summary Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
  *
  * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
  *
@@ -18970,7 +18994,7 @@ SetDesktopMaintenanceResponse Client::setDesktopMaintenance(const SetDesktopMain
 }
 
 /**
- * @summary Configures the single sign-on (SSO) status of an Active Directory (AD) directory.
+ * @summary Enables or disables the single sign-on (SSO) feature for an Active Directory (AD) account-based office network.
  *
  * @description This operation is supported only for AD directories, not for RAM directories.
  *
@@ -19011,7 +19035,7 @@ SetDirectorySsoStatusResponse Client::setDirectorySsoStatusWithOptions(const Set
 }
 
 /**
- * @summary Configures the single sign-on (SSO) status of an Active Directory (AD) directory.
+ * @summary Enables or disables the single sign-on (SSO) feature for an Active Directory (AD) account-based office network.
  *
  * @description This operation is supported only for AD directories, not for RAM directories.
  *
@@ -19082,7 +19106,7 @@ SetIdpMetadataResponse Client::setIdpMetadata(const SetIdpMetadataRequest &reque
 }
 
 /**
- * @summary Enables or disables single sign-on (SSO) for a workspace.
+ * @summary Enables or disables single sign-on (SSO) for an office network.
  *
  * @param request SetOfficeSiteSsoStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19121,7 +19145,7 @@ SetOfficeSiteSsoStatusResponse Client::setOfficeSiteSsoStatusWithOptions(const S
 }
 
 /**
- * @summary Enables or disables single sign-on (SSO) for a workspace.
+ * @summary Enables or disables single sign-on (SSO) for an office network.
  *
  * @param request SetOfficeSiteSsoStatusRequest
  * @return SetOfficeSiteSsoStatusResponse
@@ -19300,7 +19324,7 @@ StopDesktopsResponse Client::stopDesktops(const StopDesktopsRequest &request) {
 }
 
 /**
- * @summary Stops a Cloud Assistant command that is running on one or more cloud desktops.
+ * @summary Stop a process that executes the Cloud Assistant script in one or more cloud computers.
  *
  * @description When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
  *
@@ -19341,7 +19365,7 @@ StopInvocationResponse Client::stopInvocationWithOptions(const StopInvocationReq
 }
 
 /**
- * @summary Stops a Cloud Assistant command that is running on one or more cloud desktops.
+ * @summary Stop a process that executes the Cloud Assistant script in one or more cloud computers.
  *
  * @description When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
  *
