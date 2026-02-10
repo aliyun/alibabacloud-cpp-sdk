@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEIMAGESENSITIVEFILELISTSHRINKREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEIMAGESENSITIVEFILELISTSHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_TO_JSON(ScanRange, scanRangeShrink_);
+      DARABONBA_PTR_TO_JSON(SensitiveKeyList, sensitiveKeyList_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeImageSensitiveFileListShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Criteria, criteria_);
@@ -31,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_FROM_JSON(ScanRange, scanRangeShrink_);
+      DARABONBA_PTR_FROM_JSON(SensitiveKeyList, sensitiveKeyList_);
     };
     DescribeImageSensitiveFileListShrinkRequest() = default ;
     DescribeImageSensitiveFileListShrinkRequest(const DescribeImageSensitiveFileListShrinkRequest &) = default ;
@@ -45,7 +48,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->criteria_ == nullptr
         && this->criteriaType_ == nullptr && this->currentPage_ == nullptr && this->imageUuid_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr
-        && this->riskLevel_ == nullptr && this->scanRangeShrink_ == nullptr; };
+        && this->riskLevel_ == nullptr && this->scanRangeShrink_ == nullptr && this->sensitiveKeyList_ == nullptr; };
     // criteria Field Functions 
     bool hasCriteria() const { return this->criteria_ != nullptr;};
     void deleteCriteria() { this->criteria_ = nullptr;};
@@ -100,6 +103,15 @@ namespace Models
     void deleteScanRangeShrink() { this->scanRangeShrink_ = nullptr;};
     inline string getScanRangeShrink() const { DARABONBA_PTR_GET_DEFAULT(scanRangeShrink_, "") };
     inline DescribeImageSensitiveFileListShrinkRequest& setScanRangeShrink(string scanRangeShrink) { DARABONBA_PTR_SET_VALUE(scanRangeShrink_, scanRangeShrink) };
+
+
+    // sensitiveKeyList Field Functions 
+    bool hasSensitiveKeyList() const { return this->sensitiveKeyList_ != nullptr;};
+    void deleteSensitiveKeyList() { this->sensitiveKeyList_ = nullptr;};
+    inline const vector<string> & getSensitiveKeyList() const { DARABONBA_PTR_GET_CONST(sensitiveKeyList_, vector<string>) };
+    inline vector<string> getSensitiveKeyList() { DARABONBA_PTR_GET(sensitiveKeyList_, vector<string>) };
+    inline DescribeImageSensitiveFileListShrinkRequest& setSensitiveKeyList(const vector<string> & sensitiveKeyList) { DARABONBA_PTR_SET_VALUE(sensitiveKeyList_, sensitiveKeyList) };
+    inline DescribeImageSensitiveFileListShrinkRequest& setSensitiveKeyList(vector<string> && sensitiveKeyList) { DARABONBA_PTR_SET_RVALUE(sensitiveKeyList_, sensitiveKeyList) };
 
 
   protected:
@@ -248,6 +260,7 @@ namespace Models
     // *   **image**
     // *   **container**
     shared_ptr<string> scanRangeShrink_ {};
+    shared_ptr<vector<string>> sensitiveKeyList_ {};
   };
 
   } // namespace Models

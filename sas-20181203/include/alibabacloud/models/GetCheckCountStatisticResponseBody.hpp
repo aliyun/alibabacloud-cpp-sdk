@@ -56,6 +56,7 @@ namespace Models
       class CheckCountStatisticItems : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const CheckCountStatisticItems& obj) { 
+          DARABONBA_PTR_TO_JSON(CheckShowName, checkShowName_);
           DARABONBA_PTR_TO_JSON(Cores, cores_);
           DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
           DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
@@ -70,9 +71,11 @@ namespace Models
           DARABONBA_PTR_TO_JSON(RiskCount, riskCount_);
           DARABONBA_PTR_TO_JSON(Uuid, uuid_);
           DARABONBA_PTR_TO_JSON(Vendor, vendor_);
+          DARABONBA_PTR_TO_JSON(VendorShowName, vendorShowName_);
           DARABONBA_PTR_TO_JSON(VpcInstanceId, vpcInstanceId_);
         };
         friend void from_json(const Darabonba::Json& j, CheckCountStatisticItems& obj) { 
+          DARABONBA_PTR_FROM_JSON(CheckShowName, checkShowName_);
           DARABONBA_PTR_FROM_JSON(Cores, cores_);
           DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
           DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
@@ -87,6 +90,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(RiskCount, riskCount_);
           DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
           DARABONBA_PTR_FROM_JSON(Vendor, vendor_);
+          DARABONBA_PTR_FROM_JSON(VendorShowName, vendorShowName_);
           DARABONBA_PTR_FROM_JSON(VpcInstanceId, vpcInstanceId_);
         };
         CheckCountStatisticItems() = default ;
@@ -100,10 +104,18 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->cores_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->instanceSubType_ == nullptr && this->instanceSubTypeName_ == nullptr && this->instanceType_ == nullptr
-        && this->instanceTypeName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->os_ == nullptr && this->regionId_ == nullptr
-        && this->riskCount_ == nullptr && this->uuid_ == nullptr && this->vendor_ == nullptr && this->vpcInstanceId_ == nullptr; };
+        virtual bool empty() const override { return this->checkShowName_ == nullptr
+        && this->cores_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->instanceSubType_ == nullptr && this->instanceSubTypeName_ == nullptr
+        && this->instanceType_ == nullptr && this->instanceTypeName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->os_ == nullptr
+        && this->regionId_ == nullptr && this->riskCount_ == nullptr && this->uuid_ == nullptr && this->vendor_ == nullptr && this->vendorShowName_ == nullptr
+        && this->vpcInstanceId_ == nullptr; };
+        // checkShowName Field Functions 
+        bool hasCheckShowName() const { return this->checkShowName_ != nullptr;};
+        void deleteCheckShowName() { this->checkShowName_ = nullptr;};
+        inline string getCheckShowName() const { DARABONBA_PTR_GET_DEFAULT(checkShowName_, "") };
+        inline CheckCountStatisticItems& setCheckShowName(string checkShowName) { DARABONBA_PTR_SET_VALUE(checkShowName_, checkShowName) };
+
+
         // cores Field Functions 
         bool hasCores() const { return this->cores_ != nullptr;};
         void deleteCores() { this->cores_ = nullptr;};
@@ -202,6 +214,13 @@ namespace Models
         inline CheckCountStatisticItems& setVendor(int32_t vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
 
 
+        // vendorShowName Field Functions 
+        bool hasVendorShowName() const { return this->vendorShowName_ != nullptr;};
+        void deleteVendorShowName() { this->vendorShowName_ = nullptr;};
+        inline string getVendorShowName() const { DARABONBA_PTR_GET_DEFAULT(vendorShowName_, "") };
+        inline CheckCountStatisticItems& setVendorShowName(string vendorShowName) { DARABONBA_PTR_SET_VALUE(vendorShowName_, vendorShowName) };
+
+
         // vpcInstanceId Field Functions 
         bool hasVpcInstanceId() const { return this->vpcInstanceId_ != nullptr;};
         void deleteVpcInstanceId() { this->vpcInstanceId_ = nullptr;};
@@ -210,6 +229,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> checkShowName_ {};
         // The number of the CPU cores used by the host instance.
         shared_ptr<int32_t> cores_ {};
         // The instance ID of the cloud service.
@@ -301,6 +321,7 @@ namespace Models
         // *   **MICROSOFT**: Microsoft Azure.
         // *   **AWS**: AWS.
         shared_ptr<int32_t> vendor_ {};
+        shared_ptr<string> vendorShowName_ {};
         // The ID of the VPC to which the host instance belongs.
         shared_ptr<string> vpcInstanceId_ {};
       };

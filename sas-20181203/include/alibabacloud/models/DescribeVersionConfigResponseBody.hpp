@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImageScanCapacity, imageScanCapacity_);
       DARABONBA_PTR_TO_JSON(InstanceBuyType, instanceBuyType_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(IntelligentAnalysisFlow, intelligentAnalysisFlow_);
       DARABONBA_PTR_TO_JSON(IsNewContainerVersion, isNewContainerVersion_);
       DARABONBA_PTR_TO_JSON(IsNewMultiVersion, isNewMultiVersion_);
       DARABONBA_PTR_TO_JSON(IsOverBalance, isOverBalance_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MergedVersion, mergedVersion_);
       DARABONBA_PTR_TO_JSON(MultiVersion, multiVersion_);
       DARABONBA_PTR_TO_JSON(NewThreatAnalysis, newThreatAnalysis_);
+      DARABONBA_PTR_TO_JSON(OnboardedAssets, onboardedAssets_);
       DARABONBA_PTR_TO_JSON(OpenTime, openTime_);
       DARABONBA_PTR_TO_JSON(PostPayHostVersion, postPayHostVersion_);
       DARABONBA_PTR_TO_JSON(PostPayInstanceId, postPayInstanceId_);
@@ -75,6 +77,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImageScanCapacity, imageScanCapacity_);
       DARABONBA_PTR_FROM_JSON(InstanceBuyType, instanceBuyType_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(IntelligentAnalysisFlow, intelligentAnalysisFlow_);
       DARABONBA_PTR_FROM_JSON(IsNewContainerVersion, isNewContainerVersion_);
       DARABONBA_PTR_FROM_JSON(IsNewMultiVersion, isNewMultiVersion_);
       DARABONBA_PTR_FROM_JSON(IsOverBalance, isOverBalance_);
@@ -86,6 +89,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MergedVersion, mergedVersion_);
       DARABONBA_PTR_FROM_JSON(MultiVersion, multiVersion_);
       DARABONBA_PTR_FROM_JSON(NewThreatAnalysis, newThreatAnalysis_);
+      DARABONBA_PTR_FROM_JSON(OnboardedAssets, onboardedAssets_);
       DARABONBA_PTR_FROM_JSON(OpenTime, openTime_);
       DARABONBA_PTR_FROM_JSON(PostPayHostVersion, postPayHostVersion_);
       DARABONBA_PTR_FROM_JSON(PostPayInstanceId, postPayInstanceId_);
@@ -122,13 +126,14 @@ namespace Models
     virtual bool empty() const override { return this->agentlessCapacity_ == nullptr
         && this->allowPartialBuy_ == nullptr && this->antiRansomwareCapacity_ == nullptr && this->antiRansomwareService_ == nullptr && this->appWhiteList_ == nullptr && this->appWhiteListAuthCount_ == nullptr
         && this->assetLevel_ == nullptr && this->canTryPostPaidPackage_ == nullptr && this->cspmCapacity_ == nullptr && this->highestVersion_ == nullptr && this->honeypotCapacity_ == nullptr
-        && this->imageScanCapacity_ == nullptr && this->instanceBuyType_ == nullptr && this->instanceId_ == nullptr && this->isNewContainerVersion_ == nullptr && this->isNewMultiVersion_ == nullptr
-        && this->isOverBalance_ == nullptr && this->isPostpay_ == nullptr && this->isTrialVersion_ == nullptr && this->lastTrailEndTime_ == nullptr && this->MVAuthCount_ == nullptr
-        && this->MVUnusedAuthCount_ == nullptr && this->mergedVersion_ == nullptr && this->multiVersion_ == nullptr && this->newThreatAnalysis_ == nullptr && this->openTime_ == nullptr
-        && this->postPayHostVersion_ == nullptr && this->postPayInstanceId_ == nullptr && this->postPayModuleSwitch_ == nullptr && this->postPayOpenTime_ == nullptr && this->postPayStatus_ == nullptr
-        && this->raspCapacity_ == nullptr && this->releaseTime_ == nullptr && this->requestId_ == nullptr && this->sasLog_ == nullptr && this->sasScreen_ == nullptr
-        && this->sdkCapacity_ == nullptr && this->slsCapacity_ == nullptr && this->threatAnalysisCapacity_ == nullptr && this->threatAnalysisFlow_ == nullptr && this->userDefinedAlarms_ == nullptr
-        && this->version_ == nullptr && this->vmCores_ == nullptr && this->vulFixCapacity_ == nullptr && this->webLock_ == nullptr && this->webLockAuthCount_ == nullptr; };
+        && this->imageScanCapacity_ == nullptr && this->instanceBuyType_ == nullptr && this->instanceId_ == nullptr && this->intelligentAnalysisFlow_ == nullptr && this->isNewContainerVersion_ == nullptr
+        && this->isNewMultiVersion_ == nullptr && this->isOverBalance_ == nullptr && this->isPostpay_ == nullptr && this->isTrialVersion_ == nullptr && this->lastTrailEndTime_ == nullptr
+        && this->MVAuthCount_ == nullptr && this->MVUnusedAuthCount_ == nullptr && this->mergedVersion_ == nullptr && this->multiVersion_ == nullptr && this->newThreatAnalysis_ == nullptr
+        && this->onboardedAssets_ == nullptr && this->openTime_ == nullptr && this->postPayHostVersion_ == nullptr && this->postPayInstanceId_ == nullptr && this->postPayModuleSwitch_ == nullptr
+        && this->postPayOpenTime_ == nullptr && this->postPayStatus_ == nullptr && this->raspCapacity_ == nullptr && this->releaseTime_ == nullptr && this->requestId_ == nullptr
+        && this->sasLog_ == nullptr && this->sasScreen_ == nullptr && this->sdkCapacity_ == nullptr && this->slsCapacity_ == nullptr && this->threatAnalysisCapacity_ == nullptr
+        && this->threatAnalysisFlow_ == nullptr && this->userDefinedAlarms_ == nullptr && this->version_ == nullptr && this->vmCores_ == nullptr && this->vulFixCapacity_ == nullptr
+        && this->webLock_ == nullptr && this->webLockAuthCount_ == nullptr; };
     // agentlessCapacity Field Functions 
     bool hasAgentlessCapacity() const { return this->agentlessCapacity_ != nullptr;};
     void deleteAgentlessCapacity() { this->agentlessCapacity_ = nullptr;};
@@ -227,6 +232,13 @@ namespace Models
     inline DescribeVersionConfigResponseBody& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // intelligentAnalysisFlow Field Functions 
+    bool hasIntelligentAnalysisFlow() const { return this->intelligentAnalysisFlow_ != nullptr;};
+    void deleteIntelligentAnalysisFlow() { this->intelligentAnalysisFlow_ = nullptr;};
+    inline int32_t getIntelligentAnalysisFlow() const { DARABONBA_PTR_GET_DEFAULT(intelligentAnalysisFlow_, 0) };
+    inline DescribeVersionConfigResponseBody& setIntelligentAnalysisFlow(int32_t intelligentAnalysisFlow) { DARABONBA_PTR_SET_VALUE(intelligentAnalysisFlow_, intelligentAnalysisFlow) };
+
+
     // isNewContainerVersion Field Functions 
     bool hasIsNewContainerVersion() const { return this->isNewContainerVersion_ != nullptr;};
     void deleteIsNewContainerVersion() { this->isNewContainerVersion_ = nullptr;};
@@ -302,6 +314,13 @@ namespace Models
     void deleteNewThreatAnalysis() { this->newThreatAnalysis_ = nullptr;};
     inline int32_t getNewThreatAnalysis() const { DARABONBA_PTR_GET_DEFAULT(newThreatAnalysis_, 0) };
     inline DescribeVersionConfigResponseBody& setNewThreatAnalysis(int32_t newThreatAnalysis) { DARABONBA_PTR_SET_VALUE(newThreatAnalysis_, newThreatAnalysis) };
+
+
+    // onboardedAssets Field Functions 
+    bool hasOnboardedAssets() const { return this->onboardedAssets_ != nullptr;};
+    void deleteOnboardedAssets() { this->onboardedAssets_ = nullptr;};
+    inline int32_t getOnboardedAssets() const { DARABONBA_PTR_GET_DEFAULT(onboardedAssets_, 0) };
+    inline DescribeVersionConfigResponseBody& setOnboardedAssets(int32_t onboardedAssets) { DARABONBA_PTR_SET_VALUE(onboardedAssets_, onboardedAssets) };
 
 
     // openTime Field Functions 
@@ -504,6 +523,7 @@ namespace Models
     shared_ptr<int32_t> instanceBuyType_ {};
     // The ID of purchased Security Center.
     shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> intelligentAnalysisFlow_ {};
     // Indicates whether Security Center runs the latest version of the Ultimate edition.
     // 
     // *   **true**: yes
@@ -545,6 +565,7 @@ namespace Models
     // *   **0**: no
     // *   **1**: yes
     shared_ptr<int32_t> newThreatAnalysis_ {};
+    shared_ptr<int32_t> onboardedAssets_ {};
     // The timestamp when Security Center is purchased. Unit: milliseconds.
     shared_ptr<int64_t> openTime_ {};
     // When activating the pay-as-you-go service for host and container security, this represents the highest protection version for the already bound assets. The values are as follows: - **1**: Free Edition - **3**: Enterprise Edition - **5**: Advanced Edition - **6**: Anti-Virus Edition - **7**: Flagship Edition

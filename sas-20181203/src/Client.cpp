@@ -17157,6 +17157,10 @@ DescribeImageSensitiveFileListResponse Client::describeImageSensitiveFileListWit
     query["ScanRange"] = request.getScanRangeShrink();
   }
 
+  if (!!request.hasSensitiveKeyList()) {
+    query["SensitiveKeyList"] = request.getSensitiveKeyList();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -19132,6 +19136,10 @@ DescribePropertyScaDetailResponse Client::describePropertyScaDetailWithOptions(c
 
   if (!!request.hasScaVersion()) {
     query["ScaVersion"] = request.getScaVersion();
+  }
+
+  if (!!request.hasSearchCriteriaList()) {
+    query["SearchCriteriaList"] = request.getSearchCriteriaList();
   }
 
   if (!!request.hasSearchInfo()) {
@@ -26195,6 +26203,10 @@ ExportVulResponse Client::exportVulWithOptions(const ExportVulRequest &request, 
     query["VpcInstanceIds"] = request.getVpcInstanceIds();
   }
 
+  if (!!request.hasVulEntityList()) {
+    query["VulEntityList"] = request.getVulEntityList();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -27771,6 +27783,10 @@ GetCheckConfigResponse Client::getCheckConfig() {
 GetCheckCountStatisticResponse Client::getCheckCountStatisticWithOptions(const GetCheckCountStatisticRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
   if (!!request.hasStatisticType()) {
     query["StatisticType"] = request.getStatisticType();
   }

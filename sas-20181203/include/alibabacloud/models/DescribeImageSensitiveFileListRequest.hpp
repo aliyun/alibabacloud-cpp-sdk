@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_TO_JSON(ScanRange, scanRange_);
+      DARABONBA_PTR_TO_JSON(SensitiveKeyList, sensitiveKeyList_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeImageSensitiveFileListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Criteria, criteria_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_FROM_JSON(ScanRange, scanRange_);
+      DARABONBA_PTR_FROM_JSON(SensitiveKeyList, sensitiveKeyList_);
     };
     DescribeImageSensitiveFileListRequest() = default ;
     DescribeImageSensitiveFileListRequest(const DescribeImageSensitiveFileListRequest &) = default ;
@@ -46,7 +48,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->criteria_ == nullptr
         && this->criteriaType_ == nullptr && this->currentPage_ == nullptr && this->imageUuid_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr
-        && this->riskLevel_ == nullptr && this->scanRange_ == nullptr; };
+        && this->riskLevel_ == nullptr && this->scanRange_ == nullptr && this->sensitiveKeyList_ == nullptr; };
     // criteria Field Functions 
     bool hasCriteria() const { return this->criteria_ != nullptr;};
     void deleteCriteria() { this->criteria_ = nullptr;};
@@ -103,6 +105,15 @@ namespace Models
     inline vector<string> getScanRange() { DARABONBA_PTR_GET(scanRange_, vector<string>) };
     inline DescribeImageSensitiveFileListRequest& setScanRange(const vector<string> & scanRange) { DARABONBA_PTR_SET_VALUE(scanRange_, scanRange) };
     inline DescribeImageSensitiveFileListRequest& setScanRange(vector<string> && scanRange) { DARABONBA_PTR_SET_RVALUE(scanRange_, scanRange) };
+
+
+    // sensitiveKeyList Field Functions 
+    bool hasSensitiveKeyList() const { return this->sensitiveKeyList_ != nullptr;};
+    void deleteSensitiveKeyList() { this->sensitiveKeyList_ = nullptr;};
+    inline const vector<string> & getSensitiveKeyList() const { DARABONBA_PTR_GET_CONST(sensitiveKeyList_, vector<string>) };
+    inline vector<string> getSensitiveKeyList() { DARABONBA_PTR_GET(sensitiveKeyList_, vector<string>) };
+    inline DescribeImageSensitiveFileListRequest& setSensitiveKeyList(const vector<string> & sensitiveKeyList) { DARABONBA_PTR_SET_VALUE(sensitiveKeyList_, sensitiveKeyList) };
+    inline DescribeImageSensitiveFileListRequest& setSensitiveKeyList(vector<string> && sensitiveKeyList) { DARABONBA_PTR_SET_RVALUE(sensitiveKeyList_, sensitiveKeyList) };
 
 
   protected:
@@ -251,6 +262,7 @@ namespace Models
     // *   **image**
     // *   **container**
     shared_ptr<vector<string>> scanRange_ {};
+    shared_ptr<vector<string>> sensitiveKeyList_ {};
   };
 
   } // namespace Models

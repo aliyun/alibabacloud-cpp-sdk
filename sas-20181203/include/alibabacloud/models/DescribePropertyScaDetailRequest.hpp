@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEPROPERTYSCADETAILREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEPROPERTYSCADETAILREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ScaName, scaName_);
       DARABONBA_PTR_TO_JSON(ScaNamePattern, scaNamePattern_);
       DARABONBA_PTR_TO_JSON(ScaVersion, scaVersion_);
+      DARABONBA_PTR_TO_JSON(SearchCriteriaList, searchCriteriaList_);
       DARABONBA_PTR_TO_JSON(SearchInfo, searchInfo_);
       DARABONBA_PTR_TO_JSON(SearchInfoSub, searchInfoSub_);
       DARABONBA_PTR_TO_JSON(SearchItem, searchItem_);
@@ -52,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ScaName, scaName_);
       DARABONBA_PTR_FROM_JSON(ScaNamePattern, scaNamePattern_);
       DARABONBA_PTR_FROM_JSON(ScaVersion, scaVersion_);
+      DARABONBA_PTR_FROM_JSON(SearchCriteriaList, searchCriteriaList_);
       DARABONBA_PTR_FROM_JSON(SearchInfo, searchInfo_);
       DARABONBA_PTR_FROM_JSON(SearchInfoSub, searchInfoSub_);
       DARABONBA_PTR_FROM_JSON(SearchItem, searchItem_);
@@ -71,12 +74,54 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SearchCriteriaList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SearchCriteriaList& obj) { 
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, SearchCriteriaList& obj) { 
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      SearchCriteriaList() = default ;
+      SearchCriteriaList(const SearchCriteriaList &) = default ;
+      SearchCriteriaList(SearchCriteriaList &&) = default ;
+      SearchCriteriaList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SearchCriteriaList() = default ;
+      SearchCriteriaList& operator=(const SearchCriteriaList &) = default ;
+      SearchCriteriaList& operator=(SearchCriteriaList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->name_ == nullptr
+        && this->value_ == nullptr; };
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline SearchCriteriaList& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline SearchCriteriaList& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> name_ {};
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->biz_ == nullptr
         && this->bizType_ == nullptr && this->currentPage_ == nullptr && this->lang_ == nullptr && this->name_ == nullptr && this->nextToken_ == nullptr
         && this->pageSize_ == nullptr && this->pid_ == nullptr && this->port_ == nullptr && this->processStartedEnd_ == nullptr && this->processStartedStart_ == nullptr
-        && this->remark_ == nullptr && this->scaName_ == nullptr && this->scaNamePattern_ == nullptr && this->scaVersion_ == nullptr && this->searchInfo_ == nullptr
-        && this->searchInfoSub_ == nullptr && this->searchItem_ == nullptr && this->searchItemSub_ == nullptr && this->useNextToken_ == nullptr && this->user_ == nullptr
-        && this->uuid_ == nullptr; };
+        && this->remark_ == nullptr && this->scaName_ == nullptr && this->scaNamePattern_ == nullptr && this->scaVersion_ == nullptr && this->searchCriteriaList_ == nullptr
+        && this->searchInfo_ == nullptr && this->searchInfoSub_ == nullptr && this->searchItem_ == nullptr && this->searchItemSub_ == nullptr && this->useNextToken_ == nullptr
+        && this->user_ == nullptr && this->uuid_ == nullptr; };
     // biz Field Functions 
     bool hasBiz() const { return this->biz_ != nullptr;};
     void deleteBiz() { this->biz_ = nullptr;};
@@ -182,6 +227,15 @@ namespace Models
     inline DescribePropertyScaDetailRequest& setScaVersion(string scaVersion) { DARABONBA_PTR_SET_VALUE(scaVersion_, scaVersion) };
 
 
+    // searchCriteriaList Field Functions 
+    bool hasSearchCriteriaList() const { return this->searchCriteriaList_ != nullptr;};
+    void deleteSearchCriteriaList() { this->searchCriteriaList_ = nullptr;};
+    inline const vector<DescribePropertyScaDetailRequest::SearchCriteriaList> & getSearchCriteriaList() const { DARABONBA_PTR_GET_CONST(searchCriteriaList_, vector<DescribePropertyScaDetailRequest::SearchCriteriaList>) };
+    inline vector<DescribePropertyScaDetailRequest::SearchCriteriaList> getSearchCriteriaList() { DARABONBA_PTR_GET(searchCriteriaList_, vector<DescribePropertyScaDetailRequest::SearchCriteriaList>) };
+    inline DescribePropertyScaDetailRequest& setSearchCriteriaList(const vector<DescribePropertyScaDetailRequest::SearchCriteriaList> & searchCriteriaList) { DARABONBA_PTR_SET_VALUE(searchCriteriaList_, searchCriteriaList) };
+    inline DescribePropertyScaDetailRequest& setSearchCriteriaList(vector<DescribePropertyScaDetailRequest::SearchCriteriaList> && searchCriteriaList) { DARABONBA_PTR_SET_RVALUE(searchCriteriaList_, searchCriteriaList) };
+
+
     // searchInfo Field Functions 
     bool hasSearchInfo() const { return this->searchInfo_ != nullptr;};
     void deleteSearchInfo() { this->searchInfo_ = nullptr;};
@@ -285,6 +339,7 @@ namespace Models
     shared_ptr<string> scaNamePattern_ {};
     // The version of the middleware, database, or web service.
     shared_ptr<string> scaVersion_ {};
+    shared_ptr<vector<DescribePropertyScaDetailRequest::SearchCriteriaList>> searchCriteriaList_ {};
     // The search keyword. You must specify this parameter based on the value of the **SearchItem** parameter.
     // 
     // *   If the **SearchItem** parameter is set to **name**, you must enter the name of an asset fingerprint.

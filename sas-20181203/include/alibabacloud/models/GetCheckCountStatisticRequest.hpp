@@ -14,11 +14,13 @@ namespace Models
   class GetCheckCountStatisticRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetCheckCountStatisticRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(StatisticType, statisticType_);
       DARABONBA_PTR_TO_JSON(TaskSources, taskSources_);
       DARABONBA_PTR_TO_JSON(Vendors, vendors_);
     };
     friend void from_json(const Darabonba::Json& j, GetCheckCountStatisticRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(StatisticType, statisticType_);
       DARABONBA_PTR_FROM_JSON(TaskSources, taskSources_);
       DARABONBA_PTR_FROM_JSON(Vendors, vendors_);
@@ -34,8 +36,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->statisticType_ == nullptr
-        && this->taskSources_ == nullptr && this->vendors_ == nullptr; };
+    virtual bool empty() const override { return this->lang_ == nullptr
+        && this->statisticType_ == nullptr && this->taskSources_ == nullptr && this->vendors_ == nullptr; };
+    // lang Field Functions 
+    bool hasLang() const { return this->lang_ != nullptr;};
+    void deleteLang() { this->lang_ = nullptr;};
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline GetCheckCountStatisticRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
     // statisticType Field Functions 
     bool hasStatisticType() const { return this->statisticType_ != nullptr;};
     void deleteStatisticType() { this->statisticType_ = nullptr;};
@@ -62,6 +71,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> lang_ {};
     // The type of the statistics. Valid values:
     // 
     // *   **user**: the top five users that are granted excessive permissions.

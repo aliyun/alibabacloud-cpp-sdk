@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EndPoint, endPoint_);
         DARABONBA_PTR_TO_JSON(File, file_);
         DARABONBA_PTR_TO_JSON(Filepath, filepath_);
+        DARABONBA_PTR_TO_JSON(ImageDigest, imageDigest_);
         DARABONBA_PTR_TO_JSON(ImageName, imageName_);
         DARABONBA_PTR_TO_JSON(InstallationPath, installationPath_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -64,9 +65,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Port, port_);
         DARABONBA_PTR_TO_JSON(ProcessStarted, processStarted_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(RepoName, repoName_);
+        DARABONBA_PTR_TO_JSON(RepoNamespace, repoNamespace_);
         DARABONBA_PTR_TO_JSON(ServerType, serverType_);
         DARABONBA_PTR_TO_JSON(Size, size_);
         DARABONBA_PTR_TO_JSON(SkillsName, skillsName_);
+        DARABONBA_PTR_TO_JSON(Tag, tag_);
         DARABONBA_PTR_TO_JSON(TransportName, transportName_);
         DARABONBA_PTR_TO_JSON(UsedByCount, usedByCount_);
         DARABONBA_PTR_TO_JSON(User, user_);
@@ -82,6 +86,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(EndPoint, endPoint_);
         DARABONBA_PTR_FROM_JSON(File, file_);
         DARABONBA_PTR_FROM_JSON(Filepath, filepath_);
+        DARABONBA_PTR_FROM_JSON(ImageDigest, imageDigest_);
         DARABONBA_PTR_FROM_JSON(ImageName, imageName_);
         DARABONBA_PTR_FROM_JSON(InstallationPath, installationPath_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -101,9 +106,12 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Port, port_);
         DARABONBA_PTR_FROM_JSON(ProcessStarted, processStarted_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(RepoName, repoName_);
+        DARABONBA_PTR_FROM_JSON(RepoNamespace, repoNamespace_);
         DARABONBA_PTR_FROM_JSON(ServerType, serverType_);
         DARABONBA_PTR_FROM_JSON(Size, size_);
         DARABONBA_PTR_FROM_JSON(SkillsName, skillsName_);
+        DARABONBA_PTR_FROM_JSON(Tag, tag_);
         DARABONBA_PTR_FROM_JSON(TransportName, transportName_);
         DARABONBA_PTR_FROM_JSON(UsedByCount, usedByCount_);
         DARABONBA_PTR_FROM_JSON(User, user_);
@@ -123,12 +131,13 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->agent_ == nullptr
         && this->containerName_ == nullptr && this->createTimestamp_ == nullptr && this->description_ == nullptr && this->domain_ == nullptr && this->endPoint_ == nullptr
-        && this->file_ == nullptr && this->filepath_ == nullptr && this->imageName_ == nullptr && this->installationPath_ == nullptr && this->instanceId_ == nullptr
-        && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->ip_ == nullptr && this->listenProtocol_ == nullptr
-        && this->mcpName_ == nullptr && this->middlewareName_ == nullptr && this->middlewareVersion_ == nullptr && this->modelName_ == nullptr && this->moduleName_ == nullptr
-        && this->path_ == nullptr && this->pathMode_ == nullptr && this->pid_ == nullptr && this->port_ == nullptr && this->processStarted_ == nullptr
-        && this->regionId_ == nullptr && this->serverType_ == nullptr && this->size_ == nullptr && this->skillsName_ == nullptr && this->transportName_ == nullptr
-        && this->usedByCount_ == nullptr && this->user_ == nullptr && this->uuid_ == nullptr && this->webPath_ == nullptr; };
+        && this->file_ == nullptr && this->filepath_ == nullptr && this->imageDigest_ == nullptr && this->imageName_ == nullptr && this->installationPath_ == nullptr
+        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->ip_ == nullptr
+        && this->listenProtocol_ == nullptr && this->mcpName_ == nullptr && this->middlewareName_ == nullptr && this->middlewareVersion_ == nullptr && this->modelName_ == nullptr
+        && this->moduleName_ == nullptr && this->path_ == nullptr && this->pathMode_ == nullptr && this->pid_ == nullptr && this->port_ == nullptr
+        && this->processStarted_ == nullptr && this->regionId_ == nullptr && this->repoName_ == nullptr && this->repoNamespace_ == nullptr && this->serverType_ == nullptr
+        && this->size_ == nullptr && this->skillsName_ == nullptr && this->tag_ == nullptr && this->transportName_ == nullptr && this->usedByCount_ == nullptr
+        && this->user_ == nullptr && this->uuid_ == nullptr && this->webPath_ == nullptr; };
       // agent Field Functions 
       bool hasAgent() const { return this->agent_ != nullptr;};
       void deleteAgent() { this->agent_ = nullptr;};
@@ -183,6 +192,13 @@ namespace Models
       void deleteFilepath() { this->filepath_ = nullptr;};
       inline string getFilepath() const { DARABONBA_PTR_GET_DEFAULT(filepath_, "") };
       inline Propertys& setFilepath(string filepath) { DARABONBA_PTR_SET_VALUE(filepath_, filepath) };
+
+
+      // imageDigest Field Functions 
+      bool hasImageDigest() const { return this->imageDigest_ != nullptr;};
+      void deleteImageDigest() { this->imageDigest_ = nullptr;};
+      inline string getImageDigest() const { DARABONBA_PTR_GET_DEFAULT(imageDigest_, "") };
+      inline Propertys& setImageDigest(string imageDigest) { DARABONBA_PTR_SET_VALUE(imageDigest_, imageDigest) };
 
 
       // imageName Field Functions 
@@ -318,6 +334,20 @@ namespace Models
       inline Propertys& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+      // repoName Field Functions 
+      bool hasRepoName() const { return this->repoName_ != nullptr;};
+      void deleteRepoName() { this->repoName_ = nullptr;};
+      inline string getRepoName() const { DARABONBA_PTR_GET_DEFAULT(repoName_, "") };
+      inline Propertys& setRepoName(string repoName) { DARABONBA_PTR_SET_VALUE(repoName_, repoName) };
+
+
+      // repoNamespace Field Functions 
+      bool hasRepoNamespace() const { return this->repoNamespace_ != nullptr;};
+      void deleteRepoNamespace() { this->repoNamespace_ = nullptr;};
+      inline string getRepoNamespace() const { DARABONBA_PTR_GET_DEFAULT(repoNamespace_, "") };
+      inline Propertys& setRepoNamespace(string repoNamespace) { DARABONBA_PTR_SET_VALUE(repoNamespace_, repoNamespace) };
+
+
       // serverType Field Functions 
       bool hasServerType() const { return this->serverType_ != nullptr;};
       void deleteServerType() { this->serverType_ = nullptr;};
@@ -337,6 +367,13 @@ namespace Models
       void deleteSkillsName() { this->skillsName_ = nullptr;};
       inline string getSkillsName() const { DARABONBA_PTR_GET_DEFAULT(skillsName_, "") };
       inline Propertys& setSkillsName(string skillsName) { DARABONBA_PTR_SET_VALUE(skillsName_, skillsName) };
+
+
+      // tag Field Functions 
+      bool hasTag() const { return this->tag_ != nullptr;};
+      void deleteTag() { this->tag_ = nullptr;};
+      inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
+      inline Propertys& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
 
 
       // transportName Field Functions 
@@ -391,6 +428,7 @@ namespace Models
       // Kernel module file path.
       // > Returned only when **Biz** is **lkm**.
       shared_ptr<string> filepath_ {};
+      shared_ptr<string> imageDigest_ {};
       // Image name.
       shared_ptr<string> imageName_ {};
       // AI tool installation path
@@ -436,6 +474,8 @@ namespace Models
       shared_ptr<int64_t> processStarted_ {};
       // The ID of the region where the instance is located.
       shared_ptr<string> regionId_ {};
+      shared_ptr<string> repoName_ {};
+      shared_ptr<string> repoNamespace_ {};
       // Web site type.
       // > Returned only when **Biz** is **web_server**.
       shared_ptr<string> serverType_ {};
@@ -443,6 +483,7 @@ namespace Models
       // > Returned only when **Biz** is **lkm**.
       shared_ptr<int32_t> size_ {};
       shared_ptr<string> skillsName_ {};
+      shared_ptr<string> tag_ {};
       shared_ptr<string> transportName_ {};
       // Number of dependencies for the kernel module.
       // > Returned only when **Biz** is **lkm**.

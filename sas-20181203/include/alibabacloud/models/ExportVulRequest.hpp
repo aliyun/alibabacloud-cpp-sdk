@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_EXPORTVULREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_EXPORTVULREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Type, type_);
       DARABONBA_PTR_TO_JSON(Uuids, uuids_);
       DARABONBA_PTR_TO_JSON(VpcInstanceIds, vpcInstanceIds_);
+      DARABONBA_PTR_TO_JSON(VulEntityList, vulEntityList_);
     };
     friend void from_json(const Darabonba::Json& j, ExportVulRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AliasName, aliasName_);
@@ -49,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Type, type_);
       DARABONBA_PTR_FROM_JSON(Uuids, uuids_);
       DARABONBA_PTR_FROM_JSON(VpcInstanceIds, vpcInstanceIds_);
+      DARABONBA_PTR_FROM_JSON(VulEntityList, vulEntityList_);
     };
     ExportVulRequest() = default ;
     ExportVulRequest(const ExportVulRequest &) = default ;
@@ -61,11 +64,53 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class VulEntityList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const VulEntityList& obj) { 
+        DARABONBA_PTR_TO_JSON(EntityName, entityName_);
+        DARABONBA_PTR_TO_JSON(EntityVersion, entityVersion_);
+      };
+      friend void from_json(const Darabonba::Json& j, VulEntityList& obj) { 
+        DARABONBA_PTR_FROM_JSON(EntityName, entityName_);
+        DARABONBA_PTR_FROM_JSON(EntityVersion, entityVersion_);
+      };
+      VulEntityList() = default ;
+      VulEntityList(const VulEntityList &) = default ;
+      VulEntityList(VulEntityList &&) = default ;
+      VulEntityList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~VulEntityList() = default ;
+      VulEntityList& operator=(const VulEntityList &) = default ;
+      VulEntityList& operator=(VulEntityList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->entityName_ == nullptr
+        && this->entityVersion_ == nullptr; };
+      // entityName Field Functions 
+      bool hasEntityName() const { return this->entityName_ != nullptr;};
+      void deleteEntityName() { this->entityName_ = nullptr;};
+      inline string getEntityName() const { DARABONBA_PTR_GET_DEFAULT(entityName_, "") };
+      inline VulEntityList& setEntityName(string entityName) { DARABONBA_PTR_SET_VALUE(entityName_, entityName) };
+
+
+      // entityVersion Field Functions 
+      bool hasEntityVersion() const { return this->entityVersion_ != nullptr;};
+      void deleteEntityVersion() { this->entityVersion_ = nullptr;};
+      inline string getEntityVersion() const { DARABONBA_PTR_GET_DEFAULT(entityVersion_, "") };
+      inline VulEntityList& setEntityVersion(string entityVersion) { DARABONBA_PTR_SET_VALUE(entityVersion_, entityVersion) };
+
+
+    protected:
+      shared_ptr<string> entityName_ {};
+      shared_ptr<string> entityVersion_ {};
+    };
+
     virtual bool empty() const override { return this->aliasName_ == nullptr
         && this->attachTypes_ == nullptr && this->containerName_ == nullptr && this->createTsEnd_ == nullptr && this->createTsStart_ == nullptr && this->cveId_ == nullptr
         && this->dealed_ == nullptr && this->groupId_ == nullptr && this->imageName_ == nullptr && this->lang_ == nullptr && this->necessity_ == nullptr
         && this->path_ == nullptr && this->raspDefend_ == nullptr && this->searchTags_ == nullptr && this->type_ == nullptr && this->uuids_ == nullptr
-        && this->vpcInstanceIds_ == nullptr; };
+        && this->vpcInstanceIds_ == nullptr && this->vulEntityList_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};
@@ -185,6 +230,15 @@ namespace Models
     inline ExportVulRequest& setVpcInstanceIds(string vpcInstanceIds) { DARABONBA_PTR_SET_VALUE(vpcInstanceIds_, vpcInstanceIds) };
 
 
+    // vulEntityList Field Functions 
+    bool hasVulEntityList() const { return this->vulEntityList_ != nullptr;};
+    void deleteVulEntityList() { this->vulEntityList_ = nullptr;};
+    inline const vector<ExportVulRequest::VulEntityList> & getVulEntityList() const { DARABONBA_PTR_GET_CONST(vulEntityList_, vector<ExportVulRequest::VulEntityList>) };
+    inline vector<ExportVulRequest::VulEntityList> getVulEntityList() { DARABONBA_PTR_GET(vulEntityList_, vector<ExportVulRequest::VulEntityList>) };
+    inline ExportVulRequest& setVulEntityList(const vector<ExportVulRequest::VulEntityList> & vulEntityList) { DARABONBA_PTR_SET_VALUE(vulEntityList_, vulEntityList) };
+    inline ExportVulRequest& setVulEntityList(vector<ExportVulRequest::VulEntityList> && vulEntityList) { DARABONBA_PTR_SET_RVALUE(vulEntityList_, vulEntityList) };
+
+
   protected:
     // The name of the vulnerability.
     shared_ptr<string> aliasName_ {};
@@ -259,6 +313,7 @@ namespace Models
     // 
     // > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to query the IDs of VPCs.
     shared_ptr<string> vpcInstanceIds_ {};
+    shared_ptr<vector<ExportVulRequest::VulEntityList>> vulEntityList_ {};
   };
 
   } // namespace Models

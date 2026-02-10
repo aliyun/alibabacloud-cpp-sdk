@@ -41,6 +41,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const PostPayModuleSwitchObj& obj) { 
         DARABONBA_PTR_TO_JSON(Agentless, agentless_);
+        DARABONBA_PTR_TO_JSON(AiDigital, aiDigital_);
         DARABONBA_PTR_TO_JSON(AntiRansomware, antiRansomware_);
         DARABONBA_PTR_TO_JSON(BasicService, basicService_);
         DARABONBA_PTR_TO_JSON(Cspm, cspm_);
@@ -55,6 +56,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, PostPayModuleSwitchObj& obj) { 
         DARABONBA_PTR_FROM_JSON(Agentless, agentless_);
+        DARABONBA_PTR_FROM_JSON(AiDigital, aiDigital_);
         DARABONBA_PTR_FROM_JSON(AntiRansomware, antiRansomware_);
         DARABONBA_PTR_FROM_JSON(BasicService, basicService_);
         DARABONBA_PTR_FROM_JSON(Cspm, cspm_);
@@ -79,14 +81,21 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->agentless_ == nullptr
-        && this->antiRansomware_ == nullptr && this->basicService_ == nullptr && this->cspm_ == nullptr && this->ctdr_ == nullptr && this->ctdrStorage_ == nullptr
-        && this->postHost_ == nullptr && this->rasp_ == nullptr && this->sdk_ == nullptr && this->serverless_ == nullptr && this->vul_ == nullptr
-        && this->webLock_ == nullptr; };
+        && this->aiDigital_ == nullptr && this->antiRansomware_ == nullptr && this->basicService_ == nullptr && this->cspm_ == nullptr && this->ctdr_ == nullptr
+        && this->ctdrStorage_ == nullptr && this->postHost_ == nullptr && this->rasp_ == nullptr && this->sdk_ == nullptr && this->serverless_ == nullptr
+        && this->vul_ == nullptr && this->webLock_ == nullptr; };
       // agentless Field Functions 
       bool hasAgentless() const { return this->agentless_ != nullptr;};
       void deleteAgentless() { this->agentless_ = nullptr;};
       inline int32_t getAgentless() const { DARABONBA_PTR_GET_DEFAULT(agentless_, 0) };
       inline PostPayModuleSwitchObj& setAgentless(int32_t agentless) { DARABONBA_PTR_SET_VALUE(agentless_, agentless) };
+
+
+      // aiDigital Field Functions 
+      bool hasAiDigital() const { return this->aiDigital_ != nullptr;};
+      void deleteAiDigital() { this->aiDigital_ = nullptr;};
+      inline int32_t getAiDigital() const { DARABONBA_PTR_GET_DEFAULT(aiDigital_, 0) };
+      inline PostPayModuleSwitchObj& setAiDigital(int32_t aiDigital) { DARABONBA_PTR_SET_VALUE(aiDigital_, aiDigital) };
 
 
       // antiRansomware Field Functions 
@@ -171,6 +180,7 @@ namespace Models
       // - **0**: Off
       // - **1**: On
       shared_ptr<int32_t> agentless_ {};
+      shared_ptr<int32_t> aiDigital_ {};
       // Anti-Ransomware Module. Values:
       // - **0**: Off
       // - **1**: On
