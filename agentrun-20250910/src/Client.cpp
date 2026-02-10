@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 启动模板的MCP服务器
+ * @summary Enable the TemplateMCP service.
  *
  * @param request ActivateTemplateMCPRequest
  * @param headers map
@@ -74,7 +74,7 @@ ActivateTemplateMCPResponse Client::activateTemplateMCPWithOptions(const string 
 }
 
 /**
- * @summary 启动模板的MCP服务器
+ * @summary Enable the TemplateMCP service.
  *
  * @param request ActivateTemplateMCPRequest
  * @return ActivateTemplateMCPResponse
@@ -86,7 +86,7 @@ ActivateTemplateMCPResponse Client::activateTemplateMCP(const string &templateNa
 }
 
 /**
- * @summary Create an agent runtime
+ * @summary CreateAgentRuntime
  *
  * @description 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
  *
@@ -116,7 +116,7 @@ CreateAgentRuntimeResponse Client::createAgentRuntimeWithOptions(const CreateAge
 }
 
 /**
- * @summary Create an agent runtime
+ * @summary CreateAgentRuntime
  *
  * @description 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
  *
@@ -546,7 +546,7 @@ CreateSandboxResponse Client::createSandbox(const CreateSandboxRequest &request)
 }
 
 /**
- * @summary 创建模板
+ * @summary Create a template.
  *
  * @description 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
  *
@@ -576,7 +576,7 @@ CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateReq
 }
 
 /**
- * @summary 创建模板
+ * @summary Create a template.
  *
  * @description 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
  *
@@ -1552,7 +1552,7 @@ GetTemplateResponse Client::getTemplate(const string &templateName) {
 }
 
 /**
- * @summary 列出智能体运行时端点
+ * @summary Retrieve the list of access endpoints for an agent runtime
  *
  * @description 获取指定智能体运行时的所有端点列表，支持按名称过滤和分页查询。端点用于外部系统访问智能体运行时服务。
  *
@@ -1599,7 +1599,7 @@ ListAgentRuntimeEndpointsResponse Client::listAgentRuntimeEndpointsWithOptions(c
 }
 
 /**
- * @summary 列出智能体运行时端点
+ * @summary Retrieve the list of access endpoints for an agent runtime
  *
  * @description 获取指定智能体运行时的所有端点列表，支持按名称过滤和分页查询。端点用于外部系统访问智能体运行时服务。
  *
@@ -2490,7 +2490,7 @@ StopSandboxResponse Client::stopSandbox(const string &sandboxId) {
 }
 
 /**
- * @summary 停止模板的MCP服务器
+ * @summary Stop the TemplateMCP service.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2515,7 +2515,7 @@ StopTemplateMCPResponse Client::stopTemplateMCPWithOptions(const string &templat
 }
 
 /**
- * @summary 停止模板的MCP服务器
+ * @summary Stop the TemplateMCP service.
  *
  * @return StopTemplateMCPResponse
  */

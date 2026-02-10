@@ -21,7 +21,7 @@ namespace AgentRun20250910
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 启动模板的MCP服务器
+       * @summary Enable the TemplateMCP service.
        *
        * @param request ActivateTemplateMCPRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace AgentRun20250910
       Models::ActivateTemplateMCPResponse activateTemplateMCPWithOptions(const string &templateName, const Models::ActivateTemplateMCPRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启动模板的MCP服务器
+       * @summary Enable the TemplateMCP service.
        *
        * @param request ActivateTemplateMCPRequest
        * @return ActivateTemplateMCPResponse
@@ -39,7 +39,7 @@ namespace AgentRun20250910
       Models::ActivateTemplateMCPResponse activateTemplateMCP(const string &templateName, const Models::ActivateTemplateMCPRequest &request);
 
       /**
-       * @summary Create an agent runtime
+       * @summary CreateAgentRuntime
        *
        * @description 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
        *
@@ -51,7 +51,7 @@ namespace AgentRun20250910
       Models::CreateAgentRuntimeResponse createAgentRuntimeWithOptions(const Models::CreateAgentRuntimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create an agent runtime
+       * @summary CreateAgentRuntime
        *
        * @description 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
        *
@@ -257,7 +257,7 @@ namespace AgentRun20250910
       Models::CreateSandboxResponse createSandbox(const Models::CreateSandboxRequest &request);
 
       /**
-       * @summary 创建模板
+       * @summary Create a template.
        *
        * @description 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
        *
@@ -269,7 +269,7 @@ namespace AgentRun20250910
       Models::CreateTemplateResponse createTemplateWithOptions(const Models::CreateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建模板
+       * @summary Create a template.
        *
        * @description 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
        *
@@ -719,7 +719,7 @@ namespace AgentRun20250910
       Models::GetTemplateResponse getTemplate(const string &templateName);
 
       /**
-       * @summary 列出智能体运行时端点
+       * @summary Retrieve the list of access endpoints for an agent runtime
        *
        * @description 获取指定智能体运行时的所有端点列表，支持按名称过滤和分页查询。端点用于外部系统访问智能体运行时服务。
        *
@@ -731,7 +731,7 @@ namespace AgentRun20250910
       Models::ListAgentRuntimeEndpointsResponse listAgentRuntimeEndpointsWithOptions(const string &agentRuntimeId, const Models::ListAgentRuntimeEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出智能体运行时端点
+       * @summary Retrieve the list of access endpoints for an agent runtime
        *
        * @description 获取指定智能体运行时的所有端点列表，支持按名称过滤和分页查询。端点用于外部系统访问智能体运行时服务。
        *
@@ -1037,7 +1037,7 @@ namespace AgentRun20250910
       Models::StopSandboxResponse stopSandbox(const string &sandboxId);
 
       /**
-       * @summary 停止模板的MCP服务器
+       * @summary Stop the TemplateMCP service.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1046,7 +1046,7 @@ namespace AgentRun20250910
       Models::StopTemplateMCPResponse stopTemplateMCPWithOptions(const string &templateName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止模板的MCP服务器
+       * @summary Stop the TemplateMCP service.
        *
        * @return StopTemplateMCPResponse
        */

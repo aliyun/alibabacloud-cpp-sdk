@@ -7,6 +7,7 @@
 #include <alibabacloud/models/CredentialConfiguration.hpp>
 #include <map>
 #include <alibabacloud/models/LogConfiguration.hpp>
+#include <alibabacloud/models/NASConfig.hpp>
 #include <alibabacloud/models/NetworkConfiguration.hpp>
 #include <vector>
 #include <alibabacloud/models/OssConfiguration.hpp>
@@ -28,10 +29,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(credentialConfiguration, credentialConfiguration_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(diskSize, diskSize_);
+      DARABONBA_PTR_TO_JSON(enableAgent, enableAgent_);
       DARABONBA_PTR_TO_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_TO_JSON(logConfiguration, logConfiguration_);
       DARABONBA_PTR_TO_JSON(memory, memory_);
+      DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_TO_JSON(ossConfiguration, ossConfiguration_);
       DARABONBA_PTR_TO_JSON(sandboxIdleTimeoutInSeconds, sandboxIdleTimeoutInSeconds_);
@@ -48,10 +51,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(credentialConfiguration, credentialConfiguration_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(diskSize, diskSize_);
+      DARABONBA_PTR_FROM_JSON(enableAgent, enableAgent_);
       DARABONBA_PTR_FROM_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_FROM_JSON(logConfiguration, logConfiguration_);
       DARABONBA_PTR_FROM_JSON(memory, memory_);
+      DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_FROM_JSON(ossConfiguration, ossConfiguration_);
       DARABONBA_PTR_FROM_JSON(sandboxIdleTimeoutInSeconds, sandboxIdleTimeoutInSeconds_);
@@ -73,9 +78,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowAnonymousManage_ == nullptr
         && this->armsConfiguration_ == nullptr && this->containerConfiguration_ == nullptr && this->cpu_ == nullptr && this->credentialConfiguration_ == nullptr && this->description_ == nullptr
-        && this->diskSize_ == nullptr && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->logConfiguration_ == nullptr && this->memory_ == nullptr
-        && this->networkConfiguration_ == nullptr && this->ossConfiguration_ == nullptr && this->sandboxIdleTimeoutInSeconds_ == nullptr && this->sandboxTTLInSeconds_ == nullptr && this->templateConfiguration_ == nullptr
-        && this->templateName_ == nullptr && this->templateType_ == nullptr; };
+        && this->diskSize_ == nullptr && this->enableAgent_ == nullptr && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->logConfiguration_ == nullptr
+        && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossConfiguration_ == nullptr && this->sandboxIdleTimeoutInSeconds_ == nullptr
+        && this->sandboxTTLInSeconds_ == nullptr && this->templateConfiguration_ == nullptr && this->templateName_ == nullptr && this->templateType_ == nullptr; };
     // allowAnonymousManage Field Functions 
     bool hasAllowAnonymousManage() const { return this->allowAnonymousManage_ != nullptr;};
     void deleteAllowAnonymousManage() { this->allowAnonymousManage_ = nullptr;};
@@ -131,6 +136,13 @@ namespace Models
     inline CreateTemplateInput& setDiskSize(int32_t diskSize) { DARABONBA_PTR_SET_VALUE(diskSize_, diskSize) };
 
 
+    // enableAgent Field Functions 
+    bool hasEnableAgent() const { return this->enableAgent_ != nullptr;};
+    void deleteEnableAgent() { this->enableAgent_ = nullptr;};
+    inline bool getEnableAgent() const { DARABONBA_PTR_GET_DEFAULT(enableAgent_, false) };
+    inline CreateTemplateInput& setEnableAgent(bool enableAgent) { DARABONBA_PTR_SET_VALUE(enableAgent_, enableAgent) };
+
+
     // environmentVariables Field Functions 
     bool hasEnvironmentVariables() const { return this->environmentVariables_ != nullptr;};
     void deleteEnvironmentVariables() { this->environmentVariables_ = nullptr;};
@@ -161,6 +173,15 @@ namespace Models
     void deleteMemory() { this->memory_ = nullptr;};
     inline int32_t getMemory() const { DARABONBA_PTR_GET_DEFAULT(memory_, 0) };
     inline CreateTemplateInput& setMemory(int32_t memory) { DARABONBA_PTR_SET_VALUE(memory_, memory) };
+
+
+    // nasConfig Field Functions 
+    bool hasNasConfig() const { return this->nasConfig_ != nullptr;};
+    void deleteNasConfig() { this->nasConfig_ = nullptr;};
+    inline const NASConfig & getNasConfig() const { DARABONBA_PTR_GET_CONST(nasConfig_, NASConfig) };
+    inline NASConfig getNasConfig() { DARABONBA_PTR_GET(nasConfig_, NASConfig) };
+    inline CreateTemplateInput& setNasConfig(const NASConfig & nasConfig) { DARABONBA_PTR_SET_VALUE(nasConfig_, nasConfig) };
+    inline CreateTemplateInput& setNasConfig(NASConfig && nasConfig) { DARABONBA_PTR_SET_RVALUE(nasConfig_, nasConfig) };
 
 
     // networkConfiguration Field Functions 
@@ -230,6 +251,7 @@ namespace Models
     shared_ptr<CredentialConfiguration> credentialConfiguration_ {};
     shared_ptr<string> description_ {};
     shared_ptr<int32_t> diskSize_ {};
+    shared_ptr<bool> enableAgent_ {};
     shared_ptr<map<string, string>> environmentVariables_ {};
     shared_ptr<string> executionRoleArn_ {};
     shared_ptr<LogConfiguration> logConfiguration_ {};
@@ -237,6 +259,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> memory_ {};
+    shared_ptr<NASConfig> nasConfig_ {};
     // This parameter is required.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
     shared_ptr<vector<OssConfiguration>> ossConfiguration_ {};
