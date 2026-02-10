@@ -37,6 +37,56 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 导入OSS数据集
+ *
+ * @param request AddOSSMultimodalFineTuneDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddOSSMultimodalFineTuneDatasetResponse
+ */
+AddOSSMultimodalFineTuneDatasetResponse Client::addOSSMultimodalFineTuneDatasetWithOptions(const AddOSSMultimodalFineTuneDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDatasetId()) {
+    query["DatasetId"] = request.getDatasetId();
+  }
+
+  if (!!request.hasOssUrl()) {
+    query["OssUrl"] = request.getOssUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddOSSMultimodalFineTuneDataset"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddOSSMultimodalFineTuneDatasetResponse>();
+}
+
+/**
+ * @summary 导入OSS数据集
+ *
+ * @param request AddOSSMultimodalFineTuneDatasetRequest
+ * @return AddOSSMultimodalFineTuneDatasetResponse
+ */
+AddOSSMultimodalFineTuneDatasetResponse Client::addOSSMultimodalFineTuneDataset(const AddOSSMultimodalFineTuneDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addOSSMultimodalFineTuneDatasetWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建chatbi配置表
  *
  * @param request ChatBIConfigCreateRequest
@@ -1244,16 +1294,18 @@ FutureGenerator<ChatBIPredictSseResponse> Client::chatBIPredictSseWithSSE(const 
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<ChatBIPredictSseResponse>();
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<ChatBIPredictSseResponse>();
 return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -1710,6 +1762,116 @@ CreateMultimodalDatasetEmbeddingResponse Client::createMultimodalDatasetEmbeddin
 }
 
 /**
+ * @summary 创建多模态微调数据集
+ *
+ * @param request CreateMultimodalFineTuneDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMultimodalFineTuneDatasetResponse
+ */
+CreateMultimodalFineTuneDatasetResponse Client::createMultimodalFineTuneDatasetWithOptions(const CreateMultimodalFineTuneDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDatasetDescription()) {
+    query["DatasetDescription"] = request.getDatasetDescription();
+  }
+
+  if (!!request.hasDatasetName()) {
+    query["DatasetName"] = request.getDatasetName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateMultimodalFineTuneDataset"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMultimodalFineTuneDatasetResponse>();
+}
+
+/**
+ * @summary 创建多模态微调数据集
+ *
+ * @param request CreateMultimodalFineTuneDatasetRequest
+ * @return CreateMultimodalFineTuneDatasetResponse
+ */
+CreateMultimodalFineTuneDatasetResponse Client::createMultimodalFineTuneDataset(const CreateMultimodalFineTuneDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMultimodalFineTuneDatasetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 部署打标服务
+ *
+ * @param tmpReq CreateMultimodalLabelStudioServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMultimodalLabelStudioServiceResponse
+ */
+CreateMultimodalLabelStudioServiceResponse Client::createMultimodalLabelStudioServiceWithOptions(const CreateMultimodalLabelStudioServiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateMultimodalLabelStudioServiceShrinkRequest request = CreateMultimodalLabelStudioServiceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDatasetIds()) {
+    request.setDatasetIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDatasetIds(), "DatasetIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDatasetIdsShrink()) {
+    query["DatasetIds"] = request.getDatasetIdsShrink();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasUsername()) {
+    query["Username"] = request.getUsername();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateMultimodalLabelStudioService"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMultimodalLabelStudioServiceResponse>();
+}
+
+/**
+ * @summary 部署打标服务
+ *
+ * @param request CreateMultimodalLabelStudioServiceRequest
+ * @return CreateMultimodalLabelStudioServiceResponse
+ */
+CreateMultimodalLabelStudioServiceResponse Client::createMultimodalLabelStudioService(const CreateMultimodalLabelStudioServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMultimodalLabelStudioServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建SearchTask
  *
  * @param tmpReq CreateMultimodalSearchTaskRequest
@@ -1779,6 +1941,78 @@ CreateMultimodalSearchTaskResponse Client::createMultimodalSearchTaskWithOptions
 CreateMultimodalSearchTaskResponse Client::createMultimodalSearchTask(const CreateMultimodalSearchTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createMultimodalSearchTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 从检索结果中创建微调数据集
+ *
+ * @param tmpReq CreateMultimodalSearchTaskResultFineTuneDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMultimodalSearchTaskResultFineTuneDatasetResponse
+ */
+CreateMultimodalSearchTaskResultFineTuneDatasetResponse Client::createMultimodalSearchTaskResultFineTuneDatasetWithOptions(const CreateMultimodalSearchTaskResultFineTuneDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateMultimodalSearchTaskResultFineTuneDatasetShrinkRequest request = CreateMultimodalSearchTaskResultFineTuneDatasetShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResultIndex()) {
+    request.setResultIndexShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResultIndex(), "ResultIndex", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDatasetDescription()) {
+    query["DatasetDescription"] = request.getDatasetDescription();
+  }
+
+  if (!!request.hasDatasetName()) {
+    query["DatasetName"] = request.getDatasetName();
+  }
+
+  if (!!request.hasResultIndexShrink()) {
+    query["ResultIndex"] = request.getResultIndexShrink();
+  }
+
+  if (!!request.hasResultMode()) {
+    query["ResultMode"] = request.getResultMode();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasTopN()) {
+    query["TopN"] = request.getTopN();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateMultimodalSearchTaskResultFineTuneDataset"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMultimodalSearchTaskResultFineTuneDatasetResponse>();
+}
+
+/**
+ * @summary 从检索结果中创建微调数据集
+ *
+ * @param request CreateMultimodalSearchTaskResultFineTuneDatasetRequest
+ * @return CreateMultimodalSearchTaskResultFineTuneDatasetResponse
+ */
+CreateMultimodalSearchTaskResultFineTuneDatasetResponse Client::createMultimodalSearchTaskResultFineTuneDataset(const CreateMultimodalSearchTaskResultFineTuneDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMultimodalSearchTaskResultFineTuneDatasetWithOptions(request, runtime);
 }
 
 /**
@@ -1871,6 +2105,144 @@ DeleteMultimodalEmbeddingResponse Client::deleteMultimodalEmbeddingWithOptions(c
 DeleteMultimodalEmbeddingResponse Client::deleteMultimodalEmbedding(const DeleteMultimodalEmbeddingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteMultimodalEmbeddingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除多模态微调数据集
+ *
+ * @param request DeleteMultimodalFineTuneDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMultimodalFineTuneDatasetResponse
+ */
+DeleteMultimodalFineTuneDatasetResponse Client::deleteMultimodalFineTuneDatasetWithOptions(const DeleteMultimodalFineTuneDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDatasetId()) {
+    query["DatasetId"] = request.getDatasetId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMultimodalFineTuneDataset"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMultimodalFineTuneDatasetResponse>();
+}
+
+/**
+ * @summary 删除多模态微调数据集
+ *
+ * @param request DeleteMultimodalFineTuneDatasetRequest
+ * @return DeleteMultimodalFineTuneDatasetResponse
+ */
+DeleteMultimodalFineTuneDatasetResponse Client::deleteMultimodalFineTuneDataset(const DeleteMultimodalFineTuneDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteMultimodalFineTuneDatasetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询模型mode可选列表
+ *
+ * @param request DeleteMultimodalLabelStudioServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMultimodalLabelStudioServiceResponse
+ */
+DeleteMultimodalLabelStudioServiceResponse Client::deleteMultimodalLabelStudioServiceWithOptions(const DeleteMultimodalLabelStudioServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMultimodalLabelStudioService"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMultimodalLabelStudioServiceResponse>();
+}
+
+/**
+ * @summary 查询模型mode可选列表
+ *
+ * @param request DeleteMultimodalLabelStudioServiceRequest
+ * @return DeleteMultimodalLabelStudioServiceResponse
+ */
+DeleteMultimodalLabelStudioServiceResponse Client::deleteMultimodalLabelStudioService(const DeleteMultimodalLabelStudioServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteMultimodalLabelStudioServiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 微调数据集删除导入的OSS路径
+ *
+ * @param request DeleteOSSMultimodalFineTuneDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteOSSMultimodalFineTuneDatasetResponse
+ */
+DeleteOSSMultimodalFineTuneDatasetResponse Client::deleteOSSMultimodalFineTuneDatasetWithOptions(const DeleteOSSMultimodalFineTuneDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDatasetId()) {
+    query["DatasetId"] = request.getDatasetId();
+  }
+
+  if (!!request.hasOssUrl()) {
+    query["OssUrl"] = request.getOssUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteOSSMultimodalFineTuneDataset"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteOSSMultimodalFineTuneDatasetResponse>();
+}
+
+/**
+ * @summary 微调数据集删除导入的OSS路径
+ *
+ * @param request DeleteOSSMultimodalFineTuneDatasetRequest
+ * @return DeleteOSSMultimodalFineTuneDatasetResponse
+ */
+DeleteOSSMultimodalFineTuneDatasetResponse Client::deleteOSSMultimodalFineTuneDataset(const DeleteOSSMultimodalFineTuneDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteOSSMultimodalFineTuneDatasetWithOptions(request, runtime);
 }
 
 /**
@@ -2116,6 +2488,102 @@ ListMultimodalEmbeddingModelModeResponse Client::listMultimodalEmbeddingModelMod
 }
 
 /**
+ * @summary 查询多模态数据集列表
+ *
+ * @param request ListMultimodalFineTuneDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMultimodalFineTuneDatasetResponse
+ */
+ListMultimodalFineTuneDatasetResponse Client::listMultimodalFineTuneDatasetWithOptions(const ListMultimodalFineTuneDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasInputField()) {
+    query["InputField"] = request.getInputField();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMultimodalFineTuneDataset"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMultimodalFineTuneDatasetResponse>();
+}
+
+/**
+ * @summary 查询多模态数据集列表
+ *
+ * @param request ListMultimodalFineTuneDatasetRequest
+ * @return ListMultimodalFineTuneDatasetResponse
+ */
+ListMultimodalFineTuneDatasetResponse Client::listMultimodalFineTuneDataset(const ListMultimodalFineTuneDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMultimodalFineTuneDatasetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询打标服务信息
+ *
+ * @param request ListMultimodalLabelStudioServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMultimodalLabelStudioServiceResponse
+ */
+ListMultimodalLabelStudioServiceResponse Client::listMultimodalLabelStudioServiceWithOptions(const ListMultimodalLabelStudioServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMultimodalLabelStudioService"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMultimodalLabelStudioServiceResponse>();
+}
+
+/**
+ * @summary 查询打标服务信息
+ *
+ * @param request ListMultimodalLabelStudioServiceRequest
+ * @return ListMultimodalLabelStudioServiceResponse
+ */
+ListMultimodalLabelStudioServiceResponse Client::listMultimodalLabelStudioService(const ListMultimodalLabelStudioServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMultimodalLabelStudioServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询search模型列表
  *
  * @param request ListMultimodalSearchModelRequest
@@ -2168,15 +2636,33 @@ ListMultimodalSearchModelResponse Client::listMultimodalSearchModel(const ListMu
 /**
  * @summary 查询search task列表
  *
- * @param request ListMultimodalSearchTaskRequest
+ * @param tmpReq ListMultimodalSearchTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListMultimodalSearchTaskResponse
  */
-ListMultimodalSearchTaskResponse Client::listMultimodalSearchTaskWithOptions(const ListMultimodalSearchTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListMultimodalSearchTaskResponse Client::listMultimodalSearchTaskWithOptions(const ListMultimodalSearchTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListMultimodalSearchTaskShrinkRequest request = ListMultimodalSearchTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDatasetIds()) {
+    request.setDatasetIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDatasetIds(), "DatasetIds", "json"));
+  }
+
   json query = {};
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDatasetIdsShrink()) {
+    query["DatasetIds"] = request.getDatasetIdsShrink();
+  }
+
+  if (!!request.hasInputField()) {
+    query["InputField"] = request.getInputField();
+  }
+
+  if (!!request.hasModelMode()) {
+    query["ModelMode"] = request.getModelMode();
   }
 
   if (!!request.hasPageNumber()) {
@@ -2321,6 +2807,112 @@ UpdateMultimodalDatasetResponse Client::updateMultimodalDatasetWithOptions(const
 UpdateMultimodalDatasetResponse Client::updateMultimodalDataset(const UpdateMultimodalDatasetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateMultimodalDatasetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新微调数据集信息
+ *
+ * @param request UpdateMultimodalFineTuneDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMultimodalFineTuneDatasetResponse
+ */
+UpdateMultimodalFineTuneDatasetResponse Client::updateMultimodalFineTuneDatasetWithOptions(const UpdateMultimodalFineTuneDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDatasetDescription()) {
+    query["DatasetDescription"] = request.getDatasetDescription();
+  }
+
+  if (!!request.hasDatasetId()) {
+    query["DatasetId"] = request.getDatasetId();
+  }
+
+  if (!!request.hasDatasetName()) {
+    query["DatasetName"] = request.getDatasetName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateMultimodalFineTuneDataset"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMultimodalFineTuneDatasetResponse>();
+}
+
+/**
+ * @summary 更新微调数据集信息
+ *
+ * @param request UpdateMultimodalFineTuneDatasetRequest
+ * @return UpdateMultimodalFineTuneDatasetResponse
+ */
+UpdateMultimodalFineTuneDatasetResponse Client::updateMultimodalFineTuneDataset(const UpdateMultimodalFineTuneDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMultimodalFineTuneDatasetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 为打标服务覆盖配置白名单
+ *
+ * @param tmpReq UpdateMultimodalLabelStudioServiceWhiteListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMultimodalLabelStudioServiceWhiteListResponse
+ */
+UpdateMultimodalLabelStudioServiceWhiteListResponse Client::updateMultimodalLabelStudioServiceWhiteListWithOptions(const UpdateMultimodalLabelStudioServiceWhiteListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateMultimodalLabelStudioServiceWhiteListShrinkRequest request = UpdateMultimodalLabelStudioServiceWhiteListShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWhiteList()) {
+    request.setWhiteListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWhiteList(), "WhiteList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasWhiteListShrink()) {
+    query["WhiteList"] = request.getWhiteListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateMultimodalLabelStudioServiceWhiteList"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMultimodalLabelStudioServiceWhiteListResponse>();
+}
+
+/**
+ * @summary 为打标服务覆盖配置白名单
+ *
+ * @param request UpdateMultimodalLabelStudioServiceWhiteListRequest
+ * @return UpdateMultimodalLabelStudioServiceWhiteListResponse
+ */
+UpdateMultimodalLabelStudioServiceWhiteListResponse Client::updateMultimodalLabelStudioServiceWhiteList(const UpdateMultimodalLabelStudioServiceWhiteListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMultimodalLabelStudioServiceWhiteListWithOptions(request, runtime);
 }
 
 /**

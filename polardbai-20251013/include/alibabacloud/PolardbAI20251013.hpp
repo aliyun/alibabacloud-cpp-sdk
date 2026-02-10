@@ -21,6 +21,23 @@ namespace PolardbAI20251013
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 导入OSS数据集
+       *
+       * @param request AddOSSMultimodalFineTuneDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddOSSMultimodalFineTuneDatasetResponse
+       */
+      Models::AddOSSMultimodalFineTuneDatasetResponse addOSSMultimodalFineTuneDatasetWithOptions(const Models::AddOSSMultimodalFineTuneDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 导入OSS数据集
+       *
+       * @param request AddOSSMultimodalFineTuneDatasetRequest
+       * @return AddOSSMultimodalFineTuneDatasetResponse
+       */
+      Models::AddOSSMultimodalFineTuneDatasetResponse addOSSMultimodalFineTuneDataset(const Models::AddOSSMultimodalFineTuneDatasetRequest &request);
+
+      /**
        * @summary 创建chatbi配置表
        *
        * @param request ChatBIConfigCreateRequest
@@ -455,6 +472,40 @@ namespace PolardbAI20251013
       Models::CreateMultimodalDatasetEmbeddingResponse createMultimodalDatasetEmbedding(const Models::CreateMultimodalDatasetEmbeddingRequest &request);
 
       /**
+       * @summary 创建多模态微调数据集
+       *
+       * @param request CreateMultimodalFineTuneDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMultimodalFineTuneDatasetResponse
+       */
+      Models::CreateMultimodalFineTuneDatasetResponse createMultimodalFineTuneDatasetWithOptions(const Models::CreateMultimodalFineTuneDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建多模态微调数据集
+       *
+       * @param request CreateMultimodalFineTuneDatasetRequest
+       * @return CreateMultimodalFineTuneDatasetResponse
+       */
+      Models::CreateMultimodalFineTuneDatasetResponse createMultimodalFineTuneDataset(const Models::CreateMultimodalFineTuneDatasetRequest &request);
+
+      /**
+       * @summary 部署打标服务
+       *
+       * @param tmpReq CreateMultimodalLabelStudioServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMultimodalLabelStudioServiceResponse
+       */
+      Models::CreateMultimodalLabelStudioServiceResponse createMultimodalLabelStudioServiceWithOptions(const Models::CreateMultimodalLabelStudioServiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 部署打标服务
+       *
+       * @param request CreateMultimodalLabelStudioServiceRequest
+       * @return CreateMultimodalLabelStudioServiceResponse
+       */
+      Models::CreateMultimodalLabelStudioServiceResponse createMultimodalLabelStudioService(const Models::CreateMultimodalLabelStudioServiceRequest &request);
+
+      /**
        * @summary 创建SearchTask
        *
        * @param tmpReq CreateMultimodalSearchTaskRequest
@@ -470,6 +521,23 @@ namespace PolardbAI20251013
        * @return CreateMultimodalSearchTaskResponse
        */
       Models::CreateMultimodalSearchTaskResponse createMultimodalSearchTask(const Models::CreateMultimodalSearchTaskRequest &request);
+
+      /**
+       * @summary 从检索结果中创建微调数据集
+       *
+       * @param tmpReq CreateMultimodalSearchTaskResultFineTuneDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMultimodalSearchTaskResultFineTuneDatasetResponse
+       */
+      Models::CreateMultimodalSearchTaskResultFineTuneDatasetResponse createMultimodalSearchTaskResultFineTuneDatasetWithOptions(const Models::CreateMultimodalSearchTaskResultFineTuneDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 从检索结果中创建微调数据集
+       *
+       * @param request CreateMultimodalSearchTaskResultFineTuneDatasetRequest
+       * @return CreateMultimodalSearchTaskResultFineTuneDatasetResponse
+       */
+      Models::CreateMultimodalSearchTaskResultFineTuneDatasetResponse createMultimodalSearchTaskResultFineTuneDataset(const Models::CreateMultimodalSearchTaskResultFineTuneDatasetRequest &request);
 
       /**
        * @summary 删除多模态数据集
@@ -504,6 +572,57 @@ namespace PolardbAI20251013
        * @return DeleteMultimodalEmbeddingResponse
        */
       Models::DeleteMultimodalEmbeddingResponse deleteMultimodalEmbedding(const Models::DeleteMultimodalEmbeddingRequest &request);
+
+      /**
+       * @summary 删除多模态微调数据集
+       *
+       * @param request DeleteMultimodalFineTuneDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMultimodalFineTuneDatasetResponse
+       */
+      Models::DeleteMultimodalFineTuneDatasetResponse deleteMultimodalFineTuneDatasetWithOptions(const Models::DeleteMultimodalFineTuneDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除多模态微调数据集
+       *
+       * @param request DeleteMultimodalFineTuneDatasetRequest
+       * @return DeleteMultimodalFineTuneDatasetResponse
+       */
+      Models::DeleteMultimodalFineTuneDatasetResponse deleteMultimodalFineTuneDataset(const Models::DeleteMultimodalFineTuneDatasetRequest &request);
+
+      /**
+       * @summary 查询模型mode可选列表
+       *
+       * @param request DeleteMultimodalLabelStudioServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMultimodalLabelStudioServiceResponse
+       */
+      Models::DeleteMultimodalLabelStudioServiceResponse deleteMultimodalLabelStudioServiceWithOptions(const Models::DeleteMultimodalLabelStudioServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模型mode可选列表
+       *
+       * @param request DeleteMultimodalLabelStudioServiceRequest
+       * @return DeleteMultimodalLabelStudioServiceResponse
+       */
+      Models::DeleteMultimodalLabelStudioServiceResponse deleteMultimodalLabelStudioService(const Models::DeleteMultimodalLabelStudioServiceRequest &request);
+
+      /**
+       * @summary 微调数据集删除导入的OSS路径
+       *
+       * @param request DeleteOSSMultimodalFineTuneDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteOSSMultimodalFineTuneDatasetResponse
+       */
+      Models::DeleteOSSMultimodalFineTuneDatasetResponse deleteOSSMultimodalFineTuneDatasetWithOptions(const Models::DeleteOSSMultimodalFineTuneDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 微调数据集删除导入的OSS路径
+       *
+       * @param request DeleteOSSMultimodalFineTuneDatasetRequest
+       * @return DeleteOSSMultimodalFineTuneDatasetResponse
+       */
+      Models::DeleteOSSMultimodalFineTuneDatasetResponse deleteOSSMultimodalFineTuneDataset(const Models::DeleteOSSMultimodalFineTuneDatasetRequest &request);
 
       /**
        * @summary 下载Search任务的结果元数据
@@ -591,6 +710,40 @@ namespace PolardbAI20251013
       Models::ListMultimodalEmbeddingModelModeResponse listMultimodalEmbeddingModelMode(const Models::ListMultimodalEmbeddingModelModeRequest &request);
 
       /**
+       * @summary 查询多模态数据集列表
+       *
+       * @param request ListMultimodalFineTuneDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMultimodalFineTuneDatasetResponse
+       */
+      Models::ListMultimodalFineTuneDatasetResponse listMultimodalFineTuneDatasetWithOptions(const Models::ListMultimodalFineTuneDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询多模态数据集列表
+       *
+       * @param request ListMultimodalFineTuneDatasetRequest
+       * @return ListMultimodalFineTuneDatasetResponse
+       */
+      Models::ListMultimodalFineTuneDatasetResponse listMultimodalFineTuneDataset(const Models::ListMultimodalFineTuneDatasetRequest &request);
+
+      /**
+       * @summary 查询打标服务信息
+       *
+       * @param request ListMultimodalLabelStudioServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMultimodalLabelStudioServiceResponse
+       */
+      Models::ListMultimodalLabelStudioServiceResponse listMultimodalLabelStudioServiceWithOptions(const Models::ListMultimodalLabelStudioServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询打标服务信息
+       *
+       * @param request ListMultimodalLabelStudioServiceRequest
+       * @return ListMultimodalLabelStudioServiceResponse
+       */
+      Models::ListMultimodalLabelStudioServiceResponse listMultimodalLabelStudioService(const Models::ListMultimodalLabelStudioServiceRequest &request);
+
+      /**
        * @summary 查询search模型列表
        *
        * @param request ListMultimodalSearchModelRequest
@@ -610,11 +763,11 @@ namespace PolardbAI20251013
       /**
        * @summary 查询search task列表
        *
-       * @param request ListMultimodalSearchTaskRequest
+       * @param tmpReq ListMultimodalSearchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListMultimodalSearchTaskResponse
        */
-      Models::ListMultimodalSearchTaskResponse listMultimodalSearchTaskWithOptions(const Models::ListMultimodalSearchTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ListMultimodalSearchTaskResponse listMultimodalSearchTaskWithOptions(const Models::ListMultimodalSearchTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询search task列表
@@ -657,6 +810,40 @@ namespace PolardbAI20251013
        * @return UpdateMultimodalDatasetResponse
        */
       Models::UpdateMultimodalDatasetResponse updateMultimodalDataset(const Models::UpdateMultimodalDatasetRequest &request);
+
+      /**
+       * @summary 更新微调数据集信息
+       *
+       * @param request UpdateMultimodalFineTuneDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMultimodalFineTuneDatasetResponse
+       */
+      Models::UpdateMultimodalFineTuneDatasetResponse updateMultimodalFineTuneDatasetWithOptions(const Models::UpdateMultimodalFineTuneDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新微调数据集信息
+       *
+       * @param request UpdateMultimodalFineTuneDatasetRequest
+       * @return UpdateMultimodalFineTuneDatasetResponse
+       */
+      Models::UpdateMultimodalFineTuneDatasetResponse updateMultimodalFineTuneDataset(const Models::UpdateMultimodalFineTuneDatasetRequest &request);
+
+      /**
+       * @summary 为打标服务覆盖配置白名单
+       *
+       * @param tmpReq UpdateMultimodalLabelStudioServiceWhiteListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMultimodalLabelStudioServiceWhiteListResponse
+       */
+      Models::UpdateMultimodalLabelStudioServiceWhiteListResponse updateMultimodalLabelStudioServiceWhiteListWithOptions(const Models::UpdateMultimodalLabelStudioServiceWhiteListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 为打标服务覆盖配置白名单
+       *
+       * @param request UpdateMultimodalLabelStudioServiceWhiteListRequest
+       * @return UpdateMultimodalLabelStudioServiceWhiteListResponse
+       */
+      Models::UpdateMultimodalLabelStudioServiceWhiteListResponse updateMultimodalLabelStudioServiceWhiteList(const Models::UpdateMultimodalLabelStudioServiceWhiteListRequest &request);
 
       /**
        * @summary 导入OSS数据集
