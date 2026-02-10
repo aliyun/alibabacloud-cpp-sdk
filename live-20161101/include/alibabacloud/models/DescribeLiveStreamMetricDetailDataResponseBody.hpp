@@ -283,79 +283,27 @@ namespace Models
 
 
       protected:
-        // The name of the application.
         shared_ptr<string> appName_ {};
-        // The total bandwidth consumed by the stream per minute. Unit: bit/s.
         shared_ptr<float> bps_ {};
-        // The total number of online viewers for the stream per minute.
         shared_ptr<int64_t> count_ {};
-        // The bandwidth over the Flash Video (FLV) protocol. Unit: bit/s.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<float> flvBps_ {};
-        // The number of online viewers over the FLV protocol.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<int64_t> flvCount_ {};
-        // The amount of traffic over the FLV protocol. Unit: bytes.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<int64_t> flvTraffic_ {};
-        // The bandwidth over the HTTP Live Streaming (HLS) protocol. Unit: bit/s.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<float> hlsBps_ {};
-        // The number of online viewers over the HLS protocol.
-        // 
-        // >  Currently, this parameter is not supported.
         shared_ptr<int64_t> hlsCount_ {};
-        // The amount of traffic over the HLS protocol. Unit: bytes.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<int64_t> hlsTraffic_ {};
-        // Number of new connections established per minute.
         shared_ptr<string> newConns_ {};
-        // The bandwidth over the P2P protocol. Unit: bit/s.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<float> p2pBps_ {};
-        // The number of online viewers over the P2P protocol.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<int64_t> p2pCount_ {};
-        // The amount of traffic over the peer-to-peer (P2P) protocol. Unit: bytes.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<int64_t> p2pTraffic_ {};
-        // The bandwidth over the Real-Time Messaging Protocol (RTMP) protocol. Unit: bit/s.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<float> rtmpBps_ {};
-        // The number of online viewers over the RTMP protocol.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<int64_t> rtmpCount_ {};
-        // The amount of traffic over the RTMP protocol. Unit: bytes.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<int64_t> rtmpTraffic_ {};
-        // The bandwidth over the RTS protocol. Unit: bit/s.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<float> rtsBps_ {};
-        // The number of online viewers over the Real-Time Streaming (RTS) protocol.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<int64_t> rtsCount_ {};
-        // The amount of traffic over the RTS protocol. Unit: bytes.
-        // 
-        // >  This parameter is not returned if no traffic is generated over the protocol.
         shared_ptr<int64_t> rtsTraffic_ {};
-        // The name of the stream.
         shared_ptr<string> streamName_ {};
-        // The timestamp of the returned data.
         shared_ptr<string> timeStamp_ {};
-        // The total amount of traffic consumed by the stream per minute. Unit: bytes.
         shared_ptr<int64_t> traffic_ {};
       };
 
@@ -440,7 +388,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The beginning of the time range during which data was queried.
     shared_ptr<string> startTime_ {};
-    // The data array returned.
     shared_ptr<DescribeLiveStreamMetricDetailDataResponseBody::StreamDetailData> streamDetailData_ {};
   };
 

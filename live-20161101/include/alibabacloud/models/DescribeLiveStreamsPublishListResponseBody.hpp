@@ -207,38 +207,19 @@ namespace Models
 
 
       protected:
-        // Internal error
         shared_ptr<string> aliInnerErrorFlags_ {};
-        // The name of the application to which the live stream belongs.
         shared_ptr<string> appName_ {};
-        // The IP address of the client that ingested the live stream.
         shared_ptr<string> clientAddr_ {};
-        // The ingest domain or main streaming domain.
         shared_ptr<string> domainName_ {};
-        // The IP address of the CDN point of presence (POP) to which the stream was ingested.
         shared_ptr<string> edgeNodeAddr_ {};
-        // The ingest domain.
         shared_ptr<string> publishDomain_ {};
-        // The time when the stream ingest was started. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> publishTime_ {};
-        // The type of the stream ingest. Valid values:
-        // 
-        // *   **edge**: edge ingest
-        // *   **center**: live center ingest
         shared_ptr<string> publishType_ {};
-        // The complete ingest URL.
         shared_ptr<string> publishUrl_ {};
-        // The time when the stream ingest was stopped. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> stopTime_ {};
-        // The name of the live stream.
         shared_ptr<string> streamName_ {};
-        // The streaming URL.
         shared_ptr<string> streamUrl_ {};
-        // The ID of the transcoding template.
-        // 
-        // >  This parameter is not returned if the value of the Transcoded parameter is no.
         shared_ptr<string> transcodeId_ {};
-        // Indicates whether the stream was a transcoded stream.
         shared_ptr<string> transcoded_ {};
       };
 
@@ -307,7 +288,6 @@ namespace Models
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The information about the stream ingest records.
     shared_ptr<DescribeLiveStreamsPublishListResponseBody::PublishInfo> publishInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

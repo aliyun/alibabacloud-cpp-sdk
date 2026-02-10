@@ -162,25 +162,15 @@ namespace Models
 
 
       protected:
-        // The name of the application to which the live stream belongs.
         shared_ptr<string> app_ {};
-        // The description of the rule.
         shared_ptr<string> description_ {};
-        // The streaming domain.
         shared_ptr<string> domain_ {};
-        // The last time when the rule was modified. The value is a timestamp.
         shared_ptr<string> gmtModifyTime_ {};
-        // Indicates whether the rule takes effect when stream pulling starts.
         shared_ptr<bool> isLazy_ {};
-        // The specification of the exported subtitles.
         shared_ptr<string> liveTemplate_ {};
-        // The ID of the subtitle rule.
         shared_ptr<string> rulesId_ {};
-        // The name of the virtual background template.
         shared_ptr<string> studioName_ {};
-        // The name of the subtitle template.
         shared_ptr<string> subtitleName_ {};
-        // The suffix of the subtitle rule.
         shared_ptr<string> suffixName_ {};
       };
 
@@ -219,7 +209,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The subtitle rules.
     shared_ptr<DescribeLiveAIProduceRulesResponseBody::RuleInfoList> ruleInfoList_ {};
   };
 

@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // The storage used for time shifting. Unit: bytes.
         shared_ptr<string> size_ {};
-        // The timestamp of the data returned.
         shared_ptr<string> timeStamp_ {};
-        // The type of time shifting. Examples: HLS_D1 and HLS_D7.
         shared_ptr<string> type_ {};
       };
 
@@ -141,7 +138,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The time shifting usage data that was collected for each time interval.
     shared_ptr<DescribeLiveDomainTimeShiftDataResponseBody::TimeShiftData> timeShiftData_ {};
   };
 

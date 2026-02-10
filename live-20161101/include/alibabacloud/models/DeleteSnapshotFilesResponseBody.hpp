@@ -93,12 +93,7 @@ namespace Models
 
 
       protected:
-        // The timestamp when the snapshot was captured. Unit: milliseconds.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The processing result of the snapshot. Valid values:
-        // 
-        // *   **OK**: The snapshot was deleted.
-        // *   **FileNotFound**: The snapshot was not found.
         shared_ptr<string> message_ {};
       };
 
@@ -153,7 +148,6 @@ namespace Models
     shared_ptr<int32_t> failureCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the snapshots.
     shared_ptr<DeleteSnapshotFilesResponseBody::SnapshotDeleteInfoList> snapshotDeleteInfoList_ {};
     // The number of successful screenshot deletions.
     shared_ptr<int32_t> successCount_ {};

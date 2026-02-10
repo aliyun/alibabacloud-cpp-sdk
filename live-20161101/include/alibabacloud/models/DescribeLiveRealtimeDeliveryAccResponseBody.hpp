@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // The number of failed real-time log deliveries.
         shared_ptr<int32_t> failedNum_ {};
-        // The number of successful real-time log deliveries.
         shared_ptr<int32_t> successNum_ {};
-        // The timestamp of the data returned.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -139,7 +136,6 @@ namespace Models
 
 
   protected:
-    // The information about real-time log deliveries.
     shared_ptr<DescribeLiveRealtimeDeliveryAccResponseBody::RealTimeDeliveryAccData> realTimeDeliveryAccData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

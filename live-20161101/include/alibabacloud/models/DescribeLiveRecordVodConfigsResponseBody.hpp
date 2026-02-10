@@ -168,33 +168,15 @@ namespace Models
 
 
       protected:
-        // The name of the application to which the live stream belongs.
         shared_ptr<string> appName_ {};
-        // Indicates whether automatic merging is enabled. Valid values:
-        // 
-        // *   **ON**
-        // *   **OFF**
         shared_ptr<string> autoCompose_ {};
-        // The ID of the transcoding template group that was used to automatically merge the VOD files created from the live streams.
-        // 
-        // >  This parameter is returned if the value of the AutoCompose parameter is ON.
         shared_ptr<string> composeVodTranscodeGroupId_ {};
-        // The time when the live stream was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The recording cycle. Unit: seconds. Default value: **3600**. Valid values: **300 to 21600**.
         shared_ptr<int32_t> cycleDuration_ {};
-        // The main streaming domain.
         shared_ptr<string> domainName_ {};
-        // Indicates whether on-demand recording is enabled. Valid values:
-        // 
-        // *   **0** (default): On-demand recording is disabled.
-        // *   **1**: On-demand recording is enabled by using the HTTP callback method.
         shared_ptr<int32_t> onDemand_ {};
-        // The storage location.
         shared_ptr<string> storageLocation_ {};
-        // The name of the live stream.
         shared_ptr<string> streamName_ {};
-        // The ID of the transcoding template group in ApsaraVideo VOD.
         shared_ptr<string> vodTranscodeGroupId_ {};
       };
 
@@ -252,7 +234,6 @@ namespace Models
 
 
   protected:
-    // The configurations.
     shared_ptr<DescribeLiveRecordVodConfigsResponseBody::LiveRecordVodConfigs> liveRecordVodConfigs_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};

@@ -138,7 +138,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The complete URL of each live stream.
     shared_ptr<DescribeLiveStreamsBlockListResponseBody::StreamUrls> streamUrls_ {};
     // The total number of live stream URLs that meet the specified conditions.
     shared_ptr<int32_t> totalNum_ {};

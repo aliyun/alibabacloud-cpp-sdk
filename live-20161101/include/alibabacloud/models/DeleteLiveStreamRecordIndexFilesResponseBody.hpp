@@ -93,13 +93,7 @@ namespace Models
 
 
       protected:
-        // The processing result of each file indicated by the file ID. Valid values:
-        // 
-        // *   **OK**: The file has been deleted.
-        // *   **AccessDenied**: Access to the file has been denied.
-        // *   **FileNotFound**: The file fails to be found.
         shared_ptr<string> message_ {};
-        // The ID of the index file that is used to locate the live stream recording files to be deleted.
         shared_ptr<string> recordId_ {};
       };
 
@@ -154,7 +148,6 @@ namespace Models
     shared_ptr<string> code_ {};
     // The status description. A return value of 500 indicates an error. For details, see the Error codes section of this topic.
     shared_ptr<string> message_ {};
-    // The deletion information.
     shared_ptr<DeleteLiveStreamRecordIndexFilesResponseBody::RecordDeleteInfoList> recordDeleteInfoList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -97,9 +97,7 @@ namespace Models
 
 
       protected:
-        // The bandwidth. Unit: bit/s.
         shared_ptr<string> bpsValue_ {};
-        // The timestamp of the data returned.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -164,7 +162,6 @@ namespace Models
 
 
   protected:
-    // The bandwidth data that was collected at each interval.
     shared_ptr<DescribeLiveDomainPushBpsDataResponseBody::BpsDataPerInterval> bpsDataPerInterval_ {};
     // The time granularity of the query.
     shared_ptr<string> dataInterval_ {};

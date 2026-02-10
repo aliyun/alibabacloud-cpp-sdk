@@ -62,6 +62,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the streaming domain resides.
     shared_ptr<string> regionId_ {};
   };
 

@@ -179,31 +179,16 @@ namespace Models
 
 
       protected:
-        // The name of the application to which the live stream belongs.
         shared_ptr<string> appName_ {};
-        // The result of the request. If success is returned, the request is successful. If an error message is returned, the request failed.
         shared_ptr<string> description_ {};
-        // The ingest domain.
         shared_ptr<string> domainName_ {};
-        // The callback content.
         shared_ptr<string> notifyContent_ {};
         shared_ptr<string> notifyHeader_ {};
         shared_ptr<string> notifyResponse_ {};
-        // The callback result. Valid values:
-        // 
-        // *   success
-        // *   failed
         shared_ptr<string> notifyResult_ {};
-        // The time when the callback was invoked. The time is displayed in UTC.
         shared_ptr<string> notifyTime_ {};
-        // The event. Valid values:
-        // 
-        // *   publish: The stream ingest starts.
-        // *   publish_done: The stream ingest is interrupted.
         shared_ptr<string> notifyType_ {};
-        // The callback URL.
         shared_ptr<string> notifyUrl_ {};
-        // The name of the live stream.
         shared_ptr<string> streamName_ {};
       };
 
@@ -268,7 +253,6 @@ namespace Models
 
 
   protected:
-    // The stream ingest callback records.
     shared_ptr<DescribeLiveStreamsNotifyRecordsResponseBody::NotifyRecordsInfo> notifyRecordsInfo_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};

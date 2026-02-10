@@ -118,17 +118,10 @@ namespace Models
 
 
       protected:
-        // The ID of the channel.
-        // 
-        // The layout references the channel ID when the channel is enabled. You can specify up to one video resource for the channel. The value of this parameter must be in the RV[Number] format, such as RV01 and RV12.
         shared_ptr<string> channelId_ {};
-        // The face retouching effect. Valid values: 0 (all effects), 1 (skin smoothing), 2 (skin whitening), 3 (dark circles removal), and 4 (nasolabial folds removal).
         shared_ptr<string> faceBeauty_ {};
-        // The ID of the video resource.
         shared_ptr<string> resourceId_ {};
-        // The URL in the Real-Time Messaging Protocol (RTMP) format.
         shared_ptr<string> rtmpUrl_ {};
-        // The URL of the output content in the channel.
         shared_ptr<string> streamUrl_ {};
       };
 
@@ -172,7 +165,6 @@ namespace Models
 
 
   protected:
-    // The channels.
     shared_ptr<DescribeCasterChannelsResponseBody::Channels> channels_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

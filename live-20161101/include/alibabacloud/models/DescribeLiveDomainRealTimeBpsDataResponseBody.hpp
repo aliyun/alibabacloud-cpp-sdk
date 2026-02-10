@@ -97,9 +97,7 @@ namespace Models
 
 
       protected:
-        // The timestamp of the returned data.
         shared_ptr<string> timeStamp_ {};
-        // The bandwidth. Unit: bit/s.
         shared_ptr<string> value_ {};
       };
 
@@ -170,7 +168,6 @@ namespace Models
     shared_ptr<string> domainName_ {};
     // The end of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The bandwidth data that was collected every minute.
     shared_ptr<DescribeLiveDomainRealTimeBpsDataResponseBody::RealTimeBpsDataPerInterval> realTimeBpsDataPerInterval_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

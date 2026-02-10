@@ -133,9 +133,7 @@ namespace Models
 
 
           protected:
-            // The name of the attribute.
             shared_ptr<string> argName_ {};
-            // The attribute value.
             shared_ptr<string> argValue_ {};
           };
 
@@ -186,18 +184,9 @@ namespace Models
 
 
       protected:
-        // The configuration ID.
         shared_ptr<string> configId_ {};
-        // The attributes of the feature.
         shared_ptr<DomainConfig::FunctionArgs> functionArgs_ {};
-        // The name of the feature.
         shared_ptr<string> functionName_ {};
-        // The configuration status. Valid values:
-        // 
-        // *   **success**
-        // *   **testing**
-        // *   **failed**
-        // *   **configuring**
         shared_ptr<string> status_ {};
       };
 
@@ -234,7 +223,6 @@ namespace Models
 
 
   protected:
-    // The configurations of the domain name.
     shared_ptr<DescribeLiveDomainConfigsResponseBody::DomainConfigs> domainConfigs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

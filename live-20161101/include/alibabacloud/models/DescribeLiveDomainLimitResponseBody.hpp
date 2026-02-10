@@ -135,19 +135,12 @@ namespace Models
 
 
       protected:
-        // The current number of ingested streams.
         shared_ptr<int32_t> currentNum_ {};
-        // The current number of transcoded streams.
         shared_ptr<int32_t> currentTranscodeNum_ {};
-        // The current number of streams relayed from the live center.
         shared_ptr<int32_t> currentTransferNum_ {};
-        // The name of the queried main streaming domain.
         shared_ptr<string> domainName_ {};
-        // The maximum number of ingested streams.
         shared_ptr<int32_t> limitNum_ {};
-        // The maximum number of transcoded streams.
         shared_ptr<int32_t> limitTranscodeNum_ {};
-        // The maximum allowed number of streams relayed from the live center.
         shared_ptr<int32_t> limitTransferNum_ {};
       };
 
@@ -184,7 +177,6 @@ namespace Models
 
 
   protected:
-    // The limits.
     shared_ptr<DescribeLiveDomainLimitResponseBody::LiveDomainLimitList> liveDomainLimitList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

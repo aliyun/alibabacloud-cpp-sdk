@@ -192,41 +192,18 @@ namespace Models
 
 
       protected:
-        // The offset of the position where the system starts to read the video resource. This parameter takes effect only if the input source is a video file. Unit: milliseconds.
-        // 
-        // A value **greater than 0** indicates an offset from the first frame.
         shared_ptr<int32_t> beginOffset_ {};
-        // The offset of the position where the system stops reading the video file. This parameter takes effect only if the input source is a video file. Unit: milliseconds.
-        // 
-        // *   A value greater than **0** indicates an offset from the first frame.
-        // *   A value smaller than **0** indicates an offset from the last frame.
         shared_ptr<int32_t> endOffset_ {};
-        // The source URL.
         shared_ptr<string> flvUrl_ {};
-        // The image ID.
         shared_ptr<string> imageId_ {};
-        // The image URL.
         shared_ptr<string> imageUrl_ {};
-        // The URL of the live stream.
         shared_ptr<string> liveStreamUrl_ {};
-        // The position of the video resource.
         shared_ptr<string> locationId_ {};
-        // The material ID.
         shared_ptr<string> materialId_ {};
-        // The interval between presentation timestamp (PTS) callbacks. If you set the value to 0, the PTS callback is disabled. This parameter is returned only when the video resource is a video-on-demand (VOD) file.
         shared_ptr<int32_t> ptsCallbackInterval_ {};
-        // The number of playback times after the first playback is complete. This parameter takes effect only when the input source is a video file. Valid values:
-        // 
-        // *   **0** (default): The video file is played only once.
-        // *   **-1**: The video file is played in loop mode.
         shared_ptr<int32_t> repeatNum_ {};
-        // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The resource name.
         shared_ptr<string> resourceName_ {};
-        // The URL of the VOD file.
-        // 
-        // This parameter is returned only when the video resource is an MP4, FLV, or TS file that is not from the media library.
         shared_ptr<string> vodUrl_ {};
       };
 
@@ -274,7 +251,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of returned entries.
     shared_ptr<int32_t> total_ {};
-    // The input sources.
     shared_ptr<DescribeCasterVideoResourcesResponseBody::VideoResources> videoResources_ {};
   };
 

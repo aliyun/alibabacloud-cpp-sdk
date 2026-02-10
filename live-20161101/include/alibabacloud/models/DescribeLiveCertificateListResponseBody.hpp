@@ -146,17 +146,11 @@ namespace Models
 
 
         protected:
-          // The ID of the certificate.
           shared_ptr<int64_t> certId_ {};
-          // The name of the certificate.
           shared_ptr<string> certName_ {};
-          // The Common Name (CN) attribute of the certificate.
           shared_ptr<string> common_ {};
-          // The fingerprint of the certificate.
           shared_ptr<string> fingerprint_ {};
-          // The certificate authority (CA) that issued the certificate.
           shared_ptr<string> issuer_ {};
-          // The time when the certificate was issued. Unit: seconds.
           shared_ptr<int64_t> lastTime_ {};
         };
 
@@ -193,7 +187,6 @@ namespace Models
 
 
     protected:
-      // The certificates.
       shared_ptr<CertificateListModel::CertList> certList_ {};
       // The number of certificates.
       shared_ptr<int32_t> count_ {};

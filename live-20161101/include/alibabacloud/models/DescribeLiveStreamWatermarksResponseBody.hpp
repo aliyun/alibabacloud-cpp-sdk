@@ -192,43 +192,18 @@ namespace Models
 
 
       protected:
-        // The description of the watermark.
         shared_ptr<string> description_ {};
-        // The height of the watermark. Unit: pixels.
         shared_ptr<int32_t> height_ {};
-        // The name of the watermark.
         shared_ptr<string> name_ {};
-        // The position of the watermark.
-        // 
-        // *   TopLeft: the upper-left corner.
-        // *   TopRight: the upper-right corner.
-        // *   BottomLeft: the lower-left corner.
-        // *   BottomRight: the lower-right corner.
         shared_ptr<string> offsetCorner_ {};
-        // The URL of the watermark image.
         shared_ptr<string> pictureUrl_ {};
-        // The height of the background video. Unit: pixels.
         shared_ptr<int32_t> refHeight_ {};
-        // The width of the background video. Unit: pixels.
         shared_ptr<int32_t> refWidth_ {};
-        // The number of watermark rules configured for the domain name.
         shared_ptr<int32_t> ruleCount_ {};
-        // The ID of the watermark template.
         shared_ptr<string> templateId_ {};
-        // The transparency of the watermark. A smaller value indicates a more transparent watermark. Valid values: 0 to 255.
         shared_ptr<int32_t> transparency_ {};
-        // The watermark type.
-        // 
-        // *   0: image. Only image watermarks are supported.
-        // *   1: text.
         shared_ptr<int32_t> type_ {};
-        // The offset of the watermark along the x-axis. Unit: pixels.
-        // 
-        // >  The value of the RefWidth parameter is used as the reference. If the OffsetCorner parameter is set to TopLeft, the value of the XOffset parameter indicates the x-axis offset of the upper-left corner of the watermark relative to that of the background video. The directions from the coordinate axes to the center of the background video are positive. In other words, the x-axis is positive toward the right.
         shared_ptr<float> XOffset_ {};
-        // The offset of the watermark along the y-axis. Unit: pixels.
-        // 
-        // >  The value of the RefHeight parameter is used as the reference. If the OffsetCorner parameter is set to TopLeft, the value of the YOffset parameter indicates the y-axis offset of the upper-left corner of the watermark relative to that of the background video. The directions from the coordinate axes to the center of the background video are positive. In other words, the y-axis is positive downward.
         shared_ptr<float> YOffset_ {};
       };
 
@@ -276,7 +251,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of watermark templates that meet the specified conditions.
     shared_ptr<int32_t> total_ {};
-    // Details of the watermark templates.
     shared_ptr<DescribeLiveStreamWatermarksResponseBody::WatermarkList> watermarkList_ {};
   };
 

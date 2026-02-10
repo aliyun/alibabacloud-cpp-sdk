@@ -137,15 +137,8 @@ namespace Models
 
 
       protected:
-        // The fixed delay of the audio layer. Unit: milliseconds.
         shared_ptr<int32_t> fixedDelayDuration_ {};
-        // The sound channel type of the audio layer. Valid values:
-        // 
-        // *   **left**: the left channel
-        // *   **right**: the right channel
-        // *   **all** (default): both the left and right channels
         shared_ptr<string> validChannel_ {};
-        // The volume of the audio layer.
         shared_ptr<float> volumeRate_ {};
       };
 
@@ -205,7 +198,6 @@ namespace Models
 
 
   protected:
-    // The configurations of the audio layers.
     shared_ptr<DescribeCasterSceneAudioResponseBody::AudioLayers> audioLayers_ {};
     // The ID of the production studio. You can specify the ID in a request to start a scene in the production studio.
     shared_ptr<string> casterId_ {};

@@ -143,19 +143,12 @@ namespace Models
 
 
       protected:
-        // The domain name.
         shared_ptr<string> domainName_ {};
-        // The peak bandwidth of the domain name.
         shared_ptr<int64_t> maxBps_ {};
-        // The time when the bandwidth reached the peak value.
         shared_ptr<string> maxBpsTime_ {};
-        // The ranking of the domain name.
         shared_ptr<int64_t> rank_ {};
-        // The number of visits to the domain name.
         shared_ptr<int64_t> totalAccess_ {};
-        // The total traffic.
         shared_ptr<string> totalTraffic_ {};
-        // The traffic share of the domain name relative to the total traffic.
         shared_ptr<string> trafficPercent_ {};
       };
 
@@ -230,7 +223,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The beginning of the time range for which data was queried.
     shared_ptr<string> startTime_ {};
-    // The top domain names ranked by traffic.
     shared_ptr<DescribeLiveTopDomainsByFlowResponseBody::TopDomains> topDomains_ {};
   };
 

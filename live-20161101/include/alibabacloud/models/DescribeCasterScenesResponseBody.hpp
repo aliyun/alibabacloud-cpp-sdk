@@ -152,20 +152,8 @@ namespace Models
 
 
           protected:
-            // The streaming URL.
             shared_ptr<string> outputStreamUrl_ {};
-            // The transcoding configuration. Valid values:
-            // 
-            // *   **sd**: standard definition
-            // *   **lld**: low definition
-            // *   **lud**: ultra-high definition
-            // *   **lhd**: high definition
             shared_ptr<string> transcodeConfig_ {};
-            // The format. Valid values:
-            // 
-            // *   **flv**
-            // *   **mp4**
-            // *   **m3u8**
             shared_ptr<string> videoFormat_ {};
           };
 
@@ -280,27 +268,13 @@ namespace Models
 
 
       protected:
-        // The components.
         shared_ptr<Scene::ComponentIds> componentIds_ {};
-        // The ID of the layout.
         shared_ptr<string> layoutId_ {};
-        // Indicates whether the output video is in PVW mode or PGM mode. Valid values:
-        // 
-        // *   **0**: in PVW mode.
-        // *   **1**: in PGM mode.
         shared_ptr<string> outputType_ {};
-        // The ID of the scene. You can use the ID as a request parameter in the API operation that is used to modify the audio configurations of the scene, query the audio configurations of the scene, start the scene, or stop the scene.
         shared_ptr<string> sceneId_ {};
-        // The name of the scene.
         shared_ptr<string> sceneName_ {};
-        // The status of the scene. Valid values:
-        // 
-        // *   **0**: disabled
-        // *   **1**: enabled
         shared_ptr<int32_t> status_ {};
-        // The information about the stream.
         shared_ptr<Scene::StreamInfos> streamInfos_ {};
-        // The URL of the output stream.
         shared_ptr<string> streamUrl_ {};
       };
 
@@ -346,7 +320,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The scenes.
     shared_ptr<DescribeCasterScenesResponseBody::SceneList> sceneList_ {};
     // The total number of entries.
     shared_ptr<int32_t> total_ {};

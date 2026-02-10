@@ -159,30 +159,14 @@ namespace Models
 
 
       protected:
-        // The CNAME generated for the domain name.
         shared_ptr<string> cname_ {};
-        // The description.
         shared_ptr<string> description_ {};
-        // The domain name.
         shared_ptr<string> domainName_ {};
-        // The time when the domain name was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> gmtCreated_ {};
-        // The time when the domain name was last modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> gmtModified_ {};
-        // The status of the domain name. Valid values:
-        // 
-        // *   **online**
-        // *   **offline**
-        // *   **configuring**
         shared_ptr<string> liveDomainStatus_ {};
-        // The type of the domain name. Valid values:
-        // 
-        // *   **liveVideo**: streaming domain
-        // *   **liveEdge**: ingest domain
         shared_ptr<string> liveDomainType_ {};
-        // The ID of the region in which the domain name resides.
         shared_ptr<string> regionName_ {};
-        // The ID of the resource group.
         shared_ptr<string> resourceGroupId_ {};
       };
 
@@ -240,7 +224,6 @@ namespace Models
 
 
   protected:
-    // The domain names.
     shared_ptr<DescribeLiveUserDomainsResponseBody::Domains> domains_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};

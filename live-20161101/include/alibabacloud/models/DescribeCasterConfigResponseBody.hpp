@@ -265,7 +265,6 @@ namespace Models
       shared_ptr<string> casterTemplate_ {};
       // The custom settings.
       shared_ptr<TranscodeConfig::CustomParams> customParams_ {};
-      // The transcoding setting for live streams.
       shared_ptr<TranscodeConfig::LiveTemplateIds> liveTemplateIds_ {};
     };
 
@@ -370,15 +369,8 @@ namespace Models
 
 
       protected:
-        // The ID of the resource in the production studio.
         shared_ptr<string> hostResourceId_ {};
-        // The cache mode of the Static Page Caching policy. Valid values:
-        // 
-        // *   0: standard mode
-        // *   1: force mode
-        // *   2: no cache
         shared_ptr<int32_t> mode_ {};
-        // The IDs of the resources for which you want to modify the resource group. The number of resource IDs is 1 to 50.
         shared_ptr<SyncGroup::ResourceIds> resourceIds_ {};
       };
 
@@ -496,13 +488,9 @@ namespace Models
 
 
         protected:
-          // The length of the recording.
           shared_ptr<int32_t> cycleDuration_ {};
-          // The format of the recording.
           shared_ptr<string> format_ {};
-          // The name of the recording.
           shared_ptr<string> ossObjectPrefix_ {};
-          // The name of the segment.
           shared_ptr<string> sliceOssObjectPrefix_ {};
         };
 
@@ -563,7 +551,6 @@ namespace Models
       shared_ptr<string> ossBucket_ {};
       // The Object Storage Service (OSS) endpoint.
       shared_ptr<string> ossEndpoint_ {};
-      // The recording configuration.
       shared_ptr<RecordConfig::RecordFormat> recordFormat_ {};
     };
 
@@ -759,7 +746,6 @@ namespace Models
     shared_ptr<string> sideOutputUrl_ {};
     // The list of custom stream redirect URLs.
     shared_ptr<string> sideOutputUrlList_ {};
-    // The storage configuration.
     shared_ptr<DescribeCasterConfigResponseBody::SyncGroupsConfig> syncGroupsConfig_ {};
     // The transcoding configuration.
     shared_ptr<DescribeCasterConfigResponseBody::TranscodeConfig> transcodeConfig_ {};

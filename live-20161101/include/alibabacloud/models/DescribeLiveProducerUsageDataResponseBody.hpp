@@ -175,27 +175,16 @@ namespace Models
 
 
       protected:
-        // The domain name. If domain is specified by the SplitBy parameter, the usage data is returned based on different domain names.
         shared_ptr<string> domainName_ {};
-        // The production studio instance. If instance is specified by the SplitBy parameter, the usage data is returned based on different production studio instances.
         shared_ptr<string> instance_ {};
-        // The duration of high definition streaming. Unit: minutes.
         shared_ptr<int64_t> outputHdDuration_ {};
-        // The duration of low definition streaming. Unit: minutes.
         shared_ptr<int64_t> outputLdDuration_ {};
-        // The duration of standard definition streaming. Unit: minutes.
         shared_ptr<int64_t> outputSdDuration_ {};
-        // The region. If region is specified by the SplitBy parameter, the usage data is returned based on different regions.
         shared_ptr<string> region_ {};
-        // The timestamp of the returned data.
         shared_ptr<string> timeStamp_ {};
-        // The duration of high definition transcoding. Unit: minutes.
         shared_ptr<int64_t> tranHdDuration_ {};
-        // The duration of low definition transcoding. Unit: minutes.
         shared_ptr<int64_t> tranLdDuration_ {};
-        // The duration of standard definition transcoding. Unit: minutes.
         shared_ptr<int64_t> tranSdDuration_ {};
-        // The type of the production studio. If type is specified by the SplitBy parameter, the usage data is returned based on different types of production studios.
         shared_ptr<string> type_ {};
       };
 
@@ -246,7 +235,6 @@ namespace Models
 
 
   protected:
-    // The production studio usage data.
     shared_ptr<DescribeLiveProducerUsageDataResponseBody::BillProducerData> billProducerData_ {};
     // The end of the time range during which data was queried.
     shared_ptr<string> endTime_ {};

@@ -148,20 +148,8 @@ namespace Models
 
 
           protected:
-            // The streaming URL.
             shared_ptr<string> outputStreamUrl_ {};
-            // The resolution to which the scene transcodes the stream for playback. Valid values:
-            // 
-            // *   **lsd**: standard definition.
-            // *   **lld**: low definition.
-            // *   **lud**: ultra high definition.
-            // *   **lhd**: high definition.
             shared_ptr<string> transcodeConfig_ {};
-            // The format to which the scene transcodes the stream for playback. Valid values:
-            // 
-            // *   **flv**.
-            // *   **rtmp**.
-            // *   **m3u8**.
             shared_ptr<string> videoFormat_ {};
           };
 
@@ -219,18 +207,10 @@ namespace Models
 
 
       protected:
-        // Indicates whether the output stream is in preview mode or program mode.
-        // 
-        // *   **0**: indicates that the output videos of the scene are in preview mode.
-        // *   **1**: indicates that the output videos of the scene are in program mode.
         shared_ptr<int32_t> outputType_ {};
-        // The Real Time Messaging Protocol (RTMP) URL.
         shared_ptr<string> rtmpUrl_ {};
-        // The ID of the scene.
         shared_ptr<string> sceneId_ {};
-        // The information about the stream.
         shared_ptr<CasterStream::StreamInfos> streamInfos_ {};
-        // The streaming URL.
         shared_ptr<string> streamUrl_ {};
       };
 
@@ -283,7 +263,6 @@ namespace Models
   protected:
     // The ID of the production studio.
     shared_ptr<string> casterId_ {};
-    // The information about the streams of the production studio.
     shared_ptr<DescribeCasterStreamUrlResponseBody::CasterStreams> casterStreams_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

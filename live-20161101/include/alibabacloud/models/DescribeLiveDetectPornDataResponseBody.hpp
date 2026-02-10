@@ -144,30 +144,13 @@ namespace Models
 
 
       protected:
-        // The name of the application to which the live stream belongs.
         shared_ptr<string> app_ {};
-        // The number of reviewed images.
         shared_ptr<int64_t> count_ {};
-        // The main streaming domain.
         shared_ptr<string> domain_ {};
-        // Indicates whether a quota of free image scanning is available. Valid values:
-        // 
-        // *   **free**
-        // *   **charge**
         shared_ptr<string> fee_ {};
-        // The region in which the domain name resides.
         shared_ptr<string> region_ {};
-        // The moderation scenario. Valid values:
-        // 
-        // *   **porn** (default): pornography
-        // *   **terrorism**: terrorism or politically sensitive content
-        // *   **ad**: ad violation
-        // *   **live**: undesirable scene
-        // *   **logo**
         shared_ptr<string> scene_ {};
-        // The name of the live stream.
         shared_ptr<string> stream_ {};
-        // The timestamp of the data returned. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -204,7 +187,6 @@ namespace Models
 
 
   protected:
-    // The bandwidth data returned at each interval.
     shared_ptr<DescribeLiveDetectPornDataResponseBody::DetectPornData> detectPornData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

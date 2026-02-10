@@ -100,11 +100,8 @@ namespace Models
 
 
       protected:
-        // The timestamp of the data returned.
         shared_ptr<string> timeStamp_ {};
-        // The total traffic. Unit: bytes.
         shared_ptr<string> trafficValue_ {};
-        // The peak bandwidth. Unit: bit/s.
         shared_ptr<string> value_ {};
       };
 
@@ -148,7 +145,6 @@ namespace Models
 
 
   protected:
-    // The data returned at each time interval.
     shared_ptr<DescribeLiveDomainBpsDataByLayerResponseBody::BpsDataInterval> bpsDataInterval_ {};
     // The time interval between the data entries returned. Unit: seconds.
     shared_ptr<string> dataInterval_ {};

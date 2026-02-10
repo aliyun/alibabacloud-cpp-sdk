@@ -153,29 +153,14 @@ namespace Models
 
 
       protected:
-        // Indicates whether the SSL certificate is obsolete. Valid values:
-        // 
-        // *   **yes**
-        // *   **no**
         shared_ptr<string> certCaIsLegacy_ {};
-        // The time at which the certificate expires.
         shared_ptr<string> certExpireTime_ {};
-        // Indicates whether the SSL certificate is expired. Valid values:
-        // 
-        // *   **yes**
-        // *   **no**
         shared_ptr<string> certExpired_ {};
-        // The effective time of the certificate.
         shared_ptr<string> certStartTime_ {};
-        // The name of the SSL certificate owner.
         shared_ptr<string> certSubjectCommonName_ {};
-        // The type of the certificate. Valid values: **RSA**, **DSA**, and **ECDSA**.
         shared_ptr<string> certType_ {};
-        // The list of domain names. If a value is returned, the value matches the SSL certificate. Multiple domain names are separated by commas (,).
         shared_ptr<string> domainList_ {};
-        // The domain names (DNS fields) that match the SSL certificate. Multiple domain names are separated by commas (,).
         shared_ptr<string> domainNames_ {};
-        // The certificate authority (CA) that issued the SSL certificate.
         shared_ptr<string> issuer_ {};
       };
 
@@ -212,7 +197,6 @@ namespace Models
 
 
   protected:
-    // The information about the certificate.
     shared_ptr<DescribeLiveDomainByCertificateResponseBody::CertInfos> certInfos_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

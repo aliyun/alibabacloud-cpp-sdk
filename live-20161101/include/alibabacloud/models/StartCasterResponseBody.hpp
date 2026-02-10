@@ -91,9 +91,7 @@ namespace Models
 
 
       protected:
-        // The ID of the scene.
         shared_ptr<string> sceneId_ {};
-        // The streaming URL of the PVW scene in the production studio. The value is not a stream relay URL.
         shared_ptr<string> streamUrl_ {};
       };
 
@@ -219,20 +217,8 @@ namespace Models
 
 
           protected:
-            // The URL.
             shared_ptr<string> outputStreamUrl_ {};
-            // The transcoding configuration. Valid values:
-            // 
-            // *   **lsd**: standard definition
-            // *   **lld**: low definition
-            // *   **lud**: ultra-high definition
-            // *   **lhd**: high definition
             shared_ptr<string> transcodeConfig_ {};
-            // The format. Valid values:
-            // 
-            // *   **flv**
-            // *   **rtmp**
-            // *   **m3u8**
             shared_ptr<string> videoFormat_ {};
           };
 
@@ -276,11 +262,8 @@ namespace Models
 
 
       protected:
-        // The ID of the scene.
         shared_ptr<string> sceneId_ {};
-        // The stream relay URLs.
         shared_ptr<SceneInfo::StreamInfos> streamInfos_ {};
-        // The streaming URL of the PGM scene in the production studio. The value is not a stream relay URL.
         shared_ptr<string> streamUrl_ {};
       };
 
@@ -326,9 +309,7 @@ namespace Models
 
 
   protected:
-    // The PGM scenes.
     shared_ptr<StartCasterResponseBody::PgmSceneInfos> pgmSceneInfos_ {};
-    // The PVW scenes.
     shared_ptr<StartCasterResponseBody::PvwSceneInfos> pvwSceneInfos_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

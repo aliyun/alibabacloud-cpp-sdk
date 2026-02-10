@@ -163,23 +163,14 @@ namespace Models
 
 
       protected:
-        // The name of the application to which the live stream belongs.
         shared_ptr<string> appName_ {};
-        // The callback URL that is used to receive notifications about snapshot capture.
         shared_ptr<string> callback_ {};
-        // The time when the configuration was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The main streaming domain.
         shared_ptr<string> domainName_ {};
-        // The name of the Object Storage Service (OSS) bucket.
         shared_ptr<string> ossBucket_ {};
-        // The endpoint of the OSS bucket.
         shared_ptr<string> ossEndpoint_ {};
-        // The naming format of snapshots that are stored in the overwrite mode, which means that a new snapshot overwrites the previous snapshot.
         shared_ptr<string> overwriteOssObject_ {};
-        // The naming format of snapshots that are stored in sequence, which means that a new snapshot does not overwrite the previous snapshot.
         shared_ptr<string> sequenceOssObject_ {};
-        // The interval at which snapshots are captured. Unit: seconds.
         shared_ptr<int32_t> timeInterval_ {};
       };
 
@@ -252,7 +243,6 @@ namespace Models
 
 
   protected:
-    // The snapshot configurations.
     shared_ptr<DescribeLiveSnapshotConfigResponseBody::LiveStreamSnapshotConfigList> liveStreamSnapshotConfigList_ {};
     // The sort order.
     shared_ptr<string> order_ {};

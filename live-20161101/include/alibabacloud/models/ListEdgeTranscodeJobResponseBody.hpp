@@ -173,34 +173,16 @@ namespace Models
 
 
       protected:
-        // The time when the task was created.
         shared_ptr<string> createTime_ {};
-        // The ID of the task.
         shared_ptr<string> jobId_ {};
-        // The time when the task was last started.
         shared_ptr<string> lastStartAt_ {};
-        // The time when the task was last stopped.
         shared_ptr<string> lastStopAt_ {};
-        // The name of the task.
         shared_ptr<string> name_ {};
-        // The status of the task. Valid values:
-        // 
-        // *   0: not started
-        // *   1: in progress
         shared_ptr<string> status_ {};
-        // The URL of the input stream.
         shared_ptr<string> streamInput_ {};
-        // The URL of the output stream.
         shared_ptr<string> streamOutput_ {};
-        // The ID of the edge transcoding template used by the task.
         shared_ptr<string> templateId_ {};
-        // The name of the edge transcoding template used by the task.
         shared_ptr<string> templateName_ {};
-        // The type of edge transcoding. Valid values:
-        // 
-        // *   common: standard transcoding and Narrowband HD™ 1.0 transcoding.
-        // *   nbhd-2: Narrowband HD™ 2.0 transcoding
-        // *   ultra-hd: ultra-high definition transcoding
         shared_ptr<string> type_ {};
       };
 
@@ -244,7 +226,6 @@ namespace Models
 
 
   protected:
-    // The edge transcoding tasks.
     shared_ptr<ListEdgeTranscodeJobResponseBody::JobList> jobList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

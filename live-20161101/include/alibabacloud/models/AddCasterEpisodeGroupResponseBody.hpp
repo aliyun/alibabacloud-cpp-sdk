@@ -93,7 +93,6 @@ namespace Models
 
 
   protected:
-    // The IDs of the episodes.
     shared_ptr<AddCasterEpisodeGroupResponseBody::ItemIds> itemIds_ {};
     // The ID of the episode list that was added. Record the ID as it can be used to manage the program being added.
     shared_ptr<string> programId_ {};

@@ -127,20 +127,11 @@ namespace Models
 
 
       protected:
-        // The time when the snapshot was captured. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The timestamp when the snapshot file was created. Unit: milliseconds.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The snapshot mode. Valid values:
-        // 
-        // *   **true**: overwrite mode, which means that a new snapshot overwrites the previous snapshot.
-        // *   **false**: sequence mode, which means that a new snapshot does not overwrite the previous snapshot.
         shared_ptr<bool> isOverlay_ {};
-        // The name of the OSS bucket.
         shared_ptr<string> ossBucket_ {};
-        // The endpoint of the OSS bucket.
         shared_ptr<string> ossEndpoint_ {};
-        // The name of the snapshot stored in Object Storage Service (OSS).
         shared_ptr<string> ossObject_ {};
       };
 
@@ -184,7 +175,6 @@ namespace Models
 
 
   protected:
-    // The snapshots.
     shared_ptr<DescribeLiveStreamSnapshotInfoResponseBody::LiveStreamSnapshotInfoList> liveStreamSnapshotInfoList_ {};
     // The time when the next call occurred. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
     // 

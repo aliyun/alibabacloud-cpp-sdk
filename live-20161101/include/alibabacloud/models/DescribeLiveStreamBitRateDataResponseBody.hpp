@@ -116,15 +116,10 @@ namespace Models
 
 
       protected:
-        // The audio frame rate of the live stream. Unit: FPS.
         shared_ptr<float> audioFrameRate_ {};
-        // The bitrate of the live stream. Unit: bit/s.
         shared_ptr<float> bitRate_ {};
-        // The URL of the live stream.
         shared_ptr<string> streamUrl_ {};
-        // The time when the data was collected. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> time_ {};
-        // The video frame rate of the live stream. Unit: frames per second (FPS).
         shared_ptr<float> videoFrameRate_ {};
       };
 
@@ -161,7 +156,6 @@ namespace Models
 
 
   protected:
-    // The frame rates and bitrates of the live stream.
     shared_ptr<DescribeLiveStreamBitRateDataResponseBody::FrameRateAndBitRateInfos> frameRateAndBitRateInfos_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -107,13 +107,9 @@ namespace Models
 
 
       protected:
-        // The daily peak inbound bandwidth.
         shared_ptr<string> bandWidth_ {};
-        // The time when the daily peak bandwidth is reached.
         shared_ptr<string> peakTime_ {};
-        // The time queried on the day.
         shared_ptr<string> queryTime_ {};
-        // The category of the statistical data. If the DomainSwitch parameter is set to on, the value of this parameter is the domain name. If the DomainSwitch parameter is set to off or not specified, the value of this parameter is the user ID.
         shared_ptr<string> statName_ {};
       };
 
@@ -150,7 +146,6 @@ namespace Models
 
 
   protected:
-    // The information about peak inbound bandwidth on each day.
     shared_ptr<DescribeUpBpsPeakDataResponseBody::DescribeUpPeakTraffics> describeUpPeakTraffics_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

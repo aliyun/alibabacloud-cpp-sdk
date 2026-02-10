@@ -135,17 +135,11 @@ namespace Models
 
 
       protected:
-        // The domain name. This field is valid only when you specify domain for the **SplitBy** parameter.
         shared_ptr<string> domainName_ {};
-        // The duration. Unit: minutes.
         shared_ptr<int32_t> duration_ {};
-        // The ID of the monitoring session. This field is valid only when you specify instance for the **SplitBy** parameter.
         shared_ptr<string> instanceId_ {};
-        // The region of the live center. This field is valid only when you specify Region for the **SplitBy** parameter.
         shared_ptr<string> region_ {};
-        // The resolution. This field is valid only when you specify resolution for the **SplitBy** parameter.
         shared_ptr<string> resolution_ {};
-        // The timestamp of the returned data.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -224,7 +218,6 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The ID of the monitoring session.
     shared_ptr<string> instanceId_ {};
-    // The live monitoring data.
     shared_ptr<DescribeLiveDomainMonitoringUsageDataResponseBody::MonitoringData> monitoringData_ {};
     // The region of the live center.
     shared_ptr<string> region_ {};

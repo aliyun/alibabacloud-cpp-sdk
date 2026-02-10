@@ -169,9 +169,7 @@ namespace Models
 
 
           protected:
-            // The video timestamp. Unit: milliseconds.
             shared_ptr<int64_t> time_ {};
-            // The query time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int32_t> value_ {};
           };
 
@@ -246,9 +244,7 @@ namespace Models
 
 
           protected:
-            // The maximum video frame interval. Unit: milliseconds.
             shared_ptr<int64_t> time_ {};
-            // The query time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int32_t> value_ {};
           };
 
@@ -323,9 +319,7 @@ namespace Models
 
 
           protected:
-            // The frame rate of the video. Unit: frames.
             shared_ptr<int64_t> time_ {};
-            // The query time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int32_t> value_ {};
           };
 
@@ -400,9 +394,7 @@ namespace Models
 
 
           protected:
-            // The bitrate of the video. Unit: bit/s.
             shared_ptr<int64_t> time_ {};
-            // The query time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int32_t> value_ {};
           };
 
@@ -477,9 +469,7 @@ namespace Models
 
 
           protected:
-            // The difference between the audio and video timestamps. Unit: milliseconds.
             shared_ptr<int64_t> time_ {};
-            // The query time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int32_t> value_ {};
           };
 
@@ -554,9 +544,7 @@ namespace Models
 
 
           protected:
-            // The number of times the error code that indicates interrupted stream ingest was returned.
             shared_ptr<int64_t> time_ {};
-            // The query time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int32_t> value_ {};
           };
 
@@ -631,9 +619,7 @@ namespace Models
 
 
           protected:
-            // The number of AVC headers in the audio.
             shared_ptr<int64_t> time_ {};
-            // The query time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int32_t> value_ {};
           };
 
@@ -708,9 +694,7 @@ namespace Models
 
 
           protected:
-            // The audio timestamp. Unit: milliseconds.
             shared_ptr<int64_t> time_ {};
-            // The query time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int32_t> value_ {};
           };
 
@@ -785,9 +769,7 @@ namespace Models
 
 
           protected:
-            // The maximum audio frame interval. Unit: milliseconds.
             shared_ptr<int64_t> time_ {};
-            // The query time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int32_t> value_ {};
           };
 
@@ -862,9 +844,7 @@ namespace Models
 
 
           protected:
-            // The frame rate of the audio. Unit: frames.
             shared_ptr<int64_t> time_ {};
-            // The query time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int32_t> value_ {};
           };
 
@@ -939,9 +919,7 @@ namespace Models
 
 
           protected:
-            // The bitrate of the audio. Unit: bit/s.
             shared_ptr<int64_t> time_ {};
-            // The query time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int32_t> value_ {};
           };
 
@@ -1016,9 +994,7 @@ namespace Models
 
 
           protected:
-            // The number of AAC headers in the audio.
             shared_ptr<int64_t> time_ {};
-            // The query time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int32_t> value_ {};
           };
 
@@ -1221,49 +1197,27 @@ namespace Models
 
 
       protected:
-        // The details about the audio and video data of the stream ingest occurrences.
         shared_ptr<PublishItem::AacHeaders> aacHeaders_ {};
-        // The metric value at a granularity of seconds at the query time.
         shared_ptr<string> appName_ {};
-        // The name of the application to which the ingested stream belongs.
         shared_ptr<PublishItem::AudioBitRate> audioBitRate_ {};
-        // The metric value at a granularity of seconds at the query time.
         shared_ptr<PublishItem::AudioFrames> audioFrames_ {};
-        // The metric value at a granularity of seconds at the query time.
         shared_ptr<PublishItem::AudioInterval> audioInterval_ {};
-        // The metric value at a granularity of seconds at the query time.
         shared_ptr<PublishItem::AudioStamps> audioStamps_ {};
-        // The metric value at a granularity of seconds at the query time.
         shared_ptr<PublishItem::AvcHeaders> avcHeaders_ {};
-        // The metric value at a granularity of seconds at the query time.
         shared_ptr<string> codecInfo_ {};
-        // The audio and video encoding information.
         shared_ptr<string> domainName_ {};
-        // The ingest domain.
         shared_ptr<PublishItem::ErrorFlags> errorFlags_ {};
-        // The metric value at a granularity of seconds at the query time.
         shared_ptr<string> publishInterval_ {};
-        // The stream ingest duration. Unit: seconds. A hyphen (-) indicates that the stream is being ingested and the duration cannot be returned.
         shared_ptr<string> publishIp_ {};
-        // The IP address of the stream ingest client.
         shared_ptr<string> publishStatus_ {};
-        // The stream ingest status. A value of 1 indicates that the stream is being ingested. A value of 0 indicates that the stream was ingested.
         shared_ptr<string> publishTime_ {};
-        // The start time of stream ingest. The time is displayed in UTC.
         shared_ptr<string> stopTime_ {};
-        // The end time of stream ingest. The time is displayed in UTC.
         shared_ptr<string> streamName_ {};
-        // The name of the stream.
         shared_ptr<string> uniqueId_ {};
-        // The unique ID of each stream ingest occurrence.
         shared_ptr<PublishItem::VideoAndAudioStamp> videoAndAudioStamp_ {};
-        // The metric value at a granularity of seconds at the query time.
         shared_ptr<PublishItem::VideoBitRate> videoBitRate_ {};
-        // The metric value at a granularity of seconds at the query time.
         shared_ptr<PublishItem::VideoFrames> videoFrames_ {};
-        // The metric value at a granularity of seconds at the query time.
         shared_ptr<PublishItem::VideoInterval> videoInterval_ {};
-        // The metric value at a granularity of seconds at the query time.
         shared_ptr<PublishItem::VideoStamps> videoStamps_ {};
       };
 
@@ -1302,7 +1256,6 @@ namespace Models
   protected:
     // The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> requestId_ {};
-    // The request ID.
     shared_ptr<DescribeLiveUpVideoAudioInfoResponseBody::UpItems> upItems_ {};
   };
 

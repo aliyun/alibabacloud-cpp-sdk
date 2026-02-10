@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // The name of the Logstore to which log entries are delivered.
         shared_ptr<string> logstore_ {};
-        // The name of the Log Service project that is used for real-time log delivery.
         shared_ptr<string> project_ {};
-        // The ID of the region where the Log Service project is deployed.
         shared_ptr<string> region_ {};
       };
 
@@ -139,7 +136,6 @@ namespace Models
 
 
   protected:
-    // Details about the configuration of real-time log delivery.
     shared_ptr<ListLiveRealtimeLogDeliveryInfosResponseBody::Content> content_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

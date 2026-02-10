@@ -146,29 +146,13 @@ namespace Models
 
 
       protected:
-        // The primary domain name of the certificate.
         shared_ptr<string> certCommonName_ {};
-        // The time when the certificate expires.
         shared_ptr<string> certExpireTime_ {};
-        // The name of the certificate.
         shared_ptr<string> certName_ {};
-        // The time when the certificate became effective.
         shared_ptr<string> certStartTime_ {};
-        // The status of the certificate. Valid values:
-        // 
-        // *   **ok**: The certificate is working as expected.
-        // *   **mismatch**: The certificate does not match the specified domain name.
-        // *   **expired**: The certificate has expired.
-        // *   **expire_soon**: The certificate will expire soon.
         shared_ptr<string> certStatus_ {};
-        // The type of the certificate. Valid values:
-        // 
-        // *   **cas**: a certificate that you purchased from Certificate Management Service
-        // *   **upload**: a custom certificate that you uploaded
         shared_ptr<string> certType_ {};
-        // The time when the certificate was updated.
         shared_ptr<string> certUpdateTime_ {};
-        // The accelerated domain name.
         shared_ptr<string> domainName_ {};
       };
 
@@ -212,7 +196,6 @@ namespace Models
 
 
   protected:
-    // The information about the certificates.
     shared_ptr<DescribeLiveHttpsDomainListResponseBody::CertInfos> certInfos_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

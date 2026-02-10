@@ -3309,7 +3309,7 @@ BatchDeleteLiveDomainConfigsResponse Client::batchDeleteLiveDomainConfigs(const 
 }
 
 /**
- * @summary 根据一个或多个用户uid查询用户是否在线
+ * @summary Queries whether users are online by UID.
  *
  * @description ## Usage notes
  * You can query whether up to 20 users are online at a time.
@@ -3353,7 +3353,7 @@ BatchGetOnlineUsersResponse Client::batchGetOnlineUsersWithOptions(const BatchGe
 }
 
 /**
- * @summary 根据一个或多个用户uid查询用户是否在线
+ * @summary Queries whether users are online by UID.
  *
  * @description ## Usage notes
  * You can query whether up to 20 users are online at a time.
@@ -5317,7 +5317,7 @@ CreateRTCWhipStreamAddressResponse Client::createRTCWhipStreamAddress(const Crea
 }
 
 /**
- * @summary Creates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
+ * @summary Generates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
  *
  * @description ### [](#)Usage notes
  * To use the interactive streaming feature, you must use ApsaraVideo Real-time Communication (ARTC) SDK to join a channel and ingest streams over Real-Time Communication (RTC). In specific scenarios, you can ingest streams over Real-Time Messaging Protocol (RTMP) by using tools such as Open Broadcaster Software (OBS). Then, ApsaraVideo Live automatically converts the RTMP streams to RTC streams and distributes the RTC streams to viewers. You can call this operation to generate an ingest URL in the RTMP format. After you ingest RTMP streams, ApsaraVideo Live automatically converts the streams to RTC streams. Do not call this operation if you require only regular live streaming. To quickly ingest RTMP streams and start live streaming, see [Get started with ApsaraVideo Live](https://help.aliyun.com/document_detail/198676.html).
@@ -5356,7 +5356,7 @@ CreateRoomRealTimeStreamAddressResponse Client::createRoomRealTimeStreamAddressW
 }
 
 /**
- * @summary Creates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
+ * @summary Generates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
  *
  * @description ### [](#)Usage notes
  * To use the interactive streaming feature, you must use ApsaraVideo Real-time Communication (ARTC) SDK to join a channel and ingest streams over Real-Time Communication (RTC). In specific scenarios, you can ingest streams over Real-Time Messaging Protocol (RTMP) by using tools such as Open Broadcaster Software (OBS). Then, ApsaraVideo Live automatically converts the RTMP streams to RTC streams and distributes the RTC streams to viewers. You can call this operation to generate an ingest URL in the RTMP format. After you ingest RTMP streams, ApsaraVideo Live automatically converts the streams to RTC streams. Do not call this operation if you require only regular live streaming. To quickly ingest RTMP streams and start live streaming, see [Get started with ApsaraVideo Live](https://help.aliyun.com/document_detail/198676.html).
@@ -7421,6 +7421,8 @@ DeleteLiveMessageUserMessageResponse Client::deleteLiveMessageUserMessage(const 
 }
 
 /**
+ * @summary 删除直播封装配置
+ *
  * @description You can call this operation to delete a live stream encapsulation configuration. The deletion takes effect after you re-ingest the stream.
  * ## [](#qps-)QPS limit
  * You can call this operation up to 300 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
@@ -7470,6 +7472,8 @@ DeleteLivePackageConfigResponse Client::deleteLivePackageConfigWithOptions(const
 }
 
 /**
+ * @summary 删除直播封装配置
+ *
  * @description You can call this operation to delete a live stream encapsulation configuration. The deletion takes effect after you re-ingest the stream.
  * ## [](#qps-)QPS limit
  * You can call this operation up to 300 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
@@ -13857,6 +13861,8 @@ DescribeLiveMessageGroupBandResponse Client::describeLiveMessageGroupBand(const 
 }
 
 /**
+ * @summary 查询直播封装配置
+ *
  * @description Obtain the main streaming domain, and then call this operation to query live stream encapsulation configurations.
  * ## [](#qps-)QPS limit
  * You can call this operation up to 300 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
@@ -13918,6 +13924,8 @@ DescribeLivePackageConfigResponse Client::describeLivePackageConfigWithOptions(c
 }
 
 /**
+ * @summary 查询直播封装配置
+ *
  * @description Obtain the main streaming domain, and then call this operation to query live stream encapsulation configurations.
  * ## [](#qps-)QPS limit
  * You can call this operation up to 300 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
@@ -14951,7 +14959,7 @@ DescribeLiveRtcRecordUsageDataResponse Client::describeLiveRtcRecordUsageData(co
 }
 
 /**
- * @summary Queries the time shifting configurations under a domain name.
+ * @summary Queries the time shifting configurations of a domain name.
  *
  * @description This operation is applicable to the streaming domains.
  * ## QPS limit
@@ -14994,7 +15002,7 @@ DescribeLiveShiftConfigsResponse Client::describeLiveShiftConfigsWithOptions(con
 }
 
 /**
- * @summary Queries the time shifting configurations under a domain name.
+ * @summary Queries the time shifting configurations of a domain name.
  *
  * @description This operation is applicable to the streaming domains.
  * ## QPS limit
@@ -16739,7 +16747,7 @@ DescribeLiveStreamWatermarksResponse Client::describeLiveStreamWatermarks(const 
 }
 
 /**
- * @summary Queries the blacklist of live stream URLs under a main streaming domain.
+ * @summary Queries the live streams that are blacklisted under a domain name.
  *
  * @description The stream URLs refer to the URLs for playing in particular.
  * ## QPS limit
@@ -16790,7 +16798,7 @@ DescribeLiveStreamsBlockListResponse Client::describeLiveStreamsBlockListWithOpt
 }
 
 /**
- * @summary Queries the blacklist of live stream URLs under a main streaming domain.
+ * @summary Queries the live streams that are blacklisted under a domain name.
  *
  * @description The stream URLs refer to the URLs for playing in particular.
  * ## QPS limit
@@ -17707,7 +17715,7 @@ DescribeLiveUserDomainsResponse Client::describeLiveUserDomains(const DescribeLi
 }
 
 /**
- * @summary  查询指定域名流粒度批量数据
+ * @summary 查询指定域名流粒度批量数据
  *
  * @param request DescribeLiveUserStreamMetricDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17766,7 +17774,7 @@ DescribeLiveUserStreamMetricDataResponse Client::describeLiveUserStreamMetricDat
 }
 
 /**
- * @summary  查询指定域名流粒度批量数据
+ * @summary 查询指定域名流粒度批量数据
  *
  * @param request DescribeLiveUserStreamMetricDataRequest
  * @return DescribeLiveUserStreamMetricDataResponse
@@ -18425,7 +18433,7 @@ DescribeRTSNativeSDKVvDataResponse Client::describeRTSNativeSDKVvData(const Desc
 }
 
 /**
- * @summary 查询rtc云端录制文件与任务信息
+ * @summary Queries the information about a real-time communication (RTC) cloud-based recording task.
  *
  * @param request DescribeRtcCloudRecordingFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18456,7 +18464,7 @@ DescribeRtcCloudRecordingFilesResponse Client::describeRtcCloudRecordingFilesWit
 }
 
 /**
- * @summary 查询rtc云端录制文件与任务信息
+ * @summary Queries the information about a real-time communication (RTC) cloud-based recording task.
  *
  * @param request DescribeRtcCloudRecordingFilesRequest
  * @return DescribeRtcCloudRecordingFilesResponse
@@ -18464,6 +18472,52 @@ DescribeRtcCloudRecordingFilesResponse Client::describeRtcCloudRecordingFilesWit
 DescribeRtcCloudRecordingFilesResponse Client::describeRtcCloudRecordingFiles(const DescribeRtcCloudRecordingFilesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeRtcCloudRecordingFilesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询云端转码任务
+ *
+ * @param request DescribeRtcCloudTranscodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRtcCloudTranscodeResponse
+ */
+DescribeRtcCloudTranscodeResponse Client::describeRtcCloudTranscodeWithOptions(const DescribeRtcCloudTranscodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRtcCloudTranscode"},
+    {"version" , "2016-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRtcCloudTranscodeResponse>();
+}
+
+/**
+ * @summary 查询云端转码任务
+ *
+ * @param request DescribeRtcCloudTranscodeRequest
+ * @return DescribeRtcCloudTranscodeResponse
+ */
+DescribeRtcCloudTranscodeResponse Client::describeRtcCloudTranscode(const DescribeRtcCloudTranscodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRtcCloudTranscodeWithOptions(request, runtime);
 }
 
 /**
@@ -23193,7 +23247,7 @@ ModifyLiveMessageGroupBandResponse Client::modifyLiveMessageGroupBand(const Modi
 }
 
 /**
- * @summary Modifies the information about a user.
+ * @summary Modifies the information about one or more users.
  *
  * @param request ModifyLiveMessageUserInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23236,7 +23290,7 @@ ModifyLiveMessageUserInfoResponse Client::modifyLiveMessageUserInfoWithOptions(c
 }
 
 /**
- * @summary Modifies the information about a user.
+ * @summary Modifies the information about one or more users.
  *
  * @param request ModifyLiveMessageUserInfoRequest
  * @return ModifyLiveMessageUserInfoResponse
@@ -24287,7 +24341,7 @@ RemoveLiveMessageGroupBandResponse Client::removeLiveMessageGroupBand(const Remo
 }
 
 /**
- * @summary Removes a specified episode from an episode list.
+ * @summary Removes an episode from an episode list.
  *
  * @description ## [](#)Usage notes
  * You cannot use this operation on empty episode lists. For information about how to add episodes to an episode list, see [AddShowIntoShowList](https://help.aliyun.com/document_detail/370861.html).
@@ -24343,7 +24397,7 @@ RemoveShowFromShowListResponse Client::removeShowFromShowListWithOptions(const R
 }
 
 /**
- * @summary Removes a specified episode from an episode list.
+ * @summary Removes an episode from an episode list.
  *
  * @description ## [](#)Usage notes
  * You cannot use this operation on empty episode lists. For information about how to add episodes to an episode list, see [AddShowIntoShowList](https://help.aliyun.com/document_detail/370861.html).
@@ -26973,6 +27027,74 @@ StartRtcCloudRecordingResponse Client::startRtcCloudRecording(const StartRtcClou
 }
 
 /**
+ * @summary 创建云端转码任务
+ *
+ * @param tmpReq StartRtcCloudTranscodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartRtcCloudTranscodeResponse
+ */
+StartRtcCloudTranscodeResponse Client::startRtcCloudTranscodeWithOptions(const StartRtcCloudTranscodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  StartRtcCloudTranscodeShrinkRequest request = StartRtcCloudTranscodeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInputParam()) {
+    request.setInputParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInputParam(), "InputParam", "json"));
+  }
+
+  if (!!tmpReq.hasOutputParams()) {
+    request.setOutputParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOutputParams(), "OutputParams", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.getChannelId();
+  }
+
+  if (!!request.hasInputParamShrink()) {
+    query["InputParam"] = request.getInputParamShrink();
+  }
+
+  if (!!request.hasMaxIdleTime()) {
+    query["MaxIdleTime"] = request.getMaxIdleTime();
+  }
+
+  if (!!request.hasOutputParamsShrink()) {
+    query["OutputParams"] = request.getOutputParamsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartRtcCloudTranscode"},
+    {"version" , "2016-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartRtcCloudTranscodeResponse>();
+}
+
+/**
+ * @summary 创建云端转码任务
+ *
+ * @param request StartRtcCloudTranscodeRequest
+ * @return StartRtcCloudTranscodeResponse
+ */
+StartRtcCloudTranscodeResponse Client::startRtcCloudTranscode(const StartRtcCloudTranscodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startRtcCloudTranscodeWithOptions(request, runtime);
+}
+
+/**
  * @summary Stops a production studio. This stops the PVW and PGM scenes of the production studio.
  *
  * @description You can call the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation to create a production studio and call this operation to stop the production studio. When a production studio is stopped, its PVW and PGM scenes are stopped.
@@ -27031,7 +27153,7 @@ StopCasterResponse Client::stopCaster(const StopCasterRequest &request) {
 }
 
 /**
- * @summary Stops a specified preview scene.
+ * @summary Stops a specified preview (PVW) scene.
  *
  * @description ## Usage note
  * This operation is only applicable to the PVW scenes.
@@ -27077,7 +27199,7 @@ StopCasterSceneResponse Client::stopCasterSceneWithOptions(const StopCasterScene
 }
 
 /**
- * @summary Stops a specified preview scene.
+ * @summary Stops a specified preview (PVW) scene.
  *
  * @description ## Usage note
  * This operation is only applicable to the PVW scenes.
@@ -27487,7 +27609,7 @@ StopRtcAsrTaskResponse Client::stopRtcAsrTask(const StopRtcAsrTaskRequest &reque
 }
 
 /**
- * @summary 停止rtc云端录制任务
+ * @summary Stops a real-time communication (RTC) cloud-based recording task.
  *
  * @param request StopRtcCloudRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27518,7 +27640,7 @@ StopRtcCloudRecordingResponse Client::stopRtcCloudRecordingWithOptions(const Sto
 }
 
 /**
- * @summary 停止rtc云端录制任务
+ * @summary Stops a real-time communication (RTC) cloud-based recording task.
  *
  * @param request StopRtcCloudRecordingRequest
  * @return StopRtcCloudRecordingResponse
@@ -27529,7 +27651,53 @@ StopRtcCloudRecordingResponse Client::stopRtcCloudRecording(const StopRtcCloudRe
 }
 
 /**
- * @summary The N tags that you want to add for the resource.
+ * @summary 停止云端转码任务
+ *
+ * @param request StopRtcCloudTranscodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopRtcCloudTranscodeResponse
+ */
+StopRtcCloudTranscodeResponse Client::stopRtcCloudTranscodeWithOptions(const StopRtcCloudTranscodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopRtcCloudTranscode"},
+    {"version" , "2016-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopRtcCloudTranscodeResponse>();
+}
+
+/**
+ * @summary 停止云端转码任务
+ *
+ * @param request StopRtcCloudTranscodeRequest
+ * @return StopRtcCloudTranscodeResponse
+ */
+StopRtcCloudTranscodeResponse Client::stopRtcCloudTranscode(const StopRtcCloudTranscodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopRtcCloudTranscodeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Adds tags for domain names.
  *
  * @description The key of the tag. Valid values of N: **1 to 20**.
  *
@@ -27578,7 +27746,7 @@ TagLiveResourcesResponse Client::tagLiveResourcesWithOptions(const TagLiveResour
 }
 
 /**
- * @summary The N tags that you want to add for the resource.
+ * @summary Adds tags for domain names.
  *
  * @description The key of the tag. Valid values of N: **1 to 20**.
  *
@@ -27591,7 +27759,7 @@ TagLiveResourcesResponse Client::tagLiveResources(const TagLiveResourcesRequest 
 }
 
 /**
- * @summary 解绑标签
+ * @summary Deletes tags of domain names.
  *
  * @param request UnTagLiveResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27642,7 +27810,7 @@ UnTagLiveResourcesResponse Client::unTagLiveResourcesWithOptions(const UnTagLive
 }
 
 /**
- * @summary 解绑标签
+ * @summary Deletes tags of domain names.
  *
  * @param request UnTagLiveResourcesRequest
  * @return UnTagLiveResourcesResponse

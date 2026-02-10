@@ -129,9 +129,7 @@ namespace Models
 
 
           protected:
-            // The region name.
             shared_ptr<string> localName_ {};
-            // The region ID.
             shared_ptr<string> regionId_ {};
           };
 
@@ -168,12 +166,7 @@ namespace Models
 
 
       protected:
-        // The region type. Valid values:
-        // 
-        // *   domestic: in the Chinese mainland
-        // *   overseas: outside the Chinese mainland
         shared_ptr<string> regionType_ {};
-        // The regions.
         shared_ptr<LiveArea::Regions> regions_ {};
       };
 
@@ -210,7 +203,6 @@ namespace Models
 
 
   protected:
-    // Details about the regions.
     shared_ptr<DescribeLivePrivateLineAreasResponseBody::LiveAreasList> liveAreasList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

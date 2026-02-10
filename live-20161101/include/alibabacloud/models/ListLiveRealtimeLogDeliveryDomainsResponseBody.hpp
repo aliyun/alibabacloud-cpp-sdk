@@ -89,12 +89,7 @@ namespace Models
 
 
       protected:
-        // The streaming domain.
         shared_ptr<string> domainName_ {};
-        // The status of real-time log delivery. Valid values:
-        // 
-        // *   **online**: enabled
-        // *   **offline**: disabled
         shared_ptr<string> status_ {};
       };
 
@@ -131,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The domain names.
     shared_ptr<ListLiveRealtimeLogDeliveryDomainsResponseBody::Content> content_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -154,24 +154,13 @@ namespace Models
 
 
       protected:
-        // The application name.
         shared_ptr<string> appName_ {};
-        // The main streaming domain.
         shared_ptr<string> domainName_ {};
-        // Indicates whether the transcoded stream is ignored. Valid values:
-        // 
-        // *   **true** (default)
-        // *   **false**
         shared_ptr<bool> ignoreTranscode_ {};
-        // The part length. Unit: milliseconds.
         shared_ptr<int32_t> partDuration_ {};
-        // The streaming protocol and encapsulation format.
         shared_ptr<string> protocol_ {};
-        // The segment length. Unit: seconds.
         shared_ptr<int32_t> segmentDuration_ {};
-        // The number of segments.
         shared_ptr<int32_t> segmentNum_ {};
-        // The stream name.
         shared_ptr<string> streamName_ {};
       };
 
@@ -244,7 +233,6 @@ namespace Models
 
 
   protected:
-    // The live stream encapsulation configurations.
     shared_ptr<DescribeLivePackageConfigResponseBody::LivePackageConfigList> livePackageConfigList_ {};
     // The sorting order. Valid values:
     // 

@@ -116,15 +116,10 @@ namespace Models
 
 
       protected:
-        // The daily peak inbound bandwidth.
         shared_ptr<string> bandWidth_ {};
-        // The time when the daily peak number of concurrently ingested streams is reached.
         shared_ptr<string> peakTime_ {};
-        // The daily peak number of concurrently ingested streams.
         shared_ptr<int32_t> publishStreamNum_ {};
-        // The time queried on the day.
         shared_ptr<string> queryTime_ {};
-        // The category of the statistical data. If the DomainSwitch parameter is set to on, the value of this parameter is the domain name. If the DomainSwitch parameter is set to off or not specified, the value of this parameter is the user ID.
         shared_ptr<string> statName_ {};
       };
 
@@ -161,7 +156,6 @@ namespace Models
 
 
   protected:
-    // The information about the peak number of concurrently ingested streams on each day.
     shared_ptr<DescribeUpPeakPublishStreamDataResponseBody::DescribeUpPeakPublishStreamDatas> describeUpPeakPublishStreamDatas_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -208,40 +208,11 @@ namespace Models
 
 
           protected:
-            // The scaling mode of the video layer. Valid values:
-            // 
-            // *   **none** (default): specifies that the video layer is not scaled. The video layer is displayed based on its original size.
-            // *   **fit**: specifies that the video layer is adapted to the fill area. The video layer is displayed based on the fill area. In this case, the video layer is scaled proportionally, with its original aspect ratio retained. The video layer is placed in the center, with its longer sides aligned with the fill area. If the aspect ratio of the video layer is different from that of the fill area, the content of the lower layer is displayed alongside the shorter sides. If there is no lower layer, black bars are displayed instead.
             shared_ptr<string> fillMode_ {};
-            // The fixed delay of the video layer. This parameter is used to synchronize the video with subtitles.
-            // 
-            // Unit: milliseconds. Default value: **0**. Valid values: **0 to 5000**.
             shared_ptr<int32_t> fixedDelayDuration_ {};
-            // The normalized value of the height of the video layer.
-            // 
-            // *   If the FillMode parameter of the video layer is set to none, the width of the video layer is proportionally scaled based on this parameter. The default value is **0**, which indicates that the video layer is not scaled.
-            // *   If the FillMode parameter of the video layer is set to fit, the value of this parameter is greater than **0**.
             shared_ptr<float> heightNormalized_ {};
-            // The normalized value of the position of the video layer, in the format of `[x,y]`. Default value: `[0,0]`.
-            // 
-            // >  The values of x and y are normalized.
             shared_ptr<VideoLayer::PositionNormalizeds> positionNormalizeds_ {};
-            // The reference coordinates of the video layer. Valid values:
-            // 
-            // *   **topLeft** (default): the upper-left corner
-            // *   **topRight**: the upper-right corner
-            // *   **bottomLeft**: the lower-left corner
-            // *   **bottomRight**: the lower-right corner
-            // *   **center**: the center
-            // *   **topCenter**: the upper center
-            // *   **bottomCenter**: the lower center
-            // *   **leftCenter**: the left center
-            // *   **rightCenter**: the right center
             shared_ptr<string> positionRefer_ {};
-            // The normalized value of the width of the video layer.
-            // 
-            // *   If the FillMode parameter of the video layer is set to none, the height of the video layer is scaled based on this parameter. The default value is **0**, which indicates that the video layer is not scaled.
-            // *   If the FillMode parameter of the video layer is set to fit, the value of this parameter is greater than **0**.
             shared_ptr<float> widthNormalized_ {};
           };
 
@@ -391,19 +362,8 @@ namespace Models
 
 
           protected:
-            // The fixed delay of the audio layer. This parameter is used to synchronize the audio with subtitles.
-            // 
-            // Unit: milliseconds. Default value: **0**. Valid values: **0 to 5000**.
             shared_ptr<int32_t> fixedDelayDuration_ {};
-            // The sound channels that are used for volume input in the audio layer. Valid values:
-            // 
-            // *   **leftChannel**: the left channel
-            // *   **rightChannel**: the right channel
-            // *   **all** (default): both the left and right channels
             shared_ptr<string> validChannel_ {};
-            // The normalized value of the height of the audio layer. The width of the audio layer is proportionally scaled based on this parameter.
-            // 
-            // >  The default value is **0**, which indicates that the audio layer is not scaled.
             shared_ptr<float> volumeRate_ {};
           };
 
@@ -467,15 +427,10 @@ namespace Models
 
 
       protected:
-        // The configurations of the audio layers.
         shared_ptr<Layout::AudioLayers> audioLayers_ {};
-        // The location IDs of the video layers, which are in the same order as the video layers.
         shared_ptr<Layout::BlendList> blendList_ {};
-        // The ID of the layout.
         shared_ptr<string> layoutId_ {};
-        // The location IDs of the audio layers, which are in the same order as the audio layers.
         shared_ptr<Layout::MixList> mixList_ {};
-        // The configurations of the video layers, which are in the default array sequence.
         shared_ptr<Layout::VideoLayers> videoLayers_ {};
       };
 
@@ -519,7 +474,6 @@ namespace Models
 
 
   protected:
-    // The layouts.
     shared_ptr<DescribeCasterLayoutsResponseBody::Layouts> layouts_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

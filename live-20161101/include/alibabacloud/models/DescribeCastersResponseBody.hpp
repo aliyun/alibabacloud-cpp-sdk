@@ -159,9 +159,7 @@ namespace Models
 
 
           protected:
-            // The key of the tag.
             shared_ptr<string> tagKey_ {};
-            // The value of the tag.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -298,58 +296,21 @@ namespace Models
 
 
       protected:
-        // The ID of the production studio. You can specify the ID in a request to query the streaming URLs of the production studio, start the production studio, add a video resource, a layout, a component, or a playlist to the production studio, or query layouts of the production studio.
         shared_ptr<string> casterId_ {};
-        // The name of the production studio.
         shared_ptr<string> casterName_ {};
-        // The resolution in which the production studio plays videos. This parameter is returned if the subscription billing method is used. Valid values:
-        // 
-        // *   lp_ld: low definition
-        // *   lp_sd: standard definition
-        // *   lp_hd: high definition
-        // *   lp_ud: ultra high definition.
-        // *   lp_ld_v: low definition (portrait mode)
-        // *   lp_sd_v: standard definition (portrait mode)
-        // *   lp_hd_v: high definition (portrait mode)
-        // *   lp_ud_v: ultra high definition (portrait mode)
         shared_ptr<string> casterTemplate_ {};
-        // Indicates whether the channel is enabled for the production studio.
-        // 
-        // *   0: The channel is disabled.
-        // *   1: The channel is enabled.
         shared_ptr<int32_t> channelEnable_ {};
-        // The billing method. Valid values:
-        // 
-        // *   PrePaid: the subscription billing method
-        // *   PostPaid: the pay-as-you-go billing method
         shared_ptr<string> chargeType_ {};
-        // The client token that is used to ensure the idempotence of the request.
         shared_ptr<string> clientTokenId_ {};
-        // The time when the production studio was created.
         shared_ptr<string> createTime_ {};
-        // The streaming duration. Format: hh:mm:ss.
         shared_ptr<string> duration_ {};
-        // The time when the production studio expires.
         shared_ptr<string> expireTime_ {};
-        // The time when the production studio was last modified. For example, the time when the production studio was last started, stopped, or modified is returned.
         shared_ptr<string> lastModified_ {};
-        // The type of the production studio. Valid values:
-        // 
-        // *   0: playlist mode
-        // *   1: general mode
         shared_ptr<int32_t> normType_ {};
-        // The time when the production studio was purchased.
         shared_ptr<string> purchaseTime_ {};
-        // The resource group ID. For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/2381067.html).
         shared_ptr<string> resourceGroupId_ {};
-        // The time when the production studio was started. This parameter is returned if the production studio is in the streaming status.
         shared_ptr<string> startTime_ {};
-        // The status of the production studio. Valid values:
-        // 
-        // *   0: idle
-        // *   1: streaming
         shared_ptr<int32_t> status_ {};
-        // The tags.
         shared_ptr<Caster::Tags> tags_ {};
       };
 
@@ -393,7 +354,6 @@ namespace Models
 
 
   protected:
-    // The production studios.
     shared_ptr<DescribeCastersResponseBody::CasterList> casterList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

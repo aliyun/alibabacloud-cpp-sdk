@@ -123,11 +123,8 @@ namespace Models
 
 
         protected:
-          // The page number of the returned page.
           shared_ptr<int64_t> pageIndex_ {};
-          // The number of entries returned per page.
           shared_ptr<int64_t> pageSize_ {};
-          // The total number of entries returned.
           shared_ptr<int64_t> total_ {};
         };
 
@@ -215,15 +212,10 @@ namespace Models
 
 
           protected:
-            // The end of the time range for which the logs were queried.
             shared_ptr<string> endTime_ {};
-            // The name of the log file.
             shared_ptr<string> logName_ {};
-            // The path of the log file.
             shared_ptr<string> logPath_ {};
-            // The size of the log file.
             shared_ptr<int64_t> logSize_ {};
-            // The beginning of the time range for which the logs were queried.
             shared_ptr<string> startTime_ {};
           };
 
@@ -269,11 +261,8 @@ namespace Models
 
 
       protected:
-        // The total number of entries returned on the current page.
         shared_ptr<int64_t> logCount_ {};
-        // Details about the logs.
         shared_ptr<DomainLogDetail::LogInfos> logInfos_ {};
-        // The page information.
         shared_ptr<DomainLogDetail::PageInfos> pageInfos_ {};
       };
 
@@ -317,7 +306,6 @@ namespace Models
 
 
   protected:
-    // The log information.
     shared_ptr<DescribeLiveDomainLogResponseBody::DomainLogDetails> domainLogDetails_ {};
     // The streaming domain or ingest domain.
     shared_ptr<string> domainName_ {};

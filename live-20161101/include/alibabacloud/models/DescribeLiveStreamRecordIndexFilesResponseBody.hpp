@@ -218,35 +218,20 @@ namespace Models
 
 
       protected:
-        // The name of the application to which the live stream belongs.
         shared_ptr<string> appName_ {};
-        // The time when the index file was created.
         shared_ptr<string> createTime_ {};
-        // The main streaming domain.
         shared_ptr<string> domainName_ {};
-        // The recording length. Unit: seconds.
         shared_ptr<float> duration_ {};
-        // The end time of the index file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> endTime_ {};
-        // The video format.
         shared_ptr<string> format_ {};
-        // The video height.
         shared_ptr<int32_t> height_ {};
-        // The name of the Object Storage Service (OSS) bucket.
         shared_ptr<string> ossBucket_ {};
-        // The endpoint of the OSS bucket.
         shared_ptr<string> ossEndpoint_ {};
-        // The name of the storage file in OSS.
         shared_ptr<string> ossObject_ {};
-        // The ID of the index file.
         shared_ptr<string> recordId_ {};
-        // The URL of the index file.
         shared_ptr<string> recordUrl_ {};
-        // The start time of the index file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> startTime_ {};
-        // The name of the live stream.
         shared_ptr<string> streamName_ {};
-        // The video width.
         shared_ptr<int32_t> width_ {};
       };
 
@@ -325,7 +310,6 @@ namespace Models
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The index files.
     shared_ptr<DescribeLiveStreamRecordIndexFilesResponseBody::RecordIndexInfoList> recordIndexInfoList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -151,15 +151,10 @@ namespace Models
 
 
       protected:
-        // The name of the application to which the live stream belongs.
         shared_ptr<string> appName_ {};
-        // The business type. You can specify a model. The default value is the domain name.
         shared_ptr<string> bizType_ {};
-        // The main streaming domain.
         shared_ptr<string> domainName_ {};
-        // The moderation scenarios.
         shared_ptr<LiveAudioAuditConfig::Scenes> scenes_ {};
-        // The name of the live stream.
         shared_ptr<string> streamName_ {};
       };
 
@@ -196,7 +191,6 @@ namespace Models
 
 
   protected:
-    // The list of audio moderation configurations.
     shared_ptr<DescribeLiveAudioAuditConfigResponseBody::LiveAudioAuditConfigList> liveAudioAuditConfigList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

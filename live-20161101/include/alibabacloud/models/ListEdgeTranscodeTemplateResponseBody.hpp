@@ -155,28 +155,14 @@ namespace Models
 
 
       protected:
-        // The bitrate. If a numeric value is returned, a fixed bitrate is configured for the output stream. If ws is returned, the output stream maintains the same bitrate as the input stream.
         shared_ptr<string> bitrate_ {};
-        // The video encoding format. Valid values:
-        // 
-        // *   H.264
-        // *   H.265
         shared_ptr<string> codec_ {};
-        // The time when the image template was created.
         shared_ptr<string> createTime_ {};
-        // The frame rate. If a numeric value is returned, a fixed frame rate is configured for the output stream. If ws is returned, the output stream maintains the same frame rate as the input stream.
         shared_ptr<string> fps_ {};
-        // The group of pictures (GOP) size. The GOP size can be defined by the number of frames or the time interval between I-frames. If ws is returned, the output stream maintains the same GOP size as the input stream.
         shared_ptr<string> gop_ {};
-        // The template name.
         shared_ptr<string> name_ {};
-        // The resolution. If width and height values are returned, a fixed resolution is configured for the output stream. If ws is returned, the output stream maintains the same resolution as the input stream.
-        // 
-        // >  If the width value is -1, the width of the output video is adapted to a fixed height. If the height value is -2, the height of the output video is adapted to a fixed width.
         shared_ptr<string> resolution_ {};
-        // The ID of the edge transcoding template.
         shared_ptr<string> templateId_ {};
-        // The type of edge transcoding.
         shared_ptr<string> type_ {};
       };
 
@@ -222,7 +208,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the edge transcoding templates.
     shared_ptr<ListEdgeTranscodeTemplateResponseBody::TemplateList> templateList_ {};
     // The total number of templates returned.
     shared_ptr<int32_t> totalCount_ {};

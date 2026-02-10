@@ -76,6 +76,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> casterId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
     // The ID of the episode that you want to switch to.
     // 

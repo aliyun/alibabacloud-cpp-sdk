@@ -170,39 +170,15 @@ namespace Models
 
 
       protected:
-        // The acceleration region where the live content is prefetched. Valid values:
-        // 
-        // *   domestic: regions in the Chinese mainland.
-        // *   overseas: regions outside the Chinese mainland.
-        // *   global: regions in and outside the Chinese mainland.
-        // 
-        // >  If this parameter is left empty, the acceleration region configured for the domain name is returned.
         shared_ptr<string> area_ {};
-        // The time when the prefetch task was created.
         shared_ptr<string> createTime_ {};
-        // Indicates whether the prefetch task is successful. Valid values:
-        // 
-        // *   Successfully
-        // *   InternalError
         shared_ptr<string> description_ {};
-        // The streaming domain name.
         shared_ptr<string> domainName_ {};
-        // The streaming URL.
         shared_ptr<string> playUrl_ {};
-        // The time when the prefetch task ended.
         shared_ptr<string> preloadedEndTime_ {};
-        // The time when the prefetch task started.
         shared_ptr<string> preloadedStartTime_ {};
-        // The progress of the prefetch task.
         shared_ptr<string> process_ {};
-        // The status of the prefetch task. Valid values:
-        // 
-        // *   Success
-        // *   Failed
-        // 
-        // >  Success is returned only if the prefetch task is configured for all streaming URLs.
         shared_ptr<string> status_ {};
-        // The ID of the prefetch task.
         shared_ptr<string> taskId_ {};
       };
 
@@ -271,7 +247,6 @@ namespace Models
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The details of the prefetch task.
     shared_ptr<DescribeLiveStreamPreloadTasksResponseBody::PreloadTasks> preloadTasks_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

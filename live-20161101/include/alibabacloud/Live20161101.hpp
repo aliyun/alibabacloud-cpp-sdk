@@ -1024,7 +1024,7 @@ namespace Live20161101
       Models::BatchDeleteLiveDomainConfigsResponse batchDeleteLiveDomainConfigs(const Models::BatchDeleteLiveDomainConfigsRequest &request);
 
       /**
-       * @summary 根据一个或多个用户uid查询用户是否在线
+       * @summary Queries whether users are online by UID.
        *
        * @description ## Usage notes
        * You can query whether up to 20 users are online at a time.
@@ -1038,7 +1038,7 @@ namespace Live20161101
       Models::BatchGetOnlineUsersResponse batchGetOnlineUsersWithOptions(const Models::BatchGetOnlineUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据一个或多个用户uid查询用户是否在线
+       * @summary Queries whether users are online by UID.
        *
        * @description ## Usage notes
        * You can query whether up to 20 users are online at a time.
@@ -1717,7 +1717,7 @@ namespace Live20161101
       Models::CreateRTCWhipStreamAddressResponse createRTCWhipStreamAddress(const Models::CreateRTCWhipStreamAddressRequest &request);
 
       /**
-       * @summary Creates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
+       * @summary Generates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
        *
        * @description ### [](#)Usage notes
        * To use the interactive streaming feature, you must use ApsaraVideo Real-time Communication (ARTC) SDK to join a channel and ingest streams over Real-Time Communication (RTC). In specific scenarios, you can ingest streams over Real-Time Messaging Protocol (RTMP) by using tools such as Open Broadcaster Software (OBS). Then, ApsaraVideo Live automatically converts the RTMP streams to RTC streams and distributes the RTC streams to viewers. You can call this operation to generate an ingest URL in the RTMP format. After you ingest RTMP streams, ApsaraVideo Live automatically converts the streams to RTC streams. Do not call this operation if you require only regular live streaming. To quickly ingest RTMP streams and start live streaming, see [Get started with ApsaraVideo Live](https://help.aliyun.com/document_detail/198676.html).
@@ -1738,7 +1738,7 @@ namespace Live20161101
       Models::CreateRoomRealTimeStreamAddressResponse createRoomRealTimeStreamAddressWithOptions(const Models::CreateRoomRealTimeStreamAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
+       * @summary Generates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
        *
        * @description ### [](#)Usage notes
        * To use the interactive streaming feature, you must use ApsaraVideo Real-time Communication (ARTC) SDK to join a channel and ingest streams over Real-Time Communication (RTC). In specific scenarios, you can ingest streams over Real-Time Messaging Protocol (RTMP) by using tools such as Open Broadcaster Software (OBS). Then, ApsaraVideo Live automatically converts the RTMP streams to RTC streams and distributes the RTC streams to viewers. You can call this operation to generate an ingest URL in the RTMP format. After you ingest RTMP streams, ApsaraVideo Live automatically converts the streams to RTC streams. Do not call this operation if you require only regular live streaming. To quickly ingest RTMP streams and start live streaming, see [Get started with ApsaraVideo Live](https://help.aliyun.com/document_detail/198676.html).
@@ -2576,6 +2576,8 @@ namespace Live20161101
       Models::DeleteLiveMessageUserMessageResponse deleteLiveMessageUserMessage(const Models::DeleteLiveMessageUserMessageRequest &request);
 
       /**
+       * @summary 删除直播封装配置
+       *
        * @description You can call this operation to delete a live stream encapsulation configuration. The deletion takes effect after you re-ingest the stream.
        * ## [](#qps-)QPS limit
        * You can call this operation up to 300 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
@@ -2587,6 +2589,8 @@ namespace Live20161101
       Models::DeleteLivePackageConfigResponse deleteLivePackageConfigWithOptions(const Models::DeleteLivePackageConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 删除直播封装配置
+       *
        * @description You can call this operation to delete a live stream encapsulation configuration. The deletion takes effect after you re-ingest the stream.
        * ## [](#qps-)QPS limit
        * You can call this operation up to 300 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
@@ -5118,6 +5122,8 @@ namespace Live20161101
       Models::DescribeLiveMessageGroupBandResponse describeLiveMessageGroupBand(const Models::DescribeLiveMessageGroupBandRequest &request);
 
       /**
+       * @summary 查询直播封装配置
+       *
        * @description Obtain the main streaming domain, and then call this operation to query live stream encapsulation configurations.
        * ## [](#qps-)QPS limit
        * You can call this operation up to 300 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
@@ -5129,6 +5135,8 @@ namespace Live20161101
       Models::DescribeLivePackageConfigResponse describeLivePackageConfigWithOptions(const Models::DescribeLivePackageConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询直播封装配置
+       *
        * @description Obtain the main streaming domain, and then call this operation to query live stream encapsulation configurations.
        * ## [](#qps-)QPS limit
        * You can call this operation up to 300 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
@@ -5524,7 +5532,7 @@ namespace Live20161101
       Models::DescribeLiveRtcRecordUsageDataResponse describeLiveRtcRecordUsageData(const Models::DescribeLiveRtcRecordUsageDataRequest &request);
 
       /**
-       * @summary Queries the time shifting configurations under a domain name.
+       * @summary Queries the time shifting configurations of a domain name.
        *
        * @description This operation is applicable to the streaming domains.
        * ## QPS limit
@@ -5537,7 +5545,7 @@ namespace Live20161101
       Models::DescribeLiveShiftConfigsResponse describeLiveShiftConfigsWithOptions(const Models::DescribeLiveShiftConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the time shifting configurations under a domain name.
+       * @summary Queries the time shifting configurations of a domain name.
        *
        * @description This operation is applicable to the streaming domains.
        * ## QPS limit
@@ -6179,7 +6187,7 @@ namespace Live20161101
       Models::DescribeLiveStreamWatermarksResponse describeLiveStreamWatermarks(const Models::DescribeLiveStreamWatermarksRequest &request);
 
       /**
-       * @summary Queries the blacklist of live stream URLs under a main streaming domain.
+       * @summary Queries the live streams that are blacklisted under a domain name.
        *
        * @description The stream URLs refer to the URLs for playing in particular.
        * ## QPS limit
@@ -6192,7 +6200,7 @@ namespace Live20161101
       Models::DescribeLiveStreamsBlockListResponse describeLiveStreamsBlockListWithOptions(const Models::DescribeLiveStreamsBlockListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the blacklist of live stream URLs under a main streaming domain.
+       * @summary Queries the live streams that are blacklisted under a domain name.
        *
        * @description The stream URLs refer to the URLs for playing in particular.
        * ## QPS limit
@@ -6518,7 +6526,7 @@ namespace Live20161101
       Models::DescribeLiveUserDomainsResponse describeLiveUserDomains(const Models::DescribeLiveUserDomainsRequest &request);
 
       /**
-       * @summary  查询指定域名流粒度批量数据
+       * @summary 查询指定域名流粒度批量数据
        *
        * @param request DescribeLiveUserStreamMetricDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6527,7 +6535,7 @@ namespace Live20161101
       Models::DescribeLiveUserStreamMetricDataResponse describeLiveUserStreamMetricDataWithOptions(const Models::DescribeLiveUserStreamMetricDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary  查询指定域名流粒度批量数据
+       * @summary 查询指定域名流粒度批量数据
        *
        * @param request DescribeLiveUserStreamMetricDataRequest
        * @return DescribeLiveUserStreamMetricDataResponse
@@ -6759,7 +6767,7 @@ namespace Live20161101
       Models::DescribeRTSNativeSDKVvDataResponse describeRTSNativeSDKVvData(const Models::DescribeRTSNativeSDKVvDataRequest &request);
 
       /**
-       * @summary 查询rtc云端录制文件与任务信息
+       * @summary Queries the information about a real-time communication (RTC) cloud-based recording task.
        *
        * @param request DescribeRtcCloudRecordingFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6768,12 +6776,29 @@ namespace Live20161101
       Models::DescribeRtcCloudRecordingFilesResponse describeRtcCloudRecordingFilesWithOptions(const Models::DescribeRtcCloudRecordingFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询rtc云端录制文件与任务信息
+       * @summary Queries the information about a real-time communication (RTC) cloud-based recording task.
        *
        * @param request DescribeRtcCloudRecordingFilesRequest
        * @return DescribeRtcCloudRecordingFilesResponse
        */
       Models::DescribeRtcCloudRecordingFilesResponse describeRtcCloudRecordingFiles(const Models::DescribeRtcCloudRecordingFilesRequest &request);
+
+      /**
+       * @summary 查询云端转码任务
+       *
+       * @param request DescribeRtcCloudTranscodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRtcCloudTranscodeResponse
+       */
+      Models::DescribeRtcCloudTranscodeResponse describeRtcCloudTranscodeWithOptions(const Models::DescribeRtcCloudTranscodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询云端转码任务
+       *
+       * @param request DescribeRtcCloudTranscodeRequest
+       * @return DescribeRtcCloudTranscodeResponse
+       */
+      Models::DescribeRtcCloudTranscodeResponse describeRtcCloudTranscode(const Models::DescribeRtcCloudTranscodeRequest &request);
 
       /**
        * @summary Queries information about a subscription to mixed-stream relay events.
@@ -8500,7 +8525,7 @@ namespace Live20161101
       Models::ModifyLiveMessageGroupBandResponse modifyLiveMessageGroupBand(const Models::ModifyLiveMessageGroupBandRequest &request);
 
       /**
-       * @summary Modifies the information about a user.
+       * @summary Modifies the information about one or more users.
        *
        * @param request ModifyLiveMessageUserInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8509,7 +8534,7 @@ namespace Live20161101
       Models::ModifyLiveMessageUserInfoResponse modifyLiveMessageUserInfoWithOptions(const Models::ModifyLiveMessageUserInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about a user.
+       * @summary Modifies the information about one or more users.
        *
        * @param request ModifyLiveMessageUserInfoRequest
        * @return ModifyLiveMessageUserInfoResponse
@@ -8919,7 +8944,7 @@ namespace Live20161101
       Models::RemoveLiveMessageGroupBandResponse removeLiveMessageGroupBand(const Models::RemoveLiveMessageGroupBandRequest &request);
 
       /**
-       * @summary Removes a specified episode from an episode list.
+       * @summary Removes an episode from an episode list.
        *
        * @description ## [](#)Usage notes
        * You cannot use this operation on empty episode lists. For information about how to add episodes to an episode list, see [AddShowIntoShowList](https://help.aliyun.com/document_detail/370861.html).
@@ -8933,7 +8958,7 @@ namespace Live20161101
       Models::RemoveShowFromShowListResponse removeShowFromShowListWithOptions(const Models::RemoveShowFromShowListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a specified episode from an episode list.
+       * @summary Removes an episode from an episode list.
        *
        * @description ## [](#)Usage notes
        * You cannot use this operation on empty episode lists. For information about how to add episodes to an episode list, see [AddShowIntoShowList](https://help.aliyun.com/document_detail/370861.html).
@@ -9894,6 +9919,23 @@ namespace Live20161101
       Models::StartRtcCloudRecordingResponse startRtcCloudRecording(const Models::StartRtcCloudRecordingRequest &request);
 
       /**
+       * @summary 创建云端转码任务
+       *
+       * @param tmpReq StartRtcCloudTranscodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartRtcCloudTranscodeResponse
+       */
+      Models::StartRtcCloudTranscodeResponse startRtcCloudTranscodeWithOptions(const Models::StartRtcCloudTranscodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建云端转码任务
+       *
+       * @param request StartRtcCloudTranscodeRequest
+       * @return StartRtcCloudTranscodeResponse
+       */
+      Models::StartRtcCloudTranscodeResponse startRtcCloudTranscode(const Models::StartRtcCloudTranscodeRequest &request);
+
+      /**
        * @summary Stops a production studio. This stops the PVW and PGM scenes of the production studio.
        *
        * @description You can call the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation to create a production studio and call this operation to stop the production studio. When a production studio is stopped, its PVW and PGM scenes are stopped.
@@ -9919,7 +9961,7 @@ namespace Live20161101
       Models::StopCasterResponse stopCaster(const Models::StopCasterRequest &request);
 
       /**
-       * @summary Stops a specified preview scene.
+       * @summary Stops a specified preview (PVW) scene.
        *
        * @description ## Usage note
        * This operation is only applicable to the PVW scenes.
@@ -9931,7 +9973,7 @@ namespace Live20161101
       Models::StopCasterSceneResponse stopCasterSceneWithOptions(const Models::StopCasterSceneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a specified preview scene.
+       * @summary Stops a specified preview (PVW) scene.
        *
        * @description ## Usage note
        * This operation is only applicable to the PVW scenes.
@@ -10119,7 +10161,7 @@ namespace Live20161101
       Models::StopRtcAsrTaskResponse stopRtcAsrTask(const Models::StopRtcAsrTaskRequest &request);
 
       /**
-       * @summary 停止rtc云端录制任务
+       * @summary Stops a real-time communication (RTC) cloud-based recording task.
        *
        * @param request StopRtcCloudRecordingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10128,7 +10170,7 @@ namespace Live20161101
       Models::StopRtcCloudRecordingResponse stopRtcCloudRecordingWithOptions(const Models::StopRtcCloudRecordingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止rtc云端录制任务
+       * @summary Stops a real-time communication (RTC) cloud-based recording task.
        *
        * @param request StopRtcCloudRecordingRequest
        * @return StopRtcCloudRecordingResponse
@@ -10136,7 +10178,24 @@ namespace Live20161101
       Models::StopRtcCloudRecordingResponse stopRtcCloudRecording(const Models::StopRtcCloudRecordingRequest &request);
 
       /**
-       * @summary The N tags that you want to add for the resource.
+       * @summary 停止云端转码任务
+       *
+       * @param request StopRtcCloudTranscodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopRtcCloudTranscodeResponse
+       */
+      Models::StopRtcCloudTranscodeResponse stopRtcCloudTranscodeWithOptions(const Models::StopRtcCloudTranscodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止云端转码任务
+       *
+       * @param request StopRtcCloudTranscodeRequest
+       * @return StopRtcCloudTranscodeResponse
+       */
+      Models::StopRtcCloudTranscodeResponse stopRtcCloudTranscode(const Models::StopRtcCloudTranscodeRequest &request);
+
+      /**
+       * @summary Adds tags for domain names.
        *
        * @description The key of the tag. Valid values of N: **1 to 20**.
        *
@@ -10147,7 +10206,7 @@ namespace Live20161101
       Models::TagLiveResourcesResponse tagLiveResourcesWithOptions(const Models::TagLiveResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The N tags that you want to add for the resource.
+       * @summary Adds tags for domain names.
        *
        * @description The key of the tag. Valid values of N: **1 to 20**.
        *
@@ -10157,7 +10216,7 @@ namespace Live20161101
       Models::TagLiveResourcesResponse tagLiveResources(const Models::TagLiveResourcesRequest &request);
 
       /**
-       * @summary 解绑标签
+       * @summary Deletes tags of domain names.
        *
        * @param request UnTagLiveResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10166,7 +10225,7 @@ namespace Live20161101
       Models::UnTagLiveResourcesResponse unTagLiveResourcesWithOptions(const Models::UnTagLiveResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解绑标签
+       * @summary Deletes tags of domain names.
        *
        * @param request UnTagLiveResourcesRequest
        * @return UnTagLiveResourcesResponse

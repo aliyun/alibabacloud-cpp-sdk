@@ -126,15 +126,10 @@ namespace Models
 
 
       protected:
-        // The name of the application.
         shared_ptr<string> appName_ {};
-        // The total bandwidth consumed by the stream per minute. Unit: bit/s.
         shared_ptr<float> reqBps_ {};
-        // The total amount of traffic consumed by the stream per minute. Unit: bytes.
         shared_ptr<int64_t> reqTraffic_ {};
-        // The name of the stream.
         shared_ptr<string> streamName_ {};
-        // The timestamp of the returned data.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -221,7 +216,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The beginning of the time range that was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> startTime_ {};
-    // The data array returned.
     shared_ptr<DescribeLiveStreamPushMetricDetailDataResponseBody::StreamDetailData> streamDetailData_ {};
   };
 

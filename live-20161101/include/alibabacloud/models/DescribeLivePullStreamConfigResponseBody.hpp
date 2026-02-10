@@ -135,19 +135,12 @@ namespace Models
 
 
       protected:
-        // The name of the application to which the live stream belongs.
         shared_ptr<string> appName_ {};
-        // The main streaming domain.
         shared_ptr<string> domainName_ {};
-        // The end of the time range for which the configurations were queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> endTime_ {};
-        // The origin server of the live stream.
         shared_ptr<string> sourceUrl_ {};
-        // The live stream origin server that you are using.
         shared_ptr<string> sourceUsing_ {};
-        // The beginning of the time range for which the configurations were queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> startTime_ {};
-        // The name of the live stream.
         shared_ptr<string> streamName_ {};
       };
 
@@ -184,7 +177,6 @@ namespace Models
 
 
   protected:
-    // Details about the stream pulling configurations.
     shared_ptr<DescribeLivePullStreamConfigResponseBody::LiveAppRecordList> liveAppRecordList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

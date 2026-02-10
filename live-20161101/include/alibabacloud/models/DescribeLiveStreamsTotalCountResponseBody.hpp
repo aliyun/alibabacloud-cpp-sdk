@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The total number of live streams.
         shared_ptr<int32_t> count_ {};
-        // The timestamp.
         shared_ptr<string> timestamp_ {};
       };
 
@@ -130,7 +128,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The statistics about the live streams.
     shared_ptr<DescribeLiveStreamsTotalCountResponseBody::StreamCountList> streamCountList_ {};
   };
 

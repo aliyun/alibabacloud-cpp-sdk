@@ -221,15 +221,10 @@ namespace Models
 
 
           protected:
-            // The duration of a recording file. Unit: seconds.
             shared_ptr<int32_t> cycleDuration_ {};
-            // The format of recording files.
             shared_ptr<string> format_ {};
-            // The naming format of a recording file.
             shared_ptr<string> ossObjectPrefix_ {};
-            // The duration of a segment file. Unit: seconds.
             shared_ptr<int32_t> sliceDuration_ {};
-            // The naming format of a segment file.
             shared_ptr<string> sliceOssObjectPrefix_ {};
           };
 
@@ -331,15 +326,10 @@ namespace Models
 
 
           protected:
-            // The duration of a recording file. Unit: seconds.
             shared_ptr<int32_t> cycleDuration_ {};
-            // The format of recording files.
             shared_ptr<string> format_ {};
-            // The naming format of a recording file.
             shared_ptr<string> ossObjectPrefix_ {};
-            // The duration of a segment file. Unit: seconds.
             shared_ptr<int32_t> sliceDuration_ {};
-            // The naming format of a segment file.
             shared_ptr<string> sliceOssObjectPrefix_ {};
           };
 
@@ -459,38 +449,18 @@ namespace Models
 
 
       protected:
-        // The name of the application to which the live stream belongs.
         shared_ptr<string> appName_ {};
-        // The time when the recording configuration was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The maximum interruption duration of the live stream. If the actual interruption duration exceeds the threshold, a new recording is generated. Valid values: 15 to 21600. Unit: seconds.
         shared_ptr<int32_t> delayTime_ {};
-        // The name of the main streaming domain.
         shared_ptr<string> domainName_ {};
-        // The end time of the recording. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> endTime_ {};
-        // The configuration of on-demand recording. Valid values:
-        // 
-        // *   **0**: disables on-demand recording.
-        // *   **1**: enables on-demand recording that is triggered by HTTP callbacks.
-        // *   **2**: enables on-demand recording that is triggered by stream ingest parameters.
-        // *   **7**: enables on-demand recording by calling the [RealTimeRecordCommand](https://help.aliyun.com/document_detail/85907.html) operation to manually start or stop recording.
-        // 
-        // >  If you set OnDemand to **1**, you must call the [AddLiveRecordNotifyConfig](https://help.aliyun.com/document_detail/51831.html) operation to configure OnDemandUrl. Otherwise, the configuration of on-demand recording is invalid.
         shared_ptr<int32_t> onDemond_ {};
-        // The name of the Object Storage Service (OSS) bucket in which the recordings are stored.
         shared_ptr<string> ossBucket_ {};
-        // The endpoint of the OSS bucket.
         shared_ptr<string> ossEndpoint_ {};
-        // The recording formats of original streams.
         shared_ptr<LiveAppRecord::RecordFormatList> recordFormatList_ {};
-        // The start time of the recording. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> startTime_ {};
-        // The name of the live stream.
         shared_ptr<string> streamName_ {};
-        // The recording formats of transcoded streams.
         shared_ptr<LiveAppRecord::TranscodeRecordFormatList> transcodeRecordFormatList_ {};
-        // The transcoding templates.
         shared_ptr<LiveAppRecord::TranscodeTemplates> transcodeTemplates_ {};
       };
 
@@ -563,7 +533,6 @@ namespace Models
 
 
   protected:
-    // The list of recording configurations.
     shared_ptr<DescribeLiveRecordConfigResponseBody::LiveAppRecordList> liveAppRecordList_ {};
     // The sorting order of recording configurations by creation time.
     shared_ptr<string> order_ {};

@@ -135,26 +135,12 @@ namespace Models
 
 
       protected:
-        // The name of the application.
         shared_ptr<string> appName_ {};
-        // The main streaming domain.
         shared_ptr<string> domainName_ {};
-        // The name of the application for back-to-origin stream pulling. If the application specified in the streaming URL is used, this parameter is left empty.
         shared_ptr<string> pullAppName_ {};
-        // The parameters of back-to-origin stream pulling.
         shared_ptr<string> pullArgs_ {};
-        // The domain name for back-to-origin stream pulling.
         shared_ptr<string> pullDomainName_ {};
-        // The protocol for back-to-origin stream pulling. Valid values:
-        // 
-        // *   **rtmp**
-        // *   **httpflv**
-        // *   **hls**
         shared_ptr<string> pullProtocol_ {};
-        // Indicates whether stream pulling is triggered when the transcoded stream is played. Default value: **no**. Valid values:
-        // 
-        // *   **yes**
-        // *   **no**
         shared_ptr<string> transcodeLazy_ {};
       };
 
@@ -191,7 +177,6 @@ namespace Models
 
 
   protected:
-    // The configurations of triggered stream pulling.
     shared_ptr<DescribeLiveLazyPullStreamConfigResponseBody::LiveLazyPullConfigList> liveLazyPullConfigList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

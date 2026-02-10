@@ -106,14 +106,8 @@ namespace Models
 
 
       protected:
-        // Indicates whether the prefetch task is successful. Valid values:
-        // 
-        // *   Successfully
-        // *   InternalError
         shared_ptr<string> description_ {};
-        // The streaming URL.
         shared_ptr<string> playUrl_ {};
-        // The ID of the prefetch task.
         shared_ptr<string> taskId_ {};
       };
 
@@ -180,7 +174,6 @@ namespace Models
   protected:
     // The number of URLs for which the prefetch task configuration failed.
     shared_ptr<int32_t> failedURL_ {};
-    // The details of the prefetch task.
     shared_ptr<SetLiveStreamPreloadTasksResponseBody::PreloadTasksMessages> preloadTasksMessages_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

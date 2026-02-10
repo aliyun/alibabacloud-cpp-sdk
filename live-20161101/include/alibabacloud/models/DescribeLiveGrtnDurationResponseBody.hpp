@@ -116,23 +116,10 @@ namespace Models
 
 
       protected:
-        // The ID of the application.
         shared_ptr<string> appId_ {};
-        // The co-streaming duration. Unit: minutes.
         shared_ptr<int64_t> duration_ {};
-        // The media specification. Valid values:
-        // 
-        // *   0: audio-only. This is a basic specification.
-        // *   480P: standard definition (SD). The video resolution is 640 × 480 or lower.
-        // *   720P: high definition (HD). The video resolution is 1280 × 720 or lower.
-        // *   1080P: full HD. The video resolution is 1920 × 1080 or lower.
         shared_ptr<string> mediaProfile_ {};
-        // The media type. Valid values:
-        // 
-        // *   audio
-        // *   video
         shared_ptr<string> mediaType_ {};
-        // The timestamp of the returned data.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -171,7 +158,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the co-streaming usage data.
     shared_ptr<DescribeLiveGrtnDurationResponseBody::StreamDetailData> streamDetailData_ {};
   };
 

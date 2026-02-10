@@ -142,14 +142,8 @@ namespace Models
 
 
           protected:
-            // The number of online streams.
             shared_ptr<int64_t> count_ {};
-            // The video codec. Valid values:
-            // 
-            // *   **h264**
-            // *   **h265**
             shared_ptr<string> format_ {};
-            // The video bitrate. This parameter is returned only for transcoded streams.
             shared_ptr<int64_t> videoDataRate_ {};
           };
 
@@ -200,16 +194,9 @@ namespace Models
 
 
       protected:
-        // The number of online streams.
         shared_ptr<int64_t> count_ {};
-        // The maximum allowed number of concurrently ingested streams. This parameter is available only to users in the whitelist.
         shared_ptr<int64_t> limit_ {};
-        // The information about the live streams.
         shared_ptr<StreamCountInfo::StreamCountDetails> streamCountDetails_ {};
-        // The type of the live stream. Valid values:
-        // 
-        // *   **raw**: source streams
-        // *   **trans**: transcoded streams
         shared_ptr<string> type_ {};
       };
 
@@ -248,7 +235,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The statistics of the live streams.
     shared_ptr<DescribeLiveStreamCountResponseBody::StreamCountInfos> streamCountInfos_ {};
   };
 

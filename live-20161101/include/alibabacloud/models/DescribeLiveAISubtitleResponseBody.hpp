@@ -306,41 +306,23 @@ namespace Models
 
 
       protected:
-        // The background color of the subtitles.
         shared_ptr<string> bgColor_ {};
-        // The size of the background image.
         shared_ptr<float> bgWidthNormalized_ {};
-        // The font weight.
         shared_ptr<float> borderWidthNormalized_ {};
-        // The description of the template.
         shared_ptr<string> description_ {};
-        // The language to which the subtitles are translated.
         shared_ptr<string> dstLanguage_ {};
-        // The font color.
         shared_ptr<string> fontColor_ {};
-        // The font.
         shared_ptr<string> fontName_ {};
-        // The font size.
         shared_ptr<string> fontSizeNormalized_ {};
-        // The height of the preview image.
         shared_ptr<string> height_ {};
-        // The number of displayed lines.
         shared_ptr<int32_t> maxLines_ {};
-        // The position of the subtitles.
         shared_ptr<SubtitleConfig::PositionNormalized> positionNormalized_ {};
-        // The ID of the subtitle rule.
         shared_ptr<SubtitleConfig::RulesRefer> rulesRefer_ {};
-        // Indicates whether the source language of the subtitle is displayed.
         shared_ptr<int32_t> showSourceLan_ {};
-        // The source language of the subtitles.
         shared_ptr<string> srcLanguage_ {};
-        // The ID of the subtitle template.
         shared_ptr<string> subtitleId_ {};
-        // The name of the subtitle template.
         shared_ptr<string> subtitleName_ {};
-        // The width of the preview image.
         shared_ptr<string> width_ {};
-        // The number of words per line.
         shared_ptr<int32_t> wordPerline_ {};
       };
 
@@ -379,7 +361,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the subtitle templates.
     shared_ptr<DescribeLiveAISubtitleResponseBody::SubtitleConfigs> subtitleConfigs_ {};
   };
 

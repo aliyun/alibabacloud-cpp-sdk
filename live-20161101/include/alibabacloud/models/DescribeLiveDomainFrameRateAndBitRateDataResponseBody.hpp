@@ -107,13 +107,9 @@ namespace Models
 
 
       protected:
-        // The audio frame rate of the live stream. Unit: FPS.
         shared_ptr<float> audioFrameRate_ {};
-        // The bitrate of the live stream. Unit: bit/s.
         shared_ptr<float> bitRate_ {};
-        // The URL of the live stream.
         shared_ptr<string> streamUrl_ {};
-        // The video frame rate of the live stream. Unit: frames per second (FPS).
         shared_ptr<float> videoFrameRate_ {};
       };
 
@@ -150,7 +146,6 @@ namespace Models
 
 
   protected:
-    // The frame rates and bitrates of the live streams that were queried.
     shared_ptr<DescribeLiveDomainFrameRateAndBitRateDataResponseBody::FrameRateAndBitRateInfos> frameRateAndBitRateInfos_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

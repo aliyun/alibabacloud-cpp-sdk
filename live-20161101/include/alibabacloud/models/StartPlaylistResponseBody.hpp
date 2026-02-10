@@ -134,13 +134,9 @@ namespace Models
 
 
         protected:
-          // The streaming URL in the Flash Video (FLV) format.
           shared_ptr<string> pullFlvUrl_ {};
-          // The streaming URL in the Real-Time Messaging Protocol (RTMP) format.
           shared_ptr<string> pullM3U8Url_ {};
-          // The streaming URL in the M3U8 format.
           shared_ptr<string> pullRtmpUrl_ {};
-          // The video quality of the live stream. Valid values: **original**: original quality
           shared_ptr<string> quality_ {};
         };
 
@@ -197,7 +193,6 @@ namespace Models
       shared_ptr<string> domainName_ {};
       // The name of the live stream.
       shared_ptr<string> streamName_ {};
-      // The streaming URLs.
       shared_ptr<StreamInfo::Streams> streams_ {};
     };
 

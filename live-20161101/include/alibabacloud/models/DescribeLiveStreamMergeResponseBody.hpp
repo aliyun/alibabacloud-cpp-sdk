@@ -208,33 +208,20 @@ namespace Models
 
 
       protected:
-        // The name of the application that generates the output stream.
         shared_ptr<string> appName_ {};
-        // The application that is being used.
         shared_ptr<string> appUsing_ {};
-        // The streaming domain.
         shared_ptr<string> domainName_ {};
-        // The end time of the stream mixing.
         shared_ptr<string> endTime_ {};
-        // The names of the applications that generate the input additional streams other than the primary stream and secondary stream, and the names of these additional streams.
         shared_ptr<string> extraInAppStreams_ {};
-        // The name of the application that generates the input primary stream.
         shared_ptr<string> inAppName1_ {};
-        // The name of the application that generates the input secondary stream.
         shared_ptr<string> inAppName2_ {};
-        // The name of the input primary stream.
         shared_ptr<string> inStreamName1_ {};
-        // The name of the input secondary stream.
         shared_ptr<string> inStreamName2_ {};
         shared_ptr<string> liveMerger_ {};
         shared_ptr<string> mergeParameters_ {};
-        // The streaming protocol.
         shared_ptr<string> protocol_ {};
-        // The start time of the stream mixing.
         shared_ptr<string> startTime_ {};
-        // The name of the output stream.
         shared_ptr<string> streamName_ {};
-        // The stream that is being used.
         shared_ptr<string> streamUsing_ {};
       };
 
@@ -271,7 +258,6 @@ namespace Models
 
 
   protected:
-    // Live stream information list.
     shared_ptr<DescribeLiveStreamMergeResponseBody::LiveStreamMergeList> liveStreamMergeList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

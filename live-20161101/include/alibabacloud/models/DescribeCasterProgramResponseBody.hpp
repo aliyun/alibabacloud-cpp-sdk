@@ -196,29 +196,14 @@ namespace Models
 
 
       protected:
-        // The components.
         shared_ptr<Episode::ComponentIds> componentIds_ {};
-        // The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> endTime_ {};
-        // The ID of the episode.
         shared_ptr<string> episodeId_ {};
-        // The name of the episode.
         shared_ptr<string> episodeName_ {};
-        // The type of the episode. Valid values:
-        // 
-        // *   **Resource**: a video resource
-        // *   **Component**: a component
         shared_ptr<string> episodeType_ {};
-        // The ID of the video resource.
         shared_ptr<string> resourceId_ {};
-        // The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> startTime_ {};
-        // The status of the episode.
         shared_ptr<int32_t> status_ {};
-        // The policy for switching episodes. Valid values:
-        // 
-        // *   **TimeFirst**: The episode starts when the previous episode ends and ends when the next episode starts. If no next episode exists, the episode keeps repeating until a new episode is added or the production studio stops. This value is required for live video resources.
-        // *   **ContentFirst**: The episode starts and ends as scheduled.
         shared_ptr<string> switchType_ {};
       };
 
@@ -285,7 +270,6 @@ namespace Models
   protected:
     // The ID of the production studio.
     shared_ptr<string> casterId_ {};
-    // The list of the episodes.
     shared_ptr<DescribeCasterProgramResponseBody::Episodes> episodes_ {};
     // Indicates whether carousel playback is enabled.
     // 

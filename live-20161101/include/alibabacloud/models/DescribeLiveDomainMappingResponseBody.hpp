@@ -89,13 +89,7 @@ namespace Models
 
 
       protected:
-        // The domain name to which the queried domain name is mapped.
         shared_ptr<string> domainName_ {};
-        // The type of the queried domain name. Valid values:
-        // 
-        // *   **vhost**: main streaming domain
-        // *   **publish**: ingest domain
-        // *   **play**: sub-streaming domain
         shared_ptr<string> type_ {};
       };
 
@@ -132,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The mappings of the queried domain name.
     shared_ptr<DescribeLiveDomainMappingResponseBody::LiveDomainModels> liveDomainModels_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -98,17 +98,8 @@ namespace Models
 
 
       protected:
-        // The callback URL.
         shared_ptr<string> callback_ {};
-        // The callback template. The following fields are configured:
-        // 
-        // *   **{DomainName}**: the streaming domain.
-        // *   **{AppName}**: the name of the application to which the live stream belongs.
-        // *   **{StreamName}**: the name of the live stream.
-        // *   **{Timestamp}**: the time when the callback is returned. The value of this field is a UNIX timestamp. Unit: seconds.
-        // *   **{Result}**: the moderation results.
         shared_ptr<string> callbackTemplate_ {};
-        // The main streaming domain.
         shared_ptr<string> domainName_ {};
       };
 
@@ -145,7 +136,6 @@ namespace Models
 
 
   protected:
-    // The configuration of callbacks for audio moderation results.
     shared_ptr<DescribeLiveAudioAuditNotifyConfigResponseBody::LiveAudioAuditNotifyConfigList> liveAudioAuditNotifyConfigList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

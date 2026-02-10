@@ -107,13 +107,9 @@ namespace Models
 
 
       protected:
-        // The name of the operation performed.
         shared_ptr<string> action_ {};
-        // The IP address that is used by the client for live streaming.
         shared_ptr<string> clientIP_ {};
-        // The name of the live stream.
         shared_ptr<string> streamName_ {};
-        // The time when the operation was performed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -150,7 +146,6 @@ namespace Models
 
 
   protected:
-    // The operation records.
     shared_ptr<DescribeLiveStreamsControlHistoryResponseBody::ControlInfo> controlInfo_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

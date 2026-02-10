@@ -135,22 +135,12 @@ namespace Models
 
 
       protected:
-        // The name of the application to which the live stream belongs.
         shared_ptr<string> appName_ {};
-        // The streaming domain.
         shared_ptr<string> domainName_ {};
-        // The third-party URL to which the live stream is relayed.
         shared_ptr<string> dstUrl_ {};
-        // The end time of stream relay.
         shared_ptr<string> endTime_ {};
-        // The start time of stream relay.
         shared_ptr<string> startTime_ {};
-        // The name of the live stream.
         shared_ptr<string> streamName_ {};
-        // The validity period of stream relay. Valid values:
-        // 
-        // *   **always**: The stream can always be relayed.
-        // *   **time**: The stream can be relayed in a specified time period.
         shared_ptr<string> transferArgs_ {};
       };
 
@@ -187,7 +177,6 @@ namespace Models
 
 
   protected:
-    // The stream relay information.
     shared_ptr<DescribeLiveCenterTransferResponseBody::LiveCenterTransferInfoList> liveCenterTransferInfoList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

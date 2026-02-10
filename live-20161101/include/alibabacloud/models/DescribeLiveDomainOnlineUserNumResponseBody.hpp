@@ -133,9 +133,7 @@ namespace Models
 
 
           protected:
-            // The transcoding template. A value of origin indicates that the stream is a source stream.
             shared_ptr<string> transcodeTemplate_ {};
-            // The number of online users for the stream, which can be a source stream or transcoded stream.
             shared_ptr<int64_t> userNumber_ {};
           };
 
@@ -172,9 +170,7 @@ namespace Models
 
 
       protected:
-        // The statistics on the stream.
         shared_ptr<LiveStreamOnlineUserNumInfo::Infos> infos_ {};
-        // The name of the stream.
         shared_ptr<string> streamName_ {};
       };
 
@@ -225,7 +221,6 @@ namespace Models
 
 
   protected:
-    // The information about the streams.
     shared_ptr<DescribeLiveDomainOnlineUserNumResponseBody::OnlineUserInfo> onlineUserInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

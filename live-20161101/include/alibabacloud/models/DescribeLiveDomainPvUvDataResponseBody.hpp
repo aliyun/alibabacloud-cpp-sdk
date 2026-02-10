@@ -106,11 +106,8 @@ namespace Models
 
 
       protected:
-        // The number of PVs.
         shared_ptr<string> PV_ {};
-        // The timestamp of the data returned. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
-        // The number of UVs.
         shared_ptr<string> UV_ {};
       };
 
@@ -181,7 +178,6 @@ namespace Models
     shared_ptr<string> domainName_ {};
     // The end of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The data of PVs and UVs.
     shared_ptr<DescribeLiveDomainPvUvDataResponseBody::PvUvDataInfos> pvUvDataInfos_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

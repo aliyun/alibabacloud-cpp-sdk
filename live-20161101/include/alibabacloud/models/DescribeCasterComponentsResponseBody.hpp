@@ -162,31 +162,11 @@ namespace Models
 
 
         protected:
-          // The color of the text border. Valid values: **0x000000 to 0xffffff**. If the value of this parameter is **""**, this parameter does not take effect.
           shared_ptr<string> borderColor_ {};
-          // The normalized value of the width of the text border. The value of this parameter equals the border width divided by the font size.****
-          // 
-          // The maximum width of the text border is **16**, even if the border width calculated based on this parameter is greater than **16**.
           shared_ptr<float> borderWidthNormalized_ {};
-          // The color of the text. Valid values: **0x000000 to 0xffffff**.
           shared_ptr<string> color_ {};
-          // The font of the text, which is specified by the system. Valid values:
-          // 
-          // *   **KaiTi**
-          // *   **AlibabaPuHuiTi-Regular**
-          // *   **AlibabaPuHuiTi-Bold**
-          // *   **NAlibabaPuHuiTi-Light**
-          // *   **NotoSansHans-Regular**
-          // *   **NotoSansHans-Bold**
-          // *   **NotoSansHans-Light**
-          // 
-          // ****
           shared_ptr<string> fontName_ {};
-          // The normalized value of the font size of the text.
-          // 
-          // The value of this parameter equals the font size divided by the output height.**** The maximum font size of the text is **1,024**, even if the font size calculated based on this parameter is greater than **1,024**. If the value of this parameter is **-1**, this parameter does not take effect.
           shared_ptr<float> sizeNormalized_ {};
-          // The content of the text.
           shared_ptr<string> text_ {};
         };
 
@@ -218,7 +198,6 @@ namespace Models
 
 
         protected:
-          // The ID of the material from the media library.
           shared_ptr<string> materialId_ {};
         };
 
@@ -322,28 +301,10 @@ namespace Models
 
 
         protected:
-          // The normalized value for heights of the elements in the layer. The widths of the elements are proportionally scaled based on this parameter.
-          // 
-          // If the value of this parameter is **0**, the elements in the layer are not scaled.
           shared_ptr<float> heightNormalized_ {};
-          // The normalized value of the position of the layer, in the format of `[x,y]`. Example: `[0,0]`.
-          // 
-          // >  The values of x and y need to be normalized.
           shared_ptr<ComponentLayer::PositionNormalizeds> positionNormalizeds_ {};
-          // The reference coordinates of the layer. Valid values:
-          // 
-          // *   **topLeft**: the upper-left corner
-          // *   **topRight**: the upper-right corner
-          // *   **bottomLeft**: the lower-left corner
-          // *   **bottomRight**: the lower-right corner
           shared_ptr<string> positionRefer_ {};
-          // The transparency of the layer. Valid values: 0 to 255.
-          // 
-          // A value of **0** indicates that the layer is completely transparent. A value of **255** indicates that the layer is completely opaque.
           shared_ptr<int32_t> transparency_ {};
-          // The normalized value for widths of the elements in the layer. The heights of the elements are proportionally scaled based on this parameter. If the value of this parameter is **0**, the elements in the layer are not scaled.
-          // 
-          // >  This parameter conflicts with the HeightNormalized parameter. If both of them are specified, only the HeightNormalized parameter takes effect. If only one of them is specified, the latest specified value is used.
           shared_ptr<float> widthNormalized_ {};
         };
 
@@ -495,66 +456,19 @@ namespace Models
 
 
         protected:
-          // The color of the text border.
-          // 
-          // Valid values: **0x000000 to 0xffffff**. If the value of this parameter is "", this parameter does not take effect.
           shared_ptr<string> borderColor_ {};
-          // The normalized value of the width of the text border. The value of this parameter equals the border width divided by the font size.
-          // 
-          // The maximum width of the text border is **16**, even if the border width calculated based on this parameter is greater than **16**.
           shared_ptr<float> borderWidthNormalized_ {};
-          // The color of the text. Valid values: **0x000000 to 0xffffff**.
           shared_ptr<string> color_ {};
-          // The font of the text, which is specified by the system. Valid values:
-          // 
-          // *   **KaiTi**
-          // *   **AlibabaPuHuiTi-Regular**
-          // *   **AlibabaPuHuiTi-Bold**
-          // *   **NAlibabaPuHuiTi-Light**
-          // *   **NotoSansHans-Regular**
-          // *   **NotoSansHans-Bold**
-          // *   **NotoSansHans-Light**
-          // 
-          // ****
           shared_ptr<string> fontName_ {};
-          // The line spacing, which indicates the interval between every two lines.
           shared_ptr<float> lineSpaceNormalized_ {};
-          // The location ID of the component. If the value of the ComponentType parameter is caption, the LocationId parameter indicates the channel ID of the video source that is referenced by the component.
           shared_ptr<string> locationId_ {};
-          // The offset between the presentation timestamps (PTS) of the subtitles and the audio.
-          // 
-          // Valid values: **-10000 to 10000**. Default value: **0**.
           shared_ptr<int32_t> ptsOffset_ {};
-          // Indicates whether the source language of the subtitles is displayed. Valid values:
-          // 
-          // *   **true**: The source language is displayed.
-          // *   **false**: The source language is not displayed.
           shared_ptr<bool> showSourceLan_ {};
-          // The normalized value of the font size of the subtitles. The value of this parameter equals the font size divided by the output height.``
-          // 
-          // The maximum font size of the subtitles is **1,024**, even if the font size calculated based on this parameter is greater than **1,024**. If the value of this parameter is **-1**, this parameter does not take effect.
           shared_ptr<float> sizeNormalized_ {};
-          // The source language of the audio in the video source. Valid values:
-          // 
-          // *   **en**: English
-          // *   **cn**: Chinese
-          // *   **es**: Spanish
-          // *   **ru**: Russian
           shared_ptr<string> sourceLan_ {};
-          // The target language of the audio in the video source. Valid values:
-          // 
-          // *   **en**: English
-          // *   **cn**: Chinese
-          // *   **es**: Spanish
-          // *   **ru**: Russian
           shared_ptr<string> targetLan_ {};
-          // The maximum number of words displayed in each line.
           shared_ptr<int32_t> wordCountPerLine_ {};
-          // The word spacing, which indicates the interval between every two words.
           shared_ptr<float> wordSpaceNormalized_ {};
-          // The number of words displayed on the component. The value of this parameter can be specified based on the font size.
-          // 
-          // Valid values: **10 to 50**.
           shared_ptr<int32_t> wordsCount_ {};
         };
 
@@ -633,33 +547,14 @@ namespace Models
 
 
       protected:
-        // The information about the subtitle component.
         shared_ptr<Component::CaptionLayerContent> captionLayerContent_ {};
-        // The component ID.
         shared_ptr<string> componentId_ {};
-        // The information about the component layer, such as the size and layout.
         shared_ptr<Component::ComponentLayer> componentLayer_ {};
-        // The name of the component. By default, the name is the ID of the component.
         shared_ptr<string> componentName_ {};
-        // The type of the component. Valid values:
-        // 
-        // *   **text**: a text component
-        // *   **image**: an image component
-        // *   **caption**: a caption component
         shared_ptr<string> componentType_ {};
-        // The display effect for the component. Valid values:
-        // 
-        // *   **none**
-        // *   **animateH**: horizontal scrolling
-        // *   **animateV**: vertical scrolling
         shared_ptr<string> effect_ {};
-        // The information about the image component. This parameter is returned only for image components.
         shared_ptr<Component::ImageLayerContent> imageLayerContent_ {};
-        // The location ID of the component.
-        // 
-        // Each location ID can be assigned to only one component and must be in the RC[Number] format. The values of this parameter are in ascending order, for example, from RC01 to RC12.
         shared_ptr<string> locationId_ {};
-        // The information about the text component. This parameter is returned only for text components.
         shared_ptr<Component::TextLayerContent> textLayerContent_ {};
       };
 
@@ -703,7 +598,6 @@ namespace Models
 
 
   protected:
-    // The components.
     shared_ptr<DescribeCasterComponentsResponseBody::Components> components_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

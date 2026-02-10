@@ -115,13 +115,9 @@ namespace Models
 
 
       protected:
-        // The traffic over HTTP. Unit: bytes.
         shared_ptr<string> httpTrafficValue_ {};
-        // The traffic over HTTPS. Unit: bytes.
         shared_ptr<string> httpsTrafficValue_ {};
-        // The timestamp of the data returned.
         shared_ptr<string> timeStamp_ {};
-        // The total traffic. Unit: bytes.
         shared_ptr<string> trafficValue_ {};
       };
 
@@ -196,7 +192,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
     shared_ptr<string> startTime_ {};
-    // The network traffic data that was collected at each interval.
     shared_ptr<DescribeLiveDomainTrafficDataResponseBody::TrafficDataPerInterval> trafficDataPerInterval_ {};
   };
 

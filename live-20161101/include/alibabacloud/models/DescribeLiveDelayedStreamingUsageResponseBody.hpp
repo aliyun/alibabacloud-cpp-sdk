@@ -120,15 +120,10 @@ namespace Models
 
 
       protected:
-        // The domain name. If SplitBy is set to domain, the data returned is grouped by domain name.
         shared_ptr<string> domainName_ {};
-        // The duration of stream delay.
         shared_ptr<int64_t> duration_ {};
-        // The ID of the region. If SplitBy is set to region, the data returned is grouped by region.
         shared_ptr<string> region_ {};
-        // The name of the stream. If SplitBy is set to stream, the data returned is grouped by stream.
         shared_ptr<string> streamName_ {};
-        // The timestamp of the data returned.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -179,7 +174,6 @@ namespace Models
 
 
   protected:
-    // The details about the stream delay usage data.
     shared_ptr<DescribeLiveDelayedStreamingUsageResponseBody::DelayData> delayData_ {};
     // The end of the time range during which the data was queried.
     shared_ptr<string> endTime_ {};

@@ -79,7 +79,6 @@ namespace Models
 
 
       protected:
-        // The ID of the episode. You can use the ID as a request parameter in the API operation that is used to modify the episode list, query the information about the episode list, delete the episode, or modify the configurations of the episode.
         shared_ptr<string> episodeId_ {};
       };
 
@@ -116,7 +115,6 @@ namespace Models
 
 
   protected:
-    // The IDs of the episodes. The episode IDs are listed in the same order as specified by the variable N.
     shared_ptr<AddCasterProgramResponseBody::EpisodeIds> episodeIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

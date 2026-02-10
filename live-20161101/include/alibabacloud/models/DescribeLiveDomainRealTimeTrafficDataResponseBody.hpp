@@ -97,9 +97,7 @@ namespace Models
 
 
       protected:
-        // The timestamp of the data returned. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
-        // The traffic. Unit: bytes.
         shared_ptr<string> value_ {};
       };
 
@@ -170,7 +168,6 @@ namespace Models
     shared_ptr<string> domainName_ {};
     // The end of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The traffic that was collected at each interval.
     shared_ptr<DescribeLiveDomainRealTimeTrafficDataResponseBody::RealTimeTrafficDataPerInterval> realTimeTrafficDataPerInterval_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

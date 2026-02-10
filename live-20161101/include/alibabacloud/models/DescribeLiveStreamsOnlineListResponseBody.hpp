@@ -235,49 +235,22 @@ namespace Models
 
 
       protected:
-        // The name of the application to which the live stream belongs.
         shared_ptr<string> appName_ {};
-        // The ID of the audio codec.
         shared_ptr<int32_t> audioCodecId_ {};
-        // The audio bitrate of the live stream. Unit: Kbit/s.
-        // 
-        // >  This parameter can be returned after you submit a ticket for whitelist configuration. For more information about how to submit a ticket, see Contact us.
         shared_ptr<int32_t> audioDataRate_ {};
-        // The IP address of the client for stream ingest.
         shared_ptr<string> clientIp_ {};
-        // The main streaming domain.
         shared_ptr<string> domainName_ {};
-        // The frame rate. Unit: FPS.
         shared_ptr<int32_t> frameRate_ {};
-        // The height of the video resolution. Unit: pixels.
         shared_ptr<int32_t> height_ {};
-        // The ingest domain. If live center ingest was used, the streaming domain is returned.
         shared_ptr<string> publishDomain_ {};
-        // The start time of stream ingest. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> publishTime_ {};
-        // The ingest type. Valid values:
-        // 
-        // *   **edge**: edge ingest.
-        // *   **center**: live center ingest.
         shared_ptr<string> publishType_ {};
-        // The complete URL that was used to ingest the stream.
         shared_ptr<string> publishUrl_ {};
-        // The IP address of the ingest node.
         shared_ptr<string> serverIp_ {};
-        // The name of the live stream.
         shared_ptr<string> streamName_ {};
-        // Indicates whether the stream was transcoded. Valid values:
-        // 
-        // *   **yes**
-        // *   **no**
         shared_ptr<string> transcoded_ {};
-        // The ID of the video codec.
         shared_ptr<int32_t> videoCodecId_ {};
-        // The video bitrate of the live stream. Unit: Kbit/s.
-        // 
-        // >  This parameter can be returned after you submit a ticket for whitelist configuration. For more information about how to submit a ticket, see Contact us.
         shared_ptr<int32_t> videoDataRate_ {};
-        // The width of the video resolution. Unit: pixels.
         shared_ptr<int32_t> width_ {};
       };
 
@@ -342,7 +315,6 @@ namespace Models
 
 
   protected:
-    // The information about the live streams that are being ingested.
     shared_ptr<DescribeLiveStreamsOnlineListResponseBody::OnlineInfo> onlineInfo_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNum_ {};

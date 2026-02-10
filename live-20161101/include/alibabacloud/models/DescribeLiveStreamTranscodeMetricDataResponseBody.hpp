@@ -154,59 +154,13 @@ namespace Models
 
 
       protected:
-        // The name of the application.
         shared_ptr<string> appName_ {};
-        // The duration. Unit: seconds.
         shared_ptr<int64_t> duration_ {};
-        // The frame rate.
-        // 
-        // Valid values:
-        // 
-        // *   <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     normal
-        // 
-        //     <!-- -->
-        // 
-        // *   <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     high
-        // 
-        //     <!-- -->
-        // 
-        // *   <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     def
-        // 
-        //     <!-- -->
         shared_ptr<string> fps_ {};
-        // The region.
         shared_ptr<string> region_ {};
-        // The resolution. Valid values:
-        // 
-        // *   2K: 2K resolution
-        // *   4K: 4K resolution
-        // *   LD: low definition
-        // *   SD: standard definition
-        // *   HD: high definition
-        // *   def: audio
         shared_ptr<string> resolution_ {};
-        // The name of the stream.
         shared_ptr<string> streamName_ {};
-        // The timestamp of the returned data.
         shared_ptr<string> timeStamp_ {};
-        // The transcoding type. Valid values:
-        // 
-        // *   H264STD: standard transcoding based on H.264
-        // *   H264NBHD: Narrowband HD™ transcoding based on H.264
-        // *   H265STD: standard transcoding based on H.265
-        // *   AUDIO: audio transcoding
         shared_ptr<string> transcodeType_ {};
       };
 
@@ -293,7 +247,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> startTime_ {};
-    // The data array returned.
     shared_ptr<DescribeLiveStreamTranscodeMetricDataResponseBody::StreamDetailData> streamDetailData_ {};
   };
 

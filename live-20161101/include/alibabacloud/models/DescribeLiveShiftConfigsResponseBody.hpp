@@ -116,20 +116,10 @@ namespace Models
 
 
       protected:
-        // The application for which you configure time shifting.
         shared_ptr<string> appName_ {};
-        // The domain name for which you configure time shifting.
         shared_ptr<string> domainName_ {};
-        // Whether to ignore time shift generation for the transcode stream.
-        // 
-        // *   true: Ignore time shifting generation.
-        // *   false: Generate time shifting.
-        // 
-        // The default value is true.
         shared_ptr<bool> ignoreTranscode_ {};
-        // The name of the live stream for which you configure time shifting.
         shared_ptr<string> streamName_ {};
-        // The number of days for which the time shifting configurations are retained.
         shared_ptr<int32_t> vision_ {};
       };
 
@@ -166,7 +156,6 @@ namespace Models
 
 
   protected:
-    // The time shifting configurations.
     shared_ptr<DescribeLiveShiftConfigsResponseBody::Content> content_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The time when the stream started. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> streamTime_ {};
-        // The number of users at the current point in time.
         shared_ptr<string> userNum_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The number of historical online users for the live stream.
     shared_ptr<DescribeLiveStreamHistoryUserNumResponseBody::LiveStreamUserNumInfos> liveStreamUserNumInfos_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

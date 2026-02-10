@@ -97,9 +97,7 @@ namespace Models
 
 
       protected:
-        // The timestamp of the data returned.
         shared_ptr<string> timeStamp_ {};
-        // The traffic. Unit: bytes.
         shared_ptr<string> trafficValue_ {};
       };
 
@@ -174,7 +172,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The beginning of the time range during which the data was queried.
     shared_ptr<string> startTime_ {};
-    // The traffic data that was collected at each interval.
     shared_ptr<DescribeLiveDomainPushTrafficDataResponseBody::TrafficDataPerInterval> trafficDataPerInterval_ {};
   };
 

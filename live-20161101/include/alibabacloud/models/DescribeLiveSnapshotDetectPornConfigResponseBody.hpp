@@ -180,19 +180,12 @@ namespace Models
 
 
       protected:
-        // The application name.
         shared_ptr<string> appName_ {};
-        // The main streaming domain.
         shared_ptr<string> domainName_ {};
-        // The interval at which snapshots are captured from the live stream. Unit: seconds.
         shared_ptr<int32_t> interval_ {};
-        // The name of the OSS bucket.
         shared_ptr<string> ossBucket_ {};
-        // The endpoint of the OSS bucket.
         shared_ptr<string> ossEndpoint_ {};
-        // The name of the storage file in Object Storage Service (OSS).
         shared_ptr<string> ossObject_ {};
-        // The moderation scenario array.
         shared_ptr<LiveSnapshotDetectPornConfig::Scenes> scenes_ {};
       };
 
@@ -265,7 +258,6 @@ namespace Models
 
 
   protected:
-    // The list of video moderation configurations.
     shared_ptr<DescribeLiveSnapshotDetectPornConfigResponseBody::LiveSnapshotDetectPornConfigList> liveSnapshotDetectPornConfigList_ {};
     // The sort order.
     shared_ptr<string> order_ {};

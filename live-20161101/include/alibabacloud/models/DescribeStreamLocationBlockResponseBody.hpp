@@ -152,24 +152,13 @@ namespace Models
 
 
       protected:
-        // The name of the application in which the blocking applies.
         shared_ptr<string> appName_ {};
-        // The blocking type. Valid values:
-        // 
-        // *   blacklist
-        // *   whitelist
         shared_ptr<string> blockType_ {};
-        // The accelerated domain name.
         shared_ptr<string> domainName_ {};
-        // The blocked region. If multiple regions are specified, such as CN and AS, they are separated by commas (,).
         shared_ptr<string> locationList_ {};
-        // The time when the blocking ends. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> releaseTime_ {};
-        // The blocking status. Valid values: 0 (not started), 1 (blocking), 2 (successful), 3 (failed), 4 (expired), and 5 (deleting).
         shared_ptr<int32_t> status_ {};
-        // The name of the stream.
         shared_ptr<string> streamName_ {};
-        // The time when the configuration was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -242,7 +231,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The configurations.
     shared_ptr<DescribeStreamLocationBlockResponseBody::StreamBlockList> streamBlockList_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

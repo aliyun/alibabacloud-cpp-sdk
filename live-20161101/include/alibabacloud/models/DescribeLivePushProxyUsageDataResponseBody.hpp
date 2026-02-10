@@ -111,13 +111,9 @@ namespace Models
 
 
       protected:
-        // The domain name. If the value of SplitBy includes domain, the returned data is grouped by domain name.
         shared_ptr<string> domainName_ {};
-        // The ID of the region. If the value of SplitBy includes region, the returned data is grouped by region.
         shared_ptr<string> region_ {};
-        // The peak number of live center stream relay channels.
         shared_ptr<int64_t> streamCount_ {};
-        // The timestamp of the returned data.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -170,7 +166,6 @@ namespace Models
   protected:
     // The end time.
     shared_ptr<string> endTime_ {};
-    // The usage data of live center stream relay.
     shared_ptr<DescribeLivePushProxyUsageDataResponseBody::PushProxyData> pushProxyData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

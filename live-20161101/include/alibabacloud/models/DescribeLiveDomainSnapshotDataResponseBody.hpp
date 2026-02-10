@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The date.
         shared_ptr<string> date_ {};
-        // The total number of snapshots that were captured on the day.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -130,7 +128,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The daily statistics on the number of snapshots.
     shared_ptr<DescribeLiveDomainSnapshotDataResponseBody::SnapshotDataInfos> snapshotDataInfos_ {};
   };
 

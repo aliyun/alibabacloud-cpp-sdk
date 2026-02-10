@@ -127,11 +127,8 @@ namespace Models
 
 
         protected:
-          // The type of encryption. Fixed value: **aliyun**.
           shared_ptr<string> encryptType_ {};
-          // The rotation period of the CMK. Valid values: **60 to 3600**. Unit: seconds.
           shared_ptr<string> kmsKeyExpireInterval_ {};
-          // The ID of the customer master key (CMK) in Key Management Service (KMS).
           shared_ptr<string> kmsKeyID_ {};
         };
 
@@ -337,64 +334,24 @@ namespace Models
 
 
         protected:
-          // The bitrate of the output audio. Unit: Kbit/s. Valid values: **1 to 1000**.
           shared_ptr<int32_t> audioBitrate_ {};
-          // The number of sound channels. Valid values:
-          // 
-          // *   **1**: mono
-          // *   **2**: binaural
           shared_ptr<int32_t> audioChannelNum_ {};
-          // The audio encoding format.
           shared_ptr<string> audioCodec_ {};
-          // The audio encoding profile. Valid values:
-          // 
-          // *   **aac_low**
-          // *   **aac_he**
-          // *   **aac_he_v2**
-          // *   **aac_ld**
           shared_ptr<string> audioProfile_ {};
-          // The audio sampling rate. Valid values: **22050 to 96000**.
-          // 
-          // >  If the value of AudioProfile is **aac_ld**, the audio sampling rate cannot exceed 44100.
           shared_ptr<int32_t> audioRate_ {};
-          // Indicates whether B-frame removal is enabled. Fixed value: **0**.
           shared_ptr<string> bframes_ {};
-          // The source-based bitrate settings.
           Darabonba::Json bitrateWithSource_ {};
           shared_ptr<bool> deInterlaced_ {};
-          // Other source-based settings.
           Darabonba::Json extWithSource_ {};
-          // The frame rate of the output video. Unit: frames per second (FPS).
           shared_ptr<int32_t> FPS_ {};
-          // The source-based frame rate settings.
           Darabonba::Json fpsWithSource_ {};
-          // The group of pictures (GOP) size of the output video. Unit: frames. Valid values: **1 to 3000**.
           shared_ptr<string> gop_ {};
-          // The height of the output video.
           shared_ptr<int32_t> height_ {};
-          // The source-based resolution settings.
           Darabonba::Json resWithSource_ {};
-          // The Real-Time Transcoding (RTS) flag. Fixed value: **true**.
-          // 
-          // >  This parameter is returned only if RTS is used for transcoding.
           shared_ptr<string> rtsFlag_ {};
-          // The type of the custom transcoding template. Valid values:
-          // 
-          // *   **h264**: custom H.264 standard transcoding
-          // *   **h264-nbhd**: custom H.264 Narrowband HD™ transcoding
-          // *   **h265**: custom H.265 standard transcoding
-          // *   **h265-nbhd**: custom H.265 Narrowband HD™ transcoding
-          // *   **audio**: audio-only transcoding
           shared_ptr<string> templateType_ {};
-          // The bitrate of the output video. Unit: Kbit/s.
           shared_ptr<int32_t> videoBitrate_ {};
-          // The video encoding profile. Valid values:
-          // 
-          // *   **baseline**: suitable for mobile devices.
-          // *   **main**: suitable for standard-definition devices.
-          // *   **high**: suitable for high-definition devices.
           shared_ptr<string> videoProfile_ {};
-          // The width of the output video.
           shared_ptr<int32_t> width_ {};
         };
 
@@ -447,34 +404,11 @@ namespace Models
 
 
       protected:
-        // The custom transcoding configuration.
         shared_ptr<DomainTranscodeInfo::CustomTranscodeParameters> customTranscodeParameters_ {};
-        // The encryption settings.
         shared_ptr<DomainTranscodeInfo::EncryptParameters> encryptParameters_ {};
-        // Indicates whether forcible transcoding is used. Valid values:
-        // 
-        // *   **true**: Delayed transcoding is used.
-        // *   **false**: Forcible transcoding is used.
         shared_ptr<bool> isLazy_ {};
-        // The application name.
         shared_ptr<string> transcodeApp_ {};
-        // The main streaming domain.
         shared_ptr<string> transcodeName_ {};
-        // The transcoding template ID. Valid values:
-        // 
-        // *   **Standard transcoding**:
-        // 
-        //     *   **lld**: low definition
-        //     *   **lsd**: standard definition
-        //     *   **lhd**: high definition
-        //     *   **lud**: ultra-high definition
-        // 
-        // *   **Narrowband HD™ transcoding**:
-        // 
-        //     *   **ld**: low definition
-        //     *   **sd**: standard definition
-        //     *   **hd**: high definition
-        //     *   **ud**: ultra-high definition
         shared_ptr<string> transcodeTemplate_ {};
       };
 
@@ -511,7 +445,6 @@ namespace Models
 
 
   protected:
-    // The transcoding configurations.
     shared_ptr<DescribeLiveStreamTranscodeInfoResponseBody::DomainTranscodeList> domainTranscodeList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

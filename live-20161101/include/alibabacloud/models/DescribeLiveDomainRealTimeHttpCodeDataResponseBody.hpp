@@ -146,11 +146,8 @@ namespace Models
 
 
           protected:
-            // The HTTP status code.
             shared_ptr<string> code_ {};
-            // The number of times the HTTP status code was returned.
             shared_ptr<string> count_ {};
-            // The proportion of the HTTP status code.
             shared_ptr<string> proportion_ {};
           };
 
@@ -187,9 +184,7 @@ namespace Models
 
 
       protected:
-        // The timestamp of the data returned.
         shared_ptr<string> timeStamp_ {};
-        // The proportions of HTTP status codes.
         shared_ptr<UsageData::Value> value_ {};
       };
 
@@ -260,7 +255,6 @@ namespace Models
     shared_ptr<string> domainName_ {};
     // The end of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The proportions of HTTP status codes at each time interval.
     shared_ptr<DescribeLiveDomainRealTimeHttpCodeDataResponseBody::RealTimeHttpCodeData> realTimeHttpCodeData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

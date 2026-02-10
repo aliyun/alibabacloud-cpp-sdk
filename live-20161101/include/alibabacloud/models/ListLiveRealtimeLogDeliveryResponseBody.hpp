@@ -125,20 +125,11 @@ namespace Models
 
 
       protected:
-        // The ID of the domain name.
         shared_ptr<int32_t> dmId_ {};
-        // The streaming domain.
         shared_ptr<string> domainName_ {};
-        // The name of the Logstore to which log entries are delivered.
         shared_ptr<string> logstore_ {};
-        // The name of the Log Service project that is used for real-time log delivery.
         shared_ptr<string> project_ {};
-        // The ID of the region where the Log Service project is deployed.
         shared_ptr<string> region_ {};
-        // The status of real-time log delivery. Valid values:
-        // 
-        // *   **online**: enabled
-        // *   **offline**: disabled
         shared_ptr<string> status_ {};
       };
 
@@ -175,7 +166,6 @@ namespace Models
 
 
   protected:
-    // The configurations of real-time log delivery.
     shared_ptr<ListLiveRealtimeLogDeliveryResponseBody::Content> content_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

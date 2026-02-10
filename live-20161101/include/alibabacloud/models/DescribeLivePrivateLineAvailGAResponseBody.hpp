@@ -171,36 +171,16 @@ namespace Models
 
 
       protected:
-        // The acceleration channel.
         shared_ptr<string> accelerationArea_ {};
-        // The acceleration type. Valid values:
-        // 
-        // *   play: streaming acceleration
-        // *   publish: stream ingest acceleration
         shared_ptr<string> accelerationType_ {};
-        // The name of the application.
         shared_ptr<string> appName_ {};
-        // Indicates whether the GA instance is bound to an acceleration circuit. Valid values:
-        // 
-        // *   yes
-        // *   no
         shared_ptr<string> bindingStatus_ {};
-        // The main streaming domain.
         shared_ptr<string> domainName_ {};
-        // The accelerated IP address.
         shared_ptr<string> IP_ {};
-        // The ID of the GA instance.
         shared_ptr<string> instanceId_ {};
-        // The status of the GA instance. Valid values:
-        // 
-        // *   active: The GA instance is available.
-        // *   inactive: The GA instance is unavailable.
         shared_ptr<string> status_ {};
-        // The name of the live stream.
         shared_ptr<string> streamName_ {};
-        // The user ID (UID).
         shared_ptr<string> uid_ {};
-        // The live center.
         shared_ptr<string> videoCenter_ {};
       };
 
@@ -237,7 +217,6 @@ namespace Models
 
 
   protected:
-    // The GA instance configuration details.
     shared_ptr<DescribeLivePrivateLineAvailGAResponseBody::LivePrivateLineAvailGAs> livePrivateLineAvailGAs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

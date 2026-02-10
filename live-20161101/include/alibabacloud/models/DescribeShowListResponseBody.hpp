@@ -167,13 +167,9 @@ namespace Models
 
 
           protected:
-            // The custom type label.
             shared_ptr<int32_t> liveInputType_ {};
-            // The ID of the video-on-demand (VOD) file.
             shared_ptr<string> resourceId_ {};
-            // The type of the resource.
             shared_ptr<string> resourceType_ {};
-            // The URL of the resource.
             shared_ptr<string> resourceUrl_ {};
           };
 
@@ -217,17 +213,10 @@ namespace Models
 
 
         protected:
-          // The duration of the episode. Unit: seconds.
           shared_ptr<int64_t> duration_ {};
-          // The number of times the episode repeats after the first playback is complete.
-          // 
-          // For example, if you set the value to 0, the episode is to be played once. If you set the value to 1, the episode is to be played twice.
           shared_ptr<int32_t> repeatTimes_ {};
-          // The resource information.
           shared_ptr<Show::ResourceInfo> resourceInfo_ {};
-          // The ID of the episode.
           shared_ptr<string> showId_ {};
-          // The name of the episode.
           shared_ptr<string> showName_ {};
         };
 
@@ -312,7 +301,6 @@ namespace Models
       // 
       // > You can configure this parameter only before the episode list starts playing. After you configure this parameter, when the specified point in time is reached, any episode that is playing stops and the episode of the highest priority in the episode list starts to play.
       shared_ptr<string> highPriorityShowStartTime_ {};
-      // The episodes in the episode list.
       shared_ptr<ShowListInfo::ShowList> showList_ {};
       // The number of additional times the episode list is played by default. The value is 0.
       shared_ptr<int32_t> showListRepeatTimes_ {};

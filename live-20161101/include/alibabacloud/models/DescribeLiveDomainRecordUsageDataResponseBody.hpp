@@ -129,17 +129,11 @@ namespace Models
 
 
       protected:
-        // The number of peak channels.
         shared_ptr<int64_t> count_ {};
-        // The main streaming domain. This parameter is returned if the value of the request parameter SplitBy contains `domain`.
         shared_ptr<string> domain_ {};
-        // The recording length. Unit: seconds.
         shared_ptr<int64_t> duration_ {};
-        // The region ID.
         shared_ptr<string> region_ {};
-        // The time when recording started.
         shared_ptr<string> timeStamp_ {};
-        // The recording file type. This parameter is returned if the value of the request parameter SplitBy contains `record_fmt`.
         shared_ptr<string> type_ {};
       };
 
@@ -192,7 +186,6 @@ namespace Models
   protected:
     // The end of the time range during which data was queried.
     shared_ptr<string> endTime_ {};
-    // The recording data that was collected for each interval.
     shared_ptr<DescribeLiveDomainRecordUsageDataResponseBody::RecordUsageData> recordUsageData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -116,15 +116,10 @@ namespace Models
 
 
       protected:
-        // The number of times DRM-encrypted live streams are requested.
         shared_ptr<int64_t> count_ {};
-        // The domain name. If the value of SplitBy includes domain, the returned data is grouped by domain name.
         shared_ptr<string> domain_ {};
-        // The DRM type. If the value of SplitBy includes drm_type, the returned data is grouped by DRM type.
         shared_ptr<string> drmType_ {};
-        // The ID of the region. If the value of SplitBy includes region, the returned data is grouped by region.
         shared_ptr<string> region_ {};
-        // The timestamp of the returned data.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -161,7 +156,6 @@ namespace Models
 
 
   protected:
-    // The usage of the DRM encryption service at each time interval.
     shared_ptr<DescribeLiveDrmUsageDataResponseBody::DrmUsageData> drmUsageData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
