@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EntityName, entityName_);
       DARABONBA_PTR_TO_JSON(EntityType, entityType_);
       DARABONBA_PTR_TO_JSON(EntityUuid, entityUuid_);
+      DARABONBA_PTR_TO_JSON(EntityUuids, entityUuids_);
       DARABONBA_PTR_TO_JSON(IncidentUuid, incidentUuid_);
       DARABONBA_PTR_TO_JSON(IsMalwareEntity, isMalwareEntity_);
       DARABONBA_PTR_TO_JSON(MalwareType, malwareType_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EntityName, entityName_);
       DARABONBA_PTR_FROM_JSON(EntityType, entityType_);
       DARABONBA_PTR_FROM_JSON(EntityUuid, entityUuid_);
+      DARABONBA_PTR_FROM_JSON(EntityUuids, entityUuids_);
       DARABONBA_PTR_FROM_JSON(IncidentUuid, incidentUuid_);
       DARABONBA_PTR_FROM_JSON(IsMalwareEntity, isMalwareEntity_);
       DARABONBA_PTR_FROM_JSON(MalwareType, malwareType_);
@@ -51,110 +53,118 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentPage_ != nullptr
-        && this->entityName_ != nullptr && this->entityType_ != nullptr && this->entityUuid_ != nullptr && this->incidentUuid_ != nullptr && this->isMalwareEntity_ != nullptr
-        && this->malwareType_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->roleFor_ != nullptr && this->roleType_ != nullptr
-        && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->currentPage_ == nullptr
+        && this->entityName_ == nullptr && this->entityType_ == nullptr && this->entityUuid_ == nullptr && this->entityUuids_ == nullptr && this->incidentUuid_ == nullptr
+        && this->isMalwareEntity_ == nullptr && this->malwareType_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr
+        && this->roleType_ == nullptr && this->tags_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListEntitiesRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // entityName Field Functions 
     bool hasEntityName() const { return this->entityName_ != nullptr;};
     void deleteEntityName() { this->entityName_ = nullptr;};
-    inline string entityName() const { DARABONBA_PTR_GET_DEFAULT(entityName_, "") };
+    inline string getEntityName() const { DARABONBA_PTR_GET_DEFAULT(entityName_, "") };
     inline ListEntitiesRequest& setEntityName(string entityName) { DARABONBA_PTR_SET_VALUE(entityName_, entityName) };
 
 
     // entityType Field Functions 
     bool hasEntityType() const { return this->entityType_ != nullptr;};
     void deleteEntityType() { this->entityType_ = nullptr;};
-    inline string entityType() const { DARABONBA_PTR_GET_DEFAULT(entityType_, "") };
+    inline string getEntityType() const { DARABONBA_PTR_GET_DEFAULT(entityType_, "") };
     inline ListEntitiesRequest& setEntityType(string entityType) { DARABONBA_PTR_SET_VALUE(entityType_, entityType) };
 
 
     // entityUuid Field Functions 
     bool hasEntityUuid() const { return this->entityUuid_ != nullptr;};
     void deleteEntityUuid() { this->entityUuid_ = nullptr;};
-    inline string entityUuid() const { DARABONBA_PTR_GET_DEFAULT(entityUuid_, "") };
+    inline string getEntityUuid() const { DARABONBA_PTR_GET_DEFAULT(entityUuid_, "") };
     inline ListEntitiesRequest& setEntityUuid(string entityUuid) { DARABONBA_PTR_SET_VALUE(entityUuid_, entityUuid) };
+
+
+    // entityUuids Field Functions 
+    bool hasEntityUuids() const { return this->entityUuids_ != nullptr;};
+    void deleteEntityUuids() { this->entityUuids_ = nullptr;};
+    inline string getEntityUuids() const { DARABONBA_PTR_GET_DEFAULT(entityUuids_, "") };
+    inline ListEntitiesRequest& setEntityUuids(string entityUuids) { DARABONBA_PTR_SET_VALUE(entityUuids_, entityUuids) };
 
 
     // incidentUuid Field Functions 
     bool hasIncidentUuid() const { return this->incidentUuid_ != nullptr;};
     void deleteIncidentUuid() { this->incidentUuid_ = nullptr;};
-    inline string incidentUuid() const { DARABONBA_PTR_GET_DEFAULT(incidentUuid_, "") };
+    inline string getIncidentUuid() const { DARABONBA_PTR_GET_DEFAULT(incidentUuid_, "") };
     inline ListEntitiesRequest& setIncidentUuid(string incidentUuid) { DARABONBA_PTR_SET_VALUE(incidentUuid_, incidentUuid) };
 
 
     // isMalwareEntity Field Functions 
     bool hasIsMalwareEntity() const { return this->isMalwareEntity_ != nullptr;};
     void deleteIsMalwareEntity() { this->isMalwareEntity_ = nullptr;};
-    inline string isMalwareEntity() const { DARABONBA_PTR_GET_DEFAULT(isMalwareEntity_, "") };
+    inline string getIsMalwareEntity() const { DARABONBA_PTR_GET_DEFAULT(isMalwareEntity_, "") };
     inline ListEntitiesRequest& setIsMalwareEntity(string isMalwareEntity) { DARABONBA_PTR_SET_VALUE(isMalwareEntity_, isMalwareEntity) };
 
 
     // malwareType Field Functions 
     bool hasMalwareType() const { return this->malwareType_ != nullptr;};
     void deleteMalwareType() { this->malwareType_ = nullptr;};
-    inline string malwareType() const { DARABONBA_PTR_GET_DEFAULT(malwareType_, "") };
+    inline string getMalwareType() const { DARABONBA_PTR_GET_DEFAULT(malwareType_, "") };
     inline ListEntitiesRequest& setMalwareType(string malwareType) { DARABONBA_PTR_SET_VALUE(malwareType_, malwareType) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListEntitiesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListEntitiesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // roleFor Field Functions 
     bool hasRoleFor() const { return this->roleFor_ != nullptr;};
     void deleteRoleFor() { this->roleFor_ = nullptr;};
-    inline int64_t roleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
+    inline int64_t getRoleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
     inline ListEntitiesRequest& setRoleFor(int64_t roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
     // roleType Field Functions 
     bool hasRoleType() const { return this->roleType_ != nullptr;};
     void deleteRoleType() { this->roleType_ = nullptr;};
-    inline int32_t roleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, 0) };
+    inline int32_t getRoleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, 0) };
     inline ListEntitiesRequest& setRoleType(int32_t roleType) { DARABONBA_PTR_SET_VALUE(roleType_, roleType) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline string tags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+    inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
     inline ListEntitiesRequest& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    std::shared_ptr<string> entityName_ = nullptr;
-    std::shared_ptr<string> entityType_ = nullptr;
-    std::shared_ptr<string> entityUuid_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<string> entityName_ {};
+    shared_ptr<string> entityType_ {};
+    shared_ptr<string> entityUuid_ {};
+    shared_ptr<string> entityUuids_ {};
     // This parameter is required.
-    std::shared_ptr<string> incidentUuid_ = nullptr;
-    std::shared_ptr<string> isMalwareEntity_ = nullptr;
-    std::shared_ptr<string> malwareType_ = nullptr;
+    shared_ptr<string> incidentUuid_ {};
+    shared_ptr<string> isMalwareEntity_ {};
+    shared_ptr<string> malwareType_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> roleFor_ = nullptr;
-    std::shared_ptr<int32_t> roleType_ = nullptr;
-    std::shared_ptr<string> tags_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> roleFor_ {};
+    shared_ptr<int32_t> roleType_ {};
+    shared_ptr<string> tags_ {};
   };
 
   } // namespace Models

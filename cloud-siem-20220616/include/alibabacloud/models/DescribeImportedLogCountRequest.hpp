@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->regionId_ != nullptr
-        && this->roleFor_ != nullptr && this->roleType_ != nullptr; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->roleFor_ == nullptr && this->roleType_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeImportedLogCountRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // roleFor Field Functions 
     bool hasRoleFor() const { return this->roleFor_ != nullptr;};
     void deleteRoleFor() { this->roleFor_ = nullptr;};
-    inline string roleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, "") };
+    inline string getRoleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, "") };
     inline DescribeImportedLogCountRequest& setRoleFor(string roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
     // roleType Field Functions 
     bool hasRoleType() const { return this->roleType_ != nullptr;};
     void deleteRoleType() { this->roleType_ = nullptr;};
-    inline string roleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, "") };
+    inline string getRoleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, "") };
     inline DescribeImportedLogCountRequest& setRoleType(string roleType) { DARABONBA_PTR_SET_VALUE(roleType_, roleType) };
 
 
@@ -61,9 +61,9 @@ namespace Models
     // 
     // *   cn-hangzhou: Your assets reside in regions in China.
     // *   ap-southeast-1: Your assets reside in regions outside China.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> roleFor_ = nullptr;
-    std::shared_ptr<string> roleType_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> roleFor_ {};
+    shared_ptr<string> roleType_ {};
   };
 
   } // namespace Models

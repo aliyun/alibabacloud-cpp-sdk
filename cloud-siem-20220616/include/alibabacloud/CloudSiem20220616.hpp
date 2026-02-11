@@ -429,23 +429,6 @@ namespace CloudSiem20220616
       Models::DescribeAutomateResponseConfigFeatureResponse describeAutomateResponseConfigFeature(const Models::DescribeAutomateResponseConfigFeatureRequest &request);
 
       /**
-       * @summary Queries user-defined playbooks.
-       *
-       * @param request DescribeAutomateResponseConfigPlayBooksRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeAutomateResponseConfigPlayBooksResponse
-       */
-      Models::DescribeAutomateResponseConfigPlayBooksResponse describeAutomateResponseConfigPlayBooksWithOptions(const Models::DescribeAutomateResponseConfigPlayBooksRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Queries user-defined playbooks.
-       *
-       * @param request DescribeAutomateResponseConfigPlayBooksRequest
-       * @return DescribeAutomateResponseConfigPlayBooksResponse
-       */
-      Models::DescribeAutomateResponseConfigPlayBooksResponse describeAutomateResponseConfigPlayBooks(const Models::DescribeAutomateResponseConfigPlayBooksRequest &request);
-
-      /**
        * @summary Queries the assets that are associated with an event.
        *
        * @param request DescribeCloudSiemAssetsRequest
@@ -1177,7 +1160,7 @@ namespace CloudSiem20220616
       Models::ListDisposeStrategyResponse listDisposeStrategy(const Models::ListDisposeStrategyRequest &request);
 
       /**
-       * @summary 查询实体列表
+       * @summary Queries entities.
        *
        * @param request ListEntitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1186,7 +1169,7 @@ namespace CloudSiem20220616
       Models::ListEntitiesResponse listEntitiesWithOptions(const Models::ListEntitiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实体列表
+       * @summary Queries entities.
        *
        * @param request ListEntitiesRequest
        * @return ListEntitiesResponse

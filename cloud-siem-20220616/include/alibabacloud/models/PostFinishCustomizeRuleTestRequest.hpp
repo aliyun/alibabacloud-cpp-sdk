@@ -35,50 +35,50 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->id_ != nullptr
-        && this->regionId_ != nullptr && this->roleFor_ != nullptr && this->roleType_ != nullptr; };
+    virtual bool empty() const override { return this->id_ == nullptr
+        && this->regionId_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline PostFinishCustomizeRuleTestRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline PostFinishCustomizeRuleTestRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // roleFor Field Functions 
     bool hasRoleFor() const { return this->roleFor_ != nullptr;};
     void deleteRoleFor() { this->roleFor_ = nullptr;};
-    inline int64_t roleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
+    inline int64_t getRoleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
     inline PostFinishCustomizeRuleTestRequest& setRoleFor(int64_t roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
     // roleType Field Functions 
     bool hasRoleType() const { return this->roleType_ != nullptr;};
     void deleteRoleType() { this->roleType_ = nullptr;};
-    inline int32_t roleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, 0) };
+    inline int32_t getRoleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, 0) };
     inline PostFinishCustomizeRuleTestRequest& setRoleType(int32_t roleType) { DARABONBA_PTR_SET_VALUE(roleType_, roleType) };
 
 
   protected:
     // The ID of the rule.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
     // 
     // *   cn-hangzhou: Your assets reside in regions in China.
     // *   ap-southeast-1: Your assets reside in regions outside China.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the account that you switch from the management account.
-    std::shared_ptr<int64_t> roleFor_ = nullptr;
+    shared_ptr<int64_t> roleFor_ {};
     // The type of the view. Valid values:
     // - 0: the current Alibaba Cloud account
     // - 1: the global account
-    std::shared_ptr<int32_t> roleType_ = nullptr;
+    shared_ptr<int32_t> roleType_ {};
   };
 
   } // namespace Models

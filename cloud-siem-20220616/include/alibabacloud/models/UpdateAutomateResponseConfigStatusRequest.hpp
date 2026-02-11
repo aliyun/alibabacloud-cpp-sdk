@@ -37,62 +37,62 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ids_ != nullptr
-        && this->inUse_ != nullptr && this->regionId_ != nullptr && this->roleFor_ != nullptr && this->roleType_ != nullptr; };
+    virtual bool empty() const override { return this->ids_ == nullptr
+        && this->inUse_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr; };
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};
-    inline string ids() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
+    inline string getIds() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
     inline UpdateAutomateResponseConfigStatusRequest& setIds(string ids) { DARABONBA_PTR_SET_VALUE(ids_, ids) };
 
 
     // inUse Field Functions 
     bool hasInUse() const { return this->inUse_ != nullptr;};
     void deleteInUse() { this->inUse_ = nullptr;};
-    inline bool inUse() const { DARABONBA_PTR_GET_DEFAULT(inUse_, false) };
+    inline bool getInUse() const { DARABONBA_PTR_GET_DEFAULT(inUse_, false) };
     inline UpdateAutomateResponseConfigStatusRequest& setInUse(bool inUse) { DARABONBA_PTR_SET_VALUE(inUse_, inUse) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateAutomateResponseConfigStatusRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // roleFor Field Functions 
     bool hasRoleFor() const { return this->roleFor_ != nullptr;};
     void deleteRoleFor() { this->roleFor_ = nullptr;};
-    inline int64_t roleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
+    inline int64_t getRoleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
     inline UpdateAutomateResponseConfigStatusRequest& setRoleFor(int64_t roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
     // roleType Field Functions 
     bool hasRoleType() const { return this->roleType_ != nullptr;};
     void deleteRoleType() { this->roleType_ = nullptr;};
-    inline int32_t roleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, 0) };
+    inline int32_t getRoleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, 0) };
     inline UpdateAutomateResponseConfigStatusRequest& setRoleType(int32_t roleType) { DARABONBA_PTR_SET_VALUE(roleType_, roleType) };
 
 
   protected:
     // The IDs of the automatic response rules. The value is a JSON array.
-    std::shared_ptr<string> ids_ = nullptr;
+    shared_ptr<string> ids_ {};
     // Specifies whether the rule is enabled. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> inUse_ = nullptr;
+    shared_ptr<bool> inUse_ {};
     // The data management center of the threat analysis feature. Specify this parameter based on the region in which your assets reside. Valid values:
     // 
     // *   cn-hangzhou: Your assets reside in regions inside China.
     // *   ap-southeast-1: Your assets reside in regions outside China.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the account that you switch from the management account.
-    std::shared_ptr<int64_t> roleFor_ = nullptr;
+    shared_ptr<int64_t> roleFor_ {};
     // The type of the view. Valid values:
     // - 0: the current Alibaba Cloud account
     // - 1: the global account
-    std::shared_ptr<int32_t> roleType_ = nullptr;
+    shared_ptr<int32_t> roleType_ {};
   };
 
   } // namespace Models

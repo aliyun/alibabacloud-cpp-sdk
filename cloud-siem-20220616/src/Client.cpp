@@ -46,31 +46,31 @@ AddDataSourceResponse Client::addDataSourceWithOptions(const AddDataSourceReques
   request.validate();
   json body = {};
   if (!!request.hasAccountId()) {
-    body["AccountId"] = request.accountId();
+    body["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasDataSourceInstanceName()) {
-    body["DataSourceInstanceName"] = request.dataSourceInstanceName();
+    body["DataSourceInstanceName"] = request.getDataSourceInstanceName();
   }
 
   if (!!request.hasDataSourceInstanceParams()) {
-    body["DataSourceInstanceParams"] = request.dataSourceInstanceParams();
+    body["DataSourceInstanceParams"] = request.getDataSourceInstanceParams();
   }
 
   if (!!request.hasDataSourceInstanceRemark()) {
-    body["DataSourceInstanceRemark"] = request.dataSourceInstanceRemark();
+    body["DataSourceInstanceRemark"] = request.getDataSourceInstanceRemark();
   }
 
   if (!!request.hasDataSourceType()) {
-    body["DataSourceType"] = request.dataSourceType();
+    body["DataSourceType"] = request.getDataSourceType();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -112,27 +112,27 @@ AddDataSourceLogResponse Client::addDataSourceLogWithOptions(const AddDataSource
   request.validate();
   json body = {};
   if (!!request.hasAccountId()) {
-    body["AccountId"] = request.accountId();
+    body["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasDataSourceInstanceId()) {
-    body["DataSourceInstanceId"] = request.dataSourceInstanceId();
+    body["DataSourceInstanceId"] = request.getDataSourceInstanceId();
   }
 
   if (!!request.hasDataSourceInstanceLogs()) {
-    body["DataSourceInstanceLogs"] = request.dataSourceInstanceLogs();
+    body["DataSourceInstanceLogs"] = request.getDataSourceInstanceLogs();
   }
 
   if (!!request.hasLogCode()) {
-    body["LogCode"] = request.logCode();
+    body["LogCode"] = request.getLogCode();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -174,31 +174,31 @@ AddUserSourceLogConfigResponse Client::addUserSourceLogConfigWithOptions(const A
   request.validate();
   json body = {};
   if (!!request.hasDeleted()) {
-    body["Deleted"] = request.deleted();
+    body["Deleted"] = request.getDeleted();
   }
 
   if (!!request.hasDisPlayLine()) {
-    body["DisPlayLine"] = request.disPlayLine();
+    body["DisPlayLine"] = request.getDisPlayLine();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSourceLogCode()) {
-    body["SourceLogCode"] = request.sourceLogCode();
+    body["SourceLogCode"] = request.getSourceLogCode();
   }
 
   if (!!request.hasSourceLogInfo()) {
-    body["SourceLogInfo"] = request.sourceLogInfo();
+    body["SourceLogInfo"] = request.getSourceLogInfo();
   }
 
   if (!!request.hasSourceProdCode()) {
-    body["SourceProdCode"] = request.sourceProdCode();
+    body["SourceProdCode"] = request.getSourceProdCode();
   }
 
   if (!!request.hasSubUserId()) {
-    body["SubUserId"] = request.subUserId();
+    body["SubUserId"] = request.getSubUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -240,31 +240,31 @@ BindAccountResponse Client::bindAccountWithOptions(const BindAccountRequest &req
   request.validate();
   json body = {};
   if (!!request.hasAccessId()) {
-    body["AccessId"] = request.accessId();
+    body["AccessId"] = request.getAccessId();
   }
 
   if (!!request.hasAccountId()) {
-    body["AccountId"] = request.accountId();
+    body["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasAccountName()) {
-    body["AccountName"] = request.accountName();
+    body["AccountName"] = request.getAccountName();
   }
 
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -306,23 +306,23 @@ CloseDeliveryResponse Client::closeDeliveryWithOptions(const CloseDeliveryReques
   request.validate();
   json body = {};
   if (!!request.hasLogCode()) {
-    body["LogCode"] = request.logCode();
+    body["LogCode"] = request.getLogCode();
   }
 
   if (!!request.hasProductCode()) {
-    body["ProductCode"] = request.productCode();
+    body["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -364,19 +364,19 @@ DeleteAutomateResponseConfigResponse Client::deleteAutomateResponseConfigWithOpt
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -418,31 +418,31 @@ DeleteBindAccountResponse Client::deleteBindAccountWithOptions(const DeleteBindA
   request.validate();
   json body = {};
   if (!!request.hasAccessId()) {
-    body["AccessId"] = request.accessId();
+    body["AccessId"] = request.getAccessId();
   }
 
   if (!!request.hasAccountId()) {
-    body["AccountId"] = request.accountId();
+    body["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasBindId()) {
-    body["BindId"] = request.bindId();
+    body["BindId"] = request.getBindId();
   }
 
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -484,19 +484,19 @@ DeleteCustomizeRuleResponse Client::deleteCustomizeRuleWithOptions(const DeleteC
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasRuleId()) {
-    body["RuleId"] = request.ruleId();
+    body["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -538,19 +538,19 @@ DeleteDataSourceResponse Client::deleteDataSourceWithOptions(const DeleteDataSou
   request.validate();
   json body = {};
   if (!!request.hasAccountId()) {
-    body["AccountId"] = request.accountId();
+    body["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasDataSourceInstanceId()) {
-    body["DataSourceInstanceId"] = request.dataSourceInstanceId();
+    body["DataSourceInstanceId"] = request.getDataSourceInstanceId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -592,23 +592,23 @@ DeleteDataSourceLogResponse Client::deleteDataSourceLogWithOptions(const DeleteD
   request.validate();
   json body = {};
   if (!!request.hasAccountId()) {
-    body["AccountId"] = request.accountId();
+    body["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasDataSourceInstanceId()) {
-    body["DataSourceInstanceId"] = request.dataSourceInstanceId();
+    body["DataSourceInstanceId"] = request.getDataSourceInstanceId();
   }
 
   if (!!request.hasLogInstanceId()) {
-    body["LogInstanceId"] = request.logInstanceId();
+    body["LogInstanceId"] = request.getLogInstanceId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -650,19 +650,19 @@ DeleteWhiteRuleListResponse Client::deleteWhiteRuleListWithOptions(const DeleteW
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -704,15 +704,15 @@ DescribeAggregateFunctionResponse Client::describeAggregateFunctionWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -754,15 +754,15 @@ DescribeAlertSceneResponse Client::describeAlertSceneWithOptions(const DescribeA
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -804,19 +804,19 @@ DescribeAlertSceneByEventResponse Client::describeAlertSceneByEventWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -858,27 +858,27 @@ DescribeAlertSourceResponse Client::describeAlertSourceWithOptions(const Describ
   request.validate();
   json body = {};
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasLevel()) {
-    body["Level"] = request.level();
+    body["Level"] = request.getLevel();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -920,19 +920,19 @@ DescribeAlertSourceWithEventResponse Client::describeAlertSourceWithEventWithOpt
   request.validate();
   json body = {};
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -974,19 +974,19 @@ DescribeAlertTypeResponse Client::describeAlertTypeWithOptions(const DescribeAle
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasRuleType()) {
-    body["RuleType"] = request.ruleType();
+    body["RuleType"] = request.getRuleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1028,83 +1028,87 @@ DescribeAlertsResponse Client::describeAlertsWithOptions(const DescribeAlertsReq
   request.validate();
   json body = {};
   if (!!request.hasAlertName()) {
-    body["AlertName"] = request.alertName();
+    body["AlertName"] = request.getAlertName();
+  }
+
+  if (!!request.hasAlertStatus()) {
+    body["AlertStatus"] = request.getAlertStatus();
   }
 
   if (!!request.hasAlertTitle()) {
-    body["AlertTitle"] = request.alertTitle();
+    body["AlertTitle"] = request.getAlertTitle();
   }
 
   if (!!request.hasAlertType()) {
-    body["AlertType"] = request.alertType();
+    body["AlertType"] = request.getAlertType();
   }
 
   if (!!request.hasAlertUuid()) {
-    body["AlertUuid"] = request.alertUuid();
+    body["AlertUuid"] = request.getAlertUuid();
   }
 
   if (!!request.hasAssetId()) {
-    body["AssetId"] = request.assetId();
+    body["AssetId"] = request.getAssetId();
   }
 
   if (!!request.hasAssetName()) {
-    body["AssetName"] = request.assetName();
+    body["AssetName"] = request.getAssetName();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasEntityId()) {
-    body["EntityId"] = request.entityId();
+    body["EntityId"] = request.getEntityId();
   }
 
   if (!!request.hasEntityName()) {
-    body["EntityName"] = request.entityName();
+    body["EntityName"] = request.getEntityName();
   }
 
   if (!!request.hasIsDefend()) {
-    body["IsDefend"] = request.isDefend();
+    body["IsDefend"] = request.getIsDefend();
   }
 
   if (!!request.hasLabelType()) {
-    body["LabelType"] = request.labelType();
+    body["LabelType"] = request.getLabelType();
   }
 
   if (!!request.hasLevel()) {
-    body["Level"] = request.level();
+    body["Level"] = request.getLevel();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasSource()) {
-    body["Source"] = request.source();
+    body["Source"] = request.getSource();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasSubUserId()) {
-    body["SubUserId"] = request.subUserId();
+    body["SubUserId"] = request.getSubUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1146,27 +1150,27 @@ DescribeAlertsCountResponse Client::describeAlertsCountWithOptions(const Describ
   request.validate();
   json body = {};
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasQueryType()) {
-    body["QueryType"] = request.queryType();
+    body["QueryType"] = request.getQueryType();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1208,47 +1212,47 @@ DescribeAlertsWithEntityResponse Client::describeAlertsWithEntityWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasEntityId()) {
-    body["EntityId"] = request.entityId();
+    body["EntityId"] = request.getEntityId();
   }
 
   if (!!request.hasEntityUuid()) {
-    body["EntityUuid"] = request.entityUuid();
+    body["EntityUuid"] = request.getEntityUuid();
   }
 
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasSophonTaskId()) {
-    body["SophonTaskId"] = request.sophonTaskId();
+    body["SophonTaskId"] = request.getSophonTaskId();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1290,79 +1294,79 @@ DescribeAlertsWithEventResponse Client::describeAlertsWithEventWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasAlertName()) {
-    body["AlertName"] = request.alertName();
+    body["AlertName"] = request.getAlertName();
   }
 
   if (!!request.hasAlertTitle()) {
-    body["AlertTitle"] = request.alertTitle();
+    body["AlertTitle"] = request.getAlertTitle();
   }
 
   if (!!request.hasAlertType()) {
-    body["AlertType"] = request.alertType();
+    body["AlertType"] = request.getAlertType();
   }
 
   if (!!request.hasAssetId()) {
-    body["AssetId"] = request.assetId();
+    body["AssetId"] = request.getAssetId();
   }
 
   if (!!request.hasAssetName()) {
-    body["AssetName"] = request.assetName();
+    body["AssetName"] = request.getAssetName();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasEntityId()) {
-    body["EntityId"] = request.entityId();
+    body["EntityId"] = request.getEntityId();
   }
 
   if (!!request.hasEntityName()) {
-    body["EntityName"] = request.entityName();
+    body["EntityName"] = request.getEntityName();
   }
 
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasIsDefend()) {
-    body["IsDefend"] = request.isDefend();
+    body["IsDefend"] = request.getIsDefend();
   }
 
   if (!!request.hasLevel()) {
-    body["Level"] = request.level();
+    body["Level"] = request.getLevel();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasSource()) {
-    body["Source"] = request.source();
+    body["Source"] = request.getSource();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasSubUserId()) {
-    body["SubUserId"] = request.subUserId();
+    body["SubUserId"] = request.getSubUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1404,7 +1408,7 @@ DescribeAuthResponse Client::describeAuthWithOptions(const DescribeAuthRequest &
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1446,15 +1450,15 @@ DescribeAutomateResponseConfigCounterResponse Client::describeAutomateResponseCo
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1496,19 +1500,19 @@ DescribeAutomateResponseConfigFeatureResponse Client::describeAutomateResponseCo
   request.validate();
   json body = {};
   if (!!request.hasAutoResponseType()) {
-    body["AutoResponseType"] = request.autoResponseType();
+    body["AutoResponseType"] = request.getAutoResponseType();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1540,64 +1544,6 @@ DescribeAutomateResponseConfigFeatureResponse Client::describeAutomateResponseCo
 }
 
 /**
- * @summary Queries user-defined playbooks.
- *
- * @param request DescribeAutomateResponseConfigPlayBooksRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DescribeAutomateResponseConfigPlayBooksResponse
- */
-DescribeAutomateResponseConfigPlayBooksResponse Client::describeAutomateResponseConfigPlayBooksWithOptions(const DescribeAutomateResponseConfigPlayBooksRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasAutoResponseType()) {
-    body["AutoResponseType"] = request.autoResponseType();
-  }
-
-  if (!!request.hasEntityType()) {
-    body["EntityType"] = request.entityType();
-  }
-
-  if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
-  }
-
-  if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
-  }
-
-  if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "DescribeAutomateResponseConfigPlayBooks"},
-    {"version" , "2022-06-16"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DescribeAutomateResponseConfigPlayBooksResponse>();
-}
-
-/**
- * @summary Queries user-defined playbooks.
- *
- * @param request DescribeAutomateResponseConfigPlayBooksRequest
- * @return DescribeAutomateResponseConfigPlayBooksResponse
- */
-DescribeAutomateResponseConfigPlayBooksResponse Client::describeAutomateResponseConfigPlayBooks(const DescribeAutomateResponseConfigPlayBooksRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return describeAutomateResponseConfigPlayBooksWithOptions(request, runtime);
-}
-
-/**
  * @summary Queries the assets that are associated with an event.
  *
  * @param request DescribeCloudSiemAssetsRequest
@@ -1608,39 +1554,39 @@ DescribeCloudSiemAssetsResponse Client::describeCloudSiemAssetsWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasAssetName()) {
-    body["AssetName"] = request.assetName();
+    body["AssetName"] = request.getAssetName();
   }
 
   if (!!request.hasAssetType()) {
-    body["AssetType"] = request.assetType();
+    body["AssetType"] = request.getAssetType();
   }
 
   if (!!request.hasAssetUuid()) {
-    body["AssetUuid"] = request.assetUuid();
+    body["AssetUuid"] = request.getAssetUuid();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1682,19 +1628,19 @@ DescribeCloudSiemAssetsCounterResponse Client::describeCloudSiemAssetsCounterWit
   request.validate();
   json body = {};
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1736,19 +1682,19 @@ DescribeCloudSiemEventDetailResponse Client::describeCloudSiemEventDetailWithOpt
   request.validate();
   json body = {};
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1790,63 +1736,63 @@ DescribeCloudSiemEventsResponse Client::describeCloudSiemEventsWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasAssetId()) {
-    body["AssetId"] = request.assetId();
+    body["AssetId"] = request.getAssetId();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasEntityUuid()) {
-    body["EntityUuid"] = request.entityUuid();
+    body["EntityUuid"] = request.getEntityUuid();
   }
 
   if (!!request.hasEventName()) {
-    body["EventName"] = request.eventName();
+    body["EventName"] = request.getEventName();
   }
 
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasOrder()) {
-    body["Order"] = request.order();
+    body["Order"] = request.getOrder();
   }
 
   if (!!request.hasOrderField()) {
-    body["OrderField"] = request.orderField();
+    body["OrderField"] = request.getOrderField();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasThreadLevel()) {
-    body["ThreadLevel"] = request.threadLevel();
+    body["ThreadLevel"] = request.getThreadLevel();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1888,15 +1834,15 @@ DescribeCustomizeRuleCountResponse Client::describeCustomizeRuleCountWithOptions
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1938,19 +1884,19 @@ DescribeCustomizeRuleTestResponse Client::describeCustomizeRuleTestWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1992,19 +1938,19 @@ DescribeCustomizeRuleTestHistogramResponse Client::describeCustomizeRuleTestHist
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2046,19 +1992,19 @@ DescribeDataSourceInstanceResponse Client::describeDataSourceInstanceWithOptions
   request.validate();
   json body = {};
   if (!!request.hasAccountId()) {
-    body["AccountId"] = request.accountId();
+    body["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasDataSourceInstanceId()) {
-    body["DataSourceInstanceId"] = request.dataSourceInstanceId();
+    body["DataSourceInstanceId"] = request.getDataSourceInstanceId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2100,15 +2046,15 @@ DescribeDataSourceParametersResponse Client::describeDataSourceParametersWithOpt
   request.validate();
   json body = {};
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasDataSourceType()) {
-    body["DataSourceType"] = request.dataSourceType();
+    body["DataSourceType"] = request.getDataSourceType();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2150,35 +2096,35 @@ DescribeDisposeAndPlaybookResponse Client::describeDisposeAndPlaybookWithOptions
   request.validate();
   json body = {};
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEntityType()) {
-    body["EntityType"] = request.entityType();
+    body["EntityType"] = request.getEntityType();
   }
 
   if (!!request.hasEntityUuid()) {
-    body["EntityUuid"] = request.entityUuid();
+    body["EntityUuid"] = request.getEntityUuid();
   }
 
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2220,23 +2166,23 @@ DescribeDisposeStrategyPlaybookResponse Client::describeDisposeStrategyPlaybookW
   request.validate();
   json body = {};
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2278,31 +2224,31 @@ DescribeEntityInfoResponse Client::describeEntityInfoWithOptions(const DescribeE
   request.validate();
   json body = {};
   if (!!request.hasEntityId()) {
-    body["EntityId"] = request.entityId();
+    body["EntityId"] = request.getEntityId();
   }
 
   if (!!request.hasEntityIdentity()) {
-    body["EntityIdentity"] = request.entityIdentity();
+    body["EntityIdentity"] = request.getEntityIdentity();
   }
 
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasSophonTaskId()) {
-    body["SophonTaskId"] = request.sophonTaskId();
+    body["SophonTaskId"] = request.getSophonTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2344,23 +2290,23 @@ DescribeEventCountByThreatLevelResponse Client::describeEventCountByThreatLevelW
   request.validate();
   json body = {};
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2402,27 +2348,27 @@ DescribeEventDisposeResponse Client::describeEventDisposeWithOptions(const Descr
   request.validate();
   json body = {};
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2464,15 +2410,15 @@ DescribeImportedLogCountResponse Client::describeImportedLogCountWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2514,23 +2460,23 @@ DescribeLogFieldsResponse Client::describeLogFieldsWithOptions(const DescribeLog
   request.validate();
   json body = {};
   if (!!request.hasLogSource()) {
-    body["LogSource"] = request.logSource();
+    body["LogSource"] = request.getLogSource();
   }
 
   if (!!request.hasLogType()) {
-    body["LogType"] = request.logType();
+    body["LogType"] = request.getLogType();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2572,19 +2518,19 @@ DescribeLogSourceResponse Client::describeLogSourceWithOptions(const DescribeLog
   request.validate();
   json body = {};
   if (!!request.hasLogType()) {
-    body["LogType"] = request.logType();
+    body["LogType"] = request.getLogType();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2626,15 +2572,15 @@ DescribeLogTypeResponse Client::describeLogTypeWithOptions(const DescribeLogType
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2676,19 +2622,19 @@ DescribeOperatorsResponse Client::describeOperatorsWithOptions(const DescribeOpe
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasSceneType()) {
-    body["SceneType"] = request.sceneType();
+    body["SceneType"] = request.getSceneType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2730,15 +2676,15 @@ DescribeProdCountResponse Client::describeProdCountWithOptions(const DescribePro
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2780,15 +2726,15 @@ DescribeScopeUsersResponse Client::describeScopeUsersWithOptions(const DescribeS
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2830,7 +2776,7 @@ DescribeServiceStatusResponse Client::describeServiceStatusWithOptions(const Des
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2872,15 +2818,15 @@ DescribeStorageResponse Client::describeStorageWithOptions(const DescribeStorage
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2922,11 +2868,11 @@ DescribeUserBuyStatusResponse Client::describeUserBuyStatusWithOptions(const Des
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSubUserId()) {
-    body["SubUserId"] = request.subUserId();
+    body["SubUserId"] = request.getSubUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2968,19 +2914,19 @@ DescribeWafScopeResponse Client::describeWafScopeWithOptions(const DescribeWafSc
   request.validate();
   json body = {};
   if (!!request.hasEntityId()) {
-    body["EntityId"] = request.entityId();
+    body["EntityId"] = request.getEntityId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3022,35 +2968,35 @@ DescribeWhiteRuleListResponse Client::describeWhiteRuleListWithOptions(const Des
   request.validate();
   json body = {};
   if (!!request.hasAlertName()) {
-    body["AlertName"] = request.alertName();
+    body["AlertName"] = request.getAlertName();
   }
 
   if (!!request.hasAlertType()) {
-    body["AlertType"] = request.alertType();
+    body["AlertType"] = request.getAlertType();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3092,19 +3038,19 @@ EnableAccessForCloudSiemResponse Client::enableAccessForCloudSiemWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasAutoSubmit()) {
-    body["AutoSubmit"] = request.autoSubmit();
+    body["AutoSubmit"] = request.getAutoSubmit();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3146,7 +3092,7 @@ EnableServiceForCloudSiemResponse Client::enableServiceForCloudSiemWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3188,15 +3134,15 @@ GetCapacityResponse Client::getCapacityWithOptions(const GetCapacityRequest &req
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3238,15 +3184,15 @@ GetStorageResponse Client::getStorageWithOptions(const GetStorageRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3288,19 +3234,19 @@ ListAccountAccessIdResponse Client::listAccountAccessIdWithOptions(const ListAcc
   request.validate();
   json body = {};
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3342,27 +3288,27 @@ ListAccountsByLogResponse Client::listAccountsByLogWithOptions(const ListAccount
   request.validate();
   json body = {};
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasLogCodes()) {
-    body["LogCodes"] = request.logCodes();
+    body["LogCodes"] = request.getLogCodes();
   }
 
   if (!!request.hasProdCode()) {
-    body["ProdCode"] = request.prodCode();
+    body["ProdCode"] = request.getProdCode();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3404,15 +3350,15 @@ ListAllProdsResponse Client::listAllProdsWithOptions(const ListAllProdsRequest &
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3454,55 +3400,55 @@ ListAutomateResponseConfigsResponse Client::listAutomateResponseConfigsWithOptio
   request.validate();
   json body = {};
   if (!!request.hasActionType()) {
-    body["ActionType"] = request.actionType();
+    body["ActionType"] = request.getActionType();
   }
 
   if (!!request.hasAutoResponseType()) {
-    body["AutoResponseType"] = request.autoResponseType();
+    body["AutoResponseType"] = request.getAutoResponseType();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResponseRuleType()) {
-    body["ResponseRuleType"] = request.responseRuleType();
+    body["ResponseRuleType"] = request.getResponseRuleType();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasRuleName()) {
-    body["RuleName"] = request.ruleName();
+    body["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasSubUserId()) {
-    body["SubUserId"] = request.subUserId();
+    body["SubUserId"] = request.getSubUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3544,19 +3490,19 @@ ListBindAccountResponse Client::listBindAccountWithOptions(const ListBindAccount
   request.validate();
   json body = {};
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3598,15 +3544,15 @@ ListBindDataSourcesResponse Client::listBindDataSourcesWithOptions(const ListBin
   request.validate();
   json body = {};
   if (!!request.hasAccountId()) {
-    body["AccountId"] = request.accountId();
+    body["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3648,63 +3594,63 @@ ListCloudSiemCustomizeRulesResponse Client::listCloudSiemCustomizeRulesWithOptio
   request.validate();
   json body = {};
   if (!!request.hasAlertType()) {
-    body["AlertType"] = request.alertType();
+    body["AlertType"] = request.getAlertType();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasOrder()) {
-    body["Order"] = request.order();
+    body["Order"] = request.getOrder();
   }
 
   if (!!request.hasOrderField()) {
-    body["OrderField"] = request.orderField();
+    body["OrderField"] = request.getOrderField();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasRuleName()) {
-    body["RuleName"] = request.ruleName();
+    body["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasRuleType()) {
-    body["RuleType"] = request.ruleType();
+    body["RuleType"] = request.getRuleType();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasThreatLevel()) {
-    body["ThreatLevel"] = request.threatLevel();
+    body["ThreatLevel"] = request.getThreatLevel();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3746,75 +3692,75 @@ ListCloudSiemPredefinedRulesResponse Client::listCloudSiemPredefinedRulesWithOpt
   request.validate();
   json body = {};
   if (!!request.hasAlertType()) {
-    body["AlertType"] = request.alertType();
+    body["AlertType"] = request.getAlertType();
   }
 
   if (!!request.hasAttCk()) {
-    body["AttCk"] = request.attCk();
+    body["AttCk"] = request.getAttCk();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasEventTransferType()) {
-    body["EventTransferType"] = request.eventTransferType();
+    body["EventTransferType"] = request.getEventTransferType();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasLogSource()) {
-    body["LogSource"] = request.logSource();
+    body["LogSource"] = request.getLogSource();
   }
 
   if (!!request.hasOrder()) {
-    body["Order"] = request.order();
+    body["Order"] = request.getOrder();
   }
 
   if (!!request.hasOrderField()) {
-    body["OrderField"] = request.orderField();
+    body["OrderField"] = request.getOrderField();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasRuleName()) {
-    body["RuleName"] = request.ruleName();
+    body["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasRuleType()) {
-    body["RuleType"] = request.ruleType();
+    body["RuleType"] = request.getRuleType();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasThreatLevel()) {
-    body["ThreatLevel"] = request.threatLevel();
+    body["ThreatLevel"] = request.getThreatLevel();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3856,43 +3802,43 @@ ListCustomizeRuleTestResultResponse Client::listCustomizeRuleTestResultWithOptio
   request.validate();
   json body = {};
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasDetectionRuleId()) {
-    body["DetectionRuleId"] = request.detectionRuleId();
+    body["DetectionRuleId"] = request.getDetectionRuleId();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasVerifyType()) {
-    body["VerifyType"] = request.verifyType();
+    body["VerifyType"] = request.getVerifyType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3934,19 +3880,19 @@ ListDataSourceLogsResponse Client::listDataSourceLogsWithOptions(const ListDataS
   request.validate();
   json body = {};
   if (!!request.hasAccountId()) {
-    body["AccountId"] = request.accountId();
+    body["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasDataSourceInstanceId()) {
-    body["DataSourceInstanceId"] = request.dataSourceInstanceId();
+    body["DataSourceInstanceId"] = request.getDataSourceInstanceId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3988,11 +3934,11 @@ ListDataSourceTypesResponse Client::listDataSourceTypesWithOptions(const ListDat
   request.validate();
   json body = {};
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4034,15 +3980,15 @@ ListDeliveryResponse Client::listDeliveryWithOptions(const ListDeliveryRequest &
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4084,71 +4030,75 @@ ListDisposeStrategyResponse Client::listDisposeStrategyWithOptions(const ListDis
   request.validate();
   json body = {};
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEffectiveStatus()) {
-    body["EffectiveStatus"] = request.effectiveStatus();
+    body["EffectiveStatus"] = request.getEffectiveStatus();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasEntityIdentity()) {
-    body["EntityIdentity"] = request.entityIdentity();
+    body["EntityIdentity"] = request.getEntityIdentity();
   }
 
   if (!!request.hasEntityType()) {
-    body["EntityType"] = request.entityType();
+    body["EntityType"] = request.getEntityType();
   }
 
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasOrder()) {
-    body["Order"] = request.order();
+    body["Order"] = request.getOrder();
   }
 
   if (!!request.hasOrderField()) {
-    body["OrderField"] = request.orderField();
+    body["OrderField"] = request.getOrderField();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPlaybookName()) {
-    body["PlaybookName"] = request.playbookName();
+    body["PlaybookName"] = request.getPlaybookName();
   }
 
   if (!!request.hasPlaybookTypes()) {
-    body["PlaybookTypes"] = request.playbookTypes();
+    body["PlaybookTypes"] = request.getPlaybookTypes();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasSophonTaskId()) {
-    body["SophonTaskId"] = request.sophonTaskId();
+    body["SophonTaskId"] = request.getSophonTaskId();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4180,7 +4130,7 @@ ListDisposeStrategyResponse Client::listDisposeStrategy(const ListDisposeStrateg
 }
 
 /**
- * @summary 查询实体列表
+ * @summary Queries entities.
  *
  * @param request ListEntitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4190,51 +4140,55 @@ ListEntitiesResponse Client::listEntitiesWithOptions(const ListEntitiesRequest &
   request.validate();
   json body = {};
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEntityName()) {
-    body["EntityName"] = request.entityName();
+    body["EntityName"] = request.getEntityName();
   }
 
   if (!!request.hasEntityType()) {
-    body["EntityType"] = request.entityType();
+    body["EntityType"] = request.getEntityType();
   }
 
   if (!!request.hasEntityUuid()) {
-    body["EntityUuid"] = request.entityUuid();
+    body["EntityUuid"] = request.getEntityUuid();
+  }
+
+  if (!!request.hasEntityUuids()) {
+    body["EntityUuids"] = request.getEntityUuids();
   }
 
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasIsMalwareEntity()) {
-    body["IsMalwareEntity"] = request.isMalwareEntity();
+    body["IsMalwareEntity"] = request.getIsMalwareEntity();
   }
 
   if (!!request.hasMalwareType()) {
-    body["MalwareType"] = request.malwareType();
+    body["MalwareType"] = request.getMalwareType();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasTags()) {
-    body["Tags"] = request.tags();
+    body["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4255,7 +4209,7 @@ ListEntitiesResponse Client::listEntitiesWithOptions(const ListEntitiesRequest &
 }
 
 /**
- * @summary 查询实体列表
+ * @summary Queries entities.
  *
  * @param request ListEntitiesRequest
  * @return ListEntitiesResponse
@@ -4276,23 +4230,23 @@ ListImportedLogsByProdResponse Client::listImportedLogsByProdWithOptions(const L
   request.validate();
   json body = {};
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasProdCode()) {
-    body["ProdCode"] = request.prodCode();
+    body["ProdCode"] = request.getProdCode();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4334,19 +4288,19 @@ ListProjectLogStoresResponse Client::listProjectLogStoresWithOptions(const ListP
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSourceLogCode()) {
-    body["SourceLogCode"] = request.sourceLogCode();
+    body["SourceLogCode"] = request.getSourceLogCode();
   }
 
   if (!!request.hasSourceProdCode()) {
-    body["SourceProdCode"] = request.sourceProdCode();
+    body["SourceProdCode"] = request.getSourceProdCode();
   }
 
   if (!!request.hasSubUserId()) {
-    body["SubUserId"] = request.subUserId();
+    body["SubUserId"] = request.getSubUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4388,7 +4342,7 @@ ListRdUsersResponse Client::listRdUsersWithOptions(const ListRdUsersRequest &req
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4430,35 +4384,35 @@ ModifyBindAccountResponse Client::modifyBindAccountWithOptions(const ModifyBindA
   request.validate();
   json body = {};
   if (!!request.hasAccessId()) {
-    body["AccessId"] = request.accessId();
+    body["AccessId"] = request.getAccessId();
   }
 
   if (!!request.hasAccountId()) {
-    body["AccountId"] = request.accountId();
+    body["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasAccountName()) {
-    body["AccountName"] = request.accountName();
+    body["AccountName"] = request.getAccountName();
   }
 
   if (!!request.hasBindId()) {
-    body["BindId"] = request.bindId();
+    body["BindId"] = request.getBindId();
   }
 
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4500,35 +4454,35 @@ ModifyDataSourceResponse Client::modifyDataSourceWithOptions(const ModifyDataSou
   request.validate();
   json body = {};
   if (!!request.hasAccountId()) {
-    body["AccountId"] = request.accountId();
+    body["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasDataSourceInstanceId()) {
-    body["DataSourceInstanceId"] = request.dataSourceInstanceId();
+    body["DataSourceInstanceId"] = request.getDataSourceInstanceId();
   }
 
   if (!!request.hasDataSourceInstanceName()) {
-    body["DataSourceInstanceName"] = request.dataSourceInstanceName();
+    body["DataSourceInstanceName"] = request.getDataSourceInstanceName();
   }
 
   if (!!request.hasDataSourceInstanceParams()) {
-    body["DataSourceInstanceParams"] = request.dataSourceInstanceParams();
+    body["DataSourceInstanceParams"] = request.getDataSourceInstanceParams();
   }
 
   if (!!request.hasDataSourceInstanceRemark()) {
-    body["DataSourceInstanceRemark"] = request.dataSourceInstanceRemark();
+    body["DataSourceInstanceRemark"] = request.getDataSourceInstanceRemark();
   }
 
   if (!!request.hasDataSourceType()) {
-    body["DataSourceType"] = request.dataSourceType();
+    body["DataSourceType"] = request.getDataSourceType();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4570,35 +4524,35 @@ ModifyDataSourceLogResponse Client::modifyDataSourceLogWithOptions(const ModifyD
   request.validate();
   json body = {};
   if (!!request.hasAccountId()) {
-    body["AccountId"] = request.accountId();
+    body["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasDataSourceInstanceId()) {
-    body["DataSourceInstanceId"] = request.dataSourceInstanceId();
+    body["DataSourceInstanceId"] = request.getDataSourceInstanceId();
   }
 
   if (!!request.hasDataSourceInstanceLogs()) {
-    body["DataSourceInstanceLogs"] = request.dataSourceInstanceLogs();
+    body["DataSourceInstanceLogs"] = request.getDataSourceInstanceLogs();
   }
 
   if (!!request.hasDataSourceType()) {
-    body["DataSourceType"] = request.dataSourceType();
+    body["DataSourceType"] = request.getDataSourceType();
   }
 
   if (!!request.hasLogCode()) {
-    body["LogCode"] = request.logCode();
+    body["LogCode"] = request.getLogCode();
   }
 
   if (!!request.hasLogInstanceId()) {
-    body["LogInstanceId"] = request.logInstanceId();
+    body["LogInstanceId"] = request.getLogInstanceId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4640,23 +4594,23 @@ OpenDeliveryResponse Client::openDeliveryWithOptions(const OpenDeliveryRequest &
   request.validate();
   json body = {};
   if (!!request.hasLogCode()) {
-    body["LogCode"] = request.logCode();
+    body["LogCode"] = request.getLogCode();
   }
 
   if (!!request.hasProductCode()) {
-    body["ProductCode"] = request.productCode();
+    body["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4698,43 +4652,43 @@ PostAutomateResponseConfigResponse Client::postAutomateResponseConfigWithOptions
   request.validate();
   json body = {};
   if (!!request.hasActionConfig()) {
-    body["ActionConfig"] = request.actionConfig();
+    body["ActionConfig"] = request.getActionConfig();
   }
 
   if (!!request.hasActionType()) {
-    body["ActionType"] = request.actionType();
+    body["ActionType"] = request.getActionType();
   }
 
   if (!!request.hasAutoResponseType()) {
-    body["AutoResponseType"] = request.autoResponseType();
+    body["AutoResponseType"] = request.getAutoResponseType();
   }
 
   if (!!request.hasExecutionCondition()) {
-    body["ExecutionCondition"] = request.executionCondition();
+    body["ExecutionCondition"] = request.getExecutionCondition();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasRuleName()) {
-    body["RuleName"] = request.ruleName();
+    body["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasSubUserId()) {
-    body["SubUserId"] = request.subUserId();
+    body["SubUserId"] = request.getSubUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4776,87 +4730,87 @@ PostCustomizeRuleResponse Client::postCustomizeRuleWithOptions(const PostCustomi
   request.validate();
   json body = {};
   if (!!request.hasAlertType()) {
-    body["AlertType"] = request.alertType();
+    body["AlertType"] = request.getAlertType();
   }
 
   if (!!request.hasAlertTypeMds()) {
-    body["AlertTypeMds"] = request.alertTypeMds();
+    body["AlertTypeMds"] = request.getAlertTypeMds();
   }
 
   if (!!request.hasAttCk()) {
-    body["AttCk"] = request.attCk();
+    body["AttCk"] = request.getAttCk();
   }
 
   if (!!request.hasEventTransferExt()) {
-    body["EventTransferExt"] = request.eventTransferExt();
+    body["EventTransferExt"] = request.getEventTransferExt();
   }
 
   if (!!request.hasEventTransferSwitch()) {
-    body["EventTransferSwitch"] = request.eventTransferSwitch();
+    body["EventTransferSwitch"] = request.getEventTransferSwitch();
   }
 
   if (!!request.hasEventTransferType()) {
-    body["EventTransferType"] = request.eventTransferType();
+    body["EventTransferType"] = request.getEventTransferType();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasLogSource()) {
-    body["LogSource"] = request.logSource();
+    body["LogSource"] = request.getLogSource();
   }
 
   if (!!request.hasLogSourceMds()) {
-    body["LogSourceMds"] = request.logSourceMds();
+    body["LogSourceMds"] = request.getLogSourceMds();
   }
 
   if (!!request.hasLogType()) {
-    body["LogType"] = request.logType();
+    body["LogType"] = request.getLogType();
   }
 
   if (!!request.hasLogTypeMds()) {
-    body["LogTypeMds"] = request.logTypeMds();
+    body["LogTypeMds"] = request.getLogTypeMds();
   }
 
   if (!!request.hasQueryCycle()) {
-    body["QueryCycle"] = request.queryCycle();
+    body["QueryCycle"] = request.getQueryCycle();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasRuleCondition()) {
-    body["RuleCondition"] = request.ruleCondition();
+    body["RuleCondition"] = request.getRuleCondition();
   }
 
   if (!!request.hasRuleDesc()) {
-    body["RuleDesc"] = request.ruleDesc();
+    body["RuleDesc"] = request.getRuleDesc();
   }
 
   if (!!request.hasRuleGroup()) {
-    body["RuleGroup"] = request.ruleGroup();
+    body["RuleGroup"] = request.getRuleGroup();
   }
 
   if (!!request.hasRuleName()) {
-    body["RuleName"] = request.ruleName();
+    body["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasRuleThreshold()) {
-    body["RuleThreshold"] = request.ruleThreshold();
+    body["RuleThreshold"] = request.getRuleThreshold();
   }
 
   if (!!request.hasThreatLevel()) {
-    body["ThreatLevel"] = request.threatLevel();
+    body["ThreatLevel"] = request.getThreatLevel();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4898,27 +4852,27 @@ PostCustomizeRuleTestResponse Client::postCustomizeRuleTestWithOptions(const Pos
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasSimulatedData()) {
-    body["SimulatedData"] = request.simulatedData();
+    body["SimulatedData"] = request.getSimulatedData();
   }
 
   if (!!request.hasTestType()) {
-    body["TestType"] = request.testType();
+    body["TestType"] = request.getTestType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4959,40 +4913,52 @@ PostCustomizeRuleTestResponse Client::postCustomizeRuleTest(const PostCustomizeR
 PostEventDisposeAndWhiteruleListResponse Client::postEventDisposeAndWhiteruleListWithOptions(const PostEventDisposeAndWhiteruleListRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasDisposeStrategyIds()) {
+    body["DisposeStrategyIds"] = request.getDisposeStrategyIds();
+  }
+
   if (!!request.hasEventDispose()) {
-    body["EventDispose"] = request.eventDispose();
+    body["EventDispose"] = request.getEventDispose();
   }
 
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
+  }
+
+  if (!!request.hasOwner()) {
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasReceiverInfo()) {
-    body["ReceiverInfo"] = request.receiverInfo();
+    body["ReceiverInfo"] = request.getReceiverInfo();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRemark()) {
-    body["Remark"] = request.remark();
+    body["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasResponseSource()) {
+    body["ResponseSource"] = request.getResponseSource();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasThreatLevel()) {
-    body["ThreatLevel"] = request.threatLevel();
+    body["ThreatLevel"] = request.getThreatLevel();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5034,23 +5000,23 @@ PostEventWhiteruleListResponse Client::postEventWhiteruleListWithOptions(const P
   request.validate();
   json body = {};
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasWhiteruleList()) {
-    body["WhiteruleList"] = request.whiteruleList();
+    body["WhiteruleList"] = request.getWhiteruleList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5092,19 +5058,19 @@ PostFinishCustomizeRuleTestResponse Client::postFinishCustomizeRuleTestWithOptio
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5146,27 +5112,27 @@ PostRuleStatusChangeResponse Client::postRuleStatusChangeWithOptions(const PostR
   request.validate();
   json body = {};
   if (!!request.hasIds()) {
-    body["Ids"] = request.ids();
+    body["Ids"] = request.getIds();
   }
 
   if (!!request.hasInUse()) {
-    body["InUse"] = request.inUse();
+    body["InUse"] = request.getInUse();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasRuleType()) {
-    body["RuleType"] = request.ruleType();
+    body["RuleType"] = request.getRuleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5208,15 +5174,15 @@ RestoreCapacityResponse Client::restoreCapacityWithOptions(const RestoreCapacity
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5258,23 +5224,23 @@ SetStorageResponse Client::setStorageWithOptions(const SetStorageRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasTtl()) {
-    body["Ttl"] = request.ttl();
+    body["Ttl"] = request.getTtl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5316,35 +5282,35 @@ SubmitImportLogTasksResponse Client::submitImportLogTasksWithOptions(const Submi
   request.validate();
   json body = {};
   if (!!request.hasAccounts()) {
-    body["Accounts"] = request.accounts();
+    body["Accounts"] = request.getAccounts();
   }
 
   if (!!request.hasAutoImported()) {
-    body["AutoImported"] = request.autoImported();
+    body["AutoImported"] = request.getAutoImported();
   }
 
   if (!!request.hasCloudCode()) {
-    body["CloudCode"] = request.cloudCode();
+    body["CloudCode"] = request.getCloudCode();
   }
 
   if (!!request.hasLogCodes()) {
-    body["LogCodes"] = request.logCodes();
+    body["LogCodes"] = request.getLogCodes();
   }
 
   if (!!request.hasProdCode()) {
-    body["ProdCode"] = request.prodCode();
+    body["ProdCode"] = request.getProdCode();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5386,23 +5352,23 @@ UpdateAutomateResponseConfigStatusResponse Client::updateAutomateResponseConfigS
   request.validate();
   json body = {};
   if (!!request.hasIds()) {
-    body["Ids"] = request.ids();
+    body["Ids"] = request.getIds();
   }
 
   if (!!request.hasInUse()) {
-    body["InUse"] = request.inUse();
+    body["InUse"] = request.getInUse();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5444,27 +5410,27 @@ UpdateWhiteRuleListResponse Client::updateWhiteRuleListWithOptions(const UpdateW
   request.validate();
   json body = {};
   if (!!request.hasExpression()) {
-    body["Expression"] = request.expression();
+    body["Expression"] = request.getExpression();
   }
 
   if (!!request.hasIncidentUuid()) {
-    body["IncidentUuid"] = request.incidentUuid();
+    body["IncidentUuid"] = request.getIncidentUuid();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
-    body["RoleFor"] = request.roleFor();
+    body["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    body["RoleType"] = request.roleType();
+    body["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasWhiteRuleId()) {
-    body["WhiteRuleId"] = request.whiteRuleId();
+    body["WhiteRuleId"] = request.getWhiteRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

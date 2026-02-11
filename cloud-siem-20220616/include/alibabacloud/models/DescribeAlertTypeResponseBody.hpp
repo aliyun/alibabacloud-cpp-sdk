@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEALERTTYPERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeAlertTypeResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,59 +38,103 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->data_ != nullptr && this->message_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AlertType, alertType_);
+        DARABONBA_PTR_TO_JSON(AlertTypeMds, alertTypeMds_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AlertType, alertType_);
+        DARABONBA_PTR_FROM_JSON(AlertTypeMds, alertTypeMds_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->alertType_ == nullptr
+        && this->alertTypeMds_ == nullptr; };
+      // alertType Field Functions 
+      bool hasAlertType() const { return this->alertType_ != nullptr;};
+      void deleteAlertType() { this->alertType_ = nullptr;};
+      inline string getAlertType() const { DARABONBA_PTR_GET_DEFAULT(alertType_, "") };
+      inline Data& setAlertType(string alertType) { DARABONBA_PTR_SET_VALUE(alertType_, alertType) };
+
+
+      // alertTypeMds Field Functions 
+      bool hasAlertTypeMds() const { return this->alertTypeMds_ != nullptr;};
+      void deleteAlertTypeMds() { this->alertTypeMds_ = nullptr;};
+      inline string getAlertTypeMds() const { DARABONBA_PTR_GET_DEFAULT(alertTypeMds_, "") };
+      inline Data& setAlertTypeMds(string alertTypeMds) { DARABONBA_PTR_SET_VALUE(alertTypeMds_, alertTypeMds) };
+
+
+    protected:
+      // The type of the risk.
+      shared_ptr<string> alertType_ {};
+      // The internal code of the risk type.
+      shared_ptr<string> alertTypeMds_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline DescribeAlertTypeResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<DescribeAlertTypeResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<DescribeAlertTypeResponseBodyData>) };
-    inline vector<DescribeAlertTypeResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<DescribeAlertTypeResponseBodyData>) };
-    inline DescribeAlertTypeResponseBody& setData(const vector<DescribeAlertTypeResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline DescribeAlertTypeResponseBody& setData(vector<DescribeAlertTypeResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<DescribeAlertTypeResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<DescribeAlertTypeResponseBody::Data>) };
+    inline vector<DescribeAlertTypeResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<DescribeAlertTypeResponseBody::Data>) };
+    inline DescribeAlertTypeResponseBody& setData(const vector<DescribeAlertTypeResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline DescribeAlertTypeResponseBody& setData(vector<DescribeAlertTypeResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DescribeAlertTypeResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAlertTypeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DescribeAlertTypeResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The HTTP status code.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // The data returned.
-    std::shared_ptr<vector<DescribeAlertTypeResponseBodyData>> data_ = nullptr;
+    shared_ptr<vector<DescribeAlertTypeResponseBody::Data>> data_ {};
     // The returned message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

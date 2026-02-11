@@ -45,74 +45,74 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetName_ != nullptr
-        && this->assetType_ != nullptr && this->assetUuid_ != nullptr && this->currentPage_ != nullptr && this->incidentUuid_ != nullptr && this->pageSize_ != nullptr
-        && this->regionId_ != nullptr && this->roleFor_ != nullptr && this->roleType_ != nullptr; };
+    virtual bool empty() const override { return this->assetName_ == nullptr
+        && this->assetType_ == nullptr && this->assetUuid_ == nullptr && this->currentPage_ == nullptr && this->incidentUuid_ == nullptr && this->pageSize_ == nullptr
+        && this->regionId_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr; };
     // assetName Field Functions 
     bool hasAssetName() const { return this->assetName_ != nullptr;};
     void deleteAssetName() { this->assetName_ = nullptr;};
-    inline string assetName() const { DARABONBA_PTR_GET_DEFAULT(assetName_, "") };
+    inline string getAssetName() const { DARABONBA_PTR_GET_DEFAULT(assetName_, "") };
     inline DescribeCloudSiemAssetsRequest& setAssetName(string assetName) { DARABONBA_PTR_SET_VALUE(assetName_, assetName) };
 
 
     // assetType Field Functions 
     bool hasAssetType() const { return this->assetType_ != nullptr;};
     void deleteAssetType() { this->assetType_ = nullptr;};
-    inline string assetType() const { DARABONBA_PTR_GET_DEFAULT(assetType_, "") };
+    inline string getAssetType() const { DARABONBA_PTR_GET_DEFAULT(assetType_, "") };
     inline DescribeCloudSiemAssetsRequest& setAssetType(string assetType) { DARABONBA_PTR_SET_VALUE(assetType_, assetType) };
 
 
     // assetUuid Field Functions 
     bool hasAssetUuid() const { return this->assetUuid_ != nullptr;};
     void deleteAssetUuid() { this->assetUuid_ = nullptr;};
-    inline string assetUuid() const { DARABONBA_PTR_GET_DEFAULT(assetUuid_, "") };
+    inline string getAssetUuid() const { DARABONBA_PTR_GET_DEFAULT(assetUuid_, "") };
     inline DescribeCloudSiemAssetsRequest& setAssetUuid(string assetUuid) { DARABONBA_PTR_SET_VALUE(assetUuid_, assetUuid) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeCloudSiemAssetsRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // incidentUuid Field Functions 
     bool hasIncidentUuid() const { return this->incidentUuid_ != nullptr;};
     void deleteIncidentUuid() { this->incidentUuid_ = nullptr;};
-    inline string incidentUuid() const { DARABONBA_PTR_GET_DEFAULT(incidentUuid_, "") };
+    inline string getIncidentUuid() const { DARABONBA_PTR_GET_DEFAULT(incidentUuid_, "") };
     inline DescribeCloudSiemAssetsRequest& setIncidentUuid(string incidentUuid) { DARABONBA_PTR_SET_VALUE(incidentUuid_, incidentUuid) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeCloudSiemAssetsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeCloudSiemAssetsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // roleFor Field Functions 
     bool hasRoleFor() const { return this->roleFor_ != nullptr;};
     void deleteRoleFor() { this->roleFor_ = nullptr;};
-    inline int64_t roleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
+    inline int64_t getRoleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
     inline DescribeCloudSiemAssetsRequest& setRoleFor(int64_t roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
     // roleType Field Functions 
     bool hasRoleType() const { return this->roleType_ != nullptr;};
     void deleteRoleType() { this->roleType_ = nullptr;};
-    inline int32_t roleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, 0) };
+    inline int32_t getRoleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, 0) };
     inline DescribeCloudSiemAssetsRequest& setRoleType(int32_t roleType) { DARABONBA_PTR_SET_VALUE(roleType_, roleType) };
 
 
   protected:
-    std::shared_ptr<string> assetName_ = nullptr;
+    shared_ptr<string> assetName_ {};
     // The type of the asset. Valid values:
     // 
     // *   ip
@@ -121,29 +121,29 @@ namespace Models
     // *   process
     // *   file
     // *   host
-    std::shared_ptr<string> assetType_ = nullptr;
-    std::shared_ptr<string> assetUuid_ = nullptr;
+    shared_ptr<string> assetType_ {};
+    shared_ptr<string> assetUuid_ {};
     // The page number. Pages start from page 1.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The UUID of the event.
-    std::shared_ptr<string> incidentUuid_ = nullptr;
+    shared_ptr<string> incidentUuid_ {};
     // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
     // 
     // *   cn-hangzhou: Your assets reside in regions in China.
     // *   ap-southeast-1: Your assets reside in regions outside China.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the account that you switch from the management account.
-    std::shared_ptr<int64_t> roleFor_ = nullptr;
+    shared_ptr<int64_t> roleFor_ {};
     // The type of the view. Valid values:
     // - 0: the current Alibaba Cloud account
     // - 1: the global account
-    std::shared_ptr<int32_t> roleType_ = nullptr;
+    shared_ptr<int32_t> roleType_ {};
   };
 
   } // namespace Models
