@@ -283,6 +283,7 @@ namespace Models
               DARABONBA_PTR_TO_JSON(Command, command_);
               DARABONBA_PTR_TO_JSON(EnvironmentVars, environmentVars_);
               DARABONBA_PTR_TO_JSON(Image, image_);
+              DARABONBA_PTR_TO_JSON(ImageRegistryOptions, imageRegistryOptions_);
               DARABONBA_PTR_TO_JSON(WorkingDir, workingDir_);
             };
             friend void from_json(const Darabonba::Json& j, Container& obj) { 
@@ -291,6 +292,7 @@ namespace Models
               DARABONBA_PTR_FROM_JSON(Command, command_);
               DARABONBA_PTR_FROM_JSON(EnvironmentVars, environmentVars_);
               DARABONBA_PTR_FROM_JSON(Image, image_);
+              DARABONBA_PTR_FROM_JSON(ImageRegistryOptions, imageRegistryOptions_);
               DARABONBA_PTR_FROM_JSON(WorkingDir, workingDir_);
             };
             Container() = default ;
@@ -349,7 +351,8 @@ namespace Models
             };
 
             virtual bool empty() const override { return this->appId_ == nullptr
-        && this->arg_ == nullptr && this->command_ == nullptr && this->environmentVars_ == nullptr && this->image_ == nullptr && this->workingDir_ == nullptr; };
+        && this->arg_ == nullptr && this->command_ == nullptr && this->environmentVars_ == nullptr && this->image_ == nullptr && this->imageRegistryOptions_ == nullptr
+        && this->workingDir_ == nullptr; };
             // appId Field Functions 
             bool hasAppId() const { return this->appId_ != nullptr;};
             void deleteAppId() { this->appId_ = nullptr;};
@@ -391,6 +394,13 @@ namespace Models
             inline Container& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
 
 
+            // imageRegistryOptions Field Functions 
+            bool hasImageRegistryOptions() const { return this->imageRegistryOptions_ != nullptr;};
+            void deleteImageRegistryOptions() { this->imageRegistryOptions_ = nullptr;};
+            inline string getImageRegistryOptions() const { DARABONBA_PTR_GET_DEFAULT(imageRegistryOptions_, "") };
+            inline Container& setImageRegistryOptions(string imageRegistryOptions) { DARABONBA_PTR_SET_VALUE(imageRegistryOptions_, imageRegistryOptions) };
+
+
             // workingDir Field Functions 
             bool hasWorkingDir() const { return this->workingDir_ != nullptr;};
             void deleteWorkingDir() { this->workingDir_ = nullptr;};
@@ -417,6 +427,7 @@ namespace Models
             // 
             // This parameter is required.
             shared_ptr<string> image_ {};
+            shared_ptr<string> imageRegistryOptions_ {};
             // The working directory of the container.
             shared_ptr<string> workingDir_ {};
           };

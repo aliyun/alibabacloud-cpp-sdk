@@ -658,7 +658,7 @@ DescribeJobMetricLastResponse Client::describeJobMetricLast(const DescribeJobMet
 }
 
 /**
- * @summary 查询作业输出
+ * @summary Query job logs
  *
  * @param request DescribeJobResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -709,7 +709,7 @@ DescribeJobResultsResponse Client::describeJobResultsWithOptions(const DescribeJ
 }
 
 /**
- * @summary 查询作业输出
+ * @summary Query job logs
  *
  * @param request DescribeJobResultsRequest
  * @return DescribeJobResultsResponse

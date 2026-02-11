@@ -109,13 +109,9 @@ namespace Models
 
 
       protected:
-        // The ID of the resource.
         shared_ptr<string> resourceId_ {};
-        // The type of the resource.
         shared_ptr<string> resourceType_ {};
-        // The key of the tag that is added to the resource.
         shared_ptr<string> tagKey_ {};
-        // The value of the tag.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -163,7 +159,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource list.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

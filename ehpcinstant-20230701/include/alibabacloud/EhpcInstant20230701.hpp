@@ -201,7 +201,7 @@ namespace EhpcInstant20230701
       Models::DescribeJobMetricLastResponse describeJobMetricLast(const Models::DescribeJobMetricLastRequest &request);
 
       /**
-       * @summary 查询作业输出
+       * @summary Query job logs
        *
        * @param request DescribeJobResultsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -210,7 +210,7 @@ namespace EhpcInstant20230701
       Models::DescribeJobResultsResponse describeJobResultsWithOptions(const Models::DescribeJobResultsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询作业输出
+       * @summary Query job logs
        *
        * @param request DescribeJobResultsRequest
        * @return DescribeJobResultsResponse
