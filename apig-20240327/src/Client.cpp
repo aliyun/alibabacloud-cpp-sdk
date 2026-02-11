@@ -713,12 +713,20 @@ CreateHttpApiResponse Client::createHttpApiWithOptions(const CreateHttpApiReques
     body["basePath"] = request.getBasePath();
   }
 
+  if (!!request.hasBelongGatewayId()) {
+    body["belongGatewayId"] = request.getBelongGatewayId();
+  }
+
   if (!!request.hasDeployConfigs()) {
     body["deployConfigs"] = request.getDeployConfigs();
   }
 
   if (!!request.hasDescription()) {
     body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDryRun()) {
+    body["dryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEnableAuth()) {
@@ -751,6 +759,10 @@ CreateHttpApiResponse Client::createHttpApiWithOptions(const CreateHttpApiReques
 
   if (!!request.hasResourceGroupId()) {
     body["resourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasStrategy()) {
+    body["strategy"] = request.getStrategy();
   }
 
   if (!!request.hasType()) {

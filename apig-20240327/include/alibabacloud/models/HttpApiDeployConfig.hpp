@@ -127,19 +127,33 @@ namespace Models
     class ServiceConfigs : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ServiceConfigs& obj) { 
+        DARABONBA_PTR_TO_JSON(gatewayServiceId, gatewayServiceId_);
         DARABONBA_PTR_TO_JSON(intentCode, intentCode_);
         DARABONBA_PTR_TO_JSON(match, match_);
         DARABONBA_PTR_TO_JSON(modelName, modelName_);
         DARABONBA_PTR_TO_JSON(modelNamePattern, modelNamePattern_);
+        DARABONBA_PTR_TO_JSON(multiServiceRouteStrategy, multiServiceRouteStrategy_);
+        DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(observabilityRouteConfig, observabilityRouteConfig_);
+        DARABONBA_PTR_TO_JSON(port, port_);
+        DARABONBA_PTR_TO_JSON(protocol, protocol_);
         DARABONBA_PTR_TO_JSON(serviceId, serviceId_);
+        DARABONBA_PTR_TO_JSON(version, version_);
         DARABONBA_PTR_TO_JSON(weight, weight_);
       };
       friend void from_json(const Darabonba::Json& j, ServiceConfigs& obj) { 
+        DARABONBA_PTR_FROM_JSON(gatewayServiceId, gatewayServiceId_);
         DARABONBA_PTR_FROM_JSON(intentCode, intentCode_);
         DARABONBA_PTR_FROM_JSON(match, match_);
         DARABONBA_PTR_FROM_JSON(modelName, modelName_);
         DARABONBA_PTR_FROM_JSON(modelNamePattern, modelNamePattern_);
+        DARABONBA_PTR_FROM_JSON(multiServiceRouteStrategy, multiServiceRouteStrategy_);
+        DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(observabilityRouteConfig, observabilityRouteConfig_);
+        DARABONBA_PTR_FROM_JSON(port, port_);
+        DARABONBA_PTR_FROM_JSON(protocol, protocol_);
         DARABONBA_PTR_FROM_JSON(serviceId, serviceId_);
+        DARABONBA_PTR_FROM_JSON(version, version_);
         DARABONBA_PTR_FROM_JSON(weight, weight_);
       };
       ServiceConfigs() = default ;
@@ -153,8 +167,72 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->intentCode_ == nullptr
-        && this->match_ == nullptr && this->modelName_ == nullptr && this->modelNamePattern_ == nullptr && this->serviceId_ == nullptr && this->weight_ == nullptr; };
+      class ObservabilityRouteConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ObservabilityRouteConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(mode, mode_);
+          DARABONBA_PTR_TO_JSON(queueSize, queueSize_);
+          DARABONBA_PTR_TO_JSON(rateLimit, rateLimit_);
+        };
+        friend void from_json(const Darabonba::Json& j, ObservabilityRouteConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(mode, mode_);
+          DARABONBA_PTR_FROM_JSON(queueSize, queueSize_);
+          DARABONBA_PTR_FROM_JSON(rateLimit, rateLimit_);
+        };
+        ObservabilityRouteConfig() = default ;
+        ObservabilityRouteConfig(const ObservabilityRouteConfig &) = default ;
+        ObservabilityRouteConfig(ObservabilityRouteConfig &&) = default ;
+        ObservabilityRouteConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ObservabilityRouteConfig() = default ;
+        ObservabilityRouteConfig& operator=(const ObservabilityRouteConfig &) = default ;
+        ObservabilityRouteConfig& operator=(ObservabilityRouteConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->mode_ == nullptr
+        && this->queueSize_ == nullptr && this->rateLimit_ == nullptr; };
+        // mode Field Functions 
+        bool hasMode() const { return this->mode_ != nullptr;};
+        void deleteMode() { this->mode_ = nullptr;};
+        inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+        inline ObservabilityRouteConfig& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
+        // queueSize Field Functions 
+        bool hasQueueSize() const { return this->queueSize_ != nullptr;};
+        void deleteQueueSize() { this->queueSize_ = nullptr;};
+        inline int32_t getQueueSize() const { DARABONBA_PTR_GET_DEFAULT(queueSize_, 0) };
+        inline ObservabilityRouteConfig& setQueueSize(int32_t queueSize) { DARABONBA_PTR_SET_VALUE(queueSize_, queueSize) };
+
+
+        // rateLimit Field Functions 
+        bool hasRateLimit() const { return this->rateLimit_ != nullptr;};
+        void deleteRateLimit() { this->rateLimit_ = nullptr;};
+        inline float getRateLimit() const { DARABONBA_PTR_GET_DEFAULT(rateLimit_, 0.0) };
+        inline ObservabilityRouteConfig& setRateLimit(float rateLimit) { DARABONBA_PTR_SET_VALUE(rateLimit_, rateLimit) };
+
+
+      protected:
+        // Routing mode
+        shared_ptr<string> mode_ {};
+        // Queue size
+        shared_ptr<int32_t> queueSize_ {};
+        // Max traffic ratio per single service
+        shared_ptr<float> rateLimit_ {};
+      };
+
+      virtual bool empty() const override { return this->gatewayServiceId_ == nullptr
+        && this->intentCode_ == nullptr && this->match_ == nullptr && this->modelName_ == nullptr && this->modelNamePattern_ == nullptr && this->multiServiceRouteStrategy_ == nullptr
+        && this->name_ == nullptr && this->observabilityRouteConfig_ == nullptr && this->port_ == nullptr && this->protocol_ == nullptr && this->serviceId_ == nullptr
+        && this->version_ == nullptr && this->weight_ == nullptr; };
+      // gatewayServiceId Field Functions 
+      bool hasGatewayServiceId() const { return this->gatewayServiceId_ != nullptr;};
+      void deleteGatewayServiceId() { this->gatewayServiceId_ = nullptr;};
+      inline string getGatewayServiceId() const { DARABONBA_PTR_GET_DEFAULT(gatewayServiceId_, "") };
+      inline ServiceConfigs& setGatewayServiceId(string gatewayServiceId) { DARABONBA_PTR_SET_VALUE(gatewayServiceId_, gatewayServiceId) };
+
+
       // intentCode Field Functions 
       bool hasIntentCode() const { return this->intentCode_ != nullptr;};
       void deleteIntentCode() { this->intentCode_ = nullptr;};
@@ -185,11 +263,55 @@ namespace Models
       inline ServiceConfigs& setModelNamePattern(string modelNamePattern) { DARABONBA_PTR_SET_VALUE(modelNamePattern_, modelNamePattern) };
 
 
+      // multiServiceRouteStrategy Field Functions 
+      bool hasMultiServiceRouteStrategy() const { return this->multiServiceRouteStrategy_ != nullptr;};
+      void deleteMultiServiceRouteStrategy() { this->multiServiceRouteStrategy_ = nullptr;};
+      inline string getMultiServiceRouteStrategy() const { DARABONBA_PTR_GET_DEFAULT(multiServiceRouteStrategy_, "") };
+      inline ServiceConfigs& setMultiServiceRouteStrategy(string multiServiceRouteStrategy) { DARABONBA_PTR_SET_VALUE(multiServiceRouteStrategy_, multiServiceRouteStrategy) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline ServiceConfigs& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // observabilityRouteConfig Field Functions 
+      bool hasObservabilityRouteConfig() const { return this->observabilityRouteConfig_ != nullptr;};
+      void deleteObservabilityRouteConfig() { this->observabilityRouteConfig_ = nullptr;};
+      inline const ServiceConfigs::ObservabilityRouteConfig & getObservabilityRouteConfig() const { DARABONBA_PTR_GET_CONST(observabilityRouteConfig_, ServiceConfigs::ObservabilityRouteConfig) };
+      inline ServiceConfigs::ObservabilityRouteConfig getObservabilityRouteConfig() { DARABONBA_PTR_GET(observabilityRouteConfig_, ServiceConfigs::ObservabilityRouteConfig) };
+      inline ServiceConfigs& setObservabilityRouteConfig(const ServiceConfigs::ObservabilityRouteConfig & observabilityRouteConfig) { DARABONBA_PTR_SET_VALUE(observabilityRouteConfig_, observabilityRouteConfig) };
+      inline ServiceConfigs& setObservabilityRouteConfig(ServiceConfigs::ObservabilityRouteConfig && observabilityRouteConfig) { DARABONBA_PTR_SET_RVALUE(observabilityRouteConfig_, observabilityRouteConfig) };
+
+
+      // port Field Functions 
+      bool hasPort() const { return this->port_ != nullptr;};
+      void deletePort() { this->port_ = nullptr;};
+      inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+      inline ServiceConfigs& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
+
+
+      // protocol Field Functions 
+      bool hasProtocol() const { return this->protocol_ != nullptr;};
+      void deleteProtocol() { this->protocol_ = nullptr;};
+      inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+      inline ServiceConfigs& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
+
+
       // serviceId Field Functions 
       bool hasServiceId() const { return this->serviceId_ != nullptr;};
       void deleteServiceId() { this->serviceId_ = nullptr;};
       inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
       inline ServiceConfigs& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
+
+
+      // version Field Functions 
+      bool hasVersion() const { return this->version_ != nullptr;};
+      void deleteVersion() { this->version_ = nullptr;};
+      inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+      inline ServiceConfigs& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
       // weight Field Functions 
@@ -200,6 +322,8 @@ namespace Models
 
 
     protected:
+      // Legacy gateway service ID for backward compatibility
+      shared_ptr<string> gatewayServiceId_ {};
       // Intent classification code
       shared_ptr<string> intentCode_ {};
       // Match conditions
@@ -208,8 +332,20 @@ namespace Models
       shared_ptr<string> modelName_ {};
       // The model name matching rule.
       shared_ptr<string> modelNamePattern_ {};
+      // Multi-service routing strategy type
+      shared_ptr<string> multiServiceRouteStrategy_ {};
+      // Service display name
+      shared_ptr<string> name_ {};
+      // Observability metrics-based routing config
+      shared_ptr<ServiceConfigs::ObservabilityRouteConfig> observabilityRouteConfig_ {};
+      // Service port number
+      shared_ptr<int32_t> port_ {};
+      // Service protocol
+      shared_ptr<string> protocol_ {};
       // The service ID.
       shared_ptr<string> serviceId_ {};
+      // Service version tag for tag-based routing scenarios
+      shared_ptr<string> version_ {};
       // The service weight.
       shared_ptr<int64_t> weight_ {};
     };

@@ -21,8 +21,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(aiProtocols, aiProtocols_);
       DARABONBA_PTR_TO_JSON(authConfig, authConfig_);
       DARABONBA_PTR_TO_JSON(basePath, basePath_);
+      DARABONBA_PTR_TO_JSON(belongGatewayId, belongGatewayId_);
       DARABONBA_PTR_TO_JSON(deployConfigs, deployConfigs_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(dryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(enableAuth, enableAuth_);
       DARABONBA_PTR_TO_JSON(firstByteTimeout, firstByteTimeout_);
       DARABONBA_PTR_TO_JSON(ingressConfig, ingressConfig_);
@@ -31,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(protocols, protocols_);
       DARABONBA_PTR_TO_JSON(removeBasePathOnForward, removeBasePathOnForward_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(strategy, strategy_);
       DARABONBA_PTR_TO_JSON(type, type_);
       DARABONBA_PTR_TO_JSON(versionConfig, versionConfig_);
     };
@@ -39,8 +42,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(aiProtocols, aiProtocols_);
       DARABONBA_PTR_FROM_JSON(authConfig, authConfig_);
       DARABONBA_PTR_FROM_JSON(basePath, basePath_);
+      DARABONBA_PTR_FROM_JSON(belongGatewayId, belongGatewayId_);
       DARABONBA_PTR_FROM_JSON(deployConfigs, deployConfigs_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(dryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(enableAuth, enableAuth_);
       DARABONBA_PTR_FROM_JSON(firstByteTimeout, firstByteTimeout_);
       DARABONBA_PTR_FROM_JSON(ingressConfig, ingressConfig_);
@@ -49,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(protocols, protocols_);
       DARABONBA_PTR_FROM_JSON(removeBasePathOnForward, removeBasePathOnForward_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(strategy, strategy_);
       DARABONBA_PTR_FROM_JSON(type, type_);
       DARABONBA_PTR_FROM_JSON(versionConfig, versionConfig_);
     };
@@ -152,9 +158,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->agentProtocols_ == nullptr
-        && this->aiProtocols_ == nullptr && this->authConfig_ == nullptr && this->basePath_ == nullptr && this->deployConfigs_ == nullptr && this->description_ == nullptr
-        && this->enableAuth_ == nullptr && this->firstByteTimeout_ == nullptr && this->ingressConfig_ == nullptr && this->modelCategory_ == nullptr && this->name_ == nullptr
-        && this->protocols_ == nullptr && this->removeBasePathOnForward_ == nullptr && this->resourceGroupId_ == nullptr && this->type_ == nullptr && this->versionConfig_ == nullptr; };
+        && this->aiProtocols_ == nullptr && this->authConfig_ == nullptr && this->basePath_ == nullptr && this->belongGatewayId_ == nullptr && this->deployConfigs_ == nullptr
+        && this->description_ == nullptr && this->dryRun_ == nullptr && this->enableAuth_ == nullptr && this->firstByteTimeout_ == nullptr && this->ingressConfig_ == nullptr
+        && this->modelCategory_ == nullptr && this->name_ == nullptr && this->protocols_ == nullptr && this->removeBasePathOnForward_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->strategy_ == nullptr && this->type_ == nullptr && this->versionConfig_ == nullptr; };
     // agentProtocols Field Functions 
     bool hasAgentProtocols() const { return this->agentProtocols_ != nullptr;};
     void deleteAgentProtocols() { this->agentProtocols_ = nullptr;};
@@ -189,6 +196,13 @@ namespace Models
     inline CreateHttpApiRequest& setBasePath(string basePath) { DARABONBA_PTR_SET_VALUE(basePath_, basePath) };
 
 
+    // belongGatewayId Field Functions 
+    bool hasBelongGatewayId() const { return this->belongGatewayId_ != nullptr;};
+    void deleteBelongGatewayId() { this->belongGatewayId_ = nullptr;};
+    inline string getBelongGatewayId() const { DARABONBA_PTR_GET_DEFAULT(belongGatewayId_, "") };
+    inline CreateHttpApiRequest& setBelongGatewayId(string belongGatewayId) { DARABONBA_PTR_SET_VALUE(belongGatewayId_, belongGatewayId) };
+
+
     // deployConfigs Field Functions 
     bool hasDeployConfigs() const { return this->deployConfigs_ != nullptr;};
     void deleteDeployConfigs() { this->deployConfigs_ = nullptr;};
@@ -203,6 +217,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateHttpApiRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateHttpApiRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // enableAuth Field Functions 
@@ -265,6 +286,13 @@ namespace Models
     inline CreateHttpApiRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+    // strategy Field Functions 
+    bool hasStrategy() const { return this->strategy_ != nullptr;};
+    void deleteStrategy() { this->strategy_ = nullptr;};
+    inline string getStrategy() const { DARABONBA_PTR_GET_DEFAULT(strategy_, "") };
+    inline CreateHttpApiRequest& setStrategy(string strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -290,10 +318,12 @@ namespace Models
     shared_ptr<AuthConfig> authConfig_ {};
     // $.parameters[0].schema.properties.deployConfigs.items.example
     shared_ptr<string> basePath_ {};
+    shared_ptr<string> belongGatewayId_ {};
     // $.parameters[0].schema.example
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
     // $.parameters[0].schema.properties.aiProtocols.items.description
     shared_ptr<string> description_ {};
+    shared_ptr<bool> dryRun_ {};
     // Create an API of HTTP type
     shared_ptr<bool> enableAuth_ {};
     // First byte timeout
@@ -312,6 +342,7 @@ namespace Models
     shared_ptr<bool> removeBasePathOnForward_ {};
     // $.parameters[0].schema.properties.authConfig.example
     shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> strategy_ {};
     // $.parameters[0].schema.properties.deployConfigs.description
     shared_ptr<string> type_ {};
     // $.parameters[0].schema.properties.deployConfigs.items.enumValueTitles

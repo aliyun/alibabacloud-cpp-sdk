@@ -13,8 +13,10 @@ namespace Models
   class McpServerConfig : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const McpServerConfig& obj) { 
+      (void)j; (void)obj; 
     };
     friend void from_json(const Darabonba::Json& j, McpServerConfig& obj) { 
+      (void)j; (void)obj; 
     };
     McpServerConfig() = default ;
     McpServerConfig(const McpServerConfig &) = default ;

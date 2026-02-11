@@ -102,7 +102,9 @@ namespace Models
 
 
       protected:
+        // Operation type
         shared_ptr<string> action_ {};
+        // Unique identifier of the operation
         shared_ptr<string> operationId_ {};
       };
 
@@ -333,6 +335,7 @@ namespace Models
       shared_ptr<RestApiConfig::Environment> environment_ {};
       // The gateway ID.
       shared_ptr<string> gatewayId_ {};
+      // Operation-level deployment control list
       shared_ptr<vector<RestApiConfig::OperationDeployments>> operationDeployments_ {};
       // operationIds
       shared_ptr<vector<string>> operationIds_ {};
