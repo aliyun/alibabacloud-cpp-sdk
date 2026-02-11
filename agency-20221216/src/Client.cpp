@@ -684,7 +684,7 @@ EditZeroCreditShutdownResponse Client::editZeroCreditShutdown(const EditZeroCred
 }
 
 /**
- * @summary Export quota amount adjustment history as a Distribution Customer from International Site. Only available on International Site.
+ * @summary The ExportCustomerQuotaRecord interface corresponds to the export function of "Quota Adjust Details" on ACPN.
  *
  * @description Caller must be a Partner from International Site, either Distribution or Reseller will do.
  *
@@ -733,7 +733,7 @@ ExportCustomerQuotaRecordResponse Client::exportCustomerQuotaRecordWithOptions(c
 }
 
 /**
- * @summary Export quota amount adjustment history as a Distribution Customer from International Site. Only available on International Site.
+ * @summary The ExportCustomerQuotaRecord interface corresponds to the export function of "Quota Adjust Details" on ACPN.
  *
  * @description Caller must be a Partner from International Site, either Distribution or Reseller will do.
  *
@@ -746,7 +746,7 @@ ExportCustomerQuotaRecordResponse Client::exportCustomerQuotaRecord(const Export
 }
 
 /**
- * @summary 额度冲减明细列表导出接口
+ * @summary The ExportReversedDeductionHistory interface corresponds to the export function of "Quota Offsetting Details" on ACPN.
  *
  * @param request ExportReversedDeductionHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -789,7 +789,7 @@ ExportReversedDeductionHistoryResponse Client::exportReversedDeductionHistoryWit
 }
 
 /**
- * @summary 额度冲减明细列表导出接口
+ * @summary The ExportReversedDeductionHistory interface corresponds to the export function of "Quota Offsetting Details" on ACPN.
  *
  * @param request ExportReversedDeductionHistoryRequest
  * @return ExportReversedDeductionHistoryResponse
@@ -1543,6 +1543,9 @@ ListCountriesResponse Client::listCountries() {
 /**
  * @summary 优惠券使用量列表查询
  *
+ * @description 确保当前调用账号身份为分销伙伴 
+ * <notice>仅国际提供
+ *
  * @param request ListCouponUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCouponUsageResponse
@@ -1598,6 +1601,9 @@ ListCouponUsageResponse Client::listCouponUsageWithOptions(const ListCouponUsage
 /**
  * @summary 优惠券使用量列表查询
  *
+ * @description 确保当前调用账号身份为分销伙伴 
+ * <notice>仅国际提供
+ *
  * @param request ListCouponUsageRequest
  * @return ListCouponUsageResponse
  */
@@ -1607,7 +1613,7 @@ ListCouponUsageResponse Client::listCouponUsage(const ListCouponUsageRequest &re
 }
 
 /**
- * @summary 通用查询导出任务列表
+ * @summary Query the list of exported files.
  *
  * @param request ListExportTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1654,7 +1660,7 @@ ListExportTasksResponse Client::listExportTasksWithOptions(const ListExportTasks
 }
 
 /**
- * @summary 通用查询导出任务列表
+ * @summary Query the list of exported files.
  *
  * @param request ListExportTasksRequest
  * @return ListExportTasksResponse

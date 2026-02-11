@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ConsumedUndeductedValue, consumedUndeductedValue_);
         DARABONBA_PTR_TO_JSON(CreditLine, creditLine_);
         DARABONBA_PTR_TO_JSON(OutstandingBalance, outstandingBalance_);
+        DARABONBA_PTR_TO_JSON(PAYGFreezeStatus, PAYGFreezeStatus_);
         DARABONBA_PTR_TO_JSON(ZeroCreditShutdownPolicy, zeroCreditShutdownPolicy_);
         DARABONBA_PTR_TO_JSON(newBuyStatus, newBuyStatus_);
       };
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ConsumedUndeductedValue, consumedUndeductedValue_);
         DARABONBA_PTR_FROM_JSON(CreditLine, creditLine_);
         DARABONBA_PTR_FROM_JSON(OutstandingBalance, outstandingBalance_);
+        DARABONBA_PTR_FROM_JSON(PAYGFreezeStatus, PAYGFreezeStatus_);
         DARABONBA_PTR_FROM_JSON(ZeroCreditShutdownPolicy, zeroCreditShutdownPolicy_);
         DARABONBA_PTR_FROM_JSON(newBuyStatus, newBuyStatus_);
       };
@@ -72,7 +74,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accountStatus_ == nullptr
         && this->alarmThreshold_ == nullptr && this->availableCredit_ == nullptr && this->consumedUndeductedValue_ == nullptr && this->creditLine_ == nullptr && this->outstandingBalance_ == nullptr
-        && this->zeroCreditShutdownPolicy_ == nullptr && this->newBuyStatus_ == nullptr; };
+        && this->PAYGFreezeStatus_ == nullptr && this->zeroCreditShutdownPolicy_ == nullptr && this->newBuyStatus_ == nullptr; };
       // accountStatus Field Functions 
       bool hasAccountStatus() const { return this->accountStatus_ != nullptr;};
       void deleteAccountStatus() { this->accountStatus_ = nullptr;};
@@ -115,6 +117,13 @@ namespace Models
       inline Data& setOutstandingBalance(string outstandingBalance) { DARABONBA_PTR_SET_VALUE(outstandingBalance_, outstandingBalance) };
 
 
+      // PAYGFreezeStatus Field Functions 
+      bool hasPAYGFreezeStatus() const { return this->PAYGFreezeStatus_ != nullptr;};
+      void deletePAYGFreezeStatus() { this->PAYGFreezeStatus_ = nullptr;};
+      inline string getPAYGFreezeStatus() const { DARABONBA_PTR_GET_DEFAULT(PAYGFreezeStatus_, "") };
+      inline Data& setPAYGFreezeStatus(string PAYGFreezeStatus) { DARABONBA_PTR_SET_VALUE(PAYGFreezeStatus_, PAYGFreezeStatus) };
+
+
       // zeroCreditShutdownPolicy Field Functions 
       bool hasZeroCreditShutdownPolicy() const { return this->zeroCreditShutdownPolicy_ != nullptr;};
       void deleteZeroCreditShutdownPolicy() { this->zeroCreditShutdownPolicy_ = nullptr;};
@@ -145,6 +154,7 @@ namespace Models
       shared_ptr<string> creditLine_ {};
       // The Credit have been consumed by Sub Account, and haven\\"t be paid.
       shared_ptr<string> outstandingBalance_ {};
+      shared_ptr<string> PAYGFreezeStatus_ {};
       // The systematic controlling policy for resource management, specifically when the available Credit of Sub Account falls to 0 or less.</br>
       // 
       // - 1: delayStop. The account have Shutdown-delay Privilege,  After Shutdown-delay Credit is ran out, Alibaba Cloud will take over resources and keep the instance for 15 days. In addition, the instance will be released if Sub Account failed to pay the bill within these 15 days.</br>

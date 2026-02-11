@@ -166,27 +166,12 @@ namespace Models
 
 
         protected:
-          // The time that Distribution Customer successfully associated with Distributor.</br>
-          // This value will be empty if there is no existing association.
           shared_ptr<string> associationSuccessTime_ {};
-          // Distribution Customer\\"s CID
           shared_ptr<int64_t> cid_ {};
-          // The time of email been sent out.
           shared_ptr<string> gmtCreate_ {};
-          // The parent organization ID.
           shared_ptr<string> parentId_ {};
-          // Invitation Status:
-          // * 0 No visit on registration URL
-          // * 1 Successful Registration
-          // * 2 Unsuccessful Registration
-          // * 3 Registration URL have been visited, but no submitted sheet/ticket.
           shared_ptr<int32_t> status_ {};
-          // Account Type:
-          // - 1 Agency\\"s End User
-          // - 2 Reseller\\"s End User
-          // - 5 T2 Reseller Partner
           shared_ptr<string> subAccountType_ {};
-          // Distribution Customer\\"s UID
           shared_ptr<int64_t> uid_ {};
         };
 
@@ -223,15 +208,9 @@ namespace Models
 
 
       protected:
-        // Result Code. Value Range:
-        // *   200 OK
-        // *   1109 system error
         shared_ptr<string> code_ {};
-        // List of Invitation Status result
         shared_ptr<InviteStatus::InviteStatusList> inviteStatusList_ {};
-        // The message returned.
         shared_ptr<string> message_ {};
-        // Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
         shared_ptr<bool> success_ {};
       };
 
@@ -293,7 +272,6 @@ namespace Models
     // 
     // - 3057 InviteId is empty
     shared_ptr<string> code_ {};
-    // The returned data.
     shared_ptr<GetInviteStatusResponseBody::Data> data_ {};
     // The message returned.
     shared_ptr<string> message_ {};

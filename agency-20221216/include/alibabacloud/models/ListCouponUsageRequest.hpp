@@ -94,12 +94,26 @@ namespace Models
 
 
   protected:
+    // 阿里云客户账号
     shared_ptr<string> account_ {};
+    // 优惠券模版id
     shared_ptr<int64_t> couponTemplateId_ {};
+    // 页码</br> 
+    //  默认值为1 最小值1
     shared_ptr<int32_t> page_ {};
+    // 分页行数 </br>
+    //   默认值20 最大值50 最小值1
     shared_ptr<int32_t> pageSize_ {};
+    // 优惠券状态 </br>
+    // AVAILABLE 正常 </br>
+    // EXHAUSTED 已用完 </br>
+    // EXPIRED 已过期 </br>
+    // ABANDONED 已作废 </br>
     shared_ptr<string> status_ {};
+    // T2伙伴uid
+    // 如：123456789
     shared_ptr<int64_t> t2PartnerUid_ {};
+    // 阿里云账号uid
     shared_ptr<int64_t> uid_ {};
   };
 

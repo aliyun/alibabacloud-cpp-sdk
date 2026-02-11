@@ -129,11 +129,8 @@ namespace Models
 
 
         protected:
-          // Valid days of registration URL, count on daily basis.
           shared_ptr<int32_t> days_ {};
-          // Invitation ID, The invitation status tracking code.
           shared_ptr<int64_t> inviteId_ {};
-          // URL for Partner Customer Registration.
           shared_ptr<string> regUrl_ {};
         };
 
@@ -170,13 +167,9 @@ namespace Models
 
 
       protected:
-        // Error Code, 200 OK
         shared_ptr<string> code_ {};
-        // Message, Notes of Code
         shared_ptr<string> message_ {};
-        // Returning Message of Invitation Results
         shared_ptr<Result::ResultItem> result_ {};
-        // Always true.
         shared_ptr<bool> success_ {};
       };
 
@@ -242,7 +235,6 @@ namespace Models
     shared_ptr<string> message_ {};
     // Request ID, Alibaba Cloud will track errors with this ID.
     shared_ptr<string> requestId_ {};
-    // List of invitation sending results
     shared_ptr<InviteSubAccountResponseBody::Results> results_ {};
     // Candidate Values: True/False, this value states if the current API calling action is successful. It does not guarantee the success of subsequent business operations.
     shared_ptr<bool> success_ {};

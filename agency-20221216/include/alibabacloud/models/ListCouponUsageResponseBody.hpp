@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // 分页，当前页
       shared_ptr<int32_t> page_ {};
+      // 分页，每页数量
       shared_ptr<int32_t> pageSize_ {};
+      // 分页，总量
       shared_ptr<int32_t> total_ {};
     };
 
@@ -201,15 +204,29 @@ namespace Models
 
 
     protected:
+      // 阿里云账号
       shared_ptr<string> account_ {};
+      // 优惠券面额
       shared_ptr<double> amount_ {};
+      // 余额
       shared_ptr<double> balance_ {};
+      // 优惠券id
       shared_ptr<string> couponId_ {};
+      // 优惠券模版id
       shared_ptr<int64_t> couponTemplateId_ {};
+      // 优惠券有效期
       shared_ptr<string> effDate_ {};
+      // 优惠券发放时间
       shared_ptr<string> publishDate_ {};
+      // 优惠券状态 </br>
+      // AVAILABLE 正常 </br>
+      // EXHAUSTED 已用完 </br>
+      // EXPIRED 已过期 </br>
+      // ABANDONED 已作废 </br>
       shared_ptr<string> status_ {};
+      // 二级分销商Uid
       shared_ptr<string> t2PartnerUid_ {};
+      // 阿里云uid
       shared_ptr<int64_t> uid_ {};
     };
 
@@ -255,10 +272,15 @@ namespace Models
 
 
   protected:
+    // 接口状态码
     shared_ptr<string> code_ {};
+    // 返回数据
     shared_ptr<vector<ListCouponUsageResponseBody::Data>> data_ {};
+    // 接口返回提示信息
     shared_ptr<string> message_ {};
+    // 分页信息
     shared_ptr<ListCouponUsageResponseBody::PageInfo> pageInfo_ {};
+    // 接口请求id返回问题提供查询使用
     shared_ptr<string> requestId_ {};
   };
 

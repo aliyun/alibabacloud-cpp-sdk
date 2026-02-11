@@ -280,50 +280,21 @@ namespace Models
 
 
       protected:
-        // The name of Sub Account.
-        // - Enterprise Customer: Name of Company
-        // - T2 Reseller: Name of Partner
         shared_ptr<string> accountNickname_ {};
-        // Alibaba Cloud Login name of Distribution Customer.
         shared_ptr<string> aliyunId_ {};
-        // The time that Distribution Customer successfully associated with Distributor.
         shared_ptr<string> associationSuccessTime_ {};
-        // Account CID of Distribution Customer.
         shared_ptr<int64_t> cid_ {};
-        // Type of customer\\"s account, 0 Individual, 1 Enterprise
         shared_ptr<int32_t> customerAccountType_ {};
-        // Customer\\"s Sales Manager
         shared_ptr<string> customerBd_ {};
-        // Whether the customer has completed Enterprise Real-name Authentication, 0 No, 1 Yes
         shared_ptr<int32_t> customerEnterpriseCertified_ {};
-        // When Shutdown Policy is delayStop, this number refer to Shutdown-delay Credit (overdraft limit).
         shared_ptr<string> delayAmount_ {};
-        // There are a value for Shutdown Policy Management towards Sub Account.
-        // - 1 immediatelyStop,  immediately shutdown the instance once customer\\"s quota is ran out.
-        // - 2 delayStop, delay shutdown the instance until customer\\"s Shutdown-delay Credit is ran out. Please refer to DelayAmount.
-        // - 3 noStop, customer\\"s instance status is rely on manual control instead of auto setting.
         shared_ptr<string> delayStatus_ {};
-        // The E-mail of Distribution Customer.
         shared_ptr<string> email_ {};
-        // The contact number of Distribution Customer.
         shared_ptr<string> mobile_ {};
-        // Purchase Control, Value Range:
-        // - Purchase Forbidden
-        // - Normal (Purchase is allowed)
         shared_ptr<string> newBuyStatus_ {};
-        // The Country Code where the customer\\"s account is registered.
         shared_ptr<string> registerCountryCode_ {};
-        // Description of Distribution Customer.
         shared_ptr<string> remark_ {};
-        // Account Type:
-        // - 1 Agency\\"s End User
-        // - 2 Reseller\\"s End User
-        // - 3 Enterprise
-        // - 4 T2 Agency Partner
-        // - 5 T2 Reseller Partner
-        // - 6 T2 Agency+Reseller Partner
         shared_ptr<int32_t> subAccountType_ {};
-        // Account UID of Distribution Customer.
         shared_ptr<int64_t> uid_ {};
       };
 
@@ -390,7 +361,6 @@ namespace Models
 
 
   protected:
-    // List of Account Information
     shared_ptr<GetAccountInfoResponseBody::AccountInfoList> accountInfoList_ {};
     // Result Code - Error Code. Value Range:
     // - 200 OK

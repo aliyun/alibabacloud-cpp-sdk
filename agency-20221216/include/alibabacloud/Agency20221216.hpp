@@ -242,7 +242,7 @@ namespace Agency20221216
       Models::EditZeroCreditShutdownResponse editZeroCreditShutdown(const Models::EditZeroCreditShutdownRequest &request);
 
       /**
-       * @summary Export quota amount adjustment history as a Distribution Customer from International Site. Only available on International Site.
+       * @summary The ExportCustomerQuotaRecord interface corresponds to the export function of "Quota Adjust Details" on ACPN.
        *
        * @description Caller must be a Partner from International Site, either Distribution or Reseller will do.
        *
@@ -253,7 +253,7 @@ namespace Agency20221216
       Models::ExportCustomerQuotaRecordResponse exportCustomerQuotaRecordWithOptions(const Models::ExportCustomerQuotaRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Export quota amount adjustment history as a Distribution Customer from International Site. Only available on International Site.
+       * @summary The ExportCustomerQuotaRecord interface corresponds to the export function of "Quota Adjust Details" on ACPN.
        *
        * @description Caller must be a Partner from International Site, either Distribution or Reseller will do.
        *
@@ -263,7 +263,7 @@ namespace Agency20221216
       Models::ExportCustomerQuotaRecordResponse exportCustomerQuotaRecord(const Models::ExportCustomerQuotaRecordRequest &request);
 
       /**
-       * @summary 额度冲减明细列表导出接口
+       * @summary The ExportReversedDeductionHistory interface corresponds to the export function of "Quota Offsetting Details" on ACPN.
        *
        * @param request ExportReversedDeductionHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -272,7 +272,7 @@ namespace Agency20221216
       Models::ExportReversedDeductionHistoryResponse exportReversedDeductionHistoryWithOptions(const Models::ExportReversedDeductionHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 额度冲减明细列表导出接口
+       * @summary The ExportReversedDeductionHistory interface corresponds to the export function of "Quota Offsetting Details" on ACPN.
        *
        * @param request ExportReversedDeductionHistoryRequest
        * @return ExportReversedDeductionHistoryResponse
@@ -561,6 +561,9 @@ namespace Agency20221216
       /**
        * @summary 优惠券使用量列表查询
        *
+       * @description 确保当前调用账号身份为分销伙伴 
+       * <notice>仅国际提供
+       *
        * @param request ListCouponUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListCouponUsageResponse
@@ -570,13 +573,16 @@ namespace Agency20221216
       /**
        * @summary 优惠券使用量列表查询
        *
+       * @description 确保当前调用账号身份为分销伙伴 
+       * <notice>仅国际提供
+       *
        * @param request ListCouponUsageRequest
        * @return ListCouponUsageResponse
        */
       Models::ListCouponUsageResponse listCouponUsage(const Models::ListCouponUsageRequest &request);
 
       /**
-       * @summary 通用查询导出任务列表
+       * @summary Query the list of exported files.
        *
        * @param request ListExportTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -585,7 +591,7 @@ namespace Agency20221216
       Models::ListExportTasksResponse listExportTasksWithOptions(const Models::ListExportTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通用查询导出任务列表
+       * @summary Query the list of exported files.
        *
        * @param request ListExportTasksRequest
        * @return ListExportTasksResponse

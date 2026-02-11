@@ -179,19 +179,10 @@ namespace Models
 
 
       protected:
-        // The name of Customer who are to be invited.
         shared_ptr<string> accountNickname_ {};
-        // The Email of Customer who are to be invited.
         shared_ptr<string> email_ {};
-        // The time of email been sent out.
         shared_ptr<string> gmtCreate_ {};
-        // Invitation ID
         shared_ptr<int64_t> inviteId_ {};
-        // Invitation Status:
-        // * 0 No visit on registration URL
-        // * 1 Successful Registration
-        // * 2 Unsuccessful Registration
-        // * 3 Registration URL have been visited, but no submitted sheet/ticket.
         shared_ptr<int32_t> status_ {};
       };
 
@@ -262,7 +253,6 @@ namespace Models
     // * 200: OK
     // * 1109: System error
     shared_ptr<string> code_ {};
-    // List of Invitation Information
     shared_ptr<GetUnassociatedCustomerResponseBody::InviteInfoList> inviteInfoList_ {};
     // Message information
     shared_ptr<string> message_ {};
