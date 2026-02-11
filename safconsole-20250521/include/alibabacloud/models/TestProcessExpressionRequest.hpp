@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Expression.
     shared_ptr<string> expression_ {};
+    // Parameter list.
     shared_ptr<string> params_ {};
   };
 

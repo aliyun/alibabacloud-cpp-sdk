@@ -78,10 +78,18 @@ namespace Models
 
 
   protected:
+    // Status code. A return of 200 indicates success.
     shared_ptr<int64_t> code_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Return result.
     shared_ptr<vector<bool>> resultObject_ {};
+    // Whether the call was successful.
+    // 
+    // - **true**: Call succeeded.
+    // - **false**: Call failed.
     shared_ptr<bool> success_ {};
   };
 

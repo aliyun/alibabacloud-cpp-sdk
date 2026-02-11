@@ -21,6 +21,93 @@ namespace Safconsole20250521
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Apply for Bastion Host Account
+       *
+       * @description ## Request Description
+       * - This interface is used for customers to create a modeling project for the first time.
+       * - `projectName` is a required field, with a maximum length of 50 characters.
+       * - `remark` and `instanceSpec` are optional, where `remark` has a maximum length of 200 characters.
+       * - The available values for `instanceSpec` include `SECURE_ENV_LITE` and `SECURE_ENV_PRO`.
+       *
+       * @param request ApplyBastionAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ApplyBastionAccountResponse
+       */
+      Models::ApplyBastionAccountResponse applyBastionAccountWithOptions(const Models::ApplyBastionAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Apply for Bastion Host Account
+       *
+       * @description ## Request Description
+       * - This interface is used for customers to create a modeling project for the first time.
+       * - `projectName` is a required field, with a maximum length of 50 characters.
+       * - `remark` and `instanceSpec` are optional, where `remark` has a maximum length of 200 characters.
+       * - The available values for `instanceSpec` include `SECURE_ENV_LITE` and `SECURE_ENV_PRO`.
+       *
+       * @param request ApplyBastionAccountRequest
+       * @return ApplyBastionAccountResponse
+       */
+      Models::ApplyBastionAccountResponse applyBastionAccount(const Models::ApplyBastionAccountRequest &request);
+
+      /**
+       * @summary Associate Retrospective Task
+       *
+       * @description ## 请求说明
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request AssociatePocTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AssociatePocTaskResponse
+       */
+      Models::AssociatePocTaskResponse associatePocTaskWithOptions(const Models::AssociatePocTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Associate Retrospective Task
+       *
+       * @description ## 请求说明
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request AssociatePocTaskRequest
+       * @return AssociatePocTaskResponse
+       */
+      Models::AssociatePocTaskResponse associatePocTask(const Models::AssociatePocTaskRequest &request);
+
+      /**
+       * @summary Complete project and release resources.
+       *
+       * @description ## 请求说明
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request CompleteModelingProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CompleteModelingProjectResponse
+       */
+      Models::CompleteModelingProjectResponse completeModelingProjectWithOptions(const Models::CompleteModelingProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Complete project and release resources.
+       *
+       * @description ## 请求说明
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request CompleteModelingProjectRequest
+       * @return CompleteModelingProjectResponse
+       */
+      Models::CompleteModelingProjectResponse completeModelingProject(const Models::CompleteModelingProjectRequest &request);
+
+      /**
        * @summary Create basic model information
        *
        * @param request CreateCustomerModuleBasicInfoRequest
@@ -82,6 +169,35 @@ namespace Safconsole20250521
       Models::CreateCustomerModuleOutputInfoResponse createCustomerModuleOutputInfo(const Models::CreateCustomerModuleOutputInfoRequest &request);
 
       /**
+       * @summary Initialize a modeling project.
+       *
+       * @description ## Request Description
+       * - This interface is used for customers to create a modeling project for the first time.
+       * - `projectName` is a required field, with a maximum length of 50 characters.
+       * - `remark` and `instanceSpec` are optional, where `remark` has a maximum length of 200 characters.
+       * - The available values for `instanceSpec` include `SECURE_ENV_LITE` and `SECURE_ENV_PRO`.
+       *
+       * @param request CreateModelingProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateModelingProjectResponse
+       */
+      Models::CreateModelingProjectResponse createModelingProjectWithOptions(const Models::CreateModelingProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Initialize a modeling project.
+       *
+       * @description ## Request Description
+       * - This interface is used for customers to create a modeling project for the first time.
+       * - `projectName` is a required field, with a maximum length of 50 characters.
+       * - `remark` and `instanceSpec` are optional, where `remark` has a maximum length of 200 characters.
+       * - The available values for `instanceSpec` include `SECURE_ENV_LITE` and `SECURE_ENV_PRO`.
+       *
+       * @param request CreateModelingProjectRequest
+       * @return CreateModelingProjectResponse
+       */
+      Models::CreateModelingProjectResponse createModelingProject(const Models::CreateModelingProjectRequest &request);
+
+      /**
        * @summary Deletes the specified customer model based on the provided customer model ID.
        *
        * @description ## Request Description
@@ -107,6 +223,35 @@ namespace Safconsole20250521
       Models::DeleteModelResponse deleteModel(const Models::DeleteModelRequest &request);
 
       /**
+       * @summary Deploy Model File
+       *
+       * @description ## 请求说明
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request DeployModelFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeployModelFileResponse
+       */
+      Models::DeployModelFileResponse deployModelFileWithOptions(const Models::DeployModelFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deploy Model File
+       *
+       * @description ## 请求说明
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request DeployModelFileRequest
+       * @return DeployModelFileResponse
+       */
+      Models::DeployModelFileResponse deployModelFile(const Models::DeployModelFileRequest &request);
+
+      /**
        * @summary Query basic model information based on the customer model ID
        *
        * @description ## Request Description
@@ -130,10 +275,10 @@ namespace Safconsole20250521
       Models::DescribeCustomerModuleBasicInfoResponse describeCustomerModuleBasicInfo(const Models::DescribeCustomerModuleBasicInfoRequest &request);
 
       /**
-       * @summary 根据客户模型ID查询模型特征信息
+       * @summary Query model feature information based on the customer model ID
        *
-       * @description ## 请求说明
-       * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+       * @description ## Request Description
+       * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include, but are not limited to, "EDIT", "ONLINE", etc.
        *
        * @param request DescribeCustomerModuleMetaInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -142,10 +287,10 @@ namespace Safconsole20250521
       Models::DescribeCustomerModuleMetaInfoResponse describeCustomerModuleMetaInfoWithOptions(const Models::DescribeCustomerModuleMetaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据客户模型ID查询模型特征信息
+       * @summary Query model feature information based on the customer model ID
        *
-       * @description ## 请求说明
-       * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+       * @description ## Request Description
+       * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include, but are not limited to, "EDIT", "ONLINE", etc.
        *
        * @param request DescribeCustomerModuleMetaInfoRequest
        * @return DescribeCustomerModuleMetaInfoResponse
@@ -153,10 +298,10 @@ namespace Safconsole20250521
       Models::DescribeCustomerModuleMetaInfoResponse describeCustomerModuleMetaInfo(const Models::DescribeCustomerModuleMetaInfoRequest &request);
 
       /**
-       * @summary 根据客户模型ID查询模型出参信息
+       * @summary Query model output information based on the customer model ID
        *
-       * @description ## 请求说明
-       * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+       * @description ## Request Description
+       * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include but are not limited to "EDIT", "ONLINE", etc.
        *
        * @param request DescribeCustomerModuleOutputInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -165,10 +310,10 @@ namespace Safconsole20250521
       Models::DescribeCustomerModuleOutputInfoResponse describeCustomerModuleOutputInfoWithOptions(const Models::DescribeCustomerModuleOutputInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据客户模型ID查询模型出参信息
+       * @summary Query model output information based on the customer model ID
        *
-       * @description ## 请求说明
-       * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+       * @description ## Request Description
+       * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include but are not limited to "EDIT", "ONLINE", etc.
        *
        * @param request DescribeCustomerModuleOutputInfoRequest
        * @return DescribeCustomerModuleOutputInfoResponse
@@ -176,12 +321,12 @@ namespace Safconsole20250521
       Models::DescribeCustomerModuleOutputInfoResponse describeCustomerModuleOutputInfo(const Models::DescribeCustomerModuleOutputInfoRequest &request);
 
       /**
-       * @summary 根据特征模板返回特征模板具体特征选项
+       * @summary Return specific feature options based on the feature template
        *
-       * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
        *
        * @param request DescribeFeatureOptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -190,12 +335,12 @@ namespace Safconsole20250521
       Models::DescribeFeatureOptionResponse describeFeatureOptionWithOptions(const Models::DescribeFeatureOptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据特征模板返回特征模板具体特征选项
+       * @summary Return specific feature options based on the feature template
        *
-       * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
        *
        * @param request DescribeFeatureOptionRequest
        * @return DescribeFeatureOptionResponse
@@ -203,12 +348,12 @@ namespace Safconsole20250521
       Models::DescribeFeatureOptionResponse describeFeatureOption(const Models::DescribeFeatureOptionRequest &request);
 
       /**
-       * @summary 获取可用的特征模板列表，用于模型配置。
+       * @summary Get the list of available feature templates for model configuration.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each of which consists of a label (label) and a value (value).
        *
        * @param request DescribeFeatureTemplateListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,24 +362,53 @@ namespace Safconsole20250521
       Models::DescribeFeatureTemplateListResponse describeFeatureTemplateListWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取可用的特征模板列表，用于模型配置。
+       * @summary Get the list of available feature templates for model configuration.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each of which consists of a label (label) and a value (value).
        *
        * @return DescribeFeatureTemplateListResponse
        */
       Models::DescribeFeatureTemplateListResponse describeFeatureTemplateList();
 
       /**
-       * @summary 渲染模型的特征配置
+       * @summary Get File Download Link
        *
        * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request DescribeFileDownloadUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeFileDownloadUrlResponse
+       */
+      Models::DescribeFileDownloadUrlResponse describeFileDownloadUrlWithOptions(const Models::DescribeFileDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get File Download Link
+       *
+       * @description ## 请求说明
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request DescribeFileDownloadUrlRequest
+       * @return DescribeFileDownloadUrlResponse
+       */
+      Models::DescribeFileDownloadUrlResponse describeFileDownloadUrl(const Models::DescribeFileDownloadUrlRequest &request);
+
+      /**
+       * @summary Render the feature configuration of the model
+       *
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each including a label (label) and value (value).
        *
        * @param request DescribeModelFeatureRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -243,12 +417,12 @@ namespace Safconsole20250521
       Models::DescribeModelFeatureResponse describeModelFeatureWithOptions(const Models::DescribeModelFeatureRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 渲染模型的特征配置
+       * @summary Render the feature configuration of the model
        *
-       * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each including a label (label) and value (value).
        *
        * @param request DescribeModelFeatureRequest
        * @return DescribeModelFeatureResponse
@@ -256,7 +430,7 @@ namespace Safconsole20250521
       Models::DescribeModelFeatureResponse describeModelFeature(const Models::DescribeModelFeatureRequest &request);
 
       /**
-       * @summary 获取上传oss鉴权数据
+       * @summary Obtain OSS Authentication Data for Upload
        *
        * @param request DescribeModelOssTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -265,20 +439,78 @@ namespace Safconsole20250521
       Models::DescribeModelOssTokenResponse describeModelOssTokenWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取上传oss鉴权数据
+       * @summary Obtain OSS Authentication Data for Upload
        *
        * @return DescribeModelOssTokenResponse
        */
       Models::DescribeModelOssTokenResponse describeModelOssToken();
 
       /**
-       * @summary 根据客户模型ID查询指定模型对应服务是否存在
+       * @summary Get detailed project data
        *
        * @description ## 请求说明
-       * 该接口用于通过提供的`customerModuleId`来检查特定的模型服务是否已经存在。如果存在，则返回`true`；反之则返回`false`。
-       * ### 注意事项
-       * - `customerModuleId`是必须提供的参数，且为字符串类型。
-       * - 此API主要用于前端页面展示或逻辑判断时使用，以确认用户所选模型是否有对应的服务被创建。
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request DescribeModelingProjectDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeModelingProjectDetailResponse
+       */
+      Models::DescribeModelingProjectDetailResponse describeModelingProjectDetailWithOptions(const Models::DescribeModelingProjectDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get detailed project data
+       *
+       * @description ## 请求说明
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request DescribeModelingProjectDetailRequest
+       * @return DescribeModelingProjectDetailResponse
+       */
+      Models::DescribeModelingProjectDetailResponse describeModelingProjectDetail(const Models::DescribeModelingProjectDetailRequest &request);
+
+      /**
+       * @summary Paginated query for the list of modeling projects under the current user.
+       *
+       * @description ## 请求说明
+       * - 该API用于获取指定租户下的所有建模项目的概览信息。
+       * - 支持通过`pageSize`和`currentPage`参数进行分页查询，默认每页显示10条记录。
+       * - 可选地，使用`status`参数来过滤特定状态（如`active`, `released`等）的项目。
+       * - 返回结果中包含每个项目的ID、名称、环境状态、建模状态、开始时间及结束时间（如果有的话），以及创建该项目的登录账号。
+       *
+       * @param request DescribeModelingProjectListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeModelingProjectListResponse
+       */
+      Models::DescribeModelingProjectListResponse describeModelingProjectListWithOptions(const Models::DescribeModelingProjectListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Paginated query for the list of modeling projects under the current user.
+       *
+       * @description ## 请求说明
+       * - 该API用于获取指定租户下的所有建模项目的概览信息。
+       * - 支持通过`pageSize`和`currentPage`参数进行分页查询，默认每页显示10条记录。
+       * - 可选地，使用`status`参数来过滤特定状态（如`active`, `released`等）的项目。
+       * - 返回结果中包含每个项目的ID、名称、环境状态、建模状态、开始时间及结束时间（如果有的话），以及创建该项目的登录账号。
+       *
+       * @param request DescribeModelingProjectListRequest
+       * @return DescribeModelingProjectListResponse
+       */
+      Models::DescribeModelingProjectListResponse describeModelingProjectList(const Models::DescribeModelingProjectListRequest &request);
+
+      /**
+       * @summary Query Whether the Service Corresponding to a Specific Model Exists Based on Customer Model ID
+       *
+       * @description ## Request Description
+       * This interface is used to check whether a specific model service exists by providing the `customerModuleId`. If it exists, it returns `true`; otherwise, it returns `false`.
+       * ### Notes
+       * - `customerModuleId` is a required parameter and must be of string type.
+       * - This API is mainly used for front-end page display or logical judgment to confirm whether the service corresponding to the user\\"s selected model has been created.
        *
        * @param request DescribeModuleServiceExistRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -287,13 +519,13 @@ namespace Safconsole20250521
       Models::DescribeModuleServiceExistResponse describeModuleServiceExistWithOptions(const Models::DescribeModuleServiceExistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据客户模型ID查询指定模型对应服务是否存在
+       * @summary Query Whether the Service Corresponding to a Specific Model Exists Based on Customer Model ID
        *
-       * @description ## 请求说明
-       * 该接口用于通过提供的`customerModuleId`来检查特定的模型服务是否已经存在。如果存在，则返回`true`；反之则返回`false`。
-       * ### 注意事项
-       * - `customerModuleId`是必须提供的参数，且为字符串类型。
-       * - 此API主要用于前端页面展示或逻辑判断时使用，以确认用户所选模型是否有对应的服务被创建。
+       * @description ## Request Description
+       * This interface is used to check whether a specific model service exists by providing the `customerModuleId`. If it exists, it returns `true`; otherwise, it returns `false`.
+       * ### Notes
+       * - `customerModuleId` is a required parameter and must be of string type.
+       * - This API is mainly used for front-end page display or logical judgment to confirm whether the service corresponding to the user\\"s selected model has been created.
        *
        * @param request DescribeModuleServiceExistRequest
        * @return DescribeModuleServiceExistResponse
@@ -301,10 +533,10 @@ namespace Safconsole20250521
       Models::DescribeModuleServiceExistResponse describeModuleServiceExist(const Models::DescribeModuleServiceExistRequest &request);
 
       /**
-       * @summary 根据客户模型ID查询模型当前状态
+       * @summary Query the current status of a model based on the customer model ID
        *
-       * @description ## 请求说明
-       * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+       * @description ## Request Description
+       * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include, but are not limited to, "EDIT", "ONLINE", etc.
        *
        * @param request DescribeModuleStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -313,10 +545,10 @@ namespace Safconsole20250521
       Models::DescribeModuleStatusResponse describeModuleStatusWithOptions(const Models::DescribeModuleStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据客户模型ID查询模型当前状态
+       * @summary Query the current status of a model based on the customer model ID
        *
-       * @description ## 请求说明
-       * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+       * @description ## Request Description
+       * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include, but are not limited to, "EDIT", "ONLINE", etc.
        *
        * @param request DescribeModuleStatusRequest
        * @return DescribeModuleStatusResponse
@@ -324,7 +556,23 @@ namespace Safconsole20250521
       Models::DescribeModuleStatusResponse describeModuleStatus(const Models::DescribeModuleStatusRequest &request);
 
       /**
-       * @summary 查询模型托管订单
+       * @summary Query POC task list.
+       *
+       * @param request DescribePocTaskListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePocTaskListResponse
+       */
+      Models::DescribePocTaskListResponse describePocTaskListWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query POC task list.
+       *
+       * @return DescribePocTaskListResponse
+       */
+      Models::DescribePocTaskListResponse describePocTaskList();
+
+      /**
+       * @summary Query Model Hosting Orders
        *
        * @param request DescribeSafRmmpOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -333,14 +581,14 @@ namespace Safconsole20250521
       Models::DescribeSafRmmpOrderResponse describeSafRmmpOrderWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模型托管订单
+       * @summary Query Model Hosting Orders
        *
        * @return DescribeSafRmmpOrderResponse
        */
       Models::DescribeSafRmmpOrderResponse describeSafRmmpOrder();
 
       /**
-       * @summary 查询场景和服务
+       * @summary Query Scene and Service
        *
        * @param request DescribeServiceAndSceneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -349,7 +597,7 @@ namespace Safconsole20250521
       Models::DescribeServiceAndSceneResponse describeServiceAndSceneWithOptions(const Models::DescribeServiceAndSceneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询场景和服务
+       * @summary Query Scene and Service
        *
        * @param request DescribeServiceAndSceneRequest
        * @return DescribeServiceAndSceneResponse
@@ -357,14 +605,14 @@ namespace Safconsole20250521
       Models::DescribeServiceAndSceneResponse describeServiceAndScene(const Models::DescribeServiceAndSceneRequest &request);
 
       /**
-       * @summary 获取指定用户下的所有模型信息，支持分页查询
+       * @summary Get all model information for a specified user, supporting pagination
        *
-       * @description ## 请求说明
-       * 该 API 用于查询特定用户下的所有模型信息，并支持通过分页参数进行分页查询。可以通过 `name` 参数进行模糊搜索。
-       * - `regId`: 地域标识，必填。
-       * - `pageSize`: 每页显示的条目数，必填。
-       * - `currentPage`: 当前页码，从1开始计数，必填。
-       * - `userId`: 用户ID，必填。
+       * @description ## Request Description
+       * This API is used to query all model information under a specific user and supports pagination through page parameters. Fuzzy search can be performed using the `name` parameter.
+       * - `regId`: Region identifier, required.
+       * - `pageSize`: Number of items per page, required.
+       * - `currentPage`: Current page number, starting from 1, required.
+       * - `userId`: User ID, required.
        *
        * @param request DescribeUserModelListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -373,14 +621,14 @@ namespace Safconsole20250521
       Models::DescribeUserModelListResponse describeUserModelListWithOptions(const Models::DescribeUserModelListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取指定用户下的所有模型信息，支持分页查询
+       * @summary Get all model information for a specified user, supporting pagination
        *
-       * @description ## 请求说明
-       * 该 API 用于查询特定用户下的所有模型信息，并支持通过分页参数进行分页查询。可以通过 `name` 参数进行模糊搜索。
-       * - `regId`: 地域标识，必填。
-       * - `pageSize`: 每页显示的条目数，必填。
-       * - `currentPage`: 当前页码，从1开始计数，必填。
-       * - `userId`: 用户ID，必填。
+       * @description ## Request Description
+       * This API is used to query all model information under a specific user and supports pagination through page parameters. Fuzzy search can be performed using the `name` parameter.
+       * - `regId`: Region identifier, required.
+       * - `pageSize`: Number of items per page, required.
+       * - `currentPage`: Current page number, starting from 1, required.
+       * - `userId`: User ID, required.
        *
        * @param request DescribeUserModelListRequest
        * @return DescribeUserModelListResponse
@@ -388,11 +636,11 @@ namespace Safconsole20250521
       Models::DescribeUserModelListResponse describeUserModelList(const Models::DescribeUserModelListRequest &request);
 
       /**
-       * @summary 迭代模型
+       * @summary Iterate Model
        *
-       * @description ## 请求说明
-       * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
-       * - **注意**：删除操作不可逆，请谨慎使用。
+       * @description ## Request Description
+       * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+       * - **Note**: The deletion operation is irreversible, please use with caution.
        *
        * @param request DuplicateModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -401,11 +649,11 @@ namespace Safconsole20250521
       Models::DuplicateModelResponse duplicateModelWithOptions(const Models::DuplicateModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 迭代模型
+       * @summary Iterate Model
        *
-       * @description ## 请求说明
-       * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
-       * - **注意**：删除操作不可逆，请谨慎使用。
+       * @description ## Request Description
+       * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+       * - **Note**: The deletion operation is irreversible, please use with caution.
        *
        * @param request DuplicateModelRequest
        * @return DuplicateModelResponse
@@ -413,7 +661,7 @@ namespace Safconsole20250521
       Models::DuplicateModelResponse duplicateModel(const Models::DuplicateModelRequest &request);
 
       /**
-       * @summary 编辑模型
+       * @summary Edit Model
        *
        * @param request EditModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -422,7 +670,7 @@ namespace Safconsole20250521
       Models::EditModelResponse editModelWithOptions(const Models::EditModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑模型
+       * @summary Edit Model
        *
        * @param request EditModelRequest
        * @return EditModelResponse
@@ -430,11 +678,40 @@ namespace Safconsole20250521
       Models::EditModelResponse editModel(const Models::EditModelRequest &request);
 
       /**
-       * @summary 迭代模型
+       * @summary View Bastion Host Initial Password
        *
        * @description ## 请求说明
-       * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
-       * - **注意**：删除操作不可逆，请谨慎使用。
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request GetBastionHostCertificationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBastionHostCertificationResponse
+       */
+      Models::GetBastionHostCertificationResponse getBastionHostCertificationWithOptions(const Models::GetBastionHostCertificationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary View Bastion Host Initial Password
+       *
+       * @description ## 请求说明
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request GetBastionHostCertificationRequest
+       * @return GetBastionHostCertificationResponse
+       */
+      Models::GetBastionHostCertificationResponse getBastionHostCertification(const Models::GetBastionHostCertificationRequest &request);
+
+      /**
+       * @summary Iterate Model
+       *
+       * @description ## Request Description
+       * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+       * - **Note**: The deletion operation is irreversible, please use with caution.
        *
        * @param request IterateModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -443,11 +720,11 @@ namespace Safconsole20250521
       Models::IterateModelResponse iterateModelWithOptions(const Models::IterateModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 迭代模型
+       * @summary Iterate Model
        *
-       * @description ## 请求说明
-       * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
-       * - **注意**：删除操作不可逆，请谨慎使用。
+       * @description ## Request Description
+       * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+       * - **Note**: The deletion operation is irreversible, please use with caution.
        *
        * @param request IterateModelRequest
        * @return IterateModelResponse
@@ -455,7 +732,7 @@ namespace Safconsole20250521
       Models::IterateModelResponse iterateModel(const Models::IterateModelRequest &request);
 
       /**
-       * @summary 下线模型
+       * @summary Offline Model
        *
        * @param request OfflineModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -464,7 +741,7 @@ namespace Safconsole20250521
       Models::OfflineModelResponse offlineModelWithOptions(const Models::OfflineModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 下线模型
+       * @summary Offline Model
        *
        * @param request OfflineModelRequest
        * @return OfflineModelResponse
@@ -472,11 +749,11 @@ namespace Safconsole20250521
       Models::OfflineModelResponse offlineModel(const Models::OfflineModelRequest &request);
 
       /**
-       * @summary 上线模型
+       * @summary Online Model
        *
-       * @description ## 请求说明
-       * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
-       * - **注意**：删除操作不可逆，请谨慎使用。
+       * @description ## Request Description
+       * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+       * - **Note**: Deletion is irreversible, please use with caution.
        *
        * @param request OnlineModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -485,11 +762,11 @@ namespace Safconsole20250521
       Models::OnlineModelResponse onlineModelWithOptions(const Models::OnlineModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上线模型
+       * @summary Online Model
        *
-       * @description ## 请求说明
-       * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
-       * - **注意**：删除操作不可逆，请谨慎使用。
+       * @description ## Request Description
+       * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+       * - **Note**: Deletion is irreversible, please use with caution.
        *
        * @param request OnlineModelRequest
        * @return OnlineModelResponse
@@ -497,12 +774,12 @@ namespace Safconsole20250521
       Models::OnlineModelResponse onlineModel(const Models::OnlineModelRequest &request);
 
       /**
-       * @summary 解析表达式参数
+       * @summary Parse Expression Parameters
        *
-       * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
        *
        * @param request ParseExpressionParametersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -511,12 +788,12 @@ namespace Safconsole20250521
       Models::ParseExpressionParametersResponse parseExpressionParametersWithOptions(const Models::ParseExpressionParametersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解析表达式参数
+       * @summary Parse Expression Parameters
        *
-       * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
        *
        * @param request ParseExpressionParametersRequest
        * @return ParseExpressionParametersResponse
@@ -524,7 +801,7 @@ namespace Safconsole20250521
       Models::ParseExpressionParametersResponse parseExpressionParameters(const Models::ParseExpressionParametersRequest &request);
 
       /**
-       * @summary 预发布模型
+       * @summary Pre-release Model
        *
        * @param request PrepublishModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -533,12 +810,41 @@ namespace Safconsole20250521
       Models::PrepublishModelResponse prepublishModelWithOptions(const Models::PrepublishModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 预发布模型
+       * @summary Pre-release Model
        *
        * @param request PrepublishModelRequest
        * @return PrepublishModelResponse
        */
       Models::PrepublishModelResponse prepublishModel(const Models::PrepublishModelRequest &request);
+
+      /**
+       * @summary Request to Sync Model Files
+       *
+       * @description ## 请求说明
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request RequestModelFileSyncRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RequestModelFileSyncResponse
+       */
+      Models::RequestModelFileSyncResponse requestModelFileSyncWithOptions(const Models::RequestModelFileSyncRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Request to Sync Model Files
+       *
+       * @description ## 请求说明
+       * - 本接口用于客户首次创建建模项目。
+       * - `projectName` 是必填项，长度不超过50个字符。
+       * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+       * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+       *
+       * @param request RequestModelFileSyncRequest
+       * @return RequestModelFileSyncResponse
+       */
+      Models::RequestModelFileSyncResponse requestModelFileSync(const Models::RequestModelFileSyncRequest &request);
 
       /**
        * @summary Roll back the specified customer model based on the provided customer model ID.
@@ -566,12 +872,12 @@ namespace Safconsole20250521
       Models::RollbackModelResponse rollbackModel(const Models::RollbackModelRequest &request);
 
       /**
-       * @summary 预发布测试模型
+       * @summary Pre-release Model Testing
        *
-       * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
        *
        * @param request TestModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -580,12 +886,12 @@ namespace Safconsole20250521
       Models::TestModelResponse testModelWithOptions(const Models::TestModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 预发布测试模型
+       * @summary Pre-release Model Testing
        *
-       * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
        *
        * @param request TestModelRequest
        * @return TestModelResponse
@@ -593,12 +899,12 @@ namespace Safconsole20250521
       Models::TestModelResponse testModel(const Models::TestModelRequest &request);
 
       /**
-       * @summary 预发布测试模型
+       * @summary Pre-release Test Model
        *
-       * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
        *
        * @param request TestPreModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -607,12 +913,12 @@ namespace Safconsole20250521
       Models::TestPreModelResponse testPreModelWithOptions(const Models::TestPreModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 预发布测试模型
+       * @summary Pre-release Test Model
        *
-       * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
        *
        * @param request TestPreModelRequest
        * @return TestPreModelResponse
@@ -620,12 +926,12 @@ namespace Safconsole20250521
       Models::TestPreModelResponse testPreModel(const Models::TestPreModelRequest &request);
 
       /**
-       * @summary 测试表达式
+       * @summary Test Expression
        *
-       * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
        *
        * @param request TestProcessExpressionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -634,12 +940,12 @@ namespace Safconsole20250521
       Models::TestProcessExpressionResponse testProcessExpressionWithOptions(const Models::TestProcessExpressionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 测试表达式
+       * @summary Test Expression
        *
-       * @description ## 请求说明
-       * - 该接口用于查询系统中所有可用的特征模板。
-       * - 请求方式为 GET，无需提供额外参数。
-       * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+       * @description ## Request Description
+       * - This interface is used to query all available feature templates in the system.
+       * - The request method is GET, and no additional parameters are required.
+       * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
        *
        * @param request TestProcessExpressionRequest
        * @return TestProcessExpressionResponse

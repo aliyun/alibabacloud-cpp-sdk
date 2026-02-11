@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // Parameter label.
       shared_ptr<string> label_ {};
+      // Label value.
       shared_ptr<string> value_ {};
     };
 
@@ -120,10 +122,15 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Returned result.
     shared_ptr<vector<DescribeFeatureTemplateListResponseBody::ResultObject>> resultObject_ {};
+    // Success flag
     shared_ptr<bool> success_ {};
   };
 

@@ -123,11 +123,17 @@ namespace Models
 
 
     protected:
+      // AccessKeyId for uploading files to OSS.
       shared_ptr<string> accessId_ {};
+      // OSS domain name.
       shared_ptr<string> host_ {};
+      // Key required for file upload.
       shared_ptr<string> key_ {};
+      // Authorization policy for security group control rules.
       shared_ptr<string> policy_ {};
+      // OSS signature.
       shared_ptr<string> signature_ {};
+      // Temporary authorization token for OSS.
       shared_ptr<string> XOssSecurityToken_ {};
     };
 
@@ -214,16 +220,30 @@ namespace Models
 
 
   protected:
+    // AccessKeyId for uploading files to OSS.
     shared_ptr<string> accessId_ {};
+    // Status code. A return value of 200 indicates success.
     shared_ptr<int64_t> code_ {};
+    // OSS domain name.
     shared_ptr<string> host_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Key required for file upload.
     shared_ptr<string> key_ {};
+    // Authorization policy for security group control rules.
     shared_ptr<string> policy_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Returned result.
     shared_ptr<DescribeModelOssTokenResponseBody::ResultObject> resultObject_ {};
+    // OSS signature.
     shared_ptr<string> signature_ {};
+    // Indicates whether the call was successful.
+    // 
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
+    // Temporary authorization token for OSS.
     shared_ptr<string> XOssSecurityToken_ {};
   };
 

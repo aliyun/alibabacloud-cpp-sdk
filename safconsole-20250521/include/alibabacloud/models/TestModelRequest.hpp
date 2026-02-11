@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Customer model ID
     shared_ptr<int32_t> customerModuleId_ {};
   };
 

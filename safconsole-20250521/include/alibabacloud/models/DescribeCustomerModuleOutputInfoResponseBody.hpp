@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // Number of decimal places for the output.
       shared_ptr<string> finalScoreFormat_ {};
+      // Score processing logic.
       shared_ptr<string> processExpression_ {};
+      // Test file.
       shared_ptr<string> testFile_ {};
     };
 
@@ -138,11 +141,19 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of 200 indicates success.
     shared_ptr<int64_t> code_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Return message.
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Returned result.
     shared_ptr<DescribeCustomerModuleOutputInfoResponseBody::ResultObject> resultObject_ {};
+    // Indicates whether the request was successful, with possible values as follows:
+    // - true, indicating the request was successful
+    // - false, indicating the request failed
     shared_ptr<bool> success_ {};
   };
 

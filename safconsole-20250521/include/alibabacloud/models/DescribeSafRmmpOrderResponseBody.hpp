@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // Indicates whether there is functional permission.
       shared_ptr<bool> accessible_ {};
     };
 
@@ -108,10 +109,18 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of 200 indicates success.
     shared_ptr<int64_t> code_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Return result.
     shared_ptr<DescribeSafRmmpOrderResponseBody::ResultObject> resultObject_ {};
+    // Indicates whether the call was successful.
+    // 
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -176,17 +176,29 @@ namespace Models
 
 
     protected:
+      // Authorization type.
       shared_ptr<string> authType_ {};
+      // Model name.
       shared_ptr<string> customerModuleName_ {};
+      // Remarks.
       shared_ptr<string> description_ {};
+      // Associated features.
       shared_ptr<string> featureTemplate_ {};
+      // Modification time.
       shared_ptr<int64_t> gmtModified_ {};
+      // Primary key ID of the model.
       shared_ptr<int64_t> id_ {};
+      // Publication status.
       shared_ptr<string> innerDefineStatus_ {};
+      // Model identifier.
       shared_ptr<string> innerModuleName_ {};
+      // Whether iteration is allowed.
       shared_ptr<bool> isAllowIterate_ {};
+      // Whether rollback is allowed.
       shared_ptr<bool> isAllowRollback_ {};
+      // Iteration version.
       shared_ptr<int64_t> iterationVersion_ {};
+      // Root model ID.
       shared_ptr<int64_t> rootModuleId_ {};
     };
 
@@ -261,13 +273,23 @@ namespace Models
   protected:
     // `code`
     shared_ptr<int32_t> code_ {};
+    // Current page.
     shared_ptr<int64_t> currentPage_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Pagination parameter: number of items per page, default value is 10.
     shared_ptr<int64_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Return result.
     shared_ptr<vector<DescribeUserModelListResponseBody::ResultObject>> resultObject_ {};
+    // Indicates whether the request was successful, with values as follows:
+    // - true, request succeeded
+    // - false, request failed
     shared_ptr<bool> success_ {};
+    // Total number of records.
     shared_ptr<int64_t> totalItem_ {};
+    // Total number of pages.
     shared_ptr<int64_t> totalPage_ {};
   };
 

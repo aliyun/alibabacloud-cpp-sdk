@@ -36,6 +36,176 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Apply for Bastion Host Account
+ *
+ * @description ## Request Description
+ * - This interface is used for customers to create a modeling project for the first time.
+ * - `projectName` is a required field, with a maximum length of 50 characters.
+ * - `remark` and `instanceSpec` are optional, where `remark` has a maximum length of 200 characters.
+ * - The available values for `instanceSpec` include `SECURE_ENV_LITE` and `SECURE_ENV_PRO`.
+ *
+ * @param request ApplyBastionAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ApplyBastionAccountResponse
+ */
+ApplyBastionAccountResponse Client::applyBastionAccountWithOptions(const ApplyBastionAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMobile()) {
+    query["Mobile"] = request.getMobile();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ApplyBastionAccount"},
+    {"version" , "2025-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ApplyBastionAccountResponse>();
+}
+
+/**
+ * @summary Apply for Bastion Host Account
+ *
+ * @description ## Request Description
+ * - This interface is used for customers to create a modeling project for the first time.
+ * - `projectName` is a required field, with a maximum length of 50 characters.
+ * - `remark` and `instanceSpec` are optional, where `remark` has a maximum length of 200 characters.
+ * - The available values for `instanceSpec` include `SECURE_ENV_LITE` and `SECURE_ENV_PRO`.
+ *
+ * @param request ApplyBastionAccountRequest
+ * @return ApplyBastionAccountResponse
+ */
+ApplyBastionAccountResponse Client::applyBastionAccount(const ApplyBastionAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return applyBastionAccountWithOptions(request, runtime);
+}
+
+/**
+ * @summary Associate Retrospective Task
+ *
+ * @description ## 请求说明
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request AssociatePocTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AssociatePocTaskResponse
+ */
+AssociatePocTaskResponse Client::associatePocTaskWithOptions(const AssociatePocTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AssociatePocTask"},
+    {"version" , "2025-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AssociatePocTaskResponse>();
+}
+
+/**
+ * @summary Associate Retrospective Task
+ *
+ * @description ## 请求说明
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request AssociatePocTaskRequest
+ * @return AssociatePocTaskResponse
+ */
+AssociatePocTaskResponse Client::associatePocTask(const AssociatePocTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return associatePocTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Complete project and release resources.
+ *
+ * @description ## 请求说明
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request CompleteModelingProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CompleteModelingProjectResponse
+ */
+CompleteModelingProjectResponse Client::completeModelingProjectWithOptions(const CompleteModelingProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CompleteModelingProject"},
+    {"version" , "2025-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CompleteModelingProjectResponse>();
+}
+
+/**
+ * @summary Complete project and release resources.
+ *
+ * @description ## 请求说明
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request CompleteModelingProjectRequest
+ * @return CompleteModelingProjectResponse
+ */
+CompleteModelingProjectResponse Client::completeModelingProject(const CompleteModelingProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return completeModelingProjectWithOptions(request, runtime);
+}
+
+/**
  * @summary Create basic model information
  *
  * @param request CreateCustomerModuleBasicInfoRequest
@@ -204,6 +374,68 @@ CreateCustomerModuleOutputInfoResponse Client::createCustomerModuleOutputInfo(co
 }
 
 /**
+ * @summary Initialize a modeling project.
+ *
+ * @description ## Request Description
+ * - This interface is used for customers to create a modeling project for the first time.
+ * - `projectName` is a required field, with a maximum length of 50 characters.
+ * - `remark` and `instanceSpec` are optional, where `remark` has a maximum length of 200 characters.
+ * - The available values for `instanceSpec` include `SECURE_ENV_LITE` and `SECURE_ENV_PRO`.
+ *
+ * @param request CreateModelingProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateModelingProjectResponse
+ */
+CreateModelingProjectResponse Client::createModelingProjectWithOptions(const CreateModelingProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceSpec()) {
+    query["InstanceSpec"] = request.getInstanceSpec();
+  }
+
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateModelingProject"},
+    {"version" , "2025-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateModelingProjectResponse>();
+}
+
+/**
+ * @summary Initialize a modeling project.
+ *
+ * @description ## Request Description
+ * - This interface is used for customers to create a modeling project for the first time.
+ * - `projectName` is a required field, with a maximum length of 50 characters.
+ * - `remark` and `instanceSpec` are optional, where `remark` has a maximum length of 200 characters.
+ * - The available values for `instanceSpec` include `SECURE_ENV_LITE` and `SECURE_ENV_PRO`.
+ *
+ * @param request CreateModelingProjectRequest
+ * @return CreateModelingProjectResponse
+ */
+CreateModelingProjectResponse Client::createModelingProject(const CreateModelingProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createModelingProjectWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes the specified customer model based on the provided customer model ID.
  *
  * @description ## Request Description
@@ -251,6 +483,64 @@ DeleteModelResponse Client::deleteModelWithOptions(const DeleteModelRequest &req
 DeleteModelResponse Client::deleteModel(const DeleteModelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteModelWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deploy Model File
+ *
+ * @description ## 请求说明
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request DeployModelFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeployModelFileResponse
+ */
+DeployModelFileResponse Client::deployModelFileWithOptions(const DeployModelFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeployModelFile"},
+    {"version" , "2025-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeployModelFileResponse>();
+}
+
+/**
+ * @summary Deploy Model File
+ *
+ * @description ## 请求说明
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request DeployModelFileRequest
+ * @return DeployModelFileResponse
+ */
+DeployModelFileResponse Client::deployModelFile(const DeployModelFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deployModelFileWithOptions(request, runtime);
 }
 
 /**
@@ -306,10 +596,10 @@ DescribeCustomerModuleBasicInfoResponse Client::describeCustomerModuleBasicInfo(
 }
 
 /**
- * @summary 根据客户模型ID查询模型特征信息
+ * @summary Query model feature information based on the customer model ID
  *
- * @description ## 请求说明
- * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+ * @description ## Request Description
+ * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include, but are not limited to, "EDIT", "ONLINE", etc.
  *
  * @param request DescribeCustomerModuleMetaInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -340,10 +630,10 @@ DescribeCustomerModuleMetaInfoResponse Client::describeCustomerModuleMetaInfoWit
 }
 
 /**
- * @summary 根据客户模型ID查询模型特征信息
+ * @summary Query model feature information based on the customer model ID
  *
- * @description ## 请求说明
- * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+ * @description ## Request Description
+ * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include, but are not limited to, "EDIT", "ONLINE", etc.
  *
  * @param request DescribeCustomerModuleMetaInfoRequest
  * @return DescribeCustomerModuleMetaInfoResponse
@@ -354,10 +644,10 @@ DescribeCustomerModuleMetaInfoResponse Client::describeCustomerModuleMetaInfo(co
 }
 
 /**
- * @summary 根据客户模型ID查询模型出参信息
+ * @summary Query model output information based on the customer model ID
  *
- * @description ## 请求说明
- * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+ * @description ## Request Description
+ * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include but are not limited to "EDIT", "ONLINE", etc.
  *
  * @param request DescribeCustomerModuleOutputInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -392,10 +682,10 @@ DescribeCustomerModuleOutputInfoResponse Client::describeCustomerModuleOutputInf
 }
 
 /**
- * @summary 根据客户模型ID查询模型出参信息
+ * @summary Query model output information based on the customer model ID
  *
- * @description ## 请求说明
- * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+ * @description ## Request Description
+ * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include but are not limited to "EDIT", "ONLINE", etc.
  *
  * @param request DescribeCustomerModuleOutputInfoRequest
  * @return DescribeCustomerModuleOutputInfoResponse
@@ -406,12 +696,12 @@ DescribeCustomerModuleOutputInfoResponse Client::describeCustomerModuleOutputInf
 }
 
 /**
- * @summary 根据特征模板返回特征模板具体特征选项
+ * @summary Return specific feature options based on the feature template
  *
- * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
  *
  * @param request DescribeFeatureOptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -442,12 +732,12 @@ DescribeFeatureOptionResponse Client::describeFeatureOptionWithOptions(const Des
 }
 
 /**
- * @summary 根据特征模板返回特征模板具体特征选项
+ * @summary Return specific feature options based on the feature template
  *
- * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
  *
  * @param request DescribeFeatureOptionRequest
  * @return DescribeFeatureOptionResponse
@@ -458,12 +748,12 @@ DescribeFeatureOptionResponse Client::describeFeatureOption(const DescribeFeatur
 }
 
 /**
- * @summary 获取可用的特征模板列表，用于模型配置。
+ * @summary Get the list of available feature templates for model configuration.
  *
- * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each of which consists of a label (label) and a value (value).
  *
  * @param request DescribeFeatureTemplateListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -486,12 +776,12 @@ DescribeFeatureTemplateListResponse Client::describeFeatureTemplateListWithOptio
 }
 
 /**
- * @summary 获取可用的特征模板列表，用于模型配置。
+ * @summary Get the list of available feature templates for model configuration.
  *
- * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each of which consists of a label (label) and a value (value).
  *
  * @return DescribeFeatureTemplateListResponse
  */
@@ -501,12 +791,70 @@ DescribeFeatureTemplateListResponse Client::describeFeatureTemplateList() {
 }
 
 /**
- * @summary 渲染模型的特征配置
+ * @summary Get File Download Link
  *
  * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request DescribeFileDownloadUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeFileDownloadUrlResponse
+ */
+DescribeFileDownloadUrlResponse Client::describeFileDownloadUrlWithOptions(const DescribeFileDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.getFileId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeFileDownloadUrl"},
+    {"version" , "2025-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeFileDownloadUrlResponse>();
+}
+
+/**
+ * @summary Get File Download Link
+ *
+ * @description ## 请求说明
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request DescribeFileDownloadUrlRequest
+ * @return DescribeFileDownloadUrlResponse
+ */
+DescribeFileDownloadUrlResponse Client::describeFileDownloadUrl(const DescribeFileDownloadUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeFileDownloadUrlWithOptions(request, runtime);
+}
+
+/**
+ * @summary Render the feature configuration of the model
+ *
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each including a label (label) and value (value).
  *
  * @param request DescribeModelFeatureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -541,12 +889,12 @@ DescribeModelFeatureResponse Client::describeModelFeatureWithOptions(const Descr
 }
 
 /**
- * @summary 渲染模型的特征配置
+ * @summary Render the feature configuration of the model
  *
- * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each including a label (label) and value (value).
  *
  * @param request DescribeModelFeatureRequest
  * @return DescribeModelFeatureResponse
@@ -557,7 +905,7 @@ DescribeModelFeatureResponse Client::describeModelFeature(const DescribeModelFea
 }
 
 /**
- * @summary 获取上传oss鉴权数据
+ * @summary Obtain OSS Authentication Data for Upload
  *
  * @param request DescribeModelOssTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -580,7 +928,7 @@ DescribeModelOssTokenResponse Client::describeModelOssTokenWithOptions(const Dar
 }
 
 /**
- * @summary 获取上传oss鉴权数据
+ * @summary Obtain OSS Authentication Data for Upload
  *
  * @return DescribeModelOssTokenResponse
  */
@@ -590,13 +938,129 @@ DescribeModelOssTokenResponse Client::describeModelOssToken() {
 }
 
 /**
- * @summary 根据客户模型ID查询指定模型对应服务是否存在
+ * @summary Get detailed project data
  *
  * @description ## 请求说明
- * 该接口用于通过提供的`customerModuleId`来检查特定的模型服务是否已经存在。如果存在，则返回`true`；反之则返回`false`。
- * ### 注意事项
- * - `customerModuleId`是必须提供的参数，且为字符串类型。
- * - 此API主要用于前端页面展示或逻辑判断时使用，以确认用户所选模型是否有对应的服务被创建。
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request DescribeModelingProjectDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeModelingProjectDetailResponse
+ */
+DescribeModelingProjectDetailResponse Client::describeModelingProjectDetailWithOptions(const DescribeModelingProjectDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeModelingProjectDetail"},
+    {"version" , "2025-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeModelingProjectDetailResponse>();
+}
+
+/**
+ * @summary Get detailed project data
+ *
+ * @description ## 请求说明
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request DescribeModelingProjectDetailRequest
+ * @return DescribeModelingProjectDetailResponse
+ */
+DescribeModelingProjectDetailResponse Client::describeModelingProjectDetail(const DescribeModelingProjectDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeModelingProjectDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary Paginated query for the list of modeling projects under the current user.
+ *
+ * @description ## 请求说明
+ * - 该API用于获取指定租户下的所有建模项目的概览信息。
+ * - 支持通过`pageSize`和`currentPage`参数进行分页查询，默认每页显示10条记录。
+ * - 可选地，使用`status`参数来过滤特定状态（如`active`, `released`等）的项目。
+ * - 返回结果中包含每个项目的ID、名称、环境状态、建模状态、开始时间及结束时间（如果有的话），以及创建该项目的登录账号。
+ *
+ * @param request DescribeModelingProjectListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeModelingProjectListResponse
+ */
+DescribeModelingProjectListResponse Client::describeModelingProjectListWithOptions(const DescribeModelingProjectListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeModelingProjectList"},
+    {"version" , "2025-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeModelingProjectListResponse>();
+}
+
+/**
+ * @summary Paginated query for the list of modeling projects under the current user.
+ *
+ * @description ## 请求说明
+ * - 该API用于获取指定租户下的所有建模项目的概览信息。
+ * - 支持通过`pageSize`和`currentPage`参数进行分页查询，默认每页显示10条记录。
+ * - 可选地，使用`status`参数来过滤特定状态（如`active`, `released`等）的项目。
+ * - 返回结果中包含每个项目的ID、名称、环境状态、建模状态、开始时间及结束时间（如果有的话），以及创建该项目的登录账号。
+ *
+ * @param request DescribeModelingProjectListRequest
+ * @return DescribeModelingProjectListResponse
+ */
+DescribeModelingProjectListResponse Client::describeModelingProjectList(const DescribeModelingProjectListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeModelingProjectListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query Whether the Service Corresponding to a Specific Model Exists Based on Customer Model ID
+ *
+ * @description ## Request Description
+ * This interface is used to check whether a specific model service exists by providing the `customerModuleId`. If it exists, it returns `true`; otherwise, it returns `false`.
+ * ### Notes
+ * - `customerModuleId` is a required parameter and must be of string type.
+ * - This API is mainly used for front-end page display or logical judgment to confirm whether the service corresponding to the user\\"s selected model has been created.
  *
  * @param request DescribeModuleServiceExistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -627,13 +1091,13 @@ DescribeModuleServiceExistResponse Client::describeModuleServiceExistWithOptions
 }
 
 /**
- * @summary 根据客户模型ID查询指定模型对应服务是否存在
+ * @summary Query Whether the Service Corresponding to a Specific Model Exists Based on Customer Model ID
  *
- * @description ## 请求说明
- * 该接口用于通过提供的`customerModuleId`来检查特定的模型服务是否已经存在。如果存在，则返回`true`；反之则返回`false`。
- * ### 注意事项
- * - `customerModuleId`是必须提供的参数，且为字符串类型。
- * - 此API主要用于前端页面展示或逻辑判断时使用，以确认用户所选模型是否有对应的服务被创建。
+ * @description ## Request Description
+ * This interface is used to check whether a specific model service exists by providing the `customerModuleId`. If it exists, it returns `true`; otherwise, it returns `false`.
+ * ### Notes
+ * - `customerModuleId` is a required parameter and must be of string type.
+ * - This API is mainly used for front-end page display or logical judgment to confirm whether the service corresponding to the user\\"s selected model has been created.
  *
  * @param request DescribeModuleServiceExistRequest
  * @return DescribeModuleServiceExistResponse
@@ -644,10 +1108,10 @@ DescribeModuleServiceExistResponse Client::describeModuleServiceExist(const Desc
 }
 
 /**
- * @summary 根据客户模型ID查询模型当前状态
+ * @summary Query the current status of a model based on the customer model ID
  *
- * @description ## 请求说明
- * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+ * @description ## Request Description
+ * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include, but are not limited to, "EDIT", "ONLINE", etc.
  *
  * @param request DescribeModuleStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -678,10 +1142,10 @@ DescribeModuleStatusResponse Client::describeModuleStatusWithOptions(const Descr
 }
 
 /**
- * @summary 根据客户模型ID查询模型当前状态
+ * @summary Query the current status of a model based on the customer model ID
  *
- * @description ## 请求说明
- * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+ * @description ## Request Description
+ * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include, but are not limited to, "EDIT", "ONLINE", etc.
  *
  * @param request DescribeModuleStatusRequest
  * @return DescribeModuleStatusResponse
@@ -692,7 +1156,40 @@ DescribeModuleStatusResponse Client::describeModuleStatus(const DescribeModuleSt
 }
 
 /**
- * @summary 查询模型托管订单
+ * @summary Query POC task list.
+ *
+ * @param request DescribePocTaskListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePocTaskListResponse
+ */
+DescribePocTaskListResponse Client::describePocTaskListWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "DescribePocTaskList"},
+    {"version" , "2025-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePocTaskListResponse>();
+}
+
+/**
+ * @summary Query POC task list.
+ *
+ * @return DescribePocTaskListResponse
+ */
+DescribePocTaskListResponse Client::describePocTaskList() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePocTaskListWithOptions(runtime);
+}
+
+/**
+ * @summary Query Model Hosting Orders
  *
  * @param request DescribeSafRmmpOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -715,7 +1212,7 @@ DescribeSafRmmpOrderResponse Client::describeSafRmmpOrderWithOptions(const Darab
 }
 
 /**
- * @summary 查询模型托管订单
+ * @summary Query Model Hosting Orders
  *
  * @return DescribeSafRmmpOrderResponse
  */
@@ -725,7 +1222,7 @@ DescribeSafRmmpOrderResponse Client::describeSafRmmpOrder() {
 }
 
 /**
- * @summary 查询场景和服务
+ * @summary Query Scene and Service
  *
  * @param request DescribeServiceAndSceneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -760,7 +1257,7 @@ DescribeServiceAndSceneResponse Client::describeServiceAndSceneWithOptions(const
 }
 
 /**
- * @summary 查询场景和服务
+ * @summary Query Scene and Service
  *
  * @param request DescribeServiceAndSceneRequest
  * @return DescribeServiceAndSceneResponse
@@ -771,14 +1268,14 @@ DescribeServiceAndSceneResponse Client::describeServiceAndScene(const DescribeSe
 }
 
 /**
- * @summary 获取指定用户下的所有模型信息，支持分页查询
+ * @summary Get all model information for a specified user, supporting pagination
  *
- * @description ## 请求说明
- * 该 API 用于查询特定用户下的所有模型信息，并支持通过分页参数进行分页查询。可以通过 `name` 参数进行模糊搜索。
- * - `regId`: 地域标识，必填。
- * - `pageSize`: 每页显示的条目数，必填。
- * - `currentPage`: 当前页码，从1开始计数，必填。
- * - `userId`: 用户ID，必填。
+ * @description ## Request Description
+ * This API is used to query all model information under a specific user and supports pagination through page parameters. Fuzzy search can be performed using the `name` parameter.
+ * - `regId`: Region identifier, required.
+ * - `pageSize`: Number of items per page, required.
+ * - `currentPage`: Current page number, starting from 1, required.
+ * - `userId`: User ID, required.
  *
  * @param request DescribeUserModelListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -821,14 +1318,14 @@ DescribeUserModelListResponse Client::describeUserModelListWithOptions(const Des
 }
 
 /**
- * @summary 获取指定用户下的所有模型信息，支持分页查询
+ * @summary Get all model information for a specified user, supporting pagination
  *
- * @description ## 请求说明
- * 该 API 用于查询特定用户下的所有模型信息，并支持通过分页参数进行分页查询。可以通过 `name` 参数进行模糊搜索。
- * - `regId`: 地域标识，必填。
- * - `pageSize`: 每页显示的条目数，必填。
- * - `currentPage`: 当前页码，从1开始计数，必填。
- * - `userId`: 用户ID，必填。
+ * @description ## Request Description
+ * This API is used to query all model information under a specific user and supports pagination through page parameters. Fuzzy search can be performed using the `name` parameter.
+ * - `regId`: Region identifier, required.
+ * - `pageSize`: Number of items per page, required.
+ * - `currentPage`: Current page number, starting from 1, required.
+ * - `userId`: User ID, required.
  *
  * @param request DescribeUserModelListRequest
  * @return DescribeUserModelListResponse
@@ -839,11 +1336,11 @@ DescribeUserModelListResponse Client::describeUserModelList(const DescribeUserMo
 }
 
 /**
- * @summary 迭代模型
+ * @summary Iterate Model
  *
- * @description ## 请求说明
- * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
- * - **注意**：删除操作不可逆，请谨慎使用。
+ * @description ## Request Description
+ * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+ * - **Note**: The deletion operation is irreversible, please use with caution.
  *
  * @param request DuplicateModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -874,11 +1371,11 @@ DuplicateModelResponse Client::duplicateModelWithOptions(const DuplicateModelReq
 }
 
 /**
- * @summary 迭代模型
+ * @summary Iterate Model
  *
- * @description ## 请求说明
- * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
- * - **注意**：删除操作不可逆，请谨慎使用。
+ * @description ## Request Description
+ * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+ * - **Note**: The deletion operation is irreversible, please use with caution.
  *
  * @param request DuplicateModelRequest
  * @return DuplicateModelResponse
@@ -889,7 +1386,7 @@ DuplicateModelResponse Client::duplicateModel(const DuplicateModelRequest &reque
 }
 
 /**
- * @summary 编辑模型
+ * @summary Edit Model
  *
  * @param request EditModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -920,7 +1417,7 @@ EditModelResponse Client::editModelWithOptions(const EditModelRequest &request, 
 }
 
 /**
- * @summary 编辑模型
+ * @summary Edit Model
  *
  * @param request EditModelRequest
  * @return EditModelResponse
@@ -931,11 +1428,65 @@ EditModelResponse Client::editModel(const EditModelRequest &request) {
 }
 
 /**
- * @summary 迭代模型
+ * @summary View Bastion Host Initial Password
  *
  * @description ## 请求说明
- * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
- * - **注意**：删除操作不可逆，请谨慎使用。
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request GetBastionHostCertificationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBastionHostCertificationResponse
+ */
+GetBastionHostCertificationResponse Client::getBastionHostCertificationWithOptions(const GetBastionHostCertificationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetBastionHostCertification"},
+    {"version" , "2025-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBastionHostCertificationResponse>();
+}
+
+/**
+ * @summary View Bastion Host Initial Password
+ *
+ * @description ## 请求说明
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request GetBastionHostCertificationRequest
+ * @return GetBastionHostCertificationResponse
+ */
+GetBastionHostCertificationResponse Client::getBastionHostCertification(const GetBastionHostCertificationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getBastionHostCertificationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Iterate Model
+ *
+ * @description ## Request Description
+ * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+ * - **Note**: The deletion operation is irreversible, please use with caution.
  *
  * @param request IterateModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -966,11 +1517,11 @@ IterateModelResponse Client::iterateModelWithOptions(const IterateModelRequest &
 }
 
 /**
- * @summary 迭代模型
+ * @summary Iterate Model
  *
- * @description ## 请求说明
- * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
- * - **注意**：删除操作不可逆，请谨慎使用。
+ * @description ## Request Description
+ * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+ * - **Note**: The deletion operation is irreversible, please use with caution.
  *
  * @param request IterateModelRequest
  * @return IterateModelResponse
@@ -981,7 +1532,7 @@ IterateModelResponse Client::iterateModel(const IterateModelRequest &request) {
 }
 
 /**
- * @summary 下线模型
+ * @summary Offline Model
  *
  * @param request OfflineModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1012,7 +1563,7 @@ OfflineModelResponse Client::offlineModelWithOptions(const OfflineModelRequest &
 }
 
 /**
- * @summary 下线模型
+ * @summary Offline Model
  *
  * @param request OfflineModelRequest
  * @return OfflineModelResponse
@@ -1023,11 +1574,11 @@ OfflineModelResponse Client::offlineModel(const OfflineModelRequest &request) {
 }
 
 /**
- * @summary 上线模型
+ * @summary Online Model
  *
- * @description ## 请求说明
- * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
- * - **注意**：删除操作不可逆，请谨慎使用。
+ * @description ## Request Description
+ * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+ * - **Note**: Deletion is irreversible, please use with caution.
  *
  * @param request OnlineModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1058,11 +1609,11 @@ OnlineModelResponse Client::onlineModelWithOptions(const OnlineModelRequest &req
 }
 
 /**
- * @summary 上线模型
+ * @summary Online Model
  *
- * @description ## 请求说明
- * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
- * - **注意**：删除操作不可逆，请谨慎使用。
+ * @description ## Request Description
+ * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+ * - **Note**: Deletion is irreversible, please use with caution.
  *
  * @param request OnlineModelRequest
  * @return OnlineModelResponse
@@ -1073,12 +1624,12 @@ OnlineModelResponse Client::onlineModel(const OnlineModelRequest &request) {
 }
 
 /**
- * @summary 解析表达式参数
+ * @summary Parse Expression Parameters
  *
- * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
  *
  * @param request ParseExpressionParametersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1109,12 +1660,12 @@ ParseExpressionParametersResponse Client::parseExpressionParametersWithOptions(c
 }
 
 /**
- * @summary 解析表达式参数
+ * @summary Parse Expression Parameters
  *
- * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
  *
  * @param request ParseExpressionParametersRequest
  * @return ParseExpressionParametersResponse
@@ -1125,7 +1676,7 @@ ParseExpressionParametersResponse Client::parseExpressionParameters(const ParseE
 }
 
 /**
- * @summary 预发布模型
+ * @summary Pre-release Model
  *
  * @param request PrepublishModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1156,7 +1707,7 @@ PrepublishModelResponse Client::prepublishModelWithOptions(const PrepublishModel
 }
 
 /**
- * @summary 预发布模型
+ * @summary Pre-release Model
  *
  * @param request PrepublishModelRequest
  * @return PrepublishModelResponse
@@ -1164,6 +1715,60 @@ PrepublishModelResponse Client::prepublishModelWithOptions(const PrepublishModel
 PrepublishModelResponse Client::prepublishModel(const PrepublishModelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return prepublishModelWithOptions(request, runtime);
+}
+
+/**
+ * @summary Request to Sync Model Files
+ *
+ * @description ## 请求说明
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request RequestModelFileSyncRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RequestModelFileSyncResponse
+ */
+RequestModelFileSyncResponse Client::requestModelFileSyncWithOptions(const RequestModelFileSyncRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RequestModelFileSync"},
+    {"version" , "2025-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RequestModelFileSyncResponse>();
+}
+
+/**
+ * @summary Request to Sync Model Files
+ *
+ * @description ## 请求说明
+ * - 本接口用于客户首次创建建模项目。
+ * - `projectName` 是必填项，长度不超过50个字符。
+ * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+ * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+ *
+ * @param request RequestModelFileSyncRequest
+ * @return RequestModelFileSyncResponse
+ */
+RequestModelFileSyncResponse Client::requestModelFileSync(const RequestModelFileSyncRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return requestModelFileSyncWithOptions(request, runtime);
 }
 
 /**
@@ -1217,12 +1822,12 @@ RollbackModelResponse Client::rollbackModel(const RollbackModelRequest &request)
 }
 
 /**
- * @summary 预发布测试模型
+ * @summary Pre-release Model Testing
  *
- * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
  *
  * @param request TestModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1253,12 +1858,12 @@ TestModelResponse Client::testModelWithOptions(const TestModelRequest &request, 
 }
 
 /**
- * @summary 预发布测试模型
+ * @summary Pre-release Model Testing
  *
- * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
  *
  * @param request TestModelRequest
  * @return TestModelResponse
@@ -1269,12 +1874,12 @@ TestModelResponse Client::testModel(const TestModelRequest &request) {
 }
 
 /**
- * @summary 预发布测试模型
+ * @summary Pre-release Test Model
  *
- * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
  *
  * @param request TestPreModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1305,12 +1910,12 @@ TestPreModelResponse Client::testPreModelWithOptions(const TestPreModelRequest &
 }
 
 /**
- * @summary 预发布测试模型
+ * @summary Pre-release Test Model
  *
- * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
  *
  * @param request TestPreModelRequest
  * @return TestPreModelResponse
@@ -1321,12 +1926,12 @@ TestPreModelResponse Client::testPreModel(const TestPreModelRequest &request) {
 }
 
 /**
- * @summary 测试表达式
+ * @summary Test Expression
  *
- * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
  *
  * @param request TestProcessExpressionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1361,12 +1966,12 @@ TestProcessExpressionResponse Client::testProcessExpressionWithOptions(const Tes
 }
 
 /**
- * @summary 测试表达式
+ * @summary Test Expression
  *
- * @description ## 请求说明
- * - 该接口用于查询系统中所有可用的特征模板。
- * - 请求方式为 GET，无需提供额外参数。
- * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+ * @description ## Request Description
+ * - This interface is used to query all available feature templates in the system.
+ * - The request method is GET, and no additional parameters are required.
+ * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
  *
  * @param request TestProcessExpressionRequest
  * @return TestProcessExpressionResponse

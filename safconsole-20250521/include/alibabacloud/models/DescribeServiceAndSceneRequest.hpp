@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Authorization type.
     shared_ptr<string> authType_ {};
+    // Customer model ID
     shared_ptr<int32_t> customerModuleId_ {};
   };
 

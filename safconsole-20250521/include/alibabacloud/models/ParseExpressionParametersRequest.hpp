@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Expression.
     shared_ptr<string> expression_ {};
   };
 

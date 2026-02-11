@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // Model corresponding scene.
       shared_ptr<string> scene_ {};
+      // Model corresponding service.
       shared_ptr<string> service_ {};
     };
 
@@ -119,10 +121,18 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of 200 indicates success.
     shared_ptr<int64_t> code_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Returned result.
     shared_ptr<DescribeServiceAndSceneResponseBody::ResultObject> resultObject_ {};
+    // Indicates whether the call was successful.
+    // 
+    // - **true**: Call succeeded.
+    // - **false**: Call failed.
     shared_ptr<bool> success_ {};
   };
 

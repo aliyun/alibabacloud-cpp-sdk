@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Customer model ID
     shared_ptr<int32_t> customerModuleId_ {};
+    // Feature template.
     shared_ptr<string> featureTemplate_ {};
   };
 

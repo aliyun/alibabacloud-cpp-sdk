@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Feature template.
+    // 
     // This parameter is required.
     shared_ptr<string> featureTemplate_ {};
   };

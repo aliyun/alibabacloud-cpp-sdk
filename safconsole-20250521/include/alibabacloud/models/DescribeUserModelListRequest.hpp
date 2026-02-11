@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Authorization type.
     shared_ptr<string> authType_ {};
+    // Current page number.
     shared_ptr<string> currentPage_ {};
+    // Model name.
     shared_ptr<string> name_ {};
+    // Pagination parameter: number of items per page, default value 10.
     shared_ptr<string> pageSize_ {};
   };
 

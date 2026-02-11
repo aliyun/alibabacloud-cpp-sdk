@@ -119,9 +119,13 @@ namespace Models
 
 
       protected:
+        // Actual output.
         shared_ptr<string> actualResult_ {};
+        // Whether it is consistent.
         shared_ptr<bool> consistency_ {};
+        // Test output.
         shared_ptr<string> testResult_ {};
+        // Training output.
         shared_ptr<string> trainResult_ {};
       };
 
@@ -158,9 +162,13 @@ namespace Models
 
 
     protected:
+      // Number of consistencies.
       shared_ptr<int64_t> consistencyCount_ {};
+      // Consistency rate.
       shared_ptr<double> consistencyRate_ {};
+      // Test results.
       shared_ptr<vector<ResultObject::TestResult>> testResult_ {};
+      // Total number.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -204,10 +212,18 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of 200 indicates success.
     shared_ptr<int64_t> code_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Return result.
     shared_ptr<TestModelResponseBody::ResultObject> resultObject_ {};
+    // Indicates whether the call was successful.
+    // 
+    // - **true**: Call succeeded.
+    // - **false**: Call failed.
     shared_ptr<bool> success_ {};
   };
 

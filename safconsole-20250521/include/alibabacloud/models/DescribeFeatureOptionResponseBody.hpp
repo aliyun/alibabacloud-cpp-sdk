@@ -66,6 +66,7 @@ namespace Models
 
 
     protected:
+      // Feature name.
       shared_ptr<string> featureName_ {};
     };
 
@@ -109,10 +110,17 @@ namespace Models
 
 
   protected:
+    // Status code. A return of 200 indicates success.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Returned result.
     shared_ptr<vector<DescribeFeatureOptionResponseBody::ResultObject>> resultObject_ {};
+    // Indicates whether the call was successful.
+    // - **true**: Call succeeded.
+    // - **false**: Call failed.
     shared_ptr<bool> success_ {};
   };
 
