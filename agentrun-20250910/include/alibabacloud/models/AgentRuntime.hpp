@@ -50,6 +50,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(statusReason, statusReason_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, AgentRuntime& obj) { 
       DARABONBA_PTR_FROM_JSON(agentRuntimeArn, agentRuntimeArn_);
@@ -80,6 +81,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(statusReason, statusReason_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     AgentRuntime() = default ;
     AgentRuntime(const AgentRuntime &) = default ;
@@ -98,7 +100,7 @@ namespace Models
         && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->externalAgentEndpointUrl_ == nullptr && this->healthCheckConfiguration_ == nullptr && this->lastUpdatedAt_ == nullptr
         && this->logConfiguration_ == nullptr && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossMountConfig_ == nullptr
         && this->port_ == nullptr && this->protocolConfiguration_ == nullptr && this->resourceGroupId_ == nullptr && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr
-        && this->status_ == nullptr && this->statusReason_ == nullptr; };
+        && this->status_ == nullptr && this->statusReason_ == nullptr && this->workspaceId_ == nullptr; };
     // agentRuntimeArn Field Functions 
     bool hasAgentRuntimeArn() const { return this->agentRuntimeArn_ != nullptr;};
     void deleteAgentRuntimeArn() { this->agentRuntimeArn_ = nullptr;};
@@ -313,6 +315,13 @@ namespace Models
     inline AgentRuntime& setStatusReason(string statusReason) { DARABONBA_PTR_SET_VALUE(statusReason_, statusReason) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline AgentRuntime& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     // 智能体运行时的全局唯一资源名称
     shared_ptr<string> agentRuntimeArn_ {};
@@ -369,6 +378,8 @@ namespace Models
     shared_ptr<string> status_ {};
     // 当前状态的原因说明（如适用）
     shared_ptr<string> statusReason_ {};
+    // 智能体运行时所属的工作空间标识符，用于资源隔离和权限管理
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

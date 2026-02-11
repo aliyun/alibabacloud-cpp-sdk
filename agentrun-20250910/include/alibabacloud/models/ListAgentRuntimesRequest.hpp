@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(searchMode, searchMode_);
       DARABONBA_PTR_TO_JSON(status, status_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListAgentRuntimesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(agentRuntimeName, agentRuntimeName_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(searchMode, searchMode_);
       DARABONBA_PTR_FROM_JSON(status, status_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     ListAgentRuntimesRequest() = default ;
     ListAgentRuntimesRequest(const ListAgentRuntimesRequest &) = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeName_ == nullptr
         && this->discoveryResourceGroupId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr && this->searchMode_ == nullptr
-        && this->status_ == nullptr; };
+        && this->status_ == nullptr && this->workspaceId_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};
@@ -93,6 +95,13 @@ namespace Models
     inline ListAgentRuntimesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ListAgentRuntimesRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     // 根据智能体运行时名称进行模糊匹配过滤
     shared_ptr<string> agentRuntimeName_ {};
@@ -107,6 +116,8 @@ namespace Models
     shared_ptr<string> searchMode_ {};
     // 根据状态进行过滤，多个状态用逗号分隔，支持精确匹配
     shared_ptr<string> status_ {};
+    // 根据工作空间ID进行过滤，用于资源隔离和权限管理
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

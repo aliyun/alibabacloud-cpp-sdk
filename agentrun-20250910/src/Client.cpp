@@ -1702,6 +1702,10 @@ ListAgentRuntimesResponse Client::listAgentRuntimesWithOptions(const ListAgentRu
     query["status"] = request.getStatus();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["workspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_AGENTRUN20250910MODEL_HPP_
 #define ALIBABACLOUD_AGENTRUN20250910MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AgentEndpointConfig.hpp>
 #include <alibabacloud/models/CodeConfiguration.hpp>
 #include <alibabacloud/models/ContainerConfiguration.hpp>
 #include <alibabacloud/models/HealthCheckConfiguration.hpp>
@@ -95,6 +96,7 @@
 #include <alibabacloud/models/CreateToolData.hpp>
 #include <alibabacloud/models/CreateToolInput.hpp>
 #include <alibabacloud/models/CreateToolOutput.hpp>
+#include <alibabacloud/models/CreateWorkspaceInput.hpp>
 #include <alibabacloud/models/Credential.hpp>
 #include <alibabacloud/models/CredentialListItem.hpp>
 #include <alibabacloud/models/CredentialResult.hpp>
@@ -116,6 +118,7 @@
 #include <alibabacloud/models/Template.hpp>
 #include <alibabacloud/models/DeleteTemplateResult.hpp>
 #include <alibabacloud/models/DeregisterServiceInput.hpp>
+#include <alibabacloud/models/DiscoveryEndpoint.hpp>
 #include <alibabacloud/models/DomainInfo.hpp>
 #include <alibabacloud/models/ErrorResult.hpp>
 #include <alibabacloud/models/FCLinkConfig.hpp>
@@ -123,6 +126,8 @@
 #include <alibabacloud/models/GetBrowserSessionResult.hpp>
 #include <alibabacloud/models/GetCodeInterpreterSessionResult.hpp>
 #include <alibabacloud/models/GetCredentialOutput.hpp>
+#include <alibabacloud/models/GetDiscoveryEndpointsOutput.hpp>
+#include <alibabacloud/models/GetDiscoveryEndpointsResult.hpp>
 #include <alibabacloud/models/ToolInfo.hpp>
 #include <alibabacloud/models/GetToolOutput.hpp>
 #include <alibabacloud/models/GrayTrafficWeight.hpp>
@@ -166,6 +171,9 @@
 #include <alibabacloud/models/ListTemplatesResult.hpp>
 #include <alibabacloud/models/ToolListItem.hpp>
 #include <alibabacloud/models/ListToolsOutput.hpp>
+#include <alibabacloud/models/Workspace.hpp>
+#include <alibabacloud/models/ListWorkspacesOutput.hpp>
+#include <alibabacloud/models/ListWorkspacesResult.hpp>
 #include <alibabacloud/models/MCPServiceConfig.hpp>
 #include <alibabacloud/models/MCPBackendConfig.hpp>
 #include <alibabacloud/models/MCPPathMatch.hpp>
@@ -203,6 +211,7 @@
 #include <alibabacloud/models/UpdateCredentialInput.hpp>
 #include <alibabacloud/models/UpdateCredentialOutput.hpp>
 #include <alibabacloud/models/UpdateCustomDomainInput.hpp>
+#include <alibabacloud/models/UpdateDiscoveryEndpointsInput.hpp>
 #include <alibabacloud/models/UpdateDomainInput.hpp>
 #include <alibabacloud/models/UpdateKnowledgeBaseInput.hpp>
 #include <alibabacloud/models/UpdateMemoryCollectionInput.hpp>
@@ -214,6 +223,8 @@
 #include <alibabacloud/models/UpdateToolData.hpp>
 #include <alibabacloud/models/UpdateToolInput.hpp>
 #include <alibabacloud/models/UpdateToolOutput.hpp>
+#include <alibabacloud/models/UpdateWorkspaceInput.hpp>
+#include <alibabacloud/models/WorkspaceResult.hpp>
 #include <alibabacloud/models/ActivateTemplateMCPRequest.hpp>
 #include <alibabacloud/models/ActivateTemplateMCPResponse.hpp>
 #include <alibabacloud/models/CreateAgentRuntimeRequest.hpp>

@@ -42,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(protocolConfiguration, protocolConfiguration_);
       DARABONBA_PTR_TO_JSON(sessionConcurrencyLimitPerInstance, sessionConcurrencyLimitPerInstance_);
       DARABONBA_PTR_TO_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateAgentRuntimeInput& obj) { 
       DARABONBA_PTR_FROM_JSON(agentRuntimeName, agentRuntimeName_);
@@ -64,6 +65,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(protocolConfiguration, protocolConfiguration_);
       DARABONBA_PTR_FROM_JSON(sessionConcurrencyLimitPerInstance, sessionConcurrencyLimitPerInstance_);
       DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     UpdateAgentRuntimeInput() = default ;
     UpdateAgentRuntimeInput(const UpdateAgentRuntimeInput &) = default ;
@@ -80,7 +82,7 @@ namespace Models
         && this->artifactType_ == nullptr && this->codeConfiguration_ == nullptr && this->containerConfiguration_ == nullptr && this->cpu_ == nullptr && this->credentialName_ == nullptr
         && this->description_ == nullptr && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->externalAgentEndpointUrl_ == nullptr && this->healthCheckConfiguration_ == nullptr
         && this->logConfiguration_ == nullptr && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossMountConfig_ == nullptr
-        && this->port_ == nullptr && this->protocolConfiguration_ == nullptr && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr; };
+        && this->port_ == nullptr && this->protocolConfiguration_ == nullptr && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->workspaceId_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};
@@ -239,6 +241,13 @@ namespace Models
     inline UpdateAgentRuntimeInput& setSessionIdleTimeoutSeconds(int32_t sessionIdleTimeoutSeconds) { DARABONBA_PTR_SET_VALUE(sessionIdleTimeoutSeconds_, sessionIdleTimeoutSeconds) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline UpdateAgentRuntimeInput& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     shared_ptr<string> agentRuntimeName_ {};
     shared_ptr<string> artifactType_ {};
@@ -275,6 +284,7 @@ namespace Models
     shared_ptr<int32_t> sessionConcurrencyLimitPerInstance_ {};
     // 会话的空闲超时时间，单位为秒。实例没有会话请求后处于空闲状态，空闲态为闲置计费模式，超过此超时时间后会话自动过期，不可继续使用
     shared_ptr<int32_t> sessionIdleTimeoutSeconds_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

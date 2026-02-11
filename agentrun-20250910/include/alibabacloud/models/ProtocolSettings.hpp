@@ -14,6 +14,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ProtocolSettings& obj) { 
       DARABONBA_PTR_TO_JSON(A2AAgentCard, a2AAgentCard_);
+      DARABONBA_PTR_TO_JSON(a2aAgentCard, a2aAgentCard_);
+      DARABONBA_PTR_TO_JSON(a2aAgentCardUrl, a2aAgentCardUrl_);
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(inputBodyJsonSchema, inputBodyJsonSchema_);
       DARABONBA_PTR_TO_JSON(method, method_);
@@ -26,6 +28,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ProtocolSettings& obj) { 
       DARABONBA_PTR_FROM_JSON(A2AAgentCard, a2AAgentCard_);
+      DARABONBA_PTR_FROM_JSON(a2aAgentCard, a2aAgentCard_);
+      DARABONBA_PTR_FROM_JSON(a2aAgentCardUrl, a2aAgentCardUrl_);
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(inputBodyJsonSchema, inputBodyJsonSchema_);
       DARABONBA_PTR_FROM_JSON(method, method_);
@@ -48,13 +52,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->a2AAgentCard_ == nullptr
-        && this->headers_ == nullptr && this->inputBodyJsonSchema_ == nullptr && this->method_ == nullptr && this->name_ == nullptr && this->outputBodyJsonSchema_ == nullptr
-        && this->path_ == nullptr && this->pathPrefix_ == nullptr && this->requestContentType_ == nullptr && this->responseContentType_ == nullptr; };
+        && this->a2aAgentCard_ == nullptr && this->a2aAgentCardUrl_ == nullptr && this->headers_ == nullptr && this->inputBodyJsonSchema_ == nullptr && this->method_ == nullptr
+        && this->name_ == nullptr && this->outputBodyJsonSchema_ == nullptr && this->path_ == nullptr && this->pathPrefix_ == nullptr && this->requestContentType_ == nullptr
+        && this->responseContentType_ == nullptr; };
     // a2AAgentCard Field Functions 
     bool hasA2AAgentCard() const { return this->a2AAgentCard_ != nullptr;};
     void deleteA2AAgentCard() { this->a2AAgentCard_ = nullptr;};
     inline string getA2AAgentCard() const { DARABONBA_PTR_GET_DEFAULT(a2AAgentCard_, "") };
     inline ProtocolSettings& setA2AAgentCard(string a2AAgentCard) { DARABONBA_PTR_SET_VALUE(a2AAgentCard_, a2AAgentCard) };
+
+
+    // a2aAgentCard Field Functions 
+    bool hasA2aAgentCard() const { return this->a2aAgentCard_ != nullptr;};
+    void deleteA2aAgentCard() { this->a2aAgentCard_ = nullptr;};
+    inline string getA2aAgentCard() const { DARABONBA_PTR_GET_DEFAULT(a2aAgentCard_, "") };
+    inline ProtocolSettings& setA2aAgentCard(string a2aAgentCard) { DARABONBA_PTR_SET_VALUE(a2aAgentCard_, a2aAgentCard) };
+
+
+    // a2aAgentCardUrl Field Functions 
+    bool hasA2aAgentCardUrl() const { return this->a2aAgentCardUrl_ != nullptr;};
+    void deleteA2aAgentCardUrl() { this->a2aAgentCardUrl_ = nullptr;};
+    inline string getA2aAgentCardUrl() const { DARABONBA_PTR_GET_DEFAULT(a2aAgentCardUrl_, "") };
+    inline ProtocolSettings& setA2aAgentCardUrl(string a2aAgentCardUrl) { DARABONBA_PTR_SET_VALUE(a2aAgentCardUrl_, a2aAgentCardUrl) };
 
 
     // headers Field Functions 
@@ -123,6 +142,8 @@ namespace Models
   protected:
     // A2A Agent Card
     shared_ptr<string> a2AAgentCard_ {};
+    shared_ptr<string> a2aAgentCard_ {};
+    shared_ptr<string> a2aAgentCardUrl_ {};
     // 请求头
     shared_ptr<string> headers_ {};
     // 请求体JSON模式
