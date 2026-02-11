@@ -38,7 +38,7 @@ namespace AppstreamCenter20210901
       Models::ApproveOtaTaskResponse approveOtaTask(const Models::ApproveOtaTaskRequest &request);
 
       /**
-       * @summary 授权用户
+       * @summary Adds assigned users to or removes assigned users from a delivery group. Only users added to the assigned user list can access App Streaming.
        *
        * @param tmpReq AuthorizeInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace AppstreamCenter20210901
       Models::AuthorizeInstanceGroupResponse authorizeInstanceGroupWithOptions(const Models::AuthorizeInstanceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 授权用户
+       * @summary Adds assigned users to or removes assigned users from a delivery group. Only users added to the assigned user list can access App Streaming.
        *
        * @param request AuthorizeInstanceGroupRequest
        * @return AuthorizeInstanceGroupResponse
@@ -863,7 +863,7 @@ namespace AppstreamCenter20210901
       Models::StopWuyingServerResponse stopWuyingServer(const Models::StopWuyingServerRequest &request);
 
       /**
-       * @summary 为云资源创建并绑定标签
+       * @summary Creates and adds tags to cloud resources and updates the values of existing cloud resource tags.
        *
        * @param request TagCloudResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -872,7 +872,7 @@ namespace AppstreamCenter20210901
       Models::TagCloudResourcesResponse tagCloudResourcesWithOptions(const Models::TagCloudResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为云资源创建并绑定标签
+       * @summary Creates and adds tags to cloud resources and updates the values of existing cloud resource tags.
        *
        * @param request TagCloudResourcesRequest
        * @return TagCloudResourcesResponse

@@ -16,13 +16,16 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListWuyingServerRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AddVirtualNodePoolStatusList, addVirtualNodePoolStatusList_);
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_TO_JSON(BizType, bizType_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProductType, productType_);
       DARABONBA_PTR_TO_JSON(ServerInstanceType, serverInstanceType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(Users, users_);
       DARABONBA_PTR_TO_JSON(VirtualNodePoolId, virtualNodePoolId_);
       DARABONBA_PTR_TO_JSON(WuyingServerIdList, wuyingServerIdList_);
       DARABONBA_PTR_TO_JSON(WuyingServerNameOrId, wuyingServerNameOrId_);
@@ -30,13 +33,16 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListWuyingServerRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AddVirtualNodePoolStatusList, addVirtualNodePoolStatusList_);
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_FROM_JSON(BizType, bizType_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProductType, productType_);
       DARABONBA_PTR_FROM_JSON(ServerInstanceType, serverInstanceType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(Users, users_);
       DARABONBA_PTR_FROM_JSON(VirtualNodePoolId, virtualNodePoolId_);
       DARABONBA_PTR_FROM_JSON(WuyingServerIdList, wuyingServerIdList_);
       DARABONBA_PTR_FROM_JSON(WuyingServerNameOrId, wuyingServerNameOrId_);
@@ -53,9 +59,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addVirtualNodePoolStatusList_ == nullptr
-        && this->bizRegionId_ == nullptr && this->chargeType_ == nullptr && this->imageId_ == nullptr && this->officeSiteId_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->serverInstanceType_ == nullptr && this->status_ == nullptr && this->virtualNodePoolId_ == nullptr && this->wuyingServerIdList_ == nullptr
-        && this->wuyingServerNameOrId_ == nullptr; };
+        && this->bizRegionId_ == nullptr && this->bizType_ == nullptr && this->chargeType_ == nullptr && this->imageId_ == nullptr && this->officeSiteId_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->productType_ == nullptr && this->serverInstanceType_ == nullptr && this->status_ == nullptr
+        && this->users_ == nullptr && this->virtualNodePoolId_ == nullptr && this->wuyingServerIdList_ == nullptr && this->wuyingServerNameOrId_ == nullptr; };
     // addVirtualNodePoolStatusList Field Functions 
     bool hasAddVirtualNodePoolStatusList() const { return this->addVirtualNodePoolStatusList_ != nullptr;};
     void deleteAddVirtualNodePoolStatusList() { this->addVirtualNodePoolStatusList_ = nullptr;};
@@ -70,6 +76,13 @@ namespace Models
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
     inline string getBizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
     inline ListWuyingServerRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
+
+
+    // bizType Field Functions 
+    bool hasBizType() const { return this->bizType_ != nullptr;};
+    void deleteBizType() { this->bizType_ = nullptr;};
+    inline int32_t getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, 0) };
+    inline ListWuyingServerRequest& setBizType(int32_t bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // chargeType Field Functions 
@@ -107,6 +120,13 @@ namespace Models
     inline ListWuyingServerRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // productType Field Functions 
+    bool hasProductType() const { return this->productType_ != nullptr;};
+    void deleteProductType() { this->productType_ = nullptr;};
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline ListWuyingServerRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
+
+
     // serverInstanceType Field Functions 
     bool hasServerInstanceType() const { return this->serverInstanceType_ != nullptr;};
     void deleteServerInstanceType() { this->serverInstanceType_ = nullptr;};
@@ -119,6 +139,15 @@ namespace Models
     void deleteStatus() { this->status_ = nullptr;};
     inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListWuyingServerRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    // users Field Functions 
+    bool hasUsers() const { return this->users_ != nullptr;};
+    void deleteUsers() { this->users_ = nullptr;};
+    inline const vector<string> & getUsers() const { DARABONBA_PTR_GET_CONST(users_, vector<string>) };
+    inline vector<string> getUsers() { DARABONBA_PTR_GET(users_, vector<string>) };
+    inline ListWuyingServerRequest& setUsers(const vector<string> & users) { DARABONBA_PTR_SET_VALUE(users_, users) };
+    inline ListWuyingServerRequest& setUsers(vector<string> && users) { DARABONBA_PTR_SET_RVALUE(users_, users) };
 
 
     // virtualNodePoolId Field Functions 
@@ -148,6 +177,7 @@ namespace Models
     shared_ptr<vector<string>> addVirtualNodePoolStatusList_ {};
     // The region ID.
     shared_ptr<string> bizRegionId_ {};
+    shared_ptr<int32_t> bizType_ {};
     // The billing method of the Internet access package.
     shared_ptr<string> chargeType_ {};
     // The image ID.
@@ -158,10 +188,12 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> productType_ {};
     // Workstation specifications.
     shared_ptr<string> serverInstanceType_ {};
     // The status of the workstation.
     shared_ptr<string> status_ {};
+    shared_ptr<vector<string>> users_ {};
     shared_ptr<string> virtualNodePoolId_ {};
     // The list of workstation IDs.
     shared_ptr<vector<string>> wuyingServerIdList_ {};

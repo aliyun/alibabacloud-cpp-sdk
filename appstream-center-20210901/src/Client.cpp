@@ -94,7 +94,7 @@ ApproveOtaTaskResponse Client::approveOtaTask(const ApproveOtaTaskRequest &reque
 }
 
 /**
- * @summary 授权用户
+ * @summary Adds assigned users to or removes assigned users from a delivery group. Only users added to the assigned user list can access App Streaming.
  *
  * @param tmpReq AuthorizeInstanceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -167,7 +167,7 @@ AuthorizeInstanceGroupResponse Client::authorizeInstanceGroupWithOptions(const A
 }
 
 /**
- * @summary 授权用户
+ * @summary Adds assigned users to or removes assigned users from a delivery group. Only users added to the assigned user list can access App Streaming.
  *
  * @param request AuthorizeInstanceGroupRequest
  * @return AuthorizeInstanceGroupResponse
@@ -2107,6 +2107,10 @@ ListWuyingServerResponse Client::listWuyingServerWithOptions(const ListWuyingSer
     body["BizRegionId"] = request.getBizRegionId();
   }
 
+  if (!!request.hasBizType()) {
+    body["BizType"] = request.getBizType();
+  }
+
   if (!!request.hasChargeType()) {
     body["ChargeType"] = request.getChargeType();
   }
@@ -2127,12 +2131,20 @@ ListWuyingServerResponse Client::listWuyingServerWithOptions(const ListWuyingSer
     body["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasProductType()) {
+    body["ProductType"] = request.getProductType();
+  }
+
   if (!!request.hasServerInstanceType()) {
     body["ServerInstanceType"] = request.getServerInstanceType();
   }
 
   if (!!request.hasStatus()) {
     body["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasUsers()) {
+    bodyFlat["Users"] = request.getUsers();
   }
 
   if (!!request.hasVirtualNodePoolId()) {
@@ -2660,6 +2672,10 @@ ModifyWuyingServerAttributeResponse Client::modifyWuyingServerAttributeWithOptio
     body["Password"] = request.getPassword();
   }
 
+  if (!!request.hasProductType()) {
+    body["ProductType"] = request.getProductType();
+  }
+
   if (!!request.hasWuyingServerId()) {
     body["WuyingServerId"] = request.getWuyingServerId();
   }
@@ -2902,6 +2918,10 @@ RenewWuyingServerResponse Client::renewWuyingServer(const RenewWuyingServerReque
 RestartWuyingServerResponse Client::restartWuyingServerWithOptions(const RestartWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasProductType()) {
+    body["ProductType"] = request.getProductType();
+  }
+
   json bodyFlat = {};
   if (!!request.hasWuyingServerIdList()) {
     bodyFlat["WuyingServerIdList"] = request.getWuyingServerIdList();
@@ -3010,6 +3030,10 @@ StartTaskForDistributeImageResponse Client::startTaskForDistributeImage(const St
 StartWuyingServerResponse Client::startWuyingServerWithOptions(const StartWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasProductType()) {
+    body["ProductType"] = request.getProductType();
+  }
+
   json bodyFlat = {};
   if (!!request.hasWuyingServerIdList()) {
     bodyFlat["WuyingServerIdList"] = request.getWuyingServerIdList();
@@ -3060,6 +3084,10 @@ StopWuyingServerResponse Client::stopWuyingServerWithOptions(const StopWuyingSer
     body["Force"] = request.getForce();
   }
 
+  if (!!request.hasProductType()) {
+    body["ProductType"] = request.getProductType();
+  }
+
   json bodyFlat = {};
   if (!!request.hasWuyingServerIdList()) {
     bodyFlat["WuyingServerIdList"] = request.getWuyingServerIdList();
@@ -3097,7 +3125,7 @@ StopWuyingServerResponse Client::stopWuyingServer(const StopWuyingServerRequest 
 }
 
 /**
- * @summary 为云资源创建并绑定标签
+ * @summary Creates and adds tags to cloud resources and updates the values of existing cloud resource tags.
  *
  * @param request TagCloudResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3136,7 +3164,7 @@ TagCloudResourcesResponse Client::tagCloudResourcesWithOptions(const TagCloudRes
 }
 
 /**
- * @summary 为云资源创建并绑定标签
+ * @summary Creates and adds tags to cloud resources and updates the values of existing cloud resource tags.
  *
  * @param request TagCloudResourcesRequest
  * @return TagCloudResourcesResponse

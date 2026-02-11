@@ -86,6 +86,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ResourceInstanceCategory, resourceInstanceCategory_);
         DARABONBA_PTR_TO_JSON(Scene, scene_);
         DARABONBA_PTR_TO_JSON(SessionType, sessionType_);
+        DARABONBA_PTR_TO_JSON(SnapshotList, snapshotList_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(SupportedLanguageList, supportedLanguageList_);
         DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
@@ -135,6 +136,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ResourceInstanceCategory, resourceInstanceCategory_);
         DARABONBA_PTR_FROM_JSON(Scene, scene_);
         DARABONBA_PTR_FROM_JSON(SessionType, sessionType_);
+        DARABONBA_PTR_FROM_JSON(SnapshotList, snapshotList_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(SupportedLanguageList, supportedLanguageList_);
         DARABONBA_PTR_FROM_JSON(SystemDiskSize, systemDiskSize_);
@@ -195,6 +197,99 @@ namespace Models
       protected:
         shared_ptr<string> key_ {};
         shared_ptr<string> value_ {};
+      };
+
+      class SnapshotList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SnapshotList& obj) { 
+          DARABONBA_PTR_TO_JSON(BindType, bindType_);
+          DARABONBA_PTR_TO_JSON(DiskCategory, diskCategory_);
+          DARABONBA_PTR_TO_JSON(DiskSubType, diskSubType_);
+          DARABONBA_PTR_TO_JSON(DiskType, diskType_);
+          DARABONBA_PTR_TO_JSON(Size, size_);
+          DARABONBA_PTR_TO_JSON(SnapshotId, snapshotId_);
+          DARABONBA_PTR_TO_JSON(VersionId, versionId_);
+        };
+        friend void from_json(const Darabonba::Json& j, SnapshotList& obj) { 
+          DARABONBA_PTR_FROM_JSON(BindType, bindType_);
+          DARABONBA_PTR_FROM_JSON(DiskCategory, diskCategory_);
+          DARABONBA_PTR_FROM_JSON(DiskSubType, diskSubType_);
+          DARABONBA_PTR_FROM_JSON(DiskType, diskType_);
+          DARABONBA_PTR_FROM_JSON(Size, size_);
+          DARABONBA_PTR_FROM_JSON(SnapshotId, snapshotId_);
+          DARABONBA_PTR_FROM_JSON(VersionId, versionId_);
+        };
+        SnapshotList() = default ;
+        SnapshotList(const SnapshotList &) = default ;
+        SnapshotList(SnapshotList &&) = default ;
+        SnapshotList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SnapshotList() = default ;
+        SnapshotList& operator=(const SnapshotList &) = default ;
+        SnapshotList& operator=(SnapshotList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->bindType_ == nullptr
+        && this->diskCategory_ == nullptr && this->diskSubType_ == nullptr && this->diskType_ == nullptr && this->size_ == nullptr && this->snapshotId_ == nullptr
+        && this->versionId_ == nullptr; };
+        // bindType Field Functions 
+        bool hasBindType() const { return this->bindType_ != nullptr;};
+        void deleteBindType() { this->bindType_ = nullptr;};
+        inline string getBindType() const { DARABONBA_PTR_GET_DEFAULT(bindType_, "") };
+        inline SnapshotList& setBindType(string bindType) { DARABONBA_PTR_SET_VALUE(bindType_, bindType) };
+
+
+        // diskCategory Field Functions 
+        bool hasDiskCategory() const { return this->diskCategory_ != nullptr;};
+        void deleteDiskCategory() { this->diskCategory_ = nullptr;};
+        inline string getDiskCategory() const { DARABONBA_PTR_GET_DEFAULT(diskCategory_, "") };
+        inline SnapshotList& setDiskCategory(string diskCategory) { DARABONBA_PTR_SET_VALUE(diskCategory_, diskCategory) };
+
+
+        // diskSubType Field Functions 
+        bool hasDiskSubType() const { return this->diskSubType_ != nullptr;};
+        void deleteDiskSubType() { this->diskSubType_ = nullptr;};
+        inline string getDiskSubType() const { DARABONBA_PTR_GET_DEFAULT(diskSubType_, "") };
+        inline SnapshotList& setDiskSubType(string diskSubType) { DARABONBA_PTR_SET_VALUE(diskSubType_, diskSubType) };
+
+
+        // diskType Field Functions 
+        bool hasDiskType() const { return this->diskType_ != nullptr;};
+        void deleteDiskType() { this->diskType_ = nullptr;};
+        inline string getDiskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
+        inline SnapshotList& setDiskType(string diskType) { DARABONBA_PTR_SET_VALUE(diskType_, diskType) };
+
+
+        // size Field Functions 
+        bool hasSize() const { return this->size_ != nullptr;};
+        void deleteSize() { this->size_ = nullptr;};
+        inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+        inline SnapshotList& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+
+
+        // snapshotId Field Functions 
+        bool hasSnapshotId() const { return this->snapshotId_ != nullptr;};
+        void deleteSnapshotId() { this->snapshotId_ = nullptr;};
+        inline string getSnapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, "") };
+        inline SnapshotList& setSnapshotId(string snapshotId) { DARABONBA_PTR_SET_VALUE(snapshotId_, snapshotId) };
+
+
+        // versionId Field Functions 
+        bool hasVersionId() const { return this->versionId_ != nullptr;};
+        void deleteVersionId() { this->versionId_ = nullptr;};
+        inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+        inline SnapshotList& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
+
+
+      protected:
+        shared_ptr<string> bindType_ {};
+        shared_ptr<string> diskCategory_ {};
+        shared_ptr<string> diskSubType_ {};
+        shared_ptr<string> diskType_ {};
+        shared_ptr<int32_t> size_ {};
+        shared_ptr<string> snapshotId_ {};
+        shared_ptr<string> versionId_ {};
       };
 
       class ImageRegionDistributeList : public Darabonba::Model {
@@ -326,9 +421,9 @@ namespace Models
         && this->imageRegionList_ == nullptr && this->imageType_ == nullptr && this->language_ == nullptr && this->latestVersionId_ == nullptr && this->onlineVersion_ == nullptr
         && this->onlineVersionId_ == nullptr && this->osType_ == nullptr && this->packageType_ == nullptr && this->parentImageId_ == nullptr && this->parentImageVersion_ == nullptr
         && this->platform_ == nullptr && this->platformName_ == nullptr && this->productType_ == nullptr && this->protocolType_ == nullptr && this->rating_ == nullptr
-        && this->resourceInstanceCategory_ == nullptr && this->scene_ == nullptr && this->sessionType_ == nullptr && this->status_ == nullptr && this->supportedLanguageList_ == nullptr
-        && this->systemDiskSize_ == nullptr && this->tagList_ == nullptr && this->versionId_ == nullptr && this->versionName_ == nullptr && this->volumeEncryptionEnabled_ == nullptr
-        && this->volumeEncryptionKey_ == nullptr; };
+        && this->resourceInstanceCategory_ == nullptr && this->scene_ == nullptr && this->sessionType_ == nullptr && this->snapshotList_ == nullptr && this->status_ == nullptr
+        && this->supportedLanguageList_ == nullptr && this->systemDiskSize_ == nullptr && this->tagList_ == nullptr && this->versionId_ == nullptr && this->versionName_ == nullptr
+        && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr; };
       // aliUid Field Functions 
       bool hasAliUid() const { return this->aliUid_ != nullptr;};
       void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -612,6 +707,15 @@ namespace Models
       inline Data& setSessionType(string sessionType) { DARABONBA_PTR_SET_VALUE(sessionType_, sessionType) };
 
 
+      // snapshotList Field Functions 
+      bool hasSnapshotList() const { return this->snapshotList_ != nullptr;};
+      void deleteSnapshotList() { this->snapshotList_ = nullptr;};
+      inline const vector<Data::SnapshotList> & getSnapshotList() const { DARABONBA_PTR_GET_CONST(snapshotList_, vector<Data::SnapshotList>) };
+      inline vector<Data::SnapshotList> getSnapshotList() { DARABONBA_PTR_GET(snapshotList_, vector<Data::SnapshotList>) };
+      inline Data& setSnapshotList(const vector<Data::SnapshotList> & snapshotList) { DARABONBA_PTR_SET_VALUE(snapshotList_, snapshotList) };
+      inline Data& setSnapshotList(vector<Data::SnapshotList> && snapshotList) { DARABONBA_PTR_SET_RVALUE(snapshotList_, snapshotList) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -761,6 +865,7 @@ namespace Models
       // *   SINGLE_SESSION
       // *   MULTIPLE_SESSION
       shared_ptr<string> sessionType_ {};
+      shared_ptr<vector<Data::SnapshotList>> snapshotList_ {};
       // The state of the image.
       shared_ptr<string> status_ {};
       // The supported languages.

@@ -42,11 +42,14 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const WuyingServerList& obj) { 
         DARABONBA_PTR_TO_JSON(AddVirtualNodePoolStatus, addVirtualNodePoolStatus_);
+        DARABONBA_PTR_TO_JSON(AliUid, aliUid_);
+        DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
         DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
         DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(DataDisk, dataDisk_);
         DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
+        DARABONBA_PTR_TO_JSON(FotaVersion, fotaVersion_);
         DARABONBA_PTR_TO_JSON(ImageId, imageId_);
         DARABONBA_PTR_TO_JSON(ImageName, imageName_);
         DARABONBA_PTR_TO_JSON(InstanceInfoList, instanceInfoList_);
@@ -56,13 +59,19 @@ namespace Models
         DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
         DARABONBA_PTR_TO_JSON(OfficeSiteType, officeSiteType_);
         DARABONBA_PTR_TO_JSON(OsType, osType_);
+        DARABONBA_PTR_TO_JSON(PolicyGroupIdList, policyGroupIdList_);
+        DARABONBA_PTR_TO_JSON(ResourceSessionStatus, resourceSessionStatus_);
         DARABONBA_PTR_TO_JSON(SecurityGroupIds, securityGroupIds_);
         DARABONBA_PTR_TO_JSON(ServerInstanceTypeInfo, serverInstanceTypeInfo_);
+        DARABONBA_PTR_TO_JSON(Sessions, sessions_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(SubPayType, subPayType_);
         DARABONBA_PTR_TO_JSON(SystemDiskCategory, systemDiskCategory_);
+        DARABONBA_PTR_TO_JSON(SystemDiskId, systemDiskId_);
         DARABONBA_PTR_TO_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
         DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
+        DARABONBA_PTR_TO_JSON(TimerGroupId, timerGroupId_);
+        DARABONBA_PTR_TO_JSON(Users, users_);
         DARABONBA_PTR_TO_JSON(VirtualKubeletIp, virtualKubeletIp_);
         DARABONBA_PTR_TO_JSON(VirtualNodePoolId, virtualNodePoolId_);
         DARABONBA_PTR_TO_JSON(WuyingServerId, wuyingServerId_);
@@ -70,11 +79,14 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, WuyingServerList& obj) { 
         DARABONBA_PTR_FROM_JSON(AddVirtualNodePoolStatus, addVirtualNodePoolStatus_);
+        DARABONBA_PTR_FROM_JSON(AliUid, aliUid_);
+        DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
         DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
         DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(DataDisk, dataDisk_);
         DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
+        DARABONBA_PTR_FROM_JSON(FotaVersion, fotaVersion_);
         DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
         DARABONBA_PTR_FROM_JSON(ImageName, imageName_);
         DARABONBA_PTR_FROM_JSON(InstanceInfoList, instanceInfoList_);
@@ -84,13 +96,19 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
         DARABONBA_PTR_FROM_JSON(OfficeSiteType, officeSiteType_);
         DARABONBA_PTR_FROM_JSON(OsType, osType_);
+        DARABONBA_PTR_FROM_JSON(PolicyGroupIdList, policyGroupIdList_);
+        DARABONBA_PTR_FROM_JSON(ResourceSessionStatus, resourceSessionStatus_);
         DARABONBA_PTR_FROM_JSON(SecurityGroupIds, securityGroupIds_);
         DARABONBA_PTR_FROM_JSON(ServerInstanceTypeInfo, serverInstanceTypeInfo_);
+        DARABONBA_PTR_FROM_JSON(Sessions, sessions_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(SubPayType, subPayType_);
         DARABONBA_PTR_FROM_JSON(SystemDiskCategory, systemDiskCategory_);
+        DARABONBA_PTR_FROM_JSON(SystemDiskId, systemDiskId_);
         DARABONBA_PTR_FROM_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
         DARABONBA_PTR_FROM_JSON(SystemDiskSize, systemDiskSize_);
+        DARABONBA_PTR_FROM_JSON(TimerGroupId, timerGroupId_);
+        DARABONBA_PTR_FROM_JSON(Users, users_);
         DARABONBA_PTR_FROM_JSON(VirtualKubeletIp, virtualKubeletIp_);
         DARABONBA_PTR_FROM_JSON(VirtualNodePoolId, virtualNodePoolId_);
         DARABONBA_PTR_FROM_JSON(WuyingServerId, wuyingServerId_);
@@ -107,12 +125,55 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Sessions : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Sessions& obj) { 
+          DARABONBA_PTR_TO_JSON(ResourceSessionStartTime, resourceSessionStartTime_);
+          DARABONBA_PTR_TO_JSON(UserId, userId_);
+        };
+        friend void from_json(const Darabonba::Json& j, Sessions& obj) { 
+          DARABONBA_PTR_FROM_JSON(ResourceSessionStartTime, resourceSessionStartTime_);
+          DARABONBA_PTR_FROM_JSON(UserId, userId_);
+        };
+        Sessions() = default ;
+        Sessions(const Sessions &) = default ;
+        Sessions(Sessions &&) = default ;
+        Sessions(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Sessions() = default ;
+        Sessions& operator=(const Sessions &) = default ;
+        Sessions& operator=(Sessions &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->resourceSessionStartTime_ == nullptr
+        && this->userId_ == nullptr; };
+        // resourceSessionStartTime Field Functions 
+        bool hasResourceSessionStartTime() const { return this->resourceSessionStartTime_ != nullptr;};
+        void deleteResourceSessionStartTime() { this->resourceSessionStartTime_ = nullptr;};
+        inline string getResourceSessionStartTime() const { DARABONBA_PTR_GET_DEFAULT(resourceSessionStartTime_, "") };
+        inline Sessions& setResourceSessionStartTime(string resourceSessionStartTime) { DARABONBA_PTR_SET_VALUE(resourceSessionStartTime_, resourceSessionStartTime) };
+
+
+        // userId Field Functions 
+        bool hasUserId() const { return this->userId_ != nullptr;};
+        void deleteUserId() { this->userId_ = nullptr;};
+        inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+        inline Sessions& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
+      protected:
+        shared_ptr<string> resourceSessionStartTime_ {};
+        shared_ptr<string> userId_ {};
+      };
+
       class ServerInstanceTypeInfo : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ServerInstanceTypeInfo& obj) { 
           DARABONBA_PTR_TO_JSON(Cpu, cpu_);
           DARABONBA_PTR_TO_JSON(Gpu, gpu_);
           DARABONBA_PTR_TO_JSON(GpuMemory, gpuMemory_);
+          DARABONBA_PTR_TO_JSON(GpuSpec, gpuSpec_);
           DARABONBA_PTR_TO_JSON(Memory, memory_);
           DARABONBA_PTR_TO_JSON(ServerInstanceType, serverInstanceType_);
         };
@@ -120,6 +181,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
           DARABONBA_PTR_FROM_JSON(Gpu, gpu_);
           DARABONBA_PTR_FROM_JSON(GpuMemory, gpuMemory_);
+          DARABONBA_PTR_FROM_JSON(GpuSpec, gpuSpec_);
           DARABONBA_PTR_FROM_JSON(Memory, memory_);
           DARABONBA_PTR_FROM_JSON(ServerInstanceType, serverInstanceType_);
         };
@@ -135,7 +197,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->cpu_ == nullptr
-        && this->gpu_ == nullptr && this->gpuMemory_ == nullptr && this->memory_ == nullptr && this->serverInstanceType_ == nullptr; };
+        && this->gpu_ == nullptr && this->gpuMemory_ == nullptr && this->gpuSpec_ == nullptr && this->memory_ == nullptr && this->serverInstanceType_ == nullptr; };
         // cpu Field Functions 
         bool hasCpu() const { return this->cpu_ != nullptr;};
         void deleteCpu() { this->cpu_ = nullptr;};
@@ -155,6 +217,13 @@ namespace Models
         void deleteGpuMemory() { this->gpuMemory_ = nullptr;};
         inline int32_t getGpuMemory() const { DARABONBA_PTR_GET_DEFAULT(gpuMemory_, 0) };
         inline ServerInstanceTypeInfo& setGpuMemory(int32_t gpuMemory) { DARABONBA_PTR_SET_VALUE(gpuMemory_, gpuMemory) };
+
+
+        // gpuSpec Field Functions 
+        bool hasGpuSpec() const { return this->gpuSpec_ != nullptr;};
+        void deleteGpuSpec() { this->gpuSpec_ = nullptr;};
+        inline string getGpuSpec() const { DARABONBA_PTR_GET_DEFAULT(gpuSpec_, "") };
+        inline ServerInstanceTypeInfo& setGpuSpec(string gpuSpec) { DARABONBA_PTR_SET_VALUE(gpuSpec_, gpuSpec) };
 
 
         // memory Field Functions 
@@ -178,6 +247,7 @@ namespace Models
         shared_ptr<string> gpu_ {};
         // The memory size. Unit: MB.
         shared_ptr<int32_t> gpuMemory_ {};
+        shared_ptr<string> gpuSpec_ {};
         // The memory size. Unit: MB.
         shared_ptr<int32_t> memory_ {};
         // Workstation specifications.
@@ -232,11 +302,15 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const DataDisk& obj) { 
           DARABONBA_PTR_TO_JSON(DataDiskCategory, dataDiskCategory_);
+          DARABONBA_PTR_TO_JSON(DataDiskId, dataDiskId_);
+          DARABONBA_PTR_TO_JSON(DataDiskNo, dataDiskNo_);
           DARABONBA_PTR_TO_JSON(DataDiskPerformanceLevel, dataDiskPerformanceLevel_);
           DARABONBA_PTR_TO_JSON(DataDiskSize, dataDiskSize_);
         };
         friend void from_json(const Darabonba::Json& j, DataDisk& obj) { 
           DARABONBA_PTR_FROM_JSON(DataDiskCategory, dataDiskCategory_);
+          DARABONBA_PTR_FROM_JSON(DataDiskId, dataDiskId_);
+          DARABONBA_PTR_FROM_JSON(DataDiskNo, dataDiskNo_);
           DARABONBA_PTR_FROM_JSON(DataDiskPerformanceLevel, dataDiskPerformanceLevel_);
           DARABONBA_PTR_FROM_JSON(DataDiskSize, dataDiskSize_);
         };
@@ -252,12 +326,26 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->dataDiskCategory_ == nullptr
-        && this->dataDiskPerformanceLevel_ == nullptr && this->dataDiskSize_ == nullptr; };
+        && this->dataDiskId_ == nullptr && this->dataDiskNo_ == nullptr && this->dataDiskPerformanceLevel_ == nullptr && this->dataDiskSize_ == nullptr; };
         // dataDiskCategory Field Functions 
         bool hasDataDiskCategory() const { return this->dataDiskCategory_ != nullptr;};
         void deleteDataDiskCategory() { this->dataDiskCategory_ = nullptr;};
         inline string getDataDiskCategory() const { DARABONBA_PTR_GET_DEFAULT(dataDiskCategory_, "") };
         inline DataDisk& setDataDiskCategory(string dataDiskCategory) { DARABONBA_PTR_SET_VALUE(dataDiskCategory_, dataDiskCategory) };
+
+
+        // dataDiskId Field Functions 
+        bool hasDataDiskId() const { return this->dataDiskId_ != nullptr;};
+        void deleteDataDiskId() { this->dataDiskId_ = nullptr;};
+        inline string getDataDiskId() const { DARABONBA_PTR_GET_DEFAULT(dataDiskId_, "") };
+        inline DataDisk& setDataDiskId(string dataDiskId) { DARABONBA_PTR_SET_VALUE(dataDiskId_, dataDiskId) };
+
+
+        // dataDiskNo Field Functions 
+        bool hasDataDiskNo() const { return this->dataDiskNo_ != nullptr;};
+        void deleteDataDiskNo() { this->dataDiskNo_ = nullptr;};
+        inline string getDataDiskNo() const { DARABONBA_PTR_GET_DEFAULT(dataDiskNo_, "") };
+        inline DataDisk& setDataDiskNo(string dataDiskNo) { DARABONBA_PTR_SET_VALUE(dataDiskNo_, dataDiskNo) };
 
 
         // dataDiskPerformanceLevel Field Functions 
@@ -277,6 +365,8 @@ namespace Models
       protected:
         // The category of data disk.
         shared_ptr<string> dataDiskCategory_ {};
+        shared_ptr<string> dataDiskId_ {};
+        shared_ptr<string> dataDiskNo_ {};
         // The PL of the data disk.
         shared_ptr<string> dataDiskPerformanceLevel_ {};
         // The size of the data disk. Unit: GB.
@@ -284,16 +374,32 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->addVirtualNodePoolStatus_ == nullptr
-        && this->bizRegionId_ == nullptr && this->chargeType_ == nullptr && this->createTime_ == nullptr && this->dataDisk_ == nullptr && this->expiredTime_ == nullptr
-        && this->imageId_ == nullptr && this->imageName_ == nullptr && this->instanceInfoList_ == nullptr && this->maxPrice_ == nullptr && this->networkInterfaceIp_ == nullptr
-        && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->securityGroupIds_ == nullptr
-        && this->serverInstanceTypeInfo_ == nullptr && this->status_ == nullptr && this->subPayType_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr
-        && this->systemDiskSize_ == nullptr && this->virtualKubeletIp_ == nullptr && this->virtualNodePoolId_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr; };
+        && this->aliUid_ == nullptr && this->bandwidth_ == nullptr && this->bizRegionId_ == nullptr && this->chargeType_ == nullptr && this->createTime_ == nullptr
+        && this->dataDisk_ == nullptr && this->expiredTime_ == nullptr && this->fotaVersion_ == nullptr && this->imageId_ == nullptr && this->imageName_ == nullptr
+        && this->instanceInfoList_ == nullptr && this->maxPrice_ == nullptr && this->networkInterfaceIp_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr
+        && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->policyGroupIdList_ == nullptr && this->resourceSessionStatus_ == nullptr && this->securityGroupIds_ == nullptr
+        && this->serverInstanceTypeInfo_ == nullptr && this->sessions_ == nullptr && this->status_ == nullptr && this->subPayType_ == nullptr && this->systemDiskCategory_ == nullptr
+        && this->systemDiskId_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskSize_ == nullptr && this->timerGroupId_ == nullptr && this->users_ == nullptr
+        && this->virtualKubeletIp_ == nullptr && this->virtualNodePoolId_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr; };
       // addVirtualNodePoolStatus Field Functions 
       bool hasAddVirtualNodePoolStatus() const { return this->addVirtualNodePoolStatus_ != nullptr;};
       void deleteAddVirtualNodePoolStatus() { this->addVirtualNodePoolStatus_ = nullptr;};
       inline string getAddVirtualNodePoolStatus() const { DARABONBA_PTR_GET_DEFAULT(addVirtualNodePoolStatus_, "") };
       inline WuyingServerList& setAddVirtualNodePoolStatus(string addVirtualNodePoolStatus) { DARABONBA_PTR_SET_VALUE(addVirtualNodePoolStatus_, addVirtualNodePoolStatus) };
+
+
+      // aliUid Field Functions 
+      bool hasAliUid() const { return this->aliUid_ != nullptr;};
+      void deleteAliUid() { this->aliUid_ = nullptr;};
+      inline int64_t getAliUid() const { DARABONBA_PTR_GET_DEFAULT(aliUid_, 0L) };
+      inline WuyingServerList& setAliUid(int64_t aliUid) { DARABONBA_PTR_SET_VALUE(aliUid_, aliUid) };
+
+
+      // bandwidth Field Functions 
+      bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
+      void deleteBandwidth() { this->bandwidth_ = nullptr;};
+      inline int32_t getBandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, 0) };
+      inline WuyingServerList& setBandwidth(int32_t bandwidth) { DARABONBA_PTR_SET_VALUE(bandwidth_, bandwidth) };
 
 
       // bizRegionId Field Functions 
@@ -331,6 +437,13 @@ namespace Models
       void deleteExpiredTime() { this->expiredTime_ = nullptr;};
       inline string getExpiredTime() const { DARABONBA_PTR_GET_DEFAULT(expiredTime_, "") };
       inline WuyingServerList& setExpiredTime(string expiredTime) { DARABONBA_PTR_SET_VALUE(expiredTime_, expiredTime) };
+
+
+      // fotaVersion Field Functions 
+      bool hasFotaVersion() const { return this->fotaVersion_ != nullptr;};
+      void deleteFotaVersion() { this->fotaVersion_ = nullptr;};
+      inline string getFotaVersion() const { DARABONBA_PTR_GET_DEFAULT(fotaVersion_, "") };
+      inline WuyingServerList& setFotaVersion(string fotaVersion) { DARABONBA_PTR_SET_VALUE(fotaVersion_, fotaVersion) };
 
 
       // imageId Field Functions 
@@ -398,6 +511,22 @@ namespace Models
       inline WuyingServerList& setOsType(string osType) { DARABONBA_PTR_SET_VALUE(osType_, osType) };
 
 
+      // policyGroupIdList Field Functions 
+      bool hasPolicyGroupIdList() const { return this->policyGroupIdList_ != nullptr;};
+      void deletePolicyGroupIdList() { this->policyGroupIdList_ = nullptr;};
+      inline const vector<string> & getPolicyGroupIdList() const { DARABONBA_PTR_GET_CONST(policyGroupIdList_, vector<string>) };
+      inline vector<string> getPolicyGroupIdList() { DARABONBA_PTR_GET(policyGroupIdList_, vector<string>) };
+      inline WuyingServerList& setPolicyGroupIdList(const vector<string> & policyGroupIdList) { DARABONBA_PTR_SET_VALUE(policyGroupIdList_, policyGroupIdList) };
+      inline WuyingServerList& setPolicyGroupIdList(vector<string> && policyGroupIdList) { DARABONBA_PTR_SET_RVALUE(policyGroupIdList_, policyGroupIdList) };
+
+
+      // resourceSessionStatus Field Functions 
+      bool hasResourceSessionStatus() const { return this->resourceSessionStatus_ != nullptr;};
+      void deleteResourceSessionStatus() { this->resourceSessionStatus_ = nullptr;};
+      inline string getResourceSessionStatus() const { DARABONBA_PTR_GET_DEFAULT(resourceSessionStatus_, "") };
+      inline WuyingServerList& setResourceSessionStatus(string resourceSessionStatus) { DARABONBA_PTR_SET_VALUE(resourceSessionStatus_, resourceSessionStatus) };
+
+
       // securityGroupIds Field Functions 
       bool hasSecurityGroupIds() const { return this->securityGroupIds_ != nullptr;};
       void deleteSecurityGroupIds() { this->securityGroupIds_ = nullptr;};
@@ -414,6 +543,15 @@ namespace Models
       inline WuyingServerList::ServerInstanceTypeInfo getServerInstanceTypeInfo() { DARABONBA_PTR_GET(serverInstanceTypeInfo_, WuyingServerList::ServerInstanceTypeInfo) };
       inline WuyingServerList& setServerInstanceTypeInfo(const WuyingServerList::ServerInstanceTypeInfo & serverInstanceTypeInfo) { DARABONBA_PTR_SET_VALUE(serverInstanceTypeInfo_, serverInstanceTypeInfo) };
       inline WuyingServerList& setServerInstanceTypeInfo(WuyingServerList::ServerInstanceTypeInfo && serverInstanceTypeInfo) { DARABONBA_PTR_SET_RVALUE(serverInstanceTypeInfo_, serverInstanceTypeInfo) };
+
+
+      // sessions Field Functions 
+      bool hasSessions() const { return this->sessions_ != nullptr;};
+      void deleteSessions() { this->sessions_ = nullptr;};
+      inline const vector<WuyingServerList::Sessions> & getSessions() const { DARABONBA_PTR_GET_CONST(sessions_, vector<WuyingServerList::Sessions>) };
+      inline vector<WuyingServerList::Sessions> getSessions() { DARABONBA_PTR_GET(sessions_, vector<WuyingServerList::Sessions>) };
+      inline WuyingServerList& setSessions(const vector<WuyingServerList::Sessions> & sessions) { DARABONBA_PTR_SET_VALUE(sessions_, sessions) };
+      inline WuyingServerList& setSessions(vector<WuyingServerList::Sessions> && sessions) { DARABONBA_PTR_SET_RVALUE(sessions_, sessions) };
 
 
       // status Field Functions 
@@ -437,6 +575,13 @@ namespace Models
       inline WuyingServerList& setSystemDiskCategory(string systemDiskCategory) { DARABONBA_PTR_SET_VALUE(systemDiskCategory_, systemDiskCategory) };
 
 
+      // systemDiskId Field Functions 
+      bool hasSystemDiskId() const { return this->systemDiskId_ != nullptr;};
+      void deleteSystemDiskId() { this->systemDiskId_ = nullptr;};
+      inline string getSystemDiskId() const { DARABONBA_PTR_GET_DEFAULT(systemDiskId_, "") };
+      inline WuyingServerList& setSystemDiskId(string systemDiskId) { DARABONBA_PTR_SET_VALUE(systemDiskId_, systemDiskId) };
+
+
       // systemDiskPerformanceLevel Field Functions 
       bool hasSystemDiskPerformanceLevel() const { return this->systemDiskPerformanceLevel_ != nullptr;};
       void deleteSystemDiskPerformanceLevel() { this->systemDiskPerformanceLevel_ = nullptr;};
@@ -449,6 +594,22 @@ namespace Models
       void deleteSystemDiskSize() { this->systemDiskSize_ = nullptr;};
       inline int32_t getSystemDiskSize() const { DARABONBA_PTR_GET_DEFAULT(systemDiskSize_, 0) };
       inline WuyingServerList& setSystemDiskSize(int32_t systemDiskSize) { DARABONBA_PTR_SET_VALUE(systemDiskSize_, systemDiskSize) };
+
+
+      // timerGroupId Field Functions 
+      bool hasTimerGroupId() const { return this->timerGroupId_ != nullptr;};
+      void deleteTimerGroupId() { this->timerGroupId_ = nullptr;};
+      inline string getTimerGroupId() const { DARABONBA_PTR_GET_DEFAULT(timerGroupId_, "") };
+      inline WuyingServerList& setTimerGroupId(string timerGroupId) { DARABONBA_PTR_SET_VALUE(timerGroupId_, timerGroupId) };
+
+
+      // users Field Functions 
+      bool hasUsers() const { return this->users_ != nullptr;};
+      void deleteUsers() { this->users_ = nullptr;};
+      inline const vector<string> & getUsers() const { DARABONBA_PTR_GET_CONST(users_, vector<string>) };
+      inline vector<string> getUsers() { DARABONBA_PTR_GET(users_, vector<string>) };
+      inline WuyingServerList& setUsers(const vector<string> & users) { DARABONBA_PTR_SET_VALUE(users_, users) };
+      inline WuyingServerList& setUsers(vector<string> && users) { DARABONBA_PTR_SET_RVALUE(users_, users) };
 
 
       // virtualKubeletIp Field Functions 
@@ -481,6 +642,8 @@ namespace Models
 
     protected:
       shared_ptr<string> addVirtualNodePoolStatus_ {};
+      shared_ptr<int64_t> aliUid_ {};
+      shared_ptr<int32_t> bandwidth_ {};
       // Region.
       shared_ptr<string> bizRegionId_ {};
       // The billing method.
@@ -491,6 +654,7 @@ namespace Models
       shared_ptr<vector<WuyingServerList::DataDisk>> dataDisk_ {};
       // The time when the subscription instance expires.
       shared_ptr<string> expiredTime_ {};
+      shared_ptr<string> fotaVersion_ {};
       // The ID of the custom image.
       shared_ptr<string> imageId_ {};
       // The image name.
@@ -508,18 +672,24 @@ namespace Models
       shared_ptr<string> officeSiteType_ {};
       // The OS type.
       shared_ptr<string> osType_ {};
+      shared_ptr<vector<string>> policyGroupIdList_ {};
+      shared_ptr<string> resourceSessionStatus_ {};
       shared_ptr<vector<string>> securityGroupIds_ {};
       // The specifications.
       shared_ptr<WuyingServerList::ServerInstanceTypeInfo> serverInstanceTypeInfo_ {};
+      shared_ptr<vector<WuyingServerList::Sessions>> sessions_ {};
       // The status of the workstation.
       shared_ptr<string> status_ {};
       shared_ptr<string> subPayType_ {};
       // The type of the system disk.
       shared_ptr<string> systemDiskCategory_ {};
+      shared_ptr<string> systemDiskId_ {};
       // The performance level (PL) of the system disk.
       shared_ptr<string> systemDiskPerformanceLevel_ {};
       // The size of the system disk. Unit: GiB.
       shared_ptr<int32_t> systemDiskSize_ {};
+      shared_ptr<string> timerGroupId_ {};
+      shared_ptr<vector<string>> users_ {};
       shared_ptr<string> virtualKubeletIp_ {};
       shared_ptr<string> virtualNodePoolId_ {};
       // The ID of the workstation.

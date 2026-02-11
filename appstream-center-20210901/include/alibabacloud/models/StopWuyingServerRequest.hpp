@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const StopWuyingServerRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Force, force_);
+      DARABONBA_PTR_TO_JSON(ProductType, productType_);
       DARABONBA_PTR_TO_JSON(WuyingServerIdList, wuyingServerIdList_);
     };
     friend void from_json(const Darabonba::Json& j, StopWuyingServerRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Force, force_);
+      DARABONBA_PTR_FROM_JSON(ProductType, productType_);
       DARABONBA_PTR_FROM_JSON(WuyingServerIdList, wuyingServerIdList_);
     };
     StopWuyingServerRequest() = default ;
@@ -33,12 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->force_ == nullptr
-        && this->wuyingServerIdList_ == nullptr; };
+        && this->productType_ == nullptr && this->wuyingServerIdList_ == nullptr; };
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
     inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline StopWuyingServerRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
+
+
+    // productType Field Functions 
+    bool hasProductType() const { return this->productType_ != nullptr;};
+    void deleteProductType() { this->productType_ = nullptr;};
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline StopWuyingServerRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
     // wuyingServerIdList Field Functions 
@@ -58,6 +67,7 @@ namespace Models
     // *   True.
     // *   False
     shared_ptr<bool> force_ {};
+    shared_ptr<string> productType_ {};
     // The list of workstation IDs.
     shared_ptr<vector<string>> wuyingServerIdList_ {};
   };
