@@ -82,7 +82,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and compute resources of each node on which a job runs.
+ * @summary Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
  *
  * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
  *
@@ -162,6 +162,14 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
     body["SuccessPolicy"] = request.getSuccessPolicy();
   }
 
+  if (!!request.hasTemplateId()) {
+    body["TemplateId"] = request.getTemplateId();
+  }
+
+  if (!!request.hasTemplateVersion()) {
+    body["TemplateVersion"] = request.getTemplateVersion();
+  }
+
   if (!!request.hasThirdpartyLibDir()) {
     body["ThirdpartyLibDir"] = request.getThirdpartyLibDir();
   }
@@ -201,7 +209,7 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
 }
 
 /**
- * @summary Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and compute resources of each node on which a job runs.
+ * @summary Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
  *
  * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
  *
@@ -1297,6 +1305,10 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
 
   if (!!request.hasTagsShrink()) {
     query["Tags"] = request.getTagsShrink();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTimeRangeField()) {

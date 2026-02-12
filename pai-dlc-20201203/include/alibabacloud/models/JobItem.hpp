@@ -67,6 +67,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StatusHistory, statusHistory_);
       DARABONBA_PTR_TO_JSON(SubStatus, subStatus_);
       DARABONBA_PTR_TO_JSON(SystemEnvs, systemEnvs_);
+      DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(ThirdpartyLibDir, thirdpartyLibDir_);
       DARABONBA_PTR_TO_JSON(ThirdpartyLibs, thirdpartyLibs_);
@@ -126,6 +128,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StatusHistory, statusHistory_);
       DARABONBA_PTR_FROM_JSON(SubStatus, subStatus_);
       DARABONBA_PTR_FROM_JSON(SystemEnvs, systemEnvs_);
+      DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(ThirdpartyLibDir, thirdpartyLibDir_);
       DARABONBA_PTR_FROM_JSON(ThirdpartyLibs, thirdpartyLibs_);
@@ -351,10 +355,10 @@ namespace Models
         && this->nodeNames_ == nullptr && this->pods_ == nullptr && this->priority_ == nullptr && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr
         && this->requestCPU_ == nullptr && this->requestGPU_ == nullptr && this->requestMemory_ == nullptr && this->resourceId_ == nullptr && this->resourceLevel_ == nullptr
         && this->resourceName_ == nullptr && this->resourceQuotaName_ == nullptr && this->resourceType_ == nullptr && this->restartTimes_ == nullptr && this->settings_ == nullptr
-        && this->status_ == nullptr && this->statusHistory_ == nullptr && this->subStatus_ == nullptr && this->systemEnvs_ == nullptr && this->tenantId_ == nullptr
-        && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr && this->useOversoldResource_ == nullptr && this->userCommand_ == nullptr && this->userId_ == nullptr
-        && this->userScript_ == nullptr && this->userVpc_ == nullptr && this->username_ == nullptr && this->workingDir_ == nullptr && this->workspaceId_ == nullptr
-        && this->workspaceName_ == nullptr; };
+        && this->status_ == nullptr && this->statusHistory_ == nullptr && this->subStatus_ == nullptr && this->systemEnvs_ == nullptr && this->templateId_ == nullptr
+        && this->templateName_ == nullptr && this->tenantId_ == nullptr && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr && this->useOversoldResource_ == nullptr
+        && this->userCommand_ == nullptr && this->userId_ == nullptr && this->userScript_ == nullptr && this->userVpc_ == nullptr && this->username_ == nullptr
+        && this->workingDir_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -694,6 +698,20 @@ namespace Models
     inline JobItem& setSystemEnvs(map<string, string> && systemEnvs) { DARABONBA_PTR_SET_RVALUE(systemEnvs_, systemEnvs) };
 
 
+    // templateId Field Functions 
+    bool hasTemplateId() const { return this->templateId_ != nullptr;};
+    void deleteTemplateId() { this->templateId_ = nullptr;};
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline JobItem& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
+    // templateName Field Functions 
+    bool hasTemplateName() const { return this->templateName_ != nullptr;};
+    void deleteTemplateName() { this->templateName_ = nullptr;};
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline JobItem& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
+
+
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
@@ -888,6 +906,8 @@ namespace Models
     shared_ptr<string> subStatus_ {};
     // The system environment variables configured.
     shared_ptr<map<string, string>> systemEnvs_ {};
+    shared_ptr<string> templateId_ {};
+    shared_ptr<string> templateName_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};
     // The name of the folder in which the requirements.txt file resides.

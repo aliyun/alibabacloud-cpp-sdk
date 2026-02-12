@@ -36,6 +36,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(Settings, settings_);
       DARABONBA_PTR_TO_JSON(SuccessPolicy, successPolicy_);
+      DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_TO_JSON(TemplateVersion, templateVersion_);
       DARABONBA_PTR_TO_JSON(ThirdpartyLibDir, thirdpartyLibDir_);
       DARABONBA_PTR_TO_JSON(ThirdpartyLibs, thirdpartyLibs_);
       DARABONBA_PTR_TO_JSON(UserCommand, userCommand_);
@@ -60,6 +62,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(Settings, settings_);
       DARABONBA_PTR_FROM_JSON(SuccessPolicy, successPolicy_);
+      DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_FROM_JSON(TemplateVersion, templateVersion_);
       DARABONBA_PTR_FROM_JSON(ThirdpartyLibDir, thirdpartyLibDir_);
       DARABONBA_PTR_FROM_JSON(ThirdpartyLibs, thirdpartyLibs_);
       DARABONBA_PTR_FROM_JSON(UserCommand, userCommand_);
@@ -384,8 +388,8 @@ namespace Models
         && this->codeSource_ == nullptr && this->credentialConfig_ == nullptr && this->customEnvs_ == nullptr && this->dataSources_ == nullptr && this->debuggerConfigContent_ == nullptr
         && this->displayName_ == nullptr && this->elasticSpec_ == nullptr && this->envs_ == nullptr && this->jobMaxRunningTimeMinutes_ == nullptr && this->jobSpecs_ == nullptr
         && this->jobType_ == nullptr && this->options_ == nullptr && this->priority_ == nullptr && this->resourceId_ == nullptr && this->settings_ == nullptr
-        && this->successPolicy_ == nullptr && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr && this->userCommand_ == nullptr && this->userVpc_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->successPolicy_ == nullptr && this->templateId_ == nullptr && this->templateVersion_ == nullptr && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr
+        && this->userCommand_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -521,6 +525,20 @@ namespace Models
     inline CreateJobRequest& setSuccessPolicy(string successPolicy) { DARABONBA_PTR_SET_VALUE(successPolicy_, successPolicy) };
 
 
+    // templateId Field Functions 
+    bool hasTemplateId() const { return this->templateId_ != nullptr;};
+    void deleteTemplateId() { this->templateId_ = nullptr;};
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline CreateJobRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
+    // templateVersion Field Functions 
+    bool hasTemplateVersion() const { return this->templateVersion_ != nullptr;};
+    void deleteTemplateVersion() { this->templateVersion_ = nullptr;};
+    inline int32_t getTemplateVersion() const { DARABONBA_PTR_GET_DEFAULT(templateVersion_, 0) };
+    inline CreateJobRequest& setTemplateVersion(int32_t templateVersion) { DARABONBA_PTR_SET_VALUE(templateVersion_, templateVersion) };
+
+
     // thirdpartyLibDir Field Functions 
     bool hasThirdpartyLibDir() const { return this->thirdpartyLibDir_ != nullptr;};
     void deleteThirdpartyLibDir() { this->thirdpartyLibDir_ = nullptr;};
@@ -637,6 +655,10 @@ namespace Models
     // *   ChiefWorker: If you use this policy, the job is considered successful when the pod on the chief node completes operations.
     // *   AllWorkers (default): If you use this policy, the job is considered successful when all worker nodes complete operations.
     shared_ptr<string> successPolicy_ {};
+    // 任务模板的 ID。指定后将基于模板创建作业，作业参数需符合模板约束规则。
+    shared_ptr<string> templateId_ {};
+    // 指定使用的模板版本号，不传则使用模板默认版本。
+    shared_ptr<int32_t> templateVersion_ {};
     // The folder in which the third-party Python library file requirements.txt is stored. Before the startup command specified by the UserCommand parameter is run on each node, DLC fetches the requirements.txt file from the folder and runs `pip install -r` to install the required package and library.
     shared_ptr<string> thirdpartyLibDir_ {};
     // The third-party Python libraries to be installed.

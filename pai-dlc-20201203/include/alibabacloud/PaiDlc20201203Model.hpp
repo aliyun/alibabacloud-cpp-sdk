@@ -50,6 +50,7 @@
 #include <alibabacloud/models/JobSettings.hpp>
 #include <alibabacloud/models/StatusTransitionItem.hpp>
 #include <alibabacloud/models/JobItem.hpp>
+#include <alibabacloud/models/JobTemplateVersionDetail.hpp>
 #include <alibabacloud/models/LogInfo.hpp>
 #include <alibabacloud/models/Member.hpp>
 #include <alibabacloud/models/Metric.hpp>

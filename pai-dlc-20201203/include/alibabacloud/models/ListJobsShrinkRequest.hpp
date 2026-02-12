@@ -42,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tags, tagsShrink_);
+      DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
       DARABONBA_PTR_TO_JSON(TimeRangeField, timeRangeField_);
       DARABONBA_PTR_TO_JSON(UserCommandSearch, userCommandSearch_);
       DARABONBA_PTR_TO_JSON(UserIdForFilter, userIdForFilter_);
@@ -78,6 +79,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tags, tagsShrink_);
+      DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
       DARABONBA_PTR_FROM_JSON(TimeRangeField, timeRangeField_);
       DARABONBA_PTR_FROM_JSON(UserCommandSearch, userCommandSearch_);
       DARABONBA_PTR_FROM_JSON(UserIdForFilter, userIdForFilter_);
@@ -101,8 +103,8 @@ namespace Models
         && this->jobType_ == nullptr && this->numericRangeField_ == nullptr && this->numericRangeMax_ == nullptr && this->numericRangeMin_ == nullptr && this->order_ == nullptr
         && this->oversoldInfo_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->paymentType_ == nullptr && this->pipelineId_ == nullptr
         && this->reasonSearch_ == nullptr && this->resourceId_ == nullptr && this->resourceQuotaName_ == nullptr && this->showOwn_ == nullptr && this->sortBy_ == nullptr
-        && this->startTime_ == nullptr && this->status_ == nullptr && this->tagsShrink_ == nullptr && this->timeRangeField_ == nullptr && this->userCommandSearch_ == nullptr
-        && this->userIdForFilter_ == nullptr && this->username_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->tagsShrink_ == nullptr && this->templateId_ == nullptr && this->timeRangeField_ == nullptr
+        && this->userCommandSearch_ == nullptr && this->userIdForFilter_ == nullptr && this->username_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -306,6 +308,13 @@ namespace Models
     inline ListJobsShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
 
 
+    // templateId Field Functions 
+    bool hasTemplateId() const { return this->templateId_ != nullptr;};
+    void deleteTemplateId() { this->templateId_ = nullptr;};
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline ListJobsShrinkRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
     // timeRangeField Field Functions 
     bool hasTimeRangeField() const { return this->timeRangeField_ != nullptr;};
     void deleteTimeRangeField() { this->timeRangeField_ = nullptr;};
@@ -433,6 +442,7 @@ namespace Models
     shared_ptr<string> status_ {};
     // The tags.
     shared_ptr<string> tagsShrink_ {};
+    shared_ptr<string> templateId_ {};
     shared_ptr<string> timeRangeField_ {};
     shared_ptr<string> userCommandSearch_ {};
     // The user ID used to filter jobs.
