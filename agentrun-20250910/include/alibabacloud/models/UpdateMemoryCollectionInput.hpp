@@ -19,6 +19,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateMemoryCollectionInput& obj) { 
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(embedderConfig, embedderConfig_);
+      DARABONBA_PTR_TO_JSON(enableConversationHistory, enableConversationHistory_);
+      DARABONBA_PTR_TO_JSON(enableConversationState, enableConversationState_);
       DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_TO_JSON(llmConfig, llmConfig_);
       DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
@@ -27,6 +29,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, UpdateMemoryCollectionInput& obj) { 
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(embedderConfig, embedderConfig_);
+      DARABONBA_PTR_FROM_JSON(enableConversationHistory, enableConversationHistory_);
+      DARABONBA_PTR_FROM_JSON(enableConversationState, enableConversationState_);
       DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_FROM_JSON(llmConfig, llmConfig_);
       DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
@@ -44,7 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->embedderConfig_ == nullptr && this->executionRoleArn_ == nullptr && this->llmConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->vectorStoreConfig_ == nullptr; };
+        && this->embedderConfig_ == nullptr && this->enableConversationHistory_ == nullptr && this->enableConversationState_ == nullptr && this->executionRoleArn_ == nullptr && this->llmConfig_ == nullptr
+        && this->networkConfiguration_ == nullptr && this->vectorStoreConfig_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -59,6 +64,20 @@ namespace Models
     inline EmbedderConfig getEmbedderConfig() { DARABONBA_PTR_GET(embedderConfig_, EmbedderConfig) };
     inline UpdateMemoryCollectionInput& setEmbedderConfig(const EmbedderConfig & embedderConfig) { DARABONBA_PTR_SET_VALUE(embedderConfig_, embedderConfig) };
     inline UpdateMemoryCollectionInput& setEmbedderConfig(EmbedderConfig && embedderConfig) { DARABONBA_PTR_SET_RVALUE(embedderConfig_, embedderConfig) };
+
+
+    // enableConversationHistory Field Functions 
+    bool hasEnableConversationHistory() const { return this->enableConversationHistory_ != nullptr;};
+    void deleteEnableConversationHistory() { this->enableConversationHistory_ = nullptr;};
+    inline bool getEnableConversationHistory() const { DARABONBA_PTR_GET_DEFAULT(enableConversationHistory_, false) };
+    inline UpdateMemoryCollectionInput& setEnableConversationHistory(bool enableConversationHistory) { DARABONBA_PTR_SET_VALUE(enableConversationHistory_, enableConversationHistory) };
+
+
+    // enableConversationState Field Functions 
+    bool hasEnableConversationState() const { return this->enableConversationState_ != nullptr;};
+    void deleteEnableConversationState() { this->enableConversationState_ = nullptr;};
+    inline bool getEnableConversationState() const { DARABONBA_PTR_GET_DEFAULT(enableConversationState_, false) };
+    inline UpdateMemoryCollectionInput& setEnableConversationState(bool enableConversationState) { DARABONBA_PTR_SET_VALUE(enableConversationState_, enableConversationState) };
 
 
     // executionRoleArn Field Functions 
@@ -98,6 +117,8 @@ namespace Models
   protected:
     shared_ptr<string> description_ {};
     shared_ptr<EmbedderConfig> embedderConfig_ {};
+    shared_ptr<bool> enableConversationHistory_ {};
+    shared_ptr<bool> enableConversationState_ {};
     shared_ptr<string> executionRoleArn_ {};
     shared_ptr<LLMConfig> llmConfig_ {};
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};

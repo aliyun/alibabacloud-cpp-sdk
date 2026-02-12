@@ -20,6 +20,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(embedderConfig, embedderConfig_);
+      DARABONBA_PTR_TO_JSON(enableConversationHistory, enableConversationHistory_);
+      DARABONBA_PTR_TO_JSON(enableConversationState, enableConversationState_);
       DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_TO_JSON(lastUpdatedAt, lastUpdatedAt_);
       DARABONBA_PTR_TO_JSON(llmConfig, llmConfig_);
@@ -32,6 +34,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(embedderConfig, embedderConfig_);
+      DARABONBA_PTR_FROM_JSON(enableConversationHistory, enableConversationHistory_);
+      DARABONBA_PTR_FROM_JSON(enableConversationState, enableConversationState_);
       DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_FROM_JSON(lastUpdatedAt, lastUpdatedAt_);
       DARABONBA_PTR_FROM_JSON(llmConfig, llmConfig_);
@@ -52,8 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->description_ == nullptr && this->embedderConfig_ == nullptr && this->executionRoleArn_ == nullptr && this->lastUpdatedAt_ == nullptr && this->llmConfig_ == nullptr
-        && this->memoryCollectionId_ == nullptr && this->memoryCollectionName_ == nullptr && this->networkConfiguration_ == nullptr && this->vectorStoreConfig_ == nullptr; };
+        && this->description_ == nullptr && this->embedderConfig_ == nullptr && this->enableConversationHistory_ == nullptr && this->enableConversationState_ == nullptr && this->executionRoleArn_ == nullptr
+        && this->lastUpdatedAt_ == nullptr && this->llmConfig_ == nullptr && this->memoryCollectionId_ == nullptr && this->memoryCollectionName_ == nullptr && this->networkConfiguration_ == nullptr
+        && this->vectorStoreConfig_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -75,6 +80,20 @@ namespace Models
     inline EmbedderConfig getEmbedderConfig() { DARABONBA_PTR_GET(embedderConfig_, EmbedderConfig) };
     inline MemoryCollection& setEmbedderConfig(const EmbedderConfig & embedderConfig) { DARABONBA_PTR_SET_VALUE(embedderConfig_, embedderConfig) };
     inline MemoryCollection& setEmbedderConfig(EmbedderConfig && embedderConfig) { DARABONBA_PTR_SET_RVALUE(embedderConfig_, embedderConfig) };
+
+
+    // enableConversationHistory Field Functions 
+    bool hasEnableConversationHistory() const { return this->enableConversationHistory_ != nullptr;};
+    void deleteEnableConversationHistory() { this->enableConversationHistory_ = nullptr;};
+    inline bool getEnableConversationHistory() const { DARABONBA_PTR_GET_DEFAULT(enableConversationHistory_, false) };
+    inline MemoryCollection& setEnableConversationHistory(bool enableConversationHistory) { DARABONBA_PTR_SET_VALUE(enableConversationHistory_, enableConversationHistory) };
+
+
+    // enableConversationState Field Functions 
+    bool hasEnableConversationState() const { return this->enableConversationState_ != nullptr;};
+    void deleteEnableConversationState() { this->enableConversationState_ = nullptr;};
+    inline bool getEnableConversationState() const { DARABONBA_PTR_GET_DEFAULT(enableConversationState_, false) };
+    inline MemoryCollection& setEnableConversationState(bool enableConversationState) { DARABONBA_PTR_SET_VALUE(enableConversationState_, enableConversationState) };
 
 
     // executionRoleArn Field Functions 
@@ -136,6 +155,8 @@ namespace Models
     shared_ptr<string> createdAt_ {};
     shared_ptr<string> description_ {};
     shared_ptr<EmbedderConfig> embedderConfig_ {};
+    shared_ptr<bool> enableConversationHistory_ {};
+    shared_ptr<bool> enableConversationState_ {};
     shared_ptr<string> executionRoleArn_ {};
     shared_ptr<string> lastUpdatedAt_ {};
     shared_ptr<LLMConfig> llmConfig_ {};
