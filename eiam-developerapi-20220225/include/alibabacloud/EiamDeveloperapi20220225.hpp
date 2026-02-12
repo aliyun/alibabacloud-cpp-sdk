@@ -531,6 +531,24 @@ namespace EiamDeveloperapi20220225
       Models::ObtainCloudAccountRoleAccessCredentialResponse obtainCloudAccountRoleAccessCredential(const string &instanceId, const Models::ObtainCloudAccountRoleAccessCredentialRequest &request);
 
       /**
+       * @summary 获取凭据明文。
+       *
+       * @param request ObtainCredentialRequest
+       * @param headers ObtainCredentialHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ObtainCredentialResponse
+       */
+      Models::ObtainCredentialResponse obtainCredentialWithOptions(const string &instanceId, const Models::ObtainCredentialRequest &request, const Models::ObtainCredentialHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取凭据明文。
+       *
+       * @param request ObtainCredentialRequest
+       * @return ObtainCredentialResponse
+       */
+      Models::ObtainCredentialResponse obtainCredential(const string &instanceId, const Models::ObtainCredentialRequest &request);
+
+      /**
        * @summary Modifies information about an Employee Identity and Access Management (EIAM) group.
        *
        * @param request PatchGroupRequest

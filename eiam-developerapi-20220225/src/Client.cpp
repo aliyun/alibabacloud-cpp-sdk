@@ -1653,6 +1653,60 @@ ObtainCloudAccountRoleAccessCredentialResponse Client::obtainCloudAccountRoleAcc
 }
 
 /**
+ * @summary 获取凭据明文。
+ *
+ * @param request ObtainCredentialRequest
+ * @param headers ObtainCredentialHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ObtainCredentialResponse
+ */
+ObtainCredentialResponse Client::obtainCredentialWithOptions(const string &instanceId, const ObtainCredentialRequest &request, const ObtainCredentialHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialIdentifier()) {
+    query["credentialIdentifier"] = request.getCredentialIdentifier();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAuthorization()) {
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ObtainCredential"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/credentials/_/actions/obtain")},
+    {"method" , "GET"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ObtainCredentialResponse>();
+}
+
+/**
+ * @summary 获取凭据明文。
+ *
+ * @param request ObtainCredentialRequest
+ * @return ObtainCredentialResponse
+ */
+ObtainCredentialResponse Client::obtainCredential(const string &instanceId, const ObtainCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  ObtainCredentialHeaders headers = ObtainCredentialHeaders();
+  return obtainCredentialWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Modifies information about an Employee Identity and Access Management (EIAM) group.
  *
  * @param request PatchGroupRequest

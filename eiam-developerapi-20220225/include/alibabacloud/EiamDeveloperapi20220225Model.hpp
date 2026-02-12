@@ -97,6 +97,10 @@
 #include <alibabacloud/models/ObtainCloudAccountRoleAccessCredentialRequest.hpp>
 #include <alibabacloud/models/ObtainCloudAccountRoleAccessCredentialResponseBody.hpp>
 #include <alibabacloud/models/ObtainCloudAccountRoleAccessCredentialResponse.hpp>
+#include <alibabacloud/models/ObtainCredentialHeaders.hpp>
+#include <alibabacloud/models/ObtainCredentialRequest.hpp>
+#include <alibabacloud/models/ObtainCredentialResponseBody.hpp>
+#include <alibabacloud/models/ObtainCredentialResponse.hpp>
 #include <alibabacloud/models/PatchGroupHeaders.hpp>
 #include <alibabacloud/models/PatchGroupRequest.hpp>
 #include <alibabacloud/models/PatchGroupResponse.hpp>
