@@ -22,6 +22,106 @@ namespace EnergyExpertExternal20220923
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 添加AISearch项目中的结构化元素
+       *
+       * @param request AISearchResourceAddRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AISearchResourceAddResponse
+       */
+      Models::AISearchResourceAddResponse aISearchResourceAddWithOptions(const Models::AISearchResourceAddRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加AISearch项目中的结构化元素
+       *
+       * @param request AISearchResourceAddRequest
+       * @return AISearchResourceAddResponse
+       */
+      Models::AISearchResourceAddResponse aISearchResourceAdd(const Models::AISearchResourceAddRequest &request);
+
+      /**
+       * @summary 删除AISearch项目中的结构化元素
+       *
+       * @param request AISearchResourceDeleteRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AISearchResourceDeleteResponse
+       */
+      Models::AISearchResourceDeleteResponse aISearchResourceDeleteWithOptions(const Models::AISearchResourceDeleteRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除AISearch项目中的结构化元素
+       *
+       * @param request AISearchResourceDeleteRequest
+       * @return AISearchResourceDeleteResponse
+       */
+      Models::AISearchResourceDeleteResponse aISearchResourceDelete(const Models::AISearchResourceDeleteRequest &request);
+
+      /**
+       * @summary 查找AISearch资源
+       *
+       * @param tmpReq AISearchResourceGetListRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AISearchResourceGetListResponse
+       */
+      Models::AISearchResourceGetListResponse aISearchResourceGetListWithOptions(const Models::AISearchResourceGetListRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查找AISearch资源
+       *
+       * @param request AISearchResourceGetListRequest
+       * @return AISearchResourceGetListResponse
+       */
+      Models::AISearchResourceGetListResponse aISearchResourceGetList(const Models::AISearchResourceGetListRequest &request);
+
+      /**
+       * @summary 修改AISearch项目中的结构化元素
+       *
+       * @param request AISearchResourceUpdateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AISearchResourceUpdateResponse
+       */
+      Models::AISearchResourceUpdateResponse aISearchResourceUpdateWithOptions(const Models::AISearchResourceUpdateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改AISearch项目中的结构化元素
+       *
+       * @param request AISearchResourceUpdateRequest
+       * @return AISearchResourceUpdateResponse
+       */
+      Models::AISearchResourceUpdateResponse aISearchResourceUpdate(const Models::AISearchResourceUpdateRequest &request);
+
+      /**
+       * @summary aisearch问答接口
+       *
+       * @param request AISearchStreamRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AISearchStreamResponse
+       */
+      FutureGenerator<Models::AISearchStreamResponse> aISearchStreamWithSSE(const Models::AISearchStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary aisearch问答接口
+       *
+       * @param request AISearchStreamRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AISearchStreamResponse
+       */
+      Models::AISearchStreamResponse aISearchStreamWithOptions(const Models::AISearchStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary aisearch问答接口
+       *
+       * @param request AISearchStreamRequest
+       * @return AISearchStreamResponse
+       */
+      Models::AISearchStreamResponse aISearchStream(const Models::AISearchStreamRequest &request);
+
+      /**
        * @summary 创建文件夹
        *
        * @param request AddFolderRequest
@@ -126,7 +226,7 @@ namespace EnergyExpertExternal20220923
       Models::ChatResponse chat(const Models::ChatRequest &request);
 
       /**
-       * @summary Knowledge Base Q&A
+       * @summary Knowledge Base Q\\&A
        *
        * @description - The interface provides Q&A services within the scope of the selected directory in the session.
        * - The sessionId information is obtained through GetChatSessionList.
@@ -140,7 +240,7 @@ namespace EnergyExpertExternal20220923
       FutureGenerator<Models::ChatStreamResponse> chatStreamWithSSE(const Models::ChatStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Knowledge Base Q&A
+       * @summary Knowledge Base Q\\&A
        *
        * @description - The interface provides Q&A services within the scope of the selected directory in the session.
        * - The sessionId information is obtained through GetChatSessionList.
@@ -154,7 +254,7 @@ namespace EnergyExpertExternal20220923
       Models::ChatStreamResponse chatStreamWithOptions(const Models::ChatStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Knowledge Base Q&A
+       * @summary Knowledge Base Q\\&A
        *
        * @description - The interface provides Q&A services within the scope of the selected directory in the session.
        * - The sessionId information is obtained through GetChatSessionList.
@@ -166,7 +266,7 @@ namespace EnergyExpertExternal20220923
       Models::ChatStreamResponse chatStream(const Models::ChatStreamRequest &request);
 
       /**
-       * @summary Create Q&A Window
+       * @summary Create Q\\&A Window
        *
        * @param request CreateChatSessionRequest
        * @param headers map
@@ -176,7 +276,7 @@ namespace EnergyExpertExternal20220923
       Models::CreateChatSessionResponse createChatSessionWithOptions(const Models::CreateChatSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Q&A Window
+       * @summary Create Q\\&A Window
        *
        * @param request CreateChatSessionRequest
        * @return CreateChatSessionResponse
@@ -332,7 +432,7 @@ namespace EnergyExpertExternal20220923
       Models::GetCarbonEmissionTrendResponse getCarbonEmissionTrend(const Models::GetCarbonEmissionTrendRequest &request);
 
       /**
-       * @summary Get Q&A folder List
+       * @summary Get Q\\&A folder List
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -341,7 +441,7 @@ namespace EnergyExpertExternal20220923
       Models::GetChatFolderListResponse getChatFolderListWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Q&A folder List
+       * @summary Get Q\\&A folder List
        *
        * @return GetChatFolderListResponse
        */
@@ -374,7 +474,7 @@ namespace EnergyExpertExternal20220923
       Models::GetChatListResponse getChatList(const Models::GetChatListRequest &request);
 
       /**
-       * @summary Get Q&A Session List
+       * @summary Get Q\\&A Session List
        *
        * @param request GetChatSessionListRequest
        * @param headers map
@@ -384,7 +484,7 @@ namespace EnergyExpertExternal20220923
       Models::GetChatSessionListResponse getChatSessionListWithOptions(const Models::GetChatSessionListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Q&A Session List
+       * @summary Get Q\\&A Session List
        *
        * @param request GetChatSessionListRequest
        * @return GetChatSessionListResponse
@@ -540,7 +640,7 @@ namespace EnergyExpertExternal20220923
       Models::GetDocParsingResultResponse getDocParsingResult(const Models::GetDocParsingResultRequest &request);
 
       /**
-       * @summary [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
+       * @summary null null
        *
        * @param request GetDocumentAnalyzeResultRequest
        * @param headers map
@@ -550,7 +650,7 @@ namespace EnergyExpertExternal20220923
       Models::GetDocumentAnalyzeResultResponse getDocumentAnalyzeResultWithOptions(const Models::GetDocumentAnalyzeResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
+       * @summary null null
        *
        * @param request GetDocumentAnalyzeResultRequest
        * @return GetDocumentAnalyzeResultResponse
@@ -1040,7 +1140,7 @@ namespace EnergyExpertExternal20220923
       Models::RetrieveResponse retrieve(const Models::RetrieveRequest &request);
 
       /**
-       * @summary [Important] This api is no longer maintained, please use the Chat api.
+       * @summary null null
        *
        * @param request SendDocumentAskQuestionRequest
        * @param headers map
@@ -1050,7 +1150,7 @@ namespace EnergyExpertExternal20220923
       Models::SendDocumentAskQuestionResponse sendDocumentAskQuestionWithOptions(const Models::SendDocumentAskQuestionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary [Important] This api is no longer maintained, please use the Chat api.
+       * @summary null null
        *
        * @param request SendDocumentAskQuestionRequest
        * @return SendDocumentAskQuestionResponse
@@ -1128,9 +1228,7 @@ namespace EnergyExpertExternal20220923
       Models::SubmitDocParsingTaskResponse submitDocParsingTaskAdvance(const Models::SubmitDocParsingTaskAdvanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary [Important] The api is no longer maintained, please use the following api: 
-       * Document parsing using SubmitDocParsingTask. 
-       * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
+       * @summary The document parsing operation is used to extract the key content of a document and extract the key-value information from the document based on the preset key-value template. The document parsing operation is an asynchronous operation. You need to call the asynchronous submission service for document parsing and then call the GetDocumentAnalyzeResult operation to perform result polling. The asynchronous submission service supports two methods: local files and URL files. Call the SubmitDocumentAnalyzeJob operation to upload URL files. Call the SubmitDocumentAnalyzeJobAdvance operation to upload local files.
        *
        * @param request SubmitDocumentAnalyzeJobRequest
        * @param headers map
@@ -1140,9 +1238,7 @@ namespace EnergyExpertExternal20220923
       Models::SubmitDocumentAnalyzeJobResponse submitDocumentAnalyzeJobWithOptions(const Models::SubmitDocumentAnalyzeJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary [Important] The api is no longer maintained, please use the following api: 
-       * Document parsing using SubmitDocParsingTask. 
-       * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
+       * @summary The document parsing operation is used to extract the key content of a document and extract the key-value information from the document based on the preset key-value template. The document parsing operation is an asynchronous operation. You need to call the asynchronous submission service for document parsing and then call the GetDocumentAnalyzeResult operation to perform result polling. The asynchronous submission service supports two methods: local files and URL files. Call the SubmitDocumentAnalyzeJob operation to upload URL files. Call the SubmitDocumentAnalyzeJobAdvance operation to upload local files.
        *
        * @param request SubmitDocumentAnalyzeJobRequest
        * @return SubmitDocumentAnalyzeJobResponse

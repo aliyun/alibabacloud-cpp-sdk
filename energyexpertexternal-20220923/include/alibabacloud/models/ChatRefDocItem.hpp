@@ -101,12 +101,19 @@ namespace Models
 
 
   protected:
+    // Related document information.
     shared_ptr<ChatRefDocInfo> docInfo_ {};
+    // Document name. If the original file is of types like doc, it will be converted to PDF for easier document location. This file should be used for document location information.
     shared_ptr<string> docName_ {};
+    // Document link.
     shared_ptr<string> docUrl_ {};
+    // Original document name.
     shared_ptr<string> originDocName_ {};
+    // Original document link.
     shared_ptr<string> originDocUrl_ {};
+    // Page number information.
     shared_ptr<vector<ChatDocumentPageNum>> pageNum_ {};
+    // Return file type: \\"doc\\" for document files, \\"web\\" for internet information.
     shared_ptr<string> sourceType_ {};
   };
 

@@ -103,13 +103,22 @@ namespace Models
 
 
   protected:
+    // The rotation angle of the image after the page is converted to an image.
     shared_ptr<double> angle_ {};
+    // Reserved, can be unused for now.
     shared_ptr<string> excelParseResult_ {};
+    // The height of the page turns to image.
     shared_ptr<int32_t> imageHeight_ {};
+    // - The image URL after the page is converted to an image. 
+    // - Note: The image URL will be inaccessible after 24 hours, so you need to save it promptly.
     shared_ptr<string> imageUrl_ {};
+    // The width of the page turns to image
     shared_ptr<int32_t> imageWidth_ {};
+    // The page index in the current document, starting from 0.
     shared_ptr<int32_t> pageIdCurDoc_ {};
+    // Reserved, can be unused for now.
     shared_ptr<string> pdfParseResult_ {};
+    // Reserved, can be unused for now.
     shared_ptr<string> wordParseResult_ {};
   };
 

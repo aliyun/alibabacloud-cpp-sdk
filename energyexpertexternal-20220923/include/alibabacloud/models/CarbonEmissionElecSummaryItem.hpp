@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Carbon Equivalent.
     shared_ptr<double> carbonEmissionData_ {};
+    // The price unit.
     shared_ptr<string> dataUnit_ {};
+    // The enterprise name.
     shared_ptr<string> name_ {};
+    // The percentage of electricity consumption. Valid values: 0 to 1.
     shared_ptr<double> ratio_ {};
+    // Electricity consumption in Kwh.
     shared_ptr<double> rawData_ {};
   };
 

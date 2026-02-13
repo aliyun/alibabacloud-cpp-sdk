@@ -107,9 +107,13 @@ namespace Models
 
 
     protected:
+      // Carbon emissions.
       shared_ptr<double> carbonEmissionData_ {};
+      // Gas emissions.
       shared_ptr<double> gasEmissionData_ {};
+      // Name of gas.
       shared_ptr<string> name_ {};
+      // A unique key that identifies the gas type.
       shared_ptr<string> type_ {};
     };
 
@@ -198,16 +202,27 @@ namespace Models
 
 
   protected:
+    // Carbon emission
     shared_ptr<double> carbonEmissionData_ {};
+    // Data Unit
     shared_ptr<string> dataUnit_ {};
+    // Emission source
     shared_ptr<string> emissionSource_ {};
+    // Unique identification of emission source.
     shared_ptr<string> emissionSourceKey_ {};
+    // The name of enterprise.
     shared_ptr<string> enterpriseName_ {};
+    // Gas Emissions Detail List.
     shared_ptr<vector<ConstituteItem::EnvGasEmissions>> envGasEmissions_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The unique identifier of name.
     shared_ptr<string> nameKey_ {};
+    // Ratio.example value: 0.5 (i. e. 50%).
     shared_ptr<double> ratio_ {};
+    // Raw data
     shared_ptr<double> rawData_ {};
+    // The child detail list.
     shared_ptr<vector<ConstituteItem>> subConstituteItems_ {};
   };
 

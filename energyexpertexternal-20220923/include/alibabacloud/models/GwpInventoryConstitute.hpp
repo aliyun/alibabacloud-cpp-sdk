@@ -101,12 +101,19 @@ namespace Models
 
 
   protected:
+    // Grouped by inventory resource type, this data reveals emissions details for each category. It serves the "By type" analysis in the composition breakdown. A nested structure is employed: total carbon emissions are organized first by inventory type, forming a two-level hierarchy, with the innermost level \\"byResource\\" currently empty.
     shared_ptr<vector<GwpResourceConstitute>> byResourceType_ {};
+    // Emission quantity
     shared_ptr<double> carbonEmission_ {};
+    // Organized hierarchically, it cascades from high to low: flow-> process-> inventory level. Employed for "By inventory" analysis in compositional breakdowns, the innermost layer of this nested structure is empty.
     shared_ptr<vector<GwpInventoryConstitute>> items_ {};
+    // Name
     shared_ptr<string> name_ {};
+    // Percentage of emissions, for example 100.00 means 100.00%.
     shared_ptr<double> percent_ {};
+    // Resouce type of inventory.
     shared_ptr<int32_t> resourceType_ {};
+    // Unit
     shared_ptr<string> unit_ {};
   };
 

@@ -88,11 +88,18 @@ namespace Models
 
 
   protected:
+    // The content of the answer to the question.
     shared_ptr<string> answer_ {};
+    // Q&A time, in milliseconds timestamp.
     shared_ptr<int64_t> createTime_ {};
+    // Folder selected for the Q&A.
     shared_ptr<string> folderId_ {};
+    // Name of the folder selected for the Q&A.
     shared_ptr<string> folderName_ {};
+    // Question content.
     shared_ptr<string> question_ {};
+    // - List of files related to the Q&A.
+    // - If streaming question answering is used, only the first shard contains data.
     shared_ptr<vector<ChatRefDocItem>> refDocList_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The x-coordinate of the layout.
     shared_ptr<int32_t> x_ {};
+    // The y-coordinate of the layout.
     shared_ptr<int32_t> y_ {};
   };
 

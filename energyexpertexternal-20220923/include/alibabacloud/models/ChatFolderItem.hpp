@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // Folder ID.
     shared_ptr<string> folderId_ {};
+    // Folder name.
     shared_ptr<string> folderName_ {};
+    // Subfolder list.
     shared_ptr<vector<ChatItem>> subFolders_ {};
   };
 

@@ -109,7 +109,9 @@ namespace Models
 
 
       protected:
+        // X coordinate of the layout.
         shared_ptr<int64_t> x_ {};
+        // Y coordinate of the layout.
         shared_ptr<int64_t> y_ {};
       };
 
@@ -184,14 +186,23 @@ namespace Models
 
 
     protected:
+      // Enumeration values for page alignment options: center, left, and right.
       shared_ptr<string> alignment_ {};
+      // The index of the layout in the text.
       shared_ptr<int64_t> index_ {};
+      // Hierarchy of the layout.
       shared_ptr<int64_t> level_ {};
+      // Page numbers of the layout, which may include multiple page numbers.
       shared_ptr<vector<int64_t>> pageNum_ {};
+      // Position information of the layout, in list format.
       shared_ptr<vector<ExtInfo::Pos>> pos_ {};
+      // Enumeration values for the layout subtypes: picture, para, none
       shared_ptr<string> subType_ {};
+      // text
       shared_ptr<string> text_ {};
+      // Enumeration values for the layout types: table, figure, text, and none.
       shared_ptr<string> type_ {};
+      // Unique layout ID.
       shared_ptr<string> uniqueId_ {};
     };
 
@@ -228,9 +239,13 @@ namespace Models
 
 
   protected:
+    // The coordinates of the text are in list format.
     shared_ptr<vector<ContentItem::ExtInfo>> extInfo_ {};
+    // Recall confidence
     shared_ptr<double> score_ {};
+    // Recall text.
     shared_ptr<string> text_ {};
+    // Text sources: img, table, para.
     shared_ptr<string> type_ {};
   };
 

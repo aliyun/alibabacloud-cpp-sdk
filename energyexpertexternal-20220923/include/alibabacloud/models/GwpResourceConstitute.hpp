@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The carbon emissions. To ensure accuracy, retain 24 decimal places. We recommend that you intercept the carbon emissions.
     shared_ptr<double> carbonEmission_ {};
+    // Name signifies a concept with distinct layers of meaning, where the outermost layer represents the overall carbon emissions.
     shared_ptr<string> name_ {};
+    // Percentage of emissions. 98.76 indicates the proportion of 98.76%.
     shared_ptr<string> percent_ {};
+    // The type of the inventory. It is meaningful at the inventory layer and can be empty at other layers.
     shared_ptr<int32_t> resourceType_ {};
+    // unit of emissions.
     shared_ptr<string> unit_ {};
   };
 

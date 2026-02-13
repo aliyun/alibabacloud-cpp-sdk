@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // Page numbers of related documents.
     shared_ptr<int32_t> num_ {};
+    // Location information of the document.
     shared_ptr<vector<vector<ChatRefDocPostion>>> pos_ {};
   };
 

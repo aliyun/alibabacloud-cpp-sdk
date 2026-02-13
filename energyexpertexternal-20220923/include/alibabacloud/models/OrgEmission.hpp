@@ -103,9 +103,13 @@ namespace Models
 
 
     protected:
+      // Carbon emissions
       shared_ptr<double> carbonEmissionData_ {};
+      // module name
       shared_ptr<string> name_ {};
+      // Module key
       shared_ptr<string> nameKey_ {};
+      // Proportion of carbon emissions
       shared_ptr<double> ratio_ {};
     };
 
@@ -180,14 +184,23 @@ namespace Models
 
 
   protected:
+    // Carbon Equivalent
     shared_ptr<double> carbonEmissionData_ {};
+    // Sub-module carbon emission data
     shared_ptr<vector<OrgEmission::ModuleEmissionList>> moduleEmissionList_ {};
+    // The name of the organization.
     shared_ptr<string> name_ {};
+    // Enterprise type
     shared_ptr<string> nameKey_ {};
+    // Proportion of carbon emissions
     shared_ptr<double> ratio_ {};
+    // Sub-level data, that is, site data under the organization
     shared_ptr<vector<OrgEmission>> subEmissionItems_ {};
+    // Calculate carbon emissions by share ratio
     shared_ptr<double> weightingCarbonEmissionData_ {};
+    // Weight ratio
     shared_ptr<double> weightingProportion_ {};
+    // Share ratio Carbon emissions YoY
     shared_ptr<double> weightingRatio_ {};
   };
 

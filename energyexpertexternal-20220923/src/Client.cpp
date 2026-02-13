@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <alibabacloud/credential/Credential.hpp>
+#include <alibabacloud/credentials/Client.hpp>
 #include <darabonba/http/FileField.hpp>
 #include <darabonba/Convert.hpp>
 using namespace std;
@@ -13,8 +13,8 @@ using json = nlohmann::json;
 using namespace Darabonba::Http;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
-using namespace AlibabaCloud::Credential::Models;
 using namespace AlibabaCloud::OpenApi::Exceptions;
+using namespace AlibabaCloud::Credentials::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::EnergyExpertExternal20220923::Models;
@@ -41,6 +41,336 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
   }
 
   return Utils::Utils::getEndpointRules(productId, regionId, endpointRule, network, suffix);
+}
+
+/**
+ * @summary 添加AISearch项目中的结构化元素
+ *
+ * @param request AISearchResourceAddRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AISearchResourceAddResponse
+ */
+AISearchResourceAddResponse Client::aISearchResourceAddWithOptions(const AISearchResourceAddRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasData()) {
+    body["data"] = request.getData();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AISearchResourceAdd"},
+    {"version" , "2022-09-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aiSearch/resource/add")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AISearchResourceAddResponse>();
+}
+
+/**
+ * @summary 添加AISearch项目中的结构化元素
+ *
+ * @param request AISearchResourceAddRequest
+ * @return AISearchResourceAddResponse
+ */
+AISearchResourceAddResponse Client::aISearchResourceAdd(const AISearchResourceAddRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return aISearchResourceAddWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 删除AISearch项目中的结构化元素
+ *
+ * @param request AISearchResourceDeleteRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AISearchResourceDeleteResponse
+ */
+AISearchResourceDeleteResponse Client::aISearchResourceDeleteWithOptions(const AISearchResourceDeleteRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasResourceId()) {
+    query["resourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AISearchResourceDelete"},
+    {"version" , "2022-09-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aiSearch/resource/delete")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AISearchResourceDeleteResponse>();
+}
+
+/**
+ * @summary 删除AISearch项目中的结构化元素
+ *
+ * @param request AISearchResourceDeleteRequest
+ * @return AISearchResourceDeleteResponse
+ */
+AISearchResourceDeleteResponse Client::aISearchResourceDelete(const AISearchResourceDeleteRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return aISearchResourceDeleteWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查找AISearch资源
+ *
+ * @param tmpReq AISearchResourceGetListRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AISearchResourceGetListResponse
+ */
+AISearchResourceGetListResponse Client::aISearchResourceGetListWithOptions(const AISearchResourceGetListRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AISearchResourceGetListShrinkRequest request = AISearchResourceGetListShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResourceIds()) {
+    request.setResourceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceIds(), "resourceIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["currentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceIdsShrink()) {
+    query["resourceIds"] = request.getResourceIdsShrink();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AISearchResourceGetList"},
+    {"version" , "2022-09-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aiSearch/resource/list")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AISearchResourceGetListResponse>();
+}
+
+/**
+ * @summary 查找AISearch资源
+ *
+ * @param request AISearchResourceGetListRequest
+ * @return AISearchResourceGetListResponse
+ */
+AISearchResourceGetListResponse Client::aISearchResourceGetList(const AISearchResourceGetListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return aISearchResourceGetListWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 修改AISearch项目中的结构化元素
+ *
+ * @param request AISearchResourceUpdateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AISearchResourceUpdateResponse
+ */
+AISearchResourceUpdateResponse Client::aISearchResourceUpdateWithOptions(const AISearchResourceUpdateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasData()) {
+    body["data"] = request.getData();
+  }
+
+  if (!!request.hasResourceId()) {
+    body["resourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AISearchResourceUpdate"},
+    {"version" , "2022-09-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aiSearch/resource/update")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AISearchResourceUpdateResponse>();
+}
+
+/**
+ * @summary 修改AISearch项目中的结构化元素
+ *
+ * @param request AISearchResourceUpdateRequest
+ * @return AISearchResourceUpdateResponse
+ */
+AISearchResourceUpdateResponse Client::aISearchResourceUpdate(const AISearchResourceUpdateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return aISearchResourceUpdateWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary aisearch问答接口
+ *
+ * @param request AISearchStreamRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AISearchStreamResponse
+ */
+FutureGenerator<AISearchStreamResponse> Client::aISearchStreamWithSSE(const AISearchStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFolderId()) {
+    body["folderId"] = request.getFolderId();
+  }
+
+  if (!!request.hasMessage()) {
+    body["message"] = request.getMessage();
+  }
+
+  if (!!request.hasQuestion()) {
+    body["question"] = request.getQuestion();
+  }
+
+  if (!!request.hasResourceTypeNeeded()) {
+    body["resourceTypeNeeded"] = request.getResourceTypeNeeded();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AISearchStream"},
+    {"version" , "2022-09-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aiSearch/searchStream")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<AISearchStreamResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary aisearch问答接口
+ *
+ * @param request AISearchStreamRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AISearchStreamResponse
+ */
+AISearchStreamResponse Client::aISearchStreamWithOptions(const AISearchStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFolderId()) {
+    body["folderId"] = request.getFolderId();
+  }
+
+  if (!!request.hasMessage()) {
+    body["message"] = request.getMessage();
+  }
+
+  if (!!request.hasQuestion()) {
+    body["question"] = request.getQuestion();
+  }
+
+  if (!!request.hasResourceTypeNeeded()) {
+    body["resourceTypeNeeded"] = request.getResourceTypeNeeded();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AISearchStream"},
+    {"version" , "2022-09-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aiSearch/searchStream")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AISearchStreamResponse>();
+}
+
+/**
+ * @summary aisearch问答接口
+ *
+ * @param request AISearchStreamRequest
+ * @return AISearchStreamResponse
+ */
+AISearchStreamResponse Client::aISearchStream(const AISearchStreamRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return aISearchStreamWithOptions(request, headers, runtime);
 }
 
 /**
@@ -451,7 +781,7 @@ ChatResponse Client::chat(const ChatRequest &request) {
 }
 
 /**
- * @summary Knowledge Base Q&A
+ * @summary Knowledge Base Q\\&A
  *
  * @description - The interface provides Q&A services within the scope of the selected directory in the session.
  * - The sessionId information is obtained through GetChatSessionList.
@@ -494,21 +824,23 @@ FutureGenerator<ChatStreamResponse> Client::chatStreamWithSSE(const ChatStreamRe
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<ChatStreamResponse>();
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<ChatStreamResponse>();
 return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
 /**
- * @summary Knowledge Base Q&A
+ * @summary Knowledge Base Q\\&A
  *
  * @description - The interface provides Q&A services within the scope of the selected directory in the session.
  * - The sessionId information is obtained through GetChatSessionList.
@@ -553,7 +885,7 @@ ChatStreamResponse Client::chatStreamWithOptions(const ChatStreamRequest &reques
 }
 
 /**
- * @summary Knowledge Base Q&A
+ * @summary Knowledge Base Q\\&A
  *
  * @description - The interface provides Q&A services within the scope of the selected directory in the session.
  * - The sessionId information is obtained through GetChatSessionList.
@@ -569,7 +901,7 @@ ChatStreamResponse Client::chatStream(const ChatStreamRequest &request) {
 }
 
 /**
- * @summary Create Q&A Window
+ * @summary Create Q\\&A Window
  *
  * @param request CreateChatSessionRequest
  * @param headers map
@@ -610,7 +942,7 @@ CreateChatSessionResponse Client::createChatSessionWithOptions(const CreateChatS
 }
 
 /**
- * @summary Create Q&A Window
+ * @summary Create Q\\&A Window
  *
  * @param request CreateChatSessionRequest
  * @return CreateChatSessionResponse
@@ -1030,7 +1362,7 @@ GetCarbonEmissionTrendResponse Client::getCarbonEmissionTrend(const GetCarbonEmi
 }
 
 /**
- * @summary Get Q&A folder List
+ * @summary Get Q\\&A folder List
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1055,7 +1387,7 @@ GetChatFolderListResponse Client::getChatFolderListWithOptions(const map<string,
 }
 
 /**
- * @summary Get Q&A folder List
+ * @summary Get Q\\&A folder List
  *
  * @return GetChatFolderListResponse
  */
@@ -1127,7 +1459,7 @@ GetChatListResponse Client::getChatList(const GetChatListRequest &request) {
 }
 
 /**
- * @summary Get Q&A Session List
+ * @summary Get Q\\&A Session List
  *
  * @param request GetChatSessionListRequest
  * @param headers map
@@ -1172,7 +1504,7 @@ GetChatSessionListResponse Client::getChatSessionListWithOptions(const GetChatSe
 }
 
 /**
- * @summary Get Q&A Session List
+ * @summary Get Q\\&A Session List
  *
  * @param request GetChatSessionListRequest
  * @return GetChatSessionListResponse
@@ -1518,7 +1850,7 @@ GetDocParsingResultResponse Client::getDocParsingResult(const GetDocParsingResul
 }
 
 /**
- * @summary [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
+ * @summary null null
  *
  * @param request GetDocumentAnalyzeResultRequest
  * @param headers map
@@ -1551,7 +1883,7 @@ GetDocumentAnalyzeResultResponse Client::getDocumentAnalyzeResultWithOptions(con
 }
 
 /**
- * @summary [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
+ * @summary null null
  *
  * @param request GetDocumentAnalyzeResultRequest
  * @return GetDocumentAnalyzeResultResponse
@@ -2863,7 +3195,7 @@ RetrieveResponse Client::retrieve(const RetrieveRequest &request) {
 }
 
 /**
- * @summary [Important] This api is no longer maintained, please use the Chat api.
+ * @summary null null
  *
  * @param request SendDocumentAskQuestionRequest
  * @param headers map
@@ -2904,7 +3236,7 @@ SendDocumentAskQuestionResponse Client::sendDocumentAskQuestionWithOptions(const
 }
 
 /**
- * @summary [Important] This api is no longer maintained, please use the Chat api.
+ * @summary null null
  *
  * @param request SendDocumentAskQuestionRequest
  * @return SendDocumentAskQuestionResponse
@@ -3323,9 +3655,7 @@ SubmitDocParsingTaskResponse Client::submitDocParsingTaskAdvance(const SubmitDoc
 }
 
 /**
- * @summary [Important] The api is no longer maintained, please use the following api: 
- * Document parsing using SubmitDocParsingTask. 
- * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
+ * @summary The document parsing operation is used to extract the key content of a document and extract the key-value information from the document based on the preset key-value template. The document parsing operation is an asynchronous operation. You need to call the asynchronous submission service for document parsing and then call the GetDocumentAnalyzeResult operation to perform result polling. The asynchronous submission service supports two methods: local files and URL files. Call the SubmitDocumentAnalyzeJob operation to upload URL files. Call the SubmitDocumentAnalyzeJobAdvance operation to upload local files.
  *
  * @param request SubmitDocumentAnalyzeJobRequest
  * @param headers map
@@ -3374,9 +3704,7 @@ SubmitDocumentAnalyzeJobResponse Client::submitDocumentAnalyzeJobWithOptions(con
 }
 
 /**
- * @summary [Important] The api is no longer maintained, please use the following api: 
- * Document parsing using SubmitDocParsingTask. 
- * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
+ * @summary The document parsing operation is used to extract the key content of a document and extract the key-value information from the document based on the preset key-value template. The document parsing operation is an asynchronous operation. You need to call the asynchronous submission service for document parsing and then call the GetDocumentAnalyzeResult operation to perform result polling. The asynchronous submission service supports two methods: local files and URL files. Call the SubmitDocumentAnalyzeJob operation to upload URL files. Call the SubmitDocumentAnalyzeJobAdvance operation to upload local files.
  *
  * @param request SubmitDocumentAnalyzeJobRequest
  * @return SubmitDocumentAnalyzeJobResponse

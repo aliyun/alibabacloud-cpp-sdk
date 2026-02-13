@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // Detailed information for each page of the document.
     shared_ptr<vector<ChatRefDocPageInfo>> pageListInfo_ {};
+    // Total number of pages in the current document.
     shared_ptr<int64_t> pages_ {};
   };
 
