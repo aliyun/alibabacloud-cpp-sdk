@@ -642,6 +642,23 @@ namespace Dms20250414
       Models::ListCustomAgentResponse listCustomAgent(const Models::ListCustomAgentRequest &request);
 
       /**
+       * @summary ListDataAgentSession
+       *
+       * @param request ListDataAgentSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataAgentSessionResponse
+       */
+      Models::ListDataAgentSessionResponse listDataAgentSessionWithOptions(const Models::ListDataAgentSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListDataAgentSession
+       *
+       * @param request ListDataAgentSessionRequest
+       * @return ListDataAgentSessionResponse
+       */
+      Models::ListDataAgentSessionResponse listDataAgentSession(const Models::ListDataAgentSessionRequest &request);
+
+      /**
        * @summary 获取主账号下的空间（分页）
        *
        * @param request ListDataAgentWorkspaceRequest

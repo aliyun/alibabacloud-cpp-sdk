@@ -2200,6 +2200,84 @@ ListCustomAgentResponse Client::listCustomAgent(const ListCustomAgentRequest &re
 }
 
 /**
+ * @summary ListDataAgentSession
+ *
+ * @param request ListDataAgentSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataAgentSessionResponse
+ */
+ListDataAgentSessionResponse Client::listDataAgentSessionWithOptions(const ListDataAgentSessionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCreateEndTime()) {
+    query["CreateEndTime"] = request.getCreateEndTime();
+  }
+
+  if (!!request.hasCreateStartTime()) {
+    query["CreateStartTime"] = request.getCreateStartTime();
+  }
+
+  if (!!request.hasCustomAgentId()) {
+    query["CustomAgentId"] = request.getCustomAgentId();
+  }
+
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasIsSaved()) {
+    query["IsSaved"] = request.getIsSaved();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasQueryType()) {
+    query["QueryType"] = request.getQueryType();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataAgentSession"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataAgentSessionResponse>();
+}
+
+/**
+ * @summary ListDataAgentSession
+ *
+ * @param request ListDataAgentSessionRequest
+ * @return ListDataAgentSessionResponse
+ */
+ListDataAgentSessionResponse Client::listDataAgentSession(const ListDataAgentSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataAgentSessionWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取主账号下的空间（分页）
  *
  * @param request ListDataAgentWorkspaceRequest

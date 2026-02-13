@@ -143,6 +143,9 @@
 #include <alibabacloud/models/ListCustomAgentRequest.hpp>
 #include <alibabacloud/models/ListCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/ListCustomAgentResponse.hpp>
+#include <alibabacloud/models/ListDataAgentSessionRequest.hpp>
+#include <alibabacloud/models/ListDataAgentSessionResponseBody.hpp>
+#include <alibabacloud/models/ListDataAgentSessionResponse.hpp>
 #include <alibabacloud/models/ListDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/ListDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/ListDataAgentWorkspaceResponse.hpp>
