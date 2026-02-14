@@ -123,6 +123,23 @@ namespace Dms20250414
       Models::CreateAirflowLoginTokenResponse createAirflowLoginToken(const Models::CreateAirflowLoginTokenRequest &request);
 
       /**
+       * @summary CreateCustomAgent
+       *
+       * @param tmpReq CreateCustomAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCustomAgentResponse
+       */
+      Models::CreateCustomAgentResponse createCustomAgentWithOptions(const Models::CreateCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CreateCustomAgent
+       *
+       * @param request CreateCustomAgentRequest
+       * @return CreateCustomAgentResponse
+       */
+      Models::CreateCustomAgentResponse createCustomAgent(const Models::CreateCustomAgentRequest &request);
+
+      /**
        * @summary CreateDataAgentSession
        *
        * @param tmpReq CreateDataAgentSessionRequest
@@ -240,6 +257,23 @@ namespace Dms20250414
        * @return DeleteAirflowResponse
        */
       Models::DeleteAirflowResponse deleteAirflow(const Models::DeleteAirflowRequest &request);
+
+      /**
+       * @summary DeleteCustomAgent
+       *
+       * @param request DeleteCustomAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCustomAgentResponse
+       */
+      Models::DeleteCustomAgentResponse deleteCustomAgentWithOptions(const Models::DeleteCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DeleteCustomAgent
+       *
+       * @param request DeleteCustomAgentRequest
+       * @return DeleteCustomAgentResponse
+       */
+      Models::DeleteCustomAgentResponse deleteCustomAgent(const Models::DeleteCustomAgentRequest &request);
 
       /**
        * @summary 删除DataAgent工作空间
@@ -693,6 +727,40 @@ namespace Dms20250414
       Models::ListDataAgentWorkspaceMemberResponse listDataAgentWorkspaceMember(const Models::ListDataAgentWorkspaceMemberRequest &request);
 
       /**
+       * @summary ListDataCenterDatabase
+       *
+       * @param request ListDataCenterDatabaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataCenterDatabaseResponse
+       */
+      Models::ListDataCenterDatabaseResponse listDataCenterDatabaseWithOptions(const Models::ListDataCenterDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListDataCenterDatabase
+       *
+       * @param request ListDataCenterDatabaseRequest
+       * @return ListDataCenterDatabaseResponse
+       */
+      Models::ListDataCenterDatabaseResponse listDataCenterDatabase(const Models::ListDataCenterDatabaseRequest &request);
+
+      /**
+       * @summary ListDataCenterTable
+       *
+       * @param request ListDataCenterTableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataCenterTableResponse
+       */
+      Models::ListDataCenterTableResponse listDataCenterTableWithOptions(const Models::ListDataCenterTableRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListDataCenterTable
+       *
+       * @param request ListDataCenterTableRequest
+       * @return ListDataCenterTableResponse
+       */
+      Models::ListDataCenterTableResponse listDataCenterTable(const Models::ListDataCenterTableRequest &request);
+
+      /**
        * @summary 获取uc的数据库目录列表
        *
        * @param request ListDataLakeCatalogRequest
@@ -878,6 +946,40 @@ namespace Dms20250414
        * @return ListFileUploadResponse
        */
       Models::ListFileUploadResponse listFileUpload(const Models::ListFileUploadRequest &request);
+
+      /**
+       * @summary ModifyCustomAgent
+       *
+       * @param tmpReq ModifyCustomAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyCustomAgentResponse
+       */
+      Models::ModifyCustomAgentResponse modifyCustomAgentWithOptions(const Models::ModifyCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ModifyCustomAgent
+       *
+       * @param request ModifyCustomAgentRequest
+       * @return ModifyCustomAgentResponse
+       */
+      Models::ModifyCustomAgentResponse modifyCustomAgent(const Models::ModifyCustomAgentRequest &request);
+
+      /**
+       * @summary OperateCustomAgent
+       *
+       * @param request OperateCustomAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateCustomAgentResponse
+       */
+      Models::OperateCustomAgentResponse operateCustomAgentWithOptions(const Models::OperateCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary OperateCustomAgent
+       *
+       * @param request OperateCustomAgentRequest
+       * @return OperateCustomAgentResponse
+       */
+      Models::OperateCustomAgentResponse operateCustomAgent(const Models::OperateCustomAgentRequest &request);
 
       /**
        * @summary 从空间中移除用户

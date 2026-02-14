@@ -46,6 +46,10 @@
 #include <alibabacloud/models/CreateAirflowLoginTokenRequest.hpp>
 #include <alibabacloud/models/CreateAirflowLoginTokenResponseBody.hpp>
 #include <alibabacloud/models/CreateAirflowLoginTokenResponse.hpp>
+#include <alibabacloud/models/CreateCustomAgentRequest.hpp>
+#include <alibabacloud/models/CreateCustomAgentShrinkRequest.hpp>
+#include <alibabacloud/models/CreateCustomAgentResponseBody.hpp>
+#include <alibabacloud/models/CreateCustomAgentResponse.hpp>
 #include <alibabacloud/models/CreateDataAgentSessionRequest.hpp>
 #include <alibabacloud/models/CreateDataAgentSessionShrinkRequest.hpp>
 #include <alibabacloud/models/CreateDataAgentSessionResponseBody.hpp>
@@ -72,6 +76,9 @@
 #include <alibabacloud/models/DeleteAirflowRequest.hpp>
 #include <alibabacloud/models/DeleteAirflowResponseBody.hpp>
 #include <alibabacloud/models/DeleteAirflowResponse.hpp>
+#include <alibabacloud/models/DeleteCustomAgentRequest.hpp>
+#include <alibabacloud/models/DeleteCustomAgentResponseBody.hpp>
+#include <alibabacloud/models/DeleteCustomAgentResponse.hpp>
 #include <alibabacloud/models/DeleteDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/DeleteDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataAgentWorkspaceResponse.hpp>
@@ -152,6 +159,12 @@
 #include <alibabacloud/models/ListDataAgentWorkspaceMemberRequest.hpp>
 #include <alibabacloud/models/ListDataAgentWorkspaceMemberResponseBody.hpp>
 #include <alibabacloud/models/ListDataAgentWorkspaceMemberResponse.hpp>
+#include <alibabacloud/models/ListDataCenterDatabaseRequest.hpp>
+#include <alibabacloud/models/ListDataCenterDatabaseResponseBody.hpp>
+#include <alibabacloud/models/ListDataCenterDatabaseResponse.hpp>
+#include <alibabacloud/models/ListDataCenterTableRequest.hpp>
+#include <alibabacloud/models/ListDataCenterTableResponseBody.hpp>
+#include <alibabacloud/models/ListDataCenterTableResponse.hpp>
 #include <alibabacloud/models/ListDataLakeCatalogRequest.hpp>
 #include <alibabacloud/models/ListDataLakeCatalogResponseBody.hpp>
 #include <alibabacloud/models/ListDataLakeCatalogResponse.hpp>
@@ -186,6 +199,13 @@
 #include <alibabacloud/models/ListFileUploadRequest.hpp>
 #include <alibabacloud/models/ListFileUploadResponseBody.hpp>
 #include <alibabacloud/models/ListFileUploadResponse.hpp>
+#include <alibabacloud/models/ModifyCustomAgentRequest.hpp>
+#include <alibabacloud/models/ModifyCustomAgentShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyCustomAgentResponseBody.hpp>
+#include <alibabacloud/models/ModifyCustomAgentResponse.hpp>
+#include <alibabacloud/models/OperateCustomAgentRequest.hpp>
+#include <alibabacloud/models/OperateCustomAgentResponseBody.hpp>
+#include <alibabacloud/models/OperateCustomAgentResponse.hpp>
 #include <alibabacloud/models/RemoveUserToDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/RemoveUserToDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/RemoveUserToDataAgentWorkspaceResponse.hpp>

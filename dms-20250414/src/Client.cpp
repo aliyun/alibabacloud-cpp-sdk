@@ -449,6 +449,106 @@ CreateAirflowLoginTokenResponse Client::createAirflowLoginToken(const CreateAirf
 }
 
 /**
+ * @summary CreateCustomAgent
+ *
+ * @param tmpReq CreateCustomAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCustomAgentResponse
+ */
+CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateCustomAgentShrinkRequest request = CreateCustomAgentShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExecutionConfig()) {
+    request.setExecutionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecutionConfig(), "ExecutionConfig", "json"));
+  }
+
+  if (!!tmpReq.hasKnowledgeConfigList()) {
+    request.setKnowledgeConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKnowledgeConfigList(), "KnowledgeConfigList", "json"));
+  }
+
+  if (!!tmpReq.hasScheduleTaskConfig()) {
+    request.setScheduleTaskConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScheduleTaskConfig(), "ScheduleTaskConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasDataJson()) {
+    query["DataJson"] = request.getDataJson();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasExecutionConfigShrink()) {
+    query["ExecutionConfig"] = request.getExecutionConfigShrink();
+  }
+
+  if (!!request.hasInstruction()) {
+    query["Instruction"] = request.getInstruction();
+  }
+
+  if (!!request.hasKnowledge()) {
+    query["Knowledge"] = request.getKnowledge();
+  }
+
+  if (!!request.hasKnowledgeConfigListShrink()) {
+    query["KnowledgeConfigList"] = request.getKnowledgeConfigListShrink();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasScheduleTaskConfigShrink()) {
+    query["ScheduleTaskConfig"] = request.getScheduleTaskConfigShrink();
+  }
+
+  if (!!request.hasTextReportConfig()) {
+    query["TextReportConfig"] = request.getTextReportConfig();
+  }
+
+  if (!!request.hasWebReportConfig()) {
+    query["WebReportConfig"] = request.getWebReportConfig();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCustomAgent"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCustomAgentResponse>();
+}
+
+/**
+ * @summary CreateCustomAgent
+ *
+ * @param request CreateCustomAgentRequest
+ * @return CreateCustomAgentResponse
+ */
+CreateCustomAgentResponse Client::createCustomAgent(const CreateCustomAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCustomAgentWithOptions(request, runtime);
+}
+
+/**
  * @summary CreateDataAgentSession
  *
  * @param tmpReq CreateDataAgentSessionRequest
@@ -892,6 +992,52 @@ DeleteAirflowResponse Client::deleteAirflowWithOptions(const DeleteAirflowReques
 DeleteAirflowResponse Client::deleteAirflow(const DeleteAirflowRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAirflowWithOptions(request, runtime);
+}
+
+/**
+ * @summary DeleteCustomAgent
+ *
+ * @param request DeleteCustomAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCustomAgentResponse
+ */
+DeleteCustomAgentResponse Client::deleteCustomAgentWithOptions(const DeleteCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomAgentId()) {
+    query["CustomAgentId"] = request.getCustomAgentId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCustomAgent"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCustomAgentResponse>();
+}
+
+/**
+ * @summary DeleteCustomAgent
+ *
+ * @param request DeleteCustomAgentRequest
+ * @return DeleteCustomAgentResponse
+ */
+DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCustomAgentWithOptions(request, runtime);
 }
 
 /**
@@ -2430,6 +2576,138 @@ ListDataAgentWorkspaceMemberResponse Client::listDataAgentWorkspaceMember(const 
 }
 
 /**
+ * @summary ListDataCenterDatabase
+ *
+ * @param request ListDataCenterDatabaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataCenterDatabaseResponse
+ */
+ListDataCenterDatabaseResponse Client::listDataCenterDatabaseWithOptions(const ListDataCenterDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallFrom()) {
+    query["CallFrom"] = request.getCallFrom();
+  }
+
+  if (!!request.hasDmsUnit()) {
+    query["DmsUnit"] = request.getDmsUnit();
+  }
+
+  if (!!request.hasImportType()) {
+    query["ImportType"] = request.getImportType();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["Language"] = request.getLanguage();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataCenterDatabase"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataCenterDatabaseResponse>();
+}
+
+/**
+ * @summary ListDataCenterDatabase
+ *
+ * @param request ListDataCenterDatabaseRequest
+ * @return ListDataCenterDatabaseResponse
+ */
+ListDataCenterDatabaseResponse Client::listDataCenterDatabase(const ListDataCenterDatabaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataCenterDatabaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary ListDataCenterTable
+ *
+ * @param request ListDataCenterTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataCenterTableResponse
+ */
+ListDataCenterTableResponse Client::listDataCenterTableWithOptions(const ListDataCenterTableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallFrom()) {
+    query["CallFrom"] = request.getCallFrom();
+  }
+
+  if (!!request.hasDatabaseName()) {
+    query["DatabaseName"] = request.getDatabaseName();
+  }
+
+  if (!!request.hasDmsUnit()) {
+    query["DmsUnit"] = request.getDmsUnit();
+  }
+
+  if (!!request.hasImportType()) {
+    query["ImportType"] = request.getImportType();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  if (!!request.hasTableName()) {
+    query["TableName"] = request.getTableName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataCenterTable"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataCenterTableResponse>();
+}
+
+/**
+ * @summary ListDataCenterTable
+ *
+ * @param request ListDataCenterTableRequest
+ * @return ListDataCenterTableResponse
+ */
+ListDataCenterTableResponse Client::listDataCenterTable(const ListDataCenterTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataCenterTableWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取uc的数据库目录列表
  *
  * @param request ListDataLakeCatalogRequest
@@ -3163,6 +3441,160 @@ ListFileUploadResponse Client::listFileUploadWithOptions(const ListFileUploadReq
 ListFileUploadResponse Client::listFileUpload(const ListFileUploadRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listFileUploadWithOptions(request, runtime);
+}
+
+/**
+ * @summary ModifyCustomAgent
+ *
+ * @param tmpReq ModifyCustomAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyCustomAgentResponse
+ */
+ModifyCustomAgentResponse Client::modifyCustomAgentWithOptions(const ModifyCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyCustomAgentShrinkRequest request = ModifyCustomAgentShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExecutionConfig()) {
+    request.setExecutionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecutionConfig(), "ExecutionConfig", "json"));
+  }
+
+  if (!!tmpReq.hasKnowledgeConfigList()) {
+    request.setKnowledgeConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKnowledgeConfigList(), "KnowledgeConfigList", "json"));
+  }
+
+  if (!!tmpReq.hasScheduleTaskConfig()) {
+    request.setScheduleTaskConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScheduleTaskConfig(), "ScheduleTaskConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCustomAgentId()) {
+    query["CustomAgentId"] = request.getCustomAgentId();
+  }
+
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasDataJson()) {
+    query["DataJson"] = request.getDataJson();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasExecutionConfigShrink()) {
+    query["ExecutionConfig"] = request.getExecutionConfigShrink();
+  }
+
+  if (!!request.hasInstruction()) {
+    query["Instruction"] = request.getInstruction();
+  }
+
+  if (!!request.hasKnowledge()) {
+    query["Knowledge"] = request.getKnowledge();
+  }
+
+  if (!!request.hasKnowledgeConfigListShrink()) {
+    query["KnowledgeConfigList"] = request.getKnowledgeConfigListShrink();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasScheduleTaskConfigShrink()) {
+    query["ScheduleTaskConfig"] = request.getScheduleTaskConfigShrink();
+  }
+
+  if (!!request.hasTextReportConfig()) {
+    query["TextReportConfig"] = request.getTextReportConfig();
+  }
+
+  if (!!request.hasWebReportConfig()) {
+    query["WebReportConfig"] = request.getWebReportConfig();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyCustomAgent"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyCustomAgentResponse>();
+}
+
+/**
+ * @summary ModifyCustomAgent
+ *
+ * @param request ModifyCustomAgentRequest
+ * @return ModifyCustomAgentResponse
+ */
+ModifyCustomAgentResponse Client::modifyCustomAgent(const ModifyCustomAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyCustomAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary OperateCustomAgent
+ *
+ * @param request OperateCustomAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateCustomAgentResponse
+ */
+OperateCustomAgentResponse Client::operateCustomAgentWithOptions(const OperateCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomAgentId()) {
+    query["CustomAgentId"] = request.getCustomAgentId();
+  }
+
+  if (!!request.hasOperateType()) {
+    query["OperateType"] = request.getOperateType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OperateCustomAgent"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateCustomAgentResponse>();
+}
+
+/**
+ * @summary OperateCustomAgent
+ *
+ * @param request OperateCustomAgentRequest
+ * @return OperateCustomAgentResponse
+ */
+OperateCustomAgentResponse Client::operateCustomAgent(const OperateCustomAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateCustomAgentWithOptions(request, runtime);
 }
 
 /**
