@@ -346,6 +346,56 @@ GetEmbodiedAIPlatformResourceUsageInfoResponse Client::getEmbodiedAIPlatformReso
 }
 
 /**
+ * @summary 解锁具身智能平台
+ *
+ * @param request LockEmbodiedAIPlatformRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return LockEmbodiedAIPlatformResponse
+ */
+LockEmbodiedAIPlatformResponse Client::lockEmbodiedAIPlatformWithOptions(const LockEmbodiedAIPlatformRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPlatformName()) {
+    query["PlatformName"] = request.getPlatformName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "LockEmbodiedAIPlatform"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<LockEmbodiedAIPlatformResponse>();
+}
+
+/**
+ * @summary 解锁具身智能平台
+ *
+ * @param request LockEmbodiedAIPlatformRequest
+ * @return LockEmbodiedAIPlatformResponse
+ */
+LockEmbodiedAIPlatformResponse Client::lockEmbodiedAIPlatform(const LockEmbodiedAIPlatformRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return lockEmbodiedAIPlatformWithOptions(request, runtime);
+}
+
+/**
  * @summary 重置具身智能平台密码
  *
  * @param request ResetEmbodiedAIPlatformPasswordRequest
@@ -397,6 +447,56 @@ ResetEmbodiedAIPlatformPasswordResponse Client::resetEmbodiedAIPlatformPasswordW
 ResetEmbodiedAIPlatformPasswordResponse Client::resetEmbodiedAIPlatformPassword(const ResetEmbodiedAIPlatformPasswordRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return resetEmbodiedAIPlatformPasswordWithOptions(request, runtime);
+}
+
+/**
+ * @summary 解锁具身智能平台
+ *
+ * @param request UnlockEmbodiedAIPlatformRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UnlockEmbodiedAIPlatformResponse
+ */
+UnlockEmbodiedAIPlatformResponse Client::unlockEmbodiedAIPlatformWithOptions(const UnlockEmbodiedAIPlatformRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPlatformName()) {
+    query["PlatformName"] = request.getPlatformName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UnlockEmbodiedAIPlatform"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UnlockEmbodiedAIPlatformResponse>();
+}
+
+/**
+ * @summary 解锁具身智能平台
+ *
+ * @param request UnlockEmbodiedAIPlatformRequest
+ * @return UnlockEmbodiedAIPlatformResponse
+ */
+UnlockEmbodiedAIPlatformResponse Client::unlockEmbodiedAIPlatform(const UnlockEmbodiedAIPlatformRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return unlockEmbodiedAIPlatformWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace ADBAI20250812

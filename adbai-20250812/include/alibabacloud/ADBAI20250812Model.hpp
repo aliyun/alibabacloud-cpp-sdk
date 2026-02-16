@@ -19,8 +19,14 @@
 #include <alibabacloud/models/GetEmbodiedAIPlatformResourceUsageInfoRequest.hpp>
 #include <alibabacloud/models/GetEmbodiedAIPlatformResourceUsageInfoResponseBody.hpp>
 #include <alibabacloud/models/GetEmbodiedAIPlatformResourceUsageInfoResponse.hpp>
+#include <alibabacloud/models/LockEmbodiedAIPlatformRequest.hpp>
+#include <alibabacloud/models/LockEmbodiedAIPlatformResponseBody.hpp>
+#include <alibabacloud/models/LockEmbodiedAIPlatformResponse.hpp>
 #include <alibabacloud/models/ResetEmbodiedAIPlatformPasswordRequest.hpp>
 #include <alibabacloud/models/ResetEmbodiedAIPlatformPasswordResponseBody.hpp>
 #include <alibabacloud/models/ResetEmbodiedAIPlatformPasswordResponse.hpp>
+#include <alibabacloud/models/UnlockEmbodiedAIPlatformRequest.hpp>
+#include <alibabacloud/models/UnlockEmbodiedAIPlatformResponseBody.hpp>
+#include <alibabacloud/models/UnlockEmbodiedAIPlatformResponse.hpp>
 
 #endif

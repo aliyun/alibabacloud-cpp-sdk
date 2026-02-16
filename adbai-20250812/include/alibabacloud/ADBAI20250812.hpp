@@ -106,6 +106,23 @@ namespace ADBAI20250812
       Models::GetEmbodiedAIPlatformResourceUsageInfoResponse getEmbodiedAIPlatformResourceUsageInfo(const Models::GetEmbodiedAIPlatformResourceUsageInfoRequest &request);
 
       /**
+       * @summary 解锁具身智能平台
+       *
+       * @param request LockEmbodiedAIPlatformRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return LockEmbodiedAIPlatformResponse
+       */
+      Models::LockEmbodiedAIPlatformResponse lockEmbodiedAIPlatformWithOptions(const Models::LockEmbodiedAIPlatformRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 解锁具身智能平台
+       *
+       * @param request LockEmbodiedAIPlatformRequest
+       * @return LockEmbodiedAIPlatformResponse
+       */
+      Models::LockEmbodiedAIPlatformResponse lockEmbodiedAIPlatform(const Models::LockEmbodiedAIPlatformRequest &request);
+
+      /**
        * @summary 重置具身智能平台密码
        *
        * @param request ResetEmbodiedAIPlatformPasswordRequest
@@ -121,6 +138,23 @@ namespace ADBAI20250812
        * @return ResetEmbodiedAIPlatformPasswordResponse
        */
       Models::ResetEmbodiedAIPlatformPasswordResponse resetEmbodiedAIPlatformPassword(const Models::ResetEmbodiedAIPlatformPasswordRequest &request);
+
+      /**
+       * @summary 解锁具身智能平台
+       *
+       * @param request UnlockEmbodiedAIPlatformRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnlockEmbodiedAIPlatformResponse
+       */
+      Models::UnlockEmbodiedAIPlatformResponse unlockEmbodiedAIPlatformWithOptions(const Models::UnlockEmbodiedAIPlatformRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 解锁具身智能平台
+       *
+       * @param request UnlockEmbodiedAIPlatformRequest
+       * @return UnlockEmbodiedAIPlatformResponse
+       */
+      Models::UnlockEmbodiedAIPlatformResponse unlockEmbodiedAIPlatform(const Models::UnlockEmbodiedAIPlatformRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace ADBAI20250812
