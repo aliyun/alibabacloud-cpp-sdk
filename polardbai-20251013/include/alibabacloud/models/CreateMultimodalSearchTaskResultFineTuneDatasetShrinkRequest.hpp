@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DatasetName, datasetName_);
       DARABONBA_PTR_TO_JSON(ResultIndex, resultIndexShrink_);
       DARABONBA_PTR_TO_JSON(ResultMode, resultMode_);
+      DARABONBA_PTR_TO_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(TopN, topN_);
     };
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DatasetName, datasetName_);
       DARABONBA_PTR_FROM_JSON(ResultIndex, resultIndexShrink_);
       DARABONBA_PTR_FROM_JSON(ResultMode, resultMode_);
+      DARABONBA_PTR_FROM_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(TopN, topN_);
     };
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->datasetDescription_ == nullptr && this->datasetName_ == nullptr && this->resultIndexShrink_ == nullptr && this->resultMode_ == nullptr && this->taskId_ == nullptr
-        && this->topN_ == nullptr; };
+        && this->datasetDescription_ == nullptr && this->datasetName_ == nullptr && this->resultIndexShrink_ == nullptr && this->resultMode_ == nullptr && this->sourceRegionId_ == nullptr
+        && this->taskId_ == nullptr && this->topN_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     inline CreateMultimodalSearchTaskResultFineTuneDatasetShrinkRequest& setResultMode(string resultMode) { DARABONBA_PTR_SET_VALUE(resultMode_, resultMode) };
 
 
+    // sourceRegionId Field Functions 
+    bool hasSourceRegionId() const { return this->sourceRegionId_ != nullptr;};
+    void deleteSourceRegionId() { this->sourceRegionId_ = nullptr;};
+    inline string getSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceRegionId_, "") };
+    inline CreateMultimodalSearchTaskResultFineTuneDatasetShrinkRequest& setSourceRegionId(string sourceRegionId) { DARABONBA_PTR_SET_VALUE(sourceRegionId_, sourceRegionId) };
+
+
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
@@ -100,6 +109,7 @@ namespace Models
     shared_ptr<string> datasetName_ {};
     shared_ptr<string> resultIndexShrink_ {};
     shared_ptr<string> resultMode_ {};
+    shared_ptr<string> sourceRegionId_ {};
     // This parameter is required.
     shared_ptr<string> taskId_ {};
     shared_ptr<int32_t> topN_ {};

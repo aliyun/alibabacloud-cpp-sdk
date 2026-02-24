@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(IsFunctional, isFunctional_);
       DARABONBA_PTR_TO_JSON(QueryFunction, queryFunction_);
+      DARABONBA_PTR_TO_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_TO_JSON(SqlCondition, sqlCondition_);
       DARABONBA_PTR_TO_JSON(SqlFunction, sqlFunction_);
       DARABONBA_PTR_TO_JSON(TextCondition, textCondition_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(IsFunctional, isFunctional_);
       DARABONBA_PTR_FROM_JSON(QueryFunction, queryFunction_);
+      DARABONBA_PTR_FROM_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_FROM_JSON(SqlCondition, sqlCondition_);
       DARABONBA_PTR_FROM_JSON(SqlFunction, sqlFunction_);
       DARABONBA_PTR_FROM_JSON(TextCondition, textCondition_);
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authMessage_ == nullptr
         && this->authType_ == nullptr && this->dbName_ == nullptr && this->formulaFunction_ == nullptr && this->id_ == nullptr && this->instanceName_ == nullptr
-        && this->isFunctional_ == nullptr && this->queryFunction_ == nullptr && this->sqlCondition_ == nullptr && this->sqlFunction_ == nullptr && this->textCondition_ == nullptr; };
+        && this->isFunctional_ == nullptr && this->queryFunction_ == nullptr && this->sourceRegionId_ == nullptr && this->sqlCondition_ == nullptr && this->sqlFunction_ == nullptr
+        && this->textCondition_ == nullptr; };
     // authMessage Field Functions 
     bool hasAuthMessage() const { return this->authMessage_ != nullptr;};
     void deleteAuthMessage() { this->authMessage_ = nullptr;};
@@ -108,6 +111,13 @@ namespace Models
     inline ChatBIConfigUpdateEntryRequest& setQueryFunction(string queryFunction) { DARABONBA_PTR_SET_VALUE(queryFunction_, queryFunction) };
 
 
+    // sourceRegionId Field Functions 
+    bool hasSourceRegionId() const { return this->sourceRegionId_ != nullptr;};
+    void deleteSourceRegionId() { this->sourceRegionId_ = nullptr;};
+    inline string getSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceRegionId_, "") };
+    inline ChatBIConfigUpdateEntryRequest& setSourceRegionId(string sourceRegionId) { DARABONBA_PTR_SET_VALUE(sourceRegionId_, sourceRegionId) };
+
+
     // sqlCondition Field Functions 
     bool hasSqlCondition() const { return this->sqlCondition_ != nullptr;};
     void deleteSqlCondition() { this->sqlCondition_ = nullptr;};
@@ -142,6 +152,7 @@ namespace Models
     shared_ptr<int32_t> isFunctional_ {};
     // This parameter is required.
     shared_ptr<string> queryFunction_ {};
+    shared_ptr<string> sourceRegionId_ {};
     // This parameter is required.
     shared_ptr<string> sqlCondition_ {};
     // This parameter is required.

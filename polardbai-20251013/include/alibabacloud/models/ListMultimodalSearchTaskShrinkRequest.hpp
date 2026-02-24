@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModelMode, modelMode_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(SourceRegionId, sourceRegionId_);
     };
     friend void from_json(const Darabonba::Json& j, ListMultimodalSearchTaskShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModelMode, modelMode_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(SourceRegionId, sourceRegionId_);
     };
     ListMultimodalSearchTaskShrinkRequest() = default ;
     ListMultimodalSearchTaskShrinkRequest(const ListMultimodalSearchTaskShrinkRequest &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->datasetIdsShrink_ == nullptr && this->inputField_ == nullptr && this->modelMode_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+        && this->datasetIdsShrink_ == nullptr && this->inputField_ == nullptr && this->modelMode_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->sourceRegionId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -83,6 +86,13 @@ namespace Models
     inline ListMultimodalSearchTaskShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // sourceRegionId Field Functions 
+    bool hasSourceRegionId() const { return this->sourceRegionId_ != nullptr;};
+    void deleteSourceRegionId() { this->sourceRegionId_ = nullptr;};
+    inline string getSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceRegionId_, "") };
+    inline ListMultimodalSearchTaskShrinkRequest& setSourceRegionId(string sourceRegionId) { DARABONBA_PTR_SET_VALUE(sourceRegionId_, sourceRegionId) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
@@ -91,6 +101,7 @@ namespace Models
     shared_ptr<string> modelMode_ {};
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> sourceRegionId_ {};
   };
 
   } // namespace Models

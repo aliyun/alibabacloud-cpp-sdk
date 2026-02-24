@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AuthMessage, authMessage_);
       DARABONBA_PTR_TO_JSON(AuthType, authType_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_TO_JSON(SourceRegionId, sourceRegionId_);
     };
     friend void from_json(const Darabonba::Json& j, ValidateUserTokenRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AuthMessage, authMessage_);
       DARABONBA_PTR_FROM_JSON(AuthType, authType_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_FROM_JSON(SourceRegionId, sourceRegionId_);
     };
     ValidateUserTokenRequest() = default ;
     ValidateUserTokenRequest(const ValidateUserTokenRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authMessage_ == nullptr
-        && this->authType_ == nullptr && this->DBClusterId_ == nullptr; };
+        && this->authType_ == nullptr && this->DBClusterId_ == nullptr && this->sourceRegionId_ == nullptr; };
     // authMessage Field Functions 
     bool hasAuthMessage() const { return this->authMessage_ != nullptr;};
     void deleteAuthMessage() { this->authMessage_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     inline ValidateUserTokenRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
+    // sourceRegionId Field Functions 
+    bool hasSourceRegionId() const { return this->sourceRegionId_ != nullptr;};
+    void deleteSourceRegionId() { this->sourceRegionId_ = nullptr;};
+    inline string getSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceRegionId_, "") };
+    inline ValidateUserTokenRequest& setSourceRegionId(string sourceRegionId) { DARABONBA_PTR_SET_VALUE(sourceRegionId_, sourceRegionId) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> authMessage_ {};
@@ -63,6 +72,7 @@ namespace Models
     shared_ptr<string> authType_ {};
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    shared_ptr<string> sourceRegionId_ {};
   };
 
   } // namespace Models

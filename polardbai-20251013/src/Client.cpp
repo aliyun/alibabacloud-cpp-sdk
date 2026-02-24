@@ -58,6 +58,10 @@ AddOSSMultimodalFineTuneDatasetResponse Client::addOSSMultimodalFineTuneDatasetW
     query["OssUrl"] = request.getOssUrl();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -112,6 +116,10 @@ ChatBIConfigCreateResponse Client::chatBIConfigCreateWithOptions(const ChatBICon
     query["InstanceName"] = request.getInstanceName();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -164,6 +172,10 @@ ChatBIConfigDeleteResponse Client::chatBIConfigDeleteWithOptions(const ChatBICon
 
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -222,6 +234,10 @@ ChatBIConfigDeleteEntryResponse Client::chatBIConfigDeleteEntryWithOptions(const
 
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -290,6 +306,10 @@ ChatBIConfigQueryEntriesResponse Client::chatBIConfigQueryEntriesWithOptions(con
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -346,6 +366,10 @@ ChatBIConfigQueryTablesResponse Client::chatBIConfigQueryTablesWithOptions(const
 
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -418,6 +442,10 @@ ChatBIConfigUpdateEntryResponse Client::chatBIConfigUpdateEntryWithOptions(const
     query["QueryFunction"] = request.getQueryFunction();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   if (!!request.hasSqlCondition()) {
     query["SqlCondition"] = request.getSqlCondition();
   }
@@ -480,6 +508,10 @@ ChatBIFileTemplateDownloadResponse Client::chatBIFileTemplateDownloadWithOptions
     query["InstanceName"] = request.getInstanceName();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   if (!!request.hasTableType()) {
     query["TableType"] = request.getTableType();
   }
@@ -536,6 +568,10 @@ ChatBIFileUploadResponse Client::chatBIFileUploadWithOptions(const ChatBIFileUpl
 
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -600,6 +636,10 @@ ChatBIFileUploadCallbackResponse Client::chatBIFileUploadCallbackWithOptions(con
     query["InstanceName"] = request.getInstanceName();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   if (!!request.hasTableName()) {
     query["TableName"] = request.getTableName();
   }
@@ -662,6 +702,10 @@ ChatBIPatternCreateResponse Client::chatBIPatternCreateWithOptions(const ChatBIP
     query["InstanceName"] = request.getInstanceName();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   if (!!request.hasTableNameSuffix()) {
     query["TableNameSuffix"] = request.getTableNameSuffix();
   }
@@ -718,6 +762,10 @@ ChatBIPatternDeleteResponse Client::chatBIPatternDeleteWithOptions(const ChatBIP
 
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   if (!!request.hasTableName()) {
@@ -782,6 +830,10 @@ ChatBIPatternDeleteEntryResponse Client::chatBIPatternDeleteEntryWithOptions(con
     query["InstanceName"] = request.getInstanceName();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   if (!!request.hasTableName()) {
     query["TableName"] = request.getTableName();
   }
@@ -844,6 +896,10 @@ ChatBIPatternIndexCreateResponse Client::chatBIPatternIndexCreateWithOptions(con
     query["PatternTableName"] = request.getPatternTableName();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   if (!!request.hasTableNameSuffix()) {
     query["TableNameSuffix"] = request.getTableNameSuffix();
   }
@@ -900,6 +956,10 @@ ChatBIPatternIndexDeleteResponse Client::chatBIPatternIndexDeleteWithOptions(con
 
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   if (!!request.hasTableName()) {
@@ -972,6 +1032,10 @@ ChatBIPatternIndexQueryTablesResponse Client::chatBIPatternIndexQueryTablesWithO
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1036,6 +1100,10 @@ ChatBIPatternQueryEntriesResponse Client::chatBIPatternQueryEntriesWithOptions(c
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   if (!!request.hasTableName()) {
@@ -1106,6 +1174,10 @@ ChatBIPatternQueryTablesResponse Client::chatBIPatternQueryTablesWithOptions(con
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1180,6 +1252,10 @@ ChatBIPatternUpdateEntryResponse Client::chatBIPatternUpdateEntryWithOptions(con
 
   if (!!request.hasPatternSql()) {
     query["PatternSql"] = request.getPatternSql();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   if (!!request.hasTableName()) {
@@ -1272,6 +1348,10 @@ FutureGenerator<ChatBIPredictSseResponse> Client::chatBIPredictSseWithSSE(const 
 
   if (!!request.hasSelectData()) {
     query["SelectData"] = request.getSelectData();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   if (!!request.hasThinkingMode()) {
@@ -1369,6 +1449,10 @@ ChatBIPredictSseResponse Client::chatBIPredictSseWithOptions(const ChatBIPredict
     query["SelectData"] = request.getSelectData();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   if (!!request.hasThinkingMode()) {
     query["ThinkingMode"] = request.getThinkingMode();
   }
@@ -1429,6 +1513,10 @@ ChatBISchemaIndexCreateResponse Client::chatBISchemaIndexCreateWithOptions(const
 
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   if (!!request.hasTableNameSuffix()) {
@@ -1495,6 +1583,10 @@ ChatBISchemaIndexDeleteResponse Client::chatBISchemaIndexDeleteWithOptions(const
 
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   if (!!request.hasTableName()) {
@@ -1567,6 +1659,10 @@ ChatBISchemaIndexQueryTablesResponse Client::chatBISchemaIndexQueryTablesWithOpt
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1619,6 +1715,10 @@ ChatBIUpdateTableValidationColumnsResponse Client::chatBIUpdateTableValidationCo
 
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   if (!!request.hasTableName()) {
@@ -1679,6 +1779,10 @@ CreateMultimodalDatasetResponse Client::createMultimodalDatasetWithOptions(const
     query["DatasetName"] = request.getDatasetName();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1733,6 +1837,10 @@ CreateMultimodalDatasetEmbeddingResponse Client::createMultimodalDatasetEmbeddin
     query["ModelMode"] = request.getModelMode();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1781,6 +1889,10 @@ CreateMultimodalFineTuneDatasetResponse Client::createMultimodalFineTuneDatasetW
 
   if (!!request.hasDatasetName()) {
     query["DatasetName"] = request.getDatasetName();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1837,6 +1949,10 @@ CreateMultimodalLabelStudioServiceResponse Client::createMultimodalLabelStudioSe
 
   if (!!request.hasPassword()) {
     query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   if (!!request.hasUsername()) {
@@ -1911,6 +2027,10 @@ CreateMultimodalSearchTaskResponse Client::createMultimodalSearchTaskWithOptions
     query["SearchModel"] = request.getSearchModel();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   if (!!request.hasTopK()) {
     query["TopK"] = request.getTopK();
   }
@@ -1979,6 +2099,10 @@ CreateMultimodalSearchTaskResultFineTuneDatasetResponse Client::createMultimodal
     query["ResultMode"] = request.getResultMode();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   if (!!request.hasTaskId()) {
     query["TaskId"] = request.getTaskId();
   }
@@ -2033,6 +2157,10 @@ DeleteMultimodalDatasetResponse Client::deleteMultimodalDatasetWithOptions(const
     query["DatasetId"] = request.getDatasetId();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2077,6 +2205,10 @@ DeleteMultimodalEmbeddingResponse Client::deleteMultimodalEmbeddingWithOptions(c
 
   if (!!request.hasEmbedding()) {
     query["Embedding"] = request.getEmbedding();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2125,6 +2257,10 @@ DeleteMultimodalFineTuneDatasetResponse Client::deleteMultimodalFineTuneDatasetW
     query["DatasetId"] = request.getDatasetId();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2165,6 +2301,10 @@ DeleteMultimodalLabelStudioServiceResponse Client::deleteMultimodalLabelStudioSe
   json query = {};
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2217,6 +2357,10 @@ DeleteOSSMultimodalFineTuneDatasetResponse Client::deleteOSSMultimodalFineTuneDa
     query["OssUrl"] = request.getOssUrl();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2257,6 +2401,10 @@ DownloadMultimodalSearchTaskResultMetadataResponse Client::downloadMultimodalSea
   json query = {};
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   if (!!request.hasTaskId()) {
@@ -2307,6 +2455,10 @@ GetUserTokenResponse Client::getUserTokenWithOptions(const GetUserTokenRequest &
 
   if (!!request.hasPassword()) {
     query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   if (!!request.hasUsername()) {
@@ -2367,6 +2519,10 @@ ListMultimodalDatasetResponse Client::listMultimodalDatasetWithOptions(const Lis
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2417,6 +2573,10 @@ ListMultimodalEmbeddingModelResponse Client::listMultimodalEmbeddingModelWithOpt
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2457,6 +2617,10 @@ ListMultimodalEmbeddingModelModeResponse Client::listMultimodalEmbeddingModelMod
   json query = {};
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2513,6 +2677,10 @@ ListMultimodalFineTuneDatasetResponse Client::listMultimodalFineTuneDatasetWithO
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2553,6 +2721,10 @@ ListMultimodalLabelStudioServiceResponse Client::listMultimodalLabelStudioServic
   json query = {};
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2603,6 +2775,10 @@ ListMultimodalSearchModelResponse Client::listMultimodalSearchModelWithOptions(c
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2673,6 +2849,10 @@ ListMultimodalSearchTaskResponse Client::listMultimodalSearchTaskWithOptions(con
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2721,6 +2901,10 @@ ListMultimodalSearchTaskResultResponse Client::listMultimodalSearchTaskResultWit
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   if (!!request.hasTaskId()) {
@@ -2781,6 +2965,10 @@ UpdateMultimodalDatasetResponse Client::updateMultimodalDatasetWithOptions(const
     query["DatasetName"] = request.getDatasetName();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2835,6 +3023,10 @@ UpdateMultimodalFineTuneDatasetResponse Client::updateMultimodalFineTuneDatasetW
     query["DatasetName"] = request.getDatasetName();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2881,6 +3073,10 @@ UpdateMultimodalLabelStudioServiceWhiteListResponse Client::updateMultimodalLabe
   json query = {};
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   if (!!request.hasWhiteListShrink()) {
@@ -2937,6 +3133,10 @@ UploadOSSMultimodalDatasetResponse Client::uploadOSSMultimodalDatasetWithOptions
     query["OssUrl"] = request.getOssUrl();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2991,6 +3191,10 @@ ValidateDatabaseUserTokenResponse Client::validateDatabaseUserTokenWithOptions(c
     query["DBName"] = request.getDBName();
   }
 
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3039,6 +3243,10 @@ ValidateUserTokenResponse Client::validateUserTokenWithOptions(const ValidateUse
 
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasSourceRegionId()) {
+    query["SourceRegionId"] = request.getSourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

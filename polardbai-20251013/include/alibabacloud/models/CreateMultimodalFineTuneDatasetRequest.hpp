@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DatasetDescription, datasetDescription_);
       DARABONBA_PTR_TO_JSON(DatasetName, datasetName_);
+      DARABONBA_PTR_TO_JSON(SourceRegionId, sourceRegionId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateMultimodalFineTuneDatasetRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DatasetDescription, datasetDescription_);
       DARABONBA_PTR_FROM_JSON(DatasetName, datasetName_);
+      DARABONBA_PTR_FROM_JSON(SourceRegionId, sourceRegionId_);
     };
     CreateMultimodalFineTuneDatasetRequest() = default ;
     CreateMultimodalFineTuneDatasetRequest(const CreateMultimodalFineTuneDatasetRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->datasetDescription_ == nullptr && this->datasetName_ == nullptr; };
+        && this->datasetDescription_ == nullptr && this->datasetName_ == nullptr && this->sourceRegionId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -56,11 +58,19 @@ namespace Models
     inline CreateMultimodalFineTuneDatasetRequest& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
+    // sourceRegionId Field Functions 
+    bool hasSourceRegionId() const { return this->sourceRegionId_ != nullptr;};
+    void deleteSourceRegionId() { this->sourceRegionId_ = nullptr;};
+    inline string getSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceRegionId_, "") };
+    inline CreateMultimodalFineTuneDatasetRequest& setSourceRegionId(string sourceRegionId) { DARABONBA_PTR_SET_VALUE(sourceRegionId_, sourceRegionId) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> datasetDescription_ {};
     shared_ptr<string> datasetName_ {};
+    shared_ptr<string> sourceRegionId_ {};
   };
 
   } // namespace Models

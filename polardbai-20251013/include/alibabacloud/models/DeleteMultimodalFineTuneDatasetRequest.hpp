@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DeleteMultimodalFineTuneDatasetRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DatasetId, datasetId_);
+      DARABONBA_PTR_TO_JSON(SourceRegionId, sourceRegionId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteMultimodalFineTuneDatasetRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DatasetId, datasetId_);
+      DARABONBA_PTR_FROM_JSON(SourceRegionId, sourceRegionId_);
     };
     DeleteMultimodalFineTuneDatasetRequest() = default ;
     DeleteMultimodalFineTuneDatasetRequest(const DeleteMultimodalFineTuneDatasetRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->datasetId_ == nullptr; };
+        && this->datasetId_ == nullptr && this->sourceRegionId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -47,11 +49,19 @@ namespace Models
     inline DeleteMultimodalFineTuneDatasetRequest& setDatasetId(string datasetId) { DARABONBA_PTR_SET_VALUE(datasetId_, datasetId) };
 
 
+    // sourceRegionId Field Functions 
+    bool hasSourceRegionId() const { return this->sourceRegionId_ != nullptr;};
+    void deleteSourceRegionId() { this->sourceRegionId_ = nullptr;};
+    inline string getSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceRegionId_, "") };
+    inline DeleteMultimodalFineTuneDatasetRequest& setSourceRegionId(string sourceRegionId) { DARABONBA_PTR_SET_VALUE(sourceRegionId_, sourceRegionId) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // This parameter is required.
     shared_ptr<string> datasetId_ {};
+    shared_ptr<string> sourceRegionId_ {};
   };
 
   } // namespace Models

@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DbName, dbName_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_TO_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_TO_JSON(TableName, tableName_);
     };
     friend void from_json(const Darabonba::Json& j, ChatBIPatternDeleteEntryRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DbName, dbName_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_FROM_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_FROM_JSON(TableName, tableName_);
     };
     ChatBIPatternDeleteEntryRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authMessage_ == nullptr
-        && this->authType_ == nullptr && this->dbName_ == nullptr && this->id_ == nullptr && this->instanceName_ == nullptr && this->tableName_ == nullptr; };
+        && this->authType_ == nullptr && this->dbName_ == nullptr && this->id_ == nullptr && this->instanceName_ == nullptr && this->sourceRegionId_ == nullptr
+        && this->tableName_ == nullptr; };
     // authMessage Field Functions 
     bool hasAuthMessage() const { return this->authMessage_ != nullptr;};
     void deleteAuthMessage() { this->authMessage_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline ChatBIPatternDeleteEntryRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
+    // sourceRegionId Field Functions 
+    bool hasSourceRegionId() const { return this->sourceRegionId_ != nullptr;};
+    void deleteSourceRegionId() { this->sourceRegionId_ = nullptr;};
+    inline string getSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceRegionId_, "") };
+    inline ChatBIPatternDeleteEntryRequest& setSourceRegionId(string sourceRegionId) { DARABONBA_PTR_SET_VALUE(sourceRegionId_, sourceRegionId) };
+
+
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
@@ -92,6 +102,7 @@ namespace Models
     shared_ptr<string> id_ {};
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    shared_ptr<string> sourceRegionId_ {};
     // This parameter is required.
     shared_ptr<string> tableName_ {};
   };

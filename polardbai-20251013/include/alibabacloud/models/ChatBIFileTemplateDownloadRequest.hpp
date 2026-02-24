@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AuthMessage, authMessage_);
       DARABONBA_PTR_TO_JSON(AuthType, authType_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_TO_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_TO_JSON(TableType, tableType_);
     };
     friend void from_json(const Darabonba::Json& j, ChatBIFileTemplateDownloadRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AuthMessage, authMessage_);
       DARABONBA_PTR_FROM_JSON(AuthType, authType_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_FROM_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_FROM_JSON(TableType, tableType_);
     };
     ChatBIFileTemplateDownloadRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authMessage_ == nullptr
-        && this->authType_ == nullptr && this->instanceName_ == nullptr && this->tableType_ == nullptr; };
+        && this->authType_ == nullptr && this->instanceName_ == nullptr && this->sourceRegionId_ == nullptr && this->tableType_ == nullptr; };
     // authMessage Field Functions 
     bool hasAuthMessage() const { return this->authMessage_ != nullptr;};
     void deleteAuthMessage() { this->authMessage_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline ChatBIFileTemplateDownloadRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
+    // sourceRegionId Field Functions 
+    bool hasSourceRegionId() const { return this->sourceRegionId_ != nullptr;};
+    void deleteSourceRegionId() { this->sourceRegionId_ = nullptr;};
+    inline string getSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceRegionId_, "") };
+    inline ChatBIFileTemplateDownloadRequest& setSourceRegionId(string sourceRegionId) { DARABONBA_PTR_SET_VALUE(sourceRegionId_, sourceRegionId) };
+
+
     // tableType Field Functions 
     bool hasTableType() const { return this->tableType_ != nullptr;};
     void deleteTableType() { this->tableType_ = nullptr;};
@@ -70,6 +79,7 @@ namespace Models
     shared_ptr<string> authType_ {};
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    shared_ptr<string> sourceRegionId_ {};
     // This parameter is required.
     shared_ptr<string> tableType_ {};
   };

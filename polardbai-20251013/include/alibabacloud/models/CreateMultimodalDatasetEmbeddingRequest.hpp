@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DatasetId, datasetId_);
       DARABONBA_PTR_TO_JSON(Model, model_);
       DARABONBA_PTR_TO_JSON(ModelMode, modelMode_);
+      DARABONBA_PTR_TO_JSON(SourceRegionId, sourceRegionId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateMultimodalDatasetEmbeddingRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DatasetId, datasetId_);
       DARABONBA_PTR_FROM_JSON(Model, model_);
       DARABONBA_PTR_FROM_JSON(ModelMode, modelMode_);
+      DARABONBA_PTR_FROM_JSON(SourceRegionId, sourceRegionId_);
     };
     CreateMultimodalDatasetEmbeddingRequest() = default ;
     CreateMultimodalDatasetEmbeddingRequest(const CreateMultimodalDatasetEmbeddingRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->datasetId_ == nullptr && this->model_ == nullptr && this->modelMode_ == nullptr; };
+        && this->datasetId_ == nullptr && this->model_ == nullptr && this->modelMode_ == nullptr && this->sourceRegionId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     inline CreateMultimodalDatasetEmbeddingRequest& setModelMode(string modelMode) { DARABONBA_PTR_SET_VALUE(modelMode_, modelMode) };
 
 
+    // sourceRegionId Field Functions 
+    bool hasSourceRegionId() const { return this->sourceRegionId_ != nullptr;};
+    void deleteSourceRegionId() { this->sourceRegionId_ = nullptr;};
+    inline string getSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceRegionId_, "") };
+    inline CreateMultimodalDatasetEmbeddingRequest& setSourceRegionId(string sourceRegionId) { DARABONBA_PTR_SET_VALUE(sourceRegionId_, sourceRegionId) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
@@ -72,6 +81,7 @@ namespace Models
     shared_ptr<string> datasetId_ {};
     shared_ptr<string> model_ {};
     shared_ptr<string> modelMode_ {};
+    shared_ptr<string> sourceRegionId_ {};
   };
 
   } // namespace Models

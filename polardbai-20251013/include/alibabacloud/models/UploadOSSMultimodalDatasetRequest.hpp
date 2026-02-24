@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DatasetId, datasetId_);
       DARABONBA_PTR_TO_JSON(OssUrl, ossUrl_);
+      DARABONBA_PTR_TO_JSON(SourceRegionId, sourceRegionId_);
     };
     friend void from_json(const Darabonba::Json& j, UploadOSSMultimodalDatasetRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DatasetId, datasetId_);
       DARABONBA_PTR_FROM_JSON(OssUrl, ossUrl_);
+      DARABONBA_PTR_FROM_JSON(SourceRegionId, sourceRegionId_);
     };
     UploadOSSMultimodalDatasetRequest() = default ;
     UploadOSSMultimodalDatasetRequest(const UploadOSSMultimodalDatasetRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->datasetId_ == nullptr && this->ossUrl_ == nullptr; };
+        && this->datasetId_ == nullptr && this->ossUrl_ == nullptr && this->sourceRegionId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -56,11 +58,19 @@ namespace Models
     inline UploadOSSMultimodalDatasetRequest& setOssUrl(string ossUrl) { DARABONBA_PTR_SET_VALUE(ossUrl_, ossUrl) };
 
 
+    // sourceRegionId Field Functions 
+    bool hasSourceRegionId() const { return this->sourceRegionId_ != nullptr;};
+    void deleteSourceRegionId() { this->sourceRegionId_ = nullptr;};
+    inline string getSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceRegionId_, "") };
+    inline UploadOSSMultimodalDatasetRequest& setSourceRegionId(string sourceRegionId) { DARABONBA_PTR_SET_VALUE(sourceRegionId_, sourceRegionId) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> datasetId_ {};
     shared_ptr<string> ossUrl_ {};
+    shared_ptr<string> sourceRegionId_ {};
   };
 
   } // namespace Models

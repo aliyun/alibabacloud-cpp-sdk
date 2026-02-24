@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Question, question_);
       DARABONBA_PTR_TO_JSON(SchemaIndexTableName, schemaIndexTableName_);
       DARABONBA_PTR_TO_JSON(SelectData, selectData_);
+      DARABONBA_PTR_TO_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_TO_JSON(ThinkingMode, thinkingMode_);
     };
     friend void from_json(const Darabonba::Json& j, ChatBIPredictSseRequest& obj) { 
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Question, question_);
       DARABONBA_PTR_FROM_JSON(SchemaIndexTableName, schemaIndexTableName_);
       DARABONBA_PTR_FROM_JSON(SelectData, selectData_);
+      DARABONBA_PTR_FROM_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_FROM_JSON(ThinkingMode, thinkingMode_);
     };
     ChatBIPredictSseRequest() = default ;
@@ -106,7 +108,7 @@ namespace Models
     virtual bool empty() const override { return this->authMessage_ == nullptr
         && this->authType_ == nullptr && this->dbName_ == nullptr && this->generateChart_ == nullptr && this->generateSummary_ == nullptr && this->instanceName_ == nullptr
         && this->parameters_ == nullptr && this->patternIndexTableName_ == nullptr && this->question_ == nullptr && this->schemaIndexTableName_ == nullptr && this->selectData_ == nullptr
-        && this->thinkingMode_ == nullptr; };
+        && this->sourceRegionId_ == nullptr && this->thinkingMode_ == nullptr; };
     // authMessage Field Functions 
     bool hasAuthMessage() const { return this->authMessage_ != nullptr;};
     void deleteAuthMessage() { this->authMessage_ = nullptr;};
@@ -186,6 +188,13 @@ namespace Models
     inline ChatBIPredictSseRequest& setSelectData(bool selectData) { DARABONBA_PTR_SET_VALUE(selectData_, selectData) };
 
 
+    // sourceRegionId Field Functions 
+    bool hasSourceRegionId() const { return this->sourceRegionId_ != nullptr;};
+    void deleteSourceRegionId() { this->sourceRegionId_ = nullptr;};
+    inline string getSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceRegionId_, "") };
+    inline ChatBIPredictSseRequest& setSourceRegionId(string sourceRegionId) { DARABONBA_PTR_SET_VALUE(sourceRegionId_, sourceRegionId) };
+
+
     // thinkingMode Field Functions 
     bool hasThinkingMode() const { return this->thinkingMode_ != nullptr;};
     void deleteThinkingMode() { this->thinkingMode_ = nullptr;};
@@ -208,6 +217,7 @@ namespace Models
     shared_ptr<string> question_ {};
     shared_ptr<string> schemaIndexTableName_ {};
     shared_ptr<bool> selectData_ {};
+    shared_ptr<string> sourceRegionId_ {};
     shared_ptr<bool> thinkingMode_ {};
   };
 

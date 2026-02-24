@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PatternParams, patternParams_);
       DARABONBA_PTR_TO_JSON(PatternQuestion, patternQuestion_);
       DARABONBA_PTR_TO_JSON(PatternSql, patternSql_);
+      DARABONBA_PTR_TO_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_TO_JSON(TableName, tableName_);
     };
     friend void from_json(const Darabonba::Json& j, ChatBIPatternUpdateEntryRequest& obj) { 
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PatternParams, patternParams_);
       DARABONBA_PTR_FROM_JSON(PatternQuestion, patternQuestion_);
       DARABONBA_PTR_FROM_JSON(PatternSql, patternSql_);
+      DARABONBA_PTR_FROM_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_FROM_JSON(TableName, tableName_);
     };
     ChatBIPatternUpdateEntryRequest() = default ;
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authMessage_ == nullptr
         && this->authType_ == nullptr && this->dbName_ == nullptr && this->id_ == nullptr && this->instanceName_ == nullptr && this->patternDescription_ == nullptr
-        && this->patternParams_ == nullptr && this->patternQuestion_ == nullptr && this->patternSql_ == nullptr && this->tableName_ == nullptr; };
+        && this->patternParams_ == nullptr && this->patternQuestion_ == nullptr && this->patternSql_ == nullptr && this->sourceRegionId_ == nullptr && this->tableName_ == nullptr; };
     // authMessage Field Functions 
     bool hasAuthMessage() const { return this->authMessage_ != nullptr;};
     void deleteAuthMessage() { this->authMessage_ = nullptr;};
@@ -113,6 +115,13 @@ namespace Models
     inline ChatBIPatternUpdateEntryRequest& setPatternSql(string patternSql) { DARABONBA_PTR_SET_VALUE(patternSql_, patternSql) };
 
 
+    // sourceRegionId Field Functions 
+    bool hasSourceRegionId() const { return this->sourceRegionId_ != nullptr;};
+    void deleteSourceRegionId() { this->sourceRegionId_ = nullptr;};
+    inline string getSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceRegionId_, "") };
+    inline ChatBIPatternUpdateEntryRequest& setSourceRegionId(string sourceRegionId) { DARABONBA_PTR_SET_VALUE(sourceRegionId_, sourceRegionId) };
+
+
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
@@ -136,6 +145,7 @@ namespace Models
     shared_ptr<string> patternQuestion_ {};
     // This parameter is required.
     shared_ptr<string> patternSql_ {};
+    shared_ptr<string> sourceRegionId_ {};
     // This parameter is required.
     shared_ptr<string> tableName_ {};
   };

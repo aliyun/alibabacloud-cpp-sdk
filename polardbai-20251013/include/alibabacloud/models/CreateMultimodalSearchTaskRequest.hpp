@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModelMode, modelMode_);
       DARABONBA_PTR_TO_JSON(Query, query_);
       DARABONBA_PTR_TO_JSON(SearchModel, searchModel_);
+      DARABONBA_PTR_TO_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_TO_JSON(TopK, topK_);
     };
     friend void from_json(const Darabonba::Json& j, CreateMultimodalSearchTaskRequest& obj) { 
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModelMode, modelMode_);
       DARABONBA_PTR_FROM_JSON(Query, query_);
       DARABONBA_PTR_FROM_JSON(SearchModel, searchModel_);
+      DARABONBA_PTR_FROM_JSON(SourceRegionId, sourceRegionId_);
       DARABONBA_PTR_FROM_JSON(TopK, topK_);
     };
     CreateMultimodalSearchTaskRequest() = default ;
@@ -44,7 +46,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
         && this->datasetIds_ == nullptr && this->embeddingModel_ == nullptr && this->modelMode_ == nullptr && this->query_ == nullptr && this->searchModel_ == nullptr
-        && this->topK_ == nullptr; };
+        && this->sourceRegionId_ == nullptr && this->topK_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -89,6 +91,13 @@ namespace Models
     inline CreateMultimodalSearchTaskRequest& setSearchModel(string searchModel) { DARABONBA_PTR_SET_VALUE(searchModel_, searchModel) };
 
 
+    // sourceRegionId Field Functions 
+    bool hasSourceRegionId() const { return this->sourceRegionId_ != nullptr;};
+    void deleteSourceRegionId() { this->sourceRegionId_ = nullptr;};
+    inline string getSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceRegionId_, "") };
+    inline CreateMultimodalSearchTaskRequest& setSourceRegionId(string sourceRegionId) { DARABONBA_PTR_SET_VALUE(sourceRegionId_, sourceRegionId) };
+
+
     // topK Field Functions 
     bool hasTopK() const { return this->topK_ != nullptr;};
     void deleteTopK() { this->topK_ = nullptr;};
@@ -104,6 +113,7 @@ namespace Models
     shared_ptr<string> modelMode_ {};
     shared_ptr<string> query_ {};
     shared_ptr<string> searchModel_ {};
+    shared_ptr<string> sourceRegionId_ {};
     shared_ptr<int32_t> topK_ {};
   };
 
