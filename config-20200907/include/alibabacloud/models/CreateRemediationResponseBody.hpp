@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the remediation template.
+    // The ID of the remediation.
     shared_ptr<string> remediationId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

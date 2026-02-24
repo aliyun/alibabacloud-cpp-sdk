@@ -76,13 +76,13 @@ namespace Models
 
 
     protected:
-      // The key of the tag that is added to the resource.
+      // The tag key of the resource.
       // 
-      // You can add up to 20 tag keys to a resource.
+      // You can specify a maximum of 20 tag keys.
       shared_ptr<string> key_ {};
-      // The value of the tag that is added to the resource.
+      // The tag value of the resource.
       // 
-      // You can add up to 20 tag values to a resource.
+      // You can specify a maximum of 20 tag values.
       shared_ptr<string> value_ {};
     };
 
@@ -128,29 +128,33 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The region ID of the tag.
+    // The ID of the region to which the tags belong.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The resource ID.
     // 
-    // You can add tags to up to 50 resources.
+    // You can query tags for a maximum of 50 resources.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type. Valid values:
+    // The resource type in CloudConfig. Valid values:
     // 
-    // *   `ACS::Config::Rule`
-    // *   `ACS::Config::AggregateConfigRule`
-    // *   `ACS::Config::Aggregator`
-    // *   `ACS::Config::CompliancePack`
-    // *   `ACS::Config::AggregateCompliancePack`
+    // - `ACS::Config::Rule`: a rule for a single account.
+    // 
+    // - `ACS::Config::AggregateConfigRule`: a rule for multiple accounts.
+    // 
+    // - `ACS::Config::Aggregator`: an account group.
+    // 
+    // - `ACS::Config::CompliancePack`: a compliance package for a single account.
+    // 
+    // - `ACS::Config::AggregateCompliancePack`: a compliance package for multiple accounts.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
     // The tags of the resource.
     // 
-    // You can add up to 20 tags to a resource.
+    // You can filter resources by a maximum of 20 tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

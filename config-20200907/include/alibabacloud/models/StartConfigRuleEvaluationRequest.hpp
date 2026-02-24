@@ -57,22 +57,23 @@ namespace Models
 
 
   protected:
-    // The compliance package ID.
+    // The ID of the compliance package.
     // 
-    // For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/606968.html).
+    // For more information, see [ListCompliancePacks](https://help.aliyun.com/document_detail/606968.html).
     // 
-    // >  You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
+    // > Specify either `CompliancePackId` or `ConfigRuleId`.
     shared_ptr<string> compliancePackId_ {};
-    // The rule ID.
+    // The ID of the rule.
     // 
-    // You can call the [ListConfigRules](https://help.aliyun.com/document_detail/609222.html) operation to obtain the rule ID.
+    // For more information, see [ListConfigRules](https://help.aliyun.com/document_detail/609222.html).
     // 
-    // >  You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
+    // > Specify either `CompliancePackId` or `ConfigRuleId`.
     shared_ptr<string> configRuleId_ {};
-    // Specifies whether to re-evaluate the ignored non-compliant resource. Valid values:
+    // Specifies whether to restore evaluation results that were ignored. Valid values:
     // 
-    // *   true: re-evaluates the ignored non-compliant resource based on the rule.
-    // *   false (default): does not re-evaluate the ignored non-compliant resource based on the rule.
+    // - true: Restores ignored evaluation results.
+    // 
+    // - false (default): Does not restore ignored evaluation results.
     shared_ptr<bool> revertEvaluation_ {};
   };
 

@@ -290,59 +290,61 @@ namespace Models
   protected:
     // The ID of the account group.
     // 
-    // For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+    // For more information, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+    // A client token. It is used to ensure the idempotence of the request. Generate a value that is unique among different requests. The `ClientToken` parameter can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The ID of the compliance package.
+    // The ID of the compliance pack.
     // 
-    // For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+    // For more information, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
     // 
     // This parameter is required.
     shared_ptr<string> compliancePackId_ {};
-    // The name of the compliance package.
+    // The name of the compliance pack.
     // 
-    // For more information about how to obtain the name of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+    // For more information, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
     shared_ptr<string> compliancePackName_ {};
-    // The rules in the compliance package.
+    // The rules in the compliance pack.
     // 
-    // If you leave this parameter empty, the rules in the compliance package remain unchanged. If you set this parameter, Cloud Config replaces the existing rules in the compliance package with the specified rules.
+    // If you leave this parameter empty when you modify the compliance pack, the existing rules are not changed. If you specify new rules, the new rules replace the existing ones.
     shared_ptr<string> configRulesShrink_ {};
-    // The description of the compliance package.
+    // The description of the compliance pack.
     shared_ptr<string> description_ {};
-    // The IDs of the regions to which the rule not applies. Separate multiple region IDs with commas (,).
+    // The rules are not effective for resources in the specified regions. Resources in these regions are not evaluated. Separate multiple region IDs with commas (,).
     shared_ptr<string> excludeRegionIdsScope_ {};
-    // ExcludeResourceGroupIdsScope. Separate multiple resource group IDs with commas (,).
+    // The rules are not effective for resources in the specified resource groups. Resources in these resource groups are not evaluated. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> excludeResourceGroupIdsScope_ {};
-    // The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
+    // The compliance pack is not effective for the specified resources. The specified resources are not evaluated. Separate multiple resource IDs with commas (,).
     shared_ptr<string> excludeResourceIdsScope_ {};
-    // ExcludeTagsScope
+    // The excluded tag scope.
     shared_ptr<vector<UpdateAggregateCompliancePackShrinkRequest::ExcludeTagsScope>> excludeTagsScope_ {};
-    // The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
+    // The compliance pack is effective only for resources in the specified regions. Separate multiple region IDs with commas (,).
     shared_ptr<string> regionIdsScope_ {};
-    // The ID of the resource group whose resources you want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+    // The compliance pack is effective only for resources in the specified resource groups. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> resourceGroupIdsScope_ {};
-    // The IDs of the resources included from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+    // The rules are effective only for the specified resources. Separate multiple resource IDs with commas (,).
     shared_ptr<string> resourceIdsScope_ {};
-    // The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+    // The risk level of the compliance pack. Valid values:
     // 
-    // *   1: high risk level
-    // *   2: medium risk level
-    // *   3: low risk level
+    // - 1: high risk.
+    // 
+    // - 2: medium risk.
+    // 
+    // - 3: low risk.
     shared_ptr<int32_t> riskLevel_ {};
-    // The tags of the resource.
+    // The tags of the resource. This parameter is deprecated and no longer takes effect.
     // 
-    // You can add up to 20 tags to a resource.
+    // You can add up to 20 tags.
     shared_ptr<string> tagShrink_ {};
-    // The tag key of the resource that you want to evaluate by using the compliance package.
+    // The compliance pack is effective only for resources that have the specified tag key.
     shared_ptr<string> tagKeyScope_ {};
-    // The tag value of the resource that you want to evaluate by using the compliance package.
+    // The compliance pack is effective only for resources that have the specified tag key and tag value.
     // 
-    // >  You must configure the TagValueScope parameter together with the TagKeyScope parameter.
+    // > You must specify TagValueScope together with TagKeyScope.
     shared_ptr<string> tagValueScope_ {};
-    // TagsScope
+    // The tag scope.
     shared_ptr<vector<UpdateAggregateCompliancePackShrinkRequest::TagsScope>> tagsScope_ {};
   };
 

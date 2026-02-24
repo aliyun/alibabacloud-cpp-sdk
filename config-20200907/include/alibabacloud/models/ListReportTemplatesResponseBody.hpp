@@ -118,8 +118,17 @@ namespace Models
 
 
       protected:
+        // The key for the report scope. Supported values:
+        // 
+        // - AggregatorId
+        // 
+        // - CompliancePackId
+        // 
+        // - RuleId
         shared_ptr<string> key_ {};
+        // The matching logic. Only In is supported.
         shared_ptr<string> matchType_ {};
+        // The value for the report scope. For multiple values of the same type — such as multiple rule IDs — separate them with commas (,).
         shared_ptr<string> value_ {};
       };
 
@@ -185,13 +194,55 @@ namespace Models
 
 
     protected:
+      // The format of the report. Only Excel is supported.
       shared_ptr<string> reportFileFormats_ {};
+      // The aggregation granularity of the report.
+      // 
+      // From the management account perspective, the following options are supported:
+      // 
+      // - AllInOne: Aggregate all accounts in the template scope into one report.
+      // 
+      // - GroupByAggregator: Generate reports by aggregator group. Output as one compressed file.
+      // 
+      // - GroupByAccount: Generate separate reports for each account (default). Output as one compressed file.
+      // 
+      // Member accounts support only GroupByAccount.
       shared_ptr<string> reportGranularity_ {};
+      // The language of the report. Valid values: zh-CN and en-US. Default value: en-US.
       shared_ptr<string> reportLanguage_ {};
+      // An array that defines which rules appear in the audit report. Each ReportScope object uses OR logic (additive logic).
+      // 
+      // > For example, if the array has two items — the first specifies RuleId cr-1 and the second specifies RuleId cr-2 — then the report covers both cr-1 and cr-2.
       shared_ptr<vector<ReportTemplateList::ReportScope>> reportScope_ {};
+      // The description of the report template.
       shared_ptr<string> reportTemplateDescription_ {};
+      // The ID of the report template.
       shared_ptr<string> reportTemplateId_ {};
+      // The name of the report template.
       shared_ptr<string> reportTemplateName_ {};
+      // The subscription frequency of the report. If this parameter is specified, it must be a Quartz-formatted cron expression.
+      // 
+      // The format is: second minute hour day month weekday. Common examples:
+      // 
+      // - Run daily at 00:00: 0 0 0 \\* \\* ?
+      // 
+      // - Run every Monday at 15:30: 0 30 15 ? \\* MON
+      // 
+      // - Run on the first day of each month at 02:00: 0 0 2 1 \\* ?
+      // 
+      // Where:
+      // 
+      // - "\\*" means any value.
+      // 
+      // - "?" means no specific value for day or weekday.
+      // 
+      // - "MON" means Monday.
+      // 
+      // > Times are in UTC+8. Adjust your cron expression based on your local time zone.
+      // 
+      // > The system tries to run reports at the scheduled time, but delays may occur due to report generation. Each template can trigger at most one notification per day.
+      // 
+      // > In Quartz, weekdays are numbered starting from Sunday: 1 = Sunday, 2 = Monday, 3 = Tuesday, 4 = Wednesday, 5 = Thursday, 6 = Friday, 7 = Saturday.
       shared_ptr<string> subscriptionFrequency_ {};
     };
 
@@ -235,10 +286,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries to return per page. Valid values: 1 to 50. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // If the response is truncated, use NextToken to send another request and get results after the truncation point.
     shared_ptr<string> nextToken_ {};
+    // The list of report templates.
     shared_ptr<vector<ListReportTemplatesResponseBody::ReportTemplateList>> reportTemplateList_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of templates.
     shared_ptr<int32_t> totalCount_ {};
   };
 

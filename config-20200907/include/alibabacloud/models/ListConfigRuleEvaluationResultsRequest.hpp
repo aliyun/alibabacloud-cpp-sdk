@@ -103,31 +103,35 @@ namespace Models
 
 
   protected:
-    // The ID of the compliance package.
+    // The compliance package ID.
     // 
-    // For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+    // For more information about how to obtain a compliance package ID, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
     shared_ptr<string> compliancePackId_ {};
-    // The compliance evaluation result of the resource. Valid values:
+    // The compliance evaluation result. Valid values:
     // 
-    // *   COMPLIANT: The resource is evaluated as compliant.
-    // *   NON_COMPLIANT: The resource is evaluated as non-compliant.
-    // *   NOT_APPLICABLE: The rule does not apply to the resources.
-    // *   INSUFFICIENT_DATA: No data is available.
-    // *   IGNORED: The resource is ignored during compliance evaluation.
+    // - COMPLIANT: The resource is compliant.
+    // 
+    // - NON_COMPLIANT: The resource is non-compliant.
+    // 
+    // - NOT_APPLICABLE: The rule does not apply to the resource.
+    // 
+    // - INSUFFICIENT_DATA: No data is available.
+    // 
+    // - IGNORED: The evaluation result is ignored.
     shared_ptr<string> complianceType_ {};
     // The rule ID.
     // 
-    // You can call the [ListConfigRules](https://help.aliyun.com/document_detail/169607.html) operation to obtain the rule ID.
+    // For more information about how to obtain a rule ID, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
     shared_ptr<string> configRuleId_ {};
-    // The maximum number of entries to return in a request. Valid values: 1 to 100.
+    // The maximum number of entries to return on each page. Valid values: 1 to 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+    // If the response is truncated, use the `NextToken` to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The ID of the region where the resources that you want to evaluate reside. Separate multiple region IDs with commas (,).
+    // The region where the evaluated resource resides. Separate multiple regions with commas (,).
     shared_ptr<string> regions_ {};
-    // The ID of the resource group to which the resources that you want to evaluate belong. Separate multiple resource group IDs with commas (,).
+    // The ID of the resource group to which the evaluated resource belongs. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> resourceGroupIds_ {};
-    // The type of the resources that you want to evaluate. Separate multiple resource types with commas (,).
+    // The type of the evaluated resource. Separate multiple resource types with commas (,).
     shared_ptr<string> resourceTypes_ {};
   };
 

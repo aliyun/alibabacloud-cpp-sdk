@@ -57,18 +57,10 @@ namespace Models
 
 
   protected:
-    // The ID of the account group.
-    // 
-    // For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
-    // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The ID of the rule in the account group.
-    // 
     // This parameter is required.
     shared_ptr<string> configRuleId_ {};
-    // The resources that you want to re-evaluate.
-    // 
     // This parameter is required.
     shared_ptr<string> resourcesShrink_ {};
   };

@@ -179,43 +179,44 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account to which the resource belongs.
+      // The ID of the Alibaba Cloud account that owns the resource.
       shared_ptr<int64_t> accountId_ {};
-      // The ID of the zone in which the resource resides.
+      // The zone where the resource resides.
       shared_ptr<string> availabilityZone_ {};
-      // The compliance evaluation result of the resource. Valid values:
-      // 
-      // *   COMPLIANT: The resource is evaluated as compliant.
-      // *   NON_COMPLIANT: The resource is evaluated as non-compliant.
-      // *   NOT_APPLICABLE: The rule does not apply to the resources.
-      // *   INSUFFICIENT_DATA: No data is available.
+      // The compliance type.
       shared_ptr<string> complianceType_ {};
-      // The configuration of the resource.
+      // The complete configuration information of the resource.
       shared_ptr<string> configuration_ {};
       // The region ID.
       shared_ptr<string> region_ {};
       // The timestamp when the resource was created.
       shared_ptr<int64_t> resourceCreationTime_ {};
-      // Indicates whether the resource was deleted. Valid values:
+      // The deletion status of the resource. Valid values:
       // 
-      // *   1: The resource was not deleted.
-      // *   0: The resource was deleted.
+      // - 1: The resource is not deleted.
+      // 
+      // - 0: The resource is deleted.
       shared_ptr<int32_t> resourceDeleted_ {};
       // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The name of the resource.
+      // The resource name.
       shared_ptr<string> resourceName_ {};
-      // The status of the resource. The value of this parameter varies based on the resource type and may be empty.
+      // The status of the resource. The status of a resource is defined by the corresponding Alibaba Cloud service. This parameter can be empty. Examples:
       // 
-      // *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an ECS instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
-      // *   If the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
+      // - If the resource type is ACS::ECS::Instance, the resource is stateful. In this case, the value of this parameter is Running or Stopped.
+      // 
+      // - If the resource type is ACS::OSS::Bucket, the resource is stateless. In this case, this parameter is empty.
       shared_ptr<string> resourceStatus_ {};
-      // The type of the resource.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
       // The tags of the resource.
       shared_ptr<string> tags_ {};
+      // The ID of the vSwitch to which the resource belongs. The ID is in the vsw-t4n7pokxxxxxxxxxxxxxx format. If multiple vSwitch IDs are returned, they are separated by commas (,). Example: vsw-t4n7pokxxxxxxxxxxxxxx,vsw-t4n7pokxxxxxxxxxxxxxx. If the resource does not belong to a vSwitch, an empty string "" is returned.
+      // 
       // This parameter is required.
       shared_ptr<string> vSwitchId_ {};
+      // The ID of the VPC to which the resource belongs. The ID is in the vpc-t4nhheyvay74fp7n0hxxx format. If the resource does not belong to a VPC, an empty string "" is returned.
+      // 
       // This parameter is required.
       shared_ptr<string> vpcId_ {};
     };

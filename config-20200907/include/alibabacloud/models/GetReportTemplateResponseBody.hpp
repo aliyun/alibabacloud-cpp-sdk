@@ -112,8 +112,17 @@ namespace Models
 
 
       protected:
+        // Key for the report scope. Supported keys:
+        // 
+        // - AggregatorId
+        // 
+        // - CompliancePackId
+        // 
+        // - RuleId
         shared_ptr<string> key_ {};
+        // Matching logic. Only In is supported.
         shared_ptr<string> matchType_ {};
+        // Value for the report scope. For multiple values of the same type, such as multiple rule IDs, separate them with commas.
         shared_ptr<string> value_ {};
       };
 
@@ -179,13 +188,45 @@ namespace Models
 
 
     protected:
+      // Report file format.
       shared_ptr<string> reportFileFormats_ {};
+      // Aggregation granularity of the report.
       shared_ptr<string> reportGranularity_ {};
+      // Report language. Valid values: zh-CN and en-US. Default is en-US if empty.
       shared_ptr<string> reportLanguage_ {};
+      // Array of report scopes. Each scope defines a set of rules included in the audit report. Scopes use OR logic. That is, rules from all scopes are combined.
+      // 
+      // > If the array has two items, and the first specifies RuleId cr-1 while the second specifies RuleId cr-2, then the report covers both cr-1 and cr-2.
       shared_ptr<vector<ReportTemplate::ReportScope>> reportScope_ {};
+      // Description of the report template.
       shared_ptr<string> reportTemplateDescription_ {};
+      // ID of the report template.
       shared_ptr<string> reportTemplateId_ {};
+      // Name of the report template.
       shared_ptr<string> reportTemplateName_ {};
+      // Subscription frequency for the report. If this field is not empty, it contains a Quartz-formatted cron expression that triggers notifications.
+      // 
+      // The format is: seconds minutes hours day-of-month month day-of-week. Common examples include the following:
+      // 
+      // - Run daily at 00:00: 0 0 0 \\* \\* ?
+      // 
+      // - Run every Monday at 15:30: 0 30 15 ? \\* MON
+      // 
+      // - Run on the first day of each month at 02:00: 0 0 2 1 \\* ?
+      // 
+      // Where:
+      // 
+      // - "\\*" means any value.
+      // 
+      // - "?" means no specific value for the day-of-month or day-of-week field.
+      // 
+      // - MON means Monday.
+      // 
+      // > Trigger times are in UTC+8. Adjust your cron expression based on your time zone.
+      // 
+      // > The system tries to trigger notifications as close as possible to the scheduled time. Delays may occur due to report generation status. A single template can trigger at most one notification per day.
+      // 
+      // > In Quartz, days of the week are numbered: 1 = Sunday, 2 = Monday, 3 = Tuesday, 4 = Wednesday, 5 = Thursday, 6 = Friday, 7 = Saturday.
       shared_ptr<string> subscriptionFrequency_ {};
     };
 
@@ -208,7 +249,9 @@ namespace Models
 
 
   protected:
+    // Report template.
     shared_ptr<GetReportTemplateResponseBody::ReportTemplate> reportTemplate_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

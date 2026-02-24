@@ -38,8 +38,6 @@ namespace Models
 
 
   protected:
-    // The resource types. Separate multiple resource types with commas (,).
-    // 
     // This parameter is required.
     shared_ptr<string> resourceTypes_ {};
   };

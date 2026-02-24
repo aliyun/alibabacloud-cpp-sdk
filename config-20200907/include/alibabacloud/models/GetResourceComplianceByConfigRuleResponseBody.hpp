@@ -91,14 +91,7 @@ namespace Models
 
 
       protected:
-        // The compliance evaluation results of the resources. Valid values:
-        // 
-        // *   COMPLIANT: The resource was evaluated as compliant.
-        // *   NON_COMPLIANT: The resource was evaluated as incompliant.
-        // *   NOT_APPLICABLE: The rule did not apply to your resources.
-        // *   INSUFFICIENT_DATA: No resource data was available.
         shared_ptr<string> complianceType_ {};
-        // The number of resources that have compliance evaluation results. For example, if the value of the `ComplianceType` parameter is `COMPLIANT`, this parameter value indicates the number of compliant resources.
         shared_ptr<int32_t> count_ {};
       };
 
@@ -121,9 +114,7 @@ namespace Models
 
 
     protected:
-      // The compliance evaluation results based on compliance types.
       shared_ptr<vector<ComplianceResult::Compliances>> compliances_ {};
-      // The total number of evaluated resources.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -146,9 +137,7 @@ namespace Models
 
 
   protected:
-    // The compliance result.
     shared_ptr<GetResourceComplianceByConfigRuleResponseBody::ComplianceResult> complianceResult_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The complete configuration information of the resource.
     shared_ptr<string> configurationItem_ {};
+    // The resource type that is evaluated by the rule.
     shared_ptr<string> resourceType_ {};
   };
 

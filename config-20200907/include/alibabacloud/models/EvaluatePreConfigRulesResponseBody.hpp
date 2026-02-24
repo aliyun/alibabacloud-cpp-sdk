@@ -115,13 +115,15 @@ namespace Models
         shared_ptr<string> annotation_ {};
         // The compliance type of the resource that was evaluated by using the evaluation rule. Valid values:
         // 
-        // *   COMPLIANT: The resource was evaluated as compliant.
-        // *   NON_COMPLIANT: The resource was evaluated as incompliant.
-        // *   NOT_APPLICABLE: The evaluation rule does not apply to the resource.
+        // - COMPLIANT: The resource is evaluated as compliant.
+        // 
+        // - NON_COMPLIANT: The resource is evaluated as non-compliant.
+        // 
+        // - NOT_APPLICABLE: The rule does not apply to the resource.
         shared_ptr<string> complianceType_ {};
-        // The URL of the topic that describes how the managed rule remediates the incompliant configurations.
+        // The URL of the topic that describes how the managed rule remediates the non-compliant configurations.
         shared_ptr<string> helpUrl_ {};
-        // The identifier of the evaluation rule.
+        // The identifier of the rule.
         shared_ptr<string> identifier_ {};
       };
 
@@ -153,7 +155,7 @@ namespace Models
     protected:
       // The logical ID of the resource.
       // 
-      // >  If the ResourceLogicalId request parameter is left empty, the value of the ResourceLogicalId response parameter is generated based on the value of the `ResourceProperties` parameter.
+      // > If the request parameter is empty, it is automatically generated based on the Base64 value of `ResourceProperties`.
       shared_ptr<string> resourceLogicalId_ {};
       // The type of the resource.
       shared_ptr<string> resourceType_ {};
@@ -182,7 +184,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The details of the compliance evaluation result.
+    // The array that contains the compliance evaluation results.
     shared_ptr<vector<EvaluatePreConfigRulesResponseBody::ResourceEvaluations>> resourceEvaluations_ {};
   };
 

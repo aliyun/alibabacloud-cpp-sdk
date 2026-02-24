@@ -57,12 +57,13 @@ namespace Models
 
 
   protected:
-    // The region IDs of the resources. Separate multiple region IDs with commas (,).
+    // The regions where the resources are located. Separate multiple regions with commas (,).
     shared_ptr<string> regions_ {};
-    // Indicates whether the resource is deleted. Valid values:
+    // The resource status. Valid values:
     // 
-    // *   1 (default): The resource is retained.
-    // *   0: The resource is deleted.
+    // - 1 (default): The resource is retained.
+    // 
+    // - 0: The resource is deleted.
     shared_ptr<int32_t> resourceDeleted_ {};
     // The resource types. Separate multiple resource types with commas (,).
     shared_ptr<string> resourceTypes_ {};

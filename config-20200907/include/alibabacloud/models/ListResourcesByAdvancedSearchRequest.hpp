@@ -38,8 +38,6 @@ namespace Models
 
 
   protected:
-    // The SQL query statement.
-    // 
     // This parameter is required.
     shared_ptr<string> sql_ {};
   };

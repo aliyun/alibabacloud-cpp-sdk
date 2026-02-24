@@ -94,37 +94,43 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client token that is used to ensure the idempotence of the request. Generate a token that is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The execution mode of the remediation. Valid values:
     // 
-    // *   NON_EXECUTION: The remediation is not executed.
-    // *   AUTO_EXECUTION: The remediation is automatically executed.
-    // *   MANUAL_EXECUTION: The remediation is manually executed.
-    // *   NOT_CONFIG: The execution mode is not specified.
+    // - NON_EXECUTION: The remediation is not executed.
+    // 
+    // - AUTO_EXECUTION: The remediation is automatically executed.
+    // 
+    // - MANUAL_EXECUTION: The remediation is manually executed.
+    // 
+    // - NOT_CONFIG: The execution mode is not specified.
     shared_ptr<string> invokeType_ {};
-    // The desired parameter values of the remediation setting.
+    // The parameters of the remediation setting.
     shared_ptr<string> params_ {};
     // The ID of the remediation setting.
     // 
-    // You can call the [ListRemediations](https://help.aliyun.com/document_detail/270772.html) operation to obtain the ID of the remediation setting.
+    // For more information about how to obtain the ID of a remediation setting, see [ListRemediations](https://help.aliyun.com/document_detail/270772.html).
     // 
     // This parameter is required.
     shared_ptr<string> remediationId_ {};
     // The ID of the remediation template.
     // 
-    // You can call the [ListRemediationTemplates](https://help.aliyun.com/document_detail/270066.html) operation to obtain the ID of the remediation template.
+    // For more information about how to obtain the ID of a remediation template, see [ListRemediationTemplates](https://help.aliyun.com/document_detail/270066.html).
     shared_ptr<string> remediationTemplateId_ {};
-    // The type of the remediation template. Valid values:
+    // The type of the remediation. Valid values:
     // 
-    // *   OOS: Operation Orchestration Service (OOS)
-    // *   FC: Function Compute. You can use Function Compute to configure custom remediation settings.
+    // - OOS: Operation Orchestration Service (template-based remediation).
+    // 
+    // - FC: Function Compute (custom remediation).
     shared_ptr<string> remediationType_ {};
-    // The source of the remediation setting. Valid values:
+    // The source of the remediation. Valid values:
     // 
-    // *   ALIYUN: the default remediation setting of Alibaba Cloud.
-    // *   CUSTOM: a custom remediation setting.
-    // *   NONE: The source is not specified.
+    // - ALIYUN: official remediation.
+    // 
+    // - CUSTOM: custom remediation.
+    // 
+    // - NONE: none.
     shared_ptr<string> sourceType_ {};
   };
 

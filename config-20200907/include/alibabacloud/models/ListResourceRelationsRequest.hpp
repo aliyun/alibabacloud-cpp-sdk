@@ -103,34 +103,16 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return in a request. Valid values: 1 to 1000.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextToken_ {};
-    // The ID of the region in which the resource resides.
-    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The type of the relationship between the resource and the object.
-    // 
-    // Valid values:
-    // 
-    // *   IsContained: The object is included as part of the resource.
-    // *   IsAttachedTo: The object is added to the resource.
-    // *   IsAssociatedIn: The object is associated with the resource.
-    // *   Contains: The object contains the resource.
     shared_ptr<string> relationType_ {};
-    // The resource ID.
-    // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
-    // The type of the resource.
-    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The ID of the resource that is associated with the object.
     shared_ptr<string> targetResourceId_ {};
-    // The type of the resource that is associated with the object.
     shared_ptr<string> targetResourceType_ {};
   };
 

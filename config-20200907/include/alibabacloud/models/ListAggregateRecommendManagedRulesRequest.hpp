@@ -121,15 +121,31 @@ namespace Models
 
 
   protected:
+    // The ID of the account group.
+    // 
+    // For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     shared_ptr<string> aggregatorId_ {};
+    // The compliance package is invalid for resources in the specified region. The resources in the specified region are not evaluated. Separate multiple region IDs with commas (,).
     shared_ptr<string> excludeRegionIdsScope_ {};
+    // The rule is invalid for resources in the specified resource group. The resources in the specified resource group are not evaluated. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> excludeResourceGroupIdsScope_ {};
+    // The rule is invalid for the specified resource. The specified resource is not evaluated. Separate multiple resource IDs with commas (,).
+    // 
+    // > This parameter applies only to rule templates.
     shared_ptr<string> excludeResourceIdsScope_ {};
+    // The maximum number of entries to return for a single request. Default value: 200.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results. It indicates the position where the current query begins. If you leave this parameter empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
+    // The rule is effective only for resources in the specified region. Separate multiple region IDs with commas (,).
+    // 
+    // > This parameter applies only to rule templates.
     shared_ptr<string> regionIdsScope_ {};
+    // The rule is effective only for resources in the specified resource group. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> resourceGroupIdsScope_ {};
+    // The rule is effective for the specified resource. Separate multiple resource IDs with commas (,).
     shared_ptr<string> resourceIdsScope_ {};
+    // The selected managed rules.
     shared_ptr<string> selectedManagedRuleIdentifiers_ {};
   };
 

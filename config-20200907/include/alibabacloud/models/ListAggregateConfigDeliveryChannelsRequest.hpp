@@ -48,13 +48,8 @@ namespace Models
 
 
   protected:
-    // The ID of the account group.
-    // 
-    // For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
-    // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The IDs of the delivery channels. Separate multiple IDs with commas (,).
     shared_ptr<string> deliveryChannelIds_ {};
   };
 

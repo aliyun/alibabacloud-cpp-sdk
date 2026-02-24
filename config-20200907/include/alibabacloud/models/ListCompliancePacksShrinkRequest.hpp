@@ -77,21 +77,29 @@ namespace Models
   protected:
     // The page number.
     // 
-    // Pages start from page 1. Default value: 1
+    // Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     // 
-    // Valid values: 1 to 100. Minimum value: 1. Default value: 10.
+    // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    shared_ptr<int32_t> riskLevel_ {};
-    // The status of the compliance package to be queried. Valid values:
+    // The risk level of the compliance pack. Valid values:
     // 
-    // *   ACTIVE: The compliance package is active.
-    // *   CREATING: The compliance package is being created.
+    // - 1: high risk.
+    // 
+    // - 2: medium risk.
+    // 
+    // - 3: low risk.
+    shared_ptr<int32_t> riskLevel_ {};
+    // The status of the compliance pack. Valid values:
+    // 
+    // - ACTIVE: The compliance pack is active.
+    // 
+    // - CREATING: The compliance pack is being created.
     shared_ptr<string> status_ {};
     // The tags of the resource.
     // 
-    // You can add up to 20 tags to a resource.
+    // You can attach up to 20 tags to a resource.
     shared_ptr<string> tagShrink_ {};
   };
 

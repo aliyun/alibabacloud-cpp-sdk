@@ -66,28 +66,10 @@ namespace Models
 
 
   protected:
-    // The ID of the account group.
-    // 
-    // For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
-    // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The ID of the compliance package.
-    // 
-    // For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
-    // 
-    // > You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
     shared_ptr<string> compliancePackId_ {};
-    // The rule ID.
-    // 
-    // For more information about how to query the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
-    // 
-    // >  You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
     shared_ptr<string> configRuleId_ {};
-    // Specifies whether to re-evaluate the ignored non-compliant resource. Valid values:
-    // 
-    // *   true: re-evaluates the ignored non-compliant resource based on the rule.
-    // *   false (default): does not re-evaluate the ignored non-compliant resource based on the rule.
     shared_ptr<bool> revertEvaluation_ {};
   };
 

@@ -48,7 +48,17 @@ namespace Models
 
 
   protected:
+    // Specifies whether to obtain only mock data, which is not real resource data.
+    // Valid values:
+    // 
+    // - true
+    // 
+    // - false
     shared_ptr<string> mockOnly_ {};
+    // The resource type.
+    // 
+    // For more information about how to obtain the resource type, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
   };

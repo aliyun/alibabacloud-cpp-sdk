@@ -59,19 +59,18 @@ namespace Models
   protected:
     // The ID of the account group.
     // 
-    // For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+    // For more information, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The ID of the rule.
+    // The rule ID.
     // 
-    // You can call the [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html) operation to obtain the rule ID.
+    // For more information, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
     // 
     // This parameter is required.
     shared_ptr<string> configRuleId_ {};
-    // The tags of the resource.
-    // 
-    // You can add up to 20 tags to a resource.
+    // The tags.
+    // This parameter is deprecated. If you specify this parameter, the value does not take effect.
     shared_ptr<string> tagShrink_ {};
   };
 

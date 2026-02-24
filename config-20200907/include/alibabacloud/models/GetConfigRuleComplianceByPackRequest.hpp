@@ -40,7 +40,7 @@ namespace Models
   protected:
     // The ID of the compliance package.
     // 
-    // For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+    // For more information about how to obtain the compliance package ID, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
     // 
     // This parameter is required.
     shared_ptr<string> compliancePackId_ {};

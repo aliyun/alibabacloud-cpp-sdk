@@ -54,7 +54,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The SQL statement used to query resources.
+    // The SQL statement for the advanced search.
     // 
     // This parameter is required.
     shared_ptr<string> sql_ {};

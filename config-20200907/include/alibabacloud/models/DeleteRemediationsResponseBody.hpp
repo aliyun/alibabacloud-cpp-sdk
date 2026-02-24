@@ -79,17 +79,19 @@ namespace Models
 
 
     protected:
-      // The error code returned.
+      // The error code.
       // 
-      // *   If the remediation template is deleted, no error code is returned.
-      // *   If the remediation template fails to be deleted, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+      // - This parameter is empty if the remediation setting is successfully deleted.
+      // 
+      // - This parameter returns an error code if the operation fails. For more information about error codes, see <props="intl">[Error Center](https://error-center.alibabacloud.com/status/product/Config).
       shared_ptr<string> errorMessage_ {};
-      // The ID of the remediation template.
+      // The remediation setting ID.
       shared_ptr<string> remediationId_ {};
-      // Indicates whether the request was successful. Valid values:
+      // Indicates whether the operation was successful. Valid values:
       // 
-      // *   true: The request was successful.
-      // *   false: The request failed.
+      // - true: The operation was successful.
+      // 
+      // - false: The operation failed.
       shared_ptr<bool> success_ {};
     };
 
@@ -112,7 +114,7 @@ namespace Models
 
 
   protected:
-    // The returned result.
+    // The result of the delete operation.
     shared_ptr<vector<DeleteRemediationsResponseBody::RemediationDeleteResults>> remediationDeleteResults_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

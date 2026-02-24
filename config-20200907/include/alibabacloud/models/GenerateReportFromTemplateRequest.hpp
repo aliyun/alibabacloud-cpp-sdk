@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Report template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> reportTemplateId_ {};
   };

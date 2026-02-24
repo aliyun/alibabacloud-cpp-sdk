@@ -56,7 +56,7 @@ namespace Models
     shared_ptr<string> aggregatorId_ {};
     // The rule IDs. Separate multiple rule IDs with commas (,).
     // 
-    // For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+    // For more information about how to obtain a rule ID, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
     shared_ptr<string> configRuleIds_ {};
   };
 

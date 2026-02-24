@@ -48,11 +48,8 @@ namespace Models
 
 
   protected:
-    // The ID of the account group. Separate multiple IDs with commas (,).
-    // 
     // This parameter is required.
     shared_ptr<string> aggregatorIds_ {};
-    // The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
   };
 

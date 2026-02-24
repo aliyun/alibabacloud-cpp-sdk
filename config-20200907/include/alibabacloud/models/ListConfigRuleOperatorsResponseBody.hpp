@@ -88,9 +88,67 @@ namespace Models
 
 
     protected:
+      // The data type that the operator applies to.
       shared_ptr<string> dataType_ {};
+      // The description of the operator, which can be used to explain why a resource is non-compliant.
       shared_ptr<string> description_ {};
+      // The name of the operator.
       shared_ptr<string> name_ {};
+      // The operator for the rule\\"s input parameter. The available operators vary based on the data type retrieved using SelectPath.
+      // 
+      // - If the data type is String, valid values are:
+      // 
+      //   - StringEquals: equals.
+      // 
+      //   - NotStringEquals: does not equal.
+      // 
+      //   - StringIn: is in.
+      // 
+      //   - NotStringIn: is not in.
+      // 
+      //   - StringContains: contains.
+      // 
+      //   - NotStringContains: does not contain.
+      // 
+      // - If the data type is Number, valid values are:
+      // 
+      //   - Equals: equals.
+      // 
+      //   - NotEquals: does not equal.
+      // 
+      //   - Less: is less than.
+      // 
+      //   - LessOrEquals: is less than or equal to.
+      // 
+      //   - Greater: is greater than.
+      // 
+      //   - GreaterOrEquals: is greater than or equal to.
+      // 
+      // - If the data type is a Base64-encoded string, valid values are:
+      // 
+      //   - Base64Contains: contains.
+      // 
+      //   - NotBase64Contains: does not contain.
+      // 
+      //   - Base64ContainsAll: contains all.
+      // 
+      //   - Base64ExcludeAll: excludes all.
+      // 
+      // - If the data type is Array, valid values are:
+      // 
+      //   - Contains: contains.
+      // 
+      //   - NotContains: does not contain.
+      // 
+      //   - In: is in.
+      // 
+      //   - NotIn: is not in.
+      // 
+      //   - ContainsAll: contains all.
+      // 
+      //   - ExcludeAll: excludes all.
+      // 
+      //   - IsEmpty: is empty.
       shared_ptr<string> operator_ {};
     };
 
@@ -113,8 +171,9 @@ namespace Models
 
 
   protected:
+    // A list of operators.
     shared_ptr<vector<ListConfigRuleOperatorsResponseBody::Operators>> operators_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

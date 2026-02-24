@@ -98,17 +98,8 @@ namespace Models
 
 
       protected:
-        // The rule ID.
         shared_ptr<string> configRuleId_ {};
-        // The error code returned.
-        // 
-        // *   This parameter is empty if the rule is added to the compliance package.
-        // *   An error code is returned if the rule fails to be added to the compliance package. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
         shared_ptr<string> errorCode_ {};
-        // Indicates whether the request was successful. Valid values:
-        // 
-        // *   true: The request was successful.
-        // *   false: The request failed.
         shared_ptr<bool> success_ {};
       };
 
@@ -123,7 +114,6 @@ namespace Models
 
 
     protected:
-      // The result of the operation to add the rule.
       shared_ptr<vector<OperateRuleResult::OperateRuleItemList>> operateRuleItemList_ {};
     };
 
@@ -146,9 +136,7 @@ namespace Models
 
 
   protected:
-    // The results of the operations to add one or more rules.
     shared_ptr<AttachConfigRuleToCompliancePackResponseBody::OperateRuleResult> operateRuleResult_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

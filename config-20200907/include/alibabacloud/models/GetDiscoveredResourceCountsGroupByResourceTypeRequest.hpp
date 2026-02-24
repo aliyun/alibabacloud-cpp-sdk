@@ -38,7 +38,6 @@ namespace Models
 
 
   protected:
-    // The region ID.
     shared_ptr<string> region_ {};
   };
 

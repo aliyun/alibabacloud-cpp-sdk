@@ -117,13 +117,17 @@ namespace Models
     protected:
       // The ID of the compliance package.
       shared_ptr<string> compliancePackId_ {};
+      // The total number of compliant resources.
       shared_ptr<int32_t> compliantCount_ {};
+      // The total number of ignored resources.
       shared_ptr<int32_t> ignoredCount_ {};
+      // The total number of resources for which the evaluation data is insufficient.
       shared_ptr<int32_t> insufficientDataCount_ {};
       // The number of non-compliant resources.
       shared_ptr<int32_t> nonCompliantCount_ {};
+      // The total number of resources that are not applicable.
       shared_ptr<int32_t> notApplicableCount_ {};
-      // The total number of resources.
+      // The total number of resources evaluated by the compliance package.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -146,9 +150,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The compliance evaluation results returned.
+    // The compliance results of the resources in the compliance package.
     shared_ptr<GetAggregateResourceComplianceByPackResponseBody::ResourceComplianceResult> resourceComplianceResult_ {};
   };
 

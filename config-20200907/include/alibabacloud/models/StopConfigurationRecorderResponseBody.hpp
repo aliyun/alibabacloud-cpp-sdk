@@ -48,12 +48,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
     shared_ptr<bool> stopConfigurationRecorderResult_ {};
   };
 

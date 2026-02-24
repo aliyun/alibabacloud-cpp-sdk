@@ -112,14 +112,24 @@ namespace Models
 
 
   protected:
+    // The rule does not take effect on resources in the specified regions. The resources in the specified regions are not evaluated. Separate multiple region IDs with commas (,).
     shared_ptr<string> excludeRegionIdsScope_ {};
+    // The rule does not take effect on resources in the specified resource groups. The resources in the specified resource groups are not evaluated. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> excludeResourceGroupIdsScope_ {};
+    // The rule does not take effect on the specified resources. The specified resources are not evaluated. Separate multiple resource IDs with commas (,).
     shared_ptr<string> excludeResourceIdsScope_ {};
+    // The maximum number of entries to return on each page. Default value: 200.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that specifies the position from which to start the query. If this parameter is left empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
+    // The scope of region IDs. Separate multiple region IDs with commas (,).
     shared_ptr<string> regionIdsScope_ {};
+    // The rule takes effect only on resources in the specified resource groups. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> resourceGroupIdsScope_ {};
+    // The rule takes effect on the specified resources. Separate multiple resource IDs with commas (,).
     shared_ptr<string> resourceIdsScope_ {};
+    // The managed rules that have been selected. Separate multiple rule identifiers with commas (,).
+    // The system does not recommend managed rules that are of the same resource type as the selected managed rules.
     shared_ptr<string> selectedManagedRuleIdentifiers_ {};
   };
 

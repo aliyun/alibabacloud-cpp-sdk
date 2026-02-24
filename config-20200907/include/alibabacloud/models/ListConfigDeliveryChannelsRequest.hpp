@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery channel. Separate multiple IDs with commas (,).
+    // The ID of the delivery channel. Separate multiple delivery channel IDs with a comma (,).
     shared_ptr<string> deliveryChannelIds_ {};
   };
 

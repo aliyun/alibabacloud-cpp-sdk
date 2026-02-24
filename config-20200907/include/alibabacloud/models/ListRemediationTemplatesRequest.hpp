@@ -66,15 +66,9 @@ namespace Models
 
 
   protected:
-    // The identifier of the managed rule.
-    // 
-    // You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the managed rule identifier.
     shared_ptr<string> managedRuleIdentifier_ {};
-    // The page number. Pages start from 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The type of the remediation template. Valid value: OOS, which stands for Operation Orchestration Service.
     shared_ptr<string> remediationType_ {};
   };
 

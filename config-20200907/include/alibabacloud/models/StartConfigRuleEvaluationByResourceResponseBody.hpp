@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // The ID of the rule.
+    // 
+    // For more information about how to obtain the rule ID, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
     shared_ptr<string> configRuleId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

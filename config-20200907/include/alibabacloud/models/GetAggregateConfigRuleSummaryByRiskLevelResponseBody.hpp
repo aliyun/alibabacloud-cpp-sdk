@@ -79,15 +79,8 @@ namespace Models
 
 
     protected:
-      // The number of rules against which specific resources are evaluated as compliant.
       shared_ptr<int32_t> compliantCount_ {};
-      // The number of rules against which specific resources are evaluated as non-compliant.
       shared_ptr<int32_t> nonCompliantCount_ {};
-      // The risk level of the resources that do not comply with the rule. Valid values:
-      // 
-      // *   1: high
-      // *   2: medium
-      // *   3: low
       shared_ptr<int32_t> riskLevel_ {};
     };
 
@@ -110,9 +103,7 @@ namespace Models
 
 
   protected:
-    // The summary of compliance evaluation results by rule risk level.
     shared_ptr<vector<GetAggregateConfigRuleSummaryByRiskLevelResponseBody::ConfigRuleSummaries>> configRuleSummaries_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,18 +57,8 @@ namespace Models
 
 
   protected:
-    // The IDs of the destination account groups into which the compliance packages are replicated. Separate multiple account group IDs with commas (,).
-    // 
-    // > If this parameter is left empty, the compliance packages are replicated to the current account group.
     shared_ptr<string> desAggregatorIds_ {};
-    // The ID of the account group to which the compliance packages belong.
-    // 
-    // For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     shared_ptr<string> srcAggregatorId_ {};
-    // The IDs of the compliance packages. Separate multiple compliance package IDs with commas (,).
-    // 
-    // For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
-    // 
     // This parameter is required.
     shared_ptr<string> srcCompliancePackIds_ {};
   };

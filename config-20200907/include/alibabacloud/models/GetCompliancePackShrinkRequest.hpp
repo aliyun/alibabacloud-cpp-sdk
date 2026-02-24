@@ -48,15 +48,15 @@ namespace Models
 
 
   protected:
-    // The ID of the compliance package.
+    // The compliance package ID.
     // 
-    // For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+    // For more information about how to obtain the compliance package ID, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
     // 
     // This parameter is required.
     shared_ptr<string> compliancePackId_ {};
-    // The tags of the resource.
+    // The tags of the resource. This parameter is deprecated and takes no effect if it is specified.
     // 
-    // You can add up to 20 tags to a resource.
+    // You can add up to 20 tags.
     shared_ptr<string> tagShrink_ {};
   };
 

@@ -214,40 +214,46 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud account to which the resource belongs. We recommend that you use the ResourceOwnerId parameter.
+        // The ID of the Alibaba Cloud account that owns the resource. We recommend that you use the ResourceOwnerId parameter.
         shared_ptr<int64_t> accountId_ {};
-        // The ID of the zone in which the resource resides.
+        // The zone where the resource resides.
         shared_ptr<string> availabilityZone_ {};
         // The region ID.
         shared_ptr<string> region_ {};
-        // The time when the resource was created. Unit: milliseconds.
+        // The timestamp when the resource was created. Unit: milliseconds.
         shared_ptr<int64_t> resourceCreationTime_ {};
         // The status of the resource. Valid values:
         // 
-        // *   0: The resource is deleted.
-        // *   1: The resource is retained.
+        // - 0: The resource is deleted.
+        // 
+        // - 1: The resource is in use.
         shared_ptr<int32_t> resourceDeleted_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
         // The resource name.
         shared_ptr<string> resourceName_ {};
-        // The ID of the Alibaba Cloud account to which the resource belongs.
+        // The ID of the Alibaba Cloud account that owns the resource.
         shared_ptr<int64_t> resourceOwnerId_ {};
-        // The status of the resource. The value of this parameter varies with the resource type and may be empty. Examples:
+        // The status of the resource. The status of a resource is defined by the corresponding Alibaba Cloud service. This parameter can be empty. For example:
         // 
-        // *   If the value of the ResourceType parameter is ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that is in a specific state. In this case, the valid values of this parameter are Running and Stopped.
-        // *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is empty.
+        // - If the resource type is ACS::ECS::Instance, the resource is stateful. The value of this parameter can be Running or Stopped.
+        // 
+        // - If the resource type is ACS::OSS::Bucket, the resource is stateless. The value of this parameter is empty.
         shared_ptr<string> resourceStatus_ {};
         // The resource type.
         shared_ptr<string> resourceType_ {};
-        // The tags of the resource.
+        // The resource tags.
         shared_ptr<string> tags_ {};
-        // The time when the resource was last updated. The value must be a timestamp in milliseconds.
+        // The timestamp of the last update to the resource. This is a timestamp in milliseconds.
         shared_ptr<int64_t> updateTime_ {};
+        // The ID of the vSwitch to which the resource belongs. The format is vsw-t4n7pokxxxxxxxxxxxxxx. If the resource belongs to multiple vSwitches, the vSwitch IDs are separated by commas (,). An empty string is returned if the resource does not belong to a vSwitch.
+        // 
         // This parameter is required.
         shared_ptr<string> vSwitchId_ {};
-        // The build version of the resource.
+        // The resource build version.
         shared_ptr<int64_t> version_ {};
+        // The ID of the VPC to which the resource belongs. The format is vpc-t4nhheyvay74fp7n0hxxx. An empty string is returned if the resource does not belong to a VPC.
+        // 
         // This parameter is required.
         shared_ptr<string> vpcId_ {};
       };
@@ -287,9 +293,9 @@ namespace Models
     protected:
       // The details of the resources.
       shared_ptr<vector<DiscoveredResourceProfiles::DiscoveredResourceProfileList>> discoveredResourceProfileList_ {};
-      // The maximum number of entries returned on each page.
+      // The maximum number of entries returned per page.
       shared_ptr<int32_t> maxResults_ {};
-      // The token that was used to initiate the next request.
+      // The token used to start the next query.
       shared_ptr<string> nextToken_ {};
       // The total number of resources.
       shared_ptr<int32_t> totalCount_ {};
@@ -314,7 +320,7 @@ namespace Models
 
 
   protected:
-    // The information about the resources.
+    // The list of resources.
     shared_ptr<ListAggregateDiscoveredResourcesResponseBody::DiscoveredResourceProfiles> discoveredResourceProfiles_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

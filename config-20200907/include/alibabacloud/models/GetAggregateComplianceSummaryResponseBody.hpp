@@ -136,12 +136,15 @@ namespace Models
 
 
       protected:
-        // The time when the compliance statistics were collected. Unit: milliseconds.
+        // The timestamp of the compliance summary. This value is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<int64_t> complianceSummaryTimestamp_ {};
         // The number of compliant resources.
         shared_ptr<int32_t> compliantCount_ {};
+        // The number of non-compliant resources detected by high-risk rules. Note: This value is not deduplicated by resource. If a resource is evaluated as non-compliant by two different rules, it is counted twice.
         shared_ptr<int32_t> highRiskRuleNonCompliantResourceCount_ {};
+        // The number of non-compliant resources detected by low-risk rules. Note: This value is not deduplicated by resource. If a resource is evaluated as non-compliant by two different rules, it is counted twice.
         shared_ptr<int32_t> lowRiskRuleNonCompliantResourceCount_ {};
+        // The number of non-compliant resources detected by medium-risk rules. Note: This value is not deduplicated by resource. If a resource is evaluated as non-compliant by two different rules, it is counted twice.
         shared_ptr<int32_t> mediumRiskRuleNonCompliantResourceCount_ {};
         // The number of non-compliant resources.
         shared_ptr<int32_t> nonCompliantCount_ {};
@@ -205,7 +208,7 @@ namespace Models
 
 
       protected:
-        // The time when the compliance statistics were collected. Unit: milliseconds.
+        // The timestamp of the compliance summary. This value is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<int64_t> complianceSummaryTimestamp_ {};
         // The number of compliant rules.
         shared_ptr<int32_t> compliantCount_ {};
@@ -236,9 +239,9 @@ namespace Models
 
 
     protected:
-      // The summary of compliance statistics from the rule dimension.
+      // The compliance summary by rule.
       shared_ptr<ComplianceSummary::ComplianceSummaryByConfigRule> complianceSummaryByConfigRule_ {};
-      // The summary of compliance statistics from the resource dimension.
+      // The compliance summary by resource.
       shared_ptr<ComplianceSummary::ComplianceSummaryByResource> complianceSummaryByResource_ {};
     };
 
@@ -261,7 +264,7 @@ namespace Models
 
 
   protected:
-    // The compliance statistics.
+    // The compliance summary.
     shared_ptr<GetAggregateComplianceSummaryResponseBody::ComplianceSummary> complianceSummary_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

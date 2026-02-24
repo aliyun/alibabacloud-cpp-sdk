@@ -130,52 +130,57 @@ namespace Models
 
 
   protected:
-    // The compliance package ID.
-    // 
-    // For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/606968.html).
-    // 
-    // >  You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
+    // The ID of the compliance package.
     shared_ptr<string> compliancePackId_ {};
     // The compliance evaluation result of the rule. Valid values:
     // 
-    // *   COMPLIANT: The resources are evaluated as compliant.
-    // *   NON_COMPLIANT: The resources are evaluated as non-compliant.
-    // *   NOT_APPLICABLE: The rule does not apply to the resources.
-    // *   INSUFFICIENT_DATA: No resource data is available.
+    // - COMPLIANT: Compliant.
+    // 
+    // - NON_COMPLIANT: Non-compliant.
+    // 
+    // - NOT_APPLICABLE: Not applicable.
+    // 
+    // - INSUFFICIENT_DATA: Insufficient data.
     shared_ptr<string> complianceType_ {};
     // The name of the rule.
     shared_ptr<string> configRuleName_ {};
-    // The status of the rule. Valid values:
+    // The state of the rule. Valid values:
     // 
-    // *   ACTIVE: The rule is enabled.
-    // *   DELETING: The rule is being deleted.
-    // *   EVALUATING: The rule is being used to evaluate resource configurations.
-    // *   INACTIVE: The rule is disabled.
+    // - ACTIVE: The rule is enabled.
+    // 
+    // - DELETING: The rule is being deleted.
+    // 
+    // - EVALUATING: The rule is being evaluated.
+    // 
+    // - INACTIVE: The rule is disabled.
     shared_ptr<string> configRuleState_ {};
-    // The query keyword.
+    // The keyword for the fuzzy query.
     // 
-    // You can perform a fuzzy search by rule ID, rule name, rule description, or managed rule ID.
+    // Supports fuzzy queries by rule ID, rule name, rule description, or rule template identifier.
     shared_ptr<string> keyword_ {};
     // The page number.
     // 
-    // Page numbers start from 1. Default value: 1.
+    // The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     // 
-    // Valid values: 1 to 100. A minimum of 1 entry can be returned per page. Default value: 10.
+    // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the resources to be evaluated based on the rule.
+    // The type of resource evaluated by the rule.
     shared_ptr<string> resourceTypes_ {};
-    // The risk level of the resources that are not compliant with the rule. Valid values:
+    // The risk level of the rule. Valid values:
     // 
-    // *   1: high
-    // *   2: medium
-    // *   3: low
+    // - 1: High risk.
+    // 
+    // - 2: Medium risk.
+    // 
+    // - 3: Low risk.
     shared_ptr<int32_t> riskLevel_ {};
+    // The sorting method. This parameter is not required. Set the value to `CreateDate-Desc` to sort the rules by creation time in descending order.
     shared_ptr<string> sortBy_ {};
     // The tags of the resource.
     // 
-    // You can add up to 20 tags to a resource.
+    // A maximum of 20 tags can be attached.
     shared_ptr<string> tagShrink_ {};
   };
 

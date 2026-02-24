@@ -128,9 +128,7 @@ namespace Models
 
 
         protected:
-          // The tag keys of the resource.
           shared_ptr<string> tagKey_ {};
-          // The tag values of the resource.
           shared_ptr<string> tagValue_ {};
         };
 
@@ -210,32 +208,15 @@ namespace Models
 
 
       protected:
-        // The ID of the management account that is used to create the account group.
         shared_ptr<int64_t> accountId_ {};
-        // The number of member accounts in the account group.
         shared_ptr<int64_t> aggregatorAccountCount_ {};
-        // The timestamp generated when the account group was created.
         shared_ptr<int64_t> aggregatorCreateTimestamp_ {};
-        // The ID of the account group.
         shared_ptr<string> aggregatorId_ {};
-        // The name of the account group.
         shared_ptr<string> aggregatorName_ {};
-        // The status of the account group. Valid values:
-        // 
-        // *   0: The account group is being created.
-        // *   1: The account group was created.
         shared_ptr<int32_t> aggregatorStatus_ {};
-        // The type of the account group. Valid values:
-        // 
-        // *   RD: global account group.
-        // *   FOLDER: account group of the folder.
-        // *   CUSTOM: custom account group.
         shared_ptr<string> aggregatorType_ {};
-        // The description of the account group.
         shared_ptr<string> description_ {};
-        // The ID of the folder.
         shared_ptr<string> folderId_ {};
-        // tags
         shared_ptr<vector<Aggregators::Tags>> tags_ {};
       };
 
@@ -258,9 +239,7 @@ namespace Models
 
 
     protected:
-      // The list of the account groups.
       shared_ptr<vector<AggregatorsResult::Aggregators>> aggregators_ {};
-      // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -283,9 +262,7 @@ namespace Models
 
 
   protected:
-    // The account groups.
     shared_ptr<ListAggregatorsResponseBody::AggregatorsResult> aggregatorsResult_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

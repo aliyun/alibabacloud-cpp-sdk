@@ -98,17 +98,8 @@ namespace Models
 
 
       protected:
-        // The rule ID.
         shared_ptr<string> configRuleId_ {};
-        // The error code returned.
-        // 
-        // *   If the rule is deleted, no error code is returned.
-        // *   If the rule fails to be deleted, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
         shared_ptr<string> errorCode_ {};
-        // Indicates whether the request was successful. Valid values:
-        // 
-        // *   true: The request was successful.
-        // *   false: The request failed.
         shared_ptr<bool> success_ {};
       };
 
@@ -123,7 +114,6 @@ namespace Models
 
 
     protected:
-      // The details of the result.
       shared_ptr<vector<OperateRuleResult::OperateRuleItemList>> operateRuleItemList_ {};
     };
 
@@ -146,9 +136,7 @@ namespace Models
 
 
   protected:
-    // The results of the delete operations.
     shared_ptr<DeleteAggregateConfigRulesResponseBody::OperateRuleResult> operateRuleResult_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

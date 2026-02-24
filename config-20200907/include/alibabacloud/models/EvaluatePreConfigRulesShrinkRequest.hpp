@@ -57,18 +57,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the managed rule. Valid values:
+    // Specifies whether to enable rule templates. Valid values:
     // 
-    // *   true: enables the managed rule.
-    // *   false: does not enable the managed rule. This is the default value.
+    // - true: enables rule templates.
     // 
-    // >  After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
+    // - false (default): does not enable rule templates.
     shared_ptr<bool> enableManagedRules_ {};
-    // The resources that you want to evaluate.
+    // An array that contains the resources that you want to evaluate.
     // 
     // This parameter is required.
     shared_ptr<string> resourceEvaluateItemsShrink_ {};
-    // 下一个查询开始Token
+    // The query start token
     shared_ptr<string> resourceTypeFormat_ {};
   };
 

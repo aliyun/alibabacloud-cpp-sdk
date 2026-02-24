@@ -117,11 +117,19 @@ namespace Models
     protected:
       // The ID of the compliance package.
       shared_ptr<string> compliancePackId_ {};
+      // The number of compliant resources.
+      // 
+      // > Note: A resource is counted each time a rule evaluates it as compliant. For example, if a resource is evaluated as compliant by two rules, it is counted twice.
       shared_ptr<int32_t> compliantCount_ {};
+      // The number of resources whose evaluation results are ignored.
       shared_ptr<int32_t> ignoredCount_ {};
+      // The total number of resources that the rules in the compliance package evaluate as Insufficient Data.
       shared_ptr<int32_t> insufficientDataCount_ {};
       // The number of non-compliant resources.
       shared_ptr<int32_t> nonCompliantCount_ {};
+      // The number of resources that are not applicable.
+      // 
+      // > Note: A resource is counted each time a rule evaluates it as not applicable. For example, if a resource is evaluated as not applicable by two rules, it is counted twice.
       shared_ptr<int32_t> notApplicableCount_ {};
       // The total number of resources.
       shared_ptr<int32_t> totalCount_ {};
@@ -148,7 +156,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The compliance evaluation results returned.
+    // The compliance results of the resources in the compliance package.
     shared_ptr<GetResourceComplianceByPackResponseBody::ResourceComplianceResult> resourceComplianceResult_ {};
   };
 

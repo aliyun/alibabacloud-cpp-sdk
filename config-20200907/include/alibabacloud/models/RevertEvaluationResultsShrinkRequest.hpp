@@ -48,14 +48,8 @@ namespace Models
 
 
   protected:
-    // The rule ID.
-    // 
-    // For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
-    // 
     // This parameter is required.
     shared_ptr<string> configRuleId_ {};
-    // The resources that are to be re-evaluated.
-    // 
     // This parameter is required.
     shared_ptr<string> resourcesShrink_ {};
   };

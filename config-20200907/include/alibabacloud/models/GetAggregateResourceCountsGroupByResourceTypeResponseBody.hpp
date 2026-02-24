@@ -79,11 +79,8 @@ namespace Models
 
 
     protected:
-      // This parameter is expired. The resource type by which statistics are collected.
       shared_ptr<string> groupName_ {};
-      // The total number of resources in the region.
       shared_ptr<int64_t> resourceCount_ {};
-      // The resource type by which statistics are collected.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -106,9 +103,7 @@ namespace Models
 
 
   protected:
-    // The resource type by which the statistics are collected.
     shared_ptr<vector<GetAggregateResourceCountsGroupByResourceTypeResponseBody::DiscoveredResourceCountsSummary>> discoveredResourceCountsSummary_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

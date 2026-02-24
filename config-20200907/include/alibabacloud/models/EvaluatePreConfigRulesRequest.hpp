@@ -97,11 +97,13 @@ namespace Models
 
 
       protected:
-        // The identifier of the evaluation rule.
+        // The identifier of the rule.
         // 
-        // For more information about how to obtain the identifier of an evaluation rule, see [ListManagedRules](https://help.aliyun.com/document_detail/467810.html).
+        // For information about how to obtain the identifier of a rule, see [ListPreManagedRules](https://help.aliyun.com/document_detail/467810.html).
+        // 
+        // > The `ResourceType`, `Identifier`, and `ResourceProperties` parameters must be specified at the same time.
         shared_ptr<string> identifier_ {};
-        // The input parameters of the evaluation rule.
+        // The input parameters of the rule.
         shared_ptr<string> inputParameters_ {};
       };
 
@@ -139,12 +141,20 @@ namespace Models
 
     protected:
       // The logical ID of the resource.
+      // 
+      // > If this parameter is empty, it is generated based on the Base64 value of `ResourceProperties`.
       shared_ptr<string> resourceLogicalId_ {};
-      // The properties of the resource.
+      // The resource configuration items (properties of the resource to be created), such as the specifications, region, name, status, and port or network interface switch status of the resource.
+      // 
+      // > The `ResourceType`, `Identifier`, and `ResourceProperties` parameters must be specified at the same time.
       shared_ptr<string> resourceProperties_ {};
       // The type of the resource.
+      // 
+      // For information about how to obtain the identifier of an evaluation rule, see [ListPreManagedRules](https://help.aliyun.com/document_detail/467810.html).
+      // 
+      // > The `ResourceType`, `Identifier`, and `ResourceProperties` parameters must be specified at the same time.
       shared_ptr<string> resourceType_ {};
-      // The evaluation rules.
+      // An array that contains the evaluation rules.
       shared_ptr<vector<ResourceEvaluateItems::Rules>> rules_ {};
     };
 
@@ -174,18 +184,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the managed rule. Valid values:
+    // Specifies whether to enable rule templates. Valid values:
     // 
-    // *   true: enables the managed rule.
-    // *   false: does not enable the managed rule. This is the default value.
+    // - true: enables rule templates.
     // 
-    // >  After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
+    // - false (default): does not enable rule templates.
     shared_ptr<bool> enableManagedRules_ {};
-    // The resources that you want to evaluate.
+    // An array that contains the resources that you want to evaluate.
     // 
     // This parameter is required.
     shared_ptr<vector<EvaluatePreConfigRulesRequest::ResourceEvaluateItems>> resourceEvaluateItems_ {};
-    // 下一个查询开始Token
+    // The query start token
     shared_ptr<string> resourceTypeFormat_ {};
   };
 

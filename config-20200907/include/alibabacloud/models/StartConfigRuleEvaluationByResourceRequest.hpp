@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The ID of the resource.
+    // 
+    // For more information about how to obtain the resource ID, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+    // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
   };

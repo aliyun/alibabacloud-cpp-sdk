@@ -57,21 +57,10 @@ namespace Models
 
 
   protected:
-    // The ID of the account group.
-    // 
-    // For information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
-    // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The rule ID.
-    // 
-    // For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
-    // 
     // This parameter is required.
     shared_ptr<string> configRuleId_ {};
-    // The ID of the Alibaba Cloud account to which the resources to be remediated belong. If this parameter is left empty, non-compliant resources of all accounts in the account group are remediated.
-    // 
-    // > You must specify the ID of the current management account or a member account in the account group of the management account.
     shared_ptr<int64_t> resourceAccountId_ {};
   };
 

@@ -92,25 +92,25 @@ namespace Models
 
 
     protected:
-      // The ID of the region in which the resource resides.
+      // The ID of the region to which the resource belongs.
       // 
-      // For more information about how to obtain the ID of the region in which a resource resides, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+      // For more information about how to obtain the ID of the region to which the resource belongs, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
       // 
       // This parameter is required.
       shared_ptr<string> region_ {};
-      // The ID of the Alibaba Cloud account to which the resources belong.
+      // The ID of the Alibaba Cloud account to which the resource belongs.
       // 
       // This parameter is required.
       shared_ptr<int64_t> resourceAccountId_ {};
-      // The ID of the resource.
+      // The resource ID.
       // 
-      // For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+      // For more information about how to obtain the resource ID, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
       // 
       // This parameter is required.
       shared_ptr<string> resourceId_ {};
-      // The type of the resource.
+      // The resource type.
       // 
-      // For more information about how to obtain the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+      // For more information about how to obtain the resource type, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
       // 
       // This parameter is required.
       shared_ptr<string> resourceType_ {};
@@ -149,19 +149,19 @@ namespace Models
 
 
   protected:
-    // The ID of the rule.
+    // The rule ID.
     // 
-    // For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+    // For more information about how to obtain the rule ID, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
     // 
     // This parameter is required.
     shared_ptr<string> configRuleId_ {};
-    // The date from which the system automatically re-evaluates the ignored incompliant resources.
+    // The date on which the ignored evaluation results are automatically restored.
     // 
-    // >  If you leave this parameter empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+    // > If this parameter is left empty, the ignored evaluation results are not automatically restored. You must manually restore them.
     shared_ptr<string> ignoreDate_ {};
-    // The reason why you want to ignore the resource.
+    // The reason for ignoring the resources.
     shared_ptr<string> reason_ {};
-    // The resources to be ignored.
+    // The list of resources to be ignored.
     // 
     // This parameter is required.
     shared_ptr<vector<IgnoreEvaluationResultsRequest::Resources>> resources_ {};

@@ -98,17 +98,8 @@ namespace Models
 
 
       protected:
-        // The rule ID.
         shared_ptr<string> configRuleId_ {};
-        // The error code.
-        // 
-        // *   If the rule is disabled, no error code is returned.
-        // *   If the rule fails to be disabled, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
         shared_ptr<string> errorCode_ {};
-        // Indicates whether the request was successful. Valid values:
-        // 
-        // *   true
-        // *   false
         shared_ptr<bool> success_ {};
       };
 
@@ -123,7 +114,6 @@ namespace Models
 
 
     protected:
-      // The operations that are performed to disable the rule.
       shared_ptr<vector<OperateRuleResult::OperateRuleItemList>> operateRuleItemList_ {};
     };
 
@@ -146,9 +136,7 @@ namespace Models
 
 
   protected:
-    // The results of the operations that are performed to disable the specified rules.
     shared_ptr<DeactiveConfigRulesResponseBody::OperateRuleResult> operateRuleResult_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

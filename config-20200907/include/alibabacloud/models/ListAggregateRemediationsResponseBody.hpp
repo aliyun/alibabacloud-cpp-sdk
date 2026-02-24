@@ -162,46 +162,55 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account to which the resource belongs.
+      // The ID of the Alibaba Cloud account.
       shared_ptr<int64_t> accountId_ {};
       // The ID of the account group.
       shared_ptr<string> aggregatorId_ {};
       // The rule ID.
       shared_ptr<string> configRuleId_ {};
-      // The execution mode of the remediation template. Valid values:
+      // The execution mode of the remediation. Valid values:
       // 
-      // *   NON_EXECUTION: The remediation template is not executed.
-      // *   AUTO_EXECUTION: The remediation template is automatically executed.
-      // *   MANUAL_EXECUTION: The remediation template is manually executed.
-      // *   NOT_CONFIG: The execution mode is not specified.
+      // - NON_EXECUTION: The remediation is not executed.
+      // 
+      // - AUTO_EXECUTION: The remediation is automatically executed.
+      // 
+      // - MANUAL_EXECUTION: The remediation is manually executed.
+      // 
+      // - NOT_CONFIG: The remediation is not configured.
       shared_ptr<string> invokeType_ {};
-      // The ID of the last successful execution of the remediation template.
+      // The ID of the last successful remediation.
       shared_ptr<string> lastSuccessfulInvocationId_ {};
-      // The timestamp of the last successful execution of the remediation template. Unit: milliseconds.
+      // The timestamp of the last successful remediation. Unit: milliseconds.
       shared_ptr<int64_t> lastSuccessfulInvocationTime_ {};
-      // The mode of the last successful execution of the remediation template. Valid values:
+      // The mode of the last successful remediation. Valid values:
       // 
-      // *   NON_EXECUTION: The remediation template is not executed.
-      // *   AUTO_EXECUTION: The remediation template is automatically executed.
-      // *   MANUAL_EXECUTION: The remediation template is manually executed.
-      // *   NOT_CONFIG: The execution mode is not specified.
+      // - NON_EXECUTION: The remediation was not executed.
+      // 
+      // - AUTO_EXECUTION: The remediation was automatically executed.
+      // 
+      // - MANUAL_EXECUTION: The remediation was manually executed.
+      // 
+      // - NOT_CONFIG: The remediation was not configured.
       shared_ptr<string> lastSuccessfulInvocationType_ {};
-      // The converted configuration of the remediation template. This parameter is returned only for an OOS remediation template.
+      // The converted format of the remediation setting parameters. This parameter is used only to convert the parameters of an OOS template.
       shared_ptr<string> remediaitonOriginParams_ {};
-      // The ID of the remediation template.
+      // The ID of the remediation setting.
       shared_ptr<string> remediationId_ {};
-      // The source of remediation template. Valid values:
+      // The source of the remediation template. Valid values:
       // 
-      // *   ALIYUN: official template.
-      // *   CUSTOM: custom template.
-      // *   NONE: none.
+      // - ALIYUN: official template.
+      // 
+      // - CUSTOM: custom template.
+      // 
+      // - NONE: none.
       shared_ptr<string> remediationSourceType_ {};
       // The ID of the remediation template.
       shared_ptr<string> remediationTemplateId_ {};
-      // The type of the remediation template. Valid values:
+      // The type of the remediation. Valid values:
       // 
-      // *   OOS: Operation Orchestration Service (official remediation).
-      // *   FC: Function Compute (custom remediation).
+      // - OOS: Operation Orchestration Service (official remediation).
+      // 
+      // - FC: Function Compute (custom remediation).
       shared_ptr<string> remediationType_ {};
     };
 
@@ -224,7 +233,7 @@ namespace Models
 
 
   protected:
-    // An array that contains remediation templates.
+    // The remediation settings.
     shared_ptr<vector<ListAggregateRemediationsResponseBody::Remediations>> remediations_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

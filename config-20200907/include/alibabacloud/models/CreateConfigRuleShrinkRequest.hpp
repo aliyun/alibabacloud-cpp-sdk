@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateConfigRuleShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(Conditions, conditions_);
       DARABONBA_PTR_TO_JSON(ConfigRuleName, configRuleName_);
       DARABONBA_PTR_TO_JSON(ConfigRuleTriggerTypes, configRuleTriggerTypes_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -41,6 +42,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateConfigRuleShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(Conditions, conditions_);
       DARABONBA_PTR_FROM_JSON(ConfigRuleName, configRuleName_);
       DARABONBA_PTR_FROM_JSON(ConfigRuleTriggerTypes, configRuleTriggerTypes_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -114,9 +116,9 @@ namespace Models
 
 
     protected:
-      // TagKey
+      // The tag key.
       shared_ptr<string> tagKey_ {};
-      // TagValue
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -158,23 +160,30 @@ namespace Models
 
 
     protected:
-      // TagKey
+      // The tag key.
       shared_ptr<string> tagKey_ {};
-      // TagValue
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->configRuleName_ == nullptr && this->configRuleTriggerTypes_ == nullptr && this->description_ == nullptr && this->excludeRegionIdsScope_ == nullptr && this->excludeResourceGroupIdsScope_ == nullptr
-        && this->excludeResourceIdsScope_ == nullptr && this->excludeTagsScope_ == nullptr && this->extendContent_ == nullptr && this->inputParametersShrink_ == nullptr && this->maximumExecutionFrequency_ == nullptr
-        && this->regionIdsScope_ == nullptr && this->resourceGroupIdsScope_ == nullptr && this->resourceIdsScope_ == nullptr && this->resourceNameScope_ == nullptr && this->resourceTypesScopeShrink_ == nullptr
-        && this->riskLevel_ == nullptr && this->sourceIdentifier_ == nullptr && this->sourceOwner_ == nullptr && this->tagShrink_ == nullptr && this->tagKeyLogicScope_ == nullptr
-        && this->tagKeyScope_ == nullptr && this->tagValueScope_ == nullptr && this->tagsScope_ == nullptr; };
+        && this->conditions_ == nullptr && this->configRuleName_ == nullptr && this->configRuleTriggerTypes_ == nullptr && this->description_ == nullptr && this->excludeRegionIdsScope_ == nullptr
+        && this->excludeResourceGroupIdsScope_ == nullptr && this->excludeResourceIdsScope_ == nullptr && this->excludeTagsScope_ == nullptr && this->extendContent_ == nullptr && this->inputParametersShrink_ == nullptr
+        && this->maximumExecutionFrequency_ == nullptr && this->regionIdsScope_ == nullptr && this->resourceGroupIdsScope_ == nullptr && this->resourceIdsScope_ == nullptr && this->resourceNameScope_ == nullptr
+        && this->resourceTypesScopeShrink_ == nullptr && this->riskLevel_ == nullptr && this->sourceIdentifier_ == nullptr && this->sourceOwner_ == nullptr && this->tagShrink_ == nullptr
+        && this->tagKeyLogicScope_ == nullptr && this->tagKeyScope_ == nullptr && this->tagValueScope_ == nullptr && this->tagsScope_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateConfigRuleShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // conditions Field Functions 
+    bool hasConditions() const { return this->conditions_ != nullptr;};
+    void deleteConditions() { this->conditions_ = nullptr;};
+    inline string getConditions() const { DARABONBA_PTR_GET_DEFAULT(conditions_, "") };
+    inline CreateConfigRuleShrinkRequest& setConditions(string conditions) { DARABONBA_PTR_SET_VALUE(conditions_, conditions) };
 
 
     // configRuleName Field Functions 
@@ -343,108 +352,130 @@ namespace Models
 
 
   protected:
-    // The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+    // A client token. It is used to ensure the idempotence of the request. You can use the client to generate a token, but you must make sure that the token is unique among different requests. The `ClientToken` parameter can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    shared_ptr<string> conditions_ {};
     // The name of the rule.
     // 
     // This parameter is required.
     shared_ptr<string> configRuleName_ {};
-    // The trigger type of the rule. Valid values:
+    // The trigger that invokes the rule. Valid values:
     // 
-    // *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
-    // *   ScheduledNotification: The rule is periodically triggered.
+    // - ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
     // 
-    // >  If a rule supports the preceding trigger types, separate the types with a comma (,).
+    // - ScheduledNotification: The rule is triggered on a regular basis.
+    // 
+    // > If a rule has multiple triggers, separate them with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> configRuleTriggerTypes_ {};
     // The description of the rule.
     shared_ptr<string> description_ {};
-    // ExcludeRegionIdsScope
+    // The rule does not apply to resources in the specified regions. The compliance of resources in these regions is not evaluated. Separate multiple region IDs with commas (,).
     shared_ptr<string> excludeRegionIdsScope_ {};
-    // ExcludeResourceGroupIdsScope
+    // The rule does not apply to resources in the specified resource groups. The compliance of resources in these resource groups is not evaluated. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> excludeResourceGroupIdsScope_ {};
-    // The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+    // The rule does not apply to the specified resources. The compliance of these resources is not evaluated. Separate multiple resource IDs with commas (,).
     // 
-    // >  This parameter applies only to managed rules.
+    // > This parameter applies only to rule templates.
     shared_ptr<string> excludeResourceIdsScope_ {};
-    // ExcludeTagsScope
+    // The scope of the tags to exclude.
     shared_ptr<vector<CreateConfigRuleShrinkRequest::ExcludeTagsScope>> excludeTagsScope_ {};
-    // Optional field, only used in conjunction with the 24-hour cycle execution to set the trigger time.
+    // Extended content. This parameter is used only to specify the trigger time for a 24-hour evaluation cycle.
     shared_ptr<string> extendContent_ {};
-    // The input parameter of the rule.
+    // The input parameters of the rule.
+    // 
+    // You can obtain the input parameters of a rule by calling the [GetManagedRule](https://help.aliyun.com/document_detail/606993.html) operation. View the `CompulsoryInputParameterDetails` and `OptionalInputParameterDetails` parameters to learn about the required and optional parameters.
+    // 
+    // The format of the input parameters is `{"Parameter 1 Name":"Parameter 1 Value","Parameter 2 Name":"Parameter 2 Value"}`.
     shared_ptr<string> inputParametersShrink_ {};
-    // The intervals at which the rule is triggered. Valid values:
+    // The frequency at which the rule is executed. Valid values:
     // 
-    // *   One_Hour: 1 hour.
-    // *   Three_Hours: 3 hours.
-    // *   Six_Hours: 6 hours.
-    // *   Twelve_Hours: 12 hours.
-    // *   TwentyFour_Hours (default): 24 hours.
+    // - One_Hour: 1 hour.
     // 
-    // >  This parameter is required if the ConfigRuleTriggerTypes parameter is set to ScheduledNotification.
+    // - Three_Hours: 3 hours.
+    // 
+    // - Six_Hours: 6 hours.
+    // 
+    // - Twelve_Hours: 12 hours.
+    // 
+    // - TwentyFour_Hours (default): 24 hours.
+    // 
+    // > This parameter is required if you set ConfigRuleTriggerTypes to ScheduledNotification.
     shared_ptr<string> maximumExecutionFrequency_ {};
-    // The ID of the region to which the rule applies. Separate multiple region IDs with commas (,).
+    // The rule applies only to resources in the specified regions. Separate multiple region IDs with commas (,).
     // 
-    // >  This parameter applies only to managed rules.
+    // > This parameter applies only to rule templates.
     shared_ptr<string> regionIdsScope_ {};
-    // The ID of the resource group to which the rule applies. Separate multiple resource group IDs with commas (,).
+    // The rule applies only to resources in the specified resource groups. Separate multiple resource group IDs with commas (,).
     // 
-    // >  This parameter applies only to managed rules.
+    // > This parameter applies only to rule templates.
     shared_ptr<string> resourceGroupIdsScope_ {};
-    // ResourceIdsScope
+    // The rule applies to the specified resources. Separate multiple resource IDs with commas (,).
     shared_ptr<string> resourceIdsScope_ {};
-    // The names of the resource to which the rule applies.
+    // The rule applies only to resources that have the specified names.
     shared_ptr<string> resourceNameScope_ {};
-    // The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
+    // The resource types to be evaluated by the rule. Separate multiple resource types with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> resourceTypesScopeShrink_ {};
-    // The risk level of the resources that do not comply with the rule. Valid values:
+    // The risk level of the rule. Valid values:
     // 
-    // *   1: high.
-    // *   2: medium.
-    // *   3: low.
+    // - 1: high.
+    // 
+    // - 2: medium.
+    // 
+    // - 3: low.
     // 
     // This parameter is required.
     shared_ptr<int32_t> riskLevel_ {};
-    // The ID of the rule.
+    // The identifier of the rule.
     // 
-    // *   If you set the SourceOwner parameter to ALIYUN, set this parameter to the name of the managed rule.
-    // *   If you set the SourceOwner parameter to CUSTOM_FC, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
+    // - If you set `SourceOwner` to `ALIYUN`, specify the identifier of the rule template. Example: `required-tags`.
     // 
-    // For more information about how to query the name of a managed rule, see [Managed rules](https://help.aliyun.com/document_detail/127404.html).
+    //   > To query the identifier of a rule template, see [List of rule templates](https://help.aliyun.com/document_detail/127404.html).
+    // 
+    // - If you set `SourceOwner` to `CUSTOM_FC`, specify the Alibaba Cloud Resource Name (ARN) of the function.
+    // 
+    //   The ARN must be in the format of `acs:fc:{Region}:{AccountID}:services/{ServiceName}.LATEST/functions/{FunctionName}`. Example: `acs:fc:cn-hangzhou:120886317861****:services/service-test.LATEST/functions/config-test`.
+    // 
+    //   > To obtain the ARN of a function, see [ListFunctions](https://help.aliyun.com/document_detail/415752.html).
     // 
     // This parameter is required.
     shared_ptr<string> sourceIdentifier_ {};
-    // The type of the rule Valid values:
+    // The type of the rule to create. Valid values:
     // 
-    // *   ALIYUN: managed rule.
-    // *   CUSTOM_FC: custom rule.
+    // - ALIYUN: rule template.
+    // 
+    // - CUSTOM_FC: custom rule.
     // 
     // This parameter is required.
     shared_ptr<string> sourceOwner_ {};
-    // rule attached tags
+    // The tags of the rule to be created.
     shared_ptr<string> tagShrink_ {};
-    // The logical relationship when parameter `TagsScope` takes multiple values, for example: When the parameter `TagsScope` is `"TagsScope.1.TagKey":"a", "TagsScope.1.TagValue":"a", "TagsScope.2.TagKey":"b", "TagsScope.2.TagValue":"b"`, if this parameter is set to` AND`, it means that the rule only applies to resources bound with both tags `a:a` and `b:b`. If not specified, the default logic is `OR`.
+    // The logical operator that applies if you specify multiple tags for the `TagsScope` parameter. For example, if you set `TagsScope` to `"TagsScope.1.TagKey":"a","TagsScope.1.TagValue":"a","TagsScope.2.TagKey":"b","TagsScope.2.TagValue":"b"` and set this parameter to `AND`, the rule applies only to resources that have both the `a:a` and `b:b` tags. If you do not specify this parameter, the default value `OR` is used.
     // 
-    // It can also be used for the deprecated field `TagKeyScope` (not recommended), for example: When the parameter `TagKeyScope` has a value of `ECS`,`OSS`, if this parameter is set to `AND`, it means that the rule only applies to resources bound with both labels `ECS` and `OSS`.
+    // This parameter also works with the deprecated `TagKeyScope` parameter. For example, if you set `TagKeyScope` to `ECS,OSS` and set this parameter to `AND`, the rule applies only to resources that have both the `ECS` and `OSS` tags.
     // 
-    // Values:
+    // Valid values:
     // 
-    //  - AND: And.
+    // - AND: The AND logic applies.
     // 
-    //  - OR: Or.
+    // - OR: The OR logic applies.
     shared_ptr<string> tagKeyLogicScope_ {};
-    // The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+    // This parameter is deprecated. Use the `TagsScope` parameter instead.
     // 
-    // >  This parameter applies only to managed rules. You must specify both `TagKeyScope` and `TagValueScope`.
+    // The rule applies only to resources that have the specified tag key.
+    // 
+    // > This parameter applies only to managed rules. You must set both `TagKeyScope` and `TagValueScope`.
     shared_ptr<string> tagKeyScope_ {};
-    // The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
+    // This parameter is deprecated. Use the `TagsScope` parameter instead.
     // 
-    // >  This parameter applies only to managed rules. You must specify both `TagKeyScope` and `TagValueScope`.
+    // The rule applies only to resources that have the specified tag value.
+    // 
+    // > This parameter applies only to rule templates. You must set both `TagKeyScope` and `TagValueScope`.
     shared_ptr<string> tagValueScope_ {};
-    // TagsScope
+    // The scope of the tags.
     shared_ptr<vector<CreateConfigRuleShrinkRequest::TagsScope>> tagsScope_ {};
   };
 

@@ -187,30 +187,31 @@ namespace Models
       protected:
         // The ID of the Alibaba Cloud account to which the resource belongs.
         shared_ptr<string> accountId_ {};
-        // The ID of the zone in which the resource resides.
+        // The zone where the resource resides.
         shared_ptr<string> availabilityZone_ {};
-        // The timestamp when the compliance evaluation was recorded. Unit: milliseconds.
+        // The timestamp when the compliance evaluation of the resource was recorded. Unit: milliseconds.
         shared_ptr<int64_t> captureTime_ {};
-        // The rules associated with the resource and the compliance details of the rules.
+        // The list of rules associated with the resource and the compliance details of the rules.
         shared_ptr<string> configuration_ {};
-        // The details of the resource changes that trigger the compliance evaluation.
+        // The details of the resource change that triggered this evaluation.
         shared_ptr<string> configurationDiff_ {};
         // The region ID.
         shared_ptr<string> region_ {};
-        // The time when the resource was created. Unit: milliseconds.
+        // The timestamp when the resource was created. Unit: milliseconds.
         shared_ptr<int64_t> resourceCreateTime_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
         // The resource name.
         shared_ptr<string> resourceName_ {};
-        // The status of the resource. The parameter value varies based on the resource type and may be left empty. Examples:
+        // The resource status. The resource status is defined by each Alibaba Cloud service. This parameter can be empty. For example:
         // 
-        // *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
-        // *   If the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
+        // - If the resource type is \\`ACS::ECS::Instance\\`, this parameter can be \\`Running\\` or \\`Stopped\\` because ECS instances are stateful.
+        // 
+        // - If the resource type is \\`ACS::OSS::Bucket\\`, this parameter is empty because OSS buckets are stateless.
         shared_ptr<string> resourceStatus_ {};
-        // The type of the resource.
+        // The resource type.
         shared_ptr<string> resourceType_ {};
-        // The tags of the resource.
+        // The resource tags.
         shared_ptr<string> tags_ {};
       };
 
@@ -240,11 +241,11 @@ namespace Models
 
 
     protected:
-      // The compliance evaluation records on the compliance timeline.
+      // The list of compliance evaluation history records.
       shared_ptr<vector<ResourceComplianceTimeline::ComplianceList>> complianceList_ {};
-      // The maximum number of entries that can be returned for a single request.
+      // The maximum number of entries returned per page.
       shared_ptr<int32_t> maxResults_ {};
-      // The token that is used to initiate the next request.
+      // The token that you use to retrieve the next page of results.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -267,9 +268,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the compliance timeline.
+    // The compliance evaluation history of the resource.
     shared_ptr<GetResourceComplianceTimelineResponseBody::ResourceComplianceTimeline> resourceComplianceTimeline_ {};
   };
 

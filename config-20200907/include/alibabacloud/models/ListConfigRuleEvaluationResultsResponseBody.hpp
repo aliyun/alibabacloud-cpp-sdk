@@ -237,18 +237,20 @@ namespace Models
           protected:
             // The ID of the compliance package to which the rule belongs.
             shared_ptr<string> compliancePackId_ {};
-            // The ARN of the rule.
+            // The Alibaba Cloud Resource Name (ARN) of the rule.
             shared_ptr<string> configRuleArn_ {};
             // The rule ID.
             shared_ptr<string> configRuleId_ {};
             // The rule name.
             shared_ptr<string> configRuleName_ {};
-            // The date on which the system automatically re-evaluates the ignored incompliant resources.
+            // The date when the ignored evaluation result is automatically resumed.
             // 
-            // >  If the value of this parameter is left empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+            // > If this parameter is empty, the result is not automatically resumed. You must manually resume it.
             shared_ptr<string> ignoreDate_ {};
-            // The ID of the region in which your resources reside.
+            // The ID of the region to which the resource belongs.
             shared_ptr<string> regionId_ {};
+            // The ID of the resource group to which the resource belongs.
+            // 
             // This parameter is required.
             shared_ptr<string> resourceGroupId_ {};
             // The resource ID.
@@ -257,7 +259,7 @@ namespace Models
             shared_ptr<string> resourceName_ {};
             // The ID of the Alibaba Cloud account to which the resource belongs.
             shared_ptr<int64_t> resourceOwnerId_ {};
-            // The type of the resource that is monitored by Cloud Config.
+            // The resource type.
             shared_ptr<string> resourceType_ {};
           };
 
@@ -280,9 +282,9 @@ namespace Models
 
 
         protected:
-          // The information about the evaluated resource in the compliance evaluation result.
+          // The resource information in the rule evaluation result.
           shared_ptr<EvaluationResultIdentifier::EvaluationResultQualifier> evaluationResultQualifier_ {};
-          // The timestamp when the compliance evaluation was performed. Unit: milliseconds.
+          // The UNIX timestamp displayed on the timeline. Unit: milliseconds.
           shared_ptr<int64_t> orderingTimestamp_ {};
         };
 
@@ -369,47 +371,63 @@ namespace Models
 
 
       protected:
-        // The annotation to the resource that is evaluated as non-compliant. The following section describe the parameters that can be returned:
+        // The supplementary information about the non-compliant resource. This may include the following information:
         // 
-        // *   `configuration`: the current resource configuration that is evaluated as non-compliant.
-        // *   `desiredValue`: the expected resource configuration that is evaluated as compliant.
-        // *   `operator`: the operator that compares the current configuration with the expected configuration of the resource.
-        // *   `property`: the JSON path of the current configuration in the resource property struct.
-        // *   `reason`: the reason why the resource is evaluated as non-compliant.
+        // - `configuration`: The current configuration of the resource, which is the non-compliant configuration.
+        // 
+        // - `desiredValue`: The expected configuration of the resource, which is the compliant configuration.
+        // 
+        // - `operator`: The comparison operator used to compare the current configuration with the expected configuration.
+        // 
+        // - `property`: The JSON path of the current configuration in the resource property struct.
+        // 
+        // - `reason`: The reason why the resource is non-compliant.
         shared_ptr<string> annotation_ {};
-        // The compliance evaluation result of the resource. Valid values:
+        // The compliance evaluation result. Valid values:
         // 
-        // *   COMPLIANT: The resources are evaluated as compliant.
-        // *   NON_COMPLIANT: The resources are evaluated as non-compliant.
-        // *   NOT_APPLICABLE: The rule does not apply to the resources.
-        // *   INSUFFICIENT_DATA: No data is available.
-        // *   IGNORED: The resource is ignored during compliance evaluation.
+        // - COMPLIANT: The resource is compliant.
+        // 
+        // - NON_COMPLIANT: The resource is non-compliant.
+        // 
+        // - NOT_APPLICABLE: The rule does not apply to the resource.
+        // 
+        // - INSUFFICIENT_DATA: No data is available.
+        // 
+        // - IGNORED: The evaluation result is ignored.
         shared_ptr<string> complianceType_ {};
-        // The timestamp when the rule was triggered for the compliance evaluation. Unit: milliseconds.
+        // The UNIX timestamp when the rule was triggered for evaluation. Unit: milliseconds.
         shared_ptr<int64_t> configRuleInvokedTimestamp_ {};
+        // The unique ID of the evaluation result.
         shared_ptr<string> evaluationId_ {};
-        // The identifying information about the compliance evaluation result.
+        // The identifier of the rule evaluation result.
         shared_ptr<EvaluationResultList::EvaluationResultIdentifier> evaluationResultIdentifier_ {};
         // The trigger type of the rule. Valid values:
         // 
-        // *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
-        // *   ScheduledNotification: The rule is periodically triggered.
-        // *   Manual: The rule is manually triggered.
+        // - ConfigurationItemChangeNotification: The rule is triggered by a configuration change.
+        // 
+        // - ScheduledNotification: The rule is triggered periodically.
+        // 
+        // - Manual: The rule is triggered manually.
         shared_ptr<string> invokingEventMessageType_ {};
+        // The time when the resource was last remediated to a compliant state. This value is not recorded when a new resource or rule is evaluated as compliant for the first time.
         shared_ptr<int64_t> lastCompliantFixedTimestamp_ {};
+        // The start time of the last non-compliance.
         shared_ptr<int64_t> lastNonCompliantRecordTimestamp_ {};
-        // Indicates whether the remediation template is enabled. Valid values:
+        // Indicates whether the remediation setting is enabled. Valid values:
         // 
-        // *   true: The remediation template is enabled.
-        // *   false: The remediation template is disabled.
+        // - true: The remediation setting is enabled.
+        // 
+        // - false: The remediation setting is disabled.
         shared_ptr<bool> remediationEnabled_ {};
-        // The timestamp when the compliance evaluation result was recorded. Unit: milliseconds.
+        // The UNIX timestamp when the resource evaluation result was generated. Unit: milliseconds.
         shared_ptr<int64_t> resultRecordedTimestamp_ {};
-        // The risk level of the resources that do not comply with the rule. Valid values:
+        // The risk level of the rule. Valid values:
         // 
-        // *   1: high
-        // *   2: medium
-        // *   3: low
+        // - 1: high
+        // 
+        // - 2: medium
+        // 
+        // - 3: low
         shared_ptr<int32_t> riskLevel_ {};
       };
 
@@ -439,11 +457,11 @@ namespace Models
 
 
     protected:
-      // The details of the compliance evaluation result.
+      // The list of rule evaluation results.
       shared_ptr<vector<EvaluationResults::EvaluationResultList>> evaluationResultList_ {};
       // The maximum number of entries returned per page.
       shared_ptr<int32_t> maxResults_ {};
-      // A pagination token. It can be used in the next request to retrieve a new page of results.
+      // The token used to retrieve the next page of results.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -466,7 +484,7 @@ namespace Models
 
 
   protected:
-    // The compliance evaluation results returned.
+    // The rule evaluation results.
     shared_ptr<ListConfigRuleEvaluationResultsResponseBody::EvaluationResults> evaluationResults_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

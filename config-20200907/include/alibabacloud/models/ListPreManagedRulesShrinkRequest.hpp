@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number.
     // 
-    // Pages start from page 1. Default value: 1.
+    // The value starts from 1. The default value is 1.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries to return on each page.
     // 
-    // Default value: 10.
+    // The default value is 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The type of the resource.
+    // A list of resource types.
     shared_ptr<string> resourceTypesShrink_ {};
   };
 

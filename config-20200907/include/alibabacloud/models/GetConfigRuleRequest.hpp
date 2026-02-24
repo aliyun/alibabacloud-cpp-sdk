@@ -70,13 +70,13 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The tag key of the resource.
       // 
-      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
-      // 
-      // You can specify at most 20 tag keys.
+      // You can add a maximum of 20 tag keys to a resource.
       shared_ptr<string> key_ {};
-      // The tag value. The tag value can be up to 256 characters in length and cannot contain `http://` or `https://`.
+      // The tag value of the resource.
+      // 
+      // You can add a maximum of 20 tag values to a resource.
       shared_ptr<string> value_ {};
     };
 
@@ -101,13 +101,13 @@ namespace Models
   protected:
     // The rule ID.
     // 
-    // For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+    // For more information, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
     // 
     // This parameter is required.
     shared_ptr<string> configRuleId_ {};
-    // The tags of the resource.
+    // The tags of the resource. This parameter is deprecated and has no effect.
     // 
-    // You can add up to 20 tags to a resource.
+    // You can add a maximum of 20 tags to a resource.
     shared_ptr<vector<GetConfigRuleRequest::Tag>> tag_ {};
   };
 

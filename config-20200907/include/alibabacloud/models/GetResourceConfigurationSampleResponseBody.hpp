@@ -161,17 +161,33 @@ namespace Models
 
 
     protected:
+      // The user ID.
       shared_ptr<string> accountId_ {};
+      // The zone.
       shared_ptr<string> availabilityZone_ {};
+      // The complete configuration information of the resource.
       shared_ptr<string> configuration_ {};
+      // The region ID.
       shared_ptr<string> region_ {};
+      // The time when the resource was created.
       shared_ptr<string> resourceCreationTime_ {};
+      // The deletion status of the resource. Valid values:
+      // 
+      // - 1: The resource is retained.
+      // 
+      // - 0: The resource is deleted.
       shared_ptr<string> resourceDeleted_ {};
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
+      // The resource name.
       shared_ptr<string> resourceName_ {};
+      // The resource status.
       shared_ptr<string> resourceStatus_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
+      // The tag.
       shared_ptr<string> tags_ {};
+      // The version information.
       shared_ptr<string> version_ {};
     };
 
@@ -194,8 +210,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The sample.
     shared_ptr<GetResourceConfigurationSampleResponseBody::Sample> sample_ {};
   };
 

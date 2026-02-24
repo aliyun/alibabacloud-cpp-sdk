@@ -70,13 +70,17 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The tag key of the resource.
       // 
-      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       // 
-      // You can specify at most 20 tag keys.
+      // You can specify up to 20 tag keys at a time.
       shared_ptr<string> key_ {};
-      // The tag value. The tag value can be up to 256 characters in length and cannot contain `http://` or `https://`.
+      // The tag value of the resource.
+      // 
+      // The tag value can be an empty string or a string of up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // 
+      // Each tag key must have a corresponding tag value. You can specify up to 20 tag values at a time.
       shared_ptr<string> value_ {};
     };
 
@@ -99,15 +103,15 @@ namespace Models
 
 
   protected:
-    // The ID of the compliance package.
+    // The compliance package ID.
     // 
-    // For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+    // For more information about how to obtain the compliance package ID, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
     // 
     // This parameter is required.
     shared_ptr<string> compliancePackId_ {};
-    // The tags of the resource.
+    // The tags of the resource. This parameter is deprecated and takes no effect if it is specified.
     // 
-    // You can add up to 20 tags to a resource.
+    // You can add up to 20 tags.
     shared_ptr<vector<GetCompliancePackRequest::Tag>> tag_ {};
   };
 

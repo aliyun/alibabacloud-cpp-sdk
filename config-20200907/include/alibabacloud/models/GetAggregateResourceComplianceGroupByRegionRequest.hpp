@@ -48,11 +48,8 @@ namespace Models
 
 
   protected:
-    // The ID of the account group.
-    // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The rule IDs. Separate multiple rule IDs with commas (,).
     shared_ptr<string> configRuleIds_ {};
   };
 

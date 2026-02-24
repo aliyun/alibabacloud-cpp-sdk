@@ -48,15 +48,7 @@ namespace Models
 
 
   protected:
-    // The compliance evaluation result. Valid values:
-    // 
-    // *   COMPLIANT: The resources are evaluated as compliant.
-    // *   NON_COMPLIANT: The resources are evaluated as non-compliant.
-    // *   NOT_APPLICABLE: The rule does not apply to the resources.
-    // *   INSUFFICIENT_DATA: No data is available.
     shared_ptr<string> complianceType_ {};
-    // The rule ID.
-    // 
     // This parameter is required.
     shared_ptr<string> configRuleId_ {};
   };

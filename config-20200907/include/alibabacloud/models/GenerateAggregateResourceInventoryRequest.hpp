@@ -75,20 +75,11 @@ namespace Models
 
 
   protected:
-    // The IDs of member accounts in the account group. Separate multiple member account IDs with commas (,).
     shared_ptr<string> accountIds_ {};
-    // The ID of the account group.
-    // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The IDs of the regions to which the resources belong. Separate multiple region IDs with commas (,).
     shared_ptr<string> regions_ {};
-    // Indicates whether the resource is deleted. Valid values:
-    // 
-    // *   1 (default): The resource is retained.
-    // *   0: The resource is deleted.
     shared_ptr<int32_t> resourceDeleted_ {};
-    // The resource types. Separate multiple resource types with commas (,).
     shared_ptr<string> resourceTypes_ {};
   };
 

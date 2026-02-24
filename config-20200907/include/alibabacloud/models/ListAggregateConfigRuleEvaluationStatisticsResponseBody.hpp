@@ -106,17 +106,11 @@ namespace Models
 
 
     protected:
-      // The ID of the account group.
       shared_ptr<string> aggregatorId_ {};
-      // The number of resources that are evaluated as non-compliant.
       shared_ptr<int32_t> nonCompliantResourceCnt_ {};
-      // The number of rules based on which resources are evaluated as non-compliant.
       shared_ptr<int32_t> nonCompliantRuleCnt_ {};
-      // The date on which the statistics are obtained.
       shared_ptr<string> statisticDate_ {};
-      // The total number of resources.
       shared_ptr<int32_t> totalResourceCnt_ {};
-      // The total number of rules.
       shared_ptr<int32_t> totalRuleCnt_ {};
     };
 
@@ -139,9 +133,7 @@ namespace Models
 
 
   protected:
-    // The statistics of compliance evaluation results.
     shared_ptr<vector<ListAggregateConfigRuleEvaluationStatisticsResponseBody::EvaluationResults>> evaluationResults_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

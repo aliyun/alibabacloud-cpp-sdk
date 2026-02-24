@@ -57,19 +57,9 @@ namespace Models
 
 
   protected:
-    // The ID of the account group.
-    // 
-    // For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
-    // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The ID of the compliance package.
-    // 
-    // For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
     shared_ptr<string> compliancePackId_ {};
-    // The rule ID. Separate multiple rule IDs with commas (,).
-    // 
-    // For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
     shared_ptr<string> configRuleIds_ {};
   };
 

@@ -66,28 +66,10 @@ namespace Models
 
 
   protected:
-    // The type of the event that is integrated across accounts. Valid values:
-    // 
-    // *   NonCompliantNotification: non-compliance event
     shared_ptr<string> aggregatorDeliveryDataType_ {};
-    // The types of the integrated events. Separate multiple event types with commas (,). Valid values:
-    // 
-    // *   ConfigurationItemChangeNotification: resource change event
-    // *   NonCompliantNotification: non-compliance event
     shared_ptr<string> integratedTypes_ {};
-    // The identity of the cloud service that is integrated with Cloud Config. Valid values:
-    // 
-    // *   eventbridge: EventBridge
-    // *   cms: CloudMonitor
-    // *   bpstudio: Cloud Architect Design Tools
-    // 
     // This parameter is required.
     shared_ptr<string> serviceCode_ {};
-    // Specifies whether you want the product to be integrated. Valid values:
-    // 
-    // *   true
-    // *   false
-    // 
     // This parameter is required.
     shared_ptr<bool> status_ {};
   };

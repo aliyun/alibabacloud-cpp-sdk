@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // The keyword for your search.
+    // 
+    // You can perform a fuzzy query on template ID, template name, or template description.
     shared_ptr<string> keyword_ {};
+    // The number of entries to return per page. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // If the response is truncated, use NextToken to send another request and get results after the truncation point.
     shared_ptr<string> nextToken_ {};
   };
 

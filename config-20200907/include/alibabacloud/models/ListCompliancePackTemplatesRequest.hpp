@@ -84,19 +84,25 @@ namespace Models
 
 
   protected:
-    // The ID of the compliance package template.
+    // The ID of the compliance pack template.
     shared_ptr<string> compliancePackTemplateId_ {};
+    // The field used to filter the query results.
     shared_ptr<string> filterType_ {};
     // The page number.
     // 
-    // Pages start from page 1. Default value: 1
+    // Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     // 
-    // Valid values: 1 to 100. Minimum value: 1. Default value: 10.
+    // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The types of the resources evaluated based on the rule. If you configure this parameter, only the rules that include the resource types in the compliance package template are returned.
+    // The resource type that is evaluated by the rules. If you specify this parameter, only the compliance pack templates that contain rules for the specified resource type are returned.
     shared_ptr<string> resourceTypes_ {};
+    // The risk level of the rules in the compliance pack. Valid values:
+    // 
+    // - 1: high
+    // - 2: medium
+    // - 3: low
     shared_ptr<int32_t> ruleRiskLevel_ {};
   };
 

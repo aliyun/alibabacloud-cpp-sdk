@@ -113,9 +113,9 @@ namespace Models
 
 
       protected:
-        // The tag keys of the resource.
+        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag values of the resource.
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -194,9 +194,9 @@ namespace Models
 
 
         protected:
-          // The key of the tag.
+          // The tag key.
           shared_ptr<string> tagKey_ {};
-          // The value of the tag.
+          // The tag value.
           shared_ptr<string> tagValue_ {};
         };
 
@@ -238,9 +238,9 @@ namespace Models
 
 
         protected:
-          // The key of the tag.
+          // The tag key.
           shared_ptr<string> tagKey_ {};
-          // The value of the tag.
+          // The tag value.
           shared_ptr<string> tagValue_ {};
         };
 
@@ -322,23 +322,23 @@ namespace Models
 
 
       protected:
-        // The IDs of regions that are excluded. Separate multiple region IDs with commas (,).
+        // The IDs of the regions to exclude. Separate multiple region IDs with commas (,).
         shared_ptr<string> excludeRegionIdsScope_ {};
-        // The IDs of the resource groups whose resources you do not want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+        // The IDs of the resource groups to exclude. The compliance pack does not apply to resources in these groups. Separate multiple resource group IDs with commas (,).
         shared_ptr<string> excludeResourceGroupIdsScope_ {};
-        // The ID of the resource that is not evaluated by using the compliance package.
+        // The IDs of the resources to exclude. The compliance pack does not apply to these resources. Separate multiple resource IDs with commas (,).
         shared_ptr<string> excludeResourceIdsScope_ {};
-        // The scope of the tag that is excluded.
+        // The excluded tag scope.
         shared_ptr<vector<Scope::ExcludeTagsScope>> excludeTagsScope_ {};
-        // The ID of the region whose resources were evaluated by using the compliance package.
+        // The IDs of the regions where the compliance pack applies. Separate multiple region IDs with commas (,).
         shared_ptr<string> regionIdsScope_ {};
-        // The ID of the resource group whose resources are evaluated by using the compliance package.
+        // The IDs of the resource groups where the compliance pack applies. Separate multiple resource group IDs with commas (,).
         shared_ptr<string> resourceGroupIdsScope_ {};
         // The IDs of the resources to which the rule applies. Separate multiple resource IDs with commas (,).
         shared_ptr<string> resourceIdsScope_ {};
-        // The tag key of the resource that is evaluated by using the compliance package.
+        // The tag key of the resources to which the compliance pack applies.
         shared_ptr<string> tagKeyScope_ {};
-        // The tag value of the resource that is evaluated by using the compliance package.
+        // The tag value of the resources to which the compliance pack applies.
         shared_ptr<string> tagValueScope_ {};
         // The tag scope.
         shared_ptr<vector<Scope::TagsScope>> tagsScope_ {};
@@ -426,10 +426,11 @@ namespace Models
           shared_ptr<string> parameterName_ {};
           // The value of the input parameter.
           shared_ptr<string> parameterValue_ {};
-          // Indicates whether the input parameter was required. Valid values:
+          // Indicates whether the input parameter is required. Valid values:
           // 
-          // *   true
-          // *   false
+          // - true: The input parameter is required.
+          // 
+          // - false: The input parameter is not required.
           shared_ptr<bool> required_ {};
         };
 
@@ -488,23 +489,25 @@ namespace Models
 
 
       protected:
-        // The rule ID.
+        // The ID of the rule.
         shared_ptr<string> configRuleId_ {};
         // The name of the rule.
         shared_ptr<string> configRuleName_ {};
-        // The details of the input parameter of the rule.
+        // The input parameters of the rule.
         shared_ptr<vector<ConfigRules::ConfigRuleParameters>> configRuleParameters_ {};
         // The description of the rule.
         shared_ptr<string> description_ {};
-        // The ID of the rule template.
+        // The identifier of the rule.
         shared_ptr<string> managedRuleIdentifier_ {};
-        // The type of the resource evaluated based on the rule. Multiple resource types are separated with commas (,).
+        // The types of the resources that are evaluated by the rule. Separate multiple resource types with commas (,).
         shared_ptr<string> resourceTypesScope_ {};
-        // The risk level of the resources that do not comply with the rule. Valid values:
+        // The risk level of the rule. Valid values:
         // 
-        // *   1: high
-        // *   2: medium
-        // *   3: low
+        // - 1: high
+        // 
+        // - 2: medium
+        // 
+        // - 3: low
         shared_ptr<int32_t> riskLevel_ {};
       };
 
@@ -610,38 +613,41 @@ namespace Models
 
 
     protected:
-      // The ID of the management account to which the compliance package belongs.
+      // The ID of the management account to which the compliance pack belongs.
       shared_ptr<int64_t> accountId_ {};
       // The ID of the account group.
       shared_ptr<string> aggregatorId_ {};
-      // The ID of the compliance package.
+      // The ID of the compliance pack.
       shared_ptr<string> compliancePackId_ {};
-      // The name of the compliance package.
+      // The name of the compliance pack.
       shared_ptr<string> compliancePackName_ {};
-      // The ID of the compliance package template.
+      // The ID of the compliance pack template.
       shared_ptr<string> compliancePackTemplateId_ {};
-      // The rules in the compliance package.
+      // The list of rules in the compliance pack.
       shared_ptr<vector<CompliancePack::ConfigRules>> configRules_ {};
-      // The timestamp when the compliance package was created. Unit: milliseconds.
+      // The timestamp when the compliance pack was created. Unit: milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
-      // The description of the compliance package.
+      // The description of the compliance pack.
       shared_ptr<string> description_ {};
-      // The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+      // The risk level of the compliance pack. Valid values:
       // 
-      // *   1: high
-      // *   2: medium
-      // *   3: low
+      // - 1: high
+      // 
+      // - 2: medium
+      // 
+      // - 3: low
       shared_ptr<int32_t> riskLevel_ {};
-      // The evaluation scope of the compliance package.
+      // The evaluation scope of the compliance pack.
       shared_ptr<CompliancePack::Scope> scope_ {};
-      // The status of the compliance package. Valid values:
+      // The status of the compliance pack. Valid values:
       // 
-      // *   ACTIVE: The compliance package was normal.
-      // *   CREATING: The compliance package was being created.
+      // - ACTIVE: The compliance pack is active.
+      // 
+      // - CREATING: The compliance pack is being created.
       shared_ptr<string> status_ {};
-      // The tags.
+      // The tags of the resource.
       shared_ptr<vector<CompliancePack::Tags>> tags_ {};
-      // The information about the current compliance package template. The rules in the template do not contain custom function rules. You can quickly create the same compliance package for other accounts or account groups based on the template information.
+      // The information about the compliance pack template. The list of rules in the template does not include user-defined function rules. You can use the template to quickly create the same compliance pack for other accounts or account groups.
       shared_ptr<string> templateContent_ {};
     };
 
@@ -664,9 +670,9 @@ namespace Models
 
 
   protected:
-    // The details of the compliance package.
+    // The details of the compliance pack.
     shared_ptr<GetAggregateCompliancePackResponseBody::CompliancePack> compliancePack_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

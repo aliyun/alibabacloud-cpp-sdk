@@ -104,9 +104,7 @@ namespace Models
 
 
     protected:
-      // Tagkey
       shared_ptr<string> tagKey_ {};
-      // TagValue
       shared_ptr<string> tagValue_ {};
     };
 
@@ -148,9 +146,7 @@ namespace Models
 
 
     protected:
-      // TagKey
       shared_ptr<string> tagKey_ {};
-      // TagValue
       shared_ptr<string> tagValue_ {};
     };
 
@@ -297,58 +293,25 @@ namespace Models
 
 
   protected:
-    // The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
     shared_ptr<string> clientToken_ {};
-    // The name of the compliance package.
-    // 
     // This parameter is required.
     shared_ptr<string> compliancePackName_ {};
-    // The ID of the compliance package template.
-    // 
-    // You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the ID of the compliance package.
     shared_ptr<string> compliancePackTemplateId_ {};
-    // The rules in the compliance package. You must specify either this parameter or TemplateContent.
     shared_ptr<string> configRulesShrink_ {};
-    // Specifies whether to enable the rule together with the compliance package. Valid values:
-    // 
-    // *   true: The system enables the rule together with the compliance package.
-    // *   false: The system does not enable the rule together with the compliance package.
     shared_ptr<bool> defaultEnable_ {};
-    // The description of the compliance package.
     shared_ptr<string> description_ {};
-    // ExcludeRegionIdsScope
     shared_ptr<string> excludeRegionIdsScope_ {};
-    // ExcludeResourceGroupIdsScope. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> excludeResourceGroupIdsScope_ {};
-    // The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
     shared_ptr<string> excludeResourceIdsScope_ {};
-    // ExcludeTagsScope
     shared_ptr<vector<CreateCompliancePackShrinkRequest::ExcludeTagsScope>> excludeTagsScope_ {};
-    // The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
     shared_ptr<string> regionIdsScope_ {};
-    // The ID of the resource group whose resources you want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> resourceGroupIdsScope_ {};
-    // ResourceIdsScope
     shared_ptr<string> resourceIdsScope_ {};
-    // The risk level of the resources that are not compliant with the rules in the compliance package. Default value: 2. Valid values:
-    // 
-    // *   1: high.
-    // *   2: medium.
-    // *   3: low.
     shared_ptr<int32_t> riskLevel_ {};
-    // The tags of the resource.
-    // 
-    // You can add up to 20 tags to a resource.
     shared_ptr<string> tagShrink_ {};
-    // The tag key of the resource that you want to evaluate by using the compliance package.
     shared_ptr<string> tagKeyScope_ {};
-    // The tag value of the resource that you want to evaluate by using the compliance package.
-    // 
-    // >  You must configure the TagValueScope parameter together with the TagKeyScope parameter.
     shared_ptr<string> tagValueScope_ {};
-    // TagsScope
     shared_ptr<vector<CreateCompliancePackShrinkRequest::TagsScope>> tagsScope_ {};
-    // The information about the template that is used to generate the compliance package. You can call an API operation to view the details of an existing compliance package or write a compliance package template. For more information, see [Write a compliance package template in a configuration file](https://help.aliyun.com/document_detail/2659733.html). You must specify one of ConfigRules and TemplateContent.
     shared_ptr<string> templateContent_ {};
   };
 

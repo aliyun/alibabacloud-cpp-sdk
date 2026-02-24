@@ -88,26 +88,12 @@ namespace Models
 
 
     protected:
-      // The ID of the region in which the resource resides.
-      // 
-      // For more information about how to obtain the ID of the region in which a resource resides, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
-      // 
       // This parameter is required.
       shared_ptr<string> region_ {};
-      // The ID of the Alibaba Cloud account to which the resource belongs.
-      // 
       // This parameter is required.
       shared_ptr<int64_t> resourceAccountId_ {};
-      // The resource ID.
-      // 
-      // For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
-      // 
       // This parameter is required.
       shared_ptr<string> resourceId_ {};
-      // The resource type.
-      // 
-      // For more information about how to query the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
-      // 
       // This parameter is required.
       shared_ptr<string> resourceType_ {};
     };
@@ -131,14 +117,8 @@ namespace Models
 
 
   protected:
-    // The rule ID.
-    // 
-    // For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
-    // 
     // This parameter is required.
     shared_ptr<string> configRuleId_ {};
-    // The resources that are to be re-evaluated.
-    // 
     // This parameter is required.
     shared_ptr<vector<RevertEvaluationResultsRequest::Resources>> resources_ {};
   };

@@ -78,16 +78,8 @@ namespace Models
 
 
     protected:
-      // The download URL of the resource file.
       shared_ptr<string> downloadUrl_ {};
-      // The time when the resource file was generated. The value is a timestamp.
-      // 
-      // Unit: milliseconds.
       shared_ptr<int64_t> resourceInventoryGenerateTime_ {};
-      // The generation status of the resource file. Valid values:
-      // 
-      // *   CREATING: The resource file is being generated.
-      // *   COMPLETE: The resource file is generated.
       shared_ptr<string> status_ {};
     };
 
@@ -110,9 +102,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the resource file.
     shared_ptr<GetAggregateAdvancedSearchFileResponseBody::ResourceSearch> resourceSearch_ {};
   };
 

@@ -57,13 +57,8 @@ namespace Models
 
 
   protected:
-    // The rule IDs. Separate multiple rule IDs with commas (,).
-    // 
-    // For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
     shared_ptr<string> configRuleIds_ {};
-    // The page number. Pages start from page 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 50.
     shared_ptr<int64_t> pageSize_ {};
   };
 

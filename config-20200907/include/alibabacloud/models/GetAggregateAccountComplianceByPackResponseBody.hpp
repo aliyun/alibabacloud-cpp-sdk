@@ -104,16 +104,8 @@ namespace Models
 
 
       protected:
-        // The ID of the member account in the account group.
         shared_ptr<int64_t> accountId_ {};
-        // The name of the member account in the account group.
         shared_ptr<string> accountName_ {};
-        // The compliance evaluation result. Valid values:
-        // 
-        // *   COMPLIANT: The resource was evaluated as compliant.
-        // *   NON_COMPLIANT: The resource was evaluated as incompliant.
-        // *   NOT_APPLICABLE: The rule did not apply to your resource.
-        // *   INSUFFICIENT_DATA: No resource data was available.
         shared_ptr<string> complianceType_ {};
       };
 
@@ -150,13 +142,9 @@ namespace Models
 
 
     protected:
-      // The compliance evaluation result of member accounts.
       shared_ptr<vector<AccountComplianceResult::AccountCompliances>> accountCompliances_ {};
-      // The ID of the compliance package.
       shared_ptr<string> compliancePackId_ {};
-      // The number of non-compliant member accounts.
       shared_ptr<int32_t> nonCompliantCount_ {};
-      // The total number of member accounts.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -179,9 +167,7 @@ namespace Models
 
 
   protected:
-    // The compliance evaluation results of member accounts for which the compliance package takes effect in an account group.
     shared_ptr<GetAggregateAccountComplianceByPackResponseBody::AccountComplianceResult> accountComplianceResult_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

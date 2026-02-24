@@ -144,17 +144,15 @@ namespace Models
 
 
     protected:
-      // The tag keys.
+      // The tag key of the resource.
       // 
-      // The tag keys cannot be an empty string. The tag keys can be up to 64 characters in length. The tag keys cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // If you specify this parameter, it cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https:// `.
       // 
-      // You can specify at most 20 tag keys in each call.
+      // You can specify the tag keys of up to 20 tags at a time.
       shared_ptr<string> key_ {};
-      // The tag values.
+      // The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, it can be an empty string.
       // 
-      // The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
-      // 
-      // Each key-value must be unique. You can specify at most 20 tag values in each call.
+      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -269,13 +267,13 @@ namespace Models
 
 
       protected:
-        // The name of the managed rule parameter.
+        // The name of the rule parameter.
         // 
-        // You must specify both `ParameterName` and `ParameterValue` or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the name of an input parameter for a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+        // You must specify `ParameterName` and `ParameterValue` together, or leave them both empty. If a rule template has a parameter without a default value, you must specify this parameter. For more information, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
         shared_ptr<string> parameterName_ {};
-        // The value of the managed rule parameter.
+        // The value of the rule parameter.
         // 
-        // You must configure the `ParameterName` and `ParameterValue` parameters or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the value of an input parameter for a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+        // You must specify `ParameterName` and `ParameterValue` together, or leave them both empty. If a rule template has a parameter without a default value, you must specify this parameter. For more information, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
         shared_ptr<string> parameterValue_ {};
       };
 
@@ -326,25 +324,27 @@ namespace Models
 
 
     protected:
-      // The rule ID. If you configure this parameter, Cloud Config adds the rule that has the specified ID to the compliance package.
+      // The rule ID. CloudConfig adds an existing rule to the compliance pack.
       // 
-      // You need to only specify one of the `ManagedRuleIdentifier` and `ConfigRuleId` properties. If you specify both the properties, the value of the `ConfigRuleId` property takes precedence. You can call the [ListConfigRules](https://help.aliyun.com/document_detail/169607.html) operation to obtain the rule ID.
+      // You must specify either `ManagedRuleIdentifier` or `ConfigRuleId`. If you specify both parameters, `ConfigRuleId` takes precedence. For more information, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
       shared_ptr<string> configRuleId_ {};
-      // The rule name.
+      // The name of the rule.
       shared_ptr<string> configRuleName_ {};
-      // The details of the input parameter of the rule.
+      // The parameters of the rule.
       shared_ptr<vector<ConfigRules::ConfigRuleParameters>> configRuleParameters_ {};
-      // The rule description.
+      // The description of the rule.
       shared_ptr<string> description_ {};
-      // The identifier of the managed rule. Cloud Config automatically creates a rule based on the identifier of the managed rule and adds the rule to the current compliance package.
+      // The identifier of the rule template. CloudConfig automatically creates a rule based on this identifier and adds the rule to the compliance pack.
       // 
-      // You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the identifier of a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+      // You must specify either `ManagedRuleIdentifier` or `ConfigRuleId`. If you specify both parameters, `ConfigRuleId` takes precedence. For more information, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
       shared_ptr<string> managedRuleIdentifier_ {};
-      // The risk level of the resources that do not comply with the rule. Valid values:
+      // The risk level of the rule. Valid values:
       // 
-      // *   1: high risk level
-      // *   2: medium risk level
-      // *   3: low risk level
+      // - 1: High risk.
+      // 
+      // - 2: Medium risk.
+      // 
+      // - 3: Low risk.
       shared_ptr<int32_t> riskLevel_ {};
     };
 
@@ -481,55 +481,57 @@ namespace Models
 
 
   protected:
-    // The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+    // A client token to ensure the idempotence of the request. Generate a unique token for each request. The `ClientToken` value can contain only ASCII characters and must be no more than 64 characters long.
     shared_ptr<string> clientToken_ {};
-    // The ID of the compliance package.
+    // The ID of the compliance pack.
     // 
-    // For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+    // For more information, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
     // 
     // This parameter is required.
     shared_ptr<string> compliancePackId_ {};
-    // The name of the compliance package.
+    // The name of the compliance pack.
     // 
-    // For more information about how to obtain the name of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+    // For more information, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
     shared_ptr<string> compliancePackName_ {};
-    // The rules in the compliance package.
+    // The rules in the compliance pack.
     // 
-    // If you leave this parameter empty, the rules in the compliance package remain unchanged. If you configure this parameter, Cloud Config replaces the existing rules in the compliance package with the specified rules.
+    // If you leave this parameter empty when you modify the compliance pack, the original rules are retained. If you specify new rules, they replace the original rules.
     shared_ptr<vector<UpdateCompliancePackRequest::ConfigRules>> configRules_ {};
-    // The description of the compliance package.
+    // The description of the compliance pack.
     shared_ptr<string> description_ {};
-    // The IDs of the regions to which the rule not applies. Separate multiple region IDs with commas (,).
+    // The compliance pack does not evaluate resources in the specified regions. Separate multiple region IDs with commas (,).
     shared_ptr<string> excludeRegionIdsScope_ {};
-    // ExcludeResourceGroupIdsScope. Separate multiple resource group IDs with commas (,).
+    // The compliance pack does not evaluate resources in the specified resource groups. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> excludeResourceGroupIdsScope_ {};
-    // The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
+    // The compliance pack does not evaluate the specified resources. Separate multiple resource IDs with commas (,).
     shared_ptr<string> excludeResourceIdsScope_ {};
-    // ExcludeTagsScope
+    // The excluded tag scope.
     shared_ptr<vector<UpdateCompliancePackRequest::ExcludeTagsScope>> excludeTagsScope_ {};
-    // The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
+    // The compliance pack evaluates only resources in the specified regions. Separate multiple region IDs with commas (,).
     shared_ptr<string> regionIdsScope_ {};
-    // The ID of the resource group whose resources you want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+    // The compliance pack evaluates only resources in the specified resource groups. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> resourceGroupIdsScope_ {};
-    // The IDs of the resources included from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+    // The compliance pack evaluates only the specified resources. Separate multiple resource IDs with commas (,).
     shared_ptr<string> resourceIdsScope_ {};
-    // The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+    // The risk level of the compliance pack. Valid values:
     // 
-    // *   1: high risk level
-    // *   2: medium risk level
-    // *   3: low risk level
+    // - 1: High risk.
+    // 
+    // - 2: Medium risk.
+    // 
+    // - 3: Low risk.
     shared_ptr<int32_t> riskLevel_ {};
-    // The tags of the resource.
+    // The tags of the resource. This parameter is deprecated. Ignore this parameter because it is no longer valid.
     // 
-    // You can add up to 20 tags to a resource.
+    // You can add up to 20 tags.
     shared_ptr<vector<UpdateCompliancePackRequest::Tag>> tag_ {};
-    // The tag key of the resource that you want to evaluate by using the compliance package.
+    // The compliance pack evaluates only resources that have the specified tag key.
     shared_ptr<string> tagKeyScope_ {};
-    // The tag value of the resource that you want to evaluate by using the compliance package.
+    // The compliance pack evaluates only resources that have the specified tag key and value.
     // 
-    // >  You must configure the TagValueScope parameter together with the TagValueScope parameter.
+    // > You must use TagValueScope with TagKeyScope.
     shared_ptr<string> tagValueScope_ {};
-    // TagsScope
+    // The tag scope.
     shared_ptr<vector<UpdateCompliancePackRequest::TagsScope>> tagsScope_ {};
   };
 

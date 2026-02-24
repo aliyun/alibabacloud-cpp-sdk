@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the compliance package.
     shared_ptr<string> compliancePackId_ {};
-    // The rule ID. Separate multiple rule IDs with commas (,).
     shared_ptr<string> configRuleIds_ {};
   };
 

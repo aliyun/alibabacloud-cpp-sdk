@@ -109,13 +109,9 @@ namespace Models
 
 
       protected:
-        // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The resource type.
         shared_ptr<string> resourceType_ {};
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -159,13 +155,12 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The token to retrieve the next page of results.
     // 
-    // > If NextToken is empty, no next page exists.
+    // > This parameter is empty when there are no more results to return.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tags of the resource.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

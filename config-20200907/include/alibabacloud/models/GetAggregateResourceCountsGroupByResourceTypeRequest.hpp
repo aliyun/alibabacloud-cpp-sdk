@@ -75,21 +75,10 @@ namespace Models
 
 
   protected:
-    // The ID of the account group.
-    // 
-    // For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
-    // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The ID of the folder in the resource directory.
-    // 
-    // For more information about how to obtain the ID of a folder, see [View the basic information of a folder](https://help.aliyun.com/document_detail/111223.html).
     shared_ptr<string> folderId_ {};
-    // The region ID.
     shared_ptr<string> region_ {};
-    // The ID of the Alibaba Cloud account to which the resources in the account group belong.
-    // 
-    // > You can specify either the ResourceAccountId or ResourceOwnerId parameter. We recommend that you specify the ResourceAccountId parameter.
     shared_ptr<int64_t> resourceAccountId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

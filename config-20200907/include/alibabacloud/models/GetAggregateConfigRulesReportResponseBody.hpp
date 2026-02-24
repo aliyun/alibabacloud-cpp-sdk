@@ -105,21 +105,11 @@ namespace Models
 
 
     protected:
-      // The ID of the management account to which the rules belong.
       shared_ptr<int64_t> accountId_ {};
-      // The ID of the account group.
       shared_ptr<string> aggregatorId_ {};
-      // The timestamp when the compliance evaluation report was generated. Unit: milliseconds.
       shared_ptr<int64_t> reportCreateTimestamp_ {};
-      // The ID of the compliance evaluation report.
       shared_ptr<string> reportId_ {};
-      // The status of the compliance evaluation report. Valid values:
-      // 
-      // *   NONE: The compliance evaluation report is not generated.
-      // *   CREATING: The compliance evaluation report is being generated.
-      // *   COMPLETE: The compliance evaluation report was generated.
       shared_ptr<string> reportStatus_ {};
-      // The URL used to download the compliance evaluation report.
       shared_ptr<string> reportUrl_ {};
     };
 
@@ -142,9 +132,7 @@ namespace Models
 
 
   protected:
-    // The compliance evaluation report.
     shared_ptr<GetAggregateConfigRulesReportResponseBody::ConfigRulesReport> configRulesReport_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

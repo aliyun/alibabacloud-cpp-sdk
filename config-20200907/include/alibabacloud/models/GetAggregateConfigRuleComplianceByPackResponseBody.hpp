@@ -112,16 +112,19 @@ namespace Models
 
 
       protected:
-        // The compliance evaluation result returned by the rule. Valid values:
+        // The compliance result. Valid values:
         // 
-        // *   COMPLIANT: The relevant resources are evaluated as compliant.
-        // *   NON_COMPLIANT: The relevant resources are evaluated as non-compliant.
-        // *   NOT_APPLICABLE: The rule does not apply to your resources.
-        // *   INSUFFICIENT_DATA: No resource data is available.
+        // - COMPLIANT: The rule is compliant.
+        // 
+        // - NON_COMPLIANT: The rule is non-compliant.
+        // 
+        // - NOT_APPLICABLE: The rule is not applicable.
+        // 
+        // - INSUFFICIENT_DATA: No data is available.
         shared_ptr<string> complianceType_ {};
-        // The ID of the rule.
+        // The ID of the rule in the compliance pack.
         shared_ptr<string> configRuleId_ {};
-        // The name of the rule.
+        // The name of the rule in the compliance pack.
         shared_ptr<string> configRuleName_ {};
       };
 
@@ -187,17 +190,21 @@ namespace Models
 
 
     protected:
-      // The ID of the compliance package.
+      // The ID of the compliance pack.
       shared_ptr<string> compliancePackId_ {};
+      // The total number of rules for which all evaluation results are **Compliant**.
       shared_ptr<int32_t> compliantCount_ {};
-      // The information about rules in the compliance package.
+      // A list of rule compliance results.
       shared_ptr<vector<ConfigRuleComplianceResult::ConfigRuleCompliances>> configRuleCompliances_ {};
+      // The total number of rules whose evaluation results include **Ignored**.
       shared_ptr<int32_t> ignoredCount_ {};
+      // The total number of rules whose evaluation results include **Insufficient Data**.
       shared_ptr<int32_t> insufficientDataCount_ {};
-      // The number of rules against which specific resources are evaluated as non-compliant.
+      // The number of non-compliant rules.
       shared_ptr<int32_t> nonCompliantCount_ {};
+      // The total number of rules whose evaluation results include **Not Applicable**.
       shared_ptr<int32_t> notApplicableCount_ {};
-      // The total number of rules in the compliance package.
+      // The total number of rules.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -220,9 +227,9 @@ namespace Models
 
 
   protected:
-    // The compliance evaluation results that are returned by rules in the compliance package.
+    // The compliance results of the rules in the compliance pack.
     shared_ptr<GetAggregateConfigRuleComplianceByPackResponseBody::ConfigRuleComplianceResult> configRuleComplianceResult_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

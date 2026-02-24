@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The ID of the account group.
     shared_ptr<string> aggregatorId_ {};
-    // The ID of the compliance evaluation report.
     shared_ptr<string> reportId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

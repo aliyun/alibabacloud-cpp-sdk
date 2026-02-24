@@ -98,17 +98,8 @@ namespace Models
 
 
       protected:
-        // The ID of the compliance package.
         shared_ptr<string> compliancePackId_ {};
-        // The error code returned.
-        // 
-        // *   If the compliance package is deleted, no error code is returned.
-        // *   If the compliance package fails to be deleted, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
         shared_ptr<string> errorCode_ {};
-        // Indicates whether the request was successful. Valid values:
-        // 
-        // *   true: The request was successful.
-        // *   false: The request failed.
         shared_ptr<bool> success_ {};
       };
 
@@ -123,7 +114,6 @@ namespace Models
 
 
     protected:
-      // An array that contains the deleted compliance packages.
       shared_ptr<vector<OperateCompliancePacksResult::OperateCompliancePacks>> operateCompliancePacks_ {};
     };
 
@@ -146,9 +136,7 @@ namespace Models
 
 
   protected:
-    // The results of the delete operations.
     shared_ptr<DeleteAggregateCompliancePacksResponseBody::OperateCompliancePacksResult> operateCompliancePacksResult_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The resource type.
+    // 
+    // For more information about how to obtain the type, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
   };

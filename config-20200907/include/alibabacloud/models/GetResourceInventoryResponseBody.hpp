@@ -78,14 +78,15 @@ namespace Models
 
 
     protected:
-      // The download URL of the resource inventory.
+      // The download URL of the global resource inventory.
       shared_ptr<string> downloadUrl_ {};
-      // The time when the resource inventory was generated. The value is a timestamp.
+      // The UNIX timestamp when the inventory started to be generated.
       shared_ptr<int64_t> resourceInventoryGenerateTime_ {};
-      // The generation status of the resource inventory. Valid values:
+      // The generation status of the inventory. Valid values:
       // 
-      // *   CREATING: The resource inventory is being generated.
-      // *   COMPLETE: The resource inventory is generated.
+      // - CREATING: The inventory is being generated.
+      // 
+      // - COMPLETE: The inventory is generated.
       shared_ptr<string> status_ {};
     };
 
@@ -110,7 +111,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the resource inventory.
+    // The information about the global resource inventory.
     shared_ptr<GetResourceInventoryResponseBody::ResourceInventory> resourceInventory_ {};
   };
 

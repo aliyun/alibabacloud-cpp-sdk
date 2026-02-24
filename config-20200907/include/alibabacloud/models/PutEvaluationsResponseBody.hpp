@@ -48,12 +48,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the evaluation results of the custom rule are submitted. Valid values:
-    // 
-    // *   true: The evaluation results are submitted.
-    // *   false: The evaluation results fail to be submitted.
     shared_ptr<bool> result_ {};
   };
 

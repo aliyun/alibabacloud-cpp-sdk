@@ -103,31 +103,43 @@ namespace Models
 
 
   protected:
-    // The compliance evaluation result of the resource. Valid values:
+    // The compliance evaluation result. Valid values:
     // 
-    // *   COMPLIANT: The resource is evaluated as compliant.
-    // *   NON_COMPLIANT: The resource is evaluated as non-compliant.
-    // *   NOT_APPLICABLE: The rule does not apply to the resources.
-    // *   INSUFFICIENT_DATA: No data is available.
-    // *   IGNORED: The resource is ignored during compliance evaluation.
+    // - COMPLIANT: The resource is compliant.
+    // 
+    // - NON_COMPLIANT: The resource is non-compliant.
+    // 
+    // - NOT_APPLICABLE: The rule does not apply to the resource.
+    // 
+    // - INSUFFICIENT_DATA: No data is available for the resource.
+    // 
+    // - IGNORED: The evaluation result is ignored.
     shared_ptr<string> complianceType_ {};
-    // The maximum number of entries to return in a request. Valid values: 1 to 100.
+    // The maximum number of entries to return for a single request. Valid values: 1 to 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.``
+    // If the response is truncated, pass the `NextToken` value in a subsequent request to retrieve the remaining results.
     shared_ptr<string> nextToken_ {};
-    // The ID of the region where one or more resources you want to query reside. For example, the value `global` indicates global regions and the value `cn-hangzhou` indicates the China (Hangzhou) region.
+    // The ID of the region where the resource resides. For example, `global` indicates Global, and `cn-hangzhou` indicates China (Hangzhou).
     // 
-    // For more information about how to obtain the ID of the region where a resource resides, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+    // For more information, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
     shared_ptr<string> region_ {};
-    // The ID of the resource.
+    // The resource ID.
     // 
-    // For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+    // For more information, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
     shared_ptr<string> resourceId_ {};
-    // The type of the resource.
+    // The resource type.
     // 
-    // For more information about how to query the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+    // For more information, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
     shared_ptr<string> resourceType_ {};
+    // The risk level of the rule. Valid values:
+    // 
+    // - 1: High risk.
+    // 
+    // - 2: Medium risk.
+    // 
+    // - 3: Low risk.
     shared_ptr<int32_t> riskLevel_ {};
+    // This parameter is optional. The only supported value is `LastNonCompliantRecordTimestamp-Asc`. This value sorts resources based on when they first became non-compliant, with the earliest appearing first. Use this parameter only when you set the `ComplianceType` parameter to `NON_COMPLIANT`.
     shared_ptr<string> sortBy_ {};
   };
 

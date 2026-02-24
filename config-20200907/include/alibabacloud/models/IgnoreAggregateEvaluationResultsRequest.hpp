@@ -94,28 +94,12 @@ namespace Models
 
 
     protected:
-      // The ID of the region in which the resource resides.
-      // 
-      // For more information about how to obtain the ID of a region, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
-      // 
       // This parameter is required.
       shared_ptr<string> region_ {};
-      // The ID of the Alibaba Cloud account to which the resources belong.
-      // 
-      // >  You must specify the ID of the current management account or a member account in the account group of the management account.
-      // 
       // This parameter is required.
       shared_ptr<int64_t> resourceAccountId_ {};
-      // The ID of the resource.
-      // 
-      // For more information about how to query the ID of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
-      // 
       // This parameter is required.
       shared_ptr<string> resourceId_ {};
-      // The type of the resource.
-      // 
-      // For more information about how to query the type of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
-      // 
       // This parameter is required.
       shared_ptr<string> resourceType_ {};
     };
@@ -160,26 +144,12 @@ namespace Models
 
 
   protected:
-    // The ID of the account group.
-    // 
-    // For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
-    // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The ID of the rule.
-    // 
-    // For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
-    // 
     // This parameter is required.
     shared_ptr<string> configRuleId_ {};
-    // The date from which the system automatically re-evaluates the ignored incompliant resources.
-    // 
-    // >  If you leave this parameter empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
     shared_ptr<string> ignoreDate_ {};
-    // The reason why you ignore the resource.
     shared_ptr<string> reason_ {};
-    // The resources to be ignored.
-    // 
     // This parameter is required.
     shared_ptr<vector<IgnoreAggregateEvaluationResultsRequest::Resources>> resources_ {};
   };

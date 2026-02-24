@@ -139,26 +139,12 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud account ID of the resource owner.
         shared_ptr<int64_t> accountId_ {};
-        // The type of the relationship between the resource and the object.
-        // 
-        // Valid values:
-        // 
-        // *   IsContained: The object is included as part of the resource.
-        // *   IsAttachedTo: The object is added to the resource.
-        // *   IsAssociatedIn: The object is associated with the resource.
-        // *   Contains: The object contains the resource.
         shared_ptr<string> relationType_ {};
-        // The resource ID of the current resource.
         shared_ptr<string> sourceResourceId_ {};
-        // The region ID of the current resource.
         shared_ptr<string> sourceResourceRegionId_ {};
-        // The type of the resource.
         shared_ptr<string> sourceResourceType_ {};
-        // The resource ID of the resource that is associated with the object.
         shared_ptr<string> targetResourceId_ {};
-        // The type of the resource that is associated with the object.
         shared_ptr<string> targetResourceType_ {};
       };
 
@@ -188,11 +174,8 @@ namespace Models
 
 
     protected:
-      // The maximum number of entries returned on each page.
       shared_ptr<int32_t> maxResults_ {};
-      // The token that was used to initiate the next request.
       shared_ptr<string> nextToken_ {};
-      // An array that contains the relationships.
       shared_ptr<vector<ResourceRelations::ResourceRelationList>> resourceRelationList_ {};
     };
 
@@ -215,9 +198,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result of the relationship.
     shared_ptr<ListAggregateResourceRelationsResponseBody::ResourceRelations> resourceRelations_ {};
   };
 

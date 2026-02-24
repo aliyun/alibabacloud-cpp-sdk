@@ -93,9 +93,7 @@ namespace Models
 
 
       protected:
-        // The field names.
         shared_ptr<vector<string>> columns_ {};
-        // The resource data.
         shared_ptr<vector<Darabonba::Json>> values_ {};
       };
 
@@ -110,7 +108,6 @@ namespace Models
 
 
     protected:
-      // The queried resources. A maximum of 1,000 data records can be returned. To view more data, use the download URL of the resource file.
       shared_ptr<QueryResults::QueryResultList> queryResultList_ {};
     };
 
@@ -133,9 +130,7 @@ namespace Models
 
 
   protected:
-    // The query result.
     shared_ptr<ListResourcesByAdvancedSearchResponseBody::QueryResults> queryResults_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

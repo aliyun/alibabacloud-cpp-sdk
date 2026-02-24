@@ -48,12 +48,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the rules are replicated. Valid values:
-    // 
-    // *   true
-    // *   false
     shared_ptr<bool> copyRulesResult_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

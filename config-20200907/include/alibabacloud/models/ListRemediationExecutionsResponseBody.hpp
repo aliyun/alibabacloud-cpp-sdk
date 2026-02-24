@@ -129,20 +129,11 @@ namespace Models
 
 
       protected:
-        // The time when the remediation record was created.
         shared_ptr<string> executionCreateDate_ {};
-        // The invocation ID of the remediation record.
         shared_ptr<string> executionInvocationId_ {};
-        // The IDs of the resources to which the remediation belongs. Separate multiple resource IDs with commas (,).
         shared_ptr<string> executionResourceIds_ {};
-        // The resource type.
         shared_ptr<string> executionResourceType_ {};
-        // The status of the remediation record. Valid values:
-        // 
-        // *   Success
-        // *   Failed
         shared_ptr<string> executionStatus_ {};
-        // The error message returned when the remediation fails.
         shared_ptr<string> executionStatusMessage_ {};
       };
 
@@ -172,11 +163,8 @@ namespace Models
 
 
     protected:
-      // The maximum number of entries to return for a single request.
       shared_ptr<int64_t> maxResults_ {};
-      // A pagination token. It can be used in the next request to retrieve a new page of results.
       shared_ptr<string> nextToken_ {};
-      // The queried remediation records.
       shared_ptr<vector<RemediationExecutionData::RemediationExecutions>> remediationExecutions_ {};
     };
 
@@ -199,9 +187,7 @@ namespace Models
 
 
   protected:
-    // The queried remediation records.
     shared_ptr<ListRemediationExecutionsResponseBody::RemediationExecutionData> remediationExecutionData_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

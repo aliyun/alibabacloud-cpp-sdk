@@ -72,15 +72,7 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. You can specify up to 20 tag keys.
-      // 
-      // The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag values.
-      // 
-      // The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
-      // 
-      // Each key-value must be unique. You can specify at most 20 tag values in each call.
       shared_ptr<string> value_ {};
     };
 
@@ -110,15 +102,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return in a request. Valid values: 1 to 100.
-    // 
     // This parameter is required.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
     shared_ptr<string> nextToken_ {};
-    // The tags of the resource.
-    // 
-    // You can add up to 20 tags to a resource.
     shared_ptr<vector<ListAggregatorsRequest::Tag>> tag_ {};
   };
 

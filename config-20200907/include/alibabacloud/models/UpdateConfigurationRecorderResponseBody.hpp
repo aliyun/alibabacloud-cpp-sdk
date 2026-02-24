@@ -72,14 +72,7 @@ namespace Models
 
 
     protected:
-      // The status of the configuration recorder. Valid values:
-      // 
-      // *   REGISTRABLE: The configuration recorder has not been registered.
-      // *   BUILDING: The configuration recorder is being deployed.
-      // *   REGISTERED: The configuration recorder has been registered.
-      // *   REBUILDING: The configuration recorder is being redeployed.
       shared_ptr<string> configurationRecorderStatus_ {};
-      // The types of the resources that are monitored by Cloud Config.
       shared_ptr<vector<string>> resourceTypes_ {};
     };
 
@@ -102,9 +95,7 @@ namespace Models
 
 
   protected:
-    // The details of the configuration recorder.
     shared_ptr<UpdateConfigurationRecorderResponseBody::ConfigurationRecorder> configurationRecorder_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

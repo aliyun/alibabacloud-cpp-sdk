@@ -66,24 +66,11 @@ namespace Models
 
 
   protected:
-    // The ID of the account group.
-    // 
-    // For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
-    // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The ID of the compliance package. Separate multiple compliance package IDs with commas (,).
-    // 
-    // For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
-    // 
     // This parameter is required.
     shared_ptr<string> compliancePackIds_ {};
-    // Specifies whether to delete the rules in the compliance package. Valid values:
-    // 
-    // *   true: The rules are deleted.
-    // *   false (default): The rules are not deleted.
     shared_ptr<bool> deleteRule_ {};
   };
 

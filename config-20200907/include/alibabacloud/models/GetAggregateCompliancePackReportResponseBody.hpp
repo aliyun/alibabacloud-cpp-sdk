@@ -96,19 +96,10 @@ namespace Models
 
 
     protected:
-      // The ID of the management account to which the compliance package belongs.
       shared_ptr<int64_t> accountId_ {};
-      // The ID of the compliance package.
       shared_ptr<string> compliancePackId_ {};
-      // The timestamp when the compliance evaluation report was generated. Unit: milliseconds.
       shared_ptr<int64_t> reportCreateTimestamp_ {};
-      // The status of the compliance evaluation report. Valid values:
-      // 
-      // *   NONE: The compliance evaluation report is not generated.
-      // *   CREATING: The compliance evaluation report is being generated.
-      // *   COMPLETE: The compliance evaluation report is generated.
       shared_ptr<string> reportStatus_ {};
-      // The URL that is used to download the compliance evaluation report.
       shared_ptr<string> reportUrl_ {};
     };
 
@@ -131,9 +122,7 @@ namespace Models
 
 
   protected:
-    // The compliance evaluation report that is generated based on a compliance package.
     shared_ptr<GetAggregateCompliancePackReportResponseBody::CompliancePackReport> compliancePackReport_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

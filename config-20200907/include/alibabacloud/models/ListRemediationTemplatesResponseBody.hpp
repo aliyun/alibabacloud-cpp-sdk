@@ -103,15 +103,10 @@ namespace Models
 
 
     protected:
-      // The type of the remediation template. Valid value: OOS, which indicates Operation Orchestration Service.
       shared_ptr<string> remediationType_ {};
-      // The definition of the remediation template.
       shared_ptr<string> templateDefinition_ {};
-      // The description of the remediation template.
       shared_ptr<string> templateDescription_ {};
-      // The ID of the remediation template.
       shared_ptr<string> templateIdentifier_ {};
-      // The name of the remediation template.
       shared_ptr<string> templateName_ {};
     };
 
@@ -155,15 +150,10 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The queried remediation templates.
     shared_ptr<vector<ListRemediationTemplatesResponseBody::RemediationTemplates>> remediationTemplates_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of remediation templates.
     shared_ptr<string> totalCount_ {};
   };
 

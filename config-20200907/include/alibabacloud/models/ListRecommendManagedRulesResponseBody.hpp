@@ -113,9 +113,13 @@ namespace Models
 
 
       protected:
+        // The rule name.
         shared_ptr<string> configRuleName_ {};
+        // The description of the managed rule.
         shared_ptr<string> description_ {};
+        // The rule identifier.
         shared_ptr<string> identifier_ {};
+        // The resource type.
         shared_ptr<string> resourceTypeScope_ {};
       };
 
@@ -152,9 +156,15 @@ namespace Models
 
 
     protected:
+      // The maximum number of entries returned for the request.
       shared_ptr<int32_t> maxResults_ {};
+      // The token that is used to initiate the next query.
+      // 
+      // > If this parameter is left empty, no more results are returned.
       shared_ptr<string> nextToken_ {};
+      // The list of managed rules.
       shared_ptr<vector<RecommendedManagedRules::RecommendedManagedRuleList>> recommendedManagedRuleList_ {};
+      // The total number of rules.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -177,8 +187,9 @@ namespace Models
 
 
   protected:
+    // The list of rules.
     shared_ptr<ListRecommendManagedRulesResponseBody::RecommendedManagedRules> recommendedManagedRules_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

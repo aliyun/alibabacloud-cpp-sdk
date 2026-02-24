@@ -48,12 +48,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the involved resources were evaluated. Valid values:
-    // 
-    // *   true: The involved resources were evaluated.
-    // *   false: The involved resources were not evaluated
     shared_ptr<bool> result_ {};
   };
 

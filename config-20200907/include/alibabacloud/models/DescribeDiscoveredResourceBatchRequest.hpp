@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The regions where the resources reside. Separate multiple regions with commas (`,`).
     shared_ptr<string> regions_ {};
+    // The resource IDs. Separate multiple resource IDs with commas (`,`).
     shared_ptr<string> resourceIds_ {};
+    // The resource types. Separate multiple resource types with commas (`,`).
     shared_ptr<string> resourceTypes_ {};
   };
 

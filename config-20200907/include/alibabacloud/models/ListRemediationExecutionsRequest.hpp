@@ -66,18 +66,10 @@ namespace Models
 
 
   protected:
-    // The rule ID.
-    // 
     // This parameter is required.
     shared_ptr<string> configRuleId_ {};
-    // The status of the remediation. Valid values:
-    // 
-    // *   Success
-    // *   Failed
     shared_ptr<string> executionStatus_ {};
-    // The maximum number of entries to return for a single request. Valid values: 10 to 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextToken_ {};
   };
 

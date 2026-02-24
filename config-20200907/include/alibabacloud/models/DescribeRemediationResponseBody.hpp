@@ -151,46 +151,17 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
       shared_ptr<int64_t> accountId_ {};
-      // The rule ID.
       shared_ptr<string> configRuleId_ {};
-      // The execution mode of the remediation template. Valid values:
-      // 
-      // *   NON_EXECUTION: The remediation template was not executed.
-      // *   AUTO_EXECUTION: The remediation template was automatically executed.
-      // *   MANUAL_EXECUTION: The remediation template was manually executed.
-      // *   NOT_CONFIG: The execution mode was not specified.
       shared_ptr<string> invokeType_ {};
-      // The record ID of the last successful execution of the remediation template.
       shared_ptr<string> lastSuccessfulInvocationId_ {};
-      // The timestamp of the last successful execution of the remediation template. Unit: milliseconds.
       shared_ptr<int64_t> lastSuccessfulInvocationTime_ {};
-      // The mode of the last successful execution of the remediation template. Valid values:
-      // 
-      // *   NON_EXECUTION: The remediation template was not executed.
-      // *   AUTO_EXECUTION: The remediation template was automatically executed.
-      // *   MANUAL_EXECUTION: The remediation template was manually executed.
-      // *   NOT_CONFIG: The execution mode was not specified.
       shared_ptr<string> lastSuccessfulInvocationType_ {};
-      // The ID of the remediation configuration.
       shared_ptr<string> remediationId_ {};
-      // The converted configuration of the remediation template. This parameter is returned only for an OOS remediation template.
-      // 
       // This parameter is required.
       shared_ptr<string> remediationOriginParams_ {};
-      // The source of the remediation template. Valid values:
-      // 
-      // *   ALIYUN: official template
-      // *   CUSTOM: custom template
-      // *   NONE: none
       shared_ptr<string> remediationSourceType_ {};
-      // The ID of the remediation template.
       shared_ptr<string> remediationTemplateId_ {};
-      // The type of the remediation template. Valid values:
-      // 
-      // *   OOS: Operation Orchestration Service (official remediation)
-      // *   FC: Function Compute (custom remediation)
       shared_ptr<string> remediationType_ {};
     };
 
@@ -213,9 +184,7 @@ namespace Models
 
 
   protected:
-    // The details of the remediation configuration.
     shared_ptr<DescribeRemediationResponseBody::Remediation> remediation_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

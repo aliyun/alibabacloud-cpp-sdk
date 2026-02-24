@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the compliance package.
+    // The ID of the compliance pack.
     shared_ptr<string> compliancePackId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

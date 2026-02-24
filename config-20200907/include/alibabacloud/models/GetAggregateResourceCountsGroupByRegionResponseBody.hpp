@@ -79,13 +79,8 @@ namespace Models
 
 
     protected:
-      // The dimension by which statistics are collected.
-      // 
-      // >  In most cases, the `Region` parameter is returned instead of the GroupName parameter.
       shared_ptr<string> groupName_ {};
-      // The ID of the region by which statistics are collected.
       shared_ptr<string> region_ {};
-      // The total number of resources in the region.
       shared_ptr<int64_t> resourceCount_ {};
     };
 
@@ -108,9 +103,7 @@ namespace Models
 
 
   protected:
-    // The ID of the region by which statistics are collected.
     shared_ptr<vector<GetAggregateResourceCountsGroupByRegionResponseBody::DiscoveredResourceCountsSummary>> discoveredResourceCountsSummary_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

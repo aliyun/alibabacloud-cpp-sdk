@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The rule ID.
     shared_ptr<string> configRuleId_ {};
-    // The ID of the remediation configuration.
     shared_ptr<string> remediationId_ {};
   };
 

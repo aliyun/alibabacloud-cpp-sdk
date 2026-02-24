@@ -216,38 +216,46 @@ namespace Models
       protected:
         // The ID of the Alibaba Cloud account to which the resource belongs.
         shared_ptr<int64_t> accountId_ {};
-        // The zone ID.
+        // The availability zone of the resource.
         shared_ptr<string> availabilityZone_ {};
         // The region ID.
         shared_ptr<string> region_ {};
-        // The timestamp when the resource was created. Unit: milliseconds.
+        // The time when the resource was created. This is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> resourceCreationTime_ {};
         // The status of the resource. Valid values:
         // 
-        // *   0: The resource is deleted.
-        // *   1: The resource is retained.
+        // - 0: Deleted.
+        // 
+        // - 1: Active.
         shared_ptr<int32_t> resourceDeleted_ {};
+        // The ID of the resource group to which the resource belongs. Example: rg-acfmvoh45rhxxxx
+        // 
         // This parameter is required.
         shared_ptr<string> resourceGroupId_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
         // The resource name.
         shared_ptr<string> resourceName_ {};
-        // The status of the resource. The value of this parameter varies based on the resource type and may be empty. Examples:
+        // The status of the resource. The status is defined by the corresponding Alibaba Cloud service. This parameter can be empty. For example:
         // 
-        // *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
-        // *   If the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
+        // - If the resource type is ACS::ECS::Instance, the resource is stateful. The value can be Running or Stopped.
+        // 
+        // - If the resource type is ACS::OSS::Bucket, the resource is stateless. The value is empty.
         shared_ptr<string> resourceStatus_ {};
-        // The type of the resource.
+        // The resource type.
         shared_ptr<string> resourceType_ {};
         // The tags of the resource.
         shared_ptr<string> tags_ {};
-        // The time when the resource was last updated. The value must be a timestamp in milliseconds.
+        // The time when the resource was last updated. This is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updateTime_ {};
+        // The ID of the vSwitch to which the resource belongs. Multiple vSwitch IDs are separated by commas (,). An empty string ("") is returned if the resource does not belong to a vSwitch.
+        // 
         // This parameter is required.
         shared_ptr<string> vSwitchId_ {};
         // The version of the resource change.
         shared_ptr<int64_t> version_ {};
+        // The ID of the virtual private cloud (VPC) to which the resource belongs. An empty string ("") is returned if the resource does not belong to a VPC.
+        // 
         // This parameter is required.
         shared_ptr<string> vpcId_ {};
       };
@@ -289,7 +297,7 @@ namespace Models
       shared_ptr<vector<DiscoveredResourceProfiles::DiscoveredResourceProfileList>> discoveredResourceProfileList_ {};
       // The maximum number of entries returned on each page.
       shared_ptr<int32_t> maxResults_ {};
-      // A pagination token. It can be used in the next request to retrieve a new page of results.
+      // The pagination token that is used in the next request to retrieve a new page of results.
       shared_ptr<string> nextToken_ {};
       // The total number of resources.
       shared_ptr<int32_t> totalCount_ {};
@@ -314,7 +322,7 @@ namespace Models
 
 
   protected:
-    // The information about the resources.
+    // The list of resources.
     shared_ptr<ListDiscoveredResourcesResponseBody::DiscoveredResourceProfiles> discoveredResourceProfiles_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

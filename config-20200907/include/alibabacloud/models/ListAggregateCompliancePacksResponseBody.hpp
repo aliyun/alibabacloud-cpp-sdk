@@ -214,32 +214,35 @@ namespace Models
 
 
       protected:
-        // The ID of the management account to which the compliance package belongs.
+        // The ID of the management account to which the compliance pack belongs.
         shared_ptr<int64_t> accountId_ {};
         // The ID of the account group.
         shared_ptr<string> aggregatorId_ {};
-        // The ID of the compliance package.
+        // The compliance pack ID.
         shared_ptr<string> compliancePackId_ {};
-        // The name of the compliance package.
+        // The name of the compliance pack.
         shared_ptr<string> compliancePackName_ {};
-        // The ID of the compliance package template.
+        // The ID of the compliance pack template.
         shared_ptr<string> compliancePackTemplateId_ {};
-        // The timestamp when the compliance package was created. Unit: milliseconds.
+        // The timestamp when the compliance pack was created. Unit: milliseconds.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The description of the compliance package.
+        // The description of the compliance pack.
         shared_ptr<string> description_ {};
-        // The risk level of the resources that are not compliant with the managed rules in the compliance package. Valid values:
+        // The risk level of the compliance pack. Valid values:
         // 
-        // *   1: high risk level.
-        // *   2: medium risk level.
-        // *   3: low risk level.
+        // - 1: high
+        // 
+        // - 2: medium
+        // 
+        // - 3: low
         shared_ptr<int32_t> riskLevel_ {};
-        // The status of the compliance package. Valid values:
+        // The status of the compliance pack. Valid values:
         // 
-        // *   ACTIVE: The compliance package is available for use.
-        // *   CREATING: The compliance package is being created.
+        // - ACTIVE: The compliance pack is active.
+        // 
+        // - CREATING: The compliance pack is being created.
         shared_ptr<string> status_ {};
-        // The tags.
+        // The tag of the resource.
         shared_ptr<vector<CompliancePacks::Tags>> tags_ {};
       };
 
@@ -276,13 +279,13 @@ namespace Models
 
 
     protected:
-      // The compliance packages.
+      // The compliance packs.
       shared_ptr<vector<CompliancePacksResult::CompliancePacks>> compliancePacks_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of compliance packages returned.
+      // The total number of compliance packs.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -305,9 +308,9 @@ namespace Models
 
 
   protected:
-    // The compliance packages returned.
+    // The results of the query.
     shared_ptr<ListAggregateCompliancePacksResponseBody::CompliancePacksResult> compliancePacksResult_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

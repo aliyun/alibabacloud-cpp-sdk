@@ -66,21 +66,9 @@ namespace Models
 
 
   protected:
-    // The type of the event that is integrated across accounts. Valid values:
-    // 
-    // *   NonCompliantNotification: non-compliance event
     shared_ptr<string> aggregatorDeliveryDataType_ {};
-    // Indicates whether the product has been integrated. Valid values:
-    // 
-    // *   true
-    // *   false
     shared_ptr<bool> data_ {};
-    // The types of the integrated events. Separate multiple event types with commas (,). Valid values:
-    // 
-    // *   ConfigurationItemChangeNotification: resource change event
-    // *   NonCompliantNotification: non-compliance event
     shared_ptr<string> integratedTypes_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

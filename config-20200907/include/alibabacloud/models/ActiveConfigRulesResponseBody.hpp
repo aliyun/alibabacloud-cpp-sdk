@@ -98,17 +98,8 @@ namespace Models
 
 
       protected:
-        // The rule ID.
         shared_ptr<string> configRuleId_ {};
-        // The error code.
-        // 
-        // *   If the rule is enabled, no error code is returned.
-        // *   If the rule fails to be enabled, an error code is returned. For more information about error codes, see [Error codes](https://next.api.aliyun.com/document/Config/2020-09-07/errorCode).
         shared_ptr<string> errorCode_ {};
-        // Indicates whether the rule is enabled. Valid values:
-        // 
-        // *   true
-        // *   false
         shared_ptr<bool> success_ {};
       };
 
@@ -123,7 +114,6 @@ namespace Models
 
 
     protected:
-      // The returned results.
       shared_ptr<vector<OperateRuleResult::OperateRuleItemList>> operateRuleItemList_ {};
     };
 
@@ -146,9 +136,7 @@ namespace Models
 
 
   protected:
-    // The returned results.
     shared_ptr<ActiveConfigRulesResponseBody::OperateRuleResult> operateRuleResult_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

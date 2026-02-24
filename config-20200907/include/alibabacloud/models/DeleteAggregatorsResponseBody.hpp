@@ -98,16 +98,8 @@ namespace Models
 
 
       protected:
-        // The ID of the account group.
         shared_ptr<string> aggregatorId_ {};
-        // The error code returned.
-        // 
-        // > No error code is returned for the account group if the account group is deleted.
         shared_ptr<string> errorCode_ {};
-        // Indicates whether the request was successful. Valid values:
-        // 
-        // *   true: The request was successful.
-        // *   false: The request failed.
         shared_ptr<bool> success_ {};
       };
 
@@ -122,7 +114,6 @@ namespace Models
 
 
     protected:
-      // The details of the account group.
       shared_ptr<vector<OperateAggregatorsResult::OperateAggregators>> operateAggregators_ {};
     };
 
@@ -145,9 +136,7 @@ namespace Models
 
 
   protected:
-    // The returned result.
     shared_ptr<DeleteAggregatorsResponseBody::OperateAggregatorsResult> operateAggregatorsResult_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
