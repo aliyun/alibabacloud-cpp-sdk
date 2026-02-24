@@ -101,9 +101,13 @@ namespace Models
 
 
     protected:
+      // Effective days (Monday to Sunday).
       shared_ptr<vector<int32_t>> dayInWeek_ {};
+      // End time (in minutes).
       shared_ptr<int32_t> endTimeInMinute_ {};
+      // Start time (in minutes).
       shared_ptr<int32_t> startTimeInMinute_ {};
+      // Time zone.
       shared_ptr<string> timeZone_ {};
     };
 
@@ -164,13 +168,21 @@ namespace Models
 
 
   protected:
+    // Description.
     shared_ptr<string> description_ {};
+    // Effective time range.
     shared_ptr<MaintainWindowForModify::EffectTimeRange> effectTimeRange_ {};
+    // Crontab expression.
     shared_ptr<string> effective_ {};
+    // Effective end time.
     shared_ptr<string> endTime_ {};
+    // Filtering conditions.
     shared_ptr<FilterSetting> filterSetting_ {};
+    // Name.
+    // 
     // This parameter is required.
     shared_ptr<string> maintainWindowName_ {};
+    // Effective start time.
     shared_ptr<string> startTime_ {};
   };
 

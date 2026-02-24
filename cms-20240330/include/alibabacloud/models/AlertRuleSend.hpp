@@ -5,6 +5,7 @@
 #include <alibabacloud/models/AlertRuleAction.hpp>
 #include <alibabacloud/models/AlertRuleNotification.hpp>
 #include <vector>
+#include <alibabacloud/models/AlertRuleRcaConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,12 +20,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(action, action_);
       DARABONBA_PTR_TO_JSON(notification, notification_);
       DARABONBA_PTR_TO_JSON(notifyStrategies, notifyStrategies_);
+      DARABONBA_PTR_TO_JSON(rcaConfig, rcaConfig_);
       DARABONBA_PTR_TO_JSON(sendToArms, sendToArms_);
     };
     friend void from_json(const Darabonba::Json& j, AlertRuleSend& obj) { 
       DARABONBA_PTR_FROM_JSON(action, action_);
       DARABONBA_PTR_FROM_JSON(notification, notification_);
       DARABONBA_PTR_FROM_JSON(notifyStrategies, notifyStrategies_);
+      DARABONBA_PTR_FROM_JSON(rcaConfig, rcaConfig_);
       DARABONBA_PTR_FROM_JSON(sendToArms, sendToArms_);
     };
     AlertRuleSend() = default ;
@@ -39,7 +42,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->action_ == nullptr
-        && this->notification_ == nullptr && this->notifyStrategies_ == nullptr && this->sendToArms_ == nullptr; };
+        && this->notification_ == nullptr && this->notifyStrategies_ == nullptr && this->rcaConfig_ == nullptr && this->sendToArms_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
@@ -67,6 +70,15 @@ namespace Models
     inline AlertRuleSend& setNotifyStrategies(vector<string> && notifyStrategies) { DARABONBA_PTR_SET_RVALUE(notifyStrategies_, notifyStrategies) };
 
 
+    // rcaConfig Field Functions 
+    bool hasRcaConfig() const { return this->rcaConfig_ != nullptr;};
+    void deleteRcaConfig() { this->rcaConfig_ = nullptr;};
+    inline const AlertRuleRcaConfig & getRcaConfig() const { DARABONBA_PTR_GET_CONST(rcaConfig_, AlertRuleRcaConfig) };
+    inline AlertRuleRcaConfig getRcaConfig() { DARABONBA_PTR_GET(rcaConfig_, AlertRuleRcaConfig) };
+    inline AlertRuleSend& setRcaConfig(const AlertRuleRcaConfig & rcaConfig) { DARABONBA_PTR_SET_VALUE(rcaConfig_, rcaConfig) };
+    inline AlertRuleSend& setRcaConfig(AlertRuleRcaConfig && rcaConfig) { DARABONBA_PTR_SET_RVALUE(rcaConfig_, rcaConfig) };
+
+
     // sendToArms Field Functions 
     bool hasSendToArms() const { return this->sendToArms_ != nullptr;};
     void deleteSendToArms() { this->sendToArms_ = nullptr;};
@@ -75,9 +87,13 @@ namespace Models
 
 
   protected:
+    // Alert Action Integration Configuration.
     shared_ptr<AlertRuleAction> action_ {};
+    // Alert Notification Configuration.
     shared_ptr<AlertRuleNotification> notification_ {};
     shared_ptr<vector<string>> notifyStrategies_ {};
+    shared_ptr<AlertRuleRcaConfig> rcaConfig_ {};
+    // Whether to deliver alert events to ARMS Alert Management.
     shared_ptr<bool> sendToArms_ {};
   };
 

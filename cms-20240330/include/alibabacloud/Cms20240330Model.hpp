@@ -21,6 +21,7 @@
 #include <alibabacloud/models/AlertRuleNotificationFilter.hpp>
 #include <alibabacloud/models/AlertRuleSlsQueryJoin.hpp>
 #include <alibabacloud/models/AlertRuleQuery.hpp>
+#include <alibabacloud/models/AlertRuleRcaConfig.hpp>
 #include <alibabacloud/models/AlertRuleSend.hpp>
 #include <alibabacloud/models/BizTraceConfig.hpp>
 #include <alibabacloud/models/EventResourceForEventView.hpp>
@@ -55,6 +56,8 @@
 #include <alibabacloud/models/IncidentStruct.hpp>
 #include <alibabacloud/models/IncidentTimeline.hpp>
 #include <alibabacloud/models/IncidentTimelineForView.hpp>
+#include <alibabacloud/models/IndexJsonKey.hpp>
+#include <alibabacloud/models/IndexKey.hpp>
 #include <alibabacloud/models/MaintainWindowForModify.hpp>
 #include <alibabacloud/models/MaintainWindowForView.hpp>
 #include <alibabacloud/models/MergeContact.hpp>
@@ -94,6 +97,9 @@
 #include <alibabacloud/models/CreateDigitalEmployeeRequest.hpp>
 #include <alibabacloud/models/CreateDigitalEmployeeResponseBody.hpp>
 #include <alibabacloud/models/CreateDigitalEmployeeResponse.hpp>
+#include <alibabacloud/models/CreateDigitalEmployeeSkillRequest.hpp>
+#include <alibabacloud/models/CreateDigitalEmployeeSkillResponseBody.hpp>
+#include <alibabacloud/models/CreateDigitalEmployeeSkillResponse.hpp>
 #include <alibabacloud/models/CreateEntityStoreResponseBody.hpp>
 #include <alibabacloud/models/CreateEntityStoreResponse.hpp>
 #include <alibabacloud/models/CreateIntegrationPolicyRequest.hpp>
@@ -137,6 +143,8 @@
 #include <alibabacloud/models/DeleteCloudResourceResponse.hpp>
 #include <alibabacloud/models/DeleteDigitalEmployeeResponseBody.hpp>
 #include <alibabacloud/models/DeleteDigitalEmployeeResponse.hpp>
+#include <alibabacloud/models/DeleteDigitalEmployeeSkillResponseBody.hpp>
+#include <alibabacloud/models/DeleteDigitalEmployeeSkillResponse.hpp>
 #include <alibabacloud/models/DeleteEntityStoreResponseBody.hpp>
 #include <alibabacloud/models/DeleteEntityStoreResponse.hpp>
 #include <alibabacloud/models/DeleteIntegrationPolicyRequest.hpp>
@@ -188,6 +196,9 @@
 #include <alibabacloud/models/GetCmsServiceResponse.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeResponseBody.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeResponse.hpp>
+#include <alibabacloud/models/GetDigitalEmployeeSkillRequest.hpp>
+#include <alibabacloud/models/GetDigitalEmployeeSkillResponseBody.hpp>
+#include <alibabacloud/models/GetDigitalEmployeeSkillResponse.hpp>
 #include <alibabacloud/models/GetEntityStoreResponseBody.hpp>
 #include <alibabacloud/models/GetEntityStoreResponse.hpp>
 #include <alibabacloud/models/GetEntityStoreDataHeaders.hpp>
@@ -247,6 +258,11 @@
 #include <alibabacloud/models/ListBizTracesRequest.hpp>
 #include <alibabacloud/models/ListBizTracesResponseBody.hpp>
 #include <alibabacloud/models/ListBizTracesResponse.hpp>
+#include <alibabacloud/models/ListDigitalEmployeeSkillVersionsResponseBody.hpp>
+#include <alibabacloud/models/ListDigitalEmployeeSkillVersionsResponse.hpp>
+#include <alibabacloud/models/ListDigitalEmployeeSkillsRequest.hpp>
+#include <alibabacloud/models/ListDigitalEmployeeSkillsResponseBody.hpp>
+#include <alibabacloud/models/ListDigitalEmployeeSkillsResponse.hpp>
 #include <alibabacloud/models/ListDigitalEmployeesRequest.hpp>
 #include <alibabacloud/models/ListDigitalEmployeesShrinkRequest.hpp>
 #include <alibabacloud/models/ListDigitalEmployeesResponseBody.hpp>
@@ -333,6 +349,9 @@
 #include <alibabacloud/models/UpdateDigitalEmployeeRequest.hpp>
 #include <alibabacloud/models/UpdateDigitalEmployeeResponseBody.hpp>
 #include <alibabacloud/models/UpdateDigitalEmployeeResponse.hpp>
+#include <alibabacloud/models/UpdateDigitalEmployeeSkillRequest.hpp>
+#include <alibabacloud/models/UpdateDigitalEmployeeSkillResponseBody.hpp>
+#include <alibabacloud/models/UpdateDigitalEmployeeSkillResponse.hpp>
 #include <alibabacloud/models/UpdateIntegrationPolicyRequest.hpp>
 #include <alibabacloud/models/UpdateIntegrationPolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateIntegrationPolicyResponse.hpp>

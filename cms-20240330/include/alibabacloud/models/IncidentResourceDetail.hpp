@@ -59,8 +59,11 @@ namespace Models
 
 
   protected:
+    // Additional resource identifier.
     shared_ptr<string> extraId_ {};
+    // Resource ID object.
     Darabonba::Json resourceId_ {};
+    // Resource type, indicating which cloud product the resource belongs to.
     shared_ptr<string> type_ {};
   };
 

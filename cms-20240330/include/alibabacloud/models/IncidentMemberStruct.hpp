@@ -84,7 +84,9 @@ namespace Models
 
 
     protected:
+      // Contact ID.
       shared_ptr<string> contactId_ {};
+      // Name.
       shared_ptr<string> name_ {};
     };
 
@@ -153,10 +155,15 @@ namespace Models
 
 
     protected:
+      // Description.
       shared_ptr<string> description_ {};
+      // Event Escalation ID.
       shared_ptr<string> incidentEscalationId_ {};
+      // Name.
       shared_ptr<string> name_ {};
+      // Escalation phase index.
       shared_ptr<string> stageIndex_ {};
+      // Title.
       shared_ptr<string> title_ {};
     };
 
@@ -198,7 +205,9 @@ namespace Models
 
 
     protected:
+      // Channel.
       shared_ptr<string> channel_ {};
+      // Contact ID (masked).
       shared_ptr<string> contactMask_ {};
     };
 
@@ -240,7 +249,9 @@ namespace Models
 
 
     protected:
+      // Acknowledgement level.
       shared_ptr<string> breakLevel_ {};
+      // Verification time.
       shared_ptr<int64_t> verifyTime_ {};
     };
 
@@ -319,14 +330,23 @@ namespace Models
 
 
   protected:
+    // Acknowledgement Information Structure.
     shared_ptr<IncidentMemberStruct::Acknowledge> acknowledge_ {};
+    // Contact ID.
     shared_ptr<string> contactId_ {};
+    // Contact list.
     shared_ptr<vector<IncidentMemberStruct::Contacts>> contacts_ {};
+    // Escalation phase information.
     shared_ptr<IncidentMemberStruct::Escalation> escalation_ {};
+    // Incident ID.
     shared_ptr<string> incidentId_ {};
+    // Event Member ID.
     shared_ptr<string> incidentMemberId_ {};
+    // Schedule group.
     shared_ptr<IncidentMemberStruct::ScheduleGroup> scheduleGroup_ {};
+    // Time.
     shared_ptr<int64_t> time_ {};
+    // User ID.
     shared_ptr<int64_t> userId_ {};
   };
 

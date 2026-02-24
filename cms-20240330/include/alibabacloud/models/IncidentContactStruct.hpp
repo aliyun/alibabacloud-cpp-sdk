@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Channel list.
     shared_ptr<vector<string>> channel_ {};
+    // Contact ID.
     shared_ptr<string> contactId_ {};
+    // Contact type.
     shared_ptr<string> contactType_ {};
   };
 

@@ -96,9 +96,16 @@ namespace Models
 
 
     protected:
+      // SLS project
       shared_ptr<string> project_ {};
+      // The region where the SLS project is located.
       shared_ptr<string> regionId_ {};
+      // LogStore/MetricStore name.
       shared_ptr<string> store_ {};
+      // Type of SLS data sub-source:
+      // 
+      // - SLS_LOG_DS: LogStore data source.
+      // - SLS_METRIC_DS: MetricStore data source.
       shared_ptr<string> type_ {};
     };
 
@@ -149,13 +156,30 @@ namespace Models
 
 
   protected:
+    // Applicable data source type: APM_DS.
+    // Application type: 
+    // 
+    // - apm.
     shared_ptr<string> appType_ {};
+    // Applicable data source type: SLS_MULTI_DS.
+    // List of sub-data sources.
     shared_ptr<vector<AlertRuleDataSource::DsList>> dsList_ {};
-    // 实例id，当type=PROMETHEUS_DS/ENTERPRISE_DS时必填，为prometheus实例的clusterId或指标仓库名称
+    // Applicable data source type: PROMETHEUS_DS.
+    // Prometheus instance ID.
     shared_ptr<string> instanceId_ {};
+    // Applicable data source type: ENTERPRISE_DS.
+    // Name of the enterprise cloud monitoring metric repository.
     shared_ptr<string> namespace_ {};
+    // Applicable data source types: APM_DS, PROMETHEUS_DS.
+    // The regionId to which the data source belongs.
     shared_ptr<string> regionId_ {};
-    // 数据源类型
+    // Data source type.
+    // Valid values:
+    // - PROMETHEUS_DS: Prometheus data source.
+    // - SLS_MULTI_DS: SLS data source.
+    // - APM_DS: Application monitoring data source.
+    // - CMS_BASIC_DS: Basic cloud monitoring data source.
+    // - ENTERPRISE_DS: Enterprise cloud monitoring data source.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

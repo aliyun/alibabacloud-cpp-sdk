@@ -73,9 +73,13 @@ namespace Models
 
 
   protected:
+    // List of user-provided filter conditions. The supported parameters and filter conditions for the metric can be queried via ListAlertMetrics.
     shared_ptr<vector<AlertRuleAlertMetricInputFilterValue>> filterValues_ {};
+    // Key of the metric group selected by the user.
     shared_ptr<string> groupId_ {};
+    // Key of the predefined metric selected by the user.
     shared_ptr<string> metricId_ {};
+    // List of input parameters. The metric\\"s supported parameters and filter conditions can be queried via ListAlertMetrics.
     shared_ptr<vector<AlertRuleAlertMetricInputParamValue>> paramValues_ {};
   };
 

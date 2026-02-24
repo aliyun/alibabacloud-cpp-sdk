@@ -156,6 +156,7 @@ namespace Models
 
 
   protected:
+    // UUID
     shared_ptr<string> alertEventIntegrationPolicyId_ {};
     // This parameter is required.
     shared_ptr<string> alertEventIntegrationPolicyName_ {};
@@ -169,6 +170,7 @@ namespace Models
     shared_ptr<string> type_ {};
     shared_ptr<string> updateTime_ {};
     shared_ptr<string> userId_ {};
+    // workspace
     shared_ptr<string> workspace_ {};
   };
 

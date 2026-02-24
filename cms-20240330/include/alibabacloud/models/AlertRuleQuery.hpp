@@ -152,8 +152,16 @@ namespace Models
 
 
       protected:
+        // Dimension in APM metrics.
         shared_ptr<string> dim_ {};
+        // Filter operation types:
+        // 
+        // - eq: equals.
+        // - neq: not equals.
+        // - match: regular expression match.
+        // - nmatch: regular expression not match.
         shared_ptr<string> type_ {};
+        // The corresponding value for the filter operation.
         shared_ptr<string> value_ {};
       };
 
@@ -228,19 +236,37 @@ namespace Models
 
 
     protected:
+      // Applicable query type: APM_MULTI_QUERY.
+      // ID of the APM predefined metric.
       shared_ptr<string> apmAlertMetricId_ {};
+      // Applicable query type: ARMS_MULTI_QUERY.
+      // Dimension filter configuration for APM metrics. Must be used in conjunction with apmAlertMetricId.
       shared_ptr<vector<Queries::ApmFilters>> apmFilters_ {};
+      // Applicable query type: ARMS_MULTI_QUERY.
+      // List of aggregation dimensions for the query, i.e., the dimensions by which the metric is aggregated.
       shared_ptr<vector<string>> apmGroupBy_ {};
+      // Applicable query type: ARMS_MULTI_QUERY.
+      // Alert (data) duration.
       shared_ptr<int64_t> duration_ {};
-      // 时间偏移结束时间(相对)，如果指定了start、end，则不指定window。
+      // Applicable query type: SLS_MULTI_QUERY.
+      // Time offset end time (relative).
+      // If start and end are specified, do not specify window.
       shared_ptr<int64_t> end_ {};
-      // 查询表达式
+      // Applicable query types: APM_MULTI_QUERY, SLS_MULTI_QUERY.
+      // Query expression.
+      // 
+      // - For APM_MULTI_QUERY, this field is optional and contains the PromQL generated for predefined metrics (used for data preview).
+      // - For SLS_MULTI_QUERY, this field contains the SQL query statement.
       shared_ptr<string> expr_ {};
-      // sls查询的时间偏移开始时间(相对)，如果指定了start、end，则不指定window。  例如：start=15， timeUnit=minute，表示15分钟前
+      // Applicable query type: SLS_MULTI_QUERY.
+      // SLS query time offset start time (relative).
+      // If start and end are specified, do not specify window. For example: start=15, timeUnit=minute, which means 15 minutes ago.
       shared_ptr<int64_t> start_ {};
-      // start和end、window的时间单位： day/hour/minute/second
+      // Applicable query type: SLS_MULTI_QUERY.
+      // Time units for the start, end, and window parameters: day/hour/minute/second.
       shared_ptr<string> timeUnit_ {};
-      // 整点时间查询区间。  如果指定了window则不指定start、end
+      // Applicable query type: SLS_MULTI_QUERY.
+      // Exact-hour time query interval. If window is specified, start and end should not be specified.
       shared_ptr<int64_t> window_ {};
     };
 
@@ -366,8 +392,11 @@ namespace Models
 
 
       protected:
+        // 字段
         shared_ptr<string> field_ {};
+        // 比较运算符。
         shared_ptr<string> operator_ {};
+        // 匹配的值。
         shared_ptr<string> value_ {};
       };
 
@@ -397,8 +426,11 @@ namespace Models
 
 
     protected:
+      // 资源类型域。
       shared_ptr<string> domain_ {};
+      // 过滤条件列表，用于进一步筛选资源。
       shared_ptr<vector<EntityFilter::Filters>> filters_ {};
+      // 资源类型。
       shared_ptr<string> type_ {};
     };
 
@@ -608,26 +640,80 @@ namespace Models
 
 
   protected:
+    // Applicable query type: PROMQL_QUERY.
+    // Whether to perform alert evaluation only after data completeness is ensured.
     shared_ptr<bool> checkAfterDataComplete_ {};
+    // Applicable query type: CMS_BASIC_QUERY.
+    // List of filtering dimensions for the resource.
     shared_ptr<vector<map<string, string>>> dimensions_ {};
+    // 资源所属的领域。
     shared_ptr<string> domain_ {};
+    // Applicable query type: PROMQL_QUERY.
+    // Duration of alert data, in seconds.
     shared_ptr<int64_t> duration_ {};
     shared_ptr<vector<AlertRuleQuery::EntityFields>> entityFields_ {};
+    // 资源过滤器，用于筛选目标资源。
     shared_ptr<AlertRuleQuery::EntityFilter> entityFilter_ {};
+    // Applicable query type: PROMQL_QUERY.
+    // Query expression (PromQL).
     shared_ptr<string> expr_ {};
+    // Applicable query type: SLS_MULTI_QUERY.
+    // Configuration for the set join operation between the results of subquery 1 (queries[0]) and subquery 2 (queries[1]).
     shared_ptr<AlertRuleSlsQueryJoin> firstJoin_ {};
+    // Applicable query type: SLS_MULTI_QUERY.
+    // List of grouping field names.
     shared_ptr<vector<string>> groupFieldList_ {};
+    // Applicable query type: CMS_BASIC_QUERY.
+    // Associated application group ID, valid only when relationType = GROUP.
     shared_ptr<string> groupId_ {};
+    // Applicable query type: SLS_MULTI_QUERY.
+    // Grouping type, with the following possible values:
+    // 
+    // - none: No grouping.
+    // - label: Automatic label grouping.
+    // - custom: Custom label grouping.
     shared_ptr<string> groupType_ {};
     shared_ptr<vector<AlertRuleQuery::LabelFilters>> labelFilters_ {};
+    // 指标名。
     shared_ptr<string> metric_ {};
+    // 监控指标集合。
     shared_ptr<string> metricSet_ {};
+    // Applicable query type: CMS_BASIC_QUERY.
+    // Namespace of the metric.
     shared_ptr<string> namespace_ {};
+    // Applicable query types: SLS_MULTI_QUERY, APM_MULTI_QUERY.
+    // List of subqueries.
+    // 
+    // For the SLS_MULTI_QUERY type, the list can contain up to three subqueries, and the number and order of subqueries must match the sub-datasource configurations in datasource.dsList.
     shared_ptr<vector<AlertRuleQuery::Queries>> queries_ {};
+    // Applicable query type: CMS_BASIC_QUERY.
+    // Resource scope for the rule query, with the following allowed values:
+    // - USER: All resources under the user\\"s UID.
+    // - GROUP: Application group.
+    // - INSTANCE: Specified list of instances.
     shared_ptr<string> relationType_ {};
+    // Applicable query type: SLS_MULTI_QUERY.
+    // Configuration for the set join operation between the results of subquery 2 (queries[2]) and subquery 3 (queries[3]).
     shared_ptr<AlertRuleSlsQueryJoin> secondJoin_ {};
+    // Service ID list.
     shared_ptr<vector<string>> serviceIds_ {};
-    // 查询类型
+    // Query type.
+    // 
+    // Valid values:
+    // 
+    // - PROMQL_QUERY: PromQL query
+    // - SLS_MULTI_QUERY: SLS query
+    // - APM_MULTI_QUERY: APM query
+    // - CMS_BASIC_QUERY: Basic CloudMonitor query
+    // 
+    // The valid fields within the query object vary depending on the query type. Refer to the "Applicable query type" description in each field\\"s documentation for details.
+    // 
+    // The query type must match the data source type, with the following correspondences:
+    // 
+    // - Prometheus data source (PROMETHEUS_DS): PROMQL_QUERY
+    // - APM data source (APM_DS): APM_MULTI_QUERY
+    // - SLS data source (SLS_MULTI_DS): SLS_MULTI_QUERY
+    // - Basic CloudMonitor data source (CMS_BASIC_DS): CMS_BASIC_QUERY.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

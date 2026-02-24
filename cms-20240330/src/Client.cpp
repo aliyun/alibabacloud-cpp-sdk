@@ -465,16 +465,18 @@ FutureGenerator<CreateChatResponse> Client::createChatWithSSE(const CreateChatRe
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<CreateChatResponse>();
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<CreateChatResponse>();
 return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -646,6 +648,71 @@ CreateDigitalEmployeeResponse Client::createDigitalEmployee(const CreateDigitalE
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createDigitalEmployeeWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建技能
+ *
+ * @param request CreateDigitalEmployeeSkillRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDigitalEmployeeSkillResponse
+ */
+CreateDigitalEmployeeSkillResponse Client::createDigitalEmployeeSkillWithOptions(const string &name, const CreateDigitalEmployeeSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEnable()) {
+    body["enable"] = request.getEnable();
+  }
+
+  if (!!request.hasFiles()) {
+    body["files"] = request.getFiles();
+  }
+
+  if (!!request.hasRemark()) {
+    body["remark"] = request.getRemark();
+  }
+
+  if (!!request.hasSkillName()) {
+    body["skillName"] = request.getSkillName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDigitalEmployeeSkill"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/skill")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDigitalEmployeeSkillResponse>();
+}
+
+/**
+ * @summary 创建技能
+ *
+ * @param request CreateDigitalEmployeeSkillRequest
+ * @return CreateDigitalEmployeeSkillResponse
+ */
+CreateDigitalEmployeeSkillResponse Client::createDigitalEmployeeSkill(const string &name, const CreateDigitalEmployeeSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createDigitalEmployeeSkillWithOptions(name, request, headers, runtime);
 }
 
 /**
@@ -1482,6 +1549,42 @@ DeleteDigitalEmployeeResponse Client::deleteDigitalEmployee(const string &name) 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteDigitalEmployeeWithOptions(name, headers, runtime);
+}
+
+/**
+ * @summary 删除技能
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDigitalEmployeeSkillResponse
+ */
+DeleteDigitalEmployeeSkillResponse Client::deleteDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDigitalEmployeeSkill"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/skill/" , Darabonba::Encode::Encoder::percentEncode(skillName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDigitalEmployeeSkillResponse>();
+}
+
+/**
+ * @summary 删除技能
+ *
+ * @return DeleteDigitalEmployeeSkillResponse
+ */
+DeleteDigitalEmployeeSkillResponse Client::deleteDigitalEmployeeSkill(const string &name, const string &skillName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteDigitalEmployeeSkillWithOptions(name, skillName, headers, runtime);
 }
 
 /**
@@ -2375,6 +2478,51 @@ GetDigitalEmployeeResponse Client::getDigitalEmployee(const string &name) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getDigitalEmployeeWithOptions(name, headers, runtime);
+}
+
+/**
+ * @summary 获取技能详情
+ *
+ * @param request GetDigitalEmployeeSkillRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDigitalEmployeeSkillResponse
+ */
+GetDigitalEmployeeSkillResponse Client::getDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const GetDigitalEmployeeSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDigitalEmployeeSkill"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/skill/" , Darabonba::Encode::Encoder::percentEncode(skillName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDigitalEmployeeSkillResponse>();
+}
+
+/**
+ * @summary 获取技能详情
+ *
+ * @param request GetDigitalEmployeeSkillRequest
+ * @return GetDigitalEmployeeSkillResponse
+ */
+GetDigitalEmployeeSkillResponse Client::getDigitalEmployeeSkill(const string &name, const string &skillName, const GetDigitalEmployeeSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getDigitalEmployeeSkillWithOptions(name, skillName, request, headers, runtime);
 }
 
 /**
@@ -3405,6 +3553,95 @@ ListBizTracesResponse Client::listBizTraces(const ListBizTracesRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listBizTracesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 列出技能版本
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDigitalEmployeeSkillVersionsResponse
+ */
+ListDigitalEmployeeSkillVersionsResponse Client::listDigitalEmployeeSkillVersionsWithOptions(const string &name, const string &skillName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDigitalEmployeeSkillVersions"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/skill/" , Darabonba::Encode::Encoder::percentEncode(skillName) , "/versions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDigitalEmployeeSkillVersionsResponse>();
+}
+
+/**
+ * @summary 列出技能版本
+ *
+ * @return ListDigitalEmployeeSkillVersionsResponse
+ */
+ListDigitalEmployeeSkillVersionsResponse Client::listDigitalEmployeeSkillVersions(const string &name, const string &skillName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listDigitalEmployeeSkillVersionsWithOptions(name, skillName, headers, runtime);
+}
+
+/**
+ * @summary 列出技能
+ *
+ * @param request ListDigitalEmployeeSkillsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDigitalEmployeeSkillsResponse
+ */
+ListDigitalEmployeeSkillsResponse Client::listDigitalEmployeeSkillsWithOptions(const string &name, const ListDigitalEmployeeSkillsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSkillName()) {
+    query["skillName"] = request.getSkillName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDigitalEmployeeSkills"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/skills")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDigitalEmployeeSkillsResponse>();
+}
+
+/**
+ * @summary 列出技能
+ *
+ * @param request ListDigitalEmployeeSkillsRequest
+ * @return ListDigitalEmployeeSkillsResponse
+ */
+ListDigitalEmployeeSkillsResponse Client::listDigitalEmployeeSkills(const string &name, const ListDigitalEmployeeSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listDigitalEmployeeSkillsWithOptions(name, request, headers, runtime);
 }
 
 /**
@@ -4900,7 +5137,7 @@ UpdateAggTaskGroupStatusResponse Client::updateAggTaskGroupStatus(const string &
 }
 
 /**
- * @summary 更新Webhook
+ * @summary 修改已存在的告警 Webhook 通知配置。
  *
  * @param request UpdateAlertWebhookRequest
  * @param headers map
@@ -4953,7 +5190,7 @@ UpdateAlertWebhookResponse Client::updateAlertWebhookWithOptions(const string &w
 }
 
 /**
- * @summary 更新Webhook
+ * @summary 修改已存在的告警 Webhook 通知配置。
  *
  * @param request UpdateAlertWebhookRequest
  * @return UpdateAlertWebhookResponse
@@ -5083,6 +5320,67 @@ UpdateDigitalEmployeeResponse Client::updateDigitalEmployee(const string &name, 
 }
 
 /**
+ * @summary 更新技能
+ *
+ * @param request UpdateDigitalEmployeeSkillRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDigitalEmployeeSkillResponse
+ */
+UpdateDigitalEmployeeSkillResponse Client::updateDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const UpdateDigitalEmployeeSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEnable()) {
+    body["enable"] = request.getEnable();
+  }
+
+  if (!!request.hasFiles()) {
+    body["files"] = request.getFiles();
+  }
+
+  if (!!request.hasRemark()) {
+    body["remark"] = request.getRemark();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDigitalEmployeeSkill"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/skill/" , Darabonba::Encode::Encoder::percentEncode(skillName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDigitalEmployeeSkillResponse>();
+}
+
+/**
+ * @summary 更新技能
+ *
+ * @param request UpdateDigitalEmployeeSkillRequest
+ * @return UpdateDigitalEmployeeSkillResponse
+ */
+UpdateDigitalEmployeeSkillResponse Client::updateDigitalEmployeeSkill(const string &name, const string &skillName, const UpdateDigitalEmployeeSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateDigitalEmployeeSkillWithOptions(name, skillName, request, headers, runtime);
+}
+
+/**
  * @summary Update the specified policy
  *
  * @param request UpdateIntegrationPolicyRequest
@@ -5140,7 +5438,7 @@ UpdateIntegrationPolicyResponse Client::updateIntegrationPolicy(const string &in
 }
 
 /**
- * @summary 更新通知策略
+ * @summary 修改已存在的告警通知策略
  *
  * @param request UpdateNotifyStrategyRequest
  * @param headers map
@@ -5174,7 +5472,7 @@ UpdateNotifyStrategyResponse Client::updateNotifyStrategyWithOptions(const strin
 }
 
 /**
- * @summary 更新通知策略
+ * @summary 修改已存在的告警通知策略
  *
  * @param request UpdateNotifyStrategyRequest
  * @return UpdateNotifyStrategyResponse
@@ -5450,7 +5748,7 @@ UpdateServiceResponse Client::updateService(const string &workspace, const strin
 }
 
 /**
- * @summary 更新订阅
+ * @summary 更新一个已存在的订阅配置
  *
  * @param request UpdateSubscriptionRequest
  * @param headers map
@@ -5484,7 +5782,7 @@ UpdateSubscriptionResponse Client::updateSubscriptionWithOptions(const string &s
 }
 
 /**
- * @summary 更新订阅
+ * @summary 更新一个已存在的订阅配置
  *
  * @param request UpdateSubscriptionRequest
  * @return UpdateSubscriptionResponse

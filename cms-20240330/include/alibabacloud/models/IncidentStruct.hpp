@@ -131,15 +131,25 @@ namespace Models
 
 
   protected:
+    // Content.
     shared_ptr<string> content_ {};
+    // List of escalation policies.
     shared_ptr<vector<IncidentEscalationStruct>> escalations_ {};
+    // Incident ID.
     shared_ptr<string> incidentId_ {};
+    // Associated incident contingency plan.
     shared_ptr<IncidentPlanStruct> incidentPlan_ {};
+    // Associated resource details.
     shared_ptr<IncidentResourceDetail> resource_ {};
+    // Incident severity level.
     shared_ptr<string> severity_ {};
+    // Status.
     shared_ptr<string> status_ {};
+    // Time.
     shared_ptr<int64_t> time_ {};
+    // Title.
     shared_ptr<string> title_ {};
+    // User ID.
     shared_ptr<string> userId_ {};
   };
 

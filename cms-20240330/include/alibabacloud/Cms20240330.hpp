@@ -177,6 +177,24 @@ namespace Cms20240330
       Models::CreateDigitalEmployeeResponse createDigitalEmployee(const Models::CreateDigitalEmployeeRequest &request);
 
       /**
+       * @summary 创建技能
+       *
+       * @param request CreateDigitalEmployeeSkillRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDigitalEmployeeSkillResponse
+       */
+      Models::CreateDigitalEmployeeSkillResponse createDigitalEmployeeSkillWithOptions(const string &name, const Models::CreateDigitalEmployeeSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建技能
+       *
+       * @param request CreateDigitalEmployeeSkillRequest
+       * @return CreateDigitalEmployeeSkillResponse
+       */
+      Models::CreateDigitalEmployeeSkillResponse createDigitalEmployeeSkill(const string &name, const Models::CreateDigitalEmployeeSkillRequest &request);
+
+      /**
        * @summary Create storage related to EntityStore
        *
        * @param headers map
@@ -467,6 +485,22 @@ namespace Cms20240330
        * @return DeleteDigitalEmployeeResponse
        */
       Models::DeleteDigitalEmployeeResponse deleteDigitalEmployee(const string &name);
+
+      /**
+       * @summary 删除技能
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDigitalEmployeeSkillResponse
+       */
+      Models::DeleteDigitalEmployeeSkillResponse deleteDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除技能
+       *
+       * @return DeleteDigitalEmployeeSkillResponse
+       */
+      Models::DeleteDigitalEmployeeSkillResponse deleteDigitalEmployeeSkill(const string &name, const string &skillName);
 
       /**
        * @summary Delete EntityStore related storage
@@ -837,6 +871,24 @@ namespace Cms20240330
        * @return GetDigitalEmployeeResponse
        */
       Models::GetDigitalEmployeeResponse getDigitalEmployee(const string &name);
+
+      /**
+       * @summary 获取技能详情
+       *
+       * @param request GetDigitalEmployeeSkillRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDigitalEmployeeSkillResponse
+       */
+      Models::GetDigitalEmployeeSkillResponse getDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const Models::GetDigitalEmployeeSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取技能详情
+       *
+       * @param request GetDigitalEmployeeSkillRequest
+       * @return GetDigitalEmployeeSkillResponse
+       */
+      Models::GetDigitalEmployeeSkillResponse getDigitalEmployeeSkill(const string &name, const string &skillName, const Models::GetDigitalEmployeeSkillRequest &request);
 
       /**
        * @summary Get EntityStore related storage information
@@ -1219,6 +1271,40 @@ namespace Cms20240330
        * @return ListBizTracesResponse
        */
       Models::ListBizTracesResponse listBizTraces(const Models::ListBizTracesRequest &request);
+
+      /**
+       * @summary 列出技能版本
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDigitalEmployeeSkillVersionsResponse
+       */
+      Models::ListDigitalEmployeeSkillVersionsResponse listDigitalEmployeeSkillVersionsWithOptions(const string &name, const string &skillName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出技能版本
+       *
+       * @return ListDigitalEmployeeSkillVersionsResponse
+       */
+      Models::ListDigitalEmployeeSkillVersionsResponse listDigitalEmployeeSkillVersions(const string &name, const string &skillName);
+
+      /**
+       * @summary 列出技能
+       *
+       * @param request ListDigitalEmployeeSkillsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDigitalEmployeeSkillsResponse
+       */
+      Models::ListDigitalEmployeeSkillsResponse listDigitalEmployeeSkillsWithOptions(const string &name, const Models::ListDigitalEmployeeSkillsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出技能
+       *
+       * @param request ListDigitalEmployeeSkillsRequest
+       * @return ListDigitalEmployeeSkillsResponse
+       */
+      Models::ListDigitalEmployeeSkillsResponse listDigitalEmployeeSkills(const string &name, const Models::ListDigitalEmployeeSkillsRequest &request);
 
       /**
        * @summary 列出资源DigitalEmployee
@@ -1669,7 +1755,7 @@ namespace Cms20240330
       Models::UpdateAggTaskGroupStatusResponse updateAggTaskGroupStatus(const string &instanceId, const string &groupId, const Models::UpdateAggTaskGroupStatusRequest &request);
 
       /**
-       * @summary 更新Webhook
+       * @summary 修改已存在的告警 Webhook 通知配置。
        *
        * @param request UpdateAlertWebhookRequest
        * @param headers map
@@ -1679,7 +1765,7 @@ namespace Cms20240330
       Models::UpdateAlertWebhookResponse updateAlertWebhookWithOptions(const string &webhookId, const Models::UpdateAlertWebhookRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新Webhook
+       * @summary 修改已存在的告警 Webhook 通知配置。
        *
        * @param request UpdateAlertWebhookRequest
        * @return UpdateAlertWebhookResponse
@@ -1723,6 +1809,24 @@ namespace Cms20240330
       Models::UpdateDigitalEmployeeResponse updateDigitalEmployee(const string &name, const Models::UpdateDigitalEmployeeRequest &request);
 
       /**
+       * @summary 更新技能
+       *
+       * @param request UpdateDigitalEmployeeSkillRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDigitalEmployeeSkillResponse
+       */
+      Models::UpdateDigitalEmployeeSkillResponse updateDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const Models::UpdateDigitalEmployeeSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新技能
+       *
+       * @param request UpdateDigitalEmployeeSkillRequest
+       * @return UpdateDigitalEmployeeSkillResponse
+       */
+      Models::UpdateDigitalEmployeeSkillResponse updateDigitalEmployeeSkill(const string &name, const string &skillName, const Models::UpdateDigitalEmployeeSkillRequest &request);
+
+      /**
        * @summary Update the specified policy
        *
        * @param request UpdateIntegrationPolicyRequest
@@ -1741,7 +1845,7 @@ namespace Cms20240330
       Models::UpdateIntegrationPolicyResponse updateIntegrationPolicy(const string &integrationPolicyId, const Models::UpdateIntegrationPolicyRequest &request);
 
       /**
-       * @summary 更新通知策略
+       * @summary 修改已存在的告警通知策略
        *
        * @param request UpdateNotifyStrategyRequest
        * @param headers map
@@ -1751,7 +1855,7 @@ namespace Cms20240330
       Models::UpdateNotifyStrategyResponse updateNotifyStrategyWithOptions(const string &notifyStrategyId, const Models::UpdateNotifyStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新通知策略
+       * @summary 修改已存在的告警通知策略
        *
        * @param request UpdateNotifyStrategyRequest
        * @return UpdateNotifyStrategyResponse
@@ -1839,7 +1943,7 @@ namespace Cms20240330
       Models::UpdateServiceResponse updateService(const string &workspace, const string &serviceId, const Models::UpdateServiceRequest &request);
 
       /**
-       * @summary 更新订阅
+       * @summary 更新一个已存在的订阅配置
        *
        * @param request UpdateSubscriptionRequest
        * @param headers map
@@ -1849,7 +1953,7 @@ namespace Cms20240330
       Models::UpdateSubscriptionResponse updateSubscriptionWithOptions(const string &subscriptionId, const Models::UpdateSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新订阅
+       * @summary 更新一个已存在的订阅配置
        *
        * @param request UpdateSubscriptionRequest
        * @return UpdateSubscriptionResponse

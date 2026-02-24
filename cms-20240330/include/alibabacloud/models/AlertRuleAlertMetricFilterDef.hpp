@@ -91,8 +91,11 @@ namespace Models
 
 
     protected:
+      // Display Name (Chinese).
       shared_ptr<string> displayNameCn_ {};
+      // Display Name (English).
       shared_ptr<string> displayNameEn_ {};
+      // Matching value.
       shared_ptr<string> value_ {};
     };
 
@@ -158,13 +161,21 @@ namespace Models
 
 
   protected:
+    // Dimension in APM metrics.
     shared_ptr<string> dim_ {};
+    // When true, the filter item will not appear in the GROUP BY clause of the PromQL.
     shared_ptr<bool> dimDisabled_ {};
+    // Display Name (Chinese).
     shared_ptr<string> displayNameCn_ {};
+    // Display Name (English).
     shared_ptr<string> displayNameEn_ {};
+    // Whether to hide. If hidden, it will not be displayed in the frontend UI, but its value can still be included when rendering the PromQL. A typical example is the "pid" filter condition in APM scenarios, which is generally not exposed through configurable UI elements but instead presented as a separate application search list in the frontend.
     shared_ptr<bool> hidden_ {};
+    // When true, the filter item will not appear in the label filter of the PromQL.
     shared_ptr<bool> labelDisabled_ {};
+    // Filter Condition Operator.
     shared_ptr<string> opt_ {};
+    // List of supported options.
     shared_ptr<vector<AlertRuleAlertMetricFilterDef::SupportedOpts>> supportedOpts_ {};
   };
 

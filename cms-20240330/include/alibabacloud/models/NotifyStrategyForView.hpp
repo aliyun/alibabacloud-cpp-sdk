@@ -157,9 +157,13 @@ namespace Models
 
 
       protected:
+        // Effective days (Monday to Sunday).
         shared_ptr<vector<int32_t>> dayInWeek_ {};
+        // End time (in minutes).
         shared_ptr<int32_t> endTimeInMinute_ {};
+        // Start time (in minutes).
         shared_ptr<int32_t> startTimeInMinute_ {};
+        // Time Zone.
         shared_ptr<string> timeZone_ {};
       };
 
@@ -214,9 +218,14 @@ namespace Models
 
 
       protected:
+        // Channel type.
+        // 
         // This parameter is required.
         shared_ptr<string> channelType_ {};
+        // Enabled notification types.
         shared_ptr<vector<string>> enabledSubChannels_ {};
+        // Channel recipient.
+        // 
         // This parameter is required.
         shared_ptr<vector<string>> receivers_ {};
       };
@@ -274,11 +283,15 @@ namespace Models
 
 
     protected:
+      // Notification channel.
       shared_ptr<vector<Routes::Channels>> channels_ {};
       shared_ptr<string> digitalEmployeeName_ {};
+      // Field.
       shared_ptr<Routes::EffectTimeRange> effectTimeRange_ {};
       shared_ptr<bool> enableRca_ {};
+      // Routing settings.
       shared_ptr<FilterSetting> filterSetting_ {};
+      // Severity level list.
       shared_ptr<vector<string>> severities_ {};
     };
 
@@ -438,9 +451,13 @@ namespace Models
 
 
     protected:
+      // Grouping Keys
       shared_ptr<vector<string>> groupingKeys_ {};
+      // Check interval in minutes.
       shared_ptr<int32_t> periodMin_ {};
+      // Silence duration in seconds.
       shared_ptr<int32_t> silenceSec_ {};
+      // Trigger count.
       shared_ptr<int32_t> times_ {};
     };
 
@@ -482,8 +499,12 @@ namespace Models
 
 
     protected:
+      // Notification type.
+      // 
       // This parameter is required.
       shared_ptr<string> targetType_ {};
+      // Template UUID.
+      // 
       // This parameter is required.
       shared_ptr<string> templateUuid_ {};
     };
@@ -653,26 +674,41 @@ namespace Models
 
   protected:
     shared_ptr<int32_t> autoRecoverSeconds_ {};
+    // Create Time.
     shared_ptr<string> createTime_ {};
+    // Notification channel template.
     shared_ptr<vector<NotifyStrategyForView::CustomTemplateEntries>> customTemplateEntries_ {};
+    // Description.
     shared_ptr<string> description_ {};
+    // Whether enabled.
     shared_ptr<bool> enable_ {};
     shared_ptr<FilterSetting> filterSetting_ {};
+    // Grouping Setting.
+    // 
     // This parameter is required.
     shared_ptr<NotifyStrategyForView::GroupingSetting> groupingSetting_ {};
+    // Whether to notify on recovery.
     shared_ptr<bool> ignoreRestoredNotification_ {};
     shared_ptr<vector<Darabonba::Json>> incidentEscalationPolicies_ {};
+    // UUID
     shared_ptr<string> notifyStrategyId_ {};
+    // Name.
+    // 
     // This parameter is required.
     shared_ptr<string> notifyStrategyName_ {};
     shared_ptr<NotifyStrategyForView::PushingSetting> pushingSetting_ {};
     shared_ptr<vector<string>> receiverNames_ {};
     shared_ptr<NotifyStrategyForView::RepeatNotifySetting> repeatNotifySetting_ {};
+    // Notification channel routing configuration.
+    // 
     // This parameter is required.
     shared_ptr<vector<NotifyStrategyForView::Routes>> routes_ {};
     shared_ptr<string> syncFromType_ {};
+    // Update Time.
     shared_ptr<string> updateTime_ {};
+    // User ID.
     shared_ptr<string> userId_ {};
+    // workspace
     shared_ptr<string> workspace_ {};
     shared_ptr<WorkspaceFilterSetting> workspaceFilterSetting_ {};
   };

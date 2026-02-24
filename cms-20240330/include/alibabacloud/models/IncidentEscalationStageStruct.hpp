@@ -116,14 +116,23 @@ namespace Models
 
 
   protected:
+    // Contact list.
     shared_ptr<vector<IncidentContactStruct>> contact_ {};
+    // Number of recurring notification attempts.
     shared_ptr<int32_t> cycleNotifyCount_ {};
+    // Recurring notification interval.
     shared_ptr<int32_t> cycleNotifyTime_ {};
+    // Description.
     shared_ptr<string> description_ {};
+    // Effective time period.
     shared_ptr<string> effectTime_ {};
+    // Name.
     shared_ptr<string> name_ {};
+    // Phase index.
     shared_ptr<int32_t> stageIndex_ {};
+    // Time zone.
     shared_ptr<string> timeZone_ {};
+    // Time to wait before proceeding to the next phase.
     shared_ptr<int32_t> waitToNextStageTime_ {};
   };
 
