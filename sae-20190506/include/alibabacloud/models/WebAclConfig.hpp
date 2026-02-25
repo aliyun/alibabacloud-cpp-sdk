@@ -42,6 +42,8 @@ namespace Models
 
 
   protected:
+    // The IP addresses.
+    // 
     // This parameter is required.
     shared_ptr<vector<WebAclEntryConfig>> webAclEntries_ {};
   };

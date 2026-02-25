@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The certificate name.
     shared_ptr<string> certName_ {};
+    // The public key of the certificate.
     shared_ptr<string> certificate_ {};
+    // The private key of the certificate.
     shared_ptr<string> privateKey_ {};
   };
 

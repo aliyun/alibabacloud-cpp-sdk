@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The message returned. Valid values:
+    // 
+    // *   If the request was successful, a success message is returned.
+    // *   If the request failed, an error code is returned.
     shared_ptr<string> message_ {};
   };
 

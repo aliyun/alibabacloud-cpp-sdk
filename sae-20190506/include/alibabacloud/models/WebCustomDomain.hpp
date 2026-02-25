@@ -142,16 +142,27 @@ namespace Models
 
 
   protected:
+    // The time when the custom domain name was created.
     shared_ptr<string> createdTime_ {};
+    // The name of the application that is forwarded by the domain name by default.
     shared_ptr<string> defaultForwardingAppName_ {};
+    // The domain name.
     shared_ptr<string> domainName_ {};
+    // The time when the custom domain name was last updated.
     shared_ptr<string> lastModifiedTime_ {};
+    // The ID of the namespace to which the domain name belongs.
     shared_ptr<string> namespaceId_ {};
+    // The protocol type that is supported by the custom domain name. HTTP: Only HTTP is supported. HTTPS: Only HTTPS is supported. HTTP, HTTPS: Both HTTP and HTTPS are supported.
     shared_ptr<string> protocol_ {};
+    // The route configurations.
     shared_ptr<RouteConfig> routeConfig_ {};
+    // The information about the HTTPS certificate.
     shared_ptr<WebCertConfig> webCertConfig_ {};
+    // The Transport Layer Security (TLS) configurations.
     shared_ptr<WebTLSConfig> webTLSConfig_ {};
+    // The WAF configurations.
     shared_ptr<WebWAFConfig> webWAFConfig_ {};
+    // The ID of your Alibaba Cloud account
     shared_ptr<string> accountId_ {};
   };
 

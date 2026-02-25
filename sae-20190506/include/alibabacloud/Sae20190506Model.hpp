@@ -129,6 +129,7 @@
 #include <alibabacloud/models/MetricInfo.hpp>
 #include <alibabacloud/models/PermissionAssistantApi.hpp>
 #include <alibabacloud/models/PolicyItem.hpp>
+#include <alibabacloud/models/PortProtocol.hpp>
 #include <alibabacloud/models/PriceEstimateFeature.hpp>
 #include <alibabacloud/models/PriceEstimateOutput.hpp>
 #include <alibabacloud/models/PublishApplicationVersionInput.hpp>

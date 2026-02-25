@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The status of the application.
     shared_ptr<WebApplicationStatus> status_ {};
+    // The details of the application.
     shared_ptr<WebApplication> webApplication_ {};
   };
 

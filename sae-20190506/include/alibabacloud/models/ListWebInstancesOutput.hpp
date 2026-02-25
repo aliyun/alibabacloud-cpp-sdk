@@ -65,8 +65,11 @@ namespace Models
 
 
   protected:
+    // The error message of instance creation. If the instance creation was successful, this parameter is not returned.
     shared_ptr<string> currentError_ {};
+    // The application instance.
     shared_ptr<vector<WebInstanceInfo>> webInstances_ {};
+    // The instance status.
     shared_ptr<map<string, WebVersionStatus>> webVersionStatus_ {};
   };
 

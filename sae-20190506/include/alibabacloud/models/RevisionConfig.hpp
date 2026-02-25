@@ -64,9 +64,18 @@ namespace Models
 
 
   protected:
+    // The container configurations. You can deploy only one container for each application. The maximum length of this array is 1.
+    // 
     // This parameter is required.
     shared_ptr<vector<Container>> containers_ {};
+    // Specifies whether to enable Application Real-Time Monitoring Service (ARMS) monitoring. Valid values:
+    // 
+    // *   **`true`**: Enables the ARMS monitoring.
+    // *   **`false`**: Disables the ARMS monitoring.
     shared_ptr<bool> enableArmsMetrics_ {};
+    // The network configurations.
+    // 
+    // >  This parameter is used to configure network settings for a version of the application.
     shared_ptr<WebNetworkConfig> webNetworkConfig_ {};
   };
 

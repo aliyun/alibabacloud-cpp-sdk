@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The mount point.
     shared_ptr<vector<WebOSSMountPoint>> mountPoints_ {};
   };
 

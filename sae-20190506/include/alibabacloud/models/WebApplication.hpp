@@ -149,19 +149,33 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationName_ {};
+    // The time when the application was created.
     shared_ptr<string> createdTime_ {};
+    // The application description.
     shared_ptr<string> description_ {};
+    // The public URL for accessing the application.
     shared_ptr<string> internetURL_ {};
+    // The internal URL for accessing the application.
     shared_ptr<string> intranetURL_ {};
+    // The time when the application was last modified.
     shared_ptr<string> lastModifiedTime_ {};
+    // The ID of the namespace to which the application belongs.
     shared_ptr<string> namespaceId_ {};
+    // The configurations of the revision version.
     shared_ptr<RevisionConfig> revisionConfig_ {};
+    // The Virtual Private Cloud (VPC) ID of the application namespace.
     shared_ptr<string> vpcId_ {};
+    // The scaling configurations of the application.
     shared_ptr<WebScalingConfig> webScalingConfig_ {};
+    // The traffic configurations of the application.
     shared_ptr<WebTrafficConfig> webTrafficConfig_ {};
   };
 

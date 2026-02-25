@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The hostname to which you want to connect. The default value is the IP address of the pod. You may need to specify Host in HttpHeaders.
     shared_ptr<string> host_ {};
+    // The custom headers that you need to specify in the request. Duplicate headers are allowed in an HTTP request.
     shared_ptr<vector<HTTPHeader>> httpHeaders_ {};
+    // The path of a URL.
     shared_ptr<string> path_ {};
+    // The port range. Valid values: 1 to 65535.
     shared_ptr<int32_t> port_ {};
+    // The scheme that you want to use to connect to the host. Default value: http.
     shared_ptr<string> scheme_ {};
   };
 

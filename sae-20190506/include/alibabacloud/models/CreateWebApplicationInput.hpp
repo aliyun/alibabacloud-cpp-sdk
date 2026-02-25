@@ -96,13 +96,23 @@ namespace Models
 
 
   protected:
+    // The name of the application.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationName_ {};
+    // The description of the application.
     shared_ptr<string> description_ {};
+    // The configuration on the application revision.
+    // 
     // This parameter is required.
     shared_ptr<RevisionConfig> revisionConfig_ {};
+    // The network configurations.
+    // 
+    // >  This field is used to configure network for the application.
     shared_ptr<WebNetworkConfig> webNetworkConfig_ {};
+    // The scaling configurations of the applications.
     shared_ptr<WebScalingConfig> webScalingConfig_ {};
+    // The traffic configurations of the applications.
     shared_ptr<WebTrafficConfig> webTrafficConfig_ {};
   };
 

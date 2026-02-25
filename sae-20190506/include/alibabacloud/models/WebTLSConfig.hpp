@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The supported cipher suites.
     shared_ptr<vector<string>> cipherSuites_ {};
+    // The supported maximum TLS protocol version.
     shared_ptr<string> maxVersion_ {};
+    // The supported minimum TLS protocol version.
     shared_ptr<string> minVersion_ {};
   };
 

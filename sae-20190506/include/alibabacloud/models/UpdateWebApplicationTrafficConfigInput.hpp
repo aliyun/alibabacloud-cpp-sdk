@@ -72,9 +72,13 @@ namespace Models
 
 
   protected:
+    // The authentication type. Valid values: Anonymous (default): does not require authentication. Application: requires authentication.
     shared_ptr<string> authType_ {};
+    // Specifies whether to disable access to the default Internet domain. If you set this parameter to true, a 403 error is returned if you access the default public URL provided by the application. A value of false does not have affect the running of the function.
     shared_ptr<bool> disableURLInternet_ {};
+    // The traffic distribution for the application versions. The sum of traffic percentages for all versions must be equal to 1.
     shared_ptr<map<string, float>> revisionsTrafficWeight_ {};
+    // The configurations of the access control list (ACL) that consists of IP addresses.
     shared_ptr<WebAclConfig> webAclConfig_ {};
   };
 

@@ -78,10 +78,26 @@ namespace Models
 
 
   protected:
+    // The HTTP status code. Valid values:
+    // 
+    // *   **2xx**: The request was successful.
+    // *   **3xx**: The request was redirected.
+    // *   **4xx**: The request failed.
+    // *   **5xx**: A server error occurred.
     shared_ptr<int32_t> code_ {};
+    // The response parameters.
     shared_ptr<WebTrafficConfig> data_ {};
+    // The returned message. Valid values:
+    // 
+    // *   If the request was successful, a success message is returned.
+    // *   If the request failed, an error code is returned.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**: The request was successful.
+    // *   **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

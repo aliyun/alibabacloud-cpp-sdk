@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable Web Application Firewall (WAF). Valid values:
+    // 
+    // *   **true**: enables WAF.
+    // *   **false**: disables WAF.
     shared_ptr<bool> enableWAF_ {};
   };
 

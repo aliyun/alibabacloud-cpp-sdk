@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The maximum number of instances.
     shared_ptr<int64_t> maximumInstanceCount_ {};
+    // The minimum number of instances.
     shared_ptr<int64_t> minimumInstanceCount_ {};
   };
 

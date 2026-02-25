@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The ID of the Container Registry Enterprise Edition instance. This parameter is required if the ImageUrl parameter is set to the URL of an image in a Container Registry Enterprise Edition instance.
     shared_ptr<string> acrInstanceId_ {};
+    // The startup command of the image.
     shared_ptr<string> command_ {};
+    // The parameters of the image startup command.
     shared_ptr<string> commandArgs_ {};
+    // The description of the ConfigMap mounted to the application.
     shared_ptr<string> configMapMountDesc_ {};
+    // Cpu
     shared_ptr<int32_t> cpu_ {};
+    // The EmptyDir description.
     shared_ptr<string> emptyDirDesc_ {};
+    // The environment variables of the container.
     shared_ptr<string> envs_ {};
+    // The image address.
     shared_ptr<string> imageUrl_ {};
+    // Memory
     shared_ptr<int32_t> memory_ {};
+    // The container name.
     shared_ptr<string> name_ {};
   };
 

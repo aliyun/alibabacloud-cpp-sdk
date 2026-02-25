@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The configurations of log collection.
     shared_ptr<vector<SLSCollectConfig>> collectConfigs_ {};
   };
 

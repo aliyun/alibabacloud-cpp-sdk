@@ -70,10 +70,15 @@ namespace Models
 
 
   protected:
+    // The container configurations of the revision version.
+    // 
     // This parameter is required.
     shared_ptr<vector<Container>> containers_ {};
+    // The version description.
     shared_ptr<string> description_ {};
+    // Specifies whether to enable Application Real-Time Monitoring Service (ARMS) monitoring.
     shared_ptr<bool> enableArmsMetrics_ {};
+    // Specifies whether to switch all traffic to a new version after the new version is released. Default value: false.
     shared_ptr<bool> takeEffect_ {};
   };
 

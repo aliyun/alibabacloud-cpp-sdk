@@ -106,13 +106,25 @@ namespace Models
 
 
   protected:
+    // The name of the application to which data is forwarded by the domain name by default.
     shared_ptr<string> defaultForwardingAppName_ {};
+    // The domain name. Enter a custom domain name that has obtained an Internet content provider (ICP) filing in the Alibaba Cloud ICP Filing system, or a custom domain name whose ICP filing information includes Alibaba Cloud as a service provider.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The protocol type that is supported by the custom domain name. Valid values:
+    // 
+    // *   **HTTP**: Only HTTP is supported.
+    // *   **HTTPS**: Only HTTPS is supported.
+    // *   **HTTP,HTTPS**: Both HTTP and HTTPS are supported.
     shared_ptr<string> protocol_ {};
+    // The route configurations.
     shared_ptr<RouteConfig> routeConfig_ {};
+    // The information about the HTTPS certificate.
     shared_ptr<WebCertConfig> webCertConfig_ {};
+    // The Transport Layer Security (TLS) configurations.
     shared_ptr<WebTLSConfig> webTLSConfig_ {};
+    // The Web Application Firewall (WAF) configurations.
     shared_ptr<WebWAFConfig> webWAFConfig_ {};
   };
 

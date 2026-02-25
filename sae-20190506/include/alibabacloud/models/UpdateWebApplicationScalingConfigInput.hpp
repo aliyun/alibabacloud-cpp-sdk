@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The maximum number of instances.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> maximumInstanceCount_ {};
+    // The minimum number of instances.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> minimumInstanceCount_ {};
   };

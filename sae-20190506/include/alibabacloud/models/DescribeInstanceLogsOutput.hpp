@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The log entries.
     shared_ptr<vector<WebLogEntry>> webLogEntrys_ {};
   };
 

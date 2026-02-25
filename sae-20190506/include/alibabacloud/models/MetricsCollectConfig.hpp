@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // Specifies whether to push metric data to Simple Log Service. Valid values:
+    // 
+    // *   true
+    // *   false
     shared_ptr<bool> enablePushToUserSLS_ {};
+    // The name of the Logstore in Simple Log Service to which the metric data is pushed.
     shared_ptr<string> logstoreName_ {};
+    // The name of the project in Simple Log Service to which the metric data is pushed.
     shared_ptr<string> projectName_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Optional. The hostname to which you want to connect. The default value is the IP address of the pod.
     shared_ptr<string> host_ {};
+    // The port number that you want to access on the container. Valid values: 1 to 65535.
     shared_ptr<int32_t> port_ {};
   };
 

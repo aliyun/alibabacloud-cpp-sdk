@@ -182,21 +182,37 @@ namespace Models
 
 
   protected:
+    // The startup parameters of the container.
     shared_ptr<string> args_ {};
+    // The startup command of the container.
     shared_ptr<string> command_ {};
+    // The container environment variables.
     shared_ptr<map<string, string>> environmentVariables_ {};
+    // The container image.
+    // 
     // This parameter is required.
     shared_ptr<string> image_ {};
+    // The configuration of the image repository.
     shared_ptr<ImageRegistryConfig> imageRegistryConfig_ {};
+    // The configuration for collecting monitoring records.
     shared_ptr<MetricsCollectConfig> metricsCollectConfig_ {};
+    // The port of the container.
     shared_ptr<int32_t> port_ {};
+    // The number of concurrent requests on a single instance.
     shared_ptr<int32_t> requestConcurrency_ {};
+    // The timeout period of the container request.
     shared_ptr<int32_t> requestTimeout_ {};
+    // The configurations of the container resources.
+    // 
     // This parameter is required.
     shared_ptr<ContainerResources> resources_ {};
+    // The configuration of container log collection.
     shared_ptr<SLSCollectConfigs> SLSCollectConfigs_ {};
+    // The container startup check configuration.
     shared_ptr<StartupProbe> startupProbe_ {};
+    // The container NAS configuration.
     shared_ptr<WebNASConfig> webNASConfig_ {};
+    // The container OSS mount configuration.
     shared_ptr<WebOSSConfig> webOSSConfig_ {};
   };
 

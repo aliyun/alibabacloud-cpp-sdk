@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The IP address.
+    // 
+    // >  CIDR notation is not supported.
+    // 
     // This parameter is required.
     shared_ptr<string> entry_ {};
   };

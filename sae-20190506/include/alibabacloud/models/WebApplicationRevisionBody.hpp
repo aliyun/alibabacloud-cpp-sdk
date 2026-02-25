@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The HTTP status code.
     shared_ptr<int32_t> code_ {};
+    // The data returned for the operation.
     shared_ptr<Revision> data_ {};
+    // The message returned for the operation.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

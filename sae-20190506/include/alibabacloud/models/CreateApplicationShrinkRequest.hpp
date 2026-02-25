@@ -52,6 +52,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(JarStartOptions, jarStartOptions_);
       DARABONBA_PTR_TO_JSON(Jdk, jdk_);
       DARABONBA_PTR_TO_JSON(KafkaConfigs, kafkaConfigs_);
+      DARABONBA_PTR_TO_JSON(Labels, labelsShrink_);
       DARABONBA_PTR_TO_JSON(Liveness, liveness_);
       DARABONBA_PTR_TO_JSON(LokiConfigs, lokiConfigs_);
       DARABONBA_PTR_TO_JSON(Memory, memory_);
@@ -140,6 +141,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(JarStartOptions, jarStartOptions_);
       DARABONBA_PTR_FROM_JSON(Jdk, jdk_);
       DARABONBA_PTR_FROM_JSON(KafkaConfigs, kafkaConfigs_);
+      DARABONBA_PTR_FROM_JSON(Labels, labelsShrink_);
       DARABONBA_PTR_FROM_JSON(Liveness, liveness_);
       DARABONBA_PTR_FROM_JSON(LokiConfigs, lokiConfigs_);
       DARABONBA_PTR_FROM_JSON(Memory, memory_);
@@ -207,16 +209,17 @@ namespace Models
         && this->enableEbpf_ == nullptr && this->enableNamespaceAgentVersion_ == nullptr && this->enableNamespaceSlsConfig_ == nullptr && this->enableNewArms_ == nullptr && this->enablePrometheus_ == nullptr
         && this->enableSidecarResourceIsolated_ == nullptr && this->envs_ == nullptr && this->gpuConfig_ == nullptr && this->headlessPvtzDiscoverySvc_ == nullptr && this->html_ == nullptr
         && this->imagePullSecrets_ == nullptr && this->imageUrl_ == nullptr && this->initContainersConfigShrink_ == nullptr && this->isStateful_ == nullptr && this->jarStartArgs_ == nullptr
-        && this->jarStartOptions_ == nullptr && this->jdk_ == nullptr && this->kafkaConfigs_ == nullptr && this->liveness_ == nullptr && this->lokiConfigs_ == nullptr
-        && this->memory_ == nullptr && this->microRegistration_ == nullptr && this->microRegistrationConfig_ == nullptr && this->microserviceEngineConfig_ == nullptr && this->mountDesc_ == nullptr
-        && this->mountHost_ == nullptr && this->namespaceId_ == nullptr && this->nasConfigs_ == nullptr && this->nasId_ == nullptr && this->newSaeVersion_ == nullptr
-        && this->oidcRoleName_ == nullptr && this->ossAkId_ == nullptr && this->ossAkSecret_ == nullptr && this->ossMountDescs_ == nullptr && this->packageType_ == nullptr
-        && this->packageUrl_ == nullptr && this->packageVersion_ == nullptr && this->php_ == nullptr && this->phpArmsConfigLocation_ == nullptr && this->phpConfig_ == nullptr
-        && this->phpConfigLocation_ == nullptr && this->postStart_ == nullptr && this->preStop_ == nullptr && this->programmingLanguage_ == nullptr && this->pvtzDiscoverySvc_ == nullptr
-        && this->python_ == nullptr && this->pythonModules_ == nullptr && this->readiness_ == nullptr && this->replicas_ == nullptr && this->resourceType_ == nullptr
-        && this->saeVersion_ == nullptr && this->secretMountDesc_ == nullptr && this->securityGroupId_ == nullptr && this->serviceTags_ == nullptr && this->sidecarContainersConfigShrink_ == nullptr
-        && this->slsConfigs_ == nullptr && this->slsLogEnvTags_ == nullptr && this->startupProbe_ == nullptr && this->terminationGracePeriodSeconds_ == nullptr && this->timezone_ == nullptr
-        && this->tomcatConfig_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->warStartOptions_ == nullptr && this->webContainer_ == nullptr; };
+        && this->jarStartOptions_ == nullptr && this->jdk_ == nullptr && this->kafkaConfigs_ == nullptr && this->labelsShrink_ == nullptr && this->liveness_ == nullptr
+        && this->lokiConfigs_ == nullptr && this->memory_ == nullptr && this->microRegistration_ == nullptr && this->microRegistrationConfig_ == nullptr && this->microserviceEngineConfig_ == nullptr
+        && this->mountDesc_ == nullptr && this->mountHost_ == nullptr && this->namespaceId_ == nullptr && this->nasConfigs_ == nullptr && this->nasId_ == nullptr
+        && this->newSaeVersion_ == nullptr && this->oidcRoleName_ == nullptr && this->ossAkId_ == nullptr && this->ossAkSecret_ == nullptr && this->ossMountDescs_ == nullptr
+        && this->packageType_ == nullptr && this->packageUrl_ == nullptr && this->packageVersion_ == nullptr && this->php_ == nullptr && this->phpArmsConfigLocation_ == nullptr
+        && this->phpConfig_ == nullptr && this->phpConfigLocation_ == nullptr && this->postStart_ == nullptr && this->preStop_ == nullptr && this->programmingLanguage_ == nullptr
+        && this->pvtzDiscoverySvc_ == nullptr && this->python_ == nullptr && this->pythonModules_ == nullptr && this->readiness_ == nullptr && this->replicas_ == nullptr
+        && this->resourceType_ == nullptr && this->saeVersion_ == nullptr && this->secretMountDesc_ == nullptr && this->securityGroupId_ == nullptr && this->serviceTags_ == nullptr
+        && this->sidecarContainersConfigShrink_ == nullptr && this->slsConfigs_ == nullptr && this->slsLogEnvTags_ == nullptr && this->startupProbe_ == nullptr && this->terminationGracePeriodSeconds_ == nullptr
+        && this->timezone_ == nullptr && this->tomcatConfig_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->warStartOptions_ == nullptr
+        && this->webContainer_ == nullptr; };
     // acrAssumeRoleArn Field Functions 
     bool hasAcrAssumeRoleArn() const { return this->acrAssumeRoleArn_ != nullptr;};
     void deleteAcrAssumeRoleArn() { this->acrAssumeRoleArn_ = nullptr;};
@@ -488,6 +491,13 @@ namespace Models
     void deleteKafkaConfigs() { this->kafkaConfigs_ = nullptr;};
     inline string getKafkaConfigs() const { DARABONBA_PTR_GET_DEFAULT(kafkaConfigs_, "") };
     inline CreateApplicationShrinkRequest& setKafkaConfigs(string kafkaConfigs) { DARABONBA_PTR_SET_VALUE(kafkaConfigs_, kafkaConfigs) };
+
+
+    // labelsShrink Field Functions 
+    bool hasLabelsShrink() const { return this->labelsShrink_ != nullptr;};
+    void deleteLabelsShrink() { this->labelsShrink_ = nullptr;};
+    inline string getLabelsShrink() const { DARABONBA_PTR_GET_DEFAULT(labelsShrink_, "") };
+    inline CreateApplicationShrinkRequest& setLabelsShrink(string labelsShrink) { DARABONBA_PTR_SET_VALUE(labelsShrink_, labelsShrink) };
 
 
     // liveness Field Functions 
@@ -979,6 +989,7 @@ namespace Models
     // *   **kafkaInstanceId**: the ID of the Message Queue for Apache Kafka instance.
     // *   **kafkaConfigs**: One or more logging configurations of Message Queue for Apache Kafka. For information about sample values and parameters, see the request parameter **KafkaLogfileConfig** in this topic.
     shared_ptr<string> kafkaConfigs_ {};
+    shared_ptr<string> labelsShrink_ {};
     // Container health check. If the container fails this check, it will be revoked and relaunch again. Use one of the following methods to perform the health check:
     // 
     // *   Example of **exec**: `{"exec":{"command":["sh","-c","cat/home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}`

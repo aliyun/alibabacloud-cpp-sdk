@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The header name.
     shared_ptr<string> name_ {};
+    // The header value.
     shared_ptr<string> value_ {};
   };
 

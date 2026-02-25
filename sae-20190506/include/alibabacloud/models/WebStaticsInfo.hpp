@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // CPU usage
     shared_ptr<int64_t> cpuUsage_ {};
+    // Indicates outbound traffic.
     shared_ptr<int64_t> internetTrafficOut_ {};
+    // The number of times that the SQL statement is invoked.
     shared_ptr<int64_t> invocations_ {};
+    // The peak memory usage for the query.
     shared_ptr<int64_t> memoryUsage_ {};
   };
 

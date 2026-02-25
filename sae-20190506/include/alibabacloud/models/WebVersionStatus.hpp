@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The error message of the application execution. If the execution is successful, a null value is returned.
     shared_ptr<string> errorMessage_ {};
+    // The state of the application execution. Valid values:
+    // 
+    // *   **Completed**: The execution is successful.
+    // *   **Updating**:The instance is being updated.
+    // *   **Updating**:The execution failed and a non-null error message is returned.
     shared_ptr<string> status_ {};
   };
 

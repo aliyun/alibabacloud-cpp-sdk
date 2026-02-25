@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The instance image.
     shared_ptr<string> imageUrl_ {};
+    // The ID of the application instance.
     shared_ptr<string> instanceId_ {};
+    // The instance status.
     shared_ptr<string> status_ {};
+    // The ID of the application version.
     shared_ptr<string> versionId_ {};
   };
 

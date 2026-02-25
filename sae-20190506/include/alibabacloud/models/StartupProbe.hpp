@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The minimum number of consecutive failures that is considered a failure after a successful probe. Default value: 3. Minimum value: 1.
     shared_ptr<int32_t> failureThreshold_ {};
+    // The duration after the container is started before health checks are initiated. For more information, see [Probes](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes).
     shared_ptr<int32_t> initialDelaySeconds_ {};
+    // The health check interval. Default value: 10. Unit: seconds. Minimum value: 1.
     shared_ptr<int32_t> periodSeconds_ {};
+    // The operation to determine the health of the container.
     shared_ptr<ProbeHandler> probeHandler_ {};
+    // The timeout period of a health check. Default value: 1. Minimum value: 1. For more information, see [Container probes](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes).
     shared_ptr<int32_t> timeoutSeconds_ {};
   };
 

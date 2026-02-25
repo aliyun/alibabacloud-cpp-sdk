@@ -84,11 +84,25 @@ namespace Models
 
 
   protected:
+    // The log path.
     shared_ptr<string> logPath_ {};
+    // The log type. The following types of logs are supported:
+    // 
+    // *   File collection logs
+    // *   Standard output logs
     shared_ptr<string> logType_ {};
+    // The name of the Logstore. The name must meet the following requirements:
+    // 
+    // *   The name must be unique in a project.
+    // *   The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+    // *   The name must start and end with a lowercase letter or a digit.
+    // *   The name must be 3 to 63 characters in length.
     shared_ptr<string> logstoreName_ {};
+    // The name for the Logtail configuration.
     shared_ptr<string> logtailName_ {};
+    // The name of the machine group of Simple Log Service.
     shared_ptr<string> machineGroup_ {};
+    // The name of the SLS project.
     shared_ptr<string> projectName_ {};
   };
 

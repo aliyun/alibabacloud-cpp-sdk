@@ -129,6 +129,8 @@ namespace Sae20190506
       Models::BindNlbResponse bindNlb(const Models::BindNlbRequest &request);
 
       /**
+       * @summary Binds a Server Load Balancer (SLB) instance to the application.
+       *
        * @param request BindSlbRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -137,6 +139,8 @@ namespace Sae20190506
       Models::BindSlbResponse bindSlbWithOptions(const Models::BindSlbRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Binds a Server Load Balancer (SLB) instance to the application.
+       *
        * @param request BindSlbRequest
        * @return BindSlbResponse
        */
@@ -421,7 +425,7 @@ namespace Sae20190506
       Models::DeleteApplicationResponse deleteApplication(const Models::DeleteApplicationRequest &request);
 
       /**
-       * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+       * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\\\*\\\\*\\\\*\\\\*
        *
        * @param request DeleteApplicationScalingRuleRequest
        * @param headers map
@@ -431,7 +435,7 @@ namespace Sae20190506
       Models::DeleteApplicationScalingRuleResponse deleteApplicationScalingRuleWithOptions(const Models::DeleteApplicationScalingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+       * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\\\*\\\\*\\\\*\\\\*
        *
        * @param request DeleteApplicationScalingRuleRequest
        * @return DeleteApplicationScalingRuleResponse
@@ -547,7 +551,7 @@ namespace Sae20190506
       Models::DeleteJobResponse deleteJob(const Models::DeleteJobRequest &request);
 
       /**
-       * @summary Deletes a namespace.
+       * @summary Delete a namespace.
        *
        * @param request DeleteNamespaceRequest
        * @param headers map
@@ -557,7 +561,7 @@ namespace Sae20190506
       Models::DeleteNamespaceResponse deleteNamespaceWithOptions(const Models::DeleteNamespaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a namespace.
+       * @summary Delete a namespace.
        *
        * @param request DeleteNamespaceRequest
        * @return DeleteNamespaceResponse
@@ -847,7 +851,7 @@ namespace Sae20190506
       Models::DescribeApplicationScalingRulesResponse describeApplicationScalingRules(const Models::DescribeApplicationScalingRulesRequest &request);
 
       /**
-       * @summary 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+       * @summary Obtain the SLB configuration of an application.
        *
        * @param request DescribeApplicationSlbsRequest
        * @param headers map
@@ -857,7 +861,7 @@ namespace Sae20190506
       Models::DescribeApplicationSlbsResponse describeApplicationSlbsWithOptions(const Models::DescribeApplicationSlbsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+       * @summary Obtain the SLB configuration of an application.
        *
        * @param request DescribeApplicationSlbsRequest
        * @return DescribeApplicationSlbsResponse
@@ -1391,6 +1395,8 @@ namespace Sae20190506
       Models::DescribeWebInstanceLogsResponse describeWebInstanceLogs(const string &ApplicationId, const string &InstanceId, const Models::DescribeWebInstanceLogsRequest &request);
 
       /**
+       * @summary Disables an auto scaling policy for an application.
+       *
        * @param request DisableApplicationScalingRuleRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1399,6 +1405,8 @@ namespace Sae20190506
       Models::DisableApplicationScalingRuleResponse disableApplicationScalingRuleWithOptions(const Models::DisableApplicationScalingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Disables an auto scaling policy for an application.
+       *
        * @param request DisableApplicationScalingRuleRequest
        * @return DisableApplicationScalingRuleResponse
        */
@@ -1495,7 +1503,7 @@ namespace Sae20190506
       Models::GetApplicationResponse getApplication(const Models::GetApplicationRequest &request);
 
       /**
-       * @summary The application name.
+       * @summary Queries the top N applications in Application Monitoring.
        *
        * @param request GetArmsTopNMetricRequest
        * @param headers map
@@ -1505,7 +1513,7 @@ namespace Sae20190506
       Models::GetArmsTopNMetricResponse getArmsTopNMetricWithOptions(const Models::GetArmsTopNMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The application name.
+       * @summary Queries the top N applications in Application Monitoring.
        *
        * @param request GetArmsTopNMetricRequest
        * @return GetArmsTopNMetricResponse
@@ -1567,7 +1575,7 @@ namespace Sae20190506
       Models::GetScaleAppMetricResponse getScaleAppMetric(const Models::GetScaleAppMetricRequest &request);
 
       /**
-       * @summary The number of Warning events.
+       * @summary Queries the top N applications in which Warning events occur.
        *
        * @param request GetWarningEventMetricRequest
        * @param headers map
@@ -1577,7 +1585,7 @@ namespace Sae20190506
       Models::GetWarningEventMetricResponse getWarningEventMetricWithOptions(const Models::GetWarningEventMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The number of Warning events.
+       * @summary Queries the top N applications in which Warning events occur.
        *
        * @param request GetWarningEventMetricRequest
        * @return GetWarningEventMetricResponse
@@ -1729,7 +1737,7 @@ namespace Sae20190506
       Models::ListApplicationCenterServiceInstancesResponse listApplicationCenterServiceInstances(const Models::ListApplicationCenterServiceInstancesRequest &request);
 
       /**
-       * @summary Queries a list of applications.
+       * @summary Query a list of applications.
        *
        * @param request ListApplicationsRequest
        * @param headers map
@@ -1739,7 +1747,7 @@ namespace Sae20190506
       Models::ListApplicationsResponse listApplicationsWithOptions(const Models::ListApplicationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of applications.
+       * @summary Query a list of applications.
        *
        * @param request ListApplicationsRequest
        * @return ListApplicationsResponse
@@ -2579,7 +2587,7 @@ namespace Sae20190506
       Models::UpdateApplicationVswitchesResponse updateApplicationVswitches(const Models::UpdateApplicationVswitchesRequest &request);
 
       /**
-       * @summary Updates a ConfigMap instance.
+       * @summary Update a ConfigMap.
        *
        * @param request UpdateConfigMapRequest
        * @param headers map
@@ -2589,7 +2597,7 @@ namespace Sae20190506
       Models::UpdateConfigMapResponse updateConfigMapWithOptions(const Models::UpdateConfigMapRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a ConfigMap instance.
+       * @summary Update a ConfigMap.
        *
        * @param request UpdateConfigMapRequest
        * @return UpdateConfigMapResponse
@@ -2651,7 +2659,7 @@ namespace Sae20190506
       Models::UpdateJobResponse updateJob(const Models::UpdateJobRequest &request);
 
       /**
-       * @summary Updates the information about a namespace.
+       * @summary Update the information about a namespace.
        *
        * @param request UpdateNamespaceRequest
        * @param headers map
@@ -2661,7 +2669,7 @@ namespace Sae20190506
       Models::UpdateNamespaceResponse updateNamespaceWithOptions(const Models::UpdateNamespaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information about a namespace.
+       * @summary Update the information about a namespace.
        *
        * @param request UpdateNamespaceRequest
        * @return UpdateNamespaceResponse
@@ -2669,7 +2677,7 @@ namespace Sae20190506
       Models::UpdateNamespaceResponse updateNamespace(const Models::UpdateNamespaceRequest &request);
 
       /**
-       * @summary 更新命名空间级别sls配置
+       * @summary Updates the Simple Log Service configuration for a namespace.
        *
        * @param request UpdateNamespaceSlsConfigsRequest
        * @param headers map
@@ -2679,7 +2687,7 @@ namespace Sae20190506
       Models::UpdateNamespaceSlsConfigsResponse updateNamespaceSlsConfigsWithOptions(const Models::UpdateNamespaceSlsConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新命名空间级别sls配置
+       * @summary Updates the Simple Log Service configuration for a namespace.
        *
        * @param request UpdateNamespaceSlsConfigsRequest
        * @return UpdateNamespaceSlsConfigsResponse
@@ -2706,10 +2714,10 @@ namespace Sae20190506
 
       /**
        * @summary The HTTP status code. Valid values:
-       * *   **2xx**: The call was successful.
-       * *   **3xx**: The call was redirected.
-       * *   **4xx**: The call failed.
-       * *   **5xx**: A server error occurred.
+       * \\*   \\*\\*2xx\\*\\*: The call was successful.
+       * \\*   \\*\\*3xx\\*\\*: The call was redirected.
+       * \\*   \\*\\*4xx\\*\\*: The call failed.
+       * \\*   \\*\\*5xx\\*\\*: A server error occurred.
        *
        * @param tmpReq UpdateSecretRequest
        * @param headers map
@@ -2720,10 +2728,10 @@ namespace Sae20190506
 
       /**
        * @summary The HTTP status code. Valid values:
-       * *   **2xx**: The call was successful.
-       * *   **3xx**: The call was redirected.
-       * *   **4xx**: The call failed.
-       * *   **5xx**: A server error occurred.
+       * \\*   \\*\\*2xx\\*\\*: The call was successful.
+       * \\*   \\*\\*3xx\\*\\*: The call was redirected.
+       * \\*   \\*\\*4xx\\*\\*: The call failed.
+       * \\*   \\*\\*5xx\\*\\*: A server error occurred.
        *
        * @param request UpdateSecretRequest
        * @return UpdateSecretResponse

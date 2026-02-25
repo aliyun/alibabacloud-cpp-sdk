@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The name of the bucket.
     shared_ptr<string> bucketName_ {};
+    // The storage path in an OSS bucket.
     shared_ptr<string> bucketPath_ {};
+    // The local mount directory.
     shared_ptr<string> mountDir_ {};
+    // Specifies whether it is read-only.
     shared_ptr<bool> readOnly_ {};
   };
 

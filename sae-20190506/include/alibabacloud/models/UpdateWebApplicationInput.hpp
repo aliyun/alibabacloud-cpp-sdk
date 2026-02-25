@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The application description.
     shared_ptr<string> description_ {};
+    // The network configurations of the application.
     shared_ptr<WebNetworkConfig> webNetworkConfig_ {};
   };
 

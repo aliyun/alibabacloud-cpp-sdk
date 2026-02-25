@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The number of application instances.
     shared_ptr<int64_t> instanceCount_ {};
+    // The application information.
     shared_ptr<WebApplication> webApplication_ {};
   };
 

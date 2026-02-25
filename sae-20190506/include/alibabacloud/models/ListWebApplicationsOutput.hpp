@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The pagination token that is used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
+    // The applications.
     shared_ptr<vector<WebApplicationWithInstanceCount>> webApplicationWithInstanceCount_ {};
   };
 

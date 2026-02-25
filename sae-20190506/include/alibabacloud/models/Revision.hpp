@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The time when the revision version was created.
     shared_ptr<string> createdTime_ {};
+    // The description of the revision version.
     shared_ptr<string> description_ {};
+    // The configurations of the revision version.
     shared_ptr<RevisionConfig> revisionConfig_ {};
+    // The ID of the revision version.
     shared_ptr<string> revisionId_ {};
+    // The traffic weight of the version.
     shared_ptr<float> weight_ {};
   };
 

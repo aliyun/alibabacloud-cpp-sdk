@@ -60,8 +60,14 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable Internet access for the application. Valid values:
+    // 
+    // *   **true**: enables Internet access.
+    // *   **false**: disables Internet access.
     shared_ptr<bool> internetAccess_ {};
+    // The ID of a security group.
     shared_ptr<string> securityGroupId_ {};
+    // The list of vSwitches.
     shared_ptr<vector<string>> vSwitchIds_ {};
   };
 

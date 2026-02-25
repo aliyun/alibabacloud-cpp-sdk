@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The local mount directory.
     shared_ptr<string> mountDir_ {};
+    // The mount target.
     shared_ptr<string> nasAddr_ {};
+    // The mount directory.
     shared_ptr<string> nasPath_ {};
   };
 

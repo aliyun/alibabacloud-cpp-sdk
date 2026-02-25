@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned.
     shared_ptr<int32_t> length_ {};
+    // The static resources in the web application.
     shared_ptr<vector<WebStaticsInfo>> webAppStatics_ {};
   };
 

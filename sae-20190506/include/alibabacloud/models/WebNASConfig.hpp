@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The mount targets.
     shared_ptr<vector<WebNASMountPoint>> mountPoints_ {};
   };
 

@@ -347,6 +347,8 @@ BindNlbResponse Client::bindNlb(const BindNlbRequest &request) {
 }
 
 /**
+ * @summary Binds a Server Load Balancer (SLB) instance to the application.
+ *
  * @param request BindSlbRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -402,6 +404,8 @@ BindSlbResponse Client::bindSlbWithOptions(const BindSlbRequest &request, const 
 }
 
 /**
+ * @summary Binds a Server Load Balancer (SLB) instance to the application.
+ *
  * @param request BindSlbRequest
  * @return BindSlbResponse
  */
@@ -474,6 +478,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasInitContainersConfig()) {
     request.setInitContainersConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInitContainersConfig(), "InitContainersConfig", "json"));
+  }
+
+  if (!!tmpReq.hasLabels()) {
+    request.setLabelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabels(), "Labels", "json"));
   }
 
   if (!!tmpReq.hasSidecarContainersConfig()) {
@@ -607,6 +615,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 
   if (!!request.hasKafkaConfigs()) {
     query["KafkaConfigs"] = request.getKafkaConfigs();
+  }
+
+  if (!!request.hasLabelsShrink()) {
+    query["Labels"] = request.getLabelsShrink();
   }
 
   if (!!request.hasLiveness()) {
@@ -1910,7 +1922,7 @@ DeleteApplicationResponse Client::deleteApplication(const DeleteApplicationReque
 }
 
 /**
- * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+ * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\\\*\\\\*\\\\*\\\\*
  *
  * @param request DeleteApplicationScalingRuleRequest
  * @param headers map
@@ -1947,7 +1959,7 @@ DeleteApplicationScalingRuleResponse Client::deleteApplicationScalingRuleWithOpt
 }
 
 /**
- * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+ * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\\\*\\\\*\\\\*\\\\*
  *
  * @param request DeleteApplicationScalingRuleRequest
  * @return DeleteApplicationScalingRuleResponse
@@ -2237,7 +2249,7 @@ DeleteJobResponse Client::deleteJob(const DeleteJobRequest &request) {
 }
 
 /**
- * @summary Deletes a namespace.
+ * @summary Delete a namespace.
  *
  * @param request DeleteNamespaceRequest
  * @param headers map
@@ -2274,7 +2286,7 @@ DeleteNamespaceResponse Client::deleteNamespaceWithOptions(const DeleteNamespace
 }
 
 /**
- * @summary Deletes a namespace.
+ * @summary Delete a namespace.
  *
  * @param request DeleteNamespaceRequest
  * @return DeleteNamespaceResponse
@@ -2546,6 +2558,10 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
     request.setInitContainersConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInitContainersConfig(), "InitContainersConfig", "json"));
   }
 
+  if (!!tmpReq.hasLabels()) {
+    request.setLabelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabels(), "Labels", "json"));
+  }
+
   if (!!tmpReq.hasSidecarContainersConfig()) {
     request.setSidecarContainersConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSidecarContainersConfig(), "SidecarContainersConfig", "json"));
   }
@@ -2669,6 +2685,10 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
 
   if (!!request.hasKafkaConfigs()) {
     query["KafkaConfigs"] = request.getKafkaConfigs();
+  }
+
+  if (!!request.hasLabelsShrink()) {
+    query["Labels"] = request.getLabelsShrink();
   }
 
   if (!!request.hasLiveness()) {
@@ -3397,7 +3417,7 @@ DescribeApplicationScalingRulesResponse Client::describeApplicationScalingRules(
 }
 
 /**
- * @summary 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+ * @summary Obtain the SLB configuration of an application.
  *
  * @param request DescribeApplicationSlbsRequest
  * @param headers map
@@ -3430,7 +3450,7 @@ DescribeApplicationSlbsResponse Client::describeApplicationSlbsWithOptions(const
 }
 
 /**
- * @summary 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+ * @summary Obtain the SLB configuration of an application.
  *
  * @param request DescribeApplicationSlbsRequest
  * @return DescribeApplicationSlbsResponse
@@ -4803,6 +4823,8 @@ DescribeWebInstanceLogsResponse Client::describeWebInstanceLogs(const string &Ap
 }
 
 /**
+ * @summary Disables an auto scaling policy for an application.
+ *
  * @param request DisableApplicationScalingRuleRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4838,6 +4860,8 @@ DisableApplicationScalingRuleResponse Client::disableApplicationScalingRuleWithO
 }
 
 /**
+ * @summary Disables an auto scaling policy for an application.
+ *
  * @param request DisableApplicationScalingRuleRequest
  * @return DisableApplicationScalingRuleResponse
  */
@@ -5121,7 +5145,7 @@ GetApplicationResponse Client::getApplication(const GetApplicationRequest &reque
 }
 
 /**
- * @summary The application name.
+ * @summary Queries the top N applications in Application Monitoring.
  *
  * @param request GetArmsTopNMetricRequest
  * @param headers map
@@ -5178,7 +5202,7 @@ GetArmsTopNMetricResponse Client::getArmsTopNMetricWithOptions(const GetArmsTopN
 }
 
 /**
- * @summary The application name.
+ * @summary Queries the top N applications in Application Monitoring.
  *
  * @param request GetArmsTopNMetricRequest
  * @return GetArmsTopNMetricResponse
@@ -5377,7 +5401,7 @@ GetScaleAppMetricResponse Client::getScaleAppMetric(const GetScaleAppMetricReque
 }
 
 /**
- * @summary The number of Warning events.
+ * @summary Queries the top N applications in which Warning events occur.
  *
  * @param request GetWarningEventMetricRequest
  * @param headers map
@@ -5430,7 +5454,7 @@ GetWarningEventMetricResponse Client::getWarningEventMetricWithOptions(const Get
 }
 
 /**
- * @summary The number of Warning events.
+ * @summary Queries the top N applications in which Warning events occur.
  *
  * @param request GetWarningEventMetricRequest
  * @return GetWarningEventMetricResponse
@@ -5890,7 +5914,7 @@ ListApplicationCenterServiceInstancesResponse Client::listApplicationCenterServi
 }
 
 /**
- * @summary Queries a list of applications.
+ * @summary Query a list of applications.
  *
  * @param request ListApplicationsRequest
  * @param headers map
@@ -5967,7 +5991,7 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 }
 
 /**
- * @summary Queries a list of applications.
+ * @summary Query a list of applications.
  *
  * @param request ListApplicationsRequest
  * @return ListApplicationsResponse
@@ -8423,7 +8447,7 @@ UpdateApplicationVswitchesResponse Client::updateApplicationVswitches(const Upda
 }
 
 /**
- * @summary Updates a ConfigMap instance.
+ * @summary Update a ConfigMap.
  *
  * @param request UpdateConfigMapRequest
  * @param headers map
@@ -8466,7 +8490,7 @@ UpdateConfigMapResponse Client::updateConfigMapWithOptions(const UpdateConfigMap
 }
 
 /**
- * @summary Updates a ConfigMap instance.
+ * @summary Update a ConfigMap.
  *
  * @param request UpdateConfigMapRequest
  * @return UpdateConfigMapResponse
@@ -8889,7 +8913,7 @@ UpdateJobResponse Client::updateJob(const UpdateJobRequest &request) {
 }
 
 /**
- * @summary Updates the information about a namespace.
+ * @summary Update the information about a namespace.
  *
  * @param request UpdateNamespaceRequest
  * @param headers map
@@ -8938,7 +8962,7 @@ UpdateNamespaceResponse Client::updateNamespaceWithOptions(const UpdateNamespace
 }
 
 /**
- * @summary Updates the information about a namespace.
+ * @summary Update the information about a namespace.
  *
  * @param request UpdateNamespaceRequest
  * @return UpdateNamespaceResponse
@@ -8950,7 +8974,7 @@ UpdateNamespaceResponse Client::updateNamespace(const UpdateNamespaceRequest &re
 }
 
 /**
- * @summary 更新命名空间级别sls配置
+ * @summary Updates the Simple Log Service configuration for a namespace.
  *
  * @param request UpdateNamespaceSlsConfigsRequest
  * @param headers map
@@ -8995,7 +9019,7 @@ UpdateNamespaceSlsConfigsResponse Client::updateNamespaceSlsConfigsWithOptions(c
 }
 
 /**
- * @summary 更新命名空间级别sls配置
+ * @summary Updates the Simple Log Service configuration for a namespace.
  *
  * @param request UpdateNamespaceSlsConfigsRequest
  * @return UpdateNamespaceSlsConfigsResponse
@@ -9061,10 +9085,10 @@ UpdateNamespaceVpcResponse Client::updateNamespaceVpc(const UpdateNamespaceVpcRe
 
 /**
  * @summary The HTTP status code. Valid values:
- * *   **2xx**: The call was successful.
- * *   **3xx**: The call was redirected.
- * *   **4xx**: The call failed.
- * *   **5xx**: A server error occurred.
+ * \\*   \\*\\*2xx\\*\\*: The call was successful.
+ * \\*   \\*\\*3xx\\*\\*: The call was redirected.
+ * \\*   \\*\\*4xx\\*\\*: The call failed.
+ * \\*   \\*\\*5xx\\*\\*: A server error occurred.
  *
  * @param tmpReq UpdateSecretRequest
  * @param headers map
@@ -9112,10 +9136,10 @@ UpdateSecretResponse Client::updateSecretWithOptions(const UpdateSecretRequest &
 
 /**
  * @summary The HTTP status code. Valid values:
- * *   **2xx**: The call was successful.
- * *   **3xx**: The call was redirected.
- * *   **4xx**: The call failed.
- * *   **5xx**: A server error occurred.
+ * \\*   \\*\\*2xx\\*\\*: The call was successful.
+ * \\*   \\*\\*3xx\\*\\*: The call was redirected.
+ * \\*   \\*\\*4xx\\*\\*: The call failed.
+ * \\*   \\*\\*5xx\\*\\*: A server error occurred.
  *
  * @param request UpdateSecretRequest
  * @return UpdateSecretResponse

@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The action that specifies the HTTP request to execute.
     shared_ptr<HTTPGetAction> httpGet_ {};
+    // The action that specifies the involved TCP port.
     shared_ptr<TCPSocketAction> tcpSocket_ {};
   };
 
