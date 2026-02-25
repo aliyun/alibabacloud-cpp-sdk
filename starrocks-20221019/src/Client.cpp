@@ -36,7 +36,60 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 资源转组
+ * @summary 新建网关
+ *
+ * @param request AddGatewayRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddGatewayResponse
+ */
+AddGatewayResponse Client::addGatewayWithOptions(const AddGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFeNodeNumber()) {
+    query["FeNodeNumber"] = request.getFeNodeNumber();
+  }
+
+  if (!!request.hasGatewayName()) {
+    query["GatewayName"] = request.getGatewayName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddGateway"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/gateway/add")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddGatewayResponse>();
+}
+
+/**
+ * @summary 新建网关
+ *
+ * @param request AddGatewayRequest
+ * @return AddGatewayResponse
+ */
+AddGatewayResponse Client::addGateway(const AddGatewayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return addGatewayWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary This interface is used to modify the resource group of a Serverless StarRocks instance.
  *
  * @param request ChangeResourceGroupRequest
  * @param headers map
@@ -47,19 +100,19 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNewResourceGroupId()) {
-    query["NewResourceGroupId"] = request.newResourceGroupId();
+    query["NewResourceGroupId"] = request.getNewResourceGroupId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -81,7 +134,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary 资源转组
+ * @summary This interface is used to modify the resource group of a Serverless StarRocks instance.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -104,127 +157,127 @@ CreateInstanceV1Response Client::createInstanceV1WithOptions(const CreateInstanc
   request.validate();
   json body = {};
   if (!!request.hasAdminPassword()) {
-    body["AdminPassword"] = request.adminPassword();
+    body["AdminPassword"] = request.getAdminPassword();
   }
 
   if (!!request.hasAgentNodeGroup()) {
-    body["AgentNodeGroup"] = request.agentNodeGroup();
+    body["AgentNodeGroup"] = request.getAgentNodeGroup();
   }
 
   if (!!request.hasAutoPay()) {
-    body["AutoPay"] = request.autoPay();
+    body["AutoPay"] = request.getAutoPay();
   }
 
   if (!!request.hasAutoRenew()) {
-    body["AutoRenew"] = request.autoRenew();
+    body["AutoRenew"] = request.getAutoRenew();
   }
 
   if (!!request.hasBackendNodeGroups()) {
-    body["BackendNodeGroups"] = request.backendNodeGroups();
+    body["BackendNodeGroups"] = request.getBackendNodeGroups();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDlfCatalogName()) {
-    body["DlfCatalogName"] = request.dlfCatalogName();
+    body["DlfCatalogName"] = request.getDlfCatalogName();
   }
 
   if (!!request.hasDlfCatalogType()) {
-    body["DlfCatalogType"] = request.dlfCatalogType();
+    body["DlfCatalogType"] = request.getDlfCatalogType();
   }
 
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasEncrypted()) {
-    body["Encrypted"] = request.encrypted();
+    body["Encrypted"] = request.getEncrypted();
   }
 
   if (!!request.hasFrontendNodeGroups()) {
-    body["FrontendNodeGroups"] = request.frontendNodeGroups();
+    body["FrontendNodeGroups"] = request.getFrontendNodeGroups();
   }
 
   if (!!request.hasGatewayType()) {
-    body["GatewayType"] = request.gatewayType();
+    body["GatewayType"] = request.getGatewayType();
   }
 
   if (!!request.hasInstanceName()) {
-    body["InstanceName"] = request.instanceName();
+    body["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasKmsKeyId()) {
-    body["KmsKeyId"] = request.kmsKeyId();
+    body["KmsKeyId"] = request.getKmsKeyId();
   }
 
   if (!!request.hasLinkedRamUserName()) {
-    body["LinkedRamUserName"] = request.linkedRamUserName();
+    body["LinkedRamUserName"] = request.getLinkedRamUserName();
   }
 
   if (!!request.hasObserverNodeGroups()) {
-    body["ObserverNodeGroups"] = request.observerNodeGroups();
+    body["ObserverNodeGroups"] = request.getObserverNodeGroups();
   }
 
   if (!!request.hasOssAccessingRoleName()) {
-    body["OssAccessingRoleName"] = request.ossAccessingRoleName();
+    body["OssAccessingRoleName"] = request.getOssAccessingRoleName();
   }
 
   if (!!request.hasPackageType()) {
-    body["PackageType"] = request.packageType();
+    body["PackageType"] = request.getPackageType();
   }
 
   if (!!request.hasPayType()) {
-    body["PayType"] = request.payType();
+    body["PayType"] = request.getPayType();
   }
 
   if (!!request.hasPricingCycle()) {
-    body["PricingCycle"] = request.pricingCycle();
+    body["PricingCycle"] = request.getPricingCycle();
   }
 
   if (!!request.hasPrincipalType()) {
-    body["PrincipalType"] = request.principalType();
+    body["PrincipalType"] = request.getPrincipalType();
   }
 
   if (!!request.hasPromotionOptionNo()) {
-    body["PromotionOptionNo"] = request.promotionOptionNo();
+    body["PromotionOptionNo"] = request.getPromotionOptionNo();
   }
 
   if (!!request.hasRamUserId()) {
-    body["RamUserId"] = request.ramUserId();
+    body["RamUserId"] = request.getRamUserId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasRunMode()) {
-    body["RunMode"] = request.runMode();
+    body["RunMode"] = request.getRunMode();
   }
 
   if (!!request.hasTags()) {
-    body["Tags"] = request.tags();
+    body["Tags"] = request.getTags();
   }
 
   if (!!request.hasVSwitches()) {
-    body["VSwitches"] = request.vSwitches();
+    body["VSwitches"] = request.getVSwitches();
   }
 
   if (!!request.hasVersion()) {
-    body["Version"] = request.version();
+    body["Version"] = request.getVersion();
   }
 
   if (!!request.hasVpcId()) {
-    body["VpcId"] = request.vpcId();
+    body["VpcId"] = request.getVpcId();
   }
 
   if (!!request.hasZoneId()) {
-    body["ZoneId"] = request.zoneId();
+    body["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -258,7 +311,7 @@ CreateInstanceV1Response Client::createInstanceV1(const CreateInstanceV1Request 
 }
 
 /**
- * @summary 为用户创建AliyunServiceRoleForEMRStarRocks
+ * @summary This interface is used to create the AliyunServiceRoleForEMRStarRocks role for users.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -283,7 +336,7 @@ CreateServiceLinkedRoleResponse Client::createServiceLinkedRoleWithOptions(const
 }
 
 /**
- * @summary 为用户创建AliyunServiceRoleForEMRStarRocks
+ * @summary This interface is used to create the AliyunServiceRoleForEMRStarRocks role for users.
  *
  * @return CreateServiceLinkedRoleResponse
  */
@@ -294,7 +347,56 @@ CreateServiceLinkedRoleResponse Client::createServiceLinkedRole() {
 }
 
 /**
- * @summary 根据集群ID或者名称等信息过滤集群
+ * @summary 删除网关
+ *
+ * @param request DeleteGatewayRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteGatewayResponse
+ */
+DeleteGatewayResponse Client::deleteGatewayWithOptions(const DeleteGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["GatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteGateway"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/gateway/delete")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteGatewayResponse>();
+}
+
+/**
+ * @summary 删除网关
+ *
+ * @param request DeleteGatewayRequest
+ * @return DeleteGatewayResponse
+ */
+DeleteGatewayResponse Client::deleteGateway(const DeleteGatewayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteGatewayWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary This operation is used to query Serverless StarRocks instances, supporting filtering based on instance name or tags and other information.
  *
  * @param tmpReq DescribeInstancesRequest
  * @param headers map
@@ -306,40 +408,40 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
   DescribeInstancesShrinkRequest request = DescribeInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTag()) {
-    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "Tag", "json"));
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "Tag", "json"));
   }
 
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasInstanceStatus()) {
-    query["InstanceStatus"] = request.instanceStatus();
+    query["InstanceStatus"] = request.getInstanceStatus();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTagShrink()) {
-    query["Tag"] = request.tagShrink();
+    query["Tag"] = request.getTagShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -361,7 +463,7 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
 }
 
 /**
- * @summary 根据集群ID或者名称等信息过滤集群
+ * @summary This operation is used to query Serverless StarRocks instances, supporting filtering based on instance name or tags and other information.
  *
  * @param request DescribeInstancesRequest
  * @return DescribeInstancesResponse
@@ -384,36 +486,36 @@ DescribeNodeGroupsResponse Client::describeNodeGroupsWithOptions(const DescribeN
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   json body = {};
   if (!!request.hasComponentType()) {
-    body["componentType"] = request.componentType();
+    body["componentType"] = request.getComponentType();
   }
 
   if (!!request.hasInstanceId()) {
-    body["instanceId"] = request.instanceId();
+    body["instanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNodeGroupIds()) {
-    body["nodeGroupIds"] = request.nodeGroupIds();
+    body["nodeGroupIds"] = request.getNodeGroupIds();
   }
 
   if (!!request.hasNodeGroupName()) {
-    body["nodeGroupName"] = request.nodeGroupName();
+    body["nodeGroupName"] = request.getNodeGroupName();
   }
 
   if (!!request.hasStatus()) {
-    body["status"] = request.status();
+    body["status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -448,6 +550,320 @@ DescribeNodeGroupsResponse Client::describeNodeGroups(const DescribeNodeGroupsRe
 }
 
 /**
+ * @summary StarRocks关闭SSL
+ *
+ * @param request DisableSSLConnectionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableSSLConnectionResponse
+ */
+DisableSSLConnectionResponse Client::disableSSLConnectionWithOptions(const DisableSSLConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableSSLConnection"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/starrocks/disableSSLConnection")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableSSLConnectionResponse>();
+}
+
+/**
+ * @summary StarRocks关闭SSL
+ *
+ * @param request DisableSSLConnectionRequest
+ * @return DisableSSLConnectionResponse
+ */
+DisableSSLConnectionResponse Client::disableSSLConnection(const DisableSSLConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return disableSSLConnectionWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary StarRocks开启SSL
+ *
+ * @param request EnableSSLConnectionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableSSLConnectionResponse
+ */
+EnableSSLConnectionResponse Client::enableSSLConnectionWithOptions(const EnableSSLConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCustomSSLCertificate()) {
+    body["CustomSSLCertificate"] = request.getCustomSSLCertificate();
+  }
+
+  if (!!request.hasEnableCustom()) {
+    body["EnableCustom"] = request.getEnableCustom();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRenewal()) {
+    body["Renewal"] = request.getRenewal();
+  }
+
+  if (!!request.hasSslKeyPassword()) {
+    body["SslKeyPassword"] = request.getSslKeyPassword();
+  }
+
+  if (!!request.hasSslKeystorePassword()) {
+    body["SslKeystorePassword"] = request.getSslKeystorePassword();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "EnableSSLConnection"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/starrocks/enableSSLConnection")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableSSLConnectionResponse>();
+}
+
+/**
+ * @summary StarRocks开启SSL
+ *
+ * @param request EnableSSLConnectionRequest
+ * @return EnableSSLConnectionResponse
+ */
+EnableSSLConnectionResponse Client::enableSSLConnection(const EnableSSLConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return enableSSLConnectionWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取StarRocks集群实例的特性开关
+ *
+ * @param request GetInstanceFeatureGateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInstanceFeatureGateResponse
+ */
+GetInstanceFeatureGateResponse Client::getInstanceFeatureGateWithOptions(const GetInstanceFeatureGateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInstanceFeatureGate"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/features/featureGate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInstanceFeatureGateResponse>();
+}
+
+/**
+ * @summary 获取StarRocks集群实例的特性开关
+ *
+ * @param request GetInstanceFeatureGateRequest
+ * @return GetInstanceFeatureGateResponse
+ */
+GetInstanceFeatureGateResponse Client::getInstanceFeatureGate(const GetInstanceFeatureGateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getInstanceFeatureGateWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 默认网关开启内网SLB
+ *
+ * @param request IsolateLeaderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return IsolateLeaderResponse
+ */
+IsolateLeaderResponse Client::isolateLeaderWithOptions(const IsolateLeaderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasIsolateLeader()) {
+    query["IsolateLeader"] = request.getIsolateLeader();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "IsolateLeader"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/gateway/isolateLeader")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<IsolateLeaderResponse>();
+}
+
+/**
+ * @summary 默认网关开启内网SLB
+ *
+ * @param request IsolateLeaderRequest
+ * @return IsolateLeaderResponse
+ */
+IsolateLeaderResponse Client::isolateLeader(const IsolateLeaderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return isolateLeaderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取网关列表
+ *
+ * @param request ListGatewayRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGatewayResponse
+ */
+ListGatewayResponse Client::listGatewayWithOptions(const ListGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListGateway"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/gateway/list")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGatewayResponse>();
+}
+
+/**
+ * @summary 获取网关列表
+ *
+ * @param request ListGatewayRequest
+ * @return ListGatewayResponse
+ */
+ListGatewayResponse Client::listGateway(const ListGatewayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listGatewayWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 修改实例的付费类型
+ *
+ * @param request ModifyChargeTypeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyChargeTypeResponse
+ */
+ModifyChargeTypeResponse Client::modifyChargeTypeWithOptions(const ModifyChargeTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasBillingInstanceIds()) {
+    query["BillingInstanceIds"] = request.getBillingInstanceIds();
+  }
+
+  if (!!request.hasDuration()) {
+    query["Duration"] = request.getDuration();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPricingCycle()) {
+    query["PricingCycle"] = request.getPricingCycle();
+  }
+
+  if (!!request.hasPromotionOptionNo()) {
+    query["PromotionOptionNo"] = request.getPromotionOptionNo();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyChargeType"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/cluster/modifyChargeType")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyChargeTypeResponse>();
+}
+
+/**
+ * @summary 修改实例的付费类型
+ *
+ * @param request ModifyChargeTypeRequest
+ * @return ModifyChargeTypeResponse
+ */
+ModifyChargeTypeResponse Client::modifyChargeType(const ModifyChargeTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modifyChargeTypeWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Modifies the number of CUs for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
  *
  * @description Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances.
@@ -468,23 +884,23 @@ ModifyCuResponse Client::modifyCuWithOptions(const ModifyCuRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasFastMode()) {
-    query["FastMode"] = request.fastMode();
+    query["FastMode"] = request.getFastMode();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasPromotionOptionNo()) {
-    query["PromotionOptionNo"] = request.promotionOptionNo();
+    query["PromotionOptionNo"] = request.getPromotionOptionNo();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -538,15 +954,15 @@ ModifyCuPreCheckResponse Client::modifyCuPreCheckWithOptions(const ModifyCuPreCh
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -599,23 +1015,23 @@ ModifyDiskNumberResponse Client::modifyDiskNumberWithOptions(const ModifyDiskNum
   request.validate();
   json query = {};
   if (!!request.hasFastMode()) {
-    query["FastMode"] = request.fastMode();
+    query["FastMode"] = request.getFastMode();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasPromotionOptionNo()) {
-    query["PromotionOptionNo"] = request.promotionOptionNo();
+    query["PromotionOptionNo"] = request.getPromotionOptionNo();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -679,19 +1095,19 @@ ModifyDiskPerformanceLevelResponse Client::modifyDiskPerformanceLevelWithOptions
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasPromotionOptionNo()) {
-    query["PromotionOptionNo"] = request.promotionOptionNo();
+    query["PromotionOptionNo"] = request.getPromotionOptionNo();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -755,23 +1171,23 @@ ModifyDiskSizeResponse Client::modifyDiskSizeWithOptions(const ModifyDiskSizeReq
   request.validate();
   json query = {};
   if (!!request.hasFastMode()) {
-    query["FastMode"] = request.fastMode();
+    query["FastMode"] = request.getFastMode();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasPromotionOptionNo()) {
-    query["PromotionOptionNo"] = request.promotionOptionNo();
+    query["PromotionOptionNo"] = request.getPromotionOptionNo();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -813,6 +1229,67 @@ ModifyDiskSizeResponse Client::modifyDiskSize(const ModifyDiskSizeRequest &reque
 }
 
 /**
+ * @summary 修改计算组的节点磁盘类型
+ *
+ * @param request ModifyDiskTypeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyDiskTypeResponse
+ */
+ModifyDiskTypeResponse Client::modifyDiskTypeWithOptions(const ModifyDiskTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNodeGroupId()) {
+    query["NodeGroupId"] = request.getNodeGroupId();
+  }
+
+  if (!!request.hasPromotionOptionNo()) {
+    query["PromotionOptionNo"] = request.getPromotionOptionNo();
+  }
+
+  if (!!request.hasTargetDiskType()) {
+    query["TargetDiskType"] = request.getTargetDiskType();
+  }
+
+  if (!!request.hasTargetPerformanceLevel()) {
+    query["TargetPerformanceLevel"] = request.getTargetPerformanceLevel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyDiskType"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/resourceChange/modifyDiskType")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyDiskTypeResponse>();
+}
+
+/**
+ * @summary 修改计算组的节点磁盘类型
+ *
+ * @param request ModifyDiskTypeRequest
+ * @return ModifyDiskTypeResponse
+ */
+ModifyDiskTypeResponse Client::modifyDiskType(const ModifyDiskTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modifyDiskTypeWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Modifies the number of nodes in a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
  *
  * @description Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances. Before you call this operation, take note of the following items:
@@ -832,27 +1309,27 @@ ModifyNodeNumberResponse Client::modifyNodeNumberWithOptions(const ModifyNodeNum
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasParallelism()) {
-    query["Parallelism"] = request.parallelism();
+    query["Parallelism"] = request.getParallelism();
   }
 
   if (!!request.hasPromotionOptionNo()) {
-    query["PromotionOptionNo"] = request.promotionOptionNo();
+    query["PromotionOptionNo"] = request.getPromotionOptionNo();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   if (!!request.hasTerminationGracePeriodSeconds()) {
-    query["TerminationGracePeriodSeconds"] = request.terminationGracePeriodSeconds();
+    query["TerminationGracePeriodSeconds"] = request.getTerminationGracePeriodSeconds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -905,15 +1382,15 @@ ModifyNodeNumberPreCheckResponse Client::modifyNodeNumberPreCheckWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasTarget()) {
-    query["Target"] = request.target();
+    query["Target"] = request.getTarget();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -958,11 +1435,11 @@ QueryUpgradableVersionsResponse Client::queryUpgradableVersionsWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasMinor()) {
-    query["Minor"] = request.minor();
+    query["Minor"] = request.getMinor();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1010,7 +1487,7 @@ ReleaseInstanceResponse Client::releaseInstanceWithOptions(const ReleaseInstance
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1060,11 +1537,11 @@ RestartInstanceResponse Client::restartInstanceWithOptions(const RestartInstance
   request.validate();
   json query = {};
   if (!!request.hasFastMode()) {
-    query["FastMode"] = request.fastMode();
+    query["FastMode"] = request.getFastMode();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1100,7 +1577,245 @@ RestartInstanceResponse Client::restartInstance(const RestartInstanceRequest &re
 }
 
 /**
- * @summary 打标
+ * @summary 重启指定的node group
+ *
+ * @param request RestartNodeGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestartNodeGroupResponse
+ */
+RestartNodeGroupResponse Client::restartNodeGroupWithOptions(const RestartNodeGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFastMode()) {
+    query["FastMode"] = request.getFastMode();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNodeGroupId()) {
+    query["NodeGroupId"] = request.getNodeGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestartNodeGroup"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/nodegroup/restart")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestartNodeGroupResponse>();
+}
+
+/**
+ * @summary 重启指定的node group
+ *
+ * @param request RestartNodeGroupRequest
+ * @return RestartNodeGroupResponse
+ */
+RestartNodeGroupResponse Client::restartNodeGroup(const RestartNodeGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return restartNodeGroupWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 重启集群中的节点
+ *
+ * @param request RestartNodesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestartNodesResponse
+ */
+RestartNodesResponse Client::restartNodesWithOptions(const RestartNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  json body = {};
+  if (!!request.hasRestartNodeGroups()) {
+    body["RestartNodeGroups"] = request.getRestartNodeGroups();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RestartNodes"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/restart/restart")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestartNodesResponse>();
+}
+
+/**
+ * @summary 重启集群中的节点
+ *
+ * @param request RestartNodesRequest
+ * @return RestartNodesResponse
+ */
+RestartNodesResponse Client::restartNodes(const RestartNodesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return restartNodesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 从备份中恢复实例
+ *
+ * @param request RestoreInstanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestoreInstanceResponse
+ */
+RestoreInstanceResponse Client::restoreInstanceWithOptions(const RestoreInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAdminPassword()) {
+    body["AdminPassword"] = request.getAdminPassword();
+  }
+
+  if (!!request.hasAutoRenew()) {
+    body["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasBackupTaskId()) {
+    body["BackupTaskId"] = request.getBackupTaskId();
+  }
+
+  if (!!request.hasDuration()) {
+    body["Duration"] = request.getDuration();
+  }
+
+  if (!!request.hasInstanceName()) {
+    body["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasPayType()) {
+    body["PayType"] = request.getPayType();
+  }
+
+  if (!!request.hasPricingCycle()) {
+    body["PricingCycle"] = request.getPricingCycle();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasTags()) {
+    body["Tags"] = request.getTags();
+  }
+
+  if (!!request.hasVSwitches()) {
+    body["VSwitches"] = request.getVSwitches();
+  }
+
+  if (!!request.hasVpcId()) {
+    body["VpcId"] = request.getVpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RestoreInstance"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/restore/restoreInstance")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestoreInstanceResponse>();
+}
+
+/**
+ * @summary 从备份中恢复实例
+ *
+ * @param request RestoreInstanceRequest
+ * @return RestoreInstanceResponse
+ */
+RestoreInstanceResponse Client::restoreInstance(const RestoreInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return restoreInstanceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 该接口用于恢复来自openlake自动停机的实例。
+ *
+ * @param request ResumeInstanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResumeInstanceResponse
+ */
+ResumeInstanceResponse Client::resumeInstanceWithOptions(const ResumeInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResumeInstance"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/lifecycle/resumeInstance")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResumeInstanceResponse>();
+}
+
+/**
+ * @summary 该接口用于恢复来自openlake自动停机的实例。
+ *
+ * @param request ResumeInstanceRequest
+ * @return ResumeInstanceResponse
+ */
+ResumeInstanceResponse Client::resumeInstance(const ResumeInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return resumeInstanceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Adds a tag to a resource.
  *
  * @param request TagResourcesRequest
  * @param headers map
@@ -1111,19 +1826,19 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    body["ResourceId"] = request.resourceId();
+    body["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    body["ResourceType"] = request.resourceType();
+    body["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    body["Tag"] = request.tag();
+    body["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1145,7 +1860,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary 打标
+ * @summary Adds a tag to a resource.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -1157,7 +1872,60 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary 删除标签
+ * @summary 公网SLB开关
+ *
+ * @param request TogglePublicSlbRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TogglePublicSlbResponse
+ */
+TogglePublicSlbResponse Client::togglePublicSlbWithOptions(const TogglePublicSlbRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnablePublicSlb()) {
+    query["EnablePublicSlb"] = request.getEnablePublicSlb();
+  }
+
+  if (!!request.hasGatewayId()) {
+    query["GatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TogglePublicSlb"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/gateway/togglePublicSlb")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TogglePublicSlbResponse>();
+}
+
+/**
+ * @summary 公网SLB开关
+ *
+ * @param request TogglePublicSlbRequest
+ * @return TogglePublicSlbResponse
+ */
+TogglePublicSlbResponse Client::togglePublicSlb(const TogglePublicSlbRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return togglePublicSlbWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Removes tags from specified resources.
  *
  * @param tmpReq UnTagResourcesRequest
  * @param headers map
@@ -1169,32 +1937,32 @@ UnTagResourcesResponse Client::unTagResourcesWithOptions(const UnTagResourcesReq
   UnTagResourcesShrinkRequest request = UnTagResourcesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceId()) {
-    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceId(), "ResourceId", "json"));
+    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceId(), "ResourceId", "json"));
   }
 
   if (!!tmpReq.hasTagKey()) {
-    request.setTagKeyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tagKey(), "TagKey", "json"));
+    request.setTagKeyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTagKey(), "TagKey", "json"));
   }
 
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceIdShrink()) {
-    query["ResourceId"] = request.resourceIdShrink();
+    query["ResourceId"] = request.getResourceIdShrink();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKeyShrink()) {
-    query["TagKey"] = request.tagKeyShrink();
+    query["TagKey"] = request.getTagKeyShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1216,7 +1984,7 @@ UnTagResourcesResponse Client::unTagResourcesWithOptions(const UnTagResourcesReq
 }
 
 /**
- * @summary 删除标签
+ * @summary Removes tags from specified resources.
  *
  * @param request UnTagResourcesRequest
  * @return UnTagResourcesResponse
@@ -1225,6 +1993,63 @@ UnTagResourcesResponse Client::unTagResources(const UnTagResourcesRequest &reque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return unTagResourcesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 更新网关
+ *
+ * @param request UpdateGatewayRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateGatewayResponse
+ */
+UpdateGatewayResponse Client::updateGatewayWithOptions(const UpdateGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFeNodeNumber()) {
+    query["FeNodeNumber"] = request.getFeNodeNumber();
+  }
+
+  if (!!request.hasGatewayId()) {
+    query["GatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasGatewayName()) {
+    query["GatewayName"] = request.getGatewayName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateGateway"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/gateway/update")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateGatewayResponse>();
+}
+
+/**
+ * @summary 更新网关
+ *
+ * @param request UpdateGatewayRequest
+ * @return UpdateGatewayResponse
+ */
+UpdateGatewayResponse Client::updateGateway(const UpdateGatewayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateGatewayWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1239,11 +2064,11 @@ UpdateInstanceNameResponse Client::updateInstanceNameWithOptions(const UpdateIns
   request.validate();
   json query = {};
   if (!!request.hasClusterName()) {
-    query["ClusterName"] = request.clusterName();
+    query["ClusterName"] = request.getClusterName();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1290,19 +2115,19 @@ UpgradeVersionResponse Client::upgradeVersionWithOptions(const UpgradeVersionReq
   request.validate();
   json query = {};
   if (!!request.hasFastMode()) {
-    query["FastMode"] = request.fastMode();
+    query["FastMode"] = request.getFastMode();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasMinor()) {
-    query["Minor"] = request.minor();
+    query["Minor"] = request.getMinor();
   }
 
   if (!!request.hasTargetVersion()) {
-    query["TargetVersion"] = request.targetVersion();
+    query["TargetVersion"] = request.getTargetVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

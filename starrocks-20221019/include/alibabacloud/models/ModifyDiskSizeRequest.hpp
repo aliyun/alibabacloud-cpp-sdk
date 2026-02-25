@@ -38,57 +38,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fastMode_ == nullptr
-        && return this->instanceId_ == nullptr && return this->nodeGroupId_ == nullptr && return this->promotionOptionNo_ == nullptr && return this->target_ == nullptr; };
+        && this->instanceId_ == nullptr && this->nodeGroupId_ == nullptr && this->promotionOptionNo_ == nullptr && this->target_ == nullptr; };
     // fastMode Field Functions 
     bool hasFastMode() const { return this->fastMode_ != nullptr;};
     void deleteFastMode() { this->fastMode_ = nullptr;};
-    inline bool fastMode() const { DARABONBA_PTR_GET_DEFAULT(fastMode_, false) };
+    inline bool getFastMode() const { DARABONBA_PTR_GET_DEFAULT(fastMode_, false) };
     inline ModifyDiskSizeRequest& setFastMode(bool fastMode) { DARABONBA_PTR_SET_VALUE(fastMode_, fastMode) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyDiskSizeRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // nodeGroupId Field Functions 
     bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
-    inline string nodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
+    inline string getNodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
     inline ModifyDiskSizeRequest& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
 
 
     // promotionOptionNo Field Functions 
     bool hasPromotionOptionNo() const { return this->promotionOptionNo_ != nullptr;};
     void deletePromotionOptionNo() { this->promotionOptionNo_ = nullptr;};
-    inline string promotionOptionNo() const { DARABONBA_PTR_GET_DEFAULT(promotionOptionNo_, "") };
+    inline string getPromotionOptionNo() const { DARABONBA_PTR_GET_DEFAULT(promotionOptionNo_, "") };
     inline ModifyDiskSizeRequest& setPromotionOptionNo(string promotionOptionNo) { DARABONBA_PTR_SET_VALUE(promotionOptionNo_, promotionOptionNo) };
 
 
     // target Field Functions 
     bool hasTarget() const { return this->target_ != nullptr;};
     void deleteTarget() { this->target_ = nullptr;};
-    inline int32_t target() const { DARABONBA_PTR_GET_DEFAULT(target_, 0) };
+    inline int32_t getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, 0) };
     inline ModifyDiskSizeRequest& setTarget(int32_t target) { DARABONBA_PTR_SET_VALUE(target_, target) };
 
 
   protected:
-    std::shared_ptr<bool> fastMode_ = nullptr;
+    shared_ptr<bool> fastMode_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The warehouse ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeGroupId_ = nullptr;
-    std::shared_ptr<string> promotionOptionNo_ = nullptr;
+    shared_ptr<string> nodeGroupId_ {};
+    shared_ptr<string> promotionOptionNo_ {};
     // The disk size to which you want to change to. Unit: GB.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> target_ = nullptr;
+    shared_ptr<int32_t> target_ {};
   };
 
   } // namespace Models

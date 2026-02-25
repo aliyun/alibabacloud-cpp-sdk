@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->minor_ == nullptr; };
+        && this->minor_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline QueryUpgradableVersionsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // minor Field Functions 
     bool hasMinor() const { return this->minor_ != nullptr;};
     void deleteMinor() { this->minor_ = nullptr;};
-    inline bool minor() const { DARABONBA_PTR_GET_DEFAULT(minor_, false) };
+    inline bool getMinor() const { DARABONBA_PTR_GET_DEFAULT(minor_, false) };
     inline QueryUpgradableVersionsRequest& setMinor(bool minor) { DARABONBA_PTR_SET_VALUE(minor_, minor) };
 
 
@@ -51,12 +51,12 @@ namespace Models
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Specifies whether to query the minor versions that you can upgrade to. Default value: true. Valid values:
     // 
     // *   true: The minor versions that you can upgrade to.
     // *   false: The major versions that you can upgrade to.
-    std::shared_ptr<bool> minor_ = nullptr;
+    shared_ptr<bool> minor_ {};
   };
 
   } // namespace Models

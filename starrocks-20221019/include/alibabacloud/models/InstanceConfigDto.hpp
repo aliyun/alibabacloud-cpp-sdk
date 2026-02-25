@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configKey_ == nullptr
-        && return this->configType_ == nullptr && return this->configValue_ == nullptr && return this->nodeGroupId_ == nullptr; };
+        && this->configType_ == nullptr && this->configValue_ == nullptr && this->nodeGroupId_ == nullptr; };
     // configKey Field Functions 
     bool hasConfigKey() const { return this->configKey_ != nullptr;};
     void deleteConfigKey() { this->configKey_ = nullptr;};
-    inline string configKey() const { DARABONBA_PTR_GET_DEFAULT(configKey_, "") };
+    inline string getConfigKey() const { DARABONBA_PTR_GET_DEFAULT(configKey_, "") };
     inline InstanceConfigDto& setConfigKey(string configKey) { DARABONBA_PTR_SET_VALUE(configKey_, configKey) };
 
 
     // configType Field Functions 
     bool hasConfigType() const { return this->configType_ != nullptr;};
     void deleteConfigType() { this->configType_ = nullptr;};
-    inline string configType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
+    inline string getConfigType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
     inline InstanceConfigDto& setConfigType(string configType) { DARABONBA_PTR_SET_VALUE(configType_, configType) };
 
 
     // configValue Field Functions 
     bool hasConfigValue() const { return this->configValue_ != nullptr;};
     void deleteConfigValue() { this->configValue_ = nullptr;};
-    inline string configValue() const { DARABONBA_PTR_GET_DEFAULT(configValue_, "") };
+    inline string getConfigValue() const { DARABONBA_PTR_GET_DEFAULT(configValue_, "") };
     inline InstanceConfigDto& setConfigValue(string configValue) { DARABONBA_PTR_SET_VALUE(configValue_, configValue) };
 
 
     // nodeGroupId Field Functions 
     bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
-    inline string nodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
+    inline string getNodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
     inline InstanceConfigDto& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
 
 
   protected:
-    std::shared_ptr<string> configKey_ = nullptr;
-    std::shared_ptr<string> configType_ = nullptr;
-    std::shared_ptr<string> configValue_ = nullptr;
-    std::shared_ptr<string> nodeGroupId_ = nullptr;
+    shared_ptr<string> configKey_ {};
+    shared_ptr<string> configType_ {};
+    shared_ptr<string> configValue_ {};
+    shared_ptr<string> nodeGroupId_ {};
   };
 
   } // namespace Models

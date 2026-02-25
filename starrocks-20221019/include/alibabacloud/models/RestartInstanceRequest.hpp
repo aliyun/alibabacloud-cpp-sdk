@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fastMode_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // fastMode Field Functions 
     bool hasFastMode() const { return this->fastMode_ != nullptr;};
     void deleteFastMode() { this->fastMode_ = nullptr;};
-    inline bool fastMode() const { DARABONBA_PTR_GET_DEFAULT(fastMode_, false) };
+    inline bool getFastMode() const { DARABONBA_PTR_GET_DEFAULT(fastMode_, false) };
     inline RestartInstanceRequest& setFastMode(bool fastMode) { DARABONBA_PTR_SET_VALUE(fastMode_, fastMode) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RestartInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
@@ -52,11 +52,11 @@ namespace Models
     // 
     // *   true: Compute nodes are restarted in quick restart mode in multiple batches. The batches are executed in parallel, and the nodes in each batch are restarted at the same time.
     // *   false: Compute nodes are restarted in rolling restart mode.
-    std::shared_ptr<bool> fastMode_ = nullptr;
+    shared_ptr<bool> fastMode_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

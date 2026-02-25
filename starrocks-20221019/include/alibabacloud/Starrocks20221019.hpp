@@ -21,7 +21,25 @@ namespace Starrocks20221019
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 资源转组
+       * @summary 新建网关
+       *
+       * @param request AddGatewayRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddGatewayResponse
+       */
+      Models::AddGatewayResponse addGatewayWithOptions(const Models::AddGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新建网关
+       *
+       * @param request AddGatewayRequest
+       * @return AddGatewayResponse
+       */
+      Models::AddGatewayResponse addGateway(const Models::AddGatewayRequest &request);
+
+      /**
+       * @summary This interface is used to modify the resource group of a Serverless StarRocks instance.
        *
        * @param request ChangeResourceGroupRequest
        * @param headers map
@@ -31,7 +49,7 @@ namespace Starrocks20221019
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 资源转组
+       * @summary This interface is used to modify the resource group of a Serverless StarRocks instance.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -57,7 +75,7 @@ namespace Starrocks20221019
       Models::CreateInstanceV1Response createInstanceV1(const Models::CreateInstanceV1Request &request);
 
       /**
-       * @summary 为用户创建AliyunServiceRoleForEMRStarRocks
+       * @summary This interface is used to create the AliyunServiceRoleForEMRStarRocks role for users.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -66,14 +84,32 @@ namespace Starrocks20221019
       Models::CreateServiceLinkedRoleResponse createServiceLinkedRoleWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为用户创建AliyunServiceRoleForEMRStarRocks
+       * @summary This interface is used to create the AliyunServiceRoleForEMRStarRocks role for users.
        *
        * @return CreateServiceLinkedRoleResponse
        */
       Models::CreateServiceLinkedRoleResponse createServiceLinkedRole();
 
       /**
-       * @summary 根据集群ID或者名称等信息过滤集群
+       * @summary 删除网关
+       *
+       * @param request DeleteGatewayRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteGatewayResponse
+       */
+      Models::DeleteGatewayResponse deleteGatewayWithOptions(const Models::DeleteGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除网关
+       *
+       * @param request DeleteGatewayRequest
+       * @return DeleteGatewayResponse
+       */
+      Models::DeleteGatewayResponse deleteGateway(const Models::DeleteGatewayRequest &request);
+
+      /**
+       * @summary This operation is used to query Serverless StarRocks instances, supporting filtering based on instance name or tags and other information.
        *
        * @param tmpReq DescribeInstancesRequest
        * @param headers map
@@ -83,7 +119,7 @@ namespace Starrocks20221019
       Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据集群ID或者名称等信息过滤集群
+       * @summary This operation is used to query Serverless StarRocks instances, supporting filtering based on instance name or tags and other information.
        *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
@@ -107,6 +143,114 @@ namespace Starrocks20221019
        * @return DescribeNodeGroupsResponse
        */
       Models::DescribeNodeGroupsResponse describeNodeGroups(const Models::DescribeNodeGroupsRequest &request);
+
+      /**
+       * @summary StarRocks关闭SSL
+       *
+       * @param request DisableSSLConnectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableSSLConnectionResponse
+       */
+      Models::DisableSSLConnectionResponse disableSSLConnectionWithOptions(const Models::DisableSSLConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary StarRocks关闭SSL
+       *
+       * @param request DisableSSLConnectionRequest
+       * @return DisableSSLConnectionResponse
+       */
+      Models::DisableSSLConnectionResponse disableSSLConnection(const Models::DisableSSLConnectionRequest &request);
+
+      /**
+       * @summary StarRocks开启SSL
+       *
+       * @param request EnableSSLConnectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableSSLConnectionResponse
+       */
+      Models::EnableSSLConnectionResponse enableSSLConnectionWithOptions(const Models::EnableSSLConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary StarRocks开启SSL
+       *
+       * @param request EnableSSLConnectionRequest
+       * @return EnableSSLConnectionResponse
+       */
+      Models::EnableSSLConnectionResponse enableSSLConnection(const Models::EnableSSLConnectionRequest &request);
+
+      /**
+       * @summary 获取StarRocks集群实例的特性开关
+       *
+       * @param request GetInstanceFeatureGateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceFeatureGateResponse
+       */
+      Models::GetInstanceFeatureGateResponse getInstanceFeatureGateWithOptions(const Models::GetInstanceFeatureGateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取StarRocks集群实例的特性开关
+       *
+       * @param request GetInstanceFeatureGateRequest
+       * @return GetInstanceFeatureGateResponse
+       */
+      Models::GetInstanceFeatureGateResponse getInstanceFeatureGate(const Models::GetInstanceFeatureGateRequest &request);
+
+      /**
+       * @summary 默认网关开启内网SLB
+       *
+       * @param request IsolateLeaderRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return IsolateLeaderResponse
+       */
+      Models::IsolateLeaderResponse isolateLeaderWithOptions(const Models::IsolateLeaderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 默认网关开启内网SLB
+       *
+       * @param request IsolateLeaderRequest
+       * @return IsolateLeaderResponse
+       */
+      Models::IsolateLeaderResponse isolateLeader(const Models::IsolateLeaderRequest &request);
+
+      /**
+       * @summary 获取网关列表
+       *
+       * @param request ListGatewayRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGatewayResponse
+       */
+      Models::ListGatewayResponse listGatewayWithOptions(const Models::ListGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取网关列表
+       *
+       * @param request ListGatewayRequest
+       * @return ListGatewayResponse
+       */
+      Models::ListGatewayResponse listGateway(const Models::ListGatewayRequest &request);
+
+      /**
+       * @summary 修改实例的付费类型
+       *
+       * @param request ModifyChargeTypeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyChargeTypeResponse
+       */
+      Models::ModifyChargeTypeResponse modifyChargeTypeWithOptions(const Models::ModifyChargeTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改实例的付费类型
+       *
+       * @param request ModifyChargeTypeRequest
+       * @return ModifyChargeTypeResponse
+       */
+      Models::ModifyChargeTypeResponse modifyChargeType(const Models::ModifyChargeTypeRequest &request);
 
       /**
        * @summary Modifies the number of CUs for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
@@ -271,6 +415,24 @@ namespace Starrocks20221019
       Models::ModifyDiskSizeResponse modifyDiskSize(const Models::ModifyDiskSizeRequest &request);
 
       /**
+       * @summary 修改计算组的节点磁盘类型
+       *
+       * @param request ModifyDiskTypeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDiskTypeResponse
+       */
+      Models::ModifyDiskTypeResponse modifyDiskTypeWithOptions(const Models::ModifyDiskTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改计算组的节点磁盘类型
+       *
+       * @param request ModifyDiskTypeRequest
+       * @return ModifyDiskTypeResponse
+       */
+      Models::ModifyDiskTypeResponse modifyDiskType(const Models::ModifyDiskTypeRequest &request);
+
+      /**
        * @summary Modifies the number of nodes in a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
        *
        * @description Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances. Before you call this operation, take note of the following items:
@@ -387,7 +549,79 @@ namespace Starrocks20221019
       Models::RestartInstanceResponse restartInstance(const Models::RestartInstanceRequest &request);
 
       /**
-       * @summary 打标
+       * @summary 重启指定的node group
+       *
+       * @param request RestartNodeGroupRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestartNodeGroupResponse
+       */
+      Models::RestartNodeGroupResponse restartNodeGroupWithOptions(const Models::RestartNodeGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重启指定的node group
+       *
+       * @param request RestartNodeGroupRequest
+       * @return RestartNodeGroupResponse
+       */
+      Models::RestartNodeGroupResponse restartNodeGroup(const Models::RestartNodeGroupRequest &request);
+
+      /**
+       * @summary 重启集群中的节点
+       *
+       * @param request RestartNodesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestartNodesResponse
+       */
+      Models::RestartNodesResponse restartNodesWithOptions(const Models::RestartNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重启集群中的节点
+       *
+       * @param request RestartNodesRequest
+       * @return RestartNodesResponse
+       */
+      Models::RestartNodesResponse restartNodes(const Models::RestartNodesRequest &request);
+
+      /**
+       * @summary 从备份中恢复实例
+       *
+       * @param request RestoreInstanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestoreInstanceResponse
+       */
+      Models::RestoreInstanceResponse restoreInstanceWithOptions(const Models::RestoreInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 从备份中恢复实例
+       *
+       * @param request RestoreInstanceRequest
+       * @return RestoreInstanceResponse
+       */
+      Models::RestoreInstanceResponse restoreInstance(const Models::RestoreInstanceRequest &request);
+
+      /**
+       * @summary 该接口用于恢复来自openlake自动停机的实例。
+       *
+       * @param request ResumeInstanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResumeInstanceResponse
+       */
+      Models::ResumeInstanceResponse resumeInstanceWithOptions(const Models::ResumeInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 该接口用于恢复来自openlake自动停机的实例。
+       *
+       * @param request ResumeInstanceRequest
+       * @return ResumeInstanceResponse
+       */
+      Models::ResumeInstanceResponse resumeInstance(const Models::ResumeInstanceRequest &request);
+
+      /**
+       * @summary Adds a tag to a resource.
        *
        * @param request TagResourcesRequest
        * @param headers map
@@ -397,7 +631,7 @@ namespace Starrocks20221019
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 打标
+       * @summary Adds a tag to a resource.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -405,7 +639,25 @@ namespace Starrocks20221019
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary 删除标签
+       * @summary 公网SLB开关
+       *
+       * @param request TogglePublicSlbRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TogglePublicSlbResponse
+       */
+      Models::TogglePublicSlbResponse togglePublicSlbWithOptions(const Models::TogglePublicSlbRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 公网SLB开关
+       *
+       * @param request TogglePublicSlbRequest
+       * @return TogglePublicSlbResponse
+       */
+      Models::TogglePublicSlbResponse togglePublicSlb(const Models::TogglePublicSlbRequest &request);
+
+      /**
+       * @summary Removes tags from specified resources.
        *
        * @param tmpReq UnTagResourcesRequest
        * @param headers map
@@ -415,12 +667,30 @@ namespace Starrocks20221019
       Models::UnTagResourcesResponse unTagResourcesWithOptions(const Models::UnTagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除标签
+       * @summary Removes tags from specified resources.
        *
        * @param request UnTagResourcesRequest
        * @return UnTagResourcesResponse
        */
       Models::UnTagResourcesResponse unTagResources(const Models::UnTagResourcesRequest &request);
+
+      /**
+       * @summary 更新网关
+       *
+       * @param request UpdateGatewayRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateGatewayResponse
+       */
+      Models::UpdateGatewayResponse updateGatewayWithOptions(const Models::UpdateGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新网关
+       *
+       * @param request UpdateGatewayRequest
+       * @return UpdateGatewayResponse
+       */
+      Models::UpdateGatewayResponse updateGateway(const Models::UpdateGatewayRequest &request);
 
       /**
        * @summary Modifies the name of an E-MapReduce (EMR) Serverless StarRocks instance.

@@ -42,65 +42,81 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cu_ == nullptr
-        && return this->diskNumber_ == nullptr && return this->localStorageInstanceType_ == nullptr && return this->nodeNumber_ == nullptr && return this->specType_ == nullptr && return this->storagePerformanceLevel_ == nullptr
-        && return this->storageSize_ == nullptr; };
+        && this->diskNumber_ == nullptr && this->localStorageInstanceType_ == nullptr && this->nodeNumber_ == nullptr && this->specType_ == nullptr && this->storagePerformanceLevel_ == nullptr
+        && this->storageSize_ == nullptr; };
     // cu Field Functions 
     bool hasCu() const { return this->cu_ != nullptr;};
     void deleteCu() { this->cu_ = nullptr;};
-    inline int32_t cu() const { DARABONBA_PTR_GET_DEFAULT(cu_, 0) };
+    inline int32_t getCu() const { DARABONBA_PTR_GET_DEFAULT(cu_, 0) };
     inline ResourceSpec& setCu(int32_t cu) { DARABONBA_PTR_SET_VALUE(cu_, cu) };
 
 
     // diskNumber Field Functions 
     bool hasDiskNumber() const { return this->diskNumber_ != nullptr;};
     void deleteDiskNumber() { this->diskNumber_ = nullptr;};
-    inline int32_t diskNumber() const { DARABONBA_PTR_GET_DEFAULT(diskNumber_, 0) };
+    inline int32_t getDiskNumber() const { DARABONBA_PTR_GET_DEFAULT(diskNumber_, 0) };
     inline ResourceSpec& setDiskNumber(int32_t diskNumber) { DARABONBA_PTR_SET_VALUE(diskNumber_, diskNumber) };
 
 
     // localStorageInstanceType Field Functions 
     bool hasLocalStorageInstanceType() const { return this->localStorageInstanceType_ != nullptr;};
     void deleteLocalStorageInstanceType() { this->localStorageInstanceType_ = nullptr;};
-    inline string localStorageInstanceType() const { DARABONBA_PTR_GET_DEFAULT(localStorageInstanceType_, "") };
+    inline string getLocalStorageInstanceType() const { DARABONBA_PTR_GET_DEFAULT(localStorageInstanceType_, "") };
     inline ResourceSpec& setLocalStorageInstanceType(string localStorageInstanceType) { DARABONBA_PTR_SET_VALUE(localStorageInstanceType_, localStorageInstanceType) };
 
 
     // nodeNumber Field Functions 
     bool hasNodeNumber() const { return this->nodeNumber_ != nullptr;};
     void deleteNodeNumber() { this->nodeNumber_ = nullptr;};
-    inline int32_t nodeNumber() const { DARABONBA_PTR_GET_DEFAULT(nodeNumber_, 0) };
+    inline int32_t getNodeNumber() const { DARABONBA_PTR_GET_DEFAULT(nodeNumber_, 0) };
     inline ResourceSpec& setNodeNumber(int32_t nodeNumber) { DARABONBA_PTR_SET_VALUE(nodeNumber_, nodeNumber) };
 
 
     // specType Field Functions 
     bool hasSpecType() const { return this->specType_ != nullptr;};
     void deleteSpecType() { this->specType_ = nullptr;};
-    inline string specType() const { DARABONBA_PTR_GET_DEFAULT(specType_, "") };
+    inline string getSpecType() const { DARABONBA_PTR_GET_DEFAULT(specType_, "") };
     inline ResourceSpec& setSpecType(string specType) { DARABONBA_PTR_SET_VALUE(specType_, specType) };
 
 
     // storagePerformanceLevel Field Functions 
     bool hasStoragePerformanceLevel() const { return this->storagePerformanceLevel_ != nullptr;};
     void deleteStoragePerformanceLevel() { this->storagePerformanceLevel_ = nullptr;};
-    inline string storagePerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(storagePerformanceLevel_, "") };
+    inline string getStoragePerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(storagePerformanceLevel_, "") };
     inline ResourceSpec& setStoragePerformanceLevel(string storagePerformanceLevel) { DARABONBA_PTR_SET_VALUE(storagePerformanceLevel_, storagePerformanceLevel) };
 
 
     // storageSize Field Functions 
     bool hasStorageSize() const { return this->storageSize_ != nullptr;};
     void deleteStorageSize() { this->storageSize_ = nullptr;};
-    inline int32_t storageSize() const { DARABONBA_PTR_GET_DEFAULT(storageSize_, 0) };
+    inline int32_t getStorageSize() const { DARABONBA_PTR_GET_DEFAULT(storageSize_, 0) };
     inline ResourceSpec& setStorageSize(int32_t storageSize) { DARABONBA_PTR_SET_VALUE(storageSize_, storageSize) };
 
 
   protected:
-    std::shared_ptr<int32_t> cu_ = nullptr;
-    std::shared_ptr<int32_t> diskNumber_ = nullptr;
-    std::shared_ptr<string> localStorageInstanceType_ = nullptr;
-    std::shared_ptr<int32_t> nodeNumber_ = nullptr;
-    std::shared_ptr<string> specType_ = nullptr;
-    std::shared_ptr<string> storagePerformanceLevel_ = nullptr;
-    std::shared_ptr<int32_t> storageSize_ = nullptr;
+    // The number of CUs. A compute unit (CU) is the basic metering unit of a service. 1 CU = 1 CPU core + 4 GiB of memory.
+    shared_ptr<int32_t> cu_ {};
+    // The number of disk blocks.
+    shared_ptr<int32_t> diskNumber_ {};
+    // Local SSD Instance Specification for the node group. This parameter is applicable only when the node group is based on ECS instances and the SpecType is set to \\"Local SSD / Large-capacity Storage\\"
+    shared_ptr<string> localStorageInstanceType_ {};
+    // The number of nodes.
+    shared_ptr<int32_t> nodeNumber_ {};
+    // The type of the node group. The following types are included:
+    // 
+    // *   standard, Standard Edition, ECS + cloud disk.
+    // *   localSSD , local SSD.
+    // *   bigData, which stores large specifications.
+    shared_ptr<string> specType_ {};
+    // The performance level of the disks. Valid values:
+    // 
+    // *   PL0: A single disk can achieve up to 10,000 random read/write IOPS.
+    // *   PL1: A single disk can achieve up to 50,000 random read/write IOPS.
+    // *   PL2: A single disk can achieve up to 100,000 random read/write IOPS.
+    // *   PL3: A single disk can achieve up to 1 million random read/write IOPS.
+    shared_ptr<string> storagePerformanceLevel_ {};
+    // The storage size.
+    shared_ptr<int32_t> storageSize_ {};
   };
 
   } // namespace Models
