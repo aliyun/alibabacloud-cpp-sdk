@@ -279,6 +279,8 @@ namespace Models
 
 
       protected:
+        // Policy Value
+        // 
         // This parameter is required.
         shared_ptr<string> value_ {};
         // This parameter is required.

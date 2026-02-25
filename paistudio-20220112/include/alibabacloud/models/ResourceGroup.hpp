@@ -115,14 +115,22 @@ namespace Models
 
 
   protected:
+    // CreatorID
     shared_ptr<string> creatorID_ {};
+    // pai resource created time
     shared_ptr<string> gmtCreatedTime_ {};
+    // GmtModified
     shared_ptr<string> gmtModifiedTime_ {};
+    // pai resource group name
     shared_ptr<string> name_ {};
+    // NodeCount
     shared_ptr<int32_t> nodeCount_ {};
+    // pai resource group id
     shared_ptr<string> resourceGroupID_ {};
+    // UserVpc
     shared_ptr<UserVpc> userVpc_ {};
     shared_ptr<string> version_ {};
+    // pworkspace id
     shared_ptr<string> workspaceID_ {};
   };
 

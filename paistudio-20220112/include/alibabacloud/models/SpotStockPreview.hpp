@@ -13,11 +13,15 @@ namespace Models
   class SpotStockPreview : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SpotStockPreview& obj) { 
+      DARABONBA_PTR_TO_JSON(AvailableQuantity, availableQuantity_);
+      DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(SpotDiscount, spotDiscount_);
       DARABONBA_PTR_TO_JSON(StockStatus, stockStatus_);
     };
     friend void from_json(const Darabonba::Json& j, SpotStockPreview& obj) { 
+      DARABONBA_PTR_FROM_JSON(AvailableQuantity, availableQuantity_);
+      DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(SpotDiscount, spotDiscount_);
       DARABONBA_PTR_FROM_JSON(StockStatus, stockStatus_);
@@ -33,8 +37,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceType_ == nullptr
-        && this->spotDiscount_ == nullptr && this->stockStatus_ == nullptr; };
+    virtual bool empty() const override { return this->availableQuantity_ == nullptr
+        && this->clusterId_ == nullptr && this->instanceType_ == nullptr && this->spotDiscount_ == nullptr && this->stockStatus_ == nullptr; };
+    // availableQuantity Field Functions 
+    bool hasAvailableQuantity() const { return this->availableQuantity_ != nullptr;};
+    void deleteAvailableQuantity() { this->availableQuantity_ = nullptr;};
+    inline int32_t getAvailableQuantity() const { DARABONBA_PTR_GET_DEFAULT(availableQuantity_, 0) };
+    inline SpotStockPreview& setAvailableQuantity(int32_t availableQuantity) { DARABONBA_PTR_SET_VALUE(availableQuantity_, availableQuantity) };
+
+
+    // clusterId Field Functions 
+    bool hasClusterId() const { return this->clusterId_ != nullptr;};
+    void deleteClusterId() { this->clusterId_ = nullptr;};
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline SpotStockPreview& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
+
+
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
@@ -57,6 +75,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<int32_t> availableQuantity_ {};
+    shared_ptr<string> clusterId_ {};
     shared_ptr<string> instanceType_ {};
     shared_ptr<float> spotDiscount_ {};
     shared_ptr<string> stockStatus_ {};

@@ -13,8 +13,10 @@ namespace Models
   class ResourceInfo : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ResourceInfo& obj) { 
+      (void)j; (void)obj; 
     };
     friend void from_json(const Darabonba::Json& j, ResourceInfo& obj) { 
+      (void)j; (void)obj; 
     };
     ResourceInfo() = default ;
     ResourceInfo(const ResourceInfo &) = default ;

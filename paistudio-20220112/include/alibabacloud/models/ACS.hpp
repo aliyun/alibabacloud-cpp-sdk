@@ -51,6 +51,7 @@ namespace Models
 
 
   protected:
+    // ACS Identifier
     shared_ptr<string> ACSQuotaId_ {};
     shared_ptr<vector<string>> associatedProducts_ {};
   };

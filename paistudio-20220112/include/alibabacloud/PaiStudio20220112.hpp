@@ -613,6 +613,24 @@ namespace PaiStudio20220112
       Models::ListNodesResponse listNodes(const Models::ListNodesRequest &request);
 
       /**
+       * @summary 获取当前资源配额用户列表和其所使用的资源
+       *
+       * @param request ListQuotaActiveUserUsagesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListQuotaActiveUserUsagesResponse
+       */
+      Models::ListQuotaActiveUserUsagesResponse listQuotaActiveUserUsagesWithOptions(const string &QuotaId, const Models::ListQuotaActiveUserUsagesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取当前资源配额用户列表和其所使用的资源
+       *
+       * @param request ListQuotaActiveUserUsagesRequest
+       * @return ListQuotaActiveUserUsagesResponse
+       */
+      Models::ListQuotaActiveUserUsagesResponse listQuotaActiveUserUsages(const string &QuotaId, const Models::ListQuotaActiveUserUsagesRequest &request);
+
+      /**
        * @summary 您可以通过此API获取Quota上的任务信息列表
        *
        * @param request ListQuotaWorkloadsRequest

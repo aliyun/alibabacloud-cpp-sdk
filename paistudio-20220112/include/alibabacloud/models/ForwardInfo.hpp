@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // EIP Allocation ID
     shared_ptr<string> eipAllocationId_ {};
+    // NAT Gateway ID
     shared_ptr<string> natGatewayId_ {};
   };
 

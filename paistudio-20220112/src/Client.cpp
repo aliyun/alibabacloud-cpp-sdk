@@ -1846,6 +1846,79 @@ ListNodesResponse Client::listNodes(const ListNodesRequest &request) {
 }
 
 /**
+ * @summary 获取当前资源配额用户列表和其所使用的资源
+ *
+ * @param request ListQuotaActiveUserUsagesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListQuotaActiveUserUsagesResponse
+ */
+ListQuotaActiveUserUsagesResponse Client::listQuotaActiveUserUsagesWithOptions(const string &QuotaId, const ListQuotaActiveUserUsagesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSelfOnly()) {
+    query["SelfOnly"] = request.getSelfOnly();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  if (!!request.hasUsername()) {
+    query["Username"] = request.getUsername();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListQuotaActiveUserUsages"},
+    {"version" , "2022-01-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(QuotaId) , "/activeuserusages")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListQuotaActiveUserUsagesResponse>();
+}
+
+/**
+ * @summary 获取当前资源配额用户列表和其所使用的资源
+ *
+ * @param request ListQuotaActiveUserUsagesRequest
+ * @return ListQuotaActiveUserUsagesResponse
+ */
+ListQuotaActiveUserUsagesResponse Client::listQuotaActiveUserUsages(const string &QuotaId, const ListQuotaActiveUserUsagesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listQuotaActiveUserUsagesWithOptions(QuotaId, request, headers, runtime);
+}
+
+/**
  * @summary 您可以通过此API获取Quota上的任务信息列表
  *
  * @param request ListQuotaWorkloadsRequest

@@ -183,6 +183,9 @@
 #include <alibabacloud/models/ListNodesShrinkRequest.hpp>
 #include <alibabacloud/models/ListNodesResponseBody.hpp>
 #include <alibabacloud/models/ListNodesResponse.hpp>
+#include <alibabacloud/models/ListQuotaActiveUserUsagesRequest.hpp>
+#include <alibabacloud/models/ListQuotaActiveUserUsagesResponseBody.hpp>
+#include <alibabacloud/models/ListQuotaActiveUserUsagesResponse.hpp>
 #include <alibabacloud/models/ListQuotaWorkloadsRequest.hpp>
 #include <alibabacloud/models/ListQuotaWorkloadsResponseBody.hpp>
 #include <alibabacloud/models/ListQuotaWorkloadsResponse.hpp>

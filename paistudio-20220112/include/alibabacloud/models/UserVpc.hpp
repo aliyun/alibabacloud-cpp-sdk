@@ -101,11 +101,17 @@ namespace Models
 
   protected:
     shared_ptr<ForwardInfo> defaultForwardInfo_ {};
+    // DefaultRoute
     shared_ptr<string> defaultRoute_ {};
+    // ExtendedCIDRs
     shared_ptr<vector<string>> extendedCIDRs_ {};
+    // RoleArn
     shared_ptr<string> roleArn_ {};
+    // SecurityGroupID
     shared_ptr<string> securityGroupId_ {};
+    // VSW ID
     shared_ptr<string> switchId_ {};
+    // VPC ID
     shared_ptr<string> vpcId_ {};
   };
 

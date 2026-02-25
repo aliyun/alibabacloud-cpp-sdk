@@ -20,8 +20,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CacheServiceId, cacheServiceId_);
       DARABONBA_PTR_TO_JSON(CreatedBy, createdBy_);
       DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
+      DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
       DARABONBA_PTR_TO_JSON(QuotaId, quotaId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(SupportRDMA, supportRDMA_);
       DARABONBA_PTR_TO_JSON(SupportedClientQuotaIds, supportedClientQuotaIds_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
@@ -32,8 +34,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CacheServiceId, cacheServiceId_);
       DARABONBA_PTR_FROM_JSON(CreatedBy, createdBy_);
       DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
+      DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
       DARABONBA_PTR_FROM_JSON(QuotaId, quotaId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(SupportRDMA, supportRDMA_);
       DARABONBA_PTR_FROM_JSON(SupportedClientQuotaIds, supportedClientQuotaIds_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
@@ -51,8 +55,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cacheInfos_ == nullptr
-        && this->cacheServiceId_ == nullptr && this->createdBy_ == nullptr && this->gmtCreated_ == nullptr && this->quotaId_ == nullptr && this->status_ == nullptr
-        && this->supportedClientQuotaIds_ == nullptr && this->tenantId_ == nullptr && this->userId_ == nullptr && this->userVpc_ == nullptr; };
+        && this->cacheServiceId_ == nullptr && this->createdBy_ == nullptr && this->gmtCreated_ == nullptr && this->networkType_ == nullptr && this->quotaId_ == nullptr
+        && this->status_ == nullptr && this->supportRDMA_ == nullptr && this->supportedClientQuotaIds_ == nullptr && this->tenantId_ == nullptr && this->userId_ == nullptr
+        && this->userVpc_ == nullptr; };
     // cacheInfos Field Functions 
     bool hasCacheInfos() const { return this->cacheInfos_ != nullptr;};
     void deleteCacheInfos() { this->cacheInfos_ = nullptr;};
@@ -83,6 +88,13 @@ namespace Models
     inline CacheService& setGmtCreated(string gmtCreated) { DARABONBA_PTR_SET_VALUE(gmtCreated_, gmtCreated) };
 
 
+    // networkType Field Functions 
+    bool hasNetworkType() const { return this->networkType_ != nullptr;};
+    void deleteNetworkType() { this->networkType_ = nullptr;};
+    inline string getNetworkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
+    inline CacheService& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
+
+
     // quotaId Field Functions 
     bool hasQuotaId() const { return this->quotaId_ != nullptr;};
     void deleteQuotaId() { this->quotaId_ = nullptr;};
@@ -95,6 +107,13 @@ namespace Models
     void deleteStatus() { this->status_ = nullptr;};
     inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline CacheService& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    // supportRDMA Field Functions 
+    bool hasSupportRDMA() const { return this->supportRDMA_ != nullptr;};
+    void deleteSupportRDMA() { this->supportRDMA_ = nullptr;};
+    inline string getSupportRDMA() const { DARABONBA_PTR_GET_DEFAULT(supportRDMA_, "") };
+    inline CacheService& setSupportRDMA(string supportRDMA) { DARABONBA_PTR_SET_VALUE(supportRDMA_, supportRDMA) };
 
 
     // supportedClientQuotaIds Field Functions 
@@ -134,8 +153,10 @@ namespace Models
     shared_ptr<string> cacheServiceId_ {};
     shared_ptr<string> createdBy_ {};
     shared_ptr<string> gmtCreated_ {};
+    shared_ptr<string> networkType_ {};
     shared_ptr<string> quotaId_ {};
     shared_ptr<string> status_ {};
+    shared_ptr<string> supportRDMA_ {};
     shared_ptr<vector<string>> supportedClientQuotaIds_ {};
     shared_ptr<string> tenantId_ {};
     shared_ptr<string> userId_ {};

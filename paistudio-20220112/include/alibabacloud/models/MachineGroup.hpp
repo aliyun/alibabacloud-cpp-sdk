@@ -328,6 +328,7 @@ namespace Models
     shared_ptr<int64_t> memory_ {};
     shared_ptr<string> orderInstanceId_ {};
     shared_ptr<string> paymentDuration_ {};
+    // region ID
     shared_ptr<string> paymentDurationUnit_ {};
     shared_ptr<string> paymentType_ {};
     shared_ptr<string> reasonCode_ {};
