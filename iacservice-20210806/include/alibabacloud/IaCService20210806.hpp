@@ -57,6 +57,24 @@ namespace IaCService20210806
       Models::AssociateGroupResponse associateGroup(const string &groupId, const Models::AssociateGroupRequest &request);
 
       /**
+       * @summary 将参数集关联资源
+       *
+       * @param request AssociateParameterSetRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AssociateParameterSetResponse
+       */
+      Models::AssociateParameterSetResponse associateParameterSetWithOptions(const Models::AssociateParameterSetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将参数集关联资源
+       *
+       * @param request AssociateParameterSetRequest
+       * @return AssociateParameterSetResponse
+       */
+      Models::AssociateParameterSetResponse associateParameterSet(const Models::AssociateParameterSetRequest &request);
+
+      /**
        * @summary 取消资源导出任务
        *
        * @param request CancelResourceExportTaskRequest
@@ -111,7 +129,7 @@ namespace IaCService20210806
       Models::CreateJobResponse createJob(const string &taskId, const Models::CreateJobRequest &request);
 
       /**
-       * @summary 创建模板
+       * @summary Create Module
        *
        * @param request CreateModuleRequest
        * @param headers map
@@ -121,7 +139,7 @@ namespace IaCService20210806
       Models::CreateModuleResponse createModuleWithOptions(const Models::CreateModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建模板
+       * @summary Create Module
        *
        * @param request CreateModuleRequest
        * @return CreateModuleResponse
@@ -145,6 +163,24 @@ namespace IaCService20210806
        * @return CreateModuleVersionResponse
        */
       Models::CreateModuleVersionResponse createModuleVersion(const string &moduleId, const Models::CreateModuleVersionRequest &request);
+
+      /**
+       * @summary 创建参数集
+       *
+       * @param request CreateParameterSetRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateParameterSetResponse
+       */
+      Models::CreateParameterSetResponse createParameterSetWithOptions(const Models::CreateParameterSetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建参数集
+       *
+       * @param request CreateParameterSetRequest
+       * @return CreateParameterSetResponse
+       */
+      Models::CreateParameterSetResponse createParameterSet(const Models::CreateParameterSetRequest &request);
 
       /**
        * @summary 创建项目
@@ -269,6 +305,22 @@ namespace IaCService20210806
       Models::DeleteModuleResponse deleteModule(const string &moduleId);
 
       /**
+       * @summary 删除参数集
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteParameterSetResponse
+       */
+      Models::DeleteParameterSetResponse deleteParameterSetWithOptions(const string &parameterSetId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除参数集
+       *
+       * @return DeleteParameterSetResponse
+       */
+      Models::DeleteParameterSetResponse deleteParameterSet(const string &parameterSetId);
+
+      /**
        * @summary 删除项目
        *
        * @param headers map
@@ -381,6 +433,24 @@ namespace IaCService20210806
        * @return DissociateGroupResponse
        */
       Models::DissociateGroupResponse dissociateGroup(const string &projectId, const string &groupId, const Models::DissociateGroupRequest &request);
+
+      /**
+       * @summary 解除参数集关联资源关系
+       *
+       * @param request DissociateParameterSetRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DissociateParameterSetResponse
+       */
+      Models::DissociateParameterSetResponse dissociateParameterSetWithOptions(const Models::DissociateParameterSetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 解除参数集关联资源关系
+       *
+       * @param request DissociateParameterSetRequest
+       * @return DissociateParameterSetResponse
+       */
+      Models::DissociateParameterSetResponse dissociateParameterSet(const Models::DissociateParameterSetRequest &request);
 
       /**
        * @summary 执行RegistryModule
@@ -541,7 +611,7 @@ namespace IaCService20210806
       Models::GetJobResponse getJob(const string &taskId, const string &jobId, const Models::GetJobRequest &request);
 
       /**
-       * @summary 获取模板详情
+       * @summary Get Module Details
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -550,7 +620,7 @@ namespace IaCService20210806
       Models::GetModuleResponse getModuleWithOptions(const string &moduleId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取模板详情
+       * @summary Get Module Details
        *
        * @return GetModuleResponse
        */
@@ -571,6 +641,22 @@ namespace IaCService20210806
        * @return GetModuleVersionResponse
        */
       Models::GetModuleVersionResponse getModuleVersion(const string &moduleId, const string &moduleVersion);
+
+      /**
+       * @summary 参数集详情
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetParameterSetResponse
+       */
+      Models::GetParameterSetResponse getParameterSetWithOptions(const string &parameterSetId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 参数集详情
+       *
+       * @return GetParameterSetResponse
+       */
+      Models::GetParameterSetResponse getParameterSet(const string &parameterSetId);
 
       /**
        * @summary 查询项目
@@ -813,6 +899,42 @@ namespace IaCService20210806
        * @return ListModulesResponse
        */
       Models::ListModulesResponse listModules(const Models::ListModulesRequest &request);
+
+      /**
+       * @summary 关联到资源的参数集列表
+       *
+       * @param request ListParameterSetRelationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListParameterSetRelationResponse
+       */
+      Models::ListParameterSetRelationResponse listParameterSetRelationWithOptions(const Models::ListParameterSetRelationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关联到资源的参数集列表
+       *
+       * @param request ListParameterSetRelationRequest
+       * @return ListParameterSetRelationResponse
+       */
+      Models::ListParameterSetRelationResponse listParameterSetRelation(const Models::ListParameterSetRelationRequest &request);
+
+      /**
+       * @summary 参数集列表
+       *
+       * @param request ListParameterSetsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListParameterSetsResponse
+       */
+      Models::ListParameterSetsResponse listParameterSetsWithOptions(const Models::ListParameterSetsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 参数集列表
+       *
+       * @param request ListParameterSetsRequest
+       * @return ListParameterSetsResponse
+       */
+      Models::ListParameterSetsResponse listParameterSets(const Models::ListParameterSetsRequest &request);
 
       /**
        * @summary 所有产品列表
@@ -1103,7 +1225,7 @@ namespace IaCService20210806
       Models::UpdateGroupResponse updateGroup(const string &groupId, const Models::UpdateGroupRequest &request);
 
       /**
-       * @summary 更新模板
+       * @summary Update Module
        *
        * @param request UpdateModuleAttributeRequest
        * @param headers map
@@ -1113,12 +1235,30 @@ namespace IaCService20210806
       Models::UpdateModuleAttributeResponse updateModuleAttributeWithOptions(const string &moduleId, const Models::UpdateModuleAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新模板
+       * @summary Update Module
        *
        * @param request UpdateModuleAttributeRequest
        * @return UpdateModuleAttributeResponse
        */
       Models::UpdateModuleAttributeResponse updateModuleAttribute(const string &moduleId, const Models::UpdateModuleAttributeRequest &request);
+
+      /**
+       * @summary 更新参数集
+       *
+       * @param request UpdateParameterSetAttributeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateParameterSetAttributeResponse
+       */
+      Models::UpdateParameterSetAttributeResponse updateParameterSetAttributeWithOptions(const string &parameterSetId, const Models::UpdateParameterSetAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新参数集
+       *
+       * @param request UpdateParameterSetAttributeRequest
+       * @return UpdateParameterSetAttributeResponse
+       */
+      Models::UpdateParameterSetAttributeResponse updateParameterSetAttribute(const string &parameterSetId, const Models::UpdateParameterSetAttributeRequest &request);
 
       /**
        * @summary 修改项目

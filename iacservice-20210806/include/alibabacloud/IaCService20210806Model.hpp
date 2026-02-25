@@ -10,6 +10,9 @@
 #include <alibabacloud/models/AssociateGroupRequest.hpp>
 #include <alibabacloud/models/AssociateGroupResponseBody.hpp>
 #include <alibabacloud/models/AssociateGroupResponse.hpp>
+#include <alibabacloud/models/AssociateParameterSetRequest.hpp>
+#include <alibabacloud/models/AssociateParameterSetResponseBody.hpp>
+#include <alibabacloud/models/AssociateParameterSetResponse.hpp>
 #include <alibabacloud/models/CancelResourceExportTaskRequest.hpp>
 #include <alibabacloud/models/CancelResourceExportTaskResponseBody.hpp>
 #include <alibabacloud/models/CancelResourceExportTaskResponse.hpp>
@@ -25,6 +28,9 @@
 #include <alibabacloud/models/CreateModuleVersionRequest.hpp>
 #include <alibabacloud/models/CreateModuleVersionResponseBody.hpp>
 #include <alibabacloud/models/CreateModuleVersionResponse.hpp>
+#include <alibabacloud/models/CreateParameterSetRequest.hpp>
+#include <alibabacloud/models/CreateParameterSetResponseBody.hpp>
+#include <alibabacloud/models/CreateParameterSetResponse.hpp>
 #include <alibabacloud/models/CreateProjectRequest.hpp>
 #include <alibabacloud/models/CreateProjectResponseBody.hpp>
 #include <alibabacloud/models/CreateProjectResponse.hpp>
@@ -44,6 +50,8 @@
 #include <alibabacloud/models/DeleteGroupResponse.hpp>
 #include <alibabacloud/models/DeleteModuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteModuleResponse.hpp>
+#include <alibabacloud/models/DeleteParameterSetResponseBody.hpp>
+#include <alibabacloud/models/DeleteParameterSetResponse.hpp>
 #include <alibabacloud/models/DeleteProjectResponseBody.hpp>
 #include <alibabacloud/models/DeleteProjectResponse.hpp>
 #include <alibabacloud/models/DeleteRegistryModuleResponseBody.hpp>
@@ -59,6 +67,9 @@
 #include <alibabacloud/models/DissociateGroupRequest.hpp>
 #include <alibabacloud/models/DissociateGroupResponseBody.hpp>
 #include <alibabacloud/models/DissociateGroupResponse.hpp>
+#include <alibabacloud/models/DissociateParameterSetRequest.hpp>
+#include <alibabacloud/models/DissociateParameterSetResponseBody.hpp>
+#include <alibabacloud/models/DissociateParameterSetResponse.hpp>
 #include <alibabacloud/models/ExecuteRegistryModuleRequest.hpp>
 #include <alibabacloud/models/ExecuteRegistryModuleResponseBody.hpp>
 #include <alibabacloud/models/ExecuteRegistryModuleResponse.hpp>
@@ -88,6 +99,8 @@
 #include <alibabacloud/models/GetModuleResponse.hpp>
 #include <alibabacloud/models/GetModuleVersionResponseBody.hpp>
 #include <alibabacloud/models/GetModuleVersionResponse.hpp>
+#include <alibabacloud/models/GetParameterSetResponseBody.hpp>
+#include <alibabacloud/models/GetParameterSetResponse.hpp>
 #include <alibabacloud/models/GetProjectResponseBody.hpp>
 #include <alibabacloud/models/GetProjectResponse.hpp>
 #include <alibabacloud/models/GetRegistryModuleResponseBody.hpp>
@@ -127,6 +140,12 @@
 #include <alibabacloud/models/ListModulesShrinkRequest.hpp>
 #include <alibabacloud/models/ListModulesResponseBody.hpp>
 #include <alibabacloud/models/ListModulesResponse.hpp>
+#include <alibabacloud/models/ListParameterSetRelationRequest.hpp>
+#include <alibabacloud/models/ListParameterSetRelationResponseBody.hpp>
+#include <alibabacloud/models/ListParameterSetRelationResponse.hpp>
+#include <alibabacloud/models/ListParameterSetsRequest.hpp>
+#include <alibabacloud/models/ListParameterSetsResponseBody.hpp>
+#include <alibabacloud/models/ListParameterSetsResponse.hpp>
 #include <alibabacloud/models/ListProductsRequest.hpp>
 #include <alibabacloud/models/ListProductsResponseBody.hpp>
 #include <alibabacloud/models/ListProductsResponse.hpp>
@@ -182,6 +201,9 @@
 #include <alibabacloud/models/UpdateModuleAttributeRequest.hpp>
 #include <alibabacloud/models/UpdateModuleAttributeResponseBody.hpp>
 #include <alibabacloud/models/UpdateModuleAttributeResponse.hpp>
+#include <alibabacloud/models/UpdateParameterSetAttributeRequest.hpp>
+#include <alibabacloud/models/UpdateParameterSetAttributeResponseBody.hpp>
+#include <alibabacloud/models/UpdateParameterSetAttributeResponse.hpp>
 #include <alibabacloud/models/UpdateProjectRequest.hpp>
 #include <alibabacloud/models/UpdateProjectResponseBody.hpp>
 #include <alibabacloud/models/UpdateProjectResponse.hpp>
