@@ -371,6 +371,8 @@ namespace PaiDsw20220101
       Models::GetMetricsResponse getMetrics(const string &InstanceId, const Models::GetMetricsRequest &request);
 
       /**
+       * @summary 获取资源组统计
+       *
        * @param request GetResourceGroupStatisticsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -379,6 +381,8 @@ namespace PaiDsw20220101
       Models::GetResourceGroupStatisticsResponse getResourceGroupStatisticsWithOptions(const Models::GetResourceGroupStatisticsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取资源组统计
+       *
        * @param request GetResourceGroupStatisticsRequest
        * @return GetResourceGroupStatisticsResponse
        */
@@ -421,7 +425,7 @@ namespace PaiDsw20220101
       Models::GetTokenResponse getToken(const Models::GetTokenRequest &request);
 
       /**
-       * @summary 获取自定义用户命令
+       * @summary Get the user defined command
        *
        * @param request GetUserCommandRequest
        * @param headers map
@@ -431,7 +435,7 @@ namespace PaiDsw20220101
       Models::GetUserCommandResponse getUserCommandWithOptions(const string &UserCommandId, const Models::GetUserCommandRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义用户命令
+       * @summary Get the user defined command
        *
        * @param request GetUserCommandRequest
        * @return GetUserCommandResponse

@@ -1102,6 +1102,8 @@ GetMetricsResponse Client::getMetrics(const string &InstanceId, const GetMetrics
 }
 
 /**
+ * @summary 获取资源组统计
+ *
  * @param request GetResourceGroupStatisticsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1145,6 +1147,8 @@ GetResourceGroupStatisticsResponse Client::getResourceGroupStatisticsWithOptions
 }
 
 /**
+ * @summary 获取资源组统计
+ *
  * @param request GetResourceGroupStatisticsRequest
  * @return GetResourceGroupStatisticsResponse
  */
@@ -1257,7 +1261,7 @@ GetTokenResponse Client::getToken(const GetTokenRequest &request) {
 }
 
 /**
- * @summary 获取自定义用户命令
+ * @summary Get the user defined command
  *
  * @param request GetUserCommandRequest
  * @param headers map
@@ -1294,7 +1298,7 @@ GetUserCommandResponse Client::getUserCommandWithOptions(const string &UserComma
 }
 
 /**
- * @summary 获取自定义用户命令
+ * @summary Get the user defined command
  *
  * @param request GetUserCommandRequest
  * @return GetUserCommandResponse
