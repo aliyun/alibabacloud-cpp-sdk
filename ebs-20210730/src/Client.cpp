@@ -104,7 +104,7 @@ AddDiskReplicaPairResponse Client::addDiskReplicaPair(const AddDiskReplicaPairRe
 }
 
 /**
- * @summary Enables CloudLens for EBS.
+ * @summary Cancels Elastic Block Storage data insight (CloudLens for EBS).
  *
  * @description ## Usage notes
  * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
@@ -130,7 +130,7 @@ ApplyLensServiceResponse Client::applyLensServiceWithOptions(const Darabonba::Ru
 }
 
 /**
- * @summary Enables CloudLens for EBS.
+ * @summary Cancels Elastic Block Storage data insight (CloudLens for EBS).
  *
  * @description ## Usage notes
  * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
@@ -197,7 +197,7 @@ BindEnterpriseSnapshotPolicyResponse Client::bindEnterpriseSnapshotPolicy(const 
 }
 
 /**
- * @summary Disables CloudLens for EBS.
+ * @summary Cancels Elastic Block Storage data insight (CloudLens for EBS).
  *
  * @description ## Usage notes
  * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
@@ -223,7 +223,7 @@ CancelLensServiceResponse Client::cancelLensServiceWithOptions(const Darabonba::
 }
 
 /**
- * @summary Disables CloudLens for EBS.
+ * @summary Cancels Elastic Block Storage data insight (CloudLens for EBS).
  *
  * @description ## Usage notes
  * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
@@ -1176,7 +1176,7 @@ DescribeAppsResponse Client::describeApps(const DescribeAppsRequest &request) {
 }
 
 /**
- * @summary Queries the details of one or more disks in a dedicated block storage cluster.
+ * @summary Queries information about cloud disks in a dedicated block storage cluster.
  *
  * @description *   You can use one of the following methods to check the responses:
  *     *   Method 1: Use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the DescribeDisks operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
@@ -1226,7 +1226,7 @@ DescribeDedicatedBlockStorageClusterDisksResponse Client::describeDedicatedBlock
 }
 
 /**
- * @summary Queries the details of one or more disks in a dedicated block storage cluster.
+ * @summary Queries information about cloud disks in a dedicated block storage cluster.
  *
  * @description *   You can use one of the following methods to check the responses:
  *     *   Method 1: Use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the DescribeDisks operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
@@ -1244,7 +1244,7 @@ DescribeDedicatedBlockStorageClusterDisksResponse Client::describeDedicatedBlock
 }
 
 /**
- * @summary Queries the dedicated block storage clusters that are created.
+ * @summary Queries dedicated clusters.
  *
  * @description ## [](#)Usage notes
  * >  The Dedicated Block Storage Cluster feature is available only in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
@@ -1326,7 +1326,7 @@ DescribeDedicatedBlockStorageClustersResponse Client::describeDedicatedBlockStor
 }
 
 /**
- * @summary Queries the dedicated block storage clusters that are created.
+ * @summary Queries dedicated clusters.
  *
  * @description ## [](#)Usage notes
  * >  The Dedicated Block Storage Cluster feature is available only in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
@@ -1342,7 +1342,7 @@ DescribeDedicatedBlockStorageClustersResponse Client::describeDedicatedBlockStor
 }
 
 /**
- * @summary Queries the risk events of a disk.
+ * @summary Queries the risk events of a disk. The operation is getting offline. Switch to the new operation DescribeEvents.
  *
  * @description ## Usage notes
  * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
@@ -1404,7 +1404,7 @@ DescribeDiskEventsResponse Client::describeDiskEventsWithOptions(const DescribeD
 }
 
 /**
- * @summary Queries the risk events of a disk.
+ * @summary Queries the risk events of a disk. The operation is getting offline. Switch to the new operation DescribeEvents.
  *
  * @description ## Usage notes
  * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
@@ -1418,7 +1418,7 @@ DescribeDiskEventsResponse Client::describeDiskEvents(const DescribeDiskEventsRe
 }
 
 /**
- * @summary Queries the near real-time monitoring data of a disk.
+ * @summary Queries fine-grained monitoring data of a disk.
  *
  * @description ## Usage notes
  * *   CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
@@ -1474,7 +1474,7 @@ DescribeDiskMonitorDataResponse Client::describeDiskMonitorDataWithOptions(const
 }
 
 /**
- * @summary Queries the near real-time monitoring data of a disk.
+ * @summary Queries fine-grained monitoring data of a disk.
  *
  * @description ## Usage notes
  * *   CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
@@ -1490,7 +1490,7 @@ DescribeDiskMonitorDataResponse Client::describeDiskMonitorData(const DescribeDi
 }
 
 /**
- * @summary Queries the near real-time monitoring data of disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
+ * @summary Queries fine-grained monitoring data of multiple disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
  *
  * @description ## Usage notes
  * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
@@ -1548,7 +1548,7 @@ DescribeDiskMonitorDataListResponse Client::describeDiskMonitorDataListWithOptio
 }
 
 /**
- * @summary Queries the near real-time monitoring data of disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
+ * @summary Queries fine-grained monitoring data of multiple disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
  *
  * @description ## Usage notes
  * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
@@ -2008,7 +2008,7 @@ DescribeLensMonitorDisksResponse Client::describeLensMonitorDisks(const Describe
 }
 
 /**
- * @summary 查询用户开通ebs数据洞察服务状态
+ * @summary Queries the status of CloudLens for EBS.
  *
  * @description ## Usage notes
  * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
@@ -2034,7 +2034,7 @@ DescribeLensServiceStatusResponse Client::describeLensServiceStatusWithOptions(c
 }
 
 /**
- * @summary 查询用户开通ebs数据洞察服务状态
+ * @summary Queries the status of CloudLens for EBS.
  *
  * @description ## Usage notes
  * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
@@ -2309,7 +2309,7 @@ DescribeReplicaGroupDrillsResponse Client::describeReplicaGroupDrills(const Desc
 }
 
 /**
- * @summary 查询解决方案实例默认配置
+ * @summary Queries the default configurations of a solution.
  *
  * @param request DescribeSolutionInstanceConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2352,7 +2352,7 @@ DescribeSolutionInstanceConfigurationResponse Client::describeSolutionInstanceCo
 }
 
 /**
- * @summary 查询解决方案实例默认配置
+ * @summary Queries the default configurations of a solution.
  *
  * @param request DescribeSolutionInstanceConfigurationRequest
  * @return DescribeSolutionInstanceConfigurationResponse
@@ -2723,7 +2723,7 @@ ListReplicaEdgeSupportedResponse Client::listReplicaEdgeSupported(const ListRepl
 }
 
 /**
- * @summary Centralized Role: Query Historical Reports
+ * @summary Queries historical reports of a specific application.
  *
  * @param request ListReportsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2776,7 +2776,7 @@ ListReportsResponse Client::listReportsWithOptions(const ListReportsRequest &req
 }
 
 /**
- * @summary Centralized Role: Query Historical Reports
+ * @summary Queries historical reports of a specific application.
  *
  * @param request ListReportsRequest
  * @return ListReportsResponse
@@ -2787,7 +2787,7 @@ ListReportsResponse Client::listReports(const ListReportsRequest &request) {
 }
 
 /**
- * @summary Queries the tags that are added to one or more Elastic Block Storage (EBS) resources, or queries the IDs and tags of resources in a specified non-default resource group.
+ * @summary Queries the tags that are added to EBS resources, or queries the IDs and tags of resources in a non-default resource group.
  *
  * @description Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
  * *   `ResourceId.N`
@@ -2843,7 +2843,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags that are added to one or more Elastic Block Storage (EBS) resources, or queries the IDs and tags of resources in a specified non-default resource group.
+ * @summary Queries the tags that are added to EBS resources, or queries the IDs and tags of resources in a non-default resource group.
  *
  * @description Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
  * *   `ResourceId.N`
@@ -2937,7 +2937,7 @@ ModifyAppResponse Client::modifyApp(const ModifyAppRequest &request) {
 }
 
 /**
- * @summary 修改专属集群属性OpenApi
+ * @summary Modifies the information of a dedicated elastic block storage cluster.
  *
  * @description You can call this operation to modify the information of a dedicated block storage cluster. The information includes the name and description of the cluster.
  *
@@ -2986,7 +2986,7 @@ ModifyDedicatedBlockStorageClusterAttributeResponse Client::modifyDedicatedBlock
 }
 
 /**
- * @summary 修改专属集群属性OpenApi
+ * @summary Modifies the information of a dedicated elastic block storage cluster.
  *
  * @description You can call this operation to modify the information of a dedicated block storage cluster. The information includes the name and description of the cluster.
  *
@@ -3207,7 +3207,7 @@ QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse Client::queryDedic
 }
 
 /**
- * @summary Query dedicated block storage cluster capacity trend data, includ available capacity size and total capacity size.
+ * @summary Queries the capacity trend data of a dedicated Elastic Block Storage (EBS) cluster within a specific time period, including the available capacity and total capacity.
  *
  * @description Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
  *
@@ -3262,7 +3262,7 @@ QueryDedicatedBlockStorageClusterInventoryDataResponse Client::queryDedicatedBlo
 }
 
 /**
- * @summary Query dedicated block storage cluster capacity trend data, includ available capacity size and total capacity size.
+ * @summary Queries the capacity trend data of a dedicated Elastic Block Storage (EBS) cluster within a specific time period, including the available capacity and total capacity.
  *
  * @description Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
  *
@@ -3529,7 +3529,7 @@ SetDedicatedBlockStorageClusterDiskThroughputResponse Client::setDedicatedBlockS
 }
 
 /**
- * @summary Enables the async replication feature for replication pairs that belong to a replication pair-consistent group. When the async replication feature is enabled for the pairs for the first time, the system first performs a full synchronization to synchronize all data from disks at the primary site (primary disks) to disks at the secondary site (secondary disks) and then periodically synchronizes incremental data based on the recovery point objective (RPO) of the replication pair-consistent group.
+ * @summary Enables the async replication feature for replication pairs that belong to a replication pair-consistent group. The first time the async replication feature is enabled for the replication pairs, the system performs a full synchronization to synchronize all data from disks at the primary site (primary disks) to disks at the secondary site (secondary disks). Then, the system periodically synchronizes incremental data based on the recovery point objective (RPO) of the replication pair-consistent group.
  *
  * @description ## [](#)Usage notes
  * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
@@ -3578,7 +3578,7 @@ StartDiskReplicaGroupResponse Client::startDiskReplicaGroupWithOptions(const Sta
 }
 
 /**
- * @summary Enables the async replication feature for replication pairs that belong to a replication pair-consistent group. When the async replication feature is enabled for the pairs for the first time, the system first performs a full synchronization to synchronize all data from disks at the primary site (primary disks) to disks at the secondary site (secondary disks) and then periodically synchronizes incremental data based on the recovery point objective (RPO) of the replication pair-consistent group.
+ * @summary Enables the async replication feature for replication pairs that belong to a replication pair-consistent group. The first time the async replication feature is enabled for the replication pairs, the system performs a full synchronization to synchronize all data from disks at the primary site (primary disks) to disks at the secondary site (secondary disks). Then, the system periodically synchronizes incremental data based on the recovery point objective (RPO) of the replication pair-consistent group.
  *
  * @description ## [](#)Usage notes
  * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
@@ -3595,7 +3595,7 @@ StartDiskReplicaGroupResponse Client::startDiskReplicaGroup(const StartDiskRepli
 }
 
 /**
- * @summary Activates a replication pair.
+ * @summary Activates the async replication feature for a specific replication pair.
  *
  * @description ## [](#)Usage notes
  * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
@@ -3643,7 +3643,7 @@ StartDiskReplicaPairResponse Client::startDiskReplicaPairWithOptions(const Start
 }
 
 /**
- * @summary Activates a replication pair.
+ * @summary Activates the async replication feature for a specific replication pair.
  *
  * @description ## [](#)Usage notes
  * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
@@ -4173,7 +4173,7 @@ UpdateEnterpriseSnapshotPolicyResponse Client::updateEnterpriseSnapshotPolicy(co
 }
 
 /**
- * @summary 更新解决方案实例属性
+ * @summary Updates the attributes of a solution instance.
  *
  * @param request UpdateSolutionInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4220,7 +4220,7 @@ UpdateSolutionInstanceAttributeResponse Client::updateSolutionInstanceAttributeW
 }
 
 /**
- * @summary 更新解决方案实例属性
+ * @summary Updates the attributes of a solution instance.
  *
  * @param request UpdateSolutionInstanceAttributeRequest
  * @return UpdateSolutionInstanceAttributeResponse

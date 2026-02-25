@@ -60,9 +60,11 @@ namespace Models
       class Zones : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Zones& obj) { 
+          DARABONBA_PTR_TO_JSON(SupportRtc, supportRtc_);
           DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
         };
         friend void from_json(const Darabonba::Json& j, Zones& obj) { 
+          DARABONBA_PTR_FROM_JSON(SupportRtc, supportRtc_);
           DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
         };
         Zones() = default ;
@@ -76,7 +78,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->zoneId_ == nullptr; };
+        virtual bool empty() const override { return this->supportRtc_ == nullptr
+        && this->zoneId_ == nullptr; };
+        // supportRtc Field Functions 
+        bool hasSupportRtc() const { return this->supportRtc_ != nullptr;};
+        void deleteSupportRtc() { this->supportRtc_ = nullptr;};
+        inline bool getSupportRtc() const { DARABONBA_PTR_GET_DEFAULT(supportRtc_, false) };
+        inline Zones& setSupportRtc(bool supportRtc) { DARABONBA_PTR_SET_VALUE(supportRtc_, supportRtc) };
+
+
         // zoneId Field Functions 
         bool hasZoneId() const { return this->zoneId_ != nullptr;};
         void deleteZoneId() { this->zoneId_ = nullptr;};
@@ -85,6 +95,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<bool> supportRtc_ {};
         shared_ptr<string> zoneId_ {};
       };
 
