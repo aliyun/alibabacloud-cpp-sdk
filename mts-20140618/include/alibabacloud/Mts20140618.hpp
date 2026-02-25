@@ -142,7 +142,7 @@ namespace Mts20140618
       Models::AddPipelineResponse addPipeline(const Models::AddPipelineRequest &request);
 
       /**
-       * @summary 添加labelVersion、knowledgeConfig配置
+       * @summary Adds an analysis template of a smart tagging job.
        *
        * @param request AddSmarttagTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -151,7 +151,7 @@ namespace Mts20140618
       Models::AddSmarttagTemplateResponse addSmarttagTemplateWithOptions(const Models::AddSmarttagTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加labelVersion、knowledgeConfig配置
+       * @summary Adds an analysis template of a smart tagging job.
        *
        * @param request AddSmarttagTemplateRequest
        * @return AddSmarttagTemplateResponse
@@ -234,7 +234,7 @@ namespace Mts20140618
       Models::BindInputBucketResponse bindInputBucket(const Models::BindInputBucketRequest &request);
 
       /**
-       * @summary Binds an output media bucket to the media library.
+       * @summary Binds an output media bucket. Media buckets are Object Storage Service (OSS) buckets that are used by ApsaraVideo Media Processing (MPS) to store media resources. After you bind an OSS bucket to MPS as an input media bucket or output media bucket, MPS has the permissions to listen to the messages of the bucket, which indicate that files are uploaded to the bucket. This way, MPS can trigger workflows and return files that are processed. You can all this operation to bind an output media bucket to the media library.
        *
        * @description Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
        * ### QPS limit
@@ -247,7 +247,7 @@ namespace Mts20140618
       Models::BindOutputBucketResponse bindOutputBucketWithOptions(const Models::BindOutputBucketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds an output media bucket to the media library.
+       * @summary Binds an output media bucket. Media buckets are Object Storage Service (OSS) buckets that are used by ApsaraVideo Media Processing (MPS) to store media resources. After you bind an OSS bucket to MPS as an input media bucket or output media bucket, MPS has the permissions to listen to the messages of the bucket, which indicate that files are uploaded to the bucket. This way, MPS can trigger workflows and return files that are processed. You can all this operation to bind an output media bucket to the media library.
        *
        * @description Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
        * ### QPS limit
@@ -286,6 +286,8 @@ namespace Mts20140618
       Models::CancelJobResponse cancelJob(const Models::CancelJobRequest &request);
 
       /**
+       * @summary Creates a custom entity in a custom library.
+       *
        * @param request CreateCustomEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateCustomEntityResponse
@@ -293,12 +295,16 @@ namespace Mts20140618
       Models::CreateCustomEntityResponse createCustomEntityWithOptions(const Models::CreateCustomEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a custom entity in a custom library.
+       *
        * @param request CreateCustomEntityRequest
        * @return CreateCustomEntityResponse
        */
       Models::CreateCustomEntityResponse createCustomEntity(const Models::CreateCustomEntityRequest &request);
 
       /**
+       * @summary Creates a custom library.
+       *
        * @param request CreateCustomGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateCustomGroupResponse
@@ -306,6 +312,8 @@ namespace Mts20140618
       Models::CreateCustomGroupResponse createCustomGroupWithOptions(const Models::CreateCustomGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a custom library.
+       *
        * @param request CreateCustomGroupRequest
        * @return CreateCustomGroupResponse
        */
@@ -404,6 +412,8 @@ namespace Mts20140618
       Models::DeleteCustomGroupResponse deleteCustomGroup(const Models::DeleteCustomGroupRequest &request);
 
       /**
+       * @summary Deletes an image of a custom entity in a custom library.
+       *
        * @param request DeleteCustomViewRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteCustomViewResponse
@@ -411,6 +421,8 @@ namespace Mts20140618
       Models::DeleteCustomViewResponse deleteCustomViewWithOptions(const Models::DeleteCustomViewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes an image of a custom entity in a custom library.
+       *
        * @param request DeleteCustomViewRequest
        * @return DeleteCustomViewResponse
        */
@@ -688,6 +700,8 @@ namespace Mts20140618
       Models::ListCustomEntitiesResponse listCustomEntities(const Models::ListCustomEntitiesRequest &request);
 
       /**
+       * @summary Queries a list of custom libraries.
+       *
        * @param request ListCustomGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListCustomGroupsResponse
@@ -695,6 +709,8 @@ namespace Mts20140618
       Models::ListCustomGroupsResponse listCustomGroupsWithOptions(const Models::ListCustomGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries a list of custom libraries.
+       *
        * @param request ListCustomGroupsRequest
        * @return ListCustomGroupsResponse
        */
@@ -726,6 +742,8 @@ namespace Mts20140618
       Models::ListCustomPersonsResponse listCustomPersons(const Models::ListCustomPersonsRequest &request);
 
       /**
+       * @summary Queries a list of images of an entity in a custom library.
+       *
        * @param request ListCustomViewsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListCustomViewsResponse
@@ -733,6 +751,8 @@ namespace Mts20140618
       Models::ListCustomViewsResponse listCustomViewsWithOptions(const Models::ListCustomViewsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries a list of images of an entity in a custom library.
+       *
        * @param request ListCustomViewsRequest
        * @return ListCustomViewsResponse
        */
@@ -897,7 +917,7 @@ namespace Mts20140618
       Models::QueryAnalysisJobListResponse queryAnalysisJobList(const Models::QueryAnalysisJobListRequest &request);
 
       /**
-       * @summary 查询版权水印提取任务
+       * @summary Queries jobs for extracting copyright watermarks.
        *
        * @param request QueryCopyrightExtractJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -906,7 +926,7 @@ namespace Mts20140618
       Models::QueryCopyrightExtractJobResponse queryCopyrightExtractJobWithOptions(const Models::QueryCopyrightExtractJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询版权水印提取任务
+       * @summary Queries jobs for extracting copyright watermarks.
        *
        * @param request QueryCopyrightExtractJobRequest
        * @return QueryCopyrightExtractJobResponse
@@ -914,7 +934,7 @@ namespace Mts20140618
       Models::QueryCopyrightExtractJobResponse queryCopyrightExtractJob(const Models::QueryCopyrightExtractJobRequest &request);
 
       /**
-       * @summary 查询视频版权水印任务
+       * @summary Queries jobs for adding copyright watermarks to videos.
        *
        * @param request QueryCopyrightJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -923,7 +943,7 @@ namespace Mts20140618
       Models::QueryCopyrightJobResponse queryCopyrightJobWithOptions(const Models::QueryCopyrightJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询视频版权水印任务
+       * @summary Queries jobs for adding copyright watermarks to videos.
        *
        * @param request QueryCopyrightJobRequest
        * @return QueryCopyrightJobResponse
@@ -1008,6 +1028,8 @@ namespace Mts20140618
       Models::QueryFpShotJobListResponse queryFpShotJobList(const Models::QueryFpShotJobListRequest &request);
 
       /**
+       * @summary Queries the information about a smart production job.
+       *
        * @param request QueryIProductionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryIProductionJobResponse
@@ -1015,6 +1037,8 @@ namespace Mts20140618
       Models::QueryIProductionJobResponse queryIProductionJobWithOptions(const Models::QueryIProductionJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the information about a smart production job.
+       *
        * @param request QueryIProductionJobRequest
        * @return QueryIProductionJobResponse
        */
@@ -1262,7 +1286,7 @@ namespace Mts20140618
       Models::QueryPipelineListResponse queryPipelineList(const Models::QueryPipelineListRequest &request);
 
       /**
-       * @summary 查询智能标签任务
+       * @summary Queries a smart tagging job.
        *
        * @param request QuerySmarttagJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1271,7 +1295,7 @@ namespace Mts20140618
       Models::QuerySmarttagJobResponse querySmarttagJobWithOptions(const Models::QuerySmarttagJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询智能标签任务
+       * @summary Queries a smart tagging job.
        *
        * @param request QuerySmarttagJobRequest
        * @return QuerySmarttagJobResponse
@@ -1354,7 +1378,7 @@ namespace Mts20140618
       Models::QueryTemplateListResponse queryTemplateList(const Models::QueryTemplateListRequest &request);
 
       /**
-       * @summary 查询视频溯源水印ab流任务
+       * @summary Queries jobs for adding tracing watermarks to AB video streams.
        *
        * @param request QueryTraceAbJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1363,7 +1387,7 @@ namespace Mts20140618
       Models::QueryTraceAbJobResponse queryTraceAbJobWithOptions(const Models::QueryTraceAbJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询视频溯源水印ab流任务
+       * @summary Queries jobs for adding tracing watermarks to AB video streams.
        *
        * @param request QueryTraceAbJobRequest
        * @return QueryTraceAbJobResponse
@@ -1371,7 +1395,7 @@ namespace Mts20140618
       Models::QueryTraceAbJobResponse queryTraceAbJob(const Models::QueryTraceAbJobRequest &request);
 
       /**
-       * @summary 查询溯源水印提取任务
+       * @summary Queries jobs for extracting tracing watermarks.
        *
        * @param request QueryTraceExtractJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1380,7 +1404,7 @@ namespace Mts20140618
       Models::QueryTraceExtractJobResponse queryTraceExtractJobWithOptions(const Models::QueryTraceExtractJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询溯源水印提取任务
+       * @summary Queries jobs for extracting tracing watermarks.
        *
        * @param request QueryTraceExtractJobRequest
        * @return QueryTraceExtractJobResponse
@@ -1388,7 +1412,7 @@ namespace Mts20140618
       Models::QueryTraceExtractJobResponse queryTraceExtractJob(const Models::QueryTraceExtractJobRequest &request);
 
       /**
-       * @summary 查询视频溯源水印m3u8任务
+       * @summary Queries jobs for adding tracing watermarks to M3U8 videos.
        *
        * @param request QueryTraceM3u8JobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1397,7 +1421,7 @@ namespace Mts20140618
       Models::QueryTraceM3u8JobResponse queryTraceM3u8JobWithOptions(const Models::QueryTraceM3u8JobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询视频溯源水印m3u8任务
+       * @summary Queries jobs for adding tracing watermarks to M3U8 videos.
        *
        * @param request QueryTraceM3u8JobRequest
        * @return QueryTraceM3u8JobResponse
@@ -1457,7 +1481,7 @@ namespace Mts20140618
       Models::RegisterCustomFaceResponse registerCustomFace(const Models::RegisterCustomFaceRequest &request);
 
       /**
-       * @summary 注册自定义实体项
+       * @summary Registers an image of a custom entity.
        *
        * @param request RegisterCustomViewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1466,7 +1490,7 @@ namespace Mts20140618
       Models::RegisterCustomViewResponse registerCustomViewWithOptions(const Models::RegisterCustomViewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 注册自定义实体项
+       * @summary Registers an image of a custom entity.
        *
        * @param request RegisterCustomViewRequest
        * @return RegisterCustomViewResponse
@@ -1593,7 +1617,7 @@ namespace Mts20140618
       Models::SubmitAnalysisJobResponse submitAnalysisJob(const Models::SubmitAnalysisJobRequest &request);
 
       /**
-       * @summary 提交版权水印提取任务
+       * @summary Submits a job for extracting a copyright watermark.
        *
        * @param request SubmitCopyrightExtractJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1602,7 +1626,7 @@ namespace Mts20140618
       Models::SubmitCopyrightExtractJobResponse submitCopyrightExtractJobWithOptions(const Models::SubmitCopyrightExtractJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交版权水印提取任务
+       * @summary Submits a job for extracting a copyright watermark.
        *
        * @param request SubmitCopyrightExtractJobRequest
        * @return SubmitCopyrightExtractJobResponse
@@ -1610,7 +1634,7 @@ namespace Mts20140618
       Models::SubmitCopyrightExtractJobResponse submitCopyrightExtractJob(const Models::SubmitCopyrightExtractJobRequest &request);
 
       /**
-       * @summary 提交视频版权水印
+       * @summary Submits a job for adding a copyright watermark to a video.
        *
        * @param request SubmitCopyrightJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1619,7 +1643,7 @@ namespace Mts20140618
       Models::SubmitCopyrightJobResponse submitCopyrightJobWithOptions(const Models::SubmitCopyrightJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交视频版权水印
+       * @summary Submits a job for adding a copyright watermark to a video.
        *
        * @param request SubmitCopyrightJobRequest
        * @return SubmitCopyrightJobResponse
@@ -1718,6 +1742,8 @@ namespace Mts20140618
       Models::SubmitFpShotJobResponse submitFpShotJob(const Models::SubmitFpShotJobRequest &request);
 
       /**
+       * @summary Submits a smart production job.
+       *
        * @description *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
        * *   Capabilities provided by the intelligent production feature vary based on the region. Before you call this operation to submit an intelligent production job, check whether the job is supported in the region in which your service is activated. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/43248.html).
        * ### [](#qps)QPS limit
@@ -1730,6 +1756,8 @@ namespace Mts20140618
       Models::SubmitIProductionJobResponse submitIProductionJobWithOptions(const Models::SubmitIProductionJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Submits a smart production job.
+       *
        * @description *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
        * *   Capabilities provided by the intelligent production feature vary based on the region. Before you call this operation to submit an intelligent production job, check whether the job is supported in the region in which your service is activated. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/43248.html).
        * ### [](#qps)QPS limit
@@ -1741,7 +1769,7 @@ namespace Mts20140618
       Models::SubmitIProductionJobResponse submitIProductionJob(const Models::SubmitIProductionJobRequest &request);
 
       /**
-       * @summary 提交图片版权水印任务
+       * @summary Generates a transparent image watermark.
        *
        * @param request SubmitImageCopyrightRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1750,7 +1778,7 @@ namespace Mts20140618
       Models::SubmitImageCopyrightResponse submitImageCopyrightWithOptions(const Models::SubmitImageCopyrightRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交图片版权水印任务
+       * @summary Generates a transparent image watermark.
        *
        * @param request SubmitImageCopyrightRequest
        * @return SubmitImageCopyrightResponse
@@ -1847,6 +1875,8 @@ namespace Mts20140618
       Models::SubmitMediaInfoJobResponse submitMediaInfoJob(const Models::SubmitMediaInfoJobRequest &request);
 
       /**
+       * @summary Submits a smart tagging job.
+       *
        * @param request SubmitSmarttagJobRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SubmitSmarttagJobResponse
@@ -1854,6 +1884,8 @@ namespace Mts20140618
       Models::SubmitSmarttagJobResponse submitSmarttagJobWithOptions(const Models::SubmitSmarttagJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Submits a smart tagging job.
+       *
        * @param request SubmitSmarttagJobRequest
        * @return SubmitSmarttagJobResponse
        */
@@ -1889,7 +1921,7 @@ namespace Mts20140618
       Models::SubmitSnapshotJobResponse submitSnapshotJob(const Models::SubmitSnapshotJobRequest &request);
 
       /**
-       * @summary 提交视频溯源水印ab流任务
+       * @summary Submits a job for adding a tracing watermark to an AB video stream.
        *
        * @param request SubmitTraceAbJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1898,7 +1930,7 @@ namespace Mts20140618
       Models::SubmitTraceAbJobResponse submitTraceAbJobWithOptions(const Models::SubmitTraceAbJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交视频溯源水印ab流任务
+       * @summary Submits a job for adding a tracing watermark to an AB video stream.
        *
        * @param request SubmitTraceAbJobRequest
        * @return SubmitTraceAbJobResponse
@@ -1906,7 +1938,7 @@ namespace Mts20140618
       Models::SubmitTraceAbJobResponse submitTraceAbJob(const Models::SubmitTraceAbJobRequest &request);
 
       /**
-       * @summary 提交溯源水印提取任务
+       * @summary Submits a job for extracting a tracing watermark.
        *
        * @param request SubmitTraceExtractJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1915,7 +1947,7 @@ namespace Mts20140618
       Models::SubmitTraceExtractJobResponse submitTraceExtractJobWithOptions(const Models::SubmitTraceExtractJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交溯源水印提取任务
+       * @summary Submits a job for extracting a tracing watermark.
        *
        * @param request SubmitTraceExtractJobRequest
        * @return SubmitTraceExtractJobResponse
@@ -1923,7 +1955,7 @@ namespace Mts20140618
       Models::SubmitTraceExtractJobResponse submitTraceExtractJob(const Models::SubmitTraceExtractJobRequest &request);
 
       /**
-       * @summary 提交视频溯源水印m3u8文件任务
+       * @summary Submits a job for adding a tracing watermark to an M3U8 video.
        *
        * @param request SubmitTraceM3u8JobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1932,7 +1964,7 @@ namespace Mts20140618
       Models::SubmitTraceM3u8JobResponse submitTraceM3u8JobWithOptions(const Models::SubmitTraceM3u8JobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交视频溯源水印m3u8文件任务
+       * @summary Submits a job for adding a tracing watermark to an M3U8 video.
        *
        * @param request SubmitTraceM3u8JobRequest
        * @return SubmitTraceM3u8JobResponse
@@ -1940,7 +1972,7 @@ namespace Mts20140618
       Models::SubmitTraceM3u8JobResponse submitTraceM3u8Job(const Models::SubmitTraceM3u8JobRequest &request);
 
       /**
-       * @summary The description of the figure. The description can be up to 512 characters in length.
+       * @summary Adds tags to a custom figure library or a figure.
        *
        * @description The response parameters.
        *
@@ -1951,7 +1983,7 @@ namespace Mts20140618
       Models::TagCustomPersonResponse tagCustomPersonWithOptions(const Models::TagCustomPersonRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The description of the figure. The description can be up to 512 characters in length.
+       * @summary Adds tags to a custom figure library or a figure.
        *
        * @description The response parameters.
        *
@@ -1989,8 +2021,8 @@ namespace Mts20140618
 
       /**
        * @summary You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
-       * ## QPS limit
-       * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+       * \\## QPS limit
+       * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits]\\(https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
        *
        * @description The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
        *
@@ -2002,8 +2034,8 @@ namespace Mts20140618
 
       /**
        * @summary You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
-       * ## QPS limit
-       * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+       * \\## QPS limit
+       * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits]\\(https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
        *
        * @description The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
        *
@@ -2219,7 +2251,7 @@ namespace Mts20140618
       Models::UpdatePipelineResponse updatePipeline(const Models::UpdatePipelineRequest &request);
 
       /**
-       * @summary 更新智能标签模板接口支持cpv
+       * @summary Updates the analysis template of a smart tagging job.
        *
        * @param request UpdateSmarttagTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2228,7 +2260,7 @@ namespace Mts20140618
       Models::UpdateSmarttagTemplateResponse updateSmarttagTemplateWithOptions(const Models::UpdateSmarttagTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新智能标签模板接口支持cpv
+       * @summary Updates the analysis template of a smart tagging job.
        *
        * @param request UpdateSmarttagTemplateRequest
        * @return UpdateSmarttagTemplateResponse

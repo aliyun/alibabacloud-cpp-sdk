@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyUri_ == nullptr
-        && return this->mediaId_ == nullptr && return this->output_ == nullptr && return this->params_ == nullptr && return this->trace_ == nullptr; };
+        && this->mediaId_ == nullptr && this->output_ == nullptr && this->params_ == nullptr && this->trace_ == nullptr; };
     // keyUri Field Functions 
     bool hasKeyUri() const { return this->keyUri_ != nullptr;};
     void deleteKeyUri() { this->keyUri_ = nullptr;};
-    inline string keyUri() const { DARABONBA_PTR_GET_DEFAULT(keyUri_, "") };
+    inline string getKeyUri() const { DARABONBA_PTR_GET_DEFAULT(keyUri_, "") };
     inline SubmitTraceM3u8JobRequest& setKeyUri(string keyUri) { DARABONBA_PTR_SET_VALUE(keyUri_, keyUri) };
 
 
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline SubmitTraceM3u8JobRequest& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
     // output Field Functions 
     bool hasOutput() const { return this->output_ != nullptr;};
     void deleteOutput() { this->output_ = nullptr;};
-    inline string output() const { DARABONBA_PTR_GET_DEFAULT(output_, "") };
+    inline string getOutput() const { DARABONBA_PTR_GET_DEFAULT(output_, "") };
     inline SubmitTraceM3u8JobRequest& setOutput(string output) { DARABONBA_PTR_SET_VALUE(output_, output) };
 
 
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline SubmitTraceM3u8JobRequest& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
     // trace Field Functions 
     bool hasTrace() const { return this->trace_ != nullptr;};
     void deleteTrace() { this->trace_ = nullptr;};
-    inline string trace() const { DARABONBA_PTR_GET_DEFAULT(trace_, "") };
+    inline string getTrace() const { DARABONBA_PTR_GET_DEFAULT(trace_, "") };
     inline SubmitTraceM3u8JobRequest& setTrace(string trace) { DARABONBA_PTR_SET_VALUE(trace_, trace) };
 
 
   protected:
-    std::shared_ptr<string> keyUri_ = nullptr;
-    std::shared_ptr<string> mediaId_ = nullptr;
-    std::shared_ptr<string> output_ = nullptr;
-    std::shared_ptr<string> params_ = nullptr;
-    std::shared_ptr<string> trace_ = nullptr;
+    shared_ptr<string> keyUri_ {};
+    shared_ptr<string> mediaId_ {};
+    shared_ptr<string> output_ {};
+    shared_ptr<string> params_ {};
+    shared_ptr<string> trace_ {};
   };
 
   } // namespace Models

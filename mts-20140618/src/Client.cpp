@@ -94,23 +94,23 @@ ActivateMediaWorkflowResponse Client::activateMediaWorkflowWithOptions(const Act
   request.validate();
   json query = {};
   if (!!request.hasMediaWorkflowId()) {
-    query["MediaWorkflowId"] = request.mediaWorkflowId();
+    query["MediaWorkflowId"] = request.getMediaWorkflowId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -161,59 +161,59 @@ AddMediaResponse Client::addMediaWithOptions(const AddMediaRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasCateId()) {
-    query["CateId"] = request.cateId();
+    query["CateId"] = request.getCateId();
   }
 
   if (!!request.hasCoverURL()) {
-    query["CoverURL"] = request.coverURL();
+    query["CoverURL"] = request.getCoverURL();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasFileURL()) {
-    query["FileURL"] = request.fileURL();
+    query["FileURL"] = request.getFileURL();
   }
 
   if (!!request.hasInputUnbind()) {
-    query["InputUnbind"] = request.inputUnbind();
+    query["InputUnbind"] = request.getInputUnbind();
   }
 
   if (!!request.hasMediaWorkflowId()) {
-    query["MediaWorkflowId"] = request.mediaWorkflowId();
+    query["MediaWorkflowId"] = request.getMediaWorkflowId();
   }
 
   if (!!request.hasMediaWorkflowUserData()) {
-    query["MediaWorkflowUserData"] = request.mediaWorkflowUserData();
+    query["MediaWorkflowUserData"] = request.getMediaWorkflowUserData();
   }
 
   if (!!request.hasOverrideParams()) {
-    query["OverrideParams"] = request.overrideParams();
+    query["OverrideParams"] = request.getOverrideParams();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   if (!!request.hasTitle()) {
-    query["Title"] = request.title();
+    query["Title"] = request.getTitle();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -264,27 +264,27 @@ AddMediaTagResponse Client::addMediaTagWithOptions(const AddMediaTagRequest &req
   request.validate();
   json query = {};
   if (!!request.hasMediaId()) {
-    query["MediaId"] = request.mediaId();
+    query["MediaId"] = request.getMediaId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -335,31 +335,31 @@ AddMediaWorkflowResponse Client::addMediaWorkflowWithOptions(const AddMediaWorkf
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTopology()) {
-    query["Topology"] = request.topology();
+    query["Topology"] = request.getTopology();
   }
 
   if (!!request.hasTriggerMode()) {
-    query["TriggerMode"] = request.triggerMode();
+    query["TriggerMode"] = request.getTriggerMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -406,39 +406,39 @@ AddPipelineResponse Client::addPipelineWithOptions(const AddPipelineRequest &req
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasNotifyConfig()) {
-    query["NotifyConfig"] = request.notifyConfig();
+    query["NotifyConfig"] = request.getNotifyConfig();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasRole()) {
-    query["Role"] = request.role();
+    query["Role"] = request.getRole();
   }
 
   if (!!request.hasSpeed()) {
-    query["Speed"] = request.speed();
+    query["Speed"] = request.getSpeed();
   }
 
   if (!!request.hasSpeedLevel()) {
-    query["SpeedLevel"] = request.speedLevel();
+    query["SpeedLevel"] = request.getSpeedLevel();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -470,7 +470,7 @@ AddPipelineResponse Client::addPipeline(const AddPipelineRequest &request) {
 }
 
 /**
- * @summary 添加labelVersion、knowledgeConfig配置
+ * @summary Adds an analysis template of a smart tagging job.
  *
  * @param request AddSmarttagTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -480,83 +480,83 @@ AddSmarttagTemplateResponse Client::addSmarttagTemplateWithOptions(const AddSmar
   request.validate();
   json query = {};
   if (!!request.hasAnalyseTypes()) {
-    query["AnalyseTypes"] = request.analyseTypes();
+    query["AnalyseTypes"] = request.getAnalyseTypes();
   }
 
   if (!!request.hasFaceCategoryIds()) {
-    query["FaceCategoryIds"] = request.faceCategoryIds();
+    query["FaceCategoryIds"] = request.getFaceCategoryIds();
   }
 
   if (!!request.hasFaceCustomParamsConfig()) {
-    query["FaceCustomParamsConfig"] = request.faceCustomParamsConfig();
+    query["FaceCustomParamsConfig"] = request.getFaceCustomParamsConfig();
   }
 
   if (!!request.hasIndustry()) {
-    query["Industry"] = request.industry();
+    query["Industry"] = request.getIndustry();
   }
 
   if (!!request.hasIsDefault()) {
-    query["IsDefault"] = request.isDefault();
+    query["IsDefault"] = request.getIsDefault();
   }
 
   if (!!request.hasKeywordConfig()) {
-    query["KeywordConfig"] = request.keywordConfig();
+    query["KeywordConfig"] = request.getKeywordConfig();
   }
 
   if (!!request.hasKnowledgeConfig()) {
-    query["KnowledgeConfig"] = request.knowledgeConfig();
+    query["KnowledgeConfig"] = request.getKnowledgeConfig();
   }
 
   if (!!request.hasLabelCustomCategoryIds()) {
-    query["LabelCustomCategoryIds"] = request.labelCustomCategoryIds();
+    query["LabelCustomCategoryIds"] = request.getLabelCustomCategoryIds();
   }
 
   if (!!request.hasLabelCustomParamsConfig()) {
-    query["LabelCustomParamsConfig"] = request.labelCustomParamsConfig();
+    query["LabelCustomParamsConfig"] = request.getLabelCustomParamsConfig();
   }
 
   if (!!request.hasLabelType()) {
-    query["LabelType"] = request.labelType();
+    query["LabelType"] = request.getLabelType();
   }
 
   if (!!request.hasLabelVersion()) {
-    query["LabelVersion"] = request.labelVersion();
+    query["LabelVersion"] = request.getLabelVersion();
   }
 
   if (!!request.hasLandmarkGroupIds()) {
-    query["LandmarkGroupIds"] = request.landmarkGroupIds();
+    query["LandmarkGroupIds"] = request.getLandmarkGroupIds();
   }
 
   if (!!request.hasObjectGroupIds()) {
-    query["ObjectGroupIds"] = request.objectGroupIds();
+    query["ObjectGroupIds"] = request.getObjectGroupIds();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasScene()) {
-    query["Scene"] = request.scene();
+    query["Scene"] = request.getScene();
   }
 
   if (!!request.hasTemplateConfig()) {
-    query["TemplateConfig"] = request.templateConfig();
+    query["TemplateConfig"] = request.getTemplateConfig();
   }
 
   if (!!request.hasTemplateName()) {
-    query["TemplateName"] = request.templateName();
+    query["TemplateName"] = request.getTemplateName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -577,7 +577,7 @@ AddSmarttagTemplateResponse Client::addSmarttagTemplateWithOptions(const AddSmar
 }
 
 /**
- * @summary 添加labelVersion、knowledgeConfig配置
+ * @summary Adds an analysis template of a smart tagging job.
  *
  * @param request AddSmarttagTemplateRequest
  * @return AddSmarttagTemplateResponse
@@ -602,43 +602,43 @@ AddTemplateResponse Client::addTemplateWithOptions(const AddTemplateRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAudio()) {
-    query["Audio"] = request.audio();
+    query["Audio"] = request.getAudio();
   }
 
   if (!!request.hasContainer()) {
-    query["Container"] = request.container();
+    query["Container"] = request.getContainer();
   }
 
   if (!!request.hasMuxConfig()) {
-    query["MuxConfig"] = request.muxConfig();
+    query["MuxConfig"] = request.getMuxConfig();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTransConfig()) {
-    query["TransConfig"] = request.transConfig();
+    query["TransConfig"] = request.getTransConfig();
   }
 
   if (!!request.hasVideo()) {
-    query["Video"] = request.video();
+    query["Video"] = request.getVideo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -688,27 +688,27 @@ AddWaterMarkTemplateResponse Client::addWaterMarkTemplateWithOptions(const AddWa
   request.validate();
   json query = {};
   if (!!request.hasConfig()) {
-    query["Config"] = request.config();
+    query["Config"] = request.getConfig();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -758,27 +758,27 @@ BindInputBucketResponse Client::bindInputBucketWithOptions(const BindInputBucket
   request.validate();
   json query = {};
   if (!!request.hasBucket()) {
-    query["Bucket"] = request.bucket();
+    query["Bucket"] = request.getBucket();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasReferer()) {
-    query["Referer"] = request.referer();
+    query["Referer"] = request.getReferer();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -814,7 +814,7 @@ BindInputBucketResponse Client::bindInputBucket(const BindInputBucketRequest &re
 }
 
 /**
- * @summary Binds an output media bucket to the media library.
+ * @summary Binds an output media bucket. Media buckets are Object Storage Service (OSS) buckets that are used by ApsaraVideo Media Processing (MPS) to store media resources. After you bind an OSS bucket to MPS as an input media bucket or output media bucket, MPS has the permissions to listen to the messages of the bucket, which indicate that files are uploaded to the bucket. This way, MPS can trigger workflows and return files that are processed. You can all this operation to bind an output media bucket to the media library.
  *
  * @description Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
  * ### QPS limit
@@ -828,23 +828,23 @@ BindOutputBucketResponse Client::bindOutputBucketWithOptions(const BindOutputBuc
   request.validate();
   json query = {};
   if (!!request.hasBucket()) {
-    query["Bucket"] = request.bucket();
+    query["Bucket"] = request.getBucket();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -865,7 +865,7 @@ BindOutputBucketResponse Client::bindOutputBucketWithOptions(const BindOutputBuc
 }
 
 /**
- * @summary Binds an output media bucket to the media library.
+ * @summary Binds an output media bucket. Media buckets are Object Storage Service (OSS) buckets that are used by ApsaraVideo Media Processing (MPS) to store media resources. After you bind an OSS bucket to MPS as an input media bucket or output media bucket, MPS has the permissions to listen to the messages of the bucket, which indicate that files are uploaded to the bucket. This way, MPS can trigger workflows and return files that are processed. You can all this operation to bind an output media bucket to the media library.
  *
  * @description Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
  * ### QPS limit
@@ -895,23 +895,23 @@ CancelJobResponse Client::cancelJobWithOptions(const CancelJobRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -948,6 +948,8 @@ CancelJobResponse Client::cancelJob(const CancelJobRequest &request) {
 }
 
 /**
+ * @summary Creates a custom entity in a custom library.
+ *
  * @param request CreateCustomEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateCustomEntityResponse
@@ -956,35 +958,35 @@ CreateCustomEntityResponse Client::createCustomEntityWithOptions(const CreateCus
   request.validate();
   json query = {};
   if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
+    query["Algorithm"] = request.getAlgorithm();
   }
 
   if (!!request.hasCustomEntityInfo()) {
-    query["CustomEntityInfo"] = request.customEntityInfo();
+    query["CustomEntityInfo"] = request.getCustomEntityInfo();
   }
 
   if (!!request.hasCustomEntityName()) {
-    query["CustomEntityName"] = request.customEntityName();
+    query["CustomEntityName"] = request.getCustomEntityName();
   }
 
   if (!!request.hasCustomGroupId()) {
-    query["CustomGroupId"] = request.customGroupId();
+    query["CustomGroupId"] = request.getCustomGroupId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1005,6 +1007,8 @@ CreateCustomEntityResponse Client::createCustomEntityWithOptions(const CreateCus
 }
 
 /**
+ * @summary Creates a custom entity in a custom library.
+ *
  * @param request CreateCustomEntityRequest
  * @return CreateCustomEntityResponse
  */
@@ -1014,6 +1018,8 @@ CreateCustomEntityResponse Client::createCustomEntity(const CreateCustomEntityRe
 }
 
 /**
+ * @summary Creates a custom library.
+ *
  * @param request CreateCustomGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateCustomGroupResponse
@@ -1022,31 +1028,31 @@ CreateCustomGroupResponse Client::createCustomGroupWithOptions(const CreateCusto
   request.validate();
   json query = {};
   if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
+    query["Algorithm"] = request.getAlgorithm();
   }
 
   if (!!request.hasCustomGroupDescription()) {
-    query["CustomGroupDescription"] = request.customGroupDescription();
+    query["CustomGroupDescription"] = request.getCustomGroupDescription();
   }
 
   if (!!request.hasCustomGroupName()) {
-    query["CustomGroupName"] = request.customGroupName();
+    query["CustomGroupName"] = request.getCustomGroupName();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1067,6 +1073,8 @@ CreateCustomGroupResponse Client::createCustomGroupWithOptions(const CreateCusto
 }
 
 /**
+ * @summary Creates a custom library.
+ *
  * @param request CreateCustomGroupRequest
  * @return CreateCustomGroupResponse
  */
@@ -1092,35 +1100,35 @@ CreateFpShotDBResponse Client::createFpShotDBWithOptions(const CreateFpShotDBReq
   request.validate();
   json query = {};
   if (!!request.hasConfig()) {
-    query["Config"] = request.config();
+    query["Config"] = request.getConfig();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasModelId()) {
-    query["ModelId"] = request.modelId();
+    query["ModelId"] = request.getModelId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1170,23 +1178,23 @@ DeactivateMediaWorkflowResponse Client::deactivateMediaWorkflowWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasMediaWorkflowId()) {
-    query["MediaWorkflowId"] = request.mediaWorkflowId();
+    query["MediaWorkflowId"] = request.getMediaWorkflowId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1230,31 +1238,31 @@ DeleteCustomEntityResponse Client::deleteCustomEntityWithOptions(const DeleteCus
   request.validate();
   json query = {};
   if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
+    query["Algorithm"] = request.getAlgorithm();
   }
 
   if (!!request.hasCustomEntityId()) {
-    query["CustomEntityId"] = request.customEntityId();
+    query["CustomEntityId"] = request.getCustomEntityId();
   }
 
   if (!!request.hasCustomGroupId()) {
-    query["CustomGroupId"] = request.customGroupId();
+    query["CustomGroupId"] = request.getCustomGroupId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1300,27 +1308,27 @@ DeleteCustomGroupResponse Client::deleteCustomGroupWithOptions(const DeleteCusto
   request.validate();
   json query = {};
   if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
+    query["Algorithm"] = request.getAlgorithm();
   }
 
   if (!!request.hasCustomGroupId()) {
-    query["CustomGroupId"] = request.customGroupId();
+    query["CustomGroupId"] = request.getCustomGroupId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1356,6 +1364,8 @@ DeleteCustomGroupResponse Client::deleteCustomGroup(const DeleteCustomGroupReque
 }
 
 /**
+ * @summary Deletes an image of a custom entity in a custom library.
+ *
  * @param request DeleteCustomViewRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteCustomViewResponse
@@ -1364,35 +1374,35 @@ DeleteCustomViewResponse Client::deleteCustomViewWithOptions(const DeleteCustomV
   request.validate();
   json query = {};
   if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
+    query["Algorithm"] = request.getAlgorithm();
   }
 
   if (!!request.hasCustomEntityId()) {
-    query["CustomEntityId"] = request.customEntityId();
+    query["CustomEntityId"] = request.getCustomEntityId();
   }
 
   if (!!request.hasCustomGroupId()) {
-    query["CustomGroupId"] = request.customGroupId();
+    query["CustomGroupId"] = request.getCustomGroupId();
   }
 
   if (!!request.hasCustomViewId()) {
-    query["CustomViewId"] = request.customViewId();
+    query["CustomViewId"] = request.getCustomViewId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1413,6 +1423,8 @@ DeleteCustomViewResponse Client::deleteCustomViewWithOptions(const DeleteCustomV
 }
 
 /**
+ * @summary Deletes an image of a custom entity in a custom library.
+ *
  * @param request DeleteCustomViewRequest
  * @return DeleteCustomViewResponse
  */
@@ -1436,23 +1448,23 @@ DeleteMediaResponse Client::deleteMediaWithOptions(const DeleteMediaRequest &req
   request.validate();
   json query = {};
   if (!!request.hasMediaIds()) {
-    query["MediaIds"] = request.mediaIds();
+    query["MediaIds"] = request.getMediaIds();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1502,27 +1514,27 @@ DeleteMediaTagResponse Client::deleteMediaTagWithOptions(const DeleteMediaTagReq
   request.validate();
   json query = {};
   if (!!request.hasMediaId()) {
-    query["MediaId"] = request.mediaId();
+    query["MediaId"] = request.getMediaId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1572,23 +1584,23 @@ DeleteMediaWorkflowResponse Client::deleteMediaWorkflowWithOptions(const DeleteM
   request.validate();
   json query = {};
   if (!!request.hasMediaWorkflowId()) {
-    query["MediaWorkflowId"] = request.mediaWorkflowId();
+    query["MediaWorkflowId"] = request.getMediaWorkflowId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1638,23 +1650,23 @@ DeletePipelineResponse Client::deletePipelineWithOptions(const DeletePipelineReq
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1704,23 +1716,23 @@ DeleteSmarttagTemplateResponse Client::deleteSmarttagTemplateWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1770,23 +1782,23 @@ DeleteTemplateResponse Client::deleteTemplateWithOptions(const DeleteTemplateReq
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1836,23 +1848,23 @@ DeleteWaterMarkTemplateResponse Client::deleteWaterMarkTemplateWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasWaterMarkTemplateId()) {
-    query["WaterMarkTemplateId"] = request.waterMarkTemplateId();
+    query["WaterMarkTemplateId"] = request.getWaterMarkTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1903,31 +1915,31 @@ ImAuditResponse Client::imAuditWithOptions(const ImAuditRequest &request, const 
   request.validate();
   json query = {};
   if (!!request.hasBizType()) {
-    query["BizType"] = request.bizType();
+    query["BizType"] = request.getBizType();
   }
 
   if (!!request.hasContents()) {
-    query["Contents"] = request.contents();
+    query["Contents"] = request.getContents();
   }
 
   if (!!request.hasImages()) {
-    query["Images"] = request.images();
+    query["Images"] = request.getImages();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasScenes()) {
-    query["Scenes"] = request.scenes();
+    query["Scenes"] = request.getScenes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1979,39 +1991,39 @@ ImportFpShotJobResponse Client::importFpShotJobWithOptions(const ImportFpShotJob
   request.validate();
   json query = {};
   if (!!request.hasFpDBId()) {
-    query["FpDBId"] = request.fpDBId();
+    query["FpDBId"] = request.getFpDBId();
   }
 
   if (!!request.hasFpImportConfig()) {
-    query["FpImportConfig"] = request.fpImportConfig();
+    query["FpImportConfig"] = request.getFpImportConfig();
   }
 
   if (!!request.hasInput()) {
-    query["Input"] = request.input();
+    query["Input"] = request.getInput();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2062,27 +2074,27 @@ ListAllMediaBucketResponse Client::listAllMediaBucketWithOptions(const ListAllMe
   request.validate();
   json query = {};
   if (!!request.hasMaximumPageSize()) {
-    query["MaximumPageSize"] = request.maximumPageSize();
+    query["MaximumPageSize"] = request.getMaximumPageSize();
   }
 
   if (!!request.hasNextPageToken()) {
-    query["NextPageToken"] = request.nextPageToken();
+    query["NextPageToken"] = request.getNextPageToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2128,35 +2140,35 @@ ListCustomEntitiesResponse Client::listCustomEntitiesWithOptions(const ListCusto
   request.validate();
   json query = {};
   if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
+    query["Algorithm"] = request.getAlgorithm();
   }
 
   if (!!request.hasCustomGroupId()) {
-    query["CustomGroupId"] = request.customGroupId();
+    query["CustomGroupId"] = request.getCustomGroupId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2188,6 +2200,8 @@ ListCustomEntitiesResponse Client::listCustomEntities(const ListCustomEntitiesRe
 }
 
 /**
+ * @summary Queries a list of custom libraries.
+ *
  * @param request ListCustomGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCustomGroupsResponse
@@ -2196,31 +2210,31 @@ ListCustomGroupsResponse Client::listCustomGroupsWithOptions(const ListCustomGro
   request.validate();
   json query = {};
   if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
+    query["Algorithm"] = request.getAlgorithm();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2241,6 +2255,8 @@ ListCustomGroupsResponse Client::listCustomGroupsWithOptions(const ListCustomGro
 }
 
 /**
+ * @summary Queries a list of custom libraries.
+ *
  * @param request ListCustomGroupsRequest
  * @return ListCustomGroupsResponse
  */
@@ -2264,27 +2280,27 @@ ListCustomPersonsResponse Client::listCustomPersonsWithOptions(const ListCustomP
   request.validate();
   json query = {};
   if (!!request.hasCategoryId()) {
-    query["CategoryId"] = request.categoryId();
+    query["CategoryId"] = request.getCategoryId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPersonId()) {
-    query["PersonId"] = request.personId();
+    query["PersonId"] = request.getPersonId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2320,6 +2336,8 @@ ListCustomPersonsResponse Client::listCustomPersons(const ListCustomPersonsReque
 }
 
 /**
+ * @summary Queries a list of images of an entity in a custom library.
+ *
  * @param request ListCustomViewsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCustomViewsResponse
@@ -2328,39 +2346,39 @@ ListCustomViewsResponse Client::listCustomViewsWithOptions(const ListCustomViews
   request.validate();
   json query = {};
   if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
+    query["Algorithm"] = request.getAlgorithm();
   }
 
   if (!!request.hasCustomEntityId()) {
-    query["CustomEntityId"] = request.customEntityId();
+    query["CustomEntityId"] = request.getCustomEntityId();
   }
 
   if (!!request.hasCustomGroupId()) {
-    query["CustomGroupId"] = request.customGroupId();
+    query["CustomGroupId"] = request.getCustomGroupId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2381,6 +2399,8 @@ ListCustomViewsResponse Client::listCustomViewsWithOptions(const ListCustomViews
 }
 
 /**
+ * @summary Queries a list of images of an entity in a custom library.
+ *
  * @param request ListCustomViewsRequest
  * @return ListCustomViewsResponse
  */
@@ -2406,23 +2426,23 @@ ListFpShotDBResponse Client::listFpShotDBWithOptions(const ListFpShotDBRequest &
   request.validate();
   json query = {};
   if (!!request.hasFpDBIds()) {
-    query["FpDBIds"] = request.fpDBIds();
+    query["FpDBIds"] = request.getFpDBIds();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2475,39 +2495,39 @@ ListFpShotFilesResponse Client::listFpShotFilesWithOptions(const ListFpShotFiles
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasFpDBId()) {
-    query["FpDBId"] = request.fpDBId();
+    query["FpDBId"] = request.getFpDBId();
   }
 
   if (!!request.hasNextPageToken()) {
-    query["NextPageToken"] = request.nextPageToken();
+    query["NextPageToken"] = request.getNextPageToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2558,23 +2578,23 @@ ListFpShotImportJobResponse Client::listFpShotImportJobWithOptions(const ListFpS
   request.validate();
   json query = {};
   if (!!request.hasJobIds()) {
-    query["JobIds"] = request.jobIds();
+    query["JobIds"] = request.getJobIds();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2627,43 +2647,43 @@ ListJobResponse Client::listJobWithOptions(const ListJobRequest &request, const 
   request.validate();
   json query = {};
   if (!!request.hasEndOfJobCreatedTimeRange()) {
-    query["EndOfJobCreatedTimeRange"] = request.endOfJobCreatedTimeRange();
+    query["EndOfJobCreatedTimeRange"] = request.getEndOfJobCreatedTimeRange();
   }
 
   if (!!request.hasMaximumPageSize()) {
-    query["MaximumPageSize"] = request.maximumPageSize();
+    query["MaximumPageSize"] = request.getMaximumPageSize();
   }
 
   if (!!request.hasNextPageToken()) {
-    query["NextPageToken"] = request.nextPageToken();
+    query["NextPageToken"] = request.getNextPageToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasStartOfJobCreatedTimeRange()) {
-    query["StartOfJobCreatedTimeRange"] = request.startOfJobCreatedTimeRange();
+    query["StartOfJobCreatedTimeRange"] = request.getStartOfJobCreatedTimeRange();
   }
 
   if (!!request.hasState()) {
-    query["State"] = request.state();
+    query["State"] = request.getState();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2716,39 +2736,39 @@ ListMediaWorkflowExecutionsResponse Client::listMediaWorkflowExecutionsWithOptio
   request.validate();
   json query = {};
   if (!!request.hasInputFileURL()) {
-    query["InputFileURL"] = request.inputFileURL();
+    query["InputFileURL"] = request.getInputFileURL();
   }
 
   if (!!request.hasMaximumPageSize()) {
-    query["MaximumPageSize"] = request.maximumPageSize();
+    query["MaximumPageSize"] = request.getMaximumPageSize();
   }
 
   if (!!request.hasMediaWorkflowId()) {
-    query["MediaWorkflowId"] = request.mediaWorkflowId();
+    query["MediaWorkflowId"] = request.getMediaWorkflowId();
   }
 
   if (!!request.hasMediaWorkflowName()) {
-    query["MediaWorkflowName"] = request.mediaWorkflowName();
+    query["MediaWorkflowName"] = request.getMediaWorkflowName();
   }
 
   if (!!request.hasNextPageToken()) {
-    query["NextPageToken"] = request.nextPageToken();
+    query["NextPageToken"] = request.getNextPageToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2796,23 +2816,23 @@ QueryAnalysisJobListResponse Client::queryAnalysisJobListWithOptions(const Query
   request.validate();
   json query = {};
   if (!!request.hasAnalysisJobIds()) {
-    query["AnalysisJobIds"] = request.analysisJobIds();
+    query["AnalysisJobIds"] = request.getAnalysisJobIds();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2846,7 +2866,7 @@ QueryAnalysisJobListResponse Client::queryAnalysisJobList(const QueryAnalysisJob
 }
 
 /**
- * @summary 查询版权水印提取任务
+ * @summary Queries jobs for extracting copyright watermarks.
  *
  * @param request QueryCopyrightExtractJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2856,7 +2876,7 @@ QueryCopyrightExtractJobResponse Client::queryCopyrightExtractJobWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2877,7 +2897,7 @@ QueryCopyrightExtractJobResponse Client::queryCopyrightExtractJobWithOptions(con
 }
 
 /**
- * @summary 查询版权水印提取任务
+ * @summary Queries jobs for extracting copyright watermarks.
  *
  * @param request QueryCopyrightExtractJobRequest
  * @return QueryCopyrightExtractJobResponse
@@ -2888,7 +2908,7 @@ QueryCopyrightExtractJobResponse Client::queryCopyrightExtractJob(const QueryCop
 }
 
 /**
- * @summary 查询视频版权水印任务
+ * @summary Queries jobs for adding copyright watermarks to videos.
  *
  * @param request QueryCopyrightJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2898,27 +2918,27 @@ QueryCopyrightJobResponse Client::queryCopyrightJobWithOptions(const QueryCopyri
   request.validate();
   json query = {};
   if (!!request.hasCreateTimeEnd()) {
-    query["CreateTimeEnd"] = request.createTimeEnd();
+    query["CreateTimeEnd"] = request.getCreateTimeEnd();
   }
 
   if (!!request.hasCreateTimeStart()) {
-    query["CreateTimeStart"] = request.createTimeStart();
+    query["CreateTimeStart"] = request.getCreateTimeStart();
   }
 
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasLevel()) {
-    query["Level"] = request.level();
+    query["Level"] = request.getLevel();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2939,7 +2959,7 @@ QueryCopyrightJobResponse Client::queryCopyrightJobWithOptions(const QueryCopyri
 }
 
 /**
- * @summary 查询视频版权水印任务
+ * @summary Queries jobs for adding copyright watermarks to videos.
  *
  * @param request QueryCopyrightJobRequest
  * @return QueryCopyrightJobResponse
@@ -2964,23 +2984,23 @@ QueryFpDBDeleteJobListResponse Client::queryFpDBDeleteJobListWithOptions(const Q
   request.validate();
   json query = {};
   if (!!request.hasJobIds()) {
-    query["JobIds"] = request.jobIds();
+    query["JobIds"] = request.getJobIds();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3030,23 +3050,23 @@ QueryFpFileDeleteJobListResponse Client::queryFpFileDeleteJobListWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasJobIds()) {
-    query["JobIds"] = request.jobIds();
+    query["JobIds"] = request.getJobIds();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3097,47 +3117,47 @@ QueryFpShotJobListResponse Client::queryFpShotJobListWithOptions(const QueryFpSh
   request.validate();
   json query = {};
   if (!!request.hasEndOfJobCreatedTimeRange()) {
-    query["EndOfJobCreatedTimeRange"] = request.endOfJobCreatedTimeRange();
+    query["EndOfJobCreatedTimeRange"] = request.getEndOfJobCreatedTimeRange();
   }
 
   if (!!request.hasJobIds()) {
-    query["JobIds"] = request.jobIds();
+    query["JobIds"] = request.getJobIds();
   }
 
   if (!!request.hasMaximumPageSize()) {
-    query["MaximumPageSize"] = request.maximumPageSize();
+    query["MaximumPageSize"] = request.getMaximumPageSize();
   }
 
   if (!!request.hasNextPageToken()) {
-    query["NextPageToken"] = request.nextPageToken();
+    query["NextPageToken"] = request.getNextPageToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasStartOfJobCreatedTimeRange()) {
-    query["StartOfJobCreatedTimeRange"] = request.startOfJobCreatedTimeRange();
+    query["StartOfJobCreatedTimeRange"] = request.getStartOfJobCreatedTimeRange();
   }
 
   if (!!request.hasState()) {
-    query["State"] = request.state();
+    query["State"] = request.getState();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3174,6 +3194,8 @@ QueryFpShotJobListResponse Client::queryFpShotJobList(const QueryFpShotJobListRe
 }
 
 /**
+ * @summary Queries the information about a smart production job.
+ *
  * @param request QueryIProductionJobRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryIProductionJobResponse
@@ -3182,23 +3204,23 @@ QueryIProductionJobResponse Client::queryIProductionJobWithOptions(const QueryIP
   request.validate();
   json query = {};
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3219,6 +3241,8 @@ QueryIProductionJobResponse Client::queryIProductionJobWithOptions(const QueryIP
 }
 
 /**
+ * @summary Queries the information about a smart production job.
+ *
  * @param request QueryIProductionJobRequest
  * @return QueryIProductionJobResponse
  */
@@ -3244,23 +3268,23 @@ QueryJobListResponse Client::queryJobListWithOptions(const QueryJobListRequest &
   request.validate();
   json query = {};
   if (!!request.hasJobIds()) {
-    query["JobIds"] = request.jobIds();
+    query["JobIds"] = request.getJobIds();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3312,31 +3336,31 @@ QueryMediaCensorJobDetailResponse Client::queryMediaCensorJobDetailWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasMaximumPageSize()) {
-    query["MaximumPageSize"] = request.maximumPageSize();
+    query["MaximumPageSize"] = request.getMaximumPageSize();
   }
 
   if (!!request.hasNextPageToken()) {
-    query["NextPageToken"] = request.nextPageToken();
+    query["NextPageToken"] = request.getNextPageToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3386,47 +3410,47 @@ QueryMediaCensorJobListResponse Client::queryMediaCensorJobListWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasEndOfJobCreatedTimeRange()) {
-    query["EndOfJobCreatedTimeRange"] = request.endOfJobCreatedTimeRange();
+    query["EndOfJobCreatedTimeRange"] = request.getEndOfJobCreatedTimeRange();
   }
 
   if (!!request.hasJobIds()) {
-    query["JobIds"] = request.jobIds();
+    query["JobIds"] = request.getJobIds();
   }
 
   if (!!request.hasMaximumPageSize()) {
-    query["MaximumPageSize"] = request.maximumPageSize();
+    query["MaximumPageSize"] = request.getMaximumPageSize();
   }
 
   if (!!request.hasNextPageToken()) {
-    query["NextPageToken"] = request.nextPageToken();
+    query["NextPageToken"] = request.getNextPageToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasStartOfJobCreatedTimeRange()) {
-    query["StartOfJobCreatedTimeRange"] = request.startOfJobCreatedTimeRange();
+    query["StartOfJobCreatedTimeRange"] = request.getStartOfJobCreatedTimeRange();
   }
 
   if (!!request.hasState()) {
-    query["State"] = request.state();
+    query["State"] = request.getState();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3478,23 +3502,23 @@ QueryMediaInfoJobListResponse Client::queryMediaInfoJobListWithOptions(const Que
   request.validate();
   json query = {};
   if (!!request.hasMediaInfoJobIds()) {
-    query["MediaInfoJobIds"] = request.mediaInfoJobIds();
+    query["MediaInfoJobIds"] = request.getMediaInfoJobIds();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3546,39 +3570,39 @@ QueryMediaListResponse Client::queryMediaListWithOptions(const QueryMediaListReq
   request.validate();
   json query = {};
   if (!!request.hasIncludeMediaInfo()) {
-    query["IncludeMediaInfo"] = request.includeMediaInfo();
+    query["IncludeMediaInfo"] = request.getIncludeMediaInfo();
   }
 
   if (!!request.hasIncludePlayList()) {
-    query["IncludePlayList"] = request.includePlayList();
+    query["IncludePlayList"] = request.getIncludePlayList();
   }
 
   if (!!request.hasIncludeSnapshotList()) {
-    query["IncludeSnapshotList"] = request.includeSnapshotList();
+    query["IncludeSnapshotList"] = request.getIncludeSnapshotList();
   }
 
   if (!!request.hasIncludeSummaryList()) {
-    query["IncludeSummaryList"] = request.includeSummaryList();
+    query["IncludeSummaryList"] = request.getIncludeSummaryList();
   }
 
   if (!!request.hasMediaIds()) {
-    query["MediaIds"] = request.mediaIds();
+    query["MediaIds"] = request.getMediaIds();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3630,39 +3654,39 @@ QueryMediaListByURLResponse Client::queryMediaListByURLWithOptions(const QueryMe
   request.validate();
   json query = {};
   if (!!request.hasFileURLs()) {
-    query["FileURLs"] = request.fileURLs();
+    query["FileURLs"] = request.getFileURLs();
   }
 
   if (!!request.hasIncludeMediaInfo()) {
-    query["IncludeMediaInfo"] = request.includeMediaInfo();
+    query["IncludeMediaInfo"] = request.getIncludeMediaInfo();
   }
 
   if (!!request.hasIncludePlayList()) {
-    query["IncludePlayList"] = request.includePlayList();
+    query["IncludePlayList"] = request.getIncludePlayList();
   }
 
   if (!!request.hasIncludeSnapshotList()) {
-    query["IncludeSnapshotList"] = request.includeSnapshotList();
+    query["IncludeSnapshotList"] = request.getIncludeSnapshotList();
   }
 
   if (!!request.hasIncludeSummaryList()) {
-    query["IncludeSummaryList"] = request.includeSummaryList();
+    query["IncludeSummaryList"] = request.getIncludeSummaryList();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3715,23 +3739,23 @@ QueryMediaWorkflowExecutionListResponse Client::queryMediaWorkflowExecutionListW
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasRunIds()) {
-    query["RunIds"] = request.runIds();
+    query["RunIds"] = request.getRunIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3782,23 +3806,23 @@ QueryMediaWorkflowListResponse Client::queryMediaWorkflowListWithOptions(const Q
   request.validate();
   json query = {};
   if (!!request.hasMediaWorkflowIds()) {
-    query["MediaWorkflowIds"] = request.mediaWorkflowIds();
+    query["MediaWorkflowIds"] = request.getMediaWorkflowIds();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3849,23 +3873,23 @@ QueryPipelineListResponse Client::queryPipelineListWithOptions(const QueryPipeli
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineIds()) {
-    query["PipelineIds"] = request.pipelineIds();
+    query["PipelineIds"] = request.getPipelineIds();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3902,7 +3926,7 @@ QueryPipelineListResponse Client::queryPipelineList(const QueryPipelineListReque
 }
 
 /**
- * @summary 查询智能标签任务
+ * @summary Queries a smart tagging job.
  *
  * @param request QuerySmarttagJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3912,27 +3936,27 @@ QuerySmarttagJobResponse Client::querySmarttagJobWithOptions(const QuerySmarttag
   request.validate();
   json query = {};
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasParams()) {
-    query["Params"] = request.params();
+    query["Params"] = request.getParams();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3953,7 +3977,7 @@ QuerySmarttagJobResponse Client::querySmarttagJobWithOptions(const QuerySmarttag
 }
 
 /**
- * @summary 查询智能标签任务
+ * @summary Queries a smart tagging job.
  *
  * @param request QuerySmarttagJobRequest
  * @return QuerySmarttagJobResponse
@@ -3978,23 +4002,23 @@ QuerySmarttagTemplateListResponse Client::querySmarttagTemplateListWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4046,47 +4070,47 @@ QuerySnapshotJobListResponse Client::querySnapshotJobListWithOptions(const Query
   request.validate();
   json query = {};
   if (!!request.hasEndOfJobCreatedTimeRange()) {
-    query["EndOfJobCreatedTimeRange"] = request.endOfJobCreatedTimeRange();
+    query["EndOfJobCreatedTimeRange"] = request.getEndOfJobCreatedTimeRange();
   }
 
   if (!!request.hasMaximumPageSize()) {
-    query["MaximumPageSize"] = request.maximumPageSize();
+    query["MaximumPageSize"] = request.getMaximumPageSize();
   }
 
   if (!!request.hasNextPageToken()) {
-    query["NextPageToken"] = request.nextPageToken();
+    query["NextPageToken"] = request.getNextPageToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasSnapshotJobIds()) {
-    query["SnapshotJobIds"] = request.snapshotJobIds();
+    query["SnapshotJobIds"] = request.getSnapshotJobIds();
   }
 
   if (!!request.hasStartOfJobCreatedTimeRange()) {
-    query["StartOfJobCreatedTimeRange"] = request.startOfJobCreatedTimeRange();
+    query["StartOfJobCreatedTimeRange"] = request.getStartOfJobCreatedTimeRange();
   }
 
   if (!!request.hasState()) {
-    query["State"] = request.state();
+    query["State"] = request.getState();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4136,23 +4160,23 @@ QueryTemplateListResponse Client::queryTemplateListWithOptions(const QueryTempla
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTemplateIds()) {
-    query["TemplateIds"] = request.templateIds();
+    query["TemplateIds"] = request.getTemplateIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4186,7 +4210,7 @@ QueryTemplateListResponse Client::queryTemplateList(const QueryTemplateListReque
 }
 
 /**
- * @summary 查询视频溯源水印ab流任务
+ * @summary Queries jobs for adding tracing watermarks to AB video streams.
  *
  * @param request QueryTraceAbJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4196,11 +4220,11 @@ QueryTraceAbJobResponse Client::queryTraceAbJobWithOptions(const QueryTraceAbJob
   request.validate();
   json query = {};
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasMediaId()) {
-    query["MediaId"] = request.mediaId();
+    query["MediaId"] = request.getMediaId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4221,7 +4245,7 @@ QueryTraceAbJobResponse Client::queryTraceAbJobWithOptions(const QueryTraceAbJob
 }
 
 /**
- * @summary 查询视频溯源水印ab流任务
+ * @summary Queries jobs for adding tracing watermarks to AB video streams.
  *
  * @param request QueryTraceAbJobRequest
  * @return QueryTraceAbJobResponse
@@ -4232,7 +4256,7 @@ QueryTraceAbJobResponse Client::queryTraceAbJob(const QueryTraceAbJobRequest &re
 }
 
 /**
- * @summary 查询溯源水印提取任务
+ * @summary Queries jobs for extracting tracing watermarks.
  *
  * @param request QueryTraceExtractJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4242,7 +4266,7 @@ QueryTraceExtractJobResponse Client::queryTraceExtractJobWithOptions(const Query
   request.validate();
   json query = {};
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4263,7 +4287,7 @@ QueryTraceExtractJobResponse Client::queryTraceExtractJobWithOptions(const Query
 }
 
 /**
- * @summary 查询溯源水印提取任务
+ * @summary Queries jobs for extracting tracing watermarks.
  *
  * @param request QueryTraceExtractJobRequest
  * @return QueryTraceExtractJobResponse
@@ -4274,7 +4298,7 @@ QueryTraceExtractJobResponse Client::queryTraceExtractJob(const QueryTraceExtrac
 }
 
 /**
- * @summary 查询视频溯源水印m3u8任务
+ * @summary Queries jobs for adding tracing watermarks to M3U8 videos.
  *
  * @param request QueryTraceM3u8JobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4284,23 +4308,23 @@ QueryTraceM3u8JobResponse Client::queryTraceM3u8JobWithOptions(const QueryTraceM
   request.validate();
   json query = {};
   if (!!request.hasCreateTimeEnd()) {
-    query["CreateTimeEnd"] = request.createTimeEnd();
+    query["CreateTimeEnd"] = request.getCreateTimeEnd();
   }
 
   if (!!request.hasCreateTimeStart()) {
-    query["CreateTimeStart"] = request.createTimeStart();
+    query["CreateTimeStart"] = request.getCreateTimeStart();
   }
 
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4321,7 +4345,7 @@ QueryTraceM3u8JobResponse Client::queryTraceM3u8JobWithOptions(const QueryTraceM
 }
 
 /**
- * @summary 查询视频溯源水印m3u8任务
+ * @summary Queries jobs for adding tracing watermarks to M3U8 videos.
  *
  * @param request QueryTraceM3u8JobRequest
  * @return QueryTraceM3u8JobResponse
@@ -4346,23 +4370,23 @@ QueryWaterMarkTemplateListResponse Client::queryWaterMarkTemplateListWithOptions
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasWaterMarkTemplateIds()) {
-    query["WaterMarkTemplateIds"] = request.waterMarkTemplateIds();
+    query["WaterMarkTemplateIds"] = request.getWaterMarkTemplateIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4413,35 +4437,35 @@ RegisterCustomFaceResponse Client::registerCustomFaceWithOptions(const RegisterC
   request.validate();
   json query = {};
   if (!!request.hasCategoryId()) {
-    query["CategoryId"] = request.categoryId();
+    query["CategoryId"] = request.getCategoryId();
   }
 
   if (!!request.hasImageUrl()) {
-    query["ImageUrl"] = request.imageUrl();
+    query["ImageUrl"] = request.getImageUrl();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPersonId()) {
-    query["PersonId"] = request.personId();
+    query["PersonId"] = request.getPersonId();
   }
 
   if (!!request.hasPersonName()) {
-    query["PersonName"] = request.personName();
+    query["PersonName"] = request.getPersonName();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4478,7 +4502,7 @@ RegisterCustomFaceResponse Client::registerCustomFace(const RegisterCustomFaceRe
 }
 
 /**
- * @summary 注册自定义实体项
+ * @summary Registers an image of a custom entity.
  *
  * @param request RegisterCustomViewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4488,39 +4512,39 @@ RegisterCustomViewResponse Client::registerCustomViewWithOptions(const RegisterC
   request.validate();
   json query = {};
   if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
+    query["Algorithm"] = request.getAlgorithm();
   }
 
   if (!!request.hasCustomEntityId()) {
-    query["CustomEntityId"] = request.customEntityId();
+    query["CustomEntityId"] = request.getCustomEntityId();
   }
 
   if (!!request.hasCustomGroupId()) {
-    query["CustomGroupId"] = request.customGroupId();
+    query["CustomGroupId"] = request.getCustomGroupId();
   }
 
   if (!!request.hasImageUrl()) {
-    query["ImageUrl"] = request.imageUrl();
+    query["ImageUrl"] = request.getImageUrl();
   }
 
   if (!!request.hasLabelPrompt()) {
-    query["LabelPrompt"] = request.labelPrompt();
+    query["LabelPrompt"] = request.getLabelPrompt();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4541,7 +4565,7 @@ RegisterCustomViewResponse Client::registerCustomViewWithOptions(const RegisterC
 }
 
 /**
- * @summary 注册自定义实体项
+ * @summary Registers an image of a custom entity.
  *
  * @param request RegisterCustomViewRequest
  * @return RegisterCustomViewResponse
@@ -4566,31 +4590,31 @@ SearchMediaWorkflowResponse Client::searchMediaWorkflowWithOptions(const SearchM
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasStateList()) {
-    query["StateList"] = request.stateList();
+    query["StateList"] = request.getStateList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4640,31 +4664,31 @@ SearchPipelineResponse Client::searchPipelineWithOptions(const SearchPipelineReq
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasState()) {
-    query["State"] = request.state();
+    query["State"] = request.getState();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4712,35 +4736,35 @@ SearchTemplateResponse Client::searchTemplateWithOptions(const SearchTemplateReq
   request.validate();
   json query = {};
   if (!!request.hasNamePrefix()) {
-    query["NamePrefix"] = request.namePrefix();
+    query["NamePrefix"] = request.getNamePrefix();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasState()) {
-    query["State"] = request.state();
+    query["State"] = request.getState();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4786,31 +4810,31 @@ SearchWaterMarkTemplateResponse Client::searchWaterMarkTemplateWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasState()) {
-    query["State"] = request.state();
+    query["State"] = request.getState();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4859,39 +4883,39 @@ SubmitAnalysisJobResponse Client::submitAnalysisJobWithOptions(const SubmitAnaly
   request.validate();
   json query = {};
   if (!!request.hasAnalysisConfig()) {
-    query["AnalysisConfig"] = request.analysisConfig();
+    query["AnalysisConfig"] = request.getAnalysisConfig();
   }
 
   if (!!request.hasInput()) {
-    query["Input"] = request.input();
+    query["Input"] = request.getInput();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasPriority()) {
-    query["Priority"] = request.priority();
+    query["Priority"] = request.getPriority();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4928,7 +4952,7 @@ SubmitAnalysisJobResponse Client::submitAnalysisJob(const SubmitAnalysisJobReque
 }
 
 /**
- * @summary 提交版权水印提取任务
+ * @summary Submits a job for extracting a copyright watermark.
  *
  * @param request SubmitCopyrightExtractJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4938,23 +4962,23 @@ SubmitCopyrightExtractJobResponse Client::submitCopyrightExtractJobWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasCallBack()) {
-    query["CallBack"] = request.callBack();
+    query["CallBack"] = request.getCallBack();
   }
 
   if (!!request.hasInput()) {
-    query["Input"] = request.input();
+    query["Input"] = request.getInput();
   }
 
   if (!!request.hasParams()) {
-    query["Params"] = request.params();
+    query["Params"] = request.getParams();
   }
 
   if (!!request.hasUrl()) {
-    query["Url"] = request.url();
+    query["Url"] = request.getUrl();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4975,7 +4999,7 @@ SubmitCopyrightExtractJobResponse Client::submitCopyrightExtractJobWithOptions(c
 }
 
 /**
- * @summary 提交版权水印提取任务
+ * @summary Submits a job for extracting a copyright watermark.
  *
  * @param request SubmitCopyrightExtractJobRequest
  * @return SubmitCopyrightExtractJobResponse
@@ -4986,7 +5010,7 @@ SubmitCopyrightExtractJobResponse Client::submitCopyrightExtractJob(const Submit
 }
 
 /**
- * @summary 提交视频版权水印
+ * @summary Submits a job for adding a copyright watermark to a video.
  *
  * @param request SubmitCopyrightJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4996,47 +5020,47 @@ SubmitCopyrightJobResponse Client::submitCopyrightJobWithOptions(const SubmitCop
   request.validate();
   json query = {};
   if (!!request.hasCallBack()) {
-    query["CallBack"] = request.callBack();
+    query["CallBack"] = request.getCallBack();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasInput()) {
-    query["Input"] = request.input();
+    query["Input"] = request.getInput();
   }
 
   if (!!request.hasLevel()) {
-    query["Level"] = request.level();
+    query["Level"] = request.getLevel();
   }
 
   if (!!request.hasMessage()) {
-    query["Message"] = request.message();
+    query["Message"] = request.getMessage();
   }
 
   if (!!request.hasOutput()) {
-    query["Output"] = request.output();
+    query["Output"] = request.getOutput();
   }
 
   if (!!request.hasParams()) {
-    query["Params"] = request.params();
+    query["Params"] = request.getParams();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTotalTime()) {
-    query["TotalTime"] = request.totalTime();
+    query["TotalTime"] = request.getTotalTime();
   }
 
   if (!!request.hasUrl()) {
-    query["Url"] = request.url();
+    query["Url"] = request.getUrl();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5057,7 +5081,7 @@ SubmitCopyrightJobResponse Client::submitCopyrightJobWithOptions(const SubmitCop
 }
 
 /**
- * @summary 提交视频版权水印
+ * @summary Submits a job for adding a copyright watermark to a video.
  *
  * @param request SubmitCopyrightJobRequest
  * @return SubmitCopyrightJobResponse
@@ -5082,35 +5106,35 @@ SubmitFpDBDeleteJobResponse Client::submitFpDBDeleteJobWithOptions(const SubmitF
   request.validate();
   json query = {};
   if (!!request.hasDelType()) {
-    query["DelType"] = request.delType();
+    query["DelType"] = request.getDelType();
   }
 
   if (!!request.hasFpDBId()) {
-    query["FpDBId"] = request.fpDBId();
+    query["FpDBId"] = request.getFpDBId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5162,39 +5186,39 @@ SubmitFpFileDeleteJobResponse Client::submitFpFileDeleteJobWithOptions(const Sub
   request.validate();
   json query = {};
   if (!!request.hasFileIds()) {
-    query["FileIds"] = request.fileIds();
+    query["FileIds"] = request.getFileIds();
   }
 
   if (!!request.hasFpDBId()) {
-    query["FpDBId"] = request.fpDBId();
+    query["FpDBId"] = request.getFpDBId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasPrimaryKeys()) {
-    query["PrimaryKeys"] = request.primaryKeys();
+    query["PrimaryKeys"] = request.getPrimaryKeys();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5252,35 +5276,35 @@ SubmitFpShotJobResponse Client::submitFpShotJobWithOptions(const SubmitFpShotJob
   request.validate();
   json query = {};
   if (!!request.hasFpShotConfig()) {
-    query["FpShotConfig"] = request.fpShotConfig();
+    query["FpShotConfig"] = request.getFpShotConfig();
   }
 
   if (!!request.hasInput()) {
-    query["Input"] = request.input();
+    query["Input"] = request.getInput();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5322,6 +5346,8 @@ SubmitFpShotJobResponse Client::submitFpShotJob(const SubmitFpShotJobRequest &re
 }
 
 /**
+ * @summary Submits a smart production job.
+ *
  * @description *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
  * *   Capabilities provided by the intelligent production feature vary based on the region. Before you call this operation to submit an intelligent production job, check whether the job is supported in the region in which your service is activated. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/43248.html).
  * ### [](#qps)QPS limit
@@ -5335,55 +5361,55 @@ SubmitIProductionJobResponse Client::submitIProductionJobWithOptions(const Submi
   request.validate();
   json query = {};
   if (!!request.hasFunctionName()) {
-    query["FunctionName"] = request.functionName();
+    query["FunctionName"] = request.getFunctionName();
   }
 
   if (!!request.hasInput()) {
-    query["Input"] = request.input();
+    query["Input"] = request.getInput();
   }
 
   if (!!request.hasJobParams()) {
-    query["JobParams"] = request.jobParams();
+    query["JobParams"] = request.getJobParams();
   }
 
   if (!!request.hasModelId()) {
-    query["ModelId"] = request.modelId();
+    query["ModelId"] = request.getModelId();
   }
 
   if (!!request.hasNotifyUrl()) {
-    query["NotifyUrl"] = request.notifyUrl();
+    query["NotifyUrl"] = request.getNotifyUrl();
   }
 
   if (!!request.hasOutput()) {
-    query["Output"] = request.output();
+    query["Output"] = request.getOutput();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasScheduleParams()) {
-    query["ScheduleParams"] = request.scheduleParams();
+    query["ScheduleParams"] = request.getScheduleParams();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5404,6 +5430,8 @@ SubmitIProductionJobResponse Client::submitIProductionJobWithOptions(const Submi
 }
 
 /**
+ * @summary Submits a smart production job.
+ *
  * @description *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
  * *   Capabilities provided by the intelligent production feature vary based on the region. Before you call this operation to submit an intelligent production job, check whether the job is supported in the region in which your service is activated. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/43248.html).
  * ### [](#qps)QPS limit
@@ -5418,7 +5446,7 @@ SubmitIProductionJobResponse Client::submitIProductionJob(const SubmitIProductio
 }
 
 /**
- * @summary 提交图片版权水印任务
+ * @summary Generates a transparent image watermark.
  *
  * @param request SubmitImageCopyrightRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5428,15 +5456,15 @@ SubmitImageCopyrightResponse Client::submitImageCopyrightWithOptions(const Submi
   request.validate();
   json query = {};
   if (!!request.hasMessage()) {
-    query["Message"] = request.message();
+    query["Message"] = request.getMessage();
   }
 
   if (!!request.hasOutput()) {
-    query["Output"] = request.output();
+    query["Output"] = request.getOutput();
   }
 
   if (!!request.hasParams()) {
-    query["Params"] = request.params();
+    query["Params"] = request.getParams();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5457,7 +5485,7 @@ SubmitImageCopyrightResponse Client::submitImageCopyrightWithOptions(const Submi
 }
 
 /**
- * @summary 提交图片版权水印任务
+ * @summary Generates a transparent image watermark.
  *
  * @param request SubmitImageCopyrightRequest
  * @return SubmitImageCopyrightResponse
@@ -5487,39 +5515,39 @@ SubmitJobsResponse Client::submitJobsWithOptions(const SubmitJobsRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasInput()) {
-    query["Input"] = request.input();
+    query["Input"] = request.getInput();
   }
 
   if (!!request.hasOutputBucket()) {
-    query["OutputBucket"] = request.outputBucket();
+    query["OutputBucket"] = request.getOutputBucket();
   }
 
   if (!!request.hasOutputLocation()) {
-    query["OutputLocation"] = request.outputLocation();
+    query["OutputLocation"] = request.getOutputLocation();
   }
 
   if (!!request.hasOutputs()) {
-    query["Outputs"] = request.outputs();
+    query["Outputs"] = request.getOutputs();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5574,55 +5602,55 @@ SubmitMediaCensorJobResponse Client::submitMediaCensorJobWithOptions(const Submi
   request.validate();
   json query = {};
   if (!!request.hasBarrages()) {
-    query["Barrages"] = request.barrages();
+    query["Barrages"] = request.getBarrages();
   }
 
   if (!!request.hasCoverImages()) {
-    query["CoverImages"] = request.coverImages();
+    query["CoverImages"] = request.getCoverImages();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasExternalUrl()) {
-    query["ExternalUrl"] = request.externalUrl();
+    query["ExternalUrl"] = request.getExternalUrl();
   }
 
   if (!!request.hasInput()) {
-    query["Input"] = request.input();
+    query["Input"] = request.getInput();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTitle()) {
-    query["Title"] = request.title();
+    query["Title"] = request.getTitle();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   if (!!request.hasVideoCensorConfig()) {
-    query["VideoCensorConfig"] = request.videoCensorConfig();
+    query["VideoCensorConfig"] = request.getVideoCensorConfig();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5674,39 +5702,39 @@ SubmitMediaInfoJobResponse Client::submitMediaInfoJobWithOptions(const SubmitMed
   request.validate();
   json query = {};
   if (!!request.hasAsync()) {
-    query["Async"] = request.async();
+    query["Async"] = request.getAsync();
   }
 
   if (!!request.hasConfig()) {
-    query["Config"] = request.config();
+    query["Config"] = request.getConfig();
   }
 
   if (!!request.hasInput()) {
-    query["Input"] = request.input();
+    query["Input"] = request.getInput();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5744,6 +5772,8 @@ SubmitMediaInfoJobResponse Client::submitMediaInfoJob(const SubmitMediaInfoJobRe
 }
 
 /**
+ * @summary Submits a smart tagging job.
+ *
  * @param request SubmitSmarttagJobRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitSmarttagJobResponse
@@ -5752,63 +5782,63 @@ SubmitSmarttagJobResponse Client::submitSmarttagJobWithOptions(const SubmitSmart
   request.validate();
   json query = {};
   if (!!request.hasContent()) {
-    query["Content"] = request.content();
+    query["Content"] = request.getContent();
   }
 
   if (!!request.hasContentAddr()) {
-    query["ContentAddr"] = request.contentAddr();
+    query["ContentAddr"] = request.getContentAddr();
   }
 
   if (!!request.hasContentType()) {
-    query["ContentType"] = request.contentType();
+    query["ContentType"] = request.getContentType();
   }
 
   if (!!request.hasInput()) {
-    query["Input"] = request.input();
+    query["Input"] = request.getInput();
   }
 
   if (!!request.hasNotifyUrl()) {
-    query["NotifyUrl"] = request.notifyUrl();
+    query["NotifyUrl"] = request.getNotifyUrl();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasParams()) {
-    query["Params"] = request.params();
+    query["Params"] = request.getParams();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasPriority()) {
-    query["Priority"] = request.priority();
+    query["Priority"] = request.getPriority();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTitle()) {
-    query["Title"] = request.title();
+    query["Title"] = request.getTitle();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5829,6 +5859,8 @@ SubmitSmarttagJobResponse Client::submitSmarttagJobWithOptions(const SubmitSmart
 }
 
 /**
+ * @summary Submits a smart tagging job.
+ *
  * @param request SubmitSmarttagJobRequest
  * @return SubmitSmarttagJobResponse
  */
@@ -5854,35 +5886,35 @@ SubmitSnapshotJobResponse Client::submitSnapshotJobWithOptions(const SubmitSnaps
   request.validate();
   json query = {};
   if (!!request.hasInput()) {
-    query["Input"] = request.input();
+    query["Input"] = request.getInput();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasSnapshotConfig()) {
-    query["SnapshotConfig"] = request.snapshotConfig();
+    query["SnapshotConfig"] = request.getSnapshotConfig();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5920,7 +5952,7 @@ SubmitSnapshotJobResponse Client::submitSnapshotJob(const SubmitSnapshotJobReque
 }
 
 /**
- * @summary 提交视频溯源水印ab流任务
+ * @summary Submits a job for adding a tracing watermark to an AB video stream.
  *
  * @param request SubmitTraceAbJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5930,39 +5962,39 @@ SubmitTraceAbJobResponse Client::submitTraceAbJobWithOptions(const SubmitTraceAb
   request.validate();
   json query = {};
   if (!!request.hasCallBack()) {
-    query["CallBack"] = request.callBack();
+    query["CallBack"] = request.getCallBack();
   }
 
   if (!!request.hasCipherBase64ed()) {
-    query["CipherBase64ed"] = request.cipherBase64ed();
+    query["CipherBase64ed"] = request.getCipherBase64ed();
   }
 
   if (!!request.hasInput()) {
-    query["Input"] = request.input();
+    query["Input"] = request.getInput();
   }
 
   if (!!request.hasLevel()) {
-    query["Level"] = request.level();
+    query["Level"] = request.getLevel();
   }
 
   if (!!request.hasOutput()) {
-    query["Output"] = request.output();
+    query["Output"] = request.getOutput();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTotalTime()) {
-    query["TotalTime"] = request.totalTime();
+    query["TotalTime"] = request.getTotalTime();
   }
 
   if (!!request.hasUrl()) {
-    query["Url"] = request.url();
+    query["Url"] = request.getUrl();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5983,7 +6015,7 @@ SubmitTraceAbJobResponse Client::submitTraceAbJobWithOptions(const SubmitTraceAb
 }
 
 /**
- * @summary 提交视频溯源水印ab流任务
+ * @summary Submits a job for adding a tracing watermark to an AB video stream.
  *
  * @param request SubmitTraceAbJobRequest
  * @return SubmitTraceAbJobResponse
@@ -5994,7 +6026,7 @@ SubmitTraceAbJobResponse Client::submitTraceAbJob(const SubmitTraceAbJobRequest 
 }
 
 /**
- * @summary 提交溯源水印提取任务
+ * @summary Submits a job for extracting a tracing watermark.
  *
  * @param request SubmitTraceExtractJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6004,23 +6036,23 @@ SubmitTraceExtractJobResponse Client::submitTraceExtractJobWithOptions(const Sub
   request.validate();
   json query = {};
   if (!!request.hasCallBack()) {
-    query["CallBack"] = request.callBack();
+    query["CallBack"] = request.getCallBack();
   }
 
   if (!!request.hasInput()) {
-    query["Input"] = request.input();
+    query["Input"] = request.getInput();
   }
 
   if (!!request.hasParams()) {
-    query["Params"] = request.params();
+    query["Params"] = request.getParams();
   }
 
   if (!!request.hasUrl()) {
-    query["Url"] = request.url();
+    query["Url"] = request.getUrl();
   }
 
   if (!!request.hasUserData()) {
-    query["UserData"] = request.userData();
+    query["UserData"] = request.getUserData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6041,7 +6073,7 @@ SubmitTraceExtractJobResponse Client::submitTraceExtractJobWithOptions(const Sub
 }
 
 /**
- * @summary 提交溯源水印提取任务
+ * @summary Submits a job for extracting a tracing watermark.
  *
  * @param request SubmitTraceExtractJobRequest
  * @return SubmitTraceExtractJobResponse
@@ -6052,7 +6084,7 @@ SubmitTraceExtractJobResponse Client::submitTraceExtractJob(const SubmitTraceExt
 }
 
 /**
- * @summary 提交视频溯源水印m3u8文件任务
+ * @summary Submits a job for adding a tracing watermark to an M3U8 video.
  *
  * @param request SubmitTraceM3u8JobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6062,23 +6094,23 @@ SubmitTraceM3u8JobResponse Client::submitTraceM3u8JobWithOptions(const SubmitTra
   request.validate();
   json query = {};
   if (!!request.hasKeyUri()) {
-    query["KeyUri"] = request.keyUri();
+    query["KeyUri"] = request.getKeyUri();
   }
 
   if (!!request.hasMediaId()) {
-    query["MediaId"] = request.mediaId();
+    query["MediaId"] = request.getMediaId();
   }
 
   if (!!request.hasOutput()) {
-    query["Output"] = request.output();
+    query["Output"] = request.getOutput();
   }
 
   if (!!request.hasParams()) {
-    query["Params"] = request.params();
+    query["Params"] = request.getParams();
   }
 
   if (!!request.hasTrace()) {
-    query["Trace"] = request.trace();
+    query["Trace"] = request.getTrace();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6099,7 +6131,7 @@ SubmitTraceM3u8JobResponse Client::submitTraceM3u8JobWithOptions(const SubmitTra
 }
 
 /**
- * @summary 提交视频溯源水印m3u8文件任务
+ * @summary Submits a job for adding a tracing watermark to an M3U8 video.
  *
  * @param request SubmitTraceM3u8JobRequest
  * @return SubmitTraceM3u8JobResponse
@@ -6110,7 +6142,7 @@ SubmitTraceM3u8JobResponse Client::submitTraceM3u8Job(const SubmitTraceM3u8JobRe
 }
 
 /**
- * @summary The description of the figure. The description can be up to 512 characters in length.
+ * @summary Adds tags to a custom figure library or a figure.
  *
  * @description The response parameters.
  *
@@ -6122,43 +6154,43 @@ TagCustomPersonResponse Client::tagCustomPersonWithOptions(const TagCustomPerson
   request.validate();
   json query = {};
   if (!!request.hasCategoryDescription()) {
-    query["CategoryDescription"] = request.categoryDescription();
+    query["CategoryDescription"] = request.getCategoryDescription();
   }
 
   if (!!request.hasCategoryId()) {
-    query["CategoryId"] = request.categoryId();
+    query["CategoryId"] = request.getCategoryId();
   }
 
   if (!!request.hasCategoryName()) {
-    query["CategoryName"] = request.categoryName();
+    query["CategoryName"] = request.getCategoryName();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPersonDescription()) {
-    query["PersonDescription"] = request.personDescription();
+    query["PersonDescription"] = request.getPersonDescription();
   }
 
   if (!!request.hasPersonId()) {
-    query["PersonId"] = request.personId();
+    query["PersonId"] = request.getPersonId();
   }
 
   if (!!request.hasPersonName()) {
-    query["PersonName"] = request.personName();
+    query["PersonName"] = request.getPersonName();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6179,7 +6211,7 @@ TagCustomPersonResponse Client::tagCustomPersonWithOptions(const TagCustomPerson
 }
 
 /**
- * @summary The description of the figure. The description can be up to 512 characters in length.
+ * @summary Adds tags to a custom figure library or a figure.
  *
  * @description The response parameters.
  *
@@ -6207,27 +6239,27 @@ UnbindInputBucketResponse Client::unbindInputBucketWithOptions(const UnbindInput
   request.validate();
   json query = {};
   if (!!request.hasBucket()) {
-    query["Bucket"] = request.bucket();
+    query["Bucket"] = request.getBucket();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasRoleArn()) {
-    query["RoleArn"] = request.roleArn();
+    query["RoleArn"] = request.getRoleArn();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6265,8 +6297,8 @@ UnbindInputBucketResponse Client::unbindInputBucket(const UnbindInputBucketReque
 
 /**
  * @summary You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
- * ## QPS limit
- * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+ * \\## QPS limit
+ * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits]\\(https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
  *
  * @description The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
  *
@@ -6278,23 +6310,23 @@ UnbindOutputBucketResponse Client::unbindOutputBucketWithOptions(const UnbindOut
   request.validate();
   json query = {};
   if (!!request.hasBucket()) {
-    query["Bucket"] = request.bucket();
+    query["Bucket"] = request.getBucket();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6316,8 +6348,8 @@ UnbindOutputBucketResponse Client::unbindOutputBucketWithOptions(const UnbindOut
 
 /**
  * @summary You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
- * ## QPS limit
- * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+ * \\## QPS limit
+ * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits]\\(https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
  *
  * @description The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
  *
@@ -6344,31 +6376,31 @@ UnregisterCustomFaceResponse Client::unregisterCustomFaceWithOptions(const Unreg
   request.validate();
   json query = {};
   if (!!request.hasCategoryId()) {
-    query["CategoryId"] = request.categoryId();
+    query["CategoryId"] = request.getCategoryId();
   }
 
   if (!!request.hasFaceId()) {
-    query["FaceId"] = request.faceId();
+    query["FaceId"] = request.getFaceId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPersonId()) {
-    query["PersonId"] = request.personId();
+    query["PersonId"] = request.getPersonId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6418,43 +6450,43 @@ UpdateMediaResponse Client::updateMediaWithOptions(const UpdateMediaRequest &req
   request.validate();
   json query = {};
   if (!!request.hasCateId()) {
-    query["CateId"] = request.cateId();
+    query["CateId"] = request.getCateId();
   }
 
   if (!!request.hasCoverURL()) {
-    query["CoverURL"] = request.coverURL();
+    query["CoverURL"] = request.getCoverURL();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasMediaId()) {
-    query["MediaId"] = request.mediaId();
+    query["MediaId"] = request.getMediaId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   if (!!request.hasTitle()) {
-    query["Title"] = request.title();
+    query["Title"] = request.getTitle();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6504,27 +6536,27 @@ UpdateMediaCategoryResponse Client::updateMediaCategoryWithOptions(const UpdateM
   request.validate();
   json query = {};
   if (!!request.hasCateId()) {
-    query["CateId"] = request.cateId();
+    query["CateId"] = request.getCateId();
   }
 
   if (!!request.hasMediaId()) {
-    query["MediaId"] = request.mediaId();
+    query["MediaId"] = request.getMediaId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6574,27 +6606,27 @@ UpdateMediaCoverResponse Client::updateMediaCoverWithOptions(const UpdateMediaCo
   request.validate();
   json query = {};
   if (!!request.hasCoverURL()) {
-    query["CoverURL"] = request.coverURL();
+    query["CoverURL"] = request.getCoverURL();
   }
 
   if (!!request.hasMediaId()) {
-    query["MediaId"] = request.mediaId();
+    query["MediaId"] = request.getMediaId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6644,27 +6676,27 @@ UpdateMediaPublishStateResponse Client::updateMediaPublishStateWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasMediaId()) {
-    query["MediaId"] = request.mediaId();
+    query["MediaId"] = request.getMediaId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPublish()) {
-    query["Publish"] = request.publish();
+    query["Publish"] = request.getPublish();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6716,35 +6748,35 @@ UpdateMediaWorkflowResponse Client::updateMediaWorkflowWithOptions(const UpdateM
   request.validate();
   json query = {};
   if (!!request.hasMediaWorkflowId()) {
-    query["MediaWorkflowId"] = request.mediaWorkflowId();
+    query["MediaWorkflowId"] = request.getMediaWorkflowId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTopology()) {
-    query["Topology"] = request.topology();
+    query["Topology"] = request.getTopology();
   }
 
   if (!!request.hasTriggerMode()) {
-    query["TriggerMode"] = request.triggerMode();
+    query["TriggerMode"] = request.getTriggerMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6796,27 +6828,27 @@ UpdateMediaWorkflowTriggerModeResponse Client::updateMediaWorkflowTriggerModeWit
   request.validate();
   json query = {};
   if (!!request.hasMediaWorkflowId()) {
-    query["MediaWorkflowId"] = request.mediaWorkflowId();
+    query["MediaWorkflowId"] = request.getMediaWorkflowId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTriggerMode()) {
-    query["TriggerMode"] = request.triggerMode();
+    query["TriggerMode"] = request.getTriggerMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6867,43 +6899,43 @@ UpdatePipelineResponse Client::updatePipelineWithOptions(const UpdatePipelineReq
   request.validate();
   json query = {};
   if (!!request.hasExtendConfig()) {
-    query["ExtendConfig"] = request.extendConfig();
+    query["ExtendConfig"] = request.getExtendConfig();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasNotifyConfig()) {
-    query["NotifyConfig"] = request.notifyConfig();
+    query["NotifyConfig"] = request.getNotifyConfig();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasRole()) {
-    query["Role"] = request.role();
+    query["Role"] = request.getRole();
   }
 
   if (!!request.hasState()) {
-    query["State"] = request.state();
+    query["State"] = request.getState();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6940,7 +6972,7 @@ UpdatePipelineResponse Client::updatePipeline(const UpdatePipelineRequest &reque
 }
 
 /**
- * @summary 更新智能标签模板接口支持cpv
+ * @summary Updates the analysis template of a smart tagging job.
  *
  * @param request UpdateSmarttagTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6950,79 +6982,79 @@ UpdateSmarttagTemplateResponse Client::updateSmarttagTemplateWithOptions(const U
   request.validate();
   json query = {};
   if (!!request.hasAnalyseTypes()) {
-    query["AnalyseTypes"] = request.analyseTypes();
+    query["AnalyseTypes"] = request.getAnalyseTypes();
   }
 
   if (!!request.hasFaceCategoryIds()) {
-    query["FaceCategoryIds"] = request.faceCategoryIds();
+    query["FaceCategoryIds"] = request.getFaceCategoryIds();
   }
 
   if (!!request.hasFaceCustomParamsConfig()) {
-    query["FaceCustomParamsConfig"] = request.faceCustomParamsConfig();
+    query["FaceCustomParamsConfig"] = request.getFaceCustomParamsConfig();
   }
 
   if (!!request.hasIndustry()) {
-    query["Industry"] = request.industry();
+    query["Industry"] = request.getIndustry();
   }
 
   if (!!request.hasIsDefault()) {
-    query["IsDefault"] = request.isDefault();
+    query["IsDefault"] = request.getIsDefault();
   }
 
   if (!!request.hasKeywordConfig()) {
-    query["KeywordConfig"] = request.keywordConfig();
+    query["KeywordConfig"] = request.getKeywordConfig();
   }
 
   if (!!request.hasKnowledgeConfig()) {
-    query["KnowledgeConfig"] = request.knowledgeConfig();
+    query["KnowledgeConfig"] = request.getKnowledgeConfig();
   }
 
   if (!!request.hasLabelType()) {
-    query["LabelType"] = request.labelType();
+    query["LabelType"] = request.getLabelType();
   }
 
   if (!!request.hasLabelVersion()) {
-    query["LabelVersion"] = request.labelVersion();
+    query["LabelVersion"] = request.getLabelVersion();
   }
 
   if (!!request.hasLandmarkGroupIds()) {
-    query["LandmarkGroupIds"] = request.landmarkGroupIds();
+    query["LandmarkGroupIds"] = request.getLandmarkGroupIds();
   }
 
   if (!!request.hasObjectGroupIds()) {
-    query["ObjectGroupIds"] = request.objectGroupIds();
+    query["ObjectGroupIds"] = request.getObjectGroupIds();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasScene()) {
-    query["Scene"] = request.scene();
+    query["Scene"] = request.getScene();
   }
 
   if (!!request.hasTemplateConfig()) {
-    query["TemplateConfig"] = request.templateConfig();
+    query["TemplateConfig"] = request.getTemplateConfig();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTemplateName()) {
-    query["TemplateName"] = request.templateName();
+    query["TemplateName"] = request.getTemplateName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7043,7 +7075,7 @@ UpdateSmarttagTemplateResponse Client::updateSmarttagTemplateWithOptions(const U
 }
 
 /**
- * @summary 更新智能标签模板接口支持cpv
+ * @summary Updates the analysis template of a smart tagging job.
  *
  * @param request UpdateSmarttagTemplateRequest
  * @return UpdateSmarttagTemplateResponse
@@ -7066,47 +7098,47 @@ UpdateTemplateResponse Client::updateTemplateWithOptions(const UpdateTemplateReq
   request.validate();
   json query = {};
   if (!!request.hasAudio()) {
-    query["Audio"] = request.audio();
+    query["Audio"] = request.getAudio();
   }
 
   if (!!request.hasContainer()) {
-    query["Container"] = request.container();
+    query["Container"] = request.getContainer();
   }
 
   if (!!request.hasMuxConfig()) {
-    query["MuxConfig"] = request.muxConfig();
+    query["MuxConfig"] = request.getMuxConfig();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTransConfig()) {
-    query["TransConfig"] = request.transConfig();
+    query["TransConfig"] = request.getTransConfig();
   }
 
   if (!!request.hasVideo()) {
-    query["Video"] = request.video();
+    query["Video"] = request.getVideo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7155,31 +7187,31 @@ UpdateWaterMarkTemplateResponse Client::updateWaterMarkTemplateWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasConfig()) {
-    query["Config"] = request.config();
+    query["Config"] = request.getConfig();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasWaterMarkTemplateId()) {
-    query["WaterMarkTemplateId"] = request.waterMarkTemplateId();
+    query["WaterMarkTemplateId"] = request.getWaterMarkTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

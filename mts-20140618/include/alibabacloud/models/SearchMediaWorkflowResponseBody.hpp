@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_SEARCHMEDIAWORKFLOWRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_SEARCHMEDIAWORKFLOWRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/SearchMediaWorkflowResponseBodyMediaWorkflowList.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,56 +38,170 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class MediaWorkflowList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const MediaWorkflowList& obj) { 
+        DARABONBA_PTR_TO_JSON(MediaWorkflow, mediaWorkflow_);
+      };
+      friend void from_json(const Darabonba::Json& j, MediaWorkflowList& obj) { 
+        DARABONBA_PTR_FROM_JSON(MediaWorkflow, mediaWorkflow_);
+      };
+      MediaWorkflowList() = default ;
+      MediaWorkflowList(const MediaWorkflowList &) = default ;
+      MediaWorkflowList(MediaWorkflowList &&) = default ;
+      MediaWorkflowList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~MediaWorkflowList() = default ;
+      MediaWorkflowList& operator=(const MediaWorkflowList &) = default ;
+      MediaWorkflowList& operator=(MediaWorkflowList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class MediaWorkflow : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const MediaWorkflow& obj) { 
+          DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
+          DARABONBA_PTR_TO_JSON(MediaWorkflowId, mediaWorkflowId_);
+          DARABONBA_PTR_TO_JSON(Name, name_);
+          DARABONBA_PTR_TO_JSON(State, state_);
+          DARABONBA_PTR_TO_JSON(Topology, topology_);
+          DARABONBA_PTR_TO_JSON(TriggerMode, triggerMode_);
+        };
+        friend void from_json(const Darabonba::Json& j, MediaWorkflow& obj) { 
+          DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
+          DARABONBA_PTR_FROM_JSON(MediaWorkflowId, mediaWorkflowId_);
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+          DARABONBA_PTR_FROM_JSON(State, state_);
+          DARABONBA_PTR_FROM_JSON(Topology, topology_);
+          DARABONBA_PTR_FROM_JSON(TriggerMode, triggerMode_);
+        };
+        MediaWorkflow() = default ;
+        MediaWorkflow(const MediaWorkflow &) = default ;
+        MediaWorkflow(MediaWorkflow &&) = default ;
+        MediaWorkflow(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~MediaWorkflow() = default ;
+        MediaWorkflow& operator=(const MediaWorkflow &) = default ;
+        MediaWorkflow& operator=(MediaWorkflow &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->creationTime_ == nullptr
+        && this->mediaWorkflowId_ == nullptr && this->name_ == nullptr && this->state_ == nullptr && this->topology_ == nullptr && this->triggerMode_ == nullptr; };
+        // creationTime Field Functions 
+        bool hasCreationTime() const { return this->creationTime_ != nullptr;};
+        void deleteCreationTime() { this->creationTime_ = nullptr;};
+        inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
+        inline MediaWorkflow& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
+
+
+        // mediaWorkflowId Field Functions 
+        bool hasMediaWorkflowId() const { return this->mediaWorkflowId_ != nullptr;};
+        void deleteMediaWorkflowId() { this->mediaWorkflowId_ = nullptr;};
+        inline string getMediaWorkflowId() const { DARABONBA_PTR_GET_DEFAULT(mediaWorkflowId_, "") };
+        inline MediaWorkflow& setMediaWorkflowId(string mediaWorkflowId) { DARABONBA_PTR_SET_VALUE(mediaWorkflowId_, mediaWorkflowId) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline MediaWorkflow& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // state Field Functions 
+        bool hasState() const { return this->state_ != nullptr;};
+        void deleteState() { this->state_ = nullptr;};
+        inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+        inline MediaWorkflow& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
+
+
+        // topology Field Functions 
+        bool hasTopology() const { return this->topology_ != nullptr;};
+        void deleteTopology() { this->topology_ = nullptr;};
+        inline string getTopology() const { DARABONBA_PTR_GET_DEFAULT(topology_, "") };
+        inline MediaWorkflow& setTopology(string topology) { DARABONBA_PTR_SET_VALUE(topology_, topology) };
+
+
+        // triggerMode Field Functions 
+        bool hasTriggerMode() const { return this->triggerMode_ != nullptr;};
+        void deleteTriggerMode() { this->triggerMode_ = nullptr;};
+        inline string getTriggerMode() const { DARABONBA_PTR_GET_DEFAULT(triggerMode_, "") };
+        inline MediaWorkflow& setTriggerMode(string triggerMode) { DARABONBA_PTR_SET_VALUE(triggerMode_, triggerMode) };
+
+
+      protected:
+        shared_ptr<string> creationTime_ {};
+        shared_ptr<string> mediaWorkflowId_ {};
+        shared_ptr<string> name_ {};
+        shared_ptr<string> state_ {};
+        shared_ptr<string> topology_ {};
+        shared_ptr<string> triggerMode_ {};
+      };
+
+      virtual bool empty() const override { return this->mediaWorkflow_ == nullptr; };
+      // mediaWorkflow Field Functions 
+      bool hasMediaWorkflow() const { return this->mediaWorkflow_ != nullptr;};
+      void deleteMediaWorkflow() { this->mediaWorkflow_ = nullptr;};
+      inline const vector<MediaWorkflowList::MediaWorkflow> & getMediaWorkflow() const { DARABONBA_PTR_GET_CONST(mediaWorkflow_, vector<MediaWorkflowList::MediaWorkflow>) };
+      inline vector<MediaWorkflowList::MediaWorkflow> getMediaWorkflow() { DARABONBA_PTR_GET(mediaWorkflow_, vector<MediaWorkflowList::MediaWorkflow>) };
+      inline MediaWorkflowList& setMediaWorkflow(const vector<MediaWorkflowList::MediaWorkflow> & mediaWorkflow) { DARABONBA_PTR_SET_VALUE(mediaWorkflow_, mediaWorkflow) };
+      inline MediaWorkflowList& setMediaWorkflow(vector<MediaWorkflowList::MediaWorkflow> && mediaWorkflow) { DARABONBA_PTR_SET_RVALUE(mediaWorkflow_, mediaWorkflow) };
+
+
+    protected:
+      shared_ptr<vector<MediaWorkflowList::MediaWorkflow>> mediaWorkflow_ {};
+    };
+
     virtual bool empty() const override { return this->mediaWorkflowList_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // mediaWorkflowList Field Functions 
     bool hasMediaWorkflowList() const { return this->mediaWorkflowList_ != nullptr;};
     void deleteMediaWorkflowList() { this->mediaWorkflowList_ = nullptr;};
-    inline const SearchMediaWorkflowResponseBodyMediaWorkflowList & mediaWorkflowList() const { DARABONBA_PTR_GET_CONST(mediaWorkflowList_, SearchMediaWorkflowResponseBodyMediaWorkflowList) };
-    inline SearchMediaWorkflowResponseBodyMediaWorkflowList mediaWorkflowList() { DARABONBA_PTR_GET(mediaWorkflowList_, SearchMediaWorkflowResponseBodyMediaWorkflowList) };
-    inline SearchMediaWorkflowResponseBody& setMediaWorkflowList(const SearchMediaWorkflowResponseBodyMediaWorkflowList & mediaWorkflowList) { DARABONBA_PTR_SET_VALUE(mediaWorkflowList_, mediaWorkflowList) };
-    inline SearchMediaWorkflowResponseBody& setMediaWorkflowList(SearchMediaWorkflowResponseBodyMediaWorkflowList && mediaWorkflowList) { DARABONBA_PTR_SET_RVALUE(mediaWorkflowList_, mediaWorkflowList) };
+    inline const SearchMediaWorkflowResponseBody::MediaWorkflowList & getMediaWorkflowList() const { DARABONBA_PTR_GET_CONST(mediaWorkflowList_, SearchMediaWorkflowResponseBody::MediaWorkflowList) };
+    inline SearchMediaWorkflowResponseBody::MediaWorkflowList getMediaWorkflowList() { DARABONBA_PTR_GET(mediaWorkflowList_, SearchMediaWorkflowResponseBody::MediaWorkflowList) };
+    inline SearchMediaWorkflowResponseBody& setMediaWorkflowList(const SearchMediaWorkflowResponseBody::MediaWorkflowList & mediaWorkflowList) { DARABONBA_PTR_SET_VALUE(mediaWorkflowList_, mediaWorkflowList) };
+    inline SearchMediaWorkflowResponseBody& setMediaWorkflowList(SearchMediaWorkflowResponseBody::MediaWorkflowList && mediaWorkflowList) { DARABONBA_PTR_SET_RVALUE(mediaWorkflowList_, mediaWorkflowList) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline SearchMediaWorkflowResponseBody& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline SearchMediaWorkflowResponseBody& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SearchMediaWorkflowResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline SearchMediaWorkflowResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
-    // The details of the media workflows.
-    std::shared_ptr<SearchMediaWorkflowResponseBodyMediaWorkflowList> mediaWorkflowList_ = nullptr;
+    shared_ptr<SearchMediaWorkflowResponseBody::MediaWorkflowList> mediaWorkflowList_ {};
     // The page number of the returned page.
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    shared_ptr<int64_t> pageNumber_ {};
     // The number of entries returned on each page.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of entries returned.
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
+    shared_ptr<int64_t> totalCount_ {};
   };
 
   } // namespace Models

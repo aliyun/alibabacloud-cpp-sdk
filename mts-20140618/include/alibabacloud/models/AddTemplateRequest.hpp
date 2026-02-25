@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->audio_ == nullptr
-        && return this->container_ == nullptr && return this->muxConfig_ == nullptr && return this->name_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->transConfig_ == nullptr && return this->video_ == nullptr; };
+        && this->container_ == nullptr && this->muxConfig_ == nullptr && this->name_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->transConfig_ == nullptr && this->video_ == nullptr; };
     // audio Field Functions 
     bool hasAudio() const { return this->audio_ != nullptr;};
     void deleteAudio() { this->audio_ = nullptr;};
-    inline string audio() const { DARABONBA_PTR_GET_DEFAULT(audio_, "") };
+    inline string getAudio() const { DARABONBA_PTR_GET_DEFAULT(audio_, "") };
     inline AddTemplateRequest& setAudio(string audio) { DARABONBA_PTR_SET_VALUE(audio_, audio) };
 
 
     // container Field Functions 
     bool hasContainer() const { return this->container_ != nullptr;};
     void deleteContainer() { this->container_ = nullptr;};
-    inline string container() const { DARABONBA_PTR_GET_DEFAULT(container_, "") };
+    inline string getContainer() const { DARABONBA_PTR_GET_DEFAULT(container_, "") };
     inline AddTemplateRequest& setContainer(string container) { DARABONBA_PTR_SET_VALUE(container_, container) };
 
 
     // muxConfig Field Functions 
     bool hasMuxConfig() const { return this->muxConfig_ != nullptr;};
     void deleteMuxConfig() { this->muxConfig_ = nullptr;};
-    inline string muxConfig() const { DARABONBA_PTR_GET_DEFAULT(muxConfig_, "") };
+    inline string getMuxConfig() const { DARABONBA_PTR_GET_DEFAULT(muxConfig_, "") };
     inline AddTemplateRequest& setMuxConfig(string muxConfig) { DARABONBA_PTR_SET_VALUE(muxConfig_, muxConfig) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline AddTemplateRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline AddTemplateRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline AddTemplateRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline AddTemplateRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline AddTemplateRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // transConfig Field Functions 
     bool hasTransConfig() const { return this->transConfig_ != nullptr;};
     void deleteTransConfig() { this->transConfig_ = nullptr;};
-    inline string transConfig() const { DARABONBA_PTR_GET_DEFAULT(transConfig_, "") };
+    inline string getTransConfig() const { DARABONBA_PTR_GET_DEFAULT(transConfig_, "") };
     inline AddTemplateRequest& setTransConfig(string transConfig) { DARABONBA_PTR_SET_VALUE(transConfig_, transConfig) };
 
 
     // video Field Functions 
     bool hasVideo() const { return this->video_ != nullptr;};
     void deleteVideo() { this->video_ = nullptr;};
-    inline string video() const { DARABONBA_PTR_GET_DEFAULT(video_, "") };
+    inline string getVideo() const { DARABONBA_PTR_GET_DEFAULT(video_, "") };
     inline AddTemplateRequest& setVideo(string video) { DARABONBA_PTR_SET_VALUE(video_, video) };
 
 
@@ -124,7 +124,7 @@ namespace Models
     // The audio stream settings. The value must be a JSON object. For more information, see [Audio](https://help.aliyun.com/document_detail/29253.html).
     // 
     // > If you do not specify this parameter, output files do not contain audio streams. This parameter is required if you want to retain the audio streams.
-    std::shared_ptr<string> audio_ = nullptr;
+    shared_ptr<string> audio_ {};
     // The container format. The value must be a JSON object that contains the Format parameter. If you do not specify this parameter, the transcoded media file is in MP4 format by default. This parameter is required if you want to use the transcoding template to generate media files in other formats. For more information, see [Container](https://help.aliyun.com/document_detail/29253.html).
     // 
     // *   Default value: MP4.
@@ -140,23 +140,23 @@ namespace Models
     // *   If the container format is GIF, the video codec must be set to GIF.
     // 
     // *   If the container format is WebP, the video codec must be set to WebP.
-    std::shared_ptr<string> container_ = nullptr;
+    shared_ptr<string> container_ {};
     // The segment settings. The value must be a JSON object. For more information, see [MuxConfig](https://help.aliyun.com/document_detail/29253.html). If you do not specify this parameter, media segment files are not generated. This parameter is required if you want to generate media segment files.
-    std::shared_ptr<string> muxConfig_ = nullptr;
+    shared_ptr<string> muxConfig_ {};
     // The name of the transcoding template. The name can be up to 128 bytes in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The general transcoding settings. The value must be a JSON object. For more information, see [TransConfig](https://help.aliyun.com/document_detail/29253.html). If you do not specify this parameter, the default settings are used. This parameter is required if the default settings cannot meet your business requirements.
-    std::shared_ptr<string> transConfig_ = nullptr;
+    shared_ptr<string> transConfig_ {};
     // The video stream settings. The value must be a JSON object. For more information, see [Video](https://help.aliyun.com/document_detail/29253.html).
     // 
     // > If you do not specify this parameter, output files do not contain video streams. This parameter is required if you want to retain the video streams.
-    std::shared_ptr<string> video_ = nullptr;
+    shared_ptr<string> video_ {};
   };
 
   } // namespace Models

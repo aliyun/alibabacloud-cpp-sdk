@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customEntityId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // customEntityId Field Functions 
     bool hasCustomEntityId() const { return this->customEntityId_ != nullptr;};
     void deleteCustomEntityId() { this->customEntityId_ = nullptr;};
-    inline string customEntityId() const { DARABONBA_PTR_GET_DEFAULT(customEntityId_, "") };
+    inline string getCustomEntityId() const { DARABONBA_PTR_GET_DEFAULT(customEntityId_, "") };
     inline CreateCustomEntityResponseBody& setCustomEntityId(string customEntityId) { DARABONBA_PTR_SET_VALUE(customEntityId_, customEntityId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateCustomEntityResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> customEntityId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> customEntityId_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

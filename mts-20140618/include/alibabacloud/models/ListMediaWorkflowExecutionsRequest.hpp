@@ -46,86 +46,86 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->inputFileURL_ == nullptr
-        && return this->maximumPageSize_ == nullptr && return this->mediaWorkflowId_ == nullptr && return this->mediaWorkflowName_ == nullptr && return this->nextPageToken_ == nullptr && return this->ownerAccount_ == nullptr
-        && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->maximumPageSize_ == nullptr && this->mediaWorkflowId_ == nullptr && this->mediaWorkflowName_ == nullptr && this->nextPageToken_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // inputFileURL Field Functions 
     bool hasInputFileURL() const { return this->inputFileURL_ != nullptr;};
     void deleteInputFileURL() { this->inputFileURL_ = nullptr;};
-    inline string inputFileURL() const { DARABONBA_PTR_GET_DEFAULT(inputFileURL_, "") };
+    inline string getInputFileURL() const { DARABONBA_PTR_GET_DEFAULT(inputFileURL_, "") };
     inline ListMediaWorkflowExecutionsRequest& setInputFileURL(string inputFileURL) { DARABONBA_PTR_SET_VALUE(inputFileURL_, inputFileURL) };
 
 
     // maximumPageSize Field Functions 
     bool hasMaximumPageSize() const { return this->maximumPageSize_ != nullptr;};
     void deleteMaximumPageSize() { this->maximumPageSize_ = nullptr;};
-    inline int64_t maximumPageSize() const { DARABONBA_PTR_GET_DEFAULT(maximumPageSize_, 0L) };
+    inline int64_t getMaximumPageSize() const { DARABONBA_PTR_GET_DEFAULT(maximumPageSize_, 0L) };
     inline ListMediaWorkflowExecutionsRequest& setMaximumPageSize(int64_t maximumPageSize) { DARABONBA_PTR_SET_VALUE(maximumPageSize_, maximumPageSize) };
 
 
     // mediaWorkflowId Field Functions 
     bool hasMediaWorkflowId() const { return this->mediaWorkflowId_ != nullptr;};
     void deleteMediaWorkflowId() { this->mediaWorkflowId_ = nullptr;};
-    inline string mediaWorkflowId() const { DARABONBA_PTR_GET_DEFAULT(mediaWorkflowId_, "") };
+    inline string getMediaWorkflowId() const { DARABONBA_PTR_GET_DEFAULT(mediaWorkflowId_, "") };
     inline ListMediaWorkflowExecutionsRequest& setMediaWorkflowId(string mediaWorkflowId) { DARABONBA_PTR_SET_VALUE(mediaWorkflowId_, mediaWorkflowId) };
 
 
     // mediaWorkflowName Field Functions 
     bool hasMediaWorkflowName() const { return this->mediaWorkflowName_ != nullptr;};
     void deleteMediaWorkflowName() { this->mediaWorkflowName_ = nullptr;};
-    inline string mediaWorkflowName() const { DARABONBA_PTR_GET_DEFAULT(mediaWorkflowName_, "") };
+    inline string getMediaWorkflowName() const { DARABONBA_PTR_GET_DEFAULT(mediaWorkflowName_, "") };
     inline ListMediaWorkflowExecutionsRequest& setMediaWorkflowName(string mediaWorkflowName) { DARABONBA_PTR_SET_VALUE(mediaWorkflowName_, mediaWorkflowName) };
 
 
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline ListMediaWorkflowExecutionsRequest& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ListMediaWorkflowExecutionsRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ListMediaWorkflowExecutionsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ListMediaWorkflowExecutionsRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ListMediaWorkflowExecutionsRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
   protected:
     // The Object Storage Service (OSS) URL of the input file of the media workflow. The URL complies with RFC 3986 and is encoded in UTF-8, with reserved characters being percent-encoded. For more information, see [URL encoding](https://help.aliyun.com/document_detail/423796.html).
-    std::shared_ptr<string> inputFileURL_ = nullptr;
+    shared_ptr<string> inputFileURL_ {};
     // The maximum number of media workflow execution instances to return. Valid values: `[1,100]`. Default value: **10**.
-    std::shared_ptr<int64_t> maximumPageSize_ = nullptr;
+    shared_ptr<int64_t> maximumPageSize_ {};
     // The ID of the media workflow whose execution instances you want to query. To obtain the workflow ID, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Workflow Settings**.
-    std::shared_ptr<string> mediaWorkflowId_ = nullptr;
+    shared_ptr<string> mediaWorkflowId_ {};
     // The name of the media workflow. To obtain the workflow name, you can log on to the **MPS console** and choose **Workflows** > **Workflow Settings**.
-    std::shared_ptr<string> mediaWorkflowName_ = nullptr;
+    shared_ptr<string> mediaWorkflowName_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. The value is a UUID that contains 32 characters. When you request the first page of query results, leave the NextPageToken parameter empty. When you request more query results, specify the value of the NextPageToken parameter returned in the query results on the previous page.
-    std::shared_ptr<string> nextPageToken_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> nextPageToken_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models
