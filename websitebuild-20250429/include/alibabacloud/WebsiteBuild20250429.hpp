@@ -565,7 +565,7 @@ namespace WebsiteBuild20250429
       Models::QueryMaterialFileDetailResponse queryMaterialFileDetail(const Models::QueryMaterialFileDetailRequest &request);
 
       /**
-       * @summary 查询素材文件列表
+       * @summary Query Material File List
        *
        * @param tmpReq QueryMaterialFileListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +574,7 @@ namespace WebsiteBuild20250429
       Models::QueryMaterialFileListResponse queryMaterialFileListWithOptions(const Models::QueryMaterialFileListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询素材文件列表
+       * @summary Query Material File List
        *
        * @param request QueryMaterialFileListRequest
        * @return QueryMaterialFileListResponse

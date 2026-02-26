@@ -1746,7 +1746,7 @@ QueryMaterialFileDetailResponse Client::queryMaterialFileDetail(const QueryMater
 }
 
 /**
- * @summary 查询素材文件列表
+ * @summary Query Material File List
  *
  * @param tmpReq QueryMaterialFileListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1843,7 +1843,7 @@ QueryMaterialFileListResponse Client::queryMaterialFileListWithOptions(const Que
 }
 
 /**
- * @summary 查询素材文件列表
+ * @summary Query Material File List
  *
  * @param request QueryMaterialFileListRequest
  * @return QueryMaterialFileListResponse
