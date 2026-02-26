@@ -149,6 +149,9 @@
 #include <alibabacloud/models/GetOssCheckTaskInfoRequest.hpp>
 #include <alibabacloud/models/GetOssCheckTaskInfoResponseBody.hpp>
 #include <alibabacloud/models/GetOssCheckTaskInfoResponse.hpp>
+#include <alibabacloud/models/GetPromptTestResultRequest.hpp>
+#include <alibabacloud/models/GetPromptTestResultResponseBody.hpp>
+#include <alibabacloud/models/GetPromptTestResultResponse.hpp>
 #include <alibabacloud/models/GetScanNumRequest.hpp>
 #include <alibabacloud/models/GetScanNumResponseBody.hpp>
 #include <alibabacloud/models/GetScanNumResponse.hpp>

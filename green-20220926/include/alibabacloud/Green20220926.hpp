@@ -820,6 +820,23 @@ namespace Green20220926
       Models::GetOssCheckTaskInfoResponse getOssCheckTaskInfo(const Models::GetOssCheckTaskInfoRequest &request);
 
       /**
+       * @summary 测试特性配置
+       *
+       * @param request GetPromptTestResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPromptTestResultResponse
+       */
+      Models::GetPromptTestResultResponse getPromptTestResultWithOptions(const Models::GetPromptTestResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 测试特性配置
+       *
+       * @param request GetPromptTestResultRequest
+       * @return GetPromptTestResultResponse
+       */
+      Models::GetPromptTestResultResponse getPromptTestResult(const Models::GetPromptTestResultRequest &request);
+
+      /**
        * @summary User OSS Check Task Pending Inspection Information
        *
        * @param request GetScanNumRequest

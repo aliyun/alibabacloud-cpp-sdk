@@ -2775,6 +2775,64 @@ GetOssCheckTaskInfoResponse Client::getOssCheckTaskInfo(const GetOssCheckTaskInf
 }
 
 /**
+ * @summary 测试特性配置
+ *
+ * @param request GetPromptTestResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPromptTestResultResponse
+ */
+GetPromptTestResultResponse Client::getPromptTestResultWithOptions(const GetPromptTestResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfig()) {
+    query["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.getServiceCode();
+  }
+
+  if (!!request.hasText()) {
+    query["Text"] = request.getText();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPromptTestResult"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPromptTestResultResponse>();
+}
+
+/**
+ * @summary 测试特性配置
+ *
+ * @param request GetPromptTestResultRequest
+ * @return GetPromptTestResultResponse
+ */
+GetPromptTestResultResponse Client::getPromptTestResult(const GetPromptTestResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPromptTestResultWithOptions(request, runtime);
+}
+
+/**
  * @summary User OSS Check Task Pending Inspection Information
  *
  * @param request GetScanNumRequest
