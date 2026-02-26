@@ -556,6 +556,23 @@ namespace Eiam20211201
       Models::CreateConditionalAccessPolicyResponse createConditionalAccessPolicy(const Models::CreateConditionalAccessPolicyRequest &request);
 
       /**
+       * @summary 创建凭据
+       *
+       * @param request CreateCredentialRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCredentialResponse
+       */
+      Models::CreateCredentialResponse createCredentialWithOptions(const Models::CreateCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建凭据
+       *
+       * @param request CreateCredentialRequest
+       * @return CreateCredentialResponse
+       */
+      Models::CreateCredentialResponse createCredential(const Models::CreateCredentialRequest &request);
+
+      /**
        * @summary 创建扩展字段
        *
        * @param request CreateCustomFieldRequest
@@ -1021,6 +1038,23 @@ namespace Eiam20211201
        * @return DeleteConditionalAccessPolicyResponse
        */
       Models::DeleteConditionalAccessPolicyResponse deleteConditionalAccessPolicy(const Models::DeleteConditionalAccessPolicyRequest &request);
+
+      /**
+       * @summary 删除凭据
+       *
+       * @param request DeleteCredentialRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCredentialResponse
+       */
+      Models::DeleteCredentialResponse deleteCredentialWithOptions(const Models::DeleteCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除凭据
+       *
+       * @param request DeleteCredentialRequest
+       * @return DeleteCredentialResponse
+       */
+      Models::DeleteCredentialResponse deleteCredential(const Models::DeleteCredentialRequest &request);
 
       /**
        * @summary 删除扩展字段
@@ -1545,6 +1579,23 @@ namespace Eiam20211201
       Models::DisableConditionalAccessPolicyResponse disableConditionalAccessPolicy(const Models::DisableConditionalAccessPolicyRequest &request);
 
       /**
+       * @summary 禁用凭据
+       *
+       * @param request DisableCredentialRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableCredentialResponse
+       */
+      Models::DisableCredentialResponse disableCredentialWithOptions(const Models::DisableCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 禁用凭据
+       *
+       * @param request DisableCredentialRequest
+       * @return DisableCredentialResponse
+       */
+      Models::DisableCredentialResponse disableCredential(const Models::DisableCredentialRequest &request);
+
+      /**
        * @summary 禁用字段
        *
        * @param request DisableCustomFieldRequest
@@ -1972,6 +2023,23 @@ namespace Eiam20211201
        * @return EnableConditionalAccessPolicyResponse
        */
       Models::EnableConditionalAccessPolicyResponse enableConditionalAccessPolicy(const Models::EnableConditionalAccessPolicyRequest &request);
+
+      /**
+       * @summary 启用凭据
+       *
+       * @param request EnableCredentialRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableCredentialResponse
+       */
+      Models::EnableCredentialResponse enableCredentialWithOptions(const Models::EnableCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用凭据
+       *
+       * @param request EnableCredentialRequest
+       * @return EnableCredentialResponse
+       */
+      Models::EnableCredentialResponse enableCredential(const Models::EnableCredentialRequest &request);
 
       /**
        * @summary 启用字段
@@ -2537,6 +2605,23 @@ namespace Eiam20211201
        * @return GetConditionalAccessPolicyResponse
        */
       Models::GetConditionalAccessPolicyResponse getConditionalAccessPolicy(const Models::GetConditionalAccessPolicyRequest &request);
+
+      /**
+       * @summary 获取凭据
+       *
+       * @param request GetCredentialRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCredentialResponse
+       */
+      Models::GetCredentialResponse getCredentialWithOptions(const Models::GetCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取凭据
+       *
+       * @param request GetCredentialRequest
+       * @return GetCredentialResponse
+       */
+      Models::GetCredentialResponse getCredential(const Models::GetCredentialRequest &request);
 
       /**
        * @summary 获取扩展字段信息
@@ -3592,6 +3677,23 @@ namespace Eiam20211201
       Models::ListConditionalAccessPoliciesForUserResponse listConditionalAccessPoliciesForUser(const Models::ListConditionalAccessPoliciesForUserRequest &request);
 
       /**
+       * @summary 查询凭据列表
+       *
+       * @param request ListCredentialsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCredentialsResponse
+       */
+      Models::ListCredentialsResponse listCredentialsWithOptions(const Models::ListCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询凭据列表
+       *
+       * @param request ListCredentialsRequest
+       * @return ListCredentialsResponse
+       */
+      Models::ListCredentialsResponse listCredentials(const Models::ListCredentialsRequest &request);
+
+      /**
        * @summary 自定义条款列表查询。
        *
        * @param request ListCustomPrivacyPoliciesRequest
@@ -4199,6 +4301,23 @@ namespace Eiam20211201
        * @return ObtainApplicationTokenResponse
        */
       Models::ObtainApplicationTokenResponse obtainApplicationToken(const Models::ObtainApplicationTokenRequest &request);
+
+      /**
+       * @summary 获取凭据
+       *
+       * @param request ObtainCredentialRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ObtainCredentialResponse
+       */
+      Models::ObtainCredentialResponse obtainCredentialWithOptions(const Models::ObtainCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取凭据
+       *
+       * @param request ObtainCredentialRequest
+       * @return ObtainCredentialResponse
+       */
+      Models::ObtainCredentialResponse obtainCredential(const Models::ObtainCredentialRequest &request);
 
       /**
        * @summary Queries the information about a proxy token of a domain name of an Employee Identity and Access Management (EIAM) instance.
@@ -5299,6 +5418,40 @@ namespace Eiam20211201
        * @return UpdateConditionalAccessPolicyDescriptionResponse
        */
       Models::UpdateConditionalAccessPolicyDescriptionResponse updateConditionalAccessPolicyDescription(const Models::UpdateConditionalAccessPolicyDescriptionRequest &request);
+
+      /**
+       * @summary 更新凭据
+       *
+       * @param request UpdateCredentialRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCredentialResponse
+       */
+      Models::UpdateCredentialResponse updateCredentialWithOptions(const Models::UpdateCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新凭据
+       *
+       * @param request UpdateCredentialRequest
+       * @return UpdateCredentialResponse
+       */
+      Models::UpdateCredentialResponse updateCredential(const Models::UpdateCredentialRequest &request);
+
+      /**
+       * @summary 更新凭据描述
+       *
+       * @param request UpdateCredentialDescriptionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCredentialDescriptionResponse
+       */
+      Models::UpdateCredentialDescriptionResponse updateCredentialDescriptionWithOptions(const Models::UpdateCredentialDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新凭据描述
+       *
+       * @param request UpdateCredentialDescriptionRequest
+       * @return UpdateCredentialDescriptionResponse
+       */
+      Models::UpdateCredentialDescriptionResponse updateCredentialDescription(const Models::UpdateCredentialDescriptionRequest &request);
 
       /**
        * @summary 更新自定义条款

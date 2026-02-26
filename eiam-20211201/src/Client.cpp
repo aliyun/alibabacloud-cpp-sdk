@@ -1816,6 +1816,84 @@ CreateConditionalAccessPolicyResponse Client::createConditionalAccessPolicy(cons
 }
 
 /**
+ * @summary 创建凭据
+ *
+ * @param request CreateCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCredentialResponse
+ */
+CreateCredentialResponse Client::createCredentialWithOptions(const CreateCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCredentialContent()) {
+    query["CredentialContent"] = request.getCredentialContent();
+  }
+
+  if (!!request.hasCredentialIdentifier()) {
+    query["CredentialIdentifier"] = request.getCredentialIdentifier();
+  }
+
+  if (!!request.hasCredentialName()) {
+    query["CredentialName"] = request.getCredentialName();
+  }
+
+  if (!!request.hasCredentialScenarioLabel()) {
+    query["CredentialScenarioLabel"] = request.getCredentialScenarioLabel();
+  }
+
+  if (!!request.hasCredentialSubjectId()) {
+    query["CredentialSubjectId"] = request.getCredentialSubjectId();
+  }
+
+  if (!!request.hasCredentialSubjectType()) {
+    query["CredentialSubjectType"] = request.getCredentialSubjectType();
+  }
+
+  if (!!request.hasCredentialType()) {
+    query["CredentialType"] = request.getCredentialType();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCredential"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCredentialResponse>();
+}
+
+/**
+ * @summary 创建凭据
+ *
+ * @param request CreateCredentialRequest
+ * @return CreateCredentialResponse
+ */
+CreateCredentialResponse Client::createCredential(const CreateCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCredentialWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建扩展字段
  *
  * @param request CreateCustomFieldRequest
@@ -3370,6 +3448,52 @@ DeleteConditionalAccessPolicyResponse Client::deleteConditionalAccessPolicy(cons
 }
 
 /**
+ * @summary 删除凭据
+ *
+ * @param request DeleteCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCredentialResponse
+ */
+DeleteCredentialResponse Client::deleteCredentialWithOptions(const DeleteCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialId()) {
+    query["CredentialId"] = request.getCredentialId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCredential"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCredentialResponse>();
+}
+
+/**
+ * @summary 删除凭据
+ *
+ * @param request DeleteCredentialRequest
+ * @return DeleteCredentialResponse
+ */
+DeleteCredentialResponse Client::deleteCredential(const DeleteCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCredentialWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除扩展字段
  *
  * @param request DeleteCustomFieldRequest
@@ -4804,6 +4928,56 @@ DisableConditionalAccessPolicyResponse Client::disableConditionalAccessPolicy(co
 }
 
 /**
+ * @summary 禁用凭据
+ *
+ * @param request DisableCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableCredentialResponse
+ */
+DisableCredentialResponse Client::disableCredentialWithOptions(const DisableCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCredentialId()) {
+    query["CredentialId"] = request.getCredentialId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableCredential"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableCredentialResponse>();
+}
+
+/**
+ * @summary 禁用凭据
+ *
+ * @param request DisableCredentialRequest
+ * @return DisableCredentialResponse
+ */
+DisableCredentialResponse Client::disableCredential(const DisableCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableCredentialWithOptions(request, runtime);
+}
+
+/**
  * @summary 禁用字段
  *
  * @param request DisableCustomFieldRequest
@@ -5989,6 +6163,56 @@ EnableConditionalAccessPolicyResponse Client::enableConditionalAccessPolicyWithO
 EnableConditionalAccessPolicyResponse Client::enableConditionalAccessPolicy(const EnableConditionalAccessPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableConditionalAccessPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用凭据
+ *
+ * @param request EnableCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableCredentialResponse
+ */
+EnableCredentialResponse Client::enableCredentialWithOptions(const EnableCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCredentialId()) {
+    query["CredentialId"] = request.getCredentialId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableCredential"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableCredentialResponse>();
+}
+
+/**
+ * @summary 启用凭据
+ *
+ * @param request EnableCredentialRequest
+ * @return EnableCredentialResponse
+ */
+EnableCredentialResponse Client::enableCredential(const EnableCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableCredentialWithOptions(request, runtime);
 }
 
 /**
@@ -7547,6 +7771,52 @@ GetConditionalAccessPolicyResponse Client::getConditionalAccessPolicyWithOptions
 GetConditionalAccessPolicyResponse Client::getConditionalAccessPolicy(const GetConditionalAccessPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getConditionalAccessPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取凭据
+ *
+ * @param request GetCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCredentialResponse
+ */
+GetCredentialResponse Client::getCredentialWithOptions(const GetCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialId()) {
+    query["CredentialId"] = request.getCredentialId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCredential"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCredentialResponse>();
+}
+
+/**
+ * @summary 获取凭据
+ *
+ * @param request GetCredentialRequest
+ * @return GetCredentialResponse
+ */
+GetCredentialResponse Client::getCredential(const GetCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCredentialWithOptions(request, runtime);
 }
 
 /**
@@ -10596,6 +10866,68 @@ ListConditionalAccessPoliciesForUserResponse Client::listConditionalAccessPolici
 }
 
 /**
+ * @summary 查询凭据列表
+ *
+ * @param request ListCredentialsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCredentialsResponse
+ */
+ListCredentialsResponse Client::listCredentialsWithOptions(const ListCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialIds()) {
+    query["CredentialIds"] = request.getCredentialIds();
+  }
+
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStatuses()) {
+    query["Statuses"] = request.getStatuses();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCredentials"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCredentialsResponse>();
+}
+
+/**
+ * @summary 查询凭据列表
+ *
+ * @param request ListCredentialsRequest
+ * @return ListCredentialsResponse
+ */
+ListCredentialsResponse Client::listCredentials(const ListCredentialsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCredentialsWithOptions(request, runtime);
+}
+
+/**
  * @summary 自定义条款列表查询。
  *
  * @param request ListCustomPrivacyPoliciesRequest
@@ -12610,6 +12942,52 @@ ObtainApplicationTokenResponse Client::obtainApplicationTokenWithOptions(const O
 ObtainApplicationTokenResponse Client::obtainApplicationToken(const ObtainApplicationTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return obtainApplicationTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取凭据
+ *
+ * @param request ObtainCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ObtainCredentialResponse
+ */
+ObtainCredentialResponse Client::obtainCredentialWithOptions(const ObtainCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialId()) {
+    query["CredentialId"] = request.getCredentialId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ObtainCredential"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ObtainCredentialResponse>();
+}
+
+/**
+ * @summary 获取凭据
+ *
+ * @param request ObtainCredentialRequest
+ * @return ObtainCredentialResponse
+ */
+ObtainCredentialResponse Client::obtainCredential(const ObtainCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return obtainCredentialWithOptions(request, runtime);
 }
 
 /**
@@ -16128,6 +16506,118 @@ UpdateConditionalAccessPolicyDescriptionResponse Client::updateConditionalAccess
 UpdateConditionalAccessPolicyDescriptionResponse Client::updateConditionalAccessPolicyDescription(const UpdateConditionalAccessPolicyDescriptionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateConditionalAccessPolicyDescriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新凭据
+ *
+ * @param request UpdateCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCredentialResponse
+ */
+UpdateCredentialResponse Client::updateCredentialWithOptions(const UpdateCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCredentialContent()) {
+    query["CredentialContent"] = request.getCredentialContent();
+  }
+
+  if (!!request.hasCredentialId()) {
+    query["CredentialId"] = request.getCredentialId();
+  }
+
+  if (!!request.hasCredentialName()) {
+    query["CredentialName"] = request.getCredentialName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCredential"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCredentialResponse>();
+}
+
+/**
+ * @summary 更新凭据
+ *
+ * @param request UpdateCredentialRequest
+ * @return UpdateCredentialResponse
+ */
+UpdateCredentialResponse Client::updateCredential(const UpdateCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCredentialWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新凭据描述
+ *
+ * @param request UpdateCredentialDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCredentialDescriptionResponse
+ */
+UpdateCredentialDescriptionResponse Client::updateCredentialDescriptionWithOptions(const UpdateCredentialDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCredentialId()) {
+    query["CredentialId"] = request.getCredentialId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCredentialDescription"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCredentialDescriptionResponse>();
+}
+
+/**
+ * @summary 更新凭据描述
+ *
+ * @param request UpdateCredentialDescriptionRequest
+ * @return UpdateCredentialDescriptionResponse
+ */
+UpdateCredentialDescriptionResponse Client::updateCredentialDescription(const UpdateCredentialDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCredentialDescriptionWithOptions(request, runtime);
 }
 
 /**

@@ -95,6 +95,9 @@
 #include <alibabacloud/models/CreateConditionalAccessPolicyRequest.hpp>
 #include <alibabacloud/models/CreateConditionalAccessPolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateConditionalAccessPolicyResponse.hpp>
+#include <alibabacloud/models/CreateCredentialRequest.hpp>
+#include <alibabacloud/models/CreateCredentialResponseBody.hpp>
+#include <alibabacloud/models/CreateCredentialResponse.hpp>
 #include <alibabacloud/models/CreateCustomFieldRequest.hpp>
 #include <alibabacloud/models/CreateCustomFieldResponseBody.hpp>
 #include <alibabacloud/models/CreateCustomFieldResponse.hpp>
@@ -176,6 +179,9 @@
 #include <alibabacloud/models/DeleteConditionalAccessPolicyRequest.hpp>
 #include <alibabacloud/models/DeleteConditionalAccessPolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteConditionalAccessPolicyResponse.hpp>
+#include <alibabacloud/models/DeleteCredentialRequest.hpp>
+#include <alibabacloud/models/DeleteCredentialResponseBody.hpp>
+#include <alibabacloud/models/DeleteCredentialResponse.hpp>
 #include <alibabacloud/models/DeleteCustomFieldRequest.hpp>
 #include <alibabacloud/models/DeleteCustomFieldResponseBody.hpp>
 #include <alibabacloud/models/DeleteCustomFieldResponse.hpp>
@@ -266,6 +272,9 @@
 #include <alibabacloud/models/DisableConditionalAccessPolicyRequest.hpp>
 #include <alibabacloud/models/DisableConditionalAccessPolicyResponseBody.hpp>
 #include <alibabacloud/models/DisableConditionalAccessPolicyResponse.hpp>
+#include <alibabacloud/models/DisableCredentialRequest.hpp>
+#include <alibabacloud/models/DisableCredentialResponseBody.hpp>
+#include <alibabacloud/models/DisableCredentialResponse.hpp>
 #include <alibabacloud/models/DisableCustomFieldRequest.hpp>
 #include <alibabacloud/models/DisableCustomFieldResponseBody.hpp>
 #include <alibabacloud/models/DisableCustomFieldResponse.hpp>
@@ -341,6 +350,9 @@
 #include <alibabacloud/models/EnableConditionalAccessPolicyRequest.hpp>
 #include <alibabacloud/models/EnableConditionalAccessPolicyResponseBody.hpp>
 #include <alibabacloud/models/EnableConditionalAccessPolicyResponse.hpp>
+#include <alibabacloud/models/EnableCredentialRequest.hpp>
+#include <alibabacloud/models/EnableCredentialResponseBody.hpp>
+#include <alibabacloud/models/EnableCredentialResponse.hpp>
 #include <alibabacloud/models/EnableCustomFieldRequest.hpp>
 #include <alibabacloud/models/EnableCustomFieldResponseBody.hpp>
 #include <alibabacloud/models/EnableCustomFieldResponse.hpp>
@@ -440,6 +452,9 @@
 #include <alibabacloud/models/GetConditionalAccessPolicyRequest.hpp>
 #include <alibabacloud/models/GetConditionalAccessPolicyResponseBody.hpp>
 #include <alibabacloud/models/GetConditionalAccessPolicyResponse.hpp>
+#include <alibabacloud/models/GetCredentialRequest.hpp>
+#include <alibabacloud/models/GetCredentialResponseBody.hpp>
+#include <alibabacloud/models/GetCredentialResponse.hpp>
 #include <alibabacloud/models/GetCustomFieldRequest.hpp>
 #include <alibabacloud/models/GetCustomFieldResponseBody.hpp>
 #include <alibabacloud/models/GetCustomFieldResponse.hpp>
@@ -623,6 +638,9 @@
 #include <alibabacloud/models/ListConditionalAccessPoliciesForUserRequest.hpp>
 #include <alibabacloud/models/ListConditionalAccessPoliciesForUserResponseBody.hpp>
 #include <alibabacloud/models/ListConditionalAccessPoliciesForUserResponse.hpp>
+#include <alibabacloud/models/ListCredentialsRequest.hpp>
+#include <alibabacloud/models/ListCredentialsResponseBody.hpp>
+#include <alibabacloud/models/ListCredentialsResponse.hpp>
 #include <alibabacloud/models/ListCustomPrivacyPoliciesRequest.hpp>
 #include <alibabacloud/models/ListCustomPrivacyPoliciesResponseBody.hpp>
 #include <alibabacloud/models/ListCustomPrivacyPoliciesResponse.hpp>
@@ -728,6 +746,9 @@
 #include <alibabacloud/models/ObtainApplicationTokenRequest.hpp>
 #include <alibabacloud/models/ObtainApplicationTokenResponseBody.hpp>
 #include <alibabacloud/models/ObtainApplicationTokenResponse.hpp>
+#include <alibabacloud/models/ObtainCredentialRequest.hpp>
+#include <alibabacloud/models/ObtainCredentialResponseBody.hpp>
+#include <alibabacloud/models/ObtainCredentialResponse.hpp>
 #include <alibabacloud/models/ObtainDomainProxyTokenRequest.hpp>
 #include <alibabacloud/models/ObtainDomainProxyTokenResponseBody.hpp>
 #include <alibabacloud/models/ObtainDomainProxyTokenResponse.hpp>
@@ -920,6 +941,12 @@
 #include <alibabacloud/models/UpdateConditionalAccessPolicyDescriptionRequest.hpp>
 #include <alibabacloud/models/UpdateConditionalAccessPolicyDescriptionResponseBody.hpp>
 #include <alibabacloud/models/UpdateConditionalAccessPolicyDescriptionResponse.hpp>
+#include <alibabacloud/models/UpdateCredentialRequest.hpp>
+#include <alibabacloud/models/UpdateCredentialResponseBody.hpp>
+#include <alibabacloud/models/UpdateCredentialResponse.hpp>
+#include <alibabacloud/models/UpdateCredentialDescriptionRequest.hpp>
+#include <alibabacloud/models/UpdateCredentialDescriptionResponseBody.hpp>
+#include <alibabacloud/models/UpdateCredentialDescriptionResponse.hpp>
 #include <alibabacloud/models/UpdateCustomPrivacyPolicyRequest.hpp>
 #include <alibabacloud/models/UpdateCustomPrivacyPolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateCustomPrivacyPolicyResponse.hpp>

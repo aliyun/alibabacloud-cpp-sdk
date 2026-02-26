@@ -1,0 +1,339 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTCREDENTIALSRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_LISTCREDENTIALSRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Eiam20211201
+{
+namespace Models
+{
+  class ListCredentialsResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListCredentialsResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Credentials, credentials_);
+      DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListCredentialsResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Credentials, credentials_);
+      DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+    };
+    ListCredentialsResponseBody() = default ;
+    ListCredentialsResponseBody(const ListCredentialsResponseBody &) = default ;
+    ListCredentialsResponseBody(ListCredentialsResponseBody &&) = default ;
+    ListCredentialsResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListCredentialsResponseBody() = default ;
+    ListCredentialsResponseBody& operator=(const ListCredentialsResponseBody &) = default ;
+    ListCredentialsResponseBody& operator=(ListCredentialsResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Credentials : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Credentials& obj) { 
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(CredentialContent, credentialContent_);
+        DARABONBA_PTR_TO_JSON(CredentialCreationType, credentialCreationType_);
+        DARABONBA_PTR_TO_JSON(CredentialId, credentialId_);
+        DARABONBA_PTR_TO_JSON(CredentialIdentifier, credentialIdentifier_);
+        DARABONBA_PTR_TO_JSON(CredentialName, credentialName_);
+        DARABONBA_PTR_TO_JSON(CredentialScenarioLabel, credentialScenarioLabel_);
+        DARABONBA_PTR_TO_JSON(CredentialSubjectId, credentialSubjectId_);
+        DARABONBA_PTR_TO_JSON(CredentialSubjectType, credentialSubjectType_);
+        DARABONBA_PTR_TO_JSON(CredentialType, credentialType_);
+        DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
+      };
+      friend void from_json(const Darabonba::Json& j, Credentials& obj) { 
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(CredentialContent, credentialContent_);
+        DARABONBA_PTR_FROM_JSON(CredentialCreationType, credentialCreationType_);
+        DARABONBA_PTR_FROM_JSON(CredentialId, credentialId_);
+        DARABONBA_PTR_FROM_JSON(CredentialIdentifier, credentialIdentifier_);
+        DARABONBA_PTR_FROM_JSON(CredentialName, credentialName_);
+        DARABONBA_PTR_FROM_JSON(CredentialScenarioLabel, credentialScenarioLabel_);
+        DARABONBA_PTR_FROM_JSON(CredentialSubjectId, credentialSubjectId_);
+        DARABONBA_PTR_FROM_JSON(CredentialSubjectType, credentialSubjectType_);
+        DARABONBA_PTR_FROM_JSON(CredentialType, credentialType_);
+        DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
+      };
+      Credentials() = default ;
+      Credentials(const Credentials &) = default ;
+      Credentials(Credentials &&) = default ;
+      Credentials(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Credentials() = default ;
+      Credentials& operator=(const Credentials &) = default ;
+      Credentials& operator=(Credentials &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class CredentialContent : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CredentialContent& obj) { 
+          DARABONBA_PTR_TO_JSON(OAuthClientContent, OAuthClientContent_);
+        };
+        friend void from_json(const Darabonba::Json& j, CredentialContent& obj) { 
+          DARABONBA_PTR_FROM_JSON(OAuthClientContent, OAuthClientContent_);
+        };
+        CredentialContent() = default ;
+        CredentialContent(const CredentialContent &) = default ;
+        CredentialContent(CredentialContent &&) = default ;
+        CredentialContent(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CredentialContent() = default ;
+        CredentialContent& operator=(const CredentialContent &) = default ;
+        CredentialContent& operator=(CredentialContent &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class OAuthClientContent : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const OAuthClientContent& obj) { 
+            DARABONBA_PTR_TO_JSON(ClientId, clientId_);
+          };
+          friend void from_json(const Darabonba::Json& j, OAuthClientContent& obj) { 
+            DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
+          };
+          OAuthClientContent() = default ;
+          OAuthClientContent(const OAuthClientContent &) = default ;
+          OAuthClientContent(OAuthClientContent &&) = default ;
+          OAuthClientContent(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~OAuthClientContent() = default ;
+          OAuthClientContent& operator=(const OAuthClientContent &) = default ;
+          OAuthClientContent& operator=(OAuthClientContent &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->clientId_ == nullptr; };
+          // clientId Field Functions 
+          bool hasClientId() const { return this->clientId_ != nullptr;};
+          void deleteClientId() { this->clientId_ = nullptr;};
+          inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+          inline OAuthClientContent& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
+
+
+        protected:
+          // OAuth协议的client_id
+          shared_ptr<string> clientId_ {};
+        };
+
+        virtual bool empty() const override { return this->OAuthClientContent_ == nullptr; };
+        // OAuthClientContent Field Functions 
+        bool hasOAuthClientContent() const { return this->OAuthClientContent_ != nullptr;};
+        void deleteOAuthClientContent() { this->OAuthClientContent_ = nullptr;};
+        inline const CredentialContent::OAuthClientContent & getOAuthClientContent() const { DARABONBA_PTR_GET_CONST(OAuthClientContent_, CredentialContent::OAuthClientContent) };
+        inline CredentialContent::OAuthClientContent getOAuthClientContent() { DARABONBA_PTR_GET(OAuthClientContent_, CredentialContent::OAuthClientContent) };
+        inline CredentialContent& setOAuthClientContent(const CredentialContent::OAuthClientContent & oAuthClientContent) { DARABONBA_PTR_SET_VALUE(OAuthClientContent_, oAuthClientContent) };
+        inline CredentialContent& setOAuthClientContent(CredentialContent::OAuthClientContent && oAuthClientContent) { DARABONBA_PTR_SET_RVALUE(OAuthClientContent_, oAuthClientContent) };
+
+
+      protected:
+        // OAuth客户端认证凭证类型的凭据内容。
+        shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
+      };
+
+      virtual bool empty() const override { return this->createTime_ == nullptr
+        && this->credentialContent_ == nullptr && this->credentialCreationType_ == nullptr && this->credentialId_ == nullptr && this->credentialIdentifier_ == nullptr && this->credentialName_ == nullptr
+        && this->credentialScenarioLabel_ == nullptr && this->credentialSubjectId_ == nullptr && this->credentialSubjectType_ == nullptr && this->credentialType_ == nullptr && this->description_ == nullptr
+        && this->instanceId_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+      inline Credentials& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // credentialContent Field Functions 
+      bool hasCredentialContent() const { return this->credentialContent_ != nullptr;};
+      void deleteCredentialContent() { this->credentialContent_ = nullptr;};
+      inline const Credentials::CredentialContent & getCredentialContent() const { DARABONBA_PTR_GET_CONST(credentialContent_, Credentials::CredentialContent) };
+      inline Credentials::CredentialContent getCredentialContent() { DARABONBA_PTR_GET(credentialContent_, Credentials::CredentialContent) };
+      inline Credentials& setCredentialContent(const Credentials::CredentialContent & credentialContent) { DARABONBA_PTR_SET_VALUE(credentialContent_, credentialContent) };
+      inline Credentials& setCredentialContent(Credentials::CredentialContent && credentialContent) { DARABONBA_PTR_SET_RVALUE(credentialContent_, credentialContent) };
+
+
+      // credentialCreationType Field Functions 
+      bool hasCredentialCreationType() const { return this->credentialCreationType_ != nullptr;};
+      void deleteCredentialCreationType() { this->credentialCreationType_ = nullptr;};
+      inline string getCredentialCreationType() const { DARABONBA_PTR_GET_DEFAULT(credentialCreationType_, "") };
+      inline Credentials& setCredentialCreationType(string credentialCreationType) { DARABONBA_PTR_SET_VALUE(credentialCreationType_, credentialCreationType) };
+
+
+      // credentialId Field Functions 
+      bool hasCredentialId() const { return this->credentialId_ != nullptr;};
+      void deleteCredentialId() { this->credentialId_ = nullptr;};
+      inline string getCredentialId() const { DARABONBA_PTR_GET_DEFAULT(credentialId_, "") };
+      inline Credentials& setCredentialId(string credentialId) { DARABONBA_PTR_SET_VALUE(credentialId_, credentialId) };
+
+
+      // credentialIdentifier Field Functions 
+      bool hasCredentialIdentifier() const { return this->credentialIdentifier_ != nullptr;};
+      void deleteCredentialIdentifier() { this->credentialIdentifier_ = nullptr;};
+      inline string getCredentialIdentifier() const { DARABONBA_PTR_GET_DEFAULT(credentialIdentifier_, "") };
+      inline Credentials& setCredentialIdentifier(string credentialIdentifier) { DARABONBA_PTR_SET_VALUE(credentialIdentifier_, credentialIdentifier) };
+
+
+      // credentialName Field Functions 
+      bool hasCredentialName() const { return this->credentialName_ != nullptr;};
+      void deleteCredentialName() { this->credentialName_ = nullptr;};
+      inline string getCredentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
+      inline Credentials& setCredentialName(string credentialName) { DARABONBA_PTR_SET_VALUE(credentialName_, credentialName) };
+
+
+      // credentialScenarioLabel Field Functions 
+      bool hasCredentialScenarioLabel() const { return this->credentialScenarioLabel_ != nullptr;};
+      void deleteCredentialScenarioLabel() { this->credentialScenarioLabel_ = nullptr;};
+      inline string getCredentialScenarioLabel() const { DARABONBA_PTR_GET_DEFAULT(credentialScenarioLabel_, "") };
+      inline Credentials& setCredentialScenarioLabel(string credentialScenarioLabel) { DARABONBA_PTR_SET_VALUE(credentialScenarioLabel_, credentialScenarioLabel) };
+
+
+      // credentialSubjectId Field Functions 
+      bool hasCredentialSubjectId() const { return this->credentialSubjectId_ != nullptr;};
+      void deleteCredentialSubjectId() { this->credentialSubjectId_ = nullptr;};
+      inline string getCredentialSubjectId() const { DARABONBA_PTR_GET_DEFAULT(credentialSubjectId_, "") };
+      inline Credentials& setCredentialSubjectId(string credentialSubjectId) { DARABONBA_PTR_SET_VALUE(credentialSubjectId_, credentialSubjectId) };
+
+
+      // credentialSubjectType Field Functions 
+      bool hasCredentialSubjectType() const { return this->credentialSubjectType_ != nullptr;};
+      void deleteCredentialSubjectType() { this->credentialSubjectType_ = nullptr;};
+      inline string getCredentialSubjectType() const { DARABONBA_PTR_GET_DEFAULT(credentialSubjectType_, "") };
+      inline Credentials& setCredentialSubjectType(string credentialSubjectType) { DARABONBA_PTR_SET_VALUE(credentialSubjectType_, credentialSubjectType) };
+
+
+      // credentialType Field Functions 
+      bool hasCredentialType() const { return this->credentialType_ != nullptr;};
+      void deleteCredentialType() { this->credentialType_ = nullptr;};
+      inline string getCredentialType() const { DARABONBA_PTR_GET_DEFAULT(credentialType_, "") };
+      inline Credentials& setCredentialType(string credentialType) { DARABONBA_PTR_SET_VALUE(credentialType_, credentialType) };
+
+
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Credentials& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline Credentials& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Credentials& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // updateTime Field Functions 
+      bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
+      void deleteUpdateTime() { this->updateTime_ = nullptr;};
+      inline int64_t getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, 0L) };
+      inline Credentials& setUpdateTime(int64_t updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
+
+
+    protected:
+      // 云角色创建时间
+      shared_ptr<int64_t> createTime_ {};
+      // 凭据的内容。
+      shared_ptr<Credentials::CredentialContent> credentialContent_ {};
+      // 凭据的创建类型。
+      shared_ptr<string> credentialCreationType_ {};
+      // 凭据ID。
+      shared_ptr<string> credentialId_ {};
+      // 凭据标识
+      shared_ptr<string> credentialIdentifier_ {};
+      // 凭据名称
+      shared_ptr<string> credentialName_ {};
+      // 凭据的使用场景标签。
+      shared_ptr<string> credentialScenarioLabel_ {};
+      // 凭据所属的主体ID。
+      shared_ptr<string> credentialSubjectId_ {};
+      // 凭据所属的主体类型。
+      shared_ptr<string> credentialSubjectType_ {};
+      // 凭据类型。
+      shared_ptr<string> credentialType_ {};
+      // 描述
+      shared_ptr<string> description_ {};
+      // EIAM实例ID。
+      shared_ptr<string> instanceId_ {};
+      // 凭据状态
+      shared_ptr<string> status_ {};
+      // 云角色更新时间
+      shared_ptr<int64_t> updateTime_ {};
+    };
+
+    virtual bool empty() const override { return this->credentials_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
+    // credentials Field Functions 
+    bool hasCredentials() const { return this->credentials_ != nullptr;};
+    void deleteCredentials() { this->credentials_ = nullptr;};
+    inline const vector<ListCredentialsResponseBody::Credentials> & getCredentials() const { DARABONBA_PTR_GET_CONST(credentials_, vector<ListCredentialsResponseBody::Credentials>) };
+    inline vector<ListCredentialsResponseBody::Credentials> getCredentials() { DARABONBA_PTR_GET(credentials_, vector<ListCredentialsResponseBody::Credentials>) };
+    inline ListCredentialsResponseBody& setCredentials(const vector<ListCredentialsResponseBody::Credentials> & credentials) { DARABONBA_PTR_SET_VALUE(credentials_, credentials) };
+    inline ListCredentialsResponseBody& setCredentials(vector<ListCredentialsResponseBody::Credentials> && credentials) { DARABONBA_PTR_SET_RVALUE(credentials_, credentials) };
+
+
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline ListCredentialsResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListCredentialsResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline ListCredentialsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline ListCredentialsResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+  protected:
+    shared_ptr<vector<ListCredentialsResponseBody::Credentials>> credentials_ {};
+    // 分页查询时每页行数。
+    shared_ptr<int32_t> maxResults_ {};
+    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> totalCount_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Eiam20211201
+#endif
