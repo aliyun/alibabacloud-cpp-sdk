@@ -685,13 +685,13 @@ CreateAggregateConfigDeliveryChannelResponse Client::createAggregateConfigDelive
  * @summary Creates a rule for a specified account group. You can create a rule from a template or create a custom rule using Function Compute. The rule checks your resources for compliance. After a rule is created, it automatically runs once. Cloud Config then runs evaluations based on the rule\\"s trigger. You can also run evaluations manually.
  *
  * @description ### Limits
- * Each management account and delegated administrator account can have a maximum of 200 rules.
+ * Each management account and delegated administrator account can have up to 200 rules.
  * ### Background information
  * Cloud Config supports the following methods for creating rules:
  * - Create rules from templates
- *   Rule templates are predefined rule functions that Cloud Config provides in Function Compute (FC). You can use rule templates to create rules quickly. For more information about rules, see [Definition and working principle of rules](https://help.aliyun.com/document_detail/128273.html).
+ *   Rule templates are predefined rule functions that Cloud Config provides in Function Compute (FC). Use rule templates to create rules quickly. For more information about rules, see [the referenced document](https://help.aliyun.com/document_detail/128273.html).
  * - Create rules based on functions in Function Compute
- *   Custom function rules are rules whose code is hosted in FC functions. If the predefined rule templates in Cloud Config do not meet your compliance requirements, you can write function code to check compliance in complex scenarios. For more information about custom function rules, see [Definition and working principle of custom function rules](https://help.aliyun.com/document_detail/127405.html).
+ *   Custom function rules are rules whose code is hosted in FC functions. If the predefined rule templates in Cloud Config do not meet your compliance requirements, write function code to check compliance in complex scenarios. For more information about custom function rules, see [the referenced document](https://help.aliyun.com/document_detail/127405.html).
  * ### Usage notes
  * This example shows how to create a rule for the account group `ca-a4e5626622af0079****` using the \\`required-tags\\` template. The response shows that the rule is created with the ID `cr-4e3d626622af0080****`.
  *
@@ -863,13 +863,13 @@ CreateAggregateConfigRuleResponse Client::createAggregateConfigRuleWithOptions(c
  * @summary Creates a rule for a specified account group. You can create a rule from a template or create a custom rule using Function Compute. The rule checks your resources for compliance. After a rule is created, it automatically runs once. Cloud Config then runs evaluations based on the rule\\"s trigger. You can also run evaluations manually.
  *
  * @description ### Limits
- * Each management account and delegated administrator account can have a maximum of 200 rules.
+ * Each management account and delegated administrator account can have up to 200 rules.
  * ### Background information
  * Cloud Config supports the following methods for creating rules:
  * - Create rules from templates
- *   Rule templates are predefined rule functions that Cloud Config provides in Function Compute (FC). You can use rule templates to create rules quickly. For more information about rules, see [Definition and working principle of rules](https://help.aliyun.com/document_detail/128273.html).
+ *   Rule templates are predefined rule functions that Cloud Config provides in Function Compute (FC). Use rule templates to create rules quickly. For more information about rules, see [the referenced document](https://help.aliyun.com/document_detail/128273.html).
  * - Create rules based on functions in Function Compute
- *   Custom function rules are rules whose code is hosted in FC functions. If the predefined rule templates in Cloud Config do not meet your compliance requirements, you can write function code to check compliance in complex scenarios. For more information about custom function rules, see [Definition and working principle of custom function rules](https://help.aliyun.com/document_detail/127405.html).
+ *   Custom function rules are rules whose code is hosted in FC functions. If the predefined rule templates in Cloud Config do not meet your compliance requirements, write function code to check compliance in complex scenarios. For more information about custom function rules, see [the referenced document](https://help.aliyun.com/document_detail/127405.html).
  * ### Usage notes
  * This example shows how to create a rule for the account group `ca-a4e5626622af0079****` using the \\`required-tags\\` template. The response shows that the rule is created with the ID `cr-4e3d626622af0080****`.
  *
@@ -1321,15 +1321,15 @@ CreateConfigDeliveryChannelResponse Client::createConfigDeliveryChannel(const Cr
  * @summary Creates a rule from a template or a custom rule using Function Compute to check resource compliance. After you create a rule, Cloud Config runs an initial evaluation and then automatically triggers subsequent evaluations based on the rule\\"s trigger. You can also run evaluations manually.
  *
  * @description ### Limits
- * You can create up to 200 rules for each account.
+ * You can create up to 200 rules per account.
  * ### Background information
- * You can create rules in Cloud Config in the following ways:
+ * You can create rules in Cloud Config in two ways:
  * - Create rules from templates
- *   Rule templates are predefined rule functions in Function Compute that are provided by Cloud Config. You can use rule templates to create rules quickly. For more information about rules, see [Definition and working principles of rules](https://help.aliyun.com/document_detail/128273.html).
+ *   Rule templates are predefined rule functions provided by Cloud Config in Function Compute. You can use rule templates to quickly create rules. For more information, see [Definition and working principles of rules](https://help.aliyun.com/document_detail/128273.html).
  * - Create custom rules using Function Compute
- *   Custom rules are based on functions in Function Compute that host your rule code. If the predefined rule templates in Cloud Config do not meet your compliance requirements, you can write your own function code to check compliance in complex scenarios. For more information about custom rules, see [Definition and working principles of custom rules](https://help.aliyun.com/document_detail/127405.html).
+ *   Custom rules use Function Compute functions to host your rule code. If Cloud Config\\"s predefined rule templates do not meet your compliance requirements, you can write your own function code to check compliance in complex scenarios. For more information, see [Definition and working principles of custom rules](https://help.aliyun.com/document_detail/127405.html).
  * ### Usage notes
- * This topic provides an example of how to create a rule from the \\`required-tags\\` template. In the response, a rule is created and its ID is `cr-5772ba41209e007b****`.
+ * This topic demonstrates how to create a rule from the \\`required-tags\\` template. The response confirms that the rule was created successfully. Its ID is `cr-5772ba41209e007b****`.
  *
  * @param tmpReq CreateConfigRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1479,15 +1479,15 @@ CreateConfigRuleResponse Client::createConfigRuleWithOptions(const CreateConfigR
  * @summary Creates a rule from a template or a custom rule using Function Compute to check resource compliance. After you create a rule, Cloud Config runs an initial evaluation and then automatically triggers subsequent evaluations based on the rule\\"s trigger. You can also run evaluations manually.
  *
  * @description ### Limits
- * You can create up to 200 rules for each account.
+ * You can create up to 200 rules per account.
  * ### Background information
- * You can create rules in Cloud Config in the following ways:
+ * You can create rules in Cloud Config in two ways:
  * - Create rules from templates
- *   Rule templates are predefined rule functions in Function Compute that are provided by Cloud Config. You can use rule templates to create rules quickly. For more information about rules, see [Definition and working principles of rules](https://help.aliyun.com/document_detail/128273.html).
+ *   Rule templates are predefined rule functions provided by Cloud Config in Function Compute. You can use rule templates to quickly create rules. For more information, see [Definition and working principles of rules](https://help.aliyun.com/document_detail/128273.html).
  * - Create custom rules using Function Compute
- *   Custom rules are based on functions in Function Compute that host your rule code. If the predefined rule templates in Cloud Config do not meet your compliance requirements, you can write your own function code to check compliance in complex scenarios. For more information about custom rules, see [Definition and working principles of custom rules](https://help.aliyun.com/document_detail/127405.html).
+ *   Custom rules use Function Compute functions to host your rule code. If Cloud Config\\"s predefined rule templates do not meet your compliance requirements, you can write your own function code to check compliance in complex scenarios. For more information, see [Definition and working principles of custom rules](https://help.aliyun.com/document_detail/127405.html).
  * ### Usage notes
- * This topic provides an example of how to create a rule from the \\`required-tags\\` template. In the response, a rule is created and its ID is `cr-5772ba41209e007b****`.
+ * This topic demonstrates how to create a rule from the \\`required-tags\\` template. The response confirms that the rule was created successfully. Its ID is `cr-5772ba41209e007b****`.
  *
  * @param request CreateConfigRuleRequest
  * @return CreateConfigRuleResponse
@@ -7608,7 +7608,9 @@ StartAggregateConfigRuleEvaluationResponse Client::startAggregateConfigRuleEvalu
 }
 
 /**
- * @summary 执行账号组规则修正
+ * @summary Manually run remediation for a specified account group rule.
+ *
+ * @description This topic describes how to manually run remediation once for the rule `cr-6b7c626622af00b4****` in the account group `ca-6b4a626622af0012****`. The response indicates that remediation completed successfully.
  *
  * @param request StartAggregateRemediationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7629,6 +7631,18 @@ StartAggregateRemediationResponse Client::startAggregateRemediationWithOptions(c
     query["ResourceAccountId"] = request.getResourceAccountId();
   }
 
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceRegionId()) {
+    query["ResourceRegionId"] = request.getResourceRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -7647,7 +7661,9 @@ StartAggregateRemediationResponse Client::startAggregateRemediationWithOptions(c
 }
 
 /**
- * @summary 执行账号组规则修正
+ * @summary Manually run remediation for a specified account group rule.
+ *
+ * @description This topic describes how to manually run remediation once for the rule `cr-6b7c626622af00b4****` in the account group `ca-6b4a626622af0012****`. The response indicates that remediation completed successfully.
  *
  * @param request StartAggregateRemediationRequest
  * @return StartAggregateRemediationResponse
@@ -7787,7 +7803,9 @@ StartConfigurationRecorderResponse Client::startConfigurationRecorder() {
 }
 
 /**
- * @summary 执行修正
+ * @summary Manually execute the specified rule remediation.
+ *
+ * @description This topic provides an example of a manual remediation for rule `cr-8a973ac2e2be00a2****`. The returned result indicates a successful manual remediation.
  *
  * @param request StartRemediationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7798,6 +7816,18 @@ StartRemediationResponse Client::startRemediationWithOptions(const StartRemediat
   json query = {};
   if (!!request.hasConfigRuleId()) {
     query["ConfigRuleId"] = request.getConfigRuleId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceRegionId()) {
+    query["ResourceRegionId"] = request.getResourceRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7818,7 +7848,9 @@ StartRemediationResponse Client::startRemediationWithOptions(const StartRemediat
 }
 
 /**
- * @summary 执行修正
+ * @summary Manually execute the specified rule remediation.
+ *
+ * @description This topic provides an example of a manual remediation for rule `cr-8a973ac2e2be00a2****`. The returned result indicates a successful manual remediation.
  *
  * @param request StartRemediationRequest
  * @return StartRemediationResponse
@@ -8794,7 +8826,7 @@ UpdateConfigDeliveryChannelResponse Client::updateConfigDeliveryChannel(const Up
 /**
  * @summary Modifies the description, input parameters, and risk level of a rule.
  *
- * @description This topic provides an example of how to change the risk level of the rule `cr-a260626622af0005****` to `3` (low risk).
+ * @description This topic shows how to change the risk level of rule `cr-a260626622af0005****` to `3`, which indicates low risk.
  *
  * @param tmpReq UpdateConfigRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8939,7 +8971,7 @@ UpdateConfigRuleResponse Client::updateConfigRuleWithOptions(const UpdateConfigR
 /**
  * @summary Modifies the description, input parameters, and risk level of a rule.
  *
- * @description This topic provides an example of how to change the risk level of the rule `cr-a260626622af0005****` to `3` (low risk).
+ * @description This topic shows how to change the risk level of rule `cr-a260626622af0005****` to `3`, which indicates low risk.
  *
  * @param request UpdateConfigRuleRequest
  * @return UpdateConfigRuleResponse

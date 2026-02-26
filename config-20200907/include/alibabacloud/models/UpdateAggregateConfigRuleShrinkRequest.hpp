@@ -384,30 +384,31 @@ namespace Models
     // 
     // > This parameter applies only to rule templates.
     shared_ptr<string> accountIdsScope_ {};
-    // The ID of the account group.
+    // The account group ID.
     // 
-    // For more information, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+    // For more information, see [ListAggregators]().
     // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
     // A client token used to ensure the idempotence of the request. Make sure that the client token is unique for each request. The `ClientToken` can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The conditions for the custom rule, specified in JSON format.
     shared_ptr<string> conditions_ {};
     // The rule ID.
     // 
-    // For more information, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+    // For more information, see [ListAggregateConfigRules]().
     // 
     // This parameter is required.
     shared_ptr<string> configRuleId_ {};
-    // The name of the rule.
+    // The rule name.
     // 
-    // For more information, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+    // For more information, see [ListAggregateConfigRules]().
     shared_ptr<string> configRuleName_ {};
-    // The trigger type of the rule. Valid values:
+    // The trigger mechanism of the rule. Valid values:
     // 
-    // - ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+    // - ConfigurationItemChangeNotification: Configuration changes.
     // 
-    // - ScheduledNotification: The rule is triggered on a regular basis.
+    // - ScheduledNotification: Scheduled execution.
     // 
     // > You can modify this parameter only for custom rules.
     shared_ptr<string> configRuleTriggerTypes_ {};
@@ -433,15 +434,15 @@ namespace Models
     shared_ptr<string> excludeResourceIdsScope_ {};
     // The excluded tag scope.
     shared_ptr<vector<UpdateAggregateConfigRuleShrinkRequest::ExcludeTagsScope>> excludeTagsScope_ {};
-    // The rule applies only to resources of member accounts in the specified folders.
+    // The rule applies only to resources of member accounts in the specified resource directory IDs.
     // 
     // > - This parameter applies only to rules in a global account group.
     // >
     // > - This parameter applies only to rule templates.
     shared_ptr<string> folderIdsScope_ {};
-    // The input parameters of the rule.
+    // The rule parameters.
     shared_ptr<string> inputParametersShrink_ {};
-    // The frequency at which the rule is run. Valid values:
+    // The frequency at which the rule runs. Valid values:
     // 
     // - One_Hour: 1 hour.
     // 
@@ -455,17 +456,17 @@ namespace Models
     // 
     // > This parameter is required if you set `ConfigRuleTriggerTypes` to `ScheduledNotification`.
     shared_ptr<string> maximumExecutionFrequency_ {};
-    // The rule applies only to resources in the specified regions. Separate multiple region IDs with a comma (,).
+    // The rule applies only to resources in the specified region IDs. Separate multiple region IDs with a comma (,).
     // 
     // > This parameter applies only to rule templates.
     shared_ptr<string> regionIdsScope_ {};
-    // The rule applies only to resources in the specified resource groups. Separate multiple resource group IDs with a comma (,).
+    // The rule applies only to resources in the specified resource group IDs. Separate multiple resource group IDs with a comma (,).
     // 
     // > This parameter applies only to rule templates.
     shared_ptr<string> resourceGroupIdsScope_ {};
-    // The rule applies only to the specified resources. Separate multiple resource IDs with a comma (,).
+    // The rule applies only to the specified resource IDs. Separate multiple resource IDs with a comma (,).
     shared_ptr<string> resourceIdsScope_ {};
-    // The rule applies only to resources with the specified name.
+    // The rule applies only to resources with the specified resource name.
     shared_ptr<string> resourceNameScope_ {};
     // The resource types that the rule evaluates. Separate multiple resource types with a comma (,).
     shared_ptr<string> resourceTypesScopeShrink_ {};
@@ -477,29 +478,27 @@ namespace Models
     // 
     // - 3: low risk.
     shared_ptr<int32_t> riskLevel_ {};
-    // The tags of the resource. This input parameter is deprecated and is ignored if specified.
-    // 
-    // A maximum of 20 tags can be attached.
+    // The rule applies only to resources with the specified resource name.
     shared_ptr<string> tagShrink_ {};
     // The logical relationship for multiple tags in the `TagsScope` parameter. For example, if you set the `TagsScope` parameter to `"TagsScope.1.TagKey":"a","TagsScope.1.TagValue":"a","TagsScope.2.TagKey":"b","TagsScope.2.TagValue":"b"` and set this parameter to `AND`, the rule applies only to resources that have both the `a:a` and `b:b` tags. If you do not set this parameter, the default value is `OR`.
     // 
-    // This parameter also works with the deprecated `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and set this parameter to `AND`, the rule applies only to resources that have both the `ECS` and `OSS` tags.
+    // This parameter also works with the deprecated `TagKeyScope` parameter (not recommended). For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and set this parameter to `AND`, the rule applies only to resources that have both the `ECS` and `OSS` tags.
     // 
     // Valid values:
     // 
-    // - AND
+    // - AND: Logical AND.
     // 
-    // - OR
+    // - OR: Logical OR.
     shared_ptr<string> tagKeyLogicScope_ {};
     // This parameter is deprecated. Use the `TagsScope` parameter instead.
     // 
-    // The rule applies only to resources that have the specified tag.
+    // The rule applies only to resources with the specified tag.
     // 
     // > This parameter applies only to rule templates. You must specify both `TagKeyScope` and `TagValueScope`.
     shared_ptr<string> tagKeyScope_ {};
     // This parameter is deprecated. Use the `TagsScope` parameter instead.
     // 
-    // The rule applies only to resources that have the specified tag.
+    // The rule applies only to resources with the specified tag.
     // 
     // > This parameter applies only to rule templates. You must specify both `TagKeyScope` and `TagValueScope`.
     shared_ptr<string> tagValueScope_ {};
