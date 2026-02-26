@@ -3818,16 +3818,18 @@ FutureGenerator<CreateRunResponse> Client::createRunWithSSE(const CreateRunReque
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<CreateRunResponse>();
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<CreateRunResponse>();
 return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -13669,6 +13671,10 @@ FutureGenerator<InvokeAssistantResponse> Client::invokeAssistantWithSSE(const In
     realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
   }
 
+  if (!!headers.hasAlidingSsoTicket()) {
+    realHeaders["alidingSsoTicket"] = Darabonba::Convert::stringVal(headers.getAlidingSsoTicket());
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
     {"body" , Utils::Utils::parseToMap(body)}
@@ -13686,16 +13692,18 @@ FutureGenerator<InvokeAssistantResponse> Client::invokeAssistantWithSSE(const In
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<InvokeAssistantResponse>();
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<InvokeAssistantResponse>();
 return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -13753,6 +13761,10 @@ InvokeAssistantResponse Client::invokeAssistantWithOptions(const InvokeAssistant
 
   if (!!headers.hasAccountId()) {
     realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
+  }
+
+  if (!!headers.hasAlidingSsoTicket()) {
+    realHeaders["alidingSsoTicket"] = Darabonba::Convert::stringVal(headers.getAlidingSsoTicket());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13850,16 +13862,18 @@ FutureGenerator<InvokeSkillResponse> Client::invokeSkillWithSSE(const InvokeSkil
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<InvokeSkillResponse>();
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<InvokeSkillResponse>();
 return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 

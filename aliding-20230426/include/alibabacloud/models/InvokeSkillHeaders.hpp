@@ -36,10 +36,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const AccountContext& obj) { 
         DARABONBA_PTR_TO_JSON(accountId, accountId_);
+        DARABONBA_PTR_TO_JSON(alidingSsoTicket, alidingSsoTicket_);
         DARABONBA_PTR_TO_JSON(ssoTicket, ssoTicket_);
       };
       friend void from_json(const Darabonba::Json& j, AccountContext& obj) { 
         DARABONBA_PTR_FROM_JSON(accountId, accountId_);
+        DARABONBA_PTR_FROM_JSON(alidingSsoTicket, alidingSsoTicket_);
         DARABONBA_PTR_FROM_JSON(ssoTicket, ssoTicket_);
       };
       AccountContext() = default ;
@@ -54,12 +56,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accountId_ == nullptr
-        && this->ssoTicket_ == nullptr; };
+        && this->alidingSsoTicket_ == nullptr && this->ssoTicket_ == nullptr; };
       // accountId Field Functions 
       bool hasAccountId() const { return this->accountId_ != nullptr;};
       void deleteAccountId() { this->accountId_ = nullptr;};
       inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
       inline AccountContext& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
+      // alidingSsoTicket Field Functions 
+      bool hasAlidingSsoTicket() const { return this->alidingSsoTicket_ != nullptr;};
+      void deleteAlidingSsoTicket() { this->alidingSsoTicket_ = nullptr;};
+      inline string getAlidingSsoTicket() const { DARABONBA_PTR_GET_DEFAULT(alidingSsoTicket_, "") };
+      inline AccountContext& setAlidingSsoTicket(string alidingSsoTicket) { DARABONBA_PTR_SET_VALUE(alidingSsoTicket_, alidingSsoTicket) };
 
 
       // ssoTicket Field Functions 
@@ -72,6 +81,7 @@ namespace Models
     protected:
       // This parameter is required.
       shared_ptr<string> accountId_ {};
+      shared_ptr<string> alidingSsoTicket_ {};
       shared_ptr<string> ssoTicket_ {};
     };
 
