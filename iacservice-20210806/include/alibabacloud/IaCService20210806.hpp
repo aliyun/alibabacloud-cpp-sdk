@@ -1081,6 +1081,24 @@ namespace IaCService20210806
       Models::ListResourceTypesResponse listResourceTypes(const Models::ListResourceTypesRequest &request);
 
       /**
+       * @summary 资源列表
+       *
+       * @param request ListResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListResourcesResponse
+       */
+      Models::ListResourcesResponse listResourcesWithOptions(const Models::ListResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 资源列表
+       *
+       * @param request ListResourcesRequest
+       * @return ListResourcesResponse
+       */
+      Models::ListResourcesResponse listResources(const Models::ListResourcesRequest &request);
+
+      /**
        * @summary 任务列表
        *
        * @param tmpReq ListTasksRequest

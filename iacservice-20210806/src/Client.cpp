@@ -3284,6 +3284,67 @@ ListResourceTypesResponse Client::listResourceTypes(const ListResourceTypesReque
 }
 
 /**
+ * @summary 资源列表
+ *
+ * @param request ListResourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListResourcesResponse
+ */
+ListResourcesResponse Client::listResourcesWithOptions(const ListResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["sourceType"] = request.getSourceType();
+  }
+
+  if (!!request.hasSourceValue()) {
+    query["sourceValue"] = request.getSourceValue();
+  }
+
+  if (!!request.hasSpecType()) {
+    query["specType"] = request.getSpecType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListResources"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/resources/stateparser")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListResourcesResponse>();
+}
+
+/**
+ * @summary 资源列表
+ *
+ * @param request ListResourcesRequest
+ * @return ListResourcesResponse
+ */
+ListResourcesResponse Client::listResources(const ListResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listResourcesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 任务列表
  *
  * @param tmpReq ListTasksRequest

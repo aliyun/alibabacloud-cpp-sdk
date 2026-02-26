@@ -172,6 +172,9 @@
 #include <alibabacloud/models/ListResourceTypesShrinkRequest.hpp>
 #include <alibabacloud/models/ListResourceTypesResponseBody.hpp>
 #include <alibabacloud/models/ListResourceTypesResponse.hpp>
+#include <alibabacloud/models/ListResourcesRequest.hpp>
+#include <alibabacloud/models/ListResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListResourcesResponse.hpp>
 #include <alibabacloud/models/ListTasksRequest.hpp>
 #include <alibabacloud/models/ListTasksShrinkRequest.hpp>
 #include <alibabacloud/models/ListTasksResponseBody.hpp>
