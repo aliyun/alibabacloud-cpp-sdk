@@ -831,7 +831,7 @@ CreateDBResponse Client::createDB(const CreateDBRequest &request) {
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates a PolarDB-X instance.
  *
  * @param tmpReq CreateDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -980,7 +980,7 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates a PolarDB-X instance.
  *
  * @param request CreateDBInstanceRequest
  * @return CreateDBInstanceResponse
@@ -2085,6 +2085,8 @@ DescribeAvailableCrossRegionsResponse Client::describeAvailableCrossRegions(cons
 }
 
 /**
+ * @summary 描述备份策略
+ *
  * @param request DescribeBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeBackupPolicyResponse
@@ -2118,6 +2120,8 @@ DescribeBackupPolicyResponse Client::describeBackupPolicyWithOptions(const Descr
 }
 
 /**
+ * @summary 描述备份策略
+ *
  * @param request DescribeBackupPolicyRequest
  * @return DescribeBackupPolicyResponse
  */
@@ -6960,6 +6964,8 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
+ * @summary 更新备份策略
+ *
  * @param request UpdateBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateBackupPolicyResponse
@@ -6997,6 +7003,10 @@ UpdateBackupPolicyResponse Client::updateBackupPolicyWithOptions(const UpdateBac
 
   if (!!request.hasCrossRegionDataBackupRetention()) {
     query["CrossRegionDataBackupRetention"] = request.getCrossRegionDataBackupRetention();
+  }
+
+  if (!!request.hasCrossRegionFilterValue()) {
+    query["CrossRegionFilterValue"] = request.getCrossRegionFilterValue();
   }
 
   if (!!request.hasCrossRegionLogBackupRetention()) {
@@ -7065,6 +7075,8 @@ UpdateBackupPolicyResponse Client::updateBackupPolicyWithOptions(const UpdateBac
 }
 
 /**
+ * @summary 更新备份策略
+ *
  * @param request UpdateBackupPolicyRequest
  * @return UpdateBackupPolicyResponse
  */

@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ColdDataBackupInterval, coldDataBackupInterval_);
         DARABONBA_PTR_TO_JSON(ColdDataBackupRetention, coldDataBackupRetention_);
         DARABONBA_PTR_TO_JSON(CrossRegionDataBackupRetention, crossRegionDataBackupRetention_);
+        DARABONBA_PTR_TO_JSON(CrossRegionFilterValue, crossRegionFilterValue_);
         DARABONBA_PTR_TO_JSON(CrossRegionLogBackupRetention, crossRegionLogBackupRetention_);
         DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
         DARABONBA_PTR_TO_JSON(DestCrossRegion, destCrossRegion_);
@@ -67,6 +68,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ColdDataBackupInterval, coldDataBackupInterval_);
         DARABONBA_PTR_FROM_JSON(ColdDataBackupRetention, coldDataBackupRetention_);
         DARABONBA_PTR_FROM_JSON(CrossRegionDataBackupRetention, crossRegionDataBackupRetention_);
+        DARABONBA_PTR_FROM_JSON(CrossRegionFilterValue, crossRegionFilterValue_);
         DARABONBA_PTR_FROM_JSON(CrossRegionLogBackupRetention, crossRegionLogBackupRetention_);
         DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
         DARABONBA_PTR_FROM_JSON(DestCrossRegion, destCrossRegion_);
@@ -92,9 +94,9 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->backupPeriod_ == nullptr
         && this->backupPlanBegin_ == nullptr && this->backupSetRetention_ == nullptr && this->backupType_ == nullptr && this->backupWay_ == nullptr && this->coldDataBackupInterval_ == nullptr
-        && this->coldDataBackupRetention_ == nullptr && this->crossRegionDataBackupRetention_ == nullptr && this->crossRegionLogBackupRetention_ == nullptr && this->DBInstanceName_ == nullptr && this->destCrossRegion_ == nullptr
-        && this->forceCleanOnHighSpaceUsage_ == nullptr && this->isCrossRegionDataBackupEnabled_ == nullptr && this->isCrossRegionLogBackupEnabled_ == nullptr && this->isEnabled_ == nullptr && this->localLogRetention_ == nullptr
-        && this->localLogRetentionNumber_ == nullptr && this->logLocalRetentionSpace_ == nullptr && this->removeLogRetention_ == nullptr; };
+        && this->coldDataBackupRetention_ == nullptr && this->crossRegionDataBackupRetention_ == nullptr && this->crossRegionFilterValue_ == nullptr && this->crossRegionLogBackupRetention_ == nullptr && this->DBInstanceName_ == nullptr
+        && this->destCrossRegion_ == nullptr && this->forceCleanOnHighSpaceUsage_ == nullptr && this->isCrossRegionDataBackupEnabled_ == nullptr && this->isCrossRegionLogBackupEnabled_ == nullptr && this->isEnabled_ == nullptr
+        && this->localLogRetention_ == nullptr && this->localLogRetentionNumber_ == nullptr && this->logLocalRetentionSpace_ == nullptr && this->removeLogRetention_ == nullptr; };
       // backupPeriod Field Functions 
       bool hasBackupPeriod() const { return this->backupPeriod_ != nullptr;};
       void deleteBackupPeriod() { this->backupPeriod_ = nullptr;};
@@ -149,6 +151,13 @@ namespace Models
       void deleteCrossRegionDataBackupRetention() { this->crossRegionDataBackupRetention_ = nullptr;};
       inline int32_t getCrossRegionDataBackupRetention() const { DARABONBA_PTR_GET_DEFAULT(crossRegionDataBackupRetention_, 0) };
       inline Data& setCrossRegionDataBackupRetention(int32_t crossRegionDataBackupRetention) { DARABONBA_PTR_SET_VALUE(crossRegionDataBackupRetention_, crossRegionDataBackupRetention) };
+
+
+      // crossRegionFilterValue Field Functions 
+      bool hasCrossRegionFilterValue() const { return this->crossRegionFilterValue_ != nullptr;};
+      void deleteCrossRegionFilterValue() { this->crossRegionFilterValue_ = nullptr;};
+      inline string getCrossRegionFilterValue() const { DARABONBA_PTR_GET_DEFAULT(crossRegionFilterValue_, "") };
+      inline Data& setCrossRegionFilterValue(string crossRegionFilterValue) { DARABONBA_PTR_SET_VALUE(crossRegionFilterValue_, crossRegionFilterValue) };
 
 
       // crossRegionLogBackupRetention Field Functions 
@@ -237,6 +246,7 @@ namespace Models
       shared_ptr<int32_t> coldDataBackupInterval_ {};
       shared_ptr<int32_t> coldDataBackupRetention_ {};
       shared_ptr<int32_t> crossRegionDataBackupRetention_ {};
+      shared_ptr<string> crossRegionFilterValue_ {};
       shared_ptr<int32_t> crossRegionLogBackupRetention_ {};
       shared_ptr<string> DBInstanceName_ {};
       shared_ptr<string> destCrossRegion_ {};

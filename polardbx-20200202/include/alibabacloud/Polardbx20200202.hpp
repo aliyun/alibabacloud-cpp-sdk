@@ -227,7 +227,7 @@ namespace Polardbx20200202
       Models::CreateDBResponse createDB(const Models::CreateDBRequest &request);
 
       /**
-       * @summary 创建实例
+       * @summary Creates a PolarDB-X instance.
        *
        * @param tmpReq CreateDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -236,7 +236,7 @@ namespace Polardbx20200202
       Models::CreateDBInstanceResponse createDBInstanceWithOptions(const Models::CreateDBInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建实例
+       * @summary Creates a PolarDB-X instance.
        *
        * @param request CreateDBInstanceRequest
        * @return CreateDBInstanceResponse
@@ -568,6 +568,8 @@ namespace Polardbx20200202
       Models::DescribeAvailableCrossRegionsResponse describeAvailableCrossRegions(const Models::DescribeAvailableCrossRegionsRequest &request);
 
       /**
+       * @summary 描述备份策略
+       *
        * @param request DescribeBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeBackupPolicyResponse
@@ -575,6 +577,8 @@ namespace Polardbx20200202
       Models::DescribeBackupPolicyResponse describeBackupPolicyWithOptions(const Models::DescribeBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 描述备份策略
+       *
        * @param request DescribeBackupPolicyRequest
        * @return DescribeBackupPolicyResponse
        */
@@ -2011,6 +2015,8 @@ namespace Polardbx20200202
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
+       * @summary 更新备份策略
+       *
        * @param request UpdateBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateBackupPolicyResponse
@@ -2018,6 +2024,8 @@ namespace Polardbx20200202
       Models::UpdateBackupPolicyResponse updateBackupPolicyWithOptions(const Models::UpdateBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 更新备份策略
+       *
        * @param request UpdateBackupPolicyRequest
        * @return UpdateBackupPolicyResponse
        */
