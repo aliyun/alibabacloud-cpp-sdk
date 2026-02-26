@@ -633,6 +633,23 @@ namespace WebsiteBuild20250429
       Models::QueryMaterialTaskListResponse queryMaterialTaskList(const Models::QueryMaterialTaskListRequest &request);
 
       /**
+       * @summary 查询Supabase实例信息
+       *
+       * @param request QuerySupabaseInstanceInfoForAdminRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QuerySupabaseInstanceInfoForAdminResponse
+       */
+      Models::QuerySupabaseInstanceInfoForAdminResponse querySupabaseInstanceInfoForAdminWithOptions(const Models::QuerySupabaseInstanceInfoForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Supabase实例信息
+       *
+       * @param request QuerySupabaseInstanceInfoForAdminRequest
+       * @return QuerySupabaseInstanceInfoForAdminResponse
+       */
+      Models::QuerySupabaseInstanceInfoForAdminResponse querySupabaseInstanceInfoForAdmin(const Models::QuerySupabaseInstanceInfoForAdminRequest &request);
+
+      /**
        * @summary Refresh ticket
        *
        * @param request RefreshAppInstanceTicketRequest

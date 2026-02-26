@@ -2060,6 +2060,56 @@ QueryMaterialTaskListResponse Client::queryMaterialTaskList(const QueryMaterialT
 }
 
 /**
+ * @summary 查询Supabase实例信息
+ *
+ * @param request QuerySupabaseInstanceInfoForAdminRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QuerySupabaseInstanceInfoForAdminResponse
+ */
+QuerySupabaseInstanceInfoForAdminResponse Client::querySupabaseInstanceInfoForAdminWithOptions(const QuerySupabaseInstanceInfoForAdminRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasEnv()) {
+    query["Env"] = request.getEnv();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QuerySupabaseInstanceInfoForAdmin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QuerySupabaseInstanceInfoForAdminResponse>();
+}
+
+/**
+ * @summary 查询Supabase实例信息
+ *
+ * @param request QuerySupabaseInstanceInfoForAdminRequest
+ * @return QuerySupabaseInstanceInfoForAdminResponse
+ */
+QuerySupabaseInstanceInfoForAdminResponse Client::querySupabaseInstanceInfoForAdmin(const QuerySupabaseInstanceInfoForAdminRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return querySupabaseInstanceInfoForAdminWithOptions(request, runtime);
+}
+
+/**
  * @summary Refresh ticket
  *
  * @param request RefreshAppInstanceTicketRequest

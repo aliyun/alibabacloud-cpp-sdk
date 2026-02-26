@@ -132,6 +132,9 @@
 #include <alibabacloud/models/QueryMaterialTaskListShrinkRequest.hpp>
 #include <alibabacloud/models/QueryMaterialTaskListResponseBody.hpp>
 #include <alibabacloud/models/QueryMaterialTaskListResponse.hpp>
+#include <alibabacloud/models/QuerySupabaseInstanceInfoForAdminRequest.hpp>
+#include <alibabacloud/models/QuerySupabaseInstanceInfoForAdminResponseBody.hpp>
+#include <alibabacloud/models/QuerySupabaseInstanceInfoForAdminResponse.hpp>
 #include <alibabacloud/models/RefreshAppInstanceTicketRequest.hpp>
 #include <alibabacloud/models/RefreshAppInstanceTicketResponseBody.hpp>
 #include <alibabacloud/models/RefreshAppInstanceTicketResponse.hpp>
