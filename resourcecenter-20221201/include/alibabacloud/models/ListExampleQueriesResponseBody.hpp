@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTEXAMPLEQUERIESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListExampleQueriesResponseBodyExampleQueries.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -37,47 +36,102 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ExampleQueries : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ExampleQueries& obj) { 
+        DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(QueryId, queryId_);
+      };
+      friend void from_json(const Darabonba::Json& j, ExampleQueries& obj) { 
+        DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(QueryId, queryId_);
+      };
+      ExampleQueries() = default ;
+      ExampleQueries(const ExampleQueries &) = default ;
+      ExampleQueries(ExampleQueries &&) = default ;
+      ExampleQueries(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ExampleQueries() = default ;
+      ExampleQueries& operator=(const ExampleQueries &) = default ;
+      ExampleQueries& operator=(ExampleQueries &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->description_ == nullptr
+        && this->name_ == nullptr && this->queryId_ == nullptr; };
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline ExampleQueries& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline ExampleQueries& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // queryId Field Functions 
+      bool hasQueryId() const { return this->queryId_ != nullptr;};
+      void deleteQueryId() { this->queryId_ = nullptr;};
+      inline string getQueryId() const { DARABONBA_PTR_GET_DEFAULT(queryId_, "") };
+      inline ExampleQueries& setQueryId(string queryId) { DARABONBA_PTR_SET_VALUE(queryId_, queryId) };
+
+
+    protected:
+      // The description of the template.
+      shared_ptr<string> description_ {};
+      // The name of the template.
+      shared_ptr<string> name_ {};
+      // The ID of the template.
+      shared_ptr<string> queryId_ {};
+    };
+
     virtual bool empty() const override { return this->exampleQueries_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->requestId_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr; };
     // exampleQueries Field Functions 
     bool hasExampleQueries() const { return this->exampleQueries_ != nullptr;};
     void deleteExampleQueries() { this->exampleQueries_ = nullptr;};
-    inline const vector<ListExampleQueriesResponseBodyExampleQueries> & exampleQueries() const { DARABONBA_PTR_GET_CONST(exampleQueries_, vector<ListExampleQueriesResponseBodyExampleQueries>) };
-    inline vector<ListExampleQueriesResponseBodyExampleQueries> exampleQueries() { DARABONBA_PTR_GET(exampleQueries_, vector<ListExampleQueriesResponseBodyExampleQueries>) };
-    inline ListExampleQueriesResponseBody& setExampleQueries(const vector<ListExampleQueriesResponseBodyExampleQueries> & exampleQueries) { DARABONBA_PTR_SET_VALUE(exampleQueries_, exampleQueries) };
-    inline ListExampleQueriesResponseBody& setExampleQueries(vector<ListExampleQueriesResponseBodyExampleQueries> && exampleQueries) { DARABONBA_PTR_SET_RVALUE(exampleQueries_, exampleQueries) };
+    inline const vector<ListExampleQueriesResponseBody::ExampleQueries> & getExampleQueries() const { DARABONBA_PTR_GET_CONST(exampleQueries_, vector<ListExampleQueriesResponseBody::ExampleQueries>) };
+    inline vector<ListExampleQueriesResponseBody::ExampleQueries> getExampleQueries() { DARABONBA_PTR_GET(exampleQueries_, vector<ListExampleQueriesResponseBody::ExampleQueries>) };
+    inline ListExampleQueriesResponseBody& setExampleQueries(const vector<ListExampleQueriesResponseBody::ExampleQueries> & exampleQueries) { DARABONBA_PTR_SET_VALUE(exampleQueries_, exampleQueries) };
+    inline ListExampleQueriesResponseBody& setExampleQueries(vector<ListExampleQueriesResponseBody::ExampleQueries> && exampleQueries) { DARABONBA_PTR_SET_RVALUE(exampleQueries_, exampleQueries) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline string maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, "") };
+    inline string getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, "") };
     inline ListExampleQueriesResponseBody& setMaxResults(string maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListExampleQueriesResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListExampleQueriesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The information about the sample query templates.
-    std::shared_ptr<vector<ListExampleQueriesResponseBodyExampleQueries>> exampleQueries_ = nullptr;
+    shared_ptr<vector<ListExampleQueriesResponseBody::ExampleQueries>> exampleQueries_ {};
     // The maximum number of entries per page.
-    std::shared_ptr<string> maxResults_ = nullptr;
+    shared_ptr<string> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

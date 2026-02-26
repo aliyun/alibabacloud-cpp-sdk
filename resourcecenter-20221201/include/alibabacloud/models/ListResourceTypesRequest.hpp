@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->query_ == nullptr && return this->resourceType_ == nullptr; };
+        && this->query_ == nullptr && this->resourceType_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline ListResourceTypesRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
-    inline const vector<string> & query() const { DARABONBA_PTR_GET_CONST(query_, vector<string>) };
-    inline vector<string> query() { DARABONBA_PTR_GET(query_, vector<string>) };
+    inline const vector<string> & getQuery() const { DARABONBA_PTR_GET_CONST(query_, vector<string>) };
+    inline vector<string> getQuery() { DARABONBA_PTR_GET(query_, vector<string>) };
     inline ListResourceTypesRequest& setQuery(const vector<string> & query) { DARABONBA_PTR_SET_VALUE(query_, query) };
     inline ListResourceTypesRequest& setQuery(vector<string> && query) { DARABONBA_PTR_SET_RVALUE(query_, query) };
 
@@ -55,22 +55,23 @@ namespace Models
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline ListResourceTypesRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh-CN: Chinese
-    // *   en-US: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    // - zh-CN: Chinese
+    // 
+    // - en-US: English
+    shared_ptr<string> acceptLanguage_ {};
     // The query conditions.
-    std::shared_ptr<vector<string>> query_ = nullptr;
+    shared_ptr<vector<string>> query_ {};
     // The resource type.
     // 
     // For more information about the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
   };
 
   } // namespace Models

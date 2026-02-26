@@ -33,13 +33,13 @@ namespace Models
     // deliveryChannelId Field Functions 
     bool hasDeliveryChannelId() const { return this->deliveryChannelId_ != nullptr;};
     void deleteDeliveryChannelId() { this->deliveryChannelId_ = nullptr;};
-    inline string deliveryChannelId() const { DARABONBA_PTR_GET_DEFAULT(deliveryChannelId_, "") };
+    inline string getDeliveryChannelId() const { DARABONBA_PTR_GET_DEFAULT(deliveryChannelId_, "") };
     inline GetDeliveryChannelRequest& setDeliveryChannelId(string deliveryChannelId) { DARABONBA_PTR_SET_VALUE(deliveryChannelId_, deliveryChannelId) };
 
 
   protected:
     // The ID of the delivery channel.
-    std::shared_ptr<string> deliveryChannelId_ = nullptr;
+    shared_ptr<string> deliveryChannelId_ {};
   };
 
   } // namespace Models

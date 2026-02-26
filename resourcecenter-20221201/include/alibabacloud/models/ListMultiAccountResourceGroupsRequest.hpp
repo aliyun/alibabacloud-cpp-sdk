@@ -37,50 +37,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->resourceGroupIds_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->resourceGroupIds_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline ListMultiAccountResourceGroupsRequest& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListMultiAccountResourceGroupsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListMultiAccountResourceGroupsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // resourceGroupIds Field Functions 
     bool hasResourceGroupIds() const { return this->resourceGroupIds_ != nullptr;};
     void deleteResourceGroupIds() { this->resourceGroupIds_ = nullptr;};
-    inline const vector<string> & resourceGroupIds() const { DARABONBA_PTR_GET_CONST(resourceGroupIds_, vector<string>) };
-    inline vector<string> resourceGroupIds() { DARABONBA_PTR_GET(resourceGroupIds_, vector<string>) };
+    inline const vector<string> & getResourceGroupIds() const { DARABONBA_PTR_GET_CONST(resourceGroupIds_, vector<string>) };
+    inline vector<string> getResourceGroupIds() { DARABONBA_PTR_GET(resourceGroupIds_, vector<string>) };
     inline ListMultiAccountResourceGroupsRequest& setResourceGroupIds(const vector<string> & resourceGroupIds) { DARABONBA_PTR_SET_VALUE(resourceGroupIds_, resourceGroupIds) };
     inline ListMultiAccountResourceGroupsRequest& setResourceGroupIds(vector<string> && resourceGroupIds) { DARABONBA_PTR_SET_RVALUE(resourceGroupIds_, resourceGroupIds) };
 
 
   protected:
-    // The ID of the management account or member of the resource directory.
+    // The ID of the management account or a member in the resource directory.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountId_ = nullptr;
-    // The maximum number of entries to return on each page.
+    shared_ptr<string> accountId_ {};
+    // The number of entries to return on each page.
     // 
     // Maximum value: 100. Default value: 10.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    // The IDs of resource groups.
-    std::shared_ptr<vector<string>> resourceGroupIds_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    // The resource group IDs.
+    shared_ptr<vector<string>> resourceGroupIds_ {};
   };
 
   } // namespace Models

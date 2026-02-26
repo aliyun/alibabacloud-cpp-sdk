@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->expression_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->scope_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->scope_ == nullptr; };
     // expression Field Functions 
     bool hasExpression() const { return this->expression_ != nullptr;};
     void deleteExpression() { this->expression_ = nullptr;};
-    inline string expression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
+    inline string getExpression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
     inline ExecuteMultiAccountSQLQueryRequest& setExpression(string expression) { DARABONBA_PTR_SET_VALUE(expression_, expression) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ExecuteMultiAccountSQLQueryRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ExecuteMultiAccountSQLQueryRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline string scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
     inline ExecuteMultiAccountSQLQueryRequest& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
@@ -73,15 +73,15 @@ namespace Models
     // For more information about the SQL syntax, see [Basic SQL syntax](https://help.aliyun.com/document_detail/2539395.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> expression_ = nullptr;
+    shared_ptr<string> expression_ {};
     // The maximum number of entries to return on each page.
     // 
     // Valid values: 1 to 1000.
     // 
     // Default value: 1000.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The search scope. The value of this parameter can be one of the following items:
     // 
     // *   ID of a resource directory: Resources within the management account and all members of the resource directory are searched.
@@ -93,7 +93,7 @@ namespace Models
     // For more information about how to obtain the ID of a resource directory, the Root folder, a folder, a member, or a resource group, see [GetResourceDirectory](https://help.aliyun.com/document_detail/159995.html), [ListFoldersForParent](https://help.aliyun.com/document_detail/159997.html), [ListFoldersForParent](https://help.aliyun.com/document_detail/159997.html), [ListAccounts](https://help.aliyun.com/document_detail/160016.html), or [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> scope_ = nullptr;
+    shared_ptr<string> scope_ {};
   };
 
   } // namespace Models

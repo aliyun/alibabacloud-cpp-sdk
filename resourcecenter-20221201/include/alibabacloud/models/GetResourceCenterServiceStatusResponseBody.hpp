@@ -34,41 +34,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->initialStatus_ == nullptr
-        && return this->requestId_ == nullptr && return this->serviceStatus_ == nullptr; };
+        && this->requestId_ == nullptr && this->serviceStatus_ == nullptr; };
     // initialStatus Field Functions 
     bool hasInitialStatus() const { return this->initialStatus_ != nullptr;};
     void deleteInitialStatus() { this->initialStatus_ = nullptr;};
-    inline string initialStatus() const { DARABONBA_PTR_GET_DEFAULT(initialStatus_, "") };
+    inline string getInitialStatus() const { DARABONBA_PTR_GET_DEFAULT(initialStatus_, "") };
     inline GetResourceCenterServiceStatusResponseBody& setInitialStatus(string initialStatus) { DARABONBA_PTR_SET_VALUE(initialStatus_, initialStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetResourceCenterServiceStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // serviceStatus Field Functions 
     bool hasServiceStatus() const { return this->serviceStatus_ != nullptr;};
     void deleteServiceStatus() { this->serviceStatus_ = nullptr;};
-    inline string serviceStatus() const { DARABONBA_PTR_GET_DEFAULT(serviceStatus_, "") };
+    inline string getServiceStatus() const { DARABONBA_PTR_GET_DEFAULT(serviceStatus_, "") };
     inline GetResourceCenterServiceStatusResponseBody& setServiceStatus(string serviceStatus) { DARABONBA_PTR_SET_VALUE(serviceStatus_, serviceStatus) };
 
 
   protected:
-    // The initialization status of the service. Valid values:
+    // The initialization status. Valid values:
     // 
-    // *   Pending: The service is being initialized.
-    // *   Finished: The service is initialized.
-    std::shared_ptr<string> initialStatus_ = nullptr;
-    // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
-    // The status of the service. Valid values:
+    // - Pending
     // 
-    // *   Enabled: The service is activated.
-    // *   Disabled: The service is deactivated.
-    std::shared_ptr<string> serviceStatus_ = nullptr;
+    // - Finished
+    shared_ptr<string> initialStatus_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // The service status. Valid values:
+    // 
+    // - Enabled
+    // 
+    // - Disabled
+    shared_ptr<string> serviceStatus_ {};
   };
 
   } // namespace Models

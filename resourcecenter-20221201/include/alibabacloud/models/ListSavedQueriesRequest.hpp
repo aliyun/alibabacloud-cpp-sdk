@@ -32,30 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr; };
+        && this->nextToken_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline string maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, "") };
+    inline string getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, "") };
     inline ListSavedQueriesRequest& setMaxResults(string maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListSavedQueriesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
-    // The maximum number of entries per page.
+    // The maximum number of entries to return on each page.
     // 
     // Valid values: 1 to 50.
     // 
     // Default value: 50.
-    std::shared_ptr<string> maxResults_ = nullptr;
-    // The pagination token that is used in the next request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> maxResults_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

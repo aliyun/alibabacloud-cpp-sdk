@@ -3,8 +3,6 @@
 #define ALIBABACLOUD_MODELS_SEARCHMULTIACCOUNTRESOURCESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/SearchMultiAccountResourcesResponseBodyFilters.hpp>
-#include <alibabacloud/models/SearchMultiAccountResourcesResponseBodyResources.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -42,72 +40,403 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Resources : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Resources& obj) { 
+        DARABONBA_PTR_TO_JSON(AccountId, accountId_);
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
+        DARABONBA_PTR_TO_JSON(IpAddressAttributes, ipAddressAttributes_);
+        DARABONBA_PTR_TO_JSON(IpAddresses, ipAddresses_);
+        DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+        DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
+        DARABONBA_PTR_TO_JSON(ResourceName, resourceName_);
+        DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
+        DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Resources& obj) { 
+        DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
+        DARABONBA_PTR_FROM_JSON(IpAddressAttributes, ipAddressAttributes_);
+        DARABONBA_PTR_FROM_JSON(IpAddresses, ipAddresses_);
+        DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+        DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
+        DARABONBA_PTR_FROM_JSON(ResourceName, resourceName_);
+        DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
+        DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
+      };
+      Resources() = default ;
+      Resources(const Resources &) = default ;
+      Resources(Resources &&) = default ;
+      Resources(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Resources() = default ;
+      Resources& operator=(const Resources &) = default ;
+      Resources& operator=(Resources &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        // The tag key.
+        shared_ptr<string> key_ {};
+        // The tag value.
+        shared_ptr<string> value_ {};
+      };
+
+      class IpAddressAttributes : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const IpAddressAttributes& obj) { 
+          DARABONBA_PTR_TO_JSON(IpAddress, ipAddress_);
+          DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
+          DARABONBA_PTR_TO_JSON(Version, version_);
+        };
+        friend void from_json(const Darabonba::Json& j, IpAddressAttributes& obj) { 
+          DARABONBA_PTR_FROM_JSON(IpAddress, ipAddress_);
+          DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
+          DARABONBA_PTR_FROM_JSON(Version, version_);
+        };
+        IpAddressAttributes() = default ;
+        IpAddressAttributes(const IpAddressAttributes &) = default ;
+        IpAddressAttributes(IpAddressAttributes &&) = default ;
+        IpAddressAttributes(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~IpAddressAttributes() = default ;
+        IpAddressAttributes& operator=(const IpAddressAttributes &) = default ;
+        IpAddressAttributes& operator=(IpAddressAttributes &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->ipAddress_ == nullptr
+        && this->networkType_ == nullptr && this->version_ == nullptr; };
+        // ipAddress Field Functions 
+        bool hasIpAddress() const { return this->ipAddress_ != nullptr;};
+        void deleteIpAddress() { this->ipAddress_ = nullptr;};
+        inline string getIpAddress() const { DARABONBA_PTR_GET_DEFAULT(ipAddress_, "") };
+        inline IpAddressAttributes& setIpAddress(string ipAddress) { DARABONBA_PTR_SET_VALUE(ipAddress_, ipAddress) };
+
+
+        // networkType Field Functions 
+        bool hasNetworkType() const { return this->networkType_ != nullptr;};
+        void deleteNetworkType() { this->networkType_ = nullptr;};
+        inline string getNetworkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
+        inline IpAddressAttributes& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
+
+
+        // version Field Functions 
+        bool hasVersion() const { return this->version_ != nullptr;};
+        void deleteVersion() { this->version_ = nullptr;};
+        inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+        inline IpAddressAttributes& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
+      protected:
+        // The IP address.
+        shared_ptr<string> ipAddress_ {};
+        // The network type. Valid values:
+        // 
+        // - **Public**: Internet.
+        // 
+        // - **Private**: Private network.
+        shared_ptr<string> networkType_ {};
+        // The IP address version.
+        shared_ptr<string> version_ {};
+      };
+
+      virtual bool empty() const override { return this->accountId_ == nullptr
+        && this->createTime_ == nullptr && this->expireTime_ == nullptr && this->ipAddressAttributes_ == nullptr && this->ipAddresses_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourceId_ == nullptr && this->resourceName_ == nullptr && this->resourceType_ == nullptr && this->tags_ == nullptr
+        && this->zoneId_ == nullptr; };
+      // accountId Field Functions 
+      bool hasAccountId() const { return this->accountId_ != nullptr;};
+      void deleteAccountId() { this->accountId_ = nullptr;};
+      inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+      inline Resources& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+      inline Resources& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // expireTime Field Functions 
+      bool hasExpireTime() const { return this->expireTime_ != nullptr;};
+      void deleteExpireTime() { this->expireTime_ = nullptr;};
+      inline string getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, "") };
+      inline Resources& setExpireTime(string expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
+
+
+      // ipAddressAttributes Field Functions 
+      bool hasIpAddressAttributes() const { return this->ipAddressAttributes_ != nullptr;};
+      void deleteIpAddressAttributes() { this->ipAddressAttributes_ = nullptr;};
+      inline const vector<Resources::IpAddressAttributes> & getIpAddressAttributes() const { DARABONBA_PTR_GET_CONST(ipAddressAttributes_, vector<Resources::IpAddressAttributes>) };
+      inline vector<Resources::IpAddressAttributes> getIpAddressAttributes() { DARABONBA_PTR_GET(ipAddressAttributes_, vector<Resources::IpAddressAttributes>) };
+      inline Resources& setIpAddressAttributes(const vector<Resources::IpAddressAttributes> & ipAddressAttributes) { DARABONBA_PTR_SET_VALUE(ipAddressAttributes_, ipAddressAttributes) };
+      inline Resources& setIpAddressAttributes(vector<Resources::IpAddressAttributes> && ipAddressAttributes) { DARABONBA_PTR_SET_RVALUE(ipAddressAttributes_, ipAddressAttributes) };
+
+
+      // ipAddresses Field Functions 
+      bool hasIpAddresses() const { return this->ipAddresses_ != nullptr;};
+      void deleteIpAddresses() { this->ipAddresses_ = nullptr;};
+      inline const vector<string> & getIpAddresses() const { DARABONBA_PTR_GET_CONST(ipAddresses_, vector<string>) };
+      inline vector<string> getIpAddresses() { DARABONBA_PTR_GET(ipAddresses_, vector<string>) };
+      inline Resources& setIpAddresses(const vector<string> & ipAddresses) { DARABONBA_PTR_SET_VALUE(ipAddresses_, ipAddresses) };
+      inline Resources& setIpAddresses(vector<string> && ipAddresses) { DARABONBA_PTR_SET_RVALUE(ipAddresses_, ipAddresses) };
+
+
+      // regionId Field Functions 
+      bool hasRegionId() const { return this->regionId_ != nullptr;};
+      void deleteRegionId() { this->regionId_ = nullptr;};
+      inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+      inline Resources& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+      // resourceGroupId Field Functions 
+      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+      inline Resources& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+      // resourceId Field Functions 
+      bool hasResourceId() const { return this->resourceId_ != nullptr;};
+      void deleteResourceId() { this->resourceId_ = nullptr;};
+      inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+      inline Resources& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
+
+
+      // resourceName Field Functions 
+      bool hasResourceName() const { return this->resourceName_ != nullptr;};
+      void deleteResourceName() { this->resourceName_ = nullptr;};
+      inline string getResourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
+      inline Resources& setResourceName(string resourceName) { DARABONBA_PTR_SET_VALUE(resourceName_, resourceName) };
+
+
+      // resourceType Field Functions 
+      bool hasResourceType() const { return this->resourceType_ != nullptr;};
+      void deleteResourceType() { this->resourceType_ = nullptr;};
+      inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+      inline Resources& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+
+
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<Resources::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Resources::Tags>) };
+      inline vector<Resources::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<Resources::Tags>) };
+      inline Resources& setTags(const vector<Resources::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline Resources& setTags(vector<Resources::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
+      // zoneId Field Functions 
+      bool hasZoneId() const { return this->zoneId_ != nullptr;};
+      void deleteZoneId() { this->zoneId_ = nullptr;};
+      inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+      inline Resources& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
+    protected:
+      // The ID of the management account or a member account of the resource directory.
+      shared_ptr<string> accountId_ {};
+      // The time when the resource was created.
+      // 
+      // > Whether this parameter is returned depends on the Alibaba Cloud service that manages the resource.
+      shared_ptr<string> createTime_ {};
+      // The time when the resource expires.
+      shared_ptr<string> expireTime_ {};
+      // The attributes of the IP addresses.
+      shared_ptr<vector<Resources::IpAddressAttributes>> ipAddressAttributes_ {};
+      // The IP addresses.
+      // 
+      // > Whether this parameter is returned depends on the Alibaba Cloud service that manages the resource.
+      shared_ptr<vector<string>> ipAddresses_ {};
+      // The region ID.
+      shared_ptr<string> regionId_ {};
+      // The resource group ID.
+      shared_ptr<string> resourceGroupId_ {};
+      // The resource ID.
+      shared_ptr<string> resourceId_ {};
+      // The resource name.
+      shared_ptr<string> resourceName_ {};
+      // The resource type.
+      shared_ptr<string> resourceType_ {};
+      // The tags.
+      shared_ptr<vector<Resources::Tags>> tags_ {};
+      // The zone ID.
+      // 
+      // > Whether this parameter is returned depends on the Alibaba Cloud service that manages the resource.
+      shared_ptr<string> zoneId_ {};
+    };
+
+    class Filters : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Filters& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(MatchType, matchType_);
+        DARABONBA_PTR_TO_JSON(Values, values_);
+      };
+      friend void from_json(const Darabonba::Json& j, Filters& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(MatchType, matchType_);
+        DARABONBA_PTR_FROM_JSON(Values, values_);
+      };
+      Filters() = default ;
+      Filters(const Filters &) = default ;
+      Filters(Filters &&) = default ;
+      Filters(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Filters() = default ;
+      Filters& operator=(const Filters &) = default ;
+      Filters& operator=(Filters &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->matchType_ == nullptr && this->values_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Filters& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // matchType Field Functions 
+      bool hasMatchType() const { return this->matchType_ != nullptr;};
+      void deleteMatchType() { this->matchType_ = nullptr;};
+      inline string getMatchType() const { DARABONBA_PTR_GET_DEFAULT(matchType_, "") };
+      inline Filters& setMatchType(string matchType) { DARABONBA_PTR_SET_VALUE(matchType_, matchType) };
+
+
+      // values Field Functions 
+      bool hasValues() const { return this->values_ != nullptr;};
+      void deleteValues() { this->values_ = nullptr;};
+      inline const vector<string> & getValues() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
+      inline vector<string> getValues() { DARABONBA_PTR_GET(values_, vector<string>) };
+      inline Filters& setValues(const vector<string> & values) { DARABONBA_PTR_SET_VALUE(values_, values) };
+      inline Filters& setValues(vector<string> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
+
+
+    protected:
+      // The key of the filter condition.
+      shared_ptr<string> key_ {};
+      // The matching method.
+      shared_ptr<string> matchType_ {};
+      // The values of the filter condition.
+      shared_ptr<vector<string>> values_ {};
+    };
+
     virtual bool empty() const override { return this->filters_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->resources_ == nullptr && return this->scope_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->resources_ == nullptr && this->scope_ == nullptr; };
     // filters Field Functions 
     bool hasFilters() const { return this->filters_ != nullptr;};
     void deleteFilters() { this->filters_ = nullptr;};
-    inline const vector<SearchMultiAccountResourcesResponseBodyFilters> & filters() const { DARABONBA_PTR_GET_CONST(filters_, vector<SearchMultiAccountResourcesResponseBodyFilters>) };
-    inline vector<SearchMultiAccountResourcesResponseBodyFilters> filters() { DARABONBA_PTR_GET(filters_, vector<SearchMultiAccountResourcesResponseBodyFilters>) };
-    inline SearchMultiAccountResourcesResponseBody& setFilters(const vector<SearchMultiAccountResourcesResponseBodyFilters> & filters) { DARABONBA_PTR_SET_VALUE(filters_, filters) };
-    inline SearchMultiAccountResourcesResponseBody& setFilters(vector<SearchMultiAccountResourcesResponseBodyFilters> && filters) { DARABONBA_PTR_SET_RVALUE(filters_, filters) };
+    inline const vector<SearchMultiAccountResourcesResponseBody::Filters> & getFilters() const { DARABONBA_PTR_GET_CONST(filters_, vector<SearchMultiAccountResourcesResponseBody::Filters>) };
+    inline vector<SearchMultiAccountResourcesResponseBody::Filters> getFilters() { DARABONBA_PTR_GET(filters_, vector<SearchMultiAccountResourcesResponseBody::Filters>) };
+    inline SearchMultiAccountResourcesResponseBody& setFilters(const vector<SearchMultiAccountResourcesResponseBody::Filters> & filters) { DARABONBA_PTR_SET_VALUE(filters_, filters) };
+    inline SearchMultiAccountResourcesResponseBody& setFilters(vector<SearchMultiAccountResourcesResponseBody::Filters> && filters) { DARABONBA_PTR_SET_RVALUE(filters_, filters) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline SearchMultiAccountResourcesResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline SearchMultiAccountResourcesResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SearchMultiAccountResourcesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resources Field Functions 
     bool hasResources() const { return this->resources_ != nullptr;};
     void deleteResources() { this->resources_ = nullptr;};
-    inline const vector<SearchMultiAccountResourcesResponseBodyResources> & resources() const { DARABONBA_PTR_GET_CONST(resources_, vector<SearchMultiAccountResourcesResponseBodyResources>) };
-    inline vector<SearchMultiAccountResourcesResponseBodyResources> resources() { DARABONBA_PTR_GET(resources_, vector<SearchMultiAccountResourcesResponseBodyResources>) };
-    inline SearchMultiAccountResourcesResponseBody& setResources(const vector<SearchMultiAccountResourcesResponseBodyResources> & resources) { DARABONBA_PTR_SET_VALUE(resources_, resources) };
-    inline SearchMultiAccountResourcesResponseBody& setResources(vector<SearchMultiAccountResourcesResponseBodyResources> && resources) { DARABONBA_PTR_SET_RVALUE(resources_, resources) };
+    inline const vector<SearchMultiAccountResourcesResponseBody::Resources> & getResources() const { DARABONBA_PTR_GET_CONST(resources_, vector<SearchMultiAccountResourcesResponseBody::Resources>) };
+    inline vector<SearchMultiAccountResourcesResponseBody::Resources> getResources() { DARABONBA_PTR_GET(resources_, vector<SearchMultiAccountResourcesResponseBody::Resources>) };
+    inline SearchMultiAccountResourcesResponseBody& setResources(const vector<SearchMultiAccountResourcesResponseBody::Resources> & resources) { DARABONBA_PTR_SET_VALUE(resources_, resources) };
+    inline SearchMultiAccountResourcesResponseBody& setResources(vector<SearchMultiAccountResourcesResponseBody::Resources> && resources) { DARABONBA_PTR_SET_RVALUE(resources_, resources) };
 
 
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline string scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
     inline SearchMultiAccountResourcesResponseBody& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
   protected:
     // The filter conditions.
-    std::shared_ptr<vector<SearchMultiAccountResourcesResponseBodyFilters>> filters_ = nullptr;
+    shared_ptr<vector<SearchMultiAccountResourcesResponseBody::Filters>> filters_ {};
     // The maximum number of entries returned per page.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    // The pagination token that is used in the next request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results.
+    shared_ptr<string> nextToken_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
     // The information about the resources.
-    std::shared_ptr<vector<SearchMultiAccountResourcesResponseBodyResources>> resources_ = nullptr;
-    // The search scope.
+    shared_ptr<vector<SearchMultiAccountResourcesResponseBody::Resources>> resources_ {};
+    // The scope of accounts in which the resources were searched. Valid values:
     // 
-    // *   ID of a resource directory: Resources within the management account and all members of the resource directory are searched.
-    // *   ID of the Root folder: Resources within all members in the Root folder and the subfolders of the Root folder are searched.
-    // *   ID of a folder: Resources within all members in the folder are searched.
-    // *   ID of a member: Resources within the member are searched.
-    std::shared_ptr<string> scope_ = nullptr;
+    // - The ID of the resource directory. This indicates that resources were searched in the management account and all member accounts of the resource directory.
+    // 
+    // - The ID of the Root folder. This indicates that resources were searched in all member accounts under the Root folder and its subfolders.
+    // 
+    // - The ID of a folder. This indicates that resources were searched in all member accounts under the folder.
+    // 
+    // - The ID of a member account. This indicates that resources were searched in the member account.
+    shared_ptr<string> scope_ {};
   };
 
   } // namespace Models

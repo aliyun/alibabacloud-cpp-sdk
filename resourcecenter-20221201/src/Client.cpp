@@ -46,7 +46,7 @@ AssociateDefaultFilterResponse Client::associateDefaultFilterWithOptions(const A
   request.validate();
   json query = {};
   if (!!request.hasFilterName()) {
-    query["FilterName"] = request.filterName();
+    query["FilterName"] = request.getFilterName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -78,12 +78,54 @@ AssociateDefaultFilterResponse Client::associateDefaultFilter(const AssociateDef
 }
 
 /**
- * @summary Creates a single-account delivery channel.
+ * @summary Queries the configurations of multiple resources in your account.
  *
- * @description Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
- * Scheduled resource snapshots support the following delivery scenarios:
- * *   Standard delivery: Leave the ResourceSnapshotDelivery.CustomExpression parameter empty.
- * *   Custom delivery: Set the ResourceSnapshotDelivery.CustomExpression parameter to an appropriate value.
+ * @param request BatchGetResourceConfigurationsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchGetResourceConfigurationsResponse
+ */
+BatchGetResourceConfigurationsResponse Client::batchGetResourceConfigurationsWithOptions(const BatchGetResourceConfigurationsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasResources()) {
+    query["Resources"] = request.getResources();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchGetResourceConfigurations"},
+    {"version" , "2022-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchGetResourceConfigurationsResponse>();
+}
+
+/**
+ * @summary Queries the configurations of multiple resources in your account.
+ *
+ * @param request BatchGetResourceConfigurationsRequest
+ * @return BatchGetResourceConfigurationsResponse
+ */
+BatchGetResourceConfigurationsResponse Client::batchGetResourceConfigurations(const BatchGetResourceConfigurationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchGetResourceConfigurationsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a resource delivery channel for the current account.
+ *
+ * @description Resource delivery supports the scheduled delivery of resource snapshots and the delivery of resource configuration changes.
+ * Scheduled delivery of resource snapshots supports two scenarios:
+ * - Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+ * - Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
  *
  * @param request CreateDeliveryChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -93,23 +135,23 @@ CreateDeliveryChannelResponse Client::createDeliveryChannelWithOptions(const Cre
   request.validate();
   json query = {};
   if (!!request.hasDeliveryChannelDescription()) {
-    query["DeliveryChannelDescription"] = request.deliveryChannelDescription();
+    query["DeliveryChannelDescription"] = request.getDeliveryChannelDescription();
   }
 
   if (!!request.hasDeliveryChannelFilter()) {
-    query["DeliveryChannelFilter"] = request.deliveryChannelFilter();
+    query["DeliveryChannelFilter"] = request.getDeliveryChannelFilter();
   }
 
   if (!!request.hasDeliveryChannelName()) {
-    query["DeliveryChannelName"] = request.deliveryChannelName();
+    query["DeliveryChannelName"] = request.getDeliveryChannelName();
   }
 
   if (!!request.hasResourceChangeDelivery()) {
-    query["ResourceChangeDelivery"] = request.resourceChangeDelivery();
+    query["ResourceChangeDelivery"] = request.getResourceChangeDelivery();
   }
 
   if (!!request.hasResourceSnapshotDelivery()) {
-    query["ResourceSnapshotDelivery"] = request.resourceSnapshotDelivery();
+    query["ResourceSnapshotDelivery"] = request.getResourceSnapshotDelivery();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -130,12 +172,12 @@ CreateDeliveryChannelResponse Client::createDeliveryChannelWithOptions(const Cre
 }
 
 /**
- * @summary Creates a single-account delivery channel.
+ * @summary Creates a resource delivery channel for the current account.
  *
- * @description Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
- * Scheduled resource snapshots support the following delivery scenarios:
- * *   Standard delivery: Leave the ResourceSnapshotDelivery.CustomExpression parameter empty.
- * *   Custom delivery: Set the ResourceSnapshotDelivery.CustomExpression parameter to an appropriate value.
+ * @description Resource delivery supports the scheduled delivery of resource snapshots and the delivery of resource configuration changes.
+ * Scheduled delivery of resource snapshots supports two scenarios:
+ * - Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+ * - Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
  *
  * @param request CreateDeliveryChannelRequest
  * @return CreateDeliveryChannelResponse
@@ -156,11 +198,11 @@ CreateFilterResponse Client::createFilterWithOptions(const CreateFilterRequest &
   request.validate();
   json query = {};
   if (!!request.hasFilterConfiguration()) {
-    query["FilterConfiguration"] = request.filterConfiguration();
+    query["FilterConfiguration"] = request.getFilterConfiguration();
   }
 
   if (!!request.hasFilterName()) {
-    query["FilterName"] = request.filterName();
+    query["FilterName"] = request.getFilterName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -194,10 +236,10 @@ CreateFilterResponse Client::createFilter(const CreateFilterRequest &request) {
 /**
  * @summary Creates a multi-account delivery channel.
  *
- * @description In Resource Center, you can create multi-account delivery channels by using the management account of your resource directory or the delegated administrator account of Resource Center to deliver resource configuration change events and scheduled resource snapshots within the members in your resource directory to Object Storage Service (OSS) or Simple Log Service. Then, other Alibaba Cloud services consume standardized resource information from OSS or Simple Log Service.
+ * @description In Resource Center, you can create multi-account delivery channels by using the management account of your resource directory or the delegated administrator account of Resource Center to deliver resource configuration change events and scheduled resource snapshots within the members in your resource directory to Object Storage Service (OSS) or Simple Log Service (SLS). Then, other Alibaba Cloud services consume standardized resource information from OSS or Simple Log Service.
  * Scheduled resource snapshots support the following delivery scenarios:
- * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
- * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
+ * - Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+ * - Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
  *
  * @param request CreateMultiAccountDeliveryChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -207,23 +249,23 @@ CreateMultiAccountDeliveryChannelResponse Client::createMultiAccountDeliveryChan
   request.validate();
   json query = {};
   if (!!request.hasDeliveryChannelDescription()) {
-    query["DeliveryChannelDescription"] = request.deliveryChannelDescription();
+    query["DeliveryChannelDescription"] = request.getDeliveryChannelDescription();
   }
 
   if (!!request.hasDeliveryChannelFilter()) {
-    query["DeliveryChannelFilter"] = request.deliveryChannelFilter();
+    query["DeliveryChannelFilter"] = request.getDeliveryChannelFilter();
   }
 
   if (!!request.hasDeliveryChannelName()) {
-    query["DeliveryChannelName"] = request.deliveryChannelName();
+    query["DeliveryChannelName"] = request.getDeliveryChannelName();
   }
 
   if (!!request.hasResourceChangeDelivery()) {
-    query["ResourceChangeDelivery"] = request.resourceChangeDelivery();
+    query["ResourceChangeDelivery"] = request.getResourceChangeDelivery();
   }
 
   if (!!request.hasResourceSnapshotDelivery()) {
-    query["ResourceSnapshotDelivery"] = request.resourceSnapshotDelivery();
+    query["ResourceSnapshotDelivery"] = request.getResourceSnapshotDelivery();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -246,10 +288,10 @@ CreateMultiAccountDeliveryChannelResponse Client::createMultiAccountDeliveryChan
 /**
  * @summary Creates a multi-account delivery channel.
  *
- * @description In Resource Center, you can create multi-account delivery channels by using the management account of your resource directory or the delegated administrator account of Resource Center to deliver resource configuration change events and scheduled resource snapshots within the members in your resource directory to Object Storage Service (OSS) or Simple Log Service. Then, other Alibaba Cloud services consume standardized resource information from OSS or Simple Log Service.
+ * @description In Resource Center, you can create multi-account delivery channels by using the management account of your resource directory or the delegated administrator account of Resource Center to deliver resource configuration change events and scheduled resource snapshots within the members in your resource directory to Object Storage Service (OSS) or Simple Log Service (SLS). Then, other Alibaba Cloud services consume standardized resource information from OSS or Simple Log Service.
  * Scheduled resource snapshots support the following delivery scenarios:
- * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
- * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
+ * - Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+ * - Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
  *
  * @param request CreateMultiAccountDeliveryChannelRequest
  * @return CreateMultiAccountDeliveryChannelResponse
@@ -270,15 +312,15 @@ CreateSavedQueryResponse Client::createSavedQueryWithOptions(const CreateSavedQu
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasExpression()) {
-    query["Expression"] = request.expression();
+    query["Expression"] = request.getExpression();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -320,7 +362,7 @@ DeleteDeliveryChannelResponse Client::deleteDeliveryChannelWithOptions(const Del
   request.validate();
   json query = {};
   if (!!request.hasDeliveryChannelId()) {
-    query["DeliveryChannelId"] = request.deliveryChannelId();
+    query["DeliveryChannelId"] = request.getDeliveryChannelId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -362,7 +404,7 @@ DeleteFilterResponse Client::deleteFilterWithOptions(const DeleteFilterRequest &
   request.validate();
   json query = {};
   if (!!request.hasFilterName()) {
-    query["FilterName"] = request.filterName();
+    query["FilterName"] = request.getFilterName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -404,7 +446,7 @@ DeleteMultiAccountDeliveryChannelResponse Client::deleteMultiAccountDeliveryChan
   request.validate();
   json query = {};
   if (!!request.hasDeliveryChannelId()) {
-    query["DeliveryChannelId"] = request.deliveryChannelId();
+    query["DeliveryChannelId"] = request.getDeliveryChannelId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -446,7 +488,7 @@ DeleteSavedQueryResponse Client::deleteSavedQueryWithOptions(const DeleteSavedQu
   request.validate();
   json query = {};
   if (!!request.hasQueryId()) {
-    query["QueryId"] = request.queryId();
+    query["QueryId"] = request.getQueryId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -478,7 +520,7 @@ DeleteSavedQueryResponse Client::deleteSavedQuery(const DeleteSavedQueryRequest 
 }
 
 /**
- * @summary Disables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+ * @summary 关闭跨账号搜索功能
  *
  * @param request DisableMultiAccountResourceCenterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -501,7 +543,7 @@ DisableMultiAccountResourceCenterResponse Client::disableMultiAccountResourceCen
 }
 
 /**
- * @summary Disables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+ * @summary 关闭跨账号搜索功能
  *
  * @return DisableMultiAccountResourceCenterResponse
  */
@@ -511,7 +553,7 @@ DisableMultiAccountResourceCenterResponse Client::disableMultiAccountResourceCen
 }
 
 /**
- * @summary Deactivates the Resource Center service.
+ * @summary 禁用资源中心
  *
  * @param request DisableResourceCenterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -534,7 +576,7 @@ DisableResourceCenterResponse Client::disableResourceCenterWithOptions(const Dar
 }
 
 /**
- * @summary Deactivates the Resource Center service.
+ * @summary 禁用资源中心
  *
  * @return DisableResourceCenterResponse
  */
@@ -577,9 +619,7 @@ DisassociateDefaultFilterResponse Client::disassociateDefaultFilter() {
 }
 
 /**
- * @summary Enables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
- *
- * @description If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](https://help.aliyun.com/document_detail/200506.html).
+ * @summary 开通跨账号搜索功能
  *
  * @param request EnableMultiAccountResourceCenterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -602,9 +642,7 @@ EnableMultiAccountResourceCenterResponse Client::enableMultiAccountResourceCente
 }
 
 /**
- * @summary Enables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
- *
- * @description If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](https://help.aliyun.com/document_detail/200506.html).
+ * @summary 开通跨账号搜索功能
  *
  * @return EnableMultiAccountResourceCenterResponse
  */
@@ -647,7 +685,7 @@ EnableResourceCenterResponse Client::enableResourceCenter() {
 }
 
 /**
- * @summary Executes an SQL statement to query resources across accounts.
+ * @summary 执行多账号查询
  *
  * @param request ExecuteMultiAccountSQLQueryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -657,19 +695,19 @@ ExecuteMultiAccountSQLQueryResponse Client::executeMultiAccountSQLQueryWithOptio
   request.validate();
   json query = {};
   if (!!request.hasExpression()) {
-    query["Expression"] = request.expression();
+    query["Expression"] = request.getExpression();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasScope()) {
-    query["Scope"] = request.scope();
+    query["Scope"] = request.getScope();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -690,7 +728,7 @@ ExecuteMultiAccountSQLQueryResponse Client::executeMultiAccountSQLQueryWithOptio
 }
 
 /**
- * @summary Executes an SQL statement to query resources across accounts.
+ * @summary 执行多账号查询
  *
  * @param request ExecuteMultiAccountSQLQueryRequest
  * @return ExecuteMultiAccountSQLQueryResponse
@@ -711,19 +749,19 @@ ExecuteSQLQueryResponse Client::executeSQLQueryWithOptions(const ExecuteSQLQuery
   request.validate();
   json query = {};
   if (!!request.hasExpression()) {
-    query["Expression"] = request.expression();
+    query["Expression"] = request.getExpression();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasScope()) {
-    query["Scope"] = request.scope();
+    query["Scope"] = request.getScope();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -755,7 +793,7 @@ ExecuteSQLQueryResponse Client::executeSQLQuery(const ExecuteSQLQueryRequest &re
 }
 
 /**
- * @summary Queries the information about a single-account delivery channel.
+ * @summary Queries the information about a delivery channel within the current account.
  *
  * @param request GetDeliveryChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -765,7 +803,7 @@ GetDeliveryChannelResponse Client::getDeliveryChannelWithOptions(const GetDelive
   request.validate();
   json query = {};
   if (!!request.hasDeliveryChannelId()) {
-    query["DeliveryChannelId"] = request.deliveryChannelId();
+    query["DeliveryChannelId"] = request.getDeliveryChannelId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -786,7 +824,7 @@ GetDeliveryChannelResponse Client::getDeliveryChannelWithOptions(const GetDelive
 }
 
 /**
- * @summary Queries the information about a single-account delivery channel.
+ * @summary Queries the information about a delivery channel within the current account.
  *
  * @param request GetDeliveryChannelRequest
  * @return GetDeliveryChannelResponse
@@ -797,7 +835,7 @@ GetDeliveryChannelResponse Client::getDeliveryChannel(const GetDeliveryChannelRe
 }
 
 /**
- * @summary Queries the statistics on a single-account delivery channel.
+ * @summary Queries the statistics of a resource delivery channel in the current account.
  *
  * @param request GetDeliveryChannelStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -807,7 +845,7 @@ GetDeliveryChannelStatisticsResponse Client::getDeliveryChannelStatisticsWithOpt
   request.validate();
   json query = {};
   if (!!request.hasDeliveryChannelId()) {
-    query["DeliveryChannelId"] = request.deliveryChannelId();
+    query["DeliveryChannelId"] = request.getDeliveryChannelId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -828,7 +866,7 @@ GetDeliveryChannelStatisticsResponse Client::getDeliveryChannelStatisticsWithOpt
 }
 
 /**
- * @summary Queries the statistics on a single-account delivery channel.
+ * @summary Queries the statistics of a resource delivery channel in the current account.
  *
  * @param request GetDeliveryChannelStatisticsRequest
  * @return GetDeliveryChannelStatisticsResponse
@@ -849,7 +887,7 @@ GetExampleQueryResponse Client::getExampleQueryWithOptions(const GetExampleQuery
   request.validate();
   json query = {};
   if (!!request.hasQueryId()) {
-    query["QueryId"] = request.queryId();
+    query["QueryId"] = request.getQueryId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -881,7 +919,7 @@ GetExampleQueryResponse Client::getExampleQuery(const GetExampleQueryRequest &re
 }
 
 /**
- * @summary Queries the information about a multi-account delivery channel.
+ * @summary Queries the information about a cross-account resource delivery channel.
  *
  * @param request GetMultiAccountDeliveryChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -891,7 +929,7 @@ GetMultiAccountDeliveryChannelResponse Client::getMultiAccountDeliveryChannelWit
   request.validate();
   json query = {};
   if (!!request.hasDeliveryChannelId()) {
-    query["DeliveryChannelId"] = request.deliveryChannelId();
+    query["DeliveryChannelId"] = request.getDeliveryChannelId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -912,7 +950,7 @@ GetMultiAccountDeliveryChannelResponse Client::getMultiAccountDeliveryChannelWit
 }
 
 /**
- * @summary Queries the information about a multi-account delivery channel.
+ * @summary Queries the information about a cross-account resource delivery channel.
  *
  * @param request GetMultiAccountDeliveryChannelRequest
  * @return GetMultiAccountDeliveryChannelResponse
@@ -933,7 +971,7 @@ GetMultiAccountDeliveryChannelStatisticsResponse Client::getMultiAccountDelivery
   request.validate();
   json query = {};
   if (!!request.hasDeliveryChannelId()) {
-    query["DeliveryChannelId"] = request.deliveryChannelId();
+    query["DeliveryChannelId"] = request.getDeliveryChannelId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -965,7 +1003,7 @@ GetMultiAccountDeliveryChannelStatisticsResponse Client::getMultiAccountDelivery
 }
 
 /**
- * @summary Queries the status of the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+ * @summary 获取跨账号资源中心服务状态
  *
  * @param request GetMultiAccountResourceCenterServiceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -988,7 +1026,7 @@ GetMultiAccountResourceCenterServiceStatusResponse Client::getMultiAccountResour
 }
 
 /**
- * @summary Queries the status of the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+ * @summary 获取跨账号资源中心服务状态
  *
  * @return GetMultiAccountResourceCenterServiceStatusResponse
  */
@@ -1008,19 +1046,19 @@ GetMultiAccountResourceConfigurationResponse Client::getMultiAccountResourceConf
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceRegionId()) {
-    query["ResourceRegionId"] = request.resourceRegionId();
+    query["ResourceRegionId"] = request.getResourceRegionId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1052,7 +1090,9 @@ GetMultiAccountResourceConfigurationResponse Client::getMultiAccountResourceConf
 }
 
 /**
- * @summary 获取多账号资源数量
+ * @summary Queries the number of resources within the management account and multiple members of a resource directory.
+ *
+ * @description You can query only resources supported by Resource Center. For more information, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
  *
  * @param request GetMultiAccountResourceCountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1062,15 +1102,15 @@ GetMultiAccountResourceCountsResponse Client::getMultiAccountResourceCountsWithO
   request.validate();
   json query = {};
   if (!!request.hasFilter()) {
-    query["Filter"] = request.filter();
+    query["Filter"] = request.getFilter();
   }
 
   if (!!request.hasGroupByKey()) {
-    query["GroupByKey"] = request.groupByKey();
+    query["GroupByKey"] = request.getGroupByKey();
   }
 
   if (!!request.hasScope()) {
-    query["Scope"] = request.scope();
+    query["Scope"] = request.getScope();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1091,7 +1131,9 @@ GetMultiAccountResourceCountsResponse Client::getMultiAccountResourceCountsWithO
 }
 
 /**
- * @summary 获取多账号资源数量
+ * @summary Queries the number of resources within the management account and multiple members of a resource directory.
+ *
+ * @description You can query only resources supported by Resource Center. For more information, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
  *
  * @param request GetMultiAccountResourceCountsRequest
  * @return GetMultiAccountResourceCountsResponse
@@ -1135,7 +1177,7 @@ GetResourceCenterServiceStatusResponse Client::getResourceCenterServiceStatus() 
 }
 
 /**
- * @summary Queries the configurations of a resource within the current account.
+ * @summary 获取资源配置
  *
  * @param request GetResourceConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1145,15 +1187,15 @@ GetResourceConfigurationResponse Client::getResourceConfigurationWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceRegionId()) {
-    query["ResourceRegionId"] = request.resourceRegionId();
+    query["ResourceRegionId"] = request.getResourceRegionId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1174,7 +1216,7 @@ GetResourceConfigurationResponse Client::getResourceConfigurationWithOptions(con
 }
 
 /**
- * @summary Queries the configurations of a resource within the current account.
+ * @summary 获取资源配置
  *
  * @param request GetResourceConfigurationRequest
  * @return GetResourceConfigurationResponse
@@ -1185,7 +1227,10 @@ GetResourceConfigurationResponse Client::getResourceConfiguration(const GetResou
 }
 
 /**
- * @summary Queries the numbers of resources on which the current account has access permissions.
+ * @summary Queries the number of resources in your account that you have permission to access.
+ *
+ * @description - You can query the number of resources in your account that you have permission to access.
+ * - You can query only the [Alibaba Cloud services and resource types that are supported by Resource Center](https://help.aliyun.com/document_detail/477798.html).
  *
  * @param request GetResourceCountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1195,19 +1240,19 @@ GetResourceCountsResponse Client::getResourceCountsWithOptions(const GetResource
   request.validate();
   json query = {};
   if (!!request.hasFilter()) {
-    query["Filter"] = request.filter();
+    query["Filter"] = request.getFilter();
   }
 
   if (!!request.hasGroupByKey()) {
-    query["GroupByKey"] = request.groupByKey();
+    query["GroupByKey"] = request.getGroupByKey();
   }
 
   if (!!request.hasIncludeDeletedResources()) {
-    query["IncludeDeletedResources"] = request.includeDeletedResources();
+    query["IncludeDeletedResources"] = request.getIncludeDeletedResources();
   }
 
   if (!!request.hasSearchExpression()) {
-    query["SearchExpression"] = request.searchExpression();
+    query["SearchExpression"] = request.getSearchExpression();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1228,7 +1273,10 @@ GetResourceCountsResponse Client::getResourceCountsWithOptions(const GetResource
 }
 
 /**
- * @summary Queries the numbers of resources on which the current account has access permissions.
+ * @summary Queries the number of resources in your account that you have permission to access.
+ *
+ * @description - You can query the number of resources in your account that you have permission to access.
+ * - You can query only the [Alibaba Cloud services and resource types that are supported by Resource Center](https://help.aliyun.com/document_detail/477798.html).
  *
  * @param request GetResourceCountsRequest
  * @return GetResourceCountsResponse
@@ -1249,7 +1297,7 @@ GetSavedQueryResponse Client::getSavedQueryWithOptions(const GetSavedQueryReques
   request.validate();
   json query = {};
   if (!!request.hasQueryId()) {
-    query["QueryId"] = request.queryId();
+    query["QueryId"] = request.getQueryId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1281,7 +1329,7 @@ GetSavedQueryResponse Client::getSavedQuery(const GetSavedQueryRequest &request)
 }
 
 /**
- * @summary Queries a list of single-account delivery channels.
+ * @summary Queries a list of delivery channels within the current account.
  *
  * @param request ListDeliveryChannelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1291,11 +1339,11 @@ ListDeliveryChannelsResponse Client::listDeliveryChannelsWithOptions(const ListD
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1316,7 +1364,7 @@ ListDeliveryChannelsResponse Client::listDeliveryChannelsWithOptions(const ListD
 }
 
 /**
- * @summary Queries a list of single-account delivery channels.
+ * @summary Queries a list of delivery channels within the current account.
  *
  * @param request ListDeliveryChannelsRequest
  * @return ListDeliveryChannelsResponse
@@ -1337,11 +1385,11 @@ ListExampleQueriesResponse Client::listExampleQueriesWithOptions(const ListExamp
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1373,7 +1421,7 @@ ListExampleQueriesResponse Client::listExampleQueries(const ListExampleQueriesRe
 }
 
 /**
- * @summary Queries a list of filters.
+ * @summary 获取过滤器列表
  *
  * @param request ListFiltersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1396,7 +1444,7 @@ ListFiltersResponse Client::listFiltersWithOptions(const Darabonba::RuntimeOptio
 }
 
 /**
- * @summary Queries a list of filters.
+ * @summary 获取过滤器列表
  *
  * @return ListFiltersResponse
  */
@@ -1406,7 +1454,7 @@ ListFiltersResponse Client::listFilters() {
 }
 
 /**
- * @summary Queries a list of multi-account delivery channels.
+ * @summary Queries a list of delivery channels in resource directory mode.
  *
  * @param request ListMultiAccountDeliveryChannelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1416,11 +1464,11 @@ ListMultiAccountDeliveryChannelsResponse Client::listMultiAccountDeliveryChannel
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1441,7 +1489,7 @@ ListMultiAccountDeliveryChannelsResponse Client::listMultiAccountDeliveryChannel
 }
 
 /**
- * @summary Queries a list of multi-account delivery channels.
+ * @summary Queries a list of delivery channels in resource directory mode.
  *
  * @param request ListMultiAccountDeliveryChannelsRequest
  * @return ListMultiAccountDeliveryChannelsResponse
@@ -1452,7 +1500,7 @@ ListMultiAccountDeliveryChannelsResponse Client::listMultiAccountDeliveryChannel
 }
 
 /**
- * @summary Queries the resource groups within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+ * @summary Queries the resource groups within the management account or a member in a resource directory.
  *
  * @param request ListMultiAccountResourceGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1462,19 +1510,19 @@ ListMultiAccountResourceGroupsResponse Client::listMultiAccountResourceGroupsWit
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceGroupIds()) {
-    query["ResourceGroupIds"] = request.resourceGroupIds();
+    query["ResourceGroupIds"] = request.getResourceGroupIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1495,7 +1543,7 @@ ListMultiAccountResourceGroupsResponse Client::listMultiAccountResourceGroupsWit
 }
 
 /**
- * @summary Queries the resource groups within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+ * @summary Queries the resource groups within the management account or a member in a resource directory.
  *
  * @param request ListMultiAccountResourceGroupsRequest
  * @return ListMultiAccountResourceGroupsResponse
@@ -1506,12 +1554,7 @@ ListMultiAccountResourceGroupsResponse Client::listMultiAccountResourceGroups(co
 }
 
 /**
- * @summary Queries the relationships between resources within the management account or members of your resource directory.
- *
- * @description *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
- * *   By default, the operation returns up to 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
- * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
- * *   You can specify one or more filter conditions to narrow the search. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+ * @summary 跨账号列出资源关系
  *
  * @param request ListMultiAccountResourceRelationshipsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1521,31 +1564,31 @@ ListMultiAccountResourceRelationshipsResponse Client::listMultiAccountResourceRe
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRelatedResourceFilter()) {
-    query["RelatedResourceFilter"] = request.relatedResourceFilter();
+    query["RelatedResourceFilter"] = request.getRelatedResourceFilter();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasScope()) {
-    query["Scope"] = request.scope();
+    query["Scope"] = request.getScope();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1566,12 +1609,7 @@ ListMultiAccountResourceRelationshipsResponse Client::listMultiAccountResourceRe
 }
 
 /**
- * @summary Queries the relationships between resources within the management account or members of your resource directory.
- *
- * @description *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
- * *   By default, the operation returns up to 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
- * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
- * *   You can specify one or more filter conditions to narrow the search. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+ * @summary 跨账号列出资源关系
  *
  * @param request ListMultiAccountResourceRelationshipsRequest
  * @return ListMultiAccountResourceRelationshipsResponse
@@ -1582,7 +1620,7 @@ ListMultiAccountResourceRelationshipsResponse Client::listMultiAccountResourceRe
 }
 
 /**
- * @summary Queries the tag keys of resources within the management account or a member of your resource directory.
+ * @summary 查询多账号标签键
  *
  * @param request ListMultiAccountTagKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1592,23 +1630,23 @@ ListMultiAccountTagKeysResponse Client::listMultiAccountTagKeysWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasMatchType()) {
-    query["MatchType"] = request.matchType();
+    query["MatchType"] = request.getMatchType();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasScope()) {
-    query["Scope"] = request.scope();
+    query["Scope"] = request.getScope();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1629,7 +1667,7 @@ ListMultiAccountTagKeysResponse Client::listMultiAccountTagKeysWithOptions(const
 }
 
 /**
- * @summary Queries the tag keys of resources within the management account or a member of your resource directory.
+ * @summary 查询多账号标签键
  *
  * @param request ListMultiAccountTagKeysRequest
  * @return ListMultiAccountTagKeysResponse
@@ -1640,7 +1678,7 @@ ListMultiAccountTagKeysResponse Client::listMultiAccountTagKeys(const ListMultiA
 }
 
 /**
- * @summary Queries the tag values of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+ * @summary 查询多账号标签值
  *
  * @param request ListMultiAccountTagValuesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1650,27 +1688,27 @@ ListMultiAccountTagValuesResponse Client::listMultiAccountTagValuesWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasMatchType()) {
-    query["MatchType"] = request.matchType();
+    query["MatchType"] = request.getMatchType();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasScope()) {
-    query["Scope"] = request.scope();
+    query["Scope"] = request.getScope();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   if (!!request.hasTagValue()) {
-    query["TagValue"] = request.tagValue();
+    query["TagValue"] = request.getTagValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1691,7 +1729,7 @@ ListMultiAccountTagValuesResponse Client::listMultiAccountTagValuesWithOptions(c
 }
 
 /**
- * @summary Queries the tag values of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+ * @summary 查询多账号标签值
  *
  * @param request ListMultiAccountTagValuesRequest
  * @return ListMultiAccountTagValuesResponse
@@ -1702,12 +1740,7 @@ ListMultiAccountTagValuesResponse Client::listMultiAccountTagValues(const ListMu
 }
 
 /**
- * @summary Queries a list of resource relationships on which the current account has access permissions.
- *
- * @description *   You can call this operation to query only the resource relationships on which the current account has access permissions.
- * *   By default, this operation returns up to 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
- * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
- * *   You can specify one or more filter conditions to narrow the query scope. For information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only entries that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Entries that meet any value of the filter condition are returned.
+ * @summary 列出资源关系
  *
  * @param request ListResourceRelationshipsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1717,27 +1750,27 @@ ListResourceRelationshipsResponse Client::listResourceRelationshipsWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRelatedResourceFilter()) {
-    query["RelatedResourceFilter"] = request.relatedResourceFilter();
+    query["RelatedResourceFilter"] = request.getRelatedResourceFilter();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1758,12 +1791,7 @@ ListResourceRelationshipsResponse Client::listResourceRelationshipsWithOptions(c
 }
 
 /**
- * @summary Queries a list of resource relationships on which the current account has access permissions.
- *
- * @description *   You can call this operation to query only the resource relationships on which the current account has access permissions.
- * *   By default, this operation returns up to 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
- * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
- * *   You can specify one or more filter conditions to narrow the query scope. For information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only entries that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Entries that meet any value of the filter condition are returned.
+ * @summary 列出资源关系
  *
  * @param request ListResourceRelationshipsRequest
  * @return ListResourceRelationshipsResponse
@@ -1784,15 +1812,15 @@ ListResourceTypesResponse Client::listResourceTypesWithOptions(const ListResourc
   request.validate();
   json query = {};
   if (!!request.hasAcceptLanguage()) {
-    query["AcceptLanguage"] = request.acceptLanguage();
+    query["AcceptLanguage"] = request.getAcceptLanguage();
   }
 
   if (!!request.hasQuery()) {
-    query["Query"] = request.query();
+    query["Query"] = request.getQuery();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1834,11 +1862,11 @@ ListSavedQueriesResponse Client::listSavedQueriesWithOptions(const ListSavedQuer
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1880,19 +1908,19 @@ ListTagKeysResponse Client::listTagKeysWithOptions(const ListTagKeysRequest &req
   request.validate();
   json query = {};
   if (!!request.hasMatchType()) {
-    query["MatchType"] = request.matchType();
+    query["MatchType"] = request.getMatchType();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1924,7 +1952,7 @@ ListTagKeysResponse Client::listTagKeys(const ListTagKeysRequest &request) {
 }
 
 /**
- * @summary Queries the tag values of resources within the current account.
+ * @summary 查询标签值
  *
  * @param request ListTagValuesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1934,23 +1962,23 @@ ListTagValuesResponse Client::listTagValuesWithOptions(const ListTagValuesReques
   request.validate();
   json query = {};
   if (!!request.hasMatchType()) {
-    query["MatchType"] = request.matchType();
+    query["MatchType"] = request.getMatchType();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   if (!!request.hasTagValue()) {
-    query["TagValue"] = request.tagValue();
+    query["TagValue"] = request.getTagValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1971,7 +1999,7 @@ ListTagValuesResponse Client::listTagValuesWithOptions(const ListTagValuesReques
 }
 
 /**
- * @summary Queries the tag values of resources within the current account.
+ * @summary 查询标签值
  *
  * @param request ListTagValuesRequest
  * @return ListTagValuesResponse
@@ -1982,14 +2010,14 @@ ListTagValuesResponse Client::listTagValues(const ListTagValuesRequest &request)
 }
 
 /**
- * @summary Searches for resources within the management account or members of a resource directory.
+ * @summary Searches for resources in the management account and multiple member accounts of a resource directory.
  *
- * @description *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
- * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
- * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
- * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
- * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
- * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
+ * @description - You can search only for [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
+ * - To search for resources across accounts as a RAM user or RAM role, you must have been attached the `resourcecenter:SearchMultiAccountResources` policy. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
+ * - By default, this operation returns a maximum of 20 entries. To change the maximum number of entries that can be returned, specify the `MaxResults` parameter.
+ * - If the response does not include `NextToken`, no more data is available. To query the next page of results, set the `NextToken` parameter to the value that was returned from the previous call. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
+ * - You can set one or more filter conditions to narrow the search scope. For information about supported filter parameters and matching methods, see the information below. Multiple filter conditions are joined by a logical `AND`. Only resources that meet all filter conditions are returned. The values within a single filter condition are joined by a logical `OR`. Resources that meet any value for a filter condition are returned.
+ * - For more query examples, visit <props="china">[示例中心](https://api.aliyun.com/api-tools/demo/ResourceCenter) <props="intl">[OpenAPI Portal](https://api.alibabacloud.com/api-tools/demo/ResourceCenter).
  *
  * @param request SearchMultiAccountResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1999,23 +2027,23 @@ SearchMultiAccountResourcesResponse Client::searchMultiAccountResourcesWithOptio
   request.validate();
   json query = {};
   if (!!request.hasFilter()) {
-    query["Filter"] = request.filter();
+    query["Filter"] = request.getFilter();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasScope()) {
-    query["Scope"] = request.scope();
+    query["Scope"] = request.getScope();
   }
 
   if (!!request.hasSortCriterion()) {
-    query["SortCriterion"] = request.sortCriterion();
+    query["SortCriterion"] = request.getSortCriterion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2036,14 +2064,14 @@ SearchMultiAccountResourcesResponse Client::searchMultiAccountResourcesWithOptio
 }
 
 /**
- * @summary Searches for resources within the management account or members of a resource directory.
+ * @summary Searches for resources in the management account and multiple member accounts of a resource directory.
  *
- * @description *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
- * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
- * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
- * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
- * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
- * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
+ * @description - You can search only for [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
+ * - To search for resources across accounts as a RAM user or RAM role, you must have been attached the `resourcecenter:SearchMultiAccountResources` policy. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
+ * - By default, this operation returns a maximum of 20 entries. To change the maximum number of entries that can be returned, specify the `MaxResults` parameter.
+ * - If the response does not include `NextToken`, no more data is available. To query the next page of results, set the `NextToken` parameter to the value that was returned from the previous call. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
+ * - You can set one or more filter conditions to narrow the search scope. For information about supported filter parameters and matching methods, see the information below. Multiple filter conditions are joined by a logical `AND`. Only resources that meet all filter conditions are returned. The values within a single filter condition are joined by a logical `OR`. Resources that meet any value for a filter condition are returned.
+ * - For more query examples, visit <props="china">[示例中心](https://api.aliyun.com/api-tools/demo/ResourceCenter) <props="intl">[OpenAPI Portal](https://api.alibabacloud.com/api-tools/demo/ResourceCenter).
  *
  * @param request SearchMultiAccountResourcesRequest
  * @return SearchMultiAccountResourcesResponse
@@ -2054,13 +2082,14 @@ SearchMultiAccountResourcesResponse Client::searchMultiAccountResources(const Se
 }
 
 /**
- * @summary Search for resources that you can access within the current account.
+ * @summary Searches for resources in your current account that you are permitted to access.
  *
- * @description *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
- * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
- * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
- * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
- * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
+ * @description - You can search only for resources in your current account that you are permitted to access.
+ * - You can search only for the [Alibaba Cloud services and resource types that are supported by Resource Center](https://help.aliyun.com/document_detail/477798.html).
+ * - By default, the SearchResources operation returns a maximum of 20 entries. You can specify the `MaxResults` parameter to change the maximum number of entries that are returned.
+ * - If the response does not include a `NextToken` value, no more results are available. To retrieve the next page of results, include the `NextToken` value from the previous response in your next request. If you do not specify the `NextToken` parameter, the first page of results is returned.
+ * - You can set one or more filter conditions to narrow the search scope. For information about the supported filter parameters and matching methods, see the following sections. Multiple filter conditions are combined by a logical `AND`. Only resources that meet all filter conditions are returned. The values within a filter condition are combined by a logical `OR`. Resources that meet any value of the filter condition are returned.
+ * - For more query examples, see [API Explorer](https://api.aliyun.com/api-tools/demo/ResourceCenter).
  *
  * @param request SearchResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2070,31 +2099,31 @@ SearchResourcesResponse Client::searchResourcesWithOptions(const SearchResources
   request.validate();
   json query = {};
   if (!!request.hasFilter()) {
-    query["Filter"] = request.filter();
+    query["Filter"] = request.getFilter();
   }
 
   if (!!request.hasIncludeDeletedResources()) {
-    query["IncludeDeletedResources"] = request.includeDeletedResources();
+    query["IncludeDeletedResources"] = request.getIncludeDeletedResources();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSearchExpression()) {
-    query["SearchExpression"] = request.searchExpression();
+    query["SearchExpression"] = request.getSearchExpression();
   }
 
   if (!!request.hasSortCriterion()) {
-    query["SortCriterion"] = request.sortCriterion();
+    query["SortCriterion"] = request.getSortCriterion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2115,13 +2144,14 @@ SearchResourcesResponse Client::searchResourcesWithOptions(const SearchResources
 }
 
 /**
- * @summary Search for resources that you can access within the current account.
+ * @summary Searches for resources in your current account that you are permitted to access.
  *
- * @description *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
- * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
- * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
- * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
- * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
+ * @description - You can search only for resources in your current account that you are permitted to access.
+ * - You can search only for the [Alibaba Cloud services and resource types that are supported by Resource Center](https://help.aliyun.com/document_detail/477798.html).
+ * - By default, the SearchResources operation returns a maximum of 20 entries. You can specify the `MaxResults` parameter to change the maximum number of entries that are returned.
+ * - If the response does not include a `NextToken` value, no more results are available. To retrieve the next page of results, include the `NextToken` value from the previous response in your next request. If you do not specify the `NextToken` parameter, the first page of results is returned.
+ * - You can set one or more filter conditions to narrow the search scope. For information about the supported filter parameters and matching methods, see the following sections. Multiple filter conditions are combined by a logical `AND`. Only resources that meet all filter conditions are returned. The values within a filter condition are combined by a logical `OR`. Resources that meet any value of the filter condition are returned.
+ * - For more query examples, see [API Explorer](https://api.aliyun.com/api-tools/demo/ResourceCenter).
  *
  * @param request SearchResourcesRequest
  * @return SearchResourcesResponse
@@ -2132,12 +2162,7 @@ SearchResourcesResponse Client::searchResources(const SearchResourcesRequest &re
 }
 
 /**
- * @summary Updates a single-account delivery channel.
- *
- * @description Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
- * Scheduled resource snapshots support the following delivery scenarios:
- * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
- * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
+ * @summary 更新投递渠道
  *
  * @param request UpdateDeliveryChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2147,27 +2172,27 @@ UpdateDeliveryChannelResponse Client::updateDeliveryChannelWithOptions(const Upd
   request.validate();
   json query = {};
   if (!!request.hasDeliveryChannelDescription()) {
-    query["DeliveryChannelDescription"] = request.deliveryChannelDescription();
+    query["DeliveryChannelDescription"] = request.getDeliveryChannelDescription();
   }
 
   if (!!request.hasDeliveryChannelFilter()) {
-    query["DeliveryChannelFilter"] = request.deliveryChannelFilter();
+    query["DeliveryChannelFilter"] = request.getDeliveryChannelFilter();
   }
 
   if (!!request.hasDeliveryChannelId()) {
-    query["DeliveryChannelId"] = request.deliveryChannelId();
+    query["DeliveryChannelId"] = request.getDeliveryChannelId();
   }
 
   if (!!request.hasDeliveryChannelName()) {
-    query["DeliveryChannelName"] = request.deliveryChannelName();
+    query["DeliveryChannelName"] = request.getDeliveryChannelName();
   }
 
   if (!!request.hasResourceChangeDelivery()) {
-    query["ResourceChangeDelivery"] = request.resourceChangeDelivery();
+    query["ResourceChangeDelivery"] = request.getResourceChangeDelivery();
   }
 
   if (!!request.hasResourceSnapshotDelivery()) {
-    query["ResourceSnapshotDelivery"] = request.resourceSnapshotDelivery();
+    query["ResourceSnapshotDelivery"] = request.getResourceSnapshotDelivery();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2188,12 +2213,7 @@ UpdateDeliveryChannelResponse Client::updateDeliveryChannelWithOptions(const Upd
 }
 
 /**
- * @summary Updates a single-account delivery channel.
- *
- * @description Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
- * Scheduled resource snapshots support the following delivery scenarios:
- * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
- * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
+ * @summary 更新投递渠道
  *
  * @param request UpdateDeliveryChannelRequest
  * @return UpdateDeliveryChannelResponse
@@ -2214,11 +2234,11 @@ UpdateFilterResponse Client::updateFilterWithOptions(const UpdateFilterRequest &
   request.validate();
   json query = {};
   if (!!request.hasFilterConfiguration()) {
-    query["FilterConfiguration"] = request.filterConfiguration();
+    query["FilterConfiguration"] = request.getFilterConfiguration();
   }
 
   if (!!request.hasFilterName()) {
-    query["FilterName"] = request.filterName();
+    query["FilterName"] = request.getFilterName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2254,8 +2274,8 @@ UpdateFilterResponse Client::updateFilter(const UpdateFilterRequest &request) {
  *
  * @description Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
  * Scheduled resource snapshots support the following delivery scenarios:
- * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
- * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
+ * - Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+ * - Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
  *
  * @param request UpdateMultiAccountDeliveryChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2265,27 +2285,27 @@ UpdateMultiAccountDeliveryChannelResponse Client::updateMultiAccountDeliveryChan
   request.validate();
   json query = {};
   if (!!request.hasDeliveryChannelDescription()) {
-    query["DeliveryChannelDescription"] = request.deliveryChannelDescription();
+    query["DeliveryChannelDescription"] = request.getDeliveryChannelDescription();
   }
 
   if (!!request.hasDeliveryChannelFilter()) {
-    query["DeliveryChannelFilter"] = request.deliveryChannelFilter();
+    query["DeliveryChannelFilter"] = request.getDeliveryChannelFilter();
   }
 
   if (!!request.hasDeliveryChannelId()) {
-    query["DeliveryChannelId"] = request.deliveryChannelId();
+    query["DeliveryChannelId"] = request.getDeliveryChannelId();
   }
 
   if (!!request.hasDeliveryChannelName()) {
-    query["DeliveryChannelName"] = request.deliveryChannelName();
+    query["DeliveryChannelName"] = request.getDeliveryChannelName();
   }
 
   if (!!request.hasResourceChangeDelivery()) {
-    query["ResourceChangeDelivery"] = request.resourceChangeDelivery();
+    query["ResourceChangeDelivery"] = request.getResourceChangeDelivery();
   }
 
   if (!!request.hasResourceSnapshotDelivery()) {
-    query["ResourceSnapshotDelivery"] = request.resourceSnapshotDelivery();
+    query["ResourceSnapshotDelivery"] = request.getResourceSnapshotDelivery();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2310,8 +2330,8 @@ UpdateMultiAccountDeliveryChannelResponse Client::updateMultiAccountDeliveryChan
  *
  * @description Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
  * Scheduled resource snapshots support the following delivery scenarios:
- * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
- * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
+ * - Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+ * - Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
  *
  * @param request UpdateMultiAccountDeliveryChannelRequest
  * @return UpdateMultiAccountDeliveryChannelResponse
@@ -2332,19 +2352,19 @@ UpdateSavedQueryResponse Client::updateSavedQueryWithOptions(const UpdateSavedQu
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasExpression()) {
-    query["Expression"] = request.expression();
+    query["Expression"] = request.getExpression();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasQueryId()) {
-    query["QueryId"] = request.queryId();
+    query["QueryId"] = request.getQueryId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

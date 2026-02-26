@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filterConfiguration_ == nullptr
-        && return this->filterName_ == nullptr; };
+        && this->filterName_ == nullptr; };
     // filterConfiguration Field Functions 
     bool hasFilterConfiguration() const { return this->filterConfiguration_ != nullptr;};
     void deleteFilterConfiguration() { this->filterConfiguration_ = nullptr;};
-    inline string filterConfiguration() const { DARABONBA_PTR_GET_DEFAULT(filterConfiguration_, "") };
+    inline string getFilterConfiguration() const { DARABONBA_PTR_GET_DEFAULT(filterConfiguration_, "") };
     inline CreateFilterRequest& setFilterConfiguration(string filterConfiguration) { DARABONBA_PTR_SET_VALUE(filterConfiguration_, filterConfiguration) };
 
 
     // filterName Field Functions 
     bool hasFilterName() const { return this->filterName_ != nullptr;};
     void deleteFilterName() { this->filterName_ = nullptr;};
-    inline string filterName() const { DARABONBA_PTR_GET_DEFAULT(filterName_, "") };
+    inline string getFilterName() const { DARABONBA_PTR_GET_DEFAULT(filterName_, "") };
     inline CreateFilterRequest& setFilterName(string filterName) { DARABONBA_PTR_SET_VALUE(filterName_, filterName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The configurations of the filter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> filterConfiguration_ = nullptr;
+    shared_ptr<string> filterConfiguration_ {};
     // The name of the filter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> filterName_ = nullptr;
+    shared_ptr<string> filterName_ {};
   };
 
   } // namespace Models

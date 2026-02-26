@@ -33,7 +33,7 @@ namespace Models
     // filterName Field Functions 
     bool hasFilterName() const { return this->filterName_ != nullptr;};
     void deleteFilterName() { this->filterName_ = nullptr;};
-    inline string filterName() const { DARABONBA_PTR_GET_DEFAULT(filterName_, "") };
+    inline string getFilterName() const { DARABONBA_PTR_GET_DEFAULT(filterName_, "") };
     inline AssociateDefaultFilterRequest& setFilterName(string filterName) { DARABONBA_PTR_SET_VALUE(filterName_, filterName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the filter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> filterName_ = nullptr;
+    shared_ptr<string> filterName_ {};
   };
 
   } // namespace Models
