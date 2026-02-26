@@ -120,6 +120,11 @@ namespace Models
     shared_ptr<string> resource_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
+    // The details of the protection rule. Specify a string that contains multiple parameters in the JSON format. You must specify the ID and the new configurations of the protection rule.
+    // 
+    // *   **id:** The ID of the protection rule. Data type: long. You must specify this parameter.
+    // *   The protection rule configurations: The role of this parameter is the same as that of the **Rules** parameter in the **CreateDefenseRule** topic. For more information, see the "**Protection rule parameters**" section in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
+    // 
     // This parameter is required.
     shared_ptr<string> rules_ {};
     // The ID of the protection rule template to which the protection rule whose configurations you want to modify belongs.

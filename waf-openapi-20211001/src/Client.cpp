@@ -2362,7 +2362,7 @@ DeleteHybridCloudGroupResponse Client::deleteHybridCloudGroup(const DeleteHybrid
 }
 
 /**
- * @summary 删除日志外发配置
+ * @summary Delets a hybrid cloud log delivery configuration.
  *
  * @param request DeleteLogDeliveryConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2405,7 +2405,7 @@ DeleteLogDeliveryConfigResponse Client::deleteLogDeliveryConfigWithOptions(const
 }
 
 /**
- * @summary 删除日志外发配置
+ * @summary Delets a hybrid cloud log delivery configuration.
  *
  * @param request DeleteLogDeliveryConfigRequest
  * @return DeleteLogDeliveryConfigResponse
@@ -4744,7 +4744,7 @@ DescribeChargeResultResponse Client::describeChargeResult(const DescribeChargeRe
 }
 
 /**
- * @summary Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+ * @summary Queries the port details of a cloud service instance that is added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances.
  *
  * @param request DescribeCloudResourceAccessPortDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4807,7 +4807,7 @@ DescribeCloudResourceAccessPortDetailsResponse Client::describeCloudResourceAcce
 }
 
 /**
- * @summary Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+ * @summary Queries the port details of a cloud service instance that is added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances.
  *
  * @param request DescribeCloudResourceAccessPortDetailsRequest
  * @return DescribeCloudResourceAccessPortDetailsResponse
@@ -14614,7 +14614,7 @@ ModifyTemplateResourcesResponse Client::modifyTemplateResources(const ModifyTemp
 }
 
 /**
- * @summary  修改用户日志服务的默认字段配置
+ * @summary 修改用户日志服务的默认字段配置
  *
  * @param request ModifyUserLogFieldConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14669,7 +14669,7 @@ ModifyUserLogFieldConfigResponse Client::modifyUserLogFieldConfigWithOptions(con
 }
 
 /**
- * @summary  修改用户日志服务的默认字段配置
+ * @summary 修改用户日志服务的默认字段配置
  *
  * @param request ModifyUserLogFieldConfigRequest
  * @return ModifyUserLogFieldConfigResponse

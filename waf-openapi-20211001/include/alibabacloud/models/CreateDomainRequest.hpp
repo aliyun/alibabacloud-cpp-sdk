@@ -104,6 +104,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(KeepaliveTimeout, keepaliveTimeout_);
         DARABONBA_PTR_TO_JSON(Loadbalance, loadbalance_);
         DARABONBA_PTR_TO_JSON(MaxBodySize, maxBodySize_);
+        DARABONBA_PTR_TO_JSON(ProxyProtocol, proxyProtocol_);
         DARABONBA_PTR_TO_JSON(ReadTimeout, readTimeout_);
         DARABONBA_PTR_TO_JSON(RequestHeaders, requestHeaders_);
         DARABONBA_PTR_TO_JSON(Retry, retry_);
@@ -131,6 +132,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(KeepaliveTimeout, keepaliveTimeout_);
         DARABONBA_PTR_FROM_JSON(Loadbalance, loadbalance_);
         DARABONBA_PTR_FROM_JSON(MaxBodySize, maxBodySize_);
+        DARABONBA_PTR_FROM_JSON(ProxyProtocol, proxyProtocol_);
         DARABONBA_PTR_FROM_JSON(ReadTimeout, readTimeout_);
         DARABONBA_PTR_FROM_JSON(RequestHeaders, requestHeaders_);
         DARABONBA_PTR_FROM_JSON(Retry, retry_);
@@ -254,9 +256,9 @@ namespace Models
       virtual bool empty() const override { return this->backendPorts_ == nullptr
         && this->backends_ == nullptr && this->backupBackends_ == nullptr && this->cnameEnabled_ == nullptr && this->connectTimeout_ == nullptr && this->focusHttpBackend_ == nullptr
         && this->http2Origin_ == nullptr && this->http2OriginMaxConcurrency_ == nullptr && this->keepalive_ == nullptr && this->keepaliveRequests_ == nullptr && this->keepaliveTimeout_ == nullptr
-        && this->loadbalance_ == nullptr && this->maxBodySize_ == nullptr && this->readTimeout_ == nullptr && this->requestHeaders_ == nullptr && this->retry_ == nullptr
-        && this->routingRules_ == nullptr && this->sniEnabled_ == nullptr && this->sniHost_ == nullptr && this->WLProxyClientIp_ == nullptr && this->webServerType_ == nullptr
-        && this->writeTimeout_ == nullptr && this->XClientIp_ == nullptr && this->XTrueIp_ == nullptr && this->xffProto_ == nullptr; };
+        && this->loadbalance_ == nullptr && this->maxBodySize_ == nullptr && this->proxyProtocol_ == nullptr && this->readTimeout_ == nullptr && this->requestHeaders_ == nullptr
+        && this->retry_ == nullptr && this->routingRules_ == nullptr && this->sniEnabled_ == nullptr && this->sniHost_ == nullptr && this->WLProxyClientIp_ == nullptr
+        && this->webServerType_ == nullptr && this->writeTimeout_ == nullptr && this->XClientIp_ == nullptr && this->XTrueIp_ == nullptr && this->xffProto_ == nullptr; };
       // backendPorts Field Functions 
       bool hasBackendPorts() const { return this->backendPorts_ != nullptr;};
       void deleteBackendPorts() { this->backendPorts_ = nullptr;};
@@ -352,6 +354,13 @@ namespace Models
       void deleteMaxBodySize() { this->maxBodySize_ = nullptr;};
       inline int32_t getMaxBodySize() const { DARABONBA_PTR_GET_DEFAULT(maxBodySize_, 0) };
       inline Redirect& setMaxBodySize(int32_t maxBodySize) { DARABONBA_PTR_SET_VALUE(maxBodySize_, maxBodySize) };
+
+
+      // proxyProtocol Field Functions 
+      bool hasProxyProtocol() const { return this->proxyProtocol_ != nullptr;};
+      void deleteProxyProtocol() { this->proxyProtocol_ = nullptr;};
+      inline bool getProxyProtocol() const { DARABONBA_PTR_GET_DEFAULT(proxyProtocol_, false) };
+      inline Redirect& setProxyProtocol(bool proxyProtocol) { DARABONBA_PTR_SET_VALUE(proxyProtocol_, proxyProtocol) };
 
 
       // readTimeout Field Functions 
@@ -482,6 +491,7 @@ namespace Models
       // This parameter is required.
       shared_ptr<string> loadbalance_ {};
       shared_ptr<int32_t> maxBodySize_ {};
+      shared_ptr<bool> proxyProtocol_ {};
       // The timeout period of read connections. Unit: seconds. Valid values: 1 to 3600.
       shared_ptr<int32_t> readTimeout_ {};
       // The custom header fields, which are key-value pairs. The fields are used to mark requests that pass through WAF.
@@ -530,6 +540,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EnableTLSv3, enableTLSv3_);
         DARABONBA_PTR_TO_JSON(ExclusiveIp, exclusiveIp_);
         DARABONBA_PTR_TO_JSON(FocusHttps, focusHttps_);
+        DARABONBA_PTR_TO_JSON(HstsIncludeSubDomain, hstsIncludeSubDomain_);
+        DARABONBA_PTR_TO_JSON(HstsMaxAge, hstsMaxAge_);
+        DARABONBA_PTR_TO_JSON(HstsPreload, hstsPreload_);
         DARABONBA_PTR_TO_JSON(Http2Enabled, http2Enabled_);
         DARABONBA_PTR_TO_JSON(HttpPorts, httpPorts_);
         DARABONBA_PTR_TO_JSON(HttpsPorts, httpsPorts_);
@@ -549,6 +562,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(EnableTLSv3, enableTLSv3_);
         DARABONBA_PTR_FROM_JSON(ExclusiveIp, exclusiveIp_);
         DARABONBA_PTR_FROM_JSON(FocusHttps, focusHttps_);
+        DARABONBA_PTR_FROM_JSON(HstsIncludeSubDomain, hstsIncludeSubDomain_);
+        DARABONBA_PTR_FROM_JSON(HstsMaxAge, hstsMaxAge_);
+        DARABONBA_PTR_FROM_JSON(HstsPreload, hstsPreload_);
         DARABONBA_PTR_FROM_JSON(Http2Enabled, http2Enabled_);
         DARABONBA_PTR_FROM_JSON(HttpPorts, httpPorts_);
         DARABONBA_PTR_FROM_JSON(HttpsPorts, httpsPorts_);
@@ -574,9 +590,9 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->certId_ == nullptr
         && this->cipherSuite_ == nullptr && this->customCiphers_ == nullptr && this->enableTLSv3_ == nullptr && this->exclusiveIp_ == nullptr && this->focusHttps_ == nullptr
-        && this->http2Enabled_ == nullptr && this->httpPorts_ == nullptr && this->httpsPorts_ == nullptr && this->IPv6Enabled_ == nullptr && this->protectionResource_ == nullptr
-        && this->SM2AccessOnly_ == nullptr && this->SM2CertId_ == nullptr && this->SM2Enabled_ == nullptr && this->TLSVersion_ == nullptr && this->xffHeaderMode_ == nullptr
-        && this->xffHeaders_ == nullptr; };
+        && this->hstsIncludeSubDomain_ == nullptr && this->hstsMaxAge_ == nullptr && this->hstsPreload_ == nullptr && this->http2Enabled_ == nullptr && this->httpPorts_ == nullptr
+        && this->httpsPorts_ == nullptr && this->IPv6Enabled_ == nullptr && this->protectionResource_ == nullptr && this->SM2AccessOnly_ == nullptr && this->SM2CertId_ == nullptr
+        && this->SM2Enabled_ == nullptr && this->TLSVersion_ == nullptr && this->xffHeaderMode_ == nullptr && this->xffHeaders_ == nullptr; };
       // certId Field Functions 
       bool hasCertId() const { return this->certId_ != nullptr;};
       void deleteCertId() { this->certId_ = nullptr;};
@@ -619,6 +635,27 @@ namespace Models
       void deleteFocusHttps() { this->focusHttps_ = nullptr;};
       inline bool getFocusHttps() const { DARABONBA_PTR_GET_DEFAULT(focusHttps_, false) };
       inline Listen& setFocusHttps(bool focusHttps) { DARABONBA_PTR_SET_VALUE(focusHttps_, focusHttps) };
+
+
+      // hstsIncludeSubDomain Field Functions 
+      bool hasHstsIncludeSubDomain() const { return this->hstsIncludeSubDomain_ != nullptr;};
+      void deleteHstsIncludeSubDomain() { this->hstsIncludeSubDomain_ = nullptr;};
+      inline bool getHstsIncludeSubDomain() const { DARABONBA_PTR_GET_DEFAULT(hstsIncludeSubDomain_, false) };
+      inline Listen& setHstsIncludeSubDomain(bool hstsIncludeSubDomain) { DARABONBA_PTR_SET_VALUE(hstsIncludeSubDomain_, hstsIncludeSubDomain) };
+
+
+      // hstsMaxAge Field Functions 
+      bool hasHstsMaxAge() const { return this->hstsMaxAge_ != nullptr;};
+      void deleteHstsMaxAge() { this->hstsMaxAge_ = nullptr;};
+      inline int64_t getHstsMaxAge() const { DARABONBA_PTR_GET_DEFAULT(hstsMaxAge_, 0L) };
+      inline Listen& setHstsMaxAge(int64_t hstsMaxAge) { DARABONBA_PTR_SET_VALUE(hstsMaxAge_, hstsMaxAge) };
+
+
+      // hstsPreload Field Functions 
+      bool hasHstsPreload() const { return this->hstsPreload_ != nullptr;};
+      void deleteHstsPreload() { this->hstsPreload_ = nullptr;};
+      inline bool getHstsPreload() const { DARABONBA_PTR_GET_DEFAULT(hstsPreload_, false) };
+      inline Listen& setHstsPreload(bool hstsPreload) { DARABONBA_PTR_SET_VALUE(hstsPreload_, hstsPreload) };
 
 
       // http2Enabled Field Functions 
@@ -730,6 +767,9 @@ namespace Models
       // *   **true**
       // *   **false**
       shared_ptr<bool> focusHttps_ {};
+      shared_ptr<bool> hstsIncludeSubDomain_ {};
+      shared_ptr<int64_t> hstsMaxAge_ {};
+      shared_ptr<bool> hstsPreload_ {};
       // Specifies whether to enable HTTP/2. This parameter is available only if you specify **HttpsPorts**. Valid values:
       // 
       // *   **true**

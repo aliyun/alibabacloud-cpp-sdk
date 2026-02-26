@@ -133,6 +133,10 @@ namespace Models
     shared_ptr<string> resource_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
+    // The configurations of the protection rule. The value is a JSON string that contains multiple parameters.
+    // 
+    // >  The parameters vary based on the **protection module**, which is specified by **DefenseScene**. For more information, see the "**Parameters of protection rules**" section in this topic.
+    // 
     // This parameter is required.
     shared_ptr<string> rules_ {};
     // The ID of the rule template for which you want to create a protection rule.

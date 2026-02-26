@@ -637,7 +637,7 @@ namespace WafOpenapi20211001
       Models::DeleteHybridCloudGroupResponse deleteHybridCloudGroup(const Models::DeleteHybridCloudGroupRequest &request);
 
       /**
-       * @summary 删除日志外发配置
+       * @summary Delets a hybrid cloud log delivery configuration.
        *
        * @param request DeleteLogDeliveryConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -646,7 +646,7 @@ namespace WafOpenapi20211001
       Models::DeleteLogDeliveryConfigResponse deleteLogDeliveryConfigWithOptions(const Models::DeleteLogDeliveryConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除日志外发配置
+       * @summary Delets a hybrid cloud log delivery configuration.
        *
        * @param request DeleteLogDeliveryConfigRequest
        * @return DeleteLogDeliveryConfigResponse
@@ -1232,7 +1232,7 @@ namespace WafOpenapi20211001
       Models::DescribeChargeResultResponse describeChargeResult(const Models::DescribeChargeResultRequest &request);
 
       /**
-       * @summary Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+       * @summary Queries the port details of a cloud service instance that is added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances.
        *
        * @param request DescribeCloudResourceAccessPortDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1241,7 +1241,7 @@ namespace WafOpenapi20211001
       Models::DescribeCloudResourceAccessPortDetailsResponse describeCloudResourceAccessPortDetailsWithOptions(const Models::DescribeCloudResourceAccessPortDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+       * @summary Queries the port details of a cloud service instance that is added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances.
        *
        * @param request DescribeCloudResourceAccessPortDetailsRequest
        * @return DescribeCloudResourceAccessPortDetailsResponse
@@ -3931,7 +3931,7 @@ namespace WafOpenapi20211001
       Models::ModifyTemplateResourcesResponse modifyTemplateResources(const Models::ModifyTemplateResourcesRequest &request);
 
       /**
-       * @summary  修改用户日志服务的默认字段配置
+       * @summary 修改用户日志服务的默认字段配置
        *
        * @param request ModifyUserLogFieldConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3940,7 +3940,7 @@ namespace WafOpenapi20211001
       Models::ModifyUserLogFieldConfigResponse modifyUserLogFieldConfigWithOptions(const Models::ModifyUserLogFieldConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary  修改用户日志服务的默认字段配置
+       * @summary 修改用户日志服务的默认字段配置
        *
        * @param request ModifyUserLogFieldConfigRequest
        * @return ModifyUserLogFieldConfigResponse
