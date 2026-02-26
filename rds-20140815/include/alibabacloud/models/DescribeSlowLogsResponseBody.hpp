@@ -517,147 +517,52 @@ namespace Models
 
 
       protected:
-        // The average execution duration per SQL statement in the query. Unit: seconds.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> avgExecutionTime_ {};
-        // The average number of I/O writes per SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> avgIOWriteCounts_ {};
-        // The average number of rows that were affected by the last SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> avgLastRowsAffectedCounts_ {};
-        // The average number of logical reads per SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> avgLogicalReadCounts_ {};
-        // The average number of physical reads per SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> avgPhysicalReadCounts_ {};
-        // The average number of rows that were affected per SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> avgRowsAffectedCounts_ {};
-        // The date when the data was generated.
         shared_ptr<string> createTime_ {};
-        // The name of the database.
         shared_ptr<string> DBName_ {};
-        // The longest execution duration of a specific SQL statement in the query. Unit: seconds.
         shared_ptr<int64_t> maxExecutionTime_ {};
-        // The longest execution duration of a specific SQL statement in the query. Unit: milliseconds.
         shared_ptr<int64_t> maxExecutionTimeMS_ {};
-        // The largest number of I/O writes that were performed by a specific SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> maxIOWriteCounts_ {};
-        // The largest number of rows that were affected by the last SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> maxLastRowsAffectedCounts_ {};
-        // The longest lock duration that was caused by a specific SQL statement in the query. Unit: seconds.
         shared_ptr<int64_t> maxLockTime_ {};
-        // The longest lock duration that was caused by a specific SQL statement in the query. Unit: milliseconds.
         shared_ptr<int64_t> maxLockTimeMS_ {};
-        // The largest number of logical reads that were performed by a specific SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> maxLogicalReadCounts_ {};
-        // The largest number of physical reads that were performed by a specific SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> maxPhysicalReadCounts_ {};
-        // The largest number of rows that were affected by a specific SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> maxRowsAffectedCounts_ {};
-        // The smallest number of I/O writes that were performed by a specific SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> minIOWriteCounts_ {};
-        // The smallest number of rows that were affected by the last SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> minLastRowsAffectedCounts_ {};
-        // The smallest number of logical reads that were performed by a specific SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> minLogicalReadCounts_ {};
-        // The smallest number of physical reads that were performed by a specific SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> minPhysicalReadCounts_ {};
-        // The smallest number of rows that were affected by a specific SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> minRowsAffectedCounts_ {};
-        // The total number of SQL statements that were executed in the query. This parameter is returned only for instances that run MySQL.
         shared_ptr<int64_t> mySQLTotalExecutionCounts_ {};
-        // The total execution duration of all SQL statements in the query. Unit: seconds. This parameter is returned only for instances that run MySQL.
         shared_ptr<int64_t> mySQLTotalExecutionTimes_ {};
-        // The largest number of rows that were parsed by a specific SQL statement in the query.
         shared_ptr<int64_t> parseMaxRowCount_ {};
-        // The total number of rows that were parsed by all SQL statements in the query.
         shared_ptr<int64_t> parseTotalRowCounts_ {};
-        // The date on which the data report was generated.
         shared_ptr<string> reportTime_ {};
-        // The largest number of rows that were returned by a specific SQL statement in the query.
         shared_ptr<int64_t> returnMaxRowCount_ {};
-        // The total number of rows that were returned by all SQL statements in the query.
         shared_ptr<int64_t> returnTotalRowCounts_ {};
-        // The unique ID of the SQL statement. The ID is used to obtain the slow query logs of the SQL statement.
         shared_ptr<string> SQLHASH_ {};
-        // The ID of the SQL statement in the statistical template of slow query logs. This parameter is replaced by the **SQLHASH** parameter.
         shared_ptr<string> SQLIdStr_ {};
-        // The average amount of CPU time per SQL statement in the query. Unit: seconds.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> SQLServerAvgCpuTime_ {};
-        // The average execution duration per SQL statement in the query. Unit: seconds.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> SQLServerAvgExecutionTime_ {};
-        // The largest amount of CPU time that was used by a specific SQL statement in the query. Unit: seconds.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> SQLServerMaxCpuTime_ {};
-        // The smallest amount of CPU time that was used by a specific SQL statement in the query. Unit: seconds.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> SQLServerMinCpuTime_ {};
-        // The smallest execution duration of a specific SQL statement in the query. Unit: seconds.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> SQLServerMinExecutionTime_ {};
-        // The total amount of CPU time that was used by all SQL statements in the query. Unit: seconds.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> SQLServerTotalCpuTime_ {};
-        // The total number of SQL statements that were executed in the query. This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> SQLServerTotalExecutionCounts_ {};
-        // The total execution duration of all SQL statements in the query. This parameter is returned only for instances that run SQL Server. Unit: milliseconds.
         shared_ptr<int64_t> SQLServerTotalExecutionTimes_ {};
-        // The SQL statement that was executed in the query.
         shared_ptr<string> SQLText_ {};
-        // The ID of the slow query log summary.
         shared_ptr<int64_t> slowLogId_ {};
-        // The total number of I/O writes that were performed by all SQL statements in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> totalIOWriteCounts_ {};
-        // The total number of rows that were affected by the last SQL statement in the query.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> totalLastRowsAffectedCounts_ {};
-        // The total lock duration that was caused by all SQL statements in the query. Unit: seconds.
         shared_ptr<int64_t> totalLockTimes_ {};
-        // The total number of logical reads that were performed by all SQL statements in the query.
         shared_ptr<int64_t> totalLogicalReadCounts_ {};
-        // The total number of physical reads that were performed by all SQL statements in the query.
         shared_ptr<int64_t> totalPhysicalReadCounts_ {};
-        // The total number of rows that were affected by all SQL statements in the query.
         shared_ptr<int64_t> totalRowsAffectedCounts_ {};
       };
 
@@ -750,7 +655,6 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The database engine of the instance.
     shared_ptr<string> engine_ {};
-    // An array that consists of the information about each slow query log.
     shared_ptr<DescribeSlowLogsResponseBody::Items> items_ {};
     // The number of the page returned.
     shared_ptr<int32_t> pageNumber_ {};

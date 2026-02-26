@@ -170,40 +170,15 @@ namespace Models
 
 
       protected:
-        // The checksum. The value of this parameter is calculated by using the CRC64 algorithm.
         shared_ptr<string> checksum_ {};
-        // The HTTP-based download URL of the log file. If the return value of this parameter is NULL, ApsaraDB RDS does not provide a download URL for the log file.
         shared_ptr<string> downloadLink_ {};
-        // The size of the log file.
-        // 
-        // Unit: bytes.
         shared_ptr<int64_t> fileSize_ {};
-        // The ID of the instance to which the log file belongs. This parameter helps determine whether the log file is generated on the primary instance or the secondary instance.
-        // 
-        // >  You can log on to the ApsaraDB RDS console and go to the instance details page. In the left-side navigation pane, click **Service Availability** to view the values of **Primary Instance No.** and **Secondary Instance No.**.
         shared_ptr<string> hostInstanceID_ {};
-        // The URL that is used to download files over an internal network.
         shared_ptr<string> intranetDownloadLink_ {};
-        // The expiration time of the URL.
-        // 
-        // The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> linkExpiredTime_ {};
-        // The beginning of the time range to query.
-        // 
-        // The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> logBeginTime_ {};
-        // The end of the time range to query.
-        // 
-        // The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> logEndTime_ {};
-        // The log file name.
         shared_ptr<string> logFileName_ {};
-        // The status of the log file that is stored in the Object Storage Service (OSS) bucket.
-        // 
-        // Valid values:
-        // 
-        // *   **Uploading**
-        // *   **Completed**
         shared_ptr<string> remoteStatus_ {};
       };
 
@@ -268,7 +243,6 @@ namespace Models
 
 
   protected:
-    // The details of the log file.
     shared_ptr<DescribeBinlogFilesResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

@@ -135,9 +135,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> tagKey_ {};
-            // The tag value.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -174,9 +172,7 @@ namespace Models
 
 
       protected:
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The details about the tag.
         shared_ptr<DBInstanceTag::Tags> tags_ {};
       };
 
@@ -234,7 +230,6 @@ namespace Models
 
 
   protected:
-    // The details about the instance.
     shared_ptr<DescribeDBInstanceByTagsResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

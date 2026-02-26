@@ -122,10 +122,8 @@ namespace Models
 
 
       protected:
-        // The time when the error log entry was generated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
         shared_ptr<string> database_ {};
-        // The error log information.
         shared_ptr<string> errorInfo_ {};
         shared_ptr<string> user_ {};
         shared_ptr<string> userIp_ {};
@@ -185,7 +183,6 @@ namespace Models
 
 
   protected:
-    // Details about the log entries returned.
     shared_ptr<DescribeErrorLogsResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

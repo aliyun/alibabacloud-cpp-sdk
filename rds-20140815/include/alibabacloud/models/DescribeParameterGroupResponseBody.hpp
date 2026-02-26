@@ -91,9 +91,7 @@ namespace Models
 
 
       protected:
-        // The time when the parameter template was applied.
         shared_ptr<string> appliedTime_ {};
-        // The instance ID.
         shared_ptr<string> DBInstanceName_ {};
       };
 
@@ -226,9 +224,7 @@ namespace Models
 
 
           protected:
-            // The name of the parameter.
             shared_ptr<string> paramName_ {};
-            // The value of the parameter.
             shared_ptr<string> paramValue_ {};
           };
 
@@ -329,34 +325,16 @@ namespace Models
 
 
       protected:
-        // The time when the parameter template was created.
         shared_ptr<string> createTime_ {};
-        // The database engine of the instance.
         shared_ptr<string> engine_ {};
-        // The database engine version of the instance.
         shared_ptr<string> engineVersion_ {};
-        // Indicates whether the restart of an instance is required for the parameter template to take effect. Valid values:
-        // 
-        // *   **0**: A restart is not required.
-        // *   **1**: A restart is required.
         shared_ptr<int32_t> forceRestart_ {};
-        // The number of parameters in the parameter template.
         shared_ptr<int32_t> paramCounts_ {};
-        // The details of the parameters.
         shared_ptr<ParameterGroup::ParamDetail> paramDetail_ {};
-        // The description of the parameter template.
         shared_ptr<string> parameterGroupDesc_ {};
-        // The ID of the parameter template.
         shared_ptr<string> parameterGroupId_ {};
-        // The name of the parameter template.
         shared_ptr<string> parameterGroupName_ {};
-        // The type of the parameter template. Valid values:
-        // 
-        // *   **0**: the default parameter template.
-        // *   **1**: a custom parameter template.
-        // *   **2**: an automatic backup parameter template. After you apply this type of template, the system automatically backs up the original parameter settings and saves the backup as a template.
         shared_ptr<int32_t> parameterGroupType_ {};
-        // The time when the parameter template was last updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -402,11 +380,7 @@ namespace Models
 
 
   protected:
-    // The information about the parameter template.
     shared_ptr<DescribeParameterGroupResponseBody::ParamGroup> paramGroup_ {};
-    // The information about the instance to which the parameter template is applied.
-    // 
-    // >  This parameter is available only for ApsaraDB RDS for PostgreSQL instances.
     shared_ptr<DescribeParameterGroupResponseBody::RelatedCustinsInfo> relatedCustinsInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

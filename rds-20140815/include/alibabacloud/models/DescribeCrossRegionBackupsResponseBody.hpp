@@ -292,63 +292,24 @@ namespace Models
 
 
       protected:
-        // The time when the cross-region data backup file was generated.
         shared_ptr<string> backupEndTime_ {};
-        // The method that is used to generate the cross-region data backup file. Valid values:
-        // 
-        // *   **L**: logical backup
-        // *   **P**: physical backup
         shared_ptr<string> backupMethod_ {};
-        // The level at which the cross-region data backup file is generated.
-        // 
-        // *   **0**: instance-level backup
-        // *   **1**: database-level backup
         shared_ptr<int32_t> backupSetScale_ {};
-        // The status of the cross-region data backup. Valid values:
-        // 
-        // *   **0**: The cross-region data backup is successful.
-        // *   **1**: The cross-region data backup failed.
         shared_ptr<int32_t> backupSetStatus_ {};
-        // The time when the cross-region data backup started.
         shared_ptr<string> backupStartTime_ {};
-        // The type of the cross-region data backup. Valid values:
-        // 
-        // *   **F**: full data backup
-        // *   **I**: incremental data backup
         shared_ptr<string> backupType_ {};
-        // The RDS edition of the instance. Valid values:
-        // 
-        // *   **Basic**: RDS Basic Edition.
-        // *   **HighAvailability**: RDS High-availability Edition.
-        // *   **Finance**: RDS Enterprise Edition. This edition is available only for the China site (aliyun.com).
         shared_ptr<string> category_ {};
-        // The point in time that is indicated by the data in the cross-region data backup file.
         shared_ptr<string> consistentTime_ {};
-        // The external URL from which you can download the cross-region data backup file.
         shared_ptr<string> crossBackupDownloadLink_ {};
-        // The ID of the cross-region data backup file.
         shared_ptr<int32_t> crossBackupId_ {};
-        // The ID of the region in which the cross-region backup files of the instance are stored.
         shared_ptr<string> crossBackupRegion_ {};
-        // The name of the compressed package that contains the cross-region data backup file.
         shared_ptr<string> crossBackupSetFile_ {};
-        // The location where the cross-region data backup file is stored.
         shared_ptr<string> crossBackupSetLocation_ {};
-        // The size of the cross-region data backup file. Unit: bytes.
         shared_ptr<int64_t> crossBackupSetSize_ {};
-        // The storage type. Valid values:
-        // 
-        // *   **local_ssd**: local SSDs. This is the recommended storage type.
-        // *   **cloud_ssd**: standard SSD.
-        // *   **cloud_essd**: enhanced SSD (ESSD).
         shared_ptr<string> DBInstanceStorageType_ {};
-        // The database engine of the instance.
         shared_ptr<string> engine_ {};
-        // The database engine version.
         shared_ptr<string> engineVersion_ {};
-        // The instance ID. This parameter is used to determine whether the instance that generates the cross-region data backup file is a primary or secondary instance.
         shared_ptr<int32_t> instanceId_ {};
-        // The regions to which the cross-region data backup file can be restored.
         shared_ptr<Item::RestoreRegions> restoreRegions_ {};
       };
 
@@ -430,7 +391,6 @@ namespace Models
   protected:
     // The end of the time range to query.
     shared_ptr<string> endTime_ {};
-    // The cross-region data backup files.
     shared_ptr<DescribeCrossRegionBackupsResponseBody::Items> items_ {};
     // The page number. Pages start from page 1.
     // 

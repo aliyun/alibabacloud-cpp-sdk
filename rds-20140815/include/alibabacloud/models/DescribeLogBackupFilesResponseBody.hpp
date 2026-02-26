@@ -133,17 +133,11 @@ namespace Models
 
 
       protected:
-        // The HTTP-based download URL of the log file. If the log file cannot be downloaded, an empty string is returned.
         shared_ptr<string> downloadLink_ {};
-        // The size of the log file. Unit: bytes.
         shared_ptr<int64_t> fileSize_ {};
-        // The URL that is used to download the log file over an internal network. If the log file cannot be downloaded, an empty string is returned. This URL is valid for one hour.
         shared_ptr<string> intranetDownloadLink_ {};
-        // The expiration time of the URL. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> linkExpiredTime_ {};
-        // The start time of the log file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
         shared_ptr<string> logBeginTime_ {};
-        // The end time of the log file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
         shared_ptr<string> logEndTime_ {};
       };
 
@@ -208,7 +202,6 @@ namespace Models
 
 
   protected:
-    // The details of log files.
     shared_ptr<DescribeLogBackupFilesResponseBody::Items> items_ {};
     // The page number of the page returned.
     shared_ptr<int32_t> pageNumber_ {};

@@ -167,13 +167,8 @@ namespace Models
 
 
             protected:
-              // The instance ID.
               shared_ptr<string> DBInstanceId_ {};
-              // The node ID.
               shared_ptr<string> nodeId_ {};
-              // The weight of the node. Read requests are distributed based on the weight.
-              // 
-              // Valid values: 0 to 100.
               shared_ptr<int32_t> weight_ {};
             };
 
@@ -284,20 +279,11 @@ namespace Models
 
 
             protected:
-              // The endpoints of the instance.
               shared_ptr<string> connectionString_ {};
-              // The IP address.
               shared_ptr<string> ipAddress_ {};
-              // The type of the IP address. Valid values:
-              // 
-              // *   **Public**: Internet
-              // *   **Private**: internal network
               shared_ptr<string> ipType_ {};
-              // The port number of the endpoint.
               shared_ptr<string> port_ {};
-              // The vSwitch ID.
               shared_ptr<string> vSwitchId_ {};
-              // The VPC ID.
               shared_ptr<string> vpcId_ {};
             };
 
@@ -357,18 +343,10 @@ namespace Models
 
 
         protected:
-          // The information about the endpoint.
           shared_ptr<DBInstanceEndpoint::AddressItems> addressItems_ {};
-          // The user-defined description of the endpoint.
           shared_ptr<string> endpointDescription_ {};
-          // The endpoint ID of the instance.
           shared_ptr<string> endpointId_ {};
-          // The type of the endpoint. Valid values:
-          // 
-          // *   **Primary**: the read/write endpoint of the instance
-          // *   **Readonly**: the read-only endpoint of the instance
           shared_ptr<string> endpointType_ {};
-          // The information about the node that is configured for the endpoint.
           shared_ptr<DBInstanceEndpoint::NodeItems> nodeItems_ {};
         };
 
@@ -412,7 +390,6 @@ namespace Models
 
 
     protected:
-      // The information of the endpoints of the instance.
       shared_ptr<Data::DBInstanceEndpoints> DBInstanceEndpoints_ {};
       // The name of the instance.
       shared_ptr<string> DBInstanceName_ {};

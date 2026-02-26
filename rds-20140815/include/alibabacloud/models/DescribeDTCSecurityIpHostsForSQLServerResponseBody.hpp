@@ -93,9 +93,7 @@ namespace Models
 
 
       protected:
-        // The IP address of the ECS instance and the hostname of the Windows computer. Format: `IP address,Hostname`. Multiple values are separated with semicolons (;).
         shared_ptr<string> securityIpHosts_ {};
-        // The name of the distributed transaction whitelist.
         shared_ptr<string> whitelistGroupName_ {};
       };
 
@@ -150,7 +148,6 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The number of distributed transaction whitelists.
     shared_ptr<string> ipHostPairNum_ {};
-    // Details of distributed transaction whitelists.
     shared_ptr<DescribeDTCSecurityIpHostsForSQLServerResponseBody::Items> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

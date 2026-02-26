@@ -84,7 +84,6 @@ namespace Models
 
 
   protected:
-    // An array that consists of the IDs of deleted backup sets.
     shared_ptr<DeleteBackupFileResponseBody::DeletedBaksetIds> deletedBaksetIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -100,11 +100,8 @@ namespace Models
 
 
       protected:
-        // The description of the activity.
         shared_ptr<string> description_ {};
-        // The name of the rule.
         shared_ptr<string> name_ {};
-        // The ID of the promotion rule.
         shared_ptr<int64_t> ruleId_ {};
       };
 
@@ -261,13 +258,9 @@ namespace Models
 
 
         protected:
-          // The coupon ID.
           shared_ptr<string> couponNo_ {};
-          // The description of the coupon.
           shared_ptr<string> description_ {};
-          // Indicates whether the coupon is selected.
           shared_ptr<string> isSelected_ {};
-          // The name of the coupon.
           shared_ptr<string> name_ {};
         };
 
@@ -401,7 +394,6 @@ namespace Models
     protected:
       // The information about the promotion.
       shared_ptr<PriceInfo::ActivityInfo> activityInfo_ {};
-      // An array that consists of information about the coupon.
       shared_ptr<PriceInfo::Coupons> coupons_ {};
       // The currency unit.
       shared_ptr<string> currency_ {};
@@ -409,7 +401,6 @@ namespace Models
       shared_ptr<float> discountPrice_ {};
       // The original price.
       shared_ptr<float> originalPrice_ {};
-      // An array that consists of the ID of the promotion rule.
       shared_ptr<PriceInfo::RuleIds> ruleIds_ {};
       // The transaction price, which is equal to the original price minus the discount.
       shared_ptr<float> tradePrice_ {};
@@ -447,7 +438,6 @@ namespace Models
     shared_ptr<DescribeRenewalPriceResponseBody::PriceInfo> priceInfo_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the details of the promotion rule.
     shared_ptr<DescribeRenewalPriceResponseBody::Rules> rules_ {};
   };
 

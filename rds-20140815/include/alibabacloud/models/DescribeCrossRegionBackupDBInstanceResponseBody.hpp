@@ -209,47 +209,19 @@ namespace Models
 
 
       protected:
-        // The status of the cross-region backup feature on the instance. Valid values:
-        // 
-        // *   **Disable**
-        // *   **Enable**
         shared_ptr<string> backupEnabled_ {};
-        // The time when cross-region backup was enabled on the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> backupEnabledTime_ {};
-        // The ID of the destination region within which the cross-region backup file is stored.
         shared_ptr<string> crossBackupRegion_ {};
-        // The policy that is used to save the cross-region backup files of the instance. Default value: **1**. The value 1 indicates that all cross-region backup files are saved.
         shared_ptr<string> crossBackupType_ {};
-        // The name of the instance. It must be 2 to 256 characters in length. The value can contain letters, digits, underscores (_), and hyphens (-), and must start with a letter.
-        // 
-        // >  The value cannot start with http:// or https://.
         shared_ptr<string> DBInstanceDescription_ {};
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The instance status. For more information, see [Instance statuses](https://help.aliyun.com/document_detail/26315.html).
         shared_ptr<string> DBInstanceStatus_ {};
-        // The database engine of the instance.
         shared_ptr<string> engine_ {};
-        // The database engine version.
         shared_ptr<string> engineVersion_ {};
-        // The lock status of the instance. Valid values:
-        // 
-        // *   **Unlock**: The instance is not locked.
-        // *   **ManualLock**: The instance is manually locked.
-        // *   **LockByExpiration**: The instance is automatically locked after it expires.
-        // *   **LockByRestoration**: The instance is automatically locked before it is rolled back.
-        // *   **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted and the instance is inaccessible.
         shared_ptr<string> lockMode_ {};
-        // The status of the cross-region log backup feature on the instance. Valid values:
-        // 
-        // *   **Disable**
-        // *   **Enable**
         shared_ptr<string> logBackupEnabled_ {};
-        // The time when the cross-region log backup feature was enabled on the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> logBackupEnabledTime_ {};
-        // The policy that is used to retain the cross-region backup files of the instance. Cross-region backups can be retained only based on the specified retention period. Default value: **1**.
         shared_ptr<int32_t> retentType_ {};
-        // The number of days for which the cross-region backup files of the instance are retained. Valid values: **7 to 1825**.
         shared_ptr<int32_t> retention_ {};
       };
 
@@ -322,7 +294,6 @@ namespace Models
 
 
   protected:
-    // The cross-region backup settings.
     shared_ptr<DescribeCrossRegionBackupDBInstanceResponseBody::Items> items_ {};
     // The total number of items returned for cross-region backup settings.
     shared_ptr<int32_t> itemsNumbers_ {};

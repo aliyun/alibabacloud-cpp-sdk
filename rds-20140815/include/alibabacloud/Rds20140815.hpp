@@ -350,7 +350,7 @@ namespace Rds20140815
       Models::CalculateDBInstanceWeightResponse calculateDBInstanceWeight(const Models::CalculateDBInstanceWeightRequest &request);
 
       /**
-       * @summary Cancels O\\&M tasks that are not started.
+       * @summary Cancels O\\\\\\&M tasks that are not started.
        *
        * @description ### [](#)Supported database engines
        * *   MySQL
@@ -376,7 +376,7 @@ namespace Rds20140815
       Models::CancelActiveOperationTasksResponse cancelActiveOperationTasksWithOptions(const Models::CancelActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels O\\&M tasks that are not started.
+       * @summary Cancels O\\\\\\&M tasks that are not started.
        *
        * @description ### [](#)Supported database engines
        * *   MySQL
@@ -1039,6 +1039,23 @@ namespace Rds20140815
        * @return CreateDBInstanceForRebuildResponse
        */
       Models::CreateDBInstanceForRebuildResponse createDBInstanceForRebuild(const Models::CreateDBInstanceForRebuildRequest &request);
+
+      /**
+       * @summary 原生复制实例创建复制通道
+       *
+       * @param request CreateDBInstanceReplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDBInstanceReplicationResponse
+       */
+      Models::CreateDBInstanceReplicationResponse createDBInstanceReplicationWithOptions(const Models::CreateDBInstanceReplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 原生复制实例创建复制通道
+       *
+       * @param request CreateDBInstanceReplicationRequest
+       * @return CreateDBInstanceReplicationResponse
+       */
+      Models::CreateDBInstanceReplicationResponse createDBInstanceReplication(const Models::CreateDBInstanceReplicationRequest &request);
 
       /**
        * @summary Adds a security group rule to an ApsaraDB RDS for SQL Server instance.
@@ -1989,6 +2006,23 @@ namespace Rds20140815
       Models::DeleteDBInstanceEndpointAddressResponse deleteDBInstanceEndpointAddress(const Models::DeleteDBInstanceEndpointAddressRequest &request);
 
       /**
+       * @summary 原生复制实例删除复制通道
+       *
+       * @param request DeleteDBInstanceReplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDBInstanceReplicationResponse
+       */
+      Models::DeleteDBInstanceReplicationResponse deleteDBInstanceReplicationWithOptions(const Models::DeleteDBInstanceReplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 原生复制实例删除复制通道
+       *
+       * @param request DeleteDBInstanceReplicationRequest
+       * @return DeleteDBInstanceReplicationResponse
+       */
+      Models::DeleteDBInstanceReplicationResponse deleteDBInstanceReplication(const Models::DeleteDBInstanceReplicationRequest &request);
+
+      /**
        * @summary Deletes a security group rule that is configured for an ApsaraDB RDS for SQL Server instance.
        *
        * @description ### [](#)Supported database engine
@@ -2548,7 +2582,7 @@ namespace Rds20140815
       Models::DescribeADInfoResponse describeADInfo(const Models::DescribeADInfoRequest &request);
 
       /**
-       * @summary 查询全密态用户权限
+       * @summary Query the encryption or data masking permission configuration of an account in a specified instance.
        *
        * @param request DescribeAccountMaskingPrivilegeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2557,7 +2591,7 @@ namespace Rds20140815
       Models::DescribeAccountMaskingPrivilegeResponse describeAccountMaskingPrivilegeWithOptions(const Models::DescribeAccountMaskingPrivilegeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询全密态用户权限
+       * @summary Query the encryption or data masking permission configuration of an account in a specified instance.
        *
        * @param request DescribeAccountMaskingPrivilegeRequest
        * @return DescribeAccountMaskingPrivilegeResponse
@@ -6786,7 +6820,7 @@ namespace Rds20140815
       Models::ImportUserBackupFileResponse importUserBackupFile(const Models::ImportUserBackupFileRequest &request);
 
       /**
-       * @summary 为实例安装云助手Agent
+       * @summary Installs Cloud Assistant Agent on one or more RDS Custom instances. After you install Cloud Assistant Agent on RDS Custom instances, restart the instances for the installation to take effect.
        *
        * @param tmpReq InstallRCCloudAssistantRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6795,7 +6829,7 @@ namespace Rds20140815
       Models::InstallRCCloudAssistantResponse installRCCloudAssistantWithOptions(const Models::InstallRCCloudAssistantRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为实例安装云助手Agent
+       * @summary Installs Cloud Assistant Agent on one or more RDS Custom instances. After you install Cloud Assistant Agent on RDS Custom instances, restart the instances for the installation to take effect.
        *
        * @param request InstallRCCloudAssistantRequest
        * @return InstallRCCloudAssistantResponse
@@ -7268,7 +7302,7 @@ namespace Rds20140815
       Models::ModifyActionEventPolicyResponse modifyActionEventPolicy(const Models::ModifyActionEventPolicyRequest &request);
 
       /**
-       * @summary Changes the switching time of scheduled O\\\\\\&M tasks for an instance.
+       * @summary Changes the switching time of scheduled O\\\\\\\\\\\\&M tasks for an instance.
        *
        * @description ### [](#)Supported database engines
        * *   MySQL
@@ -7289,7 +7323,7 @@ namespace Rds20140815
       Models::ModifyActiveOperationTasksResponse modifyActiveOperationTasksWithOptions(const Models::ModifyActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the switching time of scheduled O\\\\\\&M tasks for an instance.
+       * @summary Changes the switching time of scheduled O\\\\\\\\\\\\&M tasks for an instance.
        *
        * @description ### [](#)Supported database engines
        * *   MySQL
@@ -10775,6 +10809,23 @@ namespace Rds20140815
        * @return UntagResourcesResponse
        */
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
+
+      /**
+       * @summary 原生复制实例更新复制通道
+       *
+       * @param request UpdateDBInstanceReplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDBInstanceReplicationResponse
+       */
+      Models::UpdateDBInstanceReplicationResponse updateDBInstanceReplicationWithOptions(const Models::UpdateDBInstanceReplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 原生复制实例更新复制通道
+       *
+       * @param request UpdateDBInstanceReplicationRequest
+       * @return UpdateDBInstanceReplicationResponse
+       */
+      Models::UpdateDBInstanceReplicationResponse updateDBInstanceReplication(const Models::UpdateDBInstanceReplicationRequest &request);
 
       /**
        * @summary Updates the version of an extension on a database.

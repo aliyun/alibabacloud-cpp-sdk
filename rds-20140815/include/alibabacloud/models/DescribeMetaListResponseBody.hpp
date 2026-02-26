@@ -108,11 +108,8 @@ namespace Models
 
 
       protected:
-        // The database name.
         shared_ptr<string> database_ {};
-        // The table size. Unit: KB.
         shared_ptr<string> size_ {};
-        // The table name.
         shared_ptr<string> tables_ {};
       };
 
@@ -187,7 +184,6 @@ namespace Models
   protected:
     // The instance name.
     shared_ptr<string> DBInstanceName_ {};
-    // The information about the databases and tables whose data is included in the backup set.
     shared_ptr<DescribeMetaListResponseBody::Items> items_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

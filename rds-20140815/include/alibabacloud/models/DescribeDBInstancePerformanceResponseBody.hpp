@@ -141,9 +141,7 @@ namespace Models
 
 
           protected:
-            // The date and time when the value of the performance metric was recorded. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
             shared_ptr<string> date_ {};
-            // The value of the performance metric.
             shared_ptr<string> value_ {};
           };
 
@@ -194,15 +192,9 @@ namespace Models
 
 
       protected:
-        // The name of the performance metric.
         shared_ptr<string> key_ {};
-        // The unit of the performance metrics.
         shared_ptr<string> unit_ {};
-        // The format in which the value of the performance metric is returned.
-        // 
-        // >  If a performance metric value consists of multiple fields, the values are separated with ampersands (&). Example: com_delete\\&com_insert\\&com_insert_select\\&com_replace.
         shared_ptr<string> valueFormat_ {};
-        // The performance metric values.
         shared_ptr<PerformanceKey::Values> values_ {};
       };
 
@@ -273,7 +265,6 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The database engine of the instance.
     shared_ptr<string> engine_ {};
-    // Details of the performance metrics.
     shared_ptr<DescribeDBInstancePerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

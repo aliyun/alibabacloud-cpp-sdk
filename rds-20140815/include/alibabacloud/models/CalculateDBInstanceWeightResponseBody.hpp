@@ -107,16 +107,9 @@ namespace Models
 
 
       protected:
-        // The instance ID
         shared_ptr<string> DBInstanceId_ {};
-        // The type of the instance. Valid values:
-        // 
-        // *   **Master**: primary instance
-        // *   **Readonly**: read-only instance
         shared_ptr<string> DBInstanceType_ {};
-        // The latency at which the read-only instances replicate data. The read-only instances replicate data from the primary instance at the latency that is specified by the **ReadonlyInstanceSQLDelayedTime** parameter. Unit: seconds.
         shared_ptr<string> readonlyInstanceSQLDelayedTime_ {};
-        // The read weight that the system calculates in real time for the instance.
         shared_ptr<string> weight_ {};
       };
 
@@ -153,7 +146,6 @@ namespace Models
 
 
   protected:
-    // An array that consists of information about the system-assigned read weight.
     shared_ptr<CalculateDBInstanceWeightResponseBody::Items> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

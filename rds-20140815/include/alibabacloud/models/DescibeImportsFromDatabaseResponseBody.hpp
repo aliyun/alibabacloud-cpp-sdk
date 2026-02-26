@@ -122,29 +122,10 @@ namespace Models
 
 
       protected:
-        // The status of the migration task. Valid values:
-        // 
-        // *   **NotStart**: The migration task has not started.
-        // *   **FullExporting**: The migration task is exporting full data.
-        // *   **FullImporting**: The migration task is importing full data.
-        // *   **Success**: The migration task is successful.
-        // *   **Failed**: The migration task failed.
-        // *   **Canceled**: The migration task is canceled.
-        // *   **Canceling**: The migration task is being canceled.
-        // *   **IncrementalWaiting**: The migration task is waiting to synchronize incremental data.
-        // *   **IncrementalImporting**: The migration task is synchronizing incremental data.
-        // *   **StopSyncing**: The migration task stops synchronizing data.
         shared_ptr<string> importDataStatus_ {};
-        // The description of the migration task.
         shared_ptr<string> importDataStatusDescription_ {};
-        // The type of the migration task. Valid values:
-        // 
-        // *   **Full**: full migration
-        // *   **Incremental:**: incremental migration
         shared_ptr<string> importDataType_ {};
-        // The ID of the migration task.
         shared_ptr<int32_t> importId_ {};
-        // The time when the migration task synchronized incremental data. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> incrementalImportingTime_ {};
       };
 
@@ -202,7 +183,6 @@ namespace Models
 
 
   protected:
-    // The migration tasks.
     shared_ptr<DescibeImportsFromDatabaseResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

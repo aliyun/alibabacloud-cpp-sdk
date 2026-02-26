@@ -109,13 +109,9 @@ namespace Models
 
 
       protected:
-        // The instance ID.
         shared_ptr<string> resourceId_ {};
-        // The resource type. The value `ALIYUN::RDS::INSTANCE` indicates ApsaraDB RDS instances.
         shared_ptr<string> resourceType_ {};
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value that is associated with the specified tag key.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -163,7 +159,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of queried instances and tags.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

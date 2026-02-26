@@ -155,9 +155,7 @@ namespace Models
 
 
           protected:
-            // The name of the IP address whitelist.
             shared_ptr<string> securityIPGroupName_ {};
-            // The IP addresses that is contained in the IP address whitelist.
             shared_ptr<string> securityIPs_ {};
           };
 
@@ -250,19 +248,9 @@ namespace Models
 
 
           protected:
-            // The availability of the instance. Valid values:
-            // 
-            // *   **Unavailable**
-            // *   **Available**
             shared_ptr<string> availability_ {};
-            // The instance ID.
             shared_ptr<string> DBInstanceId_ {};
-            // The instance type. Valid values:
-            // 
-            // *   **Master**: primary instance
-            // *   **Readonly**: read-only instance
             shared_ptr<string> DBInstanceType_ {};
-            // The weight of the instance.
             shared_ptr<string> weight_ {};
           };
 
@@ -387,48 +375,19 @@ namespace Models
 
 
       protected:
-        // The availability of the instance. Valid values:
-        // 
-        // *   **Unavailable**
-        // *   **Available**
         shared_ptr<string> availability_ {};
-        // The endpoint of the instance.
         shared_ptr<string> connectionString_ {};
-        // The type of the endpoint. Valid values:
-        // 
-        // *   **Normal**: a regular endpoint
-        // *   **ReadWriteSplitting**: a read/write splitting endpoint that is assigned after the shared proxy feature is enabled.
         shared_ptr<string> connectionStringType_ {};
-        // The information about read weights to implement read/write splitting after the shared proxy feature is enabled.
         shared_ptr<DBInstanceNetInfo::DBInstanceWeights> DBInstanceWeights_ {};
-        // The policy that is used to assign read weights. This parameter is returned only for a read/write splitting endpoint that is assigned after the shared proxy feature is enabled. Valid values:
-        // 
-        // *   **Standard**: The system automatically allocates read weights to the instance and its read-only instances based on the specifications of the instances.
-        // *   **Custom**: You must manually allocate read weights to the instance and its read-only instances.
         shared_ptr<string> distributionType_ {};
-        // The IP address of the instance.
         shared_ptr<string> IPAddress_ {};
-        // The network type of the IP address. Valid values:
-        // 
-        // *   **Public**: the Internet
-        // *   **Inner**: the classic network
-        // *   **Private**: a virtual private cloud (VPC)
         shared_ptr<string> IPType_ {};
-        // The latency threshold that is allowed for read/write splitting of the shared proxy feature. Unit: seconds.
-        // 
-        // >  This parameter is returned only when **ConnectionStringType** is set to **ReadWriteSplitting**.
         shared_ptr<string> maxDelayTime_ {};
-        // The port number of the instance.
         shared_ptr<string> port_ {};
-        // The details of the IP address whitelist.
         shared_ptr<DBInstanceNetInfo::SecurityIPGroups> securityIPGroups_ {};
-        // An internal parameter. You do not need to specify this parameter.
         shared_ptr<string> upgradeable_ {};
-        // The VPC ID of the instance.
         shared_ptr<string> VPCId_ {};
-        // The vSwitch ID of the instance.
         shared_ptr<string> vSwitchId_ {};
-        // The expiration time of the endpoint of the classic network type. Unit: seconds.
         shared_ptr<string> expiredTime_ {};
       };
 
@@ -472,7 +431,6 @@ namespace Models
 
 
   protected:
-    // The information about the instance connection.
     shared_ptr<DescribeDBInstanceNetInfoForChannelResponseBody::DBInstanceNetInfos> DBInstanceNetInfos_ {};
     // The network type of the instance. Valid values:
     // 

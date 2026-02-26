@@ -107,15 +107,9 @@ namespace Models
 
 
       protected:
-        // The attribute of the IP address whitelist. By default, this parameter is empty.
-        // 
-        // >  A whitelist with the hidden attribute does not appear in the console. Such IP address whitelists are used to access Alibaba Cloud services, such as Data Transmission Service (DTS).
         shared_ptr<string> DBInstanceIPArrayAttribute_ {};
-        // The name of the IP address whitelist.
         shared_ptr<string> DBInstanceIPArrayName_ {};
-        // The IP addresses in the IP address whitelist.
         shared_ptr<string> securityIPList_ {};
-        // The type of the IP address.
         shared_ptr<string> securityIPType_ {};
       };
 
@@ -152,7 +146,6 @@ namespace Models
 
 
   protected:
-    // An array that consists of the details about the IP address whitelists.
     shared_ptr<DescribeDBInstanceIPArrayListResponseBody::Items> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

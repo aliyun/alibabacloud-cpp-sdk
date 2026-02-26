@@ -131,29 +131,11 @@ namespace Models
 
 
       protected:
-        // The description of the instance.
         shared_ptr<string> DBInstanceDescription_ {};
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The status of the instance. For more information, see [Instance state table](https://help.aliyun.com/document_detail/26315.html).
         shared_ptr<string> DBInstanceStatus_ {};
-        // The expiration time of the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-        // 
-        // > : Pay-as-you-go instances never expire.
         shared_ptr<string> expireTime_ {};
-        // The lock mode of the instance. Valid values:
-        // 
-        // *   **Unlock**: The instance is not locked.
-        // *   **ManualLock**: The instance is manually locked.
-        // *   **LockByExpiration**: The instance is automatically locked after it expires.
-        // *   **LockByRestoration**: The instance is automatically locked before it is rolled back.
-        // *   **LockByDiskQuota**: The instance is automatically locked after its storage capacity is exhausted.
-        // *   **LockReadInstanceByDiskQuota**: The instance is a read-only instance and is automatically locked after its storage capacity is exhausted.
         shared_ptr<string> lockMode_ {};
-        // The billing method of the instance. Valid values:
-        // 
-        // *   **Postpaid**: pay-as-you-go.
-        // *   **Prepaid**: subscription.
         shared_ptr<string> payType_ {};
       };
 
@@ -211,7 +193,6 @@ namespace Models
 
 
   protected:
-    // The details of the instances.
     shared_ptr<DescribeDBInstancesByExpireTimeResponseBody::Items> items_ {};
     // The page number of the returned page. Valid values: any **non-zero** positive integer.
     // 

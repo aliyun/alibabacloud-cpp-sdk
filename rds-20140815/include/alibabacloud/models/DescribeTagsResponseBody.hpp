@@ -133,11 +133,8 @@ namespace Models
 
 
       protected:
-        // The IDs of the instances to which the tag is added.
         shared_ptr<TagInfos::DBInstanceIds> DBInstanceIds_ {};
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -174,7 +171,6 @@ namespace Models
 
 
   protected:
-    // The tags that are added to the instance.
     shared_ptr<DescribeTagsResponseBody::Items> items_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

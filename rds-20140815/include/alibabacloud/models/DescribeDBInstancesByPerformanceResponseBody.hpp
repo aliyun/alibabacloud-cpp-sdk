@@ -131,17 +131,11 @@ namespace Models
 
 
       protected:
-        // The CPU utilization of the instance in percentage.
         shared_ptr<string> CPUUsage_ {};
-        // The name of the instance.
         shared_ptr<string> DBInstanceDescription_ {};
-        // The ID of the instance.
         shared_ptr<string> DBInstanceId_ {};
-        // The disk usage of the instance in percentage.
         shared_ptr<string> diskUsage_ {};
-        // The IOPS usage of the instance in percentage.
         shared_ptr<string> IOPSUsage_ {};
-        // The number of sessions.
         shared_ptr<string> sessionUsage_ {};
       };
 
@@ -199,7 +193,6 @@ namespace Models
 
 
   protected:
-    // The details about the instance.
     shared_ptr<DescribeDBInstancesByPerformanceResponseBody::Items> items_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

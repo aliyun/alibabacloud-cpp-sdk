@@ -356,72 +356,32 @@ namespace Models
 
 
       protected:
-        // The policy based on which the system allocates resources in the dedicated cluster. Valid values:
-        // 
-        // *   **Evenly**: The system evenly allocates the resources to all the hosts in the dedicated cluster.
-        // *   **Intensively**: The system preferentially allocates the resources to the heavily loaded hosts in the dedicated cluster.
         shared_ptr<string> allocationPolicy_ {};
-        // The ID of the bastion host.
         shared_ptr<string> bastionInstanceId_ {};
-        // The percentage of allocated cores in the dedicated cluster. Unit: %.
         shared_ptr<float> cpuAllocateRation_ {};
-        // The number of allocated cores in the dedicated cluster.
         shared_ptr<float> cpuAllocatedAmount_ {};
-        // The core overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](https://help.aliyun.com/document_detail/182328.html).
         shared_ptr<int32_t> cpuAllocationRatio_ {};
-        // The timestamp when the dedicated cluster was created.
         shared_ptr<string> createTime_ {};
-        // The type of storage media that is used for the hosts in the dedicated cluster. Valid values:
-        // 
-        // *   **dhg_cloud_ssd**: cloud disks
-        // *   **dhg_local_ssd**: local disks
         Darabonba::Json dedicatedHostCountGroupByHostType_ {};
-        // The name of the dedicated cluster.
         shared_ptr<string> dedicatedHostGroupDesc_ {};
-        // The ID of the dedicated cluster.
         shared_ptr<string> dedicatedHostGroupId_ {};
-        // The percentage of allocated disk space in the dedicated cluster. Unit: %.
         shared_ptr<float> diskAllocateRation_ {};
-        // The amount of allocated disk space in the dedicated cluster. Unit: GB.
         shared_ptr<float> diskAllocatedAmount_ {};
-        // The disk overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](https://help.aliyun.com/document_detail/182328.html).
         shared_ptr<int32_t> diskAllocationRatio_ {};
-        // The amount of used disk space in the dedicated cluster. Unit: GB.
         shared_ptr<float> diskUsedAmount_ {};
-        // The disk usage of the dedicated cluster. Unit: %.
         shared_ptr<float> diskUtility_ {};
-        // The database engine of the instances in the dedicated cluster.
         shared_ptr<string> engine_ {};
-        // The total number of hosts in the dedicated cluster.
         shared_ptr<int32_t> hostNumber_ {};
-        // The policy that is used to handle host failures. Valid values:
-        // 
-        // *   **Auto**: The system automatically replaces faulty hosts.
-        // *   **Manual**: You must manually replace faulty hosts.
         shared_ptr<string> hostReplacePolicy_ {};
-        // The total number of instances in the dedicated cluster.
         shared_ptr<int32_t> instanceNumber_ {};
-        // The percentage of allocated memory space in the dedicated cluster. Unit: %.
         shared_ptr<float> memAllocateRation_ {};
-        // The amount of allocated memory space in the dedicated cluster.
         shared_ptr<float> memAllocatedAmount_ {};
-        // The memory overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](https://help.aliyun.com/document_detail/182328.html).
         shared_ptr<int32_t> memAllocationRatio_ {};
-        // The amount of used memory space in the dedicated cluster. Unit: MB.
         shared_ptr<float> memUsedAmount_ {};
-        // The memory usage of the dedicated cluster. Unit: %.
         shared_ptr<float> memUtility_ {};
-        // Indicates whether the feature that allows you to have the OS permissions on the host is enabled. Valid values:
-        // 
-        // *   **0** or **null**: The permissions cannot be granted.
-        // *   **1**: The permissions can be granted.
-        // *   **3**: The permissions have been granted.
         shared_ptr<string> openPermission_ {};
-        // The name and ID of the dedicated cluster. The value consists of **DedicatedHostGroupDesc** and **DedicatedHostGroupId**. Format: DedicatedHostGroupDesc/DedicatedHostGroupId.
         shared_ptr<string> text_ {};
-        // The ID of the virtual private cloud (VPC) to which the dedicated cluster belongs.
         shared_ptr<string> VPCId_ {};
-        // The zones to which the hosts of the dedicated cluster belong.
         shared_ptr<DedicatedHostGroupsItem::ZoneIDList> zoneIDList_ {};
       };
 
@@ -458,7 +418,6 @@ namespace Models
 
 
   protected:
-    // The information about dedicated clusters returned.
     shared_ptr<DescribeDedicatedHostGroupsResponseBody::DedicatedHostGroups> dedicatedHostGroups_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

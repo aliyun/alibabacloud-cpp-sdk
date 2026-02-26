@@ -91,15 +91,7 @@ namespace Models
 
 
       protected:
-        // The response code. Valid values:
-        // 
-        // *   **200**: success
-        // *   **400**: client error
-        // *   **401**: identity authentication failed
-        // *   **404**: requested page not found
-        // *   **500**: server error
         shared_ptr<string> code_ {};
-        // The returned message.
         shared_ptr<string> message_ {};
       };
 
@@ -143,7 +135,6 @@ namespace Models
 
 
   protected:
-    // The information about the failed order.
     shared_ptr<PreCheckCreateOrderForDeleteDBNodesResponseBody::Failures> failures_ {};
     // The precheck result.
     shared_ptr<bool> preCheckResult_ {};

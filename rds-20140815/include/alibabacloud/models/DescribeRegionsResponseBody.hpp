@@ -116,21 +116,10 @@ namespace Models
 
 
       protected:
-        // The region name. The return value of this parameter is in the language that is specified by the **AcceptLanguage** parameter. For example, if the value of the RegionId parameter in the response is cn-hangzhou, the following values are returned for the LocalName parameter:
-        // 
-        // *   If the value of the **AcceptLanguage** parameter is **zh-CN**, the value  1()is returned for the LocalName parameter.
-        // *   If the value of the **AcceptLanguage** parameter is **en-US**, the value China (Hangzhou) is returned for the LocalName parameter.
         shared_ptr<string> localName_ {};
-        // The endpoint that is used to connect to Alibaba Cloud services in the region. For more information, see [Endpoints](https://help.aliyun.com/document_detail/610370.html).
         shared_ptr<string> regionEndpoint_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
-        // The zone name. The return value of this parameter is in the language that is specified by the **AcceptLanguage** parameter. For example, if the value of the ZoneId parameter in the response is cn-hangzhou-j, the following values are returned for the ZoneName parameter:
-        // 
-        // *   If the value of the **AcceptLanguage** parameter is **zh-CN**, the value   J is returned for the ZoneName parameter.
-        // *   If the value of the **AcceptLanguage** parameter is **en-US**, the value Hangzhou Zone J is returned for the ZoneName parameter.
         shared_ptr<string> zoneName_ {};
       };
 
@@ -167,7 +156,6 @@ namespace Models
 
 
   protected:
-    // The available regions and zones.
     shared_ptr<DescribeRegionsResponseBody::Regions> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

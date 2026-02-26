@@ -97,7 +97,6 @@ namespace Models
     shared_ptr<string> key_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The reserved keywords.
     shared_ptr<DescribeInstanceKeywordsResponseBody::Words> words_ {};
   };
 

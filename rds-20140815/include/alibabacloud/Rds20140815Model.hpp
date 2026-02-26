@@ -104,6 +104,9 @@
 #include <alibabacloud/models/CreateDBInstanceForRebuildRequest.hpp>
 #include <alibabacloud/models/CreateDBInstanceForRebuildResponseBody.hpp>
 #include <alibabacloud/models/CreateDBInstanceForRebuildResponse.hpp>
+#include <alibabacloud/models/CreateDBInstanceReplicationRequest.hpp>
+#include <alibabacloud/models/CreateDBInstanceReplicationResponseBody.hpp>
+#include <alibabacloud/models/CreateDBInstanceReplicationResponse.hpp>
 #include <alibabacloud/models/CreateDBInstanceSecurityGroupRuleRequest.hpp>
 #include <alibabacloud/models/CreateDBInstanceSecurityGroupRuleResponseBody.hpp>
 #include <alibabacloud/models/CreateDBInstanceSecurityGroupRuleResponse.hpp>
@@ -204,6 +207,9 @@
 #include <alibabacloud/models/DeleteDBInstanceEndpointAddressRequest.hpp>
 #include <alibabacloud/models/DeleteDBInstanceEndpointAddressResponseBody.hpp>
 #include <alibabacloud/models/DeleteDBInstanceEndpointAddressResponse.hpp>
+#include <alibabacloud/models/DeleteDBInstanceReplicationRequest.hpp>
+#include <alibabacloud/models/DeleteDBInstanceReplicationResponseBody.hpp>
+#include <alibabacloud/models/DeleteDBInstanceReplicationResponse.hpp>
 #include <alibabacloud/models/DeleteDBInstanceSecurityGroupRuleRequest.hpp>
 #include <alibabacloud/models/DeleteDBInstanceSecurityGroupRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteDBInstanceSecurityGroupRuleResponse.hpp>
@@ -1207,6 +1213,9 @@
 #include <alibabacloud/models/UntagResourcesRequest.hpp>
 #include <alibabacloud/models/UntagResourcesResponseBody.hpp>
 #include <alibabacloud/models/UntagResourcesResponse.hpp>
+#include <alibabacloud/models/UpdateDBInstanceReplicationRequest.hpp>
+#include <alibabacloud/models/UpdateDBInstanceReplicationResponseBody.hpp>
+#include <alibabacloud/models/UpdateDBInstanceReplicationResponse.hpp>
 #include <alibabacloud/models/UpdatePostgresExtensionsRequest.hpp>
 #include <alibabacloud/models/UpdatePostgresExtensionsResponseBody.hpp>
 #include <alibabacloud/models/UpdatePostgresExtensionsResponse.hpp>

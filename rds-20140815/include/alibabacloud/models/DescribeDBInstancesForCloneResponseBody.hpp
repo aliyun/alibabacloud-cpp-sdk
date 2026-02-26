@@ -183,7 +183,6 @@ namespace Models
 
 
           protected:
-            // The ID of the read-only instance.
             shared_ptr<string> DBInstanceId_ {};
           };
 
@@ -428,109 +427,36 @@ namespace Models
 
 
       protected:
-        // The RDS edition of the instance. Valid values:
-        // 
-        // *   **Basic**: RDS Basic Edition
-        // *   **HighAvailability**: RDS High-availability Edition
-        // *   **Finance**: RDS Enterprise Edition
         shared_ptr<string> category_ {};
-        // The connection mode of the instance. Valid values:
-        // 
-        // *   **Standard**: standard mode
-        // *   **Safe**: database proxy mode
         shared_ptr<string> connectionMode_ {};
-        // The time when the instance was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The instance type of the instance. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
         shared_ptr<string> DBInstanceClass_ {};
-        // The name of the instance. It must be 2 to 256 characters in length. The value can contain letters, digits, underscores (_), and hyphens (-). The value must start with a letter.
-        // 
-        // > The value cannot start with http:// or https://.
         shared_ptr<string> DBInstanceDescription_ {};
-        // The ID of the instance.
         shared_ptr<string> DBInstanceId_ {};
-        // The network connection type of the instance. Valid values:
-        // 
-        // *   **Internet**
-        // *   **Intranet**
         shared_ptr<string> DBInstanceNetType_ {};
-        // The status of the instance. For more information, see [Instance state table](https://help.aliyun.com/document_detail/26315.html).
         shared_ptr<string> DBInstanceStatus_ {};
-        // The storage type of the instance. Valid values:
-        // 
-        // *   **local_ssd/ephemeral_ssd**: local SSD
-        // *   **cloud_ssd**: standard SSD.
-        // *   **cloud_essd**: enhanced SSD (ESSD)
         shared_ptr<string> DBInstanceStorageType_ {};
-        // The role of the instance. Valid values:
-        // 
-        // *   **Primary**: primary instance
-        // *   **Readonly**: read-only instance
-        // *   **Guard**: disaster recovery instance
-        // *   **Temp**: temporary instance
         shared_ptr<string> DBInstanceType_ {};
-        // The time when the instance was destroyed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> destroyTime_ {};
-        // The database engine of the instance. Valid values:
-        // 
-        // *   MySQL
-        // *   SQLServer
-        // *   PostgreSQL
-        // *   PPAS
-        // *   MariaDB
         shared_ptr<string> engine_ {};
-        // The version of the database engine.
         shared_ptr<string> engineVersion_ {};
-        // The time when the instance expired. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> expireTime_ {};
-        // The ID of the disaster recovery instance. This parameter is returned only when the instance is a primary instance and has a disaster recovery instance.
         shared_ptr<string> guardDBInstanceId_ {};
-        // The ID of the instance role.
         shared_ptr<int32_t> insId_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   **Classic**
-        // *   **VPC**
         shared_ptr<string> instanceNetworkType_ {};
-        // The lock method of the instance. Valid values:
-        // 
-        // *   **Unlock**: The instance is not locked.
-        // *   **ManualLock**: The instance is manually locked.
-        // *   **LockByExpiration**: The instance is automatically locked after it expires.
-        // *   **LockByRestoration**: The instance is automatically locked before a rollback.
-        // *   **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted and the instance is inaccessible.
         shared_ptr<string> lockMode_ {};
-        // The reason why the instance was locked.
         shared_ptr<string> lockReason_ {};
-        // The ID of the primary instance. If the value of this parameter is null, the instance is a primary instance.
         shared_ptr<string> masterInstanceId_ {};
-        // Indicates whether multi-region deployment is used. Valid values:
-        // 
-        // *   **true**: Multi-region deployment is used.
-        // *   **false**: Multi-region deployment is not used.
         shared_ptr<bool> mutriORsignle_ {};
-        // The billing method of the instance. Valid values:
-        // 
-        // *   **Postpaid**: pay-as-you-go
-        // *   **Prepaid**: subscription
         shared_ptr<string> payType_ {};
-        // An array consisting of the IDs of the read-only instances that are attached to the primary instance.
         shared_ptr<DBInstance::ReadOnlyDBInstanceIds> readOnlyDBInstanceIds_ {};
-        // The region ID of the instance.
         shared_ptr<string> regionId_ {};
-        // None.
         shared_ptr<string> replicateId_ {};
-        // The ID of the resource group.
         shared_ptr<string> resourceGroupId_ {};
-        // The ID of the temporary instance.
         shared_ptr<string> tempDBInstanceId_ {};
-        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
-        // The ID of the instance in the VPC.
         shared_ptr<string> vpcCloudInstanceId_ {};
-        // The ID of the virtual private cloud (VPC).
         shared_ptr<string> vpcId_ {};
-        // The zone ID of the instance.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -588,7 +514,6 @@ namespace Models
 
 
   protected:
-    // An array that consists of the details about the instances.
     shared_ptr<DescribeDBInstancesForCloneResponseBody::Items> items_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

@@ -148,38 +148,13 @@ namespace Models
 
 
       protected:
-        // The backup type. Valid values:
-        // 
-        // *   **Database**: full backup file
-        // *   **Differential_Database**: incremental backup file
-        // *   **Transaction_Log**: log backup file
         shared_ptr<string> backupMode_ {};
-        // The time when the backup file was created in the download list. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The description of the backup file.
         shared_ptr<string> description_ {};
-        // The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> endTime_ {};
-        // The name of the backup file stored in the Object Storage Service (OSS) bucket.
         shared_ptr<string> fileName_ {};
-        // The size of the backup file. Unit: MB
         shared_ptr<string> fileSize_ {};
-        // Indicates whether the backup file is available. Valid values: **True and False**.
         shared_ptr<string> isAvailable_ {};
-        // The state of the backup file. Valid values:
-        // 
-        // *   **NoStart**
-        // *   **Downloading**
-        // *   **Finished**
-        // *   **DownloadFailed**
-        // *   **VerifyFailed**
-        // *   **Deleted**
-        // *   **DeleteFailed**
-        // *   **CheckSuccess**
-        // *   **CheckFailed**
-        // *   **Restoring**
-        // *   **Restored**
-        // *   **RestoreFailed**
         shared_ptr<string> status_ {};
       };
 
@@ -232,7 +207,6 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // Details of the backup file.
     shared_ptr<DescribeOssDownloadsResponseBody::Items> items_ {};
     // The ID of the migration task.
     shared_ptr<string> migrateTaskId_ {};

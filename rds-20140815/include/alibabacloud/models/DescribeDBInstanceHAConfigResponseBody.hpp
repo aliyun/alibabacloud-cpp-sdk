@@ -141,27 +141,12 @@ namespace Models
 
 
       protected:
-        // The time when the secondary instance completed the synchronization of data from the primary instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> dataSyncTime_ {};
-        // The time when the secondary instance received logs from the primary instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> logSyncTime_ {};
-        // The ID of the instance.
         shared_ptr<string> nodeId_ {};
-        // The type of the node. Valid values:
-        // 
-        // *   **Master**: the primary node
-        // *   **Slave**: the secondary node
         shared_ptr<string> nodeType_ {};
-        // The region ID of the instance.
         shared_ptr<string> regionId_ {};
-        // The synchronization status. Valid values:
-        // 
-        // *   **NotAvailable**: The synchronization fails. This means that faults occur.
-        // *   **Syncing**: The synchronization is in process. In this case, a primary/secondary switchover may cause data losses.
-        // *   **Synchronized**: The synchronization is completed.
-        // *   **NotSupport**: The database engine or database engine version does not involve the synchronization between the primary and secondary instances.
         shared_ptr<string> syncStatus_ {};
-        // The ID of the zone.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -228,7 +213,6 @@ namespace Models
     // 
     // > This parameter is returned only for instances that run MySQL.
     shared_ptr<string> HAMode_ {};
-    // An array that consists of the information of the primary and secondary instances.
     shared_ptr<DescribeDBInstanceHAConfigResponseBody::HostInstanceInfos> hostInstanceInfos_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

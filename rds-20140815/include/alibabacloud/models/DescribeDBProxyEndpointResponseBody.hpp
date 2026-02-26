@@ -132,15 +132,8 @@ namespace Models
 
 
       protected:
-        // The proxy endpoint queried.
         shared_ptr<string> dbProxyEndpointConnectString_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   **0**: Internet
-        // *   **1**: classic network
-        // *   **2**: virtual private cloud (VPC)
         shared_ptr<string> dbProxyEndpointNetType_ {};
-        // The port number that is associated with the proxy endpoint. Default value: **3306**.
         shared_ptr<string> dbProxyEndpointPort_ {};
       };
 
@@ -224,11 +217,8 @@ namespace Models
 
 
       protected:
-        // The number of CPU cores of the node.
         shared_ptr<string> cpuCores_ {};
-        // The ID of the node in the zone.
         shared_ptr<string> nodeId_ {};
-        // The zone ID of the node.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -417,7 +407,6 @@ namespace Models
     // 
     // >  If the instance runs PostgreSQL, you can change only the value of the **ReadWriteSpliting** field. The **TransactionReadSqlRouteOptimizeStatus** and **PinPreparedStmt** fields are set to their default values 1.
     shared_ptr<string> DBProxyFeatures_ {};
-    // The proxy nodes that are associated with the proxy terminal.
     shared_ptr<DescribeDBProxyEndpointResponseBody::DBProxyNodes> DBProxyNodes_ {};
     // The description of the proxy terminal.
     shared_ptr<string> dbProxyEndpointAliases_ {};
@@ -432,7 +421,6 @@ namespace Models
     shared_ptr<string> dbProxyEndpointVswitchId_ {};
     // The zone ID of the proxy terminal.
     shared_ptr<string> dbProxyEndpointZoneId_ {};
-    // An array that consists of the information about the proxy endpoint.
     shared_ptr<DescribeDBProxyEndpointResponseBody::EndpointConnectItems> endpointConnectItems_ {};
     // The method that is used to assign read weights. For more information, see [Modify the latency threshold and read weights of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/96076.html). Valid values:
     // 

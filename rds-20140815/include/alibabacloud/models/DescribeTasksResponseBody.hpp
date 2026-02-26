@@ -214,45 +214,20 @@ namespace Models
 
 
       protected:
-        // The start time of the task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
         shared_ptr<string> beginTime_ {};
-        // The name of the subtask.
         shared_ptr<string> currentStepName_ {};
-        // The name of the database. If the task involves a database, the database name is returned.
         shared_ptr<string> DBName_ {};
-        // The estimated end time of the task.
-        // 
-        // >  In most cases, this parameter is empty.
         shared_ptr<string> expectedFinishTime_ {};
-        // The end time of the task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
         shared_ptr<string> finishTime_ {};
-        // The task progress in percentage.
         shared_ptr<string> progress_ {};
-        // The description of the task progress.
-        // 
-        // >  If no progress description is provided for the task, this parameter is empty.
         shared_ptr<string> progressInfo_ {};
-        // The estimated remaining time of the task. Unit: seconds.
-        // 
-        // >  If the task is not running, this parameter is not returned or the returned value is **0**.
         shared_ptr<int32_t> remain_ {};
-        // The status of the task.
         shared_ptr<string> status_ {};
-        // The progress of the subtask. For example, a value of `1/4` indicates that the task consists of four subtasks and the first subtask is in progress.
         shared_ptr<string> stepProgressInfo_ {};
-        // The details of the subtasks.
         shared_ptr<string> stepsInfo_ {};
-        // The operation that is used by the task, such as **CreateDBInstance**.
         shared_ptr<string> taskAction_ {};
-        // The error code that is returned when an error occurs.
-        // 
-        // >  This parameter is returned only when an error occurs.
         shared_ptr<string> taskErrorCode_ {};
-        // The error message that is returned when an error occurs.
-        // 
-        // >  This parameter is returned only when an error occurs.
         shared_ptr<string> taskErrorMessage_ {};
-        // The task ID. You can use one of the following methods to obtain the task ID:
         shared_ptr<string> taskId_ {};
       };
 
@@ -310,7 +285,6 @@ namespace Models
 
 
   protected:
-    // The details of the task execution.
     shared_ptr<DescribeTasksResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

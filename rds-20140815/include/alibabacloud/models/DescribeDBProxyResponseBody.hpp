@@ -139,19 +139,9 @@ namespace Models
 
 
       protected:
-        // The description of the database proxy endpoint.
         shared_ptr<string> dbProxyEndpointAliases_ {};
-        // The ID of the database proxy endpoint.
         shared_ptr<string> dbProxyEndpointName_ {};
-        // The type of the database proxy endpoint. Valid values:
-        // 
-        // *   Custom: custom database proxy endpoint
-        // *   RWSplit: default database proxy endpoint
         shared_ptr<string> dbProxyEndpointType_ {};
-        // The read and write attributes of the database proxy endpoint.
-        // 
-        // *   ReadOnly
-        // *   ReadWrite
         shared_ptr<string> dbProxyReadWriteMode_ {};
       };
 
@@ -235,11 +225,8 @@ namespace Models
 
 
       protected:
-        // The number of CPU cores of the node.
         shared_ptr<string> cpuCores_ {};
-        // The ID of the proxy node.
         shared_ptr<string> nodeId_ {};
-        // The ID of the zone in which the node is deployed.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -411,30 +398,14 @@ namespace Models
 
 
       protected:
-        // The database proxy endpoint.
         shared_ptr<string> DBProxyConnectString_ {};
-        // The network type of the database proxy endpoint. A database proxy endpoint is formerly referred to as a proxy terminal. Valid values:
-        // 
-        // *   OuterString: Internet
-        // *   InnerString: internal network
         shared_ptr<string> DBProxyConnectStringNetType_ {};
-        // The network type of the database proxy. Valid values:
-        // 
-        // *   0: Internet
-        // *   1: classic network
-        // *   2: virtual private cloud (VPC)
         shared_ptr<string> DBProxyConnectStringNetWorkType_ {};
-        // The port that is associated with the database proxy endpoint.
         shared_ptr<string> DBProxyConnectStringPort_ {};
-        // The ID of the backend database proxy endpoint.
         shared_ptr<string> DBProxyEndpointId_ {};
-        // The name of the database proxy endpoint. The name can be replaced by the ID of the database proxy endpoint.
         shared_ptr<string> DBProxyEndpointName_ {};
-        // The VPC of the database proxy.
         shared_ptr<string> DBProxyVpcId_ {};
-        // The ID of the database proxy instance.
         shared_ptr<string> DBProxyVpcInstanceId_ {};
-        // The vSwitch of the database proxy.
         shared_ptr<string> DBProxyVswitchId_ {};
       };
 
@@ -627,9 +598,7 @@ namespace Models
 
 
   protected:
-    // The list of zones that are available for the database proxy.
     shared_ptr<DescribeDBProxyResponseBody::DBProxyAVZones> DBProxyAVZones_ {};
-    // An array consisting of the information about the database proxy endpoint that is created for the instance.
     shared_ptr<DescribeDBProxyResponseBody::DBProxyConnectStringItems> DBProxyConnectStringItems_ {};
     // An internal parameter. You can ignore this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
@@ -665,7 +634,6 @@ namespace Models
     shared_ptr<string> DBProxyInstanceType_ {};
     // An internal parameter. You do not need to specify this parameter.
     shared_ptr<string> DBProxyKindCode_ {};
-    // The proxy nodes.
     shared_ptr<DescribeDBProxyResponseBody::DBProxyNodes> DBProxyNodes_ {};
     // The status of persistence connections. Valid values:
     // 
@@ -678,7 +646,6 @@ namespace Models
     // *   Shutdown: disabled
     // *   Startup: enabled
     shared_ptr<string> DBProxyServiceStatus_ {};
-    // The proxy terminals of the instance.
     shared_ptr<DescribeDBProxyResponseBody::DbProxyEndpointItems> dbProxyEndpointItems_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

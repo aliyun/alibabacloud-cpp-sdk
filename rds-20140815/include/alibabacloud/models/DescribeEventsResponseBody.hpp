@@ -187,29 +187,17 @@ namespace Models
 
 
       protected:
-        // The ID of the user who executed the event.
         shared_ptr<int64_t> callerUid_ {};
-        // The event ID.
         shared_ptr<int32_t> eventId_ {};
-        // The event name.
         shared_ptr<string> eventName_ {};
-        // The request or context parameters of the event.
         shared_ptr<string> eventPayload_ {};
-        // The source of the event.
         shared_ptr<string> eventReason_ {};
-        // The time when the event was recorded. The time is slightly later than the time the event occurred.
         shared_ptr<string> eventRecordTime_ {};
-        // The time when the event occurred.
         shared_ptr<string> eventTime_ {};
-        // The event type.
         shared_ptr<string> eventType_ {};
-        // The type of the user who executed the event.
         shared_ptr<string> eventUserType_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The name of the resource associated with the event. Only instance IDs are supported for this parameter.
         shared_ptr<string> resourceName_ {};
-        // The type of the resource associated with the event. Only instances are supported for this parameter.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -267,7 +255,6 @@ namespace Models
 
 
   protected:
-    // The events.
     shared_ptr<DescribeEventsResponseBody::EventItems> eventItems_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

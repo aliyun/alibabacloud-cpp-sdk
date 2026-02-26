@@ -128,18 +128,10 @@ namespace Models
 
 
       protected:
-        // The time when the parameter was modified. This value is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<string> modifyTime_ {};
-        // The new value of the parameter.
         shared_ptr<string> newParameterValue_ {};
-        // The original value of the parameter.
         shared_ptr<string> oldParameterValue_ {};
-        // The name of the parameter.
         shared_ptr<string> parameterName_ {};
-        // The status. Valid values:
-        // 
-        // *   **Applied:** The new value has taken effect.
-        // *   **Syncing:** The new value is being applied and has not taken effect.
         shared_ptr<string> status_ {};
       };
 
@@ -225,7 +217,6 @@ namespace Models
     shared_ptr<string> engine_ {};
     // The database engine version of the instance.
     shared_ptr<string> engineVersion_ {};
-    // The log entries.
     shared_ptr<DescribeModifyParameterLogResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

@@ -297,7 +297,6 @@ namespace Models
 
 
           protected:
-            // The zone ID.
             shared_ptr<string> zoneId_ {};
           };
 
@@ -371,23 +370,9 @@ namespace Models
 
 
         protected:
-          // Indicates whether the automatic start and stop feature is enabled for the serverless instance. Valid values:
-          // 
-          // *   **true**
-          // *   **false** (default)
-          // 
-          // >  After the automatic start and stop feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection to the instance is established, the instance is automatically resumed.
           shared_ptr<bool> autoPause_ {};
-          // The maximum number of RCUs.
           shared_ptr<double> scaleMax_ {};
-          // The minimum number of RDS Capacity Units (RCUs).
           shared_ptr<double> scaleMin_ {};
-          // Indicates whether the forced scaling feature is enabled for the serverless instance. Valid values:
-          // 
-          // *   **true**
-          // *   **false** (default)
-          // 
-          // >  In most cases, ApsaraDB RDS automatically scales in or out the RCUs of a serverless instance based on business requirements in real time. In rare cases, the scaling does not take effect in real time. You can enable the forced scaling feature to forcefully scales in or out the RCUs of the instance.
           shared_ptr<bool> switchForce_ {};
         };
 
@@ -438,7 +423,6 @@ namespace Models
 
 
           protected:
-            // The read-only instance ID.
             shared_ptr<string> DBInstanceId_ {};
           };
 
@@ -538,14 +522,8 @@ namespace Models
 
 
         protected:
-          // The group policy of the instance account.
-          // 
-          // *   MaximumPasswordAge: maximum use time
-          // *   MinimumPasswordAge: minimum use time
           shared_ptr<string> accountSecurityPolicy_ {};
-          // The instance IDs.
           shared_ptr<Extra::DBInstanceIds> DBInstanceIds_ {};
-          // The recovery model. Valid values: Simple and Full.
           shared_ptr<string> recoveryModel_ {};
         };
 
@@ -679,36 +657,15 @@ namespace Models
 
 
           protected:
-            // The node specification.
             shared_ptr<string> classCode_ {};
-            // The node type. Default value: true. Valid values:
-            // 
-            // *   d: dedicated node type
-            // *   x: general-purpose node type
             shared_ptr<string> classType_ {};
-            // The number of CPU cores of the node.
             shared_ptr<string> cpu_ {};
             shared_ptr<bool> disasterRecoveryNode_ {};
-            // The memory capacity of the node. Unit: MB.
             shared_ptr<string> memory_ {};
-            // The node ID.
             shared_ptr<string> nodeId_ {};
-            // The region ID.
             shared_ptr<string> nodeRegionId_ {};
-            // The role of the node. Valid values:
-            // 
-            // *   **primary**
-            // *   **secondary**
             shared_ptr<string> nodeRole_ {};
-            // The zone ID.
             shared_ptr<string> nodeZoneId_ {};
-            // The node status. Valid values:
-            // 
-            // *   active
-            // *   creating
-            // *   deleting
-            // *   classchanging
-            // *   restarting
             shared_ptr<string> status_ {};
           };
 
@@ -764,16 +721,7 @@ namespace Models
 
 
         protected:
-          // Indicates whether Babelfish is enabled.
-          // 
-          // >  If Babelfish is enabled when you purchase an ApsaraDB RDS for PostgreSQL instance, this parameter is fixed as **true**.
           shared_ptr<string> babelfishEnabled_ {};
-          // The migration mode for Babelfish. Valid values:
-          // 
-          // *   **single-db**
-          // *   **multi-db**
-          // 
-          // >  For more information about migration modes for Babelfish, see [Migration modes](https://help.aliyun.com/document_detail/428613.html).
           shared_ptr<string> migrationMode_ {};
         };
 
@@ -1446,292 +1394,96 @@ namespace Models
 
 
       protected:
-        // The maximum number of accounts that can be created on the instance.
         shared_ptr<int32_t> accountMaxQuantity_ {};
-        // The advanced features that are enabled for the instance. If multiple advanced features are enabled, the advanced features are separated by commas (,). This parameter is available only to instances that run **SQL Server**. Valid values:
-        // 
-        // *   **LinkedServer**
-        // *   **DistributeTransaction**
         shared_ptr<string> advancedFeatures_ {};
-        // The method that is used to update the minor engine version of the instance. Valid values:
-        // 
-        // *   **Auto**: automatic update.
-        // *   **Manual**: manual update. The minor engine version of the instance is forcefully updated only when the in-use minor engine version is phased out.
         shared_ptr<string> autoUpgradeMinorVersion_ {};
-        // The availability status of the instance in percentage.
         shared_ptr<string> availabilityValue_ {};
-        // The configuration of the Babelfish feature for the ApsaraDB RDS for PostgreSQL instance.
-        // 
-        // >  This parameter applies only to ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled. For more information, see [Introduction to Babelfish](https://help.aliyun.com/document_detail/428613.html).
         shared_ptr<DBInstanceAttribute::BabelfishConfig> babelfishConfig_ {};
-        // This is a reserved parameter and is not in use.
         shared_ptr<string> blueGreenDeploymentName_ {};
-        // This is a reserved parameter and is not in use.
         shared_ptr<string> blueInstanceName_ {};
-        // A deprecated parameter. You do not need to specify this parameter.
         shared_ptr<string> bpeEnabled_ {};
-        // Indicates whether the I/O burst feature is enabled for Premium ESSDs. Valid values:
-        // 
-        // *   true
-        // *   false
-        // 
-        // >  For more information about the I/O burst feature, see [What are Premium ESSDs?](https://help.aliyun.com/document_detail/2340501.html)
         shared_ptr<bool> burstingEnabled_ {};
-        // Indicates whether the conditions for a temporary upgrade are met.
-        // 
-        // >  Pay-as-you-go instances do not support temporary upgrades.
         shared_ptr<bool> canTempUpgrade_ {};
-        // The RDS edition. Valid values:
-        // 
-        // *   **Basic**: RDS Basic Edition
-        // *   **HighAvailability**: RDS High-availability Edition
-        // *   **cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL
-        // *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server
-        // *   **Finance**: RDS Enterprise Edition
-        // *   **Serverless_basic**: RDS Basic Edition for serverless instances
         shared_ptr<string> category_ {};
-        // Indicates whether the data archiving feature is enabled for Premium ESSDs. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
-        // 
-        // For more information about the data archiving feature, see [Use the data archiving feature](https://help.aliyun.com/document_detail/2701832.html).
         shared_ptr<bool> coldDataEnabled_ {};
-        // The character set collation of the instance.
         shared_ptr<string> collation_ {};
-        // The storage compression mode of the instance.
         shared_ptr<string> compressionMode_ {};
-        // The storage compression ratio.
         shared_ptr<string> compressionRatio_ {};
-        // This is a reserved parameter and is not in use.
         shared_ptr<bool> computeBurstEnabled_ {};
-        // The connection mode of the instance. Valid values:
-        // 
-        // *   **Standard**: standard mode
-        // *   **Safe**: database proxy mode
         shared_ptr<string> connectionMode_ {};
-        // The internal endpoint.
         shared_ptr<string> connectionString_ {};
-        // The type of the proxy that is used by the instance. Valid values:
-        // 
-        // *   **1**: shared database proxy
-        // *   **2**: dedicated database proxy
-        // 
-        // >  We recommend that you use the **ProxyType** parameter instead of this parameter.
         shared_ptr<string> consoleVersion_ {};
-        // The creation time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The minor engine version.
         shared_ptr<string> currentKernelVersion_ {};
-        // The information about the node in the cluster.
         shared_ptr<DBInstanceAttribute::DBClusterNodes> DBClusterNodes_ {};
-        // The number of CPU cores.
         shared_ptr<string> DBInstanceCPU_ {};
-        // The instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
         shared_ptr<string> DBInstanceClass_ {};
-        // The instance family. Valid values:
-        // 
-        // *   **s**: shared instance family
-        // *   **x**: general-purpose instance family
-        // *   **d**: dedicated instance family
-        // *   **h**: dedicated host instance family
         shared_ptr<string> DBInstanceClassType_ {};
-        // The instance description.
         shared_ptr<string> DBInstanceDescription_ {};
-        // The disk usage of the instance. Unit: byte.
         shared_ptr<string> DBInstanceDiskUsed_ {};
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The memory capacity of the instance. Unit: MB.
         shared_ptr<int64_t> DBInstanceMemory_ {};
-        // The type of the network over which the instance is connected. Valid values:
-        // 
-        // *   **Internet**
-        // *   **Intranet**
         shared_ptr<string> DBInstanceNetType_ {};
-        // The instance status. For more information, see [Instance statuses](https://help.aliyun.com/document_detail/26315.html).
         shared_ptr<string> DBInstanceStatus_ {};
-        // The storage capacity of the instance. Unit: GB.
         shared_ptr<int32_t> DBInstanceStorage_ {};
-        // The storage type of the instance. Valid values:
-        // 
-        // *   **local_ssd** and **ephemeral_ssd**: Premium Local SSD
-        // *   **cloud_ssd**: standard SSD
-        // *   **cloud_essd**: ESSD
-        // *   **cloud_essd**: Premium ESSD
         shared_ptr<string> DBInstanceStorageType_ {};
-        // The type of the instance. Valid values:
-        // 
-        // *   **Primary**: primary instance
-        // *   **Readonly**: read-only instance
-        // *   **Guard**: disaster recovery instance
-        // *   **Temp**: temporary instance
         shared_ptr<string> DBInstanceType_ {};
-        // The maximum number of databases that can be created on the instance.
         shared_ptr<int32_t> DBMaxQuantity_ {};
-        // The ID of the dedicated cluster to which the instance belongs.
         shared_ptr<string> dedicatedHostGroupId_ {};
-        // Indicates whether the release protection feature is enabled. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> deletionProtection_ {};
-        // Disaster Recovery Instance Information
         shared_ptr<string> disasterRecoveryInfo_ {};
-        // All disaster recovery instances of the current instance.
         shared_ptr<string> disasterRecoveryInstances_ {};
-        // The database engine of the instance. Valid values:
-        // 
-        // *   **MySQL**
-        // *   **PostgreSQL**
-        // *   **SQLServer**
-        // *   **MariaDB**
         shared_ptr<string> engine_ {};
-        // The database engine version.
         shared_ptr<string> engineVersion_ {};
-        // The expiration time of the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-        // 
-        // >  Pay-as-you-go instances never expire.
         shared_ptr<string> expireTime_ {};
-        // The extended information about the instance.
         shared_ptr<DBInstanceAttribute::Extra> extra_ {};
-        // The name of the dedicated cluster to which the instance belongs. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition.
         shared_ptr<string> generalGroupName_ {};
-        // This is a reserved parameter and is not in use.
         shared_ptr<string> greenInstanceName_ {};
-        // The ID of the disaster recovery instance that is attached to the primary instance.
         shared_ptr<string> guardDBInstanceId_ {};
-        // The IP address type. Only **IPv4 addresses** are supported.
         shared_ptr<string> IPType_ {};
-        // The ID of the instance from which incremental data comes. The incremental data of a disaster recovery instance comes from its primary instance. The incremental data of a read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
         shared_ptr<string> incrementSourceDBInstanceId_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   **Classic**
-        // *   **VPC**
         shared_ptr<string> instanceNetworkType_ {};
-        // The architecture type of the instance. Valid values:
-        // 
-        // *   **x86**
-        // *   **arm**
         shared_ptr<string> instructionSetArch_ {};
-        // Indicates whether Buffer Pool Extension (BPE) is enabled for Premium ESSDs.
-        // 
-        // *   **1**: enabled
-        // *   **0**: disabled
-        // 
-        // >  For more information, see [Buffer Pool Extension(BPE)](https://help.aliyun.com/document_detail/2527067.html).
         shared_ptr<string> ioAccelerationEnabled_ {};
         shared_ptr<bool> isAnalyticIns_ {};
         shared_ptr<bool> isAnalyticReadOnlyIns_ {};
-        // The latest minor engine version that is supported by the instance.
         shared_ptr<string> latestKernelVersion_ {};
-        // The lock mode of the instance. Valid values:
-        // 
-        // *   **Unlock**: The instance is not locked.
-        // *   **ManualLock**: The instance is manually locked.
-        // *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-        // *   **LockByRestoration**: The instance is automatically locked due to instance restoration.
-        // *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage space.
-        // *   **LockReadInstanceByDiskQuota**: The instance is a read-only instance and is automatically locked due to exhausted storage.
         shared_ptr<string> lockMode_ {};
-        // The reason why the instance was locked.
         shared_ptr<string> lockReason_ {};
-        // The maintenance window of the instance. The time is displayed in UTC. The maintenance window displayed in the ApsaraDB RDS console is equal to the value of this parameter plus 8 hours.
         shared_ptr<string> maintainTime_ {};
-        // The primary instance ID.
-        // 
-        // >  If this parameter is not returned, the instance is the primary instance.
         shared_ptr<string> masterInstanceId_ {};
-        // The zone ID of the primary instance.
         shared_ptr<string> masterZone_ {};
-        // The maximum number of concurrent connections.
         shared_ptr<int32_t> maxConnections_ {};
-        // The maximum I/O throughput. Unit: MB/s.
         shared_ptr<int32_t> maxIOMBPS_ {};
-        // The maximum number of I/O requests per second.
         shared_ptr<int32_t> maxIOPS_ {};
-        // Indicates whether auto scaling is being performed on the instance. If the value **true** is returned, auto scaling is being performed on the instance. If no value is returned, auto scaling is not being performed on the instance.
         shared_ptr<bool> multipleTempUpgrade_ {};
-        // The OptimizedWritesInfo parameter contains the following fields:
-        // *   **optimized_writes**: indicates whether the 16K atomic write feature is enabled for the current instance.
-        // *   **init_optimized_writes**: indicates whether the 16K atomic write feature can be enabled for the current instance. If init_optimized_writes is set to false, the 16K atomic write switch is not displayed for the instance in the console.
         shared_ptr<string> optimizedWritesInfo_ {};
-        // Indicates whether PgBouncer is enabled.
-        // 
-        // >  This parameter is returned only for RDS instances that run PostgreSQL. If PgBouncer is enabled, the return value is **true**.
         shared_ptr<string> PGBouncerEnabled_ {};
-        // The billing method of the instance. Valid values:
-        // 
-        // *   **Postpaid**: pay-as-you-go
-        // *   **Prepaid**: subscription
-        // *   **SERVERLESS**
         shared_ptr<string> payType_ {};
-        // The port that is used to connect to the instance over an internal network.
         shared_ptr<string> port_ {};
-        // The type of the proxy that is supported by the instance. Valid values:
-        // 
-        // *   **0**: The instance does not support database proxies.
-        // *   **1**: The instance supports shared proxies, with which the instance runs in multi-tenant mode.
-        // *   **2**: The instance supports dedicated proxies, with which the instance runs in single-tenant mode.
         shared_ptr<int32_t> proxyType_ {};
-        // The IDs of the read-only instances that are attached to the primary instance.
         shared_ptr<DBInstanceAttribute::ReadOnlyDBInstanceIds> readOnlyDBInstanceIds_ {};
-        // This is a reserved parameter and is not in use.
         shared_ptr<string> readOnlyStatus_ {};
-        // The latency at which the system replicates data to read-only instances. The system replicates data from the primary instance to the read-only instances at the latency that is specified by the **ReadonlyInstanceSQLDelayedTime** parameter. Unit: seconds.
         shared_ptr<string> readonlyInstanceSQLDelayedTime_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // The IP addresses in the IP address whitelist.
         shared_ptr<string> securityIPList_ {};
-        // The whitelist mode. Valid values:
-        // 
-        // *   **normal**: standard whitelist mode
-        // *   **safety**: enhanced whitelist mode
         shared_ptr<string> securityIPMode_ {};
-        // The settings of the serverless instance.
         shared_ptr<DBInstanceAttribute::ServerlessConfig> serverlessConfig_ {};
-        // The zone IDs of the secondary instances.
         shared_ptr<DBInstanceAttribute::SlaveZones> slaveZones_ {};
-        // Indicates whether the instance supports superuser accounts, such as the system administrator (SA) account, Active Directory (AD) account, and host account. Valid values:
-        // 
-        // *   **Enable**
-        // *   **Disabled**
         shared_ptr<string> superPermissionMode_ {};
-        // Indicates whether storage compression can be enabled for the instance.
         shared_ptr<bool> supportCompression_ {};
-        // The ID of the temporary instance that is attached to the primary instance.
         shared_ptr<string> tempDBInstanceId_ {};
-        // The end time of the temporary upgrade of the instance.
-        // 
-        // >  This parameter is unavailable for pay-as-you-go instances.
         shared_ptr<string> tempUpgradeTimeEnd_ {};
-        // The start time of the temporary upgrade of the instance.
-        // 
-        // >  This parameter is unavailable for pay-as-you-go instances.
         shared_ptr<string> tempUpgradeTimeStart_ {};
-        // The time zone.
         shared_ptr<string> timeZone_ {};
-        // The information about the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition.
         shared_ptr<string> tips_ {};
-        // The severity of the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
-        // 
-        // *   **1**: The instance is normal.
-        // *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance. You must adjust the specifications of these instances based on your business requirements.
         shared_ptr<int32_t> tipsLevel_ {};
-        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
         shared_ptr<string> vectorSupportStatus_ {};
-        // The ID of the VPC. This parameter is returned only when the instance resides in a VPC.
         shared_ptr<string> vpcCloudInstanceId_ {};
-        // The VPC ID.
         shared_ptr<string> vpcId_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
-        // An internal parameter. You do not need to specify this parameter.
         shared_ptr<string> kindCode_ {};
       };
 
@@ -1768,7 +1520,6 @@ namespace Models
 
 
   protected:
-    // The details of instances.
     shared_ptr<DescribeDBInstanceAttributeResponseBody::Items> items_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

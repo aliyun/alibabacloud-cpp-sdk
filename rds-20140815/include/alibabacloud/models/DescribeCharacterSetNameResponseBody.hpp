@@ -93,7 +93,6 @@ namespace Models
 
 
   protected:
-    // The character sets that are supported.
     shared_ptr<DescribeCharacterSetNameResponseBody::CharacterSetNameItems> characterSetNameItems_ {};
     // The type of the database engine.
     shared_ptr<string> engine_ {};

@@ -124,15 +124,10 @@ namespace Models
 
 
       protected:
-        // The default value of the parameter.
         shared_ptr<string> parameterDefaultValue_ {};
-        // The description of the parameter.
         shared_ptr<string> parameterDescription_ {};
-        // The name of the parameter.
         shared_ptr<string> parameterName_ {};
-        // The value of the parameter.
         shared_ptr<string> parameterValue_ {};
-        // The valid values of the parameter.
         shared_ptr<string> parameterValueRange_ {};
       };
 
@@ -282,11 +277,8 @@ namespace Models
 
 
       protected:
-        // The description of the parameter.
         shared_ptr<string> parameterDescription_ {};
-        // The name of the parameter.
         shared_ptr<string> parameterName_ {};
-        // The value of the parameter.
         shared_ptr<string> parameterValue_ {};
       };
 
@@ -355,9 +347,6 @@ namespace Models
 
 
   protected:
-    // The list of parameters that are being synchronized.
-    // 
-    // > After you modify and submit the parameters, you must wait for the parameters to be synchronized to the instance. After the synchronization, you can delete the parameters from the list.
     shared_ptr<DescribeParametersResponseBody::ConfigParameters> configParameters_ {};
     // The type of the database engine.
     shared_ptr<string> engine_ {};
@@ -367,7 +356,6 @@ namespace Models
     shared_ptr<DescribeParametersResponseBody::ParamGroupInfo> paramGroupInfo_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The parameters that are in use.
     shared_ptr<DescribeParametersResponseBody::RunningParameters> runningParameters_ {};
   };
 

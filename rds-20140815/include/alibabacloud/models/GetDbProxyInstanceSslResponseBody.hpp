@@ -116,15 +116,10 @@ namespace Models
 
 
       protected:
-        // The dedicated proxy endpoint for which SSL encryption is enabled.
         shared_ptr<string> certCommonName_ {};
-        // The instance ID.
         shared_ptr<string> dbInstanceName_ {};
-        // The ID of the dedicated proxy endpoint.
         shared_ptr<string> endpointName_ {};
-        // The default identifier of the dedicated proxy endpoint. The value is fixed as **RWSplit**.
         shared_ptr<string> endpointType_ {};
-        // The time at which the certificate expires.
         shared_ptr<string> sslExpiredTime_ {};
       };
 
@@ -161,7 +156,6 @@ namespace Models
 
 
   protected:
-    // An array that consists of SSL encryption settings.
     shared_ptr<GetDbProxyInstanceSslResponseBody::DbProxyCertListItems> dbProxyCertListItems_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

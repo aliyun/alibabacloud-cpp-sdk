@@ -108,11 +108,8 @@ namespace Models
 
 
       protected:
-        // The name of the database.
         shared_ptr<string> database_ {};
-        // The size of the table. Unit: KB. If the database contains more than one table, the names of these tables are separated by commas (,).
         shared_ptr<string> size_ {};
-        // An array that consists of the names of the tables that the database contains. If the database contains more than one table, the names of these tables are separated by commas (,).
         shared_ptr<string> tables_ {};
       };
 
@@ -187,7 +184,6 @@ namespace Models
   protected:
     // The instance to which the cross-region backup file belongs.
     shared_ptr<string> DBInstanceName_ {};
-    // An array that consists of the information about the databases and tables whose data is included in the cross-region backup file.
     shared_ptr<DescribeCrossBackupMetaListResponseBody::Items> items_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

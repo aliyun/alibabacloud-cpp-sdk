@@ -192,11 +192,8 @@ namespace Models
 
 
           protected:
-            // The name of the database.
             shared_ptr<string> dataBase_ {};
-            // The public URL from which you can download the backup set.
             shared_ptr<string> downloadLink_ {};
-            // The internal URL from which you can download the backup set.
             shared_ptr<string> intranetDownloadLink_ {};
           };
 
@@ -398,98 +395,30 @@ namespace Models
 
 
       protected:
-        // An array consisting of URLs from which you can download backup sets of individual databases.
         shared_ptr<Backup::BackupDownloadLinkByDB> backupDownloadLinkByDB_ {};
-        // The URL that is used to download the backup set over the Internet. If the backup set cannot be downloaded, null is returned.
-        // 
-        // >  For example, if BackupMethod of an ApsaraDB RDS for SQL Server instance is set to **Snapshot**, a null string is returned.
         shared_ptr<string> backupDownloadURL_ {};
-        // The end time of the backup task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
         shared_ptr<string> backupEndTime_ {};
-        // The ID of the backup set.
         shared_ptr<string> backupId_ {};
-        // The initiator of the backup task. Valid values:
-        // 
-        // *   **System**
-        // *   **User**
         shared_ptr<string> backupInitiator_ {};
-        // The URL that is used to download the backup set over an internal network. If the backup set cannot be downloaded, null is returned.
-        // 
-        // >  For example, if BackupMethod of an ApsaraDB RDS for SQL Server instance is set to **Snapshot**, a null string is returned.
         shared_ptr<string> backupIntranetDownloadURL_ {};
-        // The method that is used to generate the backup set. Valid values:
-        // 
-        // *   **Logical**: logical backup
-        // *   **Physical**: physical backup
-        // *   **Snapshot**: snapshot backup
         shared_ptr<string> backupMethod_ {};
-        // The backup mode of the backup set. Valid values:
-        // 
-        // *   **Automated**
-        // *   **Manual**
         shared_ptr<string> backupMode_ {};
-        // The size of the data backup file. Unit: bytes.
         shared_ptr<int64_t> backupSize_ {};
-        // The start time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
         shared_ptr<string> backupStartTime_ {};
-        // The state of the backup set.
         shared_ptr<string> backupStatus_ {};
-        // The backup type of the backup set. Valid values:
-        // 
-        // *   **FullBackup**
-        // *   **IncrementalBackup**
         shared_ptr<string> backupType_ {};
-        // The checksum. The value of this parameter is calculated by using the CRC64 algorithm.
         shared_ptr<string> checksum_ {};
-        // The point in time at which the data in the backup set is consistent. The return value of this parameter is a timestamp.
-        // 
-        // >  If the instance runs MySQL 5.6, a timestamp is returned. Otherwise, the value 0 is returned.
         shared_ptr<int64_t> consistentTime_ {};
-        // The backup mode of the backup set. Valid values:
-        // 
-        // *   0: the standard mode. This mode supports full backups and incremental backups.
-        // *   1: the copy-only mode. This mode supports only full backups.
-        // 
-        // >  This parameter is returned only when the instance runs SQL Server.
         shared_ptr<string> copyOnlyBackup_ {};
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The encryption information about the backup set.
         shared_ptr<string> encryption_ {};
-        // The type of the database engine. Valid values:
-        // 
-        // *   MySQL
-        // *   SQLServer
-        // *   PostgreSQL
-        // *   MariaDB
         shared_ptr<string> engine_ {};
-        // The version of the database engine.
         shared_ptr<string> engineVersion_ {};
         shared_ptr<string> expectExpireTime_ {};
-        // The ID of the instance that generates the backup set. This parameter is used to indicate whether the instance that generates the backup set is a primary instance or a secondary instance.
         shared_ptr<string> hostInstanceID_ {};
-        // Indicates whether the backup set is available. Valid values:
-        // 
-        // *   **0**: The backup set is unavailable.
-        // *   **1**: The backup set is available.
         shared_ptr<int32_t> isAvail_ {};
-        // The status of the backup set that is used to restore individual databases or tables. Valid values:
-        // 
-        // *   **OK**: The data backup file is normal.
-        // *   **LARGE**: The data backup file contains an abnormally large number of tables. It cannot be used to restore individual databases or tables.
-        // *   **EMPTY**: The data backup file is generated from a failed backup task.
-        // 
-        // >  If an empty string is returned, the data backup file cannot be used to restore individual databases or tables.
         shared_ptr<string> metaStatus_ {};
-        // The storage class of the backup set. Valid values:
-        // 
-        // *   **0**: regular storage
-        // *   **1**: archive storage
         shared_ptr<string> storageClass_ {};
-        // Indicates whether the backup set can be deleted. Valid values:
-        // 
-        // *   **Enabled**: The backup set can be deleted.
-        // *   **Disabled**: The backup set cannot be deleted.
         shared_ptr<string> storeStatus_ {};
       };
 
@@ -554,7 +483,6 @@ namespace Models
 
 
   protected:
-    // The returned backup sets.
     shared_ptr<DescribeBackupsResponseBody::Items> items_ {};
     // The page number of the returned page.
     shared_ptr<string> pageNumber_ {};

@@ -264,62 +264,25 @@ namespace Models
 
 
       protected:
-        // The name of the application that is connected to the instance.
-        // 
-        // > This parameter is returned only for instances that run SQL Server.
         shared_ptr<string> applicationName_ {};
-        // The hostname of the client.
-        // 
-        // > This parameter is returned only for instances that run SQL Server.
         shared_ptr<string> clientHostName_ {};
-        // The duration during which the SQL statement is processed by the CPU. Unit: milliseconds.
-        // 
-        // > This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> cpuTime_ {};
-        // The name of the database.
         shared_ptr<string> DBName_ {};
-        // The time when the execution of the SQL statement started. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> executionStartTime_ {};
-        // The name and IP address of the client that is connected to the database.
         shared_ptr<string> hostAddress_ {};
-        // The number of rows that are affected by the last SQL statement.
-        // 
-        // > This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> lastRowsAffectedCount_ {};
         shared_ptr<int64_t> lockTimeMS_ {};
-        // The lock duration of the query. Unit: seconds.
         shared_ptr<int64_t> lockTimes_ {};
-        // The number of logical reads.
-        // 
-        // > This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> logicalIORead_ {};
-        // The number of parsed rows.
         shared_ptr<int64_t> parseRowCounts_ {};
-        // The number of physical reads.
-        // 
-        // > This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> physicalIORead_ {};
-        // The execution duration of the query. Unit: milliseconds.
         shared_ptr<int64_t> queryTimeMS_ {};
-        // The execution duration of the query. Unit: seconds.
         shared_ptr<int64_t> queryTimes_ {};
-        // The number of rows returned.
         shared_ptr<int64_t> returnRowCounts_ {};
-        // The number of affected rows.
-        // 
-        // > This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> rowsAffectedCount_ {};
-        // The unique ID of the SQL statement.
         shared_ptr<string> SQLHash_ {};
-        // The details of the SQL statement.
         shared_ptr<string> SQLText_ {};
-        // The name of the user.
-        // 
-        // > This parameter is returned only for instances that run SQL Server.
         shared_ptr<string> userName_ {};
-        // The number of I/O writes.
-        // 
-        // > This parameter is returned only for instances that run SQL Server.
         shared_ptr<int64_t> writeIOCount_ {};
       };
 
@@ -396,7 +359,6 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The type of the database engine.
     shared_ptr<string> engine_ {};
-    // An array that consists of the information about each slow log.
     shared_ptr<DescribeSlowLogRecordsResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

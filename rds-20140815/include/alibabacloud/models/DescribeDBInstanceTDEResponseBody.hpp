@@ -95,12 +95,7 @@ namespace Models
 
 
       protected:
-        // The name of the database.
         shared_ptr<string> DBName_ {};
-        // The TDE status at the database level. Valid values:
-        // 
-        // *   **Enabled**
-        // *   **Disabled**
         shared_ptr<string> TDEStatus_ {};
       };
 
@@ -158,9 +153,6 @@ namespace Models
 
 
   protected:
-    // The TDE status at the database level.
-    // 
-    // >  If your instance runs SQL Server 2019 SE or SQL Server EE, you can specify whether to enable TDE at the database level when you enable TDE at the instance level.
     shared_ptr<DescribeDBInstanceTDEResponseBody::Databases> databases_ {};
     // The ID of the custom key.
     shared_ptr<string> encryptionKey_ {};

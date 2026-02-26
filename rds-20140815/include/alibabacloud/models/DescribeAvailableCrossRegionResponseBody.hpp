@@ -84,7 +84,6 @@ namespace Models
 
 
   protected:
-    // An array that consists of destination regions for cross-region backups.
     shared_ptr<DescribeAvailableCrossRegionResponseBody::Regions> regions_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -233,67 +233,22 @@ namespace Models
 
 
       protected:
-        // The URL that is used to download the diagnostic report over the Internet. If the diagnostic report cannot be downloaded, an empty string is returned.
         shared_ptr<string> backupDownloadURL_ {};
-        // The end time of the backup task.
-        // 
-        // The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
         shared_ptr<string> backupEndTime_ {};
-        // The ID of the backup set.
         shared_ptr<string> backupId_ {};
-        // The URL that is used to download the log file over an internal network. If the log file cannot be downloaded, an empty string is returned.
         shared_ptr<string> backupIntranetDownloadURL_ {};
-        // The method that is used to generate the data backup file. Valid values:
-        // 
-        // *   **Logical**: logical backup
-        // *   **Physical**: physical backup
         shared_ptr<string> backupMethod_ {};
-        // The backup method. Valid values:
-        // 
-        // *   **Automated**
-        // *   **Manual**
         shared_ptr<string> backupMode_ {};
-        // The backup size. Unit: bytes.
         shared_ptr<int64_t> backupSize_ {};
-        // The start time of the backup task.
-        // 
-        // The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
         shared_ptr<string> backupStartTime_ {};
-        // The status of the backup set. Valid values:
-        // 
-        // *   **Success**
-        // *   **Failed**
         shared_ptr<string> backupStatus_ {};
-        // The backup type of the backup file. Valid values:
-        // 
-        // *   **FullBackup**
-        // *   **IncrementalBackup**
         shared_ptr<string> backupType_ {};
-        // The point in time at which the data in the backup set is consistent. The return value of this parameter is a timestamp.
-        // 
-        // >  If the instance runs MySQL 5.6, a timestamp is returned. Otherwise, the value 0 is returned.
         shared_ptr<int64_t> consistentTime_ {};
-        // The description of the instance.
         shared_ptr<string> DBInstanceComment_ {};
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The ID of the instance that generates the backup set. This parameter is used to indicate whether the instance that generates the backup set is a primary instance or a secondary instance.
         shared_ptr<string> hostInstanceID_ {};
-        // Indicates whether the backup set is available. Valid values:
-        // 
-        // *   **0**: The backup set is unavailable.
-        // *   **1**: The backup set is available.
         shared_ptr<int32_t> isAvail_ {};
-        // The status of the backup set that is used to restore individual databases or tables. Valid values:
-        // 
-        // *   **OK**: The backup set is normal.
-        // *   **LARGE**: The backup set contains an abnormally large number of tables. It cannot be used to restore individual databases or tables.
-        // *   **EMPTY**: The backup set is generated from a failed backup task.
         shared_ptr<string> metaStatus_ {};
-        // Indicates whether the data backup file can be deleted. Valid values:
-        // 
-        // *   **Enabled**
-        // *   **Disabled**
         shared_ptr<string> storeStatus_ {};
       };
 
@@ -351,7 +306,6 @@ namespace Models
 
 
   protected:
-    // The queried backup sets.
     shared_ptr<DescribeDetachedBackupsResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};

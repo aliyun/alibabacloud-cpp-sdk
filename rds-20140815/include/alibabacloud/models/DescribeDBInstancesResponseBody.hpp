@@ -241,7 +241,6 @@ namespace Models
 
 
           protected:
-            // The read-only instance ID.
             shared_ptr<string> DBInstanceId_ {};
           };
 
@@ -691,170 +690,61 @@ namespace Models
         shared_ptr<bool> autoRenewal_ {};
         shared_ptr<string> blueGreenDeploymentName_ {};
         shared_ptr<string> blueInstanceName_ {};
-        // A deprecated parameter.
         shared_ptr<string> bpeEnabled_ {};
-        // Indicates whether the I/O burst feature is enabled. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> burstingEnabled_ {};
-        // The RDS edition of the instance. Valid values:
-        // 
-        // *   **Basic**: RDS Basic Edition
-        // *   **HighAvailability**: RDS High-availability Edition
-        // *   **Finance**: RDS Enterprise Edition
-        // 
-        // >  This parameter is returned only when the **InstanceLevel** parameter is set to **1**.
         shared_ptr<string> category_ {};
-        // A reserved parameter.
         shared_ptr<bool> coldDataEnabled_ {};
-        // The connection mode of the instance. Valid values:
-        // 
-        // *   **Standard**: standard mode
-        // *   **Safe**: database proxy mode
         shared_ptr<string> connectionMode_ {};
-        // The endpoint of the instance.
         shared_ptr<string> connectionString_ {};
-        // The creation time of the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The number of CPU instances.
-        // 
-        // Returns only when the InstanceLevel parameter is 1.
         shared_ptr<string> DBInstanceCPU_ {};
-        // The instance type of the instance. For information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
         shared_ptr<string> DBInstanceClass_ {};
-        // The instance description.
         shared_ptr<string> DBInstanceDescription_ {};
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The memory size of the node. Unit: MB.
-        // 
-        // Returns only when the InstanceLevel parameter is 1.
         shared_ptr<int32_t> DBInstanceMemory_ {};
-        // The type of the network connection to the instance. Valid values:
-        // 
-        // *   **Internet**
-        // *   **Intranet**
         shared_ptr<string> DBInstanceNetType_ {};
-        // The instance status. For more information, see [Instance statuses](https://help.aliyun.com/document_detail/26315.html).
         shared_ptr<string> DBInstanceStatus_ {};
-        // The storage type of the instance.
         shared_ptr<string> DBInstanceStorageType_ {};
-        // The type of the instance. Valid values:
-        // 
-        // *   **Primary**: primary instance
-        // *   **Readonly**: read-only instance
-        // *   **Guard**: disaster recovery instance
-        // *   **Temp**: temporary instance
         shared_ptr<string> DBInstanceType_ {};
-        // The ID of the dedicated cluster.
         shared_ptr<string> dedicatedHostGroupId_ {};
-        // The name of the dedicated cluster.
         shared_ptr<string> dedicatedHostGroupName_ {};
-        // The ID of the host on which the logger instance resides.
         shared_ptr<string> dedicatedHostIdForLog_ {};
-        // The ID of the host on which the primary instance resides.
         shared_ptr<string> dedicatedHostIdForMaster_ {};
-        // The ID of the host on which the secondary instance resides.
         shared_ptr<string> dedicatedHostIdForSlave_ {};
-        // The name of the host on which the logger instance resides.
         shared_ptr<string> dedicatedHostNameForLog_ {};
-        // The name of the host on which the primary instance resides.
         shared_ptr<string> dedicatedHostNameForMaster_ {};
-        // The name of the host on which the secondary instance resides.
         shared_ptr<string> dedicatedHostNameForSlave_ {};
-        // The zone ID of the host on which the logger instance resides.
         shared_ptr<string> dedicatedHostZoneIdForLog_ {};
-        // The zone ID of the host on which the primary instance resides.
         shared_ptr<string> dedicatedHostZoneIdForMaster_ {};
-        // The zone ID of the host on which the secondary instance resides.
         shared_ptr<string> dedicatedHostZoneIdForSlave_ {};
-        // Indicates whether the release protection feature is enabled for the instance. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> deletionProtection_ {};
-        // The time when the instance was destroyed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> destroyTime_ {};
-        // The database engine of the instance.
         shared_ptr<string> engine_ {};
-        // The database engine version.
         shared_ptr<string> engineVersion_ {};
-        // The expiration time of the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-        // 
-        // >  Pay-as-you-go instances never expire.
         shared_ptr<string> expireTime_ {};
-        // The name of the dedicated cluster to which the instance belongs. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition.
         shared_ptr<string> generalGroupName_ {};
         shared_ptr<string> greenInstanceName_ {};
-        // The ID of the disaster recovery instance. This parameter is returned only when the instance is a primary instance and has a disaster recovery instance attached.
         shared_ptr<string> guardDBInstanceId_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   **Classic**
-        // *   **VPC**
         shared_ptr<string> instanceNetworkType_ {};
-        // Indicates whether the I/O acceleration feature is enabled. Valid values:
-        // 
-        // *   1: enabled
-        // *   0: disabled
         shared_ptr<string> ioAccelerationEnabled_ {};
         shared_ptr<string> isAnalyticIns_ {};
         shared_ptr<bool> isAnalyticReadOnlyIns_ {};
-        // The lock mode of the instance. Valid values:
-        // 
-        // *   **Unlock**: The instance is not locked.
-        // *   **ManualLock**: The instance is manually locked.
-        // *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-        // *   **LockByRestoration**: The instance is automatically locked before the instance is rolled back.
-        // *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage capacity.
-        // *   **Released**: The instance is released. After an instance is released, the instance cannot be unlocked. You can only restore the backup data of the instance to a new instance. This process requires a long period of time.
         shared_ptr<string> lockMode_ {};
-        // The reason why the instance was locked.
         shared_ptr<string> lockReason_ {};
-        // The ID of the primary instance. If this parameter is null, the instance is a primary instance.
         shared_ptr<string> masterInstanceId_ {};
-        // Indicates whether the multi-zone deployment method is used for the instance. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
-        // 
-        // >  If the multi-zone deployment method is used for the instance, the zone ID of the instance contains MAZ. Example: `cn-hangzhou-MAZ10(h,i)`.
         shared_ptr<bool> mutriORsignle_ {};
-        // The billing method of the instance. Valid values:
-        // 
-        // *   **Postpaid**: pay-as-you-go
-        // *   **Prepaid**: subscription
         shared_ptr<string> payType_ {};
-        // The IDs of the read-only instances. This parameter is returned only when the instance is a primary instance and has the read-only instances attached.
         shared_ptr<DBInstance::ReadOnlyDBInstanceIds> readOnlyDBInstanceIds_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // Indicates whether the instance supports weight-based switchovers for high availability. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
-        // 
-        // *   **100**: The instance supports weight-based switchovers for high availability.
-        // *   **0**: The instance does not support weight-based switchovers for high availability.
         shared_ptr<int32_t> switchWeight_ {};
-        // The ID of the temporary instance. This parameter is returned only when the instance is a primary instance and has a temporary instance attached.
         shared_ptr<string> tempDBInstanceId_ {};
-        // The information about the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition.
         shared_ptr<string> tips_ {};
-        // The severity of the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
-        // 
-        // *   **1**: The instance is normal.
-        // *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance, and instance performance may be affected. You must adjust the specifications of these instances based on your business requirements.
         shared_ptr<int32_t> tipsLevel_ {};
-        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The ID of the instance. This parameter is returned only when the instance resides in a VPC.
         shared_ptr<string> vpcCloudInstanceId_ {};
-        // The virtual private cloud (VPC) ID.
         shared_ptr<string> vpcId_ {};
-        // The VPC name.
         shared_ptr<string> vpcName_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -919,7 +809,6 @@ namespace Models
 
 
   protected:
-    // The information about the instances.
     shared_ptr<DescribeDBInstancesResponseBody::Items> items_ {};
     // The token that is used to display the next page. If the returned entries are displayed on multiple pages, the next page can be displayed when you call this operation again with **NextToken** specified.
     shared_ptr<string> nextToken_ {};

@@ -137,11 +137,7 @@ namespace Models
 
 
           protected:
-            // The number of times that the SQL statement is executed.
             shared_ptr<int64_t> SQLExecuteTimes_ {};
-            // The SQL statement.
-            // 
-            // >  Only the first 128 characters of the SQL statement are returned. In addition, only the SQL statements that take more than 5 ms to execute are returned.
             shared_ptr<string> SQLText_ {};
           };
 
@@ -225,13 +221,8 @@ namespace Models
 
 
           protected:
-            // The average time that is required to execute the SQL statement. Unit: milliseconds.
             shared_ptr<int64_t> avgLatency_ {};
-            // The number of times that the SQL statement is executed.
             shared_ptr<int64_t> SQLExecuteTimes_ {};
-            // The SQL statement.
-            // 
-            // >  Only the first 128 characters of the SQL statement are returned. In addition, only the SQL statements that take more than 100 ms to execute are returned.
             shared_ptr<string> SQLText_ {};
           };
 
@@ -277,11 +268,8 @@ namespace Models
 
 
       protected:
-        // An array that consists of SQL statements executed with the highest latency.
         shared_ptr<Item::LatencyTopNItems> latencyTopNItems_ {};
-        // An array that consists of SQL statements executed the most frequently.
         shared_ptr<Item::QPSTopNItems> QPSTopNItems_ {};
-        // The time when the report was generated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> reportTime_ {};
       };
 
@@ -339,7 +327,6 @@ namespace Models
 
 
   protected:
-    // An array that consists of SQL log reports.
     shared_ptr<DescribeSQLLogReportListResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

@@ -172,17 +172,8 @@ namespace Models
 
 
           protected:
-            // The type of the permissions. Valid values:
-            // 
-            // *   **ReadWrite**: read and write permissions.
-            // *   **ReadOnly**: read-only permissions.
-            // *   **DDLOnly**: DDL-only permissions.
-            // *   **DMLOnly**: DML-only permissions.
-            // *   **Custom**: custom permissions. You can modify the permissions of the account by using SQL commands.
             shared_ptr<string> accountPrivilege_ {};
-            // The permissions that are granted to the account. For more information, see [Account permissions](https://help.aliyun.com/document_detail/146395.html).
             shared_ptr<string> accountPrivilegeDetail_ {};
-            // The name of the database.
             shared_ptr<string> DBName_ {};
           };
 
@@ -305,73 +296,19 @@ namespace Models
 
 
       protected:
-        // The description of the account.
         shared_ptr<string> accountDescription_ {};
-        // The name of the database account.
         shared_ptr<string> accountName_ {};
-        // The status of the account. Valid values:
-        // 
-        // *   **Unavailable**
-        // *   **Available**
         shared_ptr<string> accountStatus_ {};
-        // The type of the account. Valid values:
-        // 
-        // *   **Normal**: standard account
-        // *   **Super**: privileged account
-        // *   **Sysadmin**: system admin account, which is supported only for instances running SQL Server
         shared_ptr<string> accountType_ {};
-        // Indicates whether the account has the row-level security (RLS) permissions. Valid values:
-        // 
-        // *   **t**: The account has the RLS permissions.
-        // *   **f**: The account does not have the RLS permissions.
-        // 
-        // >  This parameter is returned only for instances that run PostgreSQL.
         shared_ptr<string> bypassRLS_ {};
-        // Indicates whether the password policy is applied.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<bool> checkPolicy_ {};
-        // Indicates whether the account has the permissions to create databases. Valid values:
-        // 
-        // *   **t**: The account has the permissions to create databases.
-        // *   **f**: The account does not have the permissions to create databases.
-        // 
-        // >  This parameter is returned only for instances that run PostgreSQL.
         shared_ptr<string> createDB_ {};
-        // Indicates whether the account has the permissions to create roles. Valid values:
-        // 
-        // *   **t**: The account has the permissions to create roles.
-        // *   **f**: The account does not have the permissions to create roles.
-        // 
-        // >  This parameter is returned only for instances that run PostgreSQL.
         shared_ptr<string> createRole_ {};
-        // The ID of the instance to which the account belongs.
         shared_ptr<string> DBInstanceId_ {};
-        // The details about the permissions that are granted to the account.
         shared_ptr<DBInstanceAccount::DatabasePrivileges> databasePrivileges_ {};
-        // The expiration time of the password.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<string> passwordExpireTime_ {};
-        // Indicates whether the number of databases that are managed by the account exceeds the upper limit. Valid values:
-        // 
-        // *   **1**: The number of databases that are managed by the account exceeds the upper limit.
-        // *   **0**: The number of databases that are managed by the account does not exceed the upper limit.
         shared_ptr<string> privExceeded_ {};
-        // Indicates whether the account has the replication permissions. Valid values:
-        // 
-        // *   **t**: The account has the replication permissions.
-        // *   **f**: The account does not have the replication permissions.
-        // 
-        // >  This parameter is returned only for instances that run PostgreSQL.
         shared_ptr<string> replication_ {};
-        // The expiration time of the password. Valid values:
-        // 
-        // *   **infinity**: The password never expires.
-        // *   **Empty**: The expiration time is not specified.
-        // *   **Actual expiration time**: in the format of *yyyy-MM-dd*T*HH:mm:ss*Z in UTC. Example: 2022-10-01T00:00:00Z.
-        // 
-        // >  This parameter is returned only for instances that run PostgreSQL.
         shared_ptr<string> validUntil_ {};
       };
 
@@ -444,7 +381,6 @@ namespace Models
 
 
   protected:
-    // The information about the account.
     shared_ptr<DescribeAccountsResponseBody::Accounts> accounts_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

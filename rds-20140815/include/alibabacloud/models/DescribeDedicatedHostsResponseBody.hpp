@@ -330,83 +330,33 @@ namespace Models
 
 
       protected:
-        // The host account. You can call the [CreateDedicatedHostAccount](https://help.aliyun.com/document_detail/196877.html) operation to create a host account.
         shared_ptr<string> accountName_ {};
-        // Specifies whether instances can be deployed on the host. Valid values:
-        // 
-        // *   **0**: Instances cannot be deployed on the host.
-        // *   **1**: Instances can be deployed on the host.
         shared_ptr<string> allocationStatus_ {};
-        // The bastion host ID.
         shared_ptr<string> bastionInstanceId_ {};
-        // The core overcommitment ratio of the dedicated cluster. Unit: percentage. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](https://help.aliyun.com/document_detail/182328.html).
         shared_ptr<string> CPUAllocationRatio_ {};
-        // The number of used CPU cores on the host. Unit: cores.
         shared_ptr<string> cpuUsed_ {};
-        // The time when the host was created.
         shared_ptr<string> createdTime_ {};
-        // The dedicated cluster ID.
         shared_ptr<string> dedicatedHostGroupId_ {};
-        // The host ID.
         shared_ptr<string> dedicatedHostId_ {};
-        // The disk overcommitment ratio of the dedicated cluster. Unit: percentage. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](https://help.aliyun.com/document_detail/182328.html).
         shared_ptr<string> diskAllocationRatio_ {};
-        // The time when the host expires.
         shared_ptr<string> endTime_ {};
-        // The database engine of instances that are created on the host.
         shared_ptr<string> engine_ {};
-        // The total number of CPU cores that are configured for the host. Unit: cores.
         shared_ptr<string> hostCPU_ {};
-        // The instance type of the host.
         shared_ptr<string> hostClass_ {};
-        // The total memory space of the host. Unit: MB.
         shared_ptr<string> hostMem_ {};
-        // The host name.
         shared_ptr<string> hostName_ {};
-        // The status of the host. Valid values:
-        // 
-        // *   **0**: creating
-        // *   **1**: running
-        // *   **2**: faulty
-        // *   **3**: being replaced
-        // *   **4**: deprecated
-        // *   **5**: deleting
-        // *   **6**: restarting
         shared_ptr<string> hostStatus_ {};
-        // The storage capacity of the host. Unit: MB.
         shared_ptr<string> hostStorage_ {};
-        // The storage type of the host. Valid values:
-        // 
-        // *   **dhg_cloud_ssd**: ESSD
-        // *   **dhg_local_ssd**: local SSD
         shared_ptr<string> hostType_ {};
-        // The internal IP address of the host.
         shared_ptr<string> IPAddress_ {};
-        // The host image. This parameter is returned only when the **Engine** parameter is set to **mssql**. Valid values:
-        // 
-        // *   **WindowsWithMssqlStdLicense**: a Windows image that contains the licenses of SQL Server Standard Edition
-        // *   **WindowsWithMssqlEntLisence**: a Windows image that contains the licenses of SQL Server Enterprise Edition
-        // *   **WindowsWithMssqlWebLisence**: a Windows image that contains the licenses of SQL Server Web Edition
         shared_ptr<string> imageCategory_ {};
-        // The total number of instances that are created on the host.
         shared_ptr<string> instanceNumber_ {};
-        // The maximum memory usage per host in the dedicated cluster.
         shared_ptr<string> memAllocationRatio_ {};
-        // The size of the used memory. Unit: MB.
         shared_ptr<string> memoryUsed_ {};
-        // Indicates whether the feature that allows you to have the OS permissions on the host is enabled. Valid values:
-        // 
-        // *   **0** or **null**: The permissions cannot be granted.
-        // *   **1**: The permissions can be granted.
-        // *   **3**: The permissions have been granted.
         shared_ptr<string> openPermission_ {};
-        // The amount of used storage space on the host.
         shared_ptr<string> storageUsed_ {};
-        // The ID of the virtual private cloud (VPC) to which the host belongs.
         shared_ptr<string> VPCId_ {};
-        // The ID of the vSwitch associated with the specified VPC.
         shared_ptr<string> vSwitchId_ {};
-        // The zone ID of the host.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -452,7 +402,6 @@ namespace Models
   protected:
     // The host group ID.
     shared_ptr<string> dedicatedHostGroupId_ {};
-    // The host information.
     shared_ptr<DescribeDedicatedHostsResponseBody::DedicatedHosts> dedicatedHosts_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

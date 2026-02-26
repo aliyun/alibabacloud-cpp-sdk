@@ -510,103 +510,49 @@ namespace Models
 
 
       protected:
-        // The maximum number of accounts.
         shared_ptr<int32_t> accountMaxQuantity_ {};
-        // The type of the account.
         shared_ptr<string> accountType_ {};
-        // The service availability of the instance in percentage.
         shared_ptr<string> availabilityValue_ {};
-        // The category of the instance.
         shared_ptr<string> category_ {};
-        // The connection mode of the instance. Valid values:
-        // 
-        // *   **Performance**: standard mode.
-        // *   **Safety**: enhanced mode
         shared_ptr<string> connectionMode_ {};
-        // The internal endpoint.
         shared_ptr<string> connectionString_ {};
-        // The creation time.
         shared_ptr<string> creationTime_ {};
-        // The number of CPU cores.
         shared_ptr<string> DBInstanceCPU_ {};
-        // The instance type of the instance.
         shared_ptr<string> DBInstanceClass_ {};
-        // The instance family.
         shared_ptr<string> DBInstanceClassType_ {};
-        // The instance description.
         shared_ptr<string> DBInstanceDescription_ {};
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The memory capacity of the instance. Unit: MB.
         shared_ptr<int64_t> DBInstanceMemory_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   **Internet**
-        // *   **Intranet**
         shared_ptr<string> DBInstanceNetType_ {};
-        // The instance status.
         shared_ptr<string> DBInstanceStatus_ {};
-        // The storage capacity of the instance. Unit: GB.
         shared_ptr<int32_t> DBInstanceStorage_ {};
         shared_ptr<string> DBInstanceStorageType_ {};
-        // The instance type. Valid values:
-        // 
-        // *   **Primary**: primary instance
-        // *   **ReadOnly**: read-only instance
-        // *   **Guard**: disaster recovery instance
-        // *   **Temp**: temporary instance
         shared_ptr<string> DBInstanceType_ {};
-        // The maximum number of databases that can be created on the instance.
         shared_ptr<int32_t> DBMaxQuantity_ {};
-        // The database engine of the instance.
         shared_ptr<string> engine_ {};
-        // The engine version.
         shared_ptr<string> engineVersion_ {};
-        // The expiration time.
         shared_ptr<string> expireTime_ {};
-        // A deprecated parameter. You do not need to specify this parameter.
         shared_ptr<string> exportKey_ {};
-        // The ID of the disaster recovery instance that is attached to the primary instance.
         shared_ptr<string> guardDBInstanceId_ {};
-        // The ID of the instance from which incremental data comes. The incremental data of a disaster recovery instance comes from its primary instance. The incremental data of a read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
         shared_ptr<string> incrementSourceDBInstanceId_ {};
-        // The network type.
         shared_ptr<string> instanceNetworkType_ {};
-        // The lock mode of the instance.
         shared_ptr<string> lockMode_ {};
-        // The reason why the instance was locked.
         shared_ptr<string> lockReason_ {};
-        // The maintenance window of the instance. The time follows the ISO 8601 standard and is displayed in UTC. In the ApsaraDB RDS console, the maintenance window is displayed in UTC+8.
         shared_ptr<string> maintainTime_ {};
-        // The primary instance ID.
         shared_ptr<string> masterInstanceId_ {};
-        // The maximum number of concurrent connections.
         shared_ptr<int32_t> maxConnections_ {};
-        // The maximum number of I/O requests per second.
         shared_ptr<int32_t> maxIOPS_ {};
-        // The billing method of the instance.
         shared_ptr<string> payType_ {};
-        // The port that is used to connect to the instance over an internal network.
         shared_ptr<string> port_ {};
-        // The latency of data replication from the primary instance to the read-only instance. This parameter is valid for read-only instances.
         shared_ptr<string> readDelayTime_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The IP addresses in the whitelist.
         shared_ptr<string> securityIPList_ {};
-        // A deprecated parameter. You do not need to specify this parameter.
         shared_ptr<DBInstanceAttribute::SlaveZones> slaveZones_ {};
-        // N/A.
         shared_ptr<string> supportUpgradeAccountType_ {};
-        // The tags.
         shared_ptr<string> tags_ {};
-        // The ID of the temporary instance that is attached to the primary instance.
         shared_ptr<string> tempDBInstanceId_ {};
-        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The virtual private cloud (VPC) ID.
         shared_ptr<string> vpcId_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -643,7 +589,6 @@ namespace Models
 
 
   protected:
-    // An array that consists of the fields in **DBInstanceAttribute**.
     shared_ptr<DescribeDBInstancesAsCsvResponseBody::Items> items_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

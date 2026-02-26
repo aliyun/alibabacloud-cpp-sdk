@@ -223,7 +223,6 @@ namespace Models
     protected:
       // The network address translation (NAT) IP address of the instance. The NAT IP address is used by instances in different VPCs for communication.
       shared_ptr<string> natIpAddress_ {};
-      // The private IP addresses of the instance.
       shared_ptr<VpcAttributes::PrivateIpAddress> privateIpAddress_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
@@ -511,13 +510,6 @@ namespace Models
 
 
       protected:
-        // The reason why the instance is locked. Valid values:
-        // 
-        // *   **financial**: The instance is locked due to overdue payments.
-        // *   **security**: The instance is locked for security purposes.
-        // *   **recycling**: The instance is locked because the instance is a preemptible instance and pending to be released.
-        // *   **dedicatedhostfinancial**: The instance is locked due to overdue payments for the dedicated host.
-        // *   **refunded**: The instance is locked because a refund was made for the instance.
         shared_ptr<string> lockReason_ {};
       };
 
@@ -786,22 +778,11 @@ namespace Models
 
 
       protected:
-        // The category of the data disk.
         shared_ptr<string> category_ {};
-        // Indicates whether the data disk is released when the instance is released. Valid values:
-        // 
-        // *   **true**: The data disk is released when the instance is released.
-        // *   **false**: The data disk is reserved when the instance is released.
         shared_ptr<bool> deleteWithInstance_ {};
         shared_ptr<string> device_ {};
-        // Indicates whether the data disk is encrypted. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<string> encrypted_ {};
-        // The performance level of data disk. This parameter is available when the data disk is an Enterprise SSD (ESSD).
         shared_ptr<string> performanceLevel_ {};
-        // The size of the data disk. Unit: GiB.
         shared_ptr<int64_t> size_ {};
         shared_ptr<string> snapshotId_ {};
       };
@@ -1221,7 +1202,6 @@ namespace Models
     shared_ptr<string> creationTime_ {};
     // The performance mode of the burstable instance.
     shared_ptr<string> creditSpecification_ {};
-    // The details of the data disk.
     shared_ptr<DescribeRCInstanceAttributeResponseBody::DataDisks> dataDisks_ {};
     shared_ptr<string> dbType_ {};
     // The attributes of the dedicated hosts.
@@ -1255,7 +1235,6 @@ namespace Models
     shared_ptr<string> hostType_ {};
     // The image ID of the instance.
     shared_ptr<string> imageId_ {};
-    // The private IP addresses of the instance in the classic network.
     shared_ptr<DescribeRCInstanceAttributeResponseBody::InnerIpAddress> innerIpAddress_ {};
     shared_ptr<string> instanceChargeType_ {};
     // The instance ID.
@@ -1290,16 +1269,13 @@ namespace Models
     // The memory capacity of the instance. Unit: MiB.
     shared_ptr<int32_t> memory_ {};
     shared_ptr<string> nodeType_ {};
-    // The reasons why the instance is locked.
     shared_ptr<DescribeRCInstanceAttributeResponseBody::OperationLocks> operationLocks_ {};
-    // The public IP address of the instance.
     shared_ptr<DescribeRCInstanceAttributeResponseBody::PublicIpAddress> publicIpAddress_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<string> resourceGroupId_ {};
-    // The security groups.
     shared_ptr<DescribeRCInstanceAttributeResponseBody::SecurityGroupIds> securityGroupIds_ {};
     // The serial number of the instance.
     shared_ptr<string> serialNumber_ {};

@@ -154,25 +154,13 @@ namespace Models
 
 
       protected:
-        // The IP address of the client.
         shared_ptr<string> address_ {};
-        // The name of the database.
         shared_ptr<string> database_ {};
-        // The mask of the IP address.
         shared_ptr<string> mask_ {};
-        // The authentication method.
         shared_ptr<string> method_ {};
-        // The value of this parameter varies based on the value of the Method parameter. The value is fixed as null.
         shared_ptr<string> option_ {};
-        // The priority.
         shared_ptr<int32_t> priorityId_ {};
-        // The connection type. Valor:
-        // 
-        // *   **host**: The record matches TCP/IP connections, including SSL connections and non-SSL connections.
-        // *   **hostssl**: The record matches only TCP/IP connections that are established over SSL.
-        // *   **hostnossl**: The record matches only TCP/IP connections that are not established over SSL connections.
         shared_ptr<string> type_ {};
-        // The username of the account.
         shared_ptr<string> user_ {};
       };
 
@@ -302,21 +290,13 @@ namespace Models
 
 
       protected:
-        // The IP addresses from which the specified users can access the specified databases. The value is fixed as 0.0.0.0/0.
         shared_ptr<string> address_ {};
-        // The names of the databases that the specified users are allowed to access. The value is fixed as all or replication.
         shared_ptr<string> database_ {};
-        // The mask of the instance. The value is fixed as null.
         shared_ptr<string> mask_ {};
-        // The authentication method. The value is fixed as md5.
         shared_ptr<string> method_ {};
-        // The value of this parameter is based on the value of the Method parameter. The value is fixed as null.
         shared_ptr<string> option_ {};
-        // The priority of the configuration items in the pg_hba.conf file. This value is automatically generated.
         shared_ptr<int32_t> priorityId_ {};
-        // The type of connection to the instance. The value is fixed as host.
         shared_ptr<string> type_ {};
-        // The user that is allowed to access the instance. The value is fixed as all.
         shared_ptr<string> user_ {};
       };
 
@@ -393,7 +373,6 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The default configuration items of the pg_hba.conf file.
     shared_ptr<DescribePGHbaConfigResponseBody::DefaultHbaItems> defaultHbaItems_ {};
     // The time when the previous modification was made to the pg_hba.conf file.
     shared_ptr<string> hbaModifyTime_ {};
@@ -407,7 +386,6 @@ namespace Models
     shared_ptr<string> modifyStatusReason_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The current configuration items of the pg_hba.conf file.
     shared_ptr<DescribePGHbaConfigResponseBody::RunningHbaItems> runningHbaItems_ {};
   };
 

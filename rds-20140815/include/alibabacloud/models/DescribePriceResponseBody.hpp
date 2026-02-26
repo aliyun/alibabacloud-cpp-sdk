@@ -243,11 +243,8 @@ namespace Models
 
 
       protected:
-        // The description of the promotion rule.
         shared_ptr<string> description_ {};
-        // The name of the promotion rule.
         shared_ptr<string> name_ {};
-        // The ID of the promotion rule.
         shared_ptr<int64_t> ruleId_ {};
       };
 
@@ -410,13 +407,9 @@ namespace Models
 
 
         protected:
-          // The coupon ID.
           shared_ptr<string> couponNo_ {};
-          // The description of the coupon.
           shared_ptr<string> description_ {};
-          // Indicates whether the coupon is selected.
           shared_ptr<string> isSelected_ {};
-          // The coupon name.
           shared_ptr<string> name_ {};
         };
 
@@ -573,7 +566,6 @@ namespace Models
     protected:
       // The information about the promotion.
       shared_ptr<PriceInfo::ActivityInfo> activityInfo_ {};
-      // The information about the coupon.
       shared_ptr<PriceInfo::Coupons> coupons_ {};
       // The currency unit.
       shared_ptr<string> currency_ {};
@@ -583,7 +575,6 @@ namespace Models
       Darabonba::Json orderLines_ {};
       // The original price.
       shared_ptr<float> originalPrice_ {};
-      // An array that consists of the ID of the promotion rule.
       shared_ptr<PriceInfo::RuleIds> ruleIds_ {};
       // The estimated hourly cost that is calculated based on the maximum number of RCUs you specify.
       shared_ptr<float> tradeMaxRCUAmount_ {};
@@ -667,7 +658,6 @@ namespace Models
     shared_ptr<DescribePriceResponseBody::PriceInfo> priceInfo_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The details of the promotion rule.
     shared_ptr<DescribePriceResponseBody::Rules> rules_ {};
     // The pricing information about a serverless RDS instance.
     shared_ptr<DescribePriceResponseBody::ServerlessPrice> serverlessPrice_ {};

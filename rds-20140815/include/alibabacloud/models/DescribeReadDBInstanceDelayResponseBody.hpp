@@ -194,21 +194,13 @@ namespace Models
 
 
           protected:
-            // The duration that is allowed for the latency in the persistence of WAL data. Unit: seconds.
             shared_ptr<string> flushLag_ {};
-            // The data size that is allowed for the latency in the persistence of WAL data. Unit: MB.
             shared_ptr<string> flushLatency_ {};
-            // The read-only instance ID.
             shared_ptr<string> readDBInstanceName_ {};
-            // The duration that is allowed for the latency in the playback of WAL data. Unit: seconds.
             shared_ptr<string> replayLag_ {};
-            // The data size that is allowed for the latency in the playback of WAL data. Unit: MB.
             shared_ptr<string> replayLatency_ {};
-            // The data size that is allowed for the latency in the sending of WAL data. Unit: MB.
             shared_ptr<string> sendLatency_ {};
-            // The duration that is allowed for the latency in the write-back of WAL data. Unit: seconds.
             shared_ptr<string> writeLag_ {};
-            // The data size that is allowed for the latency in the write-back of WAL data. Unit: MB.
             shared_ptr<string> writeLatency_ {};
           };
 
@@ -329,15 +321,9 @@ namespace Models
 
 
       protected:
-        // The primary instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // An array that consists of information about the read-only instance.
         shared_ptr<ItemsItem::ReadDBInstanceNames> readDBInstanceNames_ {};
-        // The latency of data replication.
         shared_ptr<ItemsItem::ReadDelayTimes> readDelayTimes_ {};
-        // The information about the write-ahead log (WAL) latency.
-        // 
-        // >  This parameter is returned only when the primary instance runs PostgreSQL.
         shared_ptr<ItemsItem::ReadonlyInstanceDelay> readonlyInstanceDelay_ {};
       };
 
@@ -399,7 +385,6 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The latency of data replication. Unit: seconds.
     shared_ptr<int32_t> delayTime_ {};
-    // The latency information.
     shared_ptr<DescribeReadDBInstanceDelayResponseBody::Items> items_ {};
     // The read-only instance ID.
     shared_ptr<string> readDBInstanceId_ {};

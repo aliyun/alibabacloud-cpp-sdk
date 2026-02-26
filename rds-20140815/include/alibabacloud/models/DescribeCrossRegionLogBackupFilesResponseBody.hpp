@@ -176,25 +176,15 @@ namespace Models
 
 
       protected:
-        // The ID of the destination region within which the cross-region backup file is stored.
         shared_ptr<string> crossBackupRegion_ {};
-        // The external URL from which you can download the cross-region log backup file.
         shared_ptr<string> crossDownloadLink_ {};
-        // The internal URL from which you can download the cross-region log backup file.
         shared_ptr<string> crossIntranetDownloadLink_ {};
-        // The ID of the cross-region log backup file.
         shared_ptr<int32_t> crossLogBackupId_ {};
-        // The size of the cross-region log backup file. Unit: bytes.
         shared_ptr<int64_t> crossLogBackupSize_ {};
-        // The instance ID.
         shared_ptr<int32_t> instanceId_ {};
-        // The time when the URL expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> linkExpiredTime_ {};
-        // The start time of the cross-region log backup file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> logBeginTime_ {};
-        // The end time of the cross-region log backup file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> logEndTime_ {};
-        // The name of the cross-region log backup file.
         shared_ptr<string> logFileName_ {};
       };
 
@@ -285,7 +275,6 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The end of the time range to query. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The cross-region log backup files.
     shared_ptr<DescribeCrossRegionLogBackupFilesResponseBody::Items> items_ {};
     // The page number. Pages start from page 1.
     // 

@@ -153,30 +153,14 @@ namespace Models
 
 
       protected:
-        // The end date.
         shared_ptr<string> endDate_ {};
-        // Specifies whether to pin the notification at the top.
-        // 
-        // *   true
-        // *   false
         shared_ptr<string> isTop_ {};
-        // The notification text.
         shared_ptr<string> noticeBarContent_ {};
-        // The text of the popup button.
         shared_ptr<string> poppedUpButtonText_ {};
-        // The type of the popup button.
-        // 
-        // *   BUY
-        // *   RENEW
-        // *   UPGRADE
         shared_ptr<string> poppedUpButtonType_ {};
-        // The link of the popup button.
         shared_ptr<string> poppedUpButtonUrl_ {};
-        // The text of the popup.
         shared_ptr<string> poppedUpContent_ {};
-        // The location of the notification.
         shared_ptr<string> resourceNiche_ {};
-        // The effective date.
         shared_ptr<string> startDate_ {};
       };
 
@@ -213,7 +197,6 @@ namespace Models
 
 
   protected:
-    // The details about notification settings for an instance.
     shared_ptr<DescribeRdsResourceSettingsResponseBody::RdsInstanceResourceSettings> rdsInstanceResourceSettings_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -269,16 +269,8 @@ namespace Models
 
 
           protected:
-            // The account username.
             shared_ptr<string> account_ {};
-            // The permissions that the account has on the database. Valid values:
-            // 
-            // *   **ReadWrite**: read and write permissions
-            // *   **ReadOnly**: read-only permissions
-            // *   **DMLOnly**: DML-only permissions
-            // *   **DDLOnly**: DDL-only permissions
             shared_ptr<string> accountPrivilege_ {};
-            // The permission that the account has on the database.
             shared_ptr<string> accountPrivilegeDetail_ {};
           };
 
@@ -436,61 +428,23 @@ namespace Models
 
 
       protected:
-        // The information about the account. Each account has specific permissions on the database.
         shared_ptr<Database::Accounts> accounts_ {};
-        // The advanced information about the database.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<Database::AdvancedInfo> advancedInfo_ {};
-        // The basic information about the database.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<Database::BasicInfo> basicInfo_ {};
-        // The name of the character set.
         shared_ptr<string> characterSetName_ {};
-        // The collation of the character set. The example value C indicates localization.
-        // 
-        // >  This parameter is returned only for instances that run PostgreSQL.
         shared_ptr<string> collate_ {};
-        // The limit on the number of concurrent requests. The value -1 indicates that the number of concurrent requests is unlimited.
-        // 
-        // >  This parameter is returned only for instances that run PostgreSQL.
         shared_ptr<string> connLimit_ {};
-        // The type of the character set.
-        // 
-        // >  This parameter is returned only for instances that run PostgreSQL.
         shared_ptr<string> ctype_ {};
-        // The description of the database.
         shared_ptr<string> DBDescription_ {};
-        // The ID of the instance to which the database belongs.
         shared_ptr<string> DBInstanceId_ {};
-        // The database name.
         shared_ptr<string> DBName_ {};
-        // The database status. Valid values:
-        // 
-        // *   **Creating**
-        // *   **Running**
-        // *   **Deleting**
-        // *   **Cold**
         shared_ptr<string> DBStatus_ {};
         shared_ptr<bool> duckDBEnabled_ {};
-        // The database engine of the instance.
         shared_ptr<string> engine_ {};
-        // The page number of the page to return.
         shared_ptr<int32_t> pageNumber_ {};
-        // The number of entries per page.
         shared_ptr<int32_t> pageSize_ {};
-        // The runtime information about the database.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<Database::RuntimeInfo> runtimeInfo_ {};
-        // The database tablespace.
-        // 
-        // >  This parameter is returned only for instances that run PostgreSQL.
         shared_ptr<string> tablespace_ {};
-        // The total number of entries returned.
-        // 
-        // >  This parameter is returned only for instances that run SQL Server.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -527,7 +481,6 @@ namespace Models
 
 
   protected:
-    // The information about the databases.
     shared_ptr<DescribeDatabasesResponseBody::Databases> databases_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

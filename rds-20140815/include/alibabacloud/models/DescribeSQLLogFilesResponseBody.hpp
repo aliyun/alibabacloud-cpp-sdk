@@ -131,21 +131,11 @@ namespace Models
 
 
       protected:
-        // The file name.
         shared_ptr<string> fileID_ {};
-        // The download URL of the file. If the audit log file cannot be downloaded, this parameter is null.
         shared_ptr<string> logDownloadURL_ {};
-        // The time at which the last SQL statement recorded in the audit log file was executed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> logEndTime_ {};
-        // The size of the audit log file. Unit: bytes.
         shared_ptr<string> logSize_ {};
-        // The time at which the first SQL statement recorded in the audit log file was executed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> logStartTime_ {};
-        // The status of the audit log file. Valid values:
-        // 
-        // *   **Success**
-        // *   **Failed**
-        // *   **Generating**
         shared_ptr<string> logStatus_ {};
       };
 
@@ -203,7 +193,6 @@ namespace Models
 
 
   protected:
-    // An array that consists of the returned audit log files.
     shared_ptr<DescribeSQLLogFilesResponseBody::Items> items_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

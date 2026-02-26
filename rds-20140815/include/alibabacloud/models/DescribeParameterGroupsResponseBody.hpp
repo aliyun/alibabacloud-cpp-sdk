@@ -164,36 +164,15 @@ namespace Models
 
 
       protected:
-        // The time when the parameter template was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The database engine of the instance.
         shared_ptr<string> engine_ {};
-        // The database engine version.
         shared_ptr<string> engineVersion_ {};
-        // Indicates whether the restart of an instance is required for the parameter template to take effect. Valid values:
-        // 
-        // *   0: A restart is not required.
-        // *   1: A restart is required.
         shared_ptr<int32_t> forceRestart_ {};
-        // The number of parameters in the parameter template.
         shared_ptr<int32_t> paramCounts_ {};
-        // The type of the parameter template. Valid values:
-        // 
-        // *   0: the default parameter template.
-        // *   1: a custom parameter template.
-        // *   2: an automatic backup parameter template. After you apply this type of template, the system automatically backs up the original parameter settings and saves the backup as a template.
         shared_ptr<string> parameterGroupDesc_ {};
-        // The ID of the parameter template.
         shared_ptr<string> parameterGroupId_ {};
-        // The name of the parameter template.
         shared_ptr<string> parameterGroupName_ {};
-        // The type of the parameter template. Valid values:
-        // 
-        // *   0: the default parameter template.
-        // *   1: a custom parameter template.
-        // *   2: an automatic backup parameter template. After you apply this type of template, the system automatically backs up the original parameter settings and saves the backup as a template.
         shared_ptr<int32_t> parameterGroupType_ {};
-        // The time when the parameter template was last updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -237,7 +216,6 @@ namespace Models
 
 
   protected:
-    // The details of the parameter templates.
     shared_ptr<DescribeParameterGroupsResponseBody::ParameterGroups> parameterGroups_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

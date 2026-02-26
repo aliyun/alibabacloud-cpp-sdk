@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // The description.
         shared_ptr<string> description_ {};
-        // The offset of the UTC time. The offset is in the following format: (UTC+*HH:mm*).
         shared_ptr<string> standardTimeOffset_ {};
-        // The time zone.
         shared_ptr<string> timeZone_ {};
       };
 
@@ -139,7 +136,6 @@ namespace Models
 
 
   protected:
-    // The list of the character set collations and time zones that are available.
     shared_ptr<DescribeCollationTimeZonesResponseBody::CollationTimeZones> collationTimeZones_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

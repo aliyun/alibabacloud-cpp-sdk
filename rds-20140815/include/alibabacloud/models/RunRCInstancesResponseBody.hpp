@@ -93,7 +93,6 @@ namespace Models
 
 
   protected:
-    // The instance IDs (InstanceIdSet).
     shared_ptr<RunRCInstancesResponseBody::InstanceIdSets> instanceIdSets_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};

@@ -194,21 +194,13 @@ namespace Models
 
 
           protected:
-            // The IP address.
             shared_ptr<string> address_ {};
-            // The name of the database.
             shared_ptr<string> database_ {};
-            // The mask of the IP address.
             shared_ptr<string> mask_ {};
-            // The authentication method.
             shared_ptr<string> method_ {};
-            // The value of this parameter varies based on the value of the Method parameter.
             shared_ptr<string> option_ {};
-            // The priority.
             shared_ptr<int32_t> priorityId_ {};
-            // The connection type.
             shared_ptr<string> type_ {};
-            // The username of the account.
             shared_ptr<string> user_ {};
           };
 
@@ -338,21 +330,13 @@ namespace Models
 
 
           protected:
-            // The IP address.
             shared_ptr<string> address_ {};
-            // The name of the database.
             shared_ptr<string> database_ {};
-            // The mask of the IP address.
             shared_ptr<string> mask_ {};
-            // The authentication method.
             shared_ptr<string> method_ {};
-            // The value of this parameter was set based on the value of the Method parameter.
             shared_ptr<string> option_ {};
-            // The priority.
             shared_ptr<int32_t> priorityId_ {};
-            // The connection type.
             shared_ptr<string> type_ {};
-            // The username of the account.
             shared_ptr<string> user_ {};
           };
 
@@ -412,19 +396,10 @@ namespace Models
 
 
       protected:
-        // The configurations of the pg_hba.conf file after modification.
         shared_ptr<HbaLogItem::AfterHbaItems> afterHbaItems_ {};
-        // The configurations of the pg_hba.conf file before modification.
         shared_ptr<HbaLogItem::BeforeHbaItems> beforeHbaItems_ {};
-        // The status of the modification.
-        // 
-        // *   **success**: The modification is successful.
-        // *   **failed**: The modification failed.
-        // *   **setting**: The modification is being applied.
         shared_ptr<string> modifyStatus_ {};
-        // The time when the pg_hba.conf file was modified. The time is displayed in UTC.
         shared_ptr<string> modifyTime_ {};
-        // The reason why the modification failed.
         shared_ptr<string> statusReason_ {};
       };
 
@@ -477,7 +452,6 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // An array that consists of the modifications to the pg_hba.conf file.
     shared_ptr<DescribeModifyPGHbaConfigLogResponseBody::HbaLogItems> hbaLogItems_ {};
     // The number of modification records.
     shared_ptr<int32_t> logItemCount_ {};

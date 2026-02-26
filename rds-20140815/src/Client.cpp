@@ -907,7 +907,7 @@ CalculateDBInstanceWeightResponse Client::calculateDBInstanceWeight(const Calcul
 }
 
 /**
- * @summary Cancels O\\&M tasks that are not started.
+ * @summary Cancels O\\\\\\&M tasks that are not started.
  *
  * @description ### [](#)Supported database engines
  * *   MySQL
@@ -975,7 +975,7 @@ CancelActiveOperationTasksResponse Client::cancelActiveOperationTasksWithOptions
 }
 
 /**
- * @summary Cancels O\\&M tasks that are not started.
+ * @summary Cancels O\\\\\\&M tasks that are not started.
  *
  * @description ### [](#)Supported database engines
  * *   MySQL
@@ -3060,6 +3060,76 @@ CreateDBInstanceForRebuildResponse Client::createDBInstanceForRebuildWithOptions
 CreateDBInstanceForRebuildResponse Client::createDBInstanceForRebuild(const CreateDBInstanceForRebuildRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createDBInstanceForRebuildWithOptions(request, runtime);
+}
+
+/**
+ * @summary 原生复制实例创建复制通道
+ *
+ * @param request CreateDBInstanceReplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDBInstanceReplicationResponse
+ */
+CreateDBInstanceReplicationResponse Client::createDBInstanceReplicationWithOptions(const CreateDBInstanceReplicationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChannelName()) {
+    query["ChannelName"] = request.getChannelName();
+  }
+
+  if (!!request.hasDbInstanceId()) {
+    query["DbInstanceId"] = request.getDbInstanceId();
+  }
+
+  if (!!request.hasMasterHost()) {
+    query["MasterHost"] = request.getMasterHost();
+  }
+
+  if (!!request.hasMasterPassword()) {
+    query["MasterPassword"] = request.getMasterPassword();
+  }
+
+  if (!!request.hasMasterPort()) {
+    query["MasterPort"] = request.getMasterPort();
+  }
+
+  if (!!request.hasMasterUser()) {
+    query["MasterUser"] = request.getMasterUser();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDBInstanceReplication"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDBInstanceReplicationResponse>();
+}
+
+/**
+ * @summary 原生复制实例创建复制通道
+ *
+ * @param request CreateDBInstanceReplicationRequest
+ * @return CreateDBInstanceReplicationResponse
+ */
+CreateDBInstanceReplicationResponse Client::createDBInstanceReplication(const CreateDBInstanceReplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDBInstanceReplicationWithOptions(request, runtime);
 }
 
 /**
@@ -6157,6 +6227,60 @@ DeleteDBInstanceEndpointAddressResponse Client::deleteDBInstanceEndpointAddress(
 }
 
 /**
+ * @summary 原生复制实例删除复制通道
+ *
+ * @param request DeleteDBInstanceReplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDBInstanceReplicationResponse
+ */
+DeleteDBInstanceReplicationResponse Client::deleteDBInstanceReplicationWithOptions(const DeleteDBInstanceReplicationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChannelName()) {
+    query["ChannelName"] = request.getChannelName();
+  }
+
+  if (!!request.hasDbInstanceId()) {
+    query["DbInstanceId"] = request.getDbInstanceId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDBInstanceReplication"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDBInstanceReplicationResponse>();
+}
+
+/**
+ * @summary 原生复制实例删除复制通道
+ *
+ * @param request DeleteDBInstanceReplicationRequest
+ * @return DeleteDBInstanceReplicationResponse
+ */
+DeleteDBInstanceReplicationResponse Client::deleteDBInstanceReplication(const DeleteDBInstanceReplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDBInstanceReplicationWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a security group rule that is configured for an ApsaraDB RDS for SQL Server instance.
  *
  * @description ### [](#)Supported database engine
@@ -7713,7 +7837,7 @@ DescribeADInfoResponse Client::describeADInfo(const DescribeADInfoRequest &reque
 }
 
 /**
- * @summary 查询全密态用户权限
+ * @summary Query the encryption or data masking permission configuration of an account in a specified instance.
  *
  * @param request DescribeAccountMaskingPrivilegeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7768,7 +7892,7 @@ DescribeAccountMaskingPrivilegeResponse Client::describeAccountMaskingPrivilegeW
 }
 
 /**
- * @summary 查询全密态用户权限
+ * @summary Query the encryption or data masking permission configuration of an account in a specified instance.
  *
  * @param request DescribeAccountMaskingPrivilegeRequest
  * @return DescribeAccountMaskingPrivilegeResponse
@@ -11237,7 +11361,19 @@ DescribeDBInstanceProxyConfigurationResponse Client::describeDBInstanceProxyConf
  */
 DescribeDBInstanceReplicationResponse Client::describeDBInstanceReplicationWithOptions(const DescribeDBInstanceReplicationRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -11246,7 +11382,7 @@ DescribeDBInstanceReplicationResponse Client::describeDBInstanceReplicationWithO
     {"version" , "2014-08-15"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -20279,7 +20415,7 @@ ImportUserBackupFileResponse Client::importUserBackupFile(const ImportUserBackup
 }
 
 /**
- * @summary 为实例安装云助手Agent
+ * @summary Installs Cloud Assistant Agent on one or more RDS Custom instances. After you install Cloud Assistant Agent on RDS Custom instances, restart the instances for the installation to take effect.
  *
  * @param tmpReq InstallRCCloudAssistantRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20320,7 +20456,7 @@ InstallRCCloudAssistantResponse Client::installRCCloudAssistantWithOptions(const
 }
 
 /**
- * @summary 为实例安装云助手Agent
+ * @summary Installs Cloud Assistant Agent on one or more RDS Custom instances. After you install Cloud Assistant Agent on RDS Custom instances, restart the instances for the installation to take effect.
  *
  * @param request InstallRCCloudAssistantRequest
  * @return InstallRCCloudAssistantResponse
@@ -21703,7 +21839,7 @@ ModifyActionEventPolicyResponse Client::modifyActionEventPolicy(const ModifyActi
 }
 
 /**
- * @summary Changes the switching time of scheduled O\\\\\\&M tasks for an instance.
+ * @summary Changes the switching time of scheduled O\\\\\\\\\\\\&M tasks for an instance.
  *
  * @description ### [](#)Supported database engines
  * *   MySQL
@@ -21774,7 +21910,7 @@ ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasksWithOptions
 }
 
 /**
- * @summary Changes the switching time of scheduled O\\\\\\&M tasks for an instance.
+ * @summary Changes the switching time of scheduled O\\\\\\\\\\\\&M tasks for an instance.
  *
  * @description ### [](#)Supported database engines
  * *   MySQL
@@ -31992,6 +32128,80 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return untagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 原生复制实例更新复制通道
+ *
+ * @param request UpdateDBInstanceReplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDBInstanceReplicationResponse
+ */
+UpdateDBInstanceReplicationResponse Client::updateDBInstanceReplicationWithOptions(const UpdateDBInstanceReplicationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChannelName()) {
+    query["ChannelName"] = request.getChannelName();
+  }
+
+  if (!!request.hasDbInstanceId()) {
+    query["DbInstanceId"] = request.getDbInstanceId();
+  }
+
+  if (!!request.hasMasterHost()) {
+    query["MasterHost"] = request.getMasterHost();
+  }
+
+  if (!!request.hasMasterPassword()) {
+    query["MasterPassword"] = request.getMasterPassword();
+  }
+
+  if (!!request.hasMasterPort()) {
+    query["MasterPort"] = request.getMasterPort();
+  }
+
+  if (!!request.hasMasterUser()) {
+    query["MasterUser"] = request.getMasterUser();
+  }
+
+  if (!!request.hasOperation()) {
+    query["Operation"] = request.getOperation();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateDBInstanceReplication"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDBInstanceReplicationResponse>();
+}
+
+/**
+ * @summary 原生复制实例更新复制通道
+ *
+ * @param request UpdateDBInstanceReplicationRequest
+ * @return UpdateDBInstanceReplicationResponse
+ */
+UpdateDBInstanceReplicationResponse Client::updateDBInstanceReplication(const UpdateDBInstanceReplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDBInstanceReplicationWithOptions(request, runtime);
 }
 
 /**

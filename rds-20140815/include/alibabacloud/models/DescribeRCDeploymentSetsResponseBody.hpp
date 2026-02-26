@@ -296,11 +296,8 @@ namespace Models
 
 
           protected:
-            // The number of RDS Custom instances that reside in the zone and can be added to the deployment set.
             shared_ptr<int32_t> availableAmount_ {};
-            // The number of RDS Custom instances that reside in the zone in the deployment set.
             shared_ptr<int32_t> usedAmount_ {};
-            // The zone ID. Only the IDs of the zones to which the existing RDS Custom instances in the deployment set belong are returned.
             shared_ptr<string> zoneId_ {};
           };
 
@@ -420,31 +417,17 @@ namespace Models
 
 
       protected:
-        // The details of the capacities of the deployment set. This parameter is valid only when the deployment set contains existing RDS Custom instances. The value contains the details of the capacities of the deployment set in different zones.
         shared_ptr<DeploymentSet::Capacities> capacities_ {};
-        // The time when the deployment set was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The deployment set description.
         shared_ptr<string> deploymentSetDescription_ {};
-        // The deployment set ID.
         shared_ptr<string> deploymentSetId_ {};
-        // The deployment set name.
         shared_ptr<string> deploymentSetName_ {};
-        // The deployment strategy. The return value of this parameter is the value of the `Strategy` request parameter.
         shared_ptr<string> deploymentStrategy_ {};
-        // The deployment domain.
         shared_ptr<string> domain_ {};
-        // The deployment granularity.
         shared_ptr<string> granularity_ {};
-        // The number of groups in the deployment set.
-        // 
-        // >  This parameter is valid only when the Strategy request parameter is set to AvailabilityGroup.
         shared_ptr<int32_t> groupCount_ {};
-        // The number of RDS Custom instances in the deployment set.
         shared_ptr<int32_t> instanceAmount_ {};
-        // The ID of the RDS Custom instance in the deployment set.
         shared_ptr<DeploymentSet::InstanceIds> instanceIds_ {};
-        // The deployment strategy.
         shared_ptr<string> strategy_ {};
         shared_ptr<DeploymentSet::Tags> tags_ {};
       };
@@ -510,7 +493,6 @@ namespace Models
 
 
   protected:
-    // The details of the deployment set.
     shared_ptr<DescribeRCDeploymentSetsResponseBody::DeploymentSets> deploymentSets_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
