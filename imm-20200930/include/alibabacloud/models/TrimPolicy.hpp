@@ -36,40 +36,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->disableDeleteEmptyCell_ == nullptr
-        && return this->disableDeleteRepeatedStyle_ == nullptr && return this->disableDeleteUnusedPicture_ == nullptr && return this->disableDeleteUnusedShape_ == nullptr; };
+        && this->disableDeleteRepeatedStyle_ == nullptr && this->disableDeleteUnusedPicture_ == nullptr && this->disableDeleteUnusedShape_ == nullptr; };
     // disableDeleteEmptyCell Field Functions 
     bool hasDisableDeleteEmptyCell() const { return this->disableDeleteEmptyCell_ != nullptr;};
     void deleteDisableDeleteEmptyCell() { this->disableDeleteEmptyCell_ = nullptr;};
-    inline bool disableDeleteEmptyCell() const { DARABONBA_PTR_GET_DEFAULT(disableDeleteEmptyCell_, false) };
+    inline bool getDisableDeleteEmptyCell() const { DARABONBA_PTR_GET_DEFAULT(disableDeleteEmptyCell_, false) };
     inline TrimPolicy& setDisableDeleteEmptyCell(bool disableDeleteEmptyCell) { DARABONBA_PTR_SET_VALUE(disableDeleteEmptyCell_, disableDeleteEmptyCell) };
 
 
     // disableDeleteRepeatedStyle Field Functions 
     bool hasDisableDeleteRepeatedStyle() const { return this->disableDeleteRepeatedStyle_ != nullptr;};
     void deleteDisableDeleteRepeatedStyle() { this->disableDeleteRepeatedStyle_ = nullptr;};
-    inline bool disableDeleteRepeatedStyle() const { DARABONBA_PTR_GET_DEFAULT(disableDeleteRepeatedStyle_, false) };
+    inline bool getDisableDeleteRepeatedStyle() const { DARABONBA_PTR_GET_DEFAULT(disableDeleteRepeatedStyle_, false) };
     inline TrimPolicy& setDisableDeleteRepeatedStyle(bool disableDeleteRepeatedStyle) { DARABONBA_PTR_SET_VALUE(disableDeleteRepeatedStyle_, disableDeleteRepeatedStyle) };
 
 
     // disableDeleteUnusedPicture Field Functions 
     bool hasDisableDeleteUnusedPicture() const { return this->disableDeleteUnusedPicture_ != nullptr;};
     void deleteDisableDeleteUnusedPicture() { this->disableDeleteUnusedPicture_ = nullptr;};
-    inline bool disableDeleteUnusedPicture() const { DARABONBA_PTR_GET_DEFAULT(disableDeleteUnusedPicture_, false) };
+    inline bool getDisableDeleteUnusedPicture() const { DARABONBA_PTR_GET_DEFAULT(disableDeleteUnusedPicture_, false) };
     inline TrimPolicy& setDisableDeleteUnusedPicture(bool disableDeleteUnusedPicture) { DARABONBA_PTR_SET_VALUE(disableDeleteUnusedPicture_, disableDeleteUnusedPicture) };
 
 
     // disableDeleteUnusedShape Field Functions 
     bool hasDisableDeleteUnusedShape() const { return this->disableDeleteUnusedShape_ != nullptr;};
     void deleteDisableDeleteUnusedShape() { this->disableDeleteUnusedShape_ = nullptr;};
-    inline bool disableDeleteUnusedShape() const { DARABONBA_PTR_GET_DEFAULT(disableDeleteUnusedShape_, false) };
+    inline bool getDisableDeleteUnusedShape() const { DARABONBA_PTR_GET_DEFAULT(disableDeleteUnusedShape_, false) };
     inline TrimPolicy& setDisableDeleteUnusedShape(bool disableDeleteUnusedShape) { DARABONBA_PTR_SET_VALUE(disableDeleteUnusedShape_, disableDeleteUnusedShape) };
 
 
   protected:
-    std::shared_ptr<bool> disableDeleteEmptyCell_ = nullptr;
-    std::shared_ptr<bool> disableDeleteRepeatedStyle_ = nullptr;
-    std::shared_ptr<bool> disableDeleteUnusedPicture_ = nullptr;
-    std::shared_ptr<bool> disableDeleteUnusedShape_ = nullptr;
+    // Specifies whether to prevent all empty cells from being deleted. Valid values:
+    // 
+    // *   true
+    // *   false
+    shared_ptr<bool> disableDeleteEmptyCell_ {};
+    // Specifies whether to prevent all duplicate styles from being deleted. Valid values:
+    // 
+    // *   true
+    // *   false
+    shared_ptr<bool> disableDeleteRepeatedStyle_ {};
+    // Specifies whether to prevent unused cell images from being deleted. Valid values:
+    // 
+    // *   true
+    // *   false
+    shared_ptr<bool> disableDeleteUnusedPicture_ {};
+    // Specifies whether to prevent unused shapes from being deleted. Valid values:
+    // 
+    // *   true
+    // *   false
+    shared_ptr<bool> disableDeleteUnusedShape_ {};
   };
 
   } // namespace Models

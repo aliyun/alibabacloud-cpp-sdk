@@ -40,19 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetName_ == nullptr
-        && return this->messages_ == nullptr && return this->projectName_ == nullptr && return this->recallOnly_ == nullptr && return this->smartClusterIds_ == nullptr; };
+        && this->messages_ == nullptr && this->projectName_ == nullptr && this->recallOnly_ == nullptr && this->smartClusterIds_ == nullptr; };
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
-    inline string datasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+    inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
     inline ContextualRetrievalRequest& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
     // messages Field Functions 
     bool hasMessages() const { return this->messages_ != nullptr;};
     void deleteMessages() { this->messages_ = nullptr;};
-    inline const vector<ContextualMessage> & messages() const { DARABONBA_PTR_GET_CONST(messages_, vector<ContextualMessage>) };
-    inline vector<ContextualMessage> messages() { DARABONBA_PTR_GET(messages_, vector<ContextualMessage>) };
+    inline const vector<ContextualMessage> & getMessages() const { DARABONBA_PTR_GET_CONST(messages_, vector<ContextualMessage>) };
+    inline vector<ContextualMessage> getMessages() { DARABONBA_PTR_GET(messages_, vector<ContextualMessage>) };
     inline ContextualRetrievalRequest& setMessages(const vector<ContextualMessage> & messages) { DARABONBA_PTR_SET_VALUE(messages_, messages) };
     inline ContextualRetrievalRequest& setMessages(vector<ContextualMessage> && messages) { DARABONBA_PTR_SET_RVALUE(messages_, messages) };
 
@@ -60,22 +60,22 @@ namespace Models
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline ContextualRetrievalRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // recallOnly Field Functions 
     bool hasRecallOnly() const { return this->recallOnly_ != nullptr;};
     void deleteRecallOnly() { this->recallOnly_ = nullptr;};
-    inline bool recallOnly() const { DARABONBA_PTR_GET_DEFAULT(recallOnly_, false) };
+    inline bool getRecallOnly() const { DARABONBA_PTR_GET_DEFAULT(recallOnly_, false) };
     inline ContextualRetrievalRequest& setRecallOnly(bool recallOnly) { DARABONBA_PTR_SET_VALUE(recallOnly_, recallOnly) };
 
 
     // smartClusterIds Field Functions 
     bool hasSmartClusterIds() const { return this->smartClusterIds_ != nullptr;};
     void deleteSmartClusterIds() { this->smartClusterIds_ = nullptr;};
-    inline const vector<string> & smartClusterIds() const { DARABONBA_PTR_GET_CONST(smartClusterIds_, vector<string>) };
-    inline vector<string> smartClusterIds() { DARABONBA_PTR_GET(smartClusterIds_, vector<string>) };
+    inline const vector<string> & getSmartClusterIds() const { DARABONBA_PTR_GET_CONST(smartClusterIds_, vector<string>) };
+    inline vector<string> getSmartClusterIds() { DARABONBA_PTR_GET(smartClusterIds_, vector<string>) };
     inline ContextualRetrievalRequest& setSmartClusterIds(const vector<string> & smartClusterIds) { DARABONBA_PTR_SET_VALUE(smartClusterIds_, smartClusterIds) };
     inline ContextualRetrievalRequest& setSmartClusterIds(vector<string> && smartClusterIds) { DARABONBA_PTR_SET_RVALUE(smartClusterIds_, smartClusterIds) };
 
@@ -84,19 +84,19 @@ namespace Models
     // The dataset.
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasetName_ = nullptr;
+    shared_ptr<string> datasetName_ {};
     // The conversation or tool invocation history. The latest message is at the end of the list (with an index number of n-1), whereas the earliest message is at the beginning of the list (with an index number of 0). Historical messages must be provided in user-assistant pairs. The maximum number of messages that you can specify is 2\\*n+1. The current question cannot exceed 1,000 characters in length. The maximum number of historical messages allowed is 100.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<ContextualMessage>> messages_ = nullptr;
+    shared_ptr<vector<ContextualMessage>> messages_ {};
     // The name of the project. For more information, see [CreateProject](https://help.aliyun.com/zh/imm/getting-started/create-a-project-1?spm=a2c4g.11186623.help-menu-search-62354.d_0).
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // Indicates whether to enable recall-only (embedding-based search). If you set this parameter to true, returned results have not been re-ranked and can be ranked in custom order. Default value: false.
-    std::shared_ptr<bool> recallOnly_ = nullptr;
+    shared_ptr<bool> recallOnly_ {};
     // The IDs of clusters from which results are retrieved.
-    std::shared_ptr<vector<string>> smartClusterIds_ = nullptr;
+    shared_ptr<vector<string>> smartClusterIds_ {};
   };
 
   } // namespace Models

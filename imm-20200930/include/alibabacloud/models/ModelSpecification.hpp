@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->metaData_ == nullptr
-        && return this->spec_ == nullptr; };
+        && this->spec_ == nullptr; };
     // metaData Field Functions 
     bool hasMetaData() const { return this->metaData_ != nullptr;};
     void deleteMetaData() { this->metaData_ = nullptr;};
-    inline const MetaData & metaData() const { DARABONBA_PTR_GET_CONST(metaData_, MetaData) };
-    inline MetaData metaData() { DARABONBA_PTR_GET(metaData_, MetaData) };
+    inline const MetaData & getMetaData() const { DARABONBA_PTR_GET_CONST(metaData_, MetaData) };
+    inline MetaData getMetaData() { DARABONBA_PTR_GET(metaData_, MetaData) };
     inline ModelSpecification& setMetaData(const MetaData & metaData) { DARABONBA_PTR_SET_VALUE(metaData_, metaData) };
     inline ModelSpecification& setMetaData(MetaData && metaData) { DARABONBA_PTR_SET_RVALUE(metaData_, metaData) };
 
@@ -47,17 +47,21 @@ namespace Models
     // spec Field Functions 
     bool hasSpec() const { return this->spec_ != nullptr;};
     void deleteSpec() { this->spec_ = nullptr;};
-    inline const Spec & spec() const { DARABONBA_PTR_GET_CONST(spec_, Spec) };
-    inline Spec spec() { DARABONBA_PTR_GET(spec_, Spec) };
+    inline const Spec & getSpec() const { DARABONBA_PTR_GET_CONST(spec_, Spec) };
+    inline Spec getSpec() { DARABONBA_PTR_GET(spec_, Spec) };
     inline ModelSpecification& setSpec(const Spec & spec) { DARABONBA_PTR_SET_VALUE(spec_, spec) };
     inline ModelSpecification& setSpec(Spec && spec) { DARABONBA_PTR_SET_RVALUE(spec_, spec) };
 
 
   protected:
+    // The basic model information.
+    // 
     // This parameter is required.
-    std::shared_ptr<MetaData> metaData_ = nullptr;
+    shared_ptr<MetaData> metaData_ {};
+    // The model specification information.
+    // 
     // This parameter is required.
-    std::shared_ptr<Spec> spec_ = nullptr;
+    shared_ptr<Spec> spec_ {};
   };
 
   } // namespace Models

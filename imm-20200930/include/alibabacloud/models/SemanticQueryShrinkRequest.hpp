@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetName_ == nullptr
-        && return this->maxResults_ == nullptr && return this->mediaTypesShrink_ == nullptr && return this->nextToken_ == nullptr && return this->projectName_ == nullptr && return this->query_ == nullptr
-        && return this->sourceURI_ == nullptr && return this->withFieldsShrink_ == nullptr; };
+        && this->maxResults_ == nullptr && this->mediaTypesShrink_ == nullptr && this->nextToken_ == nullptr && this->projectName_ == nullptr && this->query_ == nullptr
+        && this->sourceURI_ == nullptr && this->withFieldsShrink_ == nullptr; };
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
-    inline string datasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+    inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
     inline SemanticQueryShrinkRequest& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline SemanticQueryShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // mediaTypesShrink Field Functions 
     bool hasMediaTypesShrink() const { return this->mediaTypesShrink_ != nullptr;};
     void deleteMediaTypesShrink() { this->mediaTypesShrink_ = nullptr;};
-    inline string mediaTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(mediaTypesShrink_, "") };
+    inline string getMediaTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(mediaTypesShrink_, "") };
     inline SemanticQueryShrinkRequest& setMediaTypesShrink(string mediaTypesShrink) { DARABONBA_PTR_SET_VALUE(mediaTypesShrink_, mediaTypesShrink) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline SemanticQueryShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline SemanticQueryShrinkRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
-    inline string query() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
     inline SemanticQueryShrinkRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
     // sourceURI Field Functions 
     bool hasSourceURI() const { return this->sourceURI_ != nullptr;};
     void deleteSourceURI() { this->sourceURI_ = nullptr;};
-    inline string sourceURI() const { DARABONBA_PTR_GET_DEFAULT(sourceURI_, "") };
+    inline string getSourceURI() const { DARABONBA_PTR_GET_DEFAULT(sourceURI_, "") };
     inline SemanticQueryShrinkRequest& setSourceURI(string sourceURI) { DARABONBA_PTR_SET_VALUE(sourceURI_, sourceURI) };
 
 
     // withFieldsShrink Field Functions 
     bool hasWithFieldsShrink() const { return this->withFieldsShrink_ != nullptr;};
     void deleteWithFieldsShrink() { this->withFieldsShrink_ = nullptr;};
-    inline string withFieldsShrink() const { DARABONBA_PTR_GET_DEFAULT(withFieldsShrink_, "") };
+    inline string getWithFieldsShrink() const { DARABONBA_PTR_GET_DEFAULT(withFieldsShrink_, "") };
     inline SemanticQueryShrinkRequest& setWithFieldsShrink(string withFieldsShrink) { DARABONBA_PTR_SET_VALUE(withFieldsShrink_, withFieldsShrink) };
 
 
@@ -106,26 +106,32 @@ namespace Models
     // The name of the dataset.
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasetName_ = nullptr;
+    shared_ptr<string> datasetName_ {};
     // The maximum number of entries to return. Valid values: 1 to 1000.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The types of the media that you want to query. Default value:
     // 
     // ["image"]
-    std::shared_ptr<string> mediaTypesShrink_ = nullptr;
+    shared_ptr<string> mediaTypesShrink_ {};
     // This parameter is no longer available.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The name of the project.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The content of the query that you input.
-    std::shared_ptr<string> query_ = nullptr;
-    std::shared_ptr<string> sourceURI_ = nullptr;
-    // The fields that you want to include in the response. Including only necessary metadata fields can help reduce the size of the response.
+    shared_ptr<string> query_ {};
+    // > Either this parameter or the Query parameter must be specified. This parameter is valid only for image searches on datasets configured with a search-by-image workflow.
+    // >
+    // URI of the source data for retrieval.
+    // The URI must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that contains the file name extension.
     // 
-    // If you do not specify this parameter or set the value to null, all existing metadata fields are returned.
-    std::shared_ptr<string> withFieldsShrink_ = nullptr;
+    // Contact us if you need to configure a workflow template.
+    shared_ptr<string> sourceURI_ {};
+    // >  Either this parameter or the SourceURI parameter must be specified.
+    // 
+    // The content of the query that you input.
+    shared_ptr<string> withFieldsShrink_ {};
   };
 
   } // namespace Models

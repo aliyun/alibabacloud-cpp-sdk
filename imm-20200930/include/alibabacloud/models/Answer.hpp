@@ -34,26 +34,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->references_ == nullptr; };
+        && this->references_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline Answer& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // references Field Functions 
     bool hasReferences() const { return this->references_ != nullptr;};
     void deleteReferences() { this->references_ = nullptr;};
-    inline const vector<ReferenceFile> & references() const { DARABONBA_PTR_GET_CONST(references_, vector<ReferenceFile>) };
-    inline vector<ReferenceFile> references() { DARABONBA_PTR_GET(references_, vector<ReferenceFile>) };
+    inline const vector<ReferenceFile> & getReferences() const { DARABONBA_PTR_GET_CONST(references_, vector<ReferenceFile>) };
+    inline vector<ReferenceFile> getReferences() { DARABONBA_PTR_GET(references_, vector<ReferenceFile>) };
     inline Answer& setReferences(const vector<ReferenceFile> & references) { DARABONBA_PTR_SET_VALUE(references_, references) };
     inline Answer& setReferences(vector<ReferenceFile> && references) { DARABONBA_PTR_SET_RVALUE(references_, references) };
 
 
   protected:
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<vector<ReferenceFile>> references_ = nullptr;
+    // The answer.
+    shared_ptr<string> content_ {};
+    // The reference sources of the answer.
+    shared_ptr<vector<ReferenceFile>> references_ {};
   };
 
   } // namespace Models

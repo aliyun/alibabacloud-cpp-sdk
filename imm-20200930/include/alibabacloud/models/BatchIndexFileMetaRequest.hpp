@@ -41,19 +41,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetName_ == nullptr
-        && return this->files_ == nullptr && return this->notification_ == nullptr && return this->projectName_ == nullptr && return this->userData_ == nullptr; };
+        && this->files_ == nullptr && this->notification_ == nullptr && this->projectName_ == nullptr && this->userData_ == nullptr; };
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
-    inline string datasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+    inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
     inline BatchIndexFileMetaRequest& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
     // files Field Functions 
     bool hasFiles() const { return this->files_ != nullptr;};
     void deleteFiles() { this->files_ = nullptr;};
-    inline const vector<InputFile> & files() const { DARABONBA_PTR_GET_CONST(files_, vector<InputFile>) };
-    inline vector<InputFile> files() { DARABONBA_PTR_GET(files_, vector<InputFile>) };
+    inline const vector<InputFile> & getFiles() const { DARABONBA_PTR_GET_CONST(files_, vector<InputFile>) };
+    inline vector<InputFile> getFiles() { DARABONBA_PTR_GET(files_, vector<InputFile>) };
     inline BatchIndexFileMetaRequest& setFiles(const vector<InputFile> & files) { DARABONBA_PTR_SET_VALUE(files_, files) };
     inline BatchIndexFileMetaRequest& setFiles(vector<InputFile> && files) { DARABONBA_PTR_SET_RVALUE(files_, files) };
 
@@ -61,8 +61,8 @@ namespace Models
     // notification Field Functions 
     bool hasNotification() const { return this->notification_ != nullptr;};
     void deleteNotification() { this->notification_ = nullptr;};
-    inline const Notification & notification() const { DARABONBA_PTR_GET_CONST(notification_, Notification) };
-    inline Notification notification() { DARABONBA_PTR_GET(notification_, Notification) };
+    inline const Notification & getNotification() const { DARABONBA_PTR_GET_CONST(notification_, Notification) };
+    inline Notification getNotification() { DARABONBA_PTR_GET(notification_, Notification) };
     inline BatchIndexFileMetaRequest& setNotification(const Notification & notification) { DARABONBA_PTR_SET_VALUE(notification_, notification) };
     inline BatchIndexFileMetaRequest& setNotification(Notification && notification) { DARABONBA_PTR_SET_RVALUE(notification_, notification) };
 
@@ -70,14 +70,14 @@ namespace Models
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline BatchIndexFileMetaRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline BatchIndexFileMetaRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
@@ -85,19 +85,19 @@ namespace Models
     // The name of the dataset.[](~~478160~~)
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasetName_ = nullptr;
+    shared_ptr<string> datasetName_ {};
     // The objects in Object Storage Service (OSS). Specify OSS objects by using a JSON array. You can specify up to 100 objects in an array.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<InputFile>> files_ = nullptr;
+    shared_ptr<vector<InputFile>> files_ {};
     // The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
-    std::shared_ptr<Notification> notification_ = nullptr;
+    shared_ptr<Notification> notification_ {};
     // The name of the project.[](~~478153~~)
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The user-defined data that you want to return in asynchronous messages. This parameter takes effect only when you specify the MNS settings in the Notification parameter. The maximum information length is 2,048 bytes.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lastSucceededTime_ == nullptr
-        && return this->startTime_ == nullptr && return this->status_ == nullptr; };
+        && this->startTime_ == nullptr && this->status_ == nullptr; };
     // lastSucceededTime Field Functions 
     bool hasLastSucceededTime() const { return this->lastSucceededTime_ != nullptr;};
     void deleteLastSucceededTime() { this->lastSucceededTime_ = nullptr;};
-    inline string lastSucceededTime() const { DARABONBA_PTR_GET_DEFAULT(lastSucceededTime_, "") };
+    inline string getLastSucceededTime() const { DARABONBA_PTR_GET_DEFAULT(lastSucceededTime_, "") };
     inline DatasetTaskStatus& setLastSucceededTime(string lastSucceededTime) { DARABONBA_PTR_SET_VALUE(lastSucceededTime_, lastSucceededTime) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DatasetTaskStatus& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DatasetTaskStatus& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> lastSucceededTime_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    // The time of the last completion.
+    shared_ptr<string> lastSucceededTime_ {};
+    // The start time of the task.
+    shared_ptr<string> startTime_ {};
+    // The status of the task.
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

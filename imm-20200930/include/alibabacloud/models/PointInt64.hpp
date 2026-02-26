@@ -32,24 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->x_ == nullptr
-        && return this->y_ == nullptr; };
+        && this->y_ == nullptr; };
     // x Field Functions 
     bool hasX() const { return this->x_ != nullptr;};
     void deleteX() { this->x_ = nullptr;};
-    inline int64_t x() const { DARABONBA_PTR_GET_DEFAULT(x_, 0L) };
+    inline int64_t getX() const { DARABONBA_PTR_GET_DEFAULT(x_, 0L) };
     inline PointInt64& setX(int64_t x) { DARABONBA_PTR_SET_VALUE(x_, x) };
 
 
     // y Field Functions 
     bool hasY() const { return this->y_ != nullptr;};
     void deleteY() { this->y_ = nullptr;};
-    inline int64_t y() const { DARABONBA_PTR_GET_DEFAULT(y_, 0L) };
+    inline int64_t getY() const { DARABONBA_PTR_GET_DEFAULT(y_, 0L) };
     inline PointInt64& setY(int64_t y) { DARABONBA_PTR_SET_VALUE(y_, y) };
 
 
   protected:
-    std::shared_ptr<int64_t> x_ = nullptr;
-    std::shared_ptr<int64_t> y_ = nullptr;
+    // The distance from the X-coordinate of the vertex to the left edge. Unit: pixel.
+    shared_ptr<int64_t> x_ {};
+    // The distance from the Y-coordinate of the vertex to the top. Unit: pixel.
+    shared_ptr<int64_t> y_ {};
   };
 
   } // namespace Models

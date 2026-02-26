@@ -47,13 +47,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backbone_ == nullptr
-        && return this->classNum_ == nullptr && return this->head_ == nullptr && return this->inputChannel_ == nullptr && return this->loss_ == nullptr && return this->name_ == nullptr
-        && return this->neck_ == nullptr && return this->numLandmarks_ == nullptr && return this->pretrainedPath_ == nullptr; };
+        && this->classNum_ == nullptr && this->head_ == nullptr && this->inputChannel_ == nullptr && this->loss_ == nullptr && this->name_ == nullptr
+        && this->neck_ == nullptr && this->numLandmarks_ == nullptr && this->pretrainedPath_ == nullptr; };
     // backbone Field Functions 
     bool hasBackbone() const { return this->backbone_ != nullptr;};
     void deleteBackbone() { this->backbone_ = nullptr;};
-    inline const CustomParams & backbone() const { DARABONBA_PTR_GET_CONST(backbone_, CustomParams) };
-    inline CustomParams backbone() { DARABONBA_PTR_GET(backbone_, CustomParams) };
+    inline const CustomParams & getBackbone() const { DARABONBA_PTR_GET_CONST(backbone_, CustomParams) };
+    inline CustomParams getBackbone() { DARABONBA_PTR_GET(backbone_, CustomParams) };
     inline Spec& setBackbone(const CustomParams & backbone) { DARABONBA_PTR_SET_VALUE(backbone_, backbone) };
     inline Spec& setBackbone(CustomParams && backbone) { DARABONBA_PTR_SET_RVALUE(backbone_, backbone) };
 
@@ -61,15 +61,15 @@ namespace Models
     // classNum Field Functions 
     bool hasClassNum() const { return this->classNum_ != nullptr;};
     void deleteClassNum() { this->classNum_ = nullptr;};
-    inline int64_t classNum() const { DARABONBA_PTR_GET_DEFAULT(classNum_, 0L) };
+    inline int64_t getClassNum() const { DARABONBA_PTR_GET_DEFAULT(classNum_, 0L) };
     inline Spec& setClassNum(int64_t classNum) { DARABONBA_PTR_SET_VALUE(classNum_, classNum) };
 
 
     // head Field Functions 
     bool hasHead() const { return this->head_ != nullptr;};
     void deleteHead() { this->head_ = nullptr;};
-    inline const CustomParams & head() const { DARABONBA_PTR_GET_CONST(head_, CustomParams) };
-    inline CustomParams head() { DARABONBA_PTR_GET(head_, CustomParams) };
+    inline const CustomParams & getHead() const { DARABONBA_PTR_GET_CONST(head_, CustomParams) };
+    inline CustomParams getHead() { DARABONBA_PTR_GET(head_, CustomParams) };
     inline Spec& setHead(const CustomParams & head) { DARABONBA_PTR_SET_VALUE(head_, head) };
     inline Spec& setHead(CustomParams && head) { DARABONBA_PTR_SET_RVALUE(head_, head) };
 
@@ -77,15 +77,15 @@ namespace Models
     // inputChannel Field Functions 
     bool hasInputChannel() const { return this->inputChannel_ != nullptr;};
     void deleteInputChannel() { this->inputChannel_ = nullptr;};
-    inline int64_t inputChannel() const { DARABONBA_PTR_GET_DEFAULT(inputChannel_, 0L) };
+    inline int64_t getInputChannel() const { DARABONBA_PTR_GET_DEFAULT(inputChannel_, 0L) };
     inline Spec& setInputChannel(int64_t inputChannel) { DARABONBA_PTR_SET_VALUE(inputChannel_, inputChannel) };
 
 
     // loss Field Functions 
     bool hasLoss() const { return this->loss_ != nullptr;};
     void deleteLoss() { this->loss_ = nullptr;};
-    inline const CustomParams & loss() const { DARABONBA_PTR_GET_CONST(loss_, CustomParams) };
-    inline CustomParams loss() { DARABONBA_PTR_GET(loss_, CustomParams) };
+    inline const CustomParams & getLoss() const { DARABONBA_PTR_GET_CONST(loss_, CustomParams) };
+    inline CustomParams getLoss() { DARABONBA_PTR_GET(loss_, CustomParams) };
     inline Spec& setLoss(const CustomParams & loss) { DARABONBA_PTR_SET_VALUE(loss_, loss) };
     inline Spec& setLoss(CustomParams && loss) { DARABONBA_PTR_SET_RVALUE(loss_, loss) };
 
@@ -93,15 +93,15 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline Spec& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // neck Field Functions 
     bool hasNeck() const { return this->neck_ != nullptr;};
     void deleteNeck() { this->neck_ = nullptr;};
-    inline const CustomParams & neck() const { DARABONBA_PTR_GET_CONST(neck_, CustomParams) };
-    inline CustomParams neck() { DARABONBA_PTR_GET(neck_, CustomParams) };
+    inline const CustomParams & getNeck() const { DARABONBA_PTR_GET_CONST(neck_, CustomParams) };
+    inline CustomParams getNeck() { DARABONBA_PTR_GET(neck_, CustomParams) };
     inline Spec& setNeck(const CustomParams & neck) { DARABONBA_PTR_SET_VALUE(neck_, neck) };
     inline Spec& setNeck(CustomParams && neck) { DARABONBA_PTR_SET_RVALUE(neck_, neck) };
 
@@ -109,28 +109,38 @@ namespace Models
     // numLandmarks Field Functions 
     bool hasNumLandmarks() const { return this->numLandmarks_ != nullptr;};
     void deleteNumLandmarks() { this->numLandmarks_ = nullptr;};
-    inline int64_t numLandmarks() const { DARABONBA_PTR_GET_DEFAULT(numLandmarks_, 0L) };
+    inline int64_t getNumLandmarks() const { DARABONBA_PTR_GET_DEFAULT(numLandmarks_, 0L) };
     inline Spec& setNumLandmarks(int64_t numLandmarks) { DARABONBA_PTR_SET_VALUE(numLandmarks_, numLandmarks) };
 
 
     // pretrainedPath Field Functions 
     bool hasPretrainedPath() const { return this->pretrainedPath_ != nullptr;};
     void deletePretrainedPath() { this->pretrainedPath_ = nullptr;};
-    inline string pretrainedPath() const { DARABONBA_PTR_GET_DEFAULT(pretrainedPath_, "") };
+    inline string getPretrainedPath() const { DARABONBA_PTR_GET_DEFAULT(pretrainedPath_, "") };
     inline Spec& setPretrainedPath(string pretrainedPath) { DARABONBA_PTR_SET_VALUE(pretrainedPath_, pretrainedPath) };
 
 
   protected:
-    std::shared_ptr<CustomParams> backbone_ = nullptr;
-    std::shared_ptr<int64_t> classNum_ = nullptr;
-    std::shared_ptr<CustomParams> head_ = nullptr;
-    std::shared_ptr<int64_t> inputChannel_ = nullptr;
-    std::shared_ptr<CustomParams> loss_ = nullptr;
+    // The custom parameters for model training.
+    shared_ptr<CustomParams> backbone_ {};
+    // The number of output classes of the last layer.
+    shared_ptr<int64_t> classNum_ {};
+    // The custom parameters for model training.
+    shared_ptr<CustomParams> head_ {};
+    // 3
+    shared_ptr<int64_t> inputChannel_ {};
+    // The custom parameters for model training.
+    shared_ptr<CustomParams> loss_ {};
+    // The name of the model. The available model names vary with the model category.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<CustomParams> neck_ = nullptr;
-    std::shared_ptr<int64_t> numLandmarks_ = nullptr;
-    std::shared_ptr<string> pretrainedPath_ = nullptr;
+    shared_ptr<string> name_ {};
+    // The custom parameters for model training.
+    shared_ptr<CustomParams> neck_ {};
+    // The number of face landmarks. This parameter is required for face detection. In most cases, you can set the parameter to 5.
+    shared_ptr<int64_t> numLandmarks_ {};
+    // The path to the pretrained model.
+    shared_ptr<string> pretrainedPath_ {};
   };
 
   } // namespace Models

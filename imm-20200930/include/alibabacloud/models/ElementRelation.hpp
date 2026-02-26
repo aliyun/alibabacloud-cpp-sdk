@@ -32,24 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->objectId_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->type_ == nullptr; };
     // objectId Field Functions 
     bool hasObjectId() const { return this->objectId_ != nullptr;};
     void deleteObjectId() { this->objectId_ = nullptr;};
-    inline string objectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
+    inline string getObjectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
     inline ElementRelation& setObjectId(string objectId) { DARABONBA_PTR_SET_VALUE(objectId_, objectId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ElementRelation& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> objectId_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    // The ID of the element.
+    shared_ptr<string> objectId_ {};
+    // The type.
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

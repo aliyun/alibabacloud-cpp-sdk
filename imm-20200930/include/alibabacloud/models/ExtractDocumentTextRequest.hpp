@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialConfig_ == nullptr
-        && return this->projectName_ == nullptr && return this->sourceType_ == nullptr && return this->sourceURI_ == nullptr; };
+        && this->projectName_ == nullptr && this->sourceType_ == nullptr && this->sourceURI_ == nullptr; };
     // credentialConfig Field Functions 
     bool hasCredentialConfig() const { return this->credentialConfig_ != nullptr;};
     void deleteCredentialConfig() { this->credentialConfig_ = nullptr;};
-    inline const CredentialConfig & credentialConfig() const { DARABONBA_PTR_GET_CONST(credentialConfig_, CredentialConfig) };
-    inline CredentialConfig credentialConfig() { DARABONBA_PTR_GET(credentialConfig_, CredentialConfig) };
+    inline const CredentialConfig & getCredentialConfig() const { DARABONBA_PTR_GET_CONST(credentialConfig_, CredentialConfig) };
+    inline CredentialConfig getCredentialConfig() { DARABONBA_PTR_GET(credentialConfig_, CredentialConfig) };
     inline ExtractDocumentTextRequest& setCredentialConfig(const CredentialConfig & credentialConfig) { DARABONBA_PTR_SET_VALUE(credentialConfig_, credentialConfig) };
     inline ExtractDocumentTextRequest& setCredentialConfig(CredentialConfig && credentialConfig) { DARABONBA_PTR_SET_RVALUE(credentialConfig_, credentialConfig) };
 
@@ -50,21 +50,21 @@ namespace Models
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline ExtractDocumentTextRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline ExtractDocumentTextRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
     // sourceURI Field Functions 
     bool hasSourceURI() const { return this->sourceURI_ != nullptr;};
     void deleteSourceURI() { this->sourceURI_ = nullptr;};
-    inline string sourceURI() const { DARABONBA_PTR_GET_DEFAULT(sourceURI_, "") };
+    inline string getSourceURI() const { DARABONBA_PTR_GET_DEFAULT(sourceURI_, "") };
     inline ExtractDocumentTextRequest& setSourceURI(string sourceURI) { DARABONBA_PTR_SET_VALUE(sourceURI_, sourceURI) };
 
 
@@ -72,25 +72,25 @@ namespace Models
     // **If there are no special requirements, leave it blank.**
     // 
     // Chain authorization configuration, optional. For more information, see [Using Chain Authorization to Access Other Entity Resources](https://help.aliyun.com/document_detail/465340.html).
-    std::shared_ptr<CredentialConfig> credentialConfig_ = nullptr;
+    shared_ptr<CredentialConfig> credentialConfig_ {};
     // Project name. For how to obtain it, see [Creating a Project](https://help.aliyun.com/document_detail/477051.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // Suffix type of the source data. By default, the type of the source data is determined based on the suffix of the input object. When the input object does not have a suffix, you can set this parameter. The available values are as follows:
     // 
     // - Word Documents: doc, docx, wps, wpss, docm, dotm, dot, dotx, html
     // - Presentation Documents (PPT): pptx, ppt, pot, potx, pps, ppsx, dps, dpt, pptm, potm, ppsm, dpss
     // - Spreadsheet Documents (Excel): xls, xlt, et, ett, xlsx, xltx, csv, xlsb, xlsm, xltm, ets
     // - PDF Documents: pdf
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
     // Storage address of the source data.
     // 
     // The OSS address rule is oss://${Bucket}/${Object}, where `${Bucket}` is the name of the OSS Bucket in the same region (Region) as the current project, and `${Object}` is the complete path of the file including the file extension.
     // >Notice: Currently, only HTTP protocol addresses are supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceURI_ = nullptr;
+    shared_ptr<string> sourceURI_ {};
   };
 
   } // namespace Models

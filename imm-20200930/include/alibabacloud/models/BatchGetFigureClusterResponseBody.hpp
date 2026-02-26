@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->figureClusters_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // figureClusters Field Functions 
     bool hasFigureClusters() const { return this->figureClusters_ != nullptr;};
     void deleteFigureClusters() { this->figureClusters_ = nullptr;};
-    inline const vector<FigureCluster> & figureClusters() const { DARABONBA_PTR_GET_CONST(figureClusters_, vector<FigureCluster>) };
-    inline vector<FigureCluster> figureClusters() { DARABONBA_PTR_GET(figureClusters_, vector<FigureCluster>) };
+    inline const vector<FigureCluster> & getFigureClusters() const { DARABONBA_PTR_GET_CONST(figureClusters_, vector<FigureCluster>) };
+    inline vector<FigureCluster> getFigureClusters() { DARABONBA_PTR_GET(figureClusters_, vector<FigureCluster>) };
     inline BatchGetFigureClusterResponseBody& setFigureClusters(const vector<FigureCluster> & figureClusters) { DARABONBA_PTR_SET_VALUE(figureClusters_, figureClusters) };
     inline BatchGetFigureClusterResponseBody& setFigureClusters(vector<FigureCluster> && figureClusters) { DARABONBA_PTR_SET_RVALUE(figureClusters_, figureClusters) };
 
@@ -47,15 +47,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline BatchGetFigureClusterResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The clusters.
-    std::shared_ptr<vector<FigureCluster>> figureClusters_ = nullptr;
+    shared_ptr<vector<FigureCluster>> figureClusters_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

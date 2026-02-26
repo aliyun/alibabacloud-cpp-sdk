@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->timeRange_ == nullptr && return this->type_ == nullptr && return this->URL_ == nullptr; };
+        && this->timeRange_ == nullptr && this->type_ == nullptr && this->URL_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline ElementContent& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // timeRange Field Functions 
     bool hasTimeRange() const { return this->timeRange_ != nullptr;};
     void deleteTimeRange() { this->timeRange_ = nullptr;};
-    inline const vector<int64_t> & timeRange() const { DARABONBA_PTR_GET_CONST(timeRange_, vector<int64_t>) };
-    inline vector<int64_t> timeRange() { DARABONBA_PTR_GET(timeRange_, vector<int64_t>) };
+    inline const vector<int64_t> & getTimeRange() const { DARABONBA_PTR_GET_CONST(timeRange_, vector<int64_t>) };
+    inline vector<int64_t> getTimeRange() { DARABONBA_PTR_GET(timeRange_, vector<int64_t>) };
     inline ElementContent& setTimeRange(const vector<int64_t> & timeRange) { DARABONBA_PTR_SET_VALUE(timeRange_, timeRange) };
     inline ElementContent& setTimeRange(vector<int64_t> && timeRange) { DARABONBA_PTR_SET_RVALUE(timeRange_, timeRange) };
 
@@ -57,22 +57,34 @@ namespace Models
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ElementContent& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // URL Field Functions 
     bool hasURL() const { return this->URL_ != nullptr;};
     void deleteURL() { this->URL_ = nullptr;};
-    inline string URL() const { DARABONBA_PTR_GET_DEFAULT(URL_, "") };
+    inline string getURL() const { DARABONBA_PTR_GET_DEFAULT(URL_, "") };
     inline ElementContent& setURL(string URL) { DARABONBA_PTR_SET_VALUE(URL_, URL) };
 
 
   protected:
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<vector<int64_t>> timeRange_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<string> URL_ = nullptr;
+    // The content of the element.
+    // 
+    // If the value of the Type parameter is image or link, this parameter indicates the placeholder text.
+    shared_ptr<string> content_ {};
+    // The time range. The array length is fixed to 2. One element indicates the start time and the other one indicates the end time. Unit: milliseconds.
+    shared_ptr<vector<int64_t>> timeRange_ {};
+    // The type of the element content.
+    // 
+    // Valid values:
+    // 
+    // *   text
+    // *   image
+    // *   link
+    shared_ptr<string> type_ {};
+    // The link to the element content. This parameter takes effect only if the Type parameter is set to image or link.
+    shared_ptr<string> URL_ {};
   };
 
   } // namespace Models

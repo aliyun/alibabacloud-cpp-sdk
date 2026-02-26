@@ -44,12 +44,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->croppingSuggestions_ == nullptr
-        && return this->EXIF_ == nullptr && return this->imageHeight_ == nullptr && return this->imageScore_ == nullptr && return this->imageWidth_ == nullptr && return this->OCRContents_ == nullptr; };
+        && this->EXIF_ == nullptr && this->imageHeight_ == nullptr && this->imageScore_ == nullptr && this->imageWidth_ == nullptr && this->OCRContents_ == nullptr; };
     // croppingSuggestions Field Functions 
     bool hasCroppingSuggestions() const { return this->croppingSuggestions_ != nullptr;};
     void deleteCroppingSuggestions() { this->croppingSuggestions_ = nullptr;};
-    inline const vector<CroppingSuggestion> & croppingSuggestions() const { DARABONBA_PTR_GET_CONST(croppingSuggestions_, vector<CroppingSuggestion>) };
-    inline vector<CroppingSuggestion> croppingSuggestions() { DARABONBA_PTR_GET(croppingSuggestions_, vector<CroppingSuggestion>) };
+    inline const vector<CroppingSuggestion> & getCroppingSuggestions() const { DARABONBA_PTR_GET_CONST(croppingSuggestions_, vector<CroppingSuggestion>) };
+    inline vector<CroppingSuggestion> getCroppingSuggestions() { DARABONBA_PTR_GET(croppingSuggestions_, vector<CroppingSuggestion>) };
     inline Image& setCroppingSuggestions(const vector<CroppingSuggestion> & croppingSuggestions) { DARABONBA_PTR_SET_VALUE(croppingSuggestions_, croppingSuggestions) };
     inline Image& setCroppingSuggestions(vector<CroppingSuggestion> && croppingSuggestions) { DARABONBA_PTR_SET_RVALUE(croppingSuggestions_, croppingSuggestions) };
 
@@ -57,22 +57,22 @@ namespace Models
     // EXIF Field Functions 
     bool hasEXIF() const { return this->EXIF_ != nullptr;};
     void deleteEXIF() { this->EXIF_ = nullptr;};
-    inline string EXIF() const { DARABONBA_PTR_GET_DEFAULT(EXIF_, "") };
+    inline string getEXIF() const { DARABONBA_PTR_GET_DEFAULT(EXIF_, "") };
     inline Image& setEXIF(string EXIF) { DARABONBA_PTR_SET_VALUE(EXIF_, EXIF) };
 
 
     // imageHeight Field Functions 
     bool hasImageHeight() const { return this->imageHeight_ != nullptr;};
     void deleteImageHeight() { this->imageHeight_ = nullptr;};
-    inline int64_t imageHeight() const { DARABONBA_PTR_GET_DEFAULT(imageHeight_, 0L) };
+    inline int64_t getImageHeight() const { DARABONBA_PTR_GET_DEFAULT(imageHeight_, 0L) };
     inline Image& setImageHeight(int64_t imageHeight) { DARABONBA_PTR_SET_VALUE(imageHeight_, imageHeight) };
 
 
     // imageScore Field Functions 
     bool hasImageScore() const { return this->imageScore_ != nullptr;};
     void deleteImageScore() { this->imageScore_ = nullptr;};
-    inline const ImageScore & imageScore() const { DARABONBA_PTR_GET_CONST(imageScore_, ImageScore) };
-    inline ImageScore imageScore() { DARABONBA_PTR_GET(imageScore_, ImageScore) };
+    inline const ImageScore & getImageScore() const { DARABONBA_PTR_GET_CONST(imageScore_, ImageScore) };
+    inline ImageScore getImageScore() { DARABONBA_PTR_GET(imageScore_, ImageScore) };
     inline Image& setImageScore(const ImageScore & imageScore) { DARABONBA_PTR_SET_VALUE(imageScore_, imageScore) };
     inline Image& setImageScore(ImageScore && imageScore) { DARABONBA_PTR_SET_RVALUE(imageScore_, imageScore) };
 
@@ -80,26 +80,32 @@ namespace Models
     // imageWidth Field Functions 
     bool hasImageWidth() const { return this->imageWidth_ != nullptr;};
     void deleteImageWidth() { this->imageWidth_ = nullptr;};
-    inline int64_t imageWidth() const { DARABONBA_PTR_GET_DEFAULT(imageWidth_, 0L) };
+    inline int64_t getImageWidth() const { DARABONBA_PTR_GET_DEFAULT(imageWidth_, 0L) };
     inline Image& setImageWidth(int64_t imageWidth) { DARABONBA_PTR_SET_VALUE(imageWidth_, imageWidth) };
 
 
     // OCRContents Field Functions 
     bool hasOCRContents() const { return this->OCRContents_ != nullptr;};
     void deleteOCRContents() { this->OCRContents_ = nullptr;};
-    inline const vector<OCRContents> & OCRContents() const { DARABONBA_PTR_GET_CONST(OCRContents_, vector<OCRContents>) };
-    inline vector<OCRContents> OCRContents() { DARABONBA_PTR_GET(OCRContents_, vector<OCRContents>) };
+    inline const vector<OCRContents> & getOCRContents() const { DARABONBA_PTR_GET_CONST(OCRContents_, vector<OCRContents>) };
+    inline vector<OCRContents> getOCRContents() { DARABONBA_PTR_GET(OCRContents_, vector<OCRContents>) };
     inline Image& setOCRContents(const vector<OCRContents> & OCRContents) { DARABONBA_PTR_SET_VALUE(OCRContents_, OCRContents) };
     inline Image& setOCRContents(vector<OCRContents> && OCRContents) { DARABONBA_PTR_SET_RVALUE(OCRContents_, OCRContents) };
 
 
   protected:
-    std::shared_ptr<vector<CroppingSuggestion>> croppingSuggestions_ = nullptr;
-    std::shared_ptr<string> EXIF_ = nullptr;
-    std::shared_ptr<int64_t> imageHeight_ = nullptr;
-    std::shared_ptr<ImageScore> imageScore_ = nullptr;
-    std::shared_ptr<int64_t> imageWidth_ = nullptr;
-    std::shared_ptr<vector<OCRContents>> OCRContents_ = nullptr;
+    // The image cropping suggestions. This parameter is reserved and not available.
+    shared_ptr<vector<CroppingSuggestion>> croppingSuggestions_ {};
+    // The original EXIF information about the image. The EXIF information is stored in the serialized JSON format. For more information, see [Query image information](https://help.aliyun.com/document_detail/44975.html).
+    shared_ptr<string> EXIF_ {};
+    // The height of the image. Unit: pixels.
+    shared_ptr<int64_t> imageHeight_ {};
+    // The image scoring information.
+    shared_ptr<ImageScore> imageScore_ {};
+    // The width of the image. Unit: pixels.
+    shared_ptr<int64_t> imageWidth_ {};
+    // The results of optical character recognition (OCR). This parameter is reserved and not available.
+    shared_ptr<vector<OCRContents>> OCRContents_ {};
   };
 
   } // namespace Models

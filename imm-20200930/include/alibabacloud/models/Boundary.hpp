@@ -40,26 +40,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->height_ == nullptr
-        && return this->left_ == nullptr && return this->polygon_ == nullptr && return this->top_ == nullptr && return this->width_ == nullptr; };
+        && this->left_ == nullptr && this->polygon_ == nullptr && this->top_ == nullptr && this->width_ == nullptr; };
     // height Field Functions 
     bool hasHeight() const { return this->height_ != nullptr;};
     void deleteHeight() { this->height_ = nullptr;};
-    inline int64_t height() const { DARABONBA_PTR_GET_DEFAULT(height_, 0L) };
+    inline int64_t getHeight() const { DARABONBA_PTR_GET_DEFAULT(height_, 0L) };
     inline Boundary& setHeight(int64_t height) { DARABONBA_PTR_SET_VALUE(height_, height) };
 
 
     // left Field Functions 
     bool hasLeft() const { return this->left_ != nullptr;};
     void deleteLeft() { this->left_ = nullptr;};
-    inline int64_t left() const { DARABONBA_PTR_GET_DEFAULT(left_, 0L) };
+    inline int64_t getLeft() const { DARABONBA_PTR_GET_DEFAULT(left_, 0L) };
     inline Boundary& setLeft(int64_t left) { DARABONBA_PTR_SET_VALUE(left_, left) };
 
 
     // polygon Field Functions 
     bool hasPolygon() const { return this->polygon_ != nullptr;};
     void deletePolygon() { this->polygon_ = nullptr;};
-    inline const vector<PointInt64> & polygon() const { DARABONBA_PTR_GET_CONST(polygon_, vector<PointInt64>) };
-    inline vector<PointInt64> polygon() { DARABONBA_PTR_GET(polygon_, vector<PointInt64>) };
+    inline const vector<PointInt64> & getPolygon() const { DARABONBA_PTR_GET_CONST(polygon_, vector<PointInt64>) };
+    inline vector<PointInt64> getPolygon() { DARABONBA_PTR_GET(polygon_, vector<PointInt64>) };
     inline Boundary& setPolygon(const vector<PointInt64> & polygon) { DARABONBA_PTR_SET_VALUE(polygon_, polygon) };
     inline Boundary& setPolygon(vector<PointInt64> && polygon) { DARABONBA_PTR_SET_RVALUE(polygon_, polygon) };
 
@@ -67,23 +67,30 @@ namespace Models
     // top Field Functions 
     bool hasTop() const { return this->top_ != nullptr;};
     void deleteTop() { this->top_ = nullptr;};
-    inline int64_t top() const { DARABONBA_PTR_GET_DEFAULT(top_, 0L) };
+    inline int64_t getTop() const { DARABONBA_PTR_GET_DEFAULT(top_, 0L) };
     inline Boundary& setTop(int64_t top) { DARABONBA_PTR_SET_VALUE(top_, top) };
 
 
     // width Field Functions 
     bool hasWidth() const { return this->width_ != nullptr;};
     void deleteWidth() { this->width_ = nullptr;};
-    inline int64_t width() const { DARABONBA_PTR_GET_DEFAULT(width_, 0L) };
+    inline int64_t getWidth() const { DARABONBA_PTR_GET_DEFAULT(width_, 0L) };
     inline Boundary& setWidth(int64_t width) { DARABONBA_PTR_SET_VALUE(width_, width) };
 
 
   protected:
-    std::shared_ptr<int64_t> height_ = nullptr;
-    std::shared_ptr<int64_t> left_ = nullptr;
-    std::shared_ptr<vector<PointInt64>> polygon_ = nullptr;
-    std::shared_ptr<int64_t> top_ = nullptr;
-    std::shared_ptr<int64_t> width_ = nullptr;
+    // The height. Unit: pixel.
+    shared_ptr<int64_t> height_ {};
+    // The distance from the X-coordinate of the vertex to the left edge.
+    shared_ptr<int64_t> left_ {};
+    // The polygon formed by a number of points. This parameter takes effect only when the boundary describes a polygon rather than a rectangle.
+    // 
+    // >  This parameter is mutually exclusive to the following parameters that form a rectangle: Width, Height, Left, and Top. A boundary describes only a rectangle or a polygon.
+    shared_ptr<vector<PointInt64>> polygon_ {};
+    // The distance from the Y-coordinate of the vertex to the top.
+    shared_ptr<int64_t> top_ {};
+    // The width. Unit: pixel.
+    shared_ptr<int64_t> width_ {};
   };
 
   } // namespace Models

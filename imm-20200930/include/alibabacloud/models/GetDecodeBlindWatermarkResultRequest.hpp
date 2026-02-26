@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->projectName_ == nullptr
-        && return this->taskId_ == nullptr && return this->taskType_ == nullptr; };
+        && this->taskId_ == nullptr && this->taskType_ == nullptr; };
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline GetDecodeBlindWatermarkResultRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline GetDecodeBlindWatermarkResultRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline GetDecodeBlindWatermarkResultRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
@@ -60,17 +60,17 @@ namespace Models
     // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The ID of the task. You can obtain the ID of the task from the response of the CreateDecodeBlindWatermarkTask operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
     // The type of the task.
     // 
     // *   Set the value to DecodeBlindWatermark.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskType_ = nullptr;
+    shared_ptr<string> taskType_ {};
   };
 
   } // namespace Models

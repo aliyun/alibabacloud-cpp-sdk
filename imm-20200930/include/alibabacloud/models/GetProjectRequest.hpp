@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->projectName_ == nullptr
-        && return this->withStatistics_ == nullptr; };
+        && this->withStatistics_ == nullptr; };
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline GetProjectRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // withStatistics Field Functions 
     bool hasWithStatistics() const { return this->withStatistics_ != nullptr;};
     void deleteWithStatistics() { this->withStatistics_ = nullptr;};
-    inline bool withStatistics() const { DARABONBA_PTR_GET_DEFAULT(withStatistics_, false) };
+    inline bool getWithStatistics() const { DARABONBA_PTR_GET_DEFAULT(withStatistics_, false) };
     inline GetProjectRequest& setWithStatistics(bool withStatistics) { DARABONBA_PTR_SET_VALUE(withStatistics_, withStatistics) };
 
 
@@ -51,12 +51,12 @@ namespace Models
     // The name of the project. You can obtain the name from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // Specifies whether to enable real-time retrieval of file statistics. Default value: false.
     // 
     // *   If you set the value to true, the returned values of FileCount and TotalFileSize in the response are valid.
     // *   If you set the value to false, the returned values of FileCount and TotalFileSize in the response are invalid or equal to 0.
-    std::shared_ptr<bool> withStatistics_ = nullptr;
+    shared_ptr<bool> withStatistics_ {};
   };
 
   } // namespace Models

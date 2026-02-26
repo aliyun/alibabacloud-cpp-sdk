@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chain_ == nullptr
-        && return this->policy_ == nullptr; };
+        && this->policy_ == nullptr; };
     // chain Field Functions 
     bool hasChain() const { return this->chain_ != nullptr;};
     void deleteChain() { this->chain_ = nullptr;};
-    inline const vector<AssumeRoleChainNode> & chain() const { DARABONBA_PTR_GET_CONST(chain_, vector<AssumeRoleChainNode>) };
-    inline vector<AssumeRoleChainNode> chain() { DARABONBA_PTR_GET(chain_, vector<AssumeRoleChainNode>) };
+    inline const vector<AssumeRoleChainNode> & getChain() const { DARABONBA_PTR_GET_CONST(chain_, vector<AssumeRoleChainNode>) };
+    inline vector<AssumeRoleChainNode> getChain() { DARABONBA_PTR_GET(chain_, vector<AssumeRoleChainNode>) };
     inline AssumeRoleChain& setChain(const vector<AssumeRoleChainNode> & chain) { DARABONBA_PTR_SET_VALUE(chain_, chain) };
     inline AssumeRoleChain& setChain(vector<AssumeRoleChainNode> && chain) { DARABONBA_PTR_SET_RVALUE(chain_, chain) };
 
@@ -47,13 +47,15 @@ namespace Models
     // policy Field Functions 
     bool hasPolicy() const { return this->policy_ != nullptr;};
     void deletePolicy() { this->policy_ = nullptr;};
-    inline string policy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
+    inline string getPolicy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
     inline AssumeRoleChain& setPolicy(string policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
 
 
   protected:
-    std::shared_ptr<vector<AssumeRoleChainNode>> chain_ = nullptr;
-    std::shared_ptr<string> policy_ = nullptr;
+    // The authorization chains.
+    shared_ptr<vector<AssumeRoleChainNode>> chain_ {};
+    // The policy.
+    shared_ptr<string> policy_ {};
   };
 
   } // namespace Models

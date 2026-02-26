@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->batches_ == nullptr
-        && return this->nextToken_ == nullptr && return this->requestId_ == nullptr; };
+        && this->nextToken_ == nullptr && this->requestId_ == nullptr; };
     // batches Field Functions 
     bool hasBatches() const { return this->batches_ != nullptr;};
     void deleteBatches() { this->batches_ = nullptr;};
-    inline const vector<DataIngestion> & batches() const { DARABONBA_PTR_GET_CONST(batches_, vector<DataIngestion>) };
-    inline vector<DataIngestion> batches() { DARABONBA_PTR_GET(batches_, vector<DataIngestion>) };
+    inline const vector<DataIngestion> & getBatches() const { DARABONBA_PTR_GET_CONST(batches_, vector<DataIngestion>) };
+    inline vector<DataIngestion> getBatches() { DARABONBA_PTR_GET(batches_, vector<DataIngestion>) };
     inline ListBatchesResponseBody& setBatches(const vector<DataIngestion> & batches) { DARABONBA_PTR_SET_VALUE(batches_, batches) };
     inline ListBatchesResponseBody& setBatches(vector<DataIngestion> && batches) { DARABONBA_PTR_SET_RVALUE(batches_, batches) };
 
@@ -49,26 +49,26 @@ namespace Models
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListBatchesResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListBatchesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The batch processing tasks.
-    std::shared_ptr<vector<DataIngestion>> batches_ = nullptr;
+    shared_ptr<vector<DataIngestion>> batches_ {};
     // The pagination token.
     // 
     // The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter. The next call to the operation returns results lexicographically after the NextToken parameter value.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

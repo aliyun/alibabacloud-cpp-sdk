@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->similarity_ == nullptr; };
+        && this->similarity_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CompareImageFacesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // similarity Field Functions 
     bool hasSimilarity() const { return this->similarity_ != nullptr;};
     void deleteSimilarity() { this->similarity_ = nullptr;};
-    inline float similarity() const { DARABONBA_PTR_GET_DEFAULT(similarity_, 0.0) };
+    inline float getSimilarity() const { DARABONBA_PTR_GET_DEFAULT(similarity_, 0.0) };
     inline CompareImageFacesResponseBody& setSimilarity(float similarity) { DARABONBA_PTR_SET_VALUE(similarity_, similarity) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The face similarity. A larger value indicates a higher face similarity. Valid values: 0 to 1.
-    std::shared_ptr<float> similarity_ = nullptr;
+    shared_ptr<float> similarity_ {};
   };
 
   } // namespace Models

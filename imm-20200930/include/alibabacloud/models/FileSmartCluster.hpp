@@ -32,24 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->similarity_ == nullptr
-        && return this->smartClusterId_ == nullptr; };
+        && this->smartClusterId_ == nullptr; };
     // similarity Field Functions 
     bool hasSimilarity() const { return this->similarity_ != nullptr;};
     void deleteSimilarity() { this->similarity_ = nullptr;};
-    inline float similarity() const { DARABONBA_PTR_GET_DEFAULT(similarity_, 0.0) };
+    inline float getSimilarity() const { DARABONBA_PTR_GET_DEFAULT(similarity_, 0.0) };
     inline FileSmartCluster& setSimilarity(float similarity) { DARABONBA_PTR_SET_VALUE(similarity_, similarity) };
 
 
     // smartClusterId Field Functions 
     bool hasSmartClusterId() const { return this->smartClusterId_ != nullptr;};
     void deleteSmartClusterId() { this->smartClusterId_ = nullptr;};
-    inline string smartClusterId() const { DARABONBA_PTR_GET_DEFAULT(smartClusterId_, "") };
+    inline string getSmartClusterId() const { DARABONBA_PTR_GET_DEFAULT(smartClusterId_, "") };
     inline FileSmartCluster& setSmartClusterId(string smartClusterId) { DARABONBA_PTR_SET_VALUE(smartClusterId_, smartClusterId) };
 
 
   protected:
-    std::shared_ptr<float> similarity_ = nullptr;
-    std::shared_ptr<string> smartClusterId_ = nullptr;
+    // Similarity
+    shared_ptr<float> similarity_ {};
+    // SmartClusterId
+    shared_ptr<string> smartClusterId_ {};
   };
 
   } // namespace Models

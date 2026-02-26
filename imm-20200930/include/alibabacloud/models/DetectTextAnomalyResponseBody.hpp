@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->suggestion_ == nullptr; };
+        && this->suggestion_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DetectTextAnomalyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // suggestion Field Functions 
     bool hasSuggestion() const { return this->suggestion_ != nullptr;};
     void deleteSuggestion() { this->suggestion_ = nullptr;};
-    inline string suggestion() const { DARABONBA_PTR_GET_DEFAULT(suggestion_, "") };
+    inline string getSuggestion() const { DARABONBA_PTR_GET_DEFAULT(suggestion_, "") };
     inline DetectTextAnomalyResponseBody& setSuggestion(string suggestion) { DARABONBA_PTR_SET_VALUE(suggestion_, suggestion) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the text contains anomalies. Valid values:
     // 
     // *   pass: the text does not contain anomalies.
     // *   block: the text contains anomalies.
-    std::shared_ptr<string> suggestion_ = nullptr;
+    shared_ptr<string> suggestion_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->project_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // project Field Functions 
     bool hasProject() const { return this->project_ != nullptr;};
     void deleteProject() { this->project_ = nullptr;};
-    inline const Project & project() const { DARABONBA_PTR_GET_CONST(project_, Project) };
-    inline Project project() { DARABONBA_PTR_GET(project_, Project) };
+    inline const Project & getProject() const { DARABONBA_PTR_GET_CONST(project_, Project) };
+    inline Project getProject() { DARABONBA_PTR_GET(project_, Project) };
     inline UpdateProjectResponseBody& setProject(const Project & project) { DARABONBA_PTR_SET_VALUE(project_, project) };
     inline UpdateProjectResponseBody& setProject(Project && project) { DARABONBA_PTR_SET_RVALUE(project_, project) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UpdateProjectResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The project.
-    std::shared_ptr<Project> project_ = nullptr;
+    shared_ptr<Project> project_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

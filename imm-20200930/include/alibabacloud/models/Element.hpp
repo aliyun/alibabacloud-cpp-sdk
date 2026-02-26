@@ -41,12 +41,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->elementContents_ == nullptr
-        && return this->elementRelations_ == nullptr && return this->elementType_ == nullptr && return this->objectId_ == nullptr && return this->semanticSimilarity_ == nullptr; };
+        && this->elementRelations_ == nullptr && this->elementType_ == nullptr && this->objectId_ == nullptr && this->semanticSimilarity_ == nullptr; };
     // elementContents Field Functions 
     bool hasElementContents() const { return this->elementContents_ != nullptr;};
     void deleteElementContents() { this->elementContents_ = nullptr;};
-    inline const vector<ElementContent> & elementContents() const { DARABONBA_PTR_GET_CONST(elementContents_, vector<ElementContent>) };
-    inline vector<ElementContent> elementContents() { DARABONBA_PTR_GET(elementContents_, vector<ElementContent>) };
+    inline const vector<ElementContent> & getElementContents() const { DARABONBA_PTR_GET_CONST(elementContents_, vector<ElementContent>) };
+    inline vector<ElementContent> getElementContents() { DARABONBA_PTR_GET(elementContents_, vector<ElementContent>) };
     inline Element& setElementContents(const vector<ElementContent> & elementContents) { DARABONBA_PTR_SET_VALUE(elementContents_, elementContents) };
     inline Element& setElementContents(vector<ElementContent> && elementContents) { DARABONBA_PTR_SET_RVALUE(elementContents_, elementContents) };
 
@@ -54,8 +54,8 @@ namespace Models
     // elementRelations Field Functions 
     bool hasElementRelations() const { return this->elementRelations_ != nullptr;};
     void deleteElementRelations() { this->elementRelations_ = nullptr;};
-    inline const vector<ElementRelation> & elementRelations() const { DARABONBA_PTR_GET_CONST(elementRelations_, vector<ElementRelation>) };
-    inline vector<ElementRelation> elementRelations() { DARABONBA_PTR_GET(elementRelations_, vector<ElementRelation>) };
+    inline const vector<ElementRelation> & getElementRelations() const { DARABONBA_PTR_GET_CONST(elementRelations_, vector<ElementRelation>) };
+    inline vector<ElementRelation> getElementRelations() { DARABONBA_PTR_GET(elementRelations_, vector<ElementRelation>) };
     inline Element& setElementRelations(const vector<ElementRelation> & elementRelations) { DARABONBA_PTR_SET_VALUE(elementRelations_, elementRelations) };
     inline Element& setElementRelations(vector<ElementRelation> && elementRelations) { DARABONBA_PTR_SET_RVALUE(elementRelations_, elementRelations) };
 
@@ -63,30 +63,35 @@ namespace Models
     // elementType Field Functions 
     bool hasElementType() const { return this->elementType_ != nullptr;};
     void deleteElementType() { this->elementType_ = nullptr;};
-    inline string elementType() const { DARABONBA_PTR_GET_DEFAULT(elementType_, "") };
+    inline string getElementType() const { DARABONBA_PTR_GET_DEFAULT(elementType_, "") };
     inline Element& setElementType(string elementType) { DARABONBA_PTR_SET_VALUE(elementType_, elementType) };
 
 
     // objectId Field Functions 
     bool hasObjectId() const { return this->objectId_ != nullptr;};
     void deleteObjectId() { this->objectId_ = nullptr;};
-    inline string objectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
+    inline string getObjectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
     inline Element& setObjectId(string objectId) { DARABONBA_PTR_SET_VALUE(objectId_, objectId) };
 
 
     // semanticSimilarity Field Functions 
     bool hasSemanticSimilarity() const { return this->semanticSimilarity_ != nullptr;};
     void deleteSemanticSimilarity() { this->semanticSimilarity_ = nullptr;};
-    inline float semanticSimilarity() const { DARABONBA_PTR_GET_DEFAULT(semanticSimilarity_, 0.0) };
+    inline float getSemanticSimilarity() const { DARABONBA_PTR_GET_DEFAULT(semanticSimilarity_, 0.0) };
     inline Element& setSemanticSimilarity(float semanticSimilarity) { DARABONBA_PTR_SET_VALUE(semanticSimilarity_, semanticSimilarity) };
 
 
   protected:
-    std::shared_ptr<vector<ElementContent>> elementContents_ = nullptr;
-    std::shared_ptr<vector<ElementRelation>> elementRelations_ = nullptr;
-    std::shared_ptr<string> elementType_ = nullptr;
-    std::shared_ptr<string> objectId_ = nullptr;
-    std::shared_ptr<float> semanticSimilarity_ = nullptr;
+    // The element contents.
+    shared_ptr<vector<ElementContent>> elementContents_ {};
+    // The relationships between the current element and other elements.
+    shared_ptr<vector<ElementRelation>> elementRelations_ {};
+    // The element type.
+    shared_ptr<string> elementType_ {};
+    // The unique ID of the element.
+    shared_ptr<string> objectId_ {};
+    // The similarity between the current file and its extracted semantics.
+    shared_ptr<float> semanticSimilarity_ {};
   };
 
   } // namespace Models

@@ -40,56 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->CPU_ == nullptr
-        && return this->ECSInstance_ == nullptr && return this->GPUModel_ == nullptr && return this->GPUNum_ == nullptr && return this->name_ == nullptr && return this->RAM_ == nullptr; };
+        && this->ECSInstance_ == nullptr && this->GPUModel_ == nullptr && this->GPUNum_ == nullptr && this->name_ == nullptr && this->RAM_ == nullptr; };
     // CPU Field Functions 
     bool hasCPU() const { return this->CPU_ != nullptr;};
     void deleteCPU() { this->CPU_ = nullptr;};
-    inline int64_t CPU() const { DARABONBA_PTR_GET_DEFAULT(CPU_, 0L) };
+    inline int64_t getCPU() const { DARABONBA_PTR_GET_DEFAULT(CPU_, 0L) };
     inline Resource& setCPU(int64_t CPU) { DARABONBA_PTR_SET_VALUE(CPU_, CPU) };
 
 
     // ECSInstance Field Functions 
     bool hasECSInstance() const { return this->ECSInstance_ != nullptr;};
     void deleteECSInstance() { this->ECSInstance_ = nullptr;};
-    inline string ECSInstance() const { DARABONBA_PTR_GET_DEFAULT(ECSInstance_, "") };
+    inline string getECSInstance() const { DARABONBA_PTR_GET_DEFAULT(ECSInstance_, "") };
     inline Resource& setECSInstance(string ECSInstance) { DARABONBA_PTR_SET_VALUE(ECSInstance_, ECSInstance) };
 
 
     // GPUModel Field Functions 
     bool hasGPUModel() const { return this->GPUModel_ != nullptr;};
     void deleteGPUModel() { this->GPUModel_ = nullptr;};
-    inline string GPUModel() const { DARABONBA_PTR_GET_DEFAULT(GPUModel_, "") };
+    inline string getGPUModel() const { DARABONBA_PTR_GET_DEFAULT(GPUModel_, "") };
     inline Resource& setGPUModel(string GPUModel) { DARABONBA_PTR_SET_VALUE(GPUModel_, GPUModel) };
 
 
     // GPUNum Field Functions 
     bool hasGPUNum() const { return this->GPUNum_ != nullptr;};
     void deleteGPUNum() { this->GPUNum_ = nullptr;};
-    inline int64_t GPUNum() const { DARABONBA_PTR_GET_DEFAULT(GPUNum_, 0L) };
+    inline int64_t getGPUNum() const { DARABONBA_PTR_GET_DEFAULT(GPUNum_, 0L) };
     inline Resource& setGPUNum(int64_t GPUNum) { DARABONBA_PTR_SET_VALUE(GPUNum_, GPUNum) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline Resource& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // RAM Field Functions 
     bool hasRAM() const { return this->RAM_ != nullptr;};
     void deleteRAM() { this->RAM_ = nullptr;};
-    inline int64_t RAM() const { DARABONBA_PTR_GET_DEFAULT(RAM_, 0L) };
+    inline int64_t getRAM() const { DARABONBA_PTR_GET_DEFAULT(RAM_, 0L) };
     inline Resource& setRAM(int64_t RAM) { DARABONBA_PTR_SET_VALUE(RAM_, RAM) };
 
 
   protected:
-    std::shared_ptr<int64_t> CPU_ = nullptr;
-    std::shared_ptr<string> ECSInstance_ = nullptr;
-    std::shared_ptr<string> GPUModel_ = nullptr;
-    std::shared_ptr<int64_t> GPUNum_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<int64_t> RAM_ = nullptr;
+    // The number of CPU cores. Valid values: 4 to 96.
+    shared_ptr<int64_t> CPU_ {};
+    // The Elastic Compute Service (ECS) instance.
+    shared_ptr<string> ECSInstance_ {};
+    // The GPU.
+    shared_ptr<string> GPUModel_ {};
+    // The number of GPUs.
+    shared_ptr<int64_t> GPUNum_ {};
+    // The displayed name of the resource.
+    shared_ptr<string> name_ {};
+    // The RAM size. Unit: GB. Valid values: 30 to 736.
+    shared_ptr<int64_t> RAM_ {};
   };
 
   } // namespace Models

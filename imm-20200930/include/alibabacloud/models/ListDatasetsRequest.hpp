@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr && return this->prefix_ == nullptr && return this->projectName_ == nullptr; };
+        && this->nextToken_ == nullptr && this->prefix_ == nullptr && this->projectName_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int64_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
+    inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline ListDatasetsRequest& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListDatasetsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // prefix Field Functions 
     bool hasPrefix() const { return this->prefix_ != nullptr;};
     void deletePrefix() { this->prefix_ = nullptr;};
-    inline string prefix() const { DARABONBA_PTR_GET_DEFAULT(prefix_, "") };
+    inline string getPrefix() const { DARABONBA_PTR_GET_DEFAULT(prefix_, "") };
     inline ListDatasetsRequest& setPrefix(string prefix) { DARABONBA_PTR_SET_VALUE(prefix_, prefix) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline ListDatasetsRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The maximum number of datasets to return. Valid values: 0 to 200.
     // 
     // If this parameter is left empty or set to 0, 100 datasets are returned.
-    std::shared_ptr<int64_t> maxResults_ = nullptr;
+    shared_ptr<int64_t> maxResults_ {};
     // The pagination token.
     // 
     // If the total number of datasets is greater than the value of MaxResults, you must specify this parameter. The list is returned in lexicographic order starting from the value of NextToken.
     // 
     // >  The first time you call this operation in a query, set this parameter to null.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The dataset prefix.
-    std::shared_ptr<string> prefix_ = nullptr;
+    shared_ptr<string> prefix_ {};
     // The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
   };
 
   } // namespace Models

@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->story_ == nullptr; };
+        && this->story_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetStoryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // story Field Functions 
     bool hasStory() const { return this->story_ != nullptr;};
     void deleteStory() { this->story_ = nullptr;};
-    inline const Story & story() const { DARABONBA_PTR_GET_CONST(story_, Story) };
-    inline Story story() { DARABONBA_PTR_GET(story_, Story) };
+    inline const Story & getStory() const { DARABONBA_PTR_GET_CONST(story_, Story) };
+    inline Story getStory() { DARABONBA_PTR_GET(story_, Story) };
     inline GetStoryResponseBody& setStory(const Story & story) { DARABONBA_PTR_SET_VALUE(story_, story) };
     inline GetStoryResponseBody& setStory(Story && story) { DARABONBA_PTR_SET_RVALUE(story_, story) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The information about the story.
-    std::shared_ptr<Story> story_ = nullptr;
+    shared_ptr<Story> story_ {};
   };
 
   } // namespace Models

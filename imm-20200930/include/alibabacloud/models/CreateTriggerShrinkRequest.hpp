@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionsShrink_ == nullptr
-        && return this->inputShrink_ == nullptr && return this->notificationShrink_ == nullptr && return this->projectName_ == nullptr && return this->serviceRole_ == nullptr && return this->tagsShrink_ == nullptr; };
+        && this->inputShrink_ == nullptr && this->notificationShrink_ == nullptr && this->projectName_ == nullptr && this->serviceRole_ == nullptr && this->tagsShrink_ == nullptr; };
     // actionsShrink Field Functions 
     bool hasActionsShrink() const { return this->actionsShrink_ != nullptr;};
     void deleteActionsShrink() { this->actionsShrink_ = nullptr;};
-    inline string actionsShrink() const { DARABONBA_PTR_GET_DEFAULT(actionsShrink_, "") };
+    inline string getActionsShrink() const { DARABONBA_PTR_GET_DEFAULT(actionsShrink_, "") };
     inline CreateTriggerShrinkRequest& setActionsShrink(string actionsShrink) { DARABONBA_PTR_SET_VALUE(actionsShrink_, actionsShrink) };
 
 
     // inputShrink Field Functions 
     bool hasInputShrink() const { return this->inputShrink_ != nullptr;};
     void deleteInputShrink() { this->inputShrink_ = nullptr;};
-    inline string inputShrink() const { DARABONBA_PTR_GET_DEFAULT(inputShrink_, "") };
+    inline string getInputShrink() const { DARABONBA_PTR_GET_DEFAULT(inputShrink_, "") };
     inline CreateTriggerShrinkRequest& setInputShrink(string inputShrink) { DARABONBA_PTR_SET_VALUE(inputShrink_, inputShrink) };
 
 
     // notificationShrink Field Functions 
     bool hasNotificationShrink() const { return this->notificationShrink_ != nullptr;};
     void deleteNotificationShrink() { this->notificationShrink_ = nullptr;};
-    inline string notificationShrink() const { DARABONBA_PTR_GET_DEFAULT(notificationShrink_, "") };
+    inline string getNotificationShrink() const { DARABONBA_PTR_GET_DEFAULT(notificationShrink_, "") };
     inline CreateTriggerShrinkRequest& setNotificationShrink(string notificationShrink) { DARABONBA_PTR_SET_VALUE(notificationShrink_, notificationShrink) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline CreateTriggerShrinkRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // serviceRole Field Functions 
     bool hasServiceRole() const { return this->serviceRole_ != nullptr;};
     void deleteServiceRole() { this->serviceRole_ = nullptr;};
-    inline string serviceRole() const { DARABONBA_PTR_GET_DEFAULT(serviceRole_, "") };
+    inline string getServiceRole() const { DARABONBA_PTR_GET_DEFAULT(serviceRole_, "") };
     inline CreateTriggerShrinkRequest& setServiceRole(string serviceRole) { DARABONBA_PTR_SET_VALUE(serviceRole_, serviceRole) };
 
 
     // tagsShrink Field Functions 
     bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
     void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
-    inline string tagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
+    inline string getTagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
     inline CreateTriggerShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
 
 
@@ -87,27 +87,27 @@ namespace Models
     // The templates.
     // 
     // This parameter is required.
-    std::shared_ptr<string> actionsShrink_ = nullptr;
+    shared_ptr<string> actionsShrink_ {};
     // The data source configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<string> inputShrink_ = nullptr;
+    shared_ptr<string> inputShrink_ {};
     // The notification settings. The operation supports multiple messaging middleware options. For more information about notification messages, see Asynchronous message examples. You can use one of the following methods to receive notification messages:
     // 
     // In the region in which the IMM project is located, use EventBridge to receive task notifications. For more information, see IMM events. In the region in which the IMM project is located, configure a Simple Message Queue (SMQ) subscription to receive task notifications.
-    std::shared_ptr<string> notificationShrink_ = nullptr;
+    shared_ptr<string> notificationShrink_ {};
     // The name of the project.[](~~478153~~)
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The service role. IMM assumes the service role so that it can access resources in other cloud services, such as OSS. Default value: AliyunIMMBatchTriggerRole.
     // 
     // You can also create a custom service role in the RAM console and grant the required permissions to the role based on your business requirements. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a role](https://help.aliyun.com/document_detail/116147.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceRole_ = nullptr;
+    shared_ptr<string> serviceRole_ {};
     // The custom tags. You can search for or filter asynchronous tasks by custom tag.
-    std::shared_ptr<string> tagsShrink_ = nullptr;
+    shared_ptr<string> tagsShrink_ {};
   };
 
   } // namespace Models

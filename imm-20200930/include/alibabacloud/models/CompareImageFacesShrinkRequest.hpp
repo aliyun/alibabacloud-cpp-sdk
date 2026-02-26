@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialConfigShrink_ == nullptr
-        && return this->projectName_ == nullptr && return this->sourceShrink_ == nullptr; };
+        && this->projectName_ == nullptr && this->sourceShrink_ == nullptr; };
     // credentialConfigShrink Field Functions 
     bool hasCredentialConfigShrink() const { return this->credentialConfigShrink_ != nullptr;};
     void deleteCredentialConfigShrink() { this->credentialConfigShrink_ = nullptr;};
-    inline string credentialConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(credentialConfigShrink_, "") };
+    inline string getCredentialConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(credentialConfigShrink_, "") };
     inline CompareImageFacesShrinkRequest& setCredentialConfigShrink(string credentialConfigShrink) { DARABONBA_PTR_SET_VALUE(credentialConfigShrink_, credentialConfigShrink) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline CompareImageFacesShrinkRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // sourceShrink Field Functions 
     bool hasSourceShrink() const { return this->sourceShrink_ != nullptr;};
     void deleteSourceShrink() { this->sourceShrink_ = nullptr;};
-    inline string sourceShrink() const { DARABONBA_PTR_GET_DEFAULT(sourceShrink_, "") };
+    inline string getSourceShrink() const { DARABONBA_PTR_GET_DEFAULT(sourceShrink_, "") };
     inline CompareImageFacesShrinkRequest& setSourceShrink(string sourceShrink) { DARABONBA_PTR_SET_VALUE(sourceShrink_, sourceShrink) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // **If you have no special requirements, leave this parameter empty.**
     // 
     // The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
-    std::shared_ptr<string> credentialConfigShrink_ = nullptr;
+    shared_ptr<string> credentialConfigShrink_ {};
     // The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The URLs of the two images for compression.
-    std::shared_ptr<string> sourceShrink_ = nullptr;
+    shared_ptr<string> sourceShrink_ {};
   };
 
   } // namespace Models

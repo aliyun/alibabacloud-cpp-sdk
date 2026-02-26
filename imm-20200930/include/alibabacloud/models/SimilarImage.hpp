@@ -32,24 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageScore_ == nullptr
-        && return this->URI_ == nullptr; };
+        && this->URI_ == nullptr; };
     // imageScore Field Functions 
     bool hasImageScore() const { return this->imageScore_ != nullptr;};
     void deleteImageScore() { this->imageScore_ = nullptr;};
-    inline double imageScore() const { DARABONBA_PTR_GET_DEFAULT(imageScore_, 0.0) };
+    inline double getImageScore() const { DARABONBA_PTR_GET_DEFAULT(imageScore_, 0.0) };
     inline SimilarImage& setImageScore(double imageScore) { DARABONBA_PTR_SET_VALUE(imageScore_, imageScore) };
 
 
     // URI Field Functions 
     bool hasURI() const { return this->URI_ != nullptr;};
     void deleteURI() { this->URI_ = nullptr;};
-    inline string URI() const { DARABONBA_PTR_GET_DEFAULT(URI_, "") };
+    inline string getURI() const { DARABONBA_PTR_GET_DEFAULT(URI_, "") };
     inline SimilarImage& setURI(string URI) { DARABONBA_PTR_SET_VALUE(URI_, URI) };
 
 
   protected:
-    std::shared_ptr<double> imageScore_ = nullptr;
-    std::shared_ptr<string> URI_ = nullptr;
+    // The aesthetic score.
+    shared_ptr<double> imageScore_ {};
+    // The URI of the image.
+    shared_ptr<string> URI_ {};
   };
 
   } // namespace Models

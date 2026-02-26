@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessToken_ == nullptr
-        && return this->credentialConfigShrink_ == nullptr && return this->projectName_ == nullptr && return this->refreshToken_ == nullptr; };
+        && this->credentialConfigShrink_ == nullptr && this->projectName_ == nullptr && this->refreshToken_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};
-    inline string accessToken() const { DARABONBA_PTR_GET_DEFAULT(accessToken_, "") };
+    inline string getAccessToken() const { DARABONBA_PTR_GET_DEFAULT(accessToken_, "") };
     inline RefreshWebofficeTokenShrinkRequest& setAccessToken(string accessToken) { DARABONBA_PTR_SET_VALUE(accessToken_, accessToken) };
 
 
     // credentialConfigShrink Field Functions 
     bool hasCredentialConfigShrink() const { return this->credentialConfigShrink_ != nullptr;};
     void deleteCredentialConfigShrink() { this->credentialConfigShrink_ = nullptr;};
-    inline string credentialConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(credentialConfigShrink_, "") };
+    inline string getCredentialConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(credentialConfigShrink_, "") };
     inline RefreshWebofficeTokenShrinkRequest& setCredentialConfigShrink(string credentialConfigShrink) { DARABONBA_PTR_SET_VALUE(credentialConfigShrink_, credentialConfigShrink) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline RefreshWebofficeTokenShrinkRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // refreshToken Field Functions 
     bool hasRefreshToken() const { return this->refreshToken_ != nullptr;};
     void deleteRefreshToken() { this->refreshToken_ = nullptr;};
-    inline string refreshToken() const { DARABONBA_PTR_GET_DEFAULT(refreshToken_, "") };
+    inline string getRefreshToken() const { DARABONBA_PTR_GET_DEFAULT(refreshToken_, "") };
     inline RefreshWebofficeTokenShrinkRequest& setRefreshToken(string refreshToken) { DARABONBA_PTR_SET_VALUE(refreshToken_, refreshToken) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // Weboffice access token. Obtain it through the [GenerateWebofficeToken](https://help.aliyun.com/document_detail/478226.html) or [RefreshWebofficeToken](https://help.aliyun.com/document_detail/478227.html) interfaces.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accessToken_ = nullptr;
+    shared_ptr<string> accessToken_ {};
     // **If there are no special requirements, leave it blank.**
     // 
     // Chained authorization configuration, optional. For more information, see [Access Other Entity Resources Using Chained Authorization](https://help.aliyun.com/document_detail/465340.html).
-    std::shared_ptr<string> credentialConfigShrink_ = nullptr;
+    shared_ptr<string> credentialConfigShrink_ {};
     // Project name. For more information on how to obtain it, see [Create Project](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // Weboffice refresh token. Obtain it through the [GenerateWebofficeToken](https://help.aliyun.com/document_detail/478226.html) or [RefreshWebofficeToken](https://help.aliyun.com/document_detail/478227.html) interfaces.
     // 
     // This parameter is required.
-    std::shared_ptr<string> refreshToken_ = nullptr;
+    shared_ptr<string> refreshToken_ {};
   };
 
   } // namespace Models

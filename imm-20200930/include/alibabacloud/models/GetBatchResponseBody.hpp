@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->batch_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // batch Field Functions 
     bool hasBatch() const { return this->batch_ != nullptr;};
     void deleteBatch() { this->batch_ = nullptr;};
-    inline const DataIngestion & batch() const { DARABONBA_PTR_GET_CONST(batch_, DataIngestion) };
-    inline DataIngestion batch() { DARABONBA_PTR_GET(batch_, DataIngestion) };
+    inline const DataIngestion & getBatch() const { DARABONBA_PTR_GET_CONST(batch_, DataIngestion) };
+    inline DataIngestion getBatch() { DARABONBA_PTR_GET(batch_, DataIngestion) };
     inline GetBatchResponseBody& setBatch(const DataIngestion & batch) { DARABONBA_PTR_SET_VALUE(batch_, batch) };
     inline GetBatchResponseBody& setBatch(DataIngestion && batch) { DARABONBA_PTR_SET_RVALUE(batch_, batch) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetBatchResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The information about the batch processing task.
-    std::shared_ptr<DataIngestion> batch_ = nullptr;
+    shared_ptr<DataIngestion> batch_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

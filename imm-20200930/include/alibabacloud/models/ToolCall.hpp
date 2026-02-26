@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->function_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->type_ == nullptr; };
     // function Field Functions 
     bool hasFunction() const { return this->function_ != nullptr;};
     void deleteFunction() { this->function_ = nullptr;};
-    inline const FunctionCall & function() const { DARABONBA_PTR_GET_CONST(function_, FunctionCall) };
-    inline FunctionCall function() { DARABONBA_PTR_GET(function_, FunctionCall) };
+    inline const FunctionCall & getFunction() const { DARABONBA_PTR_GET_CONST(function_, FunctionCall) };
+    inline FunctionCall getFunction() { DARABONBA_PTR_GET(function_, FunctionCall) };
     inline ToolCall& setFunction(const FunctionCall & function) { DARABONBA_PTR_SET_VALUE(function_, function) };
     inline ToolCall& setFunction(FunctionCall && function) { DARABONBA_PTR_SET_RVALUE(function_, function) };
 
@@ -46,13 +46,15 @@ namespace Models
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ToolCall& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<FunctionCall> function_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    // The definition of the function that can be called by the AI assistant.
+    shared_ptr<FunctionCall> function_ {};
+    // The type of the tool.
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

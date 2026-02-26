@@ -34,32 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pitch_ == nullptr
-        && return this->roll_ == nullptr && return this->yaw_ == nullptr; };
+        && this->roll_ == nullptr && this->yaw_ == nullptr; };
     // pitch Field Functions 
     bool hasPitch() const { return this->pitch_ != nullptr;};
     void deletePitch() { this->pitch_ = nullptr;};
-    inline float pitch() const { DARABONBA_PTR_GET_DEFAULT(pitch_, 0.0) };
+    inline float getPitch() const { DARABONBA_PTR_GET_DEFAULT(pitch_, 0.0) };
     inline HeadPose& setPitch(float pitch) { DARABONBA_PTR_SET_VALUE(pitch_, pitch) };
 
 
     // roll Field Functions 
     bool hasRoll() const { return this->roll_ != nullptr;};
     void deleteRoll() { this->roll_ = nullptr;};
-    inline float roll() const { DARABONBA_PTR_GET_DEFAULT(roll_, 0.0) };
+    inline float getRoll() const { DARABONBA_PTR_GET_DEFAULT(roll_, 0.0) };
     inline HeadPose& setRoll(float roll) { DARABONBA_PTR_SET_VALUE(roll_, roll) };
 
 
     // yaw Field Functions 
     bool hasYaw() const { return this->yaw_ != nullptr;};
     void deleteYaw() { this->yaw_ = nullptr;};
-    inline float yaw() const { DARABONBA_PTR_GET_DEFAULT(yaw_, 0.0) };
+    inline float getYaw() const { DARABONBA_PTR_GET_DEFAULT(yaw_, 0.0) };
     inline HeadPose& setYaw(float yaw) { DARABONBA_PTR_SET_VALUE(yaw_, yaw) };
 
 
   protected:
-    std::shared_ptr<float> pitch_ = nullptr;
-    std::shared_ptr<float> roll_ = nullptr;
-    std::shared_ptr<float> yaw_ = nullptr;
+    // The angel of elevation or depression of the head. Unit: degree. Valid values: -180 to 180. A recommended range for reliable results is from -30 to 30.
+    shared_ptr<float> pitch_ {};
+    // The angle of the tilt to the side. Unit: degree. Valid values: -180 to 180. A recommended range for reliable results is from -45 to 45.
+    shared_ptr<float> roll_ {};
+    // The angle of leftward or rightward rotation of the head. Unit: degree. Valid values: -180 to 180. A recommended range for reliable results is from -80 to 80.
+    shared_ptr<float> yaw_ {};
   };
 
   } // namespace Models

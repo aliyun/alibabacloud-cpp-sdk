@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->coverShrink_ == nullptr
-        && return this->customLabelsShrink_ == nullptr && return this->datasetName_ == nullptr && return this->filesShrink_ == nullptr && return this->projectName_ == nullptr && return this->storyName_ == nullptr
-        && return this->storySubType_ == nullptr && return this->storyType_ == nullptr; };
+        && this->customLabelsShrink_ == nullptr && this->datasetName_ == nullptr && this->filesShrink_ == nullptr && this->projectName_ == nullptr && this->storyName_ == nullptr
+        && this->storySubType_ == nullptr && this->storyType_ == nullptr; };
     // coverShrink Field Functions 
     bool hasCoverShrink() const { return this->coverShrink_ != nullptr;};
     void deleteCoverShrink() { this->coverShrink_ = nullptr;};
-    inline string coverShrink() const { DARABONBA_PTR_GET_DEFAULT(coverShrink_, "") };
+    inline string getCoverShrink() const { DARABONBA_PTR_GET_DEFAULT(coverShrink_, "") };
     inline CreateCustomizedStoryShrinkRequest& setCoverShrink(string coverShrink) { DARABONBA_PTR_SET_VALUE(coverShrink_, coverShrink) };
 
 
     // customLabelsShrink Field Functions 
     bool hasCustomLabelsShrink() const { return this->customLabelsShrink_ != nullptr;};
     void deleteCustomLabelsShrink() { this->customLabelsShrink_ = nullptr;};
-    inline string customLabelsShrink() const { DARABONBA_PTR_GET_DEFAULT(customLabelsShrink_, "") };
+    inline string getCustomLabelsShrink() const { DARABONBA_PTR_GET_DEFAULT(customLabelsShrink_, "") };
     inline CreateCustomizedStoryShrinkRequest& setCustomLabelsShrink(string customLabelsShrink) { DARABONBA_PTR_SET_VALUE(customLabelsShrink_, customLabelsShrink) };
 
 
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
-    inline string datasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+    inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
     inline CreateCustomizedStoryShrinkRequest& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
     // filesShrink Field Functions 
     bool hasFilesShrink() const { return this->filesShrink_ != nullptr;};
     void deleteFilesShrink() { this->filesShrink_ = nullptr;};
-    inline string filesShrink() const { DARABONBA_PTR_GET_DEFAULT(filesShrink_, "") };
+    inline string getFilesShrink() const { DARABONBA_PTR_GET_DEFAULT(filesShrink_, "") };
     inline CreateCustomizedStoryShrinkRequest& setFilesShrink(string filesShrink) { DARABONBA_PTR_SET_VALUE(filesShrink_, filesShrink) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline CreateCustomizedStoryShrinkRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // storyName Field Functions 
     bool hasStoryName() const { return this->storyName_ != nullptr;};
     void deleteStoryName() { this->storyName_ = nullptr;};
-    inline string storyName() const { DARABONBA_PTR_GET_DEFAULT(storyName_, "") };
+    inline string getStoryName() const { DARABONBA_PTR_GET_DEFAULT(storyName_, "") };
     inline CreateCustomizedStoryShrinkRequest& setStoryName(string storyName) { DARABONBA_PTR_SET_VALUE(storyName_, storyName) };
 
 
     // storySubType Field Functions 
     bool hasStorySubType() const { return this->storySubType_ != nullptr;};
     void deleteStorySubType() { this->storySubType_ = nullptr;};
-    inline string storySubType() const { DARABONBA_PTR_GET_DEFAULT(storySubType_, "") };
+    inline string getStorySubType() const { DARABONBA_PTR_GET_DEFAULT(storySubType_, "") };
     inline CreateCustomizedStoryShrinkRequest& setStorySubType(string storySubType) { DARABONBA_PTR_SET_VALUE(storySubType_, storySubType) };
 
 
     // storyType Field Functions 
     bool hasStoryType() const { return this->storyType_ != nullptr;};
     void deleteStoryType() { this->storyType_ = nullptr;};
-    inline string storyType() const { DARABONBA_PTR_GET_DEFAULT(storyType_, "") };
+    inline string getStoryType() const { DARABONBA_PTR_GET_DEFAULT(storyType_, "") };
     inline CreateCustomizedStoryShrinkRequest& setStoryType(string storyType) { DARABONBA_PTR_SET_VALUE(storyType_, storyType) };
 
 
@@ -106,33 +106,33 @@ namespace Models
     // The cover image of the story. You can specify an image as the cover image of the custom story.
     // 
     // This parameter is required.
-    std::shared_ptr<string> coverShrink_ = nullptr;
+    shared_ptr<string> coverShrink_ {};
     // The custom labels. You can specify labels to help you identify and retrieve the story.
-    std::shared_ptr<string> customLabelsShrink_ = nullptr;
+    shared_ptr<string> customLabelsShrink_ {};
     // The name of the dataset.[](~~478160~~)
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasetName_ = nullptr;
+    shared_ptr<string> datasetName_ {};
     // The files of the story. You can specify up to 100 files in a custom story.
     // 
     // This parameter is required.
-    std::shared_ptr<string> filesShrink_ = nullptr;
+    shared_ptr<string> filesShrink_ {};
     // The name of the project.[](~~478153~~)
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The name of the story.
     // 
     // This parameter is required.
-    std::shared_ptr<string> storyName_ = nullptr;
+    shared_ptr<string> storyName_ {};
     // The subtype of the story. For information about valid subtypes, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> storySubType_ = nullptr;
+    shared_ptr<string> storySubType_ {};
     // The type of the story. For information about valid types, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> storyType_ = nullptr;
+    shared_ptr<string> storyType_ {};
   };
 
   } // namespace Models

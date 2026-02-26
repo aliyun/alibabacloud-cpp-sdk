@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->projectName_ == nullptr; };
+        && this->projectName_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline GetTriggerRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline GetTriggerRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the trigger. You can obtain the ID from the response parameters of the [CreateTrigger](https://help.aliyun.com/document_detail/479912.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
   };
 
   } // namespace Models

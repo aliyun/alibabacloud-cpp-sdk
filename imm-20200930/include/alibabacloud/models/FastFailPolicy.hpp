@@ -33,12 +33,18 @@ namespace Models
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
-    inline string action() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+    inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
     inline FastFailPolicy& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
 
 
   protected:
-    std::shared_ptr<string> action_ = nullptr;
+    // The action when the batch processor or trigger encounters an error.
+    // 
+    // Enumerated values:
+    // 
+    // *   abort: stops running.
+    // *   ignore: ignores the error and keeps running.
+    shared_ptr<string> action_ {};
   };
 
   } // namespace Models

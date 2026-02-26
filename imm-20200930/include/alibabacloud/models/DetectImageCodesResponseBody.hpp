@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->codes_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // codes Field Functions 
     bool hasCodes() const { return this->codes_ != nullptr;};
     void deleteCodes() { this->codes_ = nullptr;};
-    inline const vector<Codes> & codes() const { DARABONBA_PTR_GET_CONST(codes_, vector<Codes>) };
-    inline vector<Codes> codes() { DARABONBA_PTR_GET(codes_, vector<Codes>) };
+    inline const vector<Codes> & getCodes() const { DARABONBA_PTR_GET_CONST(codes_, vector<Codes>) };
+    inline vector<Codes> getCodes() { DARABONBA_PTR_GET(codes_, vector<Codes>) };
     inline DetectImageCodesResponseBody& setCodes(const vector<Codes> & codes) { DARABONBA_PTR_SET_VALUE(codes_, codes) };
     inline DetectImageCodesResponseBody& setCodes(vector<Codes> && codes) { DARABONBA_PTR_SET_RVALUE(codes_, codes) };
 
@@ -47,7 +47,7 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DetectImageCodesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -55,9 +55,9 @@ namespace Models
     // The barcodes or QR codes.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<Codes>> codes_ = nullptr;
+    shared_ptr<vector<Codes>> codes_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialConfig_ == nullptr
-        && return this->projectName_ == nullptr && return this->sourceURI_ == nullptr; };
+        && this->projectName_ == nullptr && this->sourceURI_ == nullptr; };
     // credentialConfig Field Functions 
     bool hasCredentialConfig() const { return this->credentialConfig_ != nullptr;};
     void deleteCredentialConfig() { this->credentialConfig_ = nullptr;};
-    inline const CredentialConfig & credentialConfig() const { DARABONBA_PTR_GET_CONST(credentialConfig_, CredentialConfig) };
-    inline CredentialConfig credentialConfig() { DARABONBA_PTR_GET(credentialConfig_, CredentialConfig) };
+    inline const CredentialConfig & getCredentialConfig() const { DARABONBA_PTR_GET_CONST(credentialConfig_, CredentialConfig) };
+    inline CredentialConfig getCredentialConfig() { DARABONBA_PTR_GET(credentialConfig_, CredentialConfig) };
     inline DetectImageScoreRequest& setCredentialConfig(const CredentialConfig & credentialConfig) { DARABONBA_PTR_SET_VALUE(credentialConfig_, credentialConfig) };
     inline DetectImageScoreRequest& setCredentialConfig(CredentialConfig && credentialConfig) { DARABONBA_PTR_SET_RVALUE(credentialConfig_, credentialConfig) };
 
@@ -48,14 +48,14 @@ namespace Models
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline DetectImageScoreRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // sourceURI Field Functions 
     bool hasSourceURI() const { return this->sourceURI_ != nullptr;};
     void deleteSourceURI() { this->sourceURI_ = nullptr;};
-    inline string sourceURI() const { DARABONBA_PTR_GET_DEFAULT(sourceURI_, "") };
+    inline string getSourceURI() const { DARABONBA_PTR_GET_DEFAULT(sourceURI_, "") };
     inline DetectImageScoreRequest& setSourceURI(string sourceURI) { DARABONBA_PTR_SET_VALUE(sourceURI_, sourceURI) };
 
 
@@ -63,15 +63,15 @@ namespace Models
     // **If you have no special requirements, leave this parameter empty.**
     // 
     // The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
-    std::shared_ptr<CredentialConfig> credentialConfig_ = nullptr;
+    shared_ptr<CredentialConfig> credentialConfig_ {};
     // The name of the project.[](~~477051~~)
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The OSS URI of the input image.
     // 
     // Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
-    std::shared_ptr<string> sourceURI_ = nullptr;
+    shared_ptr<string> sourceURI_ {};
   };
 
   } // namespace Models

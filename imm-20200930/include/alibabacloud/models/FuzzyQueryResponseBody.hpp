@@ -38,12 +38,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->files_ == nullptr
-        && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->totalHits_ == nullptr; };
+        && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->totalHits_ == nullptr; };
     // files Field Functions 
     bool hasFiles() const { return this->files_ != nullptr;};
     void deleteFiles() { this->files_ = nullptr;};
-    inline const vector<File> & files() const { DARABONBA_PTR_GET_CONST(files_, vector<File>) };
-    inline vector<File> files() { DARABONBA_PTR_GET(files_, vector<File>) };
+    inline const vector<File> & getFiles() const { DARABONBA_PTR_GET_CONST(files_, vector<File>) };
+    inline vector<File> getFiles() { DARABONBA_PTR_GET(files_, vector<File>) };
     inline FuzzyQueryResponseBody& setFiles(const vector<File> & files) { DARABONBA_PTR_SET_VALUE(files_, files) };
     inline FuzzyQueryResponseBody& setFiles(vector<File> && files) { DARABONBA_PTR_SET_RVALUE(files_, files) };
 
@@ -51,27 +51,27 @@ namespace Models
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline FuzzyQueryResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline FuzzyQueryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalHits Field Functions 
     bool hasTotalHits() const { return this->totalHits_ != nullptr;};
     void deleteTotalHits() { this->totalHits_ = nullptr;};
-    inline int64_t totalHits() const { DARABONBA_PTR_GET_DEFAULT(totalHits_, 0L) };
+    inline int64_t getTotalHits() const { DARABONBA_PTR_GET_DEFAULT(totalHits_, 0L) };
     inline FuzzyQueryResponseBody& setTotalHits(int64_t totalHits) { DARABONBA_PTR_SET_VALUE(totalHits_, totalHits) };
 
 
   protected:
     // The files.
-    std::shared_ptr<vector<File>> files_ = nullptr;
+    shared_ptr<vector<File>> files_ {};
     // A pagination token.
     // 
     // It can be used in the next request to retrieve a new page of results.
@@ -79,11 +79,11 @@ namespace Models
     // If NextToken is empty, no next page exists.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The number of hits.
-    std::shared_ptr<int64_t> totalHits_ = nullptr;
+    shared_ptr<int64_t> totalHits_ {};
   };
 
   } // namespace Models

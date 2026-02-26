@@ -36,26 +36,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->requestId_ == nullptr && return this->triggers_ == nullptr; };
+        && this->requestId_ == nullptr && this->triggers_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListTriggersResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListTriggersResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // triggers Field Functions 
     bool hasTriggers() const { return this->triggers_ != nullptr;};
     void deleteTriggers() { this->triggers_ = nullptr;};
-    inline const vector<DataIngestion> & triggers() const { DARABONBA_PTR_GET_CONST(triggers_, vector<DataIngestion>) };
-    inline vector<DataIngestion> triggers() { DARABONBA_PTR_GET(triggers_, vector<DataIngestion>) };
+    inline const vector<DataIngestion> & getTriggers() const { DARABONBA_PTR_GET_CONST(triggers_, vector<DataIngestion>) };
+    inline vector<DataIngestion> getTriggers() { DARABONBA_PTR_GET(triggers_, vector<DataIngestion>) };
     inline ListTriggersResponseBody& setTriggers(const vector<DataIngestion> & triggers) { DARABONBA_PTR_SET_VALUE(triggers_, triggers) };
     inline ListTriggersResponseBody& setTriggers(vector<DataIngestion> && triggers) { DARABONBA_PTR_SET_RVALUE(triggers_, triggers) };
 
@@ -64,11 +64,11 @@ namespace Models
     // A pagination token. It can be used in the next request to retrieve a new page of results.
     // 
     // If NextToken is empty, no next page exists.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The triggers.
-    std::shared_ptr<vector<DataIngestion>> triggers_ = nullptr;
+    shared_ptr<vector<DataIngestion>> triggers_ {};
   };
 
   } // namespace Models

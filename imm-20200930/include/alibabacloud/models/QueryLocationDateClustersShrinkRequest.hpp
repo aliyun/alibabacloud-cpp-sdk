@@ -58,148 +58,148 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addressShrink_ == nullptr
-        && return this->createTimeRangeShrink_ == nullptr && return this->customLabels_ == nullptr && return this->datasetName_ == nullptr && return this->locationDateClusterEndTimeRangeShrink_ == nullptr && return this->locationDateClusterLevelsShrink_ == nullptr
-        && return this->locationDateClusterStartTimeRangeShrink_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->objectId_ == nullptr && return this->order_ == nullptr
-        && return this->projectName_ == nullptr && return this->sort_ == nullptr && return this->title_ == nullptr && return this->updateTimeRangeShrink_ == nullptr; };
+        && this->createTimeRangeShrink_ == nullptr && this->customLabels_ == nullptr && this->datasetName_ == nullptr && this->locationDateClusterEndTimeRangeShrink_ == nullptr && this->locationDateClusterLevelsShrink_ == nullptr
+        && this->locationDateClusterStartTimeRangeShrink_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->objectId_ == nullptr && this->order_ == nullptr
+        && this->projectName_ == nullptr && this->sort_ == nullptr && this->title_ == nullptr && this->updateTimeRangeShrink_ == nullptr; };
     // addressShrink Field Functions 
     bool hasAddressShrink() const { return this->addressShrink_ != nullptr;};
     void deleteAddressShrink() { this->addressShrink_ = nullptr;};
-    inline string addressShrink() const { DARABONBA_PTR_GET_DEFAULT(addressShrink_, "") };
+    inline string getAddressShrink() const { DARABONBA_PTR_GET_DEFAULT(addressShrink_, "") };
     inline QueryLocationDateClustersShrinkRequest& setAddressShrink(string addressShrink) { DARABONBA_PTR_SET_VALUE(addressShrink_, addressShrink) };
 
 
     // createTimeRangeShrink Field Functions 
     bool hasCreateTimeRangeShrink() const { return this->createTimeRangeShrink_ != nullptr;};
     void deleteCreateTimeRangeShrink() { this->createTimeRangeShrink_ = nullptr;};
-    inline string createTimeRangeShrink() const { DARABONBA_PTR_GET_DEFAULT(createTimeRangeShrink_, "") };
+    inline string getCreateTimeRangeShrink() const { DARABONBA_PTR_GET_DEFAULT(createTimeRangeShrink_, "") };
     inline QueryLocationDateClustersShrinkRequest& setCreateTimeRangeShrink(string createTimeRangeShrink) { DARABONBA_PTR_SET_VALUE(createTimeRangeShrink_, createTimeRangeShrink) };
 
 
     // customLabels Field Functions 
     bool hasCustomLabels() const { return this->customLabels_ != nullptr;};
     void deleteCustomLabels() { this->customLabels_ = nullptr;};
-    inline string customLabels() const { DARABONBA_PTR_GET_DEFAULT(customLabels_, "") };
+    inline string getCustomLabels() const { DARABONBA_PTR_GET_DEFAULT(customLabels_, "") };
     inline QueryLocationDateClustersShrinkRequest& setCustomLabels(string customLabels) { DARABONBA_PTR_SET_VALUE(customLabels_, customLabels) };
 
 
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
-    inline string datasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+    inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
     inline QueryLocationDateClustersShrinkRequest& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
     // locationDateClusterEndTimeRangeShrink Field Functions 
     bool hasLocationDateClusterEndTimeRangeShrink() const { return this->locationDateClusterEndTimeRangeShrink_ != nullptr;};
     void deleteLocationDateClusterEndTimeRangeShrink() { this->locationDateClusterEndTimeRangeShrink_ = nullptr;};
-    inline string locationDateClusterEndTimeRangeShrink() const { DARABONBA_PTR_GET_DEFAULT(locationDateClusterEndTimeRangeShrink_, "") };
+    inline string getLocationDateClusterEndTimeRangeShrink() const { DARABONBA_PTR_GET_DEFAULT(locationDateClusterEndTimeRangeShrink_, "") };
     inline QueryLocationDateClustersShrinkRequest& setLocationDateClusterEndTimeRangeShrink(string locationDateClusterEndTimeRangeShrink) { DARABONBA_PTR_SET_VALUE(locationDateClusterEndTimeRangeShrink_, locationDateClusterEndTimeRangeShrink) };
 
 
     // locationDateClusterLevelsShrink Field Functions 
     bool hasLocationDateClusterLevelsShrink() const { return this->locationDateClusterLevelsShrink_ != nullptr;};
     void deleteLocationDateClusterLevelsShrink() { this->locationDateClusterLevelsShrink_ = nullptr;};
-    inline string locationDateClusterLevelsShrink() const { DARABONBA_PTR_GET_DEFAULT(locationDateClusterLevelsShrink_, "") };
+    inline string getLocationDateClusterLevelsShrink() const { DARABONBA_PTR_GET_DEFAULT(locationDateClusterLevelsShrink_, "") };
     inline QueryLocationDateClustersShrinkRequest& setLocationDateClusterLevelsShrink(string locationDateClusterLevelsShrink) { DARABONBA_PTR_SET_VALUE(locationDateClusterLevelsShrink_, locationDateClusterLevelsShrink) };
 
 
     // locationDateClusterStartTimeRangeShrink Field Functions 
     bool hasLocationDateClusterStartTimeRangeShrink() const { return this->locationDateClusterStartTimeRangeShrink_ != nullptr;};
     void deleteLocationDateClusterStartTimeRangeShrink() { this->locationDateClusterStartTimeRangeShrink_ = nullptr;};
-    inline string locationDateClusterStartTimeRangeShrink() const { DARABONBA_PTR_GET_DEFAULT(locationDateClusterStartTimeRangeShrink_, "") };
+    inline string getLocationDateClusterStartTimeRangeShrink() const { DARABONBA_PTR_GET_DEFAULT(locationDateClusterStartTimeRangeShrink_, "") };
     inline QueryLocationDateClustersShrinkRequest& setLocationDateClusterStartTimeRangeShrink(string locationDateClusterStartTimeRangeShrink) { DARABONBA_PTR_SET_VALUE(locationDateClusterStartTimeRangeShrink_, locationDateClusterStartTimeRangeShrink) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline QueryLocationDateClustersShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline QueryLocationDateClustersShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // objectId Field Functions 
     bool hasObjectId() const { return this->objectId_ != nullptr;};
     void deleteObjectId() { this->objectId_ = nullptr;};
-    inline string objectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
+    inline string getObjectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
     inline QueryLocationDateClustersShrinkRequest& setObjectId(string objectId) { DARABONBA_PTR_SET_VALUE(objectId_, objectId) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline QueryLocationDateClustersShrinkRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline QueryLocationDateClustersShrinkRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // sort Field Functions 
     bool hasSort() const { return this->sort_ != nullptr;};
     void deleteSort() { this->sort_ = nullptr;};
-    inline string sort() const { DARABONBA_PTR_GET_DEFAULT(sort_, "") };
+    inline string getSort() const { DARABONBA_PTR_GET_DEFAULT(sort_, "") };
     inline QueryLocationDateClustersShrinkRequest& setSort(string sort) { DARABONBA_PTR_SET_VALUE(sort_, sort) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline QueryLocationDateClustersShrinkRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // updateTimeRangeShrink Field Functions 
     bool hasUpdateTimeRangeShrink() const { return this->updateTimeRangeShrink_ != nullptr;};
     void deleteUpdateTimeRangeShrink() { this->updateTimeRangeShrink_ = nullptr;};
-    inline string updateTimeRangeShrink() const { DARABONBA_PTR_GET_DEFAULT(updateTimeRangeShrink_, "") };
+    inline string getUpdateTimeRangeShrink() const { DARABONBA_PTR_GET_DEFAULT(updateTimeRangeShrink_, "") };
     inline QueryLocationDateClustersShrinkRequest& setUpdateTimeRangeShrink(string updateTimeRangeShrink) { DARABONBA_PTR_SET_VALUE(updateTimeRangeShrink_, updateTimeRangeShrink) };
 
 
   protected:
     // The address information.
-    std::shared_ptr<string> addressShrink_ = nullptr;
+    shared_ptr<string> addressShrink_ {};
     // The time range during which the spatiotemporal clusters were generated.
-    std::shared_ptr<string> createTimeRangeShrink_ = nullptr;
+    shared_ptr<string> createTimeRangeShrink_ {};
     // The custom labels.
-    std::shared_ptr<string> customLabels_ = nullptr;
+    shared_ptr<string> customLabels_ {};
     // The name of the dataset. For information about how to create a dataset, see [CreateDataset](https://help.aliyun.com/document_detail/478160.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasetName_ = nullptr;
+    shared_ptr<string> datasetName_ {};
     // The time range during which the latest photo in a cluster was taken.
-    std::shared_ptr<string> locationDateClusterEndTimeRangeShrink_ = nullptr;
+    shared_ptr<string> locationDateClusterEndTimeRangeShrink_ {};
     // The container for the administrative division level of the spatiotemporal clusters to be queried.
-    std::shared_ptr<string> locationDateClusterLevelsShrink_ = nullptr;
+    shared_ptr<string> locationDateClusterLevelsShrink_ {};
     // The time range during which the earliest photo in a cluster was taken.
-    std::shared_ptr<string> locationDateClusterStartTimeRangeShrink_ = nullptr;
+    shared_ptr<string> locationDateClusterStartTimeRangeShrink_ {};
     // The number of entries per page. Valid values: [1,100]. Default value: 20.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The ID of the cluster that you want to query. Specify this parameter if you want to query a specific spatiotemporal cluster. Otherwise, leave this parameter empty to query spatiotemporal clusters that meet the specified conditions.
-    std::shared_ptr<string> objectId_ = nullptr;
+    shared_ptr<string> objectId_ {};
     // The order that you use to sort the query results.
     // 
     // Valid values:
     // 
     // *   asc: ascending order. This is the default value.
     // *   desc: descending order.
-    std::shared_ptr<string> order_ = nullptr;
+    shared_ptr<string> order_ {};
     // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The field that you use to sort the query results.
     // 
     // Valid values:
@@ -208,11 +208,11 @@ namespace Models
     // *   CreateTime: by the creation time of a spatiotemporal cluster.
     // *   UpdateTime: by the update time of a spatiotemporal cluster.
     // *   LocationDateClusterStartTime: by the time at which the earliest photo in a cluster was taken. This is the default value.
-    std::shared_ptr<string> sort_ = nullptr;
+    shared_ptr<string> sort_ {};
     // The characters that are included in the titles of spatiotemporal clusters to be queried. Matches are found by using fuzzy matching.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
     // The time range during which the spatiotemporal clusters were updated.
-    std::shared_ptr<string> updateTimeRangeShrink_ = nullptr;
+    shared_ptr<string> updateTimeRangeShrink_ {};
   };
 
   } // namespace Models

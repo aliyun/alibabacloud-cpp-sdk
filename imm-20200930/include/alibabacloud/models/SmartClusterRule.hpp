@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keywords_ == nullptr
-        && return this->sensitivity_ == nullptr; };
+        && this->sensitivity_ == nullptr; };
     // keywords Field Functions 
     bool hasKeywords() const { return this->keywords_ != nullptr;};
     void deleteKeywords() { this->keywords_ = nullptr;};
-    inline const vector<string> & keywords() const { DARABONBA_PTR_GET_CONST(keywords_, vector<string>) };
-    inline vector<string> keywords() { DARABONBA_PTR_GET(keywords_, vector<string>) };
+    inline const vector<string> & getKeywords() const { DARABONBA_PTR_GET_CONST(keywords_, vector<string>) };
+    inline vector<string> getKeywords() { DARABONBA_PTR_GET(keywords_, vector<string>) };
     inline SmartClusterRule& setKeywords(const vector<string> & keywords) { DARABONBA_PTR_SET_VALUE(keywords_, keywords) };
     inline SmartClusterRule& setKeywords(vector<string> && keywords) { DARABONBA_PTR_SET_RVALUE(keywords_, keywords) };
 
@@ -46,13 +46,15 @@ namespace Models
     // sensitivity Field Functions 
     bool hasSensitivity() const { return this->sensitivity_ != nullptr;};
     void deleteSensitivity() { this->sensitivity_ = nullptr;};
-    inline float sensitivity() const { DARABONBA_PTR_GET_DEFAULT(sensitivity_, 0.0) };
+    inline float getSensitivity() const { DARABONBA_PTR_GET_DEFAULT(sensitivity_, 0.0) };
     inline SmartClusterRule& setSensitivity(float sensitivity) { DARABONBA_PTR_SET_VALUE(sensitivity_, sensitivity) };
 
 
   protected:
-    std::shared_ptr<vector<string>> keywords_ = nullptr;
-    std::shared_ptr<float> sensitivity_ = nullptr;
+    // Keywords
+    shared_ptr<vector<string>> keywords_ {};
+    // Sensitivity
+    shared_ptr<float> sensitivity_ {};
   };
 
   } // namespace Models

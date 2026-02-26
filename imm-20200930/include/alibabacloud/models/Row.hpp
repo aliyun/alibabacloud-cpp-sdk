@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customLabels_ == nullptr
-        && return this->URI_ == nullptr; };
+        && this->URI_ == nullptr; };
     // customLabels Field Functions 
     bool hasCustomLabels() const { return this->customLabels_ != nullptr;};
     void deleteCustomLabels() { this->customLabels_ = nullptr;};
-    inline const vector<KeyValuePair> & customLabels() const { DARABONBA_PTR_GET_CONST(customLabels_, vector<KeyValuePair>) };
-    inline vector<KeyValuePair> customLabels() { DARABONBA_PTR_GET(customLabels_, vector<KeyValuePair>) };
+    inline const vector<KeyValuePair> & getCustomLabels() const { DARABONBA_PTR_GET_CONST(customLabels_, vector<KeyValuePair>) };
+    inline vector<KeyValuePair> getCustomLabels() { DARABONBA_PTR_GET(customLabels_, vector<KeyValuePair>) };
     inline Row& setCustomLabels(const vector<KeyValuePair> & customLabels) { DARABONBA_PTR_SET_VALUE(customLabels_, customLabels) };
     inline Row& setCustomLabels(vector<KeyValuePair> && customLabels) { DARABONBA_PTR_SET_RVALUE(customLabels_, customLabels) };
 
@@ -47,13 +47,17 @@ namespace Models
     // URI Field Functions 
     bool hasURI() const { return this->URI_ != nullptr;};
     void deleteURI() { this->URI_ = nullptr;};
-    inline string URI() const { DARABONBA_PTR_GET_DEFAULT(URI_, "") };
+    inline string getURI() const { DARABONBA_PTR_GET_DEFAULT(URI_, "") };
     inline Row& setURI(string URI) { DARABONBA_PTR_SET_VALUE(URI_, URI) };
 
 
   protected:
-    std::shared_ptr<vector<KeyValuePair>> customLabels_ = nullptr;
-    std::shared_ptr<string> URI_ = nullptr;
+    // The custom labels.
+    shared_ptr<vector<KeyValuePair>> customLabels_ {};
+    // The OSS URI of the file.
+    // 
+    // The OSS URI is in the `oss://${bucketname}/${objectname}` format, where `${bucketname}` is the name of the OSS bucket that is in the same region as the current project and `${objectname}` is the path of the file.
+    shared_ptr<string> URI_ {};
   };
 
   } // namespace Models

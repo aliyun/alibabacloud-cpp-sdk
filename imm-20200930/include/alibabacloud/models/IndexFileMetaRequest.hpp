@@ -40,19 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetName_ == nullptr
-        && return this->file_ == nullptr && return this->notification_ == nullptr && return this->projectName_ == nullptr && return this->userData_ == nullptr; };
+        && this->file_ == nullptr && this->notification_ == nullptr && this->projectName_ == nullptr && this->userData_ == nullptr; };
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
-    inline string datasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+    inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
     inline IndexFileMetaRequest& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
     // file Field Functions 
     bool hasFile() const { return this->file_ != nullptr;};
     void deleteFile() { this->file_ = nullptr;};
-    inline const InputFile & file() const { DARABONBA_PTR_GET_CONST(file_, InputFile) };
-    inline InputFile file() { DARABONBA_PTR_GET(file_, InputFile) };
+    inline const InputFile & getFile() const { DARABONBA_PTR_GET_CONST(file_, InputFile) };
+    inline InputFile getFile() { DARABONBA_PTR_GET(file_, InputFile) };
     inline IndexFileMetaRequest& setFile(const InputFile & file) { DARABONBA_PTR_SET_VALUE(file_, file) };
     inline IndexFileMetaRequest& setFile(InputFile && file) { DARABONBA_PTR_SET_RVALUE(file_, file) };
 
@@ -60,8 +60,8 @@ namespace Models
     // notification Field Functions 
     bool hasNotification() const { return this->notification_ != nullptr;};
     void deleteNotification() { this->notification_ = nullptr;};
-    inline const Notification & notification() const { DARABONBA_PTR_GET_CONST(notification_, Notification) };
-    inline Notification notification() { DARABONBA_PTR_GET(notification_, Notification) };
+    inline const Notification & getNotification() const { DARABONBA_PTR_GET_CONST(notification_, Notification) };
+    inline Notification getNotification() { DARABONBA_PTR_GET(notification_, Notification) };
     inline IndexFileMetaRequest& setNotification(const Notification & notification) { DARABONBA_PTR_SET_VALUE(notification_, notification) };
     inline IndexFileMetaRequest& setNotification(Notification && notification) { DARABONBA_PTR_SET_RVALUE(notification_, notification) };
 
@@ -69,14 +69,14 @@ namespace Models
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline IndexFileMetaRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline IndexFileMetaRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
@@ -84,19 +84,19 @@ namespace Models
     // The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasetName_ = nullptr;
+    shared_ptr<string> datasetName_ {};
     // The file for which you want to create a metadata index. The value must be in the JSON format.
     // 
     // This parameter is required.
-    std::shared_ptr<InputFile> file_ = nullptr;
+    shared_ptr<InputFile> file_ {};
     // The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
-    std::shared_ptr<Notification> notification_ = nullptr;
+    shared_ptr<Notification> notification_ {};
     // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The custom user information, which is returned in an asynchronous notification. The maximum length of a notification is 2048 bytes.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

@@ -34,14 +34,15 @@ namespace Models
     // OSS Field Functions 
     bool hasOSS() const { return this->OSS_ != nullptr;};
     void deleteOSS() { this->OSS_ = nullptr;};
-    inline const InputOSS & OSS() const { DARABONBA_PTR_GET_CONST(OSS_, InputOSS) };
-    inline InputOSS OSS() { DARABONBA_PTR_GET(OSS_, InputOSS) };
+    inline const InputOSS & getOSS() const { DARABONBA_PTR_GET_CONST(OSS_, InputOSS) };
+    inline InputOSS getOSS() { DARABONBA_PTR_GET(OSS_, InputOSS) };
     inline Input& setOSS(const InputOSS & OSS) { DARABONBA_PTR_SET_VALUE(OSS_, OSS) };
     inline Input& setOSS(InputOSS && OSS) { DARABONBA_PTR_SET_RVALUE(OSS_, OSS) };
 
 
   protected:
-    std::shared_ptr<InputOSS> OSS_ = nullptr;
+    // The input data source from Object Storage Service (OSS).
+    shared_ptr<InputOSS> OSS_ {};
   };
 
   } // namespace Models

@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetName_ == nullptr
-        && return this->figureCluster_ == nullptr && return this->projectName_ == nullptr; };
+        && this->figureCluster_ == nullptr && this->projectName_ == nullptr; };
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
-    inline string datasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+    inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
     inline UpdateFigureClusterRequest& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
     // figureCluster Field Functions 
     bool hasFigureCluster() const { return this->figureCluster_ != nullptr;};
     void deleteFigureCluster() { this->figureCluster_ = nullptr;};
-    inline const FigureClusterForReq & figureCluster() const { DARABONBA_PTR_GET_CONST(figureCluster_, FigureClusterForReq) };
-    inline FigureClusterForReq figureCluster() { DARABONBA_PTR_GET(figureCluster_, FigureClusterForReq) };
+    inline const FigureClusterForReq & getFigureCluster() const { DARABONBA_PTR_GET_CONST(figureCluster_, FigureClusterForReq) };
+    inline FigureClusterForReq getFigureCluster() { DARABONBA_PTR_GET(figureCluster_, FigureClusterForReq) };
     inline UpdateFigureClusterRequest& setFigureCluster(const FigureClusterForReq & figureCluster) { DARABONBA_PTR_SET_VALUE(figureCluster_, figureCluster) };
     inline UpdateFigureClusterRequest& setFigureCluster(FigureClusterForReq && figureCluster) { DARABONBA_PTR_SET_RVALUE(figureCluster_, figureCluster) };
 
@@ -55,7 +55,7 @@ namespace Models
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline UpdateFigureClusterRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
@@ -63,15 +63,15 @@ namespace Models
     // The name of the dataset.[](~~478160~~)
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasetName_ = nullptr;
+    shared_ptr<string> datasetName_ {};
     // The information about the cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<FigureClusterForReq> figureCluster_ = nullptr;
+    shared_ptr<FigureClusterForReq> figureCluster_ {};
     // The name of the project.[](~~478153~~)
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
   };
 
   } // namespace Models

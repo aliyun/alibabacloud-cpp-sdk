@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->projects_ == nullptr && return this->requestId_ == nullptr; };
+        && this->projects_ == nullptr && this->requestId_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListProjectsResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // projects Field Functions 
     bool hasProjects() const { return this->projects_ != nullptr;};
     void deleteProjects() { this->projects_ = nullptr;};
-    inline const vector<Project> & projects() const { DARABONBA_PTR_GET_CONST(projects_, vector<Project>) };
-    inline vector<Project> projects() { DARABONBA_PTR_GET(projects_, vector<Project>) };
+    inline const vector<Project> & getProjects() const { DARABONBA_PTR_GET_CONST(projects_, vector<Project>) };
+    inline vector<Project> getProjects() { DARABONBA_PTR_GET(projects_, vector<Project>) };
     inline ListProjectsResponseBody& setProjects(const vector<Project> & projects) { DARABONBA_PTR_SET_VALUE(projects_, projects) };
     inline ListProjectsResponseBody& setProjects(vector<Project> && projects) { DARABONBA_PTR_SET_RVALUE(projects_, projects) };
 
@@ -56,17 +56,17 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListProjectsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The projects.
-    std::shared_ptr<vector<Project>> projects_ = nullptr;
+    shared_ptr<vector<Project>> projects_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

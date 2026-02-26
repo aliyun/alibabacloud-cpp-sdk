@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->OCRContents_ == nullptr
-        && return this->OCRTexts_ == nullptr && return this->requestId_ == nullptr; };
+        && this->OCRTexts_ == nullptr && this->requestId_ == nullptr; };
     // OCRContents Field Functions 
     bool hasOCRContents() const { return this->OCRContents_ != nullptr;};
     void deleteOCRContents() { this->OCRContents_ = nullptr;};
-    inline const vector<OCRContents> & OCRContents() const { DARABONBA_PTR_GET_CONST(OCRContents_, vector<OCRContents>) };
-    inline vector<OCRContents> OCRContents() { DARABONBA_PTR_GET(OCRContents_, vector<OCRContents>) };
+    inline const vector<OCRContents> & getOCRContents() const { DARABONBA_PTR_GET_CONST(OCRContents_, vector<OCRContents>) };
+    inline vector<OCRContents> getOCRContents() { DARABONBA_PTR_GET(OCRContents_, vector<OCRContents>) };
     inline DetectImageTextsResponseBody& setOCRContents(const vector<OCRContents> & OCRContents) { DARABONBA_PTR_SET_VALUE(OCRContents_, OCRContents) };
     inline DetectImageTextsResponseBody& setOCRContents(vector<OCRContents> && OCRContents) { DARABONBA_PTR_SET_RVALUE(OCRContents_, OCRContents) };
 
@@ -49,24 +49,24 @@ namespace Models
     // OCRTexts Field Functions 
     bool hasOCRTexts() const { return this->OCRTexts_ != nullptr;};
     void deleteOCRTexts() { this->OCRTexts_ = nullptr;};
-    inline string OCRTexts() const { DARABONBA_PTR_GET_DEFAULT(OCRTexts_, "") };
+    inline string getOCRTexts() const { DARABONBA_PTR_GET_DEFAULT(OCRTexts_, "") };
     inline DetectImageTextsResponseBody& setOCRTexts(string OCRTexts) { DARABONBA_PTR_SET_VALUE(OCRTexts_, OCRTexts) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DetectImageTextsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // OCR text blocks.
-    std::shared_ptr<vector<OCRContents>> OCRContents_ = nullptr;
+    shared_ptr<vector<OCRContents>> OCRContents_ {};
     // The full Optical Character Recognition (OCR) text, which is spliced by using the content of OCRContents.
-    std::shared_ptr<string> OCRTexts_ = nullptr;
+    shared_ptr<string> OCRTexts_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

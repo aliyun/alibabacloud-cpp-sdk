@@ -32,25 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->arguments_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->name_ == nullptr; };
     // arguments Field Functions 
     bool hasArguments() const { return this->arguments_ != nullptr;};
     void deleteArguments() { this->arguments_ = nullptr;};
-    inline string arguments() const { DARABONBA_PTR_GET_DEFAULT(arguments_, "") };
+    inline string getArguments() const { DARABONBA_PTR_GET_DEFAULT(arguments_, "") };
     inline FunctionCall& setArguments(string arguments) { DARABONBA_PTR_SET_VALUE(arguments_, arguments) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline FunctionCall& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<string> arguments_ = nullptr;
+    // The parameters detected by the large language model.
+    shared_ptr<string> arguments_ {};
+    // The function name.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

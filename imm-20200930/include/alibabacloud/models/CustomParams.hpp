@@ -34,26 +34,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->properties_ == nullptr; };
+        && this->properties_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CustomParams& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // properties Field Functions 
     bool hasProperties() const { return this->properties_ != nullptr;};
     void deleteProperties() { this->properties_ = nullptr;};
-    inline const vector<Property> & properties() const { DARABONBA_PTR_GET_CONST(properties_, vector<Property>) };
-    inline vector<Property> properties() { DARABONBA_PTR_GET(properties_, vector<Property>) };
+    inline const vector<Property> & getProperties() const { DARABONBA_PTR_GET_CONST(properties_, vector<Property>) };
+    inline vector<Property> getProperties() { DARABONBA_PTR_GET(properties_, vector<Property>) };
     inline CustomParams& setProperties(const vector<Property> & properties) { DARABONBA_PTR_SET_VALUE(properties_, properties) };
     inline CustomParams& setProperties(vector<Property> && properties) { DARABONBA_PTR_SET_RVALUE(properties_, properties) };
 
 
   protected:
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<vector<Property>> properties_ = nullptr;
+    // The name of the parameter.
+    shared_ptr<string> name_ {};
+    // The properties.
+    shared_ptr<vector<Property>> properties_ {};
   };
 
   } // namespace Models

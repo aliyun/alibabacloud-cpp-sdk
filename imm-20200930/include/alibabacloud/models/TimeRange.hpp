@@ -32,24 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->end_ == nullptr
-        && return this->start_ == nullptr; };
+        && this->start_ == nullptr; };
     // end Field Functions 
     bool hasEnd() const { return this->end_ != nullptr;};
     void deleteEnd() { this->end_ = nullptr;};
-    inline string end() const { DARABONBA_PTR_GET_DEFAULT(end_, "") };
+    inline string getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, "") };
     inline TimeRange& setEnd(string end) { DARABONBA_PTR_SET_VALUE(end_, end) };
 
 
     // start Field Functions 
     bool hasStart() const { return this->start_ != nullptr;};
     void deleteStart() { this->start_ = nullptr;};
-    inline string start() const { DARABONBA_PTR_GET_DEFAULT(start_, "") };
+    inline string getStart() const { DARABONBA_PTR_GET_DEFAULT(start_, "") };
     inline TimeRange& setStart(string start) { DARABONBA_PTR_SET_VALUE(start_, start) };
 
 
   protected:
-    std::shared_ptr<string> end_ = nullptr;
-    std::shared_ptr<string> start_ = nullptr;
+    // The end time.
+    shared_ptr<string> end_ {};
+    // The start time.
+    shared_ptr<string> start_ {};
   };
 
   } // namespace Models

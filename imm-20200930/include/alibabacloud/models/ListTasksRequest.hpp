@@ -52,13 +52,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTimeRange_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->order_ == nullptr && return this->projectName_ == nullptr && return this->requestDefinition_ == nullptr
-        && return this->sort_ == nullptr && return this->startTimeRange_ == nullptr && return this->status_ == nullptr && return this->tagSelector_ == nullptr && return this->taskTypes_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr && this->projectName_ == nullptr && this->requestDefinition_ == nullptr
+        && this->sort_ == nullptr && this->startTimeRange_ == nullptr && this->status_ == nullptr && this->tagSelector_ == nullptr && this->taskTypes_ == nullptr; };
     // endTimeRange Field Functions 
     bool hasEndTimeRange() const { return this->endTimeRange_ != nullptr;};
     void deleteEndTimeRange() { this->endTimeRange_ = nullptr;};
-    inline const TimeRange & endTimeRange() const { DARABONBA_PTR_GET_CONST(endTimeRange_, TimeRange) };
-    inline TimeRange endTimeRange() { DARABONBA_PTR_GET(endTimeRange_, TimeRange) };
+    inline const TimeRange & getEndTimeRange() const { DARABONBA_PTR_GET_CONST(endTimeRange_, TimeRange) };
+    inline TimeRange getEndTimeRange() { DARABONBA_PTR_GET(endTimeRange_, TimeRange) };
     inline ListTasksRequest& setEndTimeRange(const TimeRange & endTimeRange) { DARABONBA_PTR_SET_VALUE(endTimeRange_, endTimeRange) };
     inline ListTasksRequest& setEndTimeRange(TimeRange && endTimeRange) { DARABONBA_PTR_SET_RVALUE(endTimeRange_, endTimeRange) };
 
@@ -66,50 +66,50 @@ namespace Models
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int64_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
+    inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline ListTasksRequest& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListTasksRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline ListTasksRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline ListTasksRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // requestDefinition Field Functions 
     bool hasRequestDefinition() const { return this->requestDefinition_ != nullptr;};
     void deleteRequestDefinition() { this->requestDefinition_ = nullptr;};
-    inline bool requestDefinition() const { DARABONBA_PTR_GET_DEFAULT(requestDefinition_, false) };
+    inline bool getRequestDefinition() const { DARABONBA_PTR_GET_DEFAULT(requestDefinition_, false) };
     inline ListTasksRequest& setRequestDefinition(bool requestDefinition) { DARABONBA_PTR_SET_VALUE(requestDefinition_, requestDefinition) };
 
 
     // sort Field Functions 
     bool hasSort() const { return this->sort_ != nullptr;};
     void deleteSort() { this->sort_ = nullptr;};
-    inline string sort() const { DARABONBA_PTR_GET_DEFAULT(sort_, "") };
+    inline string getSort() const { DARABONBA_PTR_GET_DEFAULT(sort_, "") };
     inline ListTasksRequest& setSort(string sort) { DARABONBA_PTR_SET_VALUE(sort_, sort) };
 
 
     // startTimeRange Field Functions 
     bool hasStartTimeRange() const { return this->startTimeRange_ != nullptr;};
     void deleteStartTimeRange() { this->startTimeRange_ = nullptr;};
-    inline const TimeRange & startTimeRange() const { DARABONBA_PTR_GET_CONST(startTimeRange_, TimeRange) };
-    inline TimeRange startTimeRange() { DARABONBA_PTR_GET(startTimeRange_, TimeRange) };
+    inline const TimeRange & getStartTimeRange() const { DARABONBA_PTR_GET_CONST(startTimeRange_, TimeRange) };
+    inline TimeRange getStartTimeRange() { DARABONBA_PTR_GET(startTimeRange_, TimeRange) };
     inline ListTasksRequest& setStartTimeRange(const TimeRange & startTimeRange) { DARABONBA_PTR_SET_VALUE(startTimeRange_, startTimeRange) };
     inline ListTasksRequest& setStartTimeRange(TimeRange && startTimeRange) { DARABONBA_PTR_SET_RVALUE(startTimeRange_, startTimeRange) };
 
@@ -117,66 +117,66 @@ namespace Models
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListTasksRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // tagSelector Field Functions 
     bool hasTagSelector() const { return this->tagSelector_ != nullptr;};
     void deleteTagSelector() { this->tagSelector_ = nullptr;};
-    inline string tagSelector() const { DARABONBA_PTR_GET_DEFAULT(tagSelector_, "") };
+    inline string getTagSelector() const { DARABONBA_PTR_GET_DEFAULT(tagSelector_, "") };
     inline ListTasksRequest& setTagSelector(string tagSelector) { DARABONBA_PTR_SET_VALUE(tagSelector_, tagSelector) };
 
 
     // taskTypes Field Functions 
     bool hasTaskTypes() const { return this->taskTypes_ != nullptr;};
     void deleteTaskTypes() { this->taskTypes_ = nullptr;};
-    inline const vector<string> & taskTypes() const { DARABONBA_PTR_GET_CONST(taskTypes_, vector<string>) };
-    inline vector<string> taskTypes() { DARABONBA_PTR_GET(taskTypes_, vector<string>) };
+    inline const vector<string> & getTaskTypes() const { DARABONBA_PTR_GET_CONST(taskTypes_, vector<string>) };
+    inline vector<string> getTaskTypes() { DARABONBA_PTR_GET(taskTypes_, vector<string>) };
     inline ListTasksRequest& setTaskTypes(const vector<string> & taskTypes) { DARABONBA_PTR_SET_VALUE(taskTypes_, taskTypes) };
     inline ListTasksRequest& setTaskTypes(vector<string> && taskTypes) { DARABONBA_PTR_SET_RVALUE(taskTypes_, taskTypes) };
 
 
   protected:
     // The task end time range. You can specify this parameter to filter tasks that end within the specified range.
-    std::shared_ptr<TimeRange> endTimeRange_ = nullptr;
+    shared_ptr<TimeRange> endTimeRange_ {};
     // The maximum number of results to return. Valid value range: (0, 100]. Default value: 100.
-    std::shared_ptr<int64_t> maxResults_ = nullptr;
+    shared_ptr<int64_t> maxResults_ {};
     // The pagination token.
     // 
     // The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter. The next call to the operation returns results lexicographically after the NextToken parameter value.
     // 
     // >  Leave this parameter empty in your first call to the operation.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The sort order. Valid values:
     // 
     // *   asc: in ascending order. This is the default value.
     // *   desc: in descending order.
-    std::shared_ptr<string> order_ = nullptr;
+    shared_ptr<string> order_ {};
     // The name of the project.[](~~478153~~)
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // Specifies whether to return request parameters in the initial request to create the task. Default value: False.
-    std::shared_ptr<bool> requestDefinition_ = nullptr;
+    shared_ptr<bool> requestDefinition_ {};
     // The field used to sort the results by. Valid values:
     // 
     // *   TaskId: sorts the results by task ID. This is the default sort field.
     // *   StartTime: sorts the results by task start time.
     // *   StartTime: sorts the results by task end time.
-    std::shared_ptr<string> sort_ = nullptr;
+    shared_ptr<string> sort_ {};
     // The task start time range. You can specify this parameter to filter tasks that start within the specified range.
-    std::shared_ptr<TimeRange> startTimeRange_ = nullptr;
+    shared_ptr<TimeRange> startTimeRange_ {};
     // The task status. Valid values:
     // 
     // *   Running: The task is running.
     // *   Succeeded: The task is successful.
     // *   Failed: The task failed.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The custom tags of tasks.
-    std::shared_ptr<string> tagSelector_ = nullptr;
+    shared_ptr<string> tagSelector_ {};
     // The task types.
-    std::shared_ptr<vector<string>> taskTypes_ = nullptr;
+    shared_ptr<vector<string>> taskTypes_ {};
   };
 
   } // namespace Models

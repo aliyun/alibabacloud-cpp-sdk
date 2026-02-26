@@ -34,32 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->compressionLevel_ == nullptr
-        && return this->libraryName_ == nullptr && return this->quantizationBits_ == nullptr; };
+        && this->libraryName_ == nullptr && this->quantizationBits_ == nullptr; };
     // compressionLevel Field Functions 
     bool hasCompressionLevel() const { return this->compressionLevel_ != nullptr;};
     void deleteCompressionLevel() { this->compressionLevel_ = nullptr;};
-    inline int32_t compressionLevel() const { DARABONBA_PTR_GET_DEFAULT(compressionLevel_, 0) };
+    inline int32_t getCompressionLevel() const { DARABONBA_PTR_GET_DEFAULT(compressionLevel_, 0) };
     inline KdtreeOption& setCompressionLevel(int32_t compressionLevel) { DARABONBA_PTR_SET_VALUE(compressionLevel_, compressionLevel) };
 
 
     // libraryName Field Functions 
     bool hasLibraryName() const { return this->libraryName_ != nullptr;};
     void deleteLibraryName() { this->libraryName_ = nullptr;};
-    inline string libraryName() const { DARABONBA_PTR_GET_DEFAULT(libraryName_, "") };
+    inline string getLibraryName() const { DARABONBA_PTR_GET_DEFAULT(libraryName_, "") };
     inline KdtreeOption& setLibraryName(string libraryName) { DARABONBA_PTR_SET_VALUE(libraryName_, libraryName) };
 
 
     // quantizationBits Field Functions 
     bool hasQuantizationBits() const { return this->quantizationBits_ != nullptr;};
     void deleteQuantizationBits() { this->quantizationBits_ = nullptr;};
-    inline int32_t quantizationBits() const { DARABONBA_PTR_GET_DEFAULT(quantizationBits_, 0) };
+    inline int32_t getQuantizationBits() const { DARABONBA_PTR_GET_DEFAULT(quantizationBits_, 0) };
     inline KdtreeOption& setQuantizationBits(int32_t quantizationBits) { DARABONBA_PTR_SET_VALUE(quantizationBits_, quantizationBits) };
 
 
   protected:
-    std::shared_ptr<int32_t> compressionLevel_ = nullptr;
-    std::shared_ptr<string> libraryName_ = nullptr;
-    std::shared_ptr<int32_t> quantizationBits_ = nullptr;
+    // The compression level. Valid values: 0 to 10. A greater value specifies a higher compression ratio and ensures better detail effects.
+    shared_ptr<int32_t> compressionLevel_ {};
+    // The name of the library supported by a k-d tree. Set the value to draco. Default value: draco.
+    shared_ptr<string> libraryName_ {};
+    // The number of bits for quantization. Valid values: 0 to 31. A greater value ensures that more details are retained. A value of 0 specifies that vertex compression is not performed.
+    shared_ptr<int32_t> quantizationBits_ {};
   };
 
   } // namespace Models

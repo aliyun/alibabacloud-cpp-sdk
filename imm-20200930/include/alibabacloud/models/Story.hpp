@@ -67,15 +67,15 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addresses_ == nullptr
-        && return this->cover_ == nullptr && return this->createTime_ == nullptr && return this->customId_ == nullptr && return this->customLabels_ == nullptr && return this->datasetName_ == nullptr
-        && return this->figureClusterIds_ == nullptr && return this->files_ == nullptr && return this->objectId_ == nullptr && return this->objectType_ == nullptr && return this->ownerId_ == nullptr
-        && return this->projectName_ == nullptr && return this->storyEndTime_ == nullptr && return this->storyName_ == nullptr && return this->storyStartTime_ == nullptr && return this->storySubType_ == nullptr
-        && return this->storyType_ == nullptr && return this->updateTime_ == nullptr; };
+        && this->cover_ == nullptr && this->createTime_ == nullptr && this->customId_ == nullptr && this->customLabels_ == nullptr && this->datasetName_ == nullptr
+        && this->figureClusterIds_ == nullptr && this->files_ == nullptr && this->objectId_ == nullptr && this->objectType_ == nullptr && this->ownerId_ == nullptr
+        && this->projectName_ == nullptr && this->storyEndTime_ == nullptr && this->storyName_ == nullptr && this->storyStartTime_ == nullptr && this->storySubType_ == nullptr
+        && this->storyType_ == nullptr && this->updateTime_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};
-    inline const vector<Address> & addresses() const { DARABONBA_PTR_GET_CONST(addresses_, vector<Address>) };
-    inline vector<Address> addresses() { DARABONBA_PTR_GET(addresses_, vector<Address>) };
+    inline const vector<Address> & getAddresses() const { DARABONBA_PTR_GET_CONST(addresses_, vector<Address>) };
+    inline vector<Address> getAddresses() { DARABONBA_PTR_GET(addresses_, vector<Address>) };
     inline Story& setAddresses(const vector<Address> & addresses) { DARABONBA_PTR_SET_VALUE(addresses_, addresses) };
     inline Story& setAddresses(vector<Address> && addresses) { DARABONBA_PTR_SET_RVALUE(addresses_, addresses) };
 
@@ -83,8 +83,8 @@ namespace Models
     // cover Field Functions 
     bool hasCover() const { return this->cover_ != nullptr;};
     void deleteCover() { this->cover_ = nullptr;};
-    inline const File & cover() const { DARABONBA_PTR_GET_CONST(cover_, File) };
-    inline File cover() { DARABONBA_PTR_GET(cover_, File) };
+    inline const File & getCover() const { DARABONBA_PTR_GET_CONST(cover_, File) };
+    inline File getCover() { DARABONBA_PTR_GET(cover_, File) };
     inline Story& setCover(const File & cover) { DARABONBA_PTR_SET_VALUE(cover_, cover) };
     inline Story& setCover(File && cover) { DARABONBA_PTR_SET_RVALUE(cover_, cover) };
 
@@ -92,38 +92,38 @@ namespace Models
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline Story& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // customId Field Functions 
     bool hasCustomId() const { return this->customId_ != nullptr;};
     void deleteCustomId() { this->customId_ = nullptr;};
-    inline string customId() const { DARABONBA_PTR_GET_DEFAULT(customId_, "") };
+    inline string getCustomId() const { DARABONBA_PTR_GET_DEFAULT(customId_, "") };
     inline Story& setCustomId(string customId) { DARABONBA_PTR_SET_VALUE(customId_, customId) };
 
 
     // customLabels Field Functions 
     bool hasCustomLabels() const { return this->customLabels_ != nullptr;};
     void deleteCustomLabels() { this->customLabels_ = nullptr;};
-    inline     const Darabonba::Json & customLabels() const { DARABONBA_GET(customLabels_) };
-    Darabonba::Json & customLabels() { DARABONBA_GET(customLabels_) };
+    inline     const Darabonba::Json & getCustomLabels() const { DARABONBA_GET(customLabels_) };
+    Darabonba::Json & getCustomLabels() { DARABONBA_GET(customLabels_) };
     inline Story& setCustomLabels(const Darabonba::Json & customLabels) { DARABONBA_SET_VALUE(customLabels_, customLabels) };
-    inline Story& setCustomLabels(Darabonba::Json & customLabels) { DARABONBA_SET_RVALUE(customLabels_, customLabels) };
+    inline Story& setCustomLabels(Darabonba::Json && customLabels) { DARABONBA_SET_RVALUE(customLabels_, customLabels) };
 
 
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
-    inline string datasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+    inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
     inline Story& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
     // figureClusterIds Field Functions 
     bool hasFigureClusterIds() const { return this->figureClusterIds_ != nullptr;};
     void deleteFigureClusterIds() { this->figureClusterIds_ = nullptr;};
-    inline const vector<string> & figureClusterIds() const { DARABONBA_PTR_GET_CONST(figureClusterIds_, vector<string>) };
-    inline vector<string> figureClusterIds() { DARABONBA_PTR_GET(figureClusterIds_, vector<string>) };
+    inline const vector<string> & getFigureClusterIds() const { DARABONBA_PTR_GET_CONST(figureClusterIds_, vector<string>) };
+    inline vector<string> getFigureClusterIds() { DARABONBA_PTR_GET(figureClusterIds_, vector<string>) };
     inline Story& setFigureClusterIds(const vector<string> & figureClusterIds) { DARABONBA_PTR_SET_VALUE(figureClusterIds_, figureClusterIds) };
     inline Story& setFigureClusterIds(vector<string> && figureClusterIds) { DARABONBA_PTR_SET_RVALUE(figureClusterIds_, figureClusterIds) };
 
@@ -131,8 +131,8 @@ namespace Models
     // files Field Functions 
     bool hasFiles() const { return this->files_ != nullptr;};
     void deleteFiles() { this->files_ = nullptr;};
-    inline const vector<File> & files() const { DARABONBA_PTR_GET_CONST(files_, vector<File>) };
-    inline vector<File> files() { DARABONBA_PTR_GET(files_, vector<File>) };
+    inline const vector<File> & getFiles() const { DARABONBA_PTR_GET_CONST(files_, vector<File>) };
+    inline vector<File> getFiles() { DARABONBA_PTR_GET(files_, vector<File>) };
     inline Story& setFiles(const vector<File> & files) { DARABONBA_PTR_SET_VALUE(files_, files) };
     inline Story& setFiles(vector<File> && files) { DARABONBA_PTR_SET_RVALUE(files_, files) };
 
@@ -140,92 +140,110 @@ namespace Models
     // objectId Field Functions 
     bool hasObjectId() const { return this->objectId_ != nullptr;};
     void deleteObjectId() { this->objectId_ = nullptr;};
-    inline string objectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
+    inline string getObjectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
     inline Story& setObjectId(string objectId) { DARABONBA_PTR_SET_VALUE(objectId_, objectId) };
 
 
     // objectType Field Functions 
     bool hasObjectType() const { return this->objectType_ != nullptr;};
     void deleteObjectType() { this->objectType_ = nullptr;};
-    inline string objectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
+    inline string getObjectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
     inline Story& setObjectType(string objectType) { DARABONBA_PTR_SET_VALUE(objectType_, objectType) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline Story& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline Story& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // storyEndTime Field Functions 
     bool hasStoryEndTime() const { return this->storyEndTime_ != nullptr;};
     void deleteStoryEndTime() { this->storyEndTime_ = nullptr;};
-    inline string storyEndTime() const { DARABONBA_PTR_GET_DEFAULT(storyEndTime_, "") };
+    inline string getStoryEndTime() const { DARABONBA_PTR_GET_DEFAULT(storyEndTime_, "") };
     inline Story& setStoryEndTime(string storyEndTime) { DARABONBA_PTR_SET_VALUE(storyEndTime_, storyEndTime) };
 
 
     // storyName Field Functions 
     bool hasStoryName() const { return this->storyName_ != nullptr;};
     void deleteStoryName() { this->storyName_ = nullptr;};
-    inline string storyName() const { DARABONBA_PTR_GET_DEFAULT(storyName_, "") };
+    inline string getStoryName() const { DARABONBA_PTR_GET_DEFAULT(storyName_, "") };
     inline Story& setStoryName(string storyName) { DARABONBA_PTR_SET_VALUE(storyName_, storyName) };
 
 
     // storyStartTime Field Functions 
     bool hasStoryStartTime() const { return this->storyStartTime_ != nullptr;};
     void deleteStoryStartTime() { this->storyStartTime_ = nullptr;};
-    inline string storyStartTime() const { DARABONBA_PTR_GET_DEFAULT(storyStartTime_, "") };
+    inline string getStoryStartTime() const { DARABONBA_PTR_GET_DEFAULT(storyStartTime_, "") };
     inline Story& setStoryStartTime(string storyStartTime) { DARABONBA_PTR_SET_VALUE(storyStartTime_, storyStartTime) };
 
 
     // storySubType Field Functions 
     bool hasStorySubType() const { return this->storySubType_ != nullptr;};
     void deleteStorySubType() { this->storySubType_ = nullptr;};
-    inline string storySubType() const { DARABONBA_PTR_GET_DEFAULT(storySubType_, "") };
+    inline string getStorySubType() const { DARABONBA_PTR_GET_DEFAULT(storySubType_, "") };
     inline Story& setStorySubType(string storySubType) { DARABONBA_PTR_SET_VALUE(storySubType_, storySubType) };
 
 
     // storyType Field Functions 
     bool hasStoryType() const { return this->storyType_ != nullptr;};
     void deleteStoryType() { this->storyType_ = nullptr;};
-    inline string storyType() const { DARABONBA_PTR_GET_DEFAULT(storyType_, "") };
+    inline string getStoryType() const { DARABONBA_PTR_GET_DEFAULT(storyType_, "") };
     inline Story& setStoryType(string storyType) { DARABONBA_PTR_SET_VALUE(storyType_, storyType) };
 
 
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
-    inline string updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
+    inline string getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
     inline Story& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
   protected:
-    std::shared_ptr<vector<Address>> addresses_ = nullptr;
-    std::shared_ptr<File> cover_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> customId_ = nullptr;
-    Darabonba::Json customLabels_ = nullptr;
-    std::shared_ptr<string> datasetName_ = nullptr;
-    std::shared_ptr<vector<string>> figureClusterIds_ = nullptr;
-    std::shared_ptr<vector<File>> files_ = nullptr;
-    std::shared_ptr<string> objectId_ = nullptr;
-    std::shared_ptr<string> objectType_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
-    std::shared_ptr<string> projectName_ = nullptr;
-    std::shared_ptr<string> storyEndTime_ = nullptr;
-    std::shared_ptr<string> storyName_ = nullptr;
-    std::shared_ptr<string> storyStartTime_ = nullptr;
-    std::shared_ptr<string> storySubType_ = nullptr;
-    std::shared_ptr<string> storyType_ = nullptr;
-    std::shared_ptr<string> updateTime_ = nullptr;
+    // The addresses.
+    shared_ptr<vector<Address>> addresses_ {};
+    // The story cover.
+    shared_ptr<File> cover_ {};
+    // The time when the story was created.
+    shared_ptr<string> createTime_ {};
+    // The custom ID.
+    shared_ptr<string> customId_ {};
+    // The custom labels.
+    Darabonba::Json customLabels_ {};
+    // The name of the dataset.
+    shared_ptr<string> datasetName_ {};
+    // The fluster IDs.
+    shared_ptr<vector<string>> figureClusterIds_ {};
+    // The story files.
+    shared_ptr<vector<File>> files_ {};
+    // The ID of the story object.
+    shared_ptr<string> objectId_ {};
+    // The type of the object.
+    shared_ptr<string> objectType_ {};
+    // The ID of the owner to which the story belongs.
+    shared_ptr<string> ownerId_ {};
+    // The name of the project.
+    shared_ptr<string> projectName_ {};
+    // The time when the story ends.
+    shared_ptr<string> storyEndTime_ {};
+    // The name of the story.
+    shared_ptr<string> storyName_ {};
+    // The time when the story starts.
+    shared_ptr<string> storyStartTime_ {};
+    // The subtype of the story.
+    shared_ptr<string> storySubType_ {};
+    // The story type.
+    shared_ptr<string> storyType_ {};
+    // The time when the story was updated.
+    shared_ptr<string> updateTime_ {};
   };
 
   } // namespace Models

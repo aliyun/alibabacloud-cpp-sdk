@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->croppings_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // croppings Field Functions 
     bool hasCroppings() const { return this->croppings_ != nullptr;};
     void deleteCroppings() { this->croppings_ = nullptr;};
-    inline const vector<CroppingSuggestion> & croppings() const { DARABONBA_PTR_GET_CONST(croppings_, vector<CroppingSuggestion>) };
-    inline vector<CroppingSuggestion> croppings() { DARABONBA_PTR_GET(croppings_, vector<CroppingSuggestion>) };
+    inline const vector<CroppingSuggestion> & getCroppings() const { DARABONBA_PTR_GET_CONST(croppings_, vector<CroppingSuggestion>) };
+    inline vector<CroppingSuggestion> getCroppings() { DARABONBA_PTR_GET(croppings_, vector<CroppingSuggestion>) };
     inline DetectImageCroppingResponseBody& setCroppings(const vector<CroppingSuggestion> & croppings) { DARABONBA_PTR_SET_VALUE(croppings_, croppings) };
     inline DetectImageCroppingResponseBody& setCroppings(vector<CroppingSuggestion> && croppings) { DARABONBA_PTR_SET_RVALUE(croppings_, croppings) };
 
@@ -47,15 +47,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DetectImageCroppingResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The image cropping suggestions.
-    std::shared_ptr<vector<CroppingSuggestion>> croppings_ = nullptr;
+    shared_ptr<vector<CroppingSuggestion>> croppings_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

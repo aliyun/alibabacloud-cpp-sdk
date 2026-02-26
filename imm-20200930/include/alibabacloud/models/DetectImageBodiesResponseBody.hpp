@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bodies_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // bodies Field Functions 
     bool hasBodies() const { return this->bodies_ != nullptr;};
     void deleteBodies() { this->bodies_ = nullptr;};
-    inline const vector<Body> & bodies() const { DARABONBA_PTR_GET_CONST(bodies_, vector<Body>) };
-    inline vector<Body> bodies() { DARABONBA_PTR_GET(bodies_, vector<Body>) };
+    inline const vector<Body> & getBodies() const { DARABONBA_PTR_GET_CONST(bodies_, vector<Body>) };
+    inline vector<Body> getBodies() { DARABONBA_PTR_GET(bodies_, vector<Body>) };
     inline DetectImageBodiesResponseBody& setBodies(const vector<Body> & bodies) { DARABONBA_PTR_SET_VALUE(bodies_, bodies) };
     inline DetectImageBodiesResponseBody& setBodies(vector<Body> && bodies) { DARABONBA_PTR_SET_RVALUE(bodies_, bodies) };
 
@@ -47,15 +47,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DetectImageBodiesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The human bodies.
-    std::shared_ptr<vector<Body>> bodies_ = nullptr;
+    shared_ptr<vector<Body>> bodies_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

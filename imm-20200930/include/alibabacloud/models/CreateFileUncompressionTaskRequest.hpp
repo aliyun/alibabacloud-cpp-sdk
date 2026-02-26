@@ -47,13 +47,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialConfig_ == nullptr
-        && return this->notification_ == nullptr && return this->password_ == nullptr && return this->projectName_ == nullptr && return this->selectedFiles_ == nullptr && return this->sourceURI_ == nullptr
-        && return this->targetURI_ == nullptr && return this->userData_ == nullptr; };
+        && this->notification_ == nullptr && this->password_ == nullptr && this->projectName_ == nullptr && this->selectedFiles_ == nullptr && this->sourceURI_ == nullptr
+        && this->targetURI_ == nullptr && this->userData_ == nullptr; };
     // credentialConfig Field Functions 
     bool hasCredentialConfig() const { return this->credentialConfig_ != nullptr;};
     void deleteCredentialConfig() { this->credentialConfig_ = nullptr;};
-    inline const CredentialConfig & credentialConfig() const { DARABONBA_PTR_GET_CONST(credentialConfig_, CredentialConfig) };
-    inline CredentialConfig credentialConfig() { DARABONBA_PTR_GET(credentialConfig_, CredentialConfig) };
+    inline const CredentialConfig & getCredentialConfig() const { DARABONBA_PTR_GET_CONST(credentialConfig_, CredentialConfig) };
+    inline CredentialConfig getCredentialConfig() { DARABONBA_PTR_GET(credentialConfig_, CredentialConfig) };
     inline CreateFileUncompressionTaskRequest& setCredentialConfig(const CredentialConfig & credentialConfig) { DARABONBA_PTR_SET_VALUE(credentialConfig_, credentialConfig) };
     inline CreateFileUncompressionTaskRequest& setCredentialConfig(CredentialConfig && credentialConfig) { DARABONBA_PTR_SET_RVALUE(credentialConfig_, credentialConfig) };
 
@@ -61,8 +61,8 @@ namespace Models
     // notification Field Functions 
     bool hasNotification() const { return this->notification_ != nullptr;};
     void deleteNotification() { this->notification_ = nullptr;};
-    inline const Notification & notification() const { DARABONBA_PTR_GET_CONST(notification_, Notification) };
-    inline Notification notification() { DARABONBA_PTR_GET(notification_, Notification) };
+    inline const Notification & getNotification() const { DARABONBA_PTR_GET_CONST(notification_, Notification) };
+    inline Notification getNotification() { DARABONBA_PTR_GET(notification_, Notification) };
     inline CreateFileUncompressionTaskRequest& setNotification(const Notification & notification) { DARABONBA_PTR_SET_VALUE(notification_, notification) };
     inline CreateFileUncompressionTaskRequest& setNotification(Notification && notification) { DARABONBA_PTR_SET_RVALUE(notification_, notification) };
 
@@ -70,22 +70,22 @@ namespace Models
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline CreateFileUncompressionTaskRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline CreateFileUncompressionTaskRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // selectedFiles Field Functions 
     bool hasSelectedFiles() const { return this->selectedFiles_ != nullptr;};
     void deleteSelectedFiles() { this->selectedFiles_ = nullptr;};
-    inline const vector<string> & selectedFiles() const { DARABONBA_PTR_GET_CONST(selectedFiles_, vector<string>) };
-    inline vector<string> selectedFiles() { DARABONBA_PTR_GET(selectedFiles_, vector<string>) };
+    inline const vector<string> & getSelectedFiles() const { DARABONBA_PTR_GET_CONST(selectedFiles_, vector<string>) };
+    inline vector<string> getSelectedFiles() { DARABONBA_PTR_GET(selectedFiles_, vector<string>) };
     inline CreateFileUncompressionTaskRequest& setSelectedFiles(const vector<string> & selectedFiles) { DARABONBA_PTR_SET_VALUE(selectedFiles_, selectedFiles) };
     inline CreateFileUncompressionTaskRequest& setSelectedFiles(vector<string> && selectedFiles) { DARABONBA_PTR_SET_RVALUE(selectedFiles_, selectedFiles) };
 
@@ -93,21 +93,21 @@ namespace Models
     // sourceURI Field Functions 
     bool hasSourceURI() const { return this->sourceURI_ != nullptr;};
     void deleteSourceURI() { this->sourceURI_ = nullptr;};
-    inline string sourceURI() const { DARABONBA_PTR_GET_DEFAULT(sourceURI_, "") };
+    inline string getSourceURI() const { DARABONBA_PTR_GET_DEFAULT(sourceURI_, "") };
     inline CreateFileUncompressionTaskRequest& setSourceURI(string sourceURI) { DARABONBA_PTR_SET_VALUE(sourceURI_, sourceURI) };
 
 
     // targetURI Field Functions 
     bool hasTargetURI() const { return this->targetURI_ != nullptr;};
     void deleteTargetURI() { this->targetURI_ = nullptr;};
-    inline string targetURI() const { DARABONBA_PTR_GET_DEFAULT(targetURI_, "") };
+    inline string getTargetURI() const { DARABONBA_PTR_GET_DEFAULT(targetURI_, "") };
     inline CreateFileUncompressionTaskRequest& setTargetURI(string targetURI) { DARABONBA_PTR_SET_VALUE(targetURI_, targetURI) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline CreateFileUncompressionTaskRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
@@ -115,31 +115,31 @@ namespace Models
     // **If you do not have special requirements, leave this parameter empty.**
     // 
     // The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
-    std::shared_ptr<CredentialConfig> credentialConfig_ = nullptr;
+    shared_ptr<CredentialConfig> credentialConfig_ {};
     // The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
     // 
     // >  The IMM operation does not support a callback URL. We recommend that you use Simple Message Queue (SMQ) to receive notifications.
-    std::shared_ptr<Notification> notification_ = nullptr;
+    shared_ptr<Notification> notification_ {};
     // The password that protects the package.
-    std::shared_ptr<string> password_ = nullptr;
+    shared_ptr<string> password_ {};
     // The name of the project.[](~~478153~~)
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The files to extract. If you do not specify this parameter, the entire package is decompressed.
-    std::shared_ptr<vector<string>> selectedFiles_ = nullptr;
+    shared_ptr<vector<string>> selectedFiles_ {};
     // The OSS URI of the package.
     // 
     // Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceURI_ = nullptr;
+    shared_ptr<string> sourceURI_ {};
     // The OSS URI to which you want to extract files from the package or decompress the entire package.
     // 
     // Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
-    std::shared_ptr<string> targetURI_ = nullptr;
+    shared_ptr<string> targetURI_ {};
     // The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

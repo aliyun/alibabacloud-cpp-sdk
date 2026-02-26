@@ -36,26 +36,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->requestId_ == nullptr && return this->similarImageClusters_ == nullptr; };
+        && this->requestId_ == nullptr && this->similarImageClusters_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline QuerySimilarImageClustersResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QuerySimilarImageClustersResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // similarImageClusters Field Functions 
     bool hasSimilarImageClusters() const { return this->similarImageClusters_ != nullptr;};
     void deleteSimilarImageClusters() { this->similarImageClusters_ = nullptr;};
-    inline const vector<SimilarImageCluster> & similarImageClusters() const { DARABONBA_PTR_GET_CONST(similarImageClusters_, vector<SimilarImageCluster>) };
-    inline vector<SimilarImageCluster> similarImageClusters() { DARABONBA_PTR_GET(similarImageClusters_, vector<SimilarImageCluster>) };
+    inline const vector<SimilarImageCluster> & getSimilarImageClusters() const { DARABONBA_PTR_GET_CONST(similarImageClusters_, vector<SimilarImageCluster>) };
+    inline vector<SimilarImageCluster> getSimilarImageClusters() { DARABONBA_PTR_GET(similarImageClusters_, vector<SimilarImageCluster>) };
     inline QuerySimilarImageClustersResponseBody& setSimilarImageClusters(const vector<SimilarImageCluster> & similarImageClusters) { DARABONBA_PTR_SET_VALUE(similarImageClusters_, similarImageClusters) };
     inline QuerySimilarImageClustersResponseBody& setSimilarImageClusters(vector<SimilarImageCluster> && similarImageClusters) { DARABONBA_PTR_SET_RVALUE(similarImageClusters_, similarImageClusters) };
 
@@ -64,11 +64,11 @@ namespace Models
     // The pagination token. If the total number of clusters is greater than the value of MaxResults, this token can be used to retrieve the next page. This parameter has a value only if not all the clusters that meet the condition are returned.
     // 
     // Pass this value as the value of NextToken in the next query to return the subsequent clusters.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The list of similar image clusters.
-    std::shared_ptr<vector<SimilarImageCluster>> similarImageClusters_ = nullptr;
+    shared_ptr<vector<SimilarImageCluster>> similarImageClusters_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     // roleDefinition Field Functions 
     bool hasRoleDefinition() const { return this->roleDefinition_ != nullptr;};
     void deleteRoleDefinition() { this->roleDefinition_ = nullptr;};
-    inline string roleDefinition() const { DARABONBA_PTR_GET_DEFAULT(roleDefinition_, "") };
+    inline string getRoleDefinition() const { DARABONBA_PTR_GET_DEFAULT(roleDefinition_, "") };
     inline CustomPrompt& setRoleDefinition(string roleDefinition) { DARABONBA_PTR_SET_VALUE(roleDefinition_, roleDefinition) };
 
 
   protected:
-    std::shared_ptr<string> roleDefinition_ = nullptr;
+    shared_ptr<string> roleDefinition_ {};
   };
 
   } // namespace Models

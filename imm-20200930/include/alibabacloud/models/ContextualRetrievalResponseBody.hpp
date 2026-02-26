@@ -34,28 +34,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->results_ == nullptr; };
+        && this->results_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ContextualRetrievalResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // results Field Functions 
     bool hasResults() const { return this->results_ != nullptr;};
     void deleteResults() { this->results_ = nullptr;};
-    inline const vector<File> & results() const { DARABONBA_PTR_GET_CONST(results_, vector<File>) };
-    inline vector<File> results() { DARABONBA_PTR_GET(results_, vector<File>) };
+    inline const vector<File> & getResults() const { DARABONBA_PTR_GET_CONST(results_, vector<File>) };
+    inline vector<File> getResults() { DARABONBA_PTR_GET(results_, vector<File>) };
     inline ContextualRetrievalResponseBody& setResults(const vector<File> & results) { DARABONBA_PTR_SET_VALUE(results_, results) };
     inline ContextualRetrievalResponseBody& setResults(vector<File> && results) { DARABONBA_PTR_SET_RVALUE(results_, results) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The list of files retrieved. The document structure and content are contained in File.Elements.
-    std::shared_ptr<vector<File>> results_ = nullptr;
+    shared_ptr<vector<File>> results_ {};
   };
 
   } // namespace Models

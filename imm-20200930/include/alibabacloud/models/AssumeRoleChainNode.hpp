@@ -34,35 +34,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ownerId_ == nullptr
-        && return this->role_ == nullptr && return this->type_ == nullptr; };
+        && this->role_ == nullptr && this->type_ == nullptr; };
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline AssumeRoleChainNode& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // role Field Functions 
     bool hasRole() const { return this->role_ != nullptr;};
     void deleteRole() { this->role_ = nullptr;};
-    inline string role() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
+    inline string getRole() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
     inline AssumeRoleChainNode& setRole(string role) { DARABONBA_PTR_SET_VALUE(role_, role) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline AssumeRoleChainNode& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
+    // The UID of the account.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> ownerId_ = nullptr;
+    shared_ptr<string> ownerId_ {};
+    // The role.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> role_ = nullptr;
+    shared_ptr<string> role_ {};
+    // The type of the account. Valid values:
+    // 
+    // *   user: Alibaba Cloud account.
+    // *   service: Alibaba Cloud service.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->image_ == nullptr
-        && return this->video_ == nullptr; };
+        && this->video_ == nullptr; };
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
-    inline const ImageInsight & image() const { DARABONBA_PTR_GET_CONST(image_, ImageInsight) };
-    inline ImageInsight image() { DARABONBA_PTR_GET(image_, ImageInsight) };
+    inline const ImageInsight & getImage() const { DARABONBA_PTR_GET_CONST(image_, ImageInsight) };
+    inline ImageInsight getImage() { DARABONBA_PTR_GET(image_, ImageInsight) };
     inline Insights& setImage(const ImageInsight & image) { DARABONBA_PTR_SET_VALUE(image_, image) };
     inline Insights& setImage(ImageInsight && image) { DARABONBA_PTR_SET_RVALUE(image_, image) };
 
@@ -47,15 +47,17 @@ namespace Models
     // video Field Functions 
     bool hasVideo() const { return this->video_ != nullptr;};
     void deleteVideo() { this->video_ = nullptr;};
-    inline const VideoInsight & video() const { DARABONBA_PTR_GET_CONST(video_, VideoInsight) };
-    inline VideoInsight video() { DARABONBA_PTR_GET(video_, VideoInsight) };
+    inline const VideoInsight & getVideo() const { DARABONBA_PTR_GET_CONST(video_, VideoInsight) };
+    inline VideoInsight getVideo() { DARABONBA_PTR_GET(video_, VideoInsight) };
     inline Insights& setVideo(const VideoInsight & video) { DARABONBA_PTR_SET_VALUE(video_, video) };
     inline Insights& setVideo(VideoInsight && video) { DARABONBA_PTR_SET_RVALUE(video_, video) };
 
 
   protected:
-    std::shared_ptr<ImageInsight> image_ = nullptr;
-    std::shared_ptr<VideoInsight> video_ = nullptr;
+    // The summary and description of the image.
+    shared_ptr<ImageInsight> image_ {};
+    // The summary and description of the video.
+    shared_ptr<VideoInsight> video_ {};
   };
 
   } // namespace Models

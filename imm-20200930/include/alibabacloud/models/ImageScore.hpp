@@ -33,12 +33,15 @@ namespace Models
     // overallQualityScore Field Functions 
     bool hasOverallQualityScore() const { return this->overallQualityScore_ != nullptr;};
     void deleteOverallQualityScore() { this->overallQualityScore_ = nullptr;};
-    inline float overallQualityScore() const { DARABONBA_PTR_GET_DEFAULT(overallQualityScore_, 0.0) };
+    inline float getOverallQualityScore() const { DARABONBA_PTR_GET_DEFAULT(overallQualityScore_, 0.0) };
     inline ImageScore& setOverallQualityScore(float overallQualityScore) { DARABONBA_PTR_SET_VALUE(overallQualityScore_, overallQualityScore) };
 
 
   protected:
-    std::shared_ptr<float> overallQualityScore_ = nullptr;
+    // The score for the overall image quality. The image is automatically evaluated by AI. The evaluation is mainly based on subjective aesthetics and is affected by various factors, such as composition, brightness, contrast, color, and definition.
+    // 
+    // Valid values: 0 to 1. A higher value indicates better quality.
+    shared_ptr<float> overallQualityScore_ {};
   };
 
   } // namespace Models

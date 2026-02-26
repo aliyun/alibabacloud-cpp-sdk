@@ -232,7 +232,7 @@ namespace Imm20200930
       Models::CompareImageFacesResponse compareImageFaces(const Models::CompareImageFacesRequest &request);
 
       /**
-       * @summary Phase II of AI Assistant, Q\\&A API
+       * @summary Phase II of AI Assistant, Q\\\\\\&A API
        *
        * @description ### Precautions
        * - Before using this interface, please make sure you fully understand the billing method and [pricing](https://help.aliyun.com/zh/imm/product-overview/billable-items?spm=openapi-amp.newDocPublishment.0.0.1ecd281fi27Zgk) of the Intelligent Media Management product.
@@ -246,10 +246,10 @@ namespace Imm20200930
        * @param runtime runtime options for this request RuntimeOptions
        * @return ContextualAnswerResponse
        */
-      FutrueGenerator<Models::ContextualAnswerResponse> contextualAnswerWithSSE(const Models::ContextualAnswerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::ContextualAnswerResponse> contextualAnswerWithSSE(const Models::ContextualAnswerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Phase II of AI Assistant, Q\\&A API
+       * @summary Phase II of AI Assistant, Q\\\\\\&A API
        *
        * @description ### Precautions
        * - Before using this interface, please make sure you fully understand the billing method and [pricing](https://help.aliyun.com/zh/imm/product-overview/billable-items?spm=openapi-amp.newDocPublishment.0.0.1ecd281fi27Zgk) of the Intelligent Media Management product.
@@ -266,7 +266,7 @@ namespace Imm20200930
       Models::ContextualAnswerResponse contextualAnswerWithOptions(const Models::ContextualAnswerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Phase II of AI Assistant, Q\\&A API
+       * @summary Phase II of AI Assistant, Q\\\\\\&A API
        *
        * @description ### Precautions
        * - Before using this interface, please make sure you fully understand the billing method and [pricing](https://help.aliyun.com/zh/imm/product-overview/billable-items?spm=openapi-amp.newDocPublishment.0.0.1ecd281fi27Zgk) of the Intelligent Media Management product.
@@ -454,7 +454,7 @@ namespace Imm20200930
       Models::CreateCustomizedStoryResponse createCustomizedStory(const Models::CreateCustomizedStoryRequest &request);
 
       /**
-       * @summary Create Dataset
+       * @summary Creates a dataset.
        *
        * @description - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of the Intelligent Media Management product before using this interface.**
        * - The dataset name must be unique within the same project.
@@ -468,7 +468,7 @@ namespace Imm20200930
       Models::CreateDatasetResponse createDatasetWithOptions(const Models::CreateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Dataset
+       * @summary Creates a dataset.
        *
        * @description - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of the Intelligent Media Management product before using this interface.**
        * - The dataset name must be unique within the same project.
@@ -817,7 +817,7 @@ namespace Imm20200930
       Models::CreateLocationDateClusteringTaskResponse createLocationDateClusteringTask(const Models::CreateLocationDateClusteringTaskRequest &request);
 
       /**
-       * @summary Create Transcoding Service
+       * @summary Creates an asynchronous media transcoding task to provide audio and video file processing abilities, such as media transcoding, media splicing, video frame capturing, and video to GIF conversion.
        *
        * @description - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/88317.html) of the Intelligent Media Management product before using this interface.**
        * - Before calling this interface, make sure that there is an available project (Project) in the current Region. For more details, see [Project Management](https://help.aliyun.com/document_detail/478152.html).
@@ -833,7 +833,7 @@ namespace Imm20200930
       Models::CreateMediaConvertTaskResponse createMediaConvertTaskWithOptions(const Models::CreateMediaConvertTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Transcoding Service
+       * @summary Creates an asynchronous media transcoding task to provide audio and video file processing abilities, such as media transcoding, media splicing, video frame capturing, and video to GIF conversion.
        *
        * @description - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/88317.html) of the Intelligent Media Management product before using this interface.**
        * - Before calling this interface, make sure that there is an available project (Project) in the current Region. For more details, see [Project Management](https://help.aliyun.com/document_detail/478152.html).
@@ -1668,7 +1668,7 @@ namespace Imm20200930
       Models::GenerateVideoPlaylistResponse generateVideoPlaylist(const Models::GenerateVideoPlaylistRequest &request);
 
       /**
-       * @summary Generates an access token for document preview or editing.
+       * @summary Obtain Document Preview and Edit Token
        *
        * @description - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of the Intelligent Media Management product before using this interface.**
        * - The access token expires in 30 minutes, and the refresh token expires in 1 day.
@@ -1693,7 +1693,7 @@ namespace Imm20200930
       Models::GenerateWebofficeTokenResponse generateWebofficeTokenWithOptions(const Models::GenerateWebofficeTokenRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates an access token for document preview or editing.
+       * @summary Obtain Document Preview and Edit Token
        *
        * @description - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of the Intelligent Media Management product before using this interface.**
        * - The access token expires in 30 minutes, and the refresh token expires in 1 day.
@@ -1759,7 +1759,7 @@ namespace Imm20200930
       /**
        * @deprecated OpenAPI GetDRMLicense is deprecated
        *
-       * @summary drmlicense获取
+       * @summary Obtains a Digital Rights Management (DRM) license for encrypted video playback.
        *
        * @param request GetDRMLicenseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1770,7 +1770,7 @@ namespace Imm20200930
       /**
        * @deprecated OpenAPI GetDRMLicense is deprecated
        *
-       * @summary drmlicense获取
+       * @summary Obtains a Digital Rights Management (DRM) license for encrypted video playback.
        *
        * @param request GetDRMLicenseRequest
        * @return GetDRMLicenseResponse

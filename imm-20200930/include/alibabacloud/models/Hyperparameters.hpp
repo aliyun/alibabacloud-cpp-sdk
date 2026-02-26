@@ -48,34 +48,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupInterval_ == nullptr
-        && return this->batchSize_ == nullptr && return this->dataLoaderWorkers_ == nullptr && return this->evaluator_ == nullptr && return this->inputSize_ == nullptr && return this->maxEpoch_ == nullptr
-        && return this->optimization_ == nullptr && return this->schedule_ == nullptr; };
+        && this->batchSize_ == nullptr && this->dataLoaderWorkers_ == nullptr && this->evaluator_ == nullptr && this->inputSize_ == nullptr && this->maxEpoch_ == nullptr
+        && this->optimization_ == nullptr && this->schedule_ == nullptr; };
     // backupInterval Field Functions 
     bool hasBackupInterval() const { return this->backupInterval_ != nullptr;};
     void deleteBackupInterval() { this->backupInterval_ = nullptr;};
-    inline int64_t backupInterval() const { DARABONBA_PTR_GET_DEFAULT(backupInterval_, 0L) };
+    inline int64_t getBackupInterval() const { DARABONBA_PTR_GET_DEFAULT(backupInterval_, 0L) };
     inline Hyperparameters& setBackupInterval(int64_t backupInterval) { DARABONBA_PTR_SET_VALUE(backupInterval_, backupInterval) };
 
 
     // batchSize Field Functions 
     bool hasBatchSize() const { return this->batchSize_ != nullptr;};
     void deleteBatchSize() { this->batchSize_ = nullptr;};
-    inline int64_t batchSize() const { DARABONBA_PTR_GET_DEFAULT(batchSize_, 0L) };
+    inline int64_t getBatchSize() const { DARABONBA_PTR_GET_DEFAULT(batchSize_, 0L) };
     inline Hyperparameters& setBatchSize(int64_t batchSize) { DARABONBA_PTR_SET_VALUE(batchSize_, batchSize) };
 
 
     // dataLoaderWorkers Field Functions 
     bool hasDataLoaderWorkers() const { return this->dataLoaderWorkers_ != nullptr;};
     void deleteDataLoaderWorkers() { this->dataLoaderWorkers_ = nullptr;};
-    inline int64_t dataLoaderWorkers() const { DARABONBA_PTR_GET_DEFAULT(dataLoaderWorkers_, 0L) };
+    inline int64_t getDataLoaderWorkers() const { DARABONBA_PTR_GET_DEFAULT(dataLoaderWorkers_, 0L) };
     inline Hyperparameters& setDataLoaderWorkers(int64_t dataLoaderWorkers) { DARABONBA_PTR_SET_VALUE(dataLoaderWorkers_, dataLoaderWorkers) };
 
 
     // evaluator Field Functions 
     bool hasEvaluator() const { return this->evaluator_ != nullptr;};
     void deleteEvaluator() { this->evaluator_ = nullptr;};
-    inline const CustomParams & evaluator() const { DARABONBA_PTR_GET_CONST(evaluator_, CustomParams) };
-    inline CustomParams evaluator() { DARABONBA_PTR_GET(evaluator_, CustomParams) };
+    inline const CustomParams & getEvaluator() const { DARABONBA_PTR_GET_CONST(evaluator_, CustomParams) };
+    inline CustomParams getEvaluator() { DARABONBA_PTR_GET(evaluator_, CustomParams) };
     inline Hyperparameters& setEvaluator(const CustomParams & evaluator) { DARABONBA_PTR_SET_VALUE(evaluator_, evaluator) };
     inline Hyperparameters& setEvaluator(CustomParams && evaluator) { DARABONBA_PTR_SET_RVALUE(evaluator_, evaluator) };
 
@@ -83,8 +83,8 @@ namespace Models
     // inputSize Field Functions 
     bool hasInputSize() const { return this->inputSize_ != nullptr;};
     void deleteInputSize() { this->inputSize_ = nullptr;};
-    inline const vector<int64_t> & inputSize() const { DARABONBA_PTR_GET_CONST(inputSize_, vector<int64_t>) };
-    inline vector<int64_t> inputSize() { DARABONBA_PTR_GET(inputSize_, vector<int64_t>) };
+    inline const vector<int64_t> & getInputSize() const { DARABONBA_PTR_GET_CONST(inputSize_, vector<int64_t>) };
+    inline vector<int64_t> getInputSize() { DARABONBA_PTR_GET(inputSize_, vector<int64_t>) };
     inline Hyperparameters& setInputSize(const vector<int64_t> & inputSize) { DARABONBA_PTR_SET_VALUE(inputSize_, inputSize) };
     inline Hyperparameters& setInputSize(vector<int64_t> && inputSize) { DARABONBA_PTR_SET_RVALUE(inputSize_, inputSize) };
 
@@ -92,15 +92,15 @@ namespace Models
     // maxEpoch Field Functions 
     bool hasMaxEpoch() const { return this->maxEpoch_ != nullptr;};
     void deleteMaxEpoch() { this->maxEpoch_ = nullptr;};
-    inline int64_t maxEpoch() const { DARABONBA_PTR_GET_DEFAULT(maxEpoch_, 0L) };
+    inline int64_t getMaxEpoch() const { DARABONBA_PTR_GET_DEFAULT(maxEpoch_, 0L) };
     inline Hyperparameters& setMaxEpoch(int64_t maxEpoch) { DARABONBA_PTR_SET_VALUE(maxEpoch_, maxEpoch) };
 
 
     // optimization Field Functions 
     bool hasOptimization() const { return this->optimization_ != nullptr;};
     void deleteOptimization() { this->optimization_ = nullptr;};
-    inline const Optimization & optimization() const { DARABONBA_PTR_GET_CONST(optimization_, Optimization) };
-    inline Optimization optimization() { DARABONBA_PTR_GET(optimization_, Optimization) };
+    inline const Optimization & getOptimization() const { DARABONBA_PTR_GET_CONST(optimization_, Optimization) };
+    inline Optimization getOptimization() { DARABONBA_PTR_GET(optimization_, Optimization) };
     inline Hyperparameters& setOptimization(const Optimization & optimization) { DARABONBA_PTR_SET_VALUE(optimization_, optimization) };
     inline Hyperparameters& setOptimization(Optimization && optimization) { DARABONBA_PTR_SET_RVALUE(optimization_, optimization) };
 
@@ -108,23 +108,33 @@ namespace Models
     // schedule Field Functions 
     bool hasSchedule() const { return this->schedule_ != nullptr;};
     void deleteSchedule() { this->schedule_ = nullptr;};
-    inline const Schedule & schedule() const { DARABONBA_PTR_GET_CONST(schedule_, Schedule) };
-    inline Schedule schedule() { DARABONBA_PTR_GET(schedule_, Schedule) };
+    inline const Schedule & getSchedule() const { DARABONBA_PTR_GET_CONST(schedule_, Schedule) };
+    inline Schedule getSchedule() { DARABONBA_PTR_GET(schedule_, Schedule) };
     inline Hyperparameters& setSchedule(const Schedule & schedule) { DARABONBA_PTR_SET_VALUE(schedule_, schedule) };
     inline Hyperparameters& setSchedule(Schedule && schedule) { DARABONBA_PTR_SET_RVALUE(schedule_, schedule) };
 
 
   protected:
-    std::shared_ptr<int64_t> backupInterval_ = nullptr;
-    std::shared_ptr<int64_t> batchSize_ = nullptr;
-    std::shared_ptr<int64_t> dataLoaderWorkers_ = nullptr;
+    // The frequency at which the model configuration is saved. If you set this parameter to 1, model configuration is saved every epoch.
+    shared_ptr<int64_t> backupInterval_ {};
+    // The batch size for model training.
+    shared_ptr<int64_t> batchSize_ {};
+    // The number of threads used to read the training data.
+    shared_ptr<int64_t> dataLoaderWorkers_ {};
+    // The custom parameters for model training.
+    // 
     // This parameter is required.
-    std::shared_ptr<CustomParams> evaluator_ = nullptr;
+    shared_ptr<CustomParams> evaluator_ {};
+    // The image size. The array contains the width and height of the image.
+    // 
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> inputSize_ = nullptr;
-    std::shared_ptr<int64_t> maxEpoch_ = nullptr;
-    std::shared_ptr<Optimization> optimization_ = nullptr;
-    std::shared_ptr<Schedule> schedule_ = nullptr;
+    shared_ptr<vector<int64_t>> inputSize_ {};
+    // The number of epochs.
+    shared_ptr<int64_t> maxEpoch_ {};
+    // The optimization algorithm.
+    shared_ptr<Optimization> optimization_ {};
+    // The learning rate scheduler.
+    shared_ptr<Schedule> schedule_ {};
   };
 
   } // namespace Models

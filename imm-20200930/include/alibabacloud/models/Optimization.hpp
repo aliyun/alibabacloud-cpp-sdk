@@ -32,24 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->learningRate_ == nullptr
-        && return this->optimizer_ == nullptr; };
+        && this->optimizer_ == nullptr; };
     // learningRate Field Functions 
     bool hasLearningRate() const { return this->learningRate_ != nullptr;};
     void deleteLearningRate() { this->learningRate_ = nullptr;};
-    inline float learningRate() const { DARABONBA_PTR_GET_DEFAULT(learningRate_, 0.0) };
+    inline float getLearningRate() const { DARABONBA_PTR_GET_DEFAULT(learningRate_, 0.0) };
     inline Optimization& setLearningRate(float learningRate) { DARABONBA_PTR_SET_VALUE(learningRate_, learningRate) };
 
 
     // optimizer Field Functions 
     bool hasOptimizer() const { return this->optimizer_ != nullptr;};
     void deleteOptimizer() { this->optimizer_ = nullptr;};
-    inline string optimizer() const { DARABONBA_PTR_GET_DEFAULT(optimizer_, "") };
+    inline string getOptimizer() const { DARABONBA_PTR_GET_DEFAULT(optimizer_, "") };
     inline Optimization& setOptimizer(string optimizer) { DARABONBA_PTR_SET_VALUE(optimizer_, optimizer) };
 
 
   protected:
-    std::shared_ptr<float> learningRate_ = nullptr;
-    std::shared_ptr<string> optimizer_ = nullptr;
+    // The initial learning rate.
+    shared_ptr<float> learningRate_ {};
+    // The optimization method.
+    shared_ptr<string> optimizer_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->figureCluster_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // figureCluster Field Functions 
     bool hasFigureCluster() const { return this->figureCluster_ != nullptr;};
     void deleteFigureCluster() { this->figureCluster_ = nullptr;};
-    inline const FigureCluster & figureCluster() const { DARABONBA_PTR_GET_CONST(figureCluster_, FigureCluster) };
-    inline FigureCluster figureCluster() { DARABONBA_PTR_GET(figureCluster_, FigureCluster) };
+    inline const FigureCluster & getFigureCluster() const { DARABONBA_PTR_GET_CONST(figureCluster_, FigureCluster) };
+    inline FigureCluster getFigureCluster() { DARABONBA_PTR_GET(figureCluster_, FigureCluster) };
     inline GetFigureClusterResponseBody& setFigureCluster(const FigureCluster & figureCluster) { DARABONBA_PTR_SET_VALUE(figureCluster_, figureCluster) };
     inline GetFigureClusterResponseBody& setFigureCluster(FigureCluster && figureCluster) { DARABONBA_PTR_SET_RVALUE(figureCluster_, figureCluster) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetFigureClusterResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The information about the face cluster.
-    std::shared_ptr<FigureCluster> figureCluster_ = nullptr;
+    shared_ptr<FigureCluster> figureCluster_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

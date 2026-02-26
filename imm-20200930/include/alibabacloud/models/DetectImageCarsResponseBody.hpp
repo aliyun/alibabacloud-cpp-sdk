@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cars_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // cars Field Functions 
     bool hasCars() const { return this->cars_ != nullptr;};
     void deleteCars() { this->cars_ = nullptr;};
-    inline const vector<Car> & cars() const { DARABONBA_PTR_GET_CONST(cars_, vector<Car>) };
-    inline vector<Car> cars() { DARABONBA_PTR_GET(cars_, vector<Car>) };
+    inline const vector<Car> & getCars() const { DARABONBA_PTR_GET_CONST(cars_, vector<Car>) };
+    inline vector<Car> getCars() { DARABONBA_PTR_GET(cars_, vector<Car>) };
     inline DetectImageCarsResponseBody& setCars(const vector<Car> & cars) { DARABONBA_PTR_SET_VALUE(cars_, cars) };
     inline DetectImageCarsResponseBody& setCars(vector<Car> && cars) { DARABONBA_PTR_SET_RVALUE(cars_, cars) };
 
@@ -47,7 +47,7 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DetectImageCarsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -55,9 +55,9 @@ namespace Models
     // The vehicles.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<Car>> cars_ = nullptr;
+    shared_ptr<vector<Car>> cars_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

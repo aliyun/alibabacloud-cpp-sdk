@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessToken_ == nullptr
-        && return this->accessTokenExpiredTime_ == nullptr && return this->refreshToken_ == nullptr && return this->refreshTokenExpiredTime_ == nullptr && return this->requestId_ == nullptr; };
+        && this->accessTokenExpiredTime_ == nullptr && this->refreshToken_ == nullptr && this->refreshTokenExpiredTime_ == nullptr && this->requestId_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};
-    inline string accessToken() const { DARABONBA_PTR_GET_DEFAULT(accessToken_, "") };
+    inline string getAccessToken() const { DARABONBA_PTR_GET_DEFAULT(accessToken_, "") };
     inline RefreshWebofficeTokenResponseBody& setAccessToken(string accessToken) { DARABONBA_PTR_SET_VALUE(accessToken_, accessToken) };
 
 
     // accessTokenExpiredTime Field Functions 
     bool hasAccessTokenExpiredTime() const { return this->accessTokenExpiredTime_ != nullptr;};
     void deleteAccessTokenExpiredTime() { this->accessTokenExpiredTime_ = nullptr;};
-    inline string accessTokenExpiredTime() const { DARABONBA_PTR_GET_DEFAULT(accessTokenExpiredTime_, "") };
+    inline string getAccessTokenExpiredTime() const { DARABONBA_PTR_GET_DEFAULT(accessTokenExpiredTime_, "") };
     inline RefreshWebofficeTokenResponseBody& setAccessTokenExpiredTime(string accessTokenExpiredTime) { DARABONBA_PTR_SET_VALUE(accessTokenExpiredTime_, accessTokenExpiredTime) };
 
 
     // refreshToken Field Functions 
     bool hasRefreshToken() const { return this->refreshToken_ != nullptr;};
     void deleteRefreshToken() { this->refreshToken_ = nullptr;};
-    inline string refreshToken() const { DARABONBA_PTR_GET_DEFAULT(refreshToken_, "") };
+    inline string getRefreshToken() const { DARABONBA_PTR_GET_DEFAULT(refreshToken_, "") };
     inline RefreshWebofficeTokenResponseBody& setRefreshToken(string refreshToken) { DARABONBA_PTR_SET_VALUE(refreshToken_, refreshToken) };
 
 
     // refreshTokenExpiredTime Field Functions 
     bool hasRefreshTokenExpiredTime() const { return this->refreshTokenExpiredTime_ != nullptr;};
     void deleteRefreshTokenExpiredTime() { this->refreshTokenExpiredTime_ = nullptr;};
-    inline string refreshTokenExpiredTime() const { DARABONBA_PTR_GET_DEFAULT(refreshTokenExpiredTime_, "") };
+    inline string getRefreshTokenExpiredTime() const { DARABONBA_PTR_GET_DEFAULT(refreshTokenExpiredTime_, "") };
     inline RefreshWebofficeTokenResponseBody& setRefreshTokenExpiredTime(string refreshTokenExpiredTime) { DARABONBA_PTR_SET_VALUE(refreshTokenExpiredTime_, refreshTokenExpiredTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline RefreshWebofficeTokenResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Weboffice access token.
-    std::shared_ptr<string> accessToken_ = nullptr;
+    shared_ptr<string> accessToken_ {};
     // Expiration time of the access token. The expiration period is 30 minutes.
-    std::shared_ptr<string> accessTokenExpiredTime_ = nullptr;
+    shared_ptr<string> accessTokenExpiredTime_ {};
     // Weboffice refresh token.
-    std::shared_ptr<string> refreshToken_ = nullptr;
+    shared_ptr<string> refreshToken_ {};
     // Expiration time of the refresh token. The expiration period is 1 day.
-    std::shared_ptr<string> refreshTokenExpiredTime_ = nullptr;
+    shared_ptr<string> refreshTokenExpiredTime_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

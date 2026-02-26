@@ -32,24 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->caption_ == nullptr
-        && return this->description_ == nullptr; };
+        && this->description_ == nullptr; };
     // caption Field Functions 
     bool hasCaption() const { return this->caption_ != nullptr;};
     void deleteCaption() { this->caption_ = nullptr;};
-    inline string caption() const { DARABONBA_PTR_GET_DEFAULT(caption_, "") };
+    inline string getCaption() const { DARABONBA_PTR_GET_DEFAULT(caption_, "") };
     inline ImageInsight& setCaption(string caption) { DARABONBA_PTR_SET_VALUE(caption_, caption) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ImageInsight& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
   protected:
-    std::shared_ptr<string> caption_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    // Image summary.
+    // 
+    // >  Not supported.
+    shared_ptr<string> caption_ {};
+    // The description of the image.
+    shared_ptr<string> description_ {};
   };
 
   } // namespace Models

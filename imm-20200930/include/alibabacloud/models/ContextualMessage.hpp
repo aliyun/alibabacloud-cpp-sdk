@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->files_ == nullptr && return this->role_ == nullptr; };
+        && this->files_ == nullptr && this->role_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline ContextualMessage& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // files Field Functions 
     bool hasFiles() const { return this->files_ != nullptr;};
     void deleteFiles() { this->files_ = nullptr;};
-    inline const vector<ContextualFile> & files() const { DARABONBA_PTR_GET_CONST(files_, vector<ContextualFile>) };
-    inline vector<ContextualFile> files() { DARABONBA_PTR_GET(files_, vector<ContextualFile>) };
+    inline const vector<ContextualFile> & getFiles() const { DARABONBA_PTR_GET_CONST(files_, vector<ContextualFile>) };
+    inline vector<ContextualFile> getFiles() { DARABONBA_PTR_GET(files_, vector<ContextualFile>) };
     inline ContextualMessage& setFiles(const vector<ContextualFile> & files) { DARABONBA_PTR_SET_VALUE(files_, files) };
     inline ContextualMessage& setFiles(vector<ContextualFile> && files) { DARABONBA_PTR_SET_RVALUE(files_, files) };
 
@@ -56,14 +56,17 @@ namespace Models
     // role Field Functions 
     bool hasRole() const { return this->role_ != nullptr;};
     void deleteRole() { this->role_ = nullptr;};
-    inline string role() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
+    inline string getRole() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
     inline ContextualMessage& setRole(string role) { DARABONBA_PTR_SET_VALUE(role_, role) };
 
 
   protected:
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<vector<ContextualFile>> files_ = nullptr;
-    std::shared_ptr<string> role_ = nullptr;
+    // The message content.
+    shared_ptr<string> content_ {};
+    // The files involved in the dialogue.
+    shared_ptr<vector<ContextualFile>> files_ {};
+    // The role in the dialogue.
+    shared_ptr<string> role_ {};
   };
 
   } // namespace Models

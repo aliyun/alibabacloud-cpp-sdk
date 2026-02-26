@@ -49,27 +49,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->algorithmDefinitionId_ == nullptr
-        && return this->createTime_ == nullptr && return this->customLabels_ == nullptr && return this->description_ == nullptr && return this->name_ == nullptr && return this->ownerId_ == nullptr
-        && return this->projectName_ == nullptr && return this->trainingSpecification_ == nullptr && return this->updateTime_ == nullptr; };
+        && this->createTime_ == nullptr && this->customLabels_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->ownerId_ == nullptr
+        && this->projectName_ == nullptr && this->trainingSpecification_ == nullptr && this->updateTime_ == nullptr; };
     // algorithmDefinitionId Field Functions 
     bool hasAlgorithmDefinitionId() const { return this->algorithmDefinitionId_ != nullptr;};
     void deleteAlgorithmDefinitionId() { this->algorithmDefinitionId_ = nullptr;};
-    inline string algorithmDefinitionId() const { DARABONBA_PTR_GET_DEFAULT(algorithmDefinitionId_, "") };
+    inline string getAlgorithmDefinitionId() const { DARABONBA_PTR_GET_DEFAULT(algorithmDefinitionId_, "") };
     inline AlgorithmDefinition& setAlgorithmDefinitionId(string algorithmDefinitionId) { DARABONBA_PTR_SET_VALUE(algorithmDefinitionId_, algorithmDefinitionId) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline AlgorithmDefinition& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // customLabels Field Functions 
     bool hasCustomLabels() const { return this->customLabels_ != nullptr;};
     void deleteCustomLabels() { this->customLabels_ = nullptr;};
-    inline const vector<map<string, string>> & customLabels() const { DARABONBA_PTR_GET_CONST(customLabels_, vector<map<string, string>>) };
-    inline vector<map<string, string>> customLabels() { DARABONBA_PTR_GET(customLabels_, vector<map<string, string>>) };
+    inline const vector<map<string, string>> & getCustomLabels() const { DARABONBA_PTR_GET_CONST(customLabels_, vector<map<string, string>>) };
+    inline vector<map<string, string>> getCustomLabels() { DARABONBA_PTR_GET(customLabels_, vector<map<string, string>>) };
     inline AlgorithmDefinition& setCustomLabels(const vector<map<string, string>> & customLabels) { DARABONBA_PTR_SET_VALUE(customLabels_, customLabels) };
     inline AlgorithmDefinition& setCustomLabels(vector<map<string, string>> && customLabels) { DARABONBA_PTR_SET_RVALUE(customLabels_, customLabels) };
 
@@ -77,36 +77,36 @@ namespace Models
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline AlgorithmDefinition& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline AlgorithmDefinition& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline AlgorithmDefinition& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline AlgorithmDefinition& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // trainingSpecification Field Functions 
     bool hasTrainingSpecification() const { return this->trainingSpecification_ != nullptr;};
     void deleteTrainingSpecification() { this->trainingSpecification_ = nullptr;};
-    inline const TrainingSpecification & trainingSpecification() const { DARABONBA_PTR_GET_CONST(trainingSpecification_, TrainingSpecification) };
-    inline TrainingSpecification trainingSpecification() { DARABONBA_PTR_GET(trainingSpecification_, TrainingSpecification) };
+    inline const TrainingSpecification & getTrainingSpecification() const { DARABONBA_PTR_GET_CONST(trainingSpecification_, TrainingSpecification) };
+    inline TrainingSpecification getTrainingSpecification() { DARABONBA_PTR_GET(trainingSpecification_, TrainingSpecification) };
     inline AlgorithmDefinition& setTrainingSpecification(const TrainingSpecification & trainingSpecification) { DARABONBA_PTR_SET_VALUE(trainingSpecification_, trainingSpecification) };
     inline AlgorithmDefinition& setTrainingSpecification(TrainingSpecification && trainingSpecification) { DARABONBA_PTR_SET_RVALUE(trainingSpecification_, trainingSpecification) };
 
@@ -114,20 +114,29 @@ namespace Models
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
-    inline string updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
+    inline string getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
     inline AlgorithmDefinition& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
   protected:
-    std::shared_ptr<string> algorithmDefinitionId_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<vector<map<string, string>>> customLabels_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
-    std::shared_ptr<string> projectName_ = nullptr;
-    std::shared_ptr<TrainingSpecification> trainingSpecification_ = nullptr;
-    std::shared_ptr<string> updateTime_ = nullptr;
+    // The ID of the algorithm definition.
+    shared_ptr<string> algorithmDefinitionId_ {};
+    // The creation time.
+    shared_ptr<string> createTime_ {};
+    // Custom labels.
+    shared_ptr<vector<map<string, string>>> customLabels_ {};
+    // The description.
+    shared_ptr<string> description_ {};
+    // The name of the algorithm.
+    shared_ptr<string> name_ {};
+    // The ID of the Alibaba Cloud account.
+    shared_ptr<string> ownerId_ {};
+    // The name of the project.
+    shared_ptr<string> projectName_ {};
+    // The model training parameters.
+    shared_ptr<TrainingSpecification> trainingSpecification_ {};
+    // The update time.
+    shared_ptr<string> updateTime_ {};
   };
 
   } // namespace Models

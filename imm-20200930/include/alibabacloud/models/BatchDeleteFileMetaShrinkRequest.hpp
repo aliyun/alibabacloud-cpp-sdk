@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetName_ == nullptr
-        && return this->projectName_ == nullptr && return this->URIsShrink_ == nullptr; };
+        && this->projectName_ == nullptr && this->URIsShrink_ == nullptr; };
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
-    inline string datasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+    inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
     inline BatchDeleteFileMetaShrinkRequest& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline BatchDeleteFileMetaShrinkRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // URIsShrink Field Functions 
     bool hasURIsShrink() const { return this->URIsShrink_ != nullptr;};
     void deleteURIsShrink() { this->URIsShrink_ = nullptr;};
-    inline string URIsShrink() const { DARABONBA_PTR_GET_DEFAULT(URIsShrink_, "") };
+    inline string getURIsShrink() const { DARABONBA_PTR_GET_DEFAULT(URIsShrink_, "") };
     inline BatchDeleteFileMetaShrinkRequest& setURIsShrink(string URIsShrink) { DARABONBA_PTR_SET_VALUE(URIsShrink_, URIsShrink) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasetName_ = nullptr;
+    shared_ptr<string> datasetName_ {};
     // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The URIs of the OSS buckets in which the files whose metadata you want to delete are stored. You can specify up to 100 URIs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> URIsShrink_ = nullptr;
+    shared_ptr<string> URIsShrink_ {};
   };
 
   } // namespace Models

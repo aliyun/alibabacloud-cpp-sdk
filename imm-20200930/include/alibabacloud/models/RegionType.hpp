@@ -32,24 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->localName_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // localName Field Functions 
     bool hasLocalName() const { return this->localName_ != nullptr;};
     void deleteLocalName() { this->localName_ = nullptr;};
-    inline string localName() const { DARABONBA_PTR_GET_DEFAULT(localName_, "") };
+    inline string getLocalName() const { DARABONBA_PTR_GET_DEFAULT(localName_, "") };
     inline RegionType& setLocalName(string localName) { DARABONBA_PTR_SET_VALUE(localName_, localName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline RegionType& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<string> localName_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    // The name of the region.
+    shared_ptr<string> localName_ {};
+    // The ID of the region.
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -38,48 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->city_ == nullptr
-        && return this->country_ == nullptr && return this->district_ == nullptr && return this->province_ == nullptr && return this->township_ == nullptr; };
+        && this->country_ == nullptr && this->district_ == nullptr && this->province_ == nullptr && this->township_ == nullptr; };
     // city Field Functions 
     bool hasCity() const { return this->city_ != nullptr;};
     void deleteCity() { this->city_ = nullptr;};
-    inline string city() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
+    inline string getCity() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
     inline AddressForStory& setCity(string city) { DARABONBA_PTR_SET_VALUE(city_, city) };
 
 
     // country Field Functions 
     bool hasCountry() const { return this->country_ != nullptr;};
     void deleteCountry() { this->country_ = nullptr;};
-    inline string country() const { DARABONBA_PTR_GET_DEFAULT(country_, "") };
+    inline string getCountry() const { DARABONBA_PTR_GET_DEFAULT(country_, "") };
     inline AddressForStory& setCountry(string country) { DARABONBA_PTR_SET_VALUE(country_, country) };
 
 
     // district Field Functions 
     bool hasDistrict() const { return this->district_ != nullptr;};
     void deleteDistrict() { this->district_ = nullptr;};
-    inline string district() const { DARABONBA_PTR_GET_DEFAULT(district_, "") };
+    inline string getDistrict() const { DARABONBA_PTR_GET_DEFAULT(district_, "") };
     inline AddressForStory& setDistrict(string district) { DARABONBA_PTR_SET_VALUE(district_, district) };
 
 
     // province Field Functions 
     bool hasProvince() const { return this->province_ != nullptr;};
     void deleteProvince() { this->province_ = nullptr;};
-    inline string province() const { DARABONBA_PTR_GET_DEFAULT(province_, "") };
+    inline string getProvince() const { DARABONBA_PTR_GET_DEFAULT(province_, "") };
     inline AddressForStory& setProvince(string province) { DARABONBA_PTR_SET_VALUE(province_, province) };
 
 
     // township Field Functions 
     bool hasTownship() const { return this->township_ != nullptr;};
     void deleteTownship() { this->township_ = nullptr;};
-    inline string township() const { DARABONBA_PTR_GET_DEFAULT(township_, "") };
+    inline string getTownship() const { DARABONBA_PTR_GET_DEFAULT(township_, "") };
     inline AddressForStory& setTownship(string township) { DARABONBA_PTR_SET_VALUE(township_, township) };
 
 
   protected:
-    std::shared_ptr<string> city_ = nullptr;
-    std::shared_ptr<string> country_ = nullptr;
-    std::shared_ptr<string> district_ = nullptr;
-    std::shared_ptr<string> province_ = nullptr;
-    std::shared_ptr<string> township_ = nullptr;
+    // The city.
+    shared_ptr<string> city_ {};
+    // The country.
+    shared_ptr<string> country_ {};
+    // The district.
+    shared_ptr<string> district_ {};
+    // The province.
+    shared_ptr<string> province_ {};
+    // The township.
+    shared_ptr<string> township_ {};
   };
 
   } // namespace Models

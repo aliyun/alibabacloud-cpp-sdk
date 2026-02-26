@@ -50,99 +50,114 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->endTime_ == nullptr && return this->message_ == nullptr && return this->progress_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
-        && return this->tags_ == nullptr && return this->taskId_ == nullptr && return this->taskRequestDefinition_ == nullptr && return this->taskType_ == nullptr && return this->userData_ == nullptr; };
+        && this->endTime_ == nullptr && this->message_ == nullptr && this->progress_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr
+        && this->tags_ == nullptr && this->taskId_ == nullptr && this->taskRequestDefinition_ == nullptr && this->taskType_ == nullptr && this->userData_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline TaskInfo& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline TaskInfo& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline TaskInfo& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // progress Field Functions 
     bool hasProgress() const { return this->progress_ != nullptr;};
     void deleteProgress() { this->progress_ = nullptr;};
-    inline int32_t progress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
+    inline int32_t getProgress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
     inline TaskInfo& setProgress(int32_t progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline TaskInfo& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline TaskInfo& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline     const Darabonba::Json & tags() const { DARABONBA_GET(tags_) };
-    Darabonba::Json & tags() { DARABONBA_GET(tags_) };
+    inline     const Darabonba::Json & getTags() const { DARABONBA_GET(tags_) };
+    Darabonba::Json & getTags() { DARABONBA_GET(tags_) };
     inline TaskInfo& setTags(const Darabonba::Json & tags) { DARABONBA_SET_VALUE(tags_, tags) };
-    inline TaskInfo& setTags(Darabonba::Json & tags) { DARABONBA_SET_RVALUE(tags_, tags) };
+    inline TaskInfo& setTags(Darabonba::Json && tags) { DARABONBA_SET_RVALUE(tags_, tags) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline TaskInfo& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // taskRequestDefinition Field Functions 
     bool hasTaskRequestDefinition() const { return this->taskRequestDefinition_ != nullptr;};
     void deleteTaskRequestDefinition() { this->taskRequestDefinition_ = nullptr;};
-    inline string taskRequestDefinition() const { DARABONBA_PTR_GET_DEFAULT(taskRequestDefinition_, "") };
+    inline string getTaskRequestDefinition() const { DARABONBA_PTR_GET_DEFAULT(taskRequestDefinition_, "") };
     inline TaskInfo& setTaskRequestDefinition(string taskRequestDefinition) { DARABONBA_PTR_SET_VALUE(taskRequestDefinition_, taskRequestDefinition) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline TaskInfo& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline TaskInfo& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<int32_t> progress_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    Darabonba::Json tags_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
-    std::shared_ptr<string> taskRequestDefinition_ = nullptr;
-    std::shared_ptr<string> taskType_ = nullptr;
-    std::shared_ptr<string> userData_ = nullptr;
+    // The error code.
+    shared_ptr<string> code_ {};
+    // The end time of the task.
+    shared_ptr<string> endTime_ {};
+    // The error message.
+    shared_ptr<string> message_ {};
+    // The progress of the task.
+    shared_ptr<int32_t> progress_ {};
+    // The start time of the task.
+    shared_ptr<string> startTime_ {};
+    // The status of the task. Valid values:
+    // 
+    // *   Running: The task is running.
+    // *   Succeeded: The task is successful.
+    // *   Failed: The task failed.
+    shared_ptr<string> status_ {};
+    // The tags of the task. You can search for tasks by tag.
+    Darabonba::Json tags_ {};
+    // The ID of the task.
+    shared_ptr<string> taskId_ {};
+    // The parameter definition in the JSON string format. For more information, see the Request parameters section of the topic about an asynchronous processing task.
+    shared_ptr<string> taskRequestDefinition_ {};
+    // The type of the task.
+    shared_ptr<string> taskType_ {};
+    // The custom user data.
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

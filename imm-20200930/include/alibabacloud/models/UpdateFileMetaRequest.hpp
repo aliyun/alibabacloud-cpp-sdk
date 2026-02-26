@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetName_ == nullptr
-        && return this->file_ == nullptr && return this->projectName_ == nullptr; };
+        && this->file_ == nullptr && this->projectName_ == nullptr; };
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
-    inline string datasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+    inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
     inline UpdateFileMetaRequest& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
     // file Field Functions 
     bool hasFile() const { return this->file_ != nullptr;};
     void deleteFile() { this->file_ = nullptr;};
-    inline const InputFile & file() const { DARABONBA_PTR_GET_CONST(file_, InputFile) };
-    inline InputFile file() { DARABONBA_PTR_GET(file_, InputFile) };
+    inline const InputFile & getFile() const { DARABONBA_PTR_GET_CONST(file_, InputFile) };
+    inline InputFile getFile() { DARABONBA_PTR_GET(file_, InputFile) };
     inline UpdateFileMetaRequest& setFile(const InputFile & file) { DARABONBA_PTR_SET_VALUE(file_, file) };
     inline UpdateFileMetaRequest& setFile(InputFile && file) { DARABONBA_PTR_SET_RVALUE(file_, file) };
 
@@ -55,7 +55,7 @@ namespace Models
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline UpdateFileMetaRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
@@ -63,15 +63,15 @@ namespace Models
     // The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasetName_ = nullptr;
+    shared_ptr<string> datasetName_ {};
     // The file and its metadata items to be updated. The value must be in the JSON format.
     // 
     // This parameter is required.
-    std::shared_ptr<InputFile> file_ = nullptr;
+    shared_ptr<InputFile> file_ {};
     // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
   };
 
   } // namespace Models

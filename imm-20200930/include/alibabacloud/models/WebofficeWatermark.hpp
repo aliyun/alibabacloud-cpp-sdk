@@ -42,65 +42,77 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fillStyle_ == nullptr
-        && return this->font_ == nullptr && return this->horizontal_ == nullptr && return this->rotate_ == nullptr && return this->type_ == nullptr && return this->value_ == nullptr
-        && return this->vertical_ == nullptr; };
+        && this->font_ == nullptr && this->horizontal_ == nullptr && this->rotate_ == nullptr && this->type_ == nullptr && this->value_ == nullptr
+        && this->vertical_ == nullptr; };
     // fillStyle Field Functions 
     bool hasFillStyle() const { return this->fillStyle_ != nullptr;};
     void deleteFillStyle() { this->fillStyle_ = nullptr;};
-    inline string fillStyle() const { DARABONBA_PTR_GET_DEFAULT(fillStyle_, "") };
+    inline string getFillStyle() const { DARABONBA_PTR_GET_DEFAULT(fillStyle_, "") };
     inline WebofficeWatermark& setFillStyle(string fillStyle) { DARABONBA_PTR_SET_VALUE(fillStyle_, fillStyle) };
 
 
     // font Field Functions 
     bool hasFont() const { return this->font_ != nullptr;};
     void deleteFont() { this->font_ = nullptr;};
-    inline string font() const { DARABONBA_PTR_GET_DEFAULT(font_, "") };
+    inline string getFont() const { DARABONBA_PTR_GET_DEFAULT(font_, "") };
     inline WebofficeWatermark& setFont(string font) { DARABONBA_PTR_SET_VALUE(font_, font) };
 
 
     // horizontal Field Functions 
     bool hasHorizontal() const { return this->horizontal_ != nullptr;};
     void deleteHorizontal() { this->horizontal_ = nullptr;};
-    inline int64_t horizontal() const { DARABONBA_PTR_GET_DEFAULT(horizontal_, 0L) };
+    inline int64_t getHorizontal() const { DARABONBA_PTR_GET_DEFAULT(horizontal_, 0L) };
     inline WebofficeWatermark& setHorizontal(int64_t horizontal) { DARABONBA_PTR_SET_VALUE(horizontal_, horizontal) };
 
 
     // rotate Field Functions 
     bool hasRotate() const { return this->rotate_ != nullptr;};
     void deleteRotate() { this->rotate_ = nullptr;};
-    inline float rotate() const { DARABONBA_PTR_GET_DEFAULT(rotate_, 0.0) };
+    inline float getRotate() const { DARABONBA_PTR_GET_DEFAULT(rotate_, 0.0) };
     inline WebofficeWatermark& setRotate(float rotate) { DARABONBA_PTR_SET_VALUE(rotate_, rotate) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline int64_t type() const { DARABONBA_PTR_GET_DEFAULT(type_, 0L) };
+    inline int64_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0L) };
     inline WebofficeWatermark& setType(int64_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline WebofficeWatermark& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
     // vertical Field Functions 
     bool hasVertical() const { return this->vertical_ != nullptr;};
     void deleteVertical() { this->vertical_ = nullptr;};
-    inline int64_t vertical() const { DARABONBA_PTR_GET_DEFAULT(vertical_, 0L) };
+    inline int64_t getVertical() const { DARABONBA_PTR_GET_DEFAULT(vertical_, 0L) };
     inline WebofficeWatermark& setVertical(int64_t vertical) { DARABONBA_PTR_SET_VALUE(vertical_, vertical) };
 
 
   protected:
-    std::shared_ptr<string> fillStyle_ = nullptr;
-    std::shared_ptr<string> font_ = nullptr;
-    std::shared_ptr<int64_t> horizontal_ = nullptr;
-    std::shared_ptr<float> rotate_ = nullptr;
-    std::shared_ptr<int64_t> type_ = nullptr;
-    std::shared_ptr<string> value_ = nullptr;
-    std::shared_ptr<int64_t> vertical_ = nullptr;
+    // The color and transparency of the text watermark.
+    shared_ptr<string> fillStyle_ {};
+    // The font of the text watermark.
+    shared_ptr<string> font_ {};
+    // The horizontal spacing of the text watermark. Unit: pixel.
+    shared_ptr<int64_t> horizontal_ {};
+    // The rotation of the text watermark. Unit: radian.
+    shared_ptr<float> rotate_ {};
+    // The watermark type. Valid values:
+    // 
+    // *   0: no watermark.
+    // *   1: text watermark.
+    shared_ptr<int64_t> type_ {};
+    // The watermark text.
+    // 
+    // >  This parameter takes effect only if you set the Type parameter to 1.
+    shared_ptr<string> value_ {};
+    // The vertical spacing of the text watermark. Unit: pixel.
+    shared_ptr<int64_t> vertical_ {};
   };
 
   } // namespace Models

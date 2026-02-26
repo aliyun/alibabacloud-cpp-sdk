@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->documentText_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // documentText Field Functions 
     bool hasDocumentText() const { return this->documentText_ != nullptr;};
     void deleteDocumentText() { this->documentText_ = nullptr;};
-    inline string documentText() const { DARABONBA_PTR_GET_DEFAULT(documentText_, "") };
+    inline string getDocumentText() const { DARABONBA_PTR_GET_DEFAULT(documentText_, "") };
     inline ExtractDocumentTextResponseBody& setDocumentText(string documentText) { DARABONBA_PTR_SET_VALUE(documentText_, documentText) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ExtractDocumentTextResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The text content of the document.
-    std::shared_ptr<string> documentText_ = nullptr;
+    shared_ptr<string> documentText_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
