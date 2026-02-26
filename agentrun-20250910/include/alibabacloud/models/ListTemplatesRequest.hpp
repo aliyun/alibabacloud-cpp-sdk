@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(templateName, templateName_);
       DARABONBA_PTR_TO_JSON(templateType, templateType_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListTemplatesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(templateName, templateName_);
       DARABONBA_PTR_FROM_JSON(templateType, templateType_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     ListTemplatesRequest() = default ;
     ListTemplatesRequest(const ListTemplatesRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->status_ == nullptr && this->templateName_ == nullptr && this->templateType_ == nullptr; };
+        && this->pageSize_ == nullptr && this->status_ == nullptr && this->templateName_ == nullptr && this->templateType_ == nullptr && this->workspaceId_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     inline ListTemplatesRequest& setTemplateType(string templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ListTemplatesRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     // 当前页码，从1开始计数
     shared_ptr<int32_t> pageNumber_ {};
@@ -83,6 +92,7 @@ namespace Models
     shared_ptr<string> templateName_ {};
     // 按模板类型过滤
     shared_ptr<string> templateType_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

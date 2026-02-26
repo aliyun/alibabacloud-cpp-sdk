@@ -42,6 +42,7 @@ namespace Models
       DARABONBA_ANY_TO_JSON(templateConfiguration, templateConfiguration_);
       DARABONBA_PTR_TO_JSON(templateName, templateName_);
       DARABONBA_PTR_TO_JSON(templateType, templateType_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateTemplateInput& obj) { 
       DARABONBA_PTR_FROM_JSON(allowAnonymousManage, allowAnonymousManage_);
@@ -64,6 +65,7 @@ namespace Models
       DARABONBA_ANY_FROM_JSON(templateConfiguration, templateConfiguration_);
       DARABONBA_PTR_FROM_JSON(templateName, templateName_);
       DARABONBA_PTR_FROM_JSON(templateType, templateType_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     CreateTemplateInput() = default ;
     CreateTemplateInput(const CreateTemplateInput &) = default ;
@@ -80,7 +82,7 @@ namespace Models
         && this->armsConfiguration_ == nullptr && this->containerConfiguration_ == nullptr && this->cpu_ == nullptr && this->credentialConfiguration_ == nullptr && this->description_ == nullptr
         && this->diskSize_ == nullptr && this->enableAgent_ == nullptr && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->logConfiguration_ == nullptr
         && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossConfiguration_ == nullptr && this->sandboxIdleTimeoutInSeconds_ == nullptr
-        && this->sandboxTTLInSeconds_ == nullptr && this->templateConfiguration_ == nullptr && this->templateName_ == nullptr && this->templateType_ == nullptr; };
+        && this->sandboxTTLInSeconds_ == nullptr && this->templateConfiguration_ == nullptr && this->templateName_ == nullptr && this->templateType_ == nullptr && this->workspaceId_ == nullptr; };
     // allowAnonymousManage Field Functions 
     bool hasAllowAnonymousManage() const { return this->allowAnonymousManage_ != nullptr;};
     void deleteAllowAnonymousManage() { this->allowAnonymousManage_ = nullptr;};
@@ -239,6 +241,13 @@ namespace Models
     inline CreateTemplateInput& setTemplateType(string templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline CreateTemplateInput& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     shared_ptr<bool> allowAnonymousManage_ {};
     shared_ptr<ArmsConfiguration> armsConfiguration_ {};
@@ -275,6 +284,7 @@ namespace Models
     shared_ptr<string> templateName_ {};
     // This parameter is required.
     shared_ptr<string> templateType_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

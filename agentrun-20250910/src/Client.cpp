@@ -2377,6 +2377,10 @@ ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesReques
     query["templateType"] = request.getTemplateType();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["workspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}

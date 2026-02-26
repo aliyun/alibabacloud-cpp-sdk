@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(cpu, cpu_);
       DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(diskSize, diskSize_);
       DARABONBA_PTR_TO_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_TO_JSON(externalAgentEndpointUrl, externalAgentEndpointUrl_);
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(diskSize, diskSize_);
       DARABONBA_PTR_FROM_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_FROM_JSON(externalAgentEndpointUrl, externalAgentEndpointUrl_);
@@ -80,9 +82,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeName_ == nullptr
         && this->artifactType_ == nullptr && this->codeConfiguration_ == nullptr && this->containerConfiguration_ == nullptr && this->cpu_ == nullptr && this->credentialName_ == nullptr
-        && this->description_ == nullptr && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->externalAgentEndpointUrl_ == nullptr && this->healthCheckConfiguration_ == nullptr
-        && this->logConfiguration_ == nullptr && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossMountConfig_ == nullptr
-        && this->port_ == nullptr && this->protocolConfiguration_ == nullptr && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->description_ == nullptr && this->diskSize_ == nullptr && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->externalAgentEndpointUrl_ == nullptr
+        && this->healthCheckConfiguration_ == nullptr && this->logConfiguration_ == nullptr && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr
+        && this->ossMountConfig_ == nullptr && this->port_ == nullptr && this->protocolConfiguration_ == nullptr && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};
@@ -134,6 +137,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateAgentRuntimeInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // diskSize Field Functions 
+    bool hasDiskSize() const { return this->diskSize_ != nullptr;};
+    void deleteDiskSize() { this->diskSize_ = nullptr;};
+    inline int32_t getDiskSize() const { DARABONBA_PTR_GET_DEFAULT(diskSize_, 0) };
+    inline UpdateAgentRuntimeInput& setDiskSize(int32_t diskSize) { DARABONBA_PTR_SET_VALUE(diskSize_, diskSize) };
 
 
     // environmentVariables Field Functions 
@@ -260,6 +270,7 @@ namespace Models
     // 用于访问智能体的凭证名称，访问智能体运行时将使用此凭证进行身份验证
     shared_ptr<string> credentialName_ {};
     shared_ptr<string> description_ {};
+    shared_ptr<int32_t> diskSize_ {};
     // 智能体运行时的环境变量配置，用于在运行时传递配置参数
     shared_ptr<map<string, string>> environmentVariables_ {};
     // 为智能体运行时提供访问云服务权限的执行角色ARN
