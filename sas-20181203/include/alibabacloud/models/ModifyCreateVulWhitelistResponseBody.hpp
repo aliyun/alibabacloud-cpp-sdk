@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_MODIFYCREATEVULWHITELISTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_MODIFYCREATEVULWHITELISTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -60,7 +59,6 @@ namespace Models
 
 
     protected:
-      // The ID of the whitelist.
       shared_ptr<int64_t> id_ {};
     };
 
@@ -76,17 +74,17 @@ namespace Models
     // vulWhitelistList Field Functions 
     bool hasVulWhitelistList() const { return this->vulWhitelistList_ != nullptr;};
     void deleteVulWhitelistList() { this->vulWhitelistList_ = nullptr;};
-    inline const vector<ModifyCreateVulWhitelistResponseBody::VulWhitelistList> & getVulWhitelistList() const { DARABONBA_PTR_GET_CONST(vulWhitelistList_, vector<ModifyCreateVulWhitelistResponseBody::VulWhitelistList>) };
-    inline vector<ModifyCreateVulWhitelistResponseBody::VulWhitelistList> getVulWhitelistList() { DARABONBA_PTR_GET(vulWhitelistList_, vector<ModifyCreateVulWhitelistResponseBody::VulWhitelistList>) };
-    inline ModifyCreateVulWhitelistResponseBody& setVulWhitelistList(const vector<ModifyCreateVulWhitelistResponseBody::VulWhitelistList> & vulWhitelistList) { DARABONBA_PTR_SET_VALUE(vulWhitelistList_, vulWhitelistList) };
-    inline ModifyCreateVulWhitelistResponseBody& setVulWhitelistList(vector<ModifyCreateVulWhitelistResponseBody::VulWhitelistList> && vulWhitelistList) { DARABONBA_PTR_SET_RVALUE(vulWhitelistList_, vulWhitelistList) };
+    inline const ModifyCreateVulWhitelistResponseBody::VulWhitelistList & getVulWhitelistList() const { DARABONBA_PTR_GET_CONST(vulWhitelistList_, ModifyCreateVulWhitelistResponseBody::VulWhitelistList) };
+    inline ModifyCreateVulWhitelistResponseBody::VulWhitelistList getVulWhitelistList() { DARABONBA_PTR_GET(vulWhitelistList_, ModifyCreateVulWhitelistResponseBody::VulWhitelistList) };
+    inline ModifyCreateVulWhitelistResponseBody& setVulWhitelistList(const ModifyCreateVulWhitelistResponseBody::VulWhitelistList & vulWhitelistList) { DARABONBA_PTR_SET_VALUE(vulWhitelistList_, vulWhitelistList) };
+    inline ModifyCreateVulWhitelistResponseBody& setVulWhitelistList(ModifyCreateVulWhitelistResponseBody::VulWhitelistList && vulWhitelistList) { DARABONBA_PTR_SET_RVALUE(vulWhitelistList_, vulWhitelistList) };
 
 
   protected:
     // The ID of the request, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // An array that consists of the information about the whitelist.
-    shared_ptr<vector<ModifyCreateVulWhitelistResponseBody::VulWhitelistList>> vulWhitelistList_ {};
+    shared_ptr<ModifyCreateVulWhitelistResponseBody::VulWhitelistList> vulWhitelistList_ {};
   };
 
   } // namespace Models

@@ -1,186 +1,172 @@
 
-cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
 
-project(alibabacloud_sas20181203 VERSION "1.0.0")
+project(alibabacloud_sas20181203 VERSION "1.0.0" LANGUAGES CXX)
 
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< General set up >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_EXTENSIONS OFF)
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Options >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
+option(BUILD_SHARED_LIBS "Build shared libraries" ON)
+option(BUILD_UNIT_TESTS "Build unit tests" OFF)
+option(ENABLE_UNIT_TESTS "Enable unit tests" OFF)
+option(ENABLE_RTTI "Enable Run-Time Type Information" ON)
+option(MINIMIZE_SIZE "Minimize binary size (may affect performance)" OFF)
+
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< C++ Standard >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
+if(NOT CMAKE_CXX_STANDARD)
+    set(CMAKE_CXX_STANDARD 11)
+endif()
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set(CMAKE_INSTALL_PREFIX "${PROJECT_SOURCE_DIR}/${PROJECT_NAME}_build")
-SET(CMAKE_FIND_LIBRARY_SUFFIXES "${CMAKE_FIND_LIBRARY_SUFFIXES}" "_d.dylib")
-message("C++ compiler flags: ${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-if (CMAKE_CXX_COMPILER_LOADED)
-    message(STATUS "The C++ compiler ID is: ${CMAKE_CXX_COMPILER_ID}")
-    message(STATUS "The C++ compiler version is: ${CMAKE_CXX_COMPILER_VERSION}")
-endif ()
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Platform Setup >>>>>>>>>>>>>>>>>>>>>>>>>>>> #
+if(MSVC)
+  # Standardize MSVC runtime (MD/MDd for shared, MT/MTd for static)
+  add_definitions(-D_CRT_SECURE_NO_WARNINGS -DNOMINMAX)
+  add_compile_options(/W4 /WX /Zc:__cplusplus /utf-8)
+  
+  # Runtime library selection
+  if(BUILD_SHARED_LIBS)
+    # Use dynamic runtime for shared libraries
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+  else()
+    # Use static runtime for static libraries
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+else()
+  # Base warning flags (apply to all targets including dependencies)
+  add_compile_options(-Wall -Wextra -Wpedantic)
+  # Enable additional deprecation warnings for better C++ compliance
+  add_compile_options(-Wdeprecated -Wdeprecated-copy)
+  
+  # RTTI control for GCC/Clang
+  if(NOT ENABLE_RTTI)
+    add_compile_options(-fno-rtti)
+  endif()
+  
+  # Size optimization
+  if(MINIMIZE_SIZE)
+    add_compile_options(-Os -ffunction-sections -fdata-sections)
+    if(NOT APPLE)
+      set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--gc-sections")
+      set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--gc-sections")
+    endif()
+  endif()
+endif()
 
-if (NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
-endif ()
-message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+# For static builds, prefer static OpenSSL but use dynamic curl
+# Note: Static libcurl on Ubuntu has too many transitive dependencies (nghttp2, ssh, psl, 
+# gssapi, rtmp, idn2, unistring, etc.) that make full static linking impractical.
+# If you need fully static builds, compile a minimal libcurl yourself or use vcpkg.
+if(NOT BUILD_SHARED_LIBS)
+  set(OPENSSL_USE_STATIC_LIBS ON)
+  # Don't set CURL_STATICLIB or CMAKE_FIND_LIBRARY_SUFFIXES - use dynamic libcurl
+endif()
 
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Target set up >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #=
-include_directories(${CMAKE_SOURCE_DIR}/include)
+# Position Independent Code - Required for static libraries that may be linked into shared libraries
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-set(SOURCE_FILES
-        src/Client.cpp)
-
-add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES})
-        
-target_include_directories(${PROJECT_NAME}
-        PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/include)
-
-set_target_properties(${PROJECT_NAME}
-        PROPERTIES
-        POSITION_INDEPENDENT_CODE 1
-        SOVERSION ${PROJECT_VERSION_MAJOR}
-        OUTPUT_NAME "${PROJECT_NAME}"
-        DEBUG_POSTFIX "_d"
-        PUBLIC_HEADER "${headers}"
-        MACOSX_RPATH ON
-        WINDOWS_EXPORT_ALL_SYMBOLS ON)
-
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< External set up >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
-add_subdirectory(external)
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Dependencies >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
 find_package(OpenSSL REQUIRED)
-find_library(CURL_LIB curl)
-if(CMAKE_HOST_WIN32)
-  ExternalProject_Get_Property(curl INSTALL_DIR)
-    set(curl_install_dir ${INSTALL_DIR})
-    add_dependencies(${PROJECT_NAME}
-            curl)
-    target_include_directories(${PROJECT_NAME}
-            PRIVATE	${curl_install_dir}/include)
-    target_link_libraries(${PROJECT_NAME}
-            OpenSSL::SSL OpenSSL::Crypto
-            Crypt32
-            Rpcrt4
-            Ws2_32
-            debug ${curl_install_dir}/lib/libcurl-d.lib
-            optimized ${curl_install_dir}/lib/libcurl.lib
-            darabonba_core
-            alibabacloud_open_api_v2
-            alibabacloud_credential
-            
-            )
-    target_compile_definitions(${PROJECT_NAME}
-            PRIVATE CURL_STATICLIB
-            _CRT_SECURE_NO_WARNINGS)
-elseif(APPLE)
-  find_library(CFLIB CoreFoundation)
-  find_library(UTIL_LIB alibabacloud_sas20181203 ${CMAKE_CURRENT_SOURCE_DIR}/deps/lib)
-  target_link_libraries(${PROJECT_NAME} 
-      OpenSSL::SSL OpenSSL::Crypto
-      ${CFLIB}
-      ${CURL_LIB} 
-      darabonba_core
-      alibabacloud_open_api_v2
-            alibabacloud_credential
-            )
-  target_compile_definitions(${PROJECT_NAME} PRIVATE GUID_CFUUID)
-else()
-  target_link_libraries(${PROJECT_NAME} 
-      OpenSSL::SSL OpenSSL::Crypto
-      ${CURL_LIB} 
-      darabonba_core
-      alibabacloud_open_api_v2
-            alibabacloud_credential
-            )
+find_package(CURL REQUIRED)
+
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Target Setup >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
+set(SOURCE_FILES
+    src/Client.cpp
+)
+
+# Create library target
+add_library(${PROJECT_NAME} ${SOURCE_FILES})
+
+# Add external dependencies (darabonba-core, credentials)
+add_subdirectory(external)
+
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Include & Link >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
+
+target_include_directories(${PROJECT_NAME}
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+)
+
+target_link_libraries(${PROJECT_NAME}
+    PUBLIC
+        CURL::libcurl
+        OpenSSL::SSL
+        OpenSSL::Crypto
+        darabonba_core
+        alibabacloud_open_api_v2
+        alibabacloud_credentials
+)
+
+# Windows compatibility
+if(WIN32)
+  target_link_libraries(${PROJECT_NAME} PUBLIC Crypt32 Rpcrt4 Ws2_32)
+  set_target_properties(${PROJECT_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
+  
+  # Suppress LNK4197 warning: vtable exported multiple times
+  # This is safe when building DLLs with multiple translation units
+  if(MSVC AND BUILD_SHARED_LIBS)
+    target_link_options(${PROJECT_NAME} PRIVATE /ignore:4197)
+  endif()
 endif()
 
+# Set target properties
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    SOVERSION ${PROJECT_VERSION_MAJOR}
+    VERSION ${PROJECT_VERSION}
+    OUTPUT_NAME "${PROJECT_NAME}"
+    DEBUG_POSTFIX "_d"
+    MACOSX_RPATH ON
+)
 
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Install set up >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
-message(STATUS "${PROJECT_NAME} : Project will be installed to ${CMAKE_INSTALL_PREFIX}")
+# Strict warning treatment for our own code only
+if(NOT MSVC)
+  target_compile_options(${PROJECT_NAME} PRIVATE -Werror)
+else()
+  target_compile_options(${PROJECT_NAME} PRIVATE /WX)
+endif()
 
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Installation >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
 include(GNUInstallDirs)
-
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
-
-set(INSTALL_LIBDIR ${CMAKE_INSTALL_LIBDIR} CACHE PATH "Installation directory for libraries")
-set(INSTALL_BINDIR ${CMAKE_INSTALL_BINDIR} CACHE PATH "Installation directory for executables")
-set(INSTALL_INCLUDEDIR ${CMAKE_INSTALL_INCLUDEDIR} CACHE PATH "Installation directory for header files")
-if(WIN32 AND NOT CYGWIN)
-    set(DEF_INSTALL_CMAKEDIR CMake)
-else()
-    set(DEF_INSTALL_CMAKEDIR share/cmake/${PROJECT_NAME})
-endif()
-set(INSTALL_CMAKEDIR ${DEF_INSTALL_CMAKEDIR} CACHE PATH "Installation directory for CMake files")
-
-foreach(p LIB BIN INCLUDE CMAKE)
-    file(TO_NATIVE_PATH ${CMAKE_INSTALL_PREFIX}/${INSTALL_${p}DIR} _path )
-    message(STATUS "Installing ${p} components to ${_path}")
-    unset(_path)
-endforeach()
-
-# Prepare RPATH
-file(RELATIVE_PATH _rel ${CMAKE_INSTALL_PREFIX}/${INSTALL_BINDIR} ${CMAKE_INSTALL_PREFIX})
-if(APPLE)
-    set(_rpath "@loader_path/${_rel}")
-else()
-    set(_rpath "\$ORIGIN/${_rel}")
-endif()
-file(TO_NATIVE_PATH "${_rpath}/${INSTALL_LIBDIR}" install_RPATH)
-
-set_target_properties(${PROJECT_NAME}
-        PROPERTIES
-        MACOSX_RPATH ON
-        SKIP_BUILD_RPATH OFF
-        BUILD_WITH_INSTALL_RPATH OFF
-        INSTALL_RPATH "${install_RPATH}"
-        INSTALL_RPATH_USE_LINK_PATH ON)
-
-install(
-        TARGETS
-        ${PROJECT_NAME}
-        EXPORT
-        alibabacloud_sas20181203Targets
-        ARCHIVE
-        DESTINATION ${INSTALL_LIBDIR}
-        COMPONENT lib
-        RUNTIME
-        DESTINATION ${INSTALL_BINDIR}
-        COMPONENT bin
-        LIBRARY
-        DESTINATION ${INSTALL_LIBDIR}
-        COMPONENT lib
-        PUBLIC_HEADER
-        DESTINATION ${INSTALL_INCLUDEDIR}/alibabacloud
-        COMPONENT dev
-)
-
-# Install cmake config
-install(
-        EXPORT
-        alibabacloud_sas20181203Targets
-        NAMESPACE
-        "alibabacloud_sas20181203::"
-        DESTINATION
-        ${INSTALL_CMAKEDIR}
-        COMPONENT
-        dev
-)
 include(CMakePackageConfigHelpers)
 
+set(INSTALL_CMAKEDIR ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
+
+# Install library and headers
+install(TARGETS ${PROJECT_NAME}
+    EXPORT ${PROJECT_NAME}Targets
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+install(DIRECTORY include/
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+# Export targets
+install(EXPORT ${PROJECT_NAME}Targets
+    NAMESPACE ${PROJECT_NAME}::
+    DESTINATION ${INSTALL_CMAKEDIR}
+)
+
+# Generate version file
 write_basic_package_version_file(
-        ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
-        VERSION ${PROJECT_VERSION}
-        COMPATIBILITY SameMajorVersion
+    "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY SameMajorVersion
 )
+
+# Configure Config file from template
 configure_package_config_file(
-        ${PROJECT_SOURCE_DIR}/cmake/${PROJECT_NAME}Config.cmake.in
-        ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
-        INSTALL_DESTINATION ${INSTALL_CMAKEDIR}
+    "${PROJECT_SOURCE_DIR}/cmake/${PROJECT_NAME}Config.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+    INSTALL_DESTINATION ${INSTALL_CMAKEDIR}
 )
-install(
-        FILES
-        ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
-        ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
-        DESTINATION
-        ${INSTALL_CMAKEDIR}
+
+# Install config files
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
+    DESTINATION ${INSTALL_CMAKEDIR}
 )
