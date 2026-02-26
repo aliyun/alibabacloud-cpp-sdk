@@ -131,27 +131,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether the auto-renewal feature is enabled. Valid values:
-        // 
-        // *   true: enabled
-        // *   false: disabled
         shared_ptr<bool> autoRenewEnabled_ {};
-        // The ID of the cluster.
         shared_ptr<string> DBClusterId_ {};
-        // The renewal duration.
         shared_ptr<int32_t> duration_ {};
-        // The unit of the duration. Valid values:
-        // 
-        // *   Year
-        // *   Month
         shared_ptr<string> periodUnit_ {};
-        // The ID of the region.
         shared_ptr<string> regionId_ {};
-        // The renewal status. Valid values:
-        // 
-        // *   AutoRenewal: The cluster is automatically renewed.
-        // *   Normal: The cluster is manually renewed. The system sends a text message to remind you before the cluster expires.
-        // *   NotRenewal: The cluster is not renewed. The system does not send a reminder for expiration but only sends a text message three days before the cluster expires to remind you that the cluster is not renewed.
         shared_ptr<string> renewalStatus_ {};
       };
 
@@ -209,7 +193,6 @@ namespace Models
 
 
   protected:
-    // The renewal information about the clusters.
     shared_ptr<DescribeAutoRenewAttributeResponseBody::Items> items_ {};
     // The page number of the page returned.
     shared_ptr<int32_t> pageNumber_ {};

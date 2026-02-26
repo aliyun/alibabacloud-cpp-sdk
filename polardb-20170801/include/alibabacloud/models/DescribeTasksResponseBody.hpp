@@ -211,39 +211,19 @@ namespace Models
 
 
       protected:
-        // The time when the task was started. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
         shared_ptr<string> beginTime_ {};
-        // The name of the current step.
         shared_ptr<string> currentStepName_ {};
-        // The database name.
-        // 
-        // >  This parameter is returned for only the tasks that involve database operations.
         shared_ptr<string> DBName_ {};
-        // The estimated end time of the task. In most cases, this parameter is empty.
         shared_ptr<string> expectedFinishTime_ {};
-        // The time when the task was completed. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
         shared_ptr<string> finishTime_ {};
-        // The progress of the task in percentage.
         shared_ptr<int32_t> progress_ {};
-        // The description of the task progress. If no progress description is provided for the task, this parameter is empty.
         shared_ptr<string> progressInfo_ {};
-        // The estimated remaining duration of the task. Unit: seconds.
         shared_ptr<int32_t> remain_ {};
-        // The progress of the subtasks. For example, the value `1/4` indicates that the task consists of four subtasks and the first subtask is in progress.
         shared_ptr<string> stepProgressInfo_ {};
-        // The details of the subtasks.
         shared_ptr<string> stepsInfo_ {};
-        // The API operation that is used by the task. Example: `CreateDBInstance`.
         shared_ptr<string> taskAction_ {};
-        // The error code that is returned when an error occurs.
-        // 
-        // >  This parameter is returned only when the task is in the **Stop** state.
         shared_ptr<string> taskErrorCode_ {};
-        // The error message that is returned when an error occurs.
-        // 
-        // >  This parameter is returned only when the task is in the **Stop** state.
         shared_ptr<string> taskErrorMessage_ {};
-        // The ID of the task.
         shared_ptr<string> taskId_ {};
       };
 
@@ -335,7 +315,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The start time of the query.
     shared_ptr<string> startTime_ {};
-    // The details of the task.
     shared_ptr<DescribeTasksResponseBody::Tasks> tasks_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalRecordCount_ {};

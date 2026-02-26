@@ -196,48 +196,18 @@ namespace Models
 
 
       protected:
-        // The end time of the backup task. The time is displayed in UTC.
         shared_ptr<string> backupEndTime_ {};
-        // The ID of the backup set.
         shared_ptr<string> backupId_ {};
-        // The backup method. Only snapshot backups are supported. The value is set to **Snapshot**.
         shared_ptr<string> backupMethod_ {};
-        // The backup mode. Valid values:
-        // 
-        // *   **Automated**
-        // *   **Manual**
         shared_ptr<string> backupMode_ {};
-        // The size of the backup set. Unit: bytes.
-        // 
-        // > After you delete the target snapshot backups, the storage space consumed by the backups is released. The released storage space is smaller than the size of the backup file, because the snapshots share certain data blocks.
         shared_ptr<string> backupSetSize_ {};
-        // The start time of the backup task. The time is displayed in UTC.
         shared_ptr<string> backupStartTime_ {};
-        // The status of the backup set. Valid values:
-        // 
-        // *   **Success**
-        // *   **Failed**
         shared_ptr<string> backupStatus_ {};
-        // The type of the backup. Only full backups are supported. The value is set to **FullBackup**.
         shared_ptr<string> backupType_ {};
-        // The level of the backup set. Valid values:
-        // 
-        // *   **Level-1**: level-1 backup set
-        // *   **Level-2**: level-2 backup set
         shared_ptr<string> backupsLevel_ {};
-        // The snapshot checkpoint time. The value is a Unix timestamp.
         shared_ptr<string> consistentTime_ {};
-        // The ID of the cluster.
         shared_ptr<string> DBClusterId_ {};
-        // Indicates whether the backup set is available. Valid values:
-        // 
-        // *   **0**: The data backup set is unavailable.
-        // *   **1**: The data backup set is available.
         shared_ptr<string> isAvail_ {};
-        // Indicates whether the backup set can be deleted. Valid values:
-        // 
-        // *   **Enabled**: The backup set can be deleted.
-        // *   **Disabled**: The backup set cannot be deleted.
         shared_ptr<string> storeStatus_ {};
       };
 
@@ -295,7 +265,6 @@ namespace Models
 
 
   protected:
-    // Details about the backup sets.
     shared_ptr<DescribeDetachedBackupsResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};

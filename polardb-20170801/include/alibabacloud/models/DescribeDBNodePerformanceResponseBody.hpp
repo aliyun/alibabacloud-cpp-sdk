@@ -141,9 +141,7 @@ namespace Models
 
 
           protected:
-            // The timestamp of the metric. This value is a UNIX timestamp. Unit: millisecond.
             shared_ptr<int64_t> timestamp_ {};
-            // The value of the metric.
             shared_ptr<string> value_ {};
           };
 
@@ -187,11 +185,8 @@ namespace Models
 
 
       protected:
-        // The performance metrics that you want to query.
         shared_ptr<string> measurement_ {};
-        // The name of the performance metric.
         shared_ptr<string> metricName_ {};
-        // The performance metrics.
         shared_ptr<PerformanceItem::Points> points_ {};
       };
 
@@ -272,7 +267,6 @@ namespace Models
     shared_ptr<string> DBVersion_ {};
     // The end time of the query. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The cluster performance metrics.
     shared_ptr<DescribeDBNodePerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

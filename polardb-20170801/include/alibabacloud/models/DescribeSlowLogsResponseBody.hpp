@@ -222,34 +222,20 @@ namespace Models
 
 
       protected:
-        // The date when the data was generated.
         shared_ptr<string> createTime_ {};
-        // The name of the database.
         shared_ptr<string> DBName_ {};
-        // The ID of the node.
         shared_ptr<string> DBNodeId_ {};
-        // The longest execution duration of a specific SQL statement in the query. Unit: seconds.
         shared_ptr<int64_t> maxExecutionTime_ {};
         shared_ptr<string> maxExecutionTimeMs_ {};
-        // The longest lock duration that was caused by a specific SQL statement in the query. Unit: seconds.
         shared_ptr<int64_t> maxLockTime_ {};
-        // The largest number of rows that were parsed by a specific SQL statement in the query.
         shared_ptr<int64_t> parseMaxRowCount_ {};
-        // The total number of rows that were parsed by all SQL statements in the query.
         shared_ptr<int64_t> parseTotalRowCounts_ {};
-        // The largest number of rows that were returned by a specific SQL statement in the query.
         shared_ptr<int64_t> returnMaxRowCount_ {};
-        // The total number of rows that were returned by all SQL statements in the query.
         shared_ptr<int64_t> returnTotalRowCounts_ {};
-        // The unique ID of the SQL statement. The ID is used to obtain the slow query logs of the SQL statement.
         shared_ptr<string> SQLHASH_ {};
-        // The SQL statement that is executed in the query.
         shared_ptr<string> SQLText_ {};
-        // The total number of executions of the SQL statements.
         shared_ptr<int64_t> totalExecutionCounts_ {};
-        // The total duration that was caused by all SQL statements in the query. Unit: seconds.
         shared_ptr<int64_t> totalExecutionTimes_ {};
-        // The total lock duration that was caused by all SQL statements in the query. Unit: seconds.
         shared_ptr<int64_t> totalLockTimes_ {};
       };
 
@@ -342,7 +328,6 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The type of the database engine.
     shared_ptr<string> engine_ {};
-    // Details about slow query logs.
     shared_ptr<DescribeSlowLogsResponseBody::Items> items_ {};
     // The number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

@@ -104,7 +104,6 @@ namespace Models
   protected:
     // The ID of the cluster.
     shared_ptr<string> DBClusterId_ {};
-    // Details about the nodes.
     shared_ptr<CreateDBNodesResponseBody::DBNodeIds> DBNodeIds_ {};
     // The ID of the order.
     shared_ptr<string> orderId_ {};

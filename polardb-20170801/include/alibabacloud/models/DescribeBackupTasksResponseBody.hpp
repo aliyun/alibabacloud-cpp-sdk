@@ -125,30 +125,11 @@ namespace Models
 
 
       protected:
-        // The ID of the backup task.
         shared_ptr<string> backupJobId_ {};
-        // The state of the backup task. Valid values:
-        // 
-        // *   **NoStart**
-        // *   **Preparing**
-        // *   **Waiting**
-        // *   **Uploading**
-        // *   **Checking**
-        // *   **Finished**
         shared_ptr<string> backupProgressStatus_ {};
-        // The backup mode. Valid values:
-        // 
-        // *   **Automated**
-        // *   **Manual**
         shared_ptr<string> jobMode_ {};
-        // The progress of the backup task in percentage.
         shared_ptr<string> process_ {};
-        // The time when the backup task started. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
         shared_ptr<string> startTime_ {};
-        // The type of the backup task. Valid values:
-        // 
-        // *   **TempBackupTask**: The backup task is an adhoc backup task.
-        // *   **NormalBackupTask**: The backup task is a common backup task.
         shared_ptr<string> taskAction_ {};
       };
 
@@ -185,7 +166,6 @@ namespace Models
 
 
   protected:
-    // The details of the backup task.
     shared_ptr<DescribeBackupTasksResponseBody::Items> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

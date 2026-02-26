@@ -203,9 +203,7 @@ namespace Models
 
 
           protected:
-            // The key of the tag.
             shared_ptr<string> key_ {};
-            // The value of the tag.
             shared_ptr<string> value_ {};
           };
 
@@ -335,35 +333,13 @@ namespace Models
 
 
           protected:
-            // The specifications of the node.
             shared_ptr<string> DBNodeClass_ {};
-            // The ID of the node.
             shared_ptr<string> DBNodeId_ {};
-            // The role of the node. Valid values:
-            // 
-            // *   **Writer**: primary node
-            // *   **Reader**: read-only node
-            // *   **ColumnReader**: column store read-only node
-            // *   **AI**: AI node
             shared_ptr<string> DBNodeRole_ {};
-            // Indicates whether the hot standby feature is enabled. Valid values:
-            // 
-            // *   **ON**
-            // *   **OFF**
             shared_ptr<string> hotReplicaMode_ {};
-            // Indicates whether the In-Memory Column Index (IMCI) feature is enabled. Valid values:
-            // 
-            // *   **ON**
-            // *   **OFF**
             shared_ptr<string> imciSwitch_ {};
-            // The region ID of the cluster.
             shared_ptr<string> regionId_ {};
-            // Indicates whether the serverless feature is enabled for the node.
-            // 
-            // *   **ON** indicates that the serverless feature is enabled.
-            // *   No value is returned if the serverless feature is disabled.
             shared_ptr<string> serverless_ {};
-            // The zone ID of the cluster.
             shared_ptr<string> zoneId_ {};
           };
 
@@ -646,121 +622,41 @@ namespace Models
 
 
       protected:
-        // The type of the AI node. Valid values:
-        // 
-        // *   SearchNode: search node
-        // *   DLNode: AI node
-        // 
-        // Enumeration values:
-        // 
-        // *   SearchNode | DLNode: both
-        // *   DLNode: AI node
-        // *   SearchNode: search node
         shared_ptr<string> aiType_ {};
-        // The edition of the cluster. Valid values:
-        // 
-        // *   **Normal**: Cluster Edition
-        // *   **Basic**: Single Node Edition
-        // *   **Archive**: X-Engine Edition
-        // *   **NormalMultimaster**: Multi-master Cluster (Database/Table) Edition
         shared_ptr<string> category_ {};
-        // The number of CPU cores.
         shared_ptr<string> cpuCores_ {};
-        // The time when the cluster was created.
         shared_ptr<string> createTime_ {};
-        // The description of the cluster.
         shared_ptr<string> DBClusterDescription_ {};
-        // The cluster ID.
         shared_ptr<string> DBClusterId_ {};
-        // The network type of the cluster.
         shared_ptr<string> DBClusterNetworkType_ {};
-        // The state of the cluster.
         shared_ptr<string> DBClusterStatus_ {};
-        // The specifications of the node.
         shared_ptr<string> DBNodeClass_ {};
-        // The number of nodes.
         shared_ptr<int32_t> DBNodeNumber_ {};
-        // The information about the nodes.
         shared_ptr<DBCluster::DBNodes> DBNodes_ {};
-        // The type of the database engine.
         shared_ptr<string> DBType_ {};
-        // The version of the database engine.
         shared_ptr<string> DBVersion_ {};
-        // Indicates whether the cluster is protected from deletion. Valid values:
-        // 
-        // *   **0**: The cluster is not protected from deletion.
-        // *   **1**: The cluster is protected from deletion.
-        // 
-        // >  You cannot delete clusters that are protected from deletion.
         shared_ptr<int32_t> deletionLock_ {};
-        // The database engine of the cluster.
         shared_ptr<string> engine_ {};
-        // The expiration time of the cluster.
-        // 
-        // >  A specific value is returned only for subscription (**Prepaid**) clusters. For pay-as-you-go (**Postpaid**) clusters, no value is returned.
         shared_ptr<string> expireTime_ {};
-        // Indicates whether the cluster has expired. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
-        // 
-        // >  A specific value is returned only for subscription (**Prepaid**) clusters.
         shared_ptr<string> expired_ {};
-        // Indicates whether the hot standby storage cluster feature is enabled. Valid values:
-        // 
-        // *   ON
-        // *   OFF
         shared_ptr<string> hotStandbyCluster_ {};
-        // The lock state of the cluster. Valid values:
-        // 
-        // *   **Unlock**: The cluster is unlocked.
-        // *   **ManualLock**: The cluster is manually locked.
-        // *   **LockByExpiration**: The cluster is locked due to cluster expiration.
         shared_ptr<string> lockMode_ {};
-        // The memory size for local operations. Unit: MB.
         shared_ptr<string> memorySize_ {};
-        // The billing method of the cluster. Valid values:
-        // 
-        // *   **Postpaid**: pay-as-you-go
-        // *   **Prepaid**: subscription
         shared_ptr<string> payType_ {};
-        // The region ID of the cluster.
         shared_ptr<string> regionId_ {};
-        // The memory size for distributed operations. Unit: MB.
         shared_ptr<string> remoteMemorySize_ {};
-        // The ID of the resource group.
         shared_ptr<string> resourceGroupId_ {};
         shared_ptr<int64_t> searchStorageUsed_ {};
-        // Indicates whether the cluster is a serverless cluster. **AgileServerless** indicates the cluster is a serverless cluster. No value is returned for a common cluster.
         shared_ptr<string> serverlessType_ {};
-        // The storage billing method of the cluster. Valid values:
-        // 
-        // *   **Postpaid**: pay-as-you-go
-        // *   **Prepaid**: subscription
         shared_ptr<string> storagePayType_ {};
-        // The storage that is billed based on the subscription billing method. Unit: bytes.
         shared_ptr<int64_t> storageSpace_ {};
-        // The storage type.
         shared_ptr<string> storageType_ {};
-        // The used storage. Unit: bytes.
         shared_ptr<int64_t> storageUsed_ {};
-        // Indicates whether multi-zone data consistency is enabled for the cluster. Valid values:
-        // 
-        // *   **ON**: Multi-zone data consistency is enabled. For Standard Edition clusters of Multi-zone Edition, this value is returned.
-        // *   **OFF**: Multi-zone data consistency is disabled.
         shared_ptr<string> strictConsistency_ {};
-        // The specification type of the compute node. Valid values:
-        // 
-        // *   **Exclusive**: dedicated.
-        // *   **General**: general-purpose.
         shared_ptr<string> subCategory_ {};
-        // The information about the tags.
         shared_ptr<DBCluster::Tags> tags_ {};
-        // The virtual private cloud (VPC) ID of the cluster.
         shared_ptr<string> vpcId_ {};
-        // The vSwitch ID of the cluster.
         shared_ptr<string> vswitchId_ {};
-        // The zone ID of the cluster.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -818,7 +714,6 @@ namespace Models
 
 
   protected:
-    // The information about the clusters.
     shared_ptr<DescribeDBClustersResponseBody::Items> items_ {};
     // The number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};

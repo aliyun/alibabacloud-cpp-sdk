@@ -161,29 +161,9 @@ namespace Models
 
 
           protected:
-            // The username of the account.
-            // 
-            // > A PolarDB for MySQL cluster does not support privileged accounts.
             shared_ptr<string> accountName_ {};
-            // The permissions that are granted to the account. Valid values:
-            // 
-            // *   **ReadWrite**: read and write permissions
-            // *   **ReadOnly**: read-only permissions
-            // *   **DMLOnly**: The account is granted the permissions to execute only DML statements on the database.
-            // *   **DDLOnly**: The account is granted the permissions to execute only DDL statements on the database.
-            // *   **ReadIndex**: The account has the read and index permissions on the database.
             shared_ptr<string> accountPrivilege_ {};
-            // The state of the account. Valid values:
-            // 
-            // *   **Creating**
-            // *   **Available**
-            // *   **Deleting**
             shared_ptr<string> accountStatus_ {};
-            // The authorization state of the account. Valid values:
-            // 
-            // *   **Empowering**: The system is granting permissions to the account.
-            // *   **Empowered**: Permissions are granted to the account.
-            // *   **Removing**: The system is revoking permissions from the account.
             shared_ptr<string> privilegeStatus_ {};
           };
 
@@ -256,29 +236,12 @@ namespace Models
 
 
       protected:
-        // Details about the accounts.
-        // 
-        // > A PolarDB for MySQL cluster does not support privileged accounts.
         shared_ptr<Database::Accounts> accounts_ {};
-        // The character set that the database uses. For more information, see [Character set tables](https://help.aliyun.com/document_detail/99716.html).
         shared_ptr<string> characterSetName_ {};
-        // The description of the database.
         shared_ptr<string> DBDescription_ {};
-        // The name of the database.
         shared_ptr<string> DBName_ {};
-        // The state of the database. Valid values:
-        // 
-        // *   **Creating**
-        // *   **Running**
-        // *   **Deleting**
         shared_ptr<string> DBStatus_ {};
-        // The type of the database engine. Valid values:
-        // 
-        // *   **MySQL**
-        // *   **Oracle**
-        // *   **PostgreSQL**
         shared_ptr<string> engine_ {};
-        // The ID of the primary node in the cluster of Multi-master Cluster (Database/Table) Edition.
         shared_ptr<string> masterID_ {};
       };
 
@@ -329,7 +292,6 @@ namespace Models
 
 
   protected:
-    // Details about databases.
     shared_ptr<DescribeDatabasesResponseBody::Databases> databases_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

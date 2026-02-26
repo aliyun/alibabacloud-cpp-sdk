@@ -251,72 +251,24 @@ namespace Models
 
 
       protected:
-        // The time when the cluster was created.
         shared_ptr<string> createTime_ {};
-        // The name of the cluster.
         shared_ptr<string> DBClusterDescription_ {};
-        // The ID of cluster.
         shared_ptr<string> DBClusterId_ {};
-        // The network type of the cluster.
         shared_ptr<string> DBClusterNetworkType_ {};
-        // The status of the cluster. Valid values:
-        // 
-        // *   Creating: The cluster is being created.
-        // *   Running: The cluster is running.
-        // *   Deleting: The cluster is being released.
-        // *   Rebooting: The cluster is restarting.
-        // *   DBNodeCreating: The node is being added.
-        // *   DBNodeDeleting: The node is being deleted.
-        // *   ClassChanging: The specifications of the node are being changed.
-        // *   NetAddressCreating: The network connection is being created.
-        // *   NetAddressDeleting: The network connection is being deleted.
-        // *   NetAddressModifying: The network connection is being modified.
-        // *   Deleted: The cluster has been released.
         shared_ptr<string> DBClusterStatus_ {};
-        // The specifications of the node.
         shared_ptr<string> DBNodeClass_ {};
-        // The type of the database engine.
         shared_ptr<string> DBType_ {};
-        // The version of the database engine.
         shared_ptr<string> DBVersion_ {};
-        // The time when the cluster was deleted.
         shared_ptr<string> deletedTime_ {};
-        // Indicates whether the cluster is locked and can be deleted. Valid values:
-        // 
-        // *   **0**: The cluster is not locked and can be deleted.
-        // *   **1**: The cluster is locked and cannot be deleted.
         shared_ptr<int32_t> deletionLock_ {};
-        // The type of the database engine.
         shared_ptr<string> engine_ {};
-        // The time when the cluster expires.
-        // 
-        // > A specific value will be returned only for subscription clusters. For pay-as-you-go clusters, an empty string will be returned.
         shared_ptr<string> expireTime_ {};
-        // Indicates whether the cluster has expired.
-        // 
-        // > A specific value will be returned only for subscription clusters.
         shared_ptr<string> expired_ {};
-        // Indicates whether the cluster was released. Valid values:
-        // 
-        // *   1: released
-        // *   0: not released
         shared_ptr<int32_t> isDeleted_ {};
-        // The state of the cluster lock. Valid values:
-        // 
-        // *   **Unlock**: The cluster is not locked.
-        // *   **ManualLock**: The cluster is manually locked.
-        // *   **LockByExpiration**: The cluster is automatically locked after the cluster expires.
         shared_ptr<string> lockMode_ {};
-        // The billing method. Valid values:
-        // 
-        // *   **Postpaid**: pay-as-you-go.
-        // *   **Prepaid**: subscription
         shared_ptr<string> payType_ {};
-        // The region ID of the cluster.
         shared_ptr<string> regionId_ {};
-        // The VPC ID of the cluster.
         shared_ptr<string> vpcId_ {};
-        // The ID of the zone in which the instance is located.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -374,7 +326,6 @@ namespace Models
 
 
   protected:
-    // The details about the cluster.
     shared_ptr<DescribeDBClustersWithBackupsResponseBody::Items> items_ {};
     // The total number of returned pages.
     shared_ptr<int32_t> pageNumber_ {};

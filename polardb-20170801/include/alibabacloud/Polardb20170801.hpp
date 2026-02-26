@@ -119,7 +119,7 @@ namespace Polardb20170801
       Models::AttachApplicationPolarFSResponse attachApplicationPolarFS(const Models::AttachApplicationPolarFSRequest &request);
 
       /**
-       * @summary Cancels O\\&M events at a time.
+       * @summary Cancels O\\\\\\&M events at a time.
        *
        * @param request CancelActiveOperationTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -128,7 +128,7 @@ namespace Polardb20170801
       Models::CancelActiveOperationTasksResponse cancelActiveOperationTasksWithOptions(const Models::CancelActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels O\\&M events at a time.
+       * @summary Cancels O\\\\\\&M events at a time.
        *
        * @param request CancelActiveOperationTasksRequest
        * @return CancelActiveOperationTasksResponse
@@ -323,7 +323,7 @@ namespace Polardb20170801
       Models::ClonePolarFsBasicSnapshotResponse clonePolarFsBasicSnapshot(const Models::ClonePolarFsBasicSnapshotRequest &request);
 
       /**
-       * @summary 关闭DB4AI
+       * @summary Disables the PolarDB for AI feature for a cluster.
        *
        * @param request CloseAITaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -332,7 +332,7 @@ namespace Polardb20170801
       Models::CloseAITaskResponse closeAITaskWithOptions(const Models::CloseAITaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭DB4AI
+       * @summary Disables the PolarDB for AI feature for a cluster.
        *
        * @param request CloseAITaskRequest
        * @return CloseAITaskResponse
@@ -716,7 +716,7 @@ namespace Polardb20170801
       Models::CreateExtensionsResponse createExtensions(const Models::CreateExtensionsRequest &request);
 
       /**
-       * @summary 创建全球数据网络
+       * @summary Creates a global data network (GDN).
        *
        * @param request CreateGlobalDataNetworkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -725,7 +725,7 @@ namespace Polardb20170801
       Models::CreateGlobalDataNetworkResponse createGlobalDataNetworkWithOptions(const Models::CreateGlobalDataNetworkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建全球数据网络
+       * @summary Creates a global data network (GDN).
        *
        * @param request CreateGlobalDataNetworkRequest
        * @return CreateGlobalDataNetworkResponse
@@ -1196,7 +1196,7 @@ namespace Polardb20170801
       Models::DeleteFirewallRulesResponse deleteFirewallRules(const Models::DeleteFirewallRulesRequest &request);
 
       /**
-       * @summary DeleteGlobalDataNetwork
+       * @summary Deletes a global data network (GDN).
        *
        * @param request DeleteGlobalDataNetworkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1205,7 +1205,7 @@ namespace Polardb20170801
       Models::DeleteGlobalDataNetworkResponse deleteGlobalDataNetworkWithOptions(const Models::DeleteGlobalDataNetworkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DeleteGlobalDataNetwork
+       * @summary Deletes a global data network (GDN).
        *
        * @param request DeleteGlobalDataNetworkRequest
        * @return DeleteGlobalDataNetworkResponse
@@ -1285,7 +1285,7 @@ namespace Polardb20170801
       Models::DeleteNetworkChannelResponse deleteNetworkChannel(const Models::DeleteNetworkChannelRequest &request);
 
       /**
-       * @summary Deletes a parameter template of a PolarDB cluster.
+       * @summary Deletes a parameter template from a PolarDB cluster.
        *
        * @description You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
        * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
@@ -1297,7 +1297,7 @@ namespace Polardb20170801
       Models::DeleteParameterGroupResponse deleteParameterGroupWithOptions(const Models::DeleteParameterGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a parameter template of a PolarDB cluster.
+       * @summary Deletes a parameter template from a PolarDB cluster.
        *
        * @description You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
        * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
@@ -1529,7 +1529,7 @@ namespace Polardb20170801
       Models::DescribeActiveOperationMaintainConfResponse describeActiveOperationMaintainConf(const Models::DescribeActiveOperationMaintainConfRequest &request);
 
       /**
-       * @summary 用户侧查询运维任务
+       * @summary Queries the O\\\\\\&M event details of an instance.
        *
        * @param request DescribeActiveOperationTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1538,7 +1538,7 @@ namespace Polardb20170801
       Models::DescribeActiveOperationTasksResponse describeActiveOperationTasksWithOptions(const Models::DescribeActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用户侧查询运维任务
+       * @summary Queries the O\\\\\\&M event details of an instance.
        *
        * @param request DescribeActiveOperationTasksRequest
        * @return DescribeActiveOperationTasksResponse
@@ -1699,7 +1699,7 @@ namespace Polardb20170801
       Models::DescribeBackupRegionsResponse describeBackupRegions(const Models::DescribeBackupRegionsRequest &request);
 
       /**
-       * @summary Queries the backup tasks of a PolarDB cluster.
+       * @summary Queries the details of backup tasks of a cluster.
        *
        * @param request DescribeBackupTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1708,7 +1708,7 @@ namespace Polardb20170801
       Models::DescribeBackupTasksResponse describeBackupTasksWithOptions(const Models::DescribeBackupTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the backup tasks of a PolarDB cluster.
+       * @summary Queries the details of backup tasks of a cluster.
        *
        * @param request DescribeBackupTasksRequest
        * @return DescribeBackupTasksResponse
@@ -2282,7 +2282,7 @@ namespace Polardb20170801
       Models::DescribeDBInstancePerformanceResponse describeDBInstancePerformance(const Models::DescribeDBInstancePerformanceRequest &request);
 
       /**
-       * @summary Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+       * @summary Queries the database links of a PolarDB for Oracle cluster.
        *
        * @description > You can query only the database links that use a PolarDB for Oracle cluster as the source.
        *
@@ -2293,7 +2293,7 @@ namespace Polardb20170801
       Models::DescribeDBLinksResponse describeDBLinksWithOptions(const Models::DescribeDBLinksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+       * @summary Queries the database links of a PolarDB for Oracle cluster.
        *
        * @description > You can query only the database links that use a PolarDB for Oracle cluster as the source.
        *
@@ -2303,7 +2303,7 @@ namespace Polardb20170801
       Models::DescribeDBLinksResponse describeDBLinks(const Models::DescribeDBLinksRequest &request);
 
       /**
-       * @summary 查询实例日志
+       * @summary Queries logs for a PolarDB cluster such as primary/secondary switchover logs.
        *
        * @param request DescribeDBLogFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2312,7 +2312,7 @@ namespace Polardb20170801
       Models::DescribeDBLogFilesResponse describeDBLogFilesWithOptions(const Models::DescribeDBLogFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例日志
+       * @summary Queries logs for a PolarDB cluster such as primary/secondary switchover logs.
        *
        * @param request DescribeDBLogFilesRequest
        * @return DescribeDBLogFilesResponse
@@ -2577,7 +2577,7 @@ namespace Polardb20170801
       Models::DescribeFirewallRulesResponse describeFirewallRules(const Models::DescribeFirewallRulesRequest &request);
 
       /**
-       * @summary DescribeGlobalDataNetworkList
+       * @summary Queries the PolarFS global data network (GDN) details in all regions.
        *
        * @param request DescribeGlobalDataNetworkListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2586,7 +2586,7 @@ namespace Polardb20170801
       Models::DescribeGlobalDataNetworkListResponse describeGlobalDataNetworkListWithOptions(const Models::DescribeGlobalDataNetworkListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeGlobalDataNetworkList
+       * @summary Queries the PolarFS global data network (GDN) details in all regions.
        *
        * @param request DescribeGlobalDataNetworkListRequest
        * @return DescribeGlobalDataNetworkListResponse
@@ -2662,7 +2662,7 @@ namespace Polardb20170801
       Models::DescribeGlobalSecurityIPGroupRelationResponse describeGlobalSecurityIPGroupRelation(const Models::DescribeGlobalSecurityIPGroupRelationRequest &request);
 
       /**
-       * @summary 查询实例高可用相关日志
+       * @summary Queries the HA logs of a cluster.
        *
        * @param request DescribeHALogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2671,7 +2671,7 @@ namespace Polardb20170801
       Models::DescribeHALogsResponse describeHALogsWithOptions(const Models::DescribeHALogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例高可用相关日志
+       * @summary Queries the HA logs of a cluster.
        *
        * @param request DescribeHALogsRequest
        * @return DescribeHALogsResponse
@@ -2696,7 +2696,7 @@ namespace Polardb20170801
       Models::DescribeHistoryEventsResponse describeHistoryEvents(const Models::DescribeHistoryEventsRequest &request);
 
       /**
-       * @summary 任务中心任务列表
+       * @summary Queries historical tasks.
        *
        * @param request DescribeHistoryTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2705,7 +2705,7 @@ namespace Polardb20170801
       Models::DescribeHistoryTasksResponse describeHistoryTasksWithOptions(const Models::DescribeHistoryTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 任务中心任务列表
+       * @summary Queries historical tasks.
        *
        * @param request DescribeHistoryTasksRequest
        * @return DescribeHistoryTasksResponse
@@ -3095,7 +3095,7 @@ namespace Polardb20170801
       Models::DescribeRdsVpcsResponse describeRdsVpcs(const Models::DescribeRdsVpcsRequest &request);
 
       /**
-       * @summary Queries the regions and zones available for PolarDB.
+       * @summary Queries the regions and zones that are supported by PolarDB.
        *
        * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3104,7 +3104,7 @@ namespace Polardb20170801
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the regions and zones available for PolarDB.
+       * @summary Queries the regions and zones that are supported by PolarDB.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -3331,6 +3331,23 @@ namespace Polardb20170801
       Models::DescribeZonesResponse describeZones(const Models::DescribeZonesRequest &request);
 
       /**
+       * @summary 关闭DynamoDB兼容性能力
+       *
+       * @param request DisableDBClusterDynamoDBRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableDBClusterDynamoDBResponse
+       */
+      Models::DisableDBClusterDynamoDBResponse disableDBClusterDynamoDBWithOptions(const Models::DisableDBClusterDynamoDBRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关闭DynamoDB兼容性能力
+       *
+       * @param request DisableDBClusterDynamoDBRequest
+       * @return DisableDBClusterDynamoDBResponse
+       */
+      Models::DisableDBClusterDynamoDBResponse disableDBClusterDynamoDB(const Models::DisableDBClusterDynamoDBRequest &request);
+
+      /**
        * @summary 关闭集群的关系性
        *
        * @param request DisableDBClusterOrcaRequest
@@ -3363,6 +3380,23 @@ namespace Polardb20170801
        * @return DisableDBClusterServerlessResponse
        */
       Models::DisableDBClusterServerlessResponse disableDBClusterServerless(const Models::DisableDBClusterServerlessRequest &request);
+
+      /**
+       * @summary 开启DynamoDB兼容性能力
+       *
+       * @param request EnableDBClusterDynamoDBRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableDBClusterDynamoDBResponse
+       */
+      Models::EnableDBClusterDynamoDBResponse enableDBClusterDynamoDBWithOptions(const Models::EnableDBClusterDynamoDBRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启DynamoDB兼容性能力
+       *
+       * @param request EnableDBClusterDynamoDBRequest
+       * @return EnableDBClusterDynamoDBResponse
+       */
+      Models::EnableDBClusterDynamoDBResponse enableDBClusterDynamoDB(const Models::EnableDBClusterDynamoDBRequest &request);
 
       /**
        * @summary 开启集群的关系性
@@ -3769,7 +3803,7 @@ namespace Polardb20170801
       Models::ModifyActiveOperationMaintainConfResponse modifyActiveOperationMaintainConf(const Models::ModifyActiveOperationMaintainConfRequest &request);
 
       /**
-       * @summary Modifies the switching time of scheduled O\\&M events for an instance.
+       * @summary Modifies the switching time of scheduled O\\\\\\&M events for an instance.
        *
        * @param request ModifyActiveOperationTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3778,7 +3812,7 @@ namespace Polardb20170801
       Models::ModifyActiveOperationTasksResponse modifyActiveOperationTasksWithOptions(const Models::ModifyActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the switching time of scheduled O\\&M events for an instance.
+       * @summary Modifies the switching time of scheduled O\\\\\\&M events for an instance.
        *
        * @param request ModifyActiveOperationTasksRequest
        * @return ModifyActiveOperationTasksResponse
@@ -4276,7 +4310,7 @@ namespace Polardb20170801
       Models::ModifyDBClusterServerlessConfResponse modifyDBClusterServerlessConf(const Models::ModifyDBClusterServerlessConfRequest &request);
 
       /**
-       * @summary 修改存储性能
+       * @summary Changes the storage performance of a PolarDB for MySQL cluster.
        *
        * @param request ModifyDBClusterStoragePerformanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4285,7 +4319,7 @@ namespace Polardb20170801
       Models::ModifyDBClusterStoragePerformanceResponse modifyDBClusterStoragePerformanceWithOptions(const Models::ModifyDBClusterStoragePerformanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改存储性能
+       * @summary Changes the storage performance of a PolarDB for MySQL cluster.
        *
        * @param request ModifyDBClusterStoragePerformanceRequest
        * @return ModifyDBClusterStoragePerformanceResponse
@@ -4998,6 +5032,8 @@ namespace Polardb20170801
       Models::SetPolarFsFileQuotaResponse setPolarFsFileQuota(const Models::SetPolarFsFileQuotaRequest &request);
 
       /**
+       * @summary Switches over the primary and secondary clusters in a global database network (GDN).
+       *
        * @param request SwitchOverGlobalDatabaseNetworkRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SwitchOverGlobalDatabaseNetworkResponse
@@ -5005,6 +5041,8 @@ namespace Polardb20170801
       Models::SwitchOverGlobalDatabaseNetworkResponse switchOverGlobalDatabaseNetworkWithOptions(const Models::SwitchOverGlobalDatabaseNetworkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Switches over the primary and secondary clusters in a global database network (GDN).
+       *
        * @param request SwitchOverGlobalDatabaseNetworkRequest
        * @return SwitchOverGlobalDatabaseNetworkResponse
        */

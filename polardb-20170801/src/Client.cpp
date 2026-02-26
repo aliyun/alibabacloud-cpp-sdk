@@ -446,7 +446,7 @@ AttachApplicationPolarFSResponse Client::attachApplicationPolarFS(const AttachAp
 }
 
 /**
- * @summary Cancels O\\&M events at a time.
+ * @summary Cancels O\\\\\\&M events at a time.
  *
  * @param request CancelActiveOperationTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -501,7 +501,7 @@ CancelActiveOperationTasksResponse Client::cancelActiveOperationTasksWithOptions
 }
 
 /**
- * @summary Cancels O\\&M events at a time.
+ * @summary Cancels O\\\\\\&M events at a time.
  *
  * @param request CancelActiveOperationTasksRequest
  * @return CancelActiveOperationTasksResponse
@@ -1178,7 +1178,7 @@ ClonePolarFsBasicSnapshotResponse Client::clonePolarFsBasicSnapshot(const CloneP
 }
 
 /**
- * @summary 关闭DB4AI
+ * @summary Disables the PolarDB for AI feature for a cluster.
  *
  * @param request CloseAITaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1229,7 +1229,7 @@ CloseAITaskResponse Client::closeAITaskWithOptions(const CloseAITaskRequest &req
 }
 
 /**
- * @summary 关闭DB4AI
+ * @summary Disables the PolarDB for AI feature for a cluster.
  *
  * @param request CloseAITaskRequest
  * @return CloseAITaskResponse
@@ -3210,7 +3210,7 @@ CreateExtensionsResponse Client::createExtensions(const CreateExtensionsRequest 
 }
 
 /**
- * @summary 创建全球数据网络
+ * @summary Creates a global data network (GDN).
  *
  * @param request CreateGlobalDataNetworkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3277,7 +3277,7 @@ CreateGlobalDataNetworkResponse Client::createGlobalDataNetworkWithOptions(const
 }
 
 /**
- * @summary 创建全球数据网络
+ * @summary Creates a global data network (GDN).
  *
  * @param request CreateGlobalDataNetworkRequest
  * @return CreateGlobalDataNetworkResponse
@@ -4940,7 +4940,7 @@ DeleteFirewallRulesResponse Client::deleteFirewallRules(const DeleteFirewallRule
 }
 
 /**
- * @summary DeleteGlobalDataNetwork
+ * @summary Deletes a global data network (GDN).
  *
  * @param request DeleteGlobalDataNetworkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4971,7 +4971,7 @@ DeleteGlobalDataNetworkResponse Client::deleteGlobalDataNetworkWithOptions(const
 }
 
 /**
- * @summary DeleteGlobalDataNetwork
+ * @summary Deletes a global data network (GDN).
  *
  * @param request DeleteGlobalDataNetworkRequest
  * @return DeleteGlobalDataNetworkResponse
@@ -5254,7 +5254,7 @@ DeleteNetworkChannelResponse Client::deleteNetworkChannel(const DeleteNetworkCha
 }
 
 /**
- * @summary Deletes a parameter template of a PolarDB cluster.
+ * @summary Deletes a parameter template from a PolarDB cluster.
  *
  * @description You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
  * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
@@ -5312,7 +5312,7 @@ DeleteParameterGroupResponse Client::deleteParameterGroupWithOptions(const Delet
 }
 
 /**
- * @summary Deletes a parameter template of a PolarDB cluster.
+ * @summary Deletes a parameter template from a PolarDB cluster.
  *
  * @description You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
  * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
@@ -6180,7 +6180,7 @@ DescribeActiveOperationMaintainConfResponse Client::describeActiveOperationMaint
 }
 
 /**
- * @summary 用户侧查询运维任务
+ * @summary Queries the O\\\\\\&M event details of an instance.
  *
  * @param request DescribeActiveOperationTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6267,7 +6267,7 @@ DescribeActiveOperationTasksResponse Client::describeActiveOperationTasksWithOpt
 }
 
 /**
- * @summary 用户侧查询运维任务
+ * @summary Queries the O\\\\\\&M event details of an instance.
  *
  * @param request DescribeActiveOperationTasksRequest
  * @return DescribeActiveOperationTasksResponse
@@ -6810,7 +6810,7 @@ DescribeBackupRegionsResponse Client::describeBackupRegions(const DescribeBackup
 }
 
 /**
- * @summary Queries the backup tasks of a PolarDB cluster.
+ * @summary Queries the details of backup tasks of a cluster.
  *
  * @param request DescribeBackupTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6865,7 +6865,7 @@ DescribeBackupTasksResponse Client::describeBackupTasksWithOptions(const Describ
 }
 
 /**
- * @summary Queries the backup tasks of a PolarDB cluster.
+ * @summary Queries the details of backup tasks of a cluster.
  *
  * @param request DescribeBackupTasksRequest
  * @return DescribeBackupTasksResponse
@@ -9102,7 +9102,7 @@ DescribeDBInstancePerformanceResponse Client::describeDBInstancePerformance(cons
 }
 
 /**
- * @summary Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+ * @summary Queries the database links of a PolarDB for Oracle cluster.
  *
  * @description > You can query only the database links that use a PolarDB for Oracle cluster as the source.
  *
@@ -9155,7 +9155,7 @@ DescribeDBLinksResponse Client::describeDBLinksWithOptions(const DescribeDBLinks
 }
 
 /**
- * @summary Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+ * @summary Queries the database links of a PolarDB for Oracle cluster.
  *
  * @description > You can query only the database links that use a PolarDB for Oracle cluster as the source.
  *
@@ -9168,7 +9168,7 @@ DescribeDBLinksResponse Client::describeDBLinks(const DescribeDBLinksRequest &re
 }
 
 /**
- * @summary 查询实例日志
+ * @summary Queries logs for a PolarDB cluster such as primary/secondary switchover logs.
  *
  * @param request DescribeDBLogFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9255,7 +9255,7 @@ DescribeDBLogFilesResponse Client::describeDBLogFilesWithOptions(const DescribeD
 }
 
 /**
- * @summary 查询实例日志
+ * @summary Queries logs for a PolarDB cluster such as primary/secondary switchover logs.
  *
  * @param request DescribeDBLogFilesRequest
  * @return DescribeDBLogFilesResponse
@@ -10156,7 +10156,7 @@ DescribeFirewallRulesResponse Client::describeFirewallRules(const DescribeFirewa
 }
 
 /**
- * @summary DescribeGlobalDataNetworkList
+ * @summary Queries the PolarFS global data network (GDN) details in all regions.
  *
  * @param request DescribeGlobalDataNetworkListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10191,7 +10191,7 @@ DescribeGlobalDataNetworkListResponse Client::describeGlobalDataNetworkListWithO
 }
 
 /**
- * @summary DescribeGlobalDataNetworkList
+ * @summary Queries the PolarFS global data network (GDN) details in all regions.
  *
  * @param request DescribeGlobalDataNetworkListRequest
  * @return DescribeGlobalDataNetworkListResponse
@@ -10494,7 +10494,7 @@ DescribeGlobalSecurityIPGroupRelationResponse Client::describeGlobalSecurityIPGr
 }
 
 /**
- * @summary 查询实例高可用相关日志
+ * @summary Queries the HA logs of a cluster.
  *
  * @param request DescribeHALogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10549,7 +10549,7 @@ DescribeHALogsResponse Client::describeHALogsWithOptions(const DescribeHALogsReq
 }
 
 /**
- * @summary 查询实例高可用相关日志
+ * @summary Queries the HA logs of a cluster.
  *
  * @param request DescribeHALogsRequest
  * @return DescribeHALogsResponse
@@ -10658,7 +10658,7 @@ DescribeHistoryEventsResponse Client::describeHistoryEvents(const DescribeHistor
 }
 
 /**
- * @summary 任务中心任务列表
+ * @summary Queries historical tasks.
  *
  * @param request DescribeHistoryTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10753,7 +10753,7 @@ DescribeHistoryTasksResponse Client::describeHistoryTasksWithOptions(const Descr
 }
 
 /**
- * @summary 任务中心任务列表
+ * @summary Queries historical tasks.
  *
  * @param request DescribeHistoryTasksRequest
  * @return DescribeHistoryTasksResponse
@@ -12176,7 +12176,7 @@ DescribeRdsVpcsResponse Client::describeRdsVpcs(const DescribeRdsVpcsRequest &re
 }
 
 /**
- * @summary Queries the regions and zones available for PolarDB.
+ * @summary Queries the regions and zones that are supported by PolarDB.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12219,7 +12219,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Queries the regions and zones available for PolarDB.
+ * @summary Queries the regions and zones that are supported by PolarDB.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -13173,6 +13173,48 @@ DescribeZonesResponse Client::describeZones(const DescribeZonesRequest &request)
 }
 
 /**
+ * @summary 关闭DynamoDB兼容性能力
+ *
+ * @param request DisableDBClusterDynamoDBRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableDBClusterDynamoDBResponse
+ */
+DisableDBClusterDynamoDBResponse Client::disableDBClusterDynamoDBWithOptions(const DisableDBClusterDynamoDBRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableDBClusterDynamoDB"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableDBClusterDynamoDBResponse>();
+}
+
+/**
+ * @summary 关闭DynamoDB兼容性能力
+ *
+ * @param request DisableDBClusterDynamoDBRequest
+ * @return DisableDBClusterDynamoDBResponse
+ */
+DisableDBClusterDynamoDBResponse Client::disableDBClusterDynamoDB(const DisableDBClusterDynamoDBRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableDBClusterDynamoDBWithOptions(request, runtime);
+}
+
+/**
  * @summary 关闭集群的关系性
  *
  * @param request DisableDBClusterOrcaRequest
@@ -13290,6 +13332,48 @@ DisableDBClusterServerlessResponse Client::disableDBClusterServerlessWithOptions
 DisableDBClusterServerlessResponse Client::disableDBClusterServerless(const DisableDBClusterServerlessRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return disableDBClusterServerlessWithOptions(request, runtime);
+}
+
+/**
+ * @summary 开启DynamoDB兼容性能力
+ *
+ * @param request EnableDBClusterDynamoDBRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableDBClusterDynamoDBResponse
+ */
+EnableDBClusterDynamoDBResponse Client::enableDBClusterDynamoDBWithOptions(const EnableDBClusterDynamoDBRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableDBClusterDynamoDB"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableDBClusterDynamoDBResponse>();
+}
+
+/**
+ * @summary 开启DynamoDB兼容性能力
+ *
+ * @param request EnableDBClusterDynamoDBRequest
+ * @return EnableDBClusterDynamoDBResponse
+ */
+EnableDBClusterDynamoDBResponse Client::enableDBClusterDynamoDB(const EnableDBClusterDynamoDBRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableDBClusterDynamoDBWithOptions(request, runtime);
 }
 
 /**
@@ -13976,16 +14060,18 @@ FutureGenerator<GetPolarAgentResponse> Client::getPolarAgentWithSSE(const GetPol
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<GetPolarAgentResponse>();
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<GetPolarAgentResponse>();
 return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -14974,7 +15060,7 @@ ModifyActiveOperationMaintainConfResponse Client::modifyActiveOperationMaintainC
 }
 
 /**
- * @summary Modifies the switching time of scheduled O\\&M events for an instance.
+ * @summary Modifies the switching time of scheduled O\\\\\\&M events for an instance.
  *
  * @param request ModifyActiveOperationTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15037,7 +15123,7 @@ ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasksWithOptions
 }
 
 /**
- * @summary Modifies the switching time of scheduled O\\&M events for an instance.
+ * @summary Modifies the switching time of scheduled O\\\\\\&M events for an instance.
  *
  * @param request ModifyActiveOperationTasksRequest
  * @return ModifyActiveOperationTasksResponse
@@ -17112,7 +17198,7 @@ ModifyDBClusterServerlessConfResponse Client::modifyDBClusterServerlessConf(cons
 }
 
 /**
- * @summary 修改存储性能
+ * @summary Changes the storage performance of a PolarDB for MySQL cluster.
  *
  * @param request ModifyDBClusterStoragePerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17175,7 +17261,7 @@ ModifyDBClusterStoragePerformanceResponse Client::modifyDBClusterStoragePerforma
 }
 
 /**
- * @summary 修改存储性能
+ * @summary Changes the storage performance of a PolarDB for MySQL cluster.
  *
  * @param request ModifyDBClusterStoragePerformanceRequest
  * @return ModifyDBClusterStoragePerformanceResponse
@@ -20106,6 +20192,8 @@ SetPolarFsFileQuotaResponse Client::setPolarFsFileQuota(const SetPolarFsFileQuot
 }
 
 /**
+ * @summary Switches over the primary and secondary clusters in a global database network (GDN).
+ *
  * @param request SwitchOverGlobalDatabaseNetworkRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SwitchOverGlobalDatabaseNetworkResponse
@@ -20171,6 +20259,8 @@ SwitchOverGlobalDatabaseNetworkResponse Client::switchOverGlobalDatabaseNetworkW
 }
 
 /**
+ * @summary Switches over the primary and secondary clusters in a global database network (GDN).
+ *
  * @param request SwitchOverGlobalDatabaseNetworkRequest
  * @return SwitchOverGlobalDatabaseNetworkResponse
  */

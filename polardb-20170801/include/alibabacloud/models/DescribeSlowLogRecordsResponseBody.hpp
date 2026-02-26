@@ -191,28 +191,17 @@ namespace Models
 
 
       protected:
-        // Database name.
         shared_ptr<string> DBName_ {};
-        // Node ID.
         shared_ptr<string> DBNodeId_ {};
-        // Time when the SQL starts execution. The format is `YYYY-MM-DDThh:mmZ` (UTC time).
         shared_ptr<string> executionStartTime_ {};
-        // Client address connecting to the database.
         shared_ptr<string> hostAddress_ {};
         shared_ptr<int64_t> lockTimeMS_ {};
-        // SQL lock duration in seconds.
         shared_ptr<int64_t> lockTimes_ {};
-        // Number of rows parsed.
         shared_ptr<int64_t> parseRowCounts_ {};
-        // Query time. Unit: milliseconds.
         shared_ptr<int64_t> queryTimeMS_ {};
-        // SQL execution duration, in seconds.
         shared_ptr<int64_t> queryTimes_ {};
-        // Number of rows returned.
         shared_ptr<int64_t> returnRowCounts_ {};
-        // Unique identifier for the SQL statement in slow log statistics.
         shared_ptr<string> SQLHash_ {};
-        // Query statement.
         shared_ptr<string> SQLText_ {};
       };
 
@@ -289,7 +278,6 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // Database engine.
     shared_ptr<string> engine_ {};
-    // List of slow log details.
     shared_ptr<DescribeSlowLogRecordsResponseBody::Items> items_ {};
     // Page number.
     shared_ptr<int32_t> pageNumber_ {};

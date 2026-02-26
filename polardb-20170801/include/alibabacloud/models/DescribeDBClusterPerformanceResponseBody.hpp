@@ -143,9 +143,7 @@ namespace Models
 
 
           protected:
-            // The timestamp of the metric. This value is a UNIX timestamp. Unit: millisecond.
             shared_ptr<int64_t> timestamp_ {};
-            // The value of the metric.
             shared_ptr<string> value_ {};
           };
 
@@ -196,15 +194,9 @@ namespace Models
 
 
       protected:
-        // The ID of the cluster node.
-        // 
-        // >  The value of this parameter is not returned if the `Key` parameter is set to `PolarDBDiskUsage`.
         shared_ptr<string> DBNodeId_ {};
-        // The performance metrics that are returned.
         shared_ptr<string> measurement_ {};
-        // The name of the performance metric.
         shared_ptr<string> metricName_ {};
-        // The performance metrics.
         shared_ptr<PerformanceItem::Points> points_ {};
       };
 
@@ -285,7 +277,6 @@ namespace Models
     shared_ptr<string> DBVersion_ {};
     // The end time of the query. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The cluster performance metrics.
     shared_ptr<DescribeDBClusterPerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

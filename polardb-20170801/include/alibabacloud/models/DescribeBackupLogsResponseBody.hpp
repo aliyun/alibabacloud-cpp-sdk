@@ -150,21 +150,13 @@ namespace Models
 
 
       protected:
-        // The time when the backup task ended. The time follows the ISO 8601 standard in the `YYYY-MM-DD\\"T\\"HH:mm:ssZ` format. The time is displayed in UTC.
         shared_ptr<string> backupLogEndTime_ {};
-        // The ID of the backup log.
         shared_ptr<string> backupLogId_ {};
-        // The name of the backup log.
         shared_ptr<string> backupLogName_ {};
-        // The size of the backup log. Unit: bytes.
         shared_ptr<string> backupLogSize_ {};
-        // The time when the backup task started. The time follows the ISO 8601 standard in the `YYYY-MM-DD\\"T\\"HH:mm:ssZ` format. The time is displayed in UTC.
         shared_ptr<string> backupLogStartTime_ {};
-        // The public URL used to download the backup log.
         shared_ptr<string> downloadLink_ {};
-        // The internal URL used to download the backup log.
         shared_ptr<string> intranetDownloadLink_ {};
-        // The time when the download URL expires.
         shared_ptr<string> linkExpiredTime_ {};
       };
 
@@ -222,7 +214,6 @@ namespace Models
 
 
   protected:
-    // The details of the backup logs.
     shared_ptr<DescribeBackupLogsResponseBody::Items> items_ {};
     // The page number of the returned page.
     shared_ptr<string> pageNumber_ {};

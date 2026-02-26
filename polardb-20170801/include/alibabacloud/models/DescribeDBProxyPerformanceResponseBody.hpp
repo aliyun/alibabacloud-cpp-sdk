@@ -143,9 +143,7 @@ namespace Models
 
 
           protected:
-            // The time when the metric value was collected. This value is a timestamp in milliseconds.
             shared_ptr<int64_t> timestamp_ {};
-            // The value of the metric.
             shared_ptr<string> value_ {};
           };
 
@@ -196,13 +194,9 @@ namespace Models
 
 
       protected:
-        // The ID of the node.
         shared_ptr<string> DBNodeId_ {};
-        // The performance metric.
         shared_ptr<string> measurement_ {};
-        // The name of the performance metric.
         shared_ptr<string> metricName_ {};
-        // The list of the performance metrics.
         shared_ptr<PerformanceItem::Points> points_ {};
       };
 
@@ -283,7 +277,6 @@ namespace Models
     shared_ptr<string> DBVersion_ {};
     // The end time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // Details about the performance metrics.
     shared_ptr<DescribeDBProxyPerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

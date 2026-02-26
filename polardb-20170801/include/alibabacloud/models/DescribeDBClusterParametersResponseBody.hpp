@@ -193,45 +193,17 @@ namespace Models
 
 
       protected:
-        // The valid values of the parameter.
         shared_ptr<string> checkingCode_ {};
-        // The data type of the parameter value. Valid values:
-        // 
-        // *   **INT**
-        // *   **STRING**
-        // *   **B**
         shared_ptr<string> dataType_ {};
-        // The default value of the parameter.
         shared_ptr<string> defaultParameterValue_ {};
-        // A divisor of the parameter. For a parameter of the integer or byte type, the valid values must be a multiple of Factor unless you set Factor to 0.
         shared_ptr<string> factor_ {};
-        // Indicates whether a cluster restart is required for the parameter modification to take effect. Valid values:
-        // 
-        // *   **false**
-        // *   **true**
         shared_ptr<bool> forceRestart_ {};
-        // Indicates whether the parameter can be modified. Valid values:
-        // 
-        // *   **false**
-        // *   **true**
         shared_ptr<bool> isModifiable_ {};
-        // Indicates whether the parameter is a global parameter. Valid values:
-        // 
-        // *   **0**: The parameter is a global parameter. The modified parameter value is synchronized to other nodes.
-        // *   **1**: The parameter is not a global parameter. You can specify the nodes to which the modified parameter value can be synchronized.
         shared_ptr<string> isNodeAvailable_ {};
-        // The dependencies of the parameter.
         shared_ptr<string> paramRelyRule_ {};
-        // The description of the parameter.
         shared_ptr<string> parameterDescription_ {};
-        // The name of the parameter.
         shared_ptr<string> parameterName_ {};
-        // The status of the parameter. Valid values:
-        // 
-        // *   **Normal**
-        // *   **Modifying**
         shared_ptr<string> parameterStatus_ {};
-        // The value of the parameter.
         shared_ptr<string> parameterValue_ {};
       };
 
@@ -407,43 +379,18 @@ namespace Models
 
 
       protected:
-        // Indicates whether the source and current parameters have the same value.
         shared_ptr<string> isEqual_ {};
-        // Indicate whether the parameter is a primary parameter of the destination cluster. Valid values:
-        // 
-        // *   **1**: The parameter is a primary parameter of the destination cluster.
-        // *   **0**: The parameter is not a primary parameter of the destination cluster.
         shared_ptr<string> isInstancePolarDBKey_ {};
-        // Indicate whether the parameter is a primary parameter of the source instance. Valid values:
-        // 
-        // *   **1**: The parameter is a primary parameter of the source instance.
-        // *   **0**: The parameter is not a primary parameter of the source instance.
         shared_ptr<string> isInstanceRdsKey_ {};
-        // Indicate whether the parameter is a primary parameter of the destination cluster. Valid values:
-        // 
-        // *   **1**: The parameter is a primary parameter of the destination cluster.
-        // *   **0**: The parameter is not a primary parameter of the destination cluster.
         shared_ptr<string> isPolarDBKey_ {};
-        // Indicate whether the parameter is a primary parameter of the source instance. Valid values:
-        // 
-        // *   **1**: The parameter is a primary parameter of the source instance.
-        // *   **0**: The parameter is not a primary parameter of the source instance.
         shared_ptr<string> isRdsKey_ {};
-        // The description of the parameter of the destination cluster.
         shared_ptr<string> distParameterDescription_ {};
-        // The name of the parameter of the destination cluster.
         shared_ptr<string> distParameterName_ {};
-        // The valid values of the parameter of the destination cluster.
         shared_ptr<string> distParameterOptional_ {};
-        // The value of the parameter of the destination cluster.
         shared_ptr<string> distParameterValue_ {};
-        // The description of the parameter of the source instance.
         shared_ptr<string> rdsParameterDescription_ {};
-        // The name of the parameter of the source instance.
         shared_ptr<string> rdsParameterName_ {};
-        // The valid values of the parameter of the source instance.
         shared_ptr<string> rdsParameterOptional_ {};
-        // The value of the parameter of the source instance.
         shared_ptr<string> rdsParameterValue_ {};
       };
 
@@ -548,11 +495,9 @@ namespace Models
     shared_ptr<string> engine_ {};
     // The number of parameters.
     shared_ptr<string> parameterNumbers_ {};
-    // A comparison of parameters between the source RDS instance and the destination PolarDB cluster.
     shared_ptr<DescribeDBClusterParametersResponseBody::Parameters> parameters_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The parameters of the PolarDB cluster.
     shared_ptr<DescribeDBClusterParametersResponseBody::RunningParameters> runningParameters_ {};
   };
 

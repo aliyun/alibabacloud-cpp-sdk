@@ -152,30 +152,13 @@ namespace Models
 
 
       protected:
-        // The valid values of the parameter.
         shared_ptr<string> checkingCode_ {};
-        // Indicates whether the parameter setting can be modified. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<string> forceModify_ {};
-        // Indicates whether a cluster restart is required to make the parameter modification take effect. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<string> forceRestart_ {};
-        // Indicates whether the parameter is a global parameter. Valid values:
-        // 
-        // *   **0**: yes. The modified parameter value is synchronized to other nodes by default.
-        // *   **1**: no. You can customize the nodes to which the modified parameter value can be synchronized.
         shared_ptr<string> isNodeAvailable_ {};
-        // The parameter dependencies.
         shared_ptr<string> paramRelyRule_ {};
-        // The description of the parameter.
         shared_ptr<string> parameterDescription_ {};
-        // The name of the parameter.
         shared_ptr<string> parameterName_ {};
-        // The default value of the parameter.
         shared_ptr<string> parameterValue_ {};
       };
 
@@ -248,7 +231,6 @@ namespace Models
     shared_ptr<string> engine_ {};
     // The number of parameters.
     shared_ptr<string> parameterCount_ {};
-    // The details of the parameters.
     shared_ptr<DescribeParameterTemplatesResponseBody::Parameters> parameters_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
