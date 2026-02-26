@@ -66,6 +66,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SupportModifyTimezone, supportModifyTimezone_);
         DARABONBA_PTR_TO_JSON(SupportMultiAZ, supportMultiAZ_);
         DARABONBA_PTR_TO_JSON(UseComputeNode, useComputeNode_);
+        DARABONBA_PTR_TO_JSON(supportCompactionService, supportCompactionService_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(ConsoleControlRestart, consoleControlRestart_);
@@ -87,6 +88,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SupportModifyTimezone, supportModifyTimezone_);
         DARABONBA_PTR_FROM_JSON(SupportMultiAZ, supportMultiAZ_);
         DARABONBA_PTR_FROM_JSON(UseComputeNode, useComputeNode_);
+        DARABONBA_PTR_FROM_JSON(supportCompactionService, supportCompactionService_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -103,7 +105,7 @@ namespace Models
         && this->enableManageMv_ == nullptr && this->fullManagedSecurityGroup_ == nullptr && this->mountDlfMetaToken_ == nullptr && this->supportAddConfigTypes_ == nullptr && this->supportBackup_ == nullptr
         && this->supportCreateAgent_ == nullptr && this->supportCreateNonStandardNodeGroup_ == nullptr && this->supportEed_ == nullptr && this->supportEnableAi_ == nullptr && this->supportEnableSSL_ == nullptr
         && this->supportFastModeModifyConfig_ == nullptr && this->supportFastModeModifyResource_ == nullptr && this->supportFastRestart_ == nullptr && this->supportFeGateway_ == nullptr && this->supportHostAlias_ == nullptr
-        && this->supportModifyTimezone_ == nullptr && this->supportMultiAZ_ == nullptr && this->useComputeNode_ == nullptr; };
+        && this->supportModifyTimezone_ == nullptr && this->supportMultiAZ_ == nullptr && this->useComputeNode_ == nullptr && this->supportCompactionService_ == nullptr; };
       // consoleControlRestart Field Functions 
       bool hasConsoleControlRestart() const { return this->consoleControlRestart_ != nullptr;};
       void deleteConsoleControlRestart() { this->consoleControlRestart_ = nullptr;};
@@ -239,6 +241,13 @@ namespace Models
       inline Data& setUseComputeNode(bool useComputeNode) { DARABONBA_PTR_SET_VALUE(useComputeNode_, useComputeNode) };
 
 
+      // supportCompactionService Field Functions 
+      bool hasSupportCompactionService() const { return this->supportCompactionService_ != nullptr;};
+      void deleteSupportCompactionService() { this->supportCompactionService_ = nullptr;};
+      inline bool getSupportCompactionService() const { DARABONBA_PTR_GET_DEFAULT(supportCompactionService_, false) };
+      inline Data& setSupportCompactionService(bool supportCompactionService) { DARABONBA_PTR_SET_VALUE(supportCompactionService_, supportCompactionService) };
+
+
     protected:
       shared_ptr<bool> consoleControlRestart_ {};
       shared_ptr<bool> enableManageMv_ {};
@@ -259,6 +268,7 @@ namespace Models
       shared_ptr<bool> supportModifyTimezone_ {};
       shared_ptr<bool> supportMultiAZ_ {};
       shared_ptr<bool> useComputeNode_ {};
+      shared_ptr<bool> supportCompactionService_ {};
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
