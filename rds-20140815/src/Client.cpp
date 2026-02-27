@@ -30485,6 +30485,10 @@ RunRCInstancesResponse Client::runRCInstancesWithOptions(const RunRCInstancesReq
     request.setDataDiskShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataDisk(), "DataDisk", "json"));
   }
 
+  if (!!tmpReq.hasSecurityGroupIds()) {
+    request.setSecurityGroupIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSecurityGroupIds(), "SecurityGroupIds", "json"));
+  }
+
   if (!!tmpReq.hasSystemDisk()) {
     request.setSystemDiskShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSystemDisk(), "SystemDisk", "json"));
   }
@@ -30598,6 +30602,10 @@ RunRCInstancesResponse Client::runRCInstancesWithOptions(const RunRCInstancesReq
     query["PeriodUnit"] = request.getPeriodUnit();
   }
 
+  if (!!request.hasPrivateIpAddress()) {
+    query["PrivateIpAddress"] = request.getPrivateIpAddress();
+  }
+
   if (!!request.hasPromotionCode()) {
     query["PromotionCode"] = request.getPromotionCode();
   }
@@ -30620,6 +30628,10 @@ RunRCInstancesResponse Client::runRCInstancesWithOptions(const RunRCInstancesReq
 
   if (!!request.hasSecurityGroupId()) {
     query["SecurityGroupId"] = request.getSecurityGroupId();
+  }
+
+  if (!!request.hasSecurityGroupIdsShrink()) {
+    query["SecurityGroupIds"] = request.getSecurityGroupIdsShrink();
   }
 
   if (!!request.hasSpotStrategy()) {

@@ -41,6 +41,7 @@ namespace Models
     class RCInstances : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const RCInstances& obj) { 
+        DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
         DARABONBA_PTR_TO_JSON(ClusterName, clusterName_);
         DARABONBA_PTR_TO_JSON(Cpu, cpu_);
         DARABONBA_PTR_TO_JSON(CreateMode, createMode_);
@@ -76,6 +77,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
       };
       friend void from_json(const Darabonba::Json& j, RCInstances& obj) { 
+        DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
         DARABONBA_PTR_FROM_JSON(ClusterName, clusterName_);
         DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
         DARABONBA_PTR_FROM_JSON(CreateMode, createMode_);
@@ -309,14 +311,21 @@ namespace Models
         shared_ptr<string> tagValue_ {};
       };
 
-      virtual bool empty() const override { return this->clusterName_ == nullptr
-        && this->cpu_ == nullptr && this->createMode_ == nullptr && this->dbType_ == nullptr && this->deploymentSetId_ == nullptr && this->description_ == nullptr
-        && this->ecsHostName_ == nullptr && this->expiredTime_ == nullptr && this->gmtCreated_ == nullptr && this->hostIp_ == nullptr && this->hostName_ == nullptr
-        && this->imageId_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr
-        && this->instanceTypeFamily_ == nullptr && this->memory_ == nullptr && this->nodeType_ == nullptr && this->OSName_ == nullptr && this->OSType_ == nullptr
-        && this->publicIp_ == nullptr && this->regionId_ == nullptr && this->securityGroupId_ == nullptr && this->spotStrategy_ == nullptr && this->startTime_ == nullptr
-        && this->status_ == nullptr && this->stoppedMode_ == nullptr && this->tagResources_ == nullptr && this->tags_ == nullptr && this->vpcAttributes_ == nullptr
-        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+      virtual bool empty() const override { return this->autoRenew_ == nullptr
+        && this->clusterName_ == nullptr && this->cpu_ == nullptr && this->createMode_ == nullptr && this->dbType_ == nullptr && this->deploymentSetId_ == nullptr
+        && this->description_ == nullptr && this->ecsHostName_ == nullptr && this->expiredTime_ == nullptr && this->gmtCreated_ == nullptr && this->hostIp_ == nullptr
+        && this->hostName_ == nullptr && this->imageId_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr
+        && this->instanceType_ == nullptr && this->instanceTypeFamily_ == nullptr && this->memory_ == nullptr && this->nodeType_ == nullptr && this->OSName_ == nullptr
+        && this->OSType_ == nullptr && this->publicIp_ == nullptr && this->regionId_ == nullptr && this->securityGroupId_ == nullptr && this->spotStrategy_ == nullptr
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->stoppedMode_ == nullptr && this->tagResources_ == nullptr && this->tags_ == nullptr
+        && this->vpcAttributes_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+      // autoRenew Field Functions 
+      bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
+      void deleteAutoRenew() { this->autoRenew_ = nullptr;};
+      inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+      inline RCInstances& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+
+
       // clusterName Field Functions 
       bool hasClusterName() const { return this->clusterName_ != nullptr;};
       void deleteClusterName() { this->clusterName_ = nullptr;};
@@ -555,6 +564,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<bool> autoRenew_ {};
       // The cluster name.
       shared_ptr<string> clusterName_ {};
       shared_ptr<int32_t> cpu_ {};

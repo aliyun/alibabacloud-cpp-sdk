@@ -41,12 +41,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PasswordInherit, passwordInherit_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
+      DARABONBA_PTR_TO_JSON(PrivateIpAddress, privateIpAddress_);
       DARABONBA_PTR_TO_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ScheduledRule, scheduledRule_);
       DARABONBA_PTR_TO_JSON(SecurityEnhancementStrategy, securityEnhancementStrategy_);
       DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
+      DARABONBA_PTR_TO_JSON(SecurityGroupIds, securityGroupIdsShrink_);
       DARABONBA_PTR_TO_JSON(SpotStrategy, spotStrategy_);
       DARABONBA_PTR_TO_JSON(SupportCase, supportCase_);
       DARABONBA_PTR_TO_JSON(SystemDisk, systemDiskShrink_);
@@ -84,12 +86,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PasswordInherit, passwordInherit_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
+      DARABONBA_PTR_FROM_JSON(PrivateIpAddress, privateIpAddress_);
       DARABONBA_PTR_FROM_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ScheduledRule, scheduledRule_);
       DARABONBA_PTR_FROM_JSON(SecurityEnhancementStrategy, securityEnhancementStrategy_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
+      DARABONBA_PTR_FROM_JSON(SecurityGroupIds, securityGroupIdsShrink_);
       DARABONBA_PTR_FROM_JSON(SpotStrategy, spotStrategy_);
       DARABONBA_PTR_FROM_JSON(SupportCase, supportCase_);
       DARABONBA_PTR_FROM_JSON(SystemDisk, systemDiskShrink_);
@@ -158,9 +162,10 @@ namespace Models
         && this->deploymentSetId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr
         && this->instanceChargeType_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->internetChargeType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr
         && this->ioOptimized_ == nullptr && this->keyPairName_ == nullptr && this->password_ == nullptr && this->passwordInherit_ == nullptr && this->period_ == nullptr
-        && this->periodUnit_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->scheduledRule_ == nullptr
-        && this->securityEnhancementStrategy_ == nullptr && this->securityGroupId_ == nullptr && this->spotStrategy_ == nullptr && this->supportCase_ == nullptr && this->systemDiskShrink_ == nullptr
-        && this->tag_ == nullptr && this->userData_ == nullptr && this->userDataInBase64_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->periodUnit_ == nullptr && this->privateIpAddress_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->scheduledRule_ == nullptr && this->securityEnhancementStrategy_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIdsShrink_ == nullptr && this->spotStrategy_ == nullptr
+        && this->supportCase_ == nullptr && this->systemDiskShrink_ == nullptr && this->tag_ == nullptr && this->userData_ == nullptr && this->userDataInBase64_ == nullptr
+        && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
     // acuType Field Functions 
     bool hasAcuType() const { return this->acuType_ != nullptr;};
     void deleteAcuType() { this->acuType_ = nullptr;};
@@ -350,6 +355,13 @@ namespace Models
     inline RunRCInstancesShrinkRequest& setPeriodUnit(string periodUnit) { DARABONBA_PTR_SET_VALUE(periodUnit_, periodUnit) };
 
 
+    // privateIpAddress Field Functions 
+    bool hasPrivateIpAddress() const { return this->privateIpAddress_ != nullptr;};
+    void deletePrivateIpAddress() { this->privateIpAddress_ = nullptr;};
+    inline string getPrivateIpAddress() const { DARABONBA_PTR_GET_DEFAULT(privateIpAddress_, "") };
+    inline RunRCInstancesShrinkRequest& setPrivateIpAddress(string privateIpAddress) { DARABONBA_PTR_SET_VALUE(privateIpAddress_, privateIpAddress) };
+
+
     // promotionCode Field Functions 
     bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
     void deletePromotionCode() { this->promotionCode_ = nullptr;};
@@ -390,6 +402,13 @@ namespace Models
     void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
     inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
     inline RunRCInstancesShrinkRequest& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
+
+
+    // securityGroupIdsShrink Field Functions 
+    bool hasSecurityGroupIdsShrink() const { return this->securityGroupIdsShrink_ != nullptr;};
+    void deleteSecurityGroupIdsShrink() { this->securityGroupIdsShrink_ = nullptr;};
+    inline string getSecurityGroupIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(securityGroupIdsShrink_, "") };
+    inline RunRCInstancesShrinkRequest& setSecurityGroupIdsShrink(string securityGroupIdsShrink) { DARABONBA_PTR_SET_VALUE(securityGroupIdsShrink_, securityGroupIdsShrink) };
 
 
     // spotStrategy Field Functions 
@@ -515,6 +534,7 @@ namespace Models
     // *   **Year**
     // *   **Month** (default)
     shared_ptr<string> periodUnit_ {};
+    shared_ptr<string> privateIpAddress_ {};
     shared_ptr<string> promotionCode_ {};
     // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     // 
@@ -528,6 +548,7 @@ namespace Models
     // 
     // >  The network type of the instance is determined by the security group specified by the SecurityGroupId parameter. For example, if the network type of the specified security group is VPC, the instance is a VPC-type instance. In this case, you must specify the VSwitchId parameter.
     shared_ptr<string> securityGroupId_ {};
+    shared_ptr<string> securityGroupIdsShrink_ {};
     shared_ptr<string> spotStrategy_ {};
     shared_ptr<string> supportCase_ {};
     // The specification of the system disk.
