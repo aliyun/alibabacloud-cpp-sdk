@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ForwardPort, forwardPort_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
+      DARABONBA_PTR_TO_JSON(NlbGatewayId, nlbGatewayId_);
       DARABONBA_PTR_TO_JSON(SSHPublicKey, SSHPublicKey_);
     };
     friend void from_json(const Darabonba::Json& j, ForwardInfo& obj) { 
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ForwardPort, forwardPort_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
+      DARABONBA_PTR_FROM_JSON(NlbGatewayId, nlbGatewayId_);
       DARABONBA_PTR_FROM_JSON(SSHPublicKey, SSHPublicKey_);
     };
     ForwardInfo() = default ;
@@ -48,7 +50,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessType_ == nullptr
         && this->containerName_ == nullptr && this->eipAllocationId_ == nullptr && this->enable_ == nullptr && this->externalPort_ == nullptr && this->forwardPort_ == nullptr
-        && this->name_ == nullptr && this->natGatewayId_ == nullptr && this->SSHPublicKey_ == nullptr; };
+        && this->name_ == nullptr && this->natGatewayId_ == nullptr && this->nlbGatewayId_ == nullptr && this->SSHPublicKey_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};
@@ -107,6 +109,13 @@ namespace Models
     inline ForwardInfo& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
 
 
+    // nlbGatewayId Field Functions 
+    bool hasNlbGatewayId() const { return this->nlbGatewayId_ != nullptr;};
+    void deleteNlbGatewayId() { this->nlbGatewayId_ = nullptr;};
+    inline string getNlbGatewayId() const { DARABONBA_PTR_GET_DEFAULT(nlbGatewayId_, "") };
+    inline ForwardInfo& setNlbGatewayId(string nlbGatewayId) { DARABONBA_PTR_SET_VALUE(nlbGatewayId_, nlbGatewayId) };
+
+
     // SSHPublicKey Field Functions 
     bool hasSSHPublicKey() const { return this->SSHPublicKey_ != nullptr;};
     void deleteSSHPublicKey() { this->SSHPublicKey_ = nullptr;};
@@ -123,6 +132,7 @@ namespace Models
     shared_ptr<string> forwardPort_ {};
     shared_ptr<string> name_ {};
     shared_ptr<string> natGatewayId_ {};
+    shared_ptr<string> nlbGatewayId_ {};
     shared_ptr<string> SSHPublicKey_ {};
   };
 
