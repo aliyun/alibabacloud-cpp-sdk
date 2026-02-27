@@ -49,7 +49,7 @@ AcceptHandshakeResponse Client::acceptHandshakeWithOptions(const AcceptHandshake
   request.validate();
   json query = {};
   if (!!request.hasHandshakeId()) {
-    query["HandshakeId"] = request.handshakeId();
+    query["HandshakeId"] = request.getHandshakeId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -84,6 +84,8 @@ AcceptHandshakeResponse Client::acceptHandshake(const AcceptHandshakeRequest &re
 }
 
 /**
+ * @summary Attaches an access control policy.
+ *
  * @description After you attach an access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
  * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
  * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
@@ -98,11 +100,11 @@ AttachControlPolicyResponse Client::attachControlPolicyWithOptions(const AttachC
   request.validate();
   json query = {};
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -123,6 +125,8 @@ AttachControlPolicyResponse Client::attachControlPolicyWithOptions(const AttachC
 }
 
 /**
+ * @summary Attaches an access control policy.
+ *
  * @description After you attach an access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
  * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
  * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
@@ -150,23 +154,23 @@ AttachPolicyResponse Client::attachPolicyWithOptions(const AttachPolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasPolicyType()) {
-    query["PolicyType"] = request.policyType();
+    query["PolicyType"] = request.getPolicyType();
   }
 
   if (!!request.hasPrincipalName()) {
-    query["PrincipalName"] = request.principalName();
+    query["PrincipalName"] = request.getPrincipalName();
   }
 
   if (!!request.hasPrincipalType()) {
-    query["PrincipalType"] = request.principalType();
+    query["PrincipalType"] = request.getPrincipalType();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -200,7 +204,7 @@ AttachPolicyResponse Client::attachPolicy(const AttachPolicyRequest &request) {
 }
 
 /**
- * @summary 设置安全手机号
+ * @summary Binds a mobile phone number to a member of the resource account type in a resource directory for security purposes.
  *
  * @description You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
  * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
@@ -214,15 +218,15 @@ BindSecureMobilePhoneResponse Client::bindSecureMobilePhoneWithOptions(const Bin
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasSecureMobilePhone()) {
-    query["SecureMobilePhone"] = request.secureMobilePhone();
+    query["SecureMobilePhone"] = request.getSecureMobilePhone();
   }
 
   if (!!request.hasVerificationCode()) {
-    query["VerificationCode"] = request.verificationCode();
+    query["VerificationCode"] = request.getVerificationCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -243,7 +247,7 @@ BindSecureMobilePhoneResponse Client::bindSecureMobilePhoneWithOptions(const Bin
 }
 
 /**
- * @summary 设置安全手机号
+ * @summary Binds a mobile phone number to a member of the resource account type in a resource directory for security purposes.
  *
  * @description You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
  * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
@@ -258,7 +262,7 @@ BindSecureMobilePhoneResponse Client::bindSecureMobilePhone(const BindSecureMobi
 }
 
 /**
- * @summary 取消修改邮箱
+ * @summary Cancels the email address change of a member.
  *
  * @param request CancelChangeAccountEmailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +272,7 @@ CancelChangeAccountEmailResponse Client::cancelChangeAccountEmailWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -289,7 +293,7 @@ CancelChangeAccountEmailResponse Client::cancelChangeAccountEmailWithOptions(con
 }
 
 /**
- * @summary 取消修改邮箱
+ * @summary Cancels the email address change of a member.
  *
  * @param request CancelChangeAccountEmailRequest
  * @return CancelChangeAccountEmailResponse
@@ -300,7 +304,7 @@ CancelChangeAccountEmailResponse Client::cancelChangeAccountEmail(const CancelCh
 }
 
 /**
- * @summary 取消创建云账号类型的成员
+ * @summary Cancels the creation of a cloud account.
  *
  * @param request CancelCreateCloudAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -310,7 +314,7 @@ CancelCreateCloudAccountResponse Client::cancelCreateCloudAccountWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasRecordId()) {
-    query["RecordId"] = request.recordId();
+    query["RecordId"] = request.getRecordId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -331,7 +335,7 @@ CancelCreateCloudAccountResponse Client::cancelCreateCloudAccountWithOptions(con
 }
 
 /**
- * @summary 取消创建云账号类型的成员
+ * @summary Cancels the creation of a cloud account.
  *
  * @param request CancelCreateCloudAccountRequest
  * @return CancelCreateCloudAccountResponse
@@ -354,7 +358,7 @@ CancelHandshakeResponse Client::cancelHandshakeWithOptions(const CancelHandshake
   request.validate();
   json query = {};
   if (!!request.hasHandshakeId()) {
-    query["HandshakeId"] = request.handshakeId();
+    query["HandshakeId"] = request.getHandshakeId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -388,7 +392,7 @@ CancelHandshakeResponse Client::cancelHandshake(const CancelHandshakeRequest &re
 }
 
 /**
- * @summary 取消升级资源账号
+ * @summary Cancels the upgrade from a resource account to a cloud account.
  *
  * @param request CancelPromoteResourceAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -398,7 +402,7 @@ CancelPromoteResourceAccountResponse Client::cancelPromoteResourceAccountWithOpt
   request.validate();
   json query = {};
   if (!!request.hasRecordId()) {
-    query["RecordId"] = request.recordId();
+    query["RecordId"] = request.getRecordId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -419,7 +423,7 @@ CancelPromoteResourceAccountResponse Client::cancelPromoteResourceAccountWithOpt
 }
 
 /**
- * @summary 取消升级资源账号
+ * @summary Cancels the upgrade from a resource account to a cloud account.
  *
  * @param request CancelPromoteResourceAccountRequest
  * @return CancelPromoteResourceAccountResponse
@@ -430,7 +434,7 @@ CancelPromoteResourceAccountResponse Client::cancelPromoteResourceAccount(const 
 }
 
 /**
- * @summary 成员账号设置安全邮箱
+ * @summary Changes the email address that is bound to a member.
  *
  * @param request ChangeAccountEmailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -440,11 +444,11 @@ ChangeAccountEmailResponse Client::changeAccountEmailWithOptions(const ChangeAcc
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasEmail()) {
-    query["Email"] = request.email();
+    query["Email"] = request.getEmail();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -465,7 +469,7 @@ ChangeAccountEmailResponse Client::changeAccountEmailWithOptions(const ChangeAcc
 }
 
 /**
- * @summary 成员账号设置安全邮箱
+ * @summary Changes the email address that is bound to a member.
  *
  * @param request ChangeAccountEmailRequest
  * @return ChangeAccountEmailResponse
@@ -489,7 +493,7 @@ CheckAccountDeleteResponse Client::checkAccountDeleteWithOptions(const CheckAcco
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -536,51 +540,51 @@ CreateAutoGroupingRuleResponse Client::createAutoGroupingRuleWithOptions(const C
   request.validate();
   json query = {};
   if (!!request.hasExcludeRegionIdsScope()) {
-    query["ExcludeRegionIdsScope"] = request.excludeRegionIdsScope();
+    query["ExcludeRegionIdsScope"] = request.getExcludeRegionIdsScope();
   }
 
   if (!!request.hasExcludeResourceGroupIdsScope()) {
-    query["ExcludeResourceGroupIdsScope"] = request.excludeResourceGroupIdsScope();
+    query["ExcludeResourceGroupIdsScope"] = request.getExcludeResourceGroupIdsScope();
   }
 
   if (!!request.hasExcludeResourceIdsScope()) {
-    query["ExcludeResourceIdsScope"] = request.excludeResourceIdsScope();
+    query["ExcludeResourceIdsScope"] = request.getExcludeResourceIdsScope();
   }
 
   if (!!request.hasExcludeResourceTypesScope()) {
-    query["ExcludeResourceTypesScope"] = request.excludeResourceTypesScope();
+    query["ExcludeResourceTypesScope"] = request.getExcludeResourceTypesScope();
   }
 
   if (!!request.hasRegionIdsScope()) {
-    query["RegionIdsScope"] = request.regionIdsScope();
+    query["RegionIdsScope"] = request.getRegionIdsScope();
   }
 
   if (!!request.hasResourceGroupIdsScope()) {
-    query["ResourceGroupIdsScope"] = request.resourceGroupIdsScope();
+    query["ResourceGroupIdsScope"] = request.getResourceGroupIdsScope();
   }
 
   if (!!request.hasResourceIdsScope()) {
-    query["ResourceIdsScope"] = request.resourceIdsScope();
+    query["ResourceIdsScope"] = request.getResourceIdsScope();
   }
 
   if (!!request.hasResourceTypesScope()) {
-    query["ResourceTypesScope"] = request.resourceTypesScope();
+    query["ResourceTypesScope"] = request.getResourceTypesScope();
   }
 
   if (!!request.hasRuleContents()) {
-    query["RuleContents"] = request.ruleContents();
+    query["RuleContents"] = request.getRuleContents();
   }
 
   if (!!request.hasRuleDesc()) {
-    query["RuleDesc"] = request.ruleDesc();
+    query["RuleDesc"] = request.getRuleDesc();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasRuleType()) {
-    query["RuleType"] = request.ruleType();
+    query["RuleType"] = request.getRuleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -614,7 +618,7 @@ CreateAutoGroupingRuleResponse Client::createAutoGroupingRule(const CreateAutoGr
 }
 
 /**
- * @summary 创建云账号
+ * @summary Creates a cloud account.
  *
  * @description A resource directory supports two types of member accounts: resource accounts and cloud accounts.
  * *   Resource account (recommended): A resource account is only used as a resource container and fully depends on a resource directory. Such member accounts are secure and easy-to-create. For more information about how to create a resource account, see [CreateResourceAccount](https://help.aliyun.com/document_detail/159392.html).
@@ -629,19 +633,19 @@ CreateCloudAccountResponse Client::createCloudAccountWithOptions(const CreateClo
   request.validate();
   json query = {};
   if (!!request.hasDisplayName()) {
-    query["DisplayName"] = request.displayName();
+    query["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasEmail()) {
-    query["Email"] = request.email();
+    query["Email"] = request.getEmail();
   }
 
   if (!!request.hasParentFolderId()) {
-    query["ParentFolderId"] = request.parentFolderId();
+    query["ParentFolderId"] = request.getParentFolderId();
   }
 
   if (!!request.hasPayerAccountId()) {
-    query["PayerAccountId"] = request.payerAccountId();
+    query["PayerAccountId"] = request.getPayerAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -662,7 +666,7 @@ CreateCloudAccountResponse Client::createCloudAccountWithOptions(const CreateClo
 }
 
 /**
- * @summary 创建云账号
+ * @summary Creates a cloud account.
  *
  * @description A resource directory supports two types of member accounts: resource accounts and cloud accounts.
  * *   Resource account (recommended): A resource account is only used as a resource container and fully depends on a resource directory. Such member accounts are secure and easy-to-create. For more information about how to create a resource account, see [CreateResourceAccount](https://help.aliyun.com/document_detail/159392.html).
@@ -678,6 +682,8 @@ CreateCloudAccountResponse Client::createCloudAccount(const CreateCloudAccountRe
 }
 
 /**
+ * @summary Creates a custom access control policy.
+ *
  * @description This topic provides an example on how to call the API operation to create a custom access control policy named `ExampleControlPolicy`. This access control policy is used to prohibit modifications to the ResourceDirectoryAccountAccessRole role and the permissions of the role.
  *
  * @param request CreateControlPolicyRequest
@@ -688,19 +694,19 @@ CreateControlPolicyResponse Client::createControlPolicyWithOptions(const CreateC
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasEffectScope()) {
-    query["EffectScope"] = request.effectScope();
+    query["EffectScope"] = request.getEffectScope();
   }
 
   if (!!request.hasPolicyDocument()) {
-    query["PolicyDocument"] = request.policyDocument();
+    query["PolicyDocument"] = request.getPolicyDocument();
   }
 
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -721,6 +727,8 @@ CreateControlPolicyResponse Client::createControlPolicyWithOptions(const CreateC
 }
 
 /**
+ * @summary Creates a custom access control policy.
+ *
  * @description This topic provides an example on how to call the API operation to create a custom access control policy named `ExampleControlPolicy`. This access control policy is used to prohibit modifications to the ResourceDirectoryAccountAccessRole role and the permissions of the role.
  *
  * @param request CreateControlPolicyRequest
@@ -732,6 +740,8 @@ CreateControlPolicyResponse Client::createControlPolicy(const CreateControlPolic
 }
 
 /**
+ * @summary Creates a folder.
+ *
  * @description >  A maximum of five levels of folders can be created under the root folder.
  * In this example, a folder named `rdFolder` is created under the root folder.
  *
@@ -743,11 +753,11 @@ CreateFolderResponse Client::createFolderWithOptions(const CreateFolderRequest &
   request.validate();
   json query = {};
   if (!!request.hasFolderName()) {
-    query["FolderName"] = request.folderName();
+    query["FolderName"] = request.getFolderName();
   }
 
   if (!!request.hasParentFolderId()) {
-    query["ParentFolderId"] = request.parentFolderId();
+    query["ParentFolderId"] = request.getParentFolderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -768,6 +778,8 @@ CreateFolderResponse Client::createFolderWithOptions(const CreateFolderRequest &
 }
 
 /**
+ * @summary Creates a folder.
+ *
  * @description >  A maximum of five levels of folders can be created under the root folder.
  * In this example, a folder named `rdFolder` is created under the root folder.
  *
@@ -790,15 +802,15 @@ CreatePolicyResponse Client::createPolicyWithOptions(const CreatePolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasPolicyDocument()) {
-    query["PolicyDocument"] = request.policyDocument();
+    query["PolicyDocument"] = request.getPolicyDocument();
   }
 
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -840,15 +852,15 @@ CreatePolicyVersionResponse Client::createPolicyVersionWithOptions(const CreateP
   request.validate();
   json query = {};
   if (!!request.hasPolicyDocument()) {
-    query["PolicyDocument"] = request.policyDocument();
+    query["PolicyDocument"] = request.getPolicyDocument();
   }
 
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasSetAsDefault()) {
-    query["SetAsDefault"] = request.setAsDefault();
+    query["SetAsDefault"] = request.getSetAsDefault();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -892,27 +904,27 @@ CreateResourceAccountResponse Client::createResourceAccountWithOptions(const Cre
   request.validate();
   json query = {};
   if (!!request.hasAccountNamePrefix()) {
-    query["AccountNamePrefix"] = request.accountNamePrefix();
+    query["AccountNamePrefix"] = request.getAccountNamePrefix();
   }
 
   if (!!request.hasDisplayName()) {
-    query["DisplayName"] = request.displayName();
+    query["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasParentFolderId()) {
-    query["ParentFolderId"] = request.parentFolderId();
+    query["ParentFolderId"] = request.getParentFolderId();
   }
 
   if (!!request.hasPayerAccountId()) {
-    query["PayerAccountId"] = request.payerAccountId();
+    query["PayerAccountId"] = request.getPayerAccountId();
   }
 
   if (!!request.hasResellAccountType()) {
-    query["ResellAccountType"] = request.resellAccountType();
+    query["ResellAccountType"] = request.getResellAccountType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -958,15 +970,15 @@ CreateResourceGroupResponse Client::createResourceGroupWithOptions(const CreateR
   request.validate();
   json query = {};
   if (!!request.hasDisplayName()) {
-    query["DisplayName"] = request.displayName();
+    query["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1010,19 +1022,19 @@ CreateRoleResponse Client::createRoleWithOptions(const CreateRoleRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasAssumeRolePolicyDocument()) {
-    query["AssumeRolePolicyDocument"] = request.assumeRolePolicyDocument();
+    query["AssumeRolePolicyDocument"] = request.getAssumeRolePolicyDocument();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasMaxSessionDuration()) {
-    query["MaxSessionDuration"] = request.maxSessionDuration();
+    query["MaxSessionDuration"] = request.getMaxSessionDuration();
   }
 
   if (!!request.hasRoleName()) {
-    query["RoleName"] = request.roleName();
+    query["RoleName"] = request.getRoleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1064,15 +1076,15 @@ CreateServiceLinkedRoleResponse Client::createServiceLinkedRoleWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasCustomSuffix()) {
-    query["CustomSuffix"] = request.customSuffix();
+    query["CustomSuffix"] = request.getCustomSuffix();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasServiceName()) {
-    query["ServiceName"] = request.serviceName();
+    query["ServiceName"] = request.getServiceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1114,7 +1126,7 @@ DeclineHandshakeResponse Client::declineHandshakeWithOptions(const DeclineHandsh
   request.validate();
   json query = {};
   if (!!request.hasHandshakeId()) {
-    query["HandshakeId"] = request.handshakeId();
+    query["HandshakeId"] = request.getHandshakeId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1146,9 +1158,10 @@ DeclineHandshakeResponse Client::declineHandshake(const DeclineHandshakeRequest 
 }
 
 /**
- * @summary 账号一键删除
+ * @summary Deletes a member of the resource account type.
  *
- * @description The ID of the member that you want to delete.
+ * @description Before you delete a member, we recommend that you call the [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) and [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
+ * After you submit a deletion request for a member, you can call the [GetAccountDeletionStatus](https://help.aliyun.com/document_detail/449001.html) operation to query the deletion status of the member. After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
  *
  * @param tmpReq DeleteAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1159,16 +1172,16 @@ DeleteAccountResponse Client::deleteAccountWithOptions(const DeleteAccountReques
   DeleteAccountShrinkRequest request = DeleteAccountShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAbandonableCheckId()) {
-    request.setAbandonableCheckIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.abandonableCheckId(), "AbandonableCheckId", "json"));
+    request.setAbandonableCheckIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAbandonableCheckId(), "AbandonableCheckId", "json"));
   }
 
   json query = {};
   if (!!request.hasAbandonableCheckIdShrink()) {
-    query["AbandonableCheckId"] = request.abandonableCheckIdShrink();
+    query["AbandonableCheckId"] = request.getAbandonableCheckIdShrink();
   }
 
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1189,9 +1202,10 @@ DeleteAccountResponse Client::deleteAccountWithOptions(const DeleteAccountReques
 }
 
 /**
- * @summary 账号一键删除
+ * @summary Deletes a member of the resource account type.
  *
- * @description The ID of the member that you want to delete.
+ * @description Before you delete a member, we recommend that you call the [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) and [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
+ * After you submit a deletion request for a member, you can call the [GetAccountDeletionStatus](https://help.aliyun.com/document_detail/449001.html) operation to query the deletion status of the member. After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
  *
  * @param request DeleteAccountRequest
  * @return DeleteAccountResponse
@@ -1212,7 +1226,7 @@ DeleteAutoGroupingRuleResponse Client::deleteAutoGroupingRuleWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1244,7 +1258,7 @@ DeleteAutoGroupingRuleResponse Client::deleteAutoGroupingRule(const DeleteAutoGr
 }
 
 /**
- * @summary 删除管控策略
+ * @summary Deletes a custom control policy.
  *
  * @description If you want to delete a custom control policy that is attached to folders or member accounts, you must call the [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) operation to detach the policy before you delete it.
  * In this example, the custom control policy `cp-SImPt8GCEwiq****` is deleted.
@@ -1257,7 +1271,7 @@ DeleteControlPolicyResponse Client::deleteControlPolicyWithOptions(const DeleteC
   request.validate();
   json query = {};
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1278,7 +1292,7 @@ DeleteControlPolicyResponse Client::deleteControlPolicyWithOptions(const DeleteC
 }
 
 /**
- * @summary 删除管控策略
+ * @summary Deletes a custom control policy.
  *
  * @description If you want to delete a custom control policy that is attached to folders or member accounts, you must call the [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) operation to detach the policy before you delete it.
  * In this example, the custom control policy `cp-SImPt8GCEwiq****` is deleted.
@@ -1292,6 +1306,8 @@ DeleteControlPolicyResponse Client::deleteControlPolicy(const DeleteControlPolic
 }
 
 /**
+ * @summary Deletes a folder.
+ *
  * @description >  Before you delete a folder, make sure that the folder does not contain any member accounts or child folders.
  *
  * @param request DeleteFolderRequest
@@ -1302,7 +1318,7 @@ DeleteFolderResponse Client::deleteFolderWithOptions(const DeleteFolderRequest &
   request.validate();
   json query = {};
   if (!!request.hasFolderId()) {
-    query["FolderId"] = request.folderId();
+    query["FolderId"] = request.getFolderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1323,6 +1339,8 @@ DeleteFolderResponse Client::deleteFolderWithOptions(const DeleteFolderRequest &
 }
 
 /**
+ * @summary Deletes a folder.
+ *
  * @description >  Before you delete a folder, make sure that the folder does not contain any member accounts or child folders.
  *
  * @param request DeleteFolderRequest
@@ -1348,7 +1366,7 @@ DeletePolicyResponse Client::deletePolicyWithOptions(const DeletePolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1396,11 +1414,11 @@ DeletePolicyVersionResponse Client::deletePolicyVersionWithOptions(const DeleteP
   request.validate();
   json query = {};
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasVersionId()) {
-    query["VersionId"] = request.versionId();
+    query["VersionId"] = request.getVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1447,7 +1465,7 @@ DeleteResourceGroupResponse Client::deleteResourceGroupWithOptions(const DeleteR
   request.validate();
   json query = {};
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1492,7 +1510,7 @@ DeleteRoleResponse Client::deleteRoleWithOptions(const DeleteRoleRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasRoleName()) {
-    query["RoleName"] = request.roleName();
+    query["RoleName"] = request.getRoleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1534,7 +1552,7 @@ DeleteServiceLinkedRoleResponse Client::deleteServiceLinkedRoleWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasRoleName()) {
-    query["RoleName"] = request.roleName();
+    query["RoleName"] = request.getRoleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1566,7 +1584,7 @@ DeleteServiceLinkedRoleResponse Client::deleteServiceLinkedRole(const DeleteServ
 }
 
 /**
- * @summary 注销代理管理员
+ * @summary Removes a delegated administrator account for a trusted service.
  *
  * @description >  If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
  * This topic provides an example on how to call the API operation to remove the delegated administrator account `181761095690****` for Cloud Firewall.
@@ -1579,11 +1597,11 @@ DeregisterDelegatedAdministratorResponse Client::deregisterDelegatedAdministrato
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasServicePrincipal()) {
-    query["ServicePrincipal"] = request.servicePrincipal();
+    query["ServicePrincipal"] = request.getServicePrincipal();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1604,7 +1622,7 @@ DeregisterDelegatedAdministratorResponse Client::deregisterDelegatedAdministrato
 }
 
 /**
- * @summary 注销代理管理员
+ * @summary Removes a delegated administrator account for a trusted service.
  *
  * @description >  If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
  * This topic provides an example on how to call the API operation to remove the delegated administrator account `181761095690****` for Cloud Firewall.
@@ -1618,6 +1636,8 @@ DeregisterDelegatedAdministratorResponse Client::deregisterDelegatedAdministrato
 }
 
 /**
+ * @summary Disables a resource directory. This operation cannot be undone. Therefore, exercise caution when you perform it.
+ *
  * @description Before you disable a resource directory, make sure that the following requirements are met:
  * *   All member accounts must be removed from the resource directory. For more information about how to remove a member account, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
  * *   All folders except the root folder must be deleted from the resource directory. For more information about how to delete a folder, see [DeleteFolder](https://help.aliyun.com/document_detail/159432.html).
@@ -1643,6 +1663,8 @@ DestroyResourceDirectoryResponse Client::destroyResourceDirectoryWithOptions(con
 }
 
 /**
+ * @summary Disables a resource directory. This operation cannot be undone. Therefore, exercise caution when you perform it.
+ *
  * @description Before you disable a resource directory, make sure that the following requirements are met:
  * *   All member accounts must be removed from the resource directory. For more information about how to remove a member account, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
  * *   All folders except the root folder must be deleted from the resource directory. For more information about how to delete a folder, see [DeleteFolder](https://help.aliyun.com/document_detail/159432.html).
@@ -1655,7 +1677,7 @@ DestroyResourceDirectoryResponse Client::destroyResourceDirectory() {
 }
 
 /**
- * @summary 解绑管控策略
+ * @summary Detaches an access control policy.
  *
  * @description After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
  * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
@@ -1669,11 +1691,11 @@ DetachControlPolicyResponse Client::detachControlPolicyWithOptions(const DetachC
   request.validate();
   json query = {};
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1694,7 +1716,7 @@ DetachControlPolicyResponse Client::detachControlPolicyWithOptions(const DetachC
 }
 
 /**
- * @summary 解绑管控策略
+ * @summary Detaches an access control policy.
  *
  * @description After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
  * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
@@ -1719,23 +1741,23 @@ DetachPolicyResponse Client::detachPolicyWithOptions(const DetachPolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasPolicyType()) {
-    query["PolicyType"] = request.policyType();
+    query["PolicyType"] = request.getPolicyType();
   }
 
   if (!!request.hasPrincipalName()) {
-    query["PrincipalName"] = request.principalName();
+    query["PrincipalName"] = request.getPrincipalName();
   }
 
   if (!!request.hasPrincipalType()) {
-    query["PrincipalType"] = request.principalType();
+    query["PrincipalType"] = request.getPrincipalType();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1833,7 +1855,7 @@ DisableAutoGroupingResponse Client::disableAutoGrouping() {
 }
 
 /**
- * @summary 禁用管控策略
+ * @summary Disables the Control Policy feature.
  *
  * @description After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
  * >  If you disable the Control Policy feature, the permissions of all folders and member accounts in a resource directory are affected. You must proceed with caution.
@@ -1859,7 +1881,7 @@ DisableControlPolicyResponse Client::disableControlPolicyWithOptions(const Darab
 }
 
 /**
- * @summary 禁用管控策略
+ * @summary Disables the Control Policy feature.
  *
  * @description After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
  * >  If you disable the Control Policy feature, the permissions of all folders and member accounts in a resource directory are affected. You must proceed with caution.
@@ -2008,7 +2030,7 @@ EnableControlPolicyResponse Client::enableControlPolicy() {
 }
 
 /**
- * @summary 开启RD
+ * @summary Enables a resource directory.
  *
  * @description You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
  * In this example, the current account is used to enable a resource directory.
@@ -2021,19 +2043,19 @@ EnableResourceDirectoryResponse Client::enableResourceDirectoryWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasEnableMode()) {
-    query["EnableMode"] = request.enableMode();
+    query["EnableMode"] = request.getEnableMode();
   }
 
   if (!!request.hasMAName()) {
-    query["MAName"] = request.MAName();
+    query["MAName"] = request.getMAName();
   }
 
   if (!!request.hasMASecureMobilePhone()) {
-    query["MASecureMobilePhone"] = request.MASecureMobilePhone();
+    query["MASecureMobilePhone"] = request.getMASecureMobilePhone();
   }
 
   if (!!request.hasVerificationCode()) {
-    query["VerificationCode"] = request.verificationCode();
+    query["VerificationCode"] = request.getVerificationCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2054,7 +2076,7 @@ EnableResourceDirectoryResponse Client::enableResourceDirectoryWithOptions(const
 }
 
 /**
- * @summary 开启RD
+ * @summary Enables a resource directory.
  *
  * @description You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
  * In this example, the current account is used to enable a resource directory.
@@ -2101,6 +2123,8 @@ EnableResourceGroupNotificationResponse Client::enableResourceGroupNotification(
 }
 
 /**
+ * @summary Queries the information of a member.
+ *
  * @description This topic provides an example on how to call the API operation to query the information of the member whose Alibaba Cloud account ID is `181761095690****`.
  *
  * @param request GetAccountRequest
@@ -2111,11 +2135,11 @@ GetAccountResponse Client::getAccountWithOptions(const GetAccountRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasIncludeTags()) {
-    query["IncludeTags"] = request.includeTags();
+    query["IncludeTags"] = request.getIncludeTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2136,6 +2160,8 @@ GetAccountResponse Client::getAccountWithOptions(const GetAccountRequest &reques
 }
 
 /**
+ * @summary Queries the information of a member.
+ *
  * @description This topic provides an example on how to call the API operation to query the information of the member whose Alibaba Cloud account ID is `181761095690****`.
  *
  * @param request GetAccountRequest
@@ -2160,7 +2186,7 @@ GetAccountDeletionCheckResultResponse Client::getAccountDeletionCheckResultWithO
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2207,7 +2233,7 @@ GetAccountDeletionStatusResponse Client::getAccountDeletionStatusWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2251,7 +2277,7 @@ GetAutoGroupingRuleResponse Client::getAutoGroupingRuleWithOptions(const GetAuto
   request.validate();
   json query = {};
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2316,6 +2342,8 @@ GetAutoGroupingStatusResponse Client::getAutoGroupingStatus() {
 }
 
 /**
+ * @summary Queries the details of an access control policy.
+ *
  * @description This topic provides an example on how to call the API operation to query the details of the access control policy whose ID is `cp-SImPt8GCEwiq****`.
  *
  * @param request GetControlPolicyRequest
@@ -2326,11 +2354,11 @@ GetControlPolicyResponse Client::getControlPolicyWithOptions(const GetControlPol
   request.validate();
   json query = {};
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2351,6 +2379,8 @@ GetControlPolicyResponse Client::getControlPolicyWithOptions(const GetControlPol
 }
 
 /**
+ * @summary Queries the details of an access control policy.
+ *
  * @description This topic provides an example on how to call the API operation to query the details of the access control policy whose ID is `cp-SImPt8GCEwiq****`.
  *
  * @param request GetControlPolicyRequest
@@ -2395,6 +2425,8 @@ GetControlPolicyEnablementStatusResponse Client::getControlPolicyEnablementStatu
 }
 
 /**
+ * @summary Queries the information of a folder.
+ *
  * @description In this example, the information of the folder `fd-Jyl5U7****` is queried.
  *
  * @param request GetFolderRequest
@@ -2405,7 +2437,7 @@ GetFolderResponse Client::getFolderWithOptions(const GetFolderRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasFolderId()) {
-    query["FolderId"] = request.folderId();
+    query["FolderId"] = request.getFolderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2426,6 +2458,8 @@ GetFolderResponse Client::getFolderWithOptions(const GetFolderRequest &request, 
 }
 
 /**
+ * @summary Queries the information of a folder.
+ *
  * @description In this example, the information of the folder `fd-Jyl5U7****` is queried.
  *
  * @param request GetFolderRequest
@@ -2449,7 +2483,7 @@ GetHandshakeResponse Client::getHandshakeWithOptions(const GetHandshakeRequest &
   request.validate();
   json query = {};
   if (!!request.hasHandshakeId()) {
-    query["HandshakeId"] = request.handshakeId();
+    query["HandshakeId"] = request.getHandshakeId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2483,6 +2517,8 @@ GetHandshakeResponse Client::getHandshake(const GetHandshakeRequest &request) {
 }
 
 /**
+ * @summary Queries the information of a settlement account.
+ *
  * @param request GetPayerForAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetPayerForAccountResponse
@@ -2491,7 +2527,7 @@ GetPayerForAccountResponse Client::getPayerForAccountWithOptions(const GetPayerF
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2512,6 +2548,8 @@ GetPayerForAccountResponse Client::getPayerForAccountWithOptions(const GetPayerF
 }
 
 /**
+ * @summary Queries the information of a settlement account.
+ *
  * @param request GetPayerForAccountRequest
  * @return GetPayerForAccountResponse
  */
@@ -2531,15 +2569,15 @@ GetPolicyResponse Client::getPolicyWithOptions(const GetPolicyRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasPolicyType()) {
-    query["PolicyType"] = request.policyType();
+    query["PolicyType"] = request.getPolicyType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2581,15 +2619,15 @@ GetPolicyVersionResponse Client::getPolicyVersionWithOptions(const GetPolicyVers
   request.validate();
   json query = {};
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasPolicyType()) {
-    query["PolicyType"] = request.policyType();
+    query["PolicyType"] = request.getPolicyType();
   }
 
   if (!!request.hasVersionId()) {
-    query["VersionId"] = request.versionId();
+    query["VersionId"] = request.getVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2668,11 +2706,11 @@ GetResourceGroupResponse Client::getResourceGroupWithOptions(const GetResourceGr
   request.validate();
   json query = {};
   if (!!request.hasIncludeTags()) {
-    query["IncludeTags"] = request.includeTags();
+    query["IncludeTags"] = request.getIncludeTags();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2780,19 +2818,19 @@ GetResourceGroupResourceCountsResponse Client::getResourceGroupResourceCountsWit
   request.validate();
   json query = {};
   if (!!request.hasGroupByKey()) {
-    query["GroupByKey"] = request.groupByKey();
+    query["GroupByKey"] = request.getGroupByKey();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceRegionId()) {
-    query["ResourceRegionId"] = request.resourceRegionId();
+    query["ResourceRegionId"] = request.getResourceRegionId();
   }
 
   if (!!request.hasResourceTypes()) {
-    query["ResourceTypes"] = request.resourceTypes();
+    query["ResourceTypes"] = request.getResourceTypes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2834,11 +2872,11 @@ GetRoleResponse Client::getRoleWithOptions(const GetRoleRequest &request, const 
   request.validate();
   json query = {};
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasRoleName()) {
-    query["RoleName"] = request.roleName();
+    query["RoleName"] = request.getRoleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2880,7 +2918,7 @@ GetServiceLinkedRoleDeletionStatusResponse Client::getServiceLinkedRoleDeletionS
   request.validate();
   json query = {};
   if (!!request.hasDeletionTaskId()) {
-    query["DeletionTaskId"] = request.deletionTaskId();
+    query["DeletionTaskId"] = request.getDeletionTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2965,19 +3003,19 @@ InviteAccountToResourceDirectoryResponse Client::inviteAccountToResourceDirector
   request.validate();
   json query = {};
   if (!!request.hasNote()) {
-    query["Note"] = request.note();
+    query["Note"] = request.getNote();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasTargetEntity()) {
-    query["TargetEntity"] = request.targetEntity();
+    query["TargetEntity"] = request.getTargetEntity();
   }
 
   if (!!request.hasTargetType()) {
-    query["TargetType"] = request.targetType();
+    query["TargetType"] = request.getTargetType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3023,19 +3061,19 @@ ListAccountsResponse Client::listAccountsWithOptions(const ListAccountsRequest &
   request.validate();
   json query = {};
   if (!!request.hasIncludeTags()) {
-    query["IncludeTags"] = request.includeTags();
+    query["IncludeTags"] = request.getIncludeTags();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3079,27 +3117,27 @@ ListAccountsForParentResponse Client::listAccountsForParentWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasIncludeTags()) {
-    query["IncludeTags"] = request.includeTags();
+    query["IncludeTags"] = request.getIncludeTags();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasParentFolderId()) {
-    query["ParentFolderId"] = request.parentFolderId();
+    query["ParentFolderId"] = request.getParentFolderId();
   }
 
   if (!!request.hasQueryKeyword()) {
-    query["QueryKeyword"] = request.queryKeyword();
+    query["QueryKeyword"] = request.getQueryKeyword();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3131,6 +3169,8 @@ ListAccountsForParentResponse Client::listAccountsForParent(const ListAccountsFo
 }
 
 /**
+ * @summary Queries the information of all the parent folders of a specified folder. The system returns the information of the folders based on their top-down hierarchy.
+ *
  * @param request ListAncestorsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAncestorsResponse
@@ -3139,7 +3179,7 @@ ListAncestorsResponse Client::listAncestorsWithOptions(const ListAncestorsReques
   request.validate();
   json query = {};
   if (!!request.hasChildId()) {
-    query["ChildId"] = request.childId();
+    query["ChildId"] = request.getChildId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3160,6 +3200,8 @@ ListAncestorsResponse Client::listAncestorsWithOptions(const ListAncestorsReques
 }
 
 /**
+ * @summary Queries the information of all the parent folders of a specified folder. The system returns the information of the folders based on their top-down hierarchy.
+ *
  * @param request ListAncestorsRequest
  * @return ListAncestorsResponse
  */
@@ -3212,39 +3254,39 @@ ListAutoGroupingRemediationsResponse Client::listAutoGroupingRemediationsWithOpt
   request.validate();
   json query = {};
   if (!!request.hasEarliestRemediationTime()) {
-    query["EarliestRemediationTime"] = request.earliestRemediationTime();
+    query["EarliestRemediationTime"] = request.getEarliestRemediationTime();
   }
 
   if (!!request.hasLatestRemediationTime()) {
-    query["LatestRemediationTime"] = request.latestRemediationTime();
+    query["LatestRemediationTime"] = request.getLatestRemediationTime();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   if (!!request.hasService()) {
-    query["Service"] = request.service();
+    query["Service"] = request.getService();
   }
 
   if (!!request.hasTargetResourceGroupId()) {
-    query["TargetResourceGroupId"] = request.targetResourceGroupId();
+    query["TargetResourceGroupId"] = request.getTargetResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3286,23 +3328,23 @@ ListAutoGroupingRulesResponse Client::listAutoGroupingRulesWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasRuleType()) {
-    query["RuleType"] = request.ruleType();
+    query["RuleType"] = request.getRuleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3346,19 +3388,19 @@ ListControlPoliciesResponse Client::listControlPoliciesWithOptions(const ListCon
   request.validate();
   json query = {};
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPolicyType()) {
-    query["PolicyType"] = request.policyType();
+    query["PolicyType"] = request.getPolicyType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3392,6 +3434,8 @@ ListControlPoliciesResponse Client::listControlPolicies(const ListControlPolicie
 }
 
 /**
+ * @summary Queries the access control policies that are attached to a folder or member.
+ *
  * @description This topic provides an example on how to call the API operation to query the access control policies that are attached to the folder `fd-ZDNPiT****`.
  *
  * @param request ListControlPolicyAttachmentsForTargetRequest
@@ -3402,11 +3446,11 @@ ListControlPolicyAttachmentsForTargetResponse Client::listControlPolicyAttachmen
   request.validate();
   json query = {};
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3427,6 +3471,8 @@ ListControlPolicyAttachmentsForTargetResponse Client::listControlPolicyAttachmen
 }
 
 /**
+ * @summary Queries the access control policies that are attached to a folder or member.
+ *
  * @description This topic provides an example on how to call the API operation to query the access control policies that are attached to the folder `fd-ZDNPiT****`.
  *
  * @param request ListControlPolicyAttachmentsForTargetRequest
@@ -3438,7 +3484,7 @@ ListControlPolicyAttachmentsForTargetResponse Client::listControlPolicyAttachmen
 }
 
 /**
- * @summary 列出所有的代理管理员
+ * @summary Queries delegated administrator accounts.
  *
  * @description This topic provides an example on how to call the API operation to query all delegated administrator accounts in a resource directory. The response shows that two delegated administrator accounts for Cloud Firewall exist in the resource directory.
  *
@@ -3450,15 +3496,15 @@ ListDelegatedAdministratorsResponse Client::listDelegatedAdministratorsWithOptio
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasServicePrincipal()) {
-    query["ServicePrincipal"] = request.servicePrincipal();
+    query["ServicePrincipal"] = request.getServicePrincipal();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3479,7 +3525,7 @@ ListDelegatedAdministratorsResponse Client::listDelegatedAdministratorsWithOptio
 }
 
 /**
- * @summary 列出所有的代理管理员
+ * @summary Queries delegated administrator accounts.
  *
  * @description This topic provides an example on how to call the API operation to query all delegated administrator accounts in a resource directory. The response shows that two delegated administrator accounts for Cloud Firewall exist in the resource directory.
  *
@@ -3492,7 +3538,7 @@ ListDelegatedAdministratorsResponse Client::listDelegatedAdministrators(const Li
 }
 
 /**
- * @summary 查看指定账号被设置为哪些可信服务的委派管理员
+ * @summary Queries the trusted services for which a member is specified as a delegated administrator account.
  *
  * @description This topic provides an example on how to call the API operation to query the trusted services for which the member `138660628348****` is specified as a delegated administrator account. The response shows that the member is specified as a delegated administrator account of Cloud Firewall.
  *
@@ -3504,7 +3550,7 @@ ListDelegatedServicesForAccountResponse Client::listDelegatedServicesForAccountW
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3525,7 +3571,7 @@ ListDelegatedServicesForAccountResponse Client::listDelegatedServicesForAccountW
 }
 
 /**
- * @summary 查看指定账号被设置为哪些可信服务的委派管理员
+ * @summary Queries the trusted services for which a member is specified as a delegated administrator account.
  *
  * @description This topic provides an example on how to call the API operation to query the trusted services for which the member `138660628348****` is specified as a delegated administrator account. The response shows that the member is specified as a delegated administrator account of Cloud Firewall.
  *
@@ -3538,6 +3584,8 @@ ListDelegatedServicesForAccountResponse Client::listDelegatedServicesForAccount(
 }
 
 /**
+ * @summary Queries the information of all subfolders of a folder.
+ *
  * @description >  You can view the information of only the first-level subfolders of a folder.
  *
  * @param request ListFoldersForParentRequest
@@ -3548,19 +3596,19 @@ ListFoldersForParentResponse Client::listFoldersForParentWithOptions(const ListF
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasParentFolderId()) {
-    query["ParentFolderId"] = request.parentFolderId();
+    query["ParentFolderId"] = request.getParentFolderId();
   }
 
   if (!!request.hasQueryKeyword()) {
-    query["QueryKeyword"] = request.queryKeyword();
+    query["QueryKeyword"] = request.getQueryKeyword();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3581,6 +3629,8 @@ ListFoldersForParentResponse Client::listFoldersForParentWithOptions(const ListF
 }
 
 /**
+ * @summary Queries the information of all subfolders of a folder.
+ *
  * @description >  You can view the information of only the first-level subfolders of a folder.
  *
  * @param request ListFoldersForParentRequest
@@ -3604,11 +3654,11 @@ ListHandshakesForAccountResponse Client::listHandshakesForAccountWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3652,11 +3702,11 @@ ListHandshakesForResourceDirectoryResponse Client::listHandshakesForResourceDire
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3698,19 +3748,19 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
   request.validate();
   json query = {};
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPolicyType()) {
-    query["PolicyType"] = request.policyType();
+    query["PolicyType"] = request.getPolicyType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3757,35 +3807,35 @@ ListPolicyAttachmentsResponse Client::listPolicyAttachmentsWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasPolicyType()) {
-    query["PolicyType"] = request.policyType();
+    query["PolicyType"] = request.getPolicyType();
   }
 
   if (!!request.hasPrincipalName()) {
-    query["PrincipalName"] = request.principalName();
+    query["PrincipalName"] = request.getPrincipalName();
   }
 
   if (!!request.hasPrincipalType()) {
-    query["PrincipalType"] = request.principalType();
+    query["PrincipalType"] = request.getPrincipalType();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3832,11 +3882,11 @@ ListPolicyVersionsResponse Client::listPolicyVersionsWithOptions(const ListPolic
   request.validate();
   json query = {};
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasPolicyType()) {
-    query["PolicyType"] = request.policyType();
+    query["PolicyType"] = request.getPolicyType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3868,7 +3918,7 @@ ListPolicyVersionsResponse Client::listPolicyVersions(const ListPolicyVersionsRe
 }
 
 /**
- * @summary 列出资源组能力项
+ * @summary Queries whether a specific resource type or a given cloud service supports resource group events.
  *
  * @param request ListResourceGroupCapabilityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3878,15 +3928,15 @@ ListResourceGroupCapabilityResponse Client::listResourceGroupCapabilityWithOptio
   request.validate();
   json query = {};
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasService()) {
-    query["Service"] = request.service();
+    query["Service"] = request.getService();
   }
 
   if (!!request.hasSupportResourceGroupEvent()) {
-    query["SupportResourceGroupEvent"] = request.supportResourceGroupEvent();
+    query["SupportResourceGroupEvent"] = request.getSupportResourceGroupEvent();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3907,7 +3957,7 @@ ListResourceGroupCapabilityResponse Client::listResourceGroupCapabilityWithOptio
 }
 
 /**
- * @summary 列出资源组能力项
+ * @summary Queries whether a specific resource type or a given cloud service supports resource group events.
  *
  * @param request ListResourceGroupCapabilityRequest
  * @return ListResourceGroupCapabilityResponse
@@ -3918,6 +3968,8 @@ ListResourceGroupCapabilityResponse Client::listResourceGroupCapability(const Li
 }
 
 /**
+ * @summary Queries resource groups.
+ *
  * @description You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
  * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
  *
@@ -3929,39 +3981,39 @@ ListResourceGroupsResponse Client::listResourceGroupsWithOptions(const ListResou
   request.validate();
   json query = {};
   if (!!request.hasDisplayName()) {
-    query["DisplayName"] = request.displayName();
+    query["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasIncludeTags()) {
-    query["IncludeTags"] = request.includeTags();
+    query["IncludeTags"] = request.getIncludeTags();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceGroupIds()) {
-    query["ResourceGroupIds"] = request.resourceGroupIds();
+    query["ResourceGroupIds"] = request.getResourceGroupIds();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3982,6 +4034,8 @@ ListResourceGroupsResponse Client::listResourceGroupsWithOptions(const ListResou
 }
 
 /**
+ * @summary Queries resource groups.
+ *
  * @description You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
  * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
  *
@@ -3994,7 +4048,7 @@ ListResourceGroupsResponse Client::listResourceGroups(const ListResourceGroupsRe
 }
 
 /**
- * @summary 列出资源组与用户授权信息
+ * @summary Queries resource groups and their user authorization information.
  *
  * @param request ListResourceGroupsWithAuthDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4004,43 +4058,43 @@ ListResourceGroupsWithAuthDetailsResponse Client::listResourceGroupsWithAuthDeta
   request.validate();
   json query = {};
   if (!!request.hasDisplayName()) {
-    query["DisplayName"] = request.displayName();
+    query["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasIncludeTags()) {
-    query["IncludeTags"] = request.includeTags();
+    query["IncludeTags"] = request.getIncludeTags();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceGroupIds()) {
-    query["ResourceGroupIds"] = request.resourceGroupIds();
+    query["ResourceGroupIds"] = request.getResourceGroupIds();
   }
 
   if (!!request.hasResourceRegionId()) {
-    query["ResourceRegionId"] = request.resourceRegionId();
+    query["ResourceRegionId"] = request.getResourceRegionId();
   }
 
   if (!!request.hasResourceTypes()) {
-    query["ResourceTypes"] = request.resourceTypes();
+    query["ResourceTypes"] = request.getResourceTypes();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4061,7 +4115,7 @@ ListResourceGroupsWithAuthDetailsResponse Client::listResourceGroupsWithAuthDeta
 }
 
 /**
- * @summary 列出资源组与用户授权信息
+ * @summary Queries resource groups and their user authorization information.
  *
  * @param request ListResourceGroupsWithAuthDetailsRequest
  * @return ListResourceGroupsWithAuthDetailsResponse
@@ -4085,35 +4139,35 @@ ListResourcesResponse Client::listResourcesWithOptions(const ListResourcesReques
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegion()) {
-    query["Region"] = request.region();
+    query["Region"] = request.getRegion();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasResourceTypes()) {
-    query["ResourceTypes"] = request.resourceTypes();
+    query["ResourceTypes"] = request.getResourceTypes();
   }
 
   if (!!request.hasService()) {
-    query["Service"] = request.service();
+    query["Service"] = request.getService();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4158,15 +4212,15 @@ ListRolesResponse Client::listRolesWithOptions(const ListRolesRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4198,7 +4252,7 @@ ListRolesResponse Client::listRoles(const ListRolesRequest &request) {
 }
 
 /**
- * @summary 列出所有的Tag key
+ * @summary Queries tag keys.
  *
  * @description This topic provides an example on how to call the API operation to query tag keys. The response shows that the custom tag key team exists.
  *
@@ -4210,19 +4264,19 @@ ListTagKeysResponse Client::listTagKeysWithOptions(const ListTagKeysRequest &req
   request.validate();
   json query = {};
   if (!!request.hasKeyFilter()) {
-    query["KeyFilter"] = request.keyFilter();
+    query["KeyFilter"] = request.getKeyFilter();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4243,7 +4297,7 @@ ListTagKeysResponse Client::listTagKeysWithOptions(const ListTagKeysRequest &req
 }
 
 /**
- * @summary 列出所有的Tag key
+ * @summary Queries tag keys.
  *
  * @description This topic provides an example on how to call the API operation to query tag keys. The response shows that the custom tag key team exists.
  *
@@ -4268,23 +4322,23 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4318,7 +4372,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary 列出所有的Tag values
+ * @summary Queries the tag values of a tag key.
  *
  * @description This topic provides an example on how to call the API operation to query the tag values of the tag key k1. The response shows that the tag value of the tag key k1 is v1.
  *
@@ -4330,23 +4384,23 @@ ListTagValuesResponse Client::listTagValuesWithOptions(const ListTagValuesReques
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   if (!!request.hasValueFilter()) {
-    query["ValueFilter"] = request.valueFilter();
+    query["ValueFilter"] = request.getValueFilter();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4367,7 +4421,7 @@ ListTagValuesResponse Client::listTagValuesWithOptions(const ListTagValuesReques
 }
 
 /**
- * @summary 列出所有的Tag values
+ * @summary Queries the tag values of a tag key.
  *
  * @description This topic provides an example on how to call the API operation to query the tag values of the tag key k1. The response shows that the tag value of the tag key k1 is v1.
  *
@@ -4392,15 +4446,15 @@ ListTargetAttachmentsForControlPolicyResponse Client::listTargetAttachmentsForCo
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4434,6 +4488,8 @@ ListTargetAttachmentsForControlPolicyResponse Client::listTargetAttachmentsForCo
 }
 
 /**
+ * @summary Queries the trusted services that are enabled within an enterprise management account or delegated administrator account.
+ *
  * @description >  Only an enterprise management account or delegated administrator account can be used to call this operation.
  * In this example, the trusted services that are enabled within an enterprise management account are queried. The returned result shows that the trusted services Cloud Config and ActionTrail are enabled within the enterprise management account.
  *
@@ -4445,15 +4501,15 @@ ListTrustedServiceStatusResponse Client::listTrustedServiceStatusWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAdminAccountId()) {
-    query["AdminAccountId"] = request.adminAccountId();
+    query["AdminAccountId"] = request.getAdminAccountId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4474,6 +4530,8 @@ ListTrustedServiceStatusResponse Client::listTrustedServiceStatusWithOptions(con
 }
 
 /**
+ * @summary Queries the trusted services that are enabled within an enterprise management account or delegated administrator account.
+ *
  * @description >  Only an enterprise management account or delegated administrator account can be used to call this operation.
  * In this example, the trusted services that are enabled within an enterprise management account are queried. The returned result shows that the trusted services Cloud Config and ActionTrail are enabled within the enterprise management account.
  *
@@ -4486,7 +4544,7 @@ ListTrustedServiceStatusResponse Client::listTrustedServiceStatus(const ListTrus
 }
 
 /**
- * @summary 查询资源组事件
+ * @summary Queries the events of resource groups.
  *
  * @param request LookupResourceGroupEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4496,35 +4554,35 @@ LookupResourceGroupEventsResponse Client::lookupResourceGroupEventsWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasEventCategory()) {
-    query["EventCategory"] = request.eventCategory();
+    query["EventCategory"] = request.getEventCategory();
   }
 
   if (!!request.hasLookupAttributes()) {
-    query["LookupAttributes"] = request.lookupAttributes();
+    query["LookupAttributes"] = request.getLookupAttributes();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceGroupDisplayName()) {
-    query["ResourceGroupDisplayName"] = request.resourceGroupDisplayName();
+    query["ResourceGroupDisplayName"] = request.getResourceGroupDisplayName();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4545,7 +4603,7 @@ LookupResourceGroupEventsResponse Client::lookupResourceGroupEventsWithOptions(c
 }
 
 /**
- * @summary 查询资源组事件
+ * @summary Queries the events of resource groups.
  *
  * @param request LookupResourceGroupEventsRequest
  * @return LookupResourceGroupEventsResponse
@@ -4556,7 +4614,7 @@ LookupResourceGroupEventsResponse Client::lookupResourceGroupEvents(const Lookup
 }
 
 /**
- * @summary 移动账号
+ * @summary Moves a member account from a folder to another.
  *
  * @param request MoveAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4566,11 +4624,11 @@ MoveAccountResponse Client::moveAccountWithOptions(const MoveAccountRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasDestinationFolderId()) {
-    query["DestinationFolderId"] = request.destinationFolderId();
+    query["DestinationFolderId"] = request.getDestinationFolderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4591,7 +4649,7 @@ MoveAccountResponse Client::moveAccountWithOptions(const MoveAccountRequest &req
 }
 
 /**
- * @summary 移动账号
+ * @summary Moves a member account from a folder to another.
  *
  * @param request MoveAccountRequest
  * @return MoveAccountResponse
@@ -4615,11 +4673,11 @@ MoveResourcesResponse Client::moveResourcesWithOptions(const MoveResourcesReques
   request.validate();
   json query = {};
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResources()) {
-    query["Resources"] = request.resources();
+    query["Resources"] = request.getResources();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4654,7 +4712,7 @@ MoveResourcesResponse Client::moveResources(const MoveResourcesRequest &request)
 }
 
 /**
- * @summary 升级资源账号
+ * @summary Upgrades a resource account to a cloud account.
  *
  * @param request PromoteResourceAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4664,11 +4722,11 @@ PromoteResourceAccountResponse Client::promoteResourceAccountWithOptions(const P
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasEmail()) {
-    query["Email"] = request.email();
+    query["Email"] = request.getEmail();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4689,7 +4747,7 @@ PromoteResourceAccountResponse Client::promoteResourceAccountWithOptions(const P
 }
 
 /**
- * @summary 升级资源账号
+ * @summary Upgrades a resource account to a cloud account.
  *
  * @param request PromoteResourceAccountRequest
  * @return PromoteResourceAccountResponse
@@ -4700,6 +4758,8 @@ PromoteResourceAccountResponse Client::promoteResourceAccount(const PromoteResou
 }
 
 /**
+ * @summary Specifies a member in a resource directory as a delegated administrator account of a trusted service.
+ *
  * @description The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory.
  * When you call this operation, you must take note of the following limits:
  * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
@@ -4715,11 +4775,11 @@ RegisterDelegatedAdministratorResponse Client::registerDelegatedAdministratorWit
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasServicePrincipal()) {
-    query["ServicePrincipal"] = request.servicePrincipal();
+    query["ServicePrincipal"] = request.getServicePrincipal();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4740,6 +4800,8 @@ RegisterDelegatedAdministratorResponse Client::registerDelegatedAdministratorWit
 }
 
 /**
+ * @summary Specifies a member in a resource directory as a delegated administrator account of a trusted service.
+ *
  * @description The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory.
  * When you call this operation, you must take note of the following limits:
  * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
@@ -4756,6 +4818,8 @@ RegisterDelegatedAdministratorResponse Client::registerDelegatedAdministrator(co
 }
 
 /**
+ * @summary Removes a member of the cloud account type. After you remove a member of the cloud account type, the member is no longer managed by the management account of the resource directory to which the member belonged.
+ *
  * @description This topic provides an example on how to call the API operation to remove the member `177242285274****` from a resource directory.
  *
  * @param request RemoveCloudAccountRequest
@@ -4766,7 +4830,7 @@ RemoveCloudAccountResponse Client::removeCloudAccountWithOptions(const RemoveClo
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4787,6 +4851,8 @@ RemoveCloudAccountResponse Client::removeCloudAccountWithOptions(const RemoveClo
 }
 
 /**
+ * @summary Removes a member of the cloud account type. After you remove a member of the cloud account type, the member is no longer managed by the management account of the resource directory to which the member belonged.
+ *
  * @description This topic provides an example on how to call the API operation to remove the member `177242285274****` from a resource directory.
  *
  * @param request RemoveCloudAccountRequest
@@ -4798,7 +4864,7 @@ RemoveCloudAccountResponse Client::removeCloudAccount(const RemoveCloudAccountRe
 }
 
 /**
- * @summary 重新发送创建云账号的邮箱验证
+ * @summary Resends an email that is used to confirm the creation of a cloud account.
  *
  * @param request ResendCreateCloudAccountEmailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4808,7 +4874,7 @@ ResendCreateCloudAccountEmailResponse Client::resendCreateCloudAccountEmailWithO
   request.validate();
   json query = {};
   if (!!request.hasRecordId()) {
-    query["RecordId"] = request.recordId();
+    query["RecordId"] = request.getRecordId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4829,7 +4895,7 @@ ResendCreateCloudAccountEmailResponse Client::resendCreateCloudAccountEmailWithO
 }
 
 /**
- * @summary 重新发送创建云账号的邮箱验证
+ * @summary Resends an email that is used to confirm the creation of a cloud account.
  *
  * @param request ResendCreateCloudAccountEmailRequest
  * @return ResendCreateCloudAccountEmailResponse
@@ -4840,7 +4906,7 @@ ResendCreateCloudAccountEmailResponse Client::resendCreateCloudAccountEmail(cons
 }
 
 /**
- * @summary 重新发送升级资源账号的邮箱验证
+ * @summary Resends an email that is used to confirm the upgrade from a resource account to a cloud account.
  *
  * @param request ResendPromoteResourceAccountEmailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4850,7 +4916,7 @@ ResendPromoteResourceAccountEmailResponse Client::resendPromoteResourceAccountEm
   request.validate();
   json query = {};
   if (!!request.hasRecordId()) {
-    query["RecordId"] = request.recordId();
+    query["RecordId"] = request.getRecordId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4871,7 +4937,7 @@ ResendPromoteResourceAccountEmailResponse Client::resendPromoteResourceAccountEm
 }
 
 /**
- * @summary 重新发送升级资源账号的邮箱验证
+ * @summary Resends an email that is used to confirm the upgrade from a resource account to a cloud account.
  *
  * @param request ResendPromoteResourceAccountEmailRequest
  * @return ResendPromoteResourceAccountEmailResponse
@@ -4882,7 +4948,7 @@ ResendPromoteResourceAccountEmailResponse Client::resendPromoteResourceAccountEm
 }
 
 /**
- * @summary 重新发送确认邮件
+ * @summary Resends a verification email for the email address change of a member.
  *
  * @param request RetryChangeAccountEmailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4892,7 +4958,7 @@ RetryChangeAccountEmailResponse Client::retryChangeAccountEmailWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4913,7 +4979,7 @@ RetryChangeAccountEmailResponse Client::retryChangeAccountEmailWithOptions(const
 }
 
 /**
- * @summary 重新发送确认邮件
+ * @summary Resends a verification email for the email address change of a member.
  *
  * @param request RetryChangeAccountEmailRequest
  * @return RetryChangeAccountEmailResponse
@@ -4924,7 +4990,7 @@ RetryChangeAccountEmailResponse Client::retryChangeAccountEmail(const RetryChang
 }
 
 /**
- * @summary 发送绑定安全手机验证码
+ * @summary Sends a verification code to the mobile phone number that you want to bind to a resource account in a resource directory for security purposes.
  *
  * @description To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
  * In this example, a verification code is sent to the mobile phone number that you want to bind to the resource account `138660628348****`.
@@ -4937,11 +5003,11 @@ SendVerificationCodeForBindSecureMobilePhoneResponse Client::sendVerificationCod
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasSecureMobilePhone()) {
-    query["SecureMobilePhone"] = request.secureMobilePhone();
+    query["SecureMobilePhone"] = request.getSecureMobilePhone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4962,7 +5028,7 @@ SendVerificationCodeForBindSecureMobilePhoneResponse Client::sendVerificationCod
 }
 
 /**
- * @summary 发送绑定安全手机验证码
+ * @summary Sends a verification code to the mobile phone number that you want to bind to a resource account in a resource directory for security purposes.
  *
  * @description To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
  * In this example, a verification code is sent to the mobile phone number that you want to bind to the resource account `138660628348****`.
@@ -4976,7 +5042,7 @@ SendVerificationCodeForBindSecureMobilePhoneResponse Client::sendVerificationCod
 }
 
 /**
- * @summary 发送开启资源目录短信
+ * @summary Sends a verification code to the mobile phone number bound to a newly created account when you use the account to enable a resource directory.
  *
  * @description Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
  *
@@ -4988,7 +5054,7 @@ SendVerificationCodeForEnableRDResponse Client::sendVerificationCodeForEnableRDW
   request.validate();
   json query = {};
   if (!!request.hasSecureMobilePhone()) {
-    query["SecureMobilePhone"] = request.secureMobilePhone();
+    query["SecureMobilePhone"] = request.getSecureMobilePhone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5009,7 +5075,7 @@ SendVerificationCodeForEnableRDResponse Client::sendVerificationCodeForEnableRDW
 }
 
 /**
- * @summary 发送开启资源目录短信
+ * @summary Sends a verification code to the mobile phone number bound to a newly created account when you use the account to enable a resource directory.
  *
  * @description Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
  *
@@ -5032,11 +5098,11 @@ SetDefaultPolicyVersionResponse Client::setDefaultPolicyVersionWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasVersionId()) {
-    query["VersionId"] = request.versionId();
+    query["VersionId"] = request.getVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5068,7 +5134,7 @@ SetDefaultPolicyVersionResponse Client::setDefaultPolicyVersion(const SetDefault
 }
 
 /**
- * @summary 开启或关闭成员删除许可
+ * @summary Enables or disables the member deletion feature.
  *
  * @description Members of the resource account type can be deleted only after the member deletion feature is enabled.
  *
@@ -5080,7 +5146,7 @@ SetMemberDeletionPermissionResponse Client::setMemberDeletionPermissionWithOptio
   request.validate();
   json query = {};
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5101,7 +5167,7 @@ SetMemberDeletionPermissionResponse Client::setMemberDeletionPermissionWithOptio
 }
 
 /**
- * @summary 开启或关闭成员删除许可
+ * @summary Enables or disables the member deletion feature.
  *
  * @description Members of the resource account type can be deleted only after the member deletion feature is enabled.
  *
@@ -5126,15 +5192,15 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json query = {};
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5180,19 +5246,19 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5226,6 +5292,8 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
+ * @summary Changes the display name of a member, or switches the type of a member.
+ *
  * @description *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
  * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
  * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
@@ -5239,15 +5307,15 @@ UpdateAccountResponse Client::updateAccountWithOptions(const UpdateAccountReques
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["AccountId"] = request.accountId();
+    query["AccountId"] = request.getAccountId();
   }
 
   if (!!request.hasNewAccountType()) {
-    query["NewAccountType"] = request.newAccountType();
+    query["NewAccountType"] = request.getNewAccountType();
   }
 
   if (!!request.hasNewDisplayName()) {
-    query["NewDisplayName"] = request.newDisplayName();
+    query["NewDisplayName"] = request.getNewDisplayName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5268,6 +5336,8 @@ UpdateAccountResponse Client::updateAccountWithOptions(const UpdateAccountReques
 }
 
 /**
+ * @summary Changes the display name of a member, or switches the type of a member.
+ *
  * @description *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
  * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
  * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
@@ -5294,11 +5364,11 @@ UpdateAssociatedTransferSettingResponse Client::updateAssociatedTransferSettingW
   request.validate();
   json query = {};
   if (!!request.hasEnableExistingResourcesTransfer()) {
-    query["EnableExistingResourcesTransfer"] = request.enableExistingResourcesTransfer();
+    query["EnableExistingResourcesTransfer"] = request.getEnableExistingResourcesTransfer();
   }
 
   if (!!request.hasRuleSettings()) {
-    query["RuleSettings"] = request.ruleSettings();
+    query["RuleSettings"] = request.getRuleSettings();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5342,7 +5412,7 @@ UpdateAutoGroupingConfigResponse Client::updateAutoGroupingConfigWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasEnableExistingResourcesTransfer()) {
-    query["EnableExistingResourcesTransfer"] = request.enableExistingResourcesTransfer();
+    query["EnableExistingResourcesTransfer"] = request.getEnableExistingResourcesTransfer();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5384,51 +5454,51 @@ UpdateAutoGroupingRuleResponse Client::updateAutoGroupingRuleWithOptions(const U
   request.validate();
   json query = {};
   if (!!request.hasExcludeRegionIdsScope()) {
-    query["ExcludeRegionIdsScope"] = request.excludeRegionIdsScope();
+    query["ExcludeRegionIdsScope"] = request.getExcludeRegionIdsScope();
   }
 
   if (!!request.hasExcludeResourceGroupIdsScope()) {
-    query["ExcludeResourceGroupIdsScope"] = request.excludeResourceGroupIdsScope();
+    query["ExcludeResourceGroupIdsScope"] = request.getExcludeResourceGroupIdsScope();
   }
 
   if (!!request.hasExcludeResourceIdsScope()) {
-    query["ExcludeResourceIdsScope"] = request.excludeResourceIdsScope();
+    query["ExcludeResourceIdsScope"] = request.getExcludeResourceIdsScope();
   }
 
   if (!!request.hasExcludeResourceTypesScope()) {
-    query["ExcludeResourceTypesScope"] = request.excludeResourceTypesScope();
+    query["ExcludeResourceTypesScope"] = request.getExcludeResourceTypesScope();
   }
 
   if (!!request.hasRegionIdsScope()) {
-    query["RegionIdsScope"] = request.regionIdsScope();
+    query["RegionIdsScope"] = request.getRegionIdsScope();
   }
 
   if (!!request.hasResourceGroupIdsScope()) {
-    query["ResourceGroupIdsScope"] = request.resourceGroupIdsScope();
+    query["ResourceGroupIdsScope"] = request.getResourceGroupIdsScope();
   }
 
   if (!!request.hasResourceIdsScope()) {
-    query["ResourceIdsScope"] = request.resourceIdsScope();
+    query["ResourceIdsScope"] = request.getResourceIdsScope();
   }
 
   if (!!request.hasResourceTypesScope()) {
-    query["ResourceTypesScope"] = request.resourceTypesScope();
+    query["ResourceTypesScope"] = request.getResourceTypesScope();
   }
 
   if (!!request.hasRuleContents()) {
-    query["RuleContents"] = request.ruleContents();
+    query["RuleContents"] = request.getRuleContents();
   }
 
   if (!!request.hasRuleDesc()) {
-    query["RuleDesc"] = request.ruleDesc();
+    query["RuleDesc"] = request.getRuleDesc();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5460,6 +5530,8 @@ UpdateAutoGroupingRuleResponse Client::updateAutoGroupingRule(const UpdateAutoGr
 }
 
 /**
+ * @summary Updates a custom access control policy.
+ *
  * @description In this example, the name of the access control policy whose ID is `cp-jExXAqIYkwHN****` is changed to `NewControlPolicy`.
  *
  * @param request UpdateControlPolicyRequest
@@ -5470,19 +5542,19 @@ UpdateControlPolicyResponse Client::updateControlPolicyWithOptions(const UpdateC
   request.validate();
   json query = {};
   if (!!request.hasNewDescription()) {
-    query["NewDescription"] = request.newDescription();
+    query["NewDescription"] = request.getNewDescription();
   }
 
   if (!!request.hasNewPolicyDocument()) {
-    query["NewPolicyDocument"] = request.newPolicyDocument();
+    query["NewPolicyDocument"] = request.getNewPolicyDocument();
   }
 
   if (!!request.hasNewPolicyName()) {
-    query["NewPolicyName"] = request.newPolicyName();
+    query["NewPolicyName"] = request.getNewPolicyName();
   }
 
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5503,6 +5575,8 @@ UpdateControlPolicyResponse Client::updateControlPolicyWithOptions(const UpdateC
 }
 
 /**
+ * @summary Updates a custom access control policy.
+ *
  * @description In this example, the name of the access control policy whose ID is `cp-jExXAqIYkwHN****` is changed to `NewControlPolicy`.
  *
  * @param request UpdateControlPolicyRequest
@@ -5514,6 +5588,8 @@ UpdateControlPolicyResponse Client::updateControlPolicy(const UpdateControlPolic
 }
 
 /**
+ * @summary Changes the name of a folder.
+ *
  * @param request UpdateFolderRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateFolderResponse
@@ -5522,11 +5598,11 @@ UpdateFolderResponse Client::updateFolderWithOptions(const UpdateFolderRequest &
   request.validate();
   json query = {};
   if (!!request.hasFolderId()) {
-    query["FolderId"] = request.folderId();
+    query["FolderId"] = request.getFolderId();
   }
 
   if (!!request.hasNewFolderName()) {
-    query["NewFolderName"] = request.newFolderName();
+    query["NewFolderName"] = request.getNewFolderName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5547,6 +5623,8 @@ UpdateFolderResponse Client::updateFolderWithOptions(const UpdateFolderRequest &
 }
 
 /**
+ * @summary Changes the name of a folder.
+ *
  * @param request UpdateFolderRequest
  * @return UpdateFolderResponse
  */
@@ -5556,6 +5634,8 @@ UpdateFolderResponse Client::updateFolder(const UpdateFolderRequest &request) {
 }
 
 /**
+ * @summary Updates the basic information of a resource group.
+ *
  * @description In this example, the display name of the resource group `rg-9gLOoK****` is changed to `project`.
  *
  * @param request UpdateResourceGroupRequest
@@ -5566,11 +5646,11 @@ UpdateResourceGroupResponse Client::updateResourceGroupWithOptions(const UpdateR
   request.validate();
   json query = {};
   if (!!request.hasNewDisplayName()) {
-    query["NewDisplayName"] = request.newDisplayName();
+    query["NewDisplayName"] = request.getNewDisplayName();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5591,6 +5671,8 @@ UpdateResourceGroupResponse Client::updateResourceGroupWithOptions(const UpdateR
 }
 
 /**
+ * @summary Updates the basic information of a resource group.
+ *
  * @description In this example, the display name of the resource group `rg-9gLOoK****` is changed to `project`.
  *
  * @param request UpdateResourceGroupRequest
@@ -5612,7 +5694,7 @@ UpdateResourceGroupAdminSettingResponse Client::updateResourceGroupAdminSettingW
   request.validate();
   json query = {};
   if (!!request.hasCreatorAsAdmin()) {
-    query["CreatorAsAdmin"] = request.creatorAsAdmin();
+    query["CreatorAsAdmin"] = request.getCreatorAsAdmin();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5656,19 +5738,19 @@ UpdateRoleResponse Client::updateRoleWithOptions(const UpdateRoleRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasNewAssumeRolePolicyDocument()) {
-    query["NewAssumeRolePolicyDocument"] = request.newAssumeRolePolicyDocument();
+    query["NewAssumeRolePolicyDocument"] = request.getNewAssumeRolePolicyDocument();
   }
 
   if (!!request.hasNewDescription()) {
-    query["NewDescription"] = request.newDescription();
+    query["NewDescription"] = request.getNewDescription();
   }
 
   if (!!request.hasNewMaxSessionDuration()) {
-    query["NewMaxSessionDuration"] = request.newMaxSessionDuration();
+    query["NewMaxSessionDuration"] = request.getNewMaxSessionDuration();
   }
 
   if (!!request.hasRoleName()) {
-    query["RoleName"] = request.roleName();
+    query["RoleName"] = request.getRoleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

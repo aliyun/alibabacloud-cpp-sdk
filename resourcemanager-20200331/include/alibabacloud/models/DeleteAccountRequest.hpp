@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->abandonableCheckId_ == nullptr
-        && return this->accountId_ == nullptr; };
+        && this->accountId_ == nullptr; };
     // abandonableCheckId Field Functions 
     bool hasAbandonableCheckId() const { return this->abandonableCheckId_ != nullptr;};
     void deleteAbandonableCheckId() { this->abandonableCheckId_ = nullptr;};
-    inline const vector<string> & abandonableCheckId() const { DARABONBA_PTR_GET_CONST(abandonableCheckId_, vector<string>) };
-    inline vector<string> abandonableCheckId() { DARABONBA_PTR_GET(abandonableCheckId_, vector<string>) };
+    inline const vector<string> & getAbandonableCheckId() const { DARABONBA_PTR_GET_CONST(abandonableCheckId_, vector<string>) };
+    inline vector<string> getAbandonableCheckId() { DARABONBA_PTR_GET(abandonableCheckId_, vector<string>) };
     inline DeleteAccountRequest& setAbandonableCheckId(const vector<string> & abandonableCheckId) { DARABONBA_PTR_SET_VALUE(abandonableCheckId_, abandonableCheckId) };
     inline DeleteAccountRequest& setAbandonableCheckId(vector<string> && abandonableCheckId) { DARABONBA_PTR_SET_RVALUE(abandonableCheckId_, abandonableCheckId) };
 
@@ -46,19 +46,19 @@ namespace Models
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline DeleteAccountRequest& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> abandonableCheckId_ = nullptr;
-    // The type of the deletion. Valid values:
+    // The ID of a check item that you can choose to ignore for the member deletion.
     // 
-    // *   0: direct deletion. If the member does not have pay-as-you-go resources that are purchased within the previous 30 days, the system directly deletes the member.
-    // *   1: deletion with a silence period. If the member has pay-as-you-go resources that are purchased within the previous 30 days, the member enters a silence period of 45 days. The system starts to delete the member until the silence period ends. For more information about the silence period, see [What is the silence period for member deletion?](https://help.aliyun.com/document_detail/446079.html)
+    // You can obtain the ID from the response of the [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) operation.
+    shared_ptr<vector<string>> abandonableCheckId_ {};
+    // The Alibaba Cloud account ID of the member that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountId_ = nullptr;
+    shared_ptr<string> accountId_ {};
   };
 
   } // namespace Models

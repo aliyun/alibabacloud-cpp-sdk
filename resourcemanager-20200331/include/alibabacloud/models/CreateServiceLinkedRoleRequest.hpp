@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customSuffix_ == nullptr
-        && return this->description_ == nullptr && return this->serviceName_ == nullptr; };
+        && this->description_ == nullptr && this->serviceName_ == nullptr; };
     // customSuffix Field Functions 
     bool hasCustomSuffix() const { return this->customSuffix_ != nullptr;};
     void deleteCustomSuffix() { this->customSuffix_ = nullptr;};
-    inline string customSuffix() const { DARABONBA_PTR_GET_DEFAULT(customSuffix_, "") };
+    inline string getCustomSuffix() const { DARABONBA_PTR_GET_DEFAULT(customSuffix_, "") };
     inline CreateServiceLinkedRoleRequest& setCustomSuffix(string customSuffix) { DARABONBA_PTR_SET_VALUE(customSuffix_, customSuffix) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateServiceLinkedRoleRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // serviceName Field Functions 
     bool hasServiceName() const { return this->serviceName_ != nullptr;};
     void deleteServiceName() { this->serviceName_ = nullptr;};
-    inline string serviceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+    inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
     inline CreateServiceLinkedRoleRequest& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
@@ -62,19 +62,19 @@ namespace Models
     // The role name (including its suffix) must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
     // 
     // For example, if the suffix is `Example`, the role name is `ServiceLinkedRoleName_Example`.
-    std::shared_ptr<string> customSuffix_ = nullptr;
+    shared_ptr<string> customSuffix_ {};
     // The description of the service-linked role.
     // 
     // You must configure this parameter for service-linked roles that support custom suffixes. Otherwise, the preset value is used and cannot be modified.
     // 
     // The description must be 1 to 1,024 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The service name.
     // 
     // For more information about the service name, see [Alibaba Cloud services that support service-linked roles](https://help.aliyun.com/document_detail/461722.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceName_ = nullptr;
+    shared_ptr<string> serviceName_ {};
   };
 
   } // namespace Models

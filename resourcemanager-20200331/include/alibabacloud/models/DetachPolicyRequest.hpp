@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->policyName_ == nullptr
-        && return this->policyType_ == nullptr && return this->principalName_ == nullptr && return this->principalType_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->policyType_ == nullptr && this->principalName_ == nullptr && this->principalType_ == nullptr && this->resourceGroupId_ == nullptr; };
     // policyName Field Functions 
     bool hasPolicyName() const { return this->policyName_ != nullptr;};
     void deletePolicyName() { this->policyName_ = nullptr;};
-    inline string policyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
+    inline string getPolicyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
     inline DetachPolicyRequest& setPolicyName(string policyName) { DARABONBA_PTR_SET_VALUE(policyName_, policyName) };
 
 
     // policyType Field Functions 
     bool hasPolicyType() const { return this->policyType_ != nullptr;};
     void deletePolicyType() { this->policyType_ = nullptr;};
-    inline string policyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
+    inline string getPolicyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
     inline DetachPolicyRequest& setPolicyType(string policyType) { DARABONBA_PTR_SET_VALUE(policyType_, policyType) };
 
 
     // principalName Field Functions 
     bool hasPrincipalName() const { return this->principalName_ != nullptr;};
     void deletePrincipalName() { this->principalName_ = nullptr;};
-    inline string principalName() const { DARABONBA_PTR_GET_DEFAULT(principalName_, "") };
+    inline string getPrincipalName() const { DARABONBA_PTR_GET_DEFAULT(principalName_, "") };
     inline DetachPolicyRequest& setPrincipalName(string principalName) { DARABONBA_PTR_SET_VALUE(principalName_, principalName) };
 
 
     // principalType Field Functions 
     bool hasPrincipalType() const { return this->principalType_ != nullptr;};
     void deletePrincipalType() { this->principalType_ = nullptr;};
-    inline string principalType() const { DARABONBA_PTR_GET_DEFAULT(principalType_, "") };
+    inline string getPrincipalType() const { DARABONBA_PTR_GET_DEFAULT(principalType_, "") };
     inline DetachPolicyRequest& setPrincipalType(string principalType) { DARABONBA_PTR_SET_VALUE(principalType_, principalType) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DetachPolicyRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
@@ -80,18 +80,18 @@ namespace Models
     // The name must be 1 to 128 characters in length and can contain letters, digits, and hyphen (-).
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyName_ = nullptr;
+    shared_ptr<string> policyName_ {};
     // The type of the permission policy. Valid values:
     // 
     // *   Custom
     // *   System
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyType_ = nullptr;
+    shared_ptr<string> policyType_ {};
     // The name of the object to which you want to attach the permission policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> principalName_ = nullptr;
+    shared_ptr<string> principalName_ {};
     // The type of the object to which you want to attach the permission policy. Valid values:
     // 
     // *   IMSUser: RAM user
@@ -99,13 +99,13 @@ namespace Models
     // *   ServiceRole: RAM role
     // 
     // This parameter is required.
-    std::shared_ptr<string> principalType_ = nullptr;
+    shared_ptr<string> principalType_ {};
     // The ID of the resource group or the ID of the Alibaba Cloud account to which the resource group belongs.
     // 
     // This parameter specifies the resource group or Alibaba Cloud account for which you want to revoke permissions.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

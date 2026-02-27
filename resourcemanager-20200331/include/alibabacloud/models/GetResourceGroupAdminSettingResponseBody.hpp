@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creatorAsAdmin_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // creatorAsAdmin Field Functions 
     bool hasCreatorAsAdmin() const { return this->creatorAsAdmin_ != nullptr;};
     void deleteCreatorAsAdmin() { this->creatorAsAdmin_ = nullptr;};
-    inline bool creatorAsAdmin() const { DARABONBA_PTR_GET_DEFAULT(creatorAsAdmin_, false) };
+    inline bool getCreatorAsAdmin() const { DARABONBA_PTR_GET_DEFAULT(creatorAsAdmin_, false) };
     inline GetResourceGroupAdminSettingResponseBody& setCreatorAsAdmin(bool creatorAsAdmin) { DARABONBA_PTR_SET_VALUE(creatorAsAdmin_, creatorAsAdmin) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetResourceGroupAdminSettingResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Indicates whether enable the Use Creator as Administrator feature.
-    std::shared_ptr<bool> creatorAsAdmin_ = nullptr;
+    shared_ptr<bool> creatorAsAdmin_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enableExistedResourcesTransfer_ == nullptr
-        && return this->enableStatus_ == nullptr && return this->requestId_ == nullptr; };
+        && this->enableStatus_ == nullptr && this->requestId_ == nullptr; };
     // enableExistedResourcesTransfer Field Functions 
     bool hasEnableExistedResourcesTransfer() const { return this->enableExistedResourcesTransfer_ != nullptr;};
     void deleteEnableExistedResourcesTransfer() { this->enableExistedResourcesTransfer_ = nullptr;};
-    inline bool enableExistedResourcesTransfer() const { DARABONBA_PTR_GET_DEFAULT(enableExistedResourcesTransfer_, false) };
+    inline bool getEnableExistedResourcesTransfer() const { DARABONBA_PTR_GET_DEFAULT(enableExistedResourcesTransfer_, false) };
     inline GetAutoGroupingStatusResponseBody& setEnableExistedResourcesTransfer(bool enableExistedResourcesTransfer) { DARABONBA_PTR_SET_VALUE(enableExistedResourcesTransfer_, enableExistedResourcesTransfer) };
 
 
     // enableStatus Field Functions 
     bool hasEnableStatus() const { return this->enableStatus_ != nullptr;};
     void deleteEnableStatus() { this->enableStatus_ = nullptr;};
-    inline string enableStatus() const { DARABONBA_PTR_GET_DEFAULT(enableStatus_, "") };
+    inline string getEnableStatus() const { DARABONBA_PTR_GET_DEFAULT(enableStatus_, "") };
     inline GetAutoGroupingStatusResponseBody& setEnableStatus(string enableStatus) { DARABONBA_PTR_SET_VALUE(enableStatus_, enableStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetAutoGroupingStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -61,16 +61,16 @@ namespace Models
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> enableExistedResourcesTransfer_ = nullptr;
+    shared_ptr<bool> enableExistedResourcesTransfer_ {};
     // The status of the Automatic Resource Transfer feature. Valid values:
     // 
     // *   Enabling: The feature is being enabled.
     // *   Enable: The feature is enabled.
     // *   Partial_Enable: The transfer of associated resources is enabled, but custom transfer rule-based resource transfer is disabled. You can call the [EnableAutoGrouping](https://help.aliyun.com/document_detail/2870380.html) operation to enable custom transfer rule-based resource transfer.
     // *   Disable: The feature is disabled.
-    std::shared_ptr<string> enableStatus_ = nullptr;
+    shared_ptr<string> enableStatus_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

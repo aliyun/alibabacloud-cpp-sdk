@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->policyDocument_ == nullptr
-        && return this->policyName_ == nullptr && return this->setAsDefault_ == nullptr; };
+        && this->policyName_ == nullptr && this->setAsDefault_ == nullptr; };
     // policyDocument Field Functions 
     bool hasPolicyDocument() const { return this->policyDocument_ != nullptr;};
     void deletePolicyDocument() { this->policyDocument_ = nullptr;};
-    inline string policyDocument() const { DARABONBA_PTR_GET_DEFAULT(policyDocument_, "") };
+    inline string getPolicyDocument() const { DARABONBA_PTR_GET_DEFAULT(policyDocument_, "") };
     inline CreatePolicyVersionRequest& setPolicyDocument(string policyDocument) { DARABONBA_PTR_SET_VALUE(policyDocument_, policyDocument) };
 
 
     // policyName Field Functions 
     bool hasPolicyName() const { return this->policyName_ != nullptr;};
     void deletePolicyName() { this->policyName_ = nullptr;};
-    inline string policyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
+    inline string getPolicyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
     inline CreatePolicyVersionRequest& setPolicyName(string policyName) { DARABONBA_PTR_SET_VALUE(policyName_, policyName) };
 
 
     // setAsDefault Field Functions 
     bool hasSetAsDefault() const { return this->setAsDefault_ != nullptr;};
     void deleteSetAsDefault() { this->setAsDefault_ = nullptr;};
-    inline bool setAsDefault() const { DARABONBA_PTR_GET_DEFAULT(setAsDefault_, false) };
+    inline bool getSetAsDefault() const { DARABONBA_PTR_GET_DEFAULT(setAsDefault_, false) };
     inline CreatePolicyVersionRequest& setSetAsDefault(bool setAsDefault) { DARABONBA_PTR_SET_VALUE(setAsDefault_, setAsDefault) };
 
 
@@ -62,18 +62,18 @@ namespace Models
     // The document must be 1 to 6,144 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyDocument_ = nullptr;
+    shared_ptr<string> policyDocument_ {};
     // The name of the permission policy.
     // 
     // The name must be 1 to 128 characters in length and can contain letters, digits, and hyphen (-).
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyName_ = nullptr;
+    shared_ptr<string> policyName_ {};
     // Specifies whether to set the policy version as the default version.
     // 
     // *   false (default)
     // *   true
-    std::shared_ptr<bool> setAsDefault_ = nullptr;
+    shared_ptr<bool> setAsDefault_ {};
   };
 
   } // namespace Models

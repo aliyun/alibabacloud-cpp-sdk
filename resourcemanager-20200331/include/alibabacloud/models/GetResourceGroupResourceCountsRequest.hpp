@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETRESOURCEGROUPRESOURCECOUNTSREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetResourceGroupResourceCountsRequestResourceTypes.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -37,36 +36,84 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ResourceTypes : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResourceTypes& obj) { 
+        DARABONBA_PTR_TO_JSON(ResourceTypeCode, resourceTypeCode_);
+        DARABONBA_PTR_TO_JSON(Service, service_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResourceTypes& obj) { 
+        DARABONBA_PTR_FROM_JSON(ResourceTypeCode, resourceTypeCode_);
+        DARABONBA_PTR_FROM_JSON(Service, service_);
+      };
+      ResourceTypes() = default ;
+      ResourceTypes(const ResourceTypes &) = default ;
+      ResourceTypes(ResourceTypes &&) = default ;
+      ResourceTypes(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResourceTypes() = default ;
+      ResourceTypes& operator=(const ResourceTypes &) = default ;
+      ResourceTypes& operator=(ResourceTypes &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->resourceTypeCode_ == nullptr
+        && this->service_ == nullptr; };
+      // resourceTypeCode Field Functions 
+      bool hasResourceTypeCode() const { return this->resourceTypeCode_ != nullptr;};
+      void deleteResourceTypeCode() { this->resourceTypeCode_ = nullptr;};
+      inline string getResourceTypeCode() const { DARABONBA_PTR_GET_DEFAULT(resourceTypeCode_, "") };
+      inline ResourceTypes& setResourceTypeCode(string resourceTypeCode) { DARABONBA_PTR_SET_VALUE(resourceTypeCode_, resourceTypeCode) };
+
+
+      // service Field Functions 
+      bool hasService() const { return this->service_ != nullptr;};
+      void deleteService() { this->service_ = nullptr;};
+      inline string getService() const { DARABONBA_PTR_GET_DEFAULT(service_, "") };
+      inline ResourceTypes& setService(string service) { DARABONBA_PTR_SET_VALUE(service_, service) };
+
+
+    protected:
+      // The resource type.
+      // 
+      // You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      shared_ptr<string> resourceTypeCode_ {};
+      // The service code.
+      // 
+      // You can obtain the code from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      shared_ptr<string> service_ {};
+    };
+
     virtual bool empty() const override { return this->groupByKey_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->resourceRegionId_ == nullptr && return this->resourceTypes_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->resourceRegionId_ == nullptr && this->resourceTypes_ == nullptr; };
     // groupByKey Field Functions 
     bool hasGroupByKey() const { return this->groupByKey_ != nullptr;};
     void deleteGroupByKey() { this->groupByKey_ = nullptr;};
-    inline string groupByKey() const { DARABONBA_PTR_GET_DEFAULT(groupByKey_, "") };
+    inline string getGroupByKey() const { DARABONBA_PTR_GET_DEFAULT(groupByKey_, "") };
     inline GetResourceGroupResourceCountsRequest& setGroupByKey(string groupByKey) { DARABONBA_PTR_SET_VALUE(groupByKey_, groupByKey) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline GetResourceGroupResourceCountsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceRegionId Field Functions 
     bool hasResourceRegionId() const { return this->resourceRegionId_ != nullptr;};
     void deleteResourceRegionId() { this->resourceRegionId_ = nullptr;};
-    inline string resourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(resourceRegionId_, "") };
+    inline string getResourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(resourceRegionId_, "") };
     inline GetResourceGroupResourceCountsRequest& setResourceRegionId(string resourceRegionId) { DARABONBA_PTR_SET_VALUE(resourceRegionId_, resourceRegionId) };
 
 
     // resourceTypes Field Functions 
     bool hasResourceTypes() const { return this->resourceTypes_ != nullptr;};
     void deleteResourceTypes() { this->resourceTypes_ = nullptr;};
-    inline const vector<GetResourceGroupResourceCountsRequestResourceTypes> & resourceTypes() const { DARABONBA_PTR_GET_CONST(resourceTypes_, vector<GetResourceGroupResourceCountsRequestResourceTypes>) };
-    inline vector<GetResourceGroupResourceCountsRequestResourceTypes> resourceTypes() { DARABONBA_PTR_GET(resourceTypes_, vector<GetResourceGroupResourceCountsRequestResourceTypes>) };
-    inline GetResourceGroupResourceCountsRequest& setResourceTypes(const vector<GetResourceGroupResourceCountsRequestResourceTypes> & resourceTypes) { DARABONBA_PTR_SET_VALUE(resourceTypes_, resourceTypes) };
-    inline GetResourceGroupResourceCountsRequest& setResourceTypes(vector<GetResourceGroupResourceCountsRequestResourceTypes> && resourceTypes) { DARABONBA_PTR_SET_RVALUE(resourceTypes_, resourceTypes) };
+    inline const vector<GetResourceGroupResourceCountsRequest::ResourceTypes> & getResourceTypes() const { DARABONBA_PTR_GET_CONST(resourceTypes_, vector<GetResourceGroupResourceCountsRequest::ResourceTypes>) };
+    inline vector<GetResourceGroupResourceCountsRequest::ResourceTypes> getResourceTypes() { DARABONBA_PTR_GET(resourceTypes_, vector<GetResourceGroupResourceCountsRequest::ResourceTypes>) };
+    inline GetResourceGroupResourceCountsRequest& setResourceTypes(const vector<GetResourceGroupResourceCountsRequest::ResourceTypes> & resourceTypes) { DARABONBA_PTR_SET_VALUE(resourceTypes_, resourceTypes) };
+    inline GetResourceGroupResourceCountsRequest& setResourceTypes(vector<GetResourceGroupResourceCountsRequest::ResourceTypes> && resourceTypes) { DARABONBA_PTR_SET_RVALUE(resourceTypes_, resourceTypes) };
 
 
   protected:
@@ -78,15 +125,15 @@ namespace Models
     // 
     // *   ResourceGroupId
     // *   ResourceType
-    std::shared_ptr<string> groupByKey_ = nullptr;
+    shared_ptr<string> groupByKey_ {};
     // The resource group ID.
     // 
     // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/2716558.html) operation to obtain the ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The region ID of the resources.
-    std::shared_ptr<string> resourceRegionId_ = nullptr;
+    shared_ptr<string> resourceRegionId_ {};
     // The resource types.
-    std::shared_ptr<vector<GetResourceGroupResourceCountsRequestResourceTypes>> resourceTypes_ = nullptr;
+    shared_ptr<vector<GetResourceGroupResourceCountsRequest::ResourceTypes>> resourceTypes_ {};
   };
 
   } // namespace Models

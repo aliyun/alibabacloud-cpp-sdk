@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assumeRolePolicyDocument_ == nullptr
-        && return this->description_ == nullptr && return this->maxSessionDuration_ == nullptr && return this->roleName_ == nullptr; };
+        && this->description_ == nullptr && this->maxSessionDuration_ == nullptr && this->roleName_ == nullptr; };
     // assumeRolePolicyDocument Field Functions 
     bool hasAssumeRolePolicyDocument() const { return this->assumeRolePolicyDocument_ != nullptr;};
     void deleteAssumeRolePolicyDocument() { this->assumeRolePolicyDocument_ = nullptr;};
-    inline string assumeRolePolicyDocument() const { DARABONBA_PTR_GET_DEFAULT(assumeRolePolicyDocument_, "") };
+    inline string getAssumeRolePolicyDocument() const { DARABONBA_PTR_GET_DEFAULT(assumeRolePolicyDocument_, "") };
     inline CreateRoleRequest& setAssumeRolePolicyDocument(string assumeRolePolicyDocument) { DARABONBA_PTR_SET_VALUE(assumeRolePolicyDocument_, assumeRolePolicyDocument) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateRoleRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // maxSessionDuration Field Functions 
     bool hasMaxSessionDuration() const { return this->maxSessionDuration_ != nullptr;};
     void deleteMaxSessionDuration() { this->maxSessionDuration_ = nullptr;};
-    inline int64_t maxSessionDuration() const { DARABONBA_PTR_GET_DEFAULT(maxSessionDuration_, 0L) };
+    inline int64_t getMaxSessionDuration() const { DARABONBA_PTR_GET_DEFAULT(maxSessionDuration_, 0L) };
     inline CreateRoleRequest& setMaxSessionDuration(int64_t maxSessionDuration) { DARABONBA_PTR_SET_VALUE(maxSessionDuration_, maxSessionDuration) };
 
 
     // roleName Field Functions 
     bool hasRoleName() const { return this->roleName_ != nullptr;};
     void deleteRoleName() { this->roleName_ = nullptr;};
-    inline string roleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
+    inline string getRoleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
     inline CreateRoleRequest& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
 
 
@@ -73,23 +73,23 @@ namespace Models
     // >  RAM users cannot assume the RAM roles of trusted Alibaba Cloud services.
     // 
     // This parameter is required.
-    std::shared_ptr<string> assumeRolePolicyDocument_ = nullptr;
+    shared_ptr<string> assumeRolePolicyDocument_ {};
     // The description of the role.
     // 
     // The description must be 1 to 1,024 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The maximum session duration of the role.
     // 
     // Valid values: 3600 to 43200. Unit: seconds. Default value: 3600.
     // 
     // If you do not specify this parameter, the default value is used.
-    std::shared_ptr<int64_t> maxSessionDuration_ = nullptr;
+    shared_ptr<int64_t> maxSessionDuration_ {};
     // The name of the role.
     // 
     // The name must be 1 to 64 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
     // 
     // This parameter is required.
-    std::shared_ptr<string> roleName_ = nullptr;
+    shared_ptr<string> roleName_ {};
   };
 
   } // namespace Models

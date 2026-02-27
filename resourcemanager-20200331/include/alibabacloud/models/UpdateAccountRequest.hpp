@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && return this->newAccountType_ == nullptr && return this->newDisplayName_ == nullptr; };
+        && this->newAccountType_ == nullptr && this->newDisplayName_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline UpdateAccountRequest& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
     // newAccountType Field Functions 
     bool hasNewAccountType() const { return this->newAccountType_ != nullptr;};
     void deleteNewAccountType() { this->newAccountType_ = nullptr;};
-    inline string newAccountType() const { DARABONBA_PTR_GET_DEFAULT(newAccountType_, "") };
+    inline string getNewAccountType() const { DARABONBA_PTR_GET_DEFAULT(newAccountType_, "") };
     inline UpdateAccountRequest& setNewAccountType(string newAccountType) { DARABONBA_PTR_SET_VALUE(newAccountType_, newAccountType) };
 
 
     // newDisplayName Field Functions 
     bool hasNewDisplayName() const { return this->newDisplayName_ != nullptr;};
     void deleteNewDisplayName() { this->newDisplayName_ = nullptr;};
-    inline string newDisplayName() const { DARABONBA_PTR_GET_DEFAULT(newDisplayName_, "") };
+    inline string getNewDisplayName() const { DARABONBA_PTR_GET_DEFAULT(newDisplayName_, "") };
     inline UpdateAccountRequest& setNewDisplayName(string newDisplayName) { DARABONBA_PTR_SET_VALUE(newDisplayName_, newDisplayName) };
 
 
@@ -60,18 +60,18 @@ namespace Models
     // The ID of the Alibaba Cloud account that corresponds to the member.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountId_ = nullptr;
+    shared_ptr<string> accountId_ {};
     // The new type of the member. Valid values:
     // 
     // *   ResourceAccount: resource account
     // *   CloudAccount: cloud account
     // 
     // >  You can configure either the `NewDisplayName` or `NewAccountType` parameter.
-    std::shared_ptr<string> newAccountType_ = nullptr;
+    shared_ptr<string> newAccountType_ {};
     // The new display name of the member.
     // 
     // >  You can configure either the `NewDisplayName` or `NewAccountType` parameter.
-    std::shared_ptr<string> newDisplayName_ = nullptr;
+    shared_ptr<string> newDisplayName_ {};
   };
 
   } // namespace Models

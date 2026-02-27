@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->managementAccountId_ == nullptr
-        && return this->memberDeletionStatus_ == nullptr && return this->requestId_ == nullptr && return this->resourceDirectoryId_ == nullptr; };
+        && this->memberDeletionStatus_ == nullptr && this->requestId_ == nullptr && this->resourceDirectoryId_ == nullptr; };
     // managementAccountId Field Functions 
     bool hasManagementAccountId() const { return this->managementAccountId_ != nullptr;};
     void deleteManagementAccountId() { this->managementAccountId_ = nullptr;};
-    inline string managementAccountId() const { DARABONBA_PTR_GET_DEFAULT(managementAccountId_, "") };
+    inline string getManagementAccountId() const { DARABONBA_PTR_GET_DEFAULT(managementAccountId_, "") };
     inline SetMemberDeletionPermissionResponseBody& setManagementAccountId(string managementAccountId) { DARABONBA_PTR_SET_VALUE(managementAccountId_, managementAccountId) };
 
 
     // memberDeletionStatus Field Functions 
     bool hasMemberDeletionStatus() const { return this->memberDeletionStatus_ != nullptr;};
     void deleteMemberDeletionStatus() { this->memberDeletionStatus_ = nullptr;};
-    inline string memberDeletionStatus() const { DARABONBA_PTR_GET_DEFAULT(memberDeletionStatus_, "") };
+    inline string getMemberDeletionStatus() const { DARABONBA_PTR_GET_DEFAULT(memberDeletionStatus_, "") };
     inline SetMemberDeletionPermissionResponseBody& setMemberDeletionStatus(string memberDeletionStatus) { DARABONBA_PTR_SET_VALUE(memberDeletionStatus_, memberDeletionStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SetMemberDeletionPermissionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceDirectoryId Field Functions 
     bool hasResourceDirectoryId() const { return this->resourceDirectoryId_ != nullptr;};
     void deleteResourceDirectoryId() { this->resourceDirectoryId_ = nullptr;};
-    inline string resourceDirectoryId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryId_, "") };
+    inline string getResourceDirectoryId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryId_, "") };
     inline SetMemberDeletionPermissionResponseBody& setResourceDirectoryId(string resourceDirectoryId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryId_, resourceDirectoryId) };
 
 
   protected:
     // The ID of the management account of the resource directory.
-    std::shared_ptr<string> managementAccountId_ = nullptr;
+    shared_ptr<string> managementAccountId_ {};
     // The status of the member deletion feature. Valid values:
     // 
     // *   Enabled: The feature is enabled.
     // *   Disabled: The feature is disabled.
-    std::shared_ptr<string> memberDeletionStatus_ = nullptr;
+    shared_ptr<string> memberDeletionStatus_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the resource directory.
-    std::shared_ptr<string> resourceDirectoryId_ = nullptr;
+    shared_ptr<string> resourceDirectoryId_ {};
   };
 
   } // namespace Models

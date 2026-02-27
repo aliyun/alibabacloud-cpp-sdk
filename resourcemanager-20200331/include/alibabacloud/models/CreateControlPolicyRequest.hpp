@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->effectScope_ == nullptr && return this->policyDocument_ == nullptr && return this->policyName_ == nullptr; };
+        && this->effectScope_ == nullptr && this->policyDocument_ == nullptr && this->policyName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateControlPolicyRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // effectScope Field Functions 
     bool hasEffectScope() const { return this->effectScope_ != nullptr;};
     void deleteEffectScope() { this->effectScope_ = nullptr;};
-    inline string effectScope() const { DARABONBA_PTR_GET_DEFAULT(effectScope_, "") };
+    inline string getEffectScope() const { DARABONBA_PTR_GET_DEFAULT(effectScope_, "") };
     inline CreateControlPolicyRequest& setEffectScope(string effectScope) { DARABONBA_PTR_SET_VALUE(effectScope_, effectScope) };
 
 
     // policyDocument Field Functions 
     bool hasPolicyDocument() const { return this->policyDocument_ != nullptr;};
     void deletePolicyDocument() { this->policyDocument_ = nullptr;};
-    inline string policyDocument() const { DARABONBA_PTR_GET_DEFAULT(policyDocument_, "") };
+    inline string getPolicyDocument() const { DARABONBA_PTR_GET_DEFAULT(policyDocument_, "") };
     inline CreateControlPolicyRequest& setPolicyDocument(string policyDocument) { DARABONBA_PTR_SET_VALUE(policyDocument_, policyDocument) };
 
 
     // policyName Field Functions 
     bool hasPolicyName() const { return this->policyName_ != nullptr;};
     void deletePolicyName() { this->policyName_ = nullptr;};
-    inline string policyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
+    inline string getPolicyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
     inline CreateControlPolicyRequest& setPolicyName(string policyName) { DARABONBA_PTR_SET_VALUE(policyName_, policyName) };
 
 
@@ -69,13 +69,13 @@ namespace Models
     // The description of the access control policy.
     // 
     // The description must be 1 to 1,024 characters in length. The description can contain letters, digits, underscores (_), and hyphens (-) and must start with a letter.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The effective scope of the access control policy.
     // 
     // The value RAM indicates that the access control policy takes effect only for RAM users and RAM roles.
     // 
     // This parameter is required.
-    std::shared_ptr<string> effectScope_ = nullptr;
+    shared_ptr<string> effectScope_ {};
     // The document of the access control policy.
     // 
     // The document can be a maximum of 4,096 characters in length.
@@ -85,13 +85,13 @@ namespace Models
     // For more information about the examples of access control policies, see [Examples of custom access control policies](https://help.aliyun.com/document_detail/181474.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyDocument_ = nullptr;
+    shared_ptr<string> policyDocument_ {};
     // The name of the access control policy.
     // 
     // The name must be 1 to 128 characters in length. The name can contain letters, digits, and hyphens (-) and must start with a letter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyName_ = nullptr;
+    shared_ptr<string> policyName_ {};
   };
 
   } // namespace Models

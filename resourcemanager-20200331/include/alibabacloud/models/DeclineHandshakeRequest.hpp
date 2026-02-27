@@ -33,7 +33,7 @@ namespace Models
     // handshakeId Field Functions 
     bool hasHandshakeId() const { return this->handshakeId_ != nullptr;};
     void deleteHandshakeId() { this->handshakeId_ = nullptr;};
-    inline string handshakeId() const { DARABONBA_PTR_GET_DEFAULT(handshakeId_, "") };
+    inline string getHandshakeId() const { DARABONBA_PTR_GET_DEFAULT(handshakeId_, "") };
     inline DeclineHandshakeRequest& setHandshakeId(string handshakeId) { DARABONBA_PTR_SET_VALUE(handshakeId_, handshakeId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the invitation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> handshakeId_ = nullptr;
+    shared_ptr<string> handshakeId_ {};
   };
 
   } // namespace Models

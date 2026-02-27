@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->resourceGroupNotificationEnableStatus_ == nullptr; };
+        && this->resourceGroupNotificationEnableStatus_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetResourceGroupNotificationSettingResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceGroupNotificationEnableStatus Field Functions 
     bool hasResourceGroupNotificationEnableStatus() const { return this->resourceGroupNotificationEnableStatus_ != nullptr;};
     void deleteResourceGroupNotificationEnableStatus() { this->resourceGroupNotificationEnableStatus_ = nullptr;};
-    inline bool resourceGroupNotificationEnableStatus() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupNotificationEnableStatus_, false) };
+    inline bool getResourceGroupNotificationEnableStatus() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupNotificationEnableStatus_, false) };
     inline GetResourceGroupNotificationSettingResponseBody& setResourceGroupNotificationEnableStatus(bool resourceGroupNotificationEnableStatus) { DARABONBA_PTR_SET_VALUE(resourceGroupNotificationEnableStatus_, resourceGroupNotificationEnableStatus) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the group event notification is enabled.
-    std::shared_ptr<bool> resourceGroupNotificationEnableStatus_ = nullptr;
+    shared_ptr<bool> resourceGroupNotificationEnableStatus_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // deletionTaskId Field Functions 
     bool hasDeletionTaskId() const { return this->deletionTaskId_ != nullptr;};
     void deleteDeletionTaskId() { this->deletionTaskId_ = nullptr;};
-    inline string deletionTaskId() const { DARABONBA_PTR_GET_DEFAULT(deletionTaskId_, "") };
+    inline string getDeletionTaskId() const { DARABONBA_PTR_GET_DEFAULT(deletionTaskId_, "") };
     inline GetServiceLinkedRoleDeletionStatusRequest& setDeletionTaskId(string deletionTaskId) { DARABONBA_PTR_SET_VALUE(deletionTaskId_, deletionTaskId) };
 
 
   protected:
     // The ID of the deletion task.
-    std::shared_ptr<string> deletionTaskId_ = nullptr;
+    shared_ptr<string> deletionTaskId_ {};
   };
 
   } // namespace Models

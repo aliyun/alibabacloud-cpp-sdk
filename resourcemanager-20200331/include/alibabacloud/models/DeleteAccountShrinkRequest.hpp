@@ -32,30 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->abandonableCheckIdShrink_ == nullptr
-        && return this->accountId_ == nullptr; };
+        && this->accountId_ == nullptr; };
     // abandonableCheckIdShrink Field Functions 
     bool hasAbandonableCheckIdShrink() const { return this->abandonableCheckIdShrink_ != nullptr;};
     void deleteAbandonableCheckIdShrink() { this->abandonableCheckIdShrink_ = nullptr;};
-    inline string abandonableCheckIdShrink() const { DARABONBA_PTR_GET_DEFAULT(abandonableCheckIdShrink_, "") };
+    inline string getAbandonableCheckIdShrink() const { DARABONBA_PTR_GET_DEFAULT(abandonableCheckIdShrink_, "") };
     inline DeleteAccountShrinkRequest& setAbandonableCheckIdShrink(string abandonableCheckIdShrink) { DARABONBA_PTR_SET_VALUE(abandonableCheckIdShrink_, abandonableCheckIdShrink) };
 
 
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline DeleteAccountShrinkRequest& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
   protected:
-    std::shared_ptr<string> abandonableCheckIdShrink_ = nullptr;
-    // The type of the deletion. Valid values:
+    // The ID of a check item that you can choose to ignore for the member deletion.
     // 
-    // *   0: direct deletion. If the member does not have pay-as-you-go resources that are purchased within the previous 30 days, the system directly deletes the member.
-    // *   1: deletion with a silence period. If the member has pay-as-you-go resources that are purchased within the previous 30 days, the member enters a silence period of 45 days. The system starts to delete the member until the silence period ends. For more information about the silence period, see [What is the silence period for member deletion?](https://help.aliyun.com/document_detail/446079.html)
+    // You can obtain the ID from the response of the [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) operation.
+    shared_ptr<string> abandonableCheckIdShrink_ {};
+    // The Alibaba Cloud account ID of the member that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountId_ = nullptr;
+    shared_ptr<string> accountId_ {};
   };
 
   } // namespace Models

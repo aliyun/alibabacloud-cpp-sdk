@@ -33,7 +33,7 @@ namespace Models
     // creatorAsAdmin Field Functions 
     bool hasCreatorAsAdmin() const { return this->creatorAsAdmin_ != nullptr;};
     void deleteCreatorAsAdmin() { this->creatorAsAdmin_ = nullptr;};
-    inline bool creatorAsAdmin() const { DARABONBA_PTR_GET_DEFAULT(creatorAsAdmin_, false) };
+    inline bool getCreatorAsAdmin() const { DARABONBA_PTR_GET_DEFAULT(creatorAsAdmin_, false) };
     inline UpdateResourceGroupAdminSettingRequest& setCreatorAsAdmin(bool creatorAsAdmin) { DARABONBA_PTR_SET_VALUE(creatorAsAdmin_, creatorAsAdmin) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // Specifies whether to enable the Use Creator as Administrator feature.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> creatorAsAdmin_ = nullptr;
+    shared_ptr<bool> creatorAsAdmin_ {};
   };
 
   } // namespace Models

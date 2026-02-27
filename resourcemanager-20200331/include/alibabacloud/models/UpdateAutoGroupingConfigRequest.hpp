@@ -33,7 +33,7 @@ namespace Models
     // enableExistingResourcesTransfer Field Functions 
     bool hasEnableExistingResourcesTransfer() const { return this->enableExistingResourcesTransfer_ != nullptr;};
     void deleteEnableExistingResourcesTransfer() { this->enableExistingResourcesTransfer_ = nullptr;};
-    inline bool enableExistingResourcesTransfer() const { DARABONBA_PTR_GET_DEFAULT(enableExistingResourcesTransfer_, false) };
+    inline bool getEnableExistingResourcesTransfer() const { DARABONBA_PTR_GET_DEFAULT(enableExistingResourcesTransfer_, false) };
     inline UpdateAutoGroupingConfigRequest& setEnableExistingResourcesTransfer(bool enableExistingResourcesTransfer) { DARABONBA_PTR_SET_VALUE(enableExistingResourcesTransfer_, enableExistingResourcesTransfer) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   false
     // *   true
-    std::shared_ptr<bool> enableExistingResourcesTransfer_ = nullptr;
+    shared_ptr<bool> enableExistingResourcesTransfer_ {};
   };
 
   } // namespace Models

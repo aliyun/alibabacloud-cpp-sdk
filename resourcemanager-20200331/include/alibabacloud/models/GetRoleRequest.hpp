@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->language_ == nullptr
-        && return this->roleName_ == nullptr; };
+        && this->roleName_ == nullptr; };
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline GetRoleRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // roleName Field Functions 
     bool hasRoleName() const { return this->roleName_ != nullptr;};
     void deleteRoleName() { this->roleName_ = nullptr;};
-    inline string roleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
+    inline string getRoleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
     inline GetRoleRequest& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
 
 
@@ -53,13 +53,13 @@ namespace Models
     // *   en: English
     // *   zh-CN: Chinese
     // *   ja: Japanese
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
     // The name of the role.
     // 
     // The name must be 1 to 64 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
     // 
     // This parameter is required.
-    std::shared_ptr<string> roleName_ = nullptr;
+    shared_ptr<string> roleName_ {};
   };
 
   } // namespace Models
