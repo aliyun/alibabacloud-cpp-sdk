@@ -196,9 +196,7 @@ namespace Models
 
 
           protected:
-            // The key of the tag that is added to the route table.
             shared_ptr<string> key_ {};
-            // The value of the tag that is added to the route table.
             shared_ptr<string> value_ {};
           };
 
@@ -372,55 +370,21 @@ namespace Models
 
 
       protected:
-        // The type of the cloud resource with which the route table is associated. Valid values:
-        // 
-        // *   **VSwitch**: vSwitch
-        // *   **Gateway**: IPv4 gateway
         shared_ptr<string> associateType_ {};
-        // The time when the route table was created.
         shared_ptr<string> creationTime_ {};
-        // The information about the route table.
         shared_ptr<string> description_ {};
-        // The detailed information about the IPv4 gateway.
         shared_ptr<RouterTableListType::GatewayIds> gatewayIds_ {};
-        // The ID of the Alibaba Cloud account to which the route table belongs.
         shared_ptr<int64_t> ownerId_ {};
-        // The ID of the resource group to which the route table belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // Whether to receive the propagation routes. Valid Values:
-        // 
-        // *   **true**: received.
-        // 
-        // *   **false**: not received.
         shared_ptr<bool> routePropagationEnable_ {};
-        // The ID of the route table.
         shared_ptr<string> routeTableId_ {};
-        // The name of the route table.
         shared_ptr<string> routeTableName_ {};
-        // The type of the route table. Valid values:
-        // 
-        // *   **Custom**
-        // *   **System**
         shared_ptr<string> routeTableType_ {};
-        // The ID of the vRouter to which the route table belongs.
         shared_ptr<string> routerId_ {};
-        // The type of the vRouter to which the route table belongs. Valid values:
-        // 
-        // - **VRouter**: a vRouter.
-        // 
-        // - **VBR**: a VBR.
         shared_ptr<string> routerType_ {};
-        // The status of the route table. Valid values:
-        // 
-        // *   **Pending**
-        // *   **Available**
-        // *   **Deleting**
         shared_ptr<string> status_ {};
-        // The tags.
         shared_ptr<RouterTableListType::Tags> tags_ {};
-        // The vSwitch IDs.
         shared_ptr<RouterTableListType::VSwitchIds> vSwitchIds_ {};
-        // The ID of the VPC to which the route table belongs.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -484,7 +448,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The detailed information about the route tables.
     shared_ptr<DescribeRouteTableListResponseBody::RouterTableList> routerTableList_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

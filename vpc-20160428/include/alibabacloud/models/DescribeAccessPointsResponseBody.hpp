@@ -149,9 +149,7 @@ namespace Models
 
 
           protected:
-            // The feature of the access point.
             shared_ptr<string> featureKey_ {};
-            // The feature value of the access point.
             shared_ptr<string> featureValue_ {};
           };
 
@@ -238,28 +236,14 @@ namespace Models
 
 
       protected:
-        // The feature model of the access point.
         shared_ptr<AccessPointType::AccessPointFeatureModels> accessPointFeatureModels_ {};
-        // The ID of the access point.
         shared_ptr<string> accessPointId_ {};
-        // The region ID of the access point.
         shared_ptr<string> attachedRegionNo_ {};
-        // The description of the access point.
         shared_ptr<string> description_ {};
-        // The Internet service provider (ISP) of the access point. Valid values:
         shared_ptr<string> hostOperator_ {};
-        // The location of the access point.
         shared_ptr<string> location_ {};
-        // The name of the access point.
         shared_ptr<string> name_ {};
-        // The status of the access point. Valid values:
-        // 
-        // *   **recommended**: The access point is ready for use.
-        // *   **hot**: A large number of Express Connect circuits are connected to the access point.
-        // *   **full**: The number of Express Connect circuits connected to the access point has reached the upper limit.
-        // *   **disabled**: The access point is unavailable.
         shared_ptr<string> status_ {};
-        // The network type of the Express Connect circuit. Default value: **VPC**.
         shared_ptr<string> type_ {};
       };
 
@@ -317,7 +301,6 @@ namespace Models
 
 
   protected:
-    // The information about the access point.
     shared_ptr<DescribeAccessPointsResponseBody::AccessPointSet> accessPointSet_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};

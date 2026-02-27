@@ -163,9 +163,7 @@ namespace Models
 
 
           protected:
-            // The key of tag N added to the resource.
             shared_ptr<string> key_ {};
-            // The value of tag N added to the resource.
             shared_ptr<string> value_ {};
           };
 
@@ -372,44 +370,21 @@ namespace Models
 
 
       protected:
-        // The list of EIPs associated with the HaVip.
         shared_ptr<HaVip::AssociatedEipAddresses> associatedEipAddresses_ {};
-        // The type of the instance with which the HaVip is associated. Valid values:
-        // 
-        // *   **EcsInstance**: Elastic Compute Service (ECS) instance
-        // *   **NetworkInterface**: elastic network interface (ENI)
         shared_ptr<string> associatedInstanceType_ {};
-        // The information about the instance associated with the HaVip.
         shared_ptr<HaVip::AssociatedInstances> associatedInstances_ {};
-        // The parameter is invalid. No value is returned.
         shared_ptr<string> chargeType_ {};
-        // The time when the HaVip was created.
         shared_ptr<string> createTime_ {};
-        // The description of the HaVip.
         shared_ptr<string> description_ {};
-        // The ID of the HaVip.
         shared_ptr<string> haVipId_ {};
-        // The private IP address of the HaVip.
         shared_ptr<string> ipAddress_ {};
-        // The ID of the active instance that is associated with the HaVip.
         shared_ptr<string> masterInstanceId_ {};
-        // The name of the HaVip.
         shared_ptr<string> name_ {};
-        // The ID of the region to which the HaVip belongs.
         shared_ptr<string> regionId_ {};
-        // The ID of the resource group to which the HaVip belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The status of the HaVip. Valid values:
-        // 
-        // *   **Creating**: The server group is being created.
-        // *   **Available**: The FULLNAT entry is available.
-        // *   **Deleting**
         shared_ptr<string> status_ {};
-        // The tag list.
         shared_ptr<HaVip::Tags> tags_ {};
-        // The ID of the vSwitch to which the HaVip belongs.
         shared_ptr<string> vSwitchId_ {};
-        // The ID of the VPC to which the HaVip belongs.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -467,7 +442,6 @@ namespace Models
 
 
   protected:
-    // The details about the HaVip.
     shared_ptr<DescribeHaVipsResponseBody::HaVips> haVips_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

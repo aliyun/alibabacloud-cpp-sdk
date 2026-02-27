@@ -179,42 +179,16 @@ namespace Models
 
 
       protected:
-        // The AS path of the route entry.
         shared_ptr<string> asPath_ {};
-        // The community attributes of the route entry.
         shared_ptr<string> community_ {};
-        // The timestamp when the route entry was created.
         shared_ptr<int64_t> createTime_ {};
-        // The next hop of the route entry.
         shared_ptr<string> nextHop_ {};
-        // The ID of the tunnel associated with the next hop. 
-        // 
-        // 
-        // > This parameter is returned only if the VPN gateway supports the dual-tunnel mode.
         shared_ptr<string> nextHopTunnelId_ {};
-        // The destination CIDR block of the route entry.
         shared_ptr<string> routeDest_ {};
-        // The type of the route entry. Valid values:
-        // 
-        // *   **Custom**: custom
-        // *   **System**: system
         shared_ptr<string> routeEntryType_ {};
-        // The source of the BGP route. Valid values:
-        // 
-        // *   **CLOUD**: advertised from a cloud service associated with the VPN gateway.
-        // *   **VPN_BGP**: indicates that the current route is learned by using BGP of the VPN gateway. For example, the BGP is used to learn the route of the on-premises data center.
         shared_ptr<string> source_ {};
-        // The status of the route entry. Valid values:
-        // 
-        // *   **published**: advertised
-        // *   **normal**: not advertised
         shared_ptr<string> state_ {};
-        // The ID of the VPN gateway.
         shared_ptr<string> vpnInstanceId_ {};
-        // The weight of the route entry. Valid values: **0** and **100**.
-        // 
-        // *   **0**: a low priority
-        // *   **100**: a high priority
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -298,17 +272,8 @@ namespace Models
 
 
       protected:
-        // The number of route entries.
         shared_ptr<int32_t> routeCount_ {};
-        // The route type. Valid values:
-        // 
-        // *   **custom** (default): destination-based route.
-        // *   **bgp** : BGP route entry.
         shared_ptr<string> routeEntryType_ {};
-        // The source of the BGP route. Valid values:
-        // 
-        // *   **CLOUD**: advertised from a cloud service associated with the VPN gateway.
-        // *   **VPN_BGP**: indicates that the current route is learned by using BGP of the VPN gateway. For example, the BGP is used to learn the route of the on-premises data center.
         shared_ptr<string> source_ {};
       };
 
@@ -383,11 +348,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about route entries of the VPN gateway in dual-tunnel mode.
-    // 
-    // > This parameter is returned only if the VPN gateway supports IPsec-VPN connections in dual-tunnel mode.
     shared_ptr<DescribeVpnRouteEntriesResponseBody::VpnRouteCounts> vpnRouteCounts_ {};
-    // The route entry list.
     shared_ptr<DescribeVpnRouteEntriesResponseBody::VpnRouteEntries> vpnRouteEntries_ {};
   };
 

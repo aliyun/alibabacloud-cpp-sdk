@@ -176,19 +176,12 @@ namespace Models
 
 
       protected:
-        // The time when the vRouter was created.
         shared_ptr<string> creationTime_ {};
-        // The description of the vRouter.
         shared_ptr<string> description_ {};
-        // The region to which the vRouter belongs.
         shared_ptr<string> regionId_ {};
-        // The IDs of the route tables.
         shared_ptr<VRouter::RouteTableIds> routeTableIds_ {};
-        // The ID of the vRouter.
         shared_ptr<string> VRouterId_ {};
-        // The name of the vRouter.
         shared_ptr<string> VRouterName_ {};
-        // The ID of the virtual private cloud (VPC) to which the vRouter belongs.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -254,7 +247,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The details about the vRouters.
     shared_ptr<DescribeVRoutersResponseBody::VRouters> VRouters_ {};
   };
 

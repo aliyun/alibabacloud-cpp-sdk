@@ -214,38 +214,20 @@ namespace Models
 
 
       protected:
-        // The ID of the associated ACL.
         shared_ptr<string> aclId_ {};
-        // Indicates whether ACLs are enabled.
         shared_ptr<string> aclStatus_ {};
-        // The ACL type.
-        // 
-        // *   **white**: a whitelist. IPv6 addresses in the ACL are allowed to access backend services.
-        // *   **black**: a blacklist. IPv6 addresses in the ACL are not allowed to access backend services.
         shared_ptr<string> aclType_ {};
-        // The IPv6 address allocated to the IPv6 Translation Service instance.
         shared_ptr<string> allocateIpv6Addr_ {};
-        // The port used by the IPv6 address allocated to the IPv6 Translation Service instance.
         shared_ptr<int32_t> allocateIpv6Port_ {};
-        // The public IP address of the backend IPv4 server.
         shared_ptr<string> backendIpv4Addr_ {};
-        // The public IPv4 port used by the IPv4 server that needs to provide IPv6 access.
         shared_ptr<string> backendIpv4Port_ {};
-        // The bandwidth specified in the IPv6 mapping entry.
         shared_ptr<string> entryBandwidth_ {};
-        // The description of the IPv6 mapping entry.
         shared_ptr<string> entryDescription_ {};
-        // The name of the IPv6 mapping entry.
         shared_ptr<string> entryName_ {};
-        // The status of the IPv6 mapping entry.
         shared_ptr<string> entryStatus_ {};
-        // The ID of the IPv6 mapping entry.
         shared_ptr<string> ipv6TranslatorEntryId_ {};
-        // The ID of the IPv6 Translation Service instance to which the IPv6 mapping entry belongs.
         shared_ptr<string> ipv6TranslatorId_ {};
-        // The region of the IPv6 Translation Service instance.
         shared_ptr<string> regionId_ {};
-        // The protocol.
         shared_ptr<string> transProtocol_ {};
       };
 
@@ -303,7 +285,6 @@ namespace Models
 
 
   protected:
-    // The IPv6 mapping entries that are queried.
     shared_ptr<DescribeIPv6TranslatorEntriesResponseBody::Ipv6TranslatorEntries> ipv6TranslatorEntries_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

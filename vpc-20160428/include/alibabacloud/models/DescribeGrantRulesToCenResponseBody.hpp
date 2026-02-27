@@ -104,11 +104,8 @@ namespace Models
 
 
       protected:
-        // The ID of the authorized CEN instance.
         shared_ptr<string> cenInstanceId_ {};
-        // The UID of the Alibaba Cloud account to which the authorized CEN instance belongs.
         shared_ptr<int64_t> cenOwnerId_ {};
-        // The time when the instance was created.
         shared_ptr<string> creationTime_ {};
       };
 
@@ -166,7 +163,6 @@ namespace Models
 
 
   protected:
-    // The information about the authorization.
     shared_ptr<DescribeGrantRulesToCenResponseBody::CenGrantRules> cenGrantRules_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

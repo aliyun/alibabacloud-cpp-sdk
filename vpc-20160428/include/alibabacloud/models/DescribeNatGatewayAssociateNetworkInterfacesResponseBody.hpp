@@ -149,12 +149,7 @@ namespace Models
 
 
           protected:
-            // The primary private IP address of the ENI.
             shared_ptr<string> IPv4Address_ {};
-            // Indicates whether the IP address is the primary private IP address. Valid values:
-            // 
-            // *   true: Primary private IP address
-            // *   false: Secondary private IP addresses
             shared_ptr<bool> primary_ {};
           };
 
@@ -227,19 +222,12 @@ namespace Models
 
 
       protected:
-        // The IPv4 addresses of the ENIs.
         shared_ptr<AssociateNetworkInterface::IPv4Sets> IPv4Sets_ {};
-        // The ID of the ENI.
         shared_ptr<string> networkInterfaceId_ {};
-        // The ID of the service resource.
         shared_ptr<string> resourceId_ {};
-        // The UID of the account to which the service resource belongs.
         shared_ptr<string> resourceOwnerId_ {};
-        // The type of the service resource.
         shared_ptr<string> resourceType_ {};
-        // VPC ID of the service resource
         shared_ptr<string> resourceVpcId_ {};
-        // The ID of the tunnel index.
         shared_ptr<string> tunnelIndex_ {};
       };
 
@@ -312,7 +300,6 @@ namespace Models
 
 
   protected:
-    // The ENIs associated with the VPC NAT gateway.
     shared_ptr<DescribeNatGatewayAssociateNetworkInterfacesResponseBody::AssociateNetworkInterfaces> associateNetworkInterfaces_ {};
     // Number of associated ENIs.
     shared_ptr<int32_t> count_ {};

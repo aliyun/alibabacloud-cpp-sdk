@@ -218,22 +218,23 @@ namespace Models
 
 
         protected:
-          // The authentication key of the BGP routing protocol.
+          // BGP路由协议的认证密钥。
           shared_ptr<string> authKey_ {};
-          // The ASN on the Alibaba Cloud side.
+          // 阿里云侧自治系统号。
           shared_ptr<int64_t> localAsn_ {};
-          // The BGP IP address on the Alibaba Cloud side.
+          // 阿里云侧BGP地址。
           shared_ptr<string> localBgpIp_ {};
-          // The ASN of the peer.
+          // 对端自治系统号。
           shared_ptr<int64_t> peerAsn_ {};
-          // The BGP IP address of the peer.
+          // 对端BGP地址。
           shared_ptr<string> peerBgpIp_ {};
-          // The negotiation state of the BGP routing protocol. Valid values:
+          // BGP路由协议的协商状态。
           // 
-          // *   **success**
-          // *   **false**
+          // - **success**：正常。
+          // 
+          // - **false**：异常。
           shared_ptr<string> status_ {};
-          // The BGP CIDR block of the IPsec-VPN connection. The CIDR block falls within 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
+          // IPsec连接BGP网段。该网段是一个在169.254.0.0/16内的子网掩码长度为30的网段。
           shared_ptr<string> tunnelCidr_ {};
         };
 
@@ -321,28 +322,29 @@ namespace Models
 
 
         protected:
-          // The destination IP address.
+          // 目的IP地址。
           shared_ptr<string> dip_ {};
-          // Indicates whether the health check feature is enabled.
+          // 健康检查的开启状态。
           // 
-          // *   **true**
-          // *   **false**
+          // - **true**：已开启。
+          // 
+          // - **false**：未开启。
           shared_ptr<string> enable_ {};
-          // The interval between two consecutive health checks. Unit: seconds.
+          // 健康检查的时间间隔。单位：秒。
           shared_ptr<int32_t> interval_ {};
-          // Indicates whether advertised routes are withdrawn when the health check fails.
+          // 健康检查失败时是否撤销已发布的路由。
           // 
-          // *   **revoke_route**: Advertised routes are withdrawn.
-          // *   **reserve_route**: Advertised routes are not withdrawn.
+          // - **revoke_route**：撤销路由。
+          // - **reserve_route**：不撤销路由。
           shared_ptr<string> policy_ {};
-          // The maximum number of health check retries.
+          // 健康检查的重试发包次数。
           shared_ptr<int32_t> retry_ {};
-          // The source IP address.
+          // 源IP地址。
           shared_ptr<string> sip_ {};
-          // The state of the health check. Valid values:
+          // 健康检查状态。
           // 
-          // *   **success**
-          // *   **failed**
+          // - **success**：正常。
+          // - **failed**：异常。
           shared_ptr<string> status_ {};
         };
 
@@ -466,13 +468,13 @@ namespace Models
 
 
             protected:
-              // The authentication algorithm in the IPsec phase.
+              // IPsec阶段认证算法。
               shared_ptr<string> ipsecAuthAlg_ {};
-              // The encryption algorithm in the IPsec phase.
+              // IPsec阶段加密算法。
               shared_ptr<string> ipsecEncAlg_ {};
-              // The lifetime in the IPsec phase. Unit: seconds.
+              // IPsec阶段生存时间。单位：秒。
               shared_ptr<string> ipsecLifetime_ {};
-              // The DH group in the IPsec phase.
+              // IPsec阶段DH分组。
               shared_ptr<string> ipsecPfs_ {};
             };
 
@@ -578,26 +580,26 @@ namespace Models
 
 
             protected:
-              // The authentication algorithm in the IKE phase.
+              // IKE阶段认证算法。
               shared_ptr<string> ikeAuthAlg_ {};
-              // The encryption algorithm in the IKE phase.
+              // IKE阶段加密算法。
               shared_ptr<string> ikeEncAlg_ {};
-              // The lifetime in the IKE phase. Unit: seconds.
+              // IKE阶段生存时间。单位：秒。
               shared_ptr<string> ikeLifetime_ {};
-              // The IKE negotiation mode.
+              // IKE协商模式。
               // 
-              // *   **main**: This mode offers higher security during negotiations.
-              // *   **aggressive**: This mode is faster and has a higher success rate.
+              // - **main**：主模式，协商过程安全性高。
+              // - **aggressive**：野蛮模式，协商快速且协商成功率高。
               shared_ptr<string> ikeMode_ {};
-              // The DH group in the IKE phase.
+              // IKE阶段DH分组。
               shared_ptr<string> ikePfs_ {};
-              // The version of the IKE protocol.
+              // IKE协议版本。
               shared_ptr<string> ikeVersion_ {};
-              // The identifier of the tunnel on the Alibaba Cloud side.
+              // 隧道本端（阿里云侧）的标识。
               shared_ptr<string> localId_ {};
-              // The pre-shared key.
+              // 预共享密钥。
               shared_ptr<string> psk_ {};
-              // The identifier of the tunnel peer.
+              // 隧道对端的标识。
               shared_ptr<string> remoteId_ {};
             };
 
@@ -675,20 +677,20 @@ namespace Models
 
 
             protected:
-              // The negotiation state of BGP. Valid values:
+              // BGP的协商状态。
               // 
-              // *   **success**
-              // *   **false**
+              // - **success**：正常。
+              // - **failed**：异常。
               shared_ptr<string> bgpStatus_ {};
-              // The ASN on the Alibaba Cloud side.
+              // 隧道本端（阿里云侧）的自治系统号。
               shared_ptr<string> localAsn_ {};
-              // The BGP address on the Alibaba Cloud side.
+              // 隧道本端（阿里云侧）的BGP地址。
               shared_ptr<string> localBgpIp_ {};
-              // The ASN of the tunnel peer.
+              // 隧道对端的自治系统号。
               shared_ptr<string> peerAsn_ {};
-              // The BGP IP address of the tunnel peer.
+              // 隧道对端的BGP地址。
               shared_ptr<string> peerBgpIp_ {};
-              // The BGP CIDR block of the tunnel.
+              // 隧道的BGP网段。
               shared_ptr<string> tunnelCidr_ {};
             };
 
@@ -801,58 +803,59 @@ namespace Models
 
 
           protected:
-            // The ID of the customer gateway associated with the tunnel.
+            // 隧道关联的用户网关ID。
             shared_ptr<string> customerGatewayId_ {};
-            // Indicates whether the DPD feature is enabled for the tunnel. Valid values:
-            // 
-            // *   **false**
-            // *   **true**
+            // 隧道是否已开启DPD（对等体存活检测）功能。
+            // - **false**：未开启。
+            // - **true**：已开启。
             shared_ptr<string> enableDpd_ {};
-            // Indicates whether NAT traversal is enabled for the tunnel. Valid values:
+            // 隧道是否已开启NAT穿越功能。
             // 
-            // *   **false**
-            // *   **true**
+            // - **false**：未开启。
+            // - **true**：已开启。
             shared_ptr<string> enableNatTraversal_ {};
-            // The tunnel IP address.
+            // 隧道的IP地址。
             shared_ptr<string> internetIp_ {};
-            // The CA certificate of the tunnel peer.
+            // 隧道对端的CA证书。
             // 
-            // This parameter is returned only if the VPN gateway is of the SM type.
+            // 仅VPN网关实例的类型为国密型时才会返回当前参数。
             shared_ptr<string> remoteCaCertificate_ {};
-            // The tunnel role. Valid values:
+            // 隧道的角色。
             // 
-            // *   **master**: The tunnel is an active tunnel.
-            // *   **slave**: The tunnel is a standby tunnel.
+            // - **master**：表示当前隧道为主隧道。
+            // - **slave**：表示当前隧道为备隧道。
             shared_ptr<string> role_ {};
-            // The tunnel status. Valid values:
+            // 隧道的状态。
             // 
-            // *   **active**
-            // *   **updating**
-            // *   **deleting**
+            // - **active**：状态正常。
+            // - **updating**：更新中。
+            // - **deleting**：删除中。
             shared_ptr<string> state_ {};
-            // The state of the IPsec-VPN connection. Valid values:
+            // IPsec连接的状态。
             // 
-            // *   **ike_sa_not_established**: Phase 1 negotiations failed.
-            // *   **ike_sa_established**: Phase 1 negotiations succeeded.
-            // *   **ipsec_sa_not_established**: Phase 2 negotiations failed.
-            // *   **ipsec_sa_established**: Phase 2 negotiations succeeded.
+            // - **ike_sa_not_established**：第一阶段协商失败。
+            // 
+            // - **ike_sa_established**：第一阶段协商成功。
+            // 
+            // - **ipsec_sa_not_established**：第二阶段协商失败。
+            // 
+            // - **ipsec_sa_established**：第二阶段协商成功。
             shared_ptr<string> status_ {};
-            // The BGP configurations.
+            // 隧道的BGP配置信息。
             shared_ptr<TunnelOptions::TunnelBgpConfig> tunnelBgpConfig_ {};
-            // The tunnel ID.
+            // 隧道ID。
             shared_ptr<string> tunnelId_ {};
-            // The configuration of Phase 1 negotiations.
+            // 第一阶段协商的配置。
             shared_ptr<TunnelOptions::TunnelIkeConfig> tunnelIkeConfig_ {};
-            // The order in which the tunnel is created.
+            // 隧道的创建顺序。
+            // - **1**：第一条隧道。
+            // - **2**：第二条隧道。
             // 
-            // *   **1**: Tunnel 1.
-            // *   **2**: Tunnel 2.
-            // 
-            // >  This parameter is returned only if the IPsec-VPN connection is associated with a transit router.
+            // > 仅IPsec连接绑定转发路由器时会返回该参数。
             shared_ptr<int32_t> tunnelIndex_ {};
-            // The configurations of Phase 2 negotiations.
+            // 第二阶段协商的配置。
             shared_ptr<TunnelOptions::TunnelIpsecConfig> tunnelIpsecConfig_ {};
-            // The zone of the tunnel.
+            // 隧道部署的可用区。
             shared_ptr<string> zoneNo_ {};
           };
 
@@ -927,9 +930,9 @@ namespace Models
 
 
           protected:
-            // The tag key of the IPsec-VPN connection.
+            // 标签键。
             shared_ptr<string> key_ {};
-            // The tag value of the IPsec-VPN connection.
+            // 标签值。
             shared_ptr<string> value_ {};
           };
 
@@ -1003,13 +1006,13 @@ namespace Models
 
 
         protected:
-          // The authentication algorithm in the IPsec phase.
+          // IPsec阶段认证算法。
           shared_ptr<string> ipsecAuthAlg_ {};
-          // The encryption algorithm in the IPsec phase.
+          // IPsec阶段加密算法。
           shared_ptr<string> ipsecEncAlg_ {};
-          // The lifetime in the IPsec phase. Unit: seconds.
+          // IPsec阶段生存时间。单位：秒。
           shared_ptr<int64_t> ipsecLifetime_ {};
-          // The DH group in the IPsec phase.
+          // IPsec阶段DH分组。
           shared_ptr<string> ipsecPfs_ {};
         };
 
@@ -1115,31 +1118,31 @@ namespace Models
 
 
         protected:
-          // The authentication algorithm in the IKE phase.
+          // IKE阶段认证算法。
           shared_ptr<string> ikeAuthAlg_ {};
-          // The encryption algorithm in the IKE phase.
+          // IKE阶段加密算法。
           shared_ptr<string> ikeEncAlg_ {};
-          // The lifetime in the IKE phase. Unit: seconds.
+          // IKE阶段生存时间。单位：秒。
           shared_ptr<int64_t> ikeLifetime_ {};
-          // The IKE negotiation mode.
+          // IKE阶段协商模式。
           // 
-          // *   **main**: This mode offers higher security during negotiations.
-          // *   **aggressive**: This mode is faster and has a higher success rate.
+          // - **main**：主模式，协商过程安全性高。
+          // - **aggressive**：野蛮模式，协商快速且协商成功率高。
           shared_ptr<string> ikeMode_ {};
-          // The DH group in the IKE phase.
+          // IKE阶段DH分组。
           shared_ptr<string> ikePfs_ {};
-          // The version of the IKE protocol.
+          // IKE协议版本。
           // 
-          // *   **ikev1**
-          // *   **ikev2**
+          // - **ikev1**
+          // - **ikev2**
           // 
-          // Compared with IKEv1, IKEv2 simplifies the SA negotiation process and is more suitable for scenarios in which multiple CIDR blocks are used.
+          // 相对于IKEv1版本，IKEv2版本简化了SA的协商过程并且对于多网段的场景提供了更好的支持。
           shared_ptr<string> ikeVersion_ {};
-          // The identifier of the IPsec-VPN connection on the data center side.
+          // IPsec连接对端本地数据中心侧的标识。
           shared_ptr<string> localId_ {};
-          // The pre-shared key.
+          // 预共享密钥。
           shared_ptr<string> psk_ {};
-          // The identifier of the IPsec-VPN connection on the Alibaba Cloud side.
+          // IPsec连接阿里云侧的标识。
           shared_ptr<string> remoteId_ {};
         };
 
@@ -1373,120 +1376,126 @@ namespace Models
 
 
       protected:
-        // The ID of the CEN instance to which the transit router belongs.
+        // 转发路由器实例所属的云企业网实例ID。
         shared_ptr<string> attachInstanceId_ {};
-        // The type of resource that is associated with the IPsec-VPN connection. Valid values:
+        // IPsec连接绑定的资源类型。
         // 
-        // *   **CEN**: indicates that the IPsec-VPN connection is associated with a transit router of a Cloud Enterprise Network (CEN) instance.
-        // *   **NO_ASSOCIATED**: indicates that the IPsec-VPN connection is not associated with any resource.
-        // *   **VPNGW**: indicates that the IPsec-VPN connection is associated with a VPN gateway.
+        // - **CEN**：表示IPsec连接已绑定云企业网实例下的转发路由器实例。
+        // - **NO_ASSOCIATED**：表示IPsec连接未绑定任何资源。
+        // - **VPNGW**：表示IPsec连接绑定了VPN网关实例。
         shared_ptr<string> attachType_ {};
-        // The timestamp generated when the IPsec-VPN connection was established. Unit: milliseconds.
+        // 创建IPsec连接的时间戳。单位：毫秒。
         // 
-        // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+        // 时间戳的格式采用Unix时间戳，表示从格林威治时间1970年01月01日00时00分00秒至创建IPsec连接时的总时长。
         shared_ptr<int64_t> createTime_ {};
-        // Indicates whether the IPsec-VPN connection is associated with a transit router that belongs to another Alibaba Cloud account. Valid values:
+        // IPsec连接是否绑定了跨账号的转发路由器实例。
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**：是。
+        // - **false**：否。
         shared_ptr<bool> crossAccountAuthorized_ {};
-        // The ID of the customer gateway associated with the IPsec-VPN connection.
+        // IPsec连接关联的用户网关的实例ID。
         shared_ptr<string> customerGatewayId_ {};
-        // Indicates whether IPsec negotiations immediately start.
+        // IPsec连接的配置是否立即生效。
         // 
-        // *   **true**: Negotiations are reinitiated after the configuration is changed.
-        // *   **false**: Negotiations are reinitiated after traffic is detected.
+        // - **true**：是，配置变更完成后触发重连。
+        // - **false**：否，有流量时触发重连。
         shared_ptr<bool> effectImmediately_ {};
-        // Indicates whether dead peer detection (DPD) is enabled for the IPsec-VPN connection. Valid values:
+        // IPsec连接是否已开启DPD（对等体存活检测）功能。
         // 
-        // *   **true**
+        // - **true**：开启DPD功能。
         // 
-        //     The initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no feedback is received from the peer within a specific period of time, the connection fails. Then, the ISAKMP security association (SA), IPsec SA, and IPsec tunnel are deleted.
+        //     IPsec发起端会发送DPD报文用来检测对端的设备是否存活，如果在设定时间内未收到正确回应则认为对端已经断线，IPsec将删除ISAKMP SA和相应的IPsec SA，安全隧道同样也会被删除。
         // 
-        // *   **false**
+        // - **false**：不开启DPD功能，IPsec发起端不会发送DPD探测报文。
         shared_ptr<bool> enableDpd_ {};
-        // Indicates whether NAT traversal is enabled for the IPsec-VPN connection.
+        // IPsec连接是否已开启NAT穿越功能。
         // 
-        // *   **true**
+        // - **true**：开启NAT穿越功能。
         // 
-        //     After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the IPsec tunnel.
+        //    开启后，IKE协商过程会删除对UDP端口号的验证过程，同时实现对VPN隧道中NAT网关设备的发现功能。
         // 
-        // *   **false**
+        // - **false**：不开启NAT穿越功能。
         shared_ptr<bool> enableNatTraversal_ {};
-        // Indicates whether BGP is enabled for the tunnel. Valid values:
+        // 隧道BGP的开启状态。
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**：已开启。
+        // - **false**：未开启。
         shared_ptr<bool> enableTunnelsBgp_ {};
-        // The configurations of Phase 1 negotiations.
+        // 第一阶段协商的配置。
         shared_ptr<VpnConnection::IkeConfig> ikeConfig_ {};
-        // The gateway IP address of the IPsec-VPN connection.
+        // IPsec连接的网关IP地址。
         // 
-        // >  This parameter is returned only if the IPsec-VPN connection is associated with a transit router.
+        // > 仅IPsec连接绑定转发路由器实例时会返回当前参数。
         shared_ptr<string> internetIp_ {};
-        // The configurations of Phase 2 negotiations.
+        // 第二阶段协商的配置。
         shared_ptr<VpnConnection::IpsecConfig> ipsecConfig_ {};
-        // The CIDR block on the Alibaba Cloud side.
+        // IPsec连接阿里云侧的网段。
         // 
-        // Multiple CIDR blocks are separated by commas (,).
+        // 在多个网段的情况下，网段之间使用半角逗号（,）分隔。
         shared_ptr<string> localSubnet_ {};
-        // The name of the IPsec-VPN connection.
+        // IPsec连接的名称。
         shared_ptr<string> name_ {};
-        // The network type of the IPsec-VPN connection. Valid values:
+        // IPsec连接的网络类型。
         // 
-        // *   **public**
-        // *   **private**
+        // - **public**：公网，表示IPsec连接通过公网建立加密通信通道。
+        // - **private**：私网，表示IPsec连接通过私网建立加密通信通道。
         shared_ptr<string> networkType_ {};
-        // The certificate authority (CA) certificate of the peer.
+        // 对端的CA证书。
         shared_ptr<string> remoteCaCertificate_ {};
-        // The CIDR block of the data center.
+        // 本地数据中心侧的网段。
         // 
-        // Multiple CIDR blocks are separated by commas (,).
+        // 在多个网段的情况下，网段之间使用半角逗号（,）分隔。
         shared_ptr<string> remoteSubnet_ {};
-        // The ID of the resource group to which the IPsec-VPN connection belongs.
+        // IPsec连接所属的资源组ID。
         // 
-        // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group information.
+        // 您可以调用[ListResourceGroups](https://help.aliyun.com/document_detail/158855.html)接口查询资源组信息。
         shared_ptr<string> resourceGroupId_ {};
-        // The bandwidth specification of the IPsec-VPN connection. Unit: **Mbit/s**.
+        // IPsec连接的带宽规格。单位：**Mbps**。
         shared_ptr<string> spec_ {};
-        // The association state of the IPsec-VPN connection. Valid values:
+        // IPsec连接与转发路由器实例的绑定状态。
         // 
-        // *   **active**: The IPsec-VPN connection is associated with a VPN gateway.
-        // *   **init**: The IPsec-VPN connection is not associated with any resource and is being initialized.
-        // *   **attaching**: The IPsec-VPN connection is being associated with a transit router.
-        // *   **attached**: The IPsec-VPN connection is associated with a transit router.
-        // *   **detaching**: The IPsec-VPN connection is being disassociated from a transit router.
-        // *   **financialLocked**: The IPsec-VPN connection is locked due to overdue payments.
-        // *   **provisioning**: The IPsec-VPN connection is being prepared.
-        // *   **updating**: The IPsec-VPN connection is being updated.
-        // *   **Upgrading**: The IPsec-VPN connection is being upgraded.
-        // *   **deleted**: The IPsec-VPN connection is deleted.
+        // - **active**：IPsec连接已与VPN网关实例绑定，状态正常。
+        // - **init**：IPsec连接未绑定任何资源，IPsec连接初始化。
+        // - **attaching**：IPsec连接与转发路由器实例绑定中。
+        // - **attached**：IPsec连接已与转发路由器实例绑定。
+        // - **detaching**：IPsec连接与转发路由器实例解绑中。
+        // - **financialLocked**：欠费锁定。
+        // - **provisioning**：资源准备中。
+        // - **updating**：更新中。
+        // - **upgrading**：升级中。
+        // - **deleted**：已删除。
         shared_ptr<string> state_ {};
-        // The status of the IPsec-VPN connection. Valid values:
+        // IPsec连接的状态。
         // 
-        // *   **ike_sa_not_established**: Phase 1 negotiations failed.
-        // *   **ike_sa_established**: Phase 1 negotiations succeeded.
-        // *   **ipsec_sa_not_established**: Phase 2 negotiations failed.
-        // *   **ipsec_sa_established**: Phase 2 negotiations succeeded.
+        // - **ike_sa_not_established**：第一阶段协商失败。
+        // 
+        // - **ike_sa_established**：第一阶段协商成功。
+        // 
+        // - **ipsec_sa_not_established**：第二阶段协商失败。
+        // 
+        // - **ipsec_sa_established**：第二阶段协商成功。
         shared_ptr<string> status_ {};
-        // The list of tags to be added to the IPsec-VPN connection.
+        // IPsec连接绑定的标签列表。
         shared_ptr<VpnConnection::Tag> tag_ {};
-        // The ID of the transit router with which the IPsec-VPN connection is associated.
+        // IPsec连接绑定的转发路由器实例ID。
         shared_ptr<string> transitRouterId_ {};
-        // The name of the transit router.
+        // 转发路由器实例的名称。
         shared_ptr<string> transitRouterName_ {};
+        // 用于说明VPN单条隧道的带宽规格，取值：
+        // Standard（默认值）：标准型，默认带宽1Gbps
+        // Large（大型）：大型，默认带宽3Gbps
         shared_ptr<string> tunnelBandwidth_ {};
-        // The tunnel configurations of the IPsec-VPN connection.
+        // IPsec连接的隧道配置信息。
         // 
-        // Parameters in **TunnelOptionsSpecification** are returned only if you query an IPsec-VPN connection in dual-tunnel mode.
+        // 仅查询双隧道模式的IPsec连接会返回**TunnelOptionsSpecification**数组下的参数。
         shared_ptr<VpnConnection::TunnelOptionsSpecification> tunnelOptionsSpecification_ {};
-        // The health check configuration of the IPsec-VPN connection.
+        // IPsec连接的健康检查配置。
         shared_ptr<VpnConnection::VcoHealthCheck> vcoHealthCheck_ {};
-        // The BGP configuration of the IPsec-VPN connection.
+        // IPsec连接BGP路由协议的配置。
         shared_ptr<VpnConnection::VpnBgpConfig> vpnBgpConfig_ {};
-        // The ID of the IPsec-VPN connection.
+        // IPsec连接的ID。
         shared_ptr<string> vpnConnectionId_ {};
-        // The ID of the VPN gateway.
+        // VPN网关的实例ID。
         shared_ptr<string> vpnGatewayId_ {};
       };
 
@@ -1552,7 +1561,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about the IPsec-VPN connections.
     shared_ptr<DescribeVpnConnectionsResponseBody::VpnConnections> vpnConnections_ {};
   };
 

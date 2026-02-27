@@ -143,9 +143,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // 标签键。
         shared_ptr<string> key_ {};
-        // The tag value.
+        // 标签值。
         shared_ptr<string> value_ {};
       };
 
@@ -565,8 +565,10 @@ namespace Models
     // 
     // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> endTime_ {};
-    // The ENIs created by the system for the VPN gateway.
     shared_ptr<DescribeVpnGatewayResponseBody::EniInstanceIds> eniInstanceIds_ {};
+    // Type of VPN gateway:
+    // - **Traditional**: Traditional-type VPN gateway, supports both IPSec and SSL.
+    // - **Enhanced.SiteToSite**: Enhanced Site-to-Site VPN gateway, only supports IPSec.
     shared_ptr<string> gatewayType_ {};
     // *   If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the address is the IP address of the VPN gateway and can be used to create an IPsec-VPN connection or an SSL-VPN connection.
     // 
@@ -648,7 +650,6 @@ namespace Models
     //     *   **true**
     //     *   **false**
     shared_ptr<string> tag_ {};
-    // The tags that are added to the VPN gateway.
     shared_ptr<DescribeVpnGatewayResponseBody::Tags> tags_ {};
     // The ID of the vSwitch to which the VPN gateway belongs.
     shared_ptr<string> vSwitchId_ {};

@@ -167,9 +167,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -225,12 +223,7 @@ namespace Models
 
 
         protected:
-          // The ID of the route table that is associated with the vSwitch.
           shared_ptr<string> routeTableId_ {};
-          // The type of the route table. Valid values:
-          // 
-          // *   **System**
-          // *   **Custom**
           shared_ptr<string> routeTableType_ {};
         };
 
@@ -370,54 +363,23 @@ namespace Models
 
 
       protected:
-        // The number of available IP addresses in the vSwitch.
         shared_ptr<int64_t> availableIpAddressCount_ {};
-        // The IPv4 CIDR block of the vSwitch.
         shared_ptr<string> cidrBlock_ {};
-        // The time when the vSwitch was created.
         shared_ptr<string> creationTime_ {};
-        // The description of the vSwitch.
         shared_ptr<string> description_ {};
-        // Indicates whether IPv6 is enabled for the vSwitch. If you enable IPv6, you must configure an IPv6 CIDR block for the vSwitch. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> enabledIpv6_ {};
-        // The IPv6 CIDR block of the vSwitch.
         shared_ptr<string> ipv6CidrBlock_ {};
-        // Indicates whether the vSwitch is the default vSwitch. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> isDefault_ {};
-        // The ID of the network access control list (ACL).
         shared_ptr<string> networkAclId_ {};
-        // The ID of the Alibaba Cloud account to which the resource belongs.
         shared_ptr<int64_t> ownerId_ {};
-        // The ID of the resource group to which the vSwitch belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The information about the route table.
         shared_ptr<VSwitch::RouteTable> routeTable_ {};
-        // Indicates whether the vSwitch is shared.
-        // 
-        // *   If no value is returned, the vSwitch is a regular vSwitch.
-        // *   If **Shared** is returned, the vSwitch is shared.
-        // *   If **Sharing** is returned, the vSwitch is being shared.
         shared_ptr<string> shareType_ {};
-        // The status of the vSwitch. Valid values:
-        // 
-        // *   **Pending**
-        // *   **Available**
         shared_ptr<string> status_ {};
-        // The tags of the vSwitch.
         shared_ptr<VSwitch::Tags> tags_ {};
-        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The vSwitch name.
         shared_ptr<string> vSwitchName_ {};
-        // The ID of the VPC to which the vSwitch belongs.
         shared_ptr<string> vpcId_ {};
-        // The ID of the zone to which the vSwitch belongs.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -483,7 +445,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The details about the vSwitch.
     shared_ptr<DescribeVSwitchesResponseBody::VSwitches> vSwitches_ {};
   };
 

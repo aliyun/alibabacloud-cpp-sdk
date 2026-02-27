@@ -108,11 +108,8 @@ namespace Models
 
 
       protected:
-        // The remarks of the ACL entry.
         shared_ptr<string> aclEntryComment_ {};
-        // The ID of the ACL entry.
         shared_ptr<string> aclEntryId_ {};
-        // The IP address specified in the ACL entry.
         shared_ptr<string> aclEntryIp_ {};
       };
 
@@ -185,7 +182,6 @@ namespace Models
 
 
   protected:
-    // The ACLs.
     shared_ptr<DescribeIPv6TranslatorAclListAttributesResponseBody::AclEntries> aclEntries_ {};
     // The ACL ID.
     shared_ptr<string> aclId_ {};

@@ -207,9 +207,7 @@ namespace Models
 
 
       protected:
-        // The key of tag N.
         shared_ptr<string> key_ {};
-        // The value of tag N.
         shared_ptr<string> value_ {};
       };
 
@@ -317,16 +315,7 @@ namespace Models
 
 
       protected:
-        // The IPv6 CIDR block of the VPC.
         shared_ptr<string> ipv6CidrBlock_ {};
-        // The IPv6 CIDR block type of the VPC. Valid values:
-        // 
-        // *   **BGP** (default)
-        // *   **ChinaMobile**
-        // *   **ChinaUnicom**
-        // *   **ChinaTelecom**
-        // 
-        // >  If you are allowed to use single-ISP bandwidth, valid values are **ChinaTelecom**, **ChinaUnicom**, and **ChinaMobile**
         shared_ptr<string> ipv6Isp_ {};
       };
 
@@ -401,13 +390,7 @@ namespace Models
 
 
       protected:
-        // The number of resources in the VPC.
         shared_ptr<int32_t> resourceCount_ {};
-        // The type of resource deployed in the VPC. Valid values: Valid values:
-        // 
-        // *   **VSwitch**
-        // *   **VRouter**
-        // *   **RouteTable**
         shared_ptr<string> resourceType_ {};
       };
 
@@ -509,24 +492,10 @@ namespace Models
 
 
       protected:
-        // Indicates whether routes are advertised to the VPC.
         shared_ptr<bool> routePropagated_ {};
-        // The instance ID of the source.
         shared_ptr<string> sourceInstanceId_ {};
-        // The account ID of the source.
         shared_ptr<int64_t> sourceOwnerId_ {};
-        // The source type.
-        // 
-        // *   **CEN**
-        // *   **VPN**
-        // *   **TR**
-        // *   **ECR**
         shared_ptr<string> sourceType_ {};
-        // The binding status.
-        // 
-        // *   **Attaching**
-        // *   **Attached**
-        // *   **Detaching**
         shared_ptr<string> status_ {};
       };
 
@@ -610,13 +579,8 @@ namespace Models
 
 
       protected:
-        // The ID of the CEN instance to which the VPC is attached.
         shared_ptr<string> cenId_ {};
-        // The ID of the account to which the CEN instance belongs.
         shared_ptr<int64_t> cenOwnerId_ {};
-        // The status of the CEN instance.
-        // 
-        // **Attached** is returned only when the VPC is attached to a CEN instance.
         shared_ptr<string> cenStatus_ {};
       };
 
@@ -854,11 +818,7 @@ namespace Models
 
 
   protected:
-    // The list of Cloud Enterprise Network (CEN) instances to which the VPC is attached.
-    // 
-    // If the VPC is not attached to a CEN instance, the parameter is not returned.
     shared_ptr<DescribeVpcAttributeResponseBody::AssociatedCens> associatedCens_ {};
-    // The route source associated with the VPC.
     shared_ptr<DescribeVpcAttributeResponseBody::AssociatedPropagationSources> associatedPropagationSources_ {};
     // The IPv4 CIDR block of the VPC.
     shared_ptr<string> cidrBlock_ {};
@@ -867,7 +827,6 @@ namespace Models
     // *   **true**
     // *   **false** (default)
     shared_ptr<bool> classicLinkEnabled_ {};
-    // The list of resources deployed in the VPC.
     shared_ptr<DescribeVpcAttributeResponseBody::CloudResources> cloudResources_ {};
     // The time when the VPC was created.
     shared_ptr<string> creationTime_ {};
@@ -892,7 +851,6 @@ namespace Models
     shared_ptr<string> ipv4GatewayId_ {};
     // The IPv6 CIDR block of the VPC.
     shared_ptr<string> ipv6CidrBlock_ {};
-    // The IPv6 CIDR block of the VPC.
     shared_ptr<DescribeVpcAttributeResponseBody::Ipv6CidrBlocks> ipv6CidrBlocks_ {};
     // Indicates whether the VPC is the default VPC. Valid values:
     // 
@@ -907,7 +865,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The secondary IPv4 CIDR block of the VPC.
     shared_ptr<DescribeVpcAttributeResponseBody::SecondaryCidrBlocks> secondaryCidrBlocks_ {};
     // The status of the VPC. Valid values:
     // 
@@ -919,13 +876,10 @@ namespace Models
     // *   **true**
     // *   **false**
     shared_ptr<bool> supportIpv4Gateway_ {};
-    // The information about the tags.
     shared_ptr<DescribeVpcAttributeResponseBody::Tags> tags_ {};
-    // The user CIDR block. Multiple CIDR blocks are separated by commas (,). At most three CIDR blocks are returned.
     shared_ptr<DescribeVpcAttributeResponseBody::UserCidrs> userCidrs_ {};
     // The ID of the vRouter that belongs to the VPC.
     shared_ptr<string> VRouterId_ {};
-    // The list of vSwitches deployed in the VPC.
     shared_ptr<DescribeVpcAttributeResponseBody::VSwitchIds> vSwitchIds_ {};
     // The ID of the VPC.
     shared_ptr<string> vpcId_ {};

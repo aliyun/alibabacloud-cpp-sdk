@@ -105,9 +105,7 @@ namespace Models
 
 
       protected:
-        // The tag key.
         shared_ptr<string> key_ {};
-        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -223,7 +221,6 @@ namespace Models
     // 
     // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
     shared_ptr<string> resourceGroupId_ {};
-    // The list of tags added to the customer gateway.
     shared_ptr<DescribeCustomerGatewayResponseBody::Tags> tags_ {};
   };
 

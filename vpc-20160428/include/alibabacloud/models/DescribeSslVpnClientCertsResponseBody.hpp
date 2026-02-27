@@ -150,31 +150,13 @@ namespace Models
 
 
       protected:
-        // The timestamp generated when the SSL client certificate was created. Unit: milliseconds.
-        // 
-        // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> createTime_ {};
-        // The timestamp generated when the SSL client certificate expires. Unit: milliseconds.
-        // 
-        // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> endTime_ {};
-        // The name of the SSL client certificate.
         shared_ptr<string> name_ {};
-        // The region ID of the SSL client certificate.
         shared_ptr<string> regionId_ {};
-        // The ID of the resource group to which the SSL client certificate belongs.
-        // 
-        // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
         shared_ptr<string> resourceGroupId_ {};
-        // The ID of the SSL client certificate.
         shared_ptr<string> sslVpnClientCertId_ {};
-        // The ID of the SSL server.
         shared_ptr<string> sslVpnServerId_ {};
-        // The status of the SSL client certificate. Valid values:
-        // 
-        // *   **expiring-soon**: The certificate expires in one week.
-        // *   **normal**
-        // *   **expired**
         shared_ptr<string> status_ {};
       };
 
@@ -238,7 +220,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the SSL client certificates.
     shared_ptr<DescribeSslVpnClientCertsResponseBody::SslVpnClientCertKeys> sslVpnClientCertKeys_ {};
     // The number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

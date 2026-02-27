@@ -215,9 +215,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the resource.
             shared_ptr<string> key_ {};
-            // The tag value of the resource.
             shared_ptr<string> value_ {};
           };
 
@@ -411,63 +409,20 @@ namespace Models
 
 
           protected:
-            // The circuit code of the Express Connect circuit, which is provided by the connectivity provider.
             shared_ptr<string> circuitCode_ {};
-            // Indicates whether IPv6 is enabled. Valid values:
-            // 
-            // *   **true**
-            // *   **false**
             shared_ptr<bool> enableIpv6_ {};
-            // The IPv4 address of the VBR on the Alibaba Cloud side.
             shared_ptr<string> localGatewayIp_ {};
-            // The IPv6 address of the VBR on the Alibaba Cloud side.
             shared_ptr<string> localIpv6GatewayIp_ {};
-            // The IPv4 address of the VBR on the user side.
             shared_ptr<string> peerGatewayIp_ {};
-            // The IPv6 address of the VBR on the user side.
             shared_ptr<string> peerIpv6GatewayIp_ {};
-            // The subnet mask for the IPv6 addresses on the user side and on the Alibaba Cloud side.
-            // 
-            // Both IPv6 addresses must belong to the same subnet.
             shared_ptr<string> peeringIpv6SubnetMask_ {};
-            // The subnet mask for the IPv4 addresses of the VBR on the user side and on the Alibaba Cloud side.
-            // 
-            // Both IPv4 addresses must belong to the same subnet.
             shared_ptr<string> peeringSubnetMask_ {};
-            // The business status of the Express Connect circuit. Valid values:
-            // 
-            // *   **Normal:** The Express Connect circuit is running as normal.
-            // *   **FinancialLocked:** The Express Connect circuit is locked due to overdue payments.
             shared_ptr<string> physicalConnectionBusinessStatus_ {};
-            // The ID of the Express Connect circuit.
             shared_ptr<string> physicalConnectionId_ {};
-            // The ID of the account to which the Express Connect circuit belongs.
             shared_ptr<string> physicalConnectionOwnerUid_ {};
-            // The status of the Express Connect circuit. Valid values:
-            // 
-            // *   **Initial:** The application is under review.
-            // *   **Approved**: The application is approved.
-            // *   **Allocating**: The system is allocating resources.
-            // *   **Allocated**: The Express Connect circuit is under construction.
-            // *   **Confirmed**: The Express Connect circuit is to be confirmed.
-            // *   **Enabled**: The Express Connect circuit is enabled.
-            // *   **Rejected**: The application is rejected.
-            // *   **Canceled**: The application is canceled.
-            // *   **Allocation Failed:** The system failed to allocate resources.
-            // *   **Terminated:** The Express Connect circuit is disabled.
             shared_ptr<string> physicalConnectionStatus_ {};
-            // The status of the VBR. Valid values:
-            // 
-            // *   **unconfirmed**
-            // *   **active:**
-            // *   **terminating**
-            // *   **terminated**
-            // *   **recovering**
-            // *   **deleting:**
             shared_ptr<string> status_ {};
-            // The VLAN ID of the VBR.
             shared_ptr<string> vlanId_ {};
-            // The ID of the VBR interface, which can be used as a next hop of a VBR route.
             shared_ptr<string> vlanInterfaceId_ {};
           };
 
@@ -551,17 +506,8 @@ namespace Models
 
 
           protected:
-            // The CEN instance ID.
             shared_ptr<string> cenId_ {};
-            // The ID of the account to which the CEN instance belongs.
             shared_ptr<int64_t> cenOwnerId_ {};
-            // The status of the CEN instance. Valid values:
-            // 
-            // *   **Attached**
-            // *   **Attaching**
-            // *   **Detached**
-            // *   **Detaching**
-            // *   If no value is returned, the VBR is not attached to a CEN instance.
             shared_ptr<string> cenStatus_ {};
           };
 
@@ -890,132 +836,47 @@ namespace Models
 
 
       protected:
-        // The ID of the access point.
         shared_ptr<string> accessPointId_ {};
-        // The time when the VBR was activated for the first time.
         shared_ptr<string> activationTime_ {};
-        // The information about the Cloud Enterprise Network (CEN) instance to which the VBR is attached.
         shared_ptr<VirtualBorderRouterType::AssociatedCens> associatedCens_ {};
-        // The information about the Express Connect circuit that is associated with the VBR.
         shared_ptr<VirtualBorderRouterType::AssociatedPhysicalConnections> associatedPhysicalConnections_ {};
-        // The bandwidth value of the VBR. Unit: Mbit/s.
         shared_ptr<int32_t> bandwidth_ {};
-        // The circuit code of the Express Connect circuit, which is provided by the connectivity provider.
         shared_ptr<string> circuitCode_ {};
-        // The ID of the cloud box.
         shared_ptr<string> cloudBoxInstanceId_ {};
-        // The time when the VBR was created.
         shared_ptr<string> creationTime_ {};
-        // The description of the VBR.
         shared_ptr<string> description_ {};
-        // The multiple of the detection time.
-        // 
-        // This value indicates the maximum number of dropped packets that is allowed by the receiver when the initiator transmits packets. This value can be used to check whether the connection works as expected.
-        // 
-        // Valid values: **3 to 10**.
         shared_ptr<int64_t> detectMultiplier_ {};
-        // The ID of the Express Cloud Connect (ECC) instance.
         shared_ptr<string> eccId_ {};
-        // The status of the ECR. Valid values:
-        // 
-        // *   **Attached**
-        // *   **Attaching**
-        // *   **Detached**
-        // *   **Detaching**
-        // *   If no value is returned, the VBR is not attached to a CEN instance.
         shared_ptr<string> ecrAttatchStatus_ {};
-        // The ID of the Express Connect Router (ECR).
         shared_ptr<string> ecrId_ {};
-        // The ID of the Alibaba Cloud account (primary account)  to which the ECR belongs.
         shared_ptr<string> ecrOwnerId_ {};
-        // Indicates whether IPv6 is enabled. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> enableIpv6_ {};
-        // The IPv4 address of the VBR on the Alibaba Cloud side.
         shared_ptr<string> localGatewayIp_ {};
-        // The IPv6 address of the VBR on the Alibaba Cloud side.
         shared_ptr<string> localIpv6GatewayIp_ {};
-        // The time interval to receive BFD packets. Valid values: **200 to 1000**. Unit: milliseconds.
         shared_ptr<int64_t> minRxInterval_ {};
-        // The time interval to send Bidirectional Forwarding Detection (BFD) packets. Valid values: **200 to 1000**. Unit: milliseconds.
         shared_ptr<int64_t> minTxInterval_ {};
         shared_ptr<int32_t> mtu_ {};
-        // The VBR name.
         shared_ptr<string> name_ {};
-        // The billing method of the VBR. Valid values:
-        // 
-        // *   **PrePaid:** subscription. If you choose this billing method, make sure that your account supports balance payments or credit payments.
-        // *   **PostPaid:** pay-as-you-go.
         shared_ptr<string> PConnVbrChargeType_ {};
-        // The time when the VBR expires.
         shared_ptr<string> PConnVbrExpireTime_ {};
-        // The IPv4 address of the VBR on the user side.
         shared_ptr<string> peerGatewayIp_ {};
-        // The IPv6 address of the VBR on the user side.
         shared_ptr<string> peerIpv6GatewayIp_ {};
-        // The subnet mask for the IPv6 addresses on the user side and on the Alibaba Cloud side.
         shared_ptr<string> peeringIpv6SubnetMask_ {};
-        // The subnet mask for the IPv4 addresses on the Alibaba Cloud side and on the user side.
         shared_ptr<string> peeringSubnetMask_ {};
-        // The business status of the Express Connect circuit. Valid values:
-        // 
-        // *   **Normal:** The Express Connect circuit is running as normal.
-        // *   **FinancialLocked:** The Express Connect circuit is locked due to overdue payments.
         shared_ptr<string> physicalConnectionBusinessStatus_ {};
-        // The ID of the Express Connect circuit to which the VBR belongs.
         shared_ptr<string> physicalConnectionId_ {};
-        // The ID of the account to which the Express Connect circuit belongs.
         shared_ptr<string> physicalConnectionOwnerUid_ {};
-        // The status of the Express Connect circuit. Valid values:
-        // 
-        // *   **Initial:** The application is under review.
-        // *   **Approved**: The application is approved.
-        // *   **Allocating**: The system is allocating resources.
-        // *   **Allocated**: The Express Connect circuit is under construction.
-        // *   **Confirmed**: The Express Connect circuit is to be confirmed.
-        // *   **Enabled**: The Express Connect circuit is enabled.
-        // *   **Rejected**: The application is rejected.
-        // *   **Canceled**: The application is canceled.
-        // *   **Allocation Failed:** The system failed to allocate resources.
-        // *   **Terminated:** The Express Connect circuit is disabled.
         shared_ptr<string> physicalConnectionStatus_ {};
-        // The last time when the status of the VBR changed from **terminated** to **active**.
         shared_ptr<string> recoveryTime_ {};
-        // The resource group ID.
-        // 
-        // For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.html).
         shared_ptr<string> resourceGroupId_ {};
-        // The ID of the route table of the VBR.
         shared_ptr<string> routeTableId_ {};
-        // Indicates whether to allow service access between data centers. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
-        // 
-        // >  If no value is returned, service access between data centers is not allowed.
         shared_ptr<bool> sitelinkEnable_ {};
-        // The status of the VBR. Valid values:
-        // 
-        // *   **unconfirmed**
-        // *   **active**
-        // *   **terminating**
-        // *   **terminated**
-        // *   **recovering**
-        // *   **deleting:**
         shared_ptr<string> status_ {};
-        // The tag of the resource.
         shared_ptr<VirtualBorderRouterType::Tags> tags_ {};
-        // The last time when the VBR was terminated.
         shared_ptr<string> terminationTime_ {};
-        // The VBR type.
         shared_ptr<string> type_ {};
-        // The VBR ID.
         shared_ptr<string> vbrId_ {};
-        // The VLAN ID of the VBR.
         shared_ptr<int32_t> vlanId_ {};
-        // The ID of the VBR interface.
         shared_ptr<string> vlanInterfaceId_ {};
       };
 
@@ -1081,7 +942,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about the VBR.
     shared_ptr<DescribeVirtualBorderRoutersResponseBody::VirtualBorderRouterSet> virtualBorderRouterSet_ {};
   };
 

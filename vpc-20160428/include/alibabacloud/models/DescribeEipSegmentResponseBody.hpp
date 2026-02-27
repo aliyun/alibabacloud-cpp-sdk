@@ -159,27 +159,14 @@ namespace Models
 
 
       protected:
-        // The time when the contiguous EIP group was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The description of the contiguous EIP group.
         shared_ptr<string> descritpion_ {};
-        // The ID of the contiguous EIP group.
         shared_ptr<string> instanceId_ {};
-        // The number of EIPs in the contiguous EIP group.
         shared_ptr<string> ipCount_ {};
-        // The name of the contiguous EIP group.
         shared_ptr<string> name_ {};
-        // The ID of the region to which the contiguous EIP group belongs.
         shared_ptr<string> regionId_ {};
-        // The CIDR block and mask of the contiguous EIP group.
         shared_ptr<string> segment_ {};
-        // The status of the contiguous EIP group. Valid values:
-        // 
-        // *   **Allocating**
-        // *   **Allocated**
-        // *   **Releasing**
         shared_ptr<string> status_ {};
-        // The zone of the contiguous EIP group.
         shared_ptr<string> zone_ {};
       };
 
@@ -237,7 +224,6 @@ namespace Models
 
 
   protected:
-    // The details of the contiguous EIP group.
     shared_ptr<DescribeEipSegmentResponseBody::EipSegments> eipSegments_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

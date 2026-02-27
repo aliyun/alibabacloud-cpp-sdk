@@ -206,9 +206,7 @@ namespace Models
 
 
           protected:
-            // Tag key.
             shared_ptr<string> key_ {};
-            // Tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -376,72 +374,25 @@ namespace Models
 
 
       protected:
-        // The sampling interval of the flow log. Unit: minutes.
         shared_ptr<int32_t> aggregationInterval_ {};
-        // The business status. Values:
-        // 
-        // - **Normal**: Normal status.
-        // - **FinancialLocked**: Locked due to unpaid bills.
         shared_ptr<string> businessStatus_ {};
-        // The creation time of the flow log.
         shared_ptr<string> creationTime_ {};
-        // The description of the flow log.
         shared_ptr<string> description_ {};
-        // When log delivery fails, you can troubleshoot based on the error messages. Possible error messages include:
-        // - **UnavaliableTarget**: The Logstore of the Log Service SLS is unavailable and cannot receive logs. It is recommended to check if the corresponding Logstore actually exists and is accessible. 
-        // - **ProjectNotExist**: The Project of the Log Service SLS does not exist. It is suggested to delete the original flow log and create a new one pointing to an existing Project. 
-        // - **UnknownError**: An internal error has occurred. Please try again later.
         shared_ptr<string> flowLogDeliverErrorMessage_ {};
-        // The delivery status of the flow log, with values:
-        // - **SUCCESS**: Delivery succeeded. 
-        // - **FAILED**: Delivery failed.
         shared_ptr<string> flowLogDeliverStatus_ {};
-        // The ID of the flow log.
         shared_ptr<string> flowLogId_ {};
-        // The name of the flow log.
         shared_ptr<string> flowLogName_ {};
-        // The type of IP address for collecting flow log traffic.
         shared_ptr<string> ipVersion_ {};
-        // The Logstore where the captured traffic is stored.
         shared_ptr<string> logStoreName_ {};
-        // The Project that manages the captured traffic.
         shared_ptr<string> projectName_ {};
-        // The region ID to which the flow log belongs.
         shared_ptr<string> regionId_ {};
-        // The ID of the resource group to which the flow log belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The resource ID of the traffic captured by the flow log.
         shared_ptr<string> resourceId_ {};
-        // The resource type of the traffic captured by the flow log:
-        // 
-        // - **NetworkInterface**: Elastic network interface.
-        // - **VSwitch**: All elastic network interfaces within a VSwitch.
-        // - **VPC**: All elastic network interfaces within a VPC.
         shared_ptr<string> resourceType_ {};
-        // The hosting type of the cloud service.
-        // - It can be empty, indicating that the flow log was created by the user. 
-        // - When not empty, the only supported value is: **sls**, indicating that the flow log was created through the Log Service console.
-        // > Flow log instances created through the Log Service console can be displayed in the VPC list, but they cannot be modified, started, stopped, or deleted within the VPC. If you need to perform these operations on the flow log, you can log in to the [Log Service console](https://sls.console.aliyun.com) to modify, start, stop, or delete it.
         shared_ptr<string> serviceType_ {};
-        // The status of the flow log. Values:
-        // - **Active**: The flow log is in an active state.
-        // 
-        // - **Activating**: The flow log is being created.
-        // 
-        // - **Inactive**: The flow log is in an inactive state.
         shared_ptr<string> status_ {};
-        // List of tags
         shared_ptr<FlowLog::Tags> tags_ {};
-        // The path of the captured traffic. Values:
-        // 
-        // - **all**: Indicates full collection.
-        // - **internetGateway**: Indicates public network traffic collection.
         shared_ptr<FlowLog::TrafficPath> trafficPath_ {};
-        // The type of traffic captured by the flow log. Values:
-        // 
-        // - **All**: All traffic.
-        // - **Allow**: Traffic allowed by access control.
-        // - **Drop**: Traffic denied by access control.
         shared_ptr<string> trafficType_ {};
       };
 
@@ -506,7 +457,6 @@ namespace Models
 
 
   protected:
-    // List of flow logs.
     shared_ptr<DescribeFlowLogsResponseBody::FlowLogs> flowLogs_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};

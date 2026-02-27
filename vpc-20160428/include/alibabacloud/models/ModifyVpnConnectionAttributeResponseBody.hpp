@@ -368,13 +368,9 @@ namespace Models
 
 
         protected:
-          // The authentication algorithm in the IPsec phase.
           shared_ptr<string> ipsecAuthAlg_ {};
-          // The encryption algorithm in the IPsec phase.
           shared_ptr<string> ipsecEncAlg_ {};
-          // The lifetime in the IPsec phase. Unit: seconds.
           shared_ptr<int64_t> ipsecLifetime_ {};
-          // The DH group in the IPsec phase.
           shared_ptr<string> ipsecPfs_ {};
         };
 
@@ -480,26 +476,14 @@ namespace Models
 
 
         protected:
-          // The authentication algorithm in the IKE phase.
           shared_ptr<string> ikeAuthAlg_ {};
-          // The encryption algorithm in the IKE phase.
           shared_ptr<string> ikeEncAlg_ {};
-          // The lifetime in the IKE phase. Unit: seconds.
           shared_ptr<int64_t> ikeLifetime_ {};
-          // The IKE negotiation mode.
-          // 
-          // *   **main:** This mode offers higher security during negotiations.
-          // *   **aggressive**: This mode is faster and has a higher success rate.
           shared_ptr<string> ikeMode_ {};
-          // The DH group in the IKE phase.
           shared_ptr<string> ikePfs_ {};
-          // The version of the IKE protocol.
           shared_ptr<string> ikeVersion_ {};
-          // The identifier of the tunnel on the Alibaba Cloud side.
           shared_ptr<string> localId_ {};
-          // The pre-shared key.
           shared_ptr<string> psk_ {};
-          // The identifier of the tunnel peer.
           shared_ptr<string> remoteId_ {};
         };
 
@@ -568,15 +552,10 @@ namespace Models
 
 
         protected:
-          // The ASN of the tunnel on the Alibaba Cloud side.
           shared_ptr<int64_t> localAsn_ {};
-          // The BGP IP address of the tunnel on the Alibaba Cloud side.
           shared_ptr<string> localBgpIp_ {};
-          // The ASN of the tunnel peer.
           shared_ptr<int64_t> peerAsn_ {};
-          // The BGP IP address of the tunnel peer.
           shared_ptr<string> peerBgpIp_ {};
-          // The BGP CIDR block of the tunnel.
           shared_ptr<string> tunnelCidr_ {};
         };
 
@@ -675,44 +654,17 @@ namespace Models
 
 
       protected:
-        // The ID of the customer gateway associated with the tunnel.
         shared_ptr<string> customerGatewayId_ {};
-        // Indicates whether the DPD feature is enabled for the tunnel. Valid values:
-        // 
-        // *   **false**
-        // *   **true**
         shared_ptr<bool> enableDpd_ {};
-        // Indicates whether NAT traversal is enabled for the tunnel. Valid values:
-        // 
-        // *   **false**
-        // *   **true**
         shared_ptr<bool> enableNatTraversal_ {};
-        // The IP address on the Alibaba Cloud side.
         shared_ptr<string> internetIp_ {};
-        // The CA certificate of the tunnel peer.
-        // 
-        // This parameter is returned only if the VPN gateway is of the SM type.
         shared_ptr<string> remoteCaCertificate_ {};
-        // The tunnel role. Valid values:
-        // 
-        // *   **master**: The tunnel is an active tunnel.
-        // *   **slave**: The tunnel is a standby tunnel.
         shared_ptr<string> role_ {};
-        // The tunnel status. Valid values:
-        // 
-        // *   **active**
-        // *   **updating**
-        // *   **deleting**
         shared_ptr<string> state_ {};
-        // The BGP configuration.
         shared_ptr<TunnelOptions::TunnelBgpConfig> tunnelBgpConfig_ {};
-        // The tunnel ID.
         shared_ptr<string> tunnelId_ {};
-        // The configuration of Phase 1 negotiations.
         shared_ptr<TunnelOptions::TunnelIkeConfig> tunnelIkeConfig_ {};
-        // The configuration of Phase 2 negotiations.
         shared_ptr<TunnelOptions::TunnelIpsecConfig> tunnelIpsecConfig_ {};
-        // The zone of the tunnel.
         shared_ptr<string> zoneNo_ {};
       };
 
@@ -1131,9 +1083,6 @@ namespace Models
     // 
     // The IPsec-VPN connection and the VPN gateway associated with the IPsec-VPN connection belong to the same resource group. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
     shared_ptr<string> resourceGroupId_ {};
-    // The tunnel configuration of the IPsec-VPN connection.
-    // 
-    // **TunnelOptionsSpecification** parameters are returned only for dual-tunnel IPsec-VPN connections.
     shared_ptr<ModifyVpnConnectionAttributeResponseBody::TunnelOptionsSpecification> tunnelOptionsSpecification_ {};
     // The health check configuration.
     // 

@@ -122,7 +122,6 @@ namespace Models
   protected:
     // The number of log entries.
     shared_ptr<int32_t> count_ {};
-    // Log information list.
     shared_ptr<DescribeVpnSslServerLogsResponseBody::Data> data_ {};
     // Indicates whether the log is accurate. Valid values:
     // 

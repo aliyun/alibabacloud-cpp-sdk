@@ -195,9 +195,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the instance.
             shared_ptr<string> tagKey_ {};
-            // The tag value of the instance.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -341,24 +339,13 @@ namespace Models
 
 
         protected:
-          // The ID of the elastic network interface (ENI).
           shared_ptr<string> eniInstanceId_ {};
-          // The mode in which the ENI is associated with the NAT gateway.
-          // 
-          // *   **indirect**: non-cut-through mode
-          // *   If an empty value is returned, it indicates that the cut-through mode is used.
           shared_ptr<string> eniType_ {};
-          // The zone to which the NAT gateway belongs.
           shared_ptr<string> izNo_ {};
-          // The maximum bandwidth. Unit: Mbit/s.
           shared_ptr<int32_t> maxBandwidth_ {};
-          // The number of new connections to the NAT gateway. Unit: connections per second.
           shared_ptr<int32_t> maxSessionEstablishRate_ {};
-          // The number of concurrent connections to the NAT gateway. Unit: connections.
           shared_ptr<int32_t> maxSessionQuota_ {};
-          // The private IP address.
           shared_ptr<string> privateIpAddress_ {};
-          // The ID of the vSwitch to which the NAT gateway belongs.
           shared_ptr<string> vswitchId_ {};
         };
 
@@ -409,7 +396,6 @@ namespace Models
 
 
           protected:
-            // NAT IP prefix address range
             shared_ptr<string> ipPrefix_ {};
           };
 
@@ -511,23 +497,10 @@ namespace Models
 
 
           protected:
-            // The ID of the EIP associated with the NAT gateway.
             shared_ptr<string> allocationId_ {};
-            // The IP address of the EIP associated with the NAT gateway.
             shared_ptr<string> ipAddress_ {};
-            // The private IP address of the NAT gateway.
             shared_ptr<string> privateIpAddress_ {};
-            // Indicates whether IP addresses that are used in DNAT entries can be specified in SNAT entries. Valid values:
-            // 
-            // *   **true**: yes
-            // *   **false**: no
             shared_ptr<bool> snatEntryEnabled_ {};
-            // The association between the EIP and the Internet NAT gateway. Valid values:
-            // 
-            // *   **UsedByForwardTable**: The EIP is specified in a DNAT entry.
-            // *   **UsedBySnatTable**: The EIP is specified in an SNAT entry.
-            // *   **UsedByForwardSnatTable**: The EIP is specified in both an SNAT entry and a DNAT entry.
-            // *   **Idle**: The EIP is not specified in a DNAT or SNAT entry.
             shared_ptr<string> usingStatus_ {};
           };
 
@@ -649,12 +622,7 @@ namespace Models
 
 
         protected:
-          // Access mode, with values:
-          // - **route**: Route mode.
-          // - **tunnel**: Tunnel mode.
           shared_ptr<string> modeValue_ {};
-          // Tunnel mode type:
-          // - **geneve**: Geneve type.
           shared_ptr<string> tunnelType_ {};
         };
 
@@ -907,116 +875,37 @@ namespace Models
 
 
       protected:
-        // Access mode for reverse access to VPC NAT gateway.
         shared_ptr<NatGateway::AccessMode> accessMode_ {};
-        // Indicates whether automatic payment is enabled. Valid values:
-        // 
-        // *   **false**: no
-        // *   **true**: yes
         shared_ptr<bool> autoPay_ {};
-        // The status of the NAT gateway. Valid values:
-        // 
-        // *   **Normal**: normal
-        // *   **FinancialLocked**: locked due to overdue payments
         shared_ptr<string> businessStatus_ {};
-        // The time when the NAT gateway was created.
         shared_ptr<string> creationTime_ {};
-        // Indicates whether the deletion protection feature is enabled. Valid values:
-        // 
-        // *   **true**: yes
-        // *   **false**: no
         shared_ptr<bool> deletionProtection_ {};
-        // The description of the NAT gateway.
         shared_ptr<string> description_ {};
-        // Indicates whether the traffic monitoring feature is enabled. Valid values:
-        // 
-        // *   **true**: yes
-        // *   **false**: no
         shared_ptr<bool> ecsMetricEnabled_ {};
-        // The mode in which the NAT gateway is associated with an elastic IP address (EIP). Valid values:
-        // 
-        // *   **MULTI_BINDED**: multi-EIP-to-ENI mode
-        // *   **NAT**: NAT mode, which is compatible with IPv4 addresses.
-        // 
-        // >  Note: If you use the NAT mode, the EIP occupies one private IP address on the vSwitch of the NAT gateway. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, the NAT gateway fails to be associated with the EIP. In NAT mode, you can associate a NAT gateway with up to 50 EIPs.
         shared_ptr<string> eipBindMode_ {};
-        // Whether to enable session logging, with values:
-        // - **true**: Session logging is enabled. 
-        // - **false**: Session logging is disabled.
         shared_ptr<string> enableSessionLog_ {};
-        // The time when the NAT gateway expires.
         shared_ptr<string> expiredTime_ {};
-        // The ID of the DNAT table.
         shared_ptr<NatGateway::ForwardTableIds> forwardTableIds_ {};
-        // The ID of the FULLNAT table.
         shared_ptr<NatGateway::FullNatTableIds> fullNatTableIds_ {};
-        // Indicates whether the ICMP non-retrieval feature is enabled. Valid values:
-        // 
-        // *   **true**: yes
-        // *   **false**: no
         shared_ptr<bool> icmpReplyEnabled_ {};
-        // The billing method of the NAT gateway. The value is set to **PostPaid**, which indicates the pay-as-you-go billing method.
         shared_ptr<string> instanceChargeType_ {};
-        // The metering method of the NAT gateway. Valid values:
-        // 
-        // *   **PayBySpec**: pay-by-specification
-        // *   **PayByLcu**: pay-by-CU
         shared_ptr<string> internetChargeType_ {};
-        // The list of elastic IP addresses (EIPs) that are associated with the Internet NAT gateway.
         shared_ptr<NatGateway::IpLists> ipLists_ {};
-        // List of NAT IP prefix address segments.
         shared_ptr<NatGateway::IpPrefixList> ipPrefixList_ {};
-        // The name of the NAT gateway.
         shared_ptr<string> name_ {};
-        // The ID of the NAT gateway.
         shared_ptr<string> natGatewayId_ {};
-        // The private network information about the enhanced Internet NAT gateway.
-        // 
-        // >  If **NatType** is set to **Normal**, all parameters returned in this list are empty.
         shared_ptr<NatGateway::NatGatewayPrivateInfo> natGatewayPrivateInfo_ {};
-        // The type of the NAT gateway. The value is set to **Enhanced** (enhanced NAT gateway).
         shared_ptr<string> natType_ {};
-        // The type of NAT gateway. Valid values:
-        // 
-        // *   **internet**: an Internet NAT gateway
-        // *   **intranet**: a VPC NAT gateway
         shared_ptr<string> networkType_ {};
-        // Indicates whether the NAT gateway supports PrivateLink. Valid values:
-        // 
-        // *   **true**: yes
-        // *   **false**: no
         shared_ptr<bool> privateLinkEnabled_ {};
-        // The mode that is used by PrivateLink. Valid values:
-        // 
-        // *   **FullNat**: the FULLNAT mode
-        // *   **Geneve**: the GENEVE mode
         shared_ptr<string> privateLinkMode_ {};
-        // The ID of the region where the NAT gateway is deployed.
         shared_ptr<string> regionId_ {};
-        // The ID of the resource group to which the contiguous EIP group belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // Indicates whether the firewall feature is enabled. Valid values:
-        // 
-        // *   **false**: no
-        // *   **true**: yes
         shared_ptr<bool> securityProtectionEnabled_ {};
-        // The ID of the SNAT table of the NAT gateway.
         shared_ptr<NatGateway::SnatTableIds> snatTableIds_ {};
-        // The size of the NAT gateway. An empty value is returned for the parameter.
-        // 
-        // If **InternetChargeType** is set to **PayByLcu**, an empty value is returned.
         shared_ptr<string> spec_ {};
-        // The status of the NAT gateway. Valid values:
-        // 
-        // *   **Creating**: After you send a request to create a NAT gateway, the system creates the NAT gateway in the background. The NAT gateway remains in the Creating state until the operation is completed.
-        // *   **Available**: The NAT gateway remains in a stable state after the NAT gateway is created.
-        // *   **Modifying**: After you send a request to modify a NAT gateway, the system modifies the NAT gateway in the background. The NAT gateway remains in the Modifying state until the operation is completed.
-        // *   **Deleting**: After you send a request to delete a NAT gateway, the system deletes the NAT gateway in the background. The NAT gateway remains in the Deleting state until the operation is completed.
-        // *   **Converting**: After you send a request to upgrade a standard NAT gateway to an enhanced NAT gateway, the system upgrades the NAT gateway in the background. The NAT gateway remains in the Converting state until the operation is completed.
         shared_ptr<string> status_ {};
-        // The tags that are added to the resource group.
         shared_ptr<NatGateway::Tags> tags_ {};
-        // The ID of the VPC where the NAT gateway is deployed.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -1074,7 +963,6 @@ namespace Models
 
 
   protected:
-    // The details about the NAT gateway.
     shared_ptr<DescribeNatGatewaysResponseBody::NatGateways> natGateways_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

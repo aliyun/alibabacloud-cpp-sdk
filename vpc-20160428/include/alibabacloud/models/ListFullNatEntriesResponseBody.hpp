@@ -199,6 +199,7 @@ namespace Models
 
 
     protected:
+      // The backend domain name for FULLNAT address translation in a FULLNAT entry.
       shared_ptr<string> accessDomain_ {};
       // The backend IP address that is used for FULLNAT address translation in FULLNAT entries.
       shared_ptr<string> accessIp_ {};
@@ -206,6 +207,7 @@ namespace Models
       shared_ptr<string> accessPort_ {};
       // The time when the FULLNAT entry was created.
       shared_ptr<string> creationTime_ {};
+      // The IP resolved from the backend domain name for address translation in the FULLNAT entry.
       shared_ptr<string> domainResolve_ {};
       // The description of the FULLNAT entry.
       // 

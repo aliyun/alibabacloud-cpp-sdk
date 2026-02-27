@@ -189,15 +189,8 @@ namespace Models
 
 
             protected:
-              // The ID of the instance that is associated with the next hop.
               shared_ptr<string> instanceId_ {};
-              // The type of the instance associated with the next hop. Valid values:
-              // 
-              // *   **VPC**: a VPC
-              // *   **VBR**: a VBR
-              // *   **PCONN**: an Express Connect circuit
               shared_ptr<string> instanceType_ {};
-              // The region ID of the instance associated with the next hop. Valid values:
               shared_ptr<string> regionId_ {};
             };
 
@@ -248,39 +241,11 @@ namespace Models
 
 
           protected:
-            // Indicates whether the route is available. Valid values:
-            // 
-            // *   **0**: unavailable
-            // *   **1**: available
-            // 
-            // >  This parameter is returned when the next hop type is set to **RouterInterface**.
             shared_ptr<int32_t> enabled_ {};
-            // The ID of the next hop.
             shared_ptr<string> nextHopId_ {};
-            // The ID of the region where the next hop is deployed.
-            // 
-            // >  This parameter is returned when the next hop type is set to **RouterInterface**.
             shared_ptr<string> nextHopRegionId_ {};
-            // The information about the next hop.
             shared_ptr<NextHop::NextHopRelatedInfo> nextHopRelatedInfo_ {};
-            // The next hop type. Valid values:
-            // 
-            // *   **Instance**: an ECS instance.
-            // *   **HaVip**: an HaVip.
-            // *   **VpnGateway**: a VPN gateway.
-            // *   **NatGateway**: a NAT gateway.
-            // *   **NetworkInterface**: a secondary ENI.
-            // *   **RouterInterface**: a router interface.
-            // *   **IPv6Gateway**: an IPv6 gateway.
-            // *   **Attachment**: a transit router.
-            // *   **Ipv4Gateway**: an IPv4 gateway.
-            // *   **GatewayEndpoint**: a gateway endpoint.
-            // *   **CenBasic**: CEN does not support transit routers.
-            // *   **Ecr**: ECR.
             shared_ptr<string> nextHopType_ {};
-            // The weight of the route.
-            // 
-            // >  This parameter is returned when the next hop type is set to **RouterInterface**.
             shared_ptr<int32_t> weight_ {};
           };
 
@@ -389,50 +354,18 @@ namespace Models
 
 
       protected:
-        // The description of the route.
         shared_ptr<string> description_ {};
-        // The destination CIDR block of the route.
         shared_ptr<string> destinationCidrBlock_ {};
-        // The time when the route was modified. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
-        // 
         // Use the UTC time format: yyyy-MM-ddTHH:mmZ
         shared_ptr<string> gmtModified_ {};
-        // The IP version. Valid values: Valid values:
-        // 
-        // *   **ipv4**
-        // *   **ipv6**
         shared_ptr<string> ipVersion_ {};
-        // The information about the next hops.
         shared_ptr<RouteEntry::NextHops> nextHops_ {};
-        // The route origin. Valid values:
-        // * **RoutePropagation**: The route is created by a dynamic propagation source.
-        // * **SystemCreate**: The route is created by the system.
-        // * **CustomCreate**: The route is created by a user.
         shared_ptr<string> origin_ {};
-        // The ID of the route.
         shared_ptr<string> routeEntryId_ {};
-        // The name of the route.
         shared_ptr<string> routeEntryName_ {};
-        // The ID of the route table.
         shared_ptr<string> routeTableId_ {};
-        // Indicates whether the route is hosted. If the parameter is empty, the route is not hosted.
-        // 
-        // If **TR** is returned, the route is hosted by a transit router.
         shared_ptr<string> serviceType_ {};
-        // The status of the route entry. Valid values:
-        // 
-        // *   **Pending**
-        // *   **Available**
-        // *   **Modifying**
-        // *   **Deleting**
         shared_ptr<string> status_ {};
-        // The route type. Valid values:
-        // 
-        // *   **Custom**: custom routes.
-        // *   **System**: system routes.
-        // *   **BGP**: BGP routes.
-        // *   **CEN**: CEN routes.
-        // *   **ECR**: ECR routes.
         shared_ptr<string> type_ {};
       };
 
@@ -483,7 +416,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the routes.
     shared_ptr<DescribeRouteEntryListResponseBody::RouteEntrys> routeEntrys_ {};
   };
 

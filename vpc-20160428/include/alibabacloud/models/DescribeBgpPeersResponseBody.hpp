@@ -279,69 +279,28 @@ namespace Models
 
 
       protected:
-        // The number of advertised routes.
         shared_ptr<int32_t> advertisedRouteCount_ {};
-        // The authentication key of the BGP group.
         shared_ptr<string> authKey_ {};
-        // The Bidirectional Forwarding Detection (BFD) hop count.
         shared_ptr<int32_t> bfdMultiHop_ {};
-        // The ID of the BGP group.
         shared_ptr<string> bgpGroupId_ {};
-        // The ID of the BGP peer.
         shared_ptr<string> bgpPeerId_ {};
-        // The status of the BGP connection. Valid values:
-        // 
-        // *   **Idle**: The BGP connection is not used.
-        // *   **Connect**: The BGP connection is used.
-        // *   **Active**: The BGP connection is available.
-        // *   **Established**: The BGP connection is established.
-        // *   **Down**: The BGP connection is unavailable.
         shared_ptr<string> bgpStatus_ {};
-        // The description of the BGP group.
         shared_ptr<string> description_ {};
-        // Indicates whether BFD is enabled. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> enableBfd_ {};
-        // The time when the BGP peer is modified.
-        // 
         // Use the UTC time format: yyyy-MM-ddTHH:mmZ
         shared_ptr<string> gmtModified_ {};
-        // The hold time.
         shared_ptr<string> hold_ {};
-        // The version of the IP address.
         shared_ptr<string> ipVersion_ {};
-        // Indicates whether a fake autonomous system number (ASN) is used. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> isFake_ {};
-        // The Keepalive interval.
         shared_ptr<string> keepalive_ {};
-        // The ASN of the device on the Alibaba Cloud side.
         shared_ptr<string> localAsn_ {};
-        // The name of the BGP peer.
         shared_ptr<string> name_ {};
-        // The autonomous system number (ASN)of the BGP peer.
         shared_ptr<string> peerAsn_ {};
-        // The IP address of the BGP peer.
         shared_ptr<string> peerIpAddress_ {};
-        // The number of received routes.
         shared_ptr<int32_t> receivedRouteCount_ {};
-        // The ID of the region to which the BGP group belongs.
         shared_ptr<string> regionId_ {};
-        // The maximum number of routes.
         shared_ptr<string> routeLimit_ {};
-        // The Router ID.
         shared_ptr<string> routerId_ {};
-        // The status of the BGP peer. Valid values:
-        // 
-        // *   **Pending**
-        // *   **Available**
-        // *   **Modifying**
-        // *   **Deleting**
-        // *   **Deleted**
         shared_ptr<string> status_ {};
       };
 
@@ -399,7 +358,6 @@ namespace Models
 
 
   protected:
-    // The information about the BGP peer.
     shared_ptr<DescribeBgpPeersResponseBody::BgpPeers> bgpPeers_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

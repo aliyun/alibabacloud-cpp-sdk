@@ -109,17 +109,9 @@ namespace Models
 
 
       protected:
-        // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The type of the resource. Valid values:
-        // 
-        // *   **PHYSICALCONNECTION**: Express Connect circuit.
-        // *   **VIRTUALBORDERROUTER**: VBR.
-        // *   **ROUTERINTERFACE**: router interface.
         shared_ptr<string> resourceType_ {};
-        // The key of the tag that is added to the resource.
         shared_ptr<string> tagKey_ {};
-        // The value of the tag that is added to the resource.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -170,7 +162,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tags that are added to the resource.
     shared_ptr<ListTagResourcesForExpressConnectResponseBody::TagResources> tagResources_ {};
   };
 

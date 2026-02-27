@@ -91,12 +91,7 @@ namespace Models
 
 
       protected:
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The type of the tag key. Valid values:
-        // 
-        // *   **Custom**: custom
-        // *   **System**: system
         shared_ptr<string> type_ {};
       };
 
@@ -147,7 +142,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The list of tag keys.
     shared_ptr<DescribeTagKeysResponseBody::TagKeys> tagKeys_ {};
   };
 

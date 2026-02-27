@@ -249,41 +249,20 @@ namespace Models
 
 
       protected:
-        // The IPv4 address allocated to the IPv6 Translation Service instance.
         shared_ptr<string> allocateIpv4Addr_ {};
-        // The IPv6 address allocated to the IPv6 Translation Service instance.
         shared_ptr<string> allocateIpv6Addr_ {};
-        // The bandwidth of the IPv6 Translation Service instance.
         shared_ptr<string> availableBandwidth_ {};
-        // The bandwidth of the IPv6 Translation Service instance. Unit: Mbit/s.
         shared_ptr<int32_t> bandwidth_ {};
-        // The business status of the IPv6 Translation Service instance. Valid values:
-        // 
-        // *   **Normal**
-        // *   **FinancialLocked**
         shared_ptr<string> businessStatus_ {};
-        // The timestamp when the IPv6 Translation Service instance was created.
         shared_ptr<int64_t> createTime_ {};
-        // The description of the IPv6 Translation Service instance.
         shared_ptr<string> description_ {};
-        // The timestamp when IPv6 Translation Service instance expires.
         shared_ptr<int64_t> endTime_ {};
-        // The IDs of IPv6 mapping entries of the IPv6 Translation Service instance.
         shared_ptr<Ipv6Translator::Ipv6TranslatorEntryIds> ipv6TranslatorEntryIds_ {};
-        // The ID of the IPv6 Translation Service instance.
         shared_ptr<string> ipv6TranslatorId_ {};
-        // The name of the IPv6 Translation Service instance.
         shared_ptr<string> name_ {};
-        // The billing method of the IPv6 Translation Service instance.
-        // 
-        // *   **Prepay**: subscription
-        // *   **Postpay**: pay-as-you-go
         shared_ptr<string> payType_ {};
-        // The region of the IPv6 Translation Service instance.
         shared_ptr<string> regionId_ {};
-        // The specification of the IPv6 Translation Service instance.
         shared_ptr<string> spec_ {};
-        // The status of the IPv6 Translation Service instance.
         shared_ptr<string> status_ {};
       };
 
@@ -341,7 +320,6 @@ namespace Models
 
 
   protected:
-    // The list of IPv6 Translation Service instances.
     shared_ptr<DescribeIPv6TranslatorsResponseBody::Ipv6Translators> ipv6Translators_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

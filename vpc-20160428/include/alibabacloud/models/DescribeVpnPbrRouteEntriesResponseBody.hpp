@@ -159,39 +159,14 @@ namespace Models
 
 
       protected:
-        // The time when the policy-based route was created. Unit: millisecond.
-        // 
-        // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> createTime_ {};
-        // The next hop of the policy-based route.
         shared_ptr<string> nextHop_ {};
-        // The ID of the tunnel associated with the next hop of the policy-based route.
-        // 
-        // This parameter is returned only if the VPN gateway supports IPsec-VPN connections in dual-tunnel mode.
         shared_ptr<string> nextHopTunnelId_ {};
-        // The priority of the policy-based route.
-        // 
-        // A smaller value indicates a higher priority.
         shared_ptr<int32_t> priority_ {};
-        // The destination CIDR block of the policy-based route.
         shared_ptr<string> routeDest_ {};
-        // The source CIDR block of the policy-based route.
         shared_ptr<string> routeSource_ {};
-        // The status of the policy-based route. Valid values:
-        // 
-        // *   **published**: advertised to the VPC route table.
-        // *   **normal**: not advertised to the VPC route table.
         shared_ptr<string> state_ {};
-        // The ID of the VPN gateway.
         shared_ptr<string> vpnInstanceId_ {};
-        // The weight of the policy-based route.
-        // 
-        // For a VPN gateway that supports IPsec-VPN connections in single-tunnel mode, the weight of a policy-based route indicates the priority of the route.
-        // 
-        // *   **100**: a high priority If multiple policy-based routes with the same source CIDR block and destination CIDR block exist, the IPsec-VPN connection associated with the policy-based route is the active connection.
-        // *   **0**: a low priority If multiple policy-based routes with the same source CIDR block and destination CIDR block exist, the IPsec-VPN connection associated with the policy-based route is the standby connection.
-        // 
-        // >  For a VPN gateway that does not support IPsec-VPN connections in single-tunnel mode, this parameter does not take effect.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -257,7 +232,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of policy-based routes.
     shared_ptr<DescribeVpnPbrRouteEntriesResponseBody::VpnPbrRouteEntries> vpnPbrRouteEntries_ {};
   };
 

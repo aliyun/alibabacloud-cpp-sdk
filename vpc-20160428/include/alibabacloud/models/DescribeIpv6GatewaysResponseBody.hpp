@@ -157,9 +157,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -275,39 +273,18 @@ namespace Models
 
 
       protected:
-        // The status of the IPv6 gateway. Valid values:
-        // 
-        // *   **Normal**
-        // *   **FinancialLocked**
-        // *   **SecurityLocked**
         shared_ptr<string> businessStatus_ {};
-        // The time when the IPv6 gateway was created.
         shared_ptr<string> creationTime_ {};
-        // The description of the IPv6 gateway.
         shared_ptr<string> description_ {};
-        // The time when the IPv6 gateway expires.
         shared_ptr<string> expiredTime_ {};
-        // The billing method of the IPv6 gateway.
-        // 
-        // Only **PostPaid** may be returned, which indicates that the IPv6 gateway uses the pay-as-you-go billing method.
         shared_ptr<string> instanceChargeType_ {};
-        // The ID of the IPv6 gateway.
         shared_ptr<string> ipv6GatewayId_ {};
-        // The name of the IPv6 gateway.
         shared_ptr<string> name_ {};
         shared_ptr<int64_t> ownerId_ {};
-        // The ID of the region in which the IPv6 gateway is deployed.
         shared_ptr<string> regionId_ {};
-        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // The status of the IPv6 gateway. Valid values:
-        // 
-        // *   **Pending**
-        // *   **Available**
         shared_ptr<string> status_ {};
-        // The information about the tags.
         shared_ptr<Ipv6Gateway::Tags> tags_ {};
-        // The ID of the VPC to which the IPv6 gateway belongs.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -365,7 +342,6 @@ namespace Models
 
 
   protected:
-    // The information about the IPv6 gateway.
     shared_ptr<DescribeIpv6GatewaysResponseBody::Ipv6Gateways> ipv6Gateways_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

@@ -169,15 +169,7 @@ namespace Models
 
 
           protected:
-            // The tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
-            // 
-            // The tag key can be up to 128 characters in length. The tag key cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
             shared_ptr<string> key_ {};
-            // The tag value.
-            // 
-            // The tag value can be up to 128 characters in length. It can be an empty string. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
-            // 
-            // Each tag key corresponds to one tag value. You can specify at most 20 tag values at a time.
             shared_ptr<string> value_ {};
           };
 
@@ -306,40 +298,15 @@ namespace Models
 
 
         protected:
-          // The dedicated Internet bandwidth of the IPv6 address. Unit: Mbit/s.
           shared_ptr<int32_t> bandwidth_ {};
-          // The status of the Internet bandwidth of the IPv6 address. Valid values:
-          // 
-          // *   **Normal**
-          // *   **FinancialLocked**
-          // *   **SecurityLocked**
           shared_ptr<string> businessStatus_ {};
-          // Indicates whether renewal data is included. Valid values:
-          // 
-          // *   **false**
-          // *   **true** **true** is returned only when **IncludeReservationData** is set to **true** and some orders have not taken effect.
           shared_ptr<bool> hasReservationData_ {};
-          // The billing method of the Internet bandwidth of the IPv6 address. Valid values:
-          // 
-          // Only **PostPaid** may be returned, which indicates the pay-as-you-go billing method.
           shared_ptr<string> instanceChargeType_ {};
-          // The billing method of the Internet bandwidth of the IPv6 address. Valid values:
-          // 
-          // *   **PayByTraffic**
-          // *   **PayByBandwidth**
           shared_ptr<string> internetChargeType_ {};
-          // The Internet bandwidth ID of the IPv6 address.
           shared_ptr<string> ipv6InternetBandwidthId_ {};
-          // The time when the renewal takes effect. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
           shared_ptr<string> reservationActiveTime_ {};
-          // The maximum bandwidth after the renewal takes effect. Unit: Mbit/s.
           shared_ptr<int64_t> reservationBandwidth_ {};
-          // The metering method that is used after the renewal takes effect.
-          // 
-          // *   **PayByTraffic**
-          // *   **PayByBandwidth**
           shared_ptr<string> reservationInternetChargeType_ {};
-          // The type of the renewal order. Only **RENEW** may be returned, which indicates that the order is placed for service renewal.
           shared_ptr<string> reservationOrderType_ {};
         };
 
@@ -486,60 +453,24 @@ namespace Models
 
 
       protected:
-        // The type of IPv6 address. Valid values:
-        // 
-        // *   IPv6Address (default): indicates a single IPv6 IP.
-        // *   IPv6Prefix: indicates IPv6 CIDR.
         shared_ptr<string> addressType_ {};
-        // The time when the IPv6 address was created.
         shared_ptr<string> allocationTime_ {};
-        // The ID of the instance associated with the IPv6 address.
         shared_ptr<string> associatedInstanceId_ {};
-        // The type of instance associated with the IPv6 address.
         shared_ptr<string> associatedInstanceType_ {};
-        // The IPv6 address.
         shared_ptr<string> ipv6Address_ {};
-        // The description of the IPv6 address.
         shared_ptr<string> ipv6AddressDescription_ {};
-        // The ID of the IPv6 address.
         shared_ptr<string> ipv6AddressId_ {};
-        // The name of the IPv6 address.
         shared_ptr<string> ipv6AddressName_ {};
-        // The ID of the IPv6 gateway to which the IPv6 address belongs.
         shared_ptr<string> ipv6GatewayId_ {};
-        // The Internet bandwidth of the IPv6 address.
         shared_ptr<Ipv6Address::Ipv6InternetBandwidth> ipv6InternetBandwidth_ {};
-        // The ISP of the IPv6 address. Valid values:
-        // 
-        // *   **BGP** (default)
-        // *   **ChinaMobile**
-        // *   **ChinaUnicom**
-        // *   **ChinaTelecom**
         shared_ptr<string> ipv6Isp_ {};
-        // The type of connection supported by the IPv6 address. Valid values:
-        // 
-        // *   **Private**
-        // *   **Public**
         shared_ptr<string> networkType_ {};
-        // The peak bandwidth of the IPv6 address.
         shared_ptr<int32_t> realBandwidth_ {};
-        // The ID of the resource group to which the IPv6 gateway belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // Indicates whether the instance is managed. Valid values:
-        // 
-        // *   **1**: yes
-        // *   **0**: no
         shared_ptr<int32_t> serviceManaged_ {};
-        // The status of the IPv6 address.
-        // 
-        // *   **Pending**
-        // *   **Available**
         shared_ptr<string> status_ {};
-        // The tag list.
         shared_ptr<Ipv6Address::Tags> tags_ {};
-        // The ID of the vSwitch to which the IPv6 address belongs.
         shared_ptr<string> vSwitchId_ {};
-        // The ID of the VPC to which the IPv6 address belongs.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -597,7 +528,6 @@ namespace Models
 
 
   protected:
-    // The details of the IPv6 address.
     shared_ptr<DescribeIpv6AddressesResponseBody::Ipv6Addresses> ipv6Addresses_ {};
     // The page number of the returned page. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};

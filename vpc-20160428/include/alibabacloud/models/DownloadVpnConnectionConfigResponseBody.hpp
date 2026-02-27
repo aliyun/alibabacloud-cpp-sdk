@@ -167,13 +167,13 @@ namespace Models
 
 
           protected:
-            // The authentication algorithm in the IPsec phase.
+            // IPsec阶段认证算法。
             shared_ptr<string> ipsecAuthAlg_ {};
-            // The encryption algorithm in the IPsec phase.
+            // IPsec阶段加密算法。
             shared_ptr<string> ipsecEncAlg_ {};
-            // The lifetime in the IPsec phase. Unit: seconds.
+            // IPsec阶段生存时间。单位：秒。
             shared_ptr<int64_t> ipsecLifetime_ {};
-            // The DH group in the IPsec phase.
+            // IPsec阶段DH分组。
             shared_ptr<string> ipsecPfs_ {};
           };
 
@@ -279,26 +279,26 @@ namespace Models
 
 
           protected:
-            // The authentication algorithm in the IKE phase.
+            // IKE阶段认证算法。
             shared_ptr<string> ikeAuthAlg_ {};
-            // The encryption algorithm in the IKE phase.
+            // IKE阶段加密算法。
             shared_ptr<string> ikeEncAlg_ {};
-            // The lifetime in the IKE phase. Unit: seconds.
+            // IKE阶段生存时间。单位：秒。
             shared_ptr<int64_t> ikeLifetime_ {};
-            // The IKE negotiation mode. Valid values:
+            // IKE协商模式。
             // 
-            // *   **main**: This mode offers higher security during negotiations.
-            // *   **aggressive**: This mode is faster and has a higher success rate.
+            // - **main**：主模式，协商过程安全性高。
+            // - **aggressive**：野蛮模式，协商快速且协商成功率高。
             shared_ptr<string> ikeMode_ {};
-            // The DH group in the IKE phase.
+            // IKE阶段DH分组。
             shared_ptr<string> ikePfs_ {};
-            // The IKE version.
+            // IKE协议的版本。
             shared_ptr<string> ikeVersion_ {};
-            // The identifier of the tunnel on the data center side.
+            // 本地IDC侧隧道的标识。
             shared_ptr<string> localId_ {};
-            // The pre-shared key.
+            // 预共享密钥。
             shared_ptr<string> psk_ {};
-            // The identifier of the tunnel on the Alibaba Cloud side.
+            // 阿里云侧隧道的标识。
             shared_ptr<string> remoteId_ {};
           };
 
@@ -344,15 +344,15 @@ namespace Models
 
 
         protected:
-          // The configurations of Phase 1 negotiations.
+          // 第一阶段协商的配置信息。
           shared_ptr<TunnelConfig::IkeConfig> ikeConfig_ {};
-          // The configurations of Phase 2 negotiations.
+          // 第二阶段协商的配置信息。
           shared_ptr<TunnelConfig::IpsecConfig> ipsecConfig_ {};
-          // The identifier of the tunnel on the data center side.
+          // 本地IDC侧隧道的标识。
           shared_ptr<string> local_ {};
-          // The identifier of the tunnel on the Alibaba Cloud side.
+          // 阿里云侧隧道的标识。
           shared_ptr<string> remote_ {};
-          // The tunnel ID.
+          // 隧道ID。
           shared_ptr<string> tunnelId_ {};
         };
 
@@ -757,9 +757,6 @@ namespace Models
       shared_ptr<string> remote_ {};
       // The CIDR block on the virtual private cloud (VPC) side.
       shared_ptr<string> remoteSubnet_ {};
-      // The tunnel configurations of the peer gateway device.
-      // 
-      // The parameters in **TunnelsConfig** are returned only when the IPsec-VPN connection supports the dual-tunnel mode.
       shared_ptr<VpnConnectionConfig::TunnelsConfig> tunnelsConfig_ {};
     };
 

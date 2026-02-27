@@ -177,13 +177,7 @@ namespace Models
 
 
       protected:
-        // The key of tag N added to the resource. You must enter at least one tag key and at most 20 tag keys. The tag key cannot be an empty string.
-        // 
-        // The tag key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
         shared_ptr<string> key_ {};
-        // The value of tag N added to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
-        // 
-        // It can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
         shared_ptr<string> value_ {};
       };
 
@@ -711,7 +705,6 @@ namespace Models
     shared_ptr<string> status_ {};
     // Indicates whether the request is successful. Valid values: true and false.
     shared_ptr<bool> success_ {};
-    // The tag of the resource.
     shared_ptr<DescribeRouterInterfaceAttributeResponseBody::Tags> tags_ {};
     // The ID of the virtual private cloud (VPC) to which the router interface belongs.
     shared_ptr<string> vpcInstanceId_ {};

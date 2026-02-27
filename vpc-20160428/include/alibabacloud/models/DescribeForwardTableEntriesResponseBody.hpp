@@ -168,39 +168,15 @@ namespace Models
 
 
       protected:
-        // *   The EIPs that can be accessed over the Internet when you query DNAT entries of Internet NAT gateways.
-        // *   The NAT IP addresses that can be accessed by external networks when you query DNAT entries of VPC NAT gateways.
         shared_ptr<string> externalIp_ {};
-        // *   The external port or port range that is used for port forwarding when you query DNAT entries of Internet NAT gateways.
-        // *   The port that is used when the NAT IP address can be accessed by external networks when you query DNAT entries of VPC NAT gateways.
         shared_ptr<string> externalPort_ {};
-        // The ID of the DNAT entry.
         shared_ptr<string> forwardEntryId_ {};
-        // The name of the DNAT entry.
         shared_ptr<string> forwardEntryName_ {};
-        // The ID of the DNAT table to which the DNAT entry belongs.
         shared_ptr<string> forwardTableId_ {};
-        // The private IP address.
-        // 
-        // *   The private IP address of the ECS instance that uses DNAT entries to communicate with the Internet when you query DNAT entries of Internet NAT gateways.
-        // *   The private IP address that uses DNAT entries when you query DNAT entries of VPC NAT gateways.
         shared_ptr<string> internalIp_ {};
-        // *   The internal port or port range that is used for port forwarding when you query DNAT entries of Internet NAT gateways.
-        // *   The destination ECS instance port to be mapped when you query DNAT entries of VPC NAT gateways.
         shared_ptr<string> internalPort_ {};
-        // The protocol. Valid values:
-        // 
-        // *   **TCP**
-        // *   **UDP**
-        // *   **Any**
         shared_ptr<string> ipProtocol_ {};
-        // The ID of the NAT gateway to which the DNAT entry belongs.
         shared_ptr<string> natGatewayId_ {};
-        // The status of the DNAT entry. Valid values:
-        // 
-        // *   **Pending**
-        // *   **Available**
-        // *   **Deleting**
         shared_ptr<string> status_ {};
       };
 
@@ -258,7 +234,6 @@ namespace Models
 
 
   protected:
-    // The details of DNAT entries.
     shared_ptr<DescribeForwardTableEntriesResponseBody::ForwardTableEntries> forwardTableEntries_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

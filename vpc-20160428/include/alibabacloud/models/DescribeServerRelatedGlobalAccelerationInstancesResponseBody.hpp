@@ -107,13 +107,9 @@ namespace Models
 
 
       protected:
-        // The ID of the GA instance.
         shared_ptr<string> globalAccelerationInstanceId_ {};
-        // The public IP address of the GA instance.
         shared_ptr<string> ipAddress_ {};
-        // The region ID of the GA instance.
         shared_ptr<string> regionId_ {};
-        // The IP address of the backend service.
         shared_ptr<string> serverIpAddress_ {};
       };
 
@@ -150,7 +146,6 @@ namespace Models
 
 
   protected:
-    // The list of GA instances.
     shared_ptr<DescribeServerRelatedGlobalAccelerationInstancesResponseBody::GlobalAccelerationInstances> globalAccelerationInstances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

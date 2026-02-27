@@ -90,14 +90,7 @@ namespace Vpc20160428
       /**
        * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
        *
-       * @description Before you call this operation, take note of the following items:
-       * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
-       *     *   The EIP uses the pay-as-you-go billing method.
-       *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
-       *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-       * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the operation.
-       *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-       *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+       * @description Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
        *
        * @param request AddCommonBandwidthPackageIpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -108,14 +101,7 @@ namespace Vpc20160428
       /**
        * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
        *
-       * @description Before you call this operation, take note of the following items:
-       * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
-       *     *   The EIP uses the pay-as-you-go billing method.
-       *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
-       *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-       * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the operation.
-       *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-       *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+       * @description Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
        *
        * @param request AddCommonBandwidthPackageIpRequest
        * @return AddCommonBandwidthPackageIpResponse
@@ -701,7 +687,7 @@ namespace Vpc20160428
       Models::AssociateVpnGatewayWithCertificateResponse associateVpnGatewayWithCertificate(const Models::AssociateVpnGatewayWithCertificateRequest &request);
 
       /**
-       * @summary 将DHCP选项集与VPC关联
+       * @summary Associates a DHCP options set with a virtual private cloud (VPC).
        *
        * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
        *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
@@ -715,7 +701,7 @@ namespace Vpc20160428
       Models::AttachDhcpOptionsSetToVpcResponse attachDhcpOptionsSetToVpcWithOptions(const Models::AttachDhcpOptionsSetToVpcRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将DHCP选项集与VPC关联
+       * @summary Associates a DHCP options set with a virtual private cloud (VPC).
        *
        * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
        *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
@@ -1492,7 +1478,7 @@ namespace Vpc20160428
       Models::CreateIpsecServerResponse createIpsecServer(const Models::CreateIpsecServerRequest &request);
 
       /**
-       * @summary 创建IPv4网关。
+       * @summary Creates an IPv4 gateway.
        *
        * @description *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway:
        *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
@@ -1506,7 +1492,7 @@ namespace Vpc20160428
       Models::CreateIpv4GatewayResponse createIpv4GatewayWithOptions(const Models::CreateIpv4GatewayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建IPv4网关。
+       * @summary Creates an IPv4 gateway.
        *
        * @description *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway:
        *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
@@ -1906,7 +1892,7 @@ namespace Vpc20160428
       Models::CreateRouteTableResponse createRouteTable(const Models::CreateRouteTableRequest &request);
 
       /**
-       * @summary Create Route Target Group
+       * @summary Creates a route target group instance.
        *
        * @description - The **CreateRouteTargetGroup** interface is an asynchronous interface, meaning the system will return an instance ID, but the route target group instance has not yet been fully created, and the system\\"s background creation task is still in progress. You can call **ListRouteTargetGroup** to query the creation status of the route target group:
        *     - When the route target group is in the **Pending** state, it indicates that the route target group is being created.
@@ -1922,7 +1908,7 @@ namespace Vpc20160428
       Models::CreateRouteTargetGroupResponse createRouteTargetGroupWithOptions(const Models::CreateRouteTargetGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Route Target Group
+       * @summary Creates a route target group instance.
        *
        * @description - The **CreateRouteTargetGroup** interface is an asynchronous interface, meaning the system will return an instance ID, but the route target group instance has not yet been fully created, and the system\\"s background creation task is still in progress. You can call **ListRouteTargetGroup** to query the creation status of the route target group:
        *     - When the route target group is in the **Pending** state, it indicates that the route target group is being created.
@@ -2138,7 +2124,7 @@ namespace Vpc20160428
       Models::CreateTrafficMirrorSessionResponse createTrafficMirrorSession(const Models::CreateTrafficMirrorSessionRequest &request);
 
       /**
-       * @summary 创建交换机。
+       * @summary Creates a vSwitch.
        *
        * @description When you call this operation, take note of the following limits:
        * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
@@ -2159,7 +2145,7 @@ namespace Vpc20160428
       Models::CreateVSwitchResponse createVSwitchWithOptions(const Models::CreateVSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建交换机。
+       * @summary Creates a vSwitch.
        *
        * @description When you call this operation, take note of the following limits:
        * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
@@ -2235,13 +2221,7 @@ namespace Vpc20160428
       /**
        * @summary Adds a destination-based route for an IPsec-VPN connection.
        *
-       * @description *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).
-       * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-       * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
-       * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the status of the task.
-       *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
-       *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
-       * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
+       * @description Adds a destination-based route for an IPsec-VPN connection.
        *
        * @param request CreateVcoRouteEntryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2252,13 +2232,7 @@ namespace Vpc20160428
       /**
        * @summary Adds a destination-based route for an IPsec-VPN connection.
        *
-       * @description *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).
-       * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-       * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
-       * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the status of the task.
-       *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
-       *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
-       * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
+       * @description Adds a destination-based route for an IPsec-VPN connection.
        *
        * @param request CreateVcoRouteEntryRequest
        * @return CreateVcoRouteEntryResponse
@@ -2529,12 +2503,7 @@ namespace Vpc20160428
       /**
        * @summary Creates a policy-based route for a VPN gateway.
        *
-       * @description *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](https://help.aliyun.com/document_detail/110777.html).
-       * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
-       * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway.
-       *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
-       *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
-       * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
+       * @description Creates a policy-based route for a VPN gateway.
        *
        * @param request CreateVpnPbrRouteEntryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2545,12 +2514,7 @@ namespace Vpc20160428
       /**
        * @summary Creates a policy-based route for a VPN gateway.
        *
-       * @description *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](https://help.aliyun.com/document_detail/110777.html).
-       * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
-       * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway.
-       *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
-       *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
-       * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
+       * @description Creates a policy-based route for a VPN gateway.
        *
        * @param request CreateVpnPbrRouteEntryRequest
        * @return CreateVpnPbrRouteEntryResponse
@@ -2585,7 +2549,7 @@ namespace Vpc20160428
       Models::CreateVpnRouteEntryResponse createVpnRouteEntry(const Models::CreateVpnRouteEntryRequest &request);
 
       /**
-       * @summary 冻结路由器接口
+       * @summary Deactivates a router interface.
        *
        * @param request DeactivateRouterInterfaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2594,7 +2558,7 @@ namespace Vpc20160428
       Models::DeactivateRouterInterfaceResponse deactivateRouterInterfaceWithOptions(const Models::DeactivateRouterInterfaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 冻结路由器接口
+       * @summary Deactivates a router interface.
        *
        * @param request DeactivateRouterInterfaceRequest
        * @return DeactivateRouterInterfaceResponse
@@ -2927,7 +2891,7 @@ namespace Vpc20160428
       Models::DeleteFullNatEntryResponse deleteFullNatEntry(const Models::DeleteFullNatEntryRequest &request);
 
       /**
-       * @summary Deletes a Global Accelerator (GA) instance.
+       * @summary Deletes a GA instance.
        *
        * @description When you call this operation, take note of the following items:
        * *   You can delete only pay-as-you-go instances.
@@ -2941,7 +2905,7 @@ namespace Vpc20160428
       Models::DeleteGlobalAccelerationInstanceResponse deleteGlobalAccelerationInstanceWithOptions(const Models::DeleteGlobalAccelerationInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a Global Accelerator (GA) instance.
+       * @summary Deletes a GA instance.
        *
        * @description When you call this operation, take note of the following items:
        * *   You can delete only pay-as-you-go instances.
@@ -3469,7 +3433,7 @@ namespace Vpc20160428
       Models::DeleteRouteTableResponse deleteRouteTable(const Models::DeleteRouteTableRequest &request);
 
       /**
-       * @summary Delete Route Target Group
+       * @summary Deletes a route target group.
        *
        * @description - The **DeleteRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been successfully deleted as the deletion task is still in progress in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
        *     - When the route target group is in the **Deleting** state, it indicates that the route target group is being deleted.
@@ -3482,7 +3446,7 @@ namespace Vpc20160428
       Models::DeleteRouteTargetGroupResponse deleteRouteTargetGroupWithOptions(const Models::DeleteRouteTargetGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Route Target Group
+       * @summary Deletes a route target group.
        *
        * @description - The **DeleteRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been successfully deleted as the deletion task is still in progress in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
        *     - When the route target group is in the **Deleting** state, it indicates that the route target group is being deleted.
@@ -3581,7 +3545,7 @@ namespace Vpc20160428
       Models::DeleteSslVpnClientCertResponse deleteSslVpnClientCert(const Models::DeleteSslVpnClientCertRequest &request);
 
       /**
-       * @summary Deletes an SSL server.
+       * @summary Deletes an SSL server. The system automatically deletes all SSL client certificates that are associated with the SSL server. In this case, the SSL-VPN connections of the clients on which the SSL client certificates are installed are automatically disconnected.
        *
        * @description *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
        *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
@@ -3595,7 +3559,7 @@ namespace Vpc20160428
       Models::DeleteSslVpnServerResponse deleteSslVpnServerWithOptions(const Models::DeleteSslVpnServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an SSL server.
+       * @summary Deletes an SSL server. The system automatically deletes all SSL client certificates that are associated with the SSL server. In this case, the SSL-VPN connections of the clients on which the SSL client certificates are installed are automatically disconnected.
        *
        * @description *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
        *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
@@ -4022,7 +3986,7 @@ namespace Vpc20160428
       Models::DeleteVpnRouteEntryResponse deleteVpnRouteEntry(const Models::DeleteVpnRouteEntryRequest &request);
 
       /**
-       * @summary 设置实例删除保护功能。
+       * @summary Set the deletion protection feature for an instance.
        *
        * @description After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
        *
@@ -4033,7 +3997,7 @@ namespace Vpc20160428
       Models::DeletionProtectionResponse deletionProtectionWithOptions(const Models::DeletionProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置实例删除保护功能。
+       * @summary Set the deletion protection feature for an instance.
        *
        * @description After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
        *
@@ -4077,7 +4041,7 @@ namespace Vpc20160428
       Models::DescribeAccessPointsResponse describeAccessPoints(const Models::DescribeAccessPointsRequest &request);
 
       /**
-       * @summary Queries Border Gateway Protocol (BGP) groups in a region.
+       * @summary Queries BGP groups in a specified region.
        *
        * @param request DescribeBgpGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4086,7 +4050,7 @@ namespace Vpc20160428
       Models::DescribeBgpGroupsResponse describeBgpGroupsWithOptions(const Models::DescribeBgpGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Border Gateway Protocol (BGP) groups in a region.
+       * @summary Queries BGP groups in a specified region.
        *
        * @param request DescribeBgpGroupsRequest
        * @return DescribeBgpGroupsResponse
@@ -4238,7 +4202,7 @@ namespace Vpc20160428
       Models::DescribeEipGatewayInfoResponse describeEipGatewayInfo(const Models::DescribeEipGatewayInfoRequest &request);
 
       /**
-       * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
+       * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
        *
        * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
        *
@@ -4249,7 +4213,7 @@ namespace Vpc20160428
       Models::DescribeEipMonitorDataResponse describeEipMonitorDataWithOptions(const Models::DescribeEipMonitorDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
+       * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
        *
        * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
        *
@@ -4395,7 +4359,7 @@ namespace Vpc20160428
       Models::DescribeForwardTableEntriesResponse describeForwardTableEntries(const Models::DescribeForwardTableEntriesRequest &request);
 
       /**
-       * @summary Queries Global Accelerator (GA) instances.
+       * @summary Queries created GA instances.
        *
        * @param request DescribeGlobalAccelerationInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4404,7 +4368,7 @@ namespace Vpc20160428
       Models::DescribeGlobalAccelerationInstancesResponse describeGlobalAccelerationInstancesWithOptions(const Models::DescribeGlobalAccelerationInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Global Accelerator (GA) instances.
+       * @summary Queries created GA instances.
        *
        * @param request DescribeGlobalAccelerationInstancesRequest
        * @return DescribeGlobalAccelerationInstancesResponse
@@ -4412,7 +4376,7 @@ namespace Vpc20160428
       Models::DescribeGlobalAccelerationInstancesResponse describeGlobalAccelerationInstances(const Models::DescribeGlobalAccelerationInstancesRequest &request);
 
       /**
-       * @summary 查询指定网络实例（VPC、VBR）的云企业网跨账号授权信息
+       * @summary Queries cross-account authorization on virtual private clouds (VPCs), virtual border routers (VBRs), and Cloud Connect Network (CCN) instances.
        *
        * @param request DescribeGrantRulesToCenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4421,7 +4385,7 @@ namespace Vpc20160428
       Models::DescribeGrantRulesToCenResponse describeGrantRulesToCenWithOptions(const Models::DescribeGrantRulesToCenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定网络实例（VPC、VBR）的云企业网跨账号授权信息
+       * @summary Queries cross-account authorization on virtual private clouds (VPCs), virtual border routers (VBRs), and Cloud Connect Network (CCN) instances.
        *
        * @param request DescribeGrantRulesToCenRequest
        * @return DescribeGrantRulesToCenResponse
@@ -4700,7 +4664,7 @@ namespace Vpc20160428
       Models::DescribeNetworkAclsResponse describeNetworkAcls(const Models::DescribeNetworkAclsRequest &request);
 
       /**
-       * @summary 查询物理专线LOA信息
+       * @summary Queries the LOA information about an Express Connect circuit.
        *
        * @param request DescribePhysicalConnectionLOARequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4709,7 +4673,7 @@ namespace Vpc20160428
       Models::DescribePhysicalConnectionLOAResponse describePhysicalConnectionLOAWithOptions(const Models::DescribePhysicalConnectionLOARequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询物理专线LOA信息
+       * @summary Queries the LOA information about an Express Connect circuit.
        *
        * @param request DescribePhysicalConnectionLOARequest
        * @return DescribePhysicalConnectionLOAResponse
@@ -4869,7 +4833,7 @@ namespace Vpc20160428
       Models::DescribeRouterInterfacesResponse describeRouterInterfaces(const Models::DescribeRouterInterfacesRequest &request);
 
       /**
-       * @summary Queries Global Accelerator (GA) instances that are associated with a backend server.
+       * @summary Queries the GA instances that are associated with a specified backend server.
        *
        * @description > You can call this operation to query only dedicated-bandwidth GA instances.
        *
@@ -4880,7 +4844,7 @@ namespace Vpc20160428
       Models::DescribeServerRelatedGlobalAccelerationInstancesResponse describeServerRelatedGlobalAccelerationInstancesWithOptions(const Models::DescribeServerRelatedGlobalAccelerationInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Global Accelerator (GA) instances that are associated with a backend server.
+       * @summary Queries the GA instances that are associated with a specified backend server.
        *
        * @description > You can call this operation to query only dedicated-bandwidth GA instances.
        *
@@ -5382,7 +5346,7 @@ namespace Vpc20160428
       Models::DescribeVpnRouteEntriesResponse describeVpnRouteEntries(const Models::DescribeVpnRouteEntriesRequest &request);
 
       /**
-       * @summary Queries the log entries of an SSL server.
+       * @summary Queries the log of an SSL server.
        *
        * @param request DescribeVpnSslServerLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5391,7 +5355,7 @@ namespace Vpc20160428
       Models::DescribeVpnSslServerLogsResponse describeVpnSslServerLogsWithOptions(const Models::DescribeVpnSslServerLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the log entries of an SSL server.
+       * @summary Queries the log of an SSL server.
        *
        * @param request DescribeVpnSslServerLogsRequest
        * @return DescribeVpnSslServerLogsResponse
@@ -5416,7 +5380,7 @@ namespace Vpc20160428
       Models::DescribeZonesResponse describeZones(const Models::DescribeZonesRequest &request);
 
       /**
-       * @summary Disassociates a DHCP options set from a virtual private cloud (VPC).
+       * @summary Disassociates a DHCP options set from a VPC.
        *
        * @description ## [](#)Description
        * *   **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task.
@@ -5431,7 +5395,7 @@ namespace Vpc20160428
       Models::DetachDhcpOptionsSetFromVpcResponse detachDhcpOptionsSetFromVpcWithOptions(const Models::DetachDhcpOptionsSetFromVpcRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disassociates a DHCP options set from a virtual private cloud (VPC).
+       * @summary Disassociates a DHCP options set from a VPC.
        *
        * @description ## [](#)Description
        * *   **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task.
@@ -5487,7 +5451,9 @@ namespace Vpc20160428
       Models::DiagnoseVpnGatewayResponse diagnoseVpnGateway(const Models::DiagnoseVpnGatewayRequest &request);
 
       /**
-       * @summary Disables ClassicLink for a virtual private cloud (VPC).
+       * @deprecated OpenAPI DisableVpcClassicLink is deprecated
+       *
+       * @summary Disables ClassicLink for a VPC.
        *
        * @param request DisableVpcClassicLinkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5496,7 +5462,9 @@ namespace Vpc20160428
       Models::DisableVpcClassicLinkResponse disableVpcClassicLinkWithOptions(const Models::DisableVpcClassicLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables ClassicLink for a virtual private cloud (VPC).
+       * @deprecated OpenAPI DisableVpcClassicLink is deprecated
+       *
+       * @summary Disables ClassicLink for a VPC.
        *
        * @param request DisableVpcClassicLinkRequest
        * @return DisableVpcClassicLinkResponse
@@ -5611,6 +5579,8 @@ namespace Vpc20160428
       Models::EnablePhysicalConnectionResponse enablePhysicalConnection(const Models::EnablePhysicalConnectionRequest &request);
 
       /**
+       * @deprecated OpenAPI EnableVpcClassicLink is deprecated
+       *
        * @summary Enables ClassicLink for a VPC.
        *
        * @param request EnableVpcClassicLinkRequest
@@ -5620,6 +5590,8 @@ namespace Vpc20160428
       Models::EnableVpcClassicLinkResponse enableVpcClassicLinkWithOptions(const Models::EnableVpcClassicLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI EnableVpcClassicLink is deprecated
+       *
        * @summary Enables ClassicLink for a VPC.
        *
        * @param request EnableVpcClassicLinkRequest
@@ -5729,7 +5701,7 @@ namespace Vpc20160428
       Models::GetNatGatewayAttributeResponse getNatGatewayAttribute(const Models::GetNatGatewayAttributeRequest &request);
 
       /**
-       * @summary 查询是否开通了出云流量服务
+       * @summary Checks whether outbound data transfer billing is enabled for the current account.
        *
        * @description You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
        *
@@ -5740,7 +5712,7 @@ namespace Vpc20160428
       Models::GetPhysicalConnectionServiceStatusResponse getPhysicalConnectionServiceStatusWithOptions(const Models::GetPhysicalConnectionServiceStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询是否开通了出云流量服务
+       * @summary Checks whether outbound data transfer billing is enabled for the current account.
        *
        * @description You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
        *
@@ -5767,7 +5739,7 @@ namespace Vpc20160428
       Models::GetPublicIpAddressPoolServiceStatusResponse getPublicIpAddressPoolServiceStatus(const Models::GetPublicIpAddressPoolServiceStatusRequest &request);
 
       /**
-       * @summary Get the route target group
+       * @summary Gets the information of a route target group.
        *
        * @description Get the information of the route target group instance.
        *
@@ -5778,7 +5750,7 @@ namespace Vpc20160428
       Models::GetRouteTargetGroupResponse getRouteTargetGroupWithOptions(const Models::GetRouteTargetGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the route target group
+       * @summary Gets the information of a route target group.
        *
        * @description Get the information of the route target group instance.
        *
@@ -5873,7 +5845,7 @@ namespace Vpc20160428
       Models::GetVpcPrefixListEntriesResponse getVpcPrefixListEntries(const Models::GetVpcPrefixListEntriesRequest &request);
 
       /**
-       * @summary 查询路由类型的明细。
+       * @summary Queries route types.
        *
        * @param request GetVpcRouteEntrySummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5882,7 +5854,7 @@ namespace Vpc20160428
       Models::GetVpcRouteEntrySummaryResponse getVpcRouteEntrySummaryWithOptions(const Models::GetVpcRouteEntrySummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询路由类型的明细。
+       * @summary Queries route types.
        *
        * @param request GetVpcRouteEntrySummaryRequest
        * @return GetVpcRouteEntrySummaryResponse
@@ -5911,7 +5883,7 @@ namespace Vpc20160428
       Models::GetVpnGatewayDiagnoseResultResponse getVpnGatewayDiagnoseResult(const Models::GetVpnGatewayDiagnoseResultRequest &request);
 
       /**
-       * @summary Grants permissions to a Cloud Enterprise Network (CEN) instance.
+       * @summary Grants permissions to a CEN instance.
        *
        * @description *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
        * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use the `vpc.aliyuncs.com` domain name to call this operation. The API version is `2016-04-28`.
@@ -5924,7 +5896,7 @@ namespace Vpc20160428
       Models::GrantInstanceToCenResponse grantInstanceToCenWithOptions(const Models::GrantInstanceToCenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Grants permissions to a Cloud Enterprise Network (CEN) instance.
+       * @summary Grants permissions to a CEN instance.
        *
        * @description *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
        * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use the `vpc.aliyuncs.com` domain name to call this operation. The API version is `2016-04-28`.
@@ -5976,7 +5948,7 @@ namespace Vpc20160428
       Models::ListBusinessAccessPointsResponse listBusinessAccessPoints(const Models::ListBusinessAccessPointsRequest &request);
 
       /**
-       * @summary Query the list of regions available for an Express Connect circuit.
+       * @summary Queries the list of regions available for an Express Connect circuit.
        *
        * @param request ListBusinessRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5985,7 +5957,7 @@ namespace Vpc20160428
       Models::ListBusinessRegionsResponse listBusinessRegionsWithOptions(const Models::ListBusinessRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of regions available for an Express Connect circuit.
+       * @summary Queries the list of regions available for an Express Connect circuit.
        *
        * @param request ListBusinessRegionsRequest
        * @return ListBusinessRegionsResponse
@@ -6166,7 +6138,7 @@ namespace Vpc20160428
       Models::ListNatIpsResponse listNatIps(const Models::ListNatIpsRequest &request);
 
       /**
-       * @summary Querying the connection features supported by a Express Connect circuit.
+       * @summary Queries he connection features supported by a Express Connect circuit.
        *
        * @param request ListPhysicalConnectionFeaturesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6175,7 +6147,7 @@ namespace Vpc20160428
       Models::ListPhysicalConnectionFeaturesResponse listPhysicalConnectionFeaturesWithOptions(const Models::ListPhysicalConnectionFeaturesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Querying the connection features supported by a Express Connect circuit.
+       * @summary Queries he connection features supported by a Express Connect circuit.
        *
        * @param request ListPhysicalConnectionFeaturesRequest
        * @return ListPhysicalConnectionFeaturesResponse
@@ -6200,7 +6172,7 @@ namespace Vpc20160428
       Models::ListPrefixListsResponse listPrefixLists(const Models::ListPrefixListsRequest &request);
 
       /**
-       * @summary 查询IP地址池中的IP地址网段信息
+       * @summary Queries CIDR blocks in an IP address pool.
        *
        * @param request ListPublicIpAddressPoolCidrBlocksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6209,7 +6181,7 @@ namespace Vpc20160428
       Models::ListPublicIpAddressPoolCidrBlocksResponse listPublicIpAddressPoolCidrBlocksWithOptions(const Models::ListPublicIpAddressPoolCidrBlocksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询IP地址池中的IP地址网段信息
+       * @summary Queries CIDR blocks in an IP address pool.
        *
        * @param request ListPublicIpAddressPoolCidrBlocksRequest
        * @return ListPublicIpAddressPoolCidrBlocksResponse
@@ -6234,7 +6206,7 @@ namespace Vpc20160428
       Models::ListPublicIpAddressPoolsResponse listPublicIpAddressPools(const Models::ListPublicIpAddressPoolsRequest &request);
 
       /**
-       * @summary Batch query for route target groups
+       * @summary Queries the list of route target groups.
        *
        * @description Lists the route target groups.
        *
@@ -6245,7 +6217,7 @@ namespace Vpc20160428
       Models::ListRouteTargetGroupsResponse listRouteTargetGroupsWithOptions(const Models::ListRouteTargetGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch query for route target groups
+       * @summary Queries the list of route target groups.
        *
        * @description Lists the route target groups.
        *
@@ -6415,7 +6387,7 @@ namespace Vpc20160428
       Models::ListVpcGatewayEndpointsResponse listVpcGatewayEndpoints(const Models::ListVpcGatewayEndpointsRequest &request);
 
       /**
-       * @summary Queries advertised routes.
+       * @summary Query the route publishing status
        *
        * @param request ListVpcPublishedRouteEntriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6424,7 +6396,7 @@ namespace Vpc20160428
       Models::ListVpcPublishedRouteEntriesResponse listVpcPublishedRouteEntriesWithOptions(const Models::ListVpcPublishedRouteEntriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries advertised routes.
+       * @summary Query the route publishing status
        *
        * @param request ListVpcPublishedRouteEntriesRequest
        * @return ListVpcPublishedRouteEntriesResponse
@@ -7359,7 +7331,7 @@ namespace Vpc20160428
       Models::ModifyVRouterAttributeResponse modifyVRouterAttribute(const Models::ModifyVRouterAttributeRequest &request);
 
       /**
-       * @summary 修改VSwitch属性
+       * @summary Modifies the name and description of a vSwitch.
        *
        * @description *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
        *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
@@ -7373,7 +7345,7 @@ namespace Vpc20160428
       Models::ModifyVSwitchAttributeResponse modifyVSwitchAttributeWithOptions(const Models::ModifyVSwitchAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改VSwitch属性
+       * @summary Modifies the name and description of a vSwitch.
        *
        * @description *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
        *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
@@ -7386,7 +7358,7 @@ namespace Vpc20160428
       Models::ModifyVSwitchAttributeResponse modifyVSwitchAttribute(const Models::ModifyVSwitchAttributeRequest &request);
 
       /**
-       * @summary 修改交换机预留网段的名称和描述信息。
+       * @summary Modifies the name and description of a CIDR block reserved for a vSwitch.
        *
        * @description ## [](#)Usage notes
        * You cannot repeatedly call **ModifyVSwitchCidrReservationAttribute** within a specific time period.
@@ -7398,7 +7370,7 @@ namespace Vpc20160428
       Models::ModifyVSwitchCidrReservationAttributeResponse modifyVSwitchCidrReservationAttributeWithOptions(const Models::ModifyVSwitchCidrReservationAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改交换机预留网段的名称和描述信息。
+       * @summary Modifies the name and description of a CIDR block reserved for a vSwitch.
        *
        * @description ## [](#)Usage notes
        * You cannot repeatedly call **ModifyVSwitchCidrReservationAttribute** within a specific time period.
@@ -7469,7 +7441,7 @@ namespace Vpc20160428
       Models::ModifyVirtualBorderRouterAttributeResponse modifyVirtualBorderRouterAttribute(const Models::ModifyVirtualBorderRouterAttributeRequest &request);
 
       /**
-       * @summary Modifies the name and description of a virtual private cloud (VPC).
+       * @summary Modifies the configurations of a specified VPC.
        *
        * @description ## [](#)Description
        * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
@@ -7481,7 +7453,7 @@ namespace Vpc20160428
       Models::ModifyVpcAttributeResponse modifyVpcAttributeWithOptions(const Models::ModifyVpcAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the name and description of a virtual private cloud (VPC).
+       * @summary Modifies the configurations of a specified VPC.
        *
        * @description ## [](#)Description
        * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
@@ -7589,7 +7561,7 @@ namespace Vpc20160428
       Models::ModifyVpnConnectionAttributeResponse modifyVpnConnectionAttribute(const Models::ModifyVpnConnectionAttributeRequest &request);
 
       /**
-       * @summary Modifies the name and description of a VPN gateway.
+       * @summary Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
        *
        * @description *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
        *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
@@ -7603,7 +7575,7 @@ namespace Vpc20160428
       Models::ModifyVpnGatewayAttributeResponse modifyVpnGatewayAttributeWithOptions(const Models::ModifyVpnGatewayAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the name and description of a VPN gateway.
+       * @summary Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
        *
        * @description *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
        *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
@@ -7848,7 +7820,7 @@ namespace Vpc20160428
       Models::OpenTrafficMirrorServiceResponse openTrafficMirrorService(const Models::OpenTrafficMirrorServiceRequest &request);
 
       /**
-       * @summary Advertises VPC routes to an external component.
+       * @summary Publish VPC Routes
        *
        * @param request PublishVpcRouteEntriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7857,7 +7829,7 @@ namespace Vpc20160428
       Models::PublishVpcRouteEntriesResponse publishVpcRouteEntriesWithOptions(const Models::PublishVpcRouteEntriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Advertises VPC routes to an external component.
+       * @summary Publish VPC Routes
        *
        * @param request PublishVpcRouteEntriesRequest
        * @return PublishVpcRouteEntriesResponse
@@ -8030,6 +8002,8 @@ namespace Vpc20160428
       Models::RemoveCommonBandwidthPackageIpResponse removeCommonBandwidthPackageIp(const Models::RemoveCommonBandwidthPackageIpRequest &request);
 
       /**
+       * @summary Disassociates an EIP from a shared-bandwidth GA instance.
+       *
        * @param request RemoveGlobalAccelerationInstanceIpRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RemoveGlobalAccelerationInstanceIpResponse
@@ -8037,6 +8011,8 @@ namespace Vpc20160428
       Models::RemoveGlobalAccelerationInstanceIpResponse removeGlobalAccelerationInstanceIpWithOptions(const Models::RemoveGlobalAccelerationInstanceIpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Disassociates an EIP from a shared-bandwidth GA instance.
+       *
        * @param request RemoveGlobalAccelerationInstanceIpRequest
        * @return RemoveGlobalAccelerationInstanceIpResponse
        */
@@ -8087,7 +8063,7 @@ namespace Vpc20160428
       Models::RemoveSourcesFromTrafficMirrorSessionResponse removeSourcesFromTrafficMirrorSession(const Models::RemoveSourcesFromTrafficMirrorSessionRequest &request);
 
       /**
-       * @summary 更改DHCP选项集与VPC的关联。
+       * @summary Replaces the DHCP options set that is associated with a virtual private cloud (VPC).
        *
        * @description *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
        *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
@@ -8101,7 +8077,7 @@ namespace Vpc20160428
       Models::ReplaceVpcDhcpOptionsSetResponse replaceVpcDhcpOptionsSetWithOptions(const Models::ReplaceVpcDhcpOptionsSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更改DHCP选项集与VPC的关联。
+       * @summary Replaces the DHCP options set that is associated with a virtual private cloud (VPC).
        *
        * @description *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
        *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
@@ -8263,7 +8239,7 @@ namespace Vpc20160428
       Models::StopFailoverTestJobResponse stopFailoverTestJob(const Models::StopFailoverTestJobRequest &request);
 
       /**
-       * @summary Switch Active and Standby For RouteTargetGroup.
+       * @summary Performs primary and secondary switchover for the route target group.
        *
        * @description Switch Active and Standby For RouteTargetGroup.
        *
@@ -8274,7 +8250,7 @@ namespace Vpc20160428
       Models::SwitchActiveRouteTargetResponse switchActiveRouteTargetWithOptions(const Models::SwitchActiveRouteTargetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Switch Active and Standby For RouteTargetGroup.
+       * @summary Performs primary and secondary switchover for the route target group.
        *
        * @description Switch Active and Standby For RouteTargetGroup.
        *
@@ -8628,7 +8604,7 @@ namespace Vpc20160428
       Models::UntagResourcesForExpressConnectResponse untagResourcesForExpressConnect(const Models::UntagResourcesForExpressConnectRequest &request);
 
       /**
-       * @summary 修改Dhcp选项集信息
+       * @summary Modifies the configuration of a DHCP options set.
        *
        * @param request UpdateDhcpOptionsSetAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8637,7 +8613,7 @@ namespace Vpc20160428
       Models::UpdateDhcpOptionsSetAttributeResponse updateDhcpOptionsSetAttributeWithOptions(const Models::UpdateDhcpOptionsSetAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改Dhcp选项集信息
+       * @summary Modifies the configuration of a DHCP options set.
        *
        * @param request UpdateDhcpOptionsSetAttributeRequest
        * @return UpdateDhcpOptionsSetAttributeResponse
@@ -8818,7 +8794,7 @@ namespace Vpc20160428
       Models::UpdatePublicIpAddressPoolAttributeResponse updatePublicIpAddressPoolAttribute(const Models::UpdatePublicIpAddressPoolAttributeRequest &request);
 
       /**
-       * @summary Update Route Target Group
+       * @summary Updates the information about a routing target group instance, including the name, description, and members that are not enabled.
        *
        * @description - The **UpdateRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been fully updated, and the system\\"s background update task is still in progress. You can call ListRouteTargetGroup to query the update status of the route target group:
        *     - When the route target group is in the **Updating** state, it indicates that the route target group is being created.
@@ -8831,7 +8807,7 @@ namespace Vpc20160428
       Models::UpdateRouteTargetGroupResponse updateRouteTargetGroupWithOptions(const Models::UpdateRouteTargetGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Route Target Group
+       * @summary Updates the information about a routing target group instance, including the name, description, and members that are not enabled.
        *
        * @description - The **UpdateRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been fully updated, and the system\\"s background update task is still in progress. You can call ListRouteTargetGroup to query the update status of the route target group:
        *     - When the route target group is in the **Updating** state, it indicates that the route target group is being created.
@@ -8864,7 +8840,7 @@ namespace Vpc20160428
       Models::UpdateTrafficMirrorFilterAttributeResponse updateTrafficMirrorFilterAttribute(const Models::UpdateTrafficMirrorFilterAttributeRequest &request);
 
       /**
-       * @summary Modifies the configuration of an inbound or outbound rule for traffic mirroring.
+       * @summary Modifies the configuration of an inbound or outbound rule for traffic mirror.
        *
        * @description *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of an inbound or outbound rule:
        *     *   If the rule is in the **Modifying** state, the rule is being modified.
@@ -8878,7 +8854,7 @@ namespace Vpc20160428
       Models::UpdateTrafficMirrorFilterRuleAttributeResponse updateTrafficMirrorFilterRuleAttributeWithOptions(const Models::UpdateTrafficMirrorFilterRuleAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of an inbound or outbound rule for traffic mirroring.
+       * @summary Modifies the configuration of an inbound or outbound rule for traffic mirror.
        *
        * @description *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of an inbound or outbound rule:
        *     *   If the rule is in the **Modifying** state, the rule is being modified.
@@ -8981,7 +8957,7 @@ namespace Vpc20160428
       Models::UpdateVpcGatewayEndpointAttributeResponse updateVpcGatewayEndpointAttribute(const Models::UpdateVpcGatewayEndpointAttributeRequest &request);
 
       /**
-       * @summary 查看eni quota
+       * @summary Queries the quota of endpoints that can be created in the reversely accessed VPC NAT gateway.
        *
        * @description Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
        *
@@ -8992,7 +8968,7 @@ namespace Vpc20160428
       Models::VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse vpcDescribeVpcNatGatewayNetworkInterfaceQuotaWithOptions(const Models::VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看eni quota
+       * @summary Queries the quota of endpoints that can be created in the reversely accessed VPC NAT gateway.
        *
        * @description Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
        *

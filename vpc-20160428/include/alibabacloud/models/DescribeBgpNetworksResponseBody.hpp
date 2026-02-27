@@ -113,13 +113,9 @@ namespace Models
 
 
       protected:
-        // The CIDR block of the advertised BGP network.
         shared_ptr<string> dstCidrBlock_ {};
-        // The ID of the VBR.
         shared_ptr<string> routerId_ {};
-        // The status of the advertised BGP network.
         shared_ptr<string> status_ {};
-        // The ID of the virtual private cloud (VPC) in which the master instance resides.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -177,7 +173,6 @@ namespace Models
 
 
   protected:
-    // BGP networks.
     shared_ptr<DescribeBgpNetworksResponseBody::BgpNetworks> bgpNetworks_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

@@ -91,9 +91,7 @@ namespace Models
 
 
       protected:
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -144,7 +142,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The list of tags that meet the filter conditions.
     shared_ptr<DescribeTagsResponseBody::TagResources> tagResources_ {};
   };
 

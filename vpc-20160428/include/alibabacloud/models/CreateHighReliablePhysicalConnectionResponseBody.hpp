@@ -91,9 +91,7 @@ namespace Models
 
 
       protected:
-        // The ID of the Express Connect circuit.
         shared_ptr<string> instanceId_ {};
-        // The region ID of the Express Connect circuit.
         shared_ptr<string> regionNo_ {};
       };
 
@@ -177,11 +175,8 @@ namespace Models
 
 
       protected:
-        // Error codes.
         shared_ptr<string> errorCode_ {};
-        // The returned error message.
         shared_ptr<string> errorMessage_ {};
-        // The ID of the Express Connect circuit.
         shared_ptr<string> instanceId_ {};
       };
 
@@ -227,14 +222,7 @@ namespace Models
 
 
   protected:
-    // If the request fails the dry run, the following error codes and error messages may be returned:
-    // 
-    // - pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing. Billing for outbound data transfer is not enabled.
-    // - pconn.high.reliable.dryrun.error.incompatable.device.capacity. No device in the access point supports advanced features.
-    // - pconn.high.reliable.dryrun.error.quota.exceeded. The quota is insufficient.
-    // - pconn.high.reliable.dryrun.error.not.enough.resource. The access point resources are insufficient.
     shared_ptr<CreateHighReliablePhysicalConnectionResponseBody::ErrorInfoList> errorInfoList_ {};
-    // The Express Connect circuits.
     shared_ptr<CreateHighReliablePhysicalConnectionResponseBody::PhysicalConnectionList> physicalConnectionList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

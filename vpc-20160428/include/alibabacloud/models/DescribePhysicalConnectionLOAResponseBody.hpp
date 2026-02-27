@@ -161,22 +161,10 @@ namespace Models
 
 
         protected:
-          // The identity document number of the construction worker.
           shared_ptr<string> PMCertificateNo_ {};
-          // The identity document type of the construction worker. Valid values:
-          // 
-          // *   **IDCard**
-          // *   **Passport**
-          // *   **Other**
           shared_ptr<string> PMCertificateType_ {};
-          // The phone number of the construction worker.
           shared_ptr<string> PMContactInfo_ {};
-          // The gender of the construction worker. Valid values:
-          // 
-          // *   **Male**
-          // *   **Female**
           shared_ptr<string> PMGender_ {};
-          // The name of the construction worker.
           shared_ptr<string> PMName_ {};
         };
 
@@ -330,7 +318,6 @@ namespace Models
       shared_ptr<string> lineType_ {};
       // The download URL of the LOA file.
       shared_ptr<string> loaUrl_ {};
-      // The information about the construction workers.
       shared_ptr<PhysicalConnectionLOAType::PMInfo> PMInfo_ {};
       // The on-site construction company.
       shared_ptr<string> SI_ {};

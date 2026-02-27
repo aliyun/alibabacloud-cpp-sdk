@@ -223,6 +223,9 @@ namespace Models
       shared_ptr<string> transitRouterId_ {};
       // The name of the transit router.
       shared_ptr<string> transitRouterName_ {};
+      // Specifies the bandwidth specifications for a single tunnel in VPN attachment. Available options:
+      // - **Standard**: Standard, 1Gbps
+      // - **Large**:  Large-sized, 3Gbps
       shared_ptr<string> tunnelBandwidth_ {};
     };
 

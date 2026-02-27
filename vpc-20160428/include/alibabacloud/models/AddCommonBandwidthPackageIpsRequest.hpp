@@ -131,7 +131,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> ipInstanceIds_ {};
-    // The type of the IP address. Set the value to **EIP** to associate EIPs with the EIP bandwidth plan.
+    // The IP type. Set the value to **EIP**, which indicates that an EIP is added to the Shared Bandwidth.
     shared_ptr<string> ipType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

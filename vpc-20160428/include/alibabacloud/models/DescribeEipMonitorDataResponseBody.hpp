@@ -126,15 +126,10 @@ namespace Models
 
       protected:
         shared_ptr<int32_t> eipBandwidth_ {};
-        // The sum of inbound and outbound traffic.
         shared_ptr<int64_t> eipFlow_ {};
-        // The number of packets.
         shared_ptr<int32_t> eipPackets_ {};
-        // The inbound traffic. Unit: bytes.
         shared_ptr<int64_t> eipRX_ {};
-        // The outbound traffic. Unit: bytes.
         shared_ptr<int64_t> eipTX_ {};
-        // The timestamp of the monitoring data. Specify the time in the ISO8601 standard. Example: `2020-01-21T09:50:23Z`.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -171,7 +166,6 @@ namespace Models
 
 
   protected:
-    // The detailed information about the monitoring data of the EIP.
     shared_ptr<DescribeEipMonitorDataResponseBody::EipMonitorDatas> eipMonitorDatas_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

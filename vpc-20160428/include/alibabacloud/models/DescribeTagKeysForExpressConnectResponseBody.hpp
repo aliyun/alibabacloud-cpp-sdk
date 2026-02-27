@@ -91,9 +91,7 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
         shared_ptr<string> tagKey_ {};
-        // The type of the resource. The value is set to **PHYSICALCONNECTION**, which indicates an Express Connect circuit.
         shared_ptr<string> type_ {};
       };
 
@@ -144,7 +142,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tag keys.
     shared_ptr<DescribeTagKeysForExpressConnectResponseBody::TagKeys> tagKeys_ {};
   };
 

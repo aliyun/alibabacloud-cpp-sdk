@@ -286,14 +286,7 @@ AddBgpNetworkResponse Client::addBgpNetwork(const AddBgpNetworkRequest &request)
 /**
  * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
  *
- * @description Before you call this operation, take note of the following items:
- * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
- *     *   The EIP uses the pay-as-you-go billing method.
- *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
- *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
- * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the operation.
- *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
- *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+ * @description Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
  *
  * @param request AddCommonBandwidthPackageIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -358,14 +351,7 @@ AddCommonBandwidthPackageIpResponse Client::addCommonBandwidthPackageIpWithOptio
 /**
  * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
  *
- * @description Before you call this operation, take note of the following items:
- * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
- *     *   The EIP uses the pay-as-you-go billing method.
- *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
- *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
- * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the operation.
- *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
- *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+ * @description Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
  *
  * @param request AddCommonBandwidthPackageIpRequest
  * @return AddCommonBandwidthPackageIpResponse
@@ -2460,7 +2446,7 @@ AssociateVpnGatewayWithCertificateResponse Client::associateVpnGatewayWithCertif
 }
 
 /**
- * @summary 将DHCP选项集与VPC关联
+ * @summary Associates a DHCP options set with a virtual private cloud (VPC).
  *
  * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
  *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
@@ -2528,7 +2514,7 @@ AttachDhcpOptionsSetToVpcResponse Client::attachDhcpOptionsSetToVpcWithOptions(c
 }
 
 /**
- * @summary 将DHCP选项集与VPC关联
+ * @summary Associates a DHCP options set with a virtual private cloud (VPC).
  *
  * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
  *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
@@ -5432,7 +5418,7 @@ CreateIpsecServerResponse Client::createIpsecServer(const CreateIpsecServerReque
 }
 
 /**
- * @summary 创建IPv4网关。
+ * @summary Creates an IPv4 gateway.
  *
  * @description *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway:
  *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
@@ -5516,7 +5502,7 @@ CreateIpv4GatewayResponse Client::createIpv4GatewayWithOptions(const CreateIpv4G
 }
 
 /**
- * @summary 创建IPv4网关。
+ * @summary Creates an IPv4 gateway.
  *
  * @description *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway:
  *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
@@ -6930,7 +6916,7 @@ CreateRouteTableResponse Client::createRouteTable(const CreateRouteTableRequest 
 }
 
 /**
- * @summary Create Route Target Group
+ * @summary Creates a route target group instance.
  *
  * @description - The **CreateRouteTargetGroup** interface is an asynchronous interface, meaning the system will return an instance ID, but the route target group instance has not yet been fully created, and the system\\"s background creation task is still in progress. You can call **ListRouteTargetGroup** to query the creation status of the route target group:
  *     - When the route target group is in the **Pending** state, it indicates that the route target group is being created.
@@ -7000,7 +6986,7 @@ CreateRouteTargetGroupResponse Client::createRouteTargetGroupWithOptions(const C
 }
 
 /**
- * @summary Create Route Target Group
+ * @summary Creates a route target group instance.
  *
  * @description - The **CreateRouteTargetGroup** interface is an asynchronous interface, meaning the system will return an instance ID, but the route target group instance has not yet been fully created, and the system\\"s background creation task is still in progress. You can call **ListRouteTargetGroup** to query the creation status of the route target group:
  *     - When the route target group is in the **Pending** state, it indicates that the route target group is being created.
@@ -7818,7 +7804,7 @@ CreateTrafficMirrorSessionResponse Client::createTrafficMirrorSession(const Crea
 }
 
 /**
- * @summary 创建交换机。
+ * @summary Creates a vSwitch.
  *
  * @description When you call this operation, take note of the following limits:
  * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
@@ -7913,7 +7899,7 @@ CreateVSwitchResponse Client::createVSwitchWithOptions(const CreateVSwitchReques
 }
 
 /**
- * @summary 创建交换机。
+ * @summary Creates a vSwitch.
  *
  * @description When you call this operation, take note of the following limits:
  * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
@@ -8138,13 +8124,7 @@ CreateVbrHaResponse Client::createVbrHa(const CreateVbrHaRequest &request) {
 /**
  * @summary Adds a destination-based route for an IPsec-VPN connection.
  *
- * @description *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).
- * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
- * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
- * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the status of the task.
- *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
- *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
- * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
+ * @description Adds a destination-based route for an IPsec-VPN connection.
  *
  * @param request CreateVcoRouteEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8221,13 +8201,7 @@ CreateVcoRouteEntryResponse Client::createVcoRouteEntryWithOptions(const CreateV
 /**
  * @summary Adds a destination-based route for an IPsec-VPN connection.
  *
- * @description *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).
- * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
- * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
- * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the status of the task.
- *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
- *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
- * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
+ * @description Adds a destination-based route for an IPsec-VPN connection.
  *
  * @param request CreateVcoRouteEntryRequest
  * @return CreateVcoRouteEntryResponse
@@ -9330,12 +9304,7 @@ CreateVpnGatewayResponse Client::createVpnGateway(const CreateVpnGatewayRequest 
 /**
  * @summary Creates a policy-based route for a VPN gateway.
  *
- * @description *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](https://help.aliyun.com/document_detail/110777.html).
- * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
- * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway.
- *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
- *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
- * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
+ * @description Creates a policy-based route for a VPN gateway.
  *
  * @param request CreateVpnPbrRouteEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9428,12 +9397,7 @@ CreateVpnPbrRouteEntryResponse Client::createVpnPbrRouteEntryWithOptions(const C
 /**
  * @summary Creates a policy-based route for a VPN gateway.
  *
- * @description *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](https://help.aliyun.com/document_detail/110777.html).
- * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
- * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway.
- *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
- *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
- * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
+ * @description Creates a policy-based route for a VPN gateway.
  *
  * @param request CreateVpnPbrRouteEntryRequest
  * @return CreateVpnPbrRouteEntryResponse
@@ -9548,7 +9512,7 @@ CreateVpnRouteEntryResponse Client::createVpnRouteEntry(const CreateVpnRouteEntr
 }
 
 /**
- * @summary 冻结路由器接口
+ * @summary Deactivates a router interface.
  *
  * @param request DeactivateRouterInterfaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9595,7 +9559,7 @@ DeactivateRouterInterfaceResponse Client::deactivateRouterInterfaceWithOptions(c
 }
 
 /**
- * @summary 冻结路由器接口
+ * @summary Deactivates a router interface.
  *
  * @param request DeactivateRouterInterfaceRequest
  * @return DeactivateRouterInterfaceResponse
@@ -10694,7 +10658,7 @@ DeleteFullNatEntryResponse Client::deleteFullNatEntry(const DeleteFullNatEntryRe
 }
 
 /**
- * @summary Deletes a Global Accelerator (GA) instance.
+ * @summary Deletes a GA instance.
  *
  * @description When you call this operation, take note of the following items:
  * *   You can delete only pay-as-you-go instances.
@@ -10750,7 +10714,7 @@ DeleteGlobalAccelerationInstanceResponse Client::deleteGlobalAccelerationInstanc
 }
 
 /**
- * @summary Deletes a Global Accelerator (GA) instance.
+ * @summary Deletes a GA instance.
  *
  * @description When you call this operation, take note of the following items:
  * *   You can delete only pay-as-you-go instances.
@@ -12308,7 +12272,7 @@ DeleteRouteTableResponse Client::deleteRouteTable(const DeleteRouteTableRequest 
 }
 
 /**
- * @summary Delete Route Target Group
+ * @summary Deletes a route target group.
  *
  * @description - The **DeleteRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been successfully deleted as the deletion task is still in progress in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
  *     - When the route target group is in the **Deleting** state, it indicates that the route target group is being deleted.
@@ -12355,7 +12319,7 @@ DeleteRouteTargetGroupResponse Client::deleteRouteTargetGroupWithOptions(const D
 }
 
 /**
- * @summary Delete Route Target Group
+ * @summary Deletes a route target group.
  *
  * @description - The **DeleteRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been successfully deleted as the deletion task is still in progress in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
  *     - When the route target group is in the **Deleting** state, it indicates that the route target group is being deleted.
@@ -12608,7 +12572,7 @@ DeleteSslVpnClientCertResponse Client::deleteSslVpnClientCert(const DeleteSslVpn
 }
 
 /**
- * @summary Deletes an SSL server.
+ * @summary Deletes an SSL server. The system automatically deletes all SSL client certificates that are associated with the SSL server. In this case, the SSL-VPN connections of the clients on which the SSL client certificates are installed are automatically disconnected.
  *
  * @description *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
  *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
@@ -12668,7 +12632,7 @@ DeleteSslVpnServerResponse Client::deleteSslVpnServerWithOptions(const DeleteSsl
 }
 
 /**
- * @summary Deletes an SSL server.
+ * @summary Deletes an SSL server. The system automatically deletes all SSL client certificates that are associated with the SSL server. In this case, the SSL-VPN connections of the clients on which the SSL client certificates are installed are automatically disconnected.
  *
  * @description *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
  *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
@@ -13966,7 +13930,7 @@ DeleteVpnRouteEntryResponse Client::deleteVpnRouteEntry(const DeleteVpnRouteEntr
 }
 
 /**
- * @summary 设置实例删除保护功能。
+ * @summary Set the deletion protection feature for an instance.
  *
  * @description After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
  *
@@ -14031,7 +13995,7 @@ DeletionProtectionResponse Client::deletionProtectionWithOptions(const DeletionP
 }
 
 /**
- * @summary 设置实例删除保护功能。
+ * @summary Set the deletion protection feature for an instance.
  *
  * @description After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
  *
@@ -14180,7 +14144,7 @@ DescribeAccessPointsResponse Client::describeAccessPoints(const DescribeAccessPo
 }
 
 /**
- * @summary Queries Border Gateway Protocol (BGP) groups in a region.
+ * @summary Queries BGP groups in a specified region.
  *
  * @param request DescribeBgpGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14247,7 +14211,7 @@ DescribeBgpGroupsResponse Client::describeBgpGroupsWithOptions(const DescribeBgp
 }
 
 /**
- * @summary Queries Border Gateway Protocol (BGP) groups in a region.
+ * @summary Queries BGP groups in a specified region.
  *
  * @param request DescribeBgpGroupsRequest
  * @return DescribeBgpGroupsResponse
@@ -14914,7 +14878,7 @@ DescribeEipGatewayInfoResponse Client::describeEipGatewayInfo(const DescribeEipG
 }
 
 /**
- * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
+ * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
  *
  * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
  *
@@ -14979,7 +14943,7 @@ DescribeEipMonitorDataResponse Client::describeEipMonitorDataWithOptions(const D
 }
 
 /**
- * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
+ * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
  *
  * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
  *
@@ -15660,7 +15624,7 @@ DescribeForwardTableEntriesResponse Client::describeForwardTableEntries(const De
 }
 
 /**
- * @summary Queries Global Accelerator (GA) instances.
+ * @summary Queries created GA instances.
  *
  * @param request DescribeGlobalAccelerationInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15747,7 +15711,7 @@ DescribeGlobalAccelerationInstancesResponse Client::describeGlobalAccelerationIn
 }
 
 /**
- * @summary Queries Global Accelerator (GA) instances.
+ * @summary Queries created GA instances.
  *
  * @param request DescribeGlobalAccelerationInstancesRequest
  * @return DescribeGlobalAccelerationInstancesResponse
@@ -15758,7 +15722,7 @@ DescribeGlobalAccelerationInstancesResponse Client::describeGlobalAccelerationIn
 }
 
 /**
- * @summary 查询指定网络实例（VPC、VBR）的云企业网跨账号授权信息
+ * @summary Queries cross-account authorization on virtual private clouds (VPCs), virtual border routers (VBRs), and Cloud Connect Network (CCN) instances.
  *
  * @param request DescribeGrantRulesToCenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15829,7 +15793,7 @@ DescribeGrantRulesToCenResponse Client::describeGrantRulesToCenWithOptions(const
 }
 
 /**
- * @summary 查询指定网络实例（VPC、VBR）的云企业网跨账号授权信息
+ * @summary Queries cross-account authorization on virtual private clouds (VPCs), virtual border routers (VBRs), and Cloud Connect Network (CCN) instances.
  *
  * @param request DescribeGrantRulesToCenRequest
  * @return DescribeGrantRulesToCenResponse
@@ -17162,7 +17126,7 @@ DescribeNetworkAclsResponse Client::describeNetworkAcls(const DescribeNetworkAcl
 }
 
 /**
- * @summary 查询物理专线LOA信息
+ * @summary Queries the LOA information about an Express Connect circuit.
  *
  * @param request DescribePhysicalConnectionLOARequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17217,7 +17181,7 @@ DescribePhysicalConnectionLOAResponse Client::describePhysicalConnectionLOAWithO
 }
 
 /**
- * @summary 查询物理专线LOA信息
+ * @summary Queries the LOA information about an Express Connect circuit.
  *
  * @param request DescribePhysicalConnectionLOARequest
  * @return DescribePhysicalConnectionLOAResponse
@@ -17904,7 +17868,7 @@ DescribeRouterInterfacesResponse Client::describeRouterInterfaces(const Describe
 }
 
 /**
- * @summary Queries Global Accelerator (GA) instances that are associated with a backend server.
+ * @summary Queries the GA instances that are associated with a specified backend server.
  *
  * @description > You can call this operation to query only dedicated-bandwidth GA instances.
  *
@@ -17961,7 +17925,7 @@ DescribeServerRelatedGlobalAccelerationInstancesResponse Client::describeServerR
 }
 
 /**
- * @summary Queries Global Accelerator (GA) instances that are associated with a backend server.
+ * @summary Queries the GA instances that are associated with a specified backend server.
  *
  * @description > You can call this operation to query only dedicated-bandwidth GA instances.
  *
@@ -20146,7 +20110,7 @@ DescribeVpnRouteEntriesResponse Client::describeVpnRouteEntries(const DescribeVp
 }
 
 /**
- * @summary Queries the log entries of an SSL server.
+ * @summary Queries the log of an SSL server.
  *
  * @param request DescribeVpnSslServerLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20221,7 +20185,7 @@ DescribeVpnSslServerLogsResponse Client::describeVpnSslServerLogsWithOptions(con
 }
 
 /**
- * @summary Queries the log entries of an SSL server.
+ * @summary Queries the log of an SSL server.
  *
  * @param request DescribeVpnSslServerLogsRequest
  * @return DescribeVpnSslServerLogsResponse
@@ -20298,7 +20262,7 @@ DescribeZonesResponse Client::describeZones(const DescribeZonesRequest &request)
 }
 
 /**
- * @summary Disassociates a DHCP options set from a virtual private cloud (VPC).
+ * @summary Disassociates a DHCP options set from a VPC.
  *
  * @description ## [](#)Description
  * *   **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task.
@@ -20367,7 +20331,7 @@ DetachDhcpOptionsSetFromVpcResponse Client::detachDhcpOptionsSetFromVpcWithOptio
 }
 
 /**
- * @summary Disassociates a DHCP options set from a virtual private cloud (VPC).
+ * @summary Disassociates a DHCP options set from a VPC.
  *
  * @description ## [](#)Description
  * *   **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task.
@@ -20520,7 +20484,9 @@ DiagnoseVpnGatewayResponse Client::diagnoseVpnGateway(const DiagnoseVpnGatewayRe
 }
 
 /**
- * @summary Disables ClassicLink for a virtual private cloud (VPC).
+ * @deprecated OpenAPI DisableVpcClassicLink is deprecated
+ *
+ * @summary Disables ClassicLink for a VPC.
  *
  * @param request DisableVpcClassicLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20575,7 +20541,9 @@ DisableVpcClassicLinkResponse Client::disableVpcClassicLinkWithOptions(const Dis
 }
 
 /**
- * @summary Disables ClassicLink for a virtual private cloud (VPC).
+ * @deprecated OpenAPI DisableVpcClassicLink is deprecated
+ *
+ * @summary Disables ClassicLink for a VPC.
  *
  * @param request DisableVpcClassicLinkRequest
  * @return DisableVpcClassicLinkResponse
@@ -20958,6 +20926,8 @@ EnablePhysicalConnectionResponse Client::enablePhysicalConnection(const EnablePh
 }
 
 /**
+ * @deprecated OpenAPI EnableVpcClassicLink is deprecated
+ *
  * @summary Enables ClassicLink for a VPC.
  *
  * @param request EnableVpcClassicLinkRequest
@@ -21013,6 +20983,8 @@ EnableVpcClassicLinkResponse Client::enableVpcClassicLinkWithOptions(const Enabl
 }
 
 /**
+ * @deprecated OpenAPI EnableVpcClassicLink is deprecated
+ *
  * @summary Enables ClassicLink for a VPC.
  *
  * @param request EnableVpcClassicLinkRequest
@@ -21378,7 +21350,7 @@ GetNatGatewayAttributeResponse Client::getNatGatewayAttribute(const GetNatGatewa
 }
 
 /**
- * @summary 查询是否开通了出云流量服务
+ * @summary Checks whether outbound data transfer billing is enabled for the current account.
  *
  * @description You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
  *
@@ -21427,7 +21399,7 @@ GetPhysicalConnectionServiceStatusResponse Client::getPhysicalConnectionServiceS
 }
 
 /**
- * @summary 查询是否开通了出云流量服务
+ * @summary Checks whether outbound data transfer billing is enabled for the current account.
  *
  * @description You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
  *
@@ -21506,7 +21478,7 @@ GetPublicIpAddressPoolServiceStatusResponse Client::getPublicIpAddressPoolServic
 }
 
 /**
- * @summary Get the route target group
+ * @summary Gets the information of a route target group.
  *
  * @description Get the information of the route target group instance.
  *
@@ -21551,7 +21523,7 @@ GetRouteTargetGroupResponse Client::getRouteTargetGroupWithOptions(const GetRout
 }
 
 /**
- * @summary Get the route target group
+ * @summary Gets the information of a route target group.
  *
  * @description Get the information of the route target group instance.
  *
@@ -21902,7 +21874,7 @@ GetVpcPrefixListEntriesResponse Client::getVpcPrefixListEntries(const GetVpcPref
 }
 
 /**
- * @summary 查询路由类型的明细。
+ * @summary Queries route types.
  *
  * @param request GetVpcRouteEntrySummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21961,7 +21933,7 @@ GetVpcRouteEntrySummaryResponse Client::getVpcRouteEntrySummaryWithOptions(const
 }
 
 /**
- * @summary 查询路由类型的明细。
+ * @summary Queries route types.
  *
  * @param request GetVpcRouteEntrySummaryRequest
  * @return GetVpcRouteEntrySummaryResponse
@@ -22030,7 +22002,7 @@ GetVpnGatewayDiagnoseResultResponse Client::getVpnGatewayDiagnoseResult(const Ge
 }
 
 /**
- * @summary Grants permissions to a Cloud Enterprise Network (CEN) instance.
+ * @summary Grants permissions to a CEN instance.
  *
  * @description *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
  * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use the `vpc.aliyuncs.com` domain name to call this operation. The API version is `2016-04-28`.
@@ -22101,7 +22073,7 @@ GrantInstanceToCenResponse Client::grantInstanceToCenWithOptions(const GrantInst
 }
 
 /**
- * @summary Grants permissions to a Cloud Enterprise Network (CEN) instance.
+ * @summary Grants permissions to a CEN instance.
  *
  * @description *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
  * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use the `vpc.aliyuncs.com` domain name to call this operation. The API version is `2016-04-28`.
@@ -22236,7 +22208,7 @@ ListBusinessAccessPointsResponse Client::listBusinessAccessPoints(const ListBusi
 }
 
 /**
- * @summary Query the list of regions available for an Express Connect circuit.
+ * @summary Queries the list of regions available for an Express Connect circuit.
  *
  * @param request ListBusinessRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22267,7 +22239,7 @@ ListBusinessRegionsResponse Client::listBusinessRegionsWithOptions(const ListBus
 }
 
 /**
- * @summary Query the list of regions available for an Express Connect circuit.
+ * @summary Queries the list of regions available for an Express Connect circuit.
  *
  * @param request ListBusinessRegionsRequest
  * @return ListBusinessRegionsResponse
@@ -23077,7 +23049,7 @@ ListNatIpsResponse Client::listNatIps(const ListNatIpsRequest &request) {
 }
 
 /**
- * @summary Querying the connection features supported by a Express Connect circuit.
+ * @summary Queries he connection features supported by a Express Connect circuit.
  *
  * @param request ListPhysicalConnectionFeaturesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23132,7 +23104,7 @@ ListPhysicalConnectionFeaturesResponse Client::listPhysicalConnectionFeaturesWit
 }
 
 /**
- * @summary Querying the connection features supported by a Express Connect circuit.
+ * @summary Queries he connection features supported by a Express Connect circuit.
  *
  * @param request ListPhysicalConnectionFeaturesRequest
  * @return ListPhysicalConnectionFeaturesResponse
@@ -23225,7 +23197,7 @@ ListPrefixListsResponse Client::listPrefixLists(const ListPrefixListsRequest &re
 }
 
 /**
- * @summary 查询IP地址池中的IP地址网段信息
+ * @summary Queries CIDR blocks in an IP address pool.
  *
  * @param request ListPublicIpAddressPoolCidrBlocksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23292,7 +23264,7 @@ ListPublicIpAddressPoolCidrBlocksResponse Client::listPublicIpAddressPoolCidrBlo
 }
 
 /**
- * @summary 查询IP地址池中的IP地址网段信息
+ * @summary Queries CIDR blocks in an IP address pool.
  *
  * @param request ListPublicIpAddressPoolCidrBlocksRequest
  * @return ListPublicIpAddressPoolCidrBlocksResponse
@@ -23401,7 +23373,7 @@ ListPublicIpAddressPoolsResponse Client::listPublicIpAddressPools(const ListPubl
 }
 
 /**
- * @summary Batch query for route target groups
+ * @summary Queries the list of route target groups.
  *
  * @description Lists the route target groups.
  *
@@ -23466,7 +23438,7 @@ ListRouteTargetGroupsResponse Client::listRouteTargetGroupsWithOptions(const Lis
 }
 
 /**
- * @summary Batch query for route target groups
+ * @summary Queries the list of route target groups.
  *
  * @description Lists the route target groups.
  *
@@ -24179,7 +24151,7 @@ ListVpcGatewayEndpointsResponse Client::listVpcGatewayEndpoints(const ListVpcGat
 }
 
 /**
- * @summary Queries advertised routes.
+ * @summary Query the route publishing status
  *
  * @param request ListVpcPublishedRouteEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24254,7 +24226,7 @@ ListVpcPublishedRouteEntriesResponse Client::listVpcPublishedRouteEntriesWithOpt
 }
 
 /**
- * @summary Queries advertised routes.
+ * @summary Query the route publishing status
  *
  * @param request ListVpcPublishedRouteEntriesRequest
  * @return ListVpcPublishedRouteEntriesResponse
@@ -27977,7 +27949,7 @@ ModifyVRouterAttributeResponse Client::modifyVRouterAttribute(const ModifyVRoute
 }
 
 /**
- * @summary 修改VSwitch属性
+ * @summary Modifies the name and description of a vSwitch.
  *
  * @description *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
  *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
@@ -28053,7 +28025,7 @@ ModifyVSwitchAttributeResponse Client::modifyVSwitchAttributeWithOptions(const M
 }
 
 /**
- * @summary 修改VSwitch属性
+ * @summary Modifies the name and description of a vSwitch.
  *
  * @description *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
  *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
@@ -28069,7 +28041,7 @@ ModifyVSwitchAttributeResponse Client::modifyVSwitchAttribute(const ModifyVSwitc
 }
 
 /**
- * @summary 修改交换机预留网段的名称和描述信息。
+ * @summary Modifies the name and description of a CIDR block reserved for a vSwitch.
  *
  * @description ## [](#)Usage notes
  * You cannot repeatedly call **ModifyVSwitchCidrReservationAttribute** within a specific time period.
@@ -28139,7 +28111,7 @@ ModifyVSwitchCidrReservationAttributeResponse Client::modifyVSwitchCidrReservati
 }
 
 /**
- * @summary 修改交换机预留网段的名称和描述信息。
+ * @summary Modifies the name and description of a CIDR block reserved for a vSwitch.
  *
  * @description ## [](#)Usage notes
  * You cannot repeatedly call **ModifyVSwitchCidrReservationAttribute** within a specific time period.
@@ -28399,7 +28371,7 @@ ModifyVirtualBorderRouterAttributeResponse Client::modifyVirtualBorderRouterAttr
 }
 
 /**
- * @summary Modifies the name and description of a virtual private cloud (VPC).
+ * @summary Modifies the configurations of a specified VPC.
  *
  * @description ## [](#)Description
  * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
@@ -28481,7 +28453,7 @@ ModifyVpcAttributeResponse Client::modifyVpcAttributeWithOptions(const ModifyVpc
 }
 
 /**
- * @summary Modifies the name and description of a virtual private cloud (VPC).
+ * @summary Modifies the configurations of a specified VPC.
  *
  * @description ## [](#)Description
  * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
@@ -28891,7 +28863,7 @@ ModifyVpnConnectionAttributeResponse Client::modifyVpnConnectionAttribute(const 
 }
 
 /**
- * @summary Modifies the name and description of a VPN gateway.
+ * @summary Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
  *
  * @description *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
  *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
@@ -28963,7 +28935,7 @@ ModifyVpnGatewayAttributeResponse Client::modifyVpnGatewayAttributeWithOptions(c
 }
 
 /**
- * @summary Modifies the name and description of a VPN gateway.
+ * @summary Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
  *
  * @description *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
  *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
@@ -29801,7 +29773,7 @@ OpenTrafficMirrorServiceResponse Client::openTrafficMirrorService(const OpenTraf
 }
 
 /**
- * @summary Advertises VPC routes to an external component.
+ * @summary Publish VPC Routes
  *
  * @param request PublishVpcRouteEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29868,7 +29840,7 @@ PublishVpcRouteEntriesResponse Client::publishVpcRouteEntriesWithOptions(const P
 }
 
 /**
- * @summary Advertises VPC routes to an external component.
+ * @summary Publish VPC Routes
  *
  * @param request PublishVpcRouteEntriesRequest
  * @return PublishVpcRouteEntriesResponse
@@ -30399,6 +30371,8 @@ RemoveCommonBandwidthPackageIpResponse Client::removeCommonBandwidthPackageIp(co
 }
 
 /**
+ * @summary Disassociates an EIP from a shared-bandwidth GA instance.
+ *
  * @param request RemoveGlobalAccelerationInstanceIpRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemoveGlobalAccelerationInstanceIpResponse
@@ -30452,6 +30426,8 @@ RemoveGlobalAccelerationInstanceIpResponse Client::removeGlobalAccelerationInsta
 }
 
 /**
+ * @summary Disassociates an EIP from a shared-bandwidth GA instance.
+ *
  * @param request RemoveGlobalAccelerationInstanceIpRequest
  * @return RemoveGlobalAccelerationInstanceIpResponse
  */
@@ -30615,7 +30591,7 @@ RemoveSourcesFromTrafficMirrorSessionResponse Client::removeSourcesFromTrafficMi
 }
 
 /**
- * @summary 更改DHCP选项集与VPC的关联。
+ * @summary Replaces the DHCP options set that is associated with a virtual private cloud (VPC).
  *
  * @description *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
  *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
@@ -30683,7 +30659,7 @@ ReplaceVpcDhcpOptionsSetResponse Client::replaceVpcDhcpOptionsSetWithOptions(con
 }
 
 /**
- * @summary 更改DHCP选项集与VPC的关联。
+ * @summary Replaces the DHCP options set that is associated with a virtual private cloud (VPC).
  *
  * @description *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
  *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
@@ -31257,7 +31233,7 @@ StopFailoverTestJobResponse Client::stopFailoverTestJob(const StopFailoverTestJo
 }
 
 /**
- * @summary Switch Active and Standby For RouteTargetGroup.
+ * @summary Performs primary and secondary switchover for the route target group.
  *
  * @description Switch Active and Standby For RouteTargetGroup.
  *
@@ -31302,7 +31278,7 @@ SwitchActiveRouteTargetResponse Client::switchActiveRouteTargetWithOptions(const
 }
 
 /**
- * @summary Switch Active and Standby For RouteTargetGroup.
+ * @summary Performs primary and secondary switchover for the route target group.
  *
  * @description Switch Active and Standby For RouteTargetGroup.
  *
@@ -32425,7 +32401,7 @@ UntagResourcesForExpressConnectResponse Client::untagResourcesForExpressConnect(
 }
 
 /**
- * @summary 修改Dhcp选项集信息
+ * @summary Modifies the configuration of a DHCP options set.
  *
  * @param request UpdateDhcpOptionsSetAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32508,7 +32484,7 @@ UpdateDhcpOptionsSetAttributeResponse Client::updateDhcpOptionsSetAttributeWithO
 }
 
 /**
- * @summary 修改Dhcp选项集信息
+ * @summary Modifies the configuration of a DHCP options set.
  *
  * @param request UpdateDhcpOptionsSetAttributeRequest
  * @return UpdateDhcpOptionsSetAttributeResponse
@@ -33175,7 +33151,7 @@ UpdatePublicIpAddressPoolAttributeResponse Client::updatePublicIpAddressPoolAttr
 }
 
 /**
- * @summary Update Route Target Group
+ * @summary Updates the information about a routing target group instance, including the name, description, and members that are not enabled.
  *
  * @description - The **UpdateRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been fully updated, and the system\\"s background update task is still in progress. You can call ListRouteTargetGroup to query the update status of the route target group:
  *     - When the route target group is in the **Updating** state, it indicates that the route target group is being created.
@@ -33230,7 +33206,7 @@ UpdateRouteTargetGroupResponse Client::updateRouteTargetGroupWithOptions(const U
 }
 
 /**
- * @summary Update Route Target Group
+ * @summary Updates the information about a routing target group instance, including the name, description, and members that are not enabled.
  *
  * @description - The **UpdateRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been fully updated, and the system\\"s background update task is still in progress. You can call ListRouteTargetGroup to query the update status of the route target group:
  *     - When the route target group is in the **Updating** state, it indicates that the route target group is being created.
@@ -33327,7 +33303,7 @@ UpdateTrafficMirrorFilterAttributeResponse Client::updateTrafficMirrorFilterAttr
 }
 
 /**
- * @summary Modifies the configuration of an inbound or outbound rule for traffic mirroring.
+ * @summary Modifies the configuration of an inbound or outbound rule for traffic mirror.
  *
  * @description *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of an inbound or outbound rule:
  *     *   If the rule is in the **Modifying** state, the rule is being modified.
@@ -33419,7 +33395,7 @@ UpdateTrafficMirrorFilterRuleAttributeResponse Client::updateTrafficMirrorFilter
 }
 
 /**
- * @summary Modifies the configuration of an inbound or outbound rule for traffic mirroring.
+ * @summary Modifies the configuration of an inbound or outbound rule for traffic mirror.
  *
  * @description *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of an inbound or outbound rule:
  *     *   If the rule is in the **Modifying** state, the rule is being modified.
@@ -33777,7 +33753,7 @@ UpdateVpcGatewayEndpointAttributeResponse Client::updateVpcGatewayEndpointAttrib
 }
 
 /**
- * @summary 查看eni quota
+ * @summary Queries the quota of endpoints that can be created in the reversely accessed VPC NAT gateway.
  *
  * @description Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
  *
@@ -33838,7 +33814,7 @@ VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse Client::vpcDescribeVpcNatG
 }
 
 /**
- * @summary 查看eni quota
+ * @summary Queries the quota of endpoints that can be created in the reversely accessed VPC NAT gateway.
  *
  * @description Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
  *

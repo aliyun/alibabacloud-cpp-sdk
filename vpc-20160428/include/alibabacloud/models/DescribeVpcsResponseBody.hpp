@@ -245,9 +245,7 @@ namespace Models
 
 
           protected:
-            // The key of tag N.
             shared_ptr<string> key_ {};
-            // The value of tag N.
             shared_ptr<string> value_ {};
           };
 
@@ -421,16 +419,7 @@ namespace Models
 
 
           protected:
-            // The IPv6 CIDR block of the VPC.
             shared_ptr<string> ipv6CidrBlock_ {};
-            // The type of IPv6 CIDR block. Valid values:
-            // 
-            // *   **BGP**
-            // *   **ChinaMobile**
-            // *   **ChinaUnicom**
-            // *   **ChinaTelecom**
-            // 
-            // >  If your Alibaba Cloud account is allowed to activate single-ISP bandwidth, you can set this parameter to **ChinaTelecom**, **ChinaUnicom**, or **ChinaMobile**.
             shared_ptr<string> ipv6Isp_ {};
           };
 
@@ -637,72 +626,29 @@ namespace Models
 
 
       protected:
-        // The status of the Cloud Enterprise Network (CEN) instance to which the VPC is attached. **Attached** is returned only if the VPC is attached to a CEN instance.
         shared_ptr<string> cenStatus_ {};
-        // The IPv4 CIDR block of the VPC.
         shared_ptr<string> cidrBlock_ {};
-        // The time when the VPC was created.
         shared_ptr<string> creationTime_ {};
-        // The description of the VPC.
         shared_ptr<string> description_ {};
-        // The ID of the DHCP options set.
         shared_ptr<string> dhcpOptionsSetId_ {};
-        // The status of the DHCP options set. Valid values:
-        // 
-        // *   **Available**
-        // *   **InUse**
-        // *   **Deleted**
-        // *   **Pending**
         shared_ptr<string> dhcpOptionsSetStatus_ {};
-        // Indicates whether the Domain Name System (DNS) feature is enabled.
         shared_ptr<string> dnsHostnameStatus_ {};
-        // Indicates whether the IPv6 is enabled.
-        // 
-        // Valid values:
-        // 
-        // - false: false
-        // 
-        // - true: true
         shared_ptr<bool> enabledIpv6_ {};
-        // The IPv6 CIDR block of the VPC.
         shared_ptr<string> ipv6CidrBlock_ {};
-        // The IPv6 CIDR block of the VPC.
         shared_ptr<Vpc::Ipv6CidrBlocks> ipv6CidrBlocks_ {};
-        // Indicates whether the VPC is the default VPC in the region. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> isDefault_ {};
-        // The ID of the Internet NAT gateway.
         shared_ptr<Vpc::NatGatewayIds> natGatewayIds_ {};
-        // The ID of the Alibaba Cloud account to which the VPC belongs.
         shared_ptr<int64_t> ownerId_ {};
-        // The ID of the region to which the VPC belongs.
         shared_ptr<string> regionId_ {};
-        // The ID of the resource group to which the VPC belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The information about the route table.
         shared_ptr<Vpc::RouterTableIds> routerTableIds_ {};
-        // The information about the secondary CIDR block.
         shared_ptr<Vpc::SecondaryCidrBlocks> secondaryCidrBlocks_ {};
-        // The status of the VPC. Valid values:
-        // 
-        // *   **Pending**
-        // *   **Available**
         shared_ptr<string> status_ {};
-        // The tag information about the VPC.
         shared_ptr<Vpc::Tags> tags_ {};
-        // The list of user CIDR blocks.
         shared_ptr<Vpc::UserCidrs> userCidrs_ {};
-        // The ID of the vRouter.
         shared_ptr<string> VRouterId_ {};
-        // The vSwitches in the VPC.
-        // 
-        // You can query up to 300 vSwitches in the VPC. The information about the latest vSwitches is returned. If you want to query the information about all vSwitches in a VPC, call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation.
         shared_ptr<Vpc::VSwitchIds> vSwitchIds_ {};
-        // The VPC ID.
         shared_ptr<string> vpcId_ {};
-        // The name of the VPC.
         shared_ptr<string> vpcName_ {};
       };
 
@@ -768,7 +714,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The details of the VPC.
     shared_ptr<DescribeVpcsResponseBody::Vpcs> vpcs_ {};
   };
 

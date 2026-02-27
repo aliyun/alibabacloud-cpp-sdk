@@ -213,13 +213,7 @@ namespace Models
 
 
           protected:
-            // The key of the resource tag. At least one tag key must be entered, and a maximum of 20 tag keys are supported. If this value needs to be passed in, it cannot be an empty string.
-            // 
-            // A tag key can support up to 128 characters, cannot start with \\"aliyun\\" or \\"acs:\\", and cannot contain \\"http://\\" or \\"https://\\".
             shared_ptr<string> key_ {};
-            // The value of the resource tag. A maximum of 20 tag values can be entered. If this value needs to be passed in, an empty string can be entered.
-            // 
-            // A maximum of 128 characters are supported, it cannot start with \\"aliyun\\" or \\"acs:\\", and it cannot contain \\"http://\\" or \\"https://\\".
             shared_ptr<string> value_ {};
           };
 
@@ -536,111 +530,46 @@ namespace Models
 
 
       protected:
-        // The ID of the access point.
         shared_ptr<string> accessPointId_ {};
-        // The bandwidth of the router interface. Unit: Mbit/s.
         shared_ptr<int32_t> bandwidth_ {};
-        // The service status of the router interface. Valid values:
-        // 
-        // *   **Normal**
-        // *   **FinancialLocked**
-        // *   **SecurityLocked**
         shared_ptr<string> businessStatus_ {};
-        // The billing method.
         shared_ptr<string> chargeType_ {};
-        // The time when the connection was established.
-        // 
-        // The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
         shared_ptr<string> connectedTime_ {};
-        // The time when the route table was created.
-        // 
-        // The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // Indicates whether the connection is a cross-border connection.
         shared_ptr<bool> crossBorder_ {};
-        // The description of the router interface.
         shared_ptr<string> description_ {};
-        // The end of the time range during which data was queried.
-        // 
-        // The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
         shared_ptr<string> endTime_ {};
-        // Indicates whether the VBR that is created in the Fast Link mode is uplinked to the router interface. The Fast Link mode helps automatically connect router interfaces that are created for the VBR and its peer VPC. Valid values:
-        // 
-        // *   **true**
-        // *   **false** (default)
         shared_ptr<bool> fastLinkMode_ {};
-        // Indicates whether renewal data is included.
         shared_ptr<string> hasReservationData_ {};
-        // The rate of heath checks.
         shared_ptr<int32_t> hcRate_ {};
-        // The health check threshold.
         shared_ptr<int32_t> hcThreshold_ {};
-        // The source IP address that is used for the health check.
         shared_ptr<string> healthCheckSourceIp_ {};
-        // The destination IP address that is used for the health check.
         shared_ptr<string> healthCheckTargetIp_ {};
-        // Indicates whether protection against malicious IPv6 traffic is enabled. Valid values:
-        // 
-        // *   **on**
-        // *   **off**
-        // *   **unsupport**
         shared_ptr<string> ipv6Status_ {};
-        // The custom name.
         shared_ptr<string> name_ {};
-        // The ID of the peer access point.
         shared_ptr<string> oppositeAccessPointId_ {};
-        // The maximum bandwidth of the peer router interface. Unit: Mbit/s.
         shared_ptr<int32_t> oppositeBandwidth_ {};
-        // The service status of the peer router interface.
         shared_ptr<string> oppositeInterfaceBusinessStatus_ {};
-        // The ID of the peer router interface.
         shared_ptr<string> oppositeInterfaceId_ {};
-        // The ID of the Alibaba Cloud account to which the peer router interface belongs.
         shared_ptr<string> oppositeInterfaceOwnerId_ {};
-        // The specification of the peer router interface.
         shared_ptr<string> oppositeInterfaceSpec_ {};
-        // The status of the peer router interface.
         shared_ptr<string> oppositeInterfaceStatus_ {};
-        // The region ID of the peer router interface.
         shared_ptr<string> oppositeRegionId_ {};
-        // The ID of the router to which the peer router interface belongs.
         shared_ptr<string> oppositeRouterId_ {};
-        // The type of the router to which the peer router interface belongs.
         shared_ptr<string> oppositeRouterType_ {};
-        // The ID of the peer VPC.
         shared_ptr<string> oppositeVpcInstanceId_ {};
-        // The time when the renewal takes effect.
-        // 
-        // The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
         shared_ptr<string> reservationActiveTime_ {};
-        // The maximum bandwidth after the renewal takes effect. Unit: Mbit/s.
         shared_ptr<string> reservationBandwidth_ {};
-        // The metering method that is used after the renewal takes effect. Valid values:
         shared_ptr<string> reservationInternetChargeType_ {};
-        // The type of the renewal order. Valid values:
         shared_ptr<string> reservationOrderType_ {};
-        // Resource Group ID.
-        // 
-        // For more information about resource groups, please refer to [What is a Resource Group?](https://help.aliyun.com/document_detail/94475.html)
         shared_ptr<string> resourceGroupId_ {};
-        // Indicates whether the router interface is the initiator or acceptor of the peering connection.
         shared_ptr<string> role_ {};
-        // The ID of the router to which the route entry belongs.
         shared_ptr<string> routerId_ {};
-        // The ID of the router interface.
         shared_ptr<string> routerInterfaceId_ {};
-        // The type of the router to which the route table belongs. Valid values:
-        // 
-        // *   **VRouter**
-        // *   **VBR**
         shared_ptr<string> routerType_ {};
-        // The specification of the router interface.
         shared_ptr<string> spec_ {};
-        // The status of the router interface.
         shared_ptr<string> status_ {};
-        // The tags of the resource.
         shared_ptr<RouterInterfaceType::Tags> tags_ {};
-        // The ID of the local virtual private cloud (VPC) in the peering connection.
         shared_ptr<string> vpcInstanceId_ {};
       };
 
@@ -704,7 +633,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the router interface.
     shared_ptr<DescribeRouterInterfacesResponseBody::RouterInterfaceSet> routerInterfaceSet_ {};
     // The number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

@@ -195,6 +195,7 @@ namespace Models
 
 
   protected:
+    // The backend domain name of the FULLNAT address translation that needs to be modified.
     shared_ptr<string> accessDomain_ {};
     // The backend IP address to be modified in FULLNAT address translation.
     shared_ptr<string> accessIp_ {};

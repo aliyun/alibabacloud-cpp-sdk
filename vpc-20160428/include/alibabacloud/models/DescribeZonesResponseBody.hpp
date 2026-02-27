@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // The zone name.
         shared_ptr<string> localName_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
-        // The zone type. Default value: **AvailabilityZone**.
         shared_ptr<string> zoneType_ {};
       };
 
@@ -141,7 +138,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The zone list.
     shared_ptr<DescribeZonesResponseBody::Zones> zones_ {};
   };
 

@@ -149,9 +149,7 @@ namespace Models
 
 
           protected:
-            // The key of the tag.
             shared_ptr<string> key_ {};
-            // The value of the tag.
             shared_ptr<string> value_ {};
           };
 
@@ -238,27 +236,14 @@ namespace Models
 
 
       protected:
-        // The autonomous system number (ASN) of the gateway device in the data center.
         shared_ptr<int64_t> asn_ {};
-        // The authentication key that is used to connect to the gateway device in the data center by using Border Gateway Protocol (BGP).
         shared_ptr<string> authKey_ {};
-        // The time when the customer gateway was created. Unit: millisecond.
-        // 
-        // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> createTime_ {};
-        // The customer gateway ID.
         shared_ptr<string> customerGatewayId_ {};
-        // The description of the customer gateway.
         shared_ptr<string> description_ {};
-        // The IP address of the gateway device in the data center.
         shared_ptr<string> ipAddress_ {};
-        // The name of the customer gateway.
         shared_ptr<string> name_ {};
-        // The ID of the resource group to which the customer gateway belongs.
-        // 
-        // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
         shared_ptr<string> resourceGroupId_ {};
-        // The tags that are added to the customer gateway.
         shared_ptr<CustomerGateway::Tags> tags_ {};
       };
 
@@ -316,7 +301,6 @@ namespace Models
 
 
   protected:
-    // The information about customer gateways.
     shared_ptr<DescribeCustomerGatewaysResponseBody::CustomerGateways> customerGateways_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

@@ -136,13 +136,9 @@ namespace Models
 
 
         protected:
-          // The sampled bandwidth value, which is the larger bandwidth value in the inbound and outbound directions within a sampling interval. Unit: Mbit/s.
           shared_ptr<string> billBandwidth_ {};
-          // The inbound bandwidth. Unit: Mbit/s.
           shared_ptr<string> inBandwidth_ {};
-          // The outbound bandwidth. Unit: Mbit/s.
           shared_ptr<string> outBandwidth_ {};
-          // The statistical time. The value is a string.
           shared_ptr<string> time_ {};
         };
 
@@ -222,7 +218,6 @@ namespace Models
       shared_ptr<string> internetChargeType_ {};
       // The guaranteed bandwidth of the Internet Shared Bandwidth instance. Unit: Mbit/s.
       shared_ptr<string> minimumConsumeBandwidth_ {};
-      // The average bandwidth every 5 minutes in the inbound and outbound directions.
       shared_ptr<Traffic95Summary::Traffic95DetailList> traffic95DetailList_ {};
     };
 

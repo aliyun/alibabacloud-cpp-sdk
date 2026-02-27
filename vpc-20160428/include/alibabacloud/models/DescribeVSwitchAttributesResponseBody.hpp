@@ -123,9 +123,7 @@ namespace Models
 
 
       protected:
-        // The key of tag N added to the resource.
         shared_ptr<string> key_ {};
-        // The value of tag N added to the resource.
         shared_ptr<string> value_ {};
       };
 
@@ -374,7 +372,6 @@ namespace Models
     // *   **Pending**
     // *   **Available**
     shared_ptr<string> status_ {};
-    // The information about the tags.
     shared_ptr<DescribeVSwitchAttributesResponseBody::Tags> tags_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};

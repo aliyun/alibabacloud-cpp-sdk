@@ -130,9 +130,7 @@ namespace Models
 
 
         protected:
-          // The key of tag N added to the resource.
           shared_ptr<string> key_ {};
-          // The value of tag N added to the resource.
           shared_ptr<string> value_ {};
         };
 
@@ -216,15 +214,8 @@ namespace Models
 
 
         protected:
-          // The ID of the associated resource.
           shared_ptr<string> resourceId_ {};
-          // The type of resource with which you want to associate the network ACL. The value is set to **VSwitch**.
           shared_ptr<string> resourceType_ {};
-          // The association status of the resource. Valid values:
-          // 
-          // *   **BINDED**
-          // *   **BINDING**
-          // *   **UNBINDING**
           shared_ptr<string> status_ {};
         };
 
@@ -363,42 +354,14 @@ namespace Models
 
 
         protected:
-          // The description of the inbound rule.
           shared_ptr<string> description_ {};
-          // The type of the inbound rule.
-          // 
-          // - **custom**
-          // 
-          // - **system**
           shared_ptr<string> entryType_ {};
-          // The IP version. Valid values:
-          // 
-          // *   **IPv4**
-          // *   **IPv6**
           shared_ptr<string> ipVersion_ {};
-          // The ID of the inbound rule.
           shared_ptr<string> networkAclEntryId_ {};
-          // The name of the inbound rule.
           shared_ptr<string> networkAclEntryName_ {};
-          // The action to be performed on network traffic that matches the rule. Valid values:
-          // 
-          // *   **accept**
-          // *   **drop**
           shared_ptr<string> policy_ {};
-          // The destination port range of the inbound traffic.
-          // 
-          // *   If the **protocol** of the inbound rule is set to **all**, **icmp**, or **gre**, the port range is -1/-1, which specifies all ports.
-          // *   If the **protocol** of the inbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid ports: **1** to **65535**.
           shared_ptr<string> port_ {};
-          // The protocol type. Valid values:
-          // 
-          // *   **icmp**
-          // *   **gre**
-          // *   **tcp**
-          // *   **udp**
-          // *   **all**
           shared_ptr<string> protocol_ {};
-          // The source CIDR block.
           shared_ptr<string> sourceCidrIp_ {};
         };
 
@@ -537,42 +500,14 @@ namespace Models
 
 
         protected:
-          // The description of the outbound rule.
           shared_ptr<string> description_ {};
-          // The destination CIDR block.
           shared_ptr<string> destinationCidrIp_ {};
-          // The type of the inbound rule.
-          // 
-          // - **custom**
-          // 
-          // - **system**
           shared_ptr<string> entryType_ {};
-          // The IP version. Valid values:
-          // 
-          // *   **IPv4**
-          // *   **IPv6**
           shared_ptr<string> ipVersion_ {};
-          // The ID of the outbound rule.
           shared_ptr<string> networkAclEntryId_ {};
-          // The name of the outbound rule.
           shared_ptr<string> networkAclEntryName_ {};
-          // The action to be performed on network traffic that matches the rule. Valid values:
-          // 
-          // *   **accept**
-          // *   **drop**
           shared_ptr<string> policy_ {};
-          // The destination port range of the outbound traffic.
-          // 
-          // *   If the **protocol** of the outbound rule is set to **all**, **icmp**, or **gre**, the port range is -1/-1, which specified all ports.
-          // *   If the **protocol** of the outbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid values for a port: **1** to **65535**.
           shared_ptr<string> port_ {};
-          // The protocol type. Valid values:
-          // 
-          // *   **icmp**
-          // *   **gre**
-          // *   **tcp**
-          // *   **udp**
-          // *   **all**
           shared_ptr<string> protocol_ {};
         };
 
@@ -691,9 +626,7 @@ namespace Models
       shared_ptr<string> creationTime_ {};
       // The description of the network ACL.
       shared_ptr<string> description_ {};
-      // The information about the outbound rules of the network ACL.
       shared_ptr<NetworkAclAttribute::EgressAclEntries> egressAclEntries_ {};
-      // The information about the inbound rules of the network ACL.
       shared_ptr<NetworkAclAttribute::IngressAclEntries> ingressAclEntries_ {};
       // The ID of the network ACL.
       shared_ptr<string> networkAclId_ {};
@@ -703,14 +636,12 @@ namespace Models
       shared_ptr<int64_t> ownerId_ {};
       // The region ID of the network ACL.
       shared_ptr<string> regionId_ {};
-      // The resources that are associated with the network ACL.
       shared_ptr<NetworkAclAttribute::Resources> resources_ {};
       // The association status of the resource. Valid values:
       // 
       // *   **Available**
       // *   **Modifying**
       shared_ptr<string> status_ {};
-      // The information about the tags.
       shared_ptr<NetworkAclAttribute::Tags> tags_ {};
       // The ID of the VPC to which the network ACL belongs.
       shared_ptr<string> vpcId_ {};

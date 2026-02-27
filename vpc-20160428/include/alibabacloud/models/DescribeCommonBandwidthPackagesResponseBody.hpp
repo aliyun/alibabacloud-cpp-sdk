@@ -183,9 +183,7 @@ namespace Models
 
 
           protected:
-            // The tag key that is added to the Internet Shared Bandwidth instance.
             shared_ptr<string> key_ {};
-            // The tag value that is added to the Internet Shared Bandwidth instance.
             shared_ptr<string> value_ {};
           };
 
@@ -302,14 +300,8 @@ namespace Models
 
 
           protected:
-            // The ID of the EIP.
             shared_ptr<string> allocationId_ {};
-            // Indicates whether the EIP is associated with the Internet Shared Bandwidth instance. Valid values:
-            // 
-            // *   **BINDED**
-            // *   **BINDING**
             shared_ptr<string> bandwidthPackageIpRelationStatus_ {};
-            // The public IP address.
             shared_ptr<string> ipAddress_ {};
           };
 
@@ -522,105 +514,31 @@ namespace Models
 
 
       protected:
-        // The maximum bandwidth of the Internet Shared Bandwidth instance. Unit: Mbit/s.
         shared_ptr<string> bandwidth_ {};
-        // The ID of the Internet Shared Bandwidth instance.
         shared_ptr<string> bandwidthPackageId_ {};
-        // The service type of the Internet Shared Bandwidth instance. Valid values:
-        // 
-        // *   **CloudBox** The cloud box. Only cloud box users can select this type.
-        // *   **Default** (default): The general service type.
         shared_ptr<string> bizType_ {};
-        // The service status of the Internet Shared Bandwidth instance. Valid values:
-        // 
-        // *   **Normal**: The Internet Shared Bandwidth instance runs as expected.
-        // *   **FinancialLocked**: An overdue payment occurs in the Internet Shared Bandwidth instance
-        // *   **Unactivated**: The Internet Shared Bandwidth instance is not activated.
         shared_ptr<string> businessStatus_ {};
-        // The time when the Internet Shared Bandwidth instance was created. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
         shared_ptr<string> creationTime_ {};
-        // Indicates whether deletion protection is enabled. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> deletionProtection_ {};
-        // The description of the Internet Shared Bandwidth instance.
         shared_ptr<string> description_ {};
-        // The time when the Internet Shared Bandwidth instance expired. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
         shared_ptr<string> expiredTime_ {};
-        // Indicates whether the information about pending orders is returned. Valid values:
-        // 
-        // *   **false**
-        // *   **true**
         shared_ptr<string> hasReservationData_ {};
-        // The line type. Valid values:
-        // 
-        // *   **BGP**: BGP (Multi-ISP) line The BGP (Multi-ISP) line is supported in all regions.
-        // *   **BGP_PRO**: BGP (Multi-ISP) Pro line The BGP (Multi-ISP) Pro line is supported in the China (Hong Kong), Singapore (Singapore), Japan (Tokyo), Philippines (Manila), Malaysia (Kuala Lumpur), Indonesia (Jakarta), and Thailand (Bangkok) regions.
-        // 
-        // If you are allowed to use single-ISP bandwidth, one of the following values is returned:
-        // 
-        // *   **ChinaTelecom**
-        // *   **ChinaUnicom**
-        // *   **ChinaMobile**
-        // *   **ChinaTelecom_L2**
-        // *   **ChinaUnicom_L2**
-        // *   **ChinaMobile_L2**
-        // 
-        // If your services are deployed in China East 1 Finance, **BGP_FinanceCloud** is returned.
         shared_ptr<string> ISP_ {};
-        // The billing method of the Internet Shared Bandwidth instance. Valid value:
-        // 
-        // **PostPaid**: pay-as-you-go
         shared_ptr<string> instanceChargeType_ {};
-        // The metering method of the Internet Shared Bandwidth instance. Valid value:
-        // 
-        // **PayByTraffic**
         shared_ptr<string> internetChargeType_ {};
-        // The name of the Internet Shared Bandwidth instance.
         shared_ptr<string> name_ {};
-        // The elastic IP addresses (EIPs) that are associated with the Internet Shared Bandwidth instance.
         shared_ptr<CommonBandwidthPackage::PublicIpAddresses> publicIpAddresses_ {};
-        // The percentage of the minimum bandwidth commitment. Only **20** is returned.
-        // 
-        // >  This parameter is supported only on the Alibaba Cloud China site.
         shared_ptr<int32_t> ratio_ {};
-        // The ID of the region where the Internet Shared Bandwidth instance resides.
         shared_ptr<string> regionId_ {};
-        // The time when the renewal took effect. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
         shared_ptr<string> reservationActiveTime_ {};
-        // The new maximum bandwidth after the configurations are changed. Unit: Mbit/s.
         shared_ptr<string> reservationBandwidth_ {};
-        // The metering method after the configurations are changed. Valid value:
-        // 
-        // **PayByTraffic**
         shared_ptr<string> reservationInternetChargeType_ {};
-        // The renewal method. Valid values:
-        // 
-        // *   **RENEWCHANGE**: renewal with a specification change
-        // *   **TEMP_UPGRADE**: renewal with a temporary upgrade
-        // *   **UPGRADE**: renewal with an upgrade
         shared_ptr<string> reservationOrderType_ {};
-        // The ID of the resource group.
         shared_ptr<string> resourceGroupId_ {};
-        // The editions of Anti-DDoS.
-        // 
-        // *   If this parameter is empty, Anti-DDoS Origin Basic is enabled.
-        // *   If **AntiDDoS_Enhanced** is returned, Anti-DDoS Pro/Premium is enabled.
         shared_ptr<CommonBandwidthPackage::SecurityProtectionTypes> securityProtectionTypes_ {};
-        // Indicates whether the resource is created by the service account. Valid values:
-        // 
-        // *   **0**: The resource is not created by the service account.
-        // *   **1**: The resource is created by the service account.
         shared_ptr<int32_t> serviceManaged_ {};
-        // The status of the Internet Shared Bandwidth instance. Valid values:
-        // 
-        // *   **Available**: The Internet Shared Bandwidth instance is available.
-        // *   **Modifying**: The Internet Shared Bandwidth instance is being modified.
         shared_ptr<string> status_ {};
-        // The tag that is added to the Internet Shared Bandwidth instance.
         shared_ptr<CommonBandwidthPackage::Tags> tags_ {};
-        // The zone of the Internet Shared Bandwidth instance. This parameter is returned only when BizType is set to CloudBox. If BizType is set to Default, an empty value is returned.
         shared_ptr<string> zone_ {};
       };
 
@@ -678,7 +596,6 @@ namespace Models
 
 
   protected:
-    // The details of the Internet Shared Bandwidth instance.
     shared_ptr<DescribeCommonBandwidthPackagesResponseBody::CommonBandwidthPackages> commonBandwidthPackages_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

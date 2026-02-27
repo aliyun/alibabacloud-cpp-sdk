@@ -254,25 +254,9 @@ namespace Models
 
 
               protected:
-                // Indicates whether the route is available. Valid values:
-                // 
-                // *   **0**: unavailable
-                // *   **1**: available
                 shared_ptr<int32_t> enabled_ {};
-                // The ID of the next hop.
                 shared_ptr<string> nextHopId_ {};
-                // The type of the next hop. Valid values:
-                // 
-                // *   **Instance**: an ECS instance
-                // *   **HaVip**: an HaVip
-                // *   **VpnGateway**: a VPN gateway
-                // *   **NatGateway**: a NAT gateway
-                // *   **NetworkInterface**: a secondary ENI
-                // *   **RouterInterface**: a router interface
-                // *   **IPv6Gateway**: an IPv6 gateway
-                // *   **Attachment**: a transit router
                 shared_ptr<string> nextHopType_ {};
-                // The weight of the route.
                 shared_ptr<int32_t> weight_ {};
               };
 
@@ -366,48 +350,15 @@ namespace Models
 
 
           protected:
-            // The description of the route. The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
             shared_ptr<string> description_ {};
-            // The destination CIDR block of the route. The destination CIDR block supports IPv4 and IPv6. Make sure that the destination CIDR block meets the following requirements:
-            // 
-            // *   The destination CIDR block is not 100.64.0.0/10 or a subset of 100.64.0.0/10.
-            // *   The destination CIDR block of each route in the route table is unique.
             shared_ptr<string> destinationCidrBlock_ {};
-            // The ID of the instance associated with the next hop.
             shared_ptr<string> instanceId_ {};
-            // The type of the next hop. Valid values:
-            // 
-            // *   **Instance** (default): an Elastic Compute Service (ECS) instance
-            // *   **HaVip**: a high-availability virtual IP address (HaVip).
-            // *   **VpnGateway**: a VPN gateway
-            // *   **NatGateway**: a NAT gateway
-            // *   **NetworkInterface**: a secondary elastic network interface (ENI)
-            // *   **RouterInterface**: a router interface
-            // *   **IPv6Gateway**: an IPv6 gateway
-            // *   **Attachment**: a transit router
             shared_ptr<string> nextHopType_ {};
-            // The information about the next hop.
             shared_ptr<RouteEntry::NextHops> nextHops_ {};
-            // The ID of the route.
             shared_ptr<string> routeEntryId_ {};
-            // The route name.
-            // 
-            // The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
             shared_ptr<string> routeEntryName_ {};
-            // The route table ID.
             shared_ptr<string> routeTableId_ {};
-            // The route status. Valid values:
-            // 
-            // *   **Pending**
-            // *   **Available**
-            // *   **Modifying**
             shared_ptr<string> status_ {};
-            // The route type. Valid values:
-            // 
-            // *   **Custom**
-            // *   **System**
-            // *   **BGP**
-            // *   **CEN**
             shared_ptr<string> type_ {};
           };
 
@@ -489,29 +440,13 @@ namespace Models
 
 
       protected:
-        // The time when the route table was created.
-        // 
-        // The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format in UTC.
         shared_ptr<string> creationTime_ {};
-        // The ID of the resource group to which the route table belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The information about the route.
         shared_ptr<RouteTable::RouteEntrys> routeEntrys_ {};
-        // The ID of the route table.
         shared_ptr<string> routeTableId_ {};
-        // The type of the route table. Valid values:
-        // 
-        // *   **Custom**
-        // *   **System**
         shared_ptr<string> routeTableType_ {};
-        // The status of the route table. Valid values:
-        // 
-        // *   **Pending**
-        // *   **Available**
         shared_ptr<string> status_ {};
-        // The vRouter ID.
         shared_ptr<string> VRouterId_ {};
-        // The vSwitch ID.
         shared_ptr<RouteTable::VSwitchIds> vSwitchIds_ {};
       };
 
@@ -575,7 +510,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The detailed information about the route tables.
     shared_ptr<DescribeRouteTablesResponseBody::RouteTables> routeTables_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

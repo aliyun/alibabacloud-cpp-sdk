@@ -115,13 +115,7 @@ namespace Models
 
 
       protected:
-        // The key of tag N. You can specify at most 20 tag keys. The tag key cannot be an empty string.
-        // 
-        // The tag key can be up to 128 characters in length. It must start with a letter and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
         shared_ptr<string> key_ {};
-        // The value of tag N. You can specify at most 20 tag values. The tag value can be an empty string.
-        // 
-        // The tag value can be up to 128 characters in length. It must start with a letter and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
         shared_ptr<string> value_ {};
       };
 
@@ -288,7 +282,6 @@ namespace Models
     // *   **Pending**
     // *   **Available**
     shared_ptr<string> status_ {};
-    // The information about the tags.
     shared_ptr<DescribeIpv6GatewayAttributeResponseBody::Tags> tags_ {};
     // The ID of the virtual private cloud (VPC) to which the IPv6 gateway belongs.
     shared_ptr<string> vpcId_ {};

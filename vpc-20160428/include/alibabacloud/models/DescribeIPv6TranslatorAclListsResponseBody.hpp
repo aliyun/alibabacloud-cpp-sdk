@@ -95,9 +95,7 @@ namespace Models
 
 
       protected:
-        // The ACL ID.
         shared_ptr<string> aclId_ {};
-        // The ACL name.
         shared_ptr<string> aclName_ {};
       };
 
@@ -155,7 +153,6 @@ namespace Models
 
 
   protected:
-    // The list of network ACLs.
     shared_ptr<DescribeIPv6TranslatorAclListsResponseBody::Ipv6TranslatorAcls> ipv6TranslatorAcls_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

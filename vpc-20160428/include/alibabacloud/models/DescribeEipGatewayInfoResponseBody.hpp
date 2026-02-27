@@ -102,11 +102,8 @@ namespace Models
 
 
       protected:
-        // The IP address of the EIP.
         shared_ptr<string> ip_ {};
-        // The IP address of the gateway that is associated with the EIP.
         shared_ptr<string> ipGw_ {};
-        // The subnet mask of the EIP.
         shared_ptr<string> ipMask_ {};
       };
 
@@ -159,7 +156,6 @@ namespace Models
   protected:
     // The status code of the operation.
     shared_ptr<string> code_ {};
-    // The detailed information about the EIP.
     shared_ptr<DescribeEipGatewayInfoResponseBody::EipInfos> eipInfos_ {};
     // The result of the operation.
     shared_ptr<string> message_ {};

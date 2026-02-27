@@ -130,35 +130,32 @@ namespace Models
 
 
   protected:
-    // The time when the policy-based route was created.
+    // The timestamp generated when the policy-based route was created. Unit: milliseconds.
     // 
-    // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
-    // The description of the policy-based route.
+    // The description of the route.
     shared_ptr<string> description_ {};
-    // The next hop of the policy-based route.
-    shared_ptr<string> nextHop_ {};
     // The tunneling protocol. The value is **Ipsec**.
+    shared_ptr<string> nextHop_ {};
+    // The tunneling protocol. The value is set to **Ipsec**, which indicates the IPsec tunneling protocol.
     shared_ptr<string> overlayMode_ {};
     // The priority of the policy-based route.
     shared_ptr<int32_t> priority_ {};
-    // The request ID.
+    // The priority of the policy-based route.
     shared_ptr<string> requestId_ {};
-    // The destination CIDR block of the policy-based route.
+    // The VPN gateway ID.
     shared_ptr<string> routeDest_ {};
     // The source CIDR block of the policy-based route.
     shared_ptr<string> routeSource_ {};
-    // The status of the policy-based route. Valid values:
+    // The status of the policy-based route.
     // 
     // *   **published**: advertised to the VPC route table.
     // *   **normal**: not advertised to the VPC route table.
     shared_ptr<string> state_ {};
-    // The VPN gateway ID.
+    // The ID of the VPN gateway.
     shared_ptr<string> vpnInstanceId_ {};
-    // The weight of the policy-based route. Valid values:
-    // 
-    // *   **100**: The IPsec-VPN connection associated with the policy-based route serves as an active connection.
-    // *   **0**: The IPsec-VPN connection associated with the policy-based route serves as a standby connection.
+    // The source CIDR block of the policy-based route.
     shared_ptr<int32_t> weight_ {};
   };
 

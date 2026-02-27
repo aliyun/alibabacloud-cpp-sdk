@@ -205,41 +205,19 @@ namespace Models
 
 
       protected:
-        // The key used by the BGP group.
         shared_ptr<string> authKey_ {};
-        // The ID of the BGP group.
         shared_ptr<string> bgpGroupId_ {};
-        // The description of the BGP group.
         shared_ptr<string> description_ {};
-        // The hold time to receive BGP messages. Unit: seconds.
-        // 
-        // >  If no message is received within the hold time, the BGP peer is considered disconnected.
         shared_ptr<string> hold_ {};
-        // The IP version of the BGP group. Valid values:
-        // 
-        // *   **ipv4**: IPv4
-        // *   **ipv6**: IPv6. IPv6 is supported only if the VBR of the BGP group has IPv6 enabled.
         shared_ptr<string> ipVersion_ {};
-        // Indicates whether the ASN is fake. Valid values:
-        // 
-        // *   **false**
-        // *   **true**
         shared_ptr<string> isFake_ {};
-        // The keepalive time. Unit: seconds.
         shared_ptr<string> keepalive_ {};
-        // The ASN of the device on the Alibaba Cloud side.
         shared_ptr<string> localAsn_ {};
-        // The name of the BGP group.
         shared_ptr<string> name_ {};
-        // The autonomous system number (ASN) of the on-premises device in the data center.
         shared_ptr<string> peerAsn_ {};
-        // The ID of the region to which the BGP group belongs.
         shared_ptr<string> regionId_ {};
-        // The maximum number of route entries for BGP dynamic route learning.
         shared_ptr<string> routeLimit_ {};
-        // The ID of the VBR.
         shared_ptr<string> routerId_ {};
-        // The status of the BGP group.
         shared_ptr<string> status_ {};
       };
 
@@ -297,7 +275,6 @@ namespace Models
 
 
   protected:
-    // The detailed information about the BGP group.
     shared_ptr<DescribeBgpGroupsResponseBody::BgpGroups> bgpGroups_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

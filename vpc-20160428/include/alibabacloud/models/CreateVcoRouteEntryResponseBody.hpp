@@ -112,32 +112,16 @@ namespace Models
 
 
   protected:
-    // The timestamp when the destination-based route was created. Unit: milliseconds.
-    // 
-    // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
-    // The description of the destination-based route.
     shared_ptr<string> description_ {};
-    // The next hop of the destination-based route.
     shared_ptr<string> nextHop_ {};
-    // The tunneling protocol.
-    // 
-    // The value is set to **Ipsec**, which indicates the IPsec tunneling protocol.
     shared_ptr<string> overlayMode_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The destination CIDR block of the destination-based route.
+    // The description of the destination-based route.
     shared_ptr<string> routeDest_ {};
-    // The status of the destination-based route.
-    // 
-    // Only **published** is returned, which indicates that the current route is published to the transit router.
     shared_ptr<string> state_ {};
-    // The ID of the IPsec-VPN connection.
+    // The request ID.
     shared_ptr<string> vpnConnectionId_ {};
-    // The weight of the destination-based route. Valid values:
-    // 
-    // *   **0**: a low priority.
-    // *   **100**: a high priority.
     shared_ptr<int32_t> weight_ {};
   };
 

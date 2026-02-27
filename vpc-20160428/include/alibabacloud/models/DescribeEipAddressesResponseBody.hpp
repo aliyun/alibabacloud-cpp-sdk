@@ -215,9 +215,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the EIP.
             shared_ptr<string> key_ {};
-            // The tag value of the EIP.
             shared_ptr<string> value_ {};
           };
 
@@ -315,11 +313,6 @@ namespace Models
 
 
           protected:
-            // The reason why the EIP is locked. Valid values:
-            // 
-            // *   **financial**: The EIP is locked due to overdue payments.
-            // *   **security**: The instance is locked for security purposes.
-            // *   **sharedPool**: The shared IP address pool is locked due to overdue payments.
             shared_ptr<string> lockReason_ {};
           };
 
@@ -648,168 +641,47 @@ namespace Models
 
 
       protected:
-        // The ID of the EIP.
         shared_ptr<string> allocationId_ {};
-        // The time when the EIP was created. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format.
         shared_ptr<string> allocationTime_ {};
-        // The maximum bandwidth of the EIP. Unit: Mbit/s.
         shared_ptr<string> bandwidth_ {};
-        // The maximum bandwidth of the Internet Shared Bandwidth instance with which the EIP is associated. Unit: Mbit/s.
         shared_ptr<string> bandwidthPackageBandwidth_ {};
-        // The ID of the Internet Shared Bandwidth instance.
         shared_ptr<string> bandwidthPackageId_ {};
-        // The type of the bandwidth. Only **CommonBandwidthPackage** may be returned, which indicates Internet Shared Bandwidth.
         shared_ptr<string> bandwidthPackageType_ {};
-        // The service type. Valid values:
-        // 
-        // *   **CloudBox** Only cloud box users can select this type.
-        // *   **Default** (default)
         shared_ptr<string> bizType_ {};
-        // The service status of the EIP. Valid values:
-        // 
-        // *   **Normal**
-        // *   **OperationLock**
-        // *   **Unactivated**
         shared_ptr<string> businessStatus_ {};
-        // The billing method of the EIP. Valid values:
-        // 
-        // *   **PostPaid**: pay-as-you-go.
-        // *   **PrePaid**: subscription.
         shared_ptr<string> chargeType_ {};
-        // Indicates whether deletion protection is enabled. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> deletionProtection_ {};
-        // The description of the EIP.
         shared_ptr<string> description_ {};
-        // The maximum bandwidth of the EIP when it is not associated with an Internet Shared Bandwidth instance. Unit: Mbit/s.
         shared_ptr<string> eipBandwidth_ {};
-        // The time when the EIP expires. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format.
         shared_ptr<string> expiredTime_ {};
-        // Indicates whether fine-grained monitoring is enabled for the EIP. Valid values:
-        // 
-        // *   **false**
-        // *   **true**
         shared_ptr<string> HDMonitorStatus_ {};
-        // Indicates whether renewal data is included. Valid values:
-        // 
-        // *   **false**
-        // *   **true** A value of **true** is returned only when **IncludeReservationData** is set to **true** and some orders have not taken effect.
         shared_ptr<string> hasReservationData_ {};
-        // The line type. Valid values:
-        // 
-        // *   **BGP**: BGP (Multi-ISP). The BGP (Multi-ISP) line is supported in all regions.
-        // *   **BGP_PRO**: BGP (Multi-ISP) Pro lines. BGP (Multi-ISP) Pro line is supported only in the China (Hong Kong), Singapore, Japan (Tokyo), Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok) regions.
-        // 
-        // For more information about BGP (Multi-ISP) and BGP (Multi-ISP) Pro, see the [Line types](https://help.aliyun.com/document_detail/32321.html) section of the "What is EIP?" topic.
-        // 
-        // If you are allowed to use single-ISP bandwidth, one of the following values may be returned:
-        // 
-        // *   **ChinaTelecom**
-        // *   **ChinaUnicom**
-        // *   **ChinaMobile**
-        // *   **ChinaTelecom_L2**
-        // *   **ChinaUnicom_L2**
-        // *   **ChinaMobile_L2**
-        // 
-        // If your services are deployed in China East 1 Finance, **BGP_FinanceCloud** is returned.
         shared_ptr<string> ISP_ {};
-        // The ID of the associated instance.
         shared_ptr<string> instanceId_ {};
-        // The region ID of the associated instance.
         shared_ptr<string> instanceRegionId_ {};
-        // The type of the associated instance. Valid values:
-        // 
-        // *   **EcsInstance**: an ECS instance in a VPC.
-        // *   **SlbInstance**: a CLB instance in a VPC.
-        // *   **Nat**: a NAT gateway.
-        // *   **HaVip**: an HAVIP.
-        // *   **NetworkInterface**: a secondary ENI.
-        // *   **IpAddress**: an IP address.
         shared_ptr<string> instanceType_ {};
-        // The metering method of the EIP. Valid values:
-        // 
-        // *   **PayByBandwidth**
-        // *   **PayByTraffic**
         shared_ptr<string> internetChargeType_ {};
-        // The EIP.
         shared_ptr<string> ipAddress_ {};
-        // The association mode. Valid values:
-        // - **NAT**: NAT mode
-        // - **MULTI_BINDED**: multi-EIP-to-ENI mode
-        // - **BINDED**: cut-through mode
         shared_ptr<string> mode_ {};
-        // The name of the EIP.
         shared_ptr<string> name_ {};
-        // The network type. Only **public** may be returned.
         shared_ptr<string> netmode_ {};
-        // The details about the locked EIP.
         shared_ptr<EipAddress::OperationLocks> operationLocks_ {};
-        // The private IP address of the secondary ENI with which the EIP is associated.
         shared_ptr<string> privateIpAddress_ {};
-        // The ID of the IP address pool to which the EIP belongs.
         shared_ptr<string> publicIpAddressPoolId_ {};
-        // The region ID of the EIP.
         shared_ptr<string> regionId_ {};
-        // The time when the renewal took effect. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format.
         shared_ptr<string> reservationActiveTime_ {};
-        // The maximum bandwidth after the renewal takes effect. Unit: Mbit/s.
         shared_ptr<string> reservationBandwidth_ {};
-        // The metering method that is used after the renewal takes effect. Valid values:
-        // 
-        // *   **PayByBandwidth**
-        // *   **PayByTraffic**
         shared_ptr<string> reservationInternetChargeType_ {};
-        // The type of the renewal order. Valid values:
-        // 
-        // *   **RENEWCHANGE**: renewal with an upgrade or a downgrade.
-        // *   **TEMP_UPGRADE**: temporary upgrade.
-        // *   **UPGRADE**: upgrade.
         shared_ptr<string> reservationOrderType_ {};
-        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // Indicates whether level-2 throttling is configured. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> secondLimited_ {};
-        // The edition of Anti-DDoS.
-        // 
-        // *   If an empty value is returned, it indicates that Anti-DDoS Origin Basic is used.
-        // *   If **AntiDDoS_Enhanced** is returned, it indicates that Anti-DDoS Pro/Premium is used.
         shared_ptr<EipAddress::SecurityProtectionTypes> securityProtectionTypes_ {};
-        // The ID of the contiguous EIP group.
-        // 
-        // This value is returned only when you query contiguous EIPs.
         shared_ptr<string> segmentInstanceId_ {};
-        // The ID of the service provider to which the managed instance belongs.
-        // > This is only valid when the ServiceManaged parameter is set to True.
         shared_ptr<int64_t> serviceID_ {};
-        // Indicates whether the instance is managed. Valid values:
-        // 
-        // *   **1**: yes
-        // *   **0**: no
         shared_ptr<int32_t> serviceManaged_ {};
-        // The status of the EIP. Valid values:
-        // 
-        // *   **Associating**
-        // *   **Unassociating**
-        // *   **InUse**
-        // *   **Available**
-        // *   **Releasing**
         shared_ptr<string> status_ {};
-        // The tags of the EIP.
         shared_ptr<EipAddress::Tags> tags_ {};
-        // The ID of the VPC in which an IPv4 gateway is created and that is deployed in the same region as the EIP.
-        // 
-        // When you associate an EIP with an IP address, the system can enable the IP address to access the Internet based on VPC route configurations.
-        // 
-        // >  This parameter is returned if the value of **InstanceType** is **IpAddress**. In this case, the EIP is associated with an IP address.
         shared_ptr<string> vpcId_ {};
-        // The zone of the EIP.
-        // 
-        // This parameter is returned only when the service type is CloudBox.
         shared_ptr<string> zone_ {};
       };
 
@@ -867,7 +739,6 @@ namespace Models
 
 
   protected:
-    // Details of the EIPs.
     shared_ptr<DescribeEipAddressesResponseBody::EipAddresses> eipAddresses_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

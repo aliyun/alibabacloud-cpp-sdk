@@ -262,6 +262,10 @@ namespace Models
     // *   **true** (default)
     // *   **false**
     shared_ptr<bool> compress_ {};
+    // Specifies whether to only precheck the request. Valid values:
+    // 
+    // *   **true**: prechecks the request without performing the operation. The system prechecks the required parameters, request syntax, and limits. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+    // *   **false** (default): sends the request. After the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
     // Specifies whether to enable two-factor authentication. To enable two-factor authentication, you need to specify **IDaaSInstanceId**, **IDaaSRegionId**, and **IDaaSApplicationId**. Valid values:
     // 

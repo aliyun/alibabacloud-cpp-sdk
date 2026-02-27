@@ -131,17 +131,11 @@ namespace Models
 
 
       protected:
-        // The description of the egress-only rule.
         shared_ptr<string> description_ {};
-        // The ID of the instance to which the egress-only rule applies.
         shared_ptr<string> instanceId_ {};
-        // The type of the instance to which the egress-only rule applies.
         shared_ptr<string> instanceType_ {};
-        // The ID of the egress-only rule.
         shared_ptr<string> ipv6EgressOnlyRuleId_ {};
-        // The name of the egress-only rule.
         shared_ptr<string> name_ {};
-        // The status of the egress-only rule.
         shared_ptr<string> status_ {};
       };
 
@@ -199,7 +193,6 @@ namespace Models
 
 
   protected:
-    // The details about the egress-only rules.
     shared_ptr<DescribeIpv6EgressOnlyRulesResponseBody::Ipv6EgressOnlyRules> ipv6EgressOnlyRules_ {};
     // The number of the returned page. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};

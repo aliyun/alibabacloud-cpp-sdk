@@ -168,33 +168,15 @@ namespace Models
 
 
       protected:
-        // Whether to enable IP affinity. Values:
-        // - **0**: Disable IP affinity. - **1**: Enable IP affinity.
-        // > After enabling the IP affinity switch, if an SNAT entry is bound to multiple EIPs or NAT IPs, the same client will use the same EIP or NAT IP for access. Otherwise, the client will randomly select from the bound EIPs or NAT IPs for access.
         shared_ptr<string> eipAffinity_ {};
-        // The ID of the NAT gateway to which the SNAT entry belongs.
         shared_ptr<string> natGatewayId_ {};
-        // Elastic Network Interface ID
         shared_ptr<string> networkInterfaceId_ {};
-        // The ID of the SNAT entry.
         shared_ptr<string> snatEntryId_ {};
-        // The name of the SNAT entry.
         shared_ptr<string> snatEntryName_ {};
-        // *   When you query SNAT entries of Internet NAT gateways, this parameter indicates the EIP in an SNAT entry.
-        // *   When you query SNAT entries of VPC NAT gateways, this parameter indicates the NAT IP address in an SNAT entry.
         shared_ptr<string> snatIp_ {};
-        // The ID of the SNAT table to which the SNAT entry belongs.
         shared_ptr<string> snatTableId_ {};
-        // The source CIDR block specified in the SNAT entry.
         shared_ptr<string> sourceCIDR_ {};
-        // *   When you query SNAT entries of Internet NAT gateways, this parameter indicates the ID of the vSwitch that uses SNAT to access the Internet.
-        // *   When you query SNAT entries of VPC NAT gateways, this parameter indicates the ID of the vSwitch that uses SNAT to access external networks.
         shared_ptr<string> sourceVSwitchId_ {};
-        // The status of the SNAT entry. Valid values:
-        // 
-        // *   **Pending**
-        // *   **Available**
-        // *   **Deleting**
         shared_ptr<string> status_ {};
       };
 
@@ -258,7 +240,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details of SNAT entries.
     shared_ptr<DescribeSnatTableEntriesResponseBody::SnatTableEntries> snatTableEntries_ {};
     // The number of returned entries.
     shared_ptr<int32_t> totalCount_ {};

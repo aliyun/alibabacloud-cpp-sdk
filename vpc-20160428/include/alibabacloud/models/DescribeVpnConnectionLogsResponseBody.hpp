@@ -122,7 +122,6 @@ namespace Models
   protected:
     // The number of entries on the current page.
     shared_ptr<int32_t> count_ {};
-    // The log list.
     shared_ptr<DescribeVpnConnectionLogsResponseBody::Data> data_ {};
     // Indicates whether the log is accurate. Valid values:
     // 

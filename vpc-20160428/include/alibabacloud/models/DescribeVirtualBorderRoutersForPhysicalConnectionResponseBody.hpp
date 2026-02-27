@@ -297,79 +297,29 @@ namespace Models
 
 
       protected:
-        // The time when the VBR was first activated.
         shared_ptr<string> activationTime_ {};
-        // The bandwidth of the VBR that is associated with the Express Connect circuit. Unit: Mbit/s.
         shared_ptr<string> bandwidth_ {};
-        // The status of the bandwidth. Valid values:
-        // 
-        // *   **Active**
-        // *   **Inactive**
         shared_ptr<string> bandwidthStatus_ {};
-        // The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
         shared_ptr<string> circuitCode_ {};
-        // The time when the VBR was created.
         shared_ptr<string> creationTime_ {};
-        // The ID of the ECC instance.
         shared_ptr<string> eccId_ {};
-        // Indicates whether IPv6 is enabled. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> enableIpv6_ {};
-        // The IPv4 address of the gateway device on the Alibaba Cloud side.
         shared_ptr<string> localGatewayIp_ {};
-        // The IPv6 address of the gateway device on the Alibaba Cloud side.
         shared_ptr<string> localIpv6GatewayIp_ {};
-        // The status of the VBR associated with the Express Connect circuit. Valid values:
-        // 
-        // *   **Normal**
-        // *   **FinancialLocked**
         shared_ptr<string> PConnVbrBussinessStatus_ {};
-        // The billing method of the VBR. Valid values:
-        // 
-        // *   **PrePaid**: subscription. If you choose this billing method, make sure that your Apsara Stack account supports balance payments or credit payments.
-        // *   **PostPaid**: pay-as-you-go.
         shared_ptr<string> PConnVbrChargeType_ {};
-        // The time when the VBR associated with the Express Connect circuit expires.
         shared_ptr<string> PConnVbrExpireTime_ {};
-        // The IPv4 address of the gateway device on the user side.
         shared_ptr<string> peerGatewayIp_ {};
-        // The IPv6 address of the gateway device on the user side.
-        // 
-        // This parameter is required when you create a VBR for the owner of the Express Connect circuit. You can ignore this parameter when you create a VBR for another Alibaba Cloud account.
         shared_ptr<string> peerIpv6GatewayIp_ {};
-        // The subnet mask for the IPv6 addresses of the gateway devices on the Alibaba Cloud side and on the user side.
-        // 
-        // The two IPv6 addresses must fall within the same subnet.
         shared_ptr<string> peeringIpv6SubnetMask_ {};
-        // The subnet mask of the IPv4 addresses configured on the user side and Alibaba Cloud side.
-        // 
-        // The two IPv4 addresses must fall within the same subnet.
         shared_ptr<string> peeringSubnetMask_ {};
-        // The last time when the status of the VBR changed from Terminated to Active.
         shared_ptr<string> recoveryTime_ {};
-        // The status of the VBR. Valid values:
-        // 
-        // *   **unconfirmed**
-        // *   **active**
-        // *   **terminating**
-        // *   **terminated**
-        // *   **recovering**
-        // *   **deleting**
         shared_ptr<string> status_ {};
-        // The last time when the VBR was disabled.
         shared_ptr<string> terminationTime_ {};
-        // The VBR type.
         shared_ptr<string> type_ {};
-        // The VBR ID.
         shared_ptr<string> vbrId_ {};
         shared_ptr<string> vbrName_ {};
-        // The ID of the Alibaba Cloud account to which the VBR belongs.
-        // 
-        // If the owner of the VBR is the same as that of the Express Connect circuit, this parameter is empty.
         shared_ptr<int64_t> vbrOwnerUid_ {};
-        // The VLAN ID of the VBR.
         shared_ptr<int32_t> vlanId_ {};
       };
 
@@ -435,7 +385,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about VBRs.
     shared_ptr<DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody::VirtualBorderRouterForPhysicalConnectionSet> virtualBorderRouterForPhysicalConnectionSet_ {};
   };
 

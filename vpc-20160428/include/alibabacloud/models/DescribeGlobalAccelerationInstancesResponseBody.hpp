@@ -163,9 +163,7 @@ namespace Models
 
 
           protected:
-            // The ID of the public IP address of the GA instance.
             shared_ptr<string> allocationId_ {};
-            // The public IP address of the GA instance.
             shared_ptr<string> ipAddress_ {};
           };
 
@@ -258,16 +256,9 @@ namespace Models
 
 
           protected:
-            // The region where the backend servers are deployed.
             shared_ptr<string> regionId_ {};
-            // The ID of the backend server.
             shared_ptr<string> serverId_ {};
-            // The IP address of the backend server.
             shared_ptr<string> serverIpAddress_ {};
-            // The type of the backend server.
-            // 
-            // *   **EcsInstance**: Elastic Compute Service (ECS) instance
-            // *   **SlbInstance**: Server Load Balancer (SLB) instance
             shared_ptr<string> serverType_ {};
           };
 
@@ -406,45 +397,21 @@ namespace Models
 
 
       protected:
-        // The acceleration area of the GA instance.
         shared_ptr<string> accelerationLocation_ {};
-        // The details about the backend servers of the GA instance.
         shared_ptr<GlobalAccelerationInstance::BackendServers> backendServers_ {};
-        // The maximum bandwidth of the GA instance.
         shared_ptr<string> bandwidth_ {};
-        // The bandwidth type of the GA instance.
-        // 
-        // *   **Sharing**
-        // *   **Exclusive** (default)
         shared_ptr<string> bandwidthType_ {};
-        // The billing method of the GA instance.
         shared_ptr<string> chargeType_ {};
-        // The time when the GA instance was created. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The description of the GA instance.
         shared_ptr<string> description_ {};
-        // The time when the instance expires.
         shared_ptr<string> expiredTime_ {};
-        // The ID of the GA instance.
         shared_ptr<string> globalAccelerationInstanceId_ {};
-        // The billing method of the GA instance.
         shared_ptr<string> internetChargeType_ {};
-        // The public IP address of the dedicated GA instance.
         shared_ptr<string> ipAddress_ {};
-        // The name of the GA instance.
         shared_ptr<string> name_ {};
-        // The public IP address.
         shared_ptr<GlobalAccelerationInstance::PublicIpAddresses> publicIpAddresses_ {};
-        // The region ID of the GA instance.
         shared_ptr<string> regionId_ {};
-        // The service area of the GA instance.
         shared_ptr<string> serviceLocation_ {};
-        // The status of the GA instance.
-        // 
-        // *   **Available**
-        // *   **Inuse**
-        // *   **Associating**
-        // *   **Unassociating**
         shared_ptr<string> status_ {};
       };
 
@@ -502,7 +469,6 @@ namespace Models
 
 
   protected:
-    // The details of the GA instances.
     shared_ptr<DescribeGlobalAccelerationInstancesResponseBody::GlobalAccelerationInstances> globalAccelerationInstances_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
