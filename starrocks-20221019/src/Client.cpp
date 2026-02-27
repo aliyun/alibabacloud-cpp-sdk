@@ -518,6 +518,10 @@ DescribeNodeGroupsResponse Client::describeNodeGroupsWithOptions(const DescribeN
     body["status"] = request.getStatus();
   }
 
+  if (!!request.hasTags()) {
+    body["tags"] = request.getTags();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
