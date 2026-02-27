@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // The configuration of the component.
     shared_ptr<string> config_ {};
+    // Specifies whether to disable automatic installation. When you create a cluster, some additional log components are automatically installed in addition to the required components. You can disable the automatic installations of a component and install the component later by calling the component API or in the corresponding console. Valid values:
+    // 
+    // *   `true`: disables the automatic installation of a component.
+    // *   `false`: allows the automatic installation of a component.
     shared_ptr<bool> disabled_ {};
+    // The component name.
     shared_ptr<string> name_ {};
+    // The version of the component.
     shared_ptr<string> version_ {};
   };
 

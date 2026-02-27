@@ -13,8 +13,10 @@ namespace Models
   class RevokeK8sClusterKubeConfigResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const RevokeK8sClusterKubeConfigResponseBody& obj) { 
+      (void)j; (void)obj; 
     };
     friend void from_json(const Darabonba::Json& j, RevokeK8sClusterKubeConfigResponseBody& obj) { 
+      (void)j; (void)obj; 
     };
     RevokeK8sClusterKubeConfigResponseBody() = default ;
     RevokeK8sClusterKubeConfigResponseBody(const RevokeK8sClusterKubeConfigResponseBody &) = default ;

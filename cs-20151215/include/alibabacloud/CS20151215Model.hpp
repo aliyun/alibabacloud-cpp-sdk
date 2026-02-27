@@ -345,6 +345,8 @@
 #include <alibabacloud/models/UpdateControlPlaneLogResponse.hpp>
 #include <alibabacloud/models/UpdateK8sClusterUserConfigExpireRequest.hpp>
 #include <alibabacloud/models/UpdateK8sClusterUserConfigExpireResponse.hpp>
+#include <alibabacloud/models/UpdateKMSEncryptionRequest.hpp>
+#include <alibabacloud/models/UpdateKMSEncryptionResponse.hpp>
 #include <alibabacloud/models/UpdateNodePoolComponentRequest.hpp>
 #include <alibabacloud/models/UpdateNodePoolComponentResponseBody.hpp>
 #include <alibabacloud/models/UpdateNodePoolComponentResponse.hpp>

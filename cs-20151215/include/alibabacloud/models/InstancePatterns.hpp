@@ -215,24 +215,43 @@ namespace Models
 
 
   protected:
+    // [This parameter is deprecated and replaced by cpu_architectures] The architectures of instance types.
     shared_ptr<vector<string>> architectures_ {};
+    // [This parameter is deprecated] Specifies whether to include burstable instance types.
     shared_ptr<string> burstPerformanceOption_ {};
+    // [This parameter is deprecated and replaced by cores] The number of vCores provided by the instance type.
     shared_ptr<int64_t> core_ {};
+    // The number of vCPU cores for the instance type.
     shared_ptr<int64_t> cores_ {};
+    // The CPU architecture of the instance type.
     shared_ptr<vector<string>> cpuArchitectures_ {};
+    // The instance type that you want to exclude.
     shared_ptr<vector<string>> excludedInstanceTypes_ {};
+    // The type of the instance.
     shared_ptr<vector<string>> instanceCategories_ {};
+    // The instance family level.
     shared_ptr<string> instanceFamilyLevel_ {};
+    // The specified instance family.
     shared_ptr<vector<string>> instanceTypeFamilies_ {};
+    // The maximum vCPU cores allowed for the instance type.
     shared_ptr<int64_t> maxCpuCores_ {};
+    // The maximum allowed memory size. Unit: GiB.
     shared_ptr<float> maxMemorySize_ {};
+    // [This parameter is deprecated] The maximum hourly price of the instance.
     shared_ptr<float> maxPrice_ {};
+    // The maximum allowed number of GPUs per instance.
     shared_ptr<int64_t> maximumGpuAmount_ {};
+    // The memory size of the instance type. Unit: GiB.
     shared_ptr<float> memory_ {};
+    // The minimum vCPU cores required for the instance type.
     shared_ptr<int64_t> minCpuCores_ {};
+    // The minimum required memory size. Unit: GiB.
     shared_ptr<float> minMemorySize_ {};
+    // The minimum required number of IPv6 addresses per ENI.
     shared_ptr<int64_t> minimumEniIpv6AddressQuantity_ {};
+    // The minimum required number of IPv4 addresses per ENI.
     shared_ptr<int64_t> minimumEniPrivateIpAddressQuantity_ {};
+    // The minimum required number of elastic network interfaces (ENIs) per instance.
     shared_ptr<int64_t> minimumEniQuantity_ {};
   };
 

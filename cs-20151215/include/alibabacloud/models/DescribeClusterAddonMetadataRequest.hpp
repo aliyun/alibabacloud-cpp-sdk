@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The component version.
     shared_ptr<string> version_ {};
   };
 

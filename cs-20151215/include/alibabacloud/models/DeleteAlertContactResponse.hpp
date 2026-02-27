@@ -101,14 +101,8 @@ namespace Models
 
 
       protected:
-        // The deletion status.
-        // 
-        // *   true: The alert contact was deleted.
-        // *   false: The alert contact failed to be deleted.
         shared_ptr<bool> status_ {};
-        // The error message returned if the call fails.
         shared_ptr<string> msg_ {};
-        // An alert contact ID.
         shared_ptr<string> contactId_ {};
       };
 

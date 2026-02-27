@@ -100,11 +100,13 @@ namespace Models
 
   protected:
     shared_ptr<bool> ignoreImageDefinedVolume_ {};
+    // Insecure image repositories that skipped the TLS certificate verification.
     shared_ptr<vector<string>> insecureRegistries_ {};
     shared_ptr<int64_t> limitCore_ {};
     shared_ptr<int64_t> limitMemLock_ {};
     shared_ptr<int64_t> limitNoFile_ {};
     shared_ptr<int64_t> maxConcurrentDownloads_ {};
+    // The image accelerator configuration.
     shared_ptr<vector<string>> registryMirrors_ {};
   };
 

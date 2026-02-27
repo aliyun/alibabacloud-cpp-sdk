@@ -130,7 +130,9 @@ namespace Models
 
 
     protected:
+      // The endpoint of the collector.
       shared_ptr<string> endpoint_ {};
+      // The number of samples to be collected per million spans.
       shared_ptr<int32_t> samplingRatePerMillion_ {};
     };
 
@@ -174,7 +176,9 @@ namespace Models
 
 
     protected:
+      // The memory limit.
       Darabonba::Json limits_ {};
+      // The NUMA node identifier.
       shared_ptr<int32_t> numaNode_ {};
     };
 
@@ -431,37 +435,68 @@ namespace Models
 
 
   protected:
+    // The whitelisted unsafe sysctls.
     shared_ptr<vector<string>> allowedUnsafeSysctls_ {};
+    // The list of IP addresses of the DNS servers.
     shared_ptr<vector<string>> clusterDNS_ {};
+    // The maximum number of log files that can be stored in each container.
     shared_ptr<int64_t> containerLogMaxFiles_ {};
+    // The maximum size that a log file can reach before it is rotated.
     shared_ptr<string> containerLogMaxSize_ {};
+    // The maximum number of concurrent programs that rotate logs
     shared_ptr<int32_t> containerLogMaxWorkers_ {};
+    // The duration at which the container logs are monitored for rotating logs.
     shared_ptr<string> containerLogMonitorInterval_ {};
+    // Specifies whether to use Completely Fair Scheduler (CFS) quota to enforce pod CPU limits.
     shared_ptr<bool> cpuCFSQuota_ {};
+    // The duration for the CPU CFS quota.
     shared_ptr<string> cpuCFSQuotaPeriod_ {};
+    // The CPU management policy used by kubelet.
     shared_ptr<string> cpuManagerPolicy_ {};
+    // The maximum number of burst peaks for the event records.
     shared_ptr<int64_t> eventBurst_ {};
+    // Specifies the maximum number of events that can be generated per second.
     shared_ptr<int64_t> eventRecordQPS_ {};
+    // A set of eviction thresholds that will trigger a pod eviction if met.
     Darabonba::Json evictionHard_ {};
+    // A set of eviction thresholds that will trigger a pod eviction if met over a corresponding grace period.
     Darabonba::Json evictionSoft_ {};
+    // A set of grace periods for eviction thresholds.
     Darabonba::Json evictionSoftGracePeriod_ {};
+    // A feature gate that is used to enable an experimental feature.
     Darabonba::Json featureGates_ {};
+    // The percentage of disk usage after which image garbage collection always runs.
     shared_ptr<int32_t> imageGCHighThresholdPercent_ {};
+    // The percentage of disk usage before which image garbage collection never runs.
     shared_ptr<int32_t> imageGCLowThresholdPercent_ {};
+    // The maximum number of burst requests sent to the API server per second.
     shared_ptr<int64_t> kubeAPIBurst_ {};
+    // The QPS when kubelet communicates with the Kubernetes API server.
     shared_ptr<int64_t> kubeAPIQPS_ {};
+    // A set of configurations that specify resources reserved for the Kubernetes system.
     Darabonba::Json kubeReserved_ {};
+    // The maximum number of running pods.
     shared_ptr<int64_t> maxPods_ {};
+    // The name of the policy to be used by the memory manager.
     shared_ptr<string> memoryManagerPolicy_ {};
+    // The maximum number of processes per pod.
     shared_ptr<int64_t> podPidsLimit_ {};
+    // The read-only port.
     shared_ptr<int64_t> readOnlyPort_ {};
+    // The maximum number of images that can be pulled from bursty image pulls.
     shared_ptr<int64_t> registryBurst_ {};
+    // The maximum queries per second (QPS) of the image repository.
     shared_ptr<int64_t> registryPullQPS_ {};
+    // A list of configurations that specify memory reservations for non-uniform memory access (NUMA) nodes.
     shared_ptr<vector<KubeletConfig::ReservedMemory>> reservedMemory_ {};
+    // Specifies whether to pull one image at a time.
     shared_ptr<bool> serializeImagePulls_ {};
     shared_ptr<bool> serverTLSBootstrap_ {};
+    // A set of configurations that specify reserved resources for the system.
     Darabonba::Json systemReserved_ {};
+    // The name of the Topology Manager policy that you want to use.
     shared_ptr<string> topologyManagerPolicy_ {};
+    // The versioned configuration information for the Managed Service for OpenTelemetry client.
     shared_ptr<KubeletConfig::Tracing> tracing_ {};
   };
 

@@ -226,8 +226,8 @@ namespace Models
             // enable Field Functions 
             bool hasEnable() const { return this->enable_ != nullptr;};
             void deleteEnable() { this->enable_ = nullptr;};
-            inline string getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
-            inline Intervention& setEnable(string enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+            inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+            inline Intervention& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
             // inquiringLabel Field Functions 
@@ -248,7 +248,7 @@ namespace Models
 
           protected:
             shared_ptr<Intervention::ApprovedLabel> approvedLabel_ {};
-            shared_ptr<string> enable_ {};
+            shared_ptr<bool> enable_ {};
             shared_ptr<Intervention::InquiringLabel> inquiringLabel_ {};
             shared_ptr<string> type_ {};
           };
@@ -289,14 +289,10 @@ namespace Models
         class Incidents : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Incidents& obj) { 
-            DARABONBA_PTR_TO_JSON(conditions, conditions_);
-            DARABONBA_PTR_TO_JSON(events, events_);
             DARABONBA_PTR_TO_JSON(name, name_);
             DARABONBA_PTR_TO_JSON(type, type_);
           };
           friend void from_json(const Darabonba::Json& j, Incidents& obj) { 
-            DARABONBA_PTR_FROM_JSON(conditions, conditions_);
-            DARABONBA_PTR_FROM_JSON(events, events_);
             DARABONBA_PTR_FROM_JSON(name, name_);
             DARABONBA_PTR_FROM_JSON(type, type_);
           };
@@ -311,120 +307,8 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          class Events : public Darabonba::Model {
-          public:
-            friend void to_json(Darabonba::Json& j, const Events& obj) { 
-              DARABONBA_PTR_TO_JSON(reason, reason_);
-              DARABONBA_PTR_TO_JSON(type, type_);
-            };
-            friend void from_json(const Darabonba::Json& j, Events& obj) { 
-              DARABONBA_PTR_FROM_JSON(reason, reason_);
-              DARABONBA_PTR_FROM_JSON(type, type_);
-            };
-            Events() = default ;
-            Events(const Events &) = default ;
-            Events(Events &&) = default ;
-            Events(const Darabonba::Json & obj) { from_json(obj, *this); };
-            virtual ~Events() = default ;
-            Events& operator=(const Events &) = default ;
-            Events& operator=(Events &&) = default ;
-            virtual void validate() const override {
-            };
-            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-            virtual bool empty() const override { return this->reason_ == nullptr
+          virtual bool empty() const override { return this->name_ == nullptr
         && this->type_ == nullptr; };
-            // reason Field Functions 
-            bool hasReason() const { return this->reason_ != nullptr;};
-            void deleteReason() { this->reason_ = nullptr;};
-            inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
-            inline Events& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
-
-
-            // type Field Functions 
-            bool hasType() const { return this->type_ != nullptr;};
-            void deleteType() { this->type_ = nullptr;};
-            inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
-            inline Events& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
-
-
-          protected:
-            shared_ptr<string> reason_ {};
-            shared_ptr<string> type_ {};
-          };
-
-          class Conditions : public Darabonba::Model {
-          public:
-            friend void to_json(Darabonba::Json& j, const Conditions& obj) { 
-              DARABONBA_PTR_TO_JSON(reason, reason_);
-              DARABONBA_PTR_TO_JSON(status, status_);
-              DARABONBA_PTR_TO_JSON(type, type_);
-            };
-            friend void from_json(const Darabonba::Json& j, Conditions& obj) { 
-              DARABONBA_PTR_FROM_JSON(reason, reason_);
-              DARABONBA_PTR_FROM_JSON(status, status_);
-              DARABONBA_PTR_FROM_JSON(type, type_);
-            };
-            Conditions() = default ;
-            Conditions(const Conditions &) = default ;
-            Conditions(Conditions &&) = default ;
-            Conditions(const Darabonba::Json & obj) { from_json(obj, *this); };
-            virtual ~Conditions() = default ;
-            Conditions& operator=(const Conditions &) = default ;
-            Conditions& operator=(Conditions &&) = default ;
-            virtual void validate() const override {
-            };
-            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-            virtual bool empty() const override { return this->reason_ == nullptr
-        && this->status_ == nullptr && this->type_ == nullptr; };
-            // reason Field Functions 
-            bool hasReason() const { return this->reason_ != nullptr;};
-            void deleteReason() { this->reason_ = nullptr;};
-            inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
-            inline Conditions& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
-
-
-            // status Field Functions 
-            bool hasStatus() const { return this->status_ != nullptr;};
-            void deleteStatus() { this->status_ = nullptr;};
-            inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
-            inline Conditions& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
-
-
-            // type Field Functions 
-            bool hasType() const { return this->type_ != nullptr;};
-            void deleteType() { this->type_ = nullptr;};
-            inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
-            inline Conditions& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
-
-
-          protected:
-            shared_ptr<string> reason_ {};
-            shared_ptr<string> status_ {};
-            shared_ptr<string> type_ {};
-          };
-
-          virtual bool empty() const override { return this->conditions_ == nullptr
-        && this->events_ == nullptr && this->name_ == nullptr && this->type_ == nullptr; };
-          // conditions Field Functions 
-          bool hasConditions() const { return this->conditions_ != nullptr;};
-          void deleteConditions() { this->conditions_ = nullptr;};
-          inline const vector<Incidents::Conditions> & getConditions() const { DARABONBA_PTR_GET_CONST(conditions_, vector<Incidents::Conditions>) };
-          inline vector<Incidents::Conditions> getConditions() { DARABONBA_PTR_GET(conditions_, vector<Incidents::Conditions>) };
-          inline Incidents& setConditions(const vector<Incidents::Conditions> & conditions) { DARABONBA_PTR_SET_VALUE(conditions_, conditions) };
-          inline Incidents& setConditions(vector<Incidents::Conditions> && conditions) { DARABONBA_PTR_SET_RVALUE(conditions_, conditions) };
-
-
-          // events Field Functions 
-          bool hasEvents() const { return this->events_ != nullptr;};
-          void deleteEvents() { this->events_ = nullptr;};
-          inline const vector<Incidents::Events> & getEvents() const { DARABONBA_PTR_GET_CONST(events_, vector<Incidents::Events>) };
-          inline vector<Incidents::Events> getEvents() { DARABONBA_PTR_GET(events_, vector<Incidents::Events>) };
-          inline Incidents& setEvents(const vector<Incidents::Events> & events) { DARABONBA_PTR_SET_VALUE(events_, events) };
-          inline Incidents& setEvents(vector<Incidents::Events> && events) { DARABONBA_PTR_SET_RVALUE(events_, events) };
-
-
           // name Field Functions 
           bool hasName() const { return this->name_ != nullptr;};
           void deleteName() { this->name_ = nullptr;};
@@ -440,8 +324,6 @@ namespace Models
 
 
         protected:
-          shared_ptr<vector<Incidents::Conditions>> conditions_ {};
-          shared_ptr<vector<Incidents::Events>> events_ {};
           shared_ptr<string> name_ {};
           shared_ptr<string> type_ {};
         };
