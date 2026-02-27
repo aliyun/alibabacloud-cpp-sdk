@@ -38,12 +38,20 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const RevokeCommand& obj) { 
         DARABONBA_PTR_TO_JSON(ApiId, apiId_);
         DARABONBA_PTR_TO_JSON(AppId, appId_);
+        DARABONBA_PTR_TO_JSON(AuthType, authType_);
+        DARABONBA_PTR_TO_JSON(Env, env_);
+        DARABONBA_PTR_TO_JSON(GranteeType, granteeType_);
         DARABONBA_PTR_TO_JSON(Reason, reason_);
+        DARABONBA_PTR_TO_JSON(UserId, userId_);
       };
       friend void from_json(const Darabonba::Json& j, RevokeCommand& obj) { 
         DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
         DARABONBA_PTR_FROM_JSON(AppId, appId_);
+        DARABONBA_PTR_FROM_JSON(AuthType, authType_);
+        DARABONBA_PTR_FROM_JSON(Env, env_);
+        DARABONBA_PTR_FROM_JSON(GranteeType, granteeType_);
         DARABONBA_PTR_FROM_JSON(Reason, reason_);
+        DARABONBA_PTR_FROM_JSON(UserId, userId_);
       };
       RevokeCommand() = default ;
       RevokeCommand(const RevokeCommand &) = default ;
@@ -57,7 +65,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->apiId_ == nullptr
-        && this->appId_ == nullptr && this->reason_ == nullptr; };
+        && this->appId_ == nullptr && this->authType_ == nullptr && this->env_ == nullptr && this->granteeType_ == nullptr && this->reason_ == nullptr
+        && this->userId_ == nullptr; };
       // apiId Field Functions 
       bool hasApiId() const { return this->apiId_ != nullptr;};
       void deleteApiId() { this->apiId_ = nullptr;};
@@ -72,6 +81,27 @@ namespace Models
       inline RevokeCommand& setAppId(int32_t appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
+      // authType Field Functions 
+      bool hasAuthType() const { return this->authType_ != nullptr;};
+      void deleteAuthType() { this->authType_ = nullptr;};
+      inline string getAuthType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
+      inline RevokeCommand& setAuthType(string authType) { DARABONBA_PTR_SET_VALUE(authType_, authType) };
+
+
+      // env Field Functions 
+      bool hasEnv() const { return this->env_ != nullptr;};
+      void deleteEnv() { this->env_ = nullptr;};
+      inline string getEnv() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
+      inline RevokeCommand& setEnv(string env) { DARABONBA_PTR_SET_VALUE(env_, env) };
+
+
+      // granteeType Field Functions 
+      bool hasGranteeType() const { return this->granteeType_ != nullptr;};
+      void deleteGranteeType() { this->granteeType_ = nullptr;};
+      inline string getGranteeType() const { DARABONBA_PTR_GET_DEFAULT(granteeType_, "") };
+      inline RevokeCommand& setGranteeType(string granteeType) { DARABONBA_PTR_SET_VALUE(granteeType_, granteeType) };
+
+
       // reason Field Functions 
       bool hasReason() const { return this->reason_ != nullptr;};
       void deleteReason() { this->reason_ = nullptr;};
@@ -79,13 +109,23 @@ namespace Models
       inline RevokeCommand& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
+      // userId Field Functions 
+      bool hasUserId() const { return this->userId_ != nullptr;};
+      void deleteUserId() { this->userId_ = nullptr;};
+      inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+      inline RevokeCommand& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
     protected:
       // This parameter is required.
       shared_ptr<int64_t> apiId_ {};
-      // This parameter is required.
       shared_ptr<int32_t> appId_ {};
+      shared_ptr<string> authType_ {};
+      shared_ptr<string> env_ {};
+      shared_ptr<string> granteeType_ {};
       // This parameter is required.
       shared_ptr<string> reason_ {};
+      shared_ptr<string> userId_ {};
     };
 
     virtual bool empty() const override { return this->opTenantId_ == nullptr

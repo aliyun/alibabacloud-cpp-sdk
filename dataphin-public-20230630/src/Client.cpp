@@ -36,6 +36,60 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 新增数据服务应用的普通成员。
+ *
+ * @param tmpReq AddDataServiceAppMemberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddDataServiceAppMemberResponse
+ */
+AddDataServiceAppMemberResponse Client::addDataServiceAppMemberWithOptions(const AddDataServiceAppMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddDataServiceAppMemberShrinkRequest request = AddDataServiceAppMemberShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAddCommand()) {
+    request.setAddCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddCommand(), "AddCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAddCommandShrink()) {
+    body["AddCommand"] = request.getAddCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddDataServiceAppMember"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddDataServiceAppMemberResponse>();
+}
+
+/**
+ * @summary 新增数据服务应用的普通成员。
+ *
+ * @param request AddDataServiceAppMemberRequest
+ * @return AddDataServiceAppMemberResponse
+ */
+AddDataServiceAppMemberResponse Client::addDataServiceAppMember(const AddDataServiceAppMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addDataServiceAppMemberWithOptions(request, runtime);
+}
+
+/**
  * @summary 添加数据服务项目用户并设置角色。
  *
  * @param tmpReq AddDataServiceProjectMemberRequest
@@ -1267,6 +1321,106 @@ CreateDataServiceApiResponse Client::createDataServiceApiWithOptions(const Creat
 CreateDataServiceApiResponse Client::createDataServiceApi(const CreateDataServiceApiRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createDataServiceApiWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建数据服务应用。
+ *
+ * @param tmpReq CreateDataServiceAppRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataServiceAppResponse
+ */
+CreateDataServiceAppResponse Client::createDataServiceAppWithOptions(const CreateDataServiceAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateDataServiceAppShrinkRequest request = CreateDataServiceAppShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDataServiceApp"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataServiceAppResponse>();
+}
+
+/**
+ * @summary 创建数据服务应用。
+ *
+ * @param request CreateDataServiceAppRequest
+ * @return CreateDataServiceAppResponse
+ */
+CreateDataServiceAppResponse Client::createDataServiceApp(const CreateDataServiceAppRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDataServiceAppWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建数据服务应用分组。
+ *
+ * @param request CreateDataServiceAppGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataServiceAppGroupResponse
+ */
+CreateDataServiceAppGroupResponse Client::createDataServiceAppGroupWithOptions(const CreateDataServiceAppGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.getGroupName();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDataServiceAppGroup"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataServiceAppGroupResponse>();
+}
+
+/**
+ * @summary 创建数据服务应用分组。
+ *
+ * @param request CreateDataServiceAppGroupRequest
+ * @return CreateDataServiceAppGroupResponse
+ */
+CreateDataServiceAppGroupResponse Client::createDataServiceAppGroup(const CreateDataServiceAppGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDataServiceAppGroupWithOptions(request, runtime);
 }
 
 /**
@@ -2829,6 +2983,98 @@ DeleteDataDomainResponse Client::deleteDataDomainWithOptions(const DeleteDataDom
 DeleteDataDomainResponse Client::deleteDataDomain(const DeleteDataDomainRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDataDomainWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除数据服务应用。
+ *
+ * @param request DeleteDataServiceAppRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataServiceAppResponse
+ */
+DeleteDataServiceAppResponse Client::deleteDataServiceAppWithOptions(const DeleteDataServiceAppRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataServiceApp"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataServiceAppResponse>();
+}
+
+/**
+ * @summary 删除数据服务应用。
+ *
+ * @param request DeleteDataServiceAppRequest
+ * @return DeleteDataServiceAppResponse
+ */
+DeleteDataServiceAppResponse Client::deleteDataServiceApp(const DeleteDataServiceAppRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDataServiceAppWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除数据服务应用分组。
+ *
+ * @param request DeleteDataServiceAppGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataServiceAppGroupResponse
+ */
+DeleteDataServiceAppGroupResponse Client::deleteDataServiceAppGroupWithOptions(const DeleteDataServiceAppGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataServiceAppGroup"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataServiceAppGroupResponse>();
+}
+
+/**
+ * @summary 删除数据服务应用分组。
+ *
+ * @param request DeleteDataServiceAppGroupRequest
+ * @return DeleteDataServiceAppGroupResponse
+ */
+DeleteDataServiceAppGroupResponse Client::deleteDataServiceAppGroup(const DeleteDataServiceAppGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDataServiceAppGroupWithOptions(request, runtime);
 }
 
 /**
@@ -5452,6 +5698,52 @@ GetDataServiceApiGroupsResponse Client::getDataServiceApiGroups(const GetDataSer
 }
 
 /**
+ * @summary 查询数据服务应用详情。
+ *
+ * @param request GetDataServiceAppRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataServiceAppResponse
+ */
+GetDataServiceAppResponse Client::getDataServiceAppWithOptions(const GetDataServiceAppRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataServiceApp"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataServiceAppResponse>();
+}
+
+/**
+ * @summary 查询数据服务应用详情。
+ *
+ * @param request GetDataServiceAppRequest
+ * @return GetDataServiceAppResponse
+ */
+GetDataServiceAppResponse Client::getDataServiceApp(const GetDataServiceAppRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataServiceAppWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取应用有权限的用户列表。
  *
  * @param request GetDataServiceAppAuthorizedUsersRequest
@@ -5545,6 +5837,52 @@ GetDataServiceAppGroupsResponse Client::getDataServiceAppGroupsWithOptions(const
 GetDataServiceAppGroupsResponse Client::getDataServiceAppGroups(const GetDataServiceAppGroupsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getDataServiceAppGroupsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询数据服务应用的成员列表。
+ *
+ * @param request GetDataServiceAppMembersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataServiceAppMembersResponse
+ */
+GetDataServiceAppMembersResponse Client::getDataServiceAppMembersWithOptions(const GetDataServiceAppMembersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataServiceAppMembers"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataServiceAppMembersResponse>();
+}
+
+/**
+ * @summary 查询数据服务应用的成员列表。
+ *
+ * @param request GetDataServiceAppMembersRequest
+ * @return GetDataServiceAppMembersResponse
+ */
+GetDataServiceAppMembersResponse Client::getDataServiceAppMembers(const GetDataServiceAppMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataServiceAppMembersWithOptions(request, runtime);
 }
 
 /**
@@ -7684,6 +8022,60 @@ GetResourceByVersionResponse Client::getResourceByVersion(const GetResourceByVer
 }
 
 /**
+ * @summary 根据表Guid检索行级权限
+ *
+ * @param tmpReq GetRowPermissionByTableGuidsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRowPermissionByTableGuidsResponse
+ */
+GetRowPermissionByTableGuidsResponse Client::getRowPermissionByTableGuidsWithOptions(const GetRowPermissionByTableGuidsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetRowPermissionByTableGuidsShrinkRequest request = GetRowPermissionByTableGuidsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasGetRowPermissionByTableGuidsQuery()) {
+    request.setGetRowPermissionByTableGuidsQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGetRowPermissionByTableGuidsQuery(), "GetRowPermissionByTableGuidsQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasGetRowPermissionByTableGuidsQueryShrink()) {
+    body["GetRowPermissionByTableGuidsQuery"] = request.getGetRowPermissionByTableGuidsQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetRowPermissionByTableGuids"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRowPermissionByTableGuidsResponse>();
+}
+
+/**
+ * @summary 根据表Guid检索行级权限
+ *
+ * @param request GetRowPermissionByTableGuidsRequest
+ * @return GetRowPermissionByTableGuidsResponse
+ */
+GetRowPermissionByTableGuidsResponse Client::getRowPermissionByTableGuids(const GetRowPermissionByTableGuidsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRowPermissionByTableGuidsWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取数据分类详情。
  *
  * @param request GetSecurityClassifyRequest
@@ -9757,6 +10149,60 @@ ListDataServiceApiImpactsResponse Client::listDataServiceApiImpactsWithOptions(c
 ListDataServiceApiImpactsResponse Client::listDataServiceApiImpacts(const ListDataServiceApiImpactsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listDataServiceApiImpactsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询租户下所有的应用列表。
+ *
+ * @param tmpReq ListDataServiceAppsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataServiceAppsResponse
+ */
+ListDataServiceAppsResponse Client::listDataServiceAppsWithOptions(const ListDataServiceAppsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListDataServiceAppsShrinkRequest request = ListDataServiceAppsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListDataServiceApps"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataServiceAppsResponse>();
+}
+
+/**
+ * @summary 查询租户下所有的应用列表。
+ *
+ * @param request ListDataServiceAppsRequest
+ * @return ListDataServiceAppsResponse
+ */
+ListDataServiceAppsResponse Client::listDataServiceApps(const ListDataServiceAppsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataServiceAppsWithOptions(request, runtime);
 }
 
 /**
@@ -12030,6 +12476,60 @@ PublishStandardResponse Client::publishStandard(const PublishStandardRequest &re
 }
 
 /**
+ * @summary 删除数据服务应用的普通成员。
+ *
+ * @param tmpReq RemoveDataServiceAppMemberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveDataServiceAppMemberResponse
+ */
+RemoveDataServiceAppMemberResponse Client::removeDataServiceAppMemberWithOptions(const RemoveDataServiceAppMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RemoveDataServiceAppMemberShrinkRequest request = RemoveDataServiceAppMemberShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRemoveCommand()) {
+    request.setRemoveCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRemoveCommand(), "RemoveCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasRemoveCommandShrink()) {
+    body["RemoveCommand"] = request.getRemoveCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RemoveDataServiceAppMember"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveDataServiceAppMemberResponse>();
+}
+
+/**
+ * @summary 删除数据服务应用的普通成员。
+ *
+ * @param request RemoveDataServiceAppMemberRequest
+ * @return RemoveDataServiceAppMemberResponse
+ */
+RemoveDataServiceAppMemberResponse Client::removeDataServiceAppMember(const RemoveDataServiceAppMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeDataServiceAppMemberWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除项目成员。
  *
  * @param tmpReq RemoveProjectMemberRequest
@@ -12305,6 +12805,60 @@ ReplaceProjectWhiteListsResponse Client::replaceProjectWhiteListsWithOptions(con
 ReplaceProjectWhiteListsResponse Client::replaceProjectWhiteLists(const ReplaceProjectWhiteListsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return replaceProjectWhiteListsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 重置数据服务应用密钥。
+ *
+ * @param tmpReq ResetDataServiceAppSecretRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResetDataServiceAppSecretResponse
+ */
+ResetDataServiceAppSecretResponse Client::resetDataServiceAppSecretWithOptions(const ResetDataServiceAppSecretRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ResetDataServiceAppSecretShrinkRequest request = ResetDataServiceAppSecretShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ResetDataServiceAppSecret"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResetDataServiceAppSecretResponse>();
+}
+
+/**
+ * @summary 重置数据服务应用密钥。
+ *
+ * @param request ResetDataServiceAppSecretRequest
+ * @return ResetDataServiceAppSecretResponse
+ */
+ResetDataServiceAppSecretResponse Client::resetDataServiceAppSecret(const ResetDataServiceAppSecretRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resetDataServiceAppSecretWithOptions(request, runtime);
 }
 
 /**
@@ -13335,6 +13889,168 @@ UpdateDataDomainResponse Client::updateDataDomainWithOptions(const UpdateDataDom
 UpdateDataDomainResponse Client::updateDataDomain(const UpdateDataDomainRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateDataDomainWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新数据服务应用。
+ *
+ * @param tmpReq UpdateDataServiceAppRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataServiceAppResponse
+ */
+UpdateDataServiceAppResponse Client::updateDataServiceAppWithOptions(const UpdateDataServiceAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateDataServiceAppShrinkRequest request = UpdateDataServiceAppShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDataServiceApp"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataServiceAppResponse>();
+}
+
+/**
+ * @summary 更新数据服务应用。
+ *
+ * @param request UpdateDataServiceAppRequest
+ * @return UpdateDataServiceAppResponse
+ */
+UpdateDataServiceAppResponse Client::updateDataServiceApp(const UpdateDataServiceAppRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDataServiceAppWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新数据服务应用分组。
+ *
+ * @param tmpReq UpdateDataServiceAppGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataServiceAppGroupResponse
+ */
+UpdateDataServiceAppGroupResponse Client::updateDataServiceAppGroupWithOptions(const UpdateDataServiceAppGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateDataServiceAppGroupShrinkRequest request = UpdateDataServiceAppGroupShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDataServiceAppGroup"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataServiceAppGroupResponse>();
+}
+
+/**
+ * @summary 更新数据服务应用分组。
+ *
+ * @param request UpdateDataServiceAppGroupRequest
+ * @return UpdateDataServiceAppGroupResponse
+ */
+UpdateDataServiceAppGroupResponse Client::updateDataServiceAppGroup(const UpdateDataServiceAppGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDataServiceAppGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新数据服务应用的普通成员。
+ *
+ * @param tmpReq UpdateDataServiceAppMemberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataServiceAppMemberResponse
+ */
+UpdateDataServiceAppMemberResponse Client::updateDataServiceAppMemberWithOptions(const UpdateDataServiceAppMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateDataServiceAppMemberShrinkRequest request = UpdateDataServiceAppMemberShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDataServiceAppMember"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataServiceAppMemberResponse>();
+}
+
+/**
+ * @summary 更新数据服务应用的普通成员。
+ *
+ * @param request UpdateDataServiceAppMemberRequest
+ * @return UpdateDataServiceAppMemberResponse
+ */
+UpdateDataServiceAppMemberResponse Client::updateDataServiceAppMember(const UpdateDataServiceAppMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDataServiceAppMemberWithOptions(request, runtime);
 }
 
 /**

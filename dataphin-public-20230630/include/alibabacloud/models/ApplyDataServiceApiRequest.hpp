@@ -39,6 +39,10 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const ApplyCommand& obj) { 
         DARABONBA_PTR_TO_JSON(ApiId, apiId_);
         DARABONBA_PTR_TO_JSON(AppId, appId_);
+        DARABONBA_PTR_TO_JSON(ApplyDev, applyDev_);
+        DARABONBA_PTR_TO_JSON(ApplyProd, applyProd_);
+        DARABONBA_PTR_TO_JSON(ApplyType, applyType_);
+        DARABONBA_PTR_TO_JSON(AuthTypes, authTypes_);
         DARABONBA_PTR_TO_JSON(DevFieldList, devFieldList_);
         DARABONBA_PTR_TO_JSON(ExpireDate, expireDate_);
         DARABONBA_PTR_TO_JSON(ProdFieldList, prodFieldList_);
@@ -47,6 +51,10 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, ApplyCommand& obj) { 
         DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
         DARABONBA_PTR_FROM_JSON(AppId, appId_);
+        DARABONBA_PTR_FROM_JSON(ApplyDev, applyDev_);
+        DARABONBA_PTR_FROM_JSON(ApplyProd, applyProd_);
+        DARABONBA_PTR_FROM_JSON(ApplyType, applyType_);
+        DARABONBA_PTR_FROM_JSON(AuthTypes, authTypes_);
         DARABONBA_PTR_FROM_JSON(DevFieldList, devFieldList_);
         DARABONBA_PTR_FROM_JSON(ExpireDate, expireDate_);
         DARABONBA_PTR_FROM_JSON(ProdFieldList, prodFieldList_);
@@ -91,7 +99,6 @@ namespace Models
 
 
       protected:
-        // This parameter is required.
         shared_ptr<int32_t> id_ {};
       };
 
@@ -123,12 +130,12 @@ namespace Models
 
 
       protected:
-        // This parameter is required.
         shared_ptr<int32_t> id_ {};
       };
 
       virtual bool empty() const override { return this->apiId_ == nullptr
-        && this->appId_ == nullptr && this->devFieldList_ == nullptr && this->expireDate_ == nullptr && this->prodFieldList_ == nullptr && this->reason_ == nullptr; };
+        && this->appId_ == nullptr && this->applyDev_ == nullptr && this->applyProd_ == nullptr && this->applyType_ == nullptr && this->authTypes_ == nullptr
+        && this->devFieldList_ == nullptr && this->expireDate_ == nullptr && this->prodFieldList_ == nullptr && this->reason_ == nullptr; };
       // apiId Field Functions 
       bool hasApiId() const { return this->apiId_ != nullptr;};
       void deleteApiId() { this->apiId_ = nullptr;};
@@ -141,6 +148,36 @@ namespace Models
       void deleteAppId() { this->appId_ = nullptr;};
       inline int32_t getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, 0) };
       inline ApplyCommand& setAppId(int32_t appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+      // applyDev Field Functions 
+      bool hasApplyDev() const { return this->applyDev_ != nullptr;};
+      void deleteApplyDev() { this->applyDev_ = nullptr;};
+      inline bool getApplyDev() const { DARABONBA_PTR_GET_DEFAULT(applyDev_, false) };
+      inline ApplyCommand& setApplyDev(bool applyDev) { DARABONBA_PTR_SET_VALUE(applyDev_, applyDev) };
+
+
+      // applyProd Field Functions 
+      bool hasApplyProd() const { return this->applyProd_ != nullptr;};
+      void deleteApplyProd() { this->applyProd_ = nullptr;};
+      inline bool getApplyProd() const { DARABONBA_PTR_GET_DEFAULT(applyProd_, false) };
+      inline ApplyCommand& setApplyProd(bool applyProd) { DARABONBA_PTR_SET_VALUE(applyProd_, applyProd) };
+
+
+      // applyType Field Functions 
+      bool hasApplyType() const { return this->applyType_ != nullptr;};
+      void deleteApplyType() { this->applyType_ = nullptr;};
+      inline string getApplyType() const { DARABONBA_PTR_GET_DEFAULT(applyType_, "") };
+      inline ApplyCommand& setApplyType(string applyType) { DARABONBA_PTR_SET_VALUE(applyType_, applyType) };
+
+
+      // authTypes Field Functions 
+      bool hasAuthTypes() const { return this->authTypes_ != nullptr;};
+      void deleteAuthTypes() { this->authTypes_ = nullptr;};
+      inline const vector<string> & getAuthTypes() const { DARABONBA_PTR_GET_CONST(authTypes_, vector<string>) };
+      inline vector<string> getAuthTypes() { DARABONBA_PTR_GET(authTypes_, vector<string>) };
+      inline ApplyCommand& setAuthTypes(const vector<string> & authTypes) { DARABONBA_PTR_SET_VALUE(authTypes_, authTypes) };
+      inline ApplyCommand& setAuthTypes(vector<string> && authTypes) { DARABONBA_PTR_SET_RVALUE(authTypes_, authTypes) };
 
 
       // devFieldList Field Functions 
@@ -179,9 +216,11 @@ namespace Models
       // This parameter is required.
       shared_ptr<int64_t> apiId_ {};
       // AppId
-      // 
-      // This parameter is required.
       shared_ptr<int32_t> appId_ {};
+      shared_ptr<bool> applyDev_ {};
+      shared_ptr<bool> applyProd_ {};
+      shared_ptr<string> applyType_ {};
+      shared_ptr<vector<string>> authTypes_ {};
       shared_ptr<vector<ApplyCommand::DevFieldList>> devFieldList_ {};
       // This parameter is required.
       shared_ptr<string> expireDate_ {};

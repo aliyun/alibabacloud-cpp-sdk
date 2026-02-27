@@ -50,7 +50,6 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
   };
 

@@ -67,6 +67,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ApiId, apiId_);
           DARABONBA_PTR_TO_JSON(ApiName, apiName_);
           DARABONBA_PTR_TO_JSON(AppKey, appKey_);
+          DARABONBA_PTR_TO_JSON(AppKeyStr, appKeyStr_);
           DARABONBA_PTR_TO_JSON(AppName, appName_);
           DARABONBA_PTR_TO_JSON(BizCode, bizCode_);
           DARABONBA_PTR_TO_JSON(BizCodeDescription, bizCodeDescription_);
@@ -96,6 +97,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
           DARABONBA_PTR_FROM_JSON(ApiName, apiName_);
           DARABONBA_PTR_FROM_JSON(AppKey, appKey_);
+          DARABONBA_PTR_FROM_JSON(AppKeyStr, appKeyStr_);
           DARABONBA_PTR_FROM_JSON(AppName, appName_);
           DARABONBA_PTR_FROM_JSON(BizCode, bizCode_);
           DARABONBA_PTR_FROM_JSON(BizCodeDescription, bizCodeDescription_);
@@ -133,12 +135,12 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->apiId_ == nullptr
-        && this->apiName_ == nullptr && this->appKey_ == nullptr && this->appName_ == nullptr && this->bizCode_ == nullptr && this->bizCodeDescription_ == nullptr
-        && this->clientIp_ == nullptr && this->costTime_ == nullptr && this->endTime_ == nullptr && this->env_ == nullptr && this->executeCostTime_ == nullptr
-        && this->executeMode_ == nullptr && this->httpStatusCode_ == nullptr && this->httpStatusDescription_ == nullptr && this->jobId_ == nullptr && this->projectId_ == nullptr
-        && this->projectName_ == nullptr && this->requestId_ == nullptr && this->requestParameter_ == nullptr && this->requestSize_ == nullptr && this->responseParameter_ == nullptr
-        && this->responseSize_ == nullptr && this->resultCount_ == nullptr && this->sql_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr
-        && this->successful_ == nullptr; };
+        && this->apiName_ == nullptr && this->appKey_ == nullptr && this->appKeyStr_ == nullptr && this->appName_ == nullptr && this->bizCode_ == nullptr
+        && this->bizCodeDescription_ == nullptr && this->clientIp_ == nullptr && this->costTime_ == nullptr && this->endTime_ == nullptr && this->env_ == nullptr
+        && this->executeCostTime_ == nullptr && this->executeMode_ == nullptr && this->httpStatusCode_ == nullptr && this->httpStatusDescription_ == nullptr && this->jobId_ == nullptr
+        && this->projectId_ == nullptr && this->projectName_ == nullptr && this->requestId_ == nullptr && this->requestParameter_ == nullptr && this->requestSize_ == nullptr
+        && this->responseParameter_ == nullptr && this->responseSize_ == nullptr && this->resultCount_ == nullptr && this->sql_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr && this->successful_ == nullptr; };
         // apiId Field Functions 
         bool hasApiId() const { return this->apiId_ != nullptr;};
         void deleteApiId() { this->apiId_ = nullptr;};
@@ -158,6 +160,13 @@ namespace Models
         void deleteAppKey() { this->appKey_ = nullptr;};
         inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
         inline CallLogList& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
+
+
+        // appKeyStr Field Functions 
+        bool hasAppKeyStr() const { return this->appKeyStr_ != nullptr;};
+        void deleteAppKeyStr() { this->appKeyStr_ = nullptr;};
+        inline string getAppKeyStr() const { DARABONBA_PTR_GET_DEFAULT(appKeyStr_, "") };
+        inline CallLogList& setAppKeyStr(string appKeyStr) { DARABONBA_PTR_SET_VALUE(appKeyStr_, appKeyStr) };
 
 
         // appName Field Functions 
@@ -332,6 +341,7 @@ namespace Models
         shared_ptr<int64_t> apiId_ {};
         shared_ptr<string> apiName_ {};
         shared_ptr<int64_t> appKey_ {};
+        shared_ptr<string> appKeyStr_ {};
         shared_ptr<string> appName_ {};
         shared_ptr<string> bizCode_ {};
         shared_ptr<string> bizCodeDescription_ {};

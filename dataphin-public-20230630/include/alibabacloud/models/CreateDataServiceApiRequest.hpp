@@ -44,10 +44,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CallMode, callMode_);
         DARABONBA_PTR_TO_JSON(CustomUpdateRate, customUpdateRate_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(DmlConfig, dmlConfig_);
         DARABONBA_PTR_TO_JSON(ExecutionTimeout, executionTimeout_);
         DARABONBA_PTR_TO_JSON(Mode, mode_);
         DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
         DARABONBA_PTR_TO_JSON(RequestType, requestType_);
+        DARABONBA_PTR_TO_JSON(ReturnSqlSwitch, returnSqlSwitch_);
+        DARABONBA_PTR_TO_JSON(RowPermissionIds, rowPermissionIds_);
         DARABONBA_PTR_TO_JSON(ScriptDetails, scriptDetails_);
         DARABONBA_PTR_TO_JSON(Timeout, timeout_);
         DARABONBA_PTR_TO_JSON(UpdateRate, updateRate_);
@@ -63,10 +66,13 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CallMode, callMode_);
         DARABONBA_PTR_FROM_JSON(CustomUpdateRate, customUpdateRate_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(DmlConfig, dmlConfig_);
         DARABONBA_PTR_FROM_JSON(ExecutionTimeout, executionTimeout_);
         DARABONBA_PTR_FROM_JSON(Mode, mode_);
         DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
         DARABONBA_PTR_FROM_JSON(RequestType, requestType_);
+        DARABONBA_PTR_FROM_JSON(ReturnSqlSwitch, returnSqlSwitch_);
+        DARABONBA_PTR_FROM_JSON(RowPermissionIds, rowPermissionIds_);
         DARABONBA_PTR_FROM_JSON(ScriptDetails, scriptDetails_);
         DARABONBA_PTR_FROM_JSON(Timeout, timeout_);
         DARABONBA_PTR_FROM_JSON(UpdateRate, updateRate_);
@@ -122,12 +128,14 @@ namespace Models
             DARABONBA_PTR_TO_JSON(ExampleValue, exampleValue_);
             DARABONBA_PTR_TO_JSON(ParameterDataType, parameterDataType_);
             DARABONBA_PTR_TO_JSON(ParameterDescription, parameterDescription_);
+            DARABONBA_PTR_TO_JSON(ParameterLocation, parameterLocation_);
             DARABONBA_PTR_TO_JSON(ParameterName, parameterName_);
           };
           friend void from_json(const Darabonba::Json& j, ScriptResponseParameters& obj) { 
             DARABONBA_PTR_FROM_JSON(ExampleValue, exampleValue_);
             DARABONBA_PTR_FROM_JSON(ParameterDataType, parameterDataType_);
             DARABONBA_PTR_FROM_JSON(ParameterDescription, parameterDescription_);
+            DARABONBA_PTR_FROM_JSON(ParameterLocation, parameterLocation_);
             DARABONBA_PTR_FROM_JSON(ParameterName, parameterName_);
           };
           ScriptResponseParameters() = default ;
@@ -142,7 +150,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->exampleValue_ == nullptr
-        && this->parameterDataType_ == nullptr && this->parameterDescription_ == nullptr && this->parameterName_ == nullptr; };
+        && this->parameterDataType_ == nullptr && this->parameterDescription_ == nullptr && this->parameterLocation_ == nullptr && this->parameterName_ == nullptr; };
           // exampleValue Field Functions 
           bool hasExampleValue() const { return this->exampleValue_ != nullptr;};
           void deleteExampleValue() { this->exampleValue_ = nullptr;};
@@ -164,6 +172,13 @@ namespace Models
           inline ScriptResponseParameters& setParameterDescription(string parameterDescription) { DARABONBA_PTR_SET_VALUE(parameterDescription_, parameterDescription) };
 
 
+          // parameterLocation Field Functions 
+          bool hasParameterLocation() const { return this->parameterLocation_ != nullptr;};
+          void deleteParameterLocation() { this->parameterLocation_ = nullptr;};
+          inline string getParameterLocation() const { DARABONBA_PTR_GET_DEFAULT(parameterLocation_, "") };
+          inline ScriptResponseParameters& setParameterLocation(string parameterLocation) { DARABONBA_PTR_SET_VALUE(parameterLocation_, parameterLocation) };
+
+
           // parameterName Field Functions 
           bool hasParameterName() const { return this->parameterName_ != nullptr;};
           void deleteParameterName() { this->parameterName_ = nullptr;};
@@ -176,6 +191,7 @@ namespace Models
           // This parameter is required.
           shared_ptr<string> parameterDataType_ {};
           shared_ptr<string> parameterDescription_ {};
+          shared_ptr<string> parameterLocation_ {};
           // This parameter is required.
           shared_ptr<string> parameterName_ {};
         };
@@ -183,6 +199,7 @@ namespace Models
         class ScriptRequestParameters : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const ScriptRequestParameters& obj) { 
+            DARABONBA_PTR_TO_JSON(DefaultValue, defaultValue_);
             DARABONBA_PTR_TO_JSON(ExampleValue, exampleValue_);
             DARABONBA_PTR_TO_JSON(IsRequiredParameter, isRequiredParameter_);
             DARABONBA_PTR_TO_JSON(ParameterDataType, parameterDataType_);
@@ -191,6 +208,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(ParameterValueType, parameterValueType_);
           };
           friend void from_json(const Darabonba::Json& j, ScriptRequestParameters& obj) { 
+            DARABONBA_PTR_FROM_JSON(DefaultValue, defaultValue_);
             DARABONBA_PTR_FROM_JSON(ExampleValue, exampleValue_);
             DARABONBA_PTR_FROM_JSON(IsRequiredParameter, isRequiredParameter_);
             DARABONBA_PTR_FROM_JSON(ParameterDataType, parameterDataType_);
@@ -209,8 +227,16 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->exampleValue_ == nullptr
-        && this->isRequiredParameter_ == nullptr && this->parameterDataType_ == nullptr && this->parameterDescription_ == nullptr && this->parameterName_ == nullptr && this->parameterValueType_ == nullptr; };
+          virtual bool empty() const override { return this->defaultValue_ == nullptr
+        && this->exampleValue_ == nullptr && this->isRequiredParameter_ == nullptr && this->parameterDataType_ == nullptr && this->parameterDescription_ == nullptr && this->parameterName_ == nullptr
+        && this->parameterValueType_ == nullptr; };
+          // defaultValue Field Functions 
+          bool hasDefaultValue() const { return this->defaultValue_ != nullptr;};
+          void deleteDefaultValue() { this->defaultValue_ = nullptr;};
+          inline string getDefaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
+          inline ScriptRequestParameters& setDefaultValue(string defaultValue) { DARABONBA_PTR_SET_VALUE(defaultValue_, defaultValue) };
+
+
           // exampleValue Field Functions 
           bool hasExampleValue() const { return this->exampleValue_ != nullptr;};
           void deleteExampleValue() { this->exampleValue_ = nullptr;};
@@ -254,6 +280,7 @@ namespace Models
 
 
         protected:
+          shared_ptr<string> defaultValue_ {};
           shared_ptr<string> exampleValue_ {};
           // This parameter is required.
           shared_ptr<bool> isRequiredParameter_ {};
@@ -336,20 +363,100 @@ namespace Models
         shared_ptr<bool> isPaginated_ {};
         // This parameter is required.
         shared_ptr<string> script_ {};
-        // This parameter is required.
         shared_ptr<vector<ScriptDetails::ScriptRequestParameters>> scriptRequestParameters_ {};
-        // This parameter is required.
         shared_ptr<vector<ScriptDetails::ScriptResponseParameters>> scriptResponseParameters_ {};
         shared_ptr<int32_t> sortPriority_ {};
         // This parameter is required.
         shared_ptr<int32_t> sqlMode_ {};
       };
 
+      class DmlConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DmlConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(BatchInputDataSize, batchInputDataSize_);
+          DARABONBA_PTR_TO_JSON(DataVolumeType, dataVolumeType_);
+          DARABONBA_PTR_TO_JSON(ErrorHandlingType, errorHandlingType_);
+          DARABONBA_PTR_TO_JSON(MaxInputDataSize, maxInputDataSize_);
+          DARABONBA_PTR_TO_JSON(ParallelNum, parallelNum_);
+          DARABONBA_PTR_TO_JSON(TransactionType, transactionType_);
+        };
+        friend void from_json(const Darabonba::Json& j, DmlConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(BatchInputDataSize, batchInputDataSize_);
+          DARABONBA_PTR_FROM_JSON(DataVolumeType, dataVolumeType_);
+          DARABONBA_PTR_FROM_JSON(ErrorHandlingType, errorHandlingType_);
+          DARABONBA_PTR_FROM_JSON(MaxInputDataSize, maxInputDataSize_);
+          DARABONBA_PTR_FROM_JSON(ParallelNum, parallelNum_);
+          DARABONBA_PTR_FROM_JSON(TransactionType, transactionType_);
+        };
+        DmlConfig() = default ;
+        DmlConfig(const DmlConfig &) = default ;
+        DmlConfig(DmlConfig &&) = default ;
+        DmlConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DmlConfig() = default ;
+        DmlConfig& operator=(const DmlConfig &) = default ;
+        DmlConfig& operator=(DmlConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->batchInputDataSize_ == nullptr
+        && this->dataVolumeType_ == nullptr && this->errorHandlingType_ == nullptr && this->maxInputDataSize_ == nullptr && this->parallelNum_ == nullptr && this->transactionType_ == nullptr; };
+        // batchInputDataSize Field Functions 
+        bool hasBatchInputDataSize() const { return this->batchInputDataSize_ != nullptr;};
+        void deleteBatchInputDataSize() { this->batchInputDataSize_ = nullptr;};
+        inline int32_t getBatchInputDataSize() const { DARABONBA_PTR_GET_DEFAULT(batchInputDataSize_, 0) };
+        inline DmlConfig& setBatchInputDataSize(int32_t batchInputDataSize) { DARABONBA_PTR_SET_VALUE(batchInputDataSize_, batchInputDataSize) };
+
+
+        // dataVolumeType Field Functions 
+        bool hasDataVolumeType() const { return this->dataVolumeType_ != nullptr;};
+        void deleteDataVolumeType() { this->dataVolumeType_ = nullptr;};
+        inline int32_t getDataVolumeType() const { DARABONBA_PTR_GET_DEFAULT(dataVolumeType_, 0) };
+        inline DmlConfig& setDataVolumeType(int32_t dataVolumeType) { DARABONBA_PTR_SET_VALUE(dataVolumeType_, dataVolumeType) };
+
+
+        // errorHandlingType Field Functions 
+        bool hasErrorHandlingType() const { return this->errorHandlingType_ != nullptr;};
+        void deleteErrorHandlingType() { this->errorHandlingType_ = nullptr;};
+        inline int32_t getErrorHandlingType() const { DARABONBA_PTR_GET_DEFAULT(errorHandlingType_, 0) };
+        inline DmlConfig& setErrorHandlingType(int32_t errorHandlingType) { DARABONBA_PTR_SET_VALUE(errorHandlingType_, errorHandlingType) };
+
+
+        // maxInputDataSize Field Functions 
+        bool hasMaxInputDataSize() const { return this->maxInputDataSize_ != nullptr;};
+        void deleteMaxInputDataSize() { this->maxInputDataSize_ = nullptr;};
+        inline int32_t getMaxInputDataSize() const { DARABONBA_PTR_GET_DEFAULT(maxInputDataSize_, 0) };
+        inline DmlConfig& setMaxInputDataSize(int32_t maxInputDataSize) { DARABONBA_PTR_SET_VALUE(maxInputDataSize_, maxInputDataSize) };
+
+
+        // parallelNum Field Functions 
+        bool hasParallelNum() const { return this->parallelNum_ != nullptr;};
+        void deleteParallelNum() { this->parallelNum_ = nullptr;};
+        inline int32_t getParallelNum() const { DARABONBA_PTR_GET_DEFAULT(parallelNum_, 0) };
+        inline DmlConfig& setParallelNum(int32_t parallelNum) { DARABONBA_PTR_SET_VALUE(parallelNum_, parallelNum) };
+
+
+        // transactionType Field Functions 
+        bool hasTransactionType() const { return this->transactionType_ != nullptr;};
+        void deleteTransactionType() { this->transactionType_ = nullptr;};
+        inline int32_t getTransactionType() const { DARABONBA_PTR_GET_DEFAULT(transactionType_, 0) };
+        inline DmlConfig& setTransactionType(int32_t transactionType) { DARABONBA_PTR_SET_VALUE(transactionType_, transactionType) };
+
+
+      protected:
+        shared_ptr<int32_t> batchInputDataSize_ {};
+        shared_ptr<int32_t> dataVolumeType_ {};
+        shared_ptr<int32_t> errorHandlingType_ {};
+        shared_ptr<int32_t> maxInputDataSize_ {};
+        shared_ptr<int32_t> parallelNum_ {};
+        shared_ptr<int32_t> transactionType_ {};
+      };
+
       virtual bool empty() const override { return this->apiGroupId_ == nullptr
         && this->apiGroupName_ == nullptr && this->apiName_ == nullptr && this->apiType_ == nullptr && this->bizProtocol_ == nullptr && this->cacheTimeout_ == nullptr
-        && this->callMode_ == nullptr && this->customUpdateRate_ == nullptr && this->description_ == nullptr && this->executionTimeout_ == nullptr && this->mode_ == nullptr
-        && this->projectId_ == nullptr && this->requestType_ == nullptr && this->scriptDetails_ == nullptr && this->timeout_ == nullptr && this->updateRate_ == nullptr
-        && this->version_ == nullptr; };
+        && this->callMode_ == nullptr && this->customUpdateRate_ == nullptr && this->description_ == nullptr && this->dmlConfig_ == nullptr && this->executionTimeout_ == nullptr
+        && this->mode_ == nullptr && this->projectId_ == nullptr && this->requestType_ == nullptr && this->returnSqlSwitch_ == nullptr && this->rowPermissionIds_ == nullptr
+        && this->scriptDetails_ == nullptr && this->timeout_ == nullptr && this->updateRate_ == nullptr && this->version_ == nullptr; };
       // apiGroupId Field Functions 
       bool hasApiGroupId() const { return this->apiGroupId_ != nullptr;};
       void deleteApiGroupId() { this->apiGroupId_ = nullptr;};
@@ -415,6 +522,15 @@ namespace Models
       inline CreateCommand& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // dmlConfig Field Functions 
+      bool hasDmlConfig() const { return this->dmlConfig_ != nullptr;};
+      void deleteDmlConfig() { this->dmlConfig_ = nullptr;};
+      inline const CreateCommand::DmlConfig & getDmlConfig() const { DARABONBA_PTR_GET_CONST(dmlConfig_, CreateCommand::DmlConfig) };
+      inline CreateCommand::DmlConfig getDmlConfig() { DARABONBA_PTR_GET(dmlConfig_, CreateCommand::DmlConfig) };
+      inline CreateCommand& setDmlConfig(const CreateCommand::DmlConfig & dmlConfig) { DARABONBA_PTR_SET_VALUE(dmlConfig_, dmlConfig) };
+      inline CreateCommand& setDmlConfig(CreateCommand::DmlConfig && dmlConfig) { DARABONBA_PTR_SET_RVALUE(dmlConfig_, dmlConfig) };
+
+
       // executionTimeout Field Functions 
       bool hasExecutionTimeout() const { return this->executionTimeout_ != nullptr;};
       void deleteExecutionTimeout() { this->executionTimeout_ = nullptr;};
@@ -441,6 +557,22 @@ namespace Models
       void deleteRequestType() { this->requestType_ = nullptr;};
       inline int32_t getRequestType() const { DARABONBA_PTR_GET_DEFAULT(requestType_, 0) };
       inline CreateCommand& setRequestType(int32_t requestType) { DARABONBA_PTR_SET_VALUE(requestType_, requestType) };
+
+
+      // returnSqlSwitch Field Functions 
+      bool hasReturnSqlSwitch() const { return this->returnSqlSwitch_ != nullptr;};
+      void deleteReturnSqlSwitch() { this->returnSqlSwitch_ = nullptr;};
+      inline bool getReturnSqlSwitch() const { DARABONBA_PTR_GET_DEFAULT(returnSqlSwitch_, false) };
+      inline CreateCommand& setReturnSqlSwitch(bool returnSqlSwitch) { DARABONBA_PTR_SET_VALUE(returnSqlSwitch_, returnSqlSwitch) };
+
+
+      // rowPermissionIds Field Functions 
+      bool hasRowPermissionIds() const { return this->rowPermissionIds_ != nullptr;};
+      void deleteRowPermissionIds() { this->rowPermissionIds_ = nullptr;};
+      inline const vector<int64_t> & getRowPermissionIds() const { DARABONBA_PTR_GET_CONST(rowPermissionIds_, vector<int64_t>) };
+      inline vector<int64_t> getRowPermissionIds() { DARABONBA_PTR_GET(rowPermissionIds_, vector<int64_t>) };
+      inline CreateCommand& setRowPermissionIds(const vector<int64_t> & rowPermissionIds) { DARABONBA_PTR_SET_VALUE(rowPermissionIds_, rowPermissionIds) };
+      inline CreateCommand& setRowPermissionIds(vector<int64_t> && rowPermissionIds) { DARABONBA_PTR_SET_RVALUE(rowPermissionIds_, rowPermissionIds) };
 
 
       // scriptDetails Field Functions 
@@ -484,11 +616,11 @@ namespace Models
       shared_ptr<int32_t> apiType_ {};
       // This parameter is required.
       shared_ptr<vector<int32_t>> bizProtocol_ {};
-      // This parameter is required.
       shared_ptr<int32_t> cacheTimeout_ {};
       shared_ptr<int32_t> callMode_ {};
       shared_ptr<string> customUpdateRate_ {};
       shared_ptr<string> description_ {};
+      shared_ptr<CreateCommand::DmlConfig> dmlConfig_ {};
       shared_ptr<int32_t> executionTimeout_ {};
       // This parameter is required.
       shared_ptr<int32_t> mode_ {};
@@ -496,6 +628,8 @@ namespace Models
       shared_ptr<int64_t> projectId_ {};
       // This parameter is required.
       shared_ptr<int32_t> requestType_ {};
+      shared_ptr<bool> returnSqlSwitch_ {};
+      shared_ptr<vector<int64_t>> rowPermissionIds_ {};
       // This parameter is required.
       shared_ptr<CreateCommand::ScriptDetails> scriptDetails_ {};
       // This parameter is required.

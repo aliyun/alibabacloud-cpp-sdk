@@ -156,6 +156,7 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const Rules& obj) { 
             DARABONBA_PTR_TO_JSON(Expressions, expressions_);
+            DARABONBA_PTR_TO_JSON(Id, id_);
             DARABONBA_PTR_TO_JSON(IsDelete, isDelete_);
             DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
             DARABONBA_PTR_TO_JSON(ScopeType, scopeType_);
@@ -164,6 +165,7 @@ namespace Models
           };
           friend void from_json(const Darabonba::Json& j, Rules& obj) { 
             DARABONBA_PTR_FROM_JSON(Expressions, expressions_);
+            DARABONBA_PTR_FROM_JSON(Id, id_);
             DARABONBA_PTR_FROM_JSON(IsDelete, isDelete_);
             DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
             DARABONBA_PTR_FROM_JSON(ScopeType, scopeType_);
@@ -333,7 +335,8 @@ namespace Models
           };
 
           virtual bool empty() const override { return this->expressions_ == nullptr
-        && this->isDelete_ == nullptr && this->ruleName_ == nullptr && this->scopeType_ == nullptr && this->status_ == nullptr && this->userMappingList_ == nullptr; };
+        && this->id_ == nullptr && this->isDelete_ == nullptr && this->ruleName_ == nullptr && this->scopeType_ == nullptr && this->status_ == nullptr
+        && this->userMappingList_ == nullptr; };
           // expressions Field Functions 
           bool hasExpressions() const { return this->expressions_ != nullptr;};
           void deleteExpressions() { this->expressions_ = nullptr;};
@@ -341,6 +344,13 @@ namespace Models
           inline vector<Rules::Expressions> getExpressions() { DARABONBA_PTR_GET(expressions_, vector<Rules::Expressions>) };
           inline Rules& setExpressions(const vector<Rules::Expressions> & expressions) { DARABONBA_PTR_SET_VALUE(expressions_, expressions) };
           inline Rules& setExpressions(vector<Rules::Expressions> && expressions) { DARABONBA_PTR_SET_RVALUE(expressions_, expressions) };
+
+
+          // id Field Functions 
+          bool hasId() const { return this->id_ != nullptr;};
+          void deleteId() { this->id_ = nullptr;};
+          inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+          inline Rules& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
           // isDelete Field Functions 
@@ -382,6 +392,7 @@ namespace Models
 
         protected:
           shared_ptr<vector<Rules::Expressions>> expressions_ {};
+          shared_ptr<int64_t> id_ {};
           shared_ptr<bool> isDelete_ {};
           shared_ptr<string> ruleName_ {};
           shared_ptr<string> scopeType_ {};

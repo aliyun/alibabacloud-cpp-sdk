@@ -67,6 +67,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ApiNo, apiNo_);
           DARABONBA_PTR_TO_JSON(ApiTimeout, apiTimeout_);
           DARABONBA_PTR_TO_JSON(AppName, appName_);
+          DARABONBA_PTR_TO_JSON(AuthTypes, authTypes_);
           DARABONBA_PTR_TO_JSON(BizModuleEnName, bizModuleEnName_);
           DARABONBA_PTR_TO_JSON(CacheSwitch, cacheSwitch_);
           DARABONBA_PTR_TO_JSON(CacheTime, cacheTime_);
@@ -111,6 +112,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ApiNo, apiNo_);
           DARABONBA_PTR_FROM_JSON(ApiTimeout, apiTimeout_);
           DARABONBA_PTR_FROM_JSON(AppName, appName_);
+          DARABONBA_PTR_FROM_JSON(AuthTypes, authTypes_);
           DARABONBA_PTR_FROM_JSON(BizModuleEnName, bizModuleEnName_);
           DARABONBA_PTR_FROM_JSON(CacheSwitch, cacheSwitch_);
           DARABONBA_PTR_FROM_JSON(CacheTime, cacheTime_);
@@ -1084,15 +1086,15 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->apiNo_ == nullptr
-        && this->apiTimeout_ == nullptr && this->appName_ == nullptr && this->bizModuleEnName_ == nullptr && this->cacheSwitch_ == nullptr && this->cacheTime_ == nullptr
-        && this->createType_ == nullptr && this->dbEnv_ == nullptr && this->description_ == nullptr && this->directDatasourceId_ == nullptr && this->directDatasourceName_ == nullptr
-        && this->groupId_ == nullptr && this->groupName_ == nullptr && this->id_ == nullptr && this->isLogicalTable_ == nullptr && this->isPagedQuery_ == nullptr
-        && this->maxReturnNum_ == nullptr && this->modelType_ == nullptr && this->name_ == nullptr && this->projId_ == nullptr && this->projName_ == nullptr
-        && this->protocol_ == nullptr && this->protocolName_ == nullptr && this->publicParamList_ == nullptr && this->registerApi_ == nullptr && this->requestMethod_ == nullptr
-        && this->requestMethodName_ == nullptr && this->requestParamList_ == nullptr && this->resourceGroupName_ == nullptr && this->responseParamList_ == nullptr && this->resultSample_ == nullptr
-        && this->returnType_ == nullptr && this->returnTypeName_ == nullptr && this->rsGrpId_ == nullptr && this->scriptType_ == nullptr && this->specialSql_ == nullptr
-        && this->sqlStatement_ == nullptr && this->tableName_ == nullptr && this->timeout_ == nullptr && this->updateRate_ == nullptr && this->updateRateName_ == nullptr
-        && this->version_ == nullptr; };
+        && this->apiTimeout_ == nullptr && this->appName_ == nullptr && this->authTypes_ == nullptr && this->bizModuleEnName_ == nullptr && this->cacheSwitch_ == nullptr
+        && this->cacheTime_ == nullptr && this->createType_ == nullptr && this->dbEnv_ == nullptr && this->description_ == nullptr && this->directDatasourceId_ == nullptr
+        && this->directDatasourceName_ == nullptr && this->groupId_ == nullptr && this->groupName_ == nullptr && this->id_ == nullptr && this->isLogicalTable_ == nullptr
+        && this->isPagedQuery_ == nullptr && this->maxReturnNum_ == nullptr && this->modelType_ == nullptr && this->name_ == nullptr && this->projId_ == nullptr
+        && this->projName_ == nullptr && this->protocol_ == nullptr && this->protocolName_ == nullptr && this->publicParamList_ == nullptr && this->registerApi_ == nullptr
+        && this->requestMethod_ == nullptr && this->requestMethodName_ == nullptr && this->requestParamList_ == nullptr && this->resourceGroupName_ == nullptr && this->responseParamList_ == nullptr
+        && this->resultSample_ == nullptr && this->returnType_ == nullptr && this->returnTypeName_ == nullptr && this->rsGrpId_ == nullptr && this->scriptType_ == nullptr
+        && this->specialSql_ == nullptr && this->sqlStatement_ == nullptr && this->tableName_ == nullptr && this->timeout_ == nullptr && this->updateRate_ == nullptr
+        && this->updateRateName_ == nullptr && this->version_ == nullptr; };
         // apiNo Field Functions 
         bool hasApiNo() const { return this->apiNo_ != nullptr;};
         void deleteApiNo() { this->apiNo_ = nullptr;};
@@ -1112,6 +1114,15 @@ namespace Models
         void deleteAppName() { this->appName_ = nullptr;};
         inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
         inline Data& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
+
+
+        // authTypes Field Functions 
+        bool hasAuthTypes() const { return this->authTypes_ != nullptr;};
+        void deleteAuthTypes() { this->authTypes_ = nullptr;};
+        inline const vector<string> & getAuthTypes() const { DARABONBA_PTR_GET_CONST(authTypes_, vector<string>) };
+        inline vector<string> getAuthTypes() { DARABONBA_PTR_GET(authTypes_, vector<string>) };
+        inline Data& setAuthTypes(const vector<string> & authTypes) { DARABONBA_PTR_SET_VALUE(authTypes_, authTypes) };
+        inline Data& setAuthTypes(vector<string> && authTypes) { DARABONBA_PTR_SET_RVALUE(authTypes_, authTypes) };
 
 
         // bizModuleEnName Field Functions 
@@ -1399,6 +1410,7 @@ namespace Models
         shared_ptr<int64_t> apiNo_ {};
         shared_ptr<int64_t> apiTimeout_ {};
         shared_ptr<string> appName_ {};
+        shared_ptr<vector<string>> authTypes_ {};
         shared_ptr<string> bizModuleEnName_ {};
         shared_ptr<string> cacheSwitch_ {};
         shared_ptr<string> cacheTime_ {};

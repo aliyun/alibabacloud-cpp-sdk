@@ -35,11 +35,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const ListQuery& obj) { 
         DARABONBA_PTR_TO_JSON(AppKey, appKey_);
+        DARABONBA_PTR_TO_JSON(AppKeyStr, appKeyStr_);
         DARABONBA_PTR_TO_JSON(Page, page_);
         DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       };
       friend void from_json(const Darabonba::Json& j, ListQuery& obj) { 
         DARABONBA_PTR_FROM_JSON(AppKey, appKey_);
+        DARABONBA_PTR_FROM_JSON(AppKeyStr, appKeyStr_);
         DARABONBA_PTR_FROM_JSON(Page, page_);
         DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       };
@@ -55,12 +57,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appKey_ == nullptr
-        && this->page_ == nullptr && this->pageSize_ == nullptr; };
+        && this->appKeyStr_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr; };
       // appKey Field Functions 
       bool hasAppKey() const { return this->appKey_ != nullptr;};
       void deleteAppKey() { this->appKey_ = nullptr;};
       inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
       inline ListQuery& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
+
+
+      // appKeyStr Field Functions 
+      bool hasAppKeyStr() const { return this->appKeyStr_ != nullptr;};
+      void deleteAppKeyStr() { this->appKeyStr_ = nullptr;};
+      inline string getAppKeyStr() const { DARABONBA_PTR_GET_DEFAULT(appKeyStr_, "") };
+      inline ListQuery& setAppKeyStr(string appKeyStr) { DARABONBA_PTR_SET_VALUE(appKeyStr_, appKeyStr) };
 
 
       // page Field Functions 
@@ -79,9 +88,8 @@ namespace Models
 
     protected:
       // AppKey
-      // 
-      // This parameter is required.
       shared_ptr<int64_t> appKey_ {};
+      shared_ptr<string> appKeyStr_ {};
       // This parameter is required.
       shared_ptr<int32_t> page_ {};
       // This parameter is required.

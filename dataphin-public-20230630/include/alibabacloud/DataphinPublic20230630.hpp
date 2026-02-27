@@ -21,6 +21,23 @@ namespace DataphinPublic20230630
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 新增数据服务应用的普通成员。
+       *
+       * @param tmpReq AddDataServiceAppMemberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddDataServiceAppMemberResponse
+       */
+      Models::AddDataServiceAppMemberResponse addDataServiceAppMemberWithOptions(const Models::AddDataServiceAppMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增数据服务应用的普通成员。
+       *
+       * @param request AddDataServiceAppMemberRequest
+       * @return AddDataServiceAppMemberResponse
+       */
+      Models::AddDataServiceAppMemberResponse addDataServiceAppMember(const Models::AddDataServiceAppMemberRequest &request);
+
+      /**
        * @summary 添加数据服务项目用户并设置角色。
        *
        * @param tmpReq AddDataServiceProjectMemberRequest
@@ -410,6 +427,40 @@ namespace DataphinPublic20230630
        * @return CreateDataServiceApiResponse
        */
       Models::CreateDataServiceApiResponse createDataServiceApi(const Models::CreateDataServiceApiRequest &request);
+
+      /**
+       * @summary 创建数据服务应用。
+       *
+       * @param tmpReq CreateDataServiceAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataServiceAppResponse
+       */
+      Models::CreateDataServiceAppResponse createDataServiceAppWithOptions(const Models::CreateDataServiceAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据服务应用。
+       *
+       * @param request CreateDataServiceAppRequest
+       * @return CreateDataServiceAppResponse
+       */
+      Models::CreateDataServiceAppResponse createDataServiceApp(const Models::CreateDataServiceAppRequest &request);
+
+      /**
+       * @summary 创建数据服务应用分组。
+       *
+       * @param request CreateDataServiceAppGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataServiceAppGroupResponse
+       */
+      Models::CreateDataServiceAppGroupResponse createDataServiceAppGroupWithOptions(const Models::CreateDataServiceAppGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据服务应用分组。
+       *
+       * @param request CreateDataServiceAppGroupRequest
+       * @return CreateDataServiceAppGroupResponse
+       */
+      Models::CreateDataServiceAppGroupResponse createDataServiceAppGroup(const Models::CreateDataServiceAppGroupRequest &request);
 
       /**
        * @summary 新建数据源
@@ -903,6 +954,40 @@ namespace DataphinPublic20230630
        * @return DeleteDataDomainResponse
        */
       Models::DeleteDataDomainResponse deleteDataDomain(const Models::DeleteDataDomainRequest &request);
+
+      /**
+       * @summary 删除数据服务应用。
+       *
+       * @param request DeleteDataServiceAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDataServiceAppResponse
+       */
+      Models::DeleteDataServiceAppResponse deleteDataServiceAppWithOptions(const Models::DeleteDataServiceAppRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据服务应用。
+       *
+       * @param request DeleteDataServiceAppRequest
+       * @return DeleteDataServiceAppResponse
+       */
+      Models::DeleteDataServiceAppResponse deleteDataServiceApp(const Models::DeleteDataServiceAppRequest &request);
+
+      /**
+       * @summary 删除数据服务应用分组。
+       *
+       * @param request DeleteDataServiceAppGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDataServiceAppGroupResponse
+       */
+      Models::DeleteDataServiceAppGroupResponse deleteDataServiceAppGroupWithOptions(const Models::DeleteDataServiceAppGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据服务应用分组。
+       *
+       * @param request DeleteDataServiceAppGroupRequest
+       * @return DeleteDataServiceAppGroupResponse
+       */
+      Models::DeleteDataServiceAppGroupResponse deleteDataServiceAppGroup(const Models::DeleteDataServiceAppGroupRequest &request);
 
       /**
        * @summary 删除数据源
@@ -1755,6 +1840,23 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiGroupsResponse getDataServiceApiGroups(const Models::GetDataServiceApiGroupsRequest &request);
 
       /**
+       * @summary 查询数据服务应用详情。
+       *
+       * @param request GetDataServiceAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataServiceAppResponse
+       */
+      Models::GetDataServiceAppResponse getDataServiceAppWithOptions(const Models::GetDataServiceAppRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询数据服务应用详情。
+       *
+       * @param request GetDataServiceAppRequest
+       * @return GetDataServiceAppResponse
+       */
+      Models::GetDataServiceAppResponse getDataServiceApp(const Models::GetDataServiceAppRequest &request);
+
+      /**
        * @summary 获取应用有权限的用户列表。
        *
        * @param request GetDataServiceAppAuthorizedUsersRequest
@@ -1787,6 +1889,23 @@ namespace DataphinPublic20230630
        * @return GetDataServiceAppGroupsResponse
        */
       Models::GetDataServiceAppGroupsResponse getDataServiceAppGroups(const Models::GetDataServiceAppGroupsRequest &request);
+
+      /**
+       * @summary 查询数据服务应用的成员列表。
+       *
+       * @param request GetDataServiceAppMembersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataServiceAppMembersResponse
+       */
+      Models::GetDataServiceAppMembersResponse getDataServiceAppMembersWithOptions(const Models::GetDataServiceAppMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询数据服务应用的成员列表。
+       *
+       * @param request GetDataServiceAppMembersRequest
+       * @return GetDataServiceAppMembersResponse
+       */
+      Models::GetDataServiceAppMembersResponse getDataServiceAppMembers(const Models::GetDataServiceAppMembersRequest &request);
 
       /**
        * @summary 查询分组下应用列表。
@@ -2503,6 +2622,23 @@ namespace DataphinPublic20230630
       Models::GetResourceByVersionResponse getResourceByVersion(const Models::GetResourceByVersionRequest &request);
 
       /**
+       * @summary 根据表Guid检索行级权限
+       *
+       * @param tmpReq GetRowPermissionByTableGuidsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRowPermissionByTableGuidsResponse
+       */
+      Models::GetRowPermissionByTableGuidsResponse getRowPermissionByTableGuidsWithOptions(const Models::GetRowPermissionByTableGuidsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据表Guid检索行级权限
+       *
+       * @param request GetRowPermissionByTableGuidsRequest
+       * @return GetRowPermissionByTableGuidsResponse
+       */
+      Models::GetRowPermissionByTableGuidsResponse getRowPermissionByTableGuids(const Models::GetRowPermissionByTableGuidsRequest &request);
+
+      /**
        * @summary 获取数据分类详情。
        *
        * @param request GetSecurityClassifyRequest
@@ -3181,6 +3317,23 @@ namespace DataphinPublic20230630
        * @return ListDataServiceApiImpactsResponse
        */
       Models::ListDataServiceApiImpactsResponse listDataServiceApiImpacts(const Models::ListDataServiceApiImpactsRequest &request);
+
+      /**
+       * @summary 查询租户下所有的应用列表。
+       *
+       * @param tmpReq ListDataServiceAppsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataServiceAppsResponse
+       */
+      Models::ListDataServiceAppsResponse listDataServiceAppsWithOptions(const Models::ListDataServiceAppsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询租户下所有的应用列表。
+       *
+       * @param request ListDataServiceAppsRequest
+       * @return ListDataServiceAppsResponse
+       */
+      Models::ListDataServiceAppsResponse listDataServiceApps(const Models::ListDataServiceAppsRequest &request);
 
       /**
        * @summary 查询当前用户有权限的应用列表。
@@ -3880,6 +4033,23 @@ namespace DataphinPublic20230630
       Models::PublishStandardResponse publishStandard(const Models::PublishStandardRequest &request);
 
       /**
+       * @summary 删除数据服务应用的普通成员。
+       *
+       * @param tmpReq RemoveDataServiceAppMemberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveDataServiceAppMemberResponse
+       */
+      Models::RemoveDataServiceAppMemberResponse removeDataServiceAppMemberWithOptions(const Models::RemoveDataServiceAppMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据服务应用的普通成员。
+       *
+       * @param request RemoveDataServiceAppMemberRequest
+       * @return RemoveDataServiceAppMemberResponse
+       */
+      Models::RemoveDataServiceAppMemberResponse removeDataServiceAppMember(const Models::RemoveDataServiceAppMemberRequest &request);
+
+      /**
        * @summary 删除项目成员。
        *
        * @param tmpReq RemoveProjectMemberRequest
@@ -3963,6 +4133,23 @@ namespace DataphinPublic20230630
        * @return ReplaceProjectWhiteListsResponse
        */
       Models::ReplaceProjectWhiteListsResponse replaceProjectWhiteLists(const Models::ReplaceProjectWhiteListsRequest &request);
+
+      /**
+       * @summary 重置数据服务应用密钥。
+       *
+       * @param tmpReq ResetDataServiceAppSecretRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetDataServiceAppSecretResponse
+       */
+      Models::ResetDataServiceAppSecretResponse resetDataServiceAppSecretWithOptions(const Models::ResetDataServiceAppSecretRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重置数据服务应用密钥。
+       *
+       * @param request ResetDataServiceAppSecretRequest
+       * @return ResetDataServiceAppSecretResponse
+       */
+      Models::ResetDataServiceAppSecretResponse resetDataServiceAppSecret(const Models::ResetDataServiceAppSecretRequest &request);
 
       /**
        * @summary 恢复物理节点调度。
@@ -4286,6 +4473,57 @@ namespace DataphinPublic20230630
        * @return UpdateDataDomainResponse
        */
       Models::UpdateDataDomainResponse updateDataDomain(const Models::UpdateDataDomainRequest &request);
+
+      /**
+       * @summary 更新数据服务应用。
+       *
+       * @param tmpReq UpdateDataServiceAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDataServiceAppResponse
+       */
+      Models::UpdateDataServiceAppResponse updateDataServiceAppWithOptions(const Models::UpdateDataServiceAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据服务应用。
+       *
+       * @param request UpdateDataServiceAppRequest
+       * @return UpdateDataServiceAppResponse
+       */
+      Models::UpdateDataServiceAppResponse updateDataServiceApp(const Models::UpdateDataServiceAppRequest &request);
+
+      /**
+       * @summary 更新数据服务应用分组。
+       *
+       * @param tmpReq UpdateDataServiceAppGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDataServiceAppGroupResponse
+       */
+      Models::UpdateDataServiceAppGroupResponse updateDataServiceAppGroupWithOptions(const Models::UpdateDataServiceAppGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据服务应用分组。
+       *
+       * @param request UpdateDataServiceAppGroupRequest
+       * @return UpdateDataServiceAppGroupResponse
+       */
+      Models::UpdateDataServiceAppGroupResponse updateDataServiceAppGroup(const Models::UpdateDataServiceAppGroupRequest &request);
+
+      /**
+       * @summary 更新数据服务应用的普通成员。
+       *
+       * @param tmpReq UpdateDataServiceAppMemberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDataServiceAppMemberResponse
+       */
+      Models::UpdateDataServiceAppMemberResponse updateDataServiceAppMemberWithOptions(const Models::UpdateDataServiceAppMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据服务应用的普通成员。
+       *
+       * @param request UpdateDataServiceAppMemberRequest
+       * @return UpdateDataServiceAppMemberResponse
+       */
+      Models::UpdateDataServiceAppMemberResponse updateDataServiceAppMember(const Models::UpdateDataServiceAppMemberRequest &request);
 
       /**
        * @summary 编辑数据源基本信息

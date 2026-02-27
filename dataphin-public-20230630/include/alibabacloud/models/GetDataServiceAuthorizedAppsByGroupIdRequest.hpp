@@ -57,7 +57,6 @@ namespace Models
 
 
   protected:
-    // This parameter is required.
     shared_ptr<int32_t> groupId_ {};
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};

@@ -44,11 +44,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const AppInfoList& obj) { 
         DARABONBA_PTR_TO_JSON(AppKey, appKey_);
+        DARABONBA_PTR_TO_JSON(AppKeyStr, appKeyStr_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Name, name_);
       };
       friend void from_json(const Darabonba::Json& j, AppInfoList& obj) { 
         DARABONBA_PTR_FROM_JSON(AppKey, appKey_);
+        DARABONBA_PTR_FROM_JSON(AppKeyStr, appKeyStr_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
       };
@@ -64,12 +66,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appKey_ == nullptr
-        && this->id_ == nullptr && this->name_ == nullptr; };
+        && this->appKeyStr_ == nullptr && this->id_ == nullptr && this->name_ == nullptr; };
       // appKey Field Functions 
       bool hasAppKey() const { return this->appKey_ != nullptr;};
       void deleteAppKey() { this->appKey_ = nullptr;};
       inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
       inline AppInfoList& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
+
+
+      // appKeyStr Field Functions 
+      bool hasAppKeyStr() const { return this->appKeyStr_ != nullptr;};
+      void deleteAppKeyStr() { this->appKeyStr_ = nullptr;};
+      inline string getAppKeyStr() const { DARABONBA_PTR_GET_DEFAULT(appKeyStr_, "") };
+      inline AppInfoList& setAppKeyStr(string appKeyStr) { DARABONBA_PTR_SET_VALUE(appKeyStr_, appKeyStr) };
 
 
       // id Field Functions 
@@ -89,6 +98,7 @@ namespace Models
     protected:
       // AppKey
       shared_ptr<int64_t> appKey_ {};
+      shared_ptr<string> appKeyStr_ {};
       // AppId
       shared_ptr<int32_t> id_ {};
       shared_ptr<string> name_ {};

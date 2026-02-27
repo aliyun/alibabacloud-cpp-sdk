@@ -41,20 +41,26 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AppId, appId_);
         DARABONBA_PTR_TO_JSON(ApplyDev, applyDev_);
         DARABONBA_PTR_TO_JSON(ApplyProd, applyProd_);
+        DARABONBA_PTR_TO_JSON(AuthTypes, authTypes_);
         DARABONBA_PTR_TO_JSON(DevFieldList, devFieldList_);
         DARABONBA_PTR_TO_JSON(ExpireDate, expireDate_);
+        DARABONBA_PTR_TO_JSON(GranteeType, granteeType_);
         DARABONBA_PTR_TO_JSON(ProdFieldList, prodFieldList_);
         DARABONBA_PTR_TO_JSON(Reason, reason_);
+        DARABONBA_PTR_TO_JSON(UserId, userId_);
       };
       friend void from_json(const Darabonba::Json& j, GrantCommand& obj) { 
         DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
         DARABONBA_PTR_FROM_JSON(AppId, appId_);
         DARABONBA_PTR_FROM_JSON(ApplyDev, applyDev_);
         DARABONBA_PTR_FROM_JSON(ApplyProd, applyProd_);
+        DARABONBA_PTR_FROM_JSON(AuthTypes, authTypes_);
         DARABONBA_PTR_FROM_JSON(DevFieldList, devFieldList_);
         DARABONBA_PTR_FROM_JSON(ExpireDate, expireDate_);
+        DARABONBA_PTR_FROM_JSON(GranteeType, granteeType_);
         DARABONBA_PTR_FROM_JSON(ProdFieldList, prodFieldList_);
         DARABONBA_PTR_FROM_JSON(Reason, reason_);
+        DARABONBA_PTR_FROM_JSON(UserId, userId_);
       };
       GrantCommand() = default ;
       GrantCommand(const GrantCommand &) = default ;
@@ -95,7 +101,6 @@ namespace Models
 
 
       protected:
-        // This parameter is required.
         shared_ptr<int32_t> id_ {};
       };
 
@@ -127,13 +132,12 @@ namespace Models
 
 
       protected:
-        // This parameter is required.
         shared_ptr<int32_t> id_ {};
       };
 
       virtual bool empty() const override { return this->apiId_ == nullptr
-        && this->appId_ == nullptr && this->applyDev_ == nullptr && this->applyProd_ == nullptr && this->devFieldList_ == nullptr && this->expireDate_ == nullptr
-        && this->prodFieldList_ == nullptr && this->reason_ == nullptr; };
+        && this->appId_ == nullptr && this->applyDev_ == nullptr && this->applyProd_ == nullptr && this->authTypes_ == nullptr && this->devFieldList_ == nullptr
+        && this->expireDate_ == nullptr && this->granteeType_ == nullptr && this->prodFieldList_ == nullptr && this->reason_ == nullptr && this->userId_ == nullptr; };
       // apiId Field Functions 
       bool hasApiId() const { return this->apiId_ != nullptr;};
       void deleteApiId() { this->apiId_ = nullptr;};
@@ -162,6 +166,15 @@ namespace Models
       inline GrantCommand& setApplyProd(bool applyProd) { DARABONBA_PTR_SET_VALUE(applyProd_, applyProd) };
 
 
+      // authTypes Field Functions 
+      bool hasAuthTypes() const { return this->authTypes_ != nullptr;};
+      void deleteAuthTypes() { this->authTypes_ = nullptr;};
+      inline const vector<string> & getAuthTypes() const { DARABONBA_PTR_GET_CONST(authTypes_, vector<string>) };
+      inline vector<string> getAuthTypes() { DARABONBA_PTR_GET(authTypes_, vector<string>) };
+      inline GrantCommand& setAuthTypes(const vector<string> & authTypes) { DARABONBA_PTR_SET_VALUE(authTypes_, authTypes) };
+      inline GrantCommand& setAuthTypes(vector<string> && authTypes) { DARABONBA_PTR_SET_RVALUE(authTypes_, authTypes) };
+
+
       // devFieldList Field Functions 
       bool hasDevFieldList() const { return this->devFieldList_ != nullptr;};
       void deleteDevFieldList() { this->devFieldList_ = nullptr;};
@@ -176,6 +189,13 @@ namespace Models
       void deleteExpireDate() { this->expireDate_ = nullptr;};
       inline string getExpireDate() const { DARABONBA_PTR_GET_DEFAULT(expireDate_, "") };
       inline GrantCommand& setExpireDate(string expireDate) { DARABONBA_PTR_SET_VALUE(expireDate_, expireDate) };
+
+
+      // granteeType Field Functions 
+      bool hasGranteeType() const { return this->granteeType_ != nullptr;};
+      void deleteGranteeType() { this->granteeType_ = nullptr;};
+      inline string getGranteeType() const { DARABONBA_PTR_GET_DEFAULT(granteeType_, "") };
+      inline GrantCommand& setGranteeType(string granteeType) { DARABONBA_PTR_SET_VALUE(granteeType_, granteeType) };
 
 
       // prodFieldList Field Functions 
@@ -194,21 +214,29 @@ namespace Models
       inline GrantCommand& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
+      // userId Field Functions 
+      bool hasUserId() const { return this->userId_ != nullptr;};
+      void deleteUserId() { this->userId_ = nullptr;};
+      inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+      inline GrantCommand& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
     protected:
       // This parameter is required.
       shared_ptr<int64_t> apiId_ {};
       // AppID
-      // 
-      // This parameter is required.
       shared_ptr<int32_t> appId_ {};
       shared_ptr<bool> applyDev_ {};
       shared_ptr<bool> applyProd_ {};
+      shared_ptr<vector<string>> authTypes_ {};
       shared_ptr<vector<GrantCommand::DevFieldList>> devFieldList_ {};
       // This parameter is required.
       shared_ptr<string> expireDate_ {};
+      shared_ptr<string> granteeType_ {};
       shared_ptr<vector<GrantCommand::ProdFieldList>> prodFieldList_ {};
       // This parameter is required.
       shared_ptr<string> reason_ {};
+      shared_ptr<string> userId_ {};
     };
 
     virtual bool empty() const override { return this->grantCommand_ == nullptr
