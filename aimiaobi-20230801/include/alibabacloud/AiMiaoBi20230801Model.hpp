@@ -452,6 +452,9 @@
 #include <alibabacloud/models/QueryAuditTaskRequest.hpp>
 #include <alibabacloud/models/QueryAuditTaskResponseBody.hpp>
 #include <alibabacloud/models/QueryAuditTaskResponse.hpp>
+#include <alibabacloud/models/QueryVideoAuditResultRequest.hpp>
+#include <alibabacloud/models/QueryVideoAuditResultResponseBody.hpp>
+#include <alibabacloud/models/QueryVideoAuditResultResponse.hpp>
 #include <alibabacloud/models/RunAbbreviationContentRequest.hpp>
 #include <alibabacloud/models/RunAbbreviationContentResponseBody.hpp>
 #include <alibabacloud/models/RunAbbreviationContentResponse.hpp>
@@ -656,6 +659,9 @@
 #include <alibabacloud/models/SubmitTopicSelectionPerspectiveAnalysisTaskShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitTopicSelectionPerspectiveAnalysisTaskResponseBody.hpp>
 #include <alibabacloud/models/SubmitTopicSelectionPerspectiveAnalysisTaskResponse.hpp>
+#include <alibabacloud/models/SubmitVideoAuditRequest.hpp>
+#include <alibabacloud/models/SubmitVideoAuditResponseBody.hpp>
+#include <alibabacloud/models/SubmitVideoAuditResponse.hpp>
 #include <alibabacloud/models/UpdateCustomTextRequest.hpp>
 #include <alibabacloud/models/UpdateCustomTextResponseBody.hpp>
 #include <alibabacloud/models/UpdateCustomTextResponse.hpp>

@@ -2350,6 +2350,27 @@ namespace AiMiaoBi20230801
       Models::QueryAuditTaskResponse queryAuditTask(const Models::QueryAuditTaskRequest &request);
 
       /**
+       * @summary 查询视频审校结果
+       *
+       * @description 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+       *
+       * @param request QueryVideoAuditResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryVideoAuditResultResponse
+       */
+      Models::QueryVideoAuditResultResponse queryVideoAuditResultWithOptions(const Models::QueryVideoAuditResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询视频审校结果
+       *
+       * @description 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+       *
+       * @param request QueryVideoAuditResultRequest
+       * @return QueryVideoAuditResultResponse
+       */
+      Models::QueryVideoAuditResultResponse queryVideoAuditResult(const Models::QueryVideoAuditResultRequest &request);
+
+      /**
        * @summary 内容缩写
        *
        * @param request RunAbbreviationContentRequest
@@ -3667,6 +3688,27 @@ namespace AiMiaoBi20230801
        * @return SubmitTopicSelectionPerspectiveAnalysisTaskResponse
        */
       Models::SubmitTopicSelectionPerspectiveAnalysisTaskResponse submitTopicSelectionPerspectiveAnalysisTask(const Models::SubmitTopicSelectionPerspectiveAnalysisTaskRequest &request);
+
+      /**
+       * @summary 提交视频审校
+       *
+       * @description 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+       *
+       * @param request SubmitVideoAuditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitVideoAuditResponse
+       */
+      Models::SubmitVideoAuditResponse submitVideoAuditWithOptions(const Models::SubmitVideoAuditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交视频审校
+       *
+       * @description 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+       *
+       * @param request SubmitVideoAuditRequest
+       * @return SubmitVideoAuditResponse
+       */
+      Models::SubmitVideoAuditResponse submitVideoAudit(const Models::SubmitVideoAuditRequest &request);
 
       /**
        * @summary 更新自定义文本

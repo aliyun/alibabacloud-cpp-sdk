@@ -7875,6 +7875,56 @@ QueryAuditTaskResponse Client::queryAuditTask(const QueryAuditTaskRequest &reque
 }
 
 /**
+ * @summary 查询视频审校结果
+ *
+ * @description 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+ *
+ * @param request QueryVideoAuditResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryVideoAuditResultResponse
+ */
+QueryVideoAuditResultResponse Client::queryVideoAuditResultWithOptions(const QueryVideoAuditResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "QueryVideoAuditResult"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryVideoAuditResultResponse>();
+}
+
+/**
+ * @summary 查询视频审校结果
+ *
+ * @description 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+ *
+ * @param request QueryVideoAuditResultRequest
+ * @return QueryVideoAuditResultResponse
+ */
+QueryVideoAuditResultResponse Client::queryVideoAuditResult(const QueryVideoAuditResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryVideoAuditResultWithOptions(request, runtime);
+}
+
+/**
  * @summary 内容缩写
  *
  * @param request RunAbbreviationContentRequest
@@ -14417,6 +14467,68 @@ SubmitTopicSelectionPerspectiveAnalysisTaskResponse Client::submitTopicSelection
 SubmitTopicSelectionPerspectiveAnalysisTaskResponse Client::submitTopicSelectionPerspectiveAnalysisTask(const SubmitTopicSelectionPerspectiveAnalysisTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitTopicSelectionPerspectiveAnalysisTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交视频审校
+ *
+ * @description 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+ *
+ * @param request SubmitVideoAuditRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitVideoAuditResponse
+ */
+SubmitVideoAuditResponse Client::submitVideoAuditWithOptions(const SubmitVideoAuditRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasExt()) {
+    body["Ext"] = request.getExt();
+  }
+
+  if (!!request.hasFileKey()) {
+    body["FileKey"] = request.getFileKey();
+  }
+
+  if (!!request.hasSnapshotInterval()) {
+    body["SnapshotInterval"] = request.getSnapshotInterval();
+  }
+
+  if (!!request.hasUrl()) {
+    body["Url"] = request.getUrl();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SubmitVideoAudit"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitVideoAuditResponse>();
+}
+
+/**
+ * @summary 提交视频审校
+ *
+ * @description 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+ *
+ * @param request SubmitVideoAuditRequest
+ * @return SubmitVideoAuditResponse
+ */
+SubmitVideoAuditResponse Client::submitVideoAudit(const SubmitVideoAuditRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitVideoAuditWithOptions(request, runtime);
 }
 
 /**
