@@ -23,6 +23,10 @@
 #include <alibabacloud/models/CreateScheduledTaskRequest.hpp>
 #include <alibabacloud/models/CreateScheduledTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateScheduledTaskResponse.hpp>
+#include <alibabacloud/models/CreateSkillRequest.hpp>
+#include <alibabacloud/models/CreateSkillShrinkRequest.hpp>
+#include <alibabacloud/models/CreateSkillResponseBody.hpp>
+#include <alibabacloud/models/CreateSkillResponse.hpp>
 #include <alibabacloud/models/DeleteAppInstanceRequest.hpp>
 #include <alibabacloud/models/DeleteAppInstanceResponseBody.hpp>
 #include <alibabacloud/models/DeleteAppInstanceResponse.hpp>
@@ -32,6 +36,9 @@
 #include <alibabacloud/models/DeleteScheduledTaskRequest.hpp>
 #include <alibabacloud/models/DeleteScheduledTaskResponseBody.hpp>
 #include <alibabacloud/models/DeleteScheduledTaskResponse.hpp>
+#include <alibabacloud/models/DeleteSkillRequest.hpp>
+#include <alibabacloud/models/DeleteSkillResponseBody.hpp>
+#include <alibabacloud/models/DeleteSkillResponse.hpp>
 #include <alibabacloud/models/DescribeAppInstanceAttributeRequest.hpp>
 #include <alibabacloud/models/DescribeAppInstanceAttributeResponseBody.hpp>
 #include <alibabacloud/models/DescribeAppInstanceAttributeResponse.hpp>
@@ -77,6 +84,9 @@
 #include <alibabacloud/models/GetScheduledReportsRequest.hpp>
 #include <alibabacloud/models/GetScheduledReportsResponseBody.hpp>
 #include <alibabacloud/models/GetScheduledReportsResponse.hpp>
+#include <alibabacloud/models/GetSkillRequest.hpp>
+#include <alibabacloud/models/GetSkillResponseBody.hpp>
+#include <alibabacloud/models/GetSkillResponse.hpp>
 #include <alibabacloud/models/GetStandAloneReportsRequest.hpp>
 #include <alibabacloud/models/GetStandAloneReportsResponseBody.hpp>
 #include <alibabacloud/models/GetStandAloneReportsResponse.hpp>
@@ -88,6 +98,9 @@
 #include <alibabacloud/models/ListScheduledTasksRequest.hpp>
 #include <alibabacloud/models/ListScheduledTasksResponseBody.hpp>
 #include <alibabacloud/models/ListScheduledTasksResponse.hpp>
+#include <alibabacloud/models/ListSkillRequest.hpp>
+#include <alibabacloud/models/ListSkillResponseBody.hpp>
+#include <alibabacloud/models/ListSkillResponse.hpp>
 #include <alibabacloud/models/ModifyInstanceAuthConfigRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceAuthConfigShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceAuthConfigResponseBody.hpp>
@@ -135,5 +148,9 @@
 #include <alibabacloud/models/UpdateCustomAgentShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/UpdateCustomAgentResponse.hpp>
+#include <alibabacloud/models/UpdateSkillRequest.hpp>
+#include <alibabacloud/models/UpdateSkillShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateSkillResponseBody.hpp>
+#include <alibabacloud/models/UpdateSkillResponse.hpp>
 
 #endif

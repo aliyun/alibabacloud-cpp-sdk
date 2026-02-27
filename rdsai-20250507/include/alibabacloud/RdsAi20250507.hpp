@@ -144,6 +144,23 @@ namespace RdsAi20250507
       Models::CreateScheduledTaskResponse createScheduledTask(const Models::CreateScheduledTaskRequest &request);
 
       /**
+       * @summary 创建Skill
+       *
+       * @param tmpReq CreateSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSkillResponse
+       */
+      Models::CreateSkillResponse createSkillWithOptions(const Models::CreateSkillRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Skill
+       *
+       * @param request CreateSkillRequest
+       * @return CreateSkillResponse
+       */
+      Models::CreateSkillResponse createSkill(const Models::CreateSkillRequest &request);
+
+      /**
        * @summary Deletes an RDS Supabase instance.
        *
        * @description ### [](#)Supported database engine
@@ -207,6 +224,23 @@ namespace RdsAi20250507
        * @return DeleteScheduledTaskResponse
        */
       Models::DeleteScheduledTaskResponse deleteScheduledTask(const Models::DeleteScheduledTaskRequest &request);
+
+      /**
+       * @summary 删除Skill
+       *
+       * @param request DeleteSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSkillResponse
+       */
+      Models::DeleteSkillResponse deleteSkillWithOptions(const Models::DeleteSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除Skill
+       *
+       * @param request DeleteSkillRequest
+       * @return DeleteSkillResponse
+       */
+      Models::DeleteSkillResponse deleteSkill(const Models::DeleteSkillRequest &request);
 
       /**
        * @summary Queries the details of an RDS Supabase instance.
@@ -536,6 +570,23 @@ namespace RdsAi20250507
       Models::GetScheduledReportsResponse getScheduledReports(const Models::GetScheduledReportsRequest &request);
 
       /**
+       * @summary 获取Skill详情
+       *
+       * @param request GetSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSkillResponse
+       */
+      Models::GetSkillResponse getSkillWithOptions(const Models::GetSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Skill详情
+       *
+       * @param request GetSkillRequest
+       * @return GetSkillResponse
+       */
+      Models::GetSkillResponse getSkill(const Models::GetSkillRequest &request);
+
+      /**
        * @summary 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
        *
        * @param request GetStandAloneReportsRequest
@@ -601,6 +652,23 @@ namespace RdsAi20250507
        * @return ListScheduledTasksResponse
        */
       Models::ListScheduledTasksResponse listScheduledTasks(const Models::ListScheduledTasksRequest &request);
+
+      /**
+       * @summary 获取Skill列表
+       *
+       * @param request ListSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSkillResponse
+       */
+      Models::ListSkillResponse listSkillWithOptions(const Models::ListSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Skill列表
+       *
+       * @param request ListSkillRequest
+       * @return ListSkillResponse
+       */
+      Models::ListSkillResponse listSkill(const Models::ListSkillRequest &request);
 
       /**
        * @summary Modifies the authentication configurations of an RDS Supabase instance.
@@ -933,6 +1001,23 @@ namespace RdsAi20250507
        * @return UpdateCustomAgentResponse
        */
       Models::UpdateCustomAgentResponse updateCustomAgent(const Models::UpdateCustomAgentRequest &request);
+
+      /**
+       * @summary 更新Skill
+       *
+       * @param tmpReq UpdateSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSkillResponse
+       */
+      Models::UpdateSkillResponse updateSkillWithOptions(const Models::UpdateSkillRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Skill
+       *
+       * @param request UpdateSkillRequest
+       * @return UpdateSkillResponse
+       */
+      Models::UpdateSkillResponse updateSkill(const Models::UpdateSkillRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace RdsAi20250507
