@@ -18,18 +18,23 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GmtDequeuedTimeRange, gmtDequeuedTimeRange_);
       DARABONBA_PTR_TO_JSON(GmtEnqueuedTimeRange, gmtEnqueuedTimeRange_);
       DARABONBA_PTR_TO_JSON(GmtPositionModifiedTimeRange, gmtPositionModifiedTimeRange_);
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NodeName, nodeName_);
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(Position, position_);
+      DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(ShowOwn, showOwn_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(SubQuotaIds, subQuotaIds_);
+      DARABONBA_PTR_TO_JSON(UseOversoldResource, useOversoldResource_);
       DARABONBA_PTR_TO_JSON(UserIds, userIds_);
       DARABONBA_PTR_TO_JSON(WithHistoricalData, withHistoricalData_);
       DARABONBA_PTR_TO_JSON(WorkloadCreatedTimeRange, workloadCreatedTimeRange_);
       DARABONBA_PTR_TO_JSON(WorkloadIds, workloadIds_);
+      DARABONBA_PTR_TO_JSON(WorkloadNames, workloadNames_);
       DARABONBA_PTR_TO_JSON(WorkloadStatuses, workloadStatuses_);
       DARABONBA_PTR_TO_JSON(WorkloadType, workloadType_);
       DARABONBA_PTR_TO_JSON(WorkspaceIds, workspaceIds_);
@@ -39,18 +44,23 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GmtDequeuedTimeRange, gmtDequeuedTimeRange_);
       DARABONBA_PTR_FROM_JSON(GmtEnqueuedTimeRange, gmtEnqueuedTimeRange_);
       DARABONBA_PTR_FROM_JSON(GmtPositionModifiedTimeRange, gmtPositionModifiedTimeRange_);
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NodeName, nodeName_);
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(Position, position_);
+      DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(ShowOwn, showOwn_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(SubQuotaIds, subQuotaIds_);
+      DARABONBA_PTR_FROM_JSON(UseOversoldResource, useOversoldResource_);
       DARABONBA_PTR_FROM_JSON(UserIds, userIds_);
       DARABONBA_PTR_FROM_JSON(WithHistoricalData, withHistoricalData_);
       DARABONBA_PTR_FROM_JSON(WorkloadCreatedTimeRange, workloadCreatedTimeRange_);
       DARABONBA_PTR_FROM_JSON(WorkloadIds, workloadIds_);
+      DARABONBA_PTR_FROM_JSON(WorkloadNames, workloadNames_);
       DARABONBA_PTR_FROM_JSON(WorkloadStatuses, workloadStatuses_);
       DARABONBA_PTR_FROM_JSON(WorkloadType, workloadType_);
       DARABONBA_PTR_FROM_JSON(WorkspaceIds, workspaceIds_);
@@ -67,9 +77,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->beforeWorkloadId_ == nullptr
-        && this->gmtDequeuedTimeRange_ == nullptr && this->gmtEnqueuedTimeRange_ == nullptr && this->gmtPositionModifiedTimeRange_ == nullptr && this->nodeName_ == nullptr && this->order_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->showOwn_ == nullptr && this->sortBy_ == nullptr && this->status_ == nullptr
-        && this->subQuotaIds_ == nullptr && this->userIds_ == nullptr && this->withHistoricalData_ == nullptr && this->workloadCreatedTimeRange_ == nullptr && this->workloadIds_ == nullptr
+        && this->gmtDequeuedTimeRange_ == nullptr && this->gmtEnqueuedTimeRange_ == nullptr && this->gmtPositionModifiedTimeRange_ == nullptr && this->instanceId_ == nullptr && this->nodeName_ == nullptr
+        && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->position_ == nullptr && this->priority_ == nullptr
+        && this->showOwn_ == nullptr && this->sortBy_ == nullptr && this->status_ == nullptr && this->subQuotaIds_ == nullptr && this->useOversoldResource_ == nullptr
+        && this->userIds_ == nullptr && this->withHistoricalData_ == nullptr && this->workloadCreatedTimeRange_ == nullptr && this->workloadIds_ == nullptr && this->workloadNames_ == nullptr
         && this->workloadStatuses_ == nullptr && this->workloadType_ == nullptr && this->workspaceIds_ == nullptr; };
     // beforeWorkloadId Field Functions 
     bool hasBeforeWorkloadId() const { return this->beforeWorkloadId_ != nullptr;};
@@ -105,6 +116,13 @@ namespace Models
     inline ListQuotaWorkloadsRequest& setGmtPositionModifiedTimeRange(TimeRangeFilter && gmtPositionModifiedTimeRange) { DARABONBA_PTR_SET_RVALUE(gmtPositionModifiedTimeRange_, gmtPositionModifiedTimeRange) };
 
 
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline ListQuotaWorkloadsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
     // nodeName Field Functions 
     bool hasNodeName() const { return this->nodeName_ != nullptr;};
     void deleteNodeName() { this->nodeName_ = nullptr;};
@@ -133,6 +151,20 @@ namespace Models
     inline ListQuotaWorkloadsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // position Field Functions 
+    bool hasPosition() const { return this->position_ != nullptr;};
+    void deletePosition() { this->position_ = nullptr;};
+    inline int32_t getPosition() const { DARABONBA_PTR_GET_DEFAULT(position_, 0) };
+    inline ListQuotaWorkloadsRequest& setPosition(int32_t position) { DARABONBA_PTR_SET_VALUE(position_, position) };
+
+
+    // priority Field Functions 
+    bool hasPriority() const { return this->priority_ != nullptr;};
+    void deletePriority() { this->priority_ = nullptr;};
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline ListQuotaWorkloadsRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
+
+
     // showOwn Field Functions 
     bool hasShowOwn() const { return this->showOwn_ != nullptr;};
     void deleteShowOwn() { this->showOwn_ = nullptr;};
@@ -159,6 +191,13 @@ namespace Models
     void deleteSubQuotaIds() { this->subQuotaIds_ = nullptr;};
     inline string getSubQuotaIds() const { DARABONBA_PTR_GET_DEFAULT(subQuotaIds_, "") };
     inline ListQuotaWorkloadsRequest& setSubQuotaIds(string subQuotaIds) { DARABONBA_PTR_SET_VALUE(subQuotaIds_, subQuotaIds) };
+
+
+    // useOversoldResource Field Functions 
+    bool hasUseOversoldResource() const { return this->useOversoldResource_ != nullptr;};
+    void deleteUseOversoldResource() { this->useOversoldResource_ = nullptr;};
+    inline bool getUseOversoldResource() const { DARABONBA_PTR_GET_DEFAULT(useOversoldResource_, false) };
+    inline ListQuotaWorkloadsRequest& setUseOversoldResource(bool useOversoldResource) { DARABONBA_PTR_SET_VALUE(useOversoldResource_, useOversoldResource) };
 
 
     // userIds Field Functions 
@@ -191,6 +230,13 @@ namespace Models
     inline ListQuotaWorkloadsRequest& setWorkloadIds(string workloadIds) { DARABONBA_PTR_SET_VALUE(workloadIds_, workloadIds) };
 
 
+    // workloadNames Field Functions 
+    bool hasWorkloadNames() const { return this->workloadNames_ != nullptr;};
+    void deleteWorkloadNames() { this->workloadNames_ = nullptr;};
+    inline string getWorkloadNames() const { DARABONBA_PTR_GET_DEFAULT(workloadNames_, "") };
+    inline ListQuotaWorkloadsRequest& setWorkloadNames(string workloadNames) { DARABONBA_PTR_SET_VALUE(workloadNames_, workloadNames) };
+
+
     // workloadStatuses Field Functions 
     bool hasWorkloadStatuses() const { return this->workloadStatuses_ != nullptr;};
     void deleteWorkloadStatuses() { this->workloadStatuses_ = nullptr;};
@@ -217,18 +263,23 @@ namespace Models
     shared_ptr<TimeRangeFilter> gmtDequeuedTimeRange_ {};
     shared_ptr<TimeRangeFilter> gmtEnqueuedTimeRange_ {};
     shared_ptr<TimeRangeFilter> gmtPositionModifiedTimeRange_ {};
+    shared_ptr<string> instanceId_ {};
     shared_ptr<string> nodeName_ {};
     shared_ptr<string> order_ {};
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<int32_t> position_ {};
+    shared_ptr<int32_t> priority_ {};
     shared_ptr<bool> showOwn_ {};
     shared_ptr<string> sortBy_ {};
     shared_ptr<string> status_ {};
     shared_ptr<string> subQuotaIds_ {};
+    shared_ptr<bool> useOversoldResource_ {};
     shared_ptr<string> userIds_ {};
     shared_ptr<bool> withHistoricalData_ {};
     shared_ptr<TimeRangeFilter> workloadCreatedTimeRange_ {};
     shared_ptr<string> workloadIds_ {};
+    shared_ptr<string> workloadNames_ {};
     shared_ptr<string> workloadStatuses_ {};
     shared_ptr<string> workloadType_ {};
     shared_ptr<string> workspaceIds_ {};

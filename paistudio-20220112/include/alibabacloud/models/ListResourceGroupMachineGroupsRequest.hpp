@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListResourceGroupMachineGroupsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CreatorID, creatorID_);
+      DARABONBA_PTR_TO_JSON(DiskPL, diskPL_);
       DARABONBA_PTR_TO_JSON(EcsSpec, ecsSpec_);
       DARABONBA_PTR_TO_JSON(MachineGroupIDs, machineGroupIDs_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -29,6 +30,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListResourceGroupMachineGroupsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CreatorID, creatorID_);
+      DARABONBA_PTR_FROM_JSON(DiskPL, diskPL_);
       DARABONBA_PTR_FROM_JSON(EcsSpec, ecsSpec_);
       DARABONBA_PTR_FROM_JSON(MachineGroupIDs, machineGroupIDs_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -54,14 +56,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creatorID_ == nullptr
-        && this->ecsSpec_ == nullptr && this->machineGroupIDs_ == nullptr && this->name_ == nullptr && this->order_ == nullptr && this->orderInstanceId_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->paymentDuration_ == nullptr && this->paymentDurationUnit_ == nullptr && this->paymentType_ == nullptr
-        && this->sortBy_ == nullptr && this->status_ == nullptr; };
+        && this->diskPL_ == nullptr && this->ecsSpec_ == nullptr && this->machineGroupIDs_ == nullptr && this->name_ == nullptr && this->order_ == nullptr
+        && this->orderInstanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->paymentDuration_ == nullptr && this->paymentDurationUnit_ == nullptr
+        && this->paymentType_ == nullptr && this->sortBy_ == nullptr && this->status_ == nullptr; };
     // creatorID Field Functions 
     bool hasCreatorID() const { return this->creatorID_ != nullptr;};
     void deleteCreatorID() { this->creatorID_ = nullptr;};
     inline string getCreatorID() const { DARABONBA_PTR_GET_DEFAULT(creatorID_, "") };
     inline ListResourceGroupMachineGroupsRequest& setCreatorID(string creatorID) { DARABONBA_PTR_SET_VALUE(creatorID_, creatorID) };
+
+
+    // diskPL Field Functions 
+    bool hasDiskPL() const { return this->diskPL_ != nullptr;};
+    void deleteDiskPL() { this->diskPL_ = nullptr;};
+    inline string getDiskPL() const { DARABONBA_PTR_GET_DEFAULT(diskPL_, "") };
+    inline ListResourceGroupMachineGroupsRequest& setDiskPL(string diskPL) { DARABONBA_PTR_SET_VALUE(diskPL_, diskPL) };
 
 
     // ecsSpec Field Functions 
@@ -150,6 +159,7 @@ namespace Models
 
   protected:
     shared_ptr<string> creatorID_ {};
+    shared_ptr<string> diskPL_ {};
     shared_ptr<string> ecsSpec_ {};
     shared_ptr<string> machineGroupIDs_ {};
     shared_ptr<string> name_ {};

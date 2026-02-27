@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AcceleratorType, acceleratorType_);
       DARABONBA_PTR_TO_JSON(AvailabilityZone, availabilityZone_);
       DARABONBA_PTR_TO_JSON(CliqueID, cliqueID_);
+      DARABONBA_PTR_TO_JSON(DiskPL, diskPL_);
       DARABONBA_PTR_TO_JSON(FilterByQuotaId, filterByQuotaId_);
       DARABONBA_PTR_TO_JSON(FilterByResourceGroupIds, filterByResourceGroupIds_);
       DARABONBA_PTR_TO_JSON(GPUType, GPUType_);
@@ -34,17 +35,21 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(PaymentType, paymentType_);
+      DARABONBA_PTR_TO_JSON(PodNum, podNum_);
       DARABONBA_PTR_TO_JSON(QuotaId, quotaId_);
       DARABONBA_PTR_TO_JSON(ReasonCodes, reasonCodes_);
       DARABONBA_PTR_TO_JSON(ResourceGroupIds, resourceGroupIds_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(Verbose, verbose_);
+      DARABONBA_PTR_TO_JSON(WorkloadNum, workloadNum_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListNodesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AcceleratorType, acceleratorType_);
       DARABONBA_PTR_FROM_JSON(AvailabilityZone, availabilityZone_);
       DARABONBA_PTR_FROM_JSON(CliqueID, cliqueID_);
+      DARABONBA_PTR_FROM_JSON(DiskPL, diskPL_);
       DARABONBA_PTR_FROM_JSON(FilterByQuotaId, filterByQuotaId_);
       DARABONBA_PTR_FROM_JSON(FilterByResourceGroupIds, filterByResourceGroupIds_);
       DARABONBA_PTR_FROM_JSON(GPUType, GPUType_);
@@ -63,11 +68,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(PaymentType, paymentType_);
+      DARABONBA_PTR_FROM_JSON(PodNum, podNum_);
       DARABONBA_PTR_FROM_JSON(QuotaId, quotaId_);
       DARABONBA_PTR_FROM_JSON(ReasonCodes, reasonCodes_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupIds, resourceGroupIds_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(Verbose, verbose_);
+      DARABONBA_PTR_FROM_JSON(WorkloadNum, workloadNum_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     ListNodesRequest() = default ;
@@ -166,12 +174,12 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->acceleratorType_ == nullptr
-        && this->availabilityZone_ == nullptr && this->cliqueID_ == nullptr && this->filterByQuotaId_ == nullptr && this->filterByResourceGroupIds_ == nullptr && this->GPUType_ == nullptr
-        && this->healthCount_ == nullptr && this->healthRate_ == nullptr && this->hyperNode_ == nullptr && this->hyperZone_ == nullptr && this->layoutMode_ == nullptr
-        && this->machineGroupIds_ == nullptr && this->nodeNames_ == nullptr && this->nodeStatuses_ == nullptr && this->nodeTypes_ == nullptr && this->order_ == nullptr
-        && this->orderInstanceIds_ == nullptr && this->orderStatuses_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->paymentType_ == nullptr
-        && this->quotaId_ == nullptr && this->reasonCodes_ == nullptr && this->resourceGroupIds_ == nullptr && this->sortBy_ == nullptr && this->verbose_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->availabilityZone_ == nullptr && this->cliqueID_ == nullptr && this->diskPL_ == nullptr && this->filterByQuotaId_ == nullptr && this->filterByResourceGroupIds_ == nullptr
+        && this->GPUType_ == nullptr && this->healthCount_ == nullptr && this->healthRate_ == nullptr && this->hyperNode_ == nullptr && this->hyperZone_ == nullptr
+        && this->layoutMode_ == nullptr && this->machineGroupIds_ == nullptr && this->nodeNames_ == nullptr && this->nodeStatuses_ == nullptr && this->nodeTypes_ == nullptr
+        && this->order_ == nullptr && this->orderInstanceIds_ == nullptr && this->orderStatuses_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->paymentType_ == nullptr && this->podNum_ == nullptr && this->quotaId_ == nullptr && this->reasonCodes_ == nullptr && this->resourceGroupIds_ == nullptr
+        && this->resourceGroupName_ == nullptr && this->sortBy_ == nullptr && this->verbose_ == nullptr && this->workloadNum_ == nullptr && this->workspaceId_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
@@ -191,6 +199,13 @@ namespace Models
     void deleteCliqueID() { this->cliqueID_ = nullptr;};
     inline string getCliqueID() const { DARABONBA_PTR_GET_DEFAULT(cliqueID_, "") };
     inline ListNodesRequest& setCliqueID(string cliqueID) { DARABONBA_PTR_SET_VALUE(cliqueID_, cliqueID) };
+
+
+    // diskPL Field Functions 
+    bool hasDiskPL() const { return this->diskPL_ != nullptr;};
+    void deleteDiskPL() { this->diskPL_ = nullptr;};
+    inline string getDiskPL() const { DARABONBA_PTR_GET_DEFAULT(diskPL_, "") };
+    inline ListNodesRequest& setDiskPL(string diskPL) { DARABONBA_PTR_SET_VALUE(diskPL_, diskPL) };
 
 
     // filterByQuotaId Field Functions 
@@ -323,6 +338,13 @@ namespace Models
     inline ListNodesRequest& setPaymentType(string paymentType) { DARABONBA_PTR_SET_VALUE(paymentType_, paymentType) };
 
 
+    // podNum Field Functions 
+    bool hasPodNum() const { return this->podNum_ != nullptr;};
+    void deletePodNum() { this->podNum_ = nullptr;};
+    inline int32_t getPodNum() const { DARABONBA_PTR_GET_DEFAULT(podNum_, 0) };
+    inline ListNodesRequest& setPodNum(int32_t podNum) { DARABONBA_PTR_SET_VALUE(podNum_, podNum) };
+
+
     // quotaId Field Functions 
     bool hasQuotaId() const { return this->quotaId_ != nullptr;};
     void deleteQuotaId() { this->quotaId_ = nullptr;};
@@ -344,6 +366,13 @@ namespace Models
     inline ListNodesRequest& setResourceGroupIds(string resourceGroupIds) { DARABONBA_PTR_SET_VALUE(resourceGroupIds_, resourceGroupIds) };
 
 
+    // resourceGroupName Field Functions 
+    bool hasResourceGroupName() const { return this->resourceGroupName_ != nullptr;};
+    void deleteResourceGroupName() { this->resourceGroupName_ = nullptr;};
+    inline string getResourceGroupName() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupName_, "") };
+    inline ListNodesRequest& setResourceGroupName(string resourceGroupName) { DARABONBA_PTR_SET_VALUE(resourceGroupName_, resourceGroupName) };
+
+
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
@@ -358,6 +387,13 @@ namespace Models
     inline ListNodesRequest& setVerbose(bool verbose) { DARABONBA_PTR_SET_VALUE(verbose_, verbose) };
 
 
+    // workloadNum Field Functions 
+    bool hasWorkloadNum() const { return this->workloadNum_ != nullptr;};
+    void deleteWorkloadNum() { this->workloadNum_ = nullptr;};
+    inline int32_t getWorkloadNum() const { DARABONBA_PTR_GET_DEFAULT(workloadNum_, 0) };
+    inline ListNodesRequest& setWorkloadNum(int32_t workloadNum) { DARABONBA_PTR_SET_VALUE(workloadNum_, workloadNum) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -369,6 +405,7 @@ namespace Models
     shared_ptr<string> acceleratorType_ {};
     shared_ptr<string> availabilityZone_ {};
     shared_ptr<string> cliqueID_ {};
+    shared_ptr<string> diskPL_ {};
     shared_ptr<string> filterByQuotaId_ {};
     shared_ptr<string> filterByResourceGroupIds_ {};
     shared_ptr<string> GPUType_ {};
@@ -387,11 +424,14 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> paymentType_ {};
+    shared_ptr<int32_t> podNum_ {};
     shared_ptr<string> quotaId_ {};
     shared_ptr<string> reasonCodes_ {};
     shared_ptr<string> resourceGroupIds_ {};
+    shared_ptr<string> resourceGroupName_ {};
     shared_ptr<string> sortBy_ {};
     shared_ptr<bool> verbose_ {};
+    shared_ptr<int32_t> workloadNum_ {};
     shared_ptr<string> workspaceId_ {};
   };
 

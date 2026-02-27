@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
       DARABONBA_PTR_TO_JSON(Username, username_);
+      DARABONBA_PTR_TO_JSON(WorkloadCount, workloadCount_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListQuotaActiveUserUsagesRequest& obj) { 
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
       DARABONBA_PTR_FROM_JSON(Username, username_);
+      DARABONBA_PTR_FROM_JSON(WorkloadCount, workloadCount_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     ListQuotaActiveUserUsagesRequest() = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->order_ == nullptr
         && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->selfOnly_ == nullptr && this->sortBy_ == nullptr && this->userId_ == nullptr
-        && this->username_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->username_ == nullptr && this->workloadCount_ == nullptr && this->workspaceId_ == nullptr; };
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
@@ -95,6 +97,13 @@ namespace Models
     inline ListQuotaActiveUserUsagesRequest& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
+    // workloadCount Field Functions 
+    bool hasWorkloadCount() const { return this->workloadCount_ != nullptr;};
+    void deleteWorkloadCount() { this->workloadCount_ = nullptr;};
+    inline int32_t getWorkloadCount() const { DARABONBA_PTR_GET_DEFAULT(workloadCount_, 0) };
+    inline ListQuotaActiveUserUsagesRequest& setWorkloadCount(int32_t workloadCount) { DARABONBA_PTR_SET_VALUE(workloadCount_, workloadCount) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -110,6 +119,7 @@ namespace Models
     shared_ptr<string> sortBy_ {};
     shared_ptr<string> userId_ {};
     shared_ptr<string> username_ {};
+    shared_ptr<int32_t> workloadCount_ {};
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AllocateStrategy, allocateStrategy_);
       DARABONBA_PTR_TO_JSON(CreatorId, creatorId_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(GPUType, GPUType_);
       DARABONBA_PTR_TO_JSON(GmtCreatedTime, gmtCreatedTime_);
       DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_TO_JSON(HyperZones, hyperZones_);
@@ -50,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AllocateStrategy, allocateStrategy_);
       DARABONBA_PTR_FROM_JSON(CreatorId, creatorId_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(GPUType, GPUType_);
       DARABONBA_PTR_FROM_JSON(GmtCreatedTime, gmtCreatedTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_FROM_JSON(HyperZones, hyperZones_);
@@ -84,11 +86,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allocateStrategy_ == nullptr
-        && this->creatorId_ == nullptr && this->description_ == nullptr && this->gmtCreatedTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->hyperZones_ == nullptr
-        && this->labels_ == nullptr && this->latestOperationId_ == nullptr && this->min_ == nullptr && this->parentQuotaId_ == nullptr && this->queueStrategy_ == nullptr
-        && this->quotaCluster_ == nullptr && this->quotaConfig_ == nullptr && this->quotaDetails_ == nullptr && this->quotaId_ == nullptr && this->quotaName_ == nullptr
-        && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr && this->resourceGroupIds_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr
-        && this->subQuotas_ == nullptr && this->version_ == nullptr && this->workspaces_ == nullptr; };
+        && this->creatorId_ == nullptr && this->description_ == nullptr && this->GPUType_ == nullptr && this->gmtCreatedTime_ == nullptr && this->gmtModifiedTime_ == nullptr
+        && this->hyperZones_ == nullptr && this->labels_ == nullptr && this->latestOperationId_ == nullptr && this->min_ == nullptr && this->parentQuotaId_ == nullptr
+        && this->queueStrategy_ == nullptr && this->quotaCluster_ == nullptr && this->quotaConfig_ == nullptr && this->quotaDetails_ == nullptr && this->quotaId_ == nullptr
+        && this->quotaName_ == nullptr && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr && this->resourceGroupIds_ == nullptr && this->resourceType_ == nullptr
+        && this->status_ == nullptr && this->subQuotas_ == nullptr && this->version_ == nullptr && this->workspaces_ == nullptr; };
     // allocateStrategy Field Functions 
     bool hasAllocateStrategy() const { return this->allocateStrategy_ != nullptr;};
     void deleteAllocateStrategy() { this->allocateStrategy_ = nullptr;};
@@ -108,6 +110,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline Quota& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // GPUType Field Functions 
+    bool hasGPUType() const { return this->GPUType_ != nullptr;};
+    void deleteGPUType() { this->GPUType_ = nullptr;};
+    inline string getGPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
+    inline Quota& setGPUType(string GPUType) { DARABONBA_PTR_SET_VALUE(GPUType_, GPUType) };
 
 
     // gmtCreatedTime Field Functions 
@@ -279,6 +288,7 @@ namespace Models
     shared_ptr<string> allocateStrategy_ {};
     shared_ptr<string> creatorId_ {};
     shared_ptr<string> description_ {};
+    shared_ptr<string> GPUType_ {};
     shared_ptr<string> gmtCreatedTime_ {};
     shared_ptr<string> gmtModifiedTime_ {};
     shared_ptr<vector<string>> hyperZones_ {};

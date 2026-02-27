@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListQuotasRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClusterType, clusterType_);
+      DARABONBA_PTR_TO_JSON(GPUType, GPUType_);
       DARABONBA_PTR_TO_JSON(HasResource, hasResource_);
       DARABONBA_PTR_TO_JSON(Labels, labels_);
       DARABONBA_PTR_TO_JSON(LayoutMode, layoutMode_);
@@ -33,6 +34,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListQuotasRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClusterType, clusterType_);
+      DARABONBA_PTR_FROM_JSON(GPUType, GPUType_);
       DARABONBA_PTR_FROM_JSON(HasResource, hasResource_);
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
       DARABONBA_PTR_FROM_JSON(LayoutMode, layoutMode_);
@@ -62,15 +64,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterType_ == nullptr
-        && this->hasResource_ == nullptr && this->labels_ == nullptr && this->layoutMode_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->parentQuotaId_ == nullptr && this->quotaIds_ == nullptr && this->quotaName_ == nullptr && this->resourceType_ == nullptr
-        && this->sortBy_ == nullptr && this->statuses_ == nullptr && this->verbose_ == nullptr && this->versions_ == nullptr && this->workspaceIds_ == nullptr
-        && this->workspaceName_ == nullptr; };
+        && this->GPUType_ == nullptr && this->hasResource_ == nullptr && this->labels_ == nullptr && this->layoutMode_ == nullptr && this->order_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->parentQuotaId_ == nullptr && this->quotaIds_ == nullptr && this->quotaName_ == nullptr
+        && this->resourceType_ == nullptr && this->sortBy_ == nullptr && this->statuses_ == nullptr && this->verbose_ == nullptr && this->versions_ == nullptr
+        && this->workspaceIds_ == nullptr && this->workspaceName_ == nullptr; };
     // clusterType Field Functions 
     bool hasClusterType() const { return this->clusterType_ != nullptr;};
     void deleteClusterType() { this->clusterType_ = nullptr;};
     inline string getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
     inline ListQuotasRequest& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
+
+
+    // GPUType Field Functions 
+    bool hasGPUType() const { return this->GPUType_ != nullptr;};
+    void deleteGPUType() { this->GPUType_ = nullptr;};
+    inline string getGPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
+    inline ListQuotasRequest& setGPUType(string GPUType) { DARABONBA_PTR_SET_VALUE(GPUType_, GPUType) };
 
 
     // hasResource Field Functions 
@@ -187,6 +196,7 @@ namespace Models
 
   protected:
     shared_ptr<string> clusterType_ {};
+    shared_ptr<string> GPUType_ {};
     shared_ptr<string> hasResource_ {};
     shared_ptr<string> labels_ {};
     shared_ptr<string> layoutMode_ {};

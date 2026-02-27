@@ -1719,6 +1719,10 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
     query["CliqueID"] = request.getCliqueID();
   }
 
+  if (!!request.hasDiskPL()) {
+    query["DiskPL"] = request.getDiskPL();
+  }
+
   if (!!request.hasFilterByQuotaId()) {
     query["FilterByQuotaId"] = request.getFilterByQuotaId();
   }
@@ -1791,6 +1795,10 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
     query["PaymentType"] = request.getPaymentType();
   }
 
+  if (!!request.hasPodNum()) {
+    query["PodNum"] = request.getPodNum();
+  }
+
   if (!!request.hasQuotaId()) {
     query["QuotaId"] = request.getQuotaId();
   }
@@ -1803,12 +1811,20 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
     query["ResourceGroupIds"] = request.getResourceGroupIds();
   }
 
+  if (!!request.hasResourceGroupName()) {
+    query["ResourceGroupName"] = request.getResourceGroupName();
+  }
+
   if (!!request.hasSortBy()) {
     query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasVerbose()) {
     query["Verbose"] = request.getVerbose();
+  }
+
+  if (!!request.hasWorkloadNum()) {
+    query["WorkloadNum"] = request.getWorkloadNum();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -1884,6 +1900,10 @@ ListQuotaActiveUserUsagesResponse Client::listQuotaActiveUserUsagesWithOptions(c
     query["Username"] = request.getUsername();
   }
 
+  if (!!request.hasWorkloadCount()) {
+    query["WorkloadCount"] = request.getWorkloadCount();
+  }
+
   if (!!request.hasWorkspaceId()) {
     query["WorkspaceId"] = request.getWorkspaceId();
   }
@@ -1945,6 +1965,10 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloadsWithOptions(const string &Q
     query["GmtPositionModifiedTimeRange"] = request.getGmtPositionModifiedTimeRange();
   }
 
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
   if (!!request.hasNodeName()) {
     query["NodeName"] = request.getNodeName();
   }
@@ -1959,6 +1983,14 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloadsWithOptions(const string &Q
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPosition()) {
+    query["Position"] = request.getPosition();
+  }
+
+  if (!!request.hasPriority()) {
+    query["Priority"] = request.getPriority();
   }
 
   if (!!request.hasShowOwn()) {
@@ -1977,6 +2009,10 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloadsWithOptions(const string &Q
     query["SubQuotaIds"] = request.getSubQuotaIds();
   }
 
+  if (!!request.hasUseOversoldResource()) {
+    query["UseOversoldResource"] = request.getUseOversoldResource();
+  }
+
   if (!!request.hasUserIds()) {
     query["UserIds"] = request.getUserIds();
   }
@@ -1991,6 +2027,10 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloadsWithOptions(const string &Q
 
   if (!!request.hasWorkloadIds()) {
     query["WorkloadIds"] = request.getWorkloadIds();
+  }
+
+  if (!!request.hasWorkloadNames()) {
+    query["WorkloadNames"] = request.getWorkloadNames();
   }
 
   if (!!request.hasWorkloadStatuses()) {
@@ -2048,6 +2088,10 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
   json query = {};
   if (!!request.hasClusterType()) {
     query["ClusterType"] = request.getClusterType();
+  }
+
+  if (!!request.hasGPUType()) {
+    query["GPUType"] = request.getGPUType();
   }
 
   if (!!request.hasHasResource()) {
@@ -2157,6 +2201,10 @@ ListResourceGroupMachineGroupsResponse Client::listResourceGroupMachineGroupsWit
   json query = {};
   if (!!request.hasCreatorID()) {
     query["CreatorID"] = request.getCreatorID();
+  }
+
+  if (!!request.hasDiskPL()) {
+    query["DiskPL"] = request.getDiskPL();
   }
 
   if (!!request.hasEcsSpec()) {
