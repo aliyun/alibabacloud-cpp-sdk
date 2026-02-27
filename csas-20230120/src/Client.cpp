@@ -1778,7 +1778,7 @@ DeleteRegistrationPoliciesResponse Client::deleteRegistrationPolicies(const Dele
 }
 
 /**
- * @summary 批量删除用户非在线设备
+ * @summary Deletes multiple user terminals at a time.
  *
  * @param request DeleteUserDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1813,7 +1813,7 @@ DeleteUserDevicesResponse Client::deleteUserDevicesWithOptions(const DeleteUserD
 }
 
 /**
- * @summary 批量删除用户非在线设备
+ * @summary Deletes multiple user terminals at a time.
  *
  * @param request DeleteUserDevicesRequest
  * @return DeleteUserDevicesResponse
@@ -2056,7 +2056,7 @@ EnableEnterpriseAcceleratePolicyResponse Client::enableEnterpriseAcceleratePolic
 }
 
 /**
- * @summary 批量查询用户设备列表
+ * @summary Exports the information about user terminals in an Excel file.
  *
  * @param request ExportUserDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2147,7 +2147,7 @@ ExportUserDevicesResponse Client::exportUserDevicesWithOptions(const ExportUserD
 }
 
 /**
- * @summary 批量查询用户设备列表
+ * @summary Exports the information about user terminals in an Excel file.
  *
  * @param request ExportUserDevicesRequest
  * @return ExportUserDevicesResponse
@@ -2338,7 +2338,7 @@ GetBootAndAntiUninstallPolicyResponse Client::getBootAndAntiUninstallPolicy() {
 }
 
 /**
- * @summary 查询自定义身份源指定用户
+ * @summary Query a specified user from a custom identity source
  *
  * @param request GetClientUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2365,7 +2365,7 @@ GetClientUserResponse Client::getClientUserWithOptions(const GetClientUserReques
 }
 
 /**
- * @summary 查询自定义身份源指定用户
+ * @summary Query a specified user from a custom identity source
  *
  * @param request GetClientUserRequest
  * @return GetClientUserResponse

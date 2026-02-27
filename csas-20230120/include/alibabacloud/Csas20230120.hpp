@@ -505,7 +505,7 @@ namespace Csas20230120
       Models::DeleteRegistrationPoliciesResponse deleteRegistrationPolicies(const Models::DeleteRegistrationPoliciesRequest &request);
 
       /**
-       * @summary 批量删除用户非在线设备
+       * @summary Deletes multiple user terminals at a time.
        *
        * @param request DeleteUserDevicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -514,7 +514,7 @@ namespace Csas20230120
       Models::DeleteUserDevicesResponse deleteUserDevicesWithOptions(const Models::DeleteUserDevicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除用户非在线设备
+       * @summary Deletes multiple user terminals at a time.
        *
        * @param request DeleteUserDevicesRequest
        * @return DeleteUserDevicesResponse
@@ -611,7 +611,7 @@ namespace Csas20230120
       Models::EnableEnterpriseAcceleratePolicyResponse enableEnterpriseAcceleratePolicy(const Models::EnableEnterpriseAcceleratePolicyRequest &request);
 
       /**
-       * @summary 批量查询用户设备列表
+       * @summary Exports the information about user terminals in an Excel file.
        *
        * @param request ExportUserDevicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -620,7 +620,7 @@ namespace Csas20230120
       Models::ExportUserDevicesResponse exportUserDevicesWithOptions(const Models::ExportUserDevicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量查询用户设备列表
+       * @summary Exports the information about user terminals in an Excel file.
        *
        * @param request ExportUserDevicesRequest
        * @return ExportUserDevicesResponse
@@ -711,7 +711,7 @@ namespace Csas20230120
       Models::GetBootAndAntiUninstallPolicyResponse getBootAndAntiUninstallPolicy();
 
       /**
-       * @summary 查询自定义身份源指定用户
+       * @summary Query a specified user from a custom identity source
        *
        * @param request GetClientUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -720,7 +720,7 @@ namespace Csas20230120
       Models::GetClientUserResponse getClientUserWithOptions(const Models::GetClientUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询自定义身份源指定用户
+       * @summary Query a specified user from a custom identity source
        *
        * @param request GetClientUserRequest
        * @return GetClientUserResponse

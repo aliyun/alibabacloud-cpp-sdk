@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FeishuConfig, feishuConfig_);
       DARABONBA_PTR_TO_JSON(IdaasConfig, idaasConfig_);
       DARABONBA_PTR_TO_JSON(IdpConfigId, idpConfigId_);
+      DARABONBA_PTR_TO_JSON(IdpId, idpId_);
       DARABONBA_PTR_TO_JSON(LastSyncTimeUnix, lastSyncTimeUnix_);
       DARABONBA_PTR_TO_JSON(LdapConfig, ldapConfig_);
       DARABONBA_PTR_TO_JSON(LoginConfig, loginConfig_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FeishuConfig, feishuConfig_);
       DARABONBA_PTR_FROM_JSON(IdaasConfig, idaasConfig_);
       DARABONBA_PTR_FROM_JSON(IdpConfigId, idpConfigId_);
+      DARABONBA_PTR_FROM_JSON(IdpId, idpId_);
       DARABONBA_PTR_FROM_JSON(LastSyncTimeUnix, lastSyncTimeUnix_);
       DARABONBA_PTR_FROM_JSON(LdapConfig, ldapConfig_);
       DARABONBA_PTR_FROM_JSON(LoginConfig, loginConfig_);
@@ -75,9 +77,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attrMapConfig_ == nullptr
         && this->connectConfig_ == nullptr && this->description_ == nullptr && this->dingtalkConfig_ == nullptr && this->enabled_ == nullptr && this->feishuConfig_ == nullptr
-        && this->idaasConfig_ == nullptr && this->idpConfigId_ == nullptr && this->lastSyncTimeUnix_ == nullptr && this->ldapConfig_ == nullptr && this->loginConfig_ == nullptr
-        && this->logoDirectory_ == nullptr && this->name_ == nullptr && this->syncConfig_ == nullptr && this->syncStatus_ == nullptr && this->type_ == nullptr
-        && this->weixinConfig_ == nullptr && this->wuyingConfig_ == nullptr; };
+        && this->idaasConfig_ == nullptr && this->idpConfigId_ == nullptr && this->idpId_ == nullptr && this->lastSyncTimeUnix_ == nullptr && this->ldapConfig_ == nullptr
+        && this->loginConfig_ == nullptr && this->logoDirectory_ == nullptr && this->name_ == nullptr && this->syncConfig_ == nullptr && this->syncStatus_ == nullptr
+        && this->type_ == nullptr && this->weixinConfig_ == nullptr && this->wuyingConfig_ == nullptr; };
     // attrMapConfig Field Functions 
     bool hasAttrMapConfig() const { return this->attrMapConfig_ != nullptr;};
     void deleteAttrMapConfig() { this->attrMapConfig_ = nullptr;};
@@ -142,6 +144,13 @@ namespace Models
     void deleteIdpConfigId() { this->idpConfigId_ = nullptr;};
     inline string getIdpConfigId() const { DARABONBA_PTR_GET_DEFAULT(idpConfigId_, "") };
     inline IdpConfig& setIdpConfigId(string idpConfigId) { DARABONBA_PTR_SET_VALUE(idpConfigId_, idpConfigId) };
+
+
+    // idpId Field Functions 
+    bool hasIdpId() const { return this->idpId_ != nullptr;};
+    void deleteIdpId() { this->idpId_ = nullptr;};
+    inline int64_t getIdpId() const { DARABONBA_PTR_GET_DEFAULT(idpId_, 0L) };
+    inline IdpConfig& setIdpId(int64_t idpId) { DARABONBA_PTR_SET_VALUE(idpId_, idpId) };
 
 
     // lastSyncTimeUnix Field Functions 
@@ -233,6 +242,7 @@ namespace Models
     shared_ptr<IdpFeishuSubConfig> feishuConfig_ {};
     shared_ptr<IdpIdaas2SubConfig> idaasConfig_ {};
     shared_ptr<string> idpConfigId_ {};
+    shared_ptr<int64_t> idpId_ {};
     shared_ptr<int64_t> lastSyncTimeUnix_ {};
     shared_ptr<IdpLdapSubConfig> ldapConfig_ {};
     shared_ptr<IdpLoginConfig> loginConfig_ {};

@@ -13,12 +13,14 @@ namespace Models
   class ListUserApplicationsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListUserApplicationsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Address, address_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(SaseUserId, saseUserId_);
     };
     friend void from_json(const Darabonba::Json& j, ListUserApplicationsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Address, address_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->currentPage_ == nullptr
-        && this->name_ == nullptr && this->pageSize_ == nullptr && this->saseUserId_ == nullptr; };
+    virtual bool empty() const override { return this->address_ == nullptr
+        && this->currentPage_ == nullptr && this->name_ == nullptr && this->pageSize_ == nullptr && this->saseUserId_ == nullptr; };
+    // address Field Functions 
+    bool hasAddress() const { return this->address_ != nullptr;};
+    void deleteAddress() { this->address_ = nullptr;};
+    inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
+    inline ListUserApplicationsRequest& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
+
+
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -66,6 +75,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> address_ {};
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
     shared_ptr<string> name_ {};
