@@ -20,21 +20,5 @@
 #include <alibabacloud/models/ViewInstanceRecordsRequest.hpp>
 #include <alibabacloud/models/ViewInstanceRecordsResponseBody.hpp>
 #include <alibabacloud/models/ViewInstanceRecordsResponse.hpp>
-#include <alibabacloud/models/GetInstanceRecordConfigResponseBodyRoot.hpp>
-#include <alibabacloud/models/ListInstanceRecordsResponseBodyRootRecordList.hpp>
-#include <alibabacloud/models/ListInstanceRecordsResponseBodyRoot.hpp>
-#include <alibabacloud/models/ListTerminalCommandsResponseBodyTerminalCommandList.hpp>
-#include <alibabacloud/models/LoginInstanceRequestInstanceLoginInfoEncryptionOptions.hpp>
-#include <alibabacloud/models/LoginInstanceRequestInstanceLoginInfoOptionsContainerInfo.hpp>
-#include <alibabacloud/models/LoginInstanceRequestInstanceLoginInfoOptions.hpp>
-#include <alibabacloud/models/LoginInstanceRequestInstanceLoginInfo.hpp>
-#include <alibabacloud/models/LoginInstanceRequestPartnerInfo.hpp>
-#include <alibabacloud/models/LoginInstanceRequestUserAccountOptions.hpp>
-#include <alibabacloud/models/LoginInstanceRequestUserAccount.hpp>
-#include <alibabacloud/models/LoginInstanceResponseBodyRootDisposableAccount.hpp>
-#include <alibabacloud/models/LoginInstanceResponseBodyRootInstanceLoginInfoListInstanceLoginView.hpp>
-#include <alibabacloud/models/LoginInstanceResponseBodyRootInstanceLoginInfoList.hpp>
-#include <alibabacloud/models/LoginInstanceResponseBodyRootSessionControl.hpp>
-#include <alibabacloud/models/LoginInstanceResponseBodyRoot.hpp>
 
 #endif

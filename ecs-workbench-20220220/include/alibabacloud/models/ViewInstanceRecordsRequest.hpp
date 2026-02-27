@@ -33,35 +33,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->instanceId_ != nullptr
-        && this->regionId_ != nullptr && this->terminalSessionToken_ != nullptr; };
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->regionId_ == nullptr && this->terminalSessionToken_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ViewInstanceRecordsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ViewInstanceRecordsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // terminalSessionToken Field Functions 
     bool hasTerminalSessionToken() const { return this->terminalSessionToken_ != nullptr;};
     void deleteTerminalSessionToken() { this->terminalSessionToken_ = nullptr;};
-    inline string terminalSessionToken() const { DARABONBA_PTR_GET_DEFAULT(terminalSessionToken_, "") };
+    inline string getTerminalSessionToken() const { DARABONBA_PTR_GET_DEFAULT(terminalSessionToken_, "") };
     inline ViewInstanceRecordsRequest& setTerminalSessionToken(string terminalSessionToken) { DARABONBA_PTR_SET_VALUE(terminalSessionToken_, terminalSessionToken) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> regionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> terminalSessionToken_ = nullptr;
+    shared_ptr<string> terminalSessionToken_ {};
   };
 
   } // namespace Models

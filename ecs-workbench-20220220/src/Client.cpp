@@ -46,11 +46,11 @@ GetInstanceRecordConfigResponse Client::getInstanceRecordConfigWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -92,19 +92,19 @@ ListInstanceRecordsResponse Client::listInstanceRecordsWithOptions(const ListIns
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -146,19 +146,19 @@ ListTerminalCommandsResponse Client::listTerminalCommandsWithOptions(const ListT
   request.validate();
   json body = {};
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasTerminalSessionToken()) {
-    body["TerminalSessionToken"] = request.terminalSessionToken();
+    body["TerminalSessionToken"] = request.getTerminalSessionToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -200,15 +200,15 @@ LoginInstanceResponse Client::loginInstanceWithOptions(const LoginInstanceReques
   request.validate();
   json query = {};
   if (!!request.hasInstanceLoginInfo()) {
-    query["InstanceLoginInfo"] = request.instanceLoginInfo();
+    query["InstanceLoginInfo"] = request.getInstanceLoginInfo();
   }
 
   if (!!request.hasPartnerInfo()) {
-    query["PartnerInfo"] = request.partnerInfo();
+    query["PartnerInfo"] = request.getPartnerInfo();
   }
 
   if (!!request.hasUserAccount()) {
-    query["UserAccount"] = request.userAccount();
+    query["UserAccount"] = request.getUserAccount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -250,23 +250,27 @@ SetInstanceRecordConfigResponse Client::setInstanceRecordConfigWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasEnabled()) {
-    body["Enabled"] = request.enabled();
+    body["Enabled"] = request.getEnabled();
   }
 
   if (!!request.hasExpirationDays()) {
-    body["ExpirationDays"] = request.expirationDays();
+    body["ExpirationDays"] = request.getExpirationDays();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRecordStorageTarget()) {
-    body["RecordStorageTarget"] = request.recordStorageTarget();
+    body["RecordStorageTarget"] = request.getRecordStorageTarget();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceRegionId()) {
+    body["ResourceRegionId"] = request.getResourceRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -308,15 +312,15 @@ ViewInstanceRecordsResponse Client::viewInstanceRecordsWithOptions(const ViewIns
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasTerminalSessionToken()) {
-    body["TerminalSessionToken"] = request.terminalSessionToken();
+    body["TerminalSessionToken"] = request.getTerminalSessionToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
