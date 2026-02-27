@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupType_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // backupType Field Functions 
     bool hasBackupType() const { return this->backupType_ != nullptr;};
     void deleteBackupType() { this->backupType_ = nullptr;};
-    inline string backupType() const { DARABONBA_PTR_GET_DEFAULT(backupType_, "") };
+    inline string getBackupType() const { DARABONBA_PTR_GET_DEFAULT(backupType_, "") };
     inline ListBackupDataRequest& setBackupType(string backupType) { DARABONBA_PTR_SET_VALUE(backupType_, backupType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListBackupDataRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
@@ -58,9 +58,9 @@ namespace Models
     // *   full_remote
     // *   local
     // *   full
-    std::shared_ptr<string> backupType_ = nullptr;
+    shared_ptr<string> backupType_ {};
     // The instance ID.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

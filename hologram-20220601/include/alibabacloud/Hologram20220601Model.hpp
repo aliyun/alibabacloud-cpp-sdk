@@ -20,13 +20,13 @@
 #include <alibabacloud/models/DisableHiveAccessRequest.hpp>
 #include <alibabacloud/models/DisableHiveAccessResponseBody.hpp>
 #include <alibabacloud/models/DisableHiveAccessResponse.hpp>
-#include <alibabacloud/models/DisableSslResponseBody.hpp>
-#include <alibabacloud/models/DisableSslResponse.hpp>
+#include <alibabacloud/models/DisableSSLResponseBody.hpp>
+#include <alibabacloud/models/DisableSSLResponse.hpp>
 #include <alibabacloud/models/EnableHiveAccessRequest.hpp>
 #include <alibabacloud/models/EnableHiveAccessResponseBody.hpp>
 #include <alibabacloud/models/EnableHiveAccessResponse.hpp>
-#include <alibabacloud/models/EnableSslResponseBody.hpp>
-#include <alibabacloud/models/EnableSslResponse.hpp>
+#include <alibabacloud/models/EnableSSLResponseBody.hpp>
+#include <alibabacloud/models/EnableSSLResponse.hpp>
 #include <alibabacloud/models/GetCertificateAttributeResponseBody.hpp>
 #include <alibabacloud/models/GetCertificateAttributeResponse.hpp>
 #include <alibabacloud/models/GetInstanceResponseBody.hpp>
@@ -64,8 +64,8 @@
 #include <alibabacloud/models/RenewInstanceRequest.hpp>
 #include <alibabacloud/models/RenewInstanceResponseBody.hpp>
 #include <alibabacloud/models/RenewInstanceResponse.hpp>
-#include <alibabacloud/models/RenewSslCertificateResponseBody.hpp>
-#include <alibabacloud/models/RenewSslCertificateResponse.hpp>
+#include <alibabacloud/models/RenewSSLCertificateResponseBody.hpp>
+#include <alibabacloud/models/RenewSSLCertificateResponse.hpp>
 #include <alibabacloud/models/RestartHoloWarehouseRequest.hpp>
 #include <alibabacloud/models/RestartHoloWarehouseResponseBody.hpp>
 #include <alibabacloud/models/RestartHoloWarehouseResponse.hpp>
@@ -102,21 +102,5 @@
 #include <alibabacloud/models/UpdateInstanceNetworkTypeRequest.hpp>
 #include <alibabacloud/models/UpdateInstanceNetworkTypeResponseBody.hpp>
 #include <alibabacloud/models/UpdateInstanceNetworkTypeResponse.hpp>
-#include <alibabacloud/models/CreateInstanceResponseBodyData.hpp>
-#include <alibabacloud/models/GetCertificateAttributeResponseBodyCertificateAttributeDto.hpp>
-#include <alibabacloud/models/GetInstanceResponseBodyInstanceEndpoints.hpp>
-#include <alibabacloud/models/GetInstanceResponseBodyInstanceTags.hpp>
-#include <alibabacloud/models/GetInstanceResponseBodyInstance.hpp>
-#include <alibabacloud/models/GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList.hpp>
-#include <alibabacloud/models/GetWarehouseDetailResponseBodyWarehouseDetail.hpp>
-#include <alibabacloud/models/ListBackupDataResponseBodyBackupDataList.hpp>
-#include <alibabacloud/models/ListDatabasesResponseBodyDatabaseList.hpp>
-#include <alibabacloud/models/ListInstancesRequestTag.hpp>
-#include <alibabacloud/models/ListInstancesResponseBodyInstanceListEndpoints.hpp>
-#include <alibabacloud/models/ListInstancesResponseBodyInstanceListTags.hpp>
-#include <alibabacloud/models/ListInstancesResponseBodyInstanceList.hpp>
-#include <alibabacloud/models/ListWarehousesResponseBodyWarehouseList.hpp>
-#include <alibabacloud/models/RenewInstanceResponseBodyData.hpp>
-#include <alibabacloud/models/ScaleInstanceResponseBodyData.hpp>
 
 #endif

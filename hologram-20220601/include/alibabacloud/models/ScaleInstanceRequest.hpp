@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->coldStorageSize_ == nullptr
-        && return this->cpu_ == nullptr && return this->enableServerlessComputing_ == nullptr && return this->gatewayCount_ == nullptr && return this->scaleType_ == nullptr && return this->storageSize_ == nullptr; };
+        && this->cpu_ == nullptr && this->enableServerlessComputing_ == nullptr && this->gatewayCount_ == nullptr && this->scaleType_ == nullptr && this->storageSize_ == nullptr; };
     // coldStorageSize Field Functions 
     bool hasColdStorageSize() const { return this->coldStorageSize_ != nullptr;};
     void deleteColdStorageSize() { this->coldStorageSize_ = nullptr;};
-    inline int64_t coldStorageSize() const { DARABONBA_PTR_GET_DEFAULT(coldStorageSize_, 0L) };
+    inline int64_t getColdStorageSize() const { DARABONBA_PTR_GET_DEFAULT(coldStorageSize_, 0L) };
     inline ScaleInstanceRequest& setColdStorageSize(int64_t coldStorageSize) { DARABONBA_PTR_SET_VALUE(coldStorageSize_, coldStorageSize) };
 
 
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
-    inline int64_t cpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0L) };
+    inline int64_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0L) };
     inline ScaleInstanceRequest& setCpu(int64_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
 
 
     // enableServerlessComputing Field Functions 
     bool hasEnableServerlessComputing() const { return this->enableServerlessComputing_ != nullptr;};
     void deleteEnableServerlessComputing() { this->enableServerlessComputing_ = nullptr;};
-    inline bool enableServerlessComputing() const { DARABONBA_PTR_GET_DEFAULT(enableServerlessComputing_, false) };
+    inline bool getEnableServerlessComputing() const { DARABONBA_PTR_GET_DEFAULT(enableServerlessComputing_, false) };
     inline ScaleInstanceRequest& setEnableServerlessComputing(bool enableServerlessComputing) { DARABONBA_PTR_SET_VALUE(enableServerlessComputing_, enableServerlessComputing) };
 
 
     // gatewayCount Field Functions 
     bool hasGatewayCount() const { return this->gatewayCount_ != nullptr;};
     void deleteGatewayCount() { this->gatewayCount_ = nullptr;};
-    inline int64_t gatewayCount() const { DARABONBA_PTR_GET_DEFAULT(gatewayCount_, 0L) };
+    inline int64_t getGatewayCount() const { DARABONBA_PTR_GET_DEFAULT(gatewayCount_, 0L) };
     inline ScaleInstanceRequest& setGatewayCount(int64_t gatewayCount) { DARABONBA_PTR_SET_VALUE(gatewayCount_, gatewayCount) };
 
 
     // scaleType Field Functions 
     bool hasScaleType() const { return this->scaleType_ != nullptr;};
     void deleteScaleType() { this->scaleType_ = nullptr;};
-    inline string scaleType() const { DARABONBA_PTR_GET_DEFAULT(scaleType_, "") };
+    inline string getScaleType() const { DARABONBA_PTR_GET_DEFAULT(scaleType_, "") };
     inline ScaleInstanceRequest& setScaleType(string scaleType) { DARABONBA_PTR_SET_VALUE(scaleType_, scaleType) };
 
 
     // storageSize Field Functions 
     bool hasStorageSize() const { return this->storageSize_ != nullptr;};
     void deleteStorageSize() { this->storageSize_ = nullptr;};
-    inline int64_t storageSize() const { DARABONBA_PTR_GET_DEFAULT(storageSize_, 0L) };
+    inline int64_t getStorageSize() const { DARABONBA_PTR_GET_DEFAULT(storageSize_, 0L) };
     inline ScaleInstanceRequest& setStorageSize(int64_t storageSize) { DARABONBA_PTR_SET_VALUE(storageSize_, storageSize) };
 
 
@@ -87,7 +87,7 @@ namespace Models
     // The infrequent access (IA) storage space of the instance. Unit: GB.
     // 
     // > Ignore this parameter for pay-as-you-go instances.
-    std::shared_ptr<int64_t> coldStorageSize_ = nullptr;
+    shared_ptr<int64_t> coldStorageSize_ {};
     // The specifications of the instance. Valid values:
     // 
     // *   8-core 32GB (number of compute nodes: 1)
@@ -107,13 +107,13 @@ namespace Models
     // *   This parameter is invalid for Hologres Shared Cluster instances.
     // 
     // *   The specifications of 8-core 32GB (number of compute nodes: 1) are for trial use only and cannot be used for production.
-    std::shared_ptr<int64_t> cpu_ = nullptr;
+    shared_ptr<int64_t> cpu_ {};
     // 是否开启ServerlessComputing
-    std::shared_ptr<bool> enableServerlessComputing_ = nullptr;
+    shared_ptr<bool> enableServerlessComputing_ {};
     // The number of gateways. Valid values: 2 to 50.
     // 
     // > This parameter is required only for virtual warehouse instances.
-    std::shared_ptr<int64_t> gatewayCount_ = nullptr;
+    shared_ptr<int64_t> gatewayCount_ {};
     // The specification change type. Valid values:
     // 
     // *   UPGRADE
@@ -126,11 +126,11 @@ namespace Models
     // *   If you set this parameter to DOWNGRADE, the new specifications must be lower than the original specifications. You must configure at least one of the cpu, storageSize, and coldStorageSize parameters. If you leave a parameter empty, the related configuration remains unchanged.
     // 
     // This parameter is required.
-    std::shared_ptr<string> scaleType_ = nullptr;
+    shared_ptr<string> scaleType_ {};
     // The standard storage space of the instance. Unit: GB.
     // 
     // > Ignore this parameter for pay-as-you-go instances.
-    std::shared_ptr<int64_t> storageSize_ = nullptr;
+    shared_ptr<int64_t> storageSize_ {};
   };
 
   } // namespace Models

@@ -41,26 +41,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allTable_ == nullptr
-        && return this->databaseName_ == nullptr && return this->privileges_ == nullptr && return this->schemaName_ == nullptr && return this->tableName_ == nullptr && return this->userName_ == nullptr; };
+        && this->databaseName_ == nullptr && this->privileges_ == nullptr && this->schemaName_ == nullptr && this->tableName_ == nullptr && this->userName_ == nullptr; };
     // allTable Field Functions 
     bool hasAllTable() const { return this->allTable_ != nullptr;};
     void deleteAllTable() { this->allTable_ = nullptr;};
-    inline bool allTable() const { DARABONBA_PTR_GET_DEFAULT(allTable_, false) };
+    inline bool getAllTable() const { DARABONBA_PTR_GET_DEFAULT(allTable_, false) };
     inline GrantTablePermissionRequest& setAllTable(bool allTable) { DARABONBA_PTR_SET_VALUE(allTable_, allTable) };
 
 
     // databaseName Field Functions 
     bool hasDatabaseName() const { return this->databaseName_ != nullptr;};
     void deleteDatabaseName() { this->databaseName_ = nullptr;};
-    inline string databaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
+    inline string getDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
     inline GrantTablePermissionRequest& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
 
 
     // privileges Field Functions 
     bool hasPrivileges() const { return this->privileges_ != nullptr;};
     void deletePrivileges() { this->privileges_ = nullptr;};
-    inline const vector<string> & privileges() const { DARABONBA_PTR_GET_CONST(privileges_, vector<string>) };
-    inline vector<string> privileges() { DARABONBA_PTR_GET(privileges_, vector<string>) };
+    inline const vector<string> & getPrivileges() const { DARABONBA_PTR_GET_CONST(privileges_, vector<string>) };
+    inline vector<string> getPrivileges() { DARABONBA_PTR_GET(privileges_, vector<string>) };
     inline GrantTablePermissionRequest& setPrivileges(const vector<string> & privileges) { DARABONBA_PTR_SET_VALUE(privileges_, privileges) };
     inline GrantTablePermissionRequest& setPrivileges(vector<string> && privileges) { DARABONBA_PTR_SET_RVALUE(privileges_, privileges) };
 
@@ -68,31 +68,31 @@ namespace Models
     // schemaName Field Functions 
     bool hasSchemaName() const { return this->schemaName_ != nullptr;};
     void deleteSchemaName() { this->schemaName_ = nullptr;};
-    inline string schemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
+    inline string getSchemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
     inline GrantTablePermissionRequest& setSchemaName(string schemaName) { DARABONBA_PTR_SET_VALUE(schemaName_, schemaName) };
 
 
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline GrantTablePermissionRequest& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline GrantTablePermissionRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
   protected:
-    std::shared_ptr<bool> allTable_ = nullptr;
-    std::shared_ptr<string> databaseName_ = nullptr;
-    std::shared_ptr<vector<string>> privileges_ = nullptr;
-    std::shared_ptr<string> schemaName_ = nullptr;
-    std::shared_ptr<string> tableName_ = nullptr;
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<bool> allTable_ {};
+    shared_ptr<string> databaseName_ {};
+    shared_ptr<vector<string>> privileges_ {};
+    shared_ptr<string> schemaName_ {};
+    shared_ptr<string> tableName_ {};
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

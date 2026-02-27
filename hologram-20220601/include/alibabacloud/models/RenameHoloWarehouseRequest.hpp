@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->newWarehouseName_ == nullptr; };
+        && this->newWarehouseName_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline RenameHoloWarehouseRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // newWarehouseName Field Functions 
     bool hasNewWarehouseName() const { return this->newWarehouseName_ != nullptr;};
     void deleteNewWarehouseName() { this->newWarehouseName_ = nullptr;};
-    inline string newWarehouseName() const { DARABONBA_PTR_GET_DEFAULT(newWarehouseName_, "") };
+    inline string getNewWarehouseName() const { DARABONBA_PTR_GET_DEFAULT(newWarehouseName_, "") };
     inline RenameHoloWarehouseRequest& setNewWarehouseName(string newWarehouseName) { DARABONBA_PTR_SET_VALUE(newWarehouseName_, newWarehouseName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The original name of the virtual warehouse.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The new name of the virtual warehouse.
     // 
     // This parameter is required.
-    std::shared_ptr<string> newWarehouseName_ = nullptr;
+    shared_ptr<string> newWarehouseName_ {};
   };
 
   } // namespace Models

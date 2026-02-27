@@ -33,13 +33,13 @@ namespace Models
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline UpdateInstanceNameRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
   protected:
     // The new name of the instance. The name must be 2 to 64 characters in length.
-    std::shared_ptr<string> instanceName_ = nullptr;
+    shared_ptr<string> instanceName_ {};
   };
 
   } // namespace Models

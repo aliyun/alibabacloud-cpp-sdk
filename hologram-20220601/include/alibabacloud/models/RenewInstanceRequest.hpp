@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoRenew_ == nullptr
-        && return this->duration_ == nullptr; };
+        && this->duration_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
-    inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+    inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline RenewInstanceRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int32_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
+    inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
     inline RenewInstanceRequest& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
@@ -54,11 +54,11 @@ namespace Models
     // *   false
     // 
     // >  If you enable auto-renewal for an instance for which auto-renewal is enabled, an error is reported.
-    std::shared_ptr<bool> autoRenew_ = nullptr;
+    shared_ptr<bool> autoRenew_ {};
     // The renewal duration. Unit: month.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> duration_ = nullptr;
+    shared_ptr<int32_t> duration_ {};
   };
 
   } // namespace Models

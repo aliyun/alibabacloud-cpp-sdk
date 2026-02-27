@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->databaseName_ == nullptr
-        && return this->privileges_ == nullptr && return this->userName_ == nullptr; };
+        && this->privileges_ == nullptr && this->userName_ == nullptr; };
     // databaseName Field Functions 
     bool hasDatabaseName() const { return this->databaseName_ != nullptr;};
     void deleteDatabaseName() { this->databaseName_ = nullptr;};
-    inline string databaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
+    inline string getDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
     inline RevokeDatabasePermissionRequest& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
 
 
     // privileges Field Functions 
     bool hasPrivileges() const { return this->privileges_ != nullptr;};
     void deletePrivileges() { this->privileges_ = nullptr;};
-    inline const vector<string> & privileges() const { DARABONBA_PTR_GET_CONST(privileges_, vector<string>) };
-    inline vector<string> privileges() { DARABONBA_PTR_GET(privileges_, vector<string>) };
+    inline const vector<string> & getPrivileges() const { DARABONBA_PTR_GET_CONST(privileges_, vector<string>) };
+    inline vector<string> getPrivileges() { DARABONBA_PTR_GET(privileges_, vector<string>) };
     inline RevokeDatabasePermissionRequest& setPrivileges(const vector<string> & privileges) { DARABONBA_PTR_SET_VALUE(privileges_, privileges) };
     inline RevokeDatabasePermissionRequest& setPrivileges(vector<string> && privileges) { DARABONBA_PTR_SET_RVALUE(privileges_, privileges) };
 
@@ -55,14 +55,14 @@ namespace Models
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline RevokeDatabasePermissionRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
   protected:
-    std::shared_ptr<string> databaseName_ = nullptr;
-    std::shared_ptr<vector<string>> privileges_ = nullptr;
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> databaseName_ {};
+    shared_ptr<vector<string>> privileges_ {};
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

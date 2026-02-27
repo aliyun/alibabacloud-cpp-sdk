@@ -68,147 +68,147 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && return this->autoRenew_ == nullptr && return this->chargeType_ == nullptr && return this->coldStorageSize_ == nullptr && return this->cpu_ == nullptr && return this->duration_ == nullptr
-        && return this->enableServerlessComputing_ == nullptr && return this->gatewayCount_ == nullptr && return this->initialDatabases_ == nullptr && return this->instanceName_ == nullptr && return this->instanceType_ == nullptr
-        && return this->leaderInstanceId_ == nullptr && return this->pricingCycle_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->storageSize_ == nullptr
-        && return this->storageType_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->chargeType_ == nullptr && this->coldStorageSize_ == nullptr && this->cpu_ == nullptr && this->duration_ == nullptr
+        && this->enableServerlessComputing_ == nullptr && this->gatewayCount_ == nullptr && this->initialDatabases_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr
+        && this->leaderInstanceId_ == nullptr && this->pricingCycle_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->storageSize_ == nullptr
+        && this->storageType_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline CreateInstanceRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
-    inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+    inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline CreateInstanceRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
-    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline CreateInstanceRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // coldStorageSize Field Functions 
     bool hasColdStorageSize() const { return this->coldStorageSize_ != nullptr;};
     void deleteColdStorageSize() { this->coldStorageSize_ = nullptr;};
-    inline int64_t coldStorageSize() const { DARABONBA_PTR_GET_DEFAULT(coldStorageSize_, 0L) };
+    inline int64_t getColdStorageSize() const { DARABONBA_PTR_GET_DEFAULT(coldStorageSize_, 0L) };
     inline CreateInstanceRequest& setColdStorageSize(int64_t coldStorageSize) { DARABONBA_PTR_SET_VALUE(coldStorageSize_, coldStorageSize) };
 
 
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
-    inline int64_t cpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0L) };
+    inline int64_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0L) };
     inline CreateInstanceRequest& setCpu(int64_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
 
 
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int64_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
+    inline int64_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
     inline CreateInstanceRequest& setDuration(int64_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // enableServerlessComputing Field Functions 
     bool hasEnableServerlessComputing() const { return this->enableServerlessComputing_ != nullptr;};
     void deleteEnableServerlessComputing() { this->enableServerlessComputing_ = nullptr;};
-    inline bool enableServerlessComputing() const { DARABONBA_PTR_GET_DEFAULT(enableServerlessComputing_, false) };
+    inline bool getEnableServerlessComputing() const { DARABONBA_PTR_GET_DEFAULT(enableServerlessComputing_, false) };
     inline CreateInstanceRequest& setEnableServerlessComputing(bool enableServerlessComputing) { DARABONBA_PTR_SET_VALUE(enableServerlessComputing_, enableServerlessComputing) };
 
 
     // gatewayCount Field Functions 
     bool hasGatewayCount() const { return this->gatewayCount_ != nullptr;};
     void deleteGatewayCount() { this->gatewayCount_ = nullptr;};
-    inline int64_t gatewayCount() const { DARABONBA_PTR_GET_DEFAULT(gatewayCount_, 0L) };
+    inline int64_t getGatewayCount() const { DARABONBA_PTR_GET_DEFAULT(gatewayCount_, 0L) };
     inline CreateInstanceRequest& setGatewayCount(int64_t gatewayCount) { DARABONBA_PTR_SET_VALUE(gatewayCount_, gatewayCount) };
 
 
     // initialDatabases Field Functions 
     bool hasInitialDatabases() const { return this->initialDatabases_ != nullptr;};
     void deleteInitialDatabases() { this->initialDatabases_ = nullptr;};
-    inline string initialDatabases() const { DARABONBA_PTR_GET_DEFAULT(initialDatabases_, "") };
+    inline string getInitialDatabases() const { DARABONBA_PTR_GET_DEFAULT(initialDatabases_, "") };
     inline CreateInstanceRequest& setInitialDatabases(string initialDatabases) { DARABONBA_PTR_SET_VALUE(initialDatabases_, initialDatabases) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline CreateInstanceRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline CreateInstanceRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // leaderInstanceId Field Functions 
     bool hasLeaderInstanceId() const { return this->leaderInstanceId_ != nullptr;};
     void deleteLeaderInstanceId() { this->leaderInstanceId_ = nullptr;};
-    inline string leaderInstanceId() const { DARABONBA_PTR_GET_DEFAULT(leaderInstanceId_, "") };
+    inline string getLeaderInstanceId() const { DARABONBA_PTR_GET_DEFAULT(leaderInstanceId_, "") };
     inline CreateInstanceRequest& setLeaderInstanceId(string leaderInstanceId) { DARABONBA_PTR_SET_VALUE(leaderInstanceId_, leaderInstanceId) };
 
 
     // pricingCycle Field Functions 
     bool hasPricingCycle() const { return this->pricingCycle_ != nullptr;};
     void deletePricingCycle() { this->pricingCycle_ = nullptr;};
-    inline string pricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
+    inline string getPricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
     inline CreateInstanceRequest& setPricingCycle(string pricingCycle) { DARABONBA_PTR_SET_VALUE(pricingCycle_, pricingCycle) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateInstanceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateInstanceRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // storageSize Field Functions 
     bool hasStorageSize() const { return this->storageSize_ != nullptr;};
     void deleteStorageSize() { this->storageSize_ = nullptr;};
-    inline int64_t storageSize() const { DARABONBA_PTR_GET_DEFAULT(storageSize_, 0L) };
+    inline int64_t getStorageSize() const { DARABONBA_PTR_GET_DEFAULT(storageSize_, 0L) };
     inline CreateInstanceRequest& setStorageSize(int64_t storageSize) { DARABONBA_PTR_SET_VALUE(storageSize_, storageSize) };
 
 
     // storageType Field Functions 
     bool hasStorageType() const { return this->storageType_ != nullptr;};
     void deleteStorageType() { this->storageType_ = nullptr;};
-    inline string storageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
     inline CreateInstanceRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline CreateInstanceRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline CreateInstanceRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline CreateInstanceRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
@@ -219,12 +219,12 @@ namespace Models
     // *   false
     // 
     // >  The default value is true. If the balance of your account is insufficient, you can set this parameter to false. In this case, an unpaid order is generated. You can log on to the Expenses and Costs console to pay for the order.
-    std::shared_ptr<bool> autoPay_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable monthly auto-renewal. The default value is false. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> autoRenew_ = nullptr;
+    shared_ptr<bool> autoRenew_ {};
     // The billing method of the instance. Valid values:
     // 
     // *   PrePaid: subscription
@@ -233,11 +233,11 @@ namespace Models
     // >  This parameter is invalid for Hologres Shared Cluster instances. Hologres Shared Cluster instances have fixed specifications and are pay-as-you-go instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> chargeType_ = nullptr;
+    shared_ptr<string> chargeType_ {};
     // The infrequent access (IA) storage space of the instance. Unit: GB.
     // 
     // >  This parameter is invalid for pay-as-you-go instances.
-    std::shared_ptr<int64_t> coldStorageSize_ = nullptr;
+    shared_ptr<int64_t> coldStorageSize_ {};
     // The instance specifications. Valid values:
     // 
     // *   8-core 32GB (number of compute nodes: 1)
@@ -256,28 +256,28 @@ namespace Models
     // *   This parameter is invalid for Hologres Shared Cluster instances.
     // 
     // *   The specifications of 8-core 32GB (number of compute nodes: 1) are for trial use only and cannot be used for production.
-    std::shared_ptr<int64_t> cpu_ = nullptr;
+    shared_ptr<int64_t> cpu_ {};
     // The validity period of the instance that you want to purchase. For example, you can specify a validity period of two months.
     // 
     // >  You do not need to configure this parameter for pay-as-you-go instances.
-    std::shared_ptr<int64_t> duration_ = nullptr;
+    shared_ptr<int64_t> duration_ {};
     // Specifies whether to enable the Serverless Computing feature.
     // 
     // Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> enableServerlessComputing_ = nullptr;
+    shared_ptr<bool> enableServerlessComputing_ {};
     // The number of gateways. Valid values: 2 to 50.
     // 
     // >  This parameter is required only for virtual warehouse instances.
-    std::shared_ptr<int64_t> gatewayCount_ = nullptr;
+    shared_ptr<int64_t> gatewayCount_ {};
     // The initial database.
-    std::shared_ptr<string> initialDatabases_ = nullptr;
+    shared_ptr<string> initialDatabases_ {};
     // The name of the instance. The name must be 2 to 64 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceName_ = nullptr;
+    shared_ptr<string> instanceName_ {};
     // The category of the instance. Valid values:
     // 
     // *   Standard: general-purpose instance
@@ -286,7 +286,7 @@ namespace Models
     // *   Shared: Hologres Shared Cluster instance
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceType_ = nullptr;
+    shared_ptr<string> instanceType_ {};
     // The ID of the primary instance. This parameter is required for read-only secondary instances.
     // 
     // >  The primary and secondary instances must meet the following requirements:
@@ -300,7 +300,7 @@ namespace Models
     // *   Less than 10 secondary instances are associated with the primary instance.
     // 
     // *   The primary instance and secondary instances belong to the same Alibaba Cloud account.
-    std::shared_ptr<string> leaderInstanceId_ = nullptr;
+    shared_ptr<string> leaderInstanceId_ {};
     // The billing cycle. Valid values:
     // 
     // *   Month
@@ -313,30 +313,30 @@ namespace Models
     // *   This parameter can only be set to Hour for pay-as-you-go instances.
     // 
     // *   By default, this parameter is set to Hour for Hologres Shared Cluster instances.
-    std::shared_ptr<string> pricingCycle_ = nullptr;
+    shared_ptr<string> pricingCycle_ {};
     // The ID of the region. You can obtain region IDs in [Endpoints](https://www.alibabacloud.com/help/en/maxcompute/user-guide/endpoints).
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group. If you do not specify this parameter, the default resource group of the account is used.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The standard storage space of the instance. Unit: GB.
     // 
     // >  This parameter is invalid for pay-as-you-go instances.
-    std::shared_ptr<int64_t> storageSize_ = nullptr;
-    std::shared_ptr<string> storageType_ = nullptr;
+    shared_ptr<int64_t> storageSize_ {};
+    shared_ptr<string> storageType_ {};
     // The ID of the vSwitch. The zone in which the vSwitch resides must be the same as the zone in which the Hologres instance resides.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<string> vSwitchId_ {};
     // The ID of the virtual private cloud (VPC). The region in which the VPC resides must be the same as the region in which the Hologres instance resides.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
     // The ID of the zone. For more information, see the "Operation description" section in this topic.
     // 
     // This parameter is required.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     // external Field Functions 
     bool hasExternal() const { return this->external_ != nullptr;};
     void deleteExternal() { this->external_ = nullptr;};
-    inline bool external() const { DARABONBA_PTR_GET_DEFAULT(external_, false) };
+    inline bool getExternal() const { DARABONBA_PTR_GET_DEFAULT(external_, false) };
     inline ListDatabasesRequest& setExternal(bool external) { DARABONBA_PTR_SET_VALUE(external_, external) };
 
 
   protected:
-    std::shared_ptr<bool> external_ = nullptr;
+    shared_ptr<bool> external_ {};
   };
 
   } // namespace Models
