@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ContainerFieldValue, containerFieldValue_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(Dealed, dealed_);
+      DARABONBA_PTR_TO_JSON(DetectSource, detectSource_);
       DARABONBA_PTR_TO_JSON(EventNames, eventNames_);
       DARABONBA_PTR_TO_JSON(From, from_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
@@ -59,6 +60,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ContainerFieldValue, containerFieldValue_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(Dealed, dealed_);
+      DARABONBA_PTR_FROM_JSON(DetectSource, detectSource_);
       DARABONBA_PTR_FROM_JSON(EventNames, eventNames_);
       DARABONBA_PTR_FROM_JSON(From, from_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
@@ -102,12 +104,13 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alarmUniqueInfo_ == nullptr
         && this->assetsTypeList_ == nullptr && this->clusterId_ == nullptr && this->containerFieldName_ == nullptr && this->containerFieldValue_ == nullptr && this->currentPage_ == nullptr
-        && this->dealed_ == nullptr && this->eventNames_ == nullptr && this->from_ == nullptr && this->groupId_ == nullptr && this->id_ == nullptr
-        && this->lang_ == nullptr && this->levels_ == nullptr && this->multiAccountActionType_ == nullptr && this->name_ == nullptr && this->operateErrorCodeList_ == nullptr
-        && this->operateTimeEnd_ == nullptr && this->operateTimeStart_ == nullptr && this->pageSize_ == nullptr && this->parentEventTypes_ == nullptr && this->remark_ == nullptr
-        && this->resourceDirectoryAccountId_ == nullptr && this->sortColumn_ == nullptr && this->sortType_ == nullptr && this->source_ == nullptr && this->sourceAliUidsShrink_ == nullptr
-        && this->sourceIp_ == nullptr && this->status_ == nullptr && this->strictMode_ == nullptr && this->supportOperateCodeList_ == nullptr && this->tacticId_ == nullptr
-        && this->targetType_ == nullptr && this->timeEnd_ == nullptr && this->timeStart_ == nullptr && this->uniqueInfo_ == nullptr && this->uuids_ == nullptr; };
+        && this->dealed_ == nullptr && this->detectSource_ == nullptr && this->eventNames_ == nullptr && this->from_ == nullptr && this->groupId_ == nullptr
+        && this->id_ == nullptr && this->lang_ == nullptr && this->levels_ == nullptr && this->multiAccountActionType_ == nullptr && this->name_ == nullptr
+        && this->operateErrorCodeList_ == nullptr && this->operateTimeEnd_ == nullptr && this->operateTimeStart_ == nullptr && this->pageSize_ == nullptr && this->parentEventTypes_ == nullptr
+        && this->remark_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->sortColumn_ == nullptr && this->sortType_ == nullptr && this->source_ == nullptr
+        && this->sourceAliUidsShrink_ == nullptr && this->sourceIp_ == nullptr && this->status_ == nullptr && this->strictMode_ == nullptr && this->supportOperateCodeList_ == nullptr
+        && this->tacticId_ == nullptr && this->targetType_ == nullptr && this->timeEnd_ == nullptr && this->timeStart_ == nullptr && this->uniqueInfo_ == nullptr
+        && this->uuids_ == nullptr; };
     // alarmUniqueInfo Field Functions 
     bool hasAlarmUniqueInfo() const { return this->alarmUniqueInfo_ != nullptr;};
     void deleteAlarmUniqueInfo() { this->alarmUniqueInfo_ = nullptr;};
@@ -157,6 +160,13 @@ namespace Models
     void deleteDealed() { this->dealed_ = nullptr;};
     inline string getDealed() const { DARABONBA_PTR_GET_DEFAULT(dealed_, "") };
     inline DescribeSuspEventsShrinkRequest& setDealed(string dealed) { DARABONBA_PTR_SET_VALUE(dealed_, dealed) };
+
+
+    // detectSource Field Functions 
+    bool hasDetectSource() const { return this->detectSource_ != nullptr;};
+    void deleteDetectSource() { this->detectSource_ = nullptr;};
+    inline string getDetectSource() const { DARABONBA_PTR_GET_DEFAULT(detectSource_, "") };
+    inline DescribeSuspEventsShrinkRequest& setDetectSource(string detectSource) { DARABONBA_PTR_SET_VALUE(detectSource_, detectSource) };
 
 
     // eventNames Field Functions 
@@ -399,6 +409,7 @@ namespace Models
     // *   **N**: unhandled
     // *   **Y**: handled
     shared_ptr<string> dealed_ {};
+    shared_ptr<string> detectSource_ {};
     // The subtype of the alert event. Separate multiple subtypes with commas (,).
     shared_ptr<string> eventNames_ {};
     // The data source of the alert event. Set the value to sas.

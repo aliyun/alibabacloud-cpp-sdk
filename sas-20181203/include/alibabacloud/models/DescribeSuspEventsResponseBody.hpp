@@ -60,6 +60,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DataSource, dataSource_);
         DARABONBA_PTR_TO_JSON(Desc, desc_);
         DARABONBA_PTR_TO_JSON(Details, details_);
+        DARABONBA_PTR_TO_JSON(DetectSource, detectSource_);
         DARABONBA_PTR_TO_JSON(DisplaySandboxResult, displaySandboxResult_);
         DARABONBA_PTR_TO_JSON(EventNotes, eventNotes_);
         DARABONBA_PTR_TO_JSON(EventStatus, eventStatus_);
@@ -118,6 +119,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DataSource, dataSource_);
         DARABONBA_PTR_FROM_JSON(Desc, desc_);
         DARABONBA_PTR_FROM_JSON(Details, details_);
+        DARABONBA_PTR_FROM_JSON(DetectSource, detectSource_);
         DARABONBA_PTR_FROM_JSON(DisplaySandboxResult, displaySandboxResult_);
         DARABONBA_PTR_FROM_JSON(EventNotes, eventNotes_);
         DARABONBA_PTR_FROM_JSON(EventStatus, eventStatus_);
@@ -338,14 +340,15 @@ namespace Models
         && this->alarmEventName_ == nullptr && this->alarmEventNameDisplay_ == nullptr && this->alarmEventType_ == nullptr && this->alarmEventTypeDisplay_ == nullptr && this->alarmUniqueInfo_ == nullptr
         && this->appName_ == nullptr && this->autoBreaking_ == nullptr && this->canBeDealOnLine_ == nullptr && this->canCancelFault_ == nullptr && this->containHwMode_ == nullptr
         && this->containerId_ == nullptr && this->containerImageId_ == nullptr && this->containerImageName_ == nullptr && this->dataSource_ == nullptr && this->desc_ == nullptr
-        && this->details_ == nullptr && this->displaySandboxResult_ == nullptr && this->eventNotes_ == nullptr && this->eventStatus_ == nullptr && this->eventSubType_ == nullptr
-        && this->hasTraceInfo_ == nullptr && this->id_ == nullptr && this->imageUuid_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr
-        && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->k8sClusterId_ == nullptr && this->k8sClusterName_ == nullptr && this->k8sNamespace_ == nullptr
-        && this->k8sNodeId_ == nullptr && this->k8sNodeName_ == nullptr && this->k8sPodName_ == nullptr && this->largeModel_ == nullptr && this->lastTime_ == nullptr
-        && this->lastTimeStamp_ == nullptr && this->level_ == nullptr && this->maliciousRuleStatus_ == nullptr && this->markList_ == nullptr && this->markMisRules_ == nullptr
-        && this->name_ == nullptr && this->occurrenceTime_ == nullptr && this->occurrenceTimeStamp_ == nullptr && this->operateErrorCode_ == nullptr && this->operateMsg_ == nullptr
-        && this->operateTime_ == nullptr && this->saleVersion_ == nullptr && this->securityEventIds_ == nullptr && this->sourceAliUid_ == nullptr && this->stages_ == nullptr
-        && this->supportOperateCode_ == nullptr && this->tacticItems_ == nullptr && this->uniqueInfo_ == nullptr && this->uuid_ == nullptr && this->clusterId_ == nullptr; };
+        && this->details_ == nullptr && this->detectSource_ == nullptr && this->displaySandboxResult_ == nullptr && this->eventNotes_ == nullptr && this->eventStatus_ == nullptr
+        && this->eventSubType_ == nullptr && this->hasTraceInfo_ == nullptr && this->id_ == nullptr && this->imageUuid_ == nullptr && this->instanceId_ == nullptr
+        && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->k8sClusterId_ == nullptr && this->k8sClusterName_ == nullptr
+        && this->k8sNamespace_ == nullptr && this->k8sNodeId_ == nullptr && this->k8sNodeName_ == nullptr && this->k8sPodName_ == nullptr && this->largeModel_ == nullptr
+        && this->lastTime_ == nullptr && this->lastTimeStamp_ == nullptr && this->level_ == nullptr && this->maliciousRuleStatus_ == nullptr && this->markList_ == nullptr
+        && this->markMisRules_ == nullptr && this->name_ == nullptr && this->occurrenceTime_ == nullptr && this->occurrenceTimeStamp_ == nullptr && this->operateErrorCode_ == nullptr
+        && this->operateMsg_ == nullptr && this->operateTime_ == nullptr && this->saleVersion_ == nullptr && this->securityEventIds_ == nullptr && this->sourceAliUid_ == nullptr
+        && this->stages_ == nullptr && this->supportOperateCode_ == nullptr && this->tacticItems_ == nullptr && this->uniqueInfo_ == nullptr && this->uuid_ == nullptr
+        && this->clusterId_ == nullptr; };
       // advanced Field Functions 
       bool hasAdvanced() const { return this->advanced_ != nullptr;};
       void deleteAdvanced() { this->advanced_ = nullptr;};
@@ -465,6 +468,13 @@ namespace Models
       inline vector<SuspEvents::Details> getDetails() { DARABONBA_PTR_GET(details_, vector<SuspEvents::Details>) };
       inline SuspEvents& setDetails(const vector<SuspEvents::Details> & details) { DARABONBA_PTR_SET_VALUE(details_, details) };
       inline SuspEvents& setDetails(vector<SuspEvents::Details> && details) { DARABONBA_PTR_SET_RVALUE(details_, details) };
+
+
+      // detectSource Field Functions 
+      bool hasDetectSource() const { return this->detectSource_ != nullptr;};
+      void deleteDetectSource() { this->detectSource_ = nullptr;};
+      inline string getDetectSource() const { DARABONBA_PTR_GET_DEFAULT(detectSource_, "") };
+      inline SuspEvents& setDetectSource(string detectSource) { DARABONBA_PTR_SET_VALUE(detectSource_, detectSource) };
 
 
       // displaySandboxResult Field Functions 
@@ -790,6 +800,7 @@ namespace Models
       shared_ptr<string> desc_ {};
       // The details of the alert event.
       shared_ptr<vector<SuspEvents::Details>> details_ {};
+      shared_ptr<string> detectSource_ {};
       // Indicates whether the alert event can be detected by cloud sandbox. Valid values:
       // 
       // *   **true**

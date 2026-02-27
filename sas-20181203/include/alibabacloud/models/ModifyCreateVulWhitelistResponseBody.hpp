@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // Vulnerability whitelist ID.
       shared_ptr<int64_t> id_ {};
     };
 
@@ -83,7 +84,8 @@ namespace Models
   protected:
     // The ID of the request, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the information about the whitelist.
+    // Vulnerability whitelist information. 
+    // <notice> This data is not returned when adding or updating the vulnerability whitelist in batches, it is only returned when adding or updating a single vulnerability whitelist entry. </notice>
     shared_ptr<ModifyCreateVulWhitelistResponseBody::VulWhitelistList> vulWhitelistList_ {};
   };
 

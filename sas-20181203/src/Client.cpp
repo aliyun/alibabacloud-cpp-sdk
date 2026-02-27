@@ -22262,6 +22262,10 @@ DescribeSuspEventsResponse Client::describeSuspEventsWithOptions(const DescribeS
     query["Dealed"] = request.getDealed();
   }
 
+  if (!!request.hasDetectSource()) {
+    query["DetectSource"] = request.getDetectSource();
+  }
+
   if (!!request.hasEventNames()) {
     query["EventNames"] = request.getEventNames();
   }
