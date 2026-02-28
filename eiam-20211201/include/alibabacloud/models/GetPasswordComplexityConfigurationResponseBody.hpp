@@ -35,10 +35,14 @@ namespace Models
     class PasswordComplexityConfiguration : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const PasswordComplexityConfiguration& obj) { 
+        DARABONBA_PTR_TO_JSON(DisabledWeakPasswordLogin, disabledWeakPasswordLogin_);
+        DARABONBA_PTR_TO_JSON(DisabledWeakPasswordLoginStartedAt, disabledWeakPasswordLoginStartedAt_);
         DARABONBA_PTR_TO_JSON(PasswordComplexityRules, passwordComplexityRules_);
         DARABONBA_PTR_TO_JSON(PasswordMinLength, passwordMinLength_);
       };
       friend void from_json(const Darabonba::Json& j, PasswordComplexityConfiguration& obj) { 
+        DARABONBA_PTR_FROM_JSON(DisabledWeakPasswordLogin, disabledWeakPasswordLogin_);
+        DARABONBA_PTR_FROM_JSON(DisabledWeakPasswordLoginStartedAt, disabledWeakPasswordLoginStartedAt_);
         DARABONBA_PTR_FROM_JSON(PasswordComplexityRules, passwordComplexityRules_);
         DARABONBA_PTR_FROM_JSON(PasswordMinLength, passwordMinLength_);
       };
@@ -94,8 +98,22 @@ namespace Models
         shared_ptr<string> passwordCheckType_ {};
       };
 
-      virtual bool empty() const override { return this->passwordComplexityRules_ == nullptr
-        && this->passwordMinLength_ == nullptr; };
+      virtual bool empty() const override { return this->disabledWeakPasswordLogin_ == nullptr
+        && this->disabledWeakPasswordLoginStartedAt_ == nullptr && this->passwordComplexityRules_ == nullptr && this->passwordMinLength_ == nullptr; };
+      // disabledWeakPasswordLogin Field Functions 
+      bool hasDisabledWeakPasswordLogin() const { return this->disabledWeakPasswordLogin_ != nullptr;};
+      void deleteDisabledWeakPasswordLogin() { this->disabledWeakPasswordLogin_ = nullptr;};
+      inline bool getDisabledWeakPasswordLogin() const { DARABONBA_PTR_GET_DEFAULT(disabledWeakPasswordLogin_, false) };
+      inline PasswordComplexityConfiguration& setDisabledWeakPasswordLogin(bool disabledWeakPasswordLogin) { DARABONBA_PTR_SET_VALUE(disabledWeakPasswordLogin_, disabledWeakPasswordLogin) };
+
+
+      // disabledWeakPasswordLoginStartedAt Field Functions 
+      bool hasDisabledWeakPasswordLoginStartedAt() const { return this->disabledWeakPasswordLoginStartedAt_ != nullptr;};
+      void deleteDisabledWeakPasswordLoginStartedAt() { this->disabledWeakPasswordLoginStartedAt_ = nullptr;};
+      inline int64_t getDisabledWeakPasswordLoginStartedAt() const { DARABONBA_PTR_GET_DEFAULT(disabledWeakPasswordLoginStartedAt_, 0L) };
+      inline PasswordComplexityConfiguration& setDisabledWeakPasswordLoginStartedAt(int64_t disabledWeakPasswordLoginStartedAt) { DARABONBA_PTR_SET_VALUE(disabledWeakPasswordLoginStartedAt_, disabledWeakPasswordLoginStartedAt) };
+
+
       // passwordComplexityRules Field Functions 
       bool hasPasswordComplexityRules() const { return this->passwordComplexityRules_ != nullptr;};
       void deletePasswordComplexityRules() { this->passwordComplexityRules_ = nullptr;};
@@ -113,6 +131,8 @@ namespace Models
 
 
     protected:
+      shared_ptr<bool> disabledWeakPasswordLogin_ {};
+      shared_ptr<int64_t> disabledWeakPasswordLoginStartedAt_ {};
       // The password complexity rules.
       shared_ptr<vector<PasswordComplexityConfiguration::PasswordComplexityRules>> passwordComplexityRules_ {};
       // The minimum number of characters in a password.

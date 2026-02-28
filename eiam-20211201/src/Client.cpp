@@ -14728,6 +14728,10 @@ SetLoginRedirectApplicationForBrandResponse Client::setLoginRedirectApplicationF
 SetPasswordComplexityConfigurationResponse Client::setPasswordComplexityConfigurationWithOptions(const SetPasswordComplexityConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDisabledWeakPasswordLogin()) {
+    query["DisabledWeakPasswordLogin"] = request.getDisabledWeakPasswordLogin();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }

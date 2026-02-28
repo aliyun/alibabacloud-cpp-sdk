@@ -14,11 +14,13 @@ namespace Models
   class SetPasswordComplexityConfigurationRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SetPasswordComplexityConfigurationRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DisabledWeakPasswordLogin, disabledWeakPasswordLogin_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PasswordComplexityRules, passwordComplexityRules_);
       DARABONBA_PTR_TO_JSON(PasswordMinLength, passwordMinLength_);
     };
     friend void from_json(const Darabonba::Json& j, SetPasswordComplexityConfigurationRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DisabledWeakPasswordLogin, disabledWeakPasswordLogin_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PasswordComplexityRules, passwordComplexityRules_);
       DARABONBA_PTR_FROM_JSON(PasswordMinLength, passwordMinLength_);
@@ -75,8 +77,15 @@ namespace Models
       shared_ptr<string> passwordCheckType_ {};
     };
 
-    virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->passwordComplexityRules_ == nullptr && this->passwordMinLength_ == nullptr; };
+    virtual bool empty() const override { return this->disabledWeakPasswordLogin_ == nullptr
+        && this->instanceId_ == nullptr && this->passwordComplexityRules_ == nullptr && this->passwordMinLength_ == nullptr; };
+    // disabledWeakPasswordLogin Field Functions 
+    bool hasDisabledWeakPasswordLogin() const { return this->disabledWeakPasswordLogin_ != nullptr;};
+    void deleteDisabledWeakPasswordLogin() { this->disabledWeakPasswordLogin_ = nullptr;};
+    inline bool getDisabledWeakPasswordLogin() const { DARABONBA_PTR_GET_DEFAULT(disabledWeakPasswordLogin_, false) };
+    inline SetPasswordComplexityConfigurationRequest& setDisabledWeakPasswordLogin(bool disabledWeakPasswordLogin) { DARABONBA_PTR_SET_VALUE(disabledWeakPasswordLogin_, disabledWeakPasswordLogin) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -101,6 +110,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> disabledWeakPasswordLogin_ {};
     // The instance ID.
     // 
     // This parameter is required.
