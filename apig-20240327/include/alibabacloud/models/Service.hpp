@@ -39,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(unhealthyEndpoints, unhealthyEndpoints_);
       DARABONBA_PTR_TO_JSON(updateTimestamp, updateTimestamp_);
+      DARABONBA_PTR_TO_JSON(versions, versions_);
     };
     friend void from_json(const Darabonba::Json& j, Service& obj) { 
       DARABONBA_PTR_FROM_JSON(addresses, addresses_);
@@ -62,6 +63,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(unhealthyEndpoints, unhealthyEndpoints_);
       DARABONBA_PTR_FROM_JSON(updateTimestamp, updateTimestamp_);
+      DARABONBA_PTR_FROM_JSON(versions, versions_);
     };
     Service() = default ;
     Service(const Service &) = default ;
@@ -74,6 +76,92 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Versions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Versions& obj) { 
+        DARABONBA_PTR_TO_JSON(labels, labels_);
+        DARABONBA_PTR_TO_JSON(name, name_);
+      };
+      friend void from_json(const Darabonba::Json& j, Versions& obj) { 
+        DARABONBA_PTR_FROM_JSON(labels, labels_);
+        DARABONBA_PTR_FROM_JSON(name, name_);
+      };
+      Versions() = default ;
+      Versions(const Versions &) = default ;
+      Versions(Versions &&) = default ;
+      Versions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Versions() = default ;
+      Versions& operator=(const Versions &) = default ;
+      Versions& operator=(Versions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Labels : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Labels& obj) { 
+          DARABONBA_PTR_TO_JSON(key, key_);
+          DARABONBA_PTR_TO_JSON(value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Labels& obj) { 
+          DARABONBA_PTR_FROM_JSON(key, key_);
+          DARABONBA_PTR_FROM_JSON(value, value_);
+        };
+        Labels() = default ;
+        Labels(const Labels &) = default ;
+        Labels(Labels &&) = default ;
+        Labels(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Labels() = default ;
+        Labels& operator=(const Labels &) = default ;
+        Labels& operator=(Labels &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Labels& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Labels& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<string> key_ {};
+        shared_ptr<string> value_ {};
+      };
+
+      virtual bool empty() const override { return this->labels_ == nullptr
+        && this->name_ == nullptr; };
+      // labels Field Functions 
+      bool hasLabels() const { return this->labels_ != nullptr;};
+      void deleteLabels() { this->labels_ = nullptr;};
+      inline const vector<Versions::Labels> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, vector<Versions::Labels>) };
+      inline vector<Versions::Labels> getLabels() { DARABONBA_PTR_GET(labels_, vector<Versions::Labels>) };
+      inline Versions& setLabels(const vector<Versions::Labels> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
+      inline Versions& setLabels(vector<Versions::Labels> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Versions& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    protected:
+      shared_ptr<vector<Versions::Labels>> labels_ {};
+      shared_ptr<string> name_ {};
+    };
+
     class Ports : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Ports& obj) { 
@@ -133,7 +221,8 @@ namespace Models
         && this->agentServiceConfig_ == nullptr && this->aiServiceConfig_ == nullptr && this->createTimestamp_ == nullptr && this->expressType_ == nullptr && this->gatewayId_ == nullptr
         && this->groupName_ == nullptr && this->healthCheck_ == nullptr && this->healthStatus_ == nullptr && this->labelDetails_ == nullptr && this->name_ == nullptr
         && this->namespace_ == nullptr && this->outlierEndpoints_ == nullptr && this->ports_ == nullptr && this->protocol_ == nullptr && this->qualifier_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->serviceId_ == nullptr && this->sourceType_ == nullptr && this->unhealthyEndpoints_ == nullptr && this->updateTimestamp_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->serviceId_ == nullptr && this->sourceType_ == nullptr && this->unhealthyEndpoints_ == nullptr && this->updateTimestamp_ == nullptr
+        && this->versions_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};
@@ -297,6 +386,15 @@ namespace Models
     inline Service& setUpdateTimestamp(int64_t updateTimestamp) { DARABONBA_PTR_SET_VALUE(updateTimestamp_, updateTimestamp) };
 
 
+    // versions Field Functions 
+    bool hasVersions() const { return this->versions_ != nullptr;};
+    void deleteVersions() { this->versions_ = nullptr;};
+    inline const vector<Service::Versions> & getVersions() const { DARABONBA_PTR_GET_CONST(versions_, vector<Service::Versions>) };
+    inline vector<Service::Versions> getVersions() { DARABONBA_PTR_GET(versions_, vector<Service::Versions>) };
+    inline Service& setVersions(const vector<Service::Versions> & versions) { DARABONBA_PTR_SET_VALUE(versions_, versions) };
+    inline Service& setVersions(vector<Service::Versions> && versions) { DARABONBA_PTR_SET_RVALUE(versions_, versions) };
+
+
   protected:
     // The address details, which can be IP addresses or domain names.
     shared_ptr<vector<string>> addresses_ {};
@@ -345,6 +443,7 @@ namespace Models
     shared_ptr<vector<string>> unhealthyEndpoints_ {};
     // The last modified time (unix timestamp).
     shared_ptr<int64_t> updateTimestamp_ {};
+    shared_ptr<vector<Service::Versions>> versions_ {};
   };
 
   } // namespace Models

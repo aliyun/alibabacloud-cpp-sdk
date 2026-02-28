@@ -355,6 +355,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const PolicyConfigs& obj) { 
         DARABONBA_PTR_TO_JSON(aiFallbackConfig, aiFallbackConfig_);
         DARABONBA_PTR_TO_JSON(aiSecurityGuardConfig, aiSecurityGuardConfig_);
+        DARABONBA_PTR_TO_JSON(aiStatisticsConfig, aiStatisticsConfig_);
         DARABONBA_PTR_TO_JSON(aiTokenRateLimitConfig, aiTokenRateLimitConfig_);
         DARABONBA_PTR_TO_JSON(enable, enable_);
         DARABONBA_PTR_TO_JSON(type, type_);
@@ -362,6 +363,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, PolicyConfigs& obj) { 
         DARABONBA_PTR_FROM_JSON(aiFallbackConfig, aiFallbackConfig_);
         DARABONBA_PTR_FROM_JSON(aiSecurityGuardConfig, aiSecurityGuardConfig_);
+        DARABONBA_PTR_FROM_JSON(aiStatisticsConfig, aiStatisticsConfig_);
         DARABONBA_PTR_FROM_JSON(aiTokenRateLimitConfig, aiTokenRateLimitConfig_);
         DARABONBA_PTR_FROM_JSON(enable, enable_);
         DARABONBA_PTR_FROM_JSON(type, type_);
@@ -610,6 +612,48 @@ namespace Models
         shared_ptr<vector<AiTokenRateLimitConfig::GlobalRules>> globalRules_ {};
         // List of rate limit rules
         shared_ptr<vector<AiTokenRateLimitConfig::Rules>> rules_ {};
+      };
+
+      class AiStatisticsConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AiStatisticsConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(logRequestContent, logRequestContent_);
+          DARABONBA_PTR_TO_JSON(logResponseContent, logResponseContent_);
+        };
+        friend void from_json(const Darabonba::Json& j, AiStatisticsConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(logRequestContent, logRequestContent_);
+          DARABONBA_PTR_FROM_JSON(logResponseContent, logResponseContent_);
+        };
+        AiStatisticsConfig() = default ;
+        AiStatisticsConfig(const AiStatisticsConfig &) = default ;
+        AiStatisticsConfig(AiStatisticsConfig &&) = default ;
+        AiStatisticsConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AiStatisticsConfig() = default ;
+        AiStatisticsConfig& operator=(const AiStatisticsConfig &) = default ;
+        AiStatisticsConfig& operator=(AiStatisticsConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->logRequestContent_ == nullptr
+        && this->logResponseContent_ == nullptr; };
+        // logRequestContent Field Functions 
+        bool hasLogRequestContent() const { return this->logRequestContent_ != nullptr;};
+        void deleteLogRequestContent() { this->logRequestContent_ = nullptr;};
+        inline bool getLogRequestContent() const { DARABONBA_PTR_GET_DEFAULT(logRequestContent_, false) };
+        inline AiStatisticsConfig& setLogRequestContent(bool logRequestContent) { DARABONBA_PTR_SET_VALUE(logRequestContent_, logRequestContent) };
+
+
+        // logResponseContent Field Functions 
+        bool hasLogResponseContent() const { return this->logResponseContent_ != nullptr;};
+        void deleteLogResponseContent() { this->logResponseContent_ = nullptr;};
+        inline bool getLogResponseContent() const { DARABONBA_PTR_GET_DEFAULT(logResponseContent_, false) };
+        inline AiStatisticsConfig& setLogResponseContent(bool logResponseContent) { DARABONBA_PTR_SET_VALUE(logResponseContent_, logResponseContent) };
+
+
+      protected:
+        shared_ptr<bool> logRequestContent_ {};
+        shared_ptr<bool> logResponseContent_ {};
       };
 
       class AiSecurityGuardConfig : public Darabonba::Model {
@@ -1209,7 +1253,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->aiFallbackConfig_ == nullptr
-        && this->aiSecurityGuardConfig_ == nullptr && this->aiTokenRateLimitConfig_ == nullptr && this->enable_ == nullptr && this->type_ == nullptr; };
+        && this->aiSecurityGuardConfig_ == nullptr && this->aiStatisticsConfig_ == nullptr && this->aiTokenRateLimitConfig_ == nullptr && this->enable_ == nullptr && this->type_ == nullptr; };
       // aiFallbackConfig Field Functions 
       bool hasAiFallbackConfig() const { return this->aiFallbackConfig_ != nullptr;};
       void deleteAiFallbackConfig() { this->aiFallbackConfig_ = nullptr;};
@@ -1226,6 +1270,15 @@ namespace Models
       inline PolicyConfigs::AiSecurityGuardConfig getAiSecurityGuardConfig() { DARABONBA_PTR_GET(aiSecurityGuardConfig_, PolicyConfigs::AiSecurityGuardConfig) };
       inline PolicyConfigs& setAiSecurityGuardConfig(const PolicyConfigs::AiSecurityGuardConfig & aiSecurityGuardConfig) { DARABONBA_PTR_SET_VALUE(aiSecurityGuardConfig_, aiSecurityGuardConfig) };
       inline PolicyConfigs& setAiSecurityGuardConfig(PolicyConfigs::AiSecurityGuardConfig && aiSecurityGuardConfig) { DARABONBA_PTR_SET_RVALUE(aiSecurityGuardConfig_, aiSecurityGuardConfig) };
+
+
+      // aiStatisticsConfig Field Functions 
+      bool hasAiStatisticsConfig() const { return this->aiStatisticsConfig_ != nullptr;};
+      void deleteAiStatisticsConfig() { this->aiStatisticsConfig_ = nullptr;};
+      inline const PolicyConfigs::AiStatisticsConfig & getAiStatisticsConfig() const { DARABONBA_PTR_GET_CONST(aiStatisticsConfig_, PolicyConfigs::AiStatisticsConfig) };
+      inline PolicyConfigs::AiStatisticsConfig getAiStatisticsConfig() { DARABONBA_PTR_GET(aiStatisticsConfig_, PolicyConfigs::AiStatisticsConfig) };
+      inline PolicyConfigs& setAiStatisticsConfig(const PolicyConfigs::AiStatisticsConfig & aiStatisticsConfig) { DARABONBA_PTR_SET_VALUE(aiStatisticsConfig_, aiStatisticsConfig) };
+      inline PolicyConfigs& setAiStatisticsConfig(PolicyConfigs::AiStatisticsConfig && aiStatisticsConfig) { DARABONBA_PTR_SET_RVALUE(aiStatisticsConfig_, aiStatisticsConfig) };
 
 
       // aiTokenRateLimitConfig Field Functions 
@@ -1256,6 +1309,7 @@ namespace Models
       shared_ptr<PolicyConfigs::AiFallbackConfig> aiFallbackConfig_ {};
       // AI Security Guard configuration
       shared_ptr<PolicyConfigs::AiSecurityGuardConfig> aiSecurityGuardConfig_ {};
+      shared_ptr<PolicyConfigs::AiStatisticsConfig> aiStatisticsConfig_ {};
       // AI Token Rate Limit configuration
       shared_ptr<PolicyConfigs::AiTokenRateLimitConfig> aiTokenRateLimitConfig_ {};
       // Specifies whether to enable the policy.
