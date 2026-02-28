@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTAPPLICATIONSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -87,6 +88,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
           DARABONBA_PTR_TO_JSON(Instances, instances_);
           DARABONBA_PTR_TO_JSON(IsStateful, isStateful_);
+          DARABONBA_PTR_TO_JSON(Labels, labels_);
           DARABONBA_PTR_TO_JSON(Mem, mem_);
           DARABONBA_PTR_TO_JSON(MseEnabled, mseEnabled_);
           DARABONBA_PTR_TO_JSON(MseNamespaceId, mseNamespaceId_);
@@ -115,6 +117,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
           DARABONBA_PTR_FROM_JSON(Instances, instances_);
           DARABONBA_PTR_FROM_JSON(IsStateful, isStateful_);
+          DARABONBA_PTR_FROM_JSON(Labels, labels_);
           DARABONBA_PTR_FROM_JSON(Mem, mem_);
           DARABONBA_PTR_FROM_JSON(MseEnabled, mseEnabled_);
           DARABONBA_PTR_FROM_JSON(MseNamespaceId, mseNamespaceId_);
@@ -502,9 +505,10 @@ namespace Models
         virtual bool empty() const override { return this->appDeletingStatus_ == nullptr
         && this->appDescription_ == nullptr && this->appId_ == nullptr && this->appName_ == nullptr && this->appType_ == nullptr && this->baseAppId_ == nullptr
         && this->children_ == nullptr && this->cpu_ == nullptr && this->diskSize_ == nullptr && this->enableIdle_ == nullptr && this->imageUrl_ == nullptr
-        && this->instances_ == nullptr && this->isStateful_ == nullptr && this->mem_ == nullptr && this->mseEnabled_ == nullptr && this->mseNamespaceId_ == nullptr
-        && this->namespaceId_ == nullptr && this->namespaceName_ == nullptr && this->newSaeVersion_ == nullptr && this->packageUrl_ == nullptr && this->programmingLanguage_ == nullptr
-        && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->runningInstances_ == nullptr && this->tags_ == nullptr && this->vpcId_ == nullptr; };
+        && this->instances_ == nullptr && this->isStateful_ == nullptr && this->labels_ == nullptr && this->mem_ == nullptr && this->mseEnabled_ == nullptr
+        && this->mseNamespaceId_ == nullptr && this->namespaceId_ == nullptr && this->namespaceName_ == nullptr && this->newSaeVersion_ == nullptr && this->packageUrl_ == nullptr
+        && this->programmingLanguage_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->runningInstances_ == nullptr && this->tags_ == nullptr
+        && this->vpcId_ == nullptr; };
         // appDeletingStatus Field Functions 
         bool hasAppDeletingStatus() const { return this->appDeletingStatus_ != nullptr;};
         void deleteAppDeletingStatus() { this->appDeletingStatus_ = nullptr;};
@@ -596,6 +600,15 @@ namespace Models
         void deleteIsStateful() { this->isStateful_ = nullptr;};
         inline bool getIsStateful() const { DARABONBA_PTR_GET_DEFAULT(isStateful_, false) };
         inline Applications& setIsStateful(bool isStateful) { DARABONBA_PTR_SET_VALUE(isStateful_, isStateful) };
+
+
+        // labels Field Functions 
+        bool hasLabels() const { return this->labels_ != nullptr;};
+        void deleteLabels() { this->labels_ = nullptr;};
+        inline const map<string, string> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
+        inline map<string, string> getLabels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
+        inline Applications& setLabels(const map<string, string> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
+        inline Applications& setLabels(map<string, string> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
 
         // mem Field Functions 
@@ -728,6 +741,7 @@ namespace Models
         // The number of application instances.
         shared_ptr<int32_t> instances_ {};
         shared_ptr<bool> isStateful_ {};
+        shared_ptr<map<string, string>> labels_ {};
         // The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
         // 
         // *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
