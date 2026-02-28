@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactId_ == nullptr
-        && return this->context_ == nullptr && return this->customerId_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->context_ == nullptr && this->customerId_ == nullptr && this->instanceId_ == nullptr; };
     // contactId Field Functions 
     bool hasContactId() const { return this->contactId_ != nullptr;};
     void deleteContactId() { this->contactId_ = nullptr;};
-    inline string contactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
+    inline string getContactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
     inline CreateCallSummaryRequest& setContactId(string contactId) { DARABONBA_PTR_SET_VALUE(contactId_, contactId) };
 
 
     // context Field Functions 
     bool hasContext() const { return this->context_ != nullptr;};
     void deleteContext() { this->context_ = nullptr;};
-    inline string context() const { DARABONBA_PTR_GET_DEFAULT(context_, "") };
+    inline string getContext() const { DARABONBA_PTR_GET_DEFAULT(context_, "") };
     inline CreateCallSummaryRequest& setContext(string context) { DARABONBA_PTR_SET_VALUE(context_, context) };
 
 
     // customerId Field Functions 
     bool hasCustomerId() const { return this->customerId_ != nullptr;};
     void deleteCustomerId() { this->customerId_ = nullptr;};
-    inline string customerId() const { DARABONBA_PTR_GET_DEFAULT(customerId_, "") };
+    inline string getCustomerId() const { DARABONBA_PTR_GET_DEFAULT(customerId_, "") };
     inline CreateCallSummaryRequest& setCustomerId(string customerId) { DARABONBA_PTR_SET_VALUE(customerId_, customerId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateCallSummaryRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
-    std::shared_ptr<string> contactId_ = nullptr;
-    std::shared_ptr<string> context_ = nullptr;
-    std::shared_ptr<string> customerId_ = nullptr;
+    shared_ptr<string> contactId_ {};
+    shared_ptr<string> context_ {};
+    shared_ptr<string> customerId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

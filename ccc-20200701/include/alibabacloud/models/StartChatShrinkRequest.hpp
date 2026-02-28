@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessChannelId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->token_ == nullptr && return this->userListShrink_ == nullptr; };
+        && this->instanceId_ == nullptr && this->token_ == nullptr && this->userListShrink_ == nullptr; };
     // accessChannelId Field Functions 
     bool hasAccessChannelId() const { return this->accessChannelId_ != nullptr;};
     void deleteAccessChannelId() { this->accessChannelId_ = nullptr;};
-    inline string accessChannelId() const { DARABONBA_PTR_GET_DEFAULT(accessChannelId_, "") };
+    inline string getAccessChannelId() const { DARABONBA_PTR_GET_DEFAULT(accessChannelId_, "") };
     inline StartChatShrinkRequest& setAccessChannelId(string accessChannelId) { DARABONBA_PTR_SET_VALUE(accessChannelId_, accessChannelId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline StartChatShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline StartChatShrinkRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
     // userListShrink Field Functions 
     bool hasUserListShrink() const { return this->userListShrink_ != nullptr;};
     void deleteUserListShrink() { this->userListShrink_ = nullptr;};
-    inline string userListShrink() const { DARABONBA_PTR_GET_DEFAULT(userListShrink_, "") };
+    inline string getUserListShrink() const { DARABONBA_PTR_GET_DEFAULT(userListShrink_, "") };
     inline StartChatShrinkRequest& setUserListShrink(string userListShrink) { DARABONBA_PTR_SET_VALUE(userListShrink_, userListShrink) };
 
 
   protected:
-    std::shared_ptr<string> accessChannelId_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> accessChannelId_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> token_ {};
     // This parameter is required.
-    std::shared_ptr<string> userListShrink_ = nullptr;
+    shared_ptr<string> userListShrink_ {};
   };
 
   } // namespace Models

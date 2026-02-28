@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->propertyShrink_ == nullptr && return this->requestId_ == nullptr && return this->schemaId_ == nullptr; };
+        && this->propertyShrink_ == nullptr && this->requestId_ == nullptr && this->schemaId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AddSchemaPropertyShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // propertyShrink Field Functions 
     bool hasPropertyShrink() const { return this->propertyShrink_ != nullptr;};
     void deletePropertyShrink() { this->propertyShrink_ = nullptr;};
-    inline string propertyShrink() const { DARABONBA_PTR_GET_DEFAULT(propertyShrink_, "") };
+    inline string getPropertyShrink() const { DARABONBA_PTR_GET_DEFAULT(propertyShrink_, "") };
     inline AddSchemaPropertyShrinkRequest& setPropertyShrink(string propertyShrink) { DARABONBA_PTR_SET_VALUE(propertyShrink_, propertyShrink) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AddSchemaPropertyShrinkRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // schemaId Field Functions 
     bool hasSchemaId() const { return this->schemaId_ != nullptr;};
     void deleteSchemaId() { this->schemaId_ = nullptr;};
-    inline string schemaId() const { DARABONBA_PTR_GET_DEFAULT(schemaId_, "") };
+    inline string getSchemaId() const { DARABONBA_PTR_GET_DEFAULT(schemaId_, "") };
     inline AddSchemaPropertyShrinkRequest& setSchemaId(string schemaId) { DARABONBA_PTR_SET_VALUE(schemaId_, schemaId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> propertyShrink_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> propertyShrink_ {};
+    shared_ptr<string> requestId_ {};
     // schema id
     // 
     // This parameter is required.
-    std::shared_ptr<string> schemaId_ = nullptr;
+    shared_ptr<string> schemaId_ {};
   };
 
   } // namespace Models

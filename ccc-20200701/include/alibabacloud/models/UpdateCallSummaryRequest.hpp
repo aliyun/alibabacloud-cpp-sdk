@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->context_ == nullptr
-        && return this->instanceId_ == nullptr && return this->ticketId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->ticketId_ == nullptr; };
     // context Field Functions 
     bool hasContext() const { return this->context_ != nullptr;};
     void deleteContext() { this->context_ = nullptr;};
-    inline string context() const { DARABONBA_PTR_GET_DEFAULT(context_, "") };
+    inline string getContext() const { DARABONBA_PTR_GET_DEFAULT(context_, "") };
     inline UpdateCallSummaryRequest& setContext(string context) { DARABONBA_PTR_SET_VALUE(context_, context) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateCallSummaryRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // ticketId Field Functions 
     bool hasTicketId() const { return this->ticketId_ != nullptr;};
     void deleteTicketId() { this->ticketId_ = nullptr;};
-    inline string ticketId() const { DARABONBA_PTR_GET_DEFAULT(ticketId_, "") };
+    inline string getTicketId() const { DARABONBA_PTR_GET_DEFAULT(ticketId_, "") };
     inline UpdateCallSummaryRequest& setTicketId(string ticketId) { DARABONBA_PTR_SET_VALUE(ticketId_, ticketId) };
 
 
   protected:
-    std::shared_ptr<string> context_ = nullptr;
+    shared_ptr<string> context_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> ticketId_ = nullptr;
+    shared_ptr<string> ticketId_ {};
   };
 
   } // namespace Models

@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callingNumber_ == nullptr
-        && return this->instanceId_ == nullptr && return this->startTime_ == nullptr && return this->stopTime_ == nullptr; };
+        && this->instanceId_ == nullptr && this->startTime_ == nullptr && this->stopTime_ == nullptr; };
     // callingNumber Field Functions 
     bool hasCallingNumber() const { return this->callingNumber_ != nullptr;};
     void deleteCallingNumber() { this->callingNumber_ = nullptr;};
-    inline string callingNumber() const { DARABONBA_PTR_GET_DEFAULT(callingNumber_, "") };
+    inline string getCallingNumber() const { DARABONBA_PTR_GET_DEFAULT(callingNumber_, "") };
     inline GetHistoricalCallerReportRequest& setCallingNumber(string callingNumber) { DARABONBA_PTR_SET_VALUE(callingNumber_, callingNumber) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetHistoricalCallerReportRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline GetHistoricalCallerReportRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // stopTime Field Functions 
     bool hasStopTime() const { return this->stopTime_ != nullptr;};
     void deleteStopTime() { this->stopTime_ = nullptr;};
-    inline int64_t stopTime() const { DARABONBA_PTR_GET_DEFAULT(stopTime_, 0L) };
+    inline int64_t getStopTime() const { DARABONBA_PTR_GET_DEFAULT(stopTime_, 0L) };
     inline GetHistoricalCallerReportRequest& setStopTime(int64_t stopTime) { DARABONBA_PTR_SET_VALUE(stopTime_, stopTime) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> callingNumber_ = nullptr;
+    shared_ptr<string> callingNumber_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> stopTime_ = nullptr;
+    shared_ptr<int64_t> stopTime_ {};
   };
 
   } // namespace Models

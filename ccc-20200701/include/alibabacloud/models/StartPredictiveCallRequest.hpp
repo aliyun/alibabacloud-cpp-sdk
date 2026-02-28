@@ -46,85 +46,85 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callee_ == nullptr
-        && return this->caller_ == nullptr && return this->contactFlowId_ == nullptr && return this->contactFlowVariables_ == nullptr && return this->instanceId_ == nullptr && return this->maskedCallee_ == nullptr
-        && return this->skillGroupId_ == nullptr && return this->tags_ == nullptr && return this->timeoutSeconds_ == nullptr; };
+        && this->caller_ == nullptr && this->contactFlowId_ == nullptr && this->contactFlowVariables_ == nullptr && this->instanceId_ == nullptr && this->maskedCallee_ == nullptr
+        && this->skillGroupId_ == nullptr && this->tags_ == nullptr && this->timeoutSeconds_ == nullptr; };
     // callee Field Functions 
     bool hasCallee() const { return this->callee_ != nullptr;};
     void deleteCallee() { this->callee_ = nullptr;};
-    inline string callee() const { DARABONBA_PTR_GET_DEFAULT(callee_, "") };
+    inline string getCallee() const { DARABONBA_PTR_GET_DEFAULT(callee_, "") };
     inline StartPredictiveCallRequest& setCallee(string callee) { DARABONBA_PTR_SET_VALUE(callee_, callee) };
 
 
     // caller Field Functions 
     bool hasCaller() const { return this->caller_ != nullptr;};
     void deleteCaller() { this->caller_ = nullptr;};
-    inline string caller() const { DARABONBA_PTR_GET_DEFAULT(caller_, "") };
+    inline string getCaller() const { DARABONBA_PTR_GET_DEFAULT(caller_, "") };
     inline StartPredictiveCallRequest& setCaller(string caller) { DARABONBA_PTR_SET_VALUE(caller_, caller) };
 
 
     // contactFlowId Field Functions 
     bool hasContactFlowId() const { return this->contactFlowId_ != nullptr;};
     void deleteContactFlowId() { this->contactFlowId_ = nullptr;};
-    inline string contactFlowId() const { DARABONBA_PTR_GET_DEFAULT(contactFlowId_, "") };
+    inline string getContactFlowId() const { DARABONBA_PTR_GET_DEFAULT(contactFlowId_, "") };
     inline StartPredictiveCallRequest& setContactFlowId(string contactFlowId) { DARABONBA_PTR_SET_VALUE(contactFlowId_, contactFlowId) };
 
 
     // contactFlowVariables Field Functions 
     bool hasContactFlowVariables() const { return this->contactFlowVariables_ != nullptr;};
     void deleteContactFlowVariables() { this->contactFlowVariables_ = nullptr;};
-    inline string contactFlowVariables() const { DARABONBA_PTR_GET_DEFAULT(contactFlowVariables_, "") };
+    inline string getContactFlowVariables() const { DARABONBA_PTR_GET_DEFAULT(contactFlowVariables_, "") };
     inline StartPredictiveCallRequest& setContactFlowVariables(string contactFlowVariables) { DARABONBA_PTR_SET_VALUE(contactFlowVariables_, contactFlowVariables) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline StartPredictiveCallRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // maskedCallee Field Functions 
     bool hasMaskedCallee() const { return this->maskedCallee_ != nullptr;};
     void deleteMaskedCallee() { this->maskedCallee_ = nullptr;};
-    inline string maskedCallee() const { DARABONBA_PTR_GET_DEFAULT(maskedCallee_, "") };
+    inline string getMaskedCallee() const { DARABONBA_PTR_GET_DEFAULT(maskedCallee_, "") };
     inline StartPredictiveCallRequest& setMaskedCallee(string maskedCallee) { DARABONBA_PTR_SET_VALUE(maskedCallee_, maskedCallee) };
 
 
     // skillGroupId Field Functions 
     bool hasSkillGroupId() const { return this->skillGroupId_ != nullptr;};
     void deleteSkillGroupId() { this->skillGroupId_ = nullptr;};
-    inline string skillGroupId() const { DARABONBA_PTR_GET_DEFAULT(skillGroupId_, "") };
+    inline string getSkillGroupId() const { DARABONBA_PTR_GET_DEFAULT(skillGroupId_, "") };
     inline StartPredictiveCallRequest& setSkillGroupId(string skillGroupId) { DARABONBA_PTR_SET_VALUE(skillGroupId_, skillGroupId) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline string tags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+    inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
     inline StartPredictiveCallRequest& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
     // timeoutSeconds Field Functions 
     bool hasTimeoutSeconds() const { return this->timeoutSeconds_ != nullptr;};
     void deleteTimeoutSeconds() { this->timeoutSeconds_ = nullptr;};
-    inline int32_t timeoutSeconds() const { DARABONBA_PTR_GET_DEFAULT(timeoutSeconds_, 0) };
+    inline int32_t getTimeoutSeconds() const { DARABONBA_PTR_GET_DEFAULT(timeoutSeconds_, 0) };
     inline StartPredictiveCallRequest& setTimeoutSeconds(int32_t timeoutSeconds) { DARABONBA_PTR_SET_VALUE(timeoutSeconds_, timeoutSeconds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> callee_ = nullptr;
+    shared_ptr<string> callee_ {};
     // This parameter is required.
-    std::shared_ptr<string> caller_ = nullptr;
+    shared_ptr<string> caller_ {};
     // This parameter is required.
-    std::shared_ptr<string> contactFlowId_ = nullptr;
-    std::shared_ptr<string> contactFlowVariables_ = nullptr;
+    shared_ptr<string> contactFlowId_ {};
+    shared_ptr<string> contactFlowVariables_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> maskedCallee_ = nullptr;
-    std::shared_ptr<string> skillGroupId_ = nullptr;
-    std::shared_ptr<string> tags_ = nullptr;
-    std::shared_ptr<int32_t> timeoutSeconds_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> maskedCallee_ {};
+    shared_ptr<string> skillGroupId_ {};
+    shared_ptr<string> tags_ {};
+    shared_ptr<int32_t> timeoutSeconds_ {};
   };
 
   } // namespace Models

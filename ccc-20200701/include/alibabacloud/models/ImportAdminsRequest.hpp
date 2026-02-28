@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->ramIdList_ == nullptr; };
+        && this->ramIdList_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ImportAdminsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // ramIdList Field Functions 
     bool hasRamIdList() const { return this->ramIdList_ != nullptr;};
     void deleteRamIdList() { this->ramIdList_ = nullptr;};
-    inline string ramIdList() const { DARABONBA_PTR_GET_DEFAULT(ramIdList_, "") };
+    inline string getRamIdList() const { DARABONBA_PTR_GET_DEFAULT(ramIdList_, "") };
     inline ImportAdminsRequest& setRamIdList(string ramIdList) { DARABONBA_PTR_SET_VALUE(ramIdList_, ramIdList) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> ramIdList_ = nullptr;
+    shared_ptr<string> ramIdList_ {};
   };
 
   } // namespace Models

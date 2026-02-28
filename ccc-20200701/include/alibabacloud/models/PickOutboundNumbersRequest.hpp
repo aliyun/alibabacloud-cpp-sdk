@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calledNumber_ == nullptr
-        && return this->count_ == nullptr && return this->instanceId_ == nullptr && return this->skillGroupIdList_ == nullptr; };
+        && this->count_ == nullptr && this->instanceId_ == nullptr && this->skillGroupIdList_ == nullptr; };
     // calledNumber Field Functions 
     bool hasCalledNumber() const { return this->calledNumber_ != nullptr;};
     void deleteCalledNumber() { this->calledNumber_ = nullptr;};
-    inline string calledNumber() const { DARABONBA_PTR_GET_DEFAULT(calledNumber_, "") };
+    inline string getCalledNumber() const { DARABONBA_PTR_GET_DEFAULT(calledNumber_, "") };
     inline PickOutboundNumbersRequest& setCalledNumber(string calledNumber) { DARABONBA_PTR_SET_VALUE(calledNumber_, calledNumber) };
 
 
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int32_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
     inline PickOutboundNumbersRequest& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline PickOutboundNumbersRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // skillGroupIdList Field Functions 
     bool hasSkillGroupIdList() const { return this->skillGroupIdList_ != nullptr;};
     void deleteSkillGroupIdList() { this->skillGroupIdList_ = nullptr;};
-    inline string skillGroupIdList() const { DARABONBA_PTR_GET_DEFAULT(skillGroupIdList_, "") };
+    inline string getSkillGroupIdList() const { DARABONBA_PTR_GET_DEFAULT(skillGroupIdList_, "") };
     inline PickOutboundNumbersRequest& setSkillGroupIdList(string skillGroupIdList) { DARABONBA_PTR_SET_VALUE(skillGroupIdList_, skillGroupIdList) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> calledNumber_ = nullptr;
-    std::shared_ptr<int32_t> count_ = nullptr;
+    shared_ptr<string> calledNumber_ {};
+    shared_ptr<int32_t> count_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> skillGroupIdList_ = nullptr;
+    shared_ptr<string> skillGroupIdList_ {};
   };
 
   } // namespace Models

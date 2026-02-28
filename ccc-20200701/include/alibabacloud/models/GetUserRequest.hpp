@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->extension_ == nullptr
-        && return this->instanceId_ == nullptr && return this->userId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->userId_ == nullptr; };
     // extension Field Functions 
     bool hasExtension() const { return this->extension_ != nullptr;};
     void deleteExtension() { this->extension_ = nullptr;};
-    inline string extension() const { DARABONBA_PTR_GET_DEFAULT(extension_, "") };
+    inline string getExtension() const { DARABONBA_PTR_GET_DEFAULT(extension_, "") };
     inline GetUserRequest& setExtension(string extension) { DARABONBA_PTR_SET_VALUE(extension_, extension) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetUserRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline GetUserRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<string> extension_ = nullptr;
+    shared_ptr<string> extension_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

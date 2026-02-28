@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->context_ == nullptr
-        && return this->customerId_ == nullptr && return this->instanceId_ == nullptr && return this->ticketId_ == nullptr && return this->title_ == nullptr; };
+        && this->customerId_ == nullptr && this->instanceId_ == nullptr && this->ticketId_ == nullptr && this->title_ == nullptr; };
     // context Field Functions 
     bool hasContext() const { return this->context_ != nullptr;};
     void deleteContext() { this->context_ = nullptr;};
-    inline string context() const { DARABONBA_PTR_GET_DEFAULT(context_, "") };
+    inline string getContext() const { DARABONBA_PTR_GET_DEFAULT(context_, "") };
     inline UpdateTicketRequest& setContext(string context) { DARABONBA_PTR_SET_VALUE(context_, context) };
 
 
     // customerId Field Functions 
     bool hasCustomerId() const { return this->customerId_ != nullptr;};
     void deleteCustomerId() { this->customerId_ = nullptr;};
-    inline string customerId() const { DARABONBA_PTR_GET_DEFAULT(customerId_, "") };
+    inline string getCustomerId() const { DARABONBA_PTR_GET_DEFAULT(customerId_, "") };
     inline UpdateTicketRequest& setCustomerId(string customerId) { DARABONBA_PTR_SET_VALUE(customerId_, customerId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateTicketRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // ticketId Field Functions 
     bool hasTicketId() const { return this->ticketId_ != nullptr;};
     void deleteTicketId() { this->ticketId_ = nullptr;};
-    inline string ticketId() const { DARABONBA_PTR_GET_DEFAULT(ticketId_, "") };
+    inline string getTicketId() const { DARABONBA_PTR_GET_DEFAULT(ticketId_, "") };
     inline UpdateTicketRequest& setTicketId(string ticketId) { DARABONBA_PTR_SET_VALUE(ticketId_, ticketId) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline UpdateTicketRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
   protected:
-    std::shared_ptr<string> context_ = nullptr;
-    std::shared_ptr<string> customerId_ = nullptr;
+    shared_ptr<string> context_ {};
+    shared_ptr<string> customerId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> ticketId_ = nullptr;
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> ticketId_ {};
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

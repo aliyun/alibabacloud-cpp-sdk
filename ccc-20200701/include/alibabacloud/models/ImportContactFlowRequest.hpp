@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->flowPackageData_ == nullptr
-        && return this->instanceId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->requestId_ == nullptr; };
     // flowPackageData Field Functions 
     bool hasFlowPackageData() const { return this->flowPackageData_ != nullptr;};
     void deleteFlowPackageData() { this->flowPackageData_ = nullptr;};
-    inline string flowPackageData() const { DARABONBA_PTR_GET_DEFAULT(flowPackageData_, "") };
+    inline string getFlowPackageData() const { DARABONBA_PTR_GET_DEFAULT(flowPackageData_, "") };
     inline ImportContactFlowRequest& setFlowPackageData(string flowPackageData) { DARABONBA_PTR_SET_VALUE(flowPackageData_, flowPackageData) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ImportContactFlowRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ImportContactFlowRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> flowPackageData_ = nullptr;
+    shared_ptr<string> flowPackageData_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

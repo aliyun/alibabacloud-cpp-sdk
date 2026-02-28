@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->skillGroupIdListShrink_ == nullptr && return this->skillGroupName_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->skillGroupIdListShrink_ == nullptr && this->skillGroupName_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListFlashSmsSettingsShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListFlashSmsSettingsShrinkRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListFlashSmsSettingsShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // skillGroupIdListShrink Field Functions 
     bool hasSkillGroupIdListShrink() const { return this->skillGroupIdListShrink_ != nullptr;};
     void deleteSkillGroupIdListShrink() { this->skillGroupIdListShrink_ = nullptr;};
-    inline string skillGroupIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(skillGroupIdListShrink_, "") };
+    inline string getSkillGroupIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(skillGroupIdListShrink_, "") };
     inline ListFlashSmsSettingsShrinkRequest& setSkillGroupIdListShrink(string skillGroupIdListShrink) { DARABONBA_PTR_SET_VALUE(skillGroupIdListShrink_, skillGroupIdListShrink) };
 
 
     // skillGroupName Field Functions 
     bool hasSkillGroupName() const { return this->skillGroupName_ != nullptr;};
     void deleteSkillGroupName() { this->skillGroupName_ = nullptr;};
-    inline string skillGroupName() const { DARABONBA_PTR_GET_DEFAULT(skillGroupName_, "") };
+    inline string getSkillGroupName() const { DARABONBA_PTR_GET_DEFAULT(skillGroupName_, "") };
     inline ListFlashSmsSettingsShrinkRequest& setSkillGroupName(string skillGroupName) { DARABONBA_PTR_SET_VALUE(skillGroupName_, skillGroupName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> skillGroupIdListShrink_ = nullptr;
-    std::shared_ptr<string> skillGroupName_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> skillGroupIdListShrink_ {};
+    shared_ptr<string> skillGroupName_ {};
   };
 
   } // namespace Models

@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->jobId_ == nullptr && return this->token_ == nullptr && return this->userId_ == nullptr && return this->userType_ == nullptr; };
+        && this->jobId_ == nullptr && this->token_ == nullptr && this->userId_ == nullptr && this->userType_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ReleaseChatRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline ReleaseChatRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline ReleaseChatRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline ReleaseChatRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // userType Field Functions 
     bool hasUserType() const { return this->userType_ != nullptr;};
     void deleteUserType() { this->userType_ = nullptr;};
-    inline string userType() const { DARABONBA_PTR_GET_DEFAULT(userType_, "") };
+    inline string getUserType() const { DARABONBA_PTR_GET_DEFAULT(userType_, "") };
     inline ReleaseChatRequest& setUserType(string userType) { DARABONBA_PTR_SET_VALUE(userType_, userType) };
 
 
   protected:
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> jobId_ = nullptr;
-    std::shared_ptr<string> token_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> jobId_ {};
+    shared_ptr<string> token_ {};
+    shared_ptr<string> userId_ {};
     // This parameter is required.
-    std::shared_ptr<string> userType_ = nullptr;
+    shared_ptr<string> userType_ {};
   };
 
   } // namespace Models

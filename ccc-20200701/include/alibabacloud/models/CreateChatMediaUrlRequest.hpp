@@ -34,36 +34,36 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->mimeType_ == nullptr && return this->requestId_ == nullptr; };
+        && this->mimeType_ == nullptr && this->requestId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateChatMediaUrlRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // mimeType Field Functions 
     bool hasMimeType() const { return this->mimeType_ != nullptr;};
     void deleteMimeType() { this->mimeType_ = nullptr;};
-    inline string mimeType() const { DARABONBA_PTR_GET_DEFAULT(mimeType_, "") };
+    inline string getMimeType() const { DARABONBA_PTR_GET_DEFAULT(mimeType_, "") };
     inline CreateChatMediaUrlRequest& setMimeType(string mimeType) { DARABONBA_PTR_SET_VALUE(mimeType_, mimeType) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateChatMediaUrlRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // media id
     // 
     // This parameter is required.
-    std::shared_ptr<string> mimeType_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> mimeType_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -37,44 +37,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->campaignId_ == nullptr
-        && return this->instGroupId_ == nullptr && return this->instanceId_ == nullptr && return this->numberList_ == nullptr; };
+        && this->instGroupId_ == nullptr && this->instanceId_ == nullptr && this->numberList_ == nullptr; };
     // campaignId Field Functions 
     bool hasCampaignId() const { return this->campaignId_ != nullptr;};
     void deleteCampaignId() { this->campaignId_ = nullptr;};
-    inline string campaignId() const { DARABONBA_PTR_GET_DEFAULT(campaignId_, "") };
+    inline string getCampaignId() const { DARABONBA_PTR_GET_DEFAULT(campaignId_, "") };
     inline ModifyCampaignNumbersRequest& setCampaignId(string campaignId) { DARABONBA_PTR_SET_VALUE(campaignId_, campaignId) };
 
 
     // instGroupId Field Functions 
     bool hasInstGroupId() const { return this->instGroupId_ != nullptr;};
     void deleteInstGroupId() { this->instGroupId_ = nullptr;};
-    inline string instGroupId() const { DARABONBA_PTR_GET_DEFAULT(instGroupId_, "") };
+    inline string getInstGroupId() const { DARABONBA_PTR_GET_DEFAULT(instGroupId_, "") };
     inline ModifyCampaignNumbersRequest& setInstGroupId(string instGroupId) { DARABONBA_PTR_SET_VALUE(instGroupId_, instGroupId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyCampaignNumbersRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // numberList Field Functions 
     bool hasNumberList() const { return this->numberList_ != nullptr;};
     void deleteNumberList() { this->numberList_ = nullptr;};
-    inline const vector<string> & numberList() const { DARABONBA_PTR_GET_CONST(numberList_, vector<string>) };
-    inline vector<string> numberList() { DARABONBA_PTR_GET(numberList_, vector<string>) };
+    inline const vector<string> & getNumberList() const { DARABONBA_PTR_GET_CONST(numberList_, vector<string>) };
+    inline vector<string> getNumberList() { DARABONBA_PTR_GET(numberList_, vector<string>) };
     inline ModifyCampaignNumbersRequest& setNumberList(const vector<string> & numberList) { DARABONBA_PTR_SET_VALUE(numberList_, numberList) };
     inline ModifyCampaignNumbersRequest& setNumberList(vector<string> && numberList) { DARABONBA_PTR_SET_RVALUE(numberList_, numberList) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> campaignId_ = nullptr;
-    std::shared_ptr<string> instGroupId_ = nullptr;
+    shared_ptr<string> campaignId_ {};
+    shared_ptr<string> instGroupId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<vector<string>> numberList_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<vector<string>> numberList_ {};
   };
 
   } // namespace Models

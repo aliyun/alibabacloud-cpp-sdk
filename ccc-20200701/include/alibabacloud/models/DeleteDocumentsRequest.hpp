@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->documentIds_ == nullptr
-        && return this->instanceId_ == nullptr && return this->requestId_ == nullptr && return this->schemaId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->requestId_ == nullptr && this->schemaId_ == nullptr; };
     // documentIds Field Functions 
     bool hasDocumentIds() const { return this->documentIds_ != nullptr;};
     void deleteDocumentIds() { this->documentIds_ = nullptr;};
-    inline const vector<string> & documentIds() const { DARABONBA_PTR_GET_CONST(documentIds_, vector<string>) };
-    inline vector<string> documentIds() { DARABONBA_PTR_GET(documentIds_, vector<string>) };
+    inline const vector<string> & getDocumentIds() const { DARABONBA_PTR_GET_CONST(documentIds_, vector<string>) };
+    inline vector<string> getDocumentIds() { DARABONBA_PTR_GET(documentIds_, vector<string>) };
     inline DeleteDocumentsRequest& setDocumentIds(const vector<string> & documentIds) { DARABONBA_PTR_SET_VALUE(documentIds_, documentIds) };
     inline DeleteDocumentsRequest& setDocumentIds(vector<string> && documentIds) { DARABONBA_PTR_SET_RVALUE(documentIds_, documentIds) };
 
@@ -50,33 +50,33 @@ namespace Models
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteDocumentsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteDocumentsRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // schemaId Field Functions 
     bool hasSchemaId() const { return this->schemaId_ != nullptr;};
     void deleteSchemaId() { this->schemaId_ = nullptr;};
-    inline string schemaId() const { DARABONBA_PTR_GET_DEFAULT(schemaId_, "") };
+    inline string getSchemaId() const { DARABONBA_PTR_GET_DEFAULT(schemaId_, "") };
     inline DeleteDocumentsRequest& setSchemaId(string schemaId) { DARABONBA_PTR_SET_VALUE(schemaId_, schemaId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> documentIds_ = nullptr;
+    shared_ptr<vector<string>> documentIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> requestId_ {};
     // schema id
     // 
     // This parameter is required.
-    std::shared_ptr<string> schemaId_ = nullptr;
+    shared_ptr<string> schemaId_ {};
   };
 
   } // namespace Models

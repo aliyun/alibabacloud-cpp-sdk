@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactIdListShrink_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // contactIdListShrink Field Functions 
     bool hasContactIdListShrink() const { return this->contactIdListShrink_ != nullptr;};
     void deleteContactIdListShrink() { this->contactIdListShrink_ = nullptr;};
-    inline string contactIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(contactIdListShrink_, "") };
+    inline string getContactIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(contactIdListShrink_, "") };
     inline ListCallSummariesShrinkRequest& setContactIdListShrink(string contactIdListShrink) { DARABONBA_PTR_SET_VALUE(contactIdListShrink_, contactIdListShrink) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListCallSummariesShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
-    std::shared_ptr<string> contactIdListShrink_ = nullptr;
+    shared_ptr<string> contactIdListShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

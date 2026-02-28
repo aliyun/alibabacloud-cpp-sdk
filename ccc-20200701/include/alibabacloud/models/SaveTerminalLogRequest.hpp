@@ -46,89 +46,89 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->callId_ == nullptr && return this->content_ == nullptr && return this->dataType_ == nullptr && return this->instanceId_ == nullptr && return this->jobId_ == nullptr
-        && return this->methodName_ == nullptr && return this->status_ == nullptr && return this->uniqueRequestId_ == nullptr; };
+        && this->callId_ == nullptr && this->content_ == nullptr && this->dataType_ == nullptr && this->instanceId_ == nullptr && this->jobId_ == nullptr
+        && this->methodName_ == nullptr && this->status_ == nullptr && this->uniqueRequestId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline SaveTerminalLogRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // callId Field Functions 
     bool hasCallId() const { return this->callId_ != nullptr;};
     void deleteCallId() { this->callId_ = nullptr;};
-    inline string callId() const { DARABONBA_PTR_GET_DEFAULT(callId_, "") };
+    inline string getCallId() const { DARABONBA_PTR_GET_DEFAULT(callId_, "") };
     inline SaveTerminalLogRequest& setCallId(string callId) { DARABONBA_PTR_SET_VALUE(callId_, callId) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline SaveTerminalLogRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // dataType Field Functions 
     bool hasDataType() const { return this->dataType_ != nullptr;};
     void deleteDataType() { this->dataType_ = nullptr;};
-    inline int32_t dataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, 0) };
+    inline int32_t getDataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, 0) };
     inline SaveTerminalLogRequest& setDataType(int32_t dataType) { DARABONBA_PTR_SET_VALUE(dataType_, dataType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SaveTerminalLogRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline SaveTerminalLogRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // methodName Field Functions 
     bool hasMethodName() const { return this->methodName_ != nullptr;};
     void deleteMethodName() { this->methodName_ = nullptr;};
-    inline string methodName() const { DARABONBA_PTR_GET_DEFAULT(methodName_, "") };
+    inline string getMethodName() const { DARABONBA_PTR_GET_DEFAULT(methodName_, "") };
     inline SaveTerminalLogRequest& setMethodName(string methodName) { DARABONBA_PTR_SET_VALUE(methodName_, methodName) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline SaveTerminalLogRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // uniqueRequestId Field Functions 
     bool hasUniqueRequestId() const { return this->uniqueRequestId_ != nullptr;};
     void deleteUniqueRequestId() { this->uniqueRequestId_ = nullptr;};
-    inline string uniqueRequestId() const { DARABONBA_PTR_GET_DEFAULT(uniqueRequestId_, "") };
+    inline string getUniqueRequestId() const { DARABONBA_PTR_GET_DEFAULT(uniqueRequestId_, "") };
     inline SaveTerminalLogRequest& setUniqueRequestId(string uniqueRequestId) { DARABONBA_PTR_SET_VALUE(uniqueRequestId_, uniqueRequestId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // This parameter is required.
-    std::shared_ptr<string> callId_ = nullptr;
+    shared_ptr<string> callId_ {};
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> dataType_ = nullptr;
+    shared_ptr<int32_t> dataType_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> jobId_ = nullptr;
-    std::shared_ptr<string> methodName_ = nullptr;
+    shared_ptr<string> jobId_ {};
+    shared_ptr<string> methodName_ {};
     // This parameter is required.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // This parameter is required.
-    std::shared_ptr<string> uniqueRequestId_ = nullptr;
+    shared_ptr<string> uniqueRequestId_ {};
   };
 
   } // namespace Models

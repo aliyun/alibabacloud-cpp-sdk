@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactId_ == nullptr
-        && return this->fieldListJson_ == nullptr && return this->instanceId_ == nullptr && return this->taskListJson_ == nullptr; };
+        && this->fieldListJson_ == nullptr && this->instanceId_ == nullptr && this->taskListJson_ == nullptr; };
     // contactId Field Functions 
     bool hasContactId() const { return this->contactId_ != nullptr;};
     void deleteContactId() { this->contactId_ = nullptr;};
-    inline string contactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
+    inline string getContactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
     inline AnalyzeConversationRequest& setContactId(string contactId) { DARABONBA_PTR_SET_VALUE(contactId_, contactId) };
 
 
     // fieldListJson Field Functions 
     bool hasFieldListJson() const { return this->fieldListJson_ != nullptr;};
     void deleteFieldListJson() { this->fieldListJson_ = nullptr;};
-    inline string fieldListJson() const { DARABONBA_PTR_GET_DEFAULT(fieldListJson_, "") };
+    inline string getFieldListJson() const { DARABONBA_PTR_GET_DEFAULT(fieldListJson_, "") };
     inline AnalyzeConversationRequest& setFieldListJson(string fieldListJson) { DARABONBA_PTR_SET_VALUE(fieldListJson_, fieldListJson) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AnalyzeConversationRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // taskListJson Field Functions 
     bool hasTaskListJson() const { return this->taskListJson_ != nullptr;};
     void deleteTaskListJson() { this->taskListJson_ = nullptr;};
-    inline string taskListJson() const { DARABONBA_PTR_GET_DEFAULT(taskListJson_, "") };
+    inline string getTaskListJson() const { DARABONBA_PTR_GET_DEFAULT(taskListJson_, "") };
     inline AnalyzeConversationRequest& setTaskListJson(string taskListJson) { DARABONBA_PTR_SET_VALUE(taskListJson_, taskListJson) };
 
 
   protected:
-    std::shared_ptr<string> contactId_ = nullptr;
-    std::shared_ptr<string> fieldListJson_ = nullptr;
+    shared_ptr<string> contactId_ {};
+    shared_ptr<string> fieldListJson_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> taskListJson_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> taskListJson_ {};
   };
 
   } // namespace Models

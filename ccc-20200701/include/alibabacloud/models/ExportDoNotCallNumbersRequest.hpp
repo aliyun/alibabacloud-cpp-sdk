@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->scope_ == nullptr && return this->searchPattern_ == nullptr; };
+        && this->scope_ == nullptr && this->searchPattern_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ExportDoNotCallNumbersRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline string scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
     inline ExportDoNotCallNumbersRequest& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
     // searchPattern Field Functions 
     bool hasSearchPattern() const { return this->searchPattern_ != nullptr;};
     void deleteSearchPattern() { this->searchPattern_ = nullptr;};
-    inline string searchPattern() const { DARABONBA_PTR_GET_DEFAULT(searchPattern_, "") };
+    inline string getSearchPattern() const { DARABONBA_PTR_GET_DEFAULT(searchPattern_, "") };
     inline ExportDoNotCallNumbersRequest& setSearchPattern(string searchPattern) { DARABONBA_PTR_SET_VALUE(searchPattern_, searchPattern) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> scope_ = nullptr;
-    std::shared_ptr<string> searchPattern_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> scope_ {};
+    shared_ptr<string> searchPattern_ {};
   };
 
   } // namespace Models

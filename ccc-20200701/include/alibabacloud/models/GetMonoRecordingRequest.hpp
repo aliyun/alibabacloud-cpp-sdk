@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactId_ == nullptr
-        && return this->expireSeconds_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->expireSeconds_ == nullptr && this->instanceId_ == nullptr; };
     // contactId Field Functions 
     bool hasContactId() const { return this->contactId_ != nullptr;};
     void deleteContactId() { this->contactId_ = nullptr;};
-    inline string contactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
+    inline string getContactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
     inline GetMonoRecordingRequest& setContactId(string contactId) { DARABONBA_PTR_SET_VALUE(contactId_, contactId) };
 
 
     // expireSeconds Field Functions 
     bool hasExpireSeconds() const { return this->expireSeconds_ != nullptr;};
     void deleteExpireSeconds() { this->expireSeconds_ = nullptr;};
-    inline int64_t expireSeconds() const { DARABONBA_PTR_GET_DEFAULT(expireSeconds_, 0L) };
+    inline int64_t getExpireSeconds() const { DARABONBA_PTR_GET_DEFAULT(expireSeconds_, 0L) };
     inline GetMonoRecordingRequest& setExpireSeconds(int64_t expireSeconds) { DARABONBA_PTR_SET_VALUE(expireSeconds_, expireSeconds) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetMonoRecordingRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> contactId_ = nullptr;
-    std::shared_ptr<int64_t> expireSeconds_ = nullptr;
+    shared_ptr<string> contactId_ {};
+    shared_ptr<int64_t> expireSeconds_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

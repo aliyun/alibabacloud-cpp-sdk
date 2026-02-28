@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactFlowId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->number_ == nullptr && return this->usage_ == nullptr; };
+        && this->instanceId_ == nullptr && this->number_ == nullptr && this->usage_ == nullptr; };
     // contactFlowId Field Functions 
     bool hasContactFlowId() const { return this->contactFlowId_ != nullptr;};
     void deleteContactFlowId() { this->contactFlowId_ = nullptr;};
-    inline string contactFlowId() const { DARABONBA_PTR_GET_DEFAULT(contactFlowId_, "") };
+    inline string getContactFlowId() const { DARABONBA_PTR_GET_DEFAULT(contactFlowId_, "") };
     inline ModifyPhoneNumberRequest& setContactFlowId(string contactFlowId) { DARABONBA_PTR_SET_VALUE(contactFlowId_, contactFlowId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyPhoneNumberRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // number Field Functions 
     bool hasNumber() const { return this->number_ != nullptr;};
     void deleteNumber() { this->number_ = nullptr;};
-    inline string number() const { DARABONBA_PTR_GET_DEFAULT(number_, "") };
+    inline string getNumber() const { DARABONBA_PTR_GET_DEFAULT(number_, "") };
     inline ModifyPhoneNumberRequest& setNumber(string number) { DARABONBA_PTR_SET_VALUE(number_, number) };
 
 
     // usage Field Functions 
     bool hasUsage() const { return this->usage_ != nullptr;};
     void deleteUsage() { this->usage_ = nullptr;};
-    inline string usage() const { DARABONBA_PTR_GET_DEFAULT(usage_, "") };
+    inline string getUsage() const { DARABONBA_PTR_GET_DEFAULT(usage_, "") };
     inline ModifyPhoneNumberRequest& setUsage(string usage) { DARABONBA_PTR_SET_VALUE(usage_, usage) };
 
 
   protected:
-    std::shared_ptr<string> contactFlowId_ = nullptr;
+    shared_ptr<string> contactFlowId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> number_ = nullptr;
+    shared_ptr<string> number_ {};
     // This parameter is required.
-    std::shared_ptr<string> usage_ = nullptr;
+    shared_ptr<string> usage_ {};
   };
 
   } // namespace Models

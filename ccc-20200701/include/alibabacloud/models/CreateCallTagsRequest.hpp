@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callTagNameList_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // callTagNameList Field Functions 
     bool hasCallTagNameList() const { return this->callTagNameList_ != nullptr;};
     void deleteCallTagNameList() { this->callTagNameList_ = nullptr;};
-    inline string callTagNameList() const { DARABONBA_PTR_GET_DEFAULT(callTagNameList_, "") };
+    inline string getCallTagNameList() const { DARABONBA_PTR_GET_DEFAULT(callTagNameList_, "") };
     inline CreateCallTagsRequest& setCallTagNameList(string callTagNameList) { DARABONBA_PTR_SET_VALUE(callTagNameList_, callTagNameList) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateCallTagsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> callTagNameList_ = nullptr;
+    shared_ptr<string> callTagNameList_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     // searchPattern Field Functions 
     bool hasSearchPattern() const { return this->searchPattern_ != nullptr;};
     void deleteSearchPattern() { this->searchPattern_ = nullptr;};
-    inline string searchPattern() const { DARABONBA_PTR_GET_DEFAULT(searchPattern_, "") };
+    inline string getSearchPattern() const { DARABONBA_PTR_GET_DEFAULT(searchPattern_, "") };
     inline GetAccessChannelOfStagingRequest& setSearchPattern(string searchPattern) { DARABONBA_PTR_SET_VALUE(searchPattern_, searchPattern) };
 
 
   protected:
-    std::shared_ptr<string> searchPattern_ = nullptr;
+    shared_ptr<string> searchPattern_ {};
   };
 
   } // namespace Models

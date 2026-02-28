@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callTagNameList_ == nullptr
-        && return this->description_ == nullptr && return this->instanceId_ == nullptr && return this->number_ == nullptr; };
+        && this->description_ == nullptr && this->instanceId_ == nullptr && this->number_ == nullptr; };
     // callTagNameList Field Functions 
     bool hasCallTagNameList() const { return this->callTagNameList_ != nullptr;};
     void deleteCallTagNameList() { this->callTagNameList_ = nullptr;};
-    inline string callTagNameList() const { DARABONBA_PTR_GET_DEFAULT(callTagNameList_, "") };
+    inline string getCallTagNameList() const { DARABONBA_PTR_GET_DEFAULT(callTagNameList_, "") };
     inline ModifyCustomCallTaggingRequest& setCallTagNameList(string callTagNameList) { DARABONBA_PTR_SET_VALUE(callTagNameList_, callTagNameList) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyCustomCallTaggingRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyCustomCallTaggingRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // number Field Functions 
     bool hasNumber() const { return this->number_ != nullptr;};
     void deleteNumber() { this->number_ = nullptr;};
-    inline string number() const { DARABONBA_PTR_GET_DEFAULT(number_, "") };
+    inline string getNumber() const { DARABONBA_PTR_GET_DEFAULT(number_, "") };
     inline ModifyCustomCallTaggingRequest& setNumber(string number) { DARABONBA_PTR_SET_VALUE(number_, number) };
 
 
   protected:
-    std::shared_ptr<string> callTagNameList_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> callTagNameList_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> number_ = nullptr;
+    shared_ptr<string> number_ {};
   };
 
   } // namespace Models

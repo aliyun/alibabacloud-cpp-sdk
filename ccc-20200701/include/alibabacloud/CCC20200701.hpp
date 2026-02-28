@@ -555,6 +555,8 @@ namespace CCC20200701
       Models::CreateTicketResponse createTicket(const Models::CreateTicketRequest &request);
 
       /**
+       * @summary 创建坐席
+       *
        * @param request CreateUserRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateUserResponse
@@ -562,6 +564,8 @@ namespace CCC20200701
       Models::CreateUserResponse createUserWithOptions(const Models::CreateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建坐席
+       *
        * @param request CreateUserRequest
        * @return CreateUserResponse
        */
@@ -1493,6 +1497,8 @@ namespace CCC20200701
       Models::ImportContactFlowResponse importContactFlow(const Models::ImportContactFlowRequest &request);
 
       /**
+       * @summary 导入自有线路号码
+       *
        * @param request ImportCorpNumbersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ImportCorpNumbersResponse
@@ -1500,6 +1506,8 @@ namespace CCC20200701
       Models::ImportCorpNumbersResponse importCorpNumbersWithOptions(const Models::ImportCorpNumbersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 导入自有线路号码
+       *
        * @param request ImportCorpNumbersRequest
        * @return ImportCorpNumbersResponse
        */
@@ -2267,6 +2275,8 @@ namespace CCC20200701
       Models::ListLegacyQueueEventLogsResponse listLegacyQueueEventLogs(const Models::ListLegacyQueueEventLogsRequest &request);
 
       /**
+       * @summary 获取单轨录音
+       *
        * @param request ListMonoRecordingsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListMonoRecordingsResponse
@@ -2274,12 +2284,16 @@ namespace CCC20200701
       Models::ListMonoRecordingsResponse listMonoRecordingsWithOptions(const Models::ListMonoRecordingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取单轨录音
+       *
        * @param request ListMonoRecordingsRequest
        * @return ListMonoRecordingsResponse
        */
       Models::ListMonoRecordingsResponse listMonoRecordings(const Models::ListMonoRecordingsRequest &request);
 
       /**
+       * @summary 获取分轨录音
+       *
        * @param request ListMultiChannelRecordingsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListMultiChannelRecordingsResponse
@@ -2287,6 +2301,8 @@ namespace CCC20200701
       Models::ListMultiChannelRecordingsResponse listMultiChannelRecordingsWithOptions(const Models::ListMultiChannelRecordingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取分轨录音
+       *
        * @param request ListMultiChannelRecordingsRequest
        * @return ListMultiChannelRecordingsResponse
        */
@@ -2499,6 +2515,8 @@ namespace CCC20200701
       Models::ListSkillLevelsOfUserResponse listSkillLevelsOfUser(const Models::ListSkillLevelsOfUserRequest &request);
 
       /**
+       * @summary 使用ListSmsMetadata获取短信配置信息。
+       *
        * @param request ListSmsMetadataRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListSmsMetadataResponse
@@ -2506,6 +2524,8 @@ namespace CCC20200701
       Models::ListSmsMetadataResponse listSmsMetadataWithOptions(const Models::ListSmsMetadataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 使用ListSmsMetadata获取短信配置信息。
+       *
        * @param request ListSmsMetadataRequest
        * @return ListSmsMetadataResponse
        */
@@ -2611,6 +2631,8 @@ namespace CCC20200701
       Models::ListVisitorChatMessagesResponse listVisitorChatMessages(const Models::ListVisitorChatMessagesRequest &request);
 
       /**
+       * @summary 查询语音信箱列表
+       *
        * @param request ListVoicemailsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListVoicemailsResponse
@@ -2618,6 +2640,8 @@ namespace CCC20200701
       Models::ListVoicemailsResponse listVoicemailsWithOptions(const Models::ListVoicemailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询语音信箱列表
+       *
        * @param request ListVoicemailsRequest
        * @return ListVoicemailsResponse
        */

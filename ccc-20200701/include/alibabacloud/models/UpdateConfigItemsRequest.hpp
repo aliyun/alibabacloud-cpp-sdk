@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configItems_ == nullptr
-        && return this->instanceId_ == nullptr && return this->objectId_ == nullptr && return this->objectType_ == nullptr; };
+        && this->instanceId_ == nullptr && this->objectId_ == nullptr && this->objectType_ == nullptr; };
     // configItems Field Functions 
     bool hasConfigItems() const { return this->configItems_ != nullptr;};
     void deleteConfigItems() { this->configItems_ = nullptr;};
-    inline string configItems() const { DARABONBA_PTR_GET_DEFAULT(configItems_, "") };
+    inline string getConfigItems() const { DARABONBA_PTR_GET_DEFAULT(configItems_, "") };
     inline UpdateConfigItemsRequest& setConfigItems(string configItems) { DARABONBA_PTR_SET_VALUE(configItems_, configItems) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateConfigItemsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // objectId Field Functions 
     bool hasObjectId() const { return this->objectId_ != nullptr;};
     void deleteObjectId() { this->objectId_ = nullptr;};
-    inline string objectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
+    inline string getObjectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
     inline UpdateConfigItemsRequest& setObjectId(string objectId) { DARABONBA_PTR_SET_VALUE(objectId_, objectId) };
 
 
     // objectType Field Functions 
     bool hasObjectType() const { return this->objectType_ != nullptr;};
     void deleteObjectType() { this->objectType_ = nullptr;};
-    inline string objectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
+    inline string getObjectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
     inline UpdateConfigItemsRequest& setObjectType(string objectType) { DARABONBA_PTR_SET_VALUE(objectType_, objectType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> configItems_ = nullptr;
+    shared_ptr<string> configItems_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> objectId_ = nullptr;
+    shared_ptr<string> objectId_ {};
     // This parameter is required.
-    std::shared_ptr<string> objectType_ = nullptr;
+    shared_ptr<string> objectType_ {};
   };
 
   } // namespace Models

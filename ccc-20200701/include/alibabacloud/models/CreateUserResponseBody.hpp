@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEUSERRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_CREATEUSERRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/CreateUserResponseBodyData.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -41,43 +40,156 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AvatarUrl, avatarUrl_);
+        DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
+        DARABONBA_PTR_TO_JSON(Email, email_);
+        DARABONBA_PTR_TO_JSON(Extension, extension_);
+        DARABONBA_PTR_TO_JSON(LoginName, loginName_);
+        DARABONBA_PTR_TO_JSON(Mobile, mobile_);
+        DARABONBA_PTR_TO_JSON(Nickname, nickname_);
+        DARABONBA_PTR_TO_JSON(UserId, userId_);
+        DARABONBA_PTR_TO_JSON(WorkMode, workMode_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AvatarUrl, avatarUrl_);
+        DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
+        DARABONBA_PTR_FROM_JSON(Email, email_);
+        DARABONBA_PTR_FROM_JSON(Extension, extension_);
+        DARABONBA_PTR_FROM_JSON(LoginName, loginName_);
+        DARABONBA_PTR_FROM_JSON(Mobile, mobile_);
+        DARABONBA_PTR_FROM_JSON(Nickname, nickname_);
+        DARABONBA_PTR_FROM_JSON(UserId, userId_);
+        DARABONBA_PTR_FROM_JSON(WorkMode, workMode_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->avatarUrl_ == nullptr
+        && this->displayName_ == nullptr && this->email_ == nullptr && this->extension_ == nullptr && this->loginName_ == nullptr && this->mobile_ == nullptr
+        && this->nickname_ == nullptr && this->userId_ == nullptr && this->workMode_ == nullptr; };
+      // avatarUrl Field Functions 
+      bool hasAvatarUrl() const { return this->avatarUrl_ != nullptr;};
+      void deleteAvatarUrl() { this->avatarUrl_ = nullptr;};
+      inline string getAvatarUrl() const { DARABONBA_PTR_GET_DEFAULT(avatarUrl_, "") };
+      inline Data& setAvatarUrl(string avatarUrl) { DARABONBA_PTR_SET_VALUE(avatarUrl_, avatarUrl) };
+
+
+      // displayName Field Functions 
+      bool hasDisplayName() const { return this->displayName_ != nullptr;};
+      void deleteDisplayName() { this->displayName_ = nullptr;};
+      inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+      inline Data& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
+
+
+      // email Field Functions 
+      bool hasEmail() const { return this->email_ != nullptr;};
+      void deleteEmail() { this->email_ = nullptr;};
+      inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+      inline Data& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
+
+
+      // extension Field Functions 
+      bool hasExtension() const { return this->extension_ != nullptr;};
+      void deleteExtension() { this->extension_ = nullptr;};
+      inline string getExtension() const { DARABONBA_PTR_GET_DEFAULT(extension_, "") };
+      inline Data& setExtension(string extension) { DARABONBA_PTR_SET_VALUE(extension_, extension) };
+
+
+      // loginName Field Functions 
+      bool hasLoginName() const { return this->loginName_ != nullptr;};
+      void deleteLoginName() { this->loginName_ = nullptr;};
+      inline string getLoginName() const { DARABONBA_PTR_GET_DEFAULT(loginName_, "") };
+      inline Data& setLoginName(string loginName) { DARABONBA_PTR_SET_VALUE(loginName_, loginName) };
+
+
+      // mobile Field Functions 
+      bool hasMobile() const { return this->mobile_ != nullptr;};
+      void deleteMobile() { this->mobile_ = nullptr;};
+      inline string getMobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
+      inline Data& setMobile(string mobile) { DARABONBA_PTR_SET_VALUE(mobile_, mobile) };
+
+
+      // nickname Field Functions 
+      bool hasNickname() const { return this->nickname_ != nullptr;};
+      void deleteNickname() { this->nickname_ = nullptr;};
+      inline string getNickname() const { DARABONBA_PTR_GET_DEFAULT(nickname_, "") };
+      inline Data& setNickname(string nickname) { DARABONBA_PTR_SET_VALUE(nickname_, nickname) };
+
+
+      // userId Field Functions 
+      bool hasUserId() const { return this->userId_ != nullptr;};
+      void deleteUserId() { this->userId_ = nullptr;};
+      inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+      inline Data& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
+      // workMode Field Functions 
+      bool hasWorkMode() const { return this->workMode_ != nullptr;};
+      void deleteWorkMode() { this->workMode_ = nullptr;};
+      inline string getWorkMode() const { DARABONBA_PTR_GET_DEFAULT(workMode_, "") };
+      inline Data& setWorkMode(string workMode) { DARABONBA_PTR_SET_VALUE(workMode_, workMode) };
+
+
+    protected:
+      shared_ptr<string> avatarUrl_ {};
+      shared_ptr<string> displayName_ {};
+      shared_ptr<string> email_ {};
+      shared_ptr<string> extension_ {};
+      shared_ptr<string> loginName_ {};
+      shared_ptr<string> mobile_ {};
+      shared_ptr<string> nickname_ {};
+      shared_ptr<string> userId_ {};
+      shared_ptr<string> workMode_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->params_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->params_ == nullptr && this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline CreateUserResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const CreateUserResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, CreateUserResponseBodyData) };
-    inline CreateUserResponseBodyData data() { DARABONBA_PTR_GET(data_, CreateUserResponseBodyData) };
-    inline CreateUserResponseBody& setData(const CreateUserResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline CreateUserResponseBody& setData(CreateUserResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const CreateUserResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, CreateUserResponseBody::Data) };
+    inline CreateUserResponseBody::Data getData() { DARABONBA_PTR_GET(data_, CreateUserResponseBody::Data) };
+    inline CreateUserResponseBody& setData(const CreateUserResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline CreateUserResponseBody& setData(CreateUserResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline CreateUserResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline CreateUserResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline const vector<string> & params() const { DARABONBA_PTR_GET_CONST(params_, vector<string>) };
-    inline vector<string> params() { DARABONBA_PTR_GET(params_, vector<string>) };
+    inline const vector<string> & getParams() const { DARABONBA_PTR_GET_CONST(params_, vector<string>) };
+    inline vector<string> getParams() { DARABONBA_PTR_GET(params_, vector<string>) };
     inline CreateUserResponseBody& setParams(const vector<string> & params) { DARABONBA_PTR_SET_VALUE(params_, params) };
     inline CreateUserResponseBody& setParams(vector<string> && params) { DARABONBA_PTR_SET_RVALUE(params_, params) };
 
@@ -85,17 +197,17 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateUserResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<CreateUserResponseBodyData> data_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<vector<string>> params_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<CreateUserResponseBody::Data> data_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<vector<string>> params_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

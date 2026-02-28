@@ -44,75 +44,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callableTime_ == nullptr
-        && return this->campaignId_ == nullptr && return this->contactFlowId_ == nullptr && return this->endTime_ == nullptr && return this->instanceId_ == nullptr && return this->name_ == nullptr
-        && return this->startTime_ == nullptr && return this->strategyParameters_ == nullptr; };
+        && this->campaignId_ == nullptr && this->contactFlowId_ == nullptr && this->endTime_ == nullptr && this->instanceId_ == nullptr && this->name_ == nullptr
+        && this->startTime_ == nullptr && this->strategyParameters_ == nullptr; };
     // callableTime Field Functions 
     bool hasCallableTime() const { return this->callableTime_ != nullptr;};
     void deleteCallableTime() { this->callableTime_ = nullptr;};
-    inline string callableTime() const { DARABONBA_PTR_GET_DEFAULT(callableTime_, "") };
+    inline string getCallableTime() const { DARABONBA_PTR_GET_DEFAULT(callableTime_, "") };
     inline UpdateCampaignRequest& setCallableTime(string callableTime) { DARABONBA_PTR_SET_VALUE(callableTime_, callableTime) };
 
 
     // campaignId Field Functions 
     bool hasCampaignId() const { return this->campaignId_ != nullptr;};
     void deleteCampaignId() { this->campaignId_ = nullptr;};
-    inline string campaignId() const { DARABONBA_PTR_GET_DEFAULT(campaignId_, "") };
+    inline string getCampaignId() const { DARABONBA_PTR_GET_DEFAULT(campaignId_, "") };
     inline UpdateCampaignRequest& setCampaignId(string campaignId) { DARABONBA_PTR_SET_VALUE(campaignId_, campaignId) };
 
 
     // contactFlowId Field Functions 
     bool hasContactFlowId() const { return this->contactFlowId_ != nullptr;};
     void deleteContactFlowId() { this->contactFlowId_ = nullptr;};
-    inline string contactFlowId() const { DARABONBA_PTR_GET_DEFAULT(contactFlowId_, "") };
+    inline string getContactFlowId() const { DARABONBA_PTR_GET_DEFAULT(contactFlowId_, "") };
     inline UpdateCampaignRequest& setContactFlowId(string contactFlowId) { DARABONBA_PTR_SET_VALUE(contactFlowId_, contactFlowId) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline UpdateCampaignRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateCampaignRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateCampaignRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline UpdateCampaignRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // strategyParameters Field Functions 
     bool hasStrategyParameters() const { return this->strategyParameters_ != nullptr;};
     void deleteStrategyParameters() { this->strategyParameters_ = nullptr;};
-    inline string strategyParameters() const { DARABONBA_PTR_GET_DEFAULT(strategyParameters_, "") };
+    inline string getStrategyParameters() const { DARABONBA_PTR_GET_DEFAULT(strategyParameters_, "") };
     inline UpdateCampaignRequest& setStrategyParameters(string strategyParameters) { DARABONBA_PTR_SET_VALUE(strategyParameters_, strategyParameters) };
 
 
   protected:
-    std::shared_ptr<string> callableTime_ = nullptr;
+    shared_ptr<string> callableTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> campaignId_ = nullptr;
-    std::shared_ptr<string> contactFlowId_ = nullptr;
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> campaignId_ {};
+    shared_ptr<string> contactFlowId_ {};
+    shared_ptr<string> endTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
-    std::shared_ptr<string> strategyParameters_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> startTime_ {};
+    shared_ptr<string> strategyParameters_ {};
   };
 
   } // namespace Models

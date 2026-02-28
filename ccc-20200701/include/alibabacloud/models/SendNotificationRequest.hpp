@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->messageBody_ == nullptr && return this->notificationTarget_ == nullptr && return this->notificationType_ == nullptr && return this->shardingKey_ == nullptr; };
+        && this->messageBody_ == nullptr && this->notificationTarget_ == nullptr && this->notificationType_ == nullptr && this->shardingKey_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SendNotificationRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // messageBody Field Functions 
     bool hasMessageBody() const { return this->messageBody_ != nullptr;};
     void deleteMessageBody() { this->messageBody_ = nullptr;};
-    inline string messageBody() const { DARABONBA_PTR_GET_DEFAULT(messageBody_, "") };
+    inline string getMessageBody() const { DARABONBA_PTR_GET_DEFAULT(messageBody_, "") };
     inline SendNotificationRequest& setMessageBody(string messageBody) { DARABONBA_PTR_SET_VALUE(messageBody_, messageBody) };
 
 
     // notificationTarget Field Functions 
     bool hasNotificationTarget() const { return this->notificationTarget_ != nullptr;};
     void deleteNotificationTarget() { this->notificationTarget_ = nullptr;};
-    inline string notificationTarget() const { DARABONBA_PTR_GET_DEFAULT(notificationTarget_, "") };
+    inline string getNotificationTarget() const { DARABONBA_PTR_GET_DEFAULT(notificationTarget_, "") };
     inline SendNotificationRequest& setNotificationTarget(string notificationTarget) { DARABONBA_PTR_SET_VALUE(notificationTarget_, notificationTarget) };
 
 
     // notificationType Field Functions 
     bool hasNotificationType() const { return this->notificationType_ != nullptr;};
     void deleteNotificationType() { this->notificationType_ = nullptr;};
-    inline string notificationType() const { DARABONBA_PTR_GET_DEFAULT(notificationType_, "") };
+    inline string getNotificationType() const { DARABONBA_PTR_GET_DEFAULT(notificationType_, "") };
     inline SendNotificationRequest& setNotificationType(string notificationType) { DARABONBA_PTR_SET_VALUE(notificationType_, notificationType) };
 
 
     // shardingKey Field Functions 
     bool hasShardingKey() const { return this->shardingKey_ != nullptr;};
     void deleteShardingKey() { this->shardingKey_ = nullptr;};
-    inline string shardingKey() const { DARABONBA_PTR_GET_DEFAULT(shardingKey_, "") };
+    inline string getShardingKey() const { DARABONBA_PTR_GET_DEFAULT(shardingKey_, "") };
     inline SendNotificationRequest& setShardingKey(string shardingKey) { DARABONBA_PTR_SET_VALUE(shardingKey_, shardingKey) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> messageBody_ = nullptr;
+    shared_ptr<string> messageBody_ {};
     // This parameter is required.
-    std::shared_ptr<string> notificationTarget_ = nullptr;
+    shared_ptr<string> notificationTarget_ {};
     // This parameter is required.
-    std::shared_ptr<string> notificationType_ = nullptr;
+    shared_ptr<string> notificationType_ {};
     // This parameter is required.
-    std::shared_ptr<string> shardingKey_ = nullptr;
+    shared_ptr<string> shardingKey_ {};
   };
 
   } // namespace Models

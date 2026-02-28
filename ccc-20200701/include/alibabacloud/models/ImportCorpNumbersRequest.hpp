@@ -40,58 +40,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->city_ == nullptr
-        && return this->corpName_ == nullptr && return this->numberList_ == nullptr && return this->provider_ == nullptr && return this->province_ == nullptr && return this->tagList_ == nullptr; };
+        && this->corpName_ == nullptr && this->numberList_ == nullptr && this->provider_ == nullptr && this->province_ == nullptr && this->tagList_ == nullptr; };
     // city Field Functions 
     bool hasCity() const { return this->city_ != nullptr;};
     void deleteCity() { this->city_ = nullptr;};
-    inline string city() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
+    inline string getCity() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
     inline ImportCorpNumbersRequest& setCity(string city) { DARABONBA_PTR_SET_VALUE(city_, city) };
 
 
     // corpName Field Functions 
     bool hasCorpName() const { return this->corpName_ != nullptr;};
     void deleteCorpName() { this->corpName_ = nullptr;};
-    inline string corpName() const { DARABONBA_PTR_GET_DEFAULT(corpName_, "") };
+    inline string getCorpName() const { DARABONBA_PTR_GET_DEFAULT(corpName_, "") };
     inline ImportCorpNumbersRequest& setCorpName(string corpName) { DARABONBA_PTR_SET_VALUE(corpName_, corpName) };
 
 
     // numberList Field Functions 
     bool hasNumberList() const { return this->numberList_ != nullptr;};
     void deleteNumberList() { this->numberList_ = nullptr;};
-    inline string numberList() const { DARABONBA_PTR_GET_DEFAULT(numberList_, "") };
+    inline string getNumberList() const { DARABONBA_PTR_GET_DEFAULT(numberList_, "") };
     inline ImportCorpNumbersRequest& setNumberList(string numberList) { DARABONBA_PTR_SET_VALUE(numberList_, numberList) };
 
 
     // provider Field Functions 
     bool hasProvider() const { return this->provider_ != nullptr;};
     void deleteProvider() { this->provider_ = nullptr;};
-    inline string provider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
+    inline string getProvider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
     inline ImportCorpNumbersRequest& setProvider(string provider) { DARABONBA_PTR_SET_VALUE(provider_, provider) };
 
 
     // province Field Functions 
     bool hasProvince() const { return this->province_ != nullptr;};
     void deleteProvince() { this->province_ = nullptr;};
-    inline string province() const { DARABONBA_PTR_GET_DEFAULT(province_, "") };
+    inline string getProvince() const { DARABONBA_PTR_GET_DEFAULT(province_, "") };
     inline ImportCorpNumbersRequest& setProvince(string province) { DARABONBA_PTR_SET_VALUE(province_, province) };
 
 
     // tagList Field Functions 
     bool hasTagList() const { return this->tagList_ != nullptr;};
     void deleteTagList() { this->tagList_ = nullptr;};
-    inline string tagList() const { DARABONBA_PTR_GET_DEFAULT(tagList_, "") };
+    inline string getTagList() const { DARABONBA_PTR_GET_DEFAULT(tagList_, "") };
     inline ImportCorpNumbersRequest& setTagList(string tagList) { DARABONBA_PTR_SET_VALUE(tagList_, tagList) };
 
 
   protected:
-    std::shared_ptr<string> city_ = nullptr;
-    std::shared_ptr<string> corpName_ = nullptr;
+    shared_ptr<string> city_ {};
+    shared_ptr<string> corpName_ {};
     // This parameter is required.
-    std::shared_ptr<string> numberList_ = nullptr;
+    shared_ptr<string> numberList_ {};
     // This parameter is required.
-    std::shared_ptr<string> provider_ = nullptr;
-    std::shared_ptr<string> province_ = nullptr;
-    std::shared_ptr<string> tagList_ = nullptr;
+    shared_ptr<string> provider_ {};
+    shared_ptr<string> province_ {};
+    shared_ptr<string> tagList_ {};
   };
 
   } // namespace Models

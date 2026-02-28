@@ -36,45 +36,45 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->ossFileKey_ == nullptr && return this->requestId_ == nullptr && return this->schemaId_ == nullptr; };
+        && this->ossFileKey_ == nullptr && this->requestId_ == nullptr && this->schemaId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ImportDocumentsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // ossFileKey Field Functions 
     bool hasOssFileKey() const { return this->ossFileKey_ != nullptr;};
     void deleteOssFileKey() { this->ossFileKey_ = nullptr;};
-    inline string ossFileKey() const { DARABONBA_PTR_GET_DEFAULT(ossFileKey_, "") };
+    inline string getOssFileKey() const { DARABONBA_PTR_GET_DEFAULT(ossFileKey_, "") };
     inline ImportDocumentsRequest& setOssFileKey(string ossFileKey) { DARABONBA_PTR_SET_VALUE(ossFileKey_, ossFileKey) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ImportDocumentsRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // schemaId Field Functions 
     bool hasSchemaId() const { return this->schemaId_ != nullptr;};
     void deleteSchemaId() { this->schemaId_ = nullptr;};
-    inline string schemaId() const { DARABONBA_PTR_GET_DEFAULT(schemaId_, "") };
+    inline string getSchemaId() const { DARABONBA_PTR_GET_DEFAULT(schemaId_, "") };
     inline ImportDocumentsRequest& setSchemaId(string schemaId) { DARABONBA_PTR_SET_VALUE(schemaId_, schemaId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> ossFileKey_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> ossFileKey_ {};
+    shared_ptr<string> requestId_ {};
     // schema id
     // 
     // This parameter is required.
-    std::shared_ptr<string> schemaId_ = nullptr;
+    shared_ptr<string> schemaId_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->taskIdList_ == nullptr; };
+        && this->taskIdList_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListFeedbacksRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // taskIdList Field Functions 
     bool hasTaskIdList() const { return this->taskIdList_ != nullptr;};
     void deleteTaskIdList() { this->taskIdList_ = nullptr;};
-    inline string taskIdList() const { DARABONBA_PTR_GET_DEFAULT(taskIdList_, "") };
+    inline string getTaskIdList() const { DARABONBA_PTR_GET_DEFAULT(taskIdList_, "") };
     inline ListFeedbacksRequest& setTaskIdList(string taskIdList) { DARABONBA_PTR_SET_VALUE(taskIdList_, taskIdList) };
 
 
   protected:
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> taskIdList_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> taskIdList_ {};
   };
 
   } // namespace Models

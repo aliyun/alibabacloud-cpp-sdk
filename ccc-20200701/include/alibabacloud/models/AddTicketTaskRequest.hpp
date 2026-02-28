@@ -40,61 +40,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assignee_ == nullptr
-        && return this->comment_ == nullptr && return this->instanceId_ == nullptr && return this->position_ == nullptr && return this->taskId_ == nullptr && return this->ticketId_ == nullptr; };
+        && this->comment_ == nullptr && this->instanceId_ == nullptr && this->position_ == nullptr && this->taskId_ == nullptr && this->ticketId_ == nullptr; };
     // assignee Field Functions 
     bool hasAssignee() const { return this->assignee_ != nullptr;};
     void deleteAssignee() { this->assignee_ = nullptr;};
-    inline string assignee() const { DARABONBA_PTR_GET_DEFAULT(assignee_, "") };
+    inline string getAssignee() const { DARABONBA_PTR_GET_DEFAULT(assignee_, "") };
     inline AddTicketTaskRequest& setAssignee(string assignee) { DARABONBA_PTR_SET_VALUE(assignee_, assignee) };
 
 
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline AddTicketTaskRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AddTicketTaskRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // position Field Functions 
     bool hasPosition() const { return this->position_ != nullptr;};
     void deletePosition() { this->position_ = nullptr;};
-    inline string position() const { DARABONBA_PTR_GET_DEFAULT(position_, "") };
+    inline string getPosition() const { DARABONBA_PTR_GET_DEFAULT(position_, "") };
     inline AddTicketTaskRequest& setPosition(string position) { DARABONBA_PTR_SET_VALUE(position_, position) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline AddTicketTaskRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // ticketId Field Functions 
     bool hasTicketId() const { return this->ticketId_ != nullptr;};
     void deleteTicketId() { this->ticketId_ = nullptr;};
-    inline string ticketId() const { DARABONBA_PTR_GET_DEFAULT(ticketId_, "") };
+    inline string getTicketId() const { DARABONBA_PTR_GET_DEFAULT(ticketId_, "") };
     inline AddTicketTaskRequest& setTicketId(string ticketId) { DARABONBA_PTR_SET_VALUE(ticketId_, ticketId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> assignee_ = nullptr;
+    shared_ptr<string> assignee_ {};
     // This parameter is required.
-    std::shared_ptr<string> comment_ = nullptr;
+    shared_ptr<string> comment_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> position_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> position_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
     // This parameter is required.
-    std::shared_ptr<string> ticketId_ = nullptr;
+    shared_ptr<string> ticketId_ {};
   };
 
   } // namespace Models

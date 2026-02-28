@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->feedback_ == nullptr
-        && return this->instanceId_ == nullptr && return this->rating_ == nullptr && return this->taskId_ == nullptr && return this->taskName_ == nullptr; };
+        && this->instanceId_ == nullptr && this->rating_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr; };
     // feedback Field Functions 
     bool hasFeedback() const { return this->feedback_ != nullptr;};
     void deleteFeedback() { this->feedback_ = nullptr;};
-    inline string feedback() const { DARABONBA_PTR_GET_DEFAULT(feedback_, "") };
+    inline string getFeedback() const { DARABONBA_PTR_GET_DEFAULT(feedback_, "") };
     inline AddFeedbackRequest& setFeedback(string feedback) { DARABONBA_PTR_SET_VALUE(feedback_, feedback) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AddFeedbackRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // rating Field Functions 
     bool hasRating() const { return this->rating_ != nullptr;};
     void deleteRating() { this->rating_ = nullptr;};
-    inline int32_t rating() const { DARABONBA_PTR_GET_DEFAULT(rating_, 0) };
+    inline int32_t getRating() const { DARABONBA_PTR_GET_DEFAULT(rating_, 0) };
     inline AddFeedbackRequest& setRating(int32_t rating) { DARABONBA_PTR_SET_VALUE(rating_, rating) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline AddFeedbackRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline AddFeedbackRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
   protected:
-    std::shared_ptr<string> feedback_ = nullptr;
+    shared_ptr<string> feedback_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int32_t> rating_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> rating_ {};
+    shared_ptr<string> taskId_ {};
+    shared_ptr<string> taskName_ {};
   };
 
   } // namespace Models

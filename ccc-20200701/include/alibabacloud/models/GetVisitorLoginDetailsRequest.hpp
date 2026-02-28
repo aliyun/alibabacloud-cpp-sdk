@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chatDeviceId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->token_ == nullptr && return this->visitorId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->token_ == nullptr && this->visitorId_ == nullptr; };
     // chatDeviceId Field Functions 
     bool hasChatDeviceId() const { return this->chatDeviceId_ != nullptr;};
     void deleteChatDeviceId() { this->chatDeviceId_ = nullptr;};
-    inline string chatDeviceId() const { DARABONBA_PTR_GET_DEFAULT(chatDeviceId_, "") };
+    inline string getChatDeviceId() const { DARABONBA_PTR_GET_DEFAULT(chatDeviceId_, "") };
     inline GetVisitorLoginDetailsRequest& setChatDeviceId(string chatDeviceId) { DARABONBA_PTR_SET_VALUE(chatDeviceId_, chatDeviceId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetVisitorLoginDetailsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline GetVisitorLoginDetailsRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
     // visitorId Field Functions 
     bool hasVisitorId() const { return this->visitorId_ != nullptr;};
     void deleteVisitorId() { this->visitorId_ = nullptr;};
-    inline string visitorId() const { DARABONBA_PTR_GET_DEFAULT(visitorId_, "") };
+    inline string getVisitorId() const { DARABONBA_PTR_GET_DEFAULT(visitorId_, "") };
     inline GetVisitorLoginDetailsRequest& setVisitorId(string visitorId) { DARABONBA_PTR_SET_VALUE(visitorId_, visitorId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> chatDeviceId_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> chatDeviceId_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> token_ {};
     // This parameter is required.
-    std::shared_ptr<string> visitorId_ = nullptr;
+    shared_ptr<string> visitorId_ {};
   };
 
   } // namespace Models

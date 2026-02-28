@@ -42,68 +42,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->orderByField_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->searchPattern_ == nullptr && return this->sortOrder_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->orderByField_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->searchPattern_ == nullptr && this->sortOrder_ == nullptr
+        && this->type_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListContactFlowsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // orderByField Field Functions 
     bool hasOrderByField() const { return this->orderByField_ != nullptr;};
     void deleteOrderByField() { this->orderByField_ = nullptr;};
-    inline string orderByField() const { DARABONBA_PTR_GET_DEFAULT(orderByField_, "") };
+    inline string getOrderByField() const { DARABONBA_PTR_GET_DEFAULT(orderByField_, "") };
     inline ListContactFlowsRequest& setOrderByField(string orderByField) { DARABONBA_PTR_SET_VALUE(orderByField_, orderByField) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListContactFlowsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListContactFlowsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // searchPattern Field Functions 
     bool hasSearchPattern() const { return this->searchPattern_ != nullptr;};
     void deleteSearchPattern() { this->searchPattern_ = nullptr;};
-    inline string searchPattern() const { DARABONBA_PTR_GET_DEFAULT(searchPattern_, "") };
+    inline string getSearchPattern() const { DARABONBA_PTR_GET_DEFAULT(searchPattern_, "") };
     inline ListContactFlowsRequest& setSearchPattern(string searchPattern) { DARABONBA_PTR_SET_VALUE(searchPattern_, searchPattern) };
 
 
     // sortOrder Field Functions 
     bool hasSortOrder() const { return this->sortOrder_ != nullptr;};
     void deleteSortOrder() { this->sortOrder_ = nullptr;};
-    inline string sortOrder() const { DARABONBA_PTR_GET_DEFAULT(sortOrder_, "") };
+    inline string getSortOrder() const { DARABONBA_PTR_GET_DEFAULT(sortOrder_, "") };
     inline ListContactFlowsRequest& setSortOrder(string sortOrder) { DARABONBA_PTR_SET_VALUE(sortOrder_, sortOrder) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListContactFlowsRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> orderByField_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> orderByField_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> searchPattern_ = nullptr;
-    std::shared_ptr<string> sortOrder_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> searchPattern_ {};
+    shared_ptr<string> sortOrder_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

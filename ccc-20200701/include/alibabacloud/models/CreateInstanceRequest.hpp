@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->adminRamIdList_ == nullptr
-        && return this->description_ == nullptr && return this->domainName_ == nullptr && return this->name_ == nullptr && return this->numberList_ == nullptr; };
+        && this->description_ == nullptr && this->domainName_ == nullptr && this->name_ == nullptr && this->numberList_ == nullptr; };
     // adminRamIdList Field Functions 
     bool hasAdminRamIdList() const { return this->adminRamIdList_ != nullptr;};
     void deleteAdminRamIdList() { this->adminRamIdList_ = nullptr;};
-    inline string adminRamIdList() const { DARABONBA_PTR_GET_DEFAULT(adminRamIdList_, "") };
+    inline string getAdminRamIdList() const { DARABONBA_PTR_GET_DEFAULT(adminRamIdList_, "") };
     inline CreateInstanceRequest& setAdminRamIdList(string adminRamIdList) { DARABONBA_PTR_SET_VALUE(adminRamIdList_, adminRamIdList) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateInstanceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline CreateInstanceRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateInstanceRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // numberList Field Functions 
     bool hasNumberList() const { return this->numberList_ != nullptr;};
     void deleteNumberList() { this->numberList_ = nullptr;};
-    inline string numberList() const { DARABONBA_PTR_GET_DEFAULT(numberList_, "") };
+    inline string getNumberList() const { DARABONBA_PTR_GET_DEFAULT(numberList_, "") };
     inline CreateInstanceRequest& setNumberList(string numberList) { DARABONBA_PTR_SET_VALUE(numberList_, numberList) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> adminRamIdList_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> adminRamIdList_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> numberList_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> numberList_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_LISTFLASHSMSAPPLICATIONSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTFLASHSMSAPPLICATIONSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListFlashSmsApplicationsResponseBodyData.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -41,43 +40,179 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(List, list_);
+        DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+        DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(List, list_);
+        DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+        DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class List : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const List& obj) { 
+          DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
+          DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_TO_JSON(Name, name_);
+          DARABONBA_PTR_TO_JSON(ProviderId, providerId_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, List& obj) { 
+          DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
+          DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+          DARABONBA_PTR_FROM_JSON(ProviderId, providerId_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        List() = default ;
+        List(const List &) = default ;
+        List(List &&) = default ;
+        List(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~List() = default ;
+        List& operator=(const List &) = default ;
+        List& operator=(List &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->applicationId_ == nullptr
+        && this->instanceId_ == nullptr && this->name_ == nullptr && this->providerId_ == nullptr && this->value_ == nullptr; };
+        // applicationId Field Functions 
+        bool hasApplicationId() const { return this->applicationId_ != nullptr;};
+        void deleteApplicationId() { this->applicationId_ = nullptr;};
+        inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+        inline List& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
+
+
+        // instanceId Field Functions 
+        bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+        void deleteInstanceId() { this->instanceId_ = nullptr;};
+        inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+        inline List& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline List& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // providerId Field Functions 
+        bool hasProviderId() const { return this->providerId_ != nullptr;};
+        void deleteProviderId() { this->providerId_ = nullptr;};
+        inline string getProviderId() const { DARABONBA_PTR_GET_DEFAULT(providerId_, "") };
+        inline List& setProviderId(string providerId) { DARABONBA_PTR_SET_VALUE(providerId_, providerId) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline List& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<string> applicationId_ {};
+        shared_ptr<string> instanceId_ {};
+        shared_ptr<string> name_ {};
+        shared_ptr<string> providerId_ {};
+        shared_ptr<string> value_ {};
+      };
+
+      virtual bool empty() const override { return this->list_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->totalCount_ == nullptr; };
+      // list Field Functions 
+      bool hasList() const { return this->list_ != nullptr;};
+      void deleteList() { this->list_ = nullptr;};
+      inline const vector<Data::List> & getList() const { DARABONBA_PTR_GET_CONST(list_, vector<Data::List>) };
+      inline vector<Data::List> getList() { DARABONBA_PTR_GET(list_, vector<Data::List>) };
+      inline Data& setList(const vector<Data::List> & list) { DARABONBA_PTR_SET_VALUE(list_, list) };
+      inline Data& setList(vector<Data::List> && list) { DARABONBA_PTR_SET_RVALUE(list_, list) };
+
+
+      // pageNumber Field Functions 
+      bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+      void deletePageNumber() { this->pageNumber_ = nullptr;};
+      inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+      inline Data& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+      // pageSize Field Functions 
+      bool hasPageSize() const { return this->pageSize_ != nullptr;};
+      void deletePageSize() { this->pageSize_ = nullptr;};
+      inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+      inline Data& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+      // totalCount Field Functions 
+      bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+      void deleteTotalCount() { this->totalCount_ = nullptr;};
+      inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+      inline Data& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+    protected:
+      shared_ptr<vector<Data::List>> list_ {};
+      shared_ptr<int32_t> pageNumber_ {};
+      shared_ptr<int32_t> pageSize_ {};
+      shared_ptr<int32_t> totalCount_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->params_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->params_ == nullptr && this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ListFlashSmsApplicationsResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ListFlashSmsApplicationsResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, ListFlashSmsApplicationsResponseBodyData) };
-    inline ListFlashSmsApplicationsResponseBodyData data() { DARABONBA_PTR_GET(data_, ListFlashSmsApplicationsResponseBodyData) };
-    inline ListFlashSmsApplicationsResponseBody& setData(const ListFlashSmsApplicationsResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ListFlashSmsApplicationsResponseBody& setData(ListFlashSmsApplicationsResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const ListFlashSmsApplicationsResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ListFlashSmsApplicationsResponseBody::Data) };
+    inline ListFlashSmsApplicationsResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ListFlashSmsApplicationsResponseBody::Data) };
+    inline ListFlashSmsApplicationsResponseBody& setData(const ListFlashSmsApplicationsResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListFlashSmsApplicationsResponseBody& setData(ListFlashSmsApplicationsResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline ListFlashSmsApplicationsResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ListFlashSmsApplicationsResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline const vector<string> & params() const { DARABONBA_PTR_GET_CONST(params_, vector<string>) };
-    inline vector<string> params() { DARABONBA_PTR_GET(params_, vector<string>) };
+    inline const vector<string> & getParams() const { DARABONBA_PTR_GET_CONST(params_, vector<string>) };
+    inline vector<string> getParams() { DARABONBA_PTR_GET(params_, vector<string>) };
     inline ListFlashSmsApplicationsResponseBody& setParams(const vector<string> & params) { DARABONBA_PTR_SET_VALUE(params_, params) };
     inline ListFlashSmsApplicationsResponseBody& setParams(vector<string> && params) { DARABONBA_PTR_SET_RVALUE(params_, params) };
 
@@ -85,17 +220,17 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListFlashSmsApplicationsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<ListFlashSmsApplicationsResponseBodyData> data_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<vector<string>> params_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<ListFlashSmsApplicationsResponseBody::Data> data_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<vector<string>> params_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

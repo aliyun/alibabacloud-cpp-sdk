@@ -40,59 +40,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->additivity_ == nullptr
-        && return this->chatDeviceId_ == nullptr && return this->deviceId_ == nullptr && return this->instanceId_ == nullptr && return this->signedSkillGroupIdList_ == nullptr && return this->userId_ == nullptr; };
+        && this->chatDeviceId_ == nullptr && this->deviceId_ == nullptr && this->instanceId_ == nullptr && this->signedSkillGroupIdList_ == nullptr && this->userId_ == nullptr; };
     // additivity Field Functions 
     bool hasAdditivity() const { return this->additivity_ != nullptr;};
     void deleteAdditivity() { this->additivity_ = nullptr;};
-    inline bool additivity() const { DARABONBA_PTR_GET_DEFAULT(additivity_, false) };
+    inline bool getAdditivity() const { DARABONBA_PTR_GET_DEFAULT(additivity_, false) };
     inline SignInGroupRequest& setAdditivity(bool additivity) { DARABONBA_PTR_SET_VALUE(additivity_, additivity) };
 
 
     // chatDeviceId Field Functions 
     bool hasChatDeviceId() const { return this->chatDeviceId_ != nullptr;};
     void deleteChatDeviceId() { this->chatDeviceId_ = nullptr;};
-    inline string chatDeviceId() const { DARABONBA_PTR_GET_DEFAULT(chatDeviceId_, "") };
+    inline string getChatDeviceId() const { DARABONBA_PTR_GET_DEFAULT(chatDeviceId_, "") };
     inline SignInGroupRequest& setChatDeviceId(string chatDeviceId) { DARABONBA_PTR_SET_VALUE(chatDeviceId_, chatDeviceId) };
 
 
     // deviceId Field Functions 
     bool hasDeviceId() const { return this->deviceId_ != nullptr;};
     void deleteDeviceId() { this->deviceId_ = nullptr;};
-    inline string deviceId() const { DARABONBA_PTR_GET_DEFAULT(deviceId_, "") };
+    inline string getDeviceId() const { DARABONBA_PTR_GET_DEFAULT(deviceId_, "") };
     inline SignInGroupRequest& setDeviceId(string deviceId) { DARABONBA_PTR_SET_VALUE(deviceId_, deviceId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SignInGroupRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // signedSkillGroupIdList Field Functions 
     bool hasSignedSkillGroupIdList() const { return this->signedSkillGroupIdList_ != nullptr;};
     void deleteSignedSkillGroupIdList() { this->signedSkillGroupIdList_ = nullptr;};
-    inline string signedSkillGroupIdList() const { DARABONBA_PTR_GET_DEFAULT(signedSkillGroupIdList_, "") };
+    inline string getSignedSkillGroupIdList() const { DARABONBA_PTR_GET_DEFAULT(signedSkillGroupIdList_, "") };
     inline SignInGroupRequest& setSignedSkillGroupIdList(string signedSkillGroupIdList) { DARABONBA_PTR_SET_VALUE(signedSkillGroupIdList_, signedSkillGroupIdList) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline SignInGroupRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<bool> additivity_ = nullptr;
-    std::shared_ptr<string> chatDeviceId_ = nullptr;
+    shared_ptr<bool> additivity_ {};
+    shared_ptr<string> chatDeviceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> deviceId_ = nullptr;
+    shared_ptr<string> deviceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> signedSkillGroupIdList_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> signedSkillGroupIdList_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

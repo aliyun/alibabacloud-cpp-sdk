@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETTURNCREDENTIALSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETTURNCREDENTIALSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetTurnCredentialsResponseBodyData.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -41,43 +40,85 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Password, password_);
+        DARABONBA_PTR_TO_JSON(UserName, userName_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Password, password_);
+        DARABONBA_PTR_FROM_JSON(UserName, userName_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->password_ == nullptr
+        && this->userName_ == nullptr; };
+      // password Field Functions 
+      bool hasPassword() const { return this->password_ != nullptr;};
+      void deletePassword() { this->password_ = nullptr;};
+      inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+      inline Data& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
+
+
+      // userName Field Functions 
+      bool hasUserName() const { return this->userName_ != nullptr;};
+      void deleteUserName() { this->userName_ = nullptr;};
+      inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+      inline Data& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
+
+
+    protected:
+      shared_ptr<string> password_ {};
+      shared_ptr<string> userName_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->params_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->params_ == nullptr && this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetTurnCredentialsResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetTurnCredentialsResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetTurnCredentialsResponseBodyData) };
-    inline GetTurnCredentialsResponseBodyData data() { DARABONBA_PTR_GET(data_, GetTurnCredentialsResponseBodyData) };
-    inline GetTurnCredentialsResponseBody& setData(const GetTurnCredentialsResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetTurnCredentialsResponseBody& setData(GetTurnCredentialsResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetTurnCredentialsResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetTurnCredentialsResponseBody::Data) };
+    inline GetTurnCredentialsResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetTurnCredentialsResponseBody::Data) };
+    inline GetTurnCredentialsResponseBody& setData(const GetTurnCredentialsResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetTurnCredentialsResponseBody& setData(GetTurnCredentialsResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline GetTurnCredentialsResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetTurnCredentialsResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline const vector<string> & params() const { DARABONBA_PTR_GET_CONST(params_, vector<string>) };
-    inline vector<string> params() { DARABONBA_PTR_GET(params_, vector<string>) };
+    inline const vector<string> & getParams() const { DARABONBA_PTR_GET_CONST(params_, vector<string>) };
+    inline vector<string> getParams() { DARABONBA_PTR_GET(params_, vector<string>) };
     inline GetTurnCredentialsResponseBody& setParams(const vector<string> & params) { DARABONBA_PTR_SET_VALUE(params_, params) };
     inline GetTurnCredentialsResponseBody& setParams(vector<string> && params) { DARABONBA_PTR_SET_RVALUE(params_, params) };
 
@@ -85,17 +126,17 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetTurnCredentialsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<GetTurnCredentialsResponseBodyData> data_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<vector<string>> params_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<GetTurnCredentialsResponseBody::Data> data_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<vector<string>> params_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

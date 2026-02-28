@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filePath_ == nullptr
-        && return this->force_ == nullptr && return this->instanceId_ == nullptr && return this->notificationEmail_ == nullptr && return this->userIdList_ == nullptr; };
+        && this->force_ == nullptr && this->instanceId_ == nullptr && this->notificationEmail_ == nullptr && this->userIdList_ == nullptr; };
     // filePath Field Functions 
     bool hasFilePath() const { return this->filePath_ != nullptr;};
     void deleteFilePath() { this->filePath_ = nullptr;};
-    inline string filePath() const { DARABONBA_PTR_GET_DEFAULT(filePath_, "") };
+    inline string getFilePath() const { DARABONBA_PTR_GET_DEFAULT(filePath_, "") };
     inline RemoveUsersRequest& setFilePath(string filePath) { DARABONBA_PTR_SET_VALUE(filePath_, filePath) };
 
 
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline RemoveUsersRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RemoveUsersRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // notificationEmail Field Functions 
     bool hasNotificationEmail() const { return this->notificationEmail_ != nullptr;};
     void deleteNotificationEmail() { this->notificationEmail_ = nullptr;};
-    inline string notificationEmail() const { DARABONBA_PTR_GET_DEFAULT(notificationEmail_, "") };
+    inline string getNotificationEmail() const { DARABONBA_PTR_GET_DEFAULT(notificationEmail_, "") };
     inline RemoveUsersRequest& setNotificationEmail(string notificationEmail) { DARABONBA_PTR_SET_VALUE(notificationEmail_, notificationEmail) };
 
 
     // userIdList Field Functions 
     bool hasUserIdList() const { return this->userIdList_ != nullptr;};
     void deleteUserIdList() { this->userIdList_ = nullptr;};
-    inline string userIdList() const { DARABONBA_PTR_GET_DEFAULT(userIdList_, "") };
+    inline string getUserIdList() const { DARABONBA_PTR_GET_DEFAULT(userIdList_, "") };
     inline RemoveUsersRequest& setUserIdList(string userIdList) { DARABONBA_PTR_SET_VALUE(userIdList_, userIdList) };
 
 
   protected:
-    std::shared_ptr<string> filePath_ = nullptr;
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<string> filePath_ {};
+    shared_ptr<bool> force_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> notificationEmail_ = nullptr;
-    std::shared_ptr<string> userIdList_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> notificationEmail_ {};
+    shared_ptr<string> userIdList_ {};
   };
 
   } // namespace Models

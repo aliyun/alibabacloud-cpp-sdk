@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTSKILLGROUPSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTSKILLGROUPSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListSkillGroupsResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,51 +38,218 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(List, list_);
+        DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+        DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(List, list_);
+        DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+        DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class List : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const List& obj) { 
+          DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
+          DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_TO_JSON(MediaType, mediaType_);
+          DARABONBA_PTR_TO_JSON(PhoneNumberCount, phoneNumberCount_);
+          DARABONBA_PTR_TO_JSON(SkillGroupId, skillGroupId_);
+          DARABONBA_PTR_TO_JSON(SkillGroupName, skillGroupName_);
+          DARABONBA_PTR_TO_JSON(UserCount, userCount_);
+        };
+        friend void from_json(const Darabonba::Json& j, List& obj) { 
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
+          DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_FROM_JSON(MediaType, mediaType_);
+          DARABONBA_PTR_FROM_JSON(PhoneNumberCount, phoneNumberCount_);
+          DARABONBA_PTR_FROM_JSON(SkillGroupId, skillGroupId_);
+          DARABONBA_PTR_FROM_JSON(SkillGroupName, skillGroupName_);
+          DARABONBA_PTR_FROM_JSON(UserCount, userCount_);
+        };
+        List() = default ;
+        List(const List &) = default ;
+        List(List &&) = default ;
+        List(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~List() = default ;
+        List& operator=(const List &) = default ;
+        List& operator=(List &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->description_ == nullptr
+        && this->displayName_ == nullptr && this->instanceId_ == nullptr && this->mediaType_ == nullptr && this->phoneNumberCount_ == nullptr && this->skillGroupId_ == nullptr
+        && this->skillGroupName_ == nullptr && this->userCount_ == nullptr; };
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline List& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // displayName Field Functions 
+        bool hasDisplayName() const { return this->displayName_ != nullptr;};
+        void deleteDisplayName() { this->displayName_ = nullptr;};
+        inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+        inline List& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
+
+
+        // instanceId Field Functions 
+        bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+        void deleteInstanceId() { this->instanceId_ = nullptr;};
+        inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+        inline List& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+        // mediaType Field Functions 
+        bool hasMediaType() const { return this->mediaType_ != nullptr;};
+        void deleteMediaType() { this->mediaType_ = nullptr;};
+        inline string getMediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, "") };
+        inline List& setMediaType(string mediaType) { DARABONBA_PTR_SET_VALUE(mediaType_, mediaType) };
+
+
+        // phoneNumberCount Field Functions 
+        bool hasPhoneNumberCount() const { return this->phoneNumberCount_ != nullptr;};
+        void deletePhoneNumberCount() { this->phoneNumberCount_ = nullptr;};
+        inline int32_t getPhoneNumberCount() const { DARABONBA_PTR_GET_DEFAULT(phoneNumberCount_, 0) };
+        inline List& setPhoneNumberCount(int32_t phoneNumberCount) { DARABONBA_PTR_SET_VALUE(phoneNumberCount_, phoneNumberCount) };
+
+
+        // skillGroupId Field Functions 
+        bool hasSkillGroupId() const { return this->skillGroupId_ != nullptr;};
+        void deleteSkillGroupId() { this->skillGroupId_ = nullptr;};
+        inline string getSkillGroupId() const { DARABONBA_PTR_GET_DEFAULT(skillGroupId_, "") };
+        inline List& setSkillGroupId(string skillGroupId) { DARABONBA_PTR_SET_VALUE(skillGroupId_, skillGroupId) };
+
+
+        // skillGroupName Field Functions 
+        bool hasSkillGroupName() const { return this->skillGroupName_ != nullptr;};
+        void deleteSkillGroupName() { this->skillGroupName_ = nullptr;};
+        inline string getSkillGroupName() const { DARABONBA_PTR_GET_DEFAULT(skillGroupName_, "") };
+        inline List& setSkillGroupName(string skillGroupName) { DARABONBA_PTR_SET_VALUE(skillGroupName_, skillGroupName) };
+
+
+        // userCount Field Functions 
+        bool hasUserCount() const { return this->userCount_ != nullptr;};
+        void deleteUserCount() { this->userCount_ = nullptr;};
+        inline int32_t getUserCount() const { DARABONBA_PTR_GET_DEFAULT(userCount_, 0) };
+        inline List& setUserCount(int32_t userCount) { DARABONBA_PTR_SET_VALUE(userCount_, userCount) };
+
+
+      protected:
+        shared_ptr<string> description_ {};
+        shared_ptr<string> displayName_ {};
+        shared_ptr<string> instanceId_ {};
+        shared_ptr<string> mediaType_ {};
+        shared_ptr<int32_t> phoneNumberCount_ {};
+        shared_ptr<string> skillGroupId_ {};
+        shared_ptr<string> skillGroupName_ {};
+        shared_ptr<int32_t> userCount_ {};
+      };
+
+      virtual bool empty() const override { return this->list_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->totalCount_ == nullptr; };
+      // list Field Functions 
+      bool hasList() const { return this->list_ != nullptr;};
+      void deleteList() { this->list_ = nullptr;};
+      inline const vector<Data::List> & getList() const { DARABONBA_PTR_GET_CONST(list_, vector<Data::List>) };
+      inline vector<Data::List> getList() { DARABONBA_PTR_GET(list_, vector<Data::List>) };
+      inline Data& setList(const vector<Data::List> & list) { DARABONBA_PTR_SET_VALUE(list_, list) };
+      inline Data& setList(vector<Data::List> && list) { DARABONBA_PTR_SET_RVALUE(list_, list) };
+
+
+      // pageNumber Field Functions 
+      bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+      void deletePageNumber() { this->pageNumber_ = nullptr;};
+      inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+      inline Data& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+      // pageSize Field Functions 
+      bool hasPageSize() const { return this->pageSize_ != nullptr;};
+      void deletePageSize() { this->pageSize_ = nullptr;};
+      inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+      inline Data& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+      // totalCount Field Functions 
+      bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+      void deleteTotalCount() { this->totalCount_ = nullptr;};
+      inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+      inline Data& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+    protected:
+      shared_ptr<vector<Data::List>> list_ {};
+      shared_ptr<int32_t> pageNumber_ {};
+      shared_ptr<int32_t> pageSize_ {};
+      shared_ptr<int32_t> totalCount_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ListSkillGroupsResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ListSkillGroupsResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, ListSkillGroupsResponseBodyData) };
-    inline ListSkillGroupsResponseBodyData data() { DARABONBA_PTR_GET(data_, ListSkillGroupsResponseBodyData) };
-    inline ListSkillGroupsResponseBody& setData(const ListSkillGroupsResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ListSkillGroupsResponseBody& setData(ListSkillGroupsResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const ListSkillGroupsResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ListSkillGroupsResponseBody::Data) };
+    inline ListSkillGroupsResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ListSkillGroupsResponseBody::Data) };
+    inline ListSkillGroupsResponseBody& setData(const ListSkillGroupsResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListSkillGroupsResponseBody& setData(ListSkillGroupsResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline ListSkillGroupsResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ListSkillGroupsResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListSkillGroupsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<ListSkillGroupsResponseBodyData> data_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<ListSkillGroupsResponseBody::Data> data_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

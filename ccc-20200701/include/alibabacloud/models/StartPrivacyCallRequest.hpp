@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->callee_ == nullptr && return this->caller_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->callee_ == nullptr && this->caller_ == nullptr && this->instanceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline StartPrivacyCallRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // callee Field Functions 
     bool hasCallee() const { return this->callee_ != nullptr;};
     void deleteCallee() { this->callee_ = nullptr;};
-    inline string callee() const { DARABONBA_PTR_GET_DEFAULT(callee_, "") };
+    inline string getCallee() const { DARABONBA_PTR_GET_DEFAULT(callee_, "") };
     inline StartPrivacyCallRequest& setCallee(string callee) { DARABONBA_PTR_SET_VALUE(callee_, callee) };
 
 
     // caller Field Functions 
     bool hasCaller() const { return this->caller_ != nullptr;};
     void deleteCaller() { this->caller_ = nullptr;};
-    inline string caller() const { DARABONBA_PTR_GET_DEFAULT(caller_, "") };
+    inline string getCaller() const { DARABONBA_PTR_GET_DEFAULT(caller_, "") };
     inline StartPrivacyCallRequest& setCaller(string caller) { DARABONBA_PTR_SET_VALUE(caller_, caller) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline StartPrivacyCallRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> callee_ = nullptr;
+    shared_ptr<string> callee_ {};
     // This parameter is required.
-    std::shared_ptr<string> caller_ = nullptr;
+    shared_ptr<string> caller_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models
