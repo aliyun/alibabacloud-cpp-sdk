@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->vpdId_ == nullptr; };
+        && this->vpdId_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteVpdRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // vpdId Field Functions 
     bool hasVpdId() const { return this->vpdId_ != nullptr;};
     void deleteVpdId() { this->vpdId_ = nullptr;};
-    inline string vpdId() const { DARABONBA_PTR_GET_DEFAULT(vpdId_, "") };
+    inline string getVpdId() const { DARABONBA_PTR_GET_DEFAULT(vpdId_, "") };
     inline DeleteVpdRequest& setVpdId(string vpdId) { DARABONBA_PTR_SET_VALUE(vpdId_, vpdId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the region in which the instance resides.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the Lingjun CIDR block.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpdId_ = nullptr;
+    shared_ptr<string> vpdId_ {};
   };
 
   } // namespace Models

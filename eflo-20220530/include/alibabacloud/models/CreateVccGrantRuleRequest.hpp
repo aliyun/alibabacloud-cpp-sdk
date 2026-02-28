@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->erId_ == nullptr
-        && return this->grantTenantId_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->grantTenantId_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
     // erId Field Functions 
     bool hasErId() const { return this->erId_ != nullptr;};
     void deleteErId() { this->erId_ = nullptr;};
-    inline string erId() const { DARABONBA_PTR_GET_DEFAULT(erId_, "") };
+    inline string getErId() const { DARABONBA_PTR_GET_DEFAULT(erId_, "") };
     inline CreateVccGrantRuleRequest& setErId(string erId) { DARABONBA_PTR_SET_VALUE(erId_, erId) };
 
 
     // grantTenantId Field Functions 
     bool hasGrantTenantId() const { return this->grantTenantId_ != nullptr;};
     void deleteGrantTenantId() { this->grantTenantId_ = nullptr;};
-    inline string grantTenantId() const { DARABONBA_PTR_GET_DEFAULT(grantTenantId_, "") };
+    inline string getGrantTenantId() const { DARABONBA_PTR_GET_DEFAULT(grantTenantId_, "") };
     inline CreateVccGrantRuleRequest& setGrantTenantId(string grantTenantId) { DARABONBA_PTR_SET_VALUE(grantTenantId_, grantTenantId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateVccGrantRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateVccGrantRuleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // Lingjun HUB ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> erId_ = nullptr;
+    shared_ptr<string> erId_ {};
     // Authorized Tenant ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> grantTenantId_ = nullptr;
+    shared_ptr<string> grantTenantId_ {};
     // Network Instance ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

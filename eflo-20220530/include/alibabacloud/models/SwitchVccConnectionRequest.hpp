@@ -40,66 +40,66 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cenId_ == nullptr
-        && return this->connectionType_ == nullptr && return this->regionId_ == nullptr && return this->vSwitchId_ == nullptr && return this->vccId_ == nullptr && return this->vpcId_ == nullptr; };
+        && this->connectionType_ == nullptr && this->regionId_ == nullptr && this->vSwitchId_ == nullptr && this->vccId_ == nullptr && this->vpcId_ == nullptr; };
     // cenId Field Functions 
     bool hasCenId() const { return this->cenId_ != nullptr;};
     void deleteCenId() { this->cenId_ = nullptr;};
-    inline string cenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
+    inline string getCenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
     inline SwitchVccConnectionRequest& setCenId(string cenId) { DARABONBA_PTR_SET_VALUE(cenId_, cenId) };
 
 
     // connectionType Field Functions 
     bool hasConnectionType() const { return this->connectionType_ != nullptr;};
     void deleteConnectionType() { this->connectionType_ = nullptr;};
-    inline string connectionType() const { DARABONBA_PTR_GET_DEFAULT(connectionType_, "") };
+    inline string getConnectionType() const { DARABONBA_PTR_GET_DEFAULT(connectionType_, "") };
     inline SwitchVccConnectionRequest& setConnectionType(string connectionType) { DARABONBA_PTR_SET_VALUE(connectionType_, connectionType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SwitchVccConnectionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline SwitchVccConnectionRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // vccId Field Functions 
     bool hasVccId() const { return this->vccId_ != nullptr;};
     void deleteVccId() { this->vccId_ = nullptr;};
-    inline string vccId() const { DARABONBA_PTR_GET_DEFAULT(vccId_, "") };
+    inline string getVccId() const { DARABONBA_PTR_GET_DEFAULT(vccId_, "") };
     inline SwitchVccConnectionRequest& setVccId(string vccId) { DARABONBA_PTR_SET_VALUE(vccId_, vccId) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline SwitchVccConnectionRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
   protected:
     // CEN
-    std::shared_ptr<string> cenId_ = nullptr;
+    shared_ptr<string> cenId_ {};
     // Connection type, CENTR/VPC
-    std::shared_ptr<string> connectionType_ = nullptr;
+    shared_ptr<string> connectionType_ {};
     // Region ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // vSwitch ID
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<string> vSwitchId_ {};
     // Cloud Connect Network (CCN) ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> vccId_ = nullptr;
+    shared_ptr<string> vccId_ {};
     // VPC ID
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models

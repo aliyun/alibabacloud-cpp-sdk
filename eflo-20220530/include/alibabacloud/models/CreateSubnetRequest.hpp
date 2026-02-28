@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATESUBNETREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateSubnetRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -43,57 +42,109 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key of the VPN attachment.
+      // 
+      // You cannot specify an empty string as a tag key. It can be up to 64 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+      // 
+      // You can specify at most 20 tag keys in each call.
+      shared_ptr<string> key_ {};
+      // The tag value of the VPN connection.
+      // 
+      // The tag value can be empty or a string of up to 128 characters. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+      // 
+      // Each key-value pair must be unique. You can specify values for at most 20 tag keys in each call.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->cidr_ == nullptr
-        && return this->regionId_ == nullptr && return this->subnetName_ == nullptr && return this->tag_ == nullptr && return this->type_ == nullptr && return this->vpdId_ == nullptr
-        && return this->zoneId_ == nullptr; };
+        && this->regionId_ == nullptr && this->subnetName_ == nullptr && this->tag_ == nullptr && this->type_ == nullptr && this->vpdId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // cidr Field Functions 
     bool hasCidr() const { return this->cidr_ != nullptr;};
     void deleteCidr() { this->cidr_ = nullptr;};
-    inline string cidr() const { DARABONBA_PTR_GET_DEFAULT(cidr_, "") };
+    inline string getCidr() const { DARABONBA_PTR_GET_DEFAULT(cidr_, "") };
     inline CreateSubnetRequest& setCidr(string cidr) { DARABONBA_PTR_SET_VALUE(cidr_, cidr) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateSubnetRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // subnetName Field Functions 
     bool hasSubnetName() const { return this->subnetName_ != nullptr;};
     void deleteSubnetName() { this->subnetName_ = nullptr;};
-    inline string subnetName() const { DARABONBA_PTR_GET_DEFAULT(subnetName_, "") };
+    inline string getSubnetName() const { DARABONBA_PTR_GET_DEFAULT(subnetName_, "") };
     inline CreateSubnetRequest& setSubnetName(string subnetName) { DARABONBA_PTR_SET_VALUE(subnetName_, subnetName) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<CreateSubnetRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateSubnetRequestTag>) };
-    inline vector<CreateSubnetRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<CreateSubnetRequestTag>) };
-    inline CreateSubnetRequest& setTag(const vector<CreateSubnetRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline CreateSubnetRequest& setTag(vector<CreateSubnetRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<CreateSubnetRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateSubnetRequest::Tag>) };
+    inline vector<CreateSubnetRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreateSubnetRequest::Tag>) };
+    inline CreateSubnetRequest& setTag(const vector<CreateSubnetRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateSubnetRequest& setTag(vector<CreateSubnetRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateSubnetRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // vpdId Field Functions 
     bool hasVpdId() const { return this->vpdId_ != nullptr;};
     void deleteVpdId() { this->vpdId_ = nullptr;};
-    inline string vpdId() const { DARABONBA_PTR_GET_DEFAULT(vpdId_, "") };
+    inline string getVpdId() const { DARABONBA_PTR_GET_DEFAULT(vpdId_, "") };
     inline CreateSubnetRequest& setVpdId(string vpdId) { DARABONBA_PTR_SET_VALUE(vpdId_, vpdId) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline CreateSubnetRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
@@ -104,33 +155,33 @@ namespace Models
     // *   The first and last three IP addresses of each subnet segment are reserved by the system. For example, the CIDR blocks of the subnet are 192.168.1.0/24,192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cidr_ = nullptr;
+    shared_ptr<string> cidr_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Lingjun subnet instance name
     // 
     // This parameter is required.
-    std::shared_ptr<string> subnetName_ = nullptr;
+    shared_ptr<string> subnetName_ {};
     // The tag information.
     // 
     // You can specify up to 20 tags.
-    std::shared_ptr<vector<CreateSubnetRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<CreateSubnetRequest::Tag>> tag_ {};
     // Lingjun Subnet Usage Type; optional; optional. Valid values:
     // 
     // *   **If you do not set this field for a common type**
     // *   **OOB** :OOB type
     // *   **LB**: LB type
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // The ID of the Lingjun CIDR block.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpdId_ = nullptr;
+    shared_ptr<string> vpdId_ {};
     // The zone ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

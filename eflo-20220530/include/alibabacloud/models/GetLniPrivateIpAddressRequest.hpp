@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ipName_ == nullptr
-        && return this->networkInterfaceId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->networkInterfaceId_ == nullptr && this->regionId_ == nullptr; };
     // ipName Field Functions 
     bool hasIpName() const { return this->ipName_ != nullptr;};
     void deleteIpName() { this->ipName_ = nullptr;};
-    inline string ipName() const { DARABONBA_PTR_GET_DEFAULT(ipName_, "") };
+    inline string getIpName() const { DARABONBA_PTR_GET_DEFAULT(ipName_, "") };
     inline GetLniPrivateIpAddressRequest& setIpName(string ipName) { DARABONBA_PTR_SET_VALUE(ipName_, ipName) };
 
 
     // networkInterfaceId Field Functions 
     bool hasNetworkInterfaceId() const { return this->networkInterfaceId_ != nullptr;};
     void deleteNetworkInterfaceId() { this->networkInterfaceId_ = nullptr;};
-    inline string networkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceId_, "") };
+    inline string getNetworkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceId_, "") };
     inline GetLniPrivateIpAddressRequest& setNetworkInterfaceId(string networkInterfaceId) { DARABONBA_PTR_SET_VALUE(networkInterfaceId_, networkInterfaceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetLniPrivateIpAddressRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // IP unique identifier
     // 
     // This parameter is required.
-    std::shared_ptr<string> ipName_ = nullptr;
+    shared_ptr<string> ipName_ {};
     // Lingjun network interface controller ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> networkInterfaceId_ = nullptr;
+    shared_ptr<string> networkInterfaceId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

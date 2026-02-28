@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->networkInterfaceId_ == nullptr
-        && return this->regionId_ == nullptr && return this->subnetId_ == nullptr; };
+        && this->regionId_ == nullptr && this->subnetId_ == nullptr; };
     // networkInterfaceId Field Functions 
     bool hasNetworkInterfaceId() const { return this->networkInterfaceId_ != nullptr;};
     void deleteNetworkInterfaceId() { this->networkInterfaceId_ = nullptr;};
-    inline string networkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceId_, "") };
+    inline string getNetworkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceId_, "") };
     inline GetNetworkInterfaceRequest& setNetworkInterfaceId(string networkInterfaceId) { DARABONBA_PTR_SET_VALUE(networkInterfaceId_, networkInterfaceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetNetworkInterfaceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // subnetId Field Functions 
     bool hasSubnetId() const { return this->subnetId_ != nullptr;};
     void deleteSubnetId() { this->subnetId_ = nullptr;};
-    inline string subnetId() const { DARABONBA_PTR_GET_DEFAULT(subnetId_, "") };
+    inline string getSubnetId() const { DARABONBA_PTR_GET_DEFAULT(subnetId_, "") };
     inline GetNetworkInterfaceRequest& setSubnetId(string subnetId) { DARABONBA_PTR_SET_VALUE(subnetId_, subnetId) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // Lingjun network interface controller ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> networkInterfaceId_ = nullptr;
+    shared_ptr<string> networkInterfaceId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Subnet of Lingjun
-    std::shared_ptr<string> subnetId_ = nullptr;
+    shared_ptr<string> subnetId_ {};
   };
 
   } // namespace Models

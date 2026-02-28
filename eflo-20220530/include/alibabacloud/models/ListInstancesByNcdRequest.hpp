@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->instanceType_ == nullptr && return this->maxNcd_ == nullptr && return this->regionId_ == nullptr; };
+        && this->instanceType_ == nullptr && this->maxNcd_ == nullptr && this->regionId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListInstancesByNcdRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline ListInstancesByNcdRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // maxNcd Field Functions 
     bool hasMaxNcd() const { return this->maxNcd_ != nullptr;};
     void deleteMaxNcd() { this->maxNcd_ = nullptr;};
-    inline int32_t maxNcd() const { DARABONBA_PTR_GET_DEFAULT(maxNcd_, 0) };
+    inline int32_t getMaxNcd() const { DARABONBA_PTR_GET_DEFAULT(maxNcd_, 0) };
     inline ListInstancesByNcdRequest& setMaxNcd(int32_t maxNcd) { DARABONBA_PTR_SET_VALUE(maxNcd_, maxNcd) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListInstancesByNcdRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,7 +69,7 @@ namespace Models
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The parameter that specifies the instance type.
     // 
     // Valid value:
@@ -78,15 +78,15 @@ namespace Models
     // *   lni: lingjun network interface controller.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceType_ = nullptr;
+    shared_ptr<string> instanceType_ {};
     // Maximum network communication distance
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> maxNcd_ = nullptr;
+    shared_ptr<int32_t> maxNcd_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

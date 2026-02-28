@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->erAttachmentId_ == nullptr
-        && return this->erId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->erId_ == nullptr && this->regionId_ == nullptr; };
     // erAttachmentId Field Functions 
     bool hasErAttachmentId() const { return this->erAttachmentId_ != nullptr;};
     void deleteErAttachmentId() { this->erAttachmentId_ = nullptr;};
-    inline string erAttachmentId() const { DARABONBA_PTR_GET_DEFAULT(erAttachmentId_, "") };
+    inline string getErAttachmentId() const { DARABONBA_PTR_GET_DEFAULT(erAttachmentId_, "") };
     inline DeleteErAttachmentRequest& setErAttachmentId(string erAttachmentId) { DARABONBA_PTR_SET_VALUE(erAttachmentId_, erAttachmentId) };
 
 
     // erId Field Functions 
     bool hasErId() const { return this->erId_ != nullptr;};
     void deleteErId() { this->erId_ = nullptr;};
-    inline string erId() const { DARABONBA_PTR_GET_DEFAULT(erId_, "") };
+    inline string getErId() const { DARABONBA_PTR_GET_DEFAULT(erId_, "") };
     inline DeleteErAttachmentRequest& setErId(string erId) { DARABONBA_PTR_SET_VALUE(erId_, erId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteErAttachmentRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The ID of the network connection instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> erAttachmentId_ = nullptr;
+    shared_ptr<string> erAttachmentId_ {};
     // Lingjun HUB Id
     // 
     // This parameter is required.
-    std::shared_ptr<string> erId_ = nullptr;
+    shared_ptr<string> erId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->vccId_ == nullptr; };
+        && this->vccId_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline RetryVccRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // vccId Field Functions 
     bool hasVccId() const { return this->vccId_ != nullptr;};
     void deleteVccId() { this->vccId_ = nullptr;};
-    inline string vccId() const { DARABONBA_PTR_GET_DEFAULT(vccId_, "") };
+    inline string getVccId() const { DARABONBA_PTR_GET_DEFAULT(vccId_, "") };
     inline RetryVccRequest& setVccId(string vccId) { DARABONBA_PTR_SET_VALUE(vccId_, vccId) };
 
 
   protected:
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Lingjun Connection ID
-    std::shared_ptr<string> vccId_ = nullptr;
+    shared_ptr<string> vccId_ {};
   };
 
   } // namespace Models

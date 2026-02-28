@@ -44,83 +44,83 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->elasticNetworkInterfaceId_ == nullptr
-        && return this->ipName_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->privateIpAddress_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr; };
+        && this->ipName_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->privateIpAddress_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->status_ == nullptr; };
     // elasticNetworkInterfaceId Field Functions 
     bool hasElasticNetworkInterfaceId() const { return this->elasticNetworkInterfaceId_ != nullptr;};
     void deleteElasticNetworkInterfaceId() { this->elasticNetworkInterfaceId_ = nullptr;};
-    inline string elasticNetworkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(elasticNetworkInterfaceId_, "") };
+    inline string getElasticNetworkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(elasticNetworkInterfaceId_, "") };
     inline ListLeniPrivateIpAddressesRequest& setElasticNetworkInterfaceId(string elasticNetworkInterfaceId) { DARABONBA_PTR_SET_VALUE(elasticNetworkInterfaceId_, elasticNetworkInterfaceId) };
 
 
     // ipName Field Functions 
     bool hasIpName() const { return this->ipName_ != nullptr;};
     void deleteIpName() { this->ipName_ = nullptr;};
-    inline string ipName() const { DARABONBA_PTR_GET_DEFAULT(ipName_, "") };
+    inline string getIpName() const { DARABONBA_PTR_GET_DEFAULT(ipName_, "") };
     inline ListLeniPrivateIpAddressesRequest& setIpName(string ipName) { DARABONBA_PTR_SET_VALUE(ipName_, ipName) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListLeniPrivateIpAddressesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListLeniPrivateIpAddressesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // privateIpAddress Field Functions 
     bool hasPrivateIpAddress() const { return this->privateIpAddress_ != nullptr;};
     void deletePrivateIpAddress() { this->privateIpAddress_ = nullptr;};
-    inline string privateIpAddress() const { DARABONBA_PTR_GET_DEFAULT(privateIpAddress_, "") };
+    inline string getPrivateIpAddress() const { DARABONBA_PTR_GET_DEFAULT(privateIpAddress_, "") };
     inline ListLeniPrivateIpAddressesRequest& setPrivateIpAddress(string privateIpAddress) { DARABONBA_PTR_SET_VALUE(privateIpAddress_, privateIpAddress) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListLeniPrivateIpAddressesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ListLeniPrivateIpAddressesRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListLeniPrivateIpAddressesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // Lingjun Elastic Network Interface ID.
-    std::shared_ptr<string> elasticNetworkInterfaceId_ = nullptr;
+    shared_ptr<string> elasticNetworkInterfaceId_ {};
     // Lingjun Elastic Network Interface secondary private IP unique identifier.
-    std::shared_ptr<string> ipName_ = nullptr;
+    shared_ptr<string> ipName_ {};
     // The page number returned.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Lingjun Elastic Network Interface secondary private IP.
-    std::shared_ptr<string> privateIpAddress_ = nullptr;
+    shared_ptr<string> privateIpAddress_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource group instance ID
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The status of the image build command risk.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->secondaryCidrBlock_ == nullptr && return this->vpdId_ == nullptr; };
+        && this->secondaryCidrBlock_ == nullptr && this->vpdId_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UnAssociateVpdCidrBlockRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // secondaryCidrBlock Field Functions 
     bool hasSecondaryCidrBlock() const { return this->secondaryCidrBlock_ != nullptr;};
     void deleteSecondaryCidrBlock() { this->secondaryCidrBlock_ = nullptr;};
-    inline string secondaryCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(secondaryCidrBlock_, "") };
+    inline string getSecondaryCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(secondaryCidrBlock_, "") };
     inline UnAssociateVpdCidrBlockRequest& setSecondaryCidrBlock(string secondaryCidrBlock) { DARABONBA_PTR_SET_VALUE(secondaryCidrBlock_, secondaryCidrBlock) };
 
 
     // vpdId Field Functions 
     bool hasVpdId() const { return this->vpdId_ != nullptr;};
     void deleteVpdId() { this->vpdId_ = nullptr;};
-    inline string vpdId() const { DARABONBA_PTR_GET_DEFAULT(vpdId_, "") };
+    inline string getVpdId() const { DARABONBA_PTR_GET_DEFAULT(vpdId_, "") };
     inline UnAssociateVpdCidrBlockRequest& setVpdId(string vpdId) { DARABONBA_PTR_SET_VALUE(vpdId_, vpdId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The additional CIDR block.
     // 
     // This parameter is required.
-    std::shared_ptr<string> secondaryCidrBlock_ = nullptr;
+    shared_ptr<string> secondaryCidrBlock_ {};
     // The ID of the Lingjun CIDR block.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpdId_ = nullptr;
+    shared_ptr<string> vpdId_ {};
   };
 
   } // namespace Models

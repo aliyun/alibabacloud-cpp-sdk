@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->nodeId_ == nullptr && return this->regionId_ == nullptr && return this->zoneId_ == nullptr; };
+        && this->nodeId_ == nullptr && this->regionId_ == nullptr && this->zoneId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ListNodeInfosForPodRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline ListNodeInfosForPodRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListNodeInfosForPodRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline ListNodeInfosForPodRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
   protected:
     // The cluster ID.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The ID of the node for this operation.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The zone ID.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

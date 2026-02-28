@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enablePage_ == nullptr
-        && return this->erId_ == nullptr && return this->forSelect_ == nullptr && return this->grantRuleId_ == nullptr && return this->grantTenantId_ == nullptr && return this->instanceId_ == nullptr
-        && return this->instanceName_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->erId_ == nullptr && this->forSelect_ == nullptr && this->grantRuleId_ == nullptr && this->grantTenantId_ == nullptr && this->instanceId_ == nullptr
+        && this->instanceName_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr; };
     // enablePage Field Functions 
     bool hasEnablePage() const { return this->enablePage_ != nullptr;};
     void deleteEnablePage() { this->enablePage_ = nullptr;};
-    inline bool enablePage() const { DARABONBA_PTR_GET_DEFAULT(enablePage_, false) };
+    inline bool getEnablePage() const { DARABONBA_PTR_GET_DEFAULT(enablePage_, false) };
     inline ListVccGrantRulesRequest& setEnablePage(bool enablePage) { DARABONBA_PTR_SET_VALUE(enablePage_, enablePage) };
 
 
     // erId Field Functions 
     bool hasErId() const { return this->erId_ != nullptr;};
     void deleteErId() { this->erId_ = nullptr;};
-    inline string erId() const { DARABONBA_PTR_GET_DEFAULT(erId_, "") };
+    inline string getErId() const { DARABONBA_PTR_GET_DEFAULT(erId_, "") };
     inline ListVccGrantRulesRequest& setErId(string erId) { DARABONBA_PTR_SET_VALUE(erId_, erId) };
 
 
     // forSelect Field Functions 
     bool hasForSelect() const { return this->forSelect_ != nullptr;};
     void deleteForSelect() { this->forSelect_ = nullptr;};
-    inline bool forSelect() const { DARABONBA_PTR_GET_DEFAULT(forSelect_, false) };
+    inline bool getForSelect() const { DARABONBA_PTR_GET_DEFAULT(forSelect_, false) };
     inline ListVccGrantRulesRequest& setForSelect(bool forSelect) { DARABONBA_PTR_SET_VALUE(forSelect_, forSelect) };
 
 
     // grantRuleId Field Functions 
     bool hasGrantRuleId() const { return this->grantRuleId_ != nullptr;};
     void deleteGrantRuleId() { this->grantRuleId_ = nullptr;};
-    inline string grantRuleId() const { DARABONBA_PTR_GET_DEFAULT(grantRuleId_, "") };
+    inline string getGrantRuleId() const { DARABONBA_PTR_GET_DEFAULT(grantRuleId_, "") };
     inline ListVccGrantRulesRequest& setGrantRuleId(string grantRuleId) { DARABONBA_PTR_SET_VALUE(grantRuleId_, grantRuleId) };
 
 
     // grantTenantId Field Functions 
     bool hasGrantTenantId() const { return this->grantTenantId_ != nullptr;};
     void deleteGrantTenantId() { this->grantTenantId_ = nullptr;};
-    inline string grantTenantId() const { DARABONBA_PTR_GET_DEFAULT(grantTenantId_, "") };
+    inline string getGrantTenantId() const { DARABONBA_PTR_GET_DEFAULT(grantTenantId_, "") };
     inline ListVccGrantRulesRequest& setGrantTenantId(string grantTenantId) { DARABONBA_PTR_SET_VALUE(grantTenantId_, grantTenantId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListVccGrantRulesRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline ListVccGrantRulesRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListVccGrantRulesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListVccGrantRulesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListVccGrantRulesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ListVccGrantRulesRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
@@ -134,29 +134,29 @@ namespace Models
     // 
     // *   **true**: Enable pagination query
     // *   **false**: Pagination query is disabled
-    std::shared_ptr<bool> enablePage_ = nullptr;
+    shared_ptr<bool> enablePage_ {};
     // Lingjun HUB ID
-    std::shared_ptr<string> erId_ = nullptr;
+    shared_ptr<string> erId_ {};
     // Use the drop-down box
-    std::shared_ptr<bool> forSelect_ = nullptr;
+    shared_ptr<bool> forSelect_ {};
     // Authorization Entry ID
-    std::shared_ptr<string> grantRuleId_ = nullptr;
+    shared_ptr<string> grantRuleId_ {};
     // Authorized Tenant ID
-    std::shared_ptr<string> grantTenantId_ = nullptr;
+    shared_ptr<string> grantTenantId_ {};
     // Network Instance ID
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Instance name
-    std::shared_ptr<string> instanceName_ = nullptr;
+    shared_ptr<string> instanceName_ {};
     // The page number of the page to return. Pages start from page 1. Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Default value: 20.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource group instance ID
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

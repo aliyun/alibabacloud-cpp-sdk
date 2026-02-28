@@ -38,55 +38,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && return this->code_ == nullptr && return this->content_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr; };
+        && this->code_ == nullptr && this->content_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
-    inline string accessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
     inline AttachElasticNetworkInterfaceResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline AttachElasticNetworkInterfaceResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline     const Darabonba::Json & content() const { DARABONBA_GET(content_) };
-    Darabonba::Json & content() { DARABONBA_GET(content_) };
+    inline     const Darabonba::Json & getContent() const { DARABONBA_GET(content_) };
+    Darabonba::Json & getContent() { DARABONBA_GET(content_) };
     inline AttachElasticNetworkInterfaceResponseBody& setContent(const Darabonba::Json & content) { DARABONBA_SET_VALUE(content_, content) };
-    inline AttachElasticNetworkInterfaceResponseBody& setContent(Darabonba::Json & content) { DARABONBA_SET_RVALUE(content_, content) };
+    inline AttachElasticNetworkInterfaceResponseBody& setContent(Darabonba::Json && content) { DARABONBA_SET_RVALUE(content_, content) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline AttachElasticNetworkInterfaceResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AttachElasticNetworkInterfaceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The detailed reason why the access was denied.
-    std::shared_ptr<string> accessDeniedDetail_ = nullptr;
+    shared_ptr<string> accessDeniedDetail_ {};
     // The response status code.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // Response body
-    Darabonba::Json content_ = nullptr;
+    Darabonba::Json content_ {};
     // The message returned.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

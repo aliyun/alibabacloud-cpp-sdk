@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destinationCidrBlock_ == nullptr
-        && return this->regionId_ == nullptr && return this->vccId_ == nullptr; };
+        && this->regionId_ == nullptr && this->vccId_ == nullptr; };
     // destinationCidrBlock Field Functions 
     bool hasDestinationCidrBlock() const { return this->destinationCidrBlock_ != nullptr;};
     void deleteDestinationCidrBlock() { this->destinationCidrBlock_ = nullptr;};
-    inline string destinationCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(destinationCidrBlock_, "") };
+    inline string getDestinationCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(destinationCidrBlock_, "") };
     inline CreateVccRouteEntryRequest& setDestinationCidrBlock(string destinationCidrBlock) { DARABONBA_PTR_SET_VALUE(destinationCidrBlock_, destinationCidrBlock) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateVccRouteEntryRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // vccId Field Functions 
     bool hasVccId() const { return this->vccId_ != nullptr;};
     void deleteVccId() { this->vccId_ = nullptr;};
-    inline string vccId() const { DARABONBA_PTR_GET_DEFAULT(vccId_, "") };
+    inline string getVccId() const { DARABONBA_PTR_GET_DEFAULT(vccId_, "") };
     inline CreateVccRouteEntryRequest& setVccId(string vccId) { DARABONBA_PTR_SET_VALUE(vccId_, vccId) };
 
 
   protected:
     // Destination CIDR block
-    std::shared_ptr<string> destinationCidrBlock_ = nullptr;
+    shared_ptr<string> destinationCidrBlock_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the Lingjun connection instance.
-    std::shared_ptr<string> vccId_ = nullptr;
+    shared_ptr<string> vccId_ {};
   };
 
   } // namespace Models

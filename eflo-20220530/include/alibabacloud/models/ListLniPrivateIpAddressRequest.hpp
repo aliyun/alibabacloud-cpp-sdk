@@ -46,92 +46,92 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->enablePage_ == nullptr && return this->ip_ == nullptr && return this->ipName_ == nullptr && return this->networkInterfaceId_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->enablePage_ == nullptr && this->ip_ == nullptr && this->ipName_ == nullptr && this->networkInterfaceId_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ListLniPrivateIpAddressRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // enablePage Field Functions 
     bool hasEnablePage() const { return this->enablePage_ != nullptr;};
     void deleteEnablePage() { this->enablePage_ = nullptr;};
-    inline bool enablePage() const { DARABONBA_PTR_GET_DEFAULT(enablePage_, false) };
+    inline bool getEnablePage() const { DARABONBA_PTR_GET_DEFAULT(enablePage_, false) };
     inline ListLniPrivateIpAddressRequest& setEnablePage(bool enablePage) { DARABONBA_PTR_SET_VALUE(enablePage_, enablePage) };
 
 
     // ip Field Functions 
     bool hasIp() const { return this->ip_ != nullptr;};
     void deleteIp() { this->ip_ = nullptr;};
-    inline string ip() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
+    inline string getIp() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
     inline ListLniPrivateIpAddressRequest& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
 
 
     // ipName Field Functions 
     bool hasIpName() const { return this->ipName_ != nullptr;};
     void deleteIpName() { this->ipName_ = nullptr;};
-    inline string ipName() const { DARABONBA_PTR_GET_DEFAULT(ipName_, "") };
+    inline string getIpName() const { DARABONBA_PTR_GET_DEFAULT(ipName_, "") };
     inline ListLniPrivateIpAddressRequest& setIpName(string ipName) { DARABONBA_PTR_SET_VALUE(ipName_, ipName) };
 
 
     // networkInterfaceId Field Functions 
     bool hasNetworkInterfaceId() const { return this->networkInterfaceId_ != nullptr;};
     void deleteNetworkInterfaceId() { this->networkInterfaceId_ = nullptr;};
-    inline string networkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceId_, "") };
+    inline string getNetworkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceId_, "") };
     inline ListLniPrivateIpAddressRequest& setNetworkInterfaceId(string networkInterfaceId) { DARABONBA_PTR_SET_VALUE(networkInterfaceId_, networkInterfaceId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListLniPrivateIpAddressRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListLniPrivateIpAddressRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListLniPrivateIpAddressRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ListLniPrivateIpAddressRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
   protected:
     // The description of the variable.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Whether pagination is required
-    std::shared_ptr<bool> enablePage_ = nullptr;
+    shared_ptr<bool> enablePage_ {};
     // network interface controller IP address
-    std::shared_ptr<string> ip_ = nullptr;
+    shared_ptr<string> ip_ {};
     // IP unique identifier
-    std::shared_ptr<string> ipName_ = nullptr;
+    shared_ptr<string> ipName_ {};
     // Lingjun network interface controller ID
-    std::shared_ptr<string> networkInterfaceId_ = nullptr;
+    shared_ptr<string> networkInterfaceId_ {};
     // The page number of the returned page.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // Obtain the index number of the current mouse click for an animation
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource group instance ID
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

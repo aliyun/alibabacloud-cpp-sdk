@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTERSREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListErsRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -51,86 +50,130 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The key of the tag.
+      shared_ptr<string> key_ {};
+      // The value of the tag.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->enablePage_ == nullptr
-        && return this->erId_ == nullptr && return this->erName_ == nullptr && return this->instanceId_ == nullptr && return this->instanceType_ == nullptr && return this->masterZoneId_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tag_ == nullptr; };
+        && this->erId_ == nullptr && this->erName_ == nullptr && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->masterZoneId_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->tag_ == nullptr; };
     // enablePage Field Functions 
     bool hasEnablePage() const { return this->enablePage_ != nullptr;};
     void deleteEnablePage() { this->enablePage_ = nullptr;};
-    inline bool enablePage() const { DARABONBA_PTR_GET_DEFAULT(enablePage_, false) };
+    inline bool getEnablePage() const { DARABONBA_PTR_GET_DEFAULT(enablePage_, false) };
     inline ListErsRequest& setEnablePage(bool enablePage) { DARABONBA_PTR_SET_VALUE(enablePage_, enablePage) };
 
 
     // erId Field Functions 
     bool hasErId() const { return this->erId_ != nullptr;};
     void deleteErId() { this->erId_ = nullptr;};
-    inline string erId() const { DARABONBA_PTR_GET_DEFAULT(erId_, "") };
+    inline string getErId() const { DARABONBA_PTR_GET_DEFAULT(erId_, "") };
     inline ListErsRequest& setErId(string erId) { DARABONBA_PTR_SET_VALUE(erId_, erId) };
 
 
     // erName Field Functions 
     bool hasErName() const { return this->erName_ != nullptr;};
     void deleteErName() { this->erName_ = nullptr;};
-    inline string erName() const { DARABONBA_PTR_GET_DEFAULT(erName_, "") };
+    inline string getErName() const { DARABONBA_PTR_GET_DEFAULT(erName_, "") };
     inline ListErsRequest& setErName(string erName) { DARABONBA_PTR_SET_VALUE(erName_, erName) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListErsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline ListErsRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // masterZoneId Field Functions 
     bool hasMasterZoneId() const { return this->masterZoneId_ != nullptr;};
     void deleteMasterZoneId() { this->masterZoneId_ = nullptr;};
-    inline string masterZoneId() const { DARABONBA_PTR_GET_DEFAULT(masterZoneId_, "") };
+    inline string getMasterZoneId() const { DARABONBA_PTR_GET_DEFAULT(masterZoneId_, "") };
     inline ListErsRequest& setMasterZoneId(string masterZoneId) { DARABONBA_PTR_SET_VALUE(masterZoneId_, masterZoneId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListErsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListErsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListErsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ListErsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<ListErsRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<ListErsRequestTag>) };
-    inline vector<ListErsRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<ListErsRequestTag>) };
-    inline ListErsRequest& setTag(const vector<ListErsRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline ListErsRequest& setTag(vector<ListErsRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<ListErsRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<ListErsRequest::Tag>) };
+    inline vector<ListErsRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<ListErsRequest::Tag>) };
+    inline ListErsRequest& setTag(const vector<ListErsRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline ListErsRequest& setTag(vector<ListErsRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
   protected:
@@ -138,32 +181,32 @@ namespace Models
     // 
     // *   true: enables paged query.
     // *   false: Paged query is disabled.
-    std::shared_ptr<bool> enablePage_ = nullptr;
+    shared_ptr<bool> enablePage_ {};
     // The ID of the Lingjun HUB instance.
-    std::shared_ptr<string> erId_ = nullptr;
+    shared_ptr<string> erId_ {};
     // Lingjun HUB name.
-    std::shared_ptr<string> erName_ = nullptr;
+    shared_ptr<string> erName_ {};
     // The ID of the network instance.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The type of the attached network instance. Valid values:
     // 
     // *   **VPD**
     // *   **VCC**
-    std::shared_ptr<string> instanceType_ = nullptr;
+    shared_ptr<string> instanceType_ {};
     // The primary zone.
-    std::shared_ptr<string> masterZoneId_ = nullptr;
+    shared_ptr<string> masterZoneId_ {};
     // The page number to return. Pages start from page 1. Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource group instance ID
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // List of tags.
-    std::shared_ptr<vector<ListErsRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<ListErsRequest::Tag>> tag_ {};
   };
 
   } // namespace Models

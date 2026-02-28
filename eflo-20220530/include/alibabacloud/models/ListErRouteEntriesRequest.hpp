@@ -54,131 +54,131 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destinationCidrBlock_ == nullptr
-        && return this->enablePage_ == nullptr && return this->erId_ == nullptr && return this->ignoreDetailedRouteEntry_ == nullptr && return this->instanceId_ == nullptr && return this->nextHopId_ == nullptr
-        && return this->nextHopType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->routeType_ == nullptr && return this->status_ == nullptr; };
+        && this->enablePage_ == nullptr && this->erId_ == nullptr && this->ignoreDetailedRouteEntry_ == nullptr && this->instanceId_ == nullptr && this->nextHopId_ == nullptr
+        && this->nextHopType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->routeType_ == nullptr && this->status_ == nullptr; };
     // destinationCidrBlock Field Functions 
     bool hasDestinationCidrBlock() const { return this->destinationCidrBlock_ != nullptr;};
     void deleteDestinationCidrBlock() { this->destinationCidrBlock_ = nullptr;};
-    inline string destinationCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(destinationCidrBlock_, "") };
+    inline string getDestinationCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(destinationCidrBlock_, "") };
     inline ListErRouteEntriesRequest& setDestinationCidrBlock(string destinationCidrBlock) { DARABONBA_PTR_SET_VALUE(destinationCidrBlock_, destinationCidrBlock) };
 
 
     // enablePage Field Functions 
     bool hasEnablePage() const { return this->enablePage_ != nullptr;};
     void deleteEnablePage() { this->enablePage_ = nullptr;};
-    inline bool enablePage() const { DARABONBA_PTR_GET_DEFAULT(enablePage_, false) };
+    inline bool getEnablePage() const { DARABONBA_PTR_GET_DEFAULT(enablePage_, false) };
     inline ListErRouteEntriesRequest& setEnablePage(bool enablePage) { DARABONBA_PTR_SET_VALUE(enablePage_, enablePage) };
 
 
     // erId Field Functions 
     bool hasErId() const { return this->erId_ != nullptr;};
     void deleteErId() { this->erId_ = nullptr;};
-    inline string erId() const { DARABONBA_PTR_GET_DEFAULT(erId_, "") };
+    inline string getErId() const { DARABONBA_PTR_GET_DEFAULT(erId_, "") };
     inline ListErRouteEntriesRequest& setErId(string erId) { DARABONBA_PTR_SET_VALUE(erId_, erId) };
 
 
     // ignoreDetailedRouteEntry Field Functions 
     bool hasIgnoreDetailedRouteEntry() const { return this->ignoreDetailedRouteEntry_ != nullptr;};
     void deleteIgnoreDetailedRouteEntry() { this->ignoreDetailedRouteEntry_ = nullptr;};
-    inline bool ignoreDetailedRouteEntry() const { DARABONBA_PTR_GET_DEFAULT(ignoreDetailedRouteEntry_, false) };
+    inline bool getIgnoreDetailedRouteEntry() const { DARABONBA_PTR_GET_DEFAULT(ignoreDetailedRouteEntry_, false) };
     inline ListErRouteEntriesRequest& setIgnoreDetailedRouteEntry(bool ignoreDetailedRouteEntry) { DARABONBA_PTR_SET_VALUE(ignoreDetailedRouteEntry_, ignoreDetailedRouteEntry) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListErRouteEntriesRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // nextHopId Field Functions 
     bool hasNextHopId() const { return this->nextHopId_ != nullptr;};
     void deleteNextHopId() { this->nextHopId_ = nullptr;};
-    inline string nextHopId() const { DARABONBA_PTR_GET_DEFAULT(nextHopId_, "") };
+    inline string getNextHopId() const { DARABONBA_PTR_GET_DEFAULT(nextHopId_, "") };
     inline ListErRouteEntriesRequest& setNextHopId(string nextHopId) { DARABONBA_PTR_SET_VALUE(nextHopId_, nextHopId) };
 
 
     // nextHopType Field Functions 
     bool hasNextHopType() const { return this->nextHopType_ != nullptr;};
     void deleteNextHopType() { this->nextHopType_ = nullptr;};
-    inline string nextHopType() const { DARABONBA_PTR_GET_DEFAULT(nextHopType_, "") };
+    inline string getNextHopType() const { DARABONBA_PTR_GET_DEFAULT(nextHopType_, "") };
     inline ListErRouteEntriesRequest& setNextHopType(string nextHopType) { DARABONBA_PTR_SET_VALUE(nextHopType_, nextHopType) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListErRouteEntriesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListErRouteEntriesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListErRouteEntriesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ListErRouteEntriesRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // routeType Field Functions 
     bool hasRouteType() const { return this->routeType_ != nullptr;};
     void deleteRouteType() { this->routeType_ = nullptr;};
-    inline string routeType() const { DARABONBA_PTR_GET_DEFAULT(routeType_, "") };
+    inline string getRouteType() const { DARABONBA_PTR_GET_DEFAULT(routeType_, "") };
     inline ListErRouteEntriesRequest& setRouteType(string routeType) { DARABONBA_PTR_SET_VALUE(routeType_, routeType) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListErRouteEntriesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // Destination CIDR Block
-    std::shared_ptr<string> destinationCidrBlock_ = nullptr;
+    shared_ptr<string> destinationCidrBlock_ {};
     // Specifies whether to enable pagination query.
-    std::shared_ptr<bool> enablePage_ = nullptr;
+    shared_ptr<bool> enablePage_ {};
     // Lingjun HUB ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> erId_ = nullptr;
+    shared_ptr<string> erId_ {};
     // Filter 32 detailed CIDR blocks. Default value: true
-    std::shared_ptr<bool> ignoreDetailedRouteEntry_ = nullptr;
+    shared_ptr<bool> ignoreDetailedRouteEntry_ {};
     // Network Instance ID
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Next Hop Instance
-    std::shared_ptr<string> nextHopId_ = nullptr;
+    shared_ptr<string> nextHopId_ {};
     // Next Hop Instance Type
-    std::shared_ptr<string> nextHopType_ = nullptr;
+    shared_ptr<string> nextHopType_ {};
     // The page number of the page to return. Pages start from page 1. Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 20.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource group instance ID
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // Route type
-    std::shared_ptr<string> routeType_ = nullptr;
+    shared_ptr<string> routeType_ {};
     // The status of the enterprise-level snapshot policy.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

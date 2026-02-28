@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->elasticNetworkInterfaceId_ == nullptr
-        && return this->nodeId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->nodeId_ == nullptr && this->regionId_ == nullptr; };
     // elasticNetworkInterfaceId Field Functions 
     bool hasElasticNetworkInterfaceId() const { return this->elasticNetworkInterfaceId_ != nullptr;};
     void deleteElasticNetworkInterfaceId() { this->elasticNetworkInterfaceId_ = nullptr;};
-    inline string elasticNetworkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(elasticNetworkInterfaceId_, "") };
+    inline string getElasticNetworkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(elasticNetworkInterfaceId_, "") };
     inline DetachElasticNetworkInterfaceRequest& setElasticNetworkInterfaceId(string elasticNetworkInterfaceId) { DARABONBA_PTR_SET_VALUE(elasticNetworkInterfaceId_, elasticNetworkInterfaceId) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline DetachElasticNetworkInterfaceRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DetachElasticNetworkInterfaceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The ID of the ENI.
     // 
     // This parameter is required.
-    std::shared_ptr<string> elasticNetworkInterfaceId_ = nullptr;
+    shared_ptr<string> elasticNetworkInterfaceId_ {};
     // The ID of the node.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
     // The region ID of the disk.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models
