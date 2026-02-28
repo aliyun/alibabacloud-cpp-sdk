@@ -722,6 +722,52 @@ GetAppInstanceResponse Client::getAppInstance(const GetAppInstanceRequest &reque
 }
 
 /**
+ * @summary 生码-获取插件配置信息
+ *
+ * @param request GetAppPluginConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppPluginConfigResponse
+ */
+GetAppPluginConfigResponse Client::getAppPluginConfigWithOptions(const GetAppPluginConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBizId()) {
+    body["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasPluginId()) {
+    body["PluginId"] = request.getPluginId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetAppPluginConfig"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppPluginConfigResponse>();
+}
+
+/**
+ * @summary 生码-获取插件配置信息
+ *
+ * @param request GetAppPluginConfigRequest
+ * @return GetAppPluginConfigResponse
+ */
+GetAppPluginConfigResponse Client::getAppPluginConfig(const GetAppPluginConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppPluginConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询Logo创建任务
  *
  * @param request GetCreateLogoTaskRequest

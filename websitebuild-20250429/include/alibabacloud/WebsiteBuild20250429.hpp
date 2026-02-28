@@ -242,6 +242,23 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceResponse getAppInstance(const Models::GetAppInstanceRequest &request);
 
       /**
+       * @summary 生码-获取插件配置信息
+       *
+       * @param request GetAppPluginConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppPluginConfigResponse
+       */
+      Models::GetAppPluginConfigResponse getAppPluginConfigWithOptions(const Models::GetAppPluginConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生码-获取插件配置信息
+       *
+       * @param request GetAppPluginConfigRequest
+       * @return GetAppPluginConfigResponse
+       */
+      Models::GetAppPluginConfigResponse getAppPluginConfig(const Models::GetAppPluginConfigRequest &request);
+
+      /**
        * @summary 查询Logo创建任务
        *
        * @param request GetCreateLogoTaskRequest

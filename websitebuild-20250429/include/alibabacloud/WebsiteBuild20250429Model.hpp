@@ -57,6 +57,9 @@
 #include <alibabacloud/models/GetAppInstanceRequest.hpp>
 #include <alibabacloud/models/GetAppInstanceResponseBody.hpp>
 #include <alibabacloud/models/GetAppInstanceResponse.hpp>
+#include <alibabacloud/models/GetAppPluginConfigRequest.hpp>
+#include <alibabacloud/models/GetAppPluginConfigResponseBody.hpp>
+#include <alibabacloud/models/GetAppPluginConfigResponse.hpp>
 #include <alibabacloud/models/GetCreateLogoTaskRequest.hpp>
 #include <alibabacloud/models/GetCreateLogoTaskResponseBody.hpp>
 #include <alibabacloud/models/GetCreateLogoTaskResponse.hpp>
