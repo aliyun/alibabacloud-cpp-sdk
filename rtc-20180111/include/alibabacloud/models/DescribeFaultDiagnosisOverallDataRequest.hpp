@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->endTs_ == nullptr && return this->startTs_ == nullptr && return this->statDim_ == nullptr; };
+        && this->endTs_ == nullptr && this->startTs_ == nullptr && this->statDim_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeFaultDiagnosisOverallDataRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // endTs Field Functions 
     bool hasEndTs() const { return this->endTs_ != nullptr;};
     void deleteEndTs() { this->endTs_ = nullptr;};
-    inline int64_t endTs() const { DARABONBA_PTR_GET_DEFAULT(endTs_, 0L) };
+    inline int64_t getEndTs() const { DARABONBA_PTR_GET_DEFAULT(endTs_, 0L) };
     inline DescribeFaultDiagnosisOverallDataRequest& setEndTs(int64_t endTs) { DARABONBA_PTR_SET_VALUE(endTs_, endTs) };
 
 
     // startTs Field Functions 
     bool hasStartTs() const { return this->startTs_ != nullptr;};
     void deleteStartTs() { this->startTs_ = nullptr;};
-    inline int64_t startTs() const { DARABONBA_PTR_GET_DEFAULT(startTs_, 0L) };
+    inline int64_t getStartTs() const { DARABONBA_PTR_GET_DEFAULT(startTs_, 0L) };
     inline DescribeFaultDiagnosisOverallDataRequest& setStartTs(int64_t startTs) { DARABONBA_PTR_SET_VALUE(startTs_, startTs) };
 
 
     // statDim Field Functions 
     bool hasStatDim() const { return this->statDim_ != nullptr;};
     void deleteStatDim() { this->statDim_ = nullptr;};
-    inline string statDim() const { DARABONBA_PTR_GET_DEFAULT(statDim_, "") };
+    inline string getStatDim() const { DARABONBA_PTR_GET_DEFAULT(statDim_, "") };
     inline DescribeFaultDiagnosisOverallDataRequest& setStatDim(string statDim) { DARABONBA_PTR_SET_VALUE(statDim_, statDim) };
 
 
@@ -69,13 +69,13 @@ namespace Models
     // APP ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> endTs_ = nullptr;
+    shared_ptr<int64_t> endTs_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> startTs_ = nullptr;
+    shared_ptr<int64_t> startTs_ {};
     // This parameter is required.
-    std::shared_ptr<string> statDim_ = nullptr;
+    shared_ptr<string> statDim_ {};
   };
 
   } // namespace Models

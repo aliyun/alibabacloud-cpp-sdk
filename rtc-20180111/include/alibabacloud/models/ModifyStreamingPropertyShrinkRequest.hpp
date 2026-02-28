@@ -38,52 +38,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->channelId_ == nullptr && return this->taskId_ == nullptr && return this->viewContent_ == nullptr && return this->viewSubscribersShrink_ == nullptr; };
+        && this->channelId_ == nullptr && this->taskId_ == nullptr && this->viewContent_ == nullptr && this->viewSubscribersShrink_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline ModifyStreamingPropertyShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // channelId Field Functions 
     bool hasChannelId() const { return this->channelId_ != nullptr;};
     void deleteChannelId() { this->channelId_ = nullptr;};
-    inline string channelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
+    inline string getChannelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
     inline ModifyStreamingPropertyShrinkRequest& setChannelId(string channelId) { DARABONBA_PTR_SET_VALUE(channelId_, channelId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline ModifyStreamingPropertyShrinkRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // viewContent Field Functions 
     bool hasViewContent() const { return this->viewContent_ != nullptr;};
     void deleteViewContent() { this->viewContent_ = nullptr;};
-    inline string viewContent() const { DARABONBA_PTR_GET_DEFAULT(viewContent_, "") };
+    inline string getViewContent() const { DARABONBA_PTR_GET_DEFAULT(viewContent_, "") };
     inline ModifyStreamingPropertyShrinkRequest& setViewContent(string viewContent) { DARABONBA_PTR_SET_VALUE(viewContent_, viewContent) };
 
 
     // viewSubscribersShrink Field Functions 
     bool hasViewSubscribersShrink() const { return this->viewSubscribersShrink_ != nullptr;};
     void deleteViewSubscribersShrink() { this->viewSubscribersShrink_ = nullptr;};
-    inline string viewSubscribersShrink() const { DARABONBA_PTR_GET_DEFAULT(viewSubscribersShrink_, "") };
+    inline string getViewSubscribersShrink() const { DARABONBA_PTR_GET_DEFAULT(viewSubscribersShrink_, "") };
     inline ModifyStreamingPropertyShrinkRequest& setViewSubscribersShrink(string viewSubscribersShrink) { DARABONBA_PTR_SET_VALUE(viewSubscribersShrink_, viewSubscribersShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> channelId_ = nullptr;
+    shared_ptr<string> channelId_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
-    std::shared_ptr<string> viewContent_ = nullptr;
+    shared_ptr<string> taskId_ {};
+    shared_ptr<string> viewContent_ {};
     // ViewSubscribers。
-    std::shared_ptr<string> viewSubscribersShrink_ = nullptr;
+    shared_ptr<string> viewSubscribersShrink_ {};
   };
 
   } // namespace Models

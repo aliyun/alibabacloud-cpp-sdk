@@ -39,26 +39,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNo_ == nullptr
-        && return this->pageSize_ == nullptr && return this->records_ == nullptr && return this->requestId_ == nullptr && return this->totalCnt_ == nullptr; };
+        && this->pageSize_ == nullptr && this->records_ == nullptr && this->requestId_ == nullptr && this->totalCnt_ == nullptr; };
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline DescribeChannelsResponseBody& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeChannelsResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // records Field Functions 
     bool hasRecords() const { return this->records_ != nullptr;};
     void deleteRecords() { this->records_ = nullptr;};
-    inline const vector<string> & records() const { DARABONBA_PTR_GET_CONST(records_, vector<string>) };
-    inline vector<string> records() { DARABONBA_PTR_GET(records_, vector<string>) };
+    inline const vector<string> & getRecords() const { DARABONBA_PTR_GET_CONST(records_, vector<string>) };
+    inline vector<string> getRecords() { DARABONBA_PTR_GET(records_, vector<string>) };
     inline DescribeChannelsResponseBody& setRecords(const vector<string> & records) { DARABONBA_PTR_SET_VALUE(records_, records) };
     inline DescribeChannelsResponseBody& setRecords(vector<string> && records) { DARABONBA_PTR_SET_RVALUE(records_, records) };
 
@@ -66,23 +66,23 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeChannelsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCnt Field Functions 
     bool hasTotalCnt() const { return this->totalCnt_ != nullptr;};
     void deleteTotalCnt() { this->totalCnt_ = nullptr;};
-    inline int32_t totalCnt() const { DARABONBA_PTR_GET_DEFAULT(totalCnt_, 0) };
+    inline int32_t getTotalCnt() const { DARABONBA_PTR_GET_DEFAULT(totalCnt_, 0) };
     inline DescribeChannelsResponseBody& setTotalCnt(int32_t totalCnt) { DARABONBA_PTR_SET_VALUE(totalCnt_, totalCnt) };
 
 
   protected:
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<vector<string>> records_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> totalCnt_ = nullptr;
+    shared_ptr<int32_t> pageNo_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<vector<string>> records_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> totalCnt_ {};
   };
 
   } // namespace Models

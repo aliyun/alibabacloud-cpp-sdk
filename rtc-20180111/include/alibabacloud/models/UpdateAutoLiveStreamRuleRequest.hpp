@@ -47,27 +47,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->callBack_ == nullptr && return this->channelIdPrefixes_ == nullptr && return this->channelIds_ == nullptr && return this->mediaEncode_ == nullptr && return this->ownerId_ == nullptr
-        && return this->playDomain_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr; };
+        && this->callBack_ == nullptr && this->channelIdPrefixes_ == nullptr && this->channelIds_ == nullptr && this->mediaEncode_ == nullptr && this->ownerId_ == nullptr
+        && this->playDomain_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateAutoLiveStreamRuleRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // callBack Field Functions 
     bool hasCallBack() const { return this->callBack_ != nullptr;};
     void deleteCallBack() { this->callBack_ = nullptr;};
-    inline string callBack() const { DARABONBA_PTR_GET_DEFAULT(callBack_, "") };
+    inline string getCallBack() const { DARABONBA_PTR_GET_DEFAULT(callBack_, "") };
     inline UpdateAutoLiveStreamRuleRequest& setCallBack(string callBack) { DARABONBA_PTR_SET_VALUE(callBack_, callBack) };
 
 
     // channelIdPrefixes Field Functions 
     bool hasChannelIdPrefixes() const { return this->channelIdPrefixes_ != nullptr;};
     void deleteChannelIdPrefixes() { this->channelIdPrefixes_ = nullptr;};
-    inline const vector<string> & channelIdPrefixes() const { DARABONBA_PTR_GET_CONST(channelIdPrefixes_, vector<string>) };
-    inline vector<string> channelIdPrefixes() { DARABONBA_PTR_GET(channelIdPrefixes_, vector<string>) };
+    inline const vector<string> & getChannelIdPrefixes() const { DARABONBA_PTR_GET_CONST(channelIdPrefixes_, vector<string>) };
+    inline vector<string> getChannelIdPrefixes() { DARABONBA_PTR_GET(channelIdPrefixes_, vector<string>) };
     inline UpdateAutoLiveStreamRuleRequest& setChannelIdPrefixes(const vector<string> & channelIdPrefixes) { DARABONBA_PTR_SET_VALUE(channelIdPrefixes_, channelIdPrefixes) };
     inline UpdateAutoLiveStreamRuleRequest& setChannelIdPrefixes(vector<string> && channelIdPrefixes) { DARABONBA_PTR_SET_RVALUE(channelIdPrefixes_, channelIdPrefixes) };
 
@@ -75,8 +75,8 @@ namespace Models
     // channelIds Field Functions 
     bool hasChannelIds() const { return this->channelIds_ != nullptr;};
     void deleteChannelIds() { this->channelIds_ = nullptr;};
-    inline const vector<string> & channelIds() const { DARABONBA_PTR_GET_CONST(channelIds_, vector<string>) };
-    inline vector<string> channelIds() { DARABONBA_PTR_GET(channelIds_, vector<string>) };
+    inline const vector<string> & getChannelIds() const { DARABONBA_PTR_GET_CONST(channelIds_, vector<string>) };
+    inline vector<string> getChannelIds() { DARABONBA_PTR_GET(channelIds_, vector<string>) };
     inline UpdateAutoLiveStreamRuleRequest& setChannelIds(const vector<string> & channelIds) { DARABONBA_PTR_SET_VALUE(channelIds_, channelIds) };
     inline UpdateAutoLiveStreamRuleRequest& setChannelIds(vector<string> && channelIds) { DARABONBA_PTR_SET_RVALUE(channelIds_, channelIds) };
 
@@ -84,51 +84,51 @@ namespace Models
     // mediaEncode Field Functions 
     bool hasMediaEncode() const { return this->mediaEncode_ != nullptr;};
     void deleteMediaEncode() { this->mediaEncode_ = nullptr;};
-    inline int32_t mediaEncode() const { DARABONBA_PTR_GET_DEFAULT(mediaEncode_, 0) };
+    inline int32_t getMediaEncode() const { DARABONBA_PTR_GET_DEFAULT(mediaEncode_, 0) };
     inline UpdateAutoLiveStreamRuleRequest& setMediaEncode(int32_t mediaEncode) { DARABONBA_PTR_SET_VALUE(mediaEncode_, mediaEncode) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline UpdateAutoLiveStreamRuleRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // playDomain Field Functions 
     bool hasPlayDomain() const { return this->playDomain_ != nullptr;};
     void deletePlayDomain() { this->playDomain_ = nullptr;};
-    inline string playDomain() const { DARABONBA_PTR_GET_DEFAULT(playDomain_, "") };
+    inline string getPlayDomain() const { DARABONBA_PTR_GET_DEFAULT(playDomain_, "") };
     inline UpdateAutoLiveStreamRuleRequest& setPlayDomain(string playDomain) { DARABONBA_PTR_SET_VALUE(playDomain_, playDomain) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline int32_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0) };
+    inline int32_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0) };
     inline UpdateAutoLiveStreamRuleRequest& setRuleId(int32_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline UpdateAutoLiveStreamRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> callBack_ = nullptr;
-    std::shared_ptr<vector<string>> channelIdPrefixes_ = nullptr;
-    std::shared_ptr<vector<string>> channelIds_ = nullptr;
-    std::shared_ptr<int32_t> mediaEncode_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> callBack_ {};
+    shared_ptr<vector<string>> channelIdPrefixes_ {};
+    shared_ptr<vector<string>> channelIds_ {};
+    shared_ptr<int32_t> mediaEncode_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // This parameter is required.
-    std::shared_ptr<string> playDomain_ = nullptr;
+    shared_ptr<string> playDomain_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> ruleId_ = nullptr;
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<int32_t> ruleId_ {};
+    shared_ptr<string> ruleName_ {};
   };
 
   } // namespace Models

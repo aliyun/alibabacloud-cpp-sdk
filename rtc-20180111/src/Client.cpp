@@ -44,79 +44,79 @@ AddRecordTemplateResponse Client::addRecordTemplateWithOptions(const AddRecordTe
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBackgroundColor()) {
-    query["BackgroundColor"] = request.backgroundColor();
+    query["BackgroundColor"] = request.getBackgroundColor();
   }
 
   if (!!request.hasBackgrounds()) {
-    query["Backgrounds"] = request.backgrounds();
+    query["Backgrounds"] = request.getBackgrounds();
   }
 
   if (!!request.hasClockWidgets()) {
-    query["ClockWidgets"] = request.clockWidgets();
+    query["ClockWidgets"] = request.getClockWidgets();
   }
 
   if (!!request.hasDelayStopTime()) {
-    query["DelayStopTime"] = request.delayStopTime();
+    query["DelayStopTime"] = request.getDelayStopTime();
   }
 
   if (!!request.hasEnableM3u8DateTime()) {
-    query["EnableM3u8DateTime"] = request.enableM3u8DateTime();
+    query["EnableM3u8DateTime"] = request.getEnableM3u8DateTime();
   }
 
   if (!!request.hasFileSplitInterval()) {
-    query["FileSplitInterval"] = request.fileSplitInterval();
+    query["FileSplitInterval"] = request.getFileSplitInterval();
   }
 
   if (!!request.hasFormats()) {
-    query["Formats"] = request.formats();
+    query["Formats"] = request.getFormats();
   }
 
   if (!!request.hasHttpCallbackUrl()) {
-    query["HttpCallbackUrl"] = request.httpCallbackUrl();
+    query["HttpCallbackUrl"] = request.getHttpCallbackUrl();
   }
 
   if (!!request.hasLayoutIds()) {
-    query["LayoutIds"] = request.layoutIds();
+    query["LayoutIds"] = request.getLayoutIds();
   }
 
   if (!!request.hasMediaEncode()) {
-    query["MediaEncode"] = request.mediaEncode();
+    query["MediaEncode"] = request.getMediaEncode();
   }
 
   if (!!request.hasMnsQueue()) {
-    query["MnsQueue"] = request.mnsQueue();
+    query["MnsQueue"] = request.getMnsQueue();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
   }
 
   if (!!request.hasOssFilePrefix()) {
-    query["OssFilePrefix"] = request.ossFilePrefix();
+    query["OssFilePrefix"] = request.getOssFilePrefix();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasTaskProfile()) {
-    query["TaskProfile"] = request.taskProfile();
+    query["TaskProfile"] = request.getTaskProfile();
   }
 
   if (!!request.hasWatermarks()) {
-    query["Watermarks"] = request.watermarks();
+    query["Watermarks"] = request.getWatermarks();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -157,84 +157,84 @@ CreateAppAgentTemplateResponse Client::createAppAgentTemplateWithOptions(const C
   CreateAppAgentTemplateShrinkRequest request = CreateAppAgentTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAgentSilenceConfig()) {
-    request.setAgentSilenceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.agentSilenceConfig(), "AgentSilenceConfig", "json"));
+    request.setAgentSilenceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAgentSilenceConfig(), "AgentSilenceConfig", "json"));
   }
 
   if (!!tmpReq.hasAmbientSoundConfig()) {
-    request.setAmbientSoundConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ambientSoundConfig(), "AmbientSoundConfig", "json"));
+    request.setAmbientSoundConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAmbientSoundConfig(), "AmbientSoundConfig", "json"));
   }
 
   if (!!tmpReq.hasAsrConfig()) {
-    request.setAsrConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.asrConfig(), "AsrConfig", "json"));
+    request.setAsrConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAsrConfig(), "AsrConfig", "json"));
   }
 
   if (!!tmpReq.hasBackChannelConfig()) {
-    request.setBackChannelConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.backChannelConfig(), "BackChannelConfig", "json"));
+    request.setBackChannelConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBackChannelConfig(), "BackChannelConfig", "json"));
   }
 
   if (!!tmpReq.hasInterruptConfig()) {
-    request.setInterruptConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.interruptConfig(), "InterruptConfig", "json"));
+    request.setInterruptConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInterruptConfig(), "InterruptConfig", "json"));
   }
 
   if (!!tmpReq.hasLlmConfig()) {
-    request.setLlmConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.llmConfig(), "LlmConfig", "json"));
+    request.setLlmConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLlmConfig(), "LlmConfig", "json"));
   }
 
   if (!!tmpReq.hasTtsConfig()) {
-    request.setTtsConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ttsConfig(), "TtsConfig", "json"));
+    request.setTtsConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTtsConfig(), "TtsConfig", "json"));
   }
 
   json query = {};
   if (!!request.hasAgentSilenceConfigShrink()) {
-    query["AgentSilenceConfig"] = request.agentSilenceConfigShrink();
+    query["AgentSilenceConfig"] = request.getAgentSilenceConfigShrink();
   }
 
   if (!!request.hasAmbientSoundConfigShrink()) {
-    query["AmbientSoundConfig"] = request.ambientSoundConfigShrink();
+    query["AmbientSoundConfig"] = request.getAmbientSoundConfigShrink();
   }
 
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAsrConfigShrink()) {
-    query["AsrConfig"] = request.asrConfigShrink();
+    query["AsrConfig"] = request.getAsrConfigShrink();
   }
 
   if (!!request.hasBackChannelConfigShrink()) {
-    query["BackChannelConfig"] = request.backChannelConfigShrink();
+    query["BackChannelConfig"] = request.getBackChannelConfigShrink();
   }
 
   if (!!request.hasChatMode()) {
-    query["ChatMode"] = request.chatMode();
+    query["ChatMode"] = request.getChatMode();
   }
 
   if (!!request.hasGreeting()) {
-    query["Greeting"] = request.greeting();
+    query["Greeting"] = request.getGreeting();
   }
 
   if (!!request.hasInterruptConfigShrink()) {
-    query["InterruptConfig"] = request.interruptConfigShrink();
+    query["InterruptConfig"] = request.getInterruptConfigShrink();
   }
 
   if (!!request.hasInterruptMode()) {
-    query["InterruptMode"] = request.interruptMode();
+    query["InterruptMode"] = request.getInterruptMode();
   }
 
   if (!!request.hasLlmConfigShrink()) {
-    query["LlmConfig"] = request.llmConfigShrink();
+    query["LlmConfig"] = request.getLlmConfigShrink();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasTtsConfigShrink()) {
-    query["TtsConfig"] = request.ttsConfigShrink();
+    query["TtsConfig"] = request.getTtsConfigShrink();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -277,20 +277,20 @@ CreateAppLayoutResponse Client::createAppLayoutWithOptions(const CreateAppLayout
   CreateAppLayoutShrinkRequest request = CreateAppLayoutShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLayout()) {
-    request.setLayoutShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.layout(), "Layout", "json"));
+    request.setLayoutShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLayout(), "Layout", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasLayoutShrink()) {
-    query["Layout"] = request.layoutShrink();
+    query["Layout"] = request.getLayoutShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -333,20 +333,20 @@ CreateAppRecordTemplateResponse Client::createAppRecordTemplateWithOptions(const
   CreateAppRecordTemplateShrinkRequest request = CreateAppRecordTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRecordTemplate()) {
-    request.setRecordTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recordTemplate(), "RecordTemplate", "json"));
+    request.setRecordTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecordTemplate(), "RecordTemplate", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasRecordTemplateShrink()) {
-    query["RecordTemplate"] = request.recordTemplateShrink();
+    query["RecordTemplate"] = request.getRecordTemplateShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -389,16 +389,16 @@ CreateAppStreamingOutTemplateResponse Client::createAppStreamingOutTemplateWithO
   CreateAppStreamingOutTemplateShrinkRequest request = CreateAppStreamingOutTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasStreamingOutTemplate()) {
-    request.setStreamingOutTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.streamingOutTemplate(), "StreamingOutTemplate", "json"));
+    request.setStreamingOutTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStreamingOutTemplate(), "StreamingOutTemplate", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasStreamingOutTemplateShrink()) {
-    query["StreamingOutTemplate"] = request.streamingOutTemplateShrink();
+    query["StreamingOutTemplate"] = request.getStreamingOutTemplateShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -441,16 +441,16 @@ CreateAppViewTemplateResponse Client::createAppViewTemplateWithOptions(const Cre
   CreateAppViewTemplateShrinkRequest request = CreateAppViewTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTemplate()) {
-    request.setTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq._template(), "Template", "json"));
+    request.setTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTemplate(), "Template", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasTemplateShrink()) {
-    query["Template"] = request.templateShrink();
+    query["Template"] = request.getTemplateShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -490,35 +490,35 @@ CreateAutoLiveStreamRuleResponse Client::createAutoLiveStreamRuleWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasCallBack()) {
-    query["CallBack"] = request.callBack();
+    query["CallBack"] = request.getCallBack();
   }
 
   if (!!request.hasChannelIdPrefixes()) {
-    query["ChannelIdPrefixes"] = request.channelIdPrefixes();
+    query["ChannelIdPrefixes"] = request.getChannelIdPrefixes();
   }
 
   if (!!request.hasChannelIds()) {
-    query["ChannelIds"] = request.channelIds();
+    query["ChannelIds"] = request.getChannelIds();
   }
 
   if (!!request.hasMediaEncode()) {
-    query["MediaEncode"] = request.mediaEncode();
+    query["MediaEncode"] = request.getMediaEncode();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPlayDomain()) {
-    query["PlayDomain"] = request.playDomain();
+    query["PlayDomain"] = request.getPlayDomain();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -559,16 +559,16 @@ CreateCloudNotePhrasesResponse Client::createCloudNotePhrasesWithOptions(const C
   CreateCloudNotePhrasesShrinkRequest request = CreateCloudNotePhrasesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPhrase()) {
-    request.setPhraseShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.phrase(), "Phrase", "json"));
+    request.setPhraseShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPhrase(), "Phrase", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasPhraseShrink()) {
-    query["Phrase"] = request.phraseShrink();
+    query["Phrase"] = request.getPhraseShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -608,39 +608,39 @@ CreateEventSubscribeResponse Client::createEventSubscribeWithOptions(const Creat
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasCallbackUrl()) {
-    query["CallbackUrl"] = request.callbackUrl();
+    query["CallbackUrl"] = request.getCallbackUrl();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasEvents()) {
-    query["Events"] = request.events();
+    query["Events"] = request.getEvents();
   }
 
   if (!!request.hasNeedCallbackAuth()) {
-    query["NeedCallbackAuth"] = request.needCallbackAuth();
+    query["NeedCallbackAuth"] = request.getNeedCallbackAuth();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRole()) {
-    query["Role"] = request.role();
+    query["Role"] = request.getRole();
   }
 
   if (!!request.hasUsers()) {
-    query["Users"] = request.users();
+    query["Users"] = request.getUsers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -678,23 +678,23 @@ CreateMPULayoutResponse Client::createMPULayoutWithOptions(const CreateMPULayout
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAudioMixCount()) {
-    query["AudioMixCount"] = request.audioMixCount();
+    query["AudioMixCount"] = request.getAudioMixCount();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPanes()) {
-    query["Panes"] = request.panes();
+    query["Panes"] = request.getPanes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -734,11 +734,11 @@ DeleteAppAgentTemplateResponse Client::deleteAppAgentTemplateWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -781,20 +781,20 @@ DeleteAppLayoutResponse Client::deleteAppLayoutWithOptions(const DeleteAppLayout
   DeleteAppLayoutShrinkRequest request = DeleteAppLayoutShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLayout()) {
-    request.setLayoutShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.layout(), "Layout", "json"));
+    request.setLayoutShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLayout(), "Layout", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasLayoutShrink()) {
-    query["Layout"] = request.layoutShrink();
+    query["Layout"] = request.getLayoutShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -837,20 +837,20 @@ DeleteAppRecordTemplateResponse Client::deleteAppRecordTemplateWithOptions(const
   DeleteAppRecordTemplateShrinkRequest request = DeleteAppRecordTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTemplate()) {
-    request.setTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq._template(), "Template", "json"));
+    request.setTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTemplate(), "Template", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasTemplateShrink()) {
-    query["Template"] = request.templateShrink();
+    query["Template"] = request.getTemplateShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -893,16 +893,16 @@ DeleteAppStreamingOutTemplateResponse Client::deleteAppStreamingOutTemplateWithO
   DeleteAppStreamingOutTemplateShrinkRequest request = DeleteAppStreamingOutTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasStreamingOutTemplate()) {
-    request.setStreamingOutTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.streamingOutTemplate(), "StreamingOutTemplate", "json"));
+    request.setStreamingOutTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStreamingOutTemplate(), "StreamingOutTemplate", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasStreamingOutTemplateShrink()) {
-    query["StreamingOutTemplate"] = request.streamingOutTemplateShrink();
+    query["StreamingOutTemplate"] = request.getStreamingOutTemplateShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -945,16 +945,16 @@ DeleteAppViewTemplateResponse Client::deleteAppViewTemplateWithOptions(const Del
   DeleteAppViewTemplateShrinkRequest request = DeleteAppViewTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTemplate()) {
-    request.setTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq._template(), "Template", "json"));
+    request.setTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTemplate(), "Template", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasTemplateShrink()) {
-    query["Template"] = request.templateShrink();
+    query["Template"] = request.getTemplateShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -994,15 +994,15 @@ DeleteAutoLiveStreamRuleResponse Client::deleteAutoLiveStreamRuleWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1040,15 +1040,15 @@ DeleteChannelResponse Client::deleteChannelWithOptions(const DeleteChannelReques
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1089,16 +1089,16 @@ DeleteCloudNotePhrasesResponse Client::deleteCloudNotePhrasesWithOptions(const D
   DeleteCloudNotePhrasesShrinkRequest request = DeleteCloudNotePhrasesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPhrase()) {
-    request.setPhraseShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.phrase(), "Phrase", "json"));
+    request.setPhraseShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPhrase(), "Phrase", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasPhraseShrink()) {
-    query["Phrase"] = request.phraseShrink();
+    query["Phrase"] = request.getPhraseShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1138,15 +1138,15 @@ DeleteEventSubscribeResponse Client::deleteEventSubscribeWithOptions(const Delet
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasSubscribeId()) {
-    query["SubscribeId"] = request.subscribeId();
+    query["SubscribeId"] = request.getSubscribeId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1184,15 +1184,15 @@ DeleteMPULayoutResponse Client::deleteMPULayoutWithOptions(const DeleteMPULayout
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasLayoutId()) {
-    query["LayoutId"] = request.layoutId();
+    query["LayoutId"] = request.getLayoutId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1230,15 +1230,15 @@ DeleteRecordTemplateResponse Client::deleteRecordTemplateWithOptions(const Delet
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1311,7 +1311,7 @@ DescribeAppAgentFunctionStatusResponse Client::describeAppAgentFunctionStatusWit
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1353,23 +1353,23 @@ DescribeAppAgentTemplatesResponse Client::describeAppAgentTemplatesWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1411,7 +1411,7 @@ DescribeAppCallStatusResponse Client::describeAppCallStatusWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1453,7 +1453,7 @@ DescribeAppCallbackSecretKeyResponse Client::describeAppCallbackSecretKeyWithOpt
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1495,11 +1495,11 @@ DescribeAppKeyResponse Client::describeAppKeyWithOptions(const DescribeAppKeyReq
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1542,7 +1542,7 @@ DescribeAppLayoutsResponse Client::describeAppLayoutsWithOptions(const DescribeA
   DescribeAppLayoutsShrinkRequest request = DescribeAppLayoutsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCondition()) {
-    request.setConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.condition(), "Condition", "json"));
+    request.setConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCondition(), "Condition", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -1662,7 +1662,7 @@ DescribeAppRecordTemplatesResponse Client::describeAppRecordTemplatesWithOptions
   DescribeAppRecordTemplatesShrinkRequest request = DescribeAppRecordTemplatesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCondition()) {
-    request.setConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.condition(), "Condition", "json"));
+    request.setConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCondition(), "Condition", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -1706,7 +1706,7 @@ DescribeAppRecordingFilesResponse Client::describeAppRecordingFilesWithOptions(c
   DescribeAppRecordingFilesShrinkRequest request = DescribeAppRecordingFilesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTaskIds()) {
-    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.taskIds(), "TaskIds", "json"));
+    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskIds(), "TaskIds", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -1750,24 +1750,24 @@ DescribeAppStreamingOutTemplatesResponse Client::describeAppStreamingOutTemplate
   DescribeAppStreamingOutTemplatesShrinkRequest request = DescribeAppStreamingOutTemplatesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCondition()) {
-    request.setConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.condition(), "Condition", "json"));
+    request.setConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCondition(), "Condition", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasConditionShrink()) {
-    query["Condition"] = request.conditionShrink();
+    query["Condition"] = request.getConditionShrink();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1809,7 +1809,7 @@ DescribeAppViewStatusResponse Client::describeAppViewStatusWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1852,24 +1852,24 @@ DescribeAppViewTemplatesResponse Client::describeAppViewTemplatesWithOptions(con
   DescribeAppViewTemplatesShrinkRequest request = DescribeAppViewTemplatesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCondition()) {
-    request.setConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.condition(), "Condition", "json"));
+    request.setConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCondition(), "Condition", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasConditionShrink()) {
-    query["Condition"] = request.conditionShrink();
+    query["Condition"] = request.getConditionShrink();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1911,31 +1911,31 @@ DescribeAppsResponse Client::describeAppsWithOptions(const DescribeAppsRequest &
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAppVersion()) {
-    query["AppVersion"] = request.appVersion();
+    query["AppVersion"] = request.getAppVersion();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1975,11 +1975,11 @@ DescribeAutoLiveStreamRuleResponse Client::describeAutoLiveStreamRuleWithOptions
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2019,27 +2019,27 @@ DescribeCallResponse Client::describeCallWithOptions(const DescribeCallRequest &
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCreatedTs()) {
-    query["CreatedTs"] = request.createdTs();
+    query["CreatedTs"] = request.getCreatedTs();
   }
 
   if (!!request.hasDestroyedTs()) {
-    query["DestroyedTs"] = request.destroyedTs();
+    query["DestroyedTs"] = request.getDestroyedTs();
   }
 
   if (!!request.hasExtDataType()) {
-    query["ExtDataType"] = request.extDataType();
+    query["ExtDataType"] = request.getExtDataType();
   }
 
   if (!!request.hasQueryExpInfo()) {
-    query["QueryExpInfo"] = request.queryExpInfo();
+    query["QueryExpInfo"] = request.getQueryExpInfo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2081,43 +2081,43 @@ DescribeCallListResponse Client::describeCallListWithOptions(const DescribeCallL
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasCallStatus()) {
-    query["CallStatus"] = request.callStatus();
+    query["CallStatus"] = request.getCallStatus();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasEndTs()) {
-    query["EndTs"] = request.endTs();
+    query["EndTs"] = request.getEndTs();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQueryMode()) {
-    query["QueryMode"] = request.queryMode();
+    query["QueryMode"] = request.getQueryMode();
   }
 
   if (!!request.hasStartTs()) {
-    query["StartTs"] = request.startTs();
+    query["StartTs"] = request.getStartTs();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2159,7 +2159,7 @@ DescribeCallbacksResponse Client::describeCallbacksWithOptions(const DescribeCal
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2201,11 +2201,11 @@ DescribeChannelResponse Client::describeChannelWithOptions(const DescribeChannel
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2247,11 +2247,11 @@ DescribeChannelAllUsersResponse Client::describeChannelAllUsersWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2293,23 +2293,23 @@ DescribeChannelAreaDistributionStatDataResponse Client::describeChannelAreaDistr
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCreatedTs()) {
-    query["CreatedTs"] = request.createdTs();
+    query["CreatedTs"] = request.getCreatedTs();
   }
 
   if (!!request.hasDestroyedTs()) {
-    query["DestroyedTs"] = request.destroyedTs();
+    query["DestroyedTs"] = request.getDestroyedTs();
   }
 
   if (!!request.hasParentArea()) {
-    query["ParentArea"] = request.parentArea();
+    query["ParentArea"] = request.getParentArea();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2351,23 +2351,23 @@ DescribeChannelDistributionStatDataResponse Client::describeChannelDistributionS
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCreatedTs()) {
-    query["CreatedTs"] = request.createdTs();
+    query["CreatedTs"] = request.getCreatedTs();
   }
 
   if (!!request.hasDestroyedTs()) {
-    query["DestroyedTs"] = request.destroyedTs();
+    query["DestroyedTs"] = request.getDestroyedTs();
   }
 
   if (!!request.hasStatDim()) {
-    query["StatDim"] = request.statDim();
+    query["StatDim"] = request.getStatDim();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2409,19 +2409,19 @@ DescribeChannelOverallDataResponse Client::describeChannelOverallDataWithOptions
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCreatedTs()) {
-    query["CreatedTs"] = request.createdTs();
+    query["CreatedTs"] = request.getCreatedTs();
   }
 
   if (!!request.hasDestroyedTs()) {
-    query["DestroyedTs"] = request.destroyedTs();
+    query["DestroyedTs"] = request.getDestroyedTs();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2461,27 +2461,27 @@ DescribeChannelParticipantsResponse Client::describeChannelParticipantsWithOptio
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2521,19 +2521,19 @@ DescribeChannelTopPubUserListResponse Client::describeChannelTopPubUserListWithO
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCreatedTs()) {
-    query["CreatedTs"] = request.createdTs();
+    query["CreatedTs"] = request.getCreatedTs();
   }
 
   if (!!request.hasDestroyedTs()) {
-    query["DestroyedTs"] = request.destroyedTs();
+    query["DestroyedTs"] = request.getDestroyedTs();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2575,15 +2575,15 @@ DescribeChannelUserResponse Client::describeChannelUserWithOptions(const Describ
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2625,19 +2625,19 @@ DescribeChannelUserMetricsResponse Client::describeChannelUserMetricsWithOptions
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCreatedTs()) {
-    query["CreatedTs"] = request.createdTs();
+    query["CreatedTs"] = request.getCreatedTs();
   }
 
   if (!!request.hasDestroyedTs()) {
-    query["DestroyedTs"] = request.destroyedTs();
+    query["DestroyedTs"] = request.getDestroyedTs();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2677,15 +2677,15 @@ DescribeChannelUsersResponse Client::describeChannelUsersWithOptions(const Descr
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2764,24 +2764,24 @@ DescribeCloudNotePhrasesResponse Client::describeCloudNotePhrasesWithOptions(con
   DescribeCloudNotePhrasesShrinkRequest request = DescribeCloudNotePhrasesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCondition()) {
-    request.setConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.condition(), "Condition", "json"));
+    request.setConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCondition(), "Condition", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasConditionShrink()) {
-    query["Condition"] = request.conditionShrink();
+    query["Condition"] = request.getConditionShrink();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2824,7 +2824,7 @@ DescribeCloudNotesResponse Client::describeCloudNotesWithOptions(const DescribeC
   DescribeCloudNotesShrinkRequest request = DescribeCloudNotesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTaskIds()) {
-    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.taskIds(), "TaskIds", "json"));
+    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskIds(), "TaskIds", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -2867,15 +2867,15 @@ DescribeCloudRecordStatusResponse Client::describeCloudRecordStatusWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2917,23 +2917,23 @@ DescribeEndPointEventListResponse Client::describeEndPointEventListWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCreatedTs()) {
-    query["CreatedTs"] = request.createdTs();
+    query["CreatedTs"] = request.getCreatedTs();
   }
 
   if (!!request.hasDestroyedTs()) {
-    query["DestroyedTs"] = request.destroyedTs();
+    query["DestroyedTs"] = request.getDestroyedTs();
   }
 
   if (!!request.hasUserIdList()) {
-    query["UserIdList"] = request.userIdList();
+    query["UserIdList"] = request.getUserIdList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2975,35 +2975,35 @@ DescribeEndPointMetricDataResponse Client::describeEndPointMetricDataWithOptions
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCreatedTs()) {
-    query["CreatedTs"] = request.createdTs();
+    query["CreatedTs"] = request.getCreatedTs();
   }
 
   if (!!request.hasDestroyedTs()) {
-    query["DestroyedTs"] = request.destroyedTs();
+    query["DestroyedTs"] = request.getDestroyedTs();
   }
 
   if (!!request.hasMetrics()) {
-    query["Metrics"] = request.metrics();
+    query["Metrics"] = request.getMetrics();
   }
 
   if (!!request.hasPubCallIdList()) {
-    query["PubCallIdList"] = request.pubCallIdList();
+    query["PubCallIdList"] = request.getPubCallIdList();
   }
 
   if (!!request.hasPubUserId()) {
-    query["PubUserId"] = request.pubUserId();
+    query["PubUserId"] = request.getPubUserId();
   }
 
   if (!!request.hasSubUserId()) {
-    query["SubUserId"] = request.subUserId();
+    query["SubUserId"] = request.getSubUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3045,15 +3045,15 @@ DescribeFaultDiagnosisFactorDistributionStatResponse Client::describeFaultDiagno
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEndTs()) {
-    query["EndTs"] = request.endTs();
+    query["EndTs"] = request.getEndTs();
   }
 
   if (!!request.hasStartTs()) {
-    query["StartTs"] = request.startTs();
+    query["StartTs"] = request.getStartTs();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3095,19 +3095,19 @@ DescribeFaultDiagnosisOverallDataResponse Client::describeFaultDiagnosisOverallD
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEndTs()) {
-    query["EndTs"] = request.endTs();
+    query["EndTs"] = request.getEndTs();
   }
 
   if (!!request.hasStartTs()) {
-    query["StartTs"] = request.startTs();
+    query["StartTs"] = request.getStartTs();
   }
 
   if (!!request.hasStatDim()) {
-    query["StatDim"] = request.statDim();
+    query["StatDim"] = request.getStatDim();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3149,27 +3149,27 @@ DescribeFaultDiagnosisUserDetailResponse Client::describeFaultDiagnosisUserDetai
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCreatedTs()) {
-    query["CreatedTs"] = request.createdTs();
+    query["CreatedTs"] = request.getCreatedTs();
   }
 
   if (!!request.hasFaultType()) {
-    query["FaultType"] = request.faultType();
+    query["FaultType"] = request.getFaultType();
   }
 
   if (!!request.hasQueryCallUserInfo()) {
-    query["QueryCallUserInfo"] = request.queryCallUserInfo();
+    query["QueryCallUserInfo"] = request.getQueryCallUserInfo();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3211,35 +3211,35 @@ DescribeFaultDiagnosisUserListResponse Client::describeFaultDiagnosisUserListWit
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasEndTs()) {
-    query["EndTs"] = request.endTs();
+    query["EndTs"] = request.getEndTs();
   }
 
   if (!!request.hasFaultTypes()) {
-    query["FaultTypes"] = request.faultTypes();
+    query["FaultTypes"] = request.getFaultTypes();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStartTs()) {
-    query["StartTs"] = request.startTs();
+    query["StartTs"] = request.getStartTs();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3279,27 +3279,27 @@ DescribeMPULayoutInfoListResponse Client::describeMPULayoutInfoListWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasLayoutId()) {
-    query["LayoutId"] = request.layoutId();
+    query["LayoutId"] = request.getLayoutId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3339,23 +3339,23 @@ DescribePubUserListBySubUserResponse Client::describePubUserListBySubUserWithOpt
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCreatedTs()) {
-    query["CreatedTs"] = request.createdTs();
+    query["CreatedTs"] = request.getCreatedTs();
   }
 
   if (!!request.hasDestroyedTs()) {
-    query["DestroyedTs"] = request.destroyedTs();
+    query["DestroyedTs"] = request.getDestroyedTs();
   }
 
   if (!!request.hasSubUserId()) {
-    query["SubUserId"] = request.subUserId();
+    query["SubUserId"] = request.getSubUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3397,23 +3397,23 @@ DescribeQoeMetricDataResponse Client::describeQoeMetricDataWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCreatedTs()) {
-    query["CreatedTs"] = request.createdTs();
+    query["CreatedTs"] = request.getCreatedTs();
   }
 
   if (!!request.hasDestroyedTs()) {
-    query["DestroyedTs"] = request.destroyedTs();
+    query["DestroyedTs"] = request.getDestroyedTs();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3455,19 +3455,19 @@ DescribeQualityAreaDistributionStatDataResponse Client::describeQualityAreaDistr
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasParentArea()) {
-    query["ParentArea"] = request.parentArea();
+    query["ParentArea"] = request.getParentArea();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3509,19 +3509,19 @@ DescribeQualityDistributionStatDataResponse Client::describeQualityDistributionS
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   if (!!request.hasStatDim()) {
-    query["StatDim"] = request.statDim();
+    query["StatDim"] = request.getStatDim();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3563,15 +3563,15 @@ DescribeQualityOsSdkVersionDistributionStatDataResponse Client::describeQualityO
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3613,19 +3613,19 @@ DescribeQualityOverallDataResponse Client::describeQualityOverallDataWithOptions
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   if (!!request.hasTypes()) {
-    query["Types"] = request.types();
+    query["Types"] = request.getTypes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3665,35 +3665,35 @@ DescribeRecordFilesResponse Client::describeRecordFilesWithOptions(const Describ
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTaskIds()) {
-    query["TaskIds"] = request.taskIds();
+    query["TaskIds"] = request.getTaskIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3731,23 +3731,23 @@ DescribeRecordTemplatesResponse Client::describeRecordTemplatesWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasTemplateIds()) {
-    query["TemplateIds"] = request.templateIds();
+    query["TemplateIds"] = request.getTemplateIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3785,39 +3785,39 @@ DescribeRtcChannelListResponse Client::describeRtcChannelListWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasServiceArea()) {
-    query["ServiceArea"] = request.serviceArea();
+    query["ServiceArea"] = request.getServiceArea();
   }
 
   if (!!request.hasSortType()) {
-    query["SortType"] = request.sortType();
+    query["SortType"] = request.getSortType();
   }
 
   if (!!request.hasTimePoint()) {
-    query["TimePoint"] = request.timePoint();
+    query["TimePoint"] = request.getTimePoint();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3855,19 +3855,19 @@ DescribeRtcChannelMetricResponse Client::describeRtcChannelMetricWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasTimePoint()) {
-    query["TimePoint"] = request.timePoint();
+    query["TimePoint"] = request.getTimePoint();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3905,27 +3905,27 @@ DescribeRtcDurationDataResponse Client::describeRtcDurationDataWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInterval()) {
-    query["Interval"] = request.interval();
+    query["Interval"] = request.getInterval();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasServiceArea()) {
-    query["ServiceArea"] = request.serviceArea();
+    query["ServiceArea"] = request.getServiceArea();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3963,27 +3963,27 @@ DescribeRtcPeakChannelCntDataResponse Client::describeRtcPeakChannelCntDataWithO
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInterval()) {
-    query["Interval"] = request.interval();
+    query["Interval"] = request.getInterval();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasServiceArea()) {
-    query["ServiceArea"] = request.serviceArea();
+    query["ServiceArea"] = request.getServiceArea();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4021,27 +4021,27 @@ DescribeRtcUserCntDataResponse Client::describeRtcUserCntDataWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInterval()) {
-    query["Interval"] = request.interval();
+    query["Interval"] = request.getInterval();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasServiceArea()) {
-    query["ServiceArea"] = request.serviceArea();
+    query["ServiceArea"] = request.getServiceArea();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4081,15 +4081,15 @@ DescribeStreamingOutStatusResponse Client::describeStreamingOutStatusWithOptions
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4131,15 +4131,15 @@ DescribeSystemLayoutListResponse Client::describeSystemLayoutListWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4181,19 +4181,19 @@ DescribeUsageAreaDistributionStatDataResponse Client::describeUsageAreaDistribut
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasParentArea()) {
-    query["ParentArea"] = request.parentArea();
+    query["ParentArea"] = request.getParentArea();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4235,19 +4235,19 @@ DescribeUsageDistributionStatDataResponse Client::describeUsageDistributionStatD
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   if (!!request.hasStatDim()) {
-    query["StatDim"] = request.statDim();
+    query["StatDim"] = request.getStatDim();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4289,15 +4289,15 @@ DescribeUsageOsSdkVersionDistributionStatDataResponse Client::describeUsageOsSdk
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4339,19 +4339,19 @@ DescribeUsageOverallDataResponse Client::describeUsageOverallDataWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   if (!!request.hasTypes()) {
-    query["Types"] = request.types();
+    query["Types"] = request.getTypes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4391,19 +4391,19 @@ DescribeUserInfoInChannelResponse Client::describeUserInfoInChannelWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4441,15 +4441,15 @@ DisableAutoLiveStreamRuleResponse Client::disableAutoLiveStreamRuleWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4487,15 +4487,15 @@ EnableAutoLiveStreamRuleResponse Client::enableAutoLiveStreamRuleWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4535,15 +4535,15 @@ GetAgentResponse Client::getAgentWithOptions(const GetAgentRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4583,15 +4583,15 @@ GetMPUTaskStatusResponse Client::getMPUTaskStatusWithOptions(const GetMPUTaskSta
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4631,15 +4631,15 @@ ModifyAppResponse Client::modifyAppWithOptions(const ModifyAppRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4681,7 +4681,7 @@ ModifyAppAgentFunctionStatusResponse Client::modifyAppAgentFunctionStatusWithOpt
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4724,88 +4724,88 @@ ModifyAppAgentTemplateResponse Client::modifyAppAgentTemplateWithOptions(const M
   ModifyAppAgentTemplateShrinkRequest request = ModifyAppAgentTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAgentSilenceConfig()) {
-    request.setAgentSilenceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.agentSilenceConfig(), "AgentSilenceConfig", "json"));
+    request.setAgentSilenceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAgentSilenceConfig(), "AgentSilenceConfig", "json"));
   }
 
   if (!!tmpReq.hasAmbientSoundConfig()) {
-    request.setAmbientSoundConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ambientSoundConfig(), "AmbientSoundConfig", "json"));
+    request.setAmbientSoundConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAmbientSoundConfig(), "AmbientSoundConfig", "json"));
   }
 
   if (!!tmpReq.hasAsrConfig()) {
-    request.setAsrConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.asrConfig(), "AsrConfig", "json"));
+    request.setAsrConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAsrConfig(), "AsrConfig", "json"));
   }
 
   if (!!tmpReq.hasBackChannelConfig()) {
-    request.setBackChannelConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.backChannelConfig(), "BackChannelConfig", "json"));
+    request.setBackChannelConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBackChannelConfig(), "BackChannelConfig", "json"));
   }
 
   if (!!tmpReq.hasInterruptConfig()) {
-    request.setInterruptConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.interruptConfig(), "InterruptConfig", "json"));
+    request.setInterruptConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInterruptConfig(), "InterruptConfig", "json"));
   }
 
   if (!!tmpReq.hasLlmConfig()) {
-    request.setLlmConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.llmConfig(), "LlmConfig", "json"));
+    request.setLlmConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLlmConfig(), "LlmConfig", "json"));
   }
 
   if (!!tmpReq.hasTtsConfig()) {
-    request.setTtsConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ttsConfig(), "TtsConfig", "json"));
+    request.setTtsConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTtsConfig(), "TtsConfig", "json"));
   }
 
   json query = {};
   if (!!request.hasAgentSilenceConfigShrink()) {
-    query["AgentSilenceConfig"] = request.agentSilenceConfigShrink();
+    query["AgentSilenceConfig"] = request.getAgentSilenceConfigShrink();
   }
 
   if (!!request.hasAmbientSoundConfigShrink()) {
-    query["AmbientSoundConfig"] = request.ambientSoundConfigShrink();
+    query["AmbientSoundConfig"] = request.getAmbientSoundConfigShrink();
   }
 
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAsrConfigShrink()) {
-    query["AsrConfig"] = request.asrConfigShrink();
+    query["AsrConfig"] = request.getAsrConfigShrink();
   }
 
   if (!!request.hasBackChannelConfigShrink()) {
-    query["BackChannelConfig"] = request.backChannelConfigShrink();
+    query["BackChannelConfig"] = request.getBackChannelConfigShrink();
   }
 
   if (!!request.hasChatMode()) {
-    query["ChatMode"] = request.chatMode();
+    query["ChatMode"] = request.getChatMode();
   }
 
   if (!!request.hasGreeting()) {
-    query["Greeting"] = request.greeting();
+    query["Greeting"] = request.getGreeting();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasInterruptConfigShrink()) {
-    query["InterruptConfig"] = request.interruptConfigShrink();
+    query["InterruptConfig"] = request.getInterruptConfigShrink();
   }
 
   if (!!request.hasInterruptMode()) {
-    query["InterruptMode"] = request.interruptMode();
+    query["InterruptMode"] = request.getInterruptMode();
   }
 
   if (!!request.hasLlmConfigShrink()) {
-    query["LlmConfig"] = request.llmConfigShrink();
+    query["LlmConfig"] = request.getLlmConfigShrink();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasTtsConfigShrink()) {
-    query["TtsConfig"] = request.ttsConfigShrink();
+    query["TtsConfig"] = request.getTtsConfigShrink();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4847,7 +4847,7 @@ ModifyAppCallbackStatusResponse Client::modifyAppCallbackStatusWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4890,20 +4890,20 @@ ModifyAppLayoutResponse Client::modifyAppLayoutWithOptions(const ModifyAppLayout
   ModifyAppLayoutShrinkRequest request = ModifyAppLayoutShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLayout()) {
-    request.setLayoutShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.layout(), "Layout", "json"));
+    request.setLayoutShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLayout(), "Layout", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasLayoutShrink()) {
-    query["Layout"] = request.layoutShrink();
+    query["Layout"] = request.getLayoutShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4945,11 +4945,11 @@ ModifyAppLiveStreamStatusResponse Client::modifyAppLiveStreamStatusWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4991,11 +4991,11 @@ ModifyAppRecordStatusResponse Client::modifyAppRecordStatusWithOptions(const Mod
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5038,20 +5038,20 @@ ModifyAppRecordTemplateResponse Client::modifyAppRecordTemplateWithOptions(const
   ModifyAppRecordTemplateShrinkRequest request = ModifyAppRecordTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRecordTemplate()) {
-    request.setRecordTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recordTemplate(), "RecordTemplate", "json"));
+    request.setRecordTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecordTemplate(), "RecordTemplate", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasRecordTemplateShrink()) {
-    query["RecordTemplate"] = request.recordTemplateShrink();
+    query["RecordTemplate"] = request.getRecordTemplateShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5094,16 +5094,16 @@ ModifyAppStreamingOutTemplateResponse Client::modifyAppStreamingOutTemplateWithO
   ModifyAppStreamingOutTemplateShrinkRequest request = ModifyAppStreamingOutTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasStreamingOutTemplate()) {
-    request.setStreamingOutTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.streamingOutTemplate(), "StreamingOutTemplate", "json"));
+    request.setStreamingOutTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStreamingOutTemplate(), "StreamingOutTemplate", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasStreamingOutTemplateShrink()) {
-    query["StreamingOutTemplate"] = request.streamingOutTemplateShrink();
+    query["StreamingOutTemplate"] = request.getStreamingOutTemplateShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5145,7 +5145,7 @@ ModifyAppViewStatusResponse Client::modifyAppViewStatusWithOptions(const ModifyA
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5188,16 +5188,16 @@ ModifyAppViewTemplateResponse Client::modifyAppViewTemplateWithOptions(const Mod
   ModifyAppViewTemplateShrinkRequest request = ModifyAppViewTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTemplate()) {
-    request.setTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq._template(), "Template", "json"));
+    request.setTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTemplate(), "Template", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasTemplateShrink()) {
-    query["Template"] = request.templateShrink();
+    query["Template"] = request.getTemplateShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5240,20 +5240,20 @@ ModifyCallbackMetaResponse Client::modifyCallbackMetaWithOptions(const ModifyCal
   ModifyCallbackMetaShrinkRequest request = ModifyCallbackMetaShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCallback()) {
-    request.setCallbackShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.callback(), "Callback", "json"));
+    request.setCallbackShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCallback(), "Callback", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasCallbackShrink()) {
-    query["Callback"] = request.callbackShrink();
+    query["Callback"] = request.getCallbackShrink();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5296,16 +5296,16 @@ ModifyCloudNotePhrasesResponse Client::modifyCloudNotePhrasesWithOptions(const M
   ModifyCloudNotePhrasesShrinkRequest request = ModifyCloudNotePhrasesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPhrase()) {
-    request.setPhraseShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.phrase(), "Phrase", "json"));
+    request.setPhraseShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPhrase(), "Phrase", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasPhraseShrink()) {
-    query["Phrase"] = request.phraseShrink();
+    query["Phrase"] = request.getPhraseShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5345,27 +5345,27 @@ ModifyMPULayoutResponse Client::modifyMPULayoutWithOptions(const ModifyMPULayout
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAudioMixCount()) {
-    query["AudioMixCount"] = request.audioMixCount();
+    query["AudioMixCount"] = request.getAudioMixCount();
   }
 
   if (!!request.hasLayoutId()) {
-    query["LayoutId"] = request.layoutId();
+    query["LayoutId"] = request.getLayoutId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPanes()) {
-    query["Panes"] = request.panes();
+    query["Panes"] = request.getPanes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5406,28 +5406,28 @@ ModifyStreamingPropertyResponse Client::modifyStreamingPropertyWithOptions(const
   ModifyStreamingPropertyShrinkRequest request = ModifyStreamingPropertyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasViewSubscribers()) {
-    request.setViewSubscribersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.viewSubscribers(), "ViewSubscribers", "simple"));
+    request.setViewSubscribersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getViewSubscribers(), "ViewSubscribers", "simple"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasViewContent()) {
-    query["ViewContent"] = request.viewContent();
+    query["ViewContent"] = request.getViewContent();
   }
 
   if (!!request.hasViewSubscribersShrink()) {
-    query["ViewSubscribers"] = request.viewSubscribersShrink();
+    query["ViewSubscribers"] = request.getViewSubscribersShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5470,48 +5470,48 @@ ModifyViewLayoutResponse Client::modifyViewLayoutWithOptions(const ModifyViewLay
   ModifyViewLayoutShrinkRequest request = ModifyViewLayoutShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLayoutSpecifiedUsers()) {
-    request.setLayoutSpecifiedUsersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.layoutSpecifiedUsers(), "LayoutSpecifiedUsers", "json"));
+    request.setLayoutSpecifiedUsersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLayoutSpecifiedUsers(), "LayoutSpecifiedUsers", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBackgrounds()) {
-    query["Backgrounds"] = request.backgrounds();
+    query["Backgrounds"] = request.getBackgrounds();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasClockWidgets()) {
-    query["ClockWidgets"] = request.clockWidgets();
+    query["ClockWidgets"] = request.getClockWidgets();
   }
 
   if (!!request.hasImages()) {
-    query["Images"] = request.images();
+    query["Images"] = request.getImages();
   }
 
   if (!!request.hasLayoutSpecifiedUsersShrink()) {
-    query["LayoutSpecifiedUsers"] = request.layoutSpecifiedUsersShrink();
+    query["LayoutSpecifiedUsers"] = request.getLayoutSpecifiedUsersShrink();
   }
 
   if (!!request.hasPanes()) {
-    query["Panes"] = request.panes();
+    query["Panes"] = request.getPanes();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTexts()) {
-    query["Texts"] = request.texts();
+    query["Texts"] = request.getTexts();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5554,40 +5554,40 @@ NotifyAgentResponse Client::notifyAgentWithOptions(const NotifyAgentRequest &tmp
   NotifyAgentShrinkRequest request = NotifyAgentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBackgroundMusic()) {
-    request.setBackgroundMusicShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.backgroundMusic(), "BackgroundMusic", "json"));
+    request.setBackgroundMusicShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBackgroundMusic(), "BackgroundMusic", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBackgroundMusicShrink()) {
-    query["BackgroundMusic"] = request.backgroundMusicShrink();
+    query["BackgroundMusic"] = request.getBackgroundMusicShrink();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCustomAttribute()) {
-    query["CustomAttribute"] = request.customAttribute();
+    query["CustomAttribute"] = request.getCustomAttribute();
   }
 
   if (!!request.hasInterruptable()) {
-    query["Interruptable"] = request.interruptable();
+    query["Interruptable"] = request.getInterruptable();
   }
 
   if (!!request.hasMessage()) {
-    query["Message"] = request.message();
+    query["Message"] = request.getMessage();
   }
 
   if (!!request.hasPriority()) {
-    query["Priority"] = request.priority();
+    query["Priority"] = request.getPriority();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5627,19 +5627,19 @@ RemoveTerminalsResponse Client::removeTerminalsWithOptions(const RemoveTerminals
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasTerminalIds()) {
-    query["TerminalIds"] = request.terminalIds();
+    query["TerminalIds"] = request.getTerminalIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5679,15 +5679,15 @@ RemoveUsersResponse Client::removeUsersWithOptions(const RemoveUsersRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasUsers()) {
-    query["Users"] = request.users();
+    query["Users"] = request.getUsers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5729,19 +5729,19 @@ RtcCancelSipInviteResponse Client::rtcCancelSipInviteWithOptions(const RtcCancel
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasDeviceType()) {
-    query["DeviceType"] = request.deviceType();
+    query["DeviceType"] = request.getDeviceType();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5783,63 +5783,63 @@ RtcSipInviteMemberResponse Client::rtcSipInviteMemberWithOptions(const RtcSipInv
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAppToken()) {
-    query["AppToken"] = request.appToken();
+    query["AppToken"] = request.getAppToken();
   }
 
   if (!!request.hasCallNumber()) {
-    query["CallNumber"] = request.callNumber();
+    query["CallNumber"] = request.getCallNumber();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasDeviceType()) {
-    query["DeviceType"] = request.deviceType();
+    query["DeviceType"] = request.getDeviceType();
   }
 
   if (!!request.hasRegistered()) {
-    query["Registered"] = request.registered();
+    query["Registered"] = request.getRegistered();
   }
 
   if (!!request.hasServerAddress()) {
-    query["ServerAddress"] = request.serverAddress();
+    query["ServerAddress"] = request.getServerAddress();
   }
 
   if (!!request.hasSipDisplayName()) {
-    query["SipDisplayName"] = request.sipDisplayName();
+    query["SipDisplayName"] = request.getSipDisplayName();
   }
 
   if (!!request.hasSipRoomId()) {
-    query["SipRoomId"] = request.sipRoomId();
+    query["SipRoomId"] = request.getSipRoomId();
   }
 
   if (!!request.hasSipUri()) {
-    query["SipUri"] = request.sipUri();
+    query["SipUri"] = request.getSipUri();
   }
 
   if (!!request.hasSipUserAgent()) {
-    query["SipUserAgent"] = request.sipUserAgent();
+    query["SipUserAgent"] = request.getSipUserAgent();
   }
 
   if (!!request.hasSipUserId()) {
-    query["SipUserId"] = request.sipUserId();
+    query["SipUserId"] = request.getSipUserId();
   }
 
   if (!!request.hasSipUserPassword()) {
-    query["SipUserPassword"] = request.sipUserPassword();
+    query["SipUserPassword"] = request.getSipUserPassword();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasUid()) {
-    query["Uid"] = request.uid();
+    query["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5881,15 +5881,15 @@ RtcSipMuteResponse Client::rtcSipMuteWithOptions(const RtcSipMuteRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasOperations()) {
-    query["Operations"] = request.operations();
+    query["Operations"] = request.getOperations();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5932,36 +5932,36 @@ StartAgentResponse Client::startAgentWithOptions(const StartAgentRequest &tmpReq
   StartAgentShrinkRequest request = StartAgentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRtcConfig()) {
-    request.setRtcConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.rtcConfig(), "RtcConfig", "json"));
+    request.setRtcConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRtcConfig(), "RtcConfig", "json"));
   }
 
   if (!!tmpReq.hasVoiceChatConfig()) {
-    request.setVoiceChatConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.voiceChatConfig(), "VoiceChatConfig", "json"));
+    request.setVoiceChatConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVoiceChatConfig(), "VoiceChatConfig", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasRtcConfigShrink()) {
-    query["RtcConfig"] = request.rtcConfigShrink();
+    query["RtcConfig"] = request.getRtcConfigShrink();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasVoiceChatConfigShrink()) {
-    query["VoiceChatConfig"] = request.voiceChatConfigShrink();
+    query["VoiceChatConfig"] = request.getVoiceChatConfigShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6004,16 +6004,16 @@ StartCategoryCallbackResponse Client::startCategoryCallbackWithOptions(const Sta
   StartCategoryCallbackShrinkRequest request = StartCategoryCallbackShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCallback()) {
-    request.setCallbackShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.callback(), "Callback", "json"));
+    request.setCallbackShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCallback(), "Callback", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasCallbackShrink()) {
-    query["Callback"] = request.callbackShrink();
+    query["Callback"] = request.getCallbackShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6056,92 +6056,92 @@ StartCloudNoteResponse Client::startCloudNoteWithOptions(const StartCloudNoteReq
   StartCloudNoteShrinkRequest request = StartCloudNoteShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAutoChapters()) {
-    request.setAutoChaptersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.autoChapters(), "AutoChapters", "json"));
+    request.setAutoChaptersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAutoChapters(), "AutoChapters", "json"));
   }
 
   if (!!tmpReq.hasCustomPrompt()) {
-    request.setCustomPromptShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.customPrompt(), "CustomPrompt", "json"));
+    request.setCustomPromptShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomPrompt(), "CustomPrompt", "json"));
   }
 
   if (!!tmpReq.hasMeetingAssistance()) {
-    request.setMeetingAssistanceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.meetingAssistance(), "MeetingAssistance", "json"));
+    request.setMeetingAssistanceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMeetingAssistance(), "MeetingAssistance", "json"));
   }
 
   if (!!tmpReq.hasRealtimeSubtitle()) {
-    request.setRealtimeSubtitleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.realtimeSubtitle(), "RealtimeSubtitle", "json"));
+    request.setRealtimeSubtitleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRealtimeSubtitle(), "RealtimeSubtitle", "json"));
   }
 
   if (!!tmpReq.hasServiceInspection()) {
-    request.setServiceInspectionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.serviceInspection(), "ServiceInspection", "json"));
+    request.setServiceInspectionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getServiceInspection(), "ServiceInspection", "json"));
   }
 
   if (!!tmpReq.hasSummarization()) {
-    request.setSummarizationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.summarization(), "Summarization", "json"));
+    request.setSummarizationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSummarization(), "Summarization", "json"));
   }
 
   if (!!tmpReq.hasTextPolish()) {
-    request.setTextPolishShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.textPolish(), "TextPolish", "json"));
+    request.setTextPolishShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTextPolish(), "TextPolish", "json"));
   }
 
   if (!!tmpReq.hasTranscription()) {
-    request.setTranscriptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.transcription(), "Transcription", "json"));
+    request.setTranscriptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTranscription(), "Transcription", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAutoChaptersShrink()) {
-    query["AutoChapters"] = request.autoChaptersShrink();
+    query["AutoChapters"] = request.getAutoChaptersShrink();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCustomPromptShrink()) {
-    query["CustomPrompt"] = request.customPromptShrink();
+    query["CustomPrompt"] = request.getCustomPromptShrink();
   }
 
   if (!!request.hasLanguageHints()) {
-    query["LanguageHints"] = request.languageHints();
+    query["LanguageHints"] = request.getLanguageHints();
   }
 
   if (!!request.hasMeetingAssistanceShrink()) {
-    query["MeetingAssistance"] = request.meetingAssistanceShrink();
+    query["MeetingAssistance"] = request.getMeetingAssistanceShrink();
   }
 
   if (!!request.hasRealtimeSubtitleShrink()) {
-    query["RealtimeSubtitle"] = request.realtimeSubtitleShrink();
+    query["RealtimeSubtitle"] = request.getRealtimeSubtitleShrink();
   }
 
   if (!!request.hasServiceInspectionShrink()) {
-    query["ServiceInspection"] = request.serviceInspectionShrink();
+    query["ServiceInspection"] = request.getServiceInspectionShrink();
   }
 
   if (!!request.hasSourceLanguage()) {
-    query["SourceLanguage"] = request.sourceLanguage();
+    query["SourceLanguage"] = request.getSourceLanguage();
   }
 
   if (!!request.hasStorageConfig()) {
-    query["StorageConfig"] = request.storageConfig();
+    query["StorageConfig"] = request.getStorageConfig();
   }
 
   if (!!request.hasSummarizationShrink()) {
-    query["Summarization"] = request.summarizationShrink();
+    query["Summarization"] = request.getSummarizationShrink();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTextPolishShrink()) {
-    query["TextPolish"] = request.textPolishShrink();
+    query["TextPolish"] = request.getTextPolishShrink();
   }
 
   if (!!request.hasTranscriptionShrink()) {
-    query["Transcription"] = request.transcriptionShrink();
+    query["Transcription"] = request.getTranscriptionShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6184,100 +6184,100 @@ StartCloudRecordResponse Client::startCloudRecordWithOptions(const StartCloudRec
   StartCloudRecordShrinkRequest request = StartCloudRecordShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLayoutSpecifiedUsers()) {
-    request.setLayoutSpecifiedUsersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.layoutSpecifiedUsers(), "LayoutSpecifiedUsers", "json"));
+    request.setLayoutSpecifiedUsersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLayoutSpecifiedUsers(), "LayoutSpecifiedUsers", "json"));
   }
 
   if (!!tmpReq.hasSingleStreamingRecord()) {
-    request.setSingleStreamingRecordShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.singleStreamingRecord(), "SingleStreamingRecord", "json"));
+    request.setSingleStreamingRecordShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSingleStreamingRecord(), "SingleStreamingRecord", "json"));
   }
 
   json query = {};
   if (!!request.hasAnnotation()) {
-    query["Annotation"] = request.annotation();
+    query["Annotation"] = request.getAnnotation();
   }
 
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBackgrounds()) {
-    query["Backgrounds"] = request.backgrounds();
+    query["Backgrounds"] = request.getBackgrounds();
   }
 
   if (!!request.hasBgColor()) {
-    query["BgColor"] = request.bgColor();
+    query["BgColor"] = request.getBgColor();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasClockWidgets()) {
-    query["ClockWidgets"] = request.clockWidgets();
+    query["ClockWidgets"] = request.getClockWidgets();
   }
 
   if (!!request.hasCropMode()) {
-    query["CropMode"] = request.cropMode();
+    query["CropMode"] = request.getCropMode();
   }
 
   if (!!request.hasImages()) {
-    query["Images"] = request.images();
+    query["Images"] = request.getImages();
   }
 
   if (!!request.hasLayoutSpecifiedUsersShrink()) {
-    query["LayoutSpecifiedUsers"] = request.layoutSpecifiedUsersShrink();
+    query["LayoutSpecifiedUsers"] = request.getLayoutSpecifiedUsersShrink();
   }
 
   if (!!request.hasPanes()) {
-    query["Panes"] = request.panes();
+    query["Panes"] = request.getPanes();
   }
 
   if (!!request.hasRecordMode()) {
-    query["RecordMode"] = request.recordMode();
+    query["RecordMode"] = request.getRecordMode();
   }
 
   if (!!request.hasRegionColor()) {
-    query["RegionColor"] = request.regionColor();
+    query["RegionColor"] = request.getRegionColor();
   }
 
   if (!!request.hasReservePaneForNoCameraUser()) {
-    query["ReservePaneForNoCameraUser"] = request.reservePaneForNoCameraUser();
+    query["ReservePaneForNoCameraUser"] = request.getReservePaneForNoCameraUser();
   }
 
   if (!!request.hasShowDefaultBackgroundOnMute()) {
-    query["ShowDefaultBackgroundOnMute"] = request.showDefaultBackgroundOnMute();
+    query["ShowDefaultBackgroundOnMute"] = request.getShowDefaultBackgroundOnMute();
   }
 
   if (!!request.hasSingleStreamingRecordShrink()) {
-    query["SingleStreamingRecord"] = request.singleStreamingRecordShrink();
+    query["SingleStreamingRecord"] = request.getSingleStreamingRecordShrink();
   }
 
   if (!!request.hasStartWithoutChannel()) {
-    query["StartWithoutChannel"] = request.startWithoutChannel();
+    query["StartWithoutChannel"] = request.getStartWithoutChannel();
   }
 
   if (!!request.hasStartWithoutChannelWaitTime()) {
-    query["StartWithoutChannelWaitTime"] = request.startWithoutChannelWaitTime();
+    query["StartWithoutChannelWaitTime"] = request.getStartWithoutChannelWaitTime();
   }
 
   if (!!request.hasStorageConfig()) {
-    query["StorageConfig"] = request.storageConfig();
+    query["StorageConfig"] = request.getStorageConfig();
   }
 
   if (!!request.hasSubHighResolutionStream()) {
-    query["SubHighResolutionStream"] = request.subHighResolutionStream();
+    query["SubHighResolutionStream"] = request.getSubHighResolutionStream();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTexts()) {
-    query["Texts"] = request.texts();
+    query["Texts"] = request.getTexts();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6317,125 +6317,125 @@ StartMPUTaskResponse Client::startMPUTaskWithOptions(const StartMPUTaskRequest &
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBackgroundColor()) {
-    query["BackgroundColor"] = request.backgroundColor();
+    query["BackgroundColor"] = request.getBackgroundColor();
   }
 
   if (!!request.hasBackgrounds()) {
-    query["Backgrounds"] = request.backgrounds();
+    query["Backgrounds"] = request.getBackgrounds();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasClockWidgets()) {
-    query["ClockWidgets"] = request.clockWidgets();
+    query["ClockWidgets"] = request.getClockWidgets();
   }
 
   if (!!request.hasCropMode()) {
-    query["CropMode"] = request.cropMode();
+    query["CropMode"] = request.getCropMode();
   }
 
   if (!!request.hasLayoutIds()) {
-    query["LayoutIds"] = request.layoutIds();
+    query["LayoutIds"] = request.getLayoutIds();
   }
 
   if (!!request.hasMediaEncode()) {
-    query["MediaEncode"] = request.mediaEncode();
+    query["MediaEncode"] = request.getMediaEncode();
   }
 
   if (!!request.hasMixMode()) {
-    query["MixMode"] = request.mixMode();
+    query["MixMode"] = request.getMixMode();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPayloadType()) {
-    query["PayloadType"] = request.payloadType();
+    query["PayloadType"] = request.getPayloadType();
   }
 
   if (!!request.hasReportVad()) {
-    query["ReportVad"] = request.reportVad();
+    query["ReportVad"] = request.getReportVad();
   }
 
   if (!!request.hasRtpExtInfo()) {
-    query["RtpExtInfo"] = request.rtpExtInfo();
+    query["RtpExtInfo"] = request.getRtpExtInfo();
   }
 
   if (!!request.hasSourceType()) {
-    query["SourceType"] = request.sourceType();
+    query["SourceType"] = request.getSourceType();
   }
 
   if (!!request.hasStreamType()) {
-    query["StreamType"] = request.streamType();
+    query["StreamType"] = request.getStreamType();
   }
 
   if (!!request.hasStreamURL()) {
-    query["StreamURL"] = request.streamURL();
+    query["StreamURL"] = request.getStreamURL();
   }
 
   if (!!request.hasSubSpecAudioUsers()) {
-    query["SubSpecAudioUsers"] = request.subSpecAudioUsers();
+    query["SubSpecAudioUsers"] = request.getSubSpecAudioUsers();
   }
 
   if (!!request.hasSubSpecCameraUsers()) {
-    query["SubSpecCameraUsers"] = request.subSpecCameraUsers();
+    query["SubSpecCameraUsers"] = request.getSubSpecCameraUsers();
   }
 
   if (!!request.hasSubSpecShareScreenUsers()) {
-    query["SubSpecShareScreenUsers"] = request.subSpecShareScreenUsers();
+    query["SubSpecShareScreenUsers"] = request.getSubSpecShareScreenUsers();
   }
 
   if (!!request.hasSubSpecUsers()) {
-    query["SubSpecUsers"] = request.subSpecUsers();
+    query["SubSpecUsers"] = request.getSubSpecUsers();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTaskType()) {
-    query["TaskType"] = request.taskType();
+    query["TaskType"] = request.getTaskType();
   }
 
   if (!!request.hasTimeStampRef()) {
-    query["TimeStampRef"] = request.timeStampRef();
+    query["TimeStampRef"] = request.getTimeStampRef();
   }
 
   if (!!request.hasUnsubSpecAudioUsers()) {
-    query["UnsubSpecAudioUsers"] = request.unsubSpecAudioUsers();
+    query["UnsubSpecAudioUsers"] = request.getUnsubSpecAudioUsers();
   }
 
   if (!!request.hasUnsubSpecCameraUsers()) {
-    query["UnsubSpecCameraUsers"] = request.unsubSpecCameraUsers();
+    query["UnsubSpecCameraUsers"] = request.getUnsubSpecCameraUsers();
   }
 
   if (!!request.hasUnsubSpecShareScreenUsers()) {
-    query["UnsubSpecShareScreenUsers"] = request.unsubSpecShareScreenUsers();
+    query["UnsubSpecShareScreenUsers"] = request.getUnsubSpecShareScreenUsers();
   }
 
   if (!!request.hasUserPanes()) {
-    query["UserPanes"] = request.userPanes();
+    query["UserPanes"] = request.getUserPanes();
   }
 
   if (!!request.hasVadInterval()) {
-    query["VadInterval"] = request.vadInterval();
+    query["VadInterval"] = request.getVadInterval();
   }
 
   if (!!request.hasWatermarks()) {
-    query["Watermarks"] = request.watermarks();
+    query["Watermarks"] = request.getWatermarks();
   }
 
   json body = {};
   json bodyFlat = {};
   if (!!request.hasEnhancedParam()) {
-    bodyFlat["EnhancedParam"] = request.enhancedParam();
+    bodyFlat["EnhancedParam"] = request.getEnhancedParam();
   }
 
   body = Darabonba::Core::merge(body,
@@ -6477,83 +6477,83 @@ StartRecordTaskResponse Client::startRecordTaskWithOptions(const StartRecordTask
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCropMode()) {
-    query["CropMode"] = request.cropMode();
+    query["CropMode"] = request.getCropMode();
   }
 
   if (!!request.hasLayoutIds()) {
-    query["LayoutIds"] = request.layoutIds();
+    query["LayoutIds"] = request.getLayoutIds();
   }
 
   if (!!request.hasMediaEncode()) {
-    query["MediaEncode"] = request.mediaEncode();
+    query["MediaEncode"] = request.getMediaEncode();
   }
 
   if (!!request.hasMixMode()) {
-    query["MixMode"] = request.mixMode();
+    query["MixMode"] = request.getMixMode();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasSourceType()) {
-    query["SourceType"] = request.sourceType();
+    query["SourceType"] = request.getSourceType();
   }
 
   if (!!request.hasStreamType()) {
-    query["StreamType"] = request.streamType();
+    query["StreamType"] = request.getStreamType();
   }
 
   if (!!request.hasSubSpecAudioUsers()) {
-    query["SubSpecAudioUsers"] = request.subSpecAudioUsers();
+    query["SubSpecAudioUsers"] = request.getSubSpecAudioUsers();
   }
 
   if (!!request.hasSubSpecCameraUsers()) {
-    query["SubSpecCameraUsers"] = request.subSpecCameraUsers();
+    query["SubSpecCameraUsers"] = request.getSubSpecCameraUsers();
   }
 
   if (!!request.hasSubSpecShareScreenUsers()) {
-    query["SubSpecShareScreenUsers"] = request.subSpecShareScreenUsers();
+    query["SubSpecShareScreenUsers"] = request.getSubSpecShareScreenUsers();
   }
 
   if (!!request.hasSubSpecUsers()) {
-    query["SubSpecUsers"] = request.subSpecUsers();
+    query["SubSpecUsers"] = request.getSubSpecUsers();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTaskProfile()) {
-    query["TaskProfile"] = request.taskProfile();
+    query["TaskProfile"] = request.getTaskProfile();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasUnsubSpecAudioUsers()) {
-    query["UnsubSpecAudioUsers"] = request.unsubSpecAudioUsers();
+    query["UnsubSpecAudioUsers"] = request.getUnsubSpecAudioUsers();
   }
 
   if (!!request.hasUnsubSpecCameraUsers()) {
-    query["UnsubSpecCameraUsers"] = request.unsubSpecCameraUsers();
+    query["UnsubSpecCameraUsers"] = request.getUnsubSpecCameraUsers();
   }
 
   if (!!request.hasUnsubSpecShareScreenUsers()) {
-    query["UnsubSpecShareScreenUsers"] = request.unsubSpecShareScreenUsers();
+    query["UnsubSpecShareScreenUsers"] = request.getUnsubSpecShareScreenUsers();
   }
 
   if (!!request.hasUserPanes()) {
-    query["UserPanes"] = request.userPanes();
+    query["UserPanes"] = request.getUserPanes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6594,92 +6594,92 @@ StartStreamingOutResponse Client::startStreamingOutWithOptions(const StartStream
   StartStreamingOutShrinkRequest request = StartStreamingOutShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLayoutSpecifiedUsers()) {
-    request.setLayoutSpecifiedUsersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.layoutSpecifiedUsers(), "LayoutSpecifiedUsers", "json"));
+    request.setLayoutSpecifiedUsersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLayoutSpecifiedUsers(), "LayoutSpecifiedUsers", "json"));
   }
 
   json query = {};
   if (!!request.hasAnnotation()) {
-    query["Annotation"] = request.annotation();
+    query["Annotation"] = request.getAnnotation();
   }
 
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBackgrounds()) {
-    query["Backgrounds"] = request.backgrounds();
+    query["Backgrounds"] = request.getBackgrounds();
   }
 
   if (!!request.hasBgColor()) {
-    query["BgColor"] = request.bgColor();
+    query["BgColor"] = request.getBgColor();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasClockWidgets()) {
-    query["ClockWidgets"] = request.clockWidgets();
+    query["ClockWidgets"] = request.getClockWidgets();
   }
 
   if (!!request.hasCropMode()) {
-    query["CropMode"] = request.cropMode();
+    query["CropMode"] = request.getCropMode();
   }
 
   if (!!request.hasImages()) {
-    query["Images"] = request.images();
+    query["Images"] = request.getImages();
   }
 
   if (!!request.hasLayoutSpecifiedUsersShrink()) {
-    query["LayoutSpecifiedUsers"] = request.layoutSpecifiedUsersShrink();
+    query["LayoutSpecifiedUsers"] = request.getLayoutSpecifiedUsersShrink();
   }
 
   if (!!request.hasPanes()) {
-    query["Panes"] = request.panes();
+    query["Panes"] = request.getPanes();
   }
 
   if (!!request.hasRegionColor()) {
-    query["RegionColor"] = request.regionColor();
+    query["RegionColor"] = request.getRegionColor();
   }
 
   if (!!request.hasReservePaneForNoCameraUser()) {
-    query["ReservePaneForNoCameraUser"] = request.reservePaneForNoCameraUser();
+    query["ReservePaneForNoCameraUser"] = request.getReservePaneForNoCameraUser();
   }
 
   if (!!request.hasShowDefaultBackgroundOnMute()) {
-    query["ShowDefaultBackgroundOnMute"] = request.showDefaultBackgroundOnMute();
+    query["ShowDefaultBackgroundOnMute"] = request.getShowDefaultBackgroundOnMute();
   }
 
   if (!!request.hasSpecMixedUserList()) {
-    query["SpecMixedUserList"] = request.specMixedUserList();
+    query["SpecMixedUserList"] = request.getSpecMixedUserList();
   }
 
   if (!!request.hasStartWithoutChannel()) {
-    query["StartWithoutChannel"] = request.startWithoutChannel();
+    query["StartWithoutChannel"] = request.getStartWithoutChannel();
   }
 
   if (!!request.hasStartWithoutChannelWaitTime()) {
-    query["StartWithoutChannelWaitTime"] = request.startWithoutChannelWaitTime();
+    query["StartWithoutChannelWaitTime"] = request.getStartWithoutChannelWaitTime();
   }
 
   if (!!request.hasSubHighResolutionStream()) {
-    query["SubHighResolutionStream"] = request.subHighResolutionStream();
+    query["SubHighResolutionStream"] = request.getSubHighResolutionStream();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTexts()) {
-    query["Texts"] = request.texts();
+    query["Texts"] = request.getTexts();
   }
 
   if (!!request.hasUrl()) {
-    query["Url"] = request.url();
+    query["Url"] = request.getUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6722,52 +6722,52 @@ StartViewResponse Client::startViewWithOptions(const StartViewRequest &tmpReq, c
   StartViewShrinkRequest request = StartViewShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasViewSubscribers()) {
-    request.setViewSubscribersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.viewSubscribers(), "ViewSubscribers", "simple"));
+    request.setViewSubscribersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getViewSubscribers(), "ViewSubscribers", "simple"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBgColor()) {
-    query["BgColor"] = request.bgColor();
+    query["BgColor"] = request.getBgColor();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCropMode()) {
-    query["CropMode"] = request.cropMode();
+    query["CropMode"] = request.getCropMode();
   }
 
   if (!!request.hasRegionColor()) {
-    query["RegionColor"] = request.regionColor();
+    query["RegionColor"] = request.getRegionColor();
   }
 
   if (!!request.hasStartWithoutChannel()) {
-    query["StartWithoutChannel"] = request.startWithoutChannel();
+    query["StartWithoutChannel"] = request.getStartWithoutChannel();
   }
 
   if (!!request.hasStartWithoutChannelWaitTime()) {
-    query["StartWithoutChannelWaitTime"] = request.startWithoutChannelWaitTime();
+    query["StartWithoutChannelWaitTime"] = request.getStartWithoutChannelWaitTime();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasViewContent()) {
-    query["ViewContent"] = request.viewContent();
+    query["ViewContent"] = request.getViewContent();
   }
 
   if (!!request.hasViewSubscribersShrink()) {
-    query["ViewSubscribers"] = request.viewSubscribersShrink();
+    query["ViewSubscribers"] = request.getViewSubscribersShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6809,15 +6809,15 @@ StopAgentResponse Client::stopAgentWithOptions(const StopAgentRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6860,16 +6860,16 @@ StopCategoryCallbackResponse Client::stopCategoryCallbackWithOptions(const StopC
   StopCategoryCallbackShrinkRequest request = StopCategoryCallbackShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCallback()) {
-    request.setCallbackShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.callback(), "Callback", "json"));
+    request.setCallbackShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCallback(), "Callback", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasCallbackShrink()) {
-    query["Callback"] = request.callbackShrink();
+    query["Callback"] = request.getCallbackShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6911,11 +6911,11 @@ StopChannelResponse Client::stopChannelWithOptions(const StopChannelRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6957,19 +6957,19 @@ StopCloudNoteResponse Client::stopCloudNoteWithOptions(const StopCloudNoteReques
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7011,15 +7011,15 @@ StopCloudRecordResponse Client::stopCloudRecordWithOptions(const StopCloudRecord
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7059,15 +7059,15 @@ StopMPUTaskResponse Client::stopMPUTaskWithOptions(const StopMPUTaskRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7105,15 +7105,15 @@ StopRecordTaskResponse Client::stopRecordTaskWithOptions(const StopRecordTaskReq
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7153,15 +7153,15 @@ StopStreamingOutResponse Client::stopStreamingOutWithOptions(const StopStreaming
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7203,15 +7203,15 @@ StopViewResponse Client::stopViewWithOptions(const StopViewRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7254,24 +7254,24 @@ UpdateAgentResponse Client::updateAgentWithOptions(const UpdateAgentRequest &tmp
   UpdateAgentShrinkRequest request = UpdateAgentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasVoiceChatConfig()) {
-    request.setVoiceChatConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.voiceChatConfig(), "VoiceChatConfig", "json"));
+    request.setVoiceChatConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVoiceChatConfig(), "VoiceChatConfig", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasVoiceChatConfigShrink()) {
-    query["VoiceChatConfig"] = request.voiceChatConfigShrink();
+    query["VoiceChatConfig"] = request.getVoiceChatConfigShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7311,39 +7311,39 @@ UpdateAutoLiveStreamRuleResponse Client::updateAutoLiveStreamRuleWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasCallBack()) {
-    query["CallBack"] = request.callBack();
+    query["CallBack"] = request.getCallBack();
   }
 
   if (!!request.hasChannelIdPrefixes()) {
-    query["ChannelIdPrefixes"] = request.channelIdPrefixes();
+    query["ChannelIdPrefixes"] = request.getChannelIdPrefixes();
   }
 
   if (!!request.hasChannelIds()) {
-    query["ChannelIds"] = request.channelIds();
+    query["ChannelIds"] = request.getChannelIds();
   }
 
   if (!!request.hasMediaEncode()) {
-    query["MediaEncode"] = request.mediaEncode();
+    query["MediaEncode"] = request.getMediaEncode();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPlayDomain()) {
-    query["PlayDomain"] = request.playDomain();
+    query["PlayDomain"] = request.getPlayDomain();
   }
 
   if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
+    query["RuleId"] = request.getRuleId();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7384,48 +7384,48 @@ UpdateCloudRecordResponse Client::updateCloudRecordWithOptions(const UpdateCloud
   UpdateCloudRecordShrinkRequest request = UpdateCloudRecordShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLayoutSpecifiedUsers()) {
-    request.setLayoutSpecifiedUsersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.layoutSpecifiedUsers(), "LayoutSpecifiedUsers", "json"));
+    request.setLayoutSpecifiedUsersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLayoutSpecifiedUsers(), "LayoutSpecifiedUsers", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBackgrounds()) {
-    query["Backgrounds"] = request.backgrounds();
+    query["Backgrounds"] = request.getBackgrounds();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasClockWidgets()) {
-    query["ClockWidgets"] = request.clockWidgets();
+    query["ClockWidgets"] = request.getClockWidgets();
   }
 
   if (!!request.hasImages()) {
-    query["Images"] = request.images();
+    query["Images"] = request.getImages();
   }
 
   if (!!request.hasLayoutSpecifiedUsersShrink()) {
-    query["LayoutSpecifiedUsers"] = request.layoutSpecifiedUsersShrink();
+    query["LayoutSpecifiedUsers"] = request.getLayoutSpecifiedUsersShrink();
   }
 
   if (!!request.hasPanes()) {
-    query["Panes"] = request.panes();
+    query["Panes"] = request.getPanes();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTexts()) {
-    query["Texts"] = request.texts();
+    query["Texts"] = request.getTexts();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7465,87 +7465,87 @@ UpdateMPUTaskResponse Client::updateMPUTaskWithOptions(const UpdateMPUTaskReques
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBackgroundColor()) {
-    query["BackgroundColor"] = request.backgroundColor();
+    query["BackgroundColor"] = request.getBackgroundColor();
   }
 
   if (!!request.hasBackgrounds()) {
-    query["Backgrounds"] = request.backgrounds();
+    query["Backgrounds"] = request.getBackgrounds();
   }
 
   if (!!request.hasClockWidgets()) {
-    query["ClockWidgets"] = request.clockWidgets();
+    query["ClockWidgets"] = request.getClockWidgets();
   }
 
   if (!!request.hasCropMode()) {
-    query["CropMode"] = request.cropMode();
+    query["CropMode"] = request.getCropMode();
   }
 
   if (!!request.hasLayoutIds()) {
-    query["LayoutIds"] = request.layoutIds();
+    query["LayoutIds"] = request.getLayoutIds();
   }
 
   if (!!request.hasMediaEncode()) {
-    query["MediaEncode"] = request.mediaEncode();
+    query["MediaEncode"] = request.getMediaEncode();
   }
 
   if (!!request.hasMixMode()) {
-    query["MixMode"] = request.mixMode();
+    query["MixMode"] = request.getMixMode();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasSourceType()) {
-    query["SourceType"] = request.sourceType();
+    query["SourceType"] = request.getSourceType();
   }
 
   if (!!request.hasStreamType()) {
-    query["StreamType"] = request.streamType();
+    query["StreamType"] = request.getStreamType();
   }
 
   if (!!request.hasSubSpecAudioUsers()) {
-    query["SubSpecAudioUsers"] = request.subSpecAudioUsers();
+    query["SubSpecAudioUsers"] = request.getSubSpecAudioUsers();
   }
 
   if (!!request.hasSubSpecCameraUsers()) {
-    query["SubSpecCameraUsers"] = request.subSpecCameraUsers();
+    query["SubSpecCameraUsers"] = request.getSubSpecCameraUsers();
   }
 
   if (!!request.hasSubSpecShareScreenUsers()) {
-    query["SubSpecShareScreenUsers"] = request.subSpecShareScreenUsers();
+    query["SubSpecShareScreenUsers"] = request.getSubSpecShareScreenUsers();
   }
 
   if (!!request.hasSubSpecUsers()) {
-    query["SubSpecUsers"] = request.subSpecUsers();
+    query["SubSpecUsers"] = request.getSubSpecUsers();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasUnsubSpecAudioUsers()) {
-    query["UnsubSpecAudioUsers"] = request.unsubSpecAudioUsers();
+    query["UnsubSpecAudioUsers"] = request.getUnsubSpecAudioUsers();
   }
 
   if (!!request.hasUnsubSpecCameraUsers()) {
-    query["UnsubSpecCameraUsers"] = request.unsubSpecCameraUsers();
+    query["UnsubSpecCameraUsers"] = request.getUnsubSpecCameraUsers();
   }
 
   if (!!request.hasUnsubSpecShareScreenUsers()) {
-    query["UnsubSpecShareScreenUsers"] = request.unsubSpecShareScreenUsers();
+    query["UnsubSpecShareScreenUsers"] = request.getUnsubSpecShareScreenUsers();
   }
 
   if (!!request.hasUserPanes()) {
-    query["UserPanes"] = request.userPanes();
+    query["UserPanes"] = request.getUserPanes();
   }
 
   if (!!request.hasWatermarks()) {
-    query["Watermarks"] = request.watermarks();
+    query["Watermarks"] = request.getWatermarks();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7583,71 +7583,71 @@ UpdateRecordTaskResponse Client::updateRecordTaskWithOptions(const UpdateRecordT
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasCropMode()) {
-    query["CropMode"] = request.cropMode();
+    query["CropMode"] = request.getCropMode();
   }
 
   if (!!request.hasLayoutIds()) {
-    query["LayoutIds"] = request.layoutIds();
+    query["LayoutIds"] = request.getLayoutIds();
   }
 
   if (!!request.hasMediaEncode()) {
-    query["MediaEncode"] = request.mediaEncode();
+    query["MediaEncode"] = request.getMediaEncode();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasSubSpecAudioUsers()) {
-    query["SubSpecAudioUsers"] = request.subSpecAudioUsers();
+    query["SubSpecAudioUsers"] = request.getSubSpecAudioUsers();
   }
 
   if (!!request.hasSubSpecCameraUsers()) {
-    query["SubSpecCameraUsers"] = request.subSpecCameraUsers();
+    query["SubSpecCameraUsers"] = request.getSubSpecCameraUsers();
   }
 
   if (!!request.hasSubSpecShareScreenUsers()) {
-    query["SubSpecShareScreenUsers"] = request.subSpecShareScreenUsers();
+    query["SubSpecShareScreenUsers"] = request.getSubSpecShareScreenUsers();
   }
 
   if (!!request.hasSubSpecUsers()) {
-    query["SubSpecUsers"] = request.subSpecUsers();
+    query["SubSpecUsers"] = request.getSubSpecUsers();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTaskProfile()) {
-    query["TaskProfile"] = request.taskProfile();
+    query["TaskProfile"] = request.getTaskProfile();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasUnsubSpecAudioUsers()) {
-    query["UnsubSpecAudioUsers"] = request.unsubSpecAudioUsers();
+    query["UnsubSpecAudioUsers"] = request.getUnsubSpecAudioUsers();
   }
 
   if (!!request.hasUnsubSpecCameraUsers()) {
-    query["UnsubSpecCameraUsers"] = request.unsubSpecCameraUsers();
+    query["UnsubSpecCameraUsers"] = request.getUnsubSpecCameraUsers();
   }
 
   if (!!request.hasUnsubSpecShareScreenUsers()) {
-    query["UnsubSpecShareScreenUsers"] = request.unsubSpecShareScreenUsers();
+    query["UnsubSpecShareScreenUsers"] = request.getUnsubSpecShareScreenUsers();
   }
 
   if (!!request.hasUserPanes()) {
-    query["UserPanes"] = request.userPanes();
+    query["UserPanes"] = request.getUserPanes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7685,83 +7685,83 @@ UpdateRecordTemplateResponse Client::updateRecordTemplateWithOptions(const Updat
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBackgroundColor()) {
-    query["BackgroundColor"] = request.backgroundColor();
+    query["BackgroundColor"] = request.getBackgroundColor();
   }
 
   if (!!request.hasBackgrounds()) {
-    query["Backgrounds"] = request.backgrounds();
+    query["Backgrounds"] = request.getBackgrounds();
   }
 
   if (!!request.hasClockWidgets()) {
-    query["ClockWidgets"] = request.clockWidgets();
+    query["ClockWidgets"] = request.getClockWidgets();
   }
 
   if (!!request.hasDelayStopTime()) {
-    query["DelayStopTime"] = request.delayStopTime();
+    query["DelayStopTime"] = request.getDelayStopTime();
   }
 
   if (!!request.hasEnableM3u8DateTime()) {
-    query["EnableM3u8DateTime"] = request.enableM3u8DateTime();
+    query["EnableM3u8DateTime"] = request.getEnableM3u8DateTime();
   }
 
   if (!!request.hasFileSplitInterval()) {
-    query["FileSplitInterval"] = request.fileSplitInterval();
+    query["FileSplitInterval"] = request.getFileSplitInterval();
   }
 
   if (!!request.hasFormats()) {
-    query["Formats"] = request.formats();
+    query["Formats"] = request.getFormats();
   }
 
   if (!!request.hasHttpCallbackUrl()) {
-    query["HttpCallbackUrl"] = request.httpCallbackUrl();
+    query["HttpCallbackUrl"] = request.getHttpCallbackUrl();
   }
 
   if (!!request.hasLayoutIds()) {
-    query["LayoutIds"] = request.layoutIds();
+    query["LayoutIds"] = request.getLayoutIds();
   }
 
   if (!!request.hasMediaEncode()) {
-    query["MediaEncode"] = request.mediaEncode();
+    query["MediaEncode"] = request.getMediaEncode();
   }
 
   if (!!request.hasMnsQueue()) {
-    query["MnsQueue"] = request.mnsQueue();
+    query["MnsQueue"] = request.getMnsQueue();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
   }
 
   if (!!request.hasOssFilePrefix()) {
-    query["OssFilePrefix"] = request.ossFilePrefix();
+    query["OssFilePrefix"] = request.getOssFilePrefix();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasTaskProfile()) {
-    query["TaskProfile"] = request.taskProfile();
+    query["TaskProfile"] = request.getTaskProfile();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasWatermarks()) {
-    query["Watermarks"] = request.watermarks();
+    query["Watermarks"] = request.getWatermarks();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7802,64 +7802,64 @@ UpdateStreamingOutResponse Client::updateStreamingOutWithOptions(const UpdateStr
   UpdateStreamingOutShrinkRequest request = UpdateStreamingOutShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLayoutSpecifiedUsers()) {
-    request.setLayoutSpecifiedUsersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.layoutSpecifiedUsers(), "LayoutSpecifiedUsers", "json"));
+    request.setLayoutSpecifiedUsersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLayoutSpecifiedUsers(), "LayoutSpecifiedUsers", "json"));
   }
 
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBackgrounds()) {
-    query["Backgrounds"] = request.backgrounds();
+    query["Backgrounds"] = request.getBackgrounds();
   }
 
   if (!!request.hasBgColor()) {
-    query["BgColor"] = request.bgColor();
+    query["BgColor"] = request.getBgColor();
   }
 
   if (!!request.hasChannelId()) {
-    query["ChannelId"] = request.channelId();
+    query["ChannelId"] = request.getChannelId();
   }
 
   if (!!request.hasClockWidgets()) {
-    query["ClockWidgets"] = request.clockWidgets();
+    query["ClockWidgets"] = request.getClockWidgets();
   }
 
   if (!!request.hasCropMode()) {
-    query["CropMode"] = request.cropMode();
+    query["CropMode"] = request.getCropMode();
   }
 
   if (!!request.hasImages()) {
-    query["Images"] = request.images();
+    query["Images"] = request.getImages();
   }
 
   if (!!request.hasLayoutSpecifiedUsersShrink()) {
-    query["LayoutSpecifiedUsers"] = request.layoutSpecifiedUsersShrink();
+    query["LayoutSpecifiedUsers"] = request.getLayoutSpecifiedUsersShrink();
   }
 
   if (!!request.hasPanes()) {
-    query["Panes"] = request.panes();
+    query["Panes"] = request.getPanes();
   }
 
   if (!!request.hasRegionColor()) {
-    query["RegionColor"] = request.regionColor();
+    query["RegionColor"] = request.getRegionColor();
   }
 
   if (!!request.hasSpecMixedUserList()) {
-    query["SpecMixedUserList"] = request.specMixedUserList();
+    query["SpecMixedUserList"] = request.getSpecMixedUserList();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTexts()) {
-    query["Texts"] = request.texts();
+    query["Texts"] = request.getTexts();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

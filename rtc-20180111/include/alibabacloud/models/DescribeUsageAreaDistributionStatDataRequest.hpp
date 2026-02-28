@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->endDate_ == nullptr && return this->parentArea_ == nullptr && return this->startDate_ == nullptr; };
+        && this->endDate_ == nullptr && this->parentArea_ == nullptr && this->startDate_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeUsageAreaDistributionStatDataRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline DescribeUsageAreaDistributionStatDataRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // parentArea Field Functions 
     bool hasParentArea() const { return this->parentArea_ != nullptr;};
     void deleteParentArea() { this->parentArea_ = nullptr;};
-    inline string parentArea() const { DARABONBA_PTR_GET_DEFAULT(parentArea_, "") };
+    inline string getParentArea() const { DARABONBA_PTR_GET_DEFAULT(parentArea_, "") };
     inline DescribeUsageAreaDistributionStatDataRequest& setParentArea(string parentArea) { DARABONBA_PTR_SET_VALUE(parentArea_, parentArea) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline string startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
+    inline string getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
     inline DescribeUsageAreaDistributionStatDataRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
@@ -69,12 +69,12 @@ namespace Models
     // APP ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> endDate_ = nullptr;
-    std::shared_ptr<string> parentArea_ = nullptr;
+    shared_ptr<string> endDate_ {};
+    shared_ptr<string> parentArea_ {};
     // This parameter is required.
-    std::shared_ptr<string> startDate_ = nullptr;
+    shared_ptr<string> startDate_ {};
   };
 
   } // namespace Models

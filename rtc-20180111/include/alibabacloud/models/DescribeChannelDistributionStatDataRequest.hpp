@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->channelId_ == nullptr && return this->createdTs_ == nullptr && return this->destroyedTs_ == nullptr && return this->statDim_ == nullptr; };
+        && this->channelId_ == nullptr && this->createdTs_ == nullptr && this->destroyedTs_ == nullptr && this->statDim_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeChannelDistributionStatDataRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // channelId Field Functions 
     bool hasChannelId() const { return this->channelId_ != nullptr;};
     void deleteChannelId() { this->channelId_ = nullptr;};
-    inline string channelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
+    inline string getChannelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
     inline DescribeChannelDistributionStatDataRequest& setChannelId(string channelId) { DARABONBA_PTR_SET_VALUE(channelId_, channelId) };
 
 
     // createdTs Field Functions 
     bool hasCreatedTs() const { return this->createdTs_ != nullptr;};
     void deleteCreatedTs() { this->createdTs_ = nullptr;};
-    inline int64_t createdTs() const { DARABONBA_PTR_GET_DEFAULT(createdTs_, 0L) };
+    inline int64_t getCreatedTs() const { DARABONBA_PTR_GET_DEFAULT(createdTs_, 0L) };
     inline DescribeChannelDistributionStatDataRequest& setCreatedTs(int64_t createdTs) { DARABONBA_PTR_SET_VALUE(createdTs_, createdTs) };
 
 
     // destroyedTs Field Functions 
     bool hasDestroyedTs() const { return this->destroyedTs_ != nullptr;};
     void deleteDestroyedTs() { this->destroyedTs_ = nullptr;};
-    inline int64_t destroyedTs() const { DARABONBA_PTR_GET_DEFAULT(destroyedTs_, 0L) };
+    inline int64_t getDestroyedTs() const { DARABONBA_PTR_GET_DEFAULT(destroyedTs_, 0L) };
     inline DescribeChannelDistributionStatDataRequest& setDestroyedTs(int64_t destroyedTs) { DARABONBA_PTR_SET_VALUE(destroyedTs_, destroyedTs) };
 
 
     // statDim Field Functions 
     bool hasStatDim() const { return this->statDim_ != nullptr;};
     void deleteStatDim() { this->statDim_ = nullptr;};
-    inline string statDim() const { DARABONBA_PTR_GET_DEFAULT(statDim_, "") };
+    inline string getStatDim() const { DARABONBA_PTR_GET_DEFAULT(statDim_, "") };
     inline DescribeChannelDistributionStatDataRequest& setStatDim(string statDim) { DARABONBA_PTR_SET_VALUE(statDim_, statDim) };
 
 
@@ -78,14 +78,14 @@ namespace Models
     // APP ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> channelId_ = nullptr;
+    shared_ptr<string> channelId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> createdTs_ = nullptr;
-    std::shared_ptr<int64_t> destroyedTs_ = nullptr;
+    shared_ptr<int64_t> createdTs_ {};
+    shared_ptr<int64_t> destroyedTs_ {};
     // This parameter is required.
-    std::shared_ptr<string> statDim_ = nullptr;
+    shared_ptr<string> statDim_ {};
   };
 
   } // namespace Models

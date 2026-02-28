@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->clientToken_ == nullptr && return this->layoutShrink_ == nullptr; };
+        && this->clientToken_ == nullptr && this->layoutShrink_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline ModifyAppLayoutShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ModifyAppLayoutShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // layoutShrink Field Functions 
     bool hasLayoutShrink() const { return this->layoutShrink_ != nullptr;};
     void deleteLayoutShrink() { this->layoutShrink_ = nullptr;};
-    inline string layoutShrink() const { DARABONBA_PTR_GET_DEFAULT(layoutShrink_, "") };
+    inline string getLayoutShrink() const { DARABONBA_PTR_GET_DEFAULT(layoutShrink_, "") };
     inline ModifyAppLayoutShrinkRequest& setLayoutShrink(string layoutShrink) { DARABONBA_PTR_SET_VALUE(layoutShrink_, layoutShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> clientToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> layoutShrink_ = nullptr;
+    shared_ptr<string> layoutShrink_ {};
   };
 
   } // namespace Models

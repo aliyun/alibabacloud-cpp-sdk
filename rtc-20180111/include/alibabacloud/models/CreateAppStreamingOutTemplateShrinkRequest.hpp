@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->streamingOutTemplateShrink_ == nullptr; };
+        && this->streamingOutTemplateShrink_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateAppStreamingOutTemplateShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // streamingOutTemplateShrink Field Functions 
     bool hasStreamingOutTemplateShrink() const { return this->streamingOutTemplateShrink_ != nullptr;};
     void deleteStreamingOutTemplateShrink() { this->streamingOutTemplateShrink_ = nullptr;};
-    inline string streamingOutTemplateShrink() const { DARABONBA_PTR_GET_DEFAULT(streamingOutTemplateShrink_, "") };
+    inline string getStreamingOutTemplateShrink() const { DARABONBA_PTR_GET_DEFAULT(streamingOutTemplateShrink_, "") };
     inline CreateAppStreamingOutTemplateShrinkRequest& setStreamingOutTemplateShrink(string streamingOutTemplateShrink) { DARABONBA_PTR_SET_VALUE(streamingOutTemplateShrink_, streamingOutTemplateShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> streamingOutTemplateShrink_ = nullptr;
+    shared_ptr<string> streamingOutTemplateShrink_ {};
   };
 
   } // namespace Models
