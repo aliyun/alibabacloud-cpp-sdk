@@ -34,36 +34,36 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consoleSessionId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->vhostNames_ == nullptr; };
+        && this->instanceId_ == nullptr && this->vhostNames_ == nullptr; };
     // consoleSessionId Field Functions 
     bool hasConsoleSessionId() const { return this->consoleSessionId_ != nullptr;};
     void deleteConsoleSessionId() { this->consoleSessionId_ = nullptr;};
-    inline string consoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
+    inline string getConsoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
     inline GetVhostRateRequest& setConsoleSessionId(string consoleSessionId) { DARABONBA_PTR_SET_VALUE(consoleSessionId_, consoleSessionId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetVhostRateRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // vhostNames Field Functions 
     bool hasVhostNames() const { return this->vhostNames_ != nullptr;};
     void deleteVhostNames() { this->vhostNames_ = nullptr;};
-    inline     const Darabonba::Json & vhostNames() const { DARABONBA_GET(vhostNames_) };
-    Darabonba::Json & vhostNames() { DARABONBA_GET(vhostNames_) };
+    inline     const Darabonba::Json & getVhostNames() const { DARABONBA_GET(vhostNames_) };
+    Darabonba::Json & getVhostNames() { DARABONBA_GET(vhostNames_) };
     inline GetVhostRateRequest& setVhostNames(const Darabonba::Json & vhostNames) { DARABONBA_SET_VALUE(vhostNames_, vhostNames) };
-    inline GetVhostRateRequest& setVhostNames(Darabonba::Json & vhostNames) { DARABONBA_SET_RVALUE(vhostNames_, vhostNames) };
+    inline GetVhostRateRequest& setVhostNames(Darabonba::Json && vhostNames) { DARABONBA_SET_RVALUE(vhostNames_, vhostNames) };
 
 
   protected:
-    std::shared_ptr<string> consoleSessionId_ = nullptr;
+    shared_ptr<string> consoleSessionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    Darabonba::Json vhostNames_ = nullptr;
+    Darabonba::Json vhostNames_ {};
   };
 
   } // namespace Models

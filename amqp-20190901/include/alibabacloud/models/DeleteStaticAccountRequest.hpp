@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consoleSessionId_ == nullptr
-        && return this->createTimeStamp_ == nullptr && return this->instanceId_ == nullptr && return this->userName_ == nullptr; };
+        && this->createTimeStamp_ == nullptr && this->instanceId_ == nullptr && this->userName_ == nullptr; };
     // consoleSessionId Field Functions 
     bool hasConsoleSessionId() const { return this->consoleSessionId_ != nullptr;};
     void deleteConsoleSessionId() { this->consoleSessionId_ = nullptr;};
-    inline string consoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
+    inline string getConsoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
     inline DeleteStaticAccountRequest& setConsoleSessionId(string consoleSessionId) { DARABONBA_PTR_SET_VALUE(consoleSessionId_, consoleSessionId) };
 
 
     // createTimeStamp Field Functions 
     bool hasCreateTimeStamp() const { return this->createTimeStamp_ != nullptr;};
     void deleteCreateTimeStamp() { this->createTimeStamp_ = nullptr;};
-    inline int64_t createTimeStamp() const { DARABONBA_PTR_GET_DEFAULT(createTimeStamp_, 0L) };
+    inline int64_t getCreateTimeStamp() const { DARABONBA_PTR_GET_DEFAULT(createTimeStamp_, 0L) };
     inline DeleteStaticAccountRequest& setCreateTimeStamp(int64_t createTimeStamp) { DARABONBA_PTR_SET_VALUE(createTimeStamp_, createTimeStamp) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteStaticAccountRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline DeleteStaticAccountRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
   protected:
-    std::shared_ptr<string> consoleSessionId_ = nullptr;
+    shared_ptr<string> consoleSessionId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> createTimeStamp_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<int64_t> createTimeStamp_ {};
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

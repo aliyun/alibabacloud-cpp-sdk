@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consoleSessionId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->retryInterval_ == nullptr && return this->retryTimes_ == nullptr; };
+        && this->instanceId_ == nullptr && this->retryInterval_ == nullptr && this->retryTimes_ == nullptr; };
     // consoleSessionId Field Functions 
     bool hasConsoleSessionId() const { return this->consoleSessionId_ != nullptr;};
     void deleteConsoleSessionId() { this->consoleSessionId_ = nullptr;};
-    inline string consoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
+    inline string getConsoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
     inline UpdateInstanceRetryStrategyRequest& setConsoleSessionId(string consoleSessionId) { DARABONBA_PTR_SET_VALUE(consoleSessionId_, consoleSessionId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateInstanceRetryStrategyRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // retryInterval Field Functions 
     bool hasRetryInterval() const { return this->retryInterval_ != nullptr;};
     void deleteRetryInterval() { this->retryInterval_ = nullptr;};
-    inline int32_t retryInterval() const { DARABONBA_PTR_GET_DEFAULT(retryInterval_, 0) };
+    inline int32_t getRetryInterval() const { DARABONBA_PTR_GET_DEFAULT(retryInterval_, 0) };
     inline UpdateInstanceRetryStrategyRequest& setRetryInterval(int32_t retryInterval) { DARABONBA_PTR_SET_VALUE(retryInterval_, retryInterval) };
 
 
     // retryTimes Field Functions 
     bool hasRetryTimes() const { return this->retryTimes_ != nullptr;};
     void deleteRetryTimes() { this->retryTimes_ = nullptr;};
-    inline int32_t retryTimes() const { DARABONBA_PTR_GET_DEFAULT(retryTimes_, 0) };
+    inline int32_t getRetryTimes() const { DARABONBA_PTR_GET_DEFAULT(retryTimes_, 0) };
     inline UpdateInstanceRetryStrategyRequest& setRetryTimes(int32_t retryTimes) { DARABONBA_PTR_SET_VALUE(retryTimes_, retryTimes) };
 
 
   protected:
-    std::shared_ptr<string> consoleSessionId_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int32_t> retryInterval_ = nullptr;
-    std::shared_ptr<int32_t> retryTimes_ = nullptr;
+    shared_ptr<string> consoleSessionId_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> retryInterval_ {};
+    shared_ptr<int32_t> retryTimes_ {};
   };
 
   } // namespace Models

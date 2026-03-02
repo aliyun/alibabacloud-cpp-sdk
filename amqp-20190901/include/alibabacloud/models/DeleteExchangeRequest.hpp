@@ -42,68 +42,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->collina_ == nullptr
-        && return this->consoleSessionId_ == nullptr && return this->exchangeName_ == nullptr && return this->exchangeNames_ == nullptr && return this->instanceId_ == nullptr && return this->umidToken_ == nullptr
-        && return this->vhostName_ == nullptr; };
+        && this->consoleSessionId_ == nullptr && this->exchangeName_ == nullptr && this->exchangeNames_ == nullptr && this->instanceId_ == nullptr && this->umidToken_ == nullptr
+        && this->vhostName_ == nullptr; };
     // collina Field Functions 
     bool hasCollina() const { return this->collina_ != nullptr;};
     void deleteCollina() { this->collina_ = nullptr;};
-    inline string collina() const { DARABONBA_PTR_GET_DEFAULT(collina_, "") };
+    inline string getCollina() const { DARABONBA_PTR_GET_DEFAULT(collina_, "") };
     inline DeleteExchangeRequest& setCollina(string collina) { DARABONBA_PTR_SET_VALUE(collina_, collina) };
 
 
     // consoleSessionId Field Functions 
     bool hasConsoleSessionId() const { return this->consoleSessionId_ != nullptr;};
     void deleteConsoleSessionId() { this->consoleSessionId_ = nullptr;};
-    inline string consoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
+    inline string getConsoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
     inline DeleteExchangeRequest& setConsoleSessionId(string consoleSessionId) { DARABONBA_PTR_SET_VALUE(consoleSessionId_, consoleSessionId) };
 
 
     // exchangeName Field Functions 
     bool hasExchangeName() const { return this->exchangeName_ != nullptr;};
     void deleteExchangeName() { this->exchangeName_ = nullptr;};
-    inline string exchangeName() const { DARABONBA_PTR_GET_DEFAULT(exchangeName_, "") };
+    inline string getExchangeName() const { DARABONBA_PTR_GET_DEFAULT(exchangeName_, "") };
     inline DeleteExchangeRequest& setExchangeName(string exchangeName) { DARABONBA_PTR_SET_VALUE(exchangeName_, exchangeName) };
 
 
     // exchangeNames Field Functions 
     bool hasExchangeNames() const { return this->exchangeNames_ != nullptr;};
     void deleteExchangeNames() { this->exchangeNames_ = nullptr;};
-    inline     const Darabonba::Json & exchangeNames() const { DARABONBA_GET(exchangeNames_) };
-    Darabonba::Json & exchangeNames() { DARABONBA_GET(exchangeNames_) };
+    inline     const Darabonba::Json & getExchangeNames() const { DARABONBA_GET(exchangeNames_) };
+    Darabonba::Json & getExchangeNames() { DARABONBA_GET(exchangeNames_) };
     inline DeleteExchangeRequest& setExchangeNames(const Darabonba::Json & exchangeNames) { DARABONBA_SET_VALUE(exchangeNames_, exchangeNames) };
-    inline DeleteExchangeRequest& setExchangeNames(Darabonba::Json & exchangeNames) { DARABONBA_SET_RVALUE(exchangeNames_, exchangeNames) };
+    inline DeleteExchangeRequest& setExchangeNames(Darabonba::Json && exchangeNames) { DARABONBA_SET_RVALUE(exchangeNames_, exchangeNames) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteExchangeRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // umidToken Field Functions 
     bool hasUmidToken() const { return this->umidToken_ != nullptr;};
     void deleteUmidToken() { this->umidToken_ = nullptr;};
-    inline string umidToken() const { DARABONBA_PTR_GET_DEFAULT(umidToken_, "") };
+    inline string getUmidToken() const { DARABONBA_PTR_GET_DEFAULT(umidToken_, "") };
     inline DeleteExchangeRequest& setUmidToken(string umidToken) { DARABONBA_PTR_SET_VALUE(umidToken_, umidToken) };
 
 
     // vhostName Field Functions 
     bool hasVhostName() const { return this->vhostName_ != nullptr;};
     void deleteVhostName() { this->vhostName_ = nullptr;};
-    inline string vhostName() const { DARABONBA_PTR_GET_DEFAULT(vhostName_, "") };
+    inline string getVhostName() const { DARABONBA_PTR_GET_DEFAULT(vhostName_, "") };
     inline DeleteExchangeRequest& setVhostName(string vhostName) { DARABONBA_PTR_SET_VALUE(vhostName_, vhostName) };
 
 
   protected:
-    std::shared_ptr<string> collina_ = nullptr;
-    std::shared_ptr<string> consoleSessionId_ = nullptr;
-    std::shared_ptr<string> exchangeName_ = nullptr;
-    Darabonba::Json exchangeNames_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> umidToken_ = nullptr;
+    shared_ptr<string> collina_ {};
+    shared_ptr<string> consoleSessionId_ {};
+    shared_ptr<string> exchangeName_ {};
+    Darabonba::Json exchangeNames_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> umidToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> vhostName_ = nullptr;
+    shared_ptr<string> vhostName_ {};
   };
 
   } // namespace Models

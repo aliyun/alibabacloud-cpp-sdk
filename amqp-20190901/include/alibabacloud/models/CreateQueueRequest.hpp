@@ -62,149 +62,149 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoDelete_ == nullptr
-        && return this->autoExpire_ == nullptr && return this->consoleSessionId_ == nullptr && return this->deadLetterExchange_ == nullptr && return this->deadLetterRoutingKey_ == nullptr && return this->exclusive_ == nullptr
-        && return this->instanceId_ == nullptr && return this->maxLength_ == nullptr && return this->maximunPrioty_ == nullptr && return this->messageTTL_ == nullptr && return this->ordered_ == nullptr
-        && return this->queueName_ == nullptr && return this->retryInherit_ == nullptr && return this->retryInterval_ == nullptr && return this->retryTimes_ == nullptr && return this->singleActiveConsumer_ == nullptr
-        && return this->vhostName_ == nullptr; };
+        && this->autoExpire_ == nullptr && this->consoleSessionId_ == nullptr && this->deadLetterExchange_ == nullptr && this->deadLetterRoutingKey_ == nullptr && this->exclusive_ == nullptr
+        && this->instanceId_ == nullptr && this->maxLength_ == nullptr && this->maximunPrioty_ == nullptr && this->messageTTL_ == nullptr && this->ordered_ == nullptr
+        && this->queueName_ == nullptr && this->retryInherit_ == nullptr && this->retryInterval_ == nullptr && this->retryTimes_ == nullptr && this->singleActiveConsumer_ == nullptr
+        && this->vhostName_ == nullptr; };
     // autoDelete Field Functions 
     bool hasAutoDelete() const { return this->autoDelete_ != nullptr;};
     void deleteAutoDelete() { this->autoDelete_ = nullptr;};
-    inline bool autoDelete() const { DARABONBA_PTR_GET_DEFAULT(autoDelete_, false) };
+    inline bool getAutoDelete() const { DARABONBA_PTR_GET_DEFAULT(autoDelete_, false) };
     inline CreateQueueRequest& setAutoDelete(bool autoDelete) { DARABONBA_PTR_SET_VALUE(autoDelete_, autoDelete) };
 
 
     // autoExpire Field Functions 
     bool hasAutoExpire() const { return this->autoExpire_ != nullptr;};
     void deleteAutoExpire() { this->autoExpire_ = nullptr;};
-    inline int64_t autoExpire() const { DARABONBA_PTR_GET_DEFAULT(autoExpire_, 0L) };
+    inline int64_t getAutoExpire() const { DARABONBA_PTR_GET_DEFAULT(autoExpire_, 0L) };
     inline CreateQueueRequest& setAutoExpire(int64_t autoExpire) { DARABONBA_PTR_SET_VALUE(autoExpire_, autoExpire) };
 
 
     // consoleSessionId Field Functions 
     bool hasConsoleSessionId() const { return this->consoleSessionId_ != nullptr;};
     void deleteConsoleSessionId() { this->consoleSessionId_ = nullptr;};
-    inline string consoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
+    inline string getConsoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
     inline CreateQueueRequest& setConsoleSessionId(string consoleSessionId) { DARABONBA_PTR_SET_VALUE(consoleSessionId_, consoleSessionId) };
 
 
     // deadLetterExchange Field Functions 
     bool hasDeadLetterExchange() const { return this->deadLetterExchange_ != nullptr;};
     void deleteDeadLetterExchange() { this->deadLetterExchange_ = nullptr;};
-    inline string deadLetterExchange() const { DARABONBA_PTR_GET_DEFAULT(deadLetterExchange_, "") };
+    inline string getDeadLetterExchange() const { DARABONBA_PTR_GET_DEFAULT(deadLetterExchange_, "") };
     inline CreateQueueRequest& setDeadLetterExchange(string deadLetterExchange) { DARABONBA_PTR_SET_VALUE(deadLetterExchange_, deadLetterExchange) };
 
 
     // deadLetterRoutingKey Field Functions 
     bool hasDeadLetterRoutingKey() const { return this->deadLetterRoutingKey_ != nullptr;};
     void deleteDeadLetterRoutingKey() { this->deadLetterRoutingKey_ = nullptr;};
-    inline string deadLetterRoutingKey() const { DARABONBA_PTR_GET_DEFAULT(deadLetterRoutingKey_, "") };
+    inline string getDeadLetterRoutingKey() const { DARABONBA_PTR_GET_DEFAULT(deadLetterRoutingKey_, "") };
     inline CreateQueueRequest& setDeadLetterRoutingKey(string deadLetterRoutingKey) { DARABONBA_PTR_SET_VALUE(deadLetterRoutingKey_, deadLetterRoutingKey) };
 
 
     // exclusive Field Functions 
     bool hasExclusive() const { return this->exclusive_ != nullptr;};
     void deleteExclusive() { this->exclusive_ = nullptr;};
-    inline bool exclusive() const { DARABONBA_PTR_GET_DEFAULT(exclusive_, false) };
+    inline bool getExclusive() const { DARABONBA_PTR_GET_DEFAULT(exclusive_, false) };
     inline CreateQueueRequest& setExclusive(bool exclusive) { DARABONBA_PTR_SET_VALUE(exclusive_, exclusive) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateQueueRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // maxLength Field Functions 
     bool hasMaxLength() const { return this->maxLength_ != nullptr;};
     void deleteMaxLength() { this->maxLength_ = nullptr;};
-    inline int64_t maxLength() const { DARABONBA_PTR_GET_DEFAULT(maxLength_, 0L) };
+    inline int64_t getMaxLength() const { DARABONBA_PTR_GET_DEFAULT(maxLength_, 0L) };
     inline CreateQueueRequest& setMaxLength(int64_t maxLength) { DARABONBA_PTR_SET_VALUE(maxLength_, maxLength) };
 
 
     // maximunPrioty Field Functions 
     bool hasMaximunPrioty() const { return this->maximunPrioty_ != nullptr;};
     void deleteMaximunPrioty() { this->maximunPrioty_ = nullptr;};
-    inline int64_t maximunPrioty() const { DARABONBA_PTR_GET_DEFAULT(maximunPrioty_, 0L) };
+    inline int64_t getMaximunPrioty() const { DARABONBA_PTR_GET_DEFAULT(maximunPrioty_, 0L) };
     inline CreateQueueRequest& setMaximunPrioty(int64_t maximunPrioty) { DARABONBA_PTR_SET_VALUE(maximunPrioty_, maximunPrioty) };
 
 
     // messageTTL Field Functions 
     bool hasMessageTTL() const { return this->messageTTL_ != nullptr;};
     void deleteMessageTTL() { this->messageTTL_ = nullptr;};
-    inline int64_t messageTTL() const { DARABONBA_PTR_GET_DEFAULT(messageTTL_, 0L) };
+    inline int64_t getMessageTTL() const { DARABONBA_PTR_GET_DEFAULT(messageTTL_, 0L) };
     inline CreateQueueRequest& setMessageTTL(int64_t messageTTL) { DARABONBA_PTR_SET_VALUE(messageTTL_, messageTTL) };
 
 
     // ordered Field Functions 
     bool hasOrdered() const { return this->ordered_ != nullptr;};
     void deleteOrdered() { this->ordered_ = nullptr;};
-    inline bool ordered() const { DARABONBA_PTR_GET_DEFAULT(ordered_, false) };
+    inline bool getOrdered() const { DARABONBA_PTR_GET_DEFAULT(ordered_, false) };
     inline CreateQueueRequest& setOrdered(bool ordered) { DARABONBA_PTR_SET_VALUE(ordered_, ordered) };
 
 
     // queueName Field Functions 
     bool hasQueueName() const { return this->queueName_ != nullptr;};
     void deleteQueueName() { this->queueName_ = nullptr;};
-    inline string queueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
+    inline string getQueueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
     inline CreateQueueRequest& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
     // retryInherit Field Functions 
     bool hasRetryInherit() const { return this->retryInherit_ != nullptr;};
     void deleteRetryInherit() { this->retryInherit_ = nullptr;};
-    inline bool retryInherit() const { DARABONBA_PTR_GET_DEFAULT(retryInherit_, false) };
+    inline bool getRetryInherit() const { DARABONBA_PTR_GET_DEFAULT(retryInherit_, false) };
     inline CreateQueueRequest& setRetryInherit(bool retryInherit) { DARABONBA_PTR_SET_VALUE(retryInherit_, retryInherit) };
 
 
     // retryInterval Field Functions 
     bool hasRetryInterval() const { return this->retryInterval_ != nullptr;};
     void deleteRetryInterval() { this->retryInterval_ = nullptr;};
-    inline int32_t retryInterval() const { DARABONBA_PTR_GET_DEFAULT(retryInterval_, 0) };
+    inline int32_t getRetryInterval() const { DARABONBA_PTR_GET_DEFAULT(retryInterval_, 0) };
     inline CreateQueueRequest& setRetryInterval(int32_t retryInterval) { DARABONBA_PTR_SET_VALUE(retryInterval_, retryInterval) };
 
 
     // retryTimes Field Functions 
     bool hasRetryTimes() const { return this->retryTimes_ != nullptr;};
     void deleteRetryTimes() { this->retryTimes_ = nullptr;};
-    inline int32_t retryTimes() const { DARABONBA_PTR_GET_DEFAULT(retryTimes_, 0) };
+    inline int32_t getRetryTimes() const { DARABONBA_PTR_GET_DEFAULT(retryTimes_, 0) };
     inline CreateQueueRequest& setRetryTimes(int32_t retryTimes) { DARABONBA_PTR_SET_VALUE(retryTimes_, retryTimes) };
 
 
     // singleActiveConsumer Field Functions 
     bool hasSingleActiveConsumer() const { return this->singleActiveConsumer_ != nullptr;};
     void deleteSingleActiveConsumer() { this->singleActiveConsumer_ = nullptr;};
-    inline bool singleActiveConsumer() const { DARABONBA_PTR_GET_DEFAULT(singleActiveConsumer_, false) };
+    inline bool getSingleActiveConsumer() const { DARABONBA_PTR_GET_DEFAULT(singleActiveConsumer_, false) };
     inline CreateQueueRequest& setSingleActiveConsumer(bool singleActiveConsumer) { DARABONBA_PTR_SET_VALUE(singleActiveConsumer_, singleActiveConsumer) };
 
 
     // vhostName Field Functions 
     bool hasVhostName() const { return this->vhostName_ != nullptr;};
     void deleteVhostName() { this->vhostName_ = nullptr;};
-    inline string vhostName() const { DARABONBA_PTR_GET_DEFAULT(vhostName_, "") };
+    inline string getVhostName() const { DARABONBA_PTR_GET_DEFAULT(vhostName_, "") };
     inline CreateQueueRequest& setVhostName(string vhostName) { DARABONBA_PTR_SET_VALUE(vhostName_, vhostName) };
 
 
   protected:
-    std::shared_ptr<bool> autoDelete_ = nullptr;
-    std::shared_ptr<int64_t> autoExpire_ = nullptr;
-    std::shared_ptr<string> consoleSessionId_ = nullptr;
-    std::shared_ptr<string> deadLetterExchange_ = nullptr;
-    std::shared_ptr<string> deadLetterRoutingKey_ = nullptr;
-    std::shared_ptr<bool> exclusive_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int64_t> maxLength_ = nullptr;
-    std::shared_ptr<int64_t> maximunPrioty_ = nullptr;
-    std::shared_ptr<int64_t> messageTTL_ = nullptr;
-    std::shared_ptr<bool> ordered_ = nullptr;
+    shared_ptr<bool> autoDelete_ {};
+    shared_ptr<int64_t> autoExpire_ {};
+    shared_ptr<string> consoleSessionId_ {};
+    shared_ptr<string> deadLetterExchange_ {};
+    shared_ptr<string> deadLetterRoutingKey_ {};
+    shared_ptr<bool> exclusive_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int64_t> maxLength_ {};
+    shared_ptr<int64_t> maximunPrioty_ {};
+    shared_ptr<int64_t> messageTTL_ {};
+    shared_ptr<bool> ordered_ {};
     // This parameter is required.
-    std::shared_ptr<string> queueName_ = nullptr;
-    std::shared_ptr<bool> retryInherit_ = nullptr;
-    std::shared_ptr<int32_t> retryInterval_ = nullptr;
-    std::shared_ptr<int32_t> retryTimes_ = nullptr;
-    std::shared_ptr<bool> singleActiveConsumer_ = nullptr;
+    shared_ptr<string> queueName_ {};
+    shared_ptr<bool> retryInherit_ {};
+    shared_ptr<int32_t> retryInterval_ {};
+    shared_ptr<int32_t> retryTimes_ {};
+    shared_ptr<bool> singleActiveConsumer_ {};
     // This parameter is required.
-    std::shared_ptr<string> vhostName_ = nullptr;
+    shared_ptr<string> vhostName_ {};
   };
 
   } // namespace Models

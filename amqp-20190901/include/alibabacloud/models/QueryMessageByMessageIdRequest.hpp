@@ -46,86 +46,86 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->beginTime_ == nullptr
-        && return this->consoleSessionId_ == nullptr && return this->currentPage_ == nullptr && return this->endTime_ == nullptr && return this->instanceId_ == nullptr && return this->messageId_ == nullptr
-        && return this->pageSize_ == nullptr && return this->queueName_ == nullptr && return this->vhostName_ == nullptr; };
+        && this->consoleSessionId_ == nullptr && this->currentPage_ == nullptr && this->endTime_ == nullptr && this->instanceId_ == nullptr && this->messageId_ == nullptr
+        && this->pageSize_ == nullptr && this->queueName_ == nullptr && this->vhostName_ == nullptr; };
     // beginTime Field Functions 
     bool hasBeginTime() const { return this->beginTime_ != nullptr;};
     void deleteBeginTime() { this->beginTime_ = nullptr;};
-    inline int64_t beginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0L) };
+    inline int64_t getBeginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0L) };
     inline QueryMessageByMessageIdRequest& setBeginTime(int64_t beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
 
 
     // consoleSessionId Field Functions 
     bool hasConsoleSessionId() const { return this->consoleSessionId_ != nullptr;};
     void deleteConsoleSessionId() { this->consoleSessionId_ = nullptr;};
-    inline string consoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
+    inline string getConsoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
     inline QueryMessageByMessageIdRequest& setConsoleSessionId(string consoleSessionId) { DARABONBA_PTR_SET_VALUE(consoleSessionId_, consoleSessionId) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline QueryMessageByMessageIdRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline QueryMessageByMessageIdRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline QueryMessageByMessageIdRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // messageId Field Functions 
     bool hasMessageId() const { return this->messageId_ != nullptr;};
     void deleteMessageId() { this->messageId_ = nullptr;};
-    inline string messageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+    inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
     inline QueryMessageByMessageIdRequest& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline QueryMessageByMessageIdRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // queueName Field Functions 
     bool hasQueueName() const { return this->queueName_ != nullptr;};
     void deleteQueueName() { this->queueName_ = nullptr;};
-    inline string queueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
+    inline string getQueueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
     inline QueryMessageByMessageIdRequest& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
     // vhostName Field Functions 
     bool hasVhostName() const { return this->vhostName_ != nullptr;};
     void deleteVhostName() { this->vhostName_ = nullptr;};
-    inline string vhostName() const { DARABONBA_PTR_GET_DEFAULT(vhostName_, "") };
+    inline string getVhostName() const { DARABONBA_PTR_GET_DEFAULT(vhostName_, "") };
     inline QueryMessageByMessageIdRequest& setVhostName(string vhostName) { DARABONBA_PTR_SET_VALUE(vhostName_, vhostName) };
 
 
   protected:
-    std::shared_ptr<int64_t> beginTime_ = nullptr;
-    std::shared_ptr<string> consoleSessionId_ = nullptr;
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> beginTime_ {};
+    shared_ptr<string> consoleSessionId_ {};
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<int64_t> endTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> messageId_ = nullptr;
+    shared_ptr<string> messageId_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // This parameter is required.
-    std::shared_ptr<string> queueName_ = nullptr;
+    shared_ptr<string> queueName_ {};
     // This parameter is required.
-    std::shared_ptr<string> vhostName_ = nullptr;
+    shared_ptr<string> vhostName_ {};
   };
 
   } // namespace Models

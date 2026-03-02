@@ -38,52 +38,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consoleSessionId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->processToken_ == nullptr && return this->queueName_ == nullptr && return this->vhostName_ == nullptr; };
+        && this->instanceId_ == nullptr && this->processToken_ == nullptr && this->queueName_ == nullptr && this->vhostName_ == nullptr; };
     // consoleSessionId Field Functions 
     bool hasConsoleSessionId() const { return this->consoleSessionId_ != nullptr;};
     void deleteConsoleSessionId() { this->consoleSessionId_ = nullptr;};
-    inline string consoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
+    inline string getConsoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
     inline SendMessageCopyRequest& setConsoleSessionId(string consoleSessionId) { DARABONBA_PTR_SET_VALUE(consoleSessionId_, consoleSessionId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SendMessageCopyRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // processToken Field Functions 
     bool hasProcessToken() const { return this->processToken_ != nullptr;};
     void deleteProcessToken() { this->processToken_ = nullptr;};
-    inline string processToken() const { DARABONBA_PTR_GET_DEFAULT(processToken_, "") };
+    inline string getProcessToken() const { DARABONBA_PTR_GET_DEFAULT(processToken_, "") };
     inline SendMessageCopyRequest& setProcessToken(string processToken) { DARABONBA_PTR_SET_VALUE(processToken_, processToken) };
 
 
     // queueName Field Functions 
     bool hasQueueName() const { return this->queueName_ != nullptr;};
     void deleteQueueName() { this->queueName_ = nullptr;};
-    inline string queueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
+    inline string getQueueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
     inline SendMessageCopyRequest& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
     // vhostName Field Functions 
     bool hasVhostName() const { return this->vhostName_ != nullptr;};
     void deleteVhostName() { this->vhostName_ = nullptr;};
-    inline string vhostName() const { DARABONBA_PTR_GET_DEFAULT(vhostName_, "") };
+    inline string getVhostName() const { DARABONBA_PTR_GET_DEFAULT(vhostName_, "") };
     inline SendMessageCopyRequest& setVhostName(string vhostName) { DARABONBA_PTR_SET_VALUE(vhostName_, vhostName) };
 
 
   protected:
-    std::shared_ptr<string> consoleSessionId_ = nullptr;
+    shared_ptr<string> consoleSessionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> processToken_ = nullptr;
+    shared_ptr<string> processToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> queueName_ = nullptr;
+    shared_ptr<string> queueName_ {};
     // This parameter is required.
-    std::shared_ptr<string> vhostName_ = nullptr;
+    shared_ptr<string> vhostName_ {};
   };
 
   } // namespace Models

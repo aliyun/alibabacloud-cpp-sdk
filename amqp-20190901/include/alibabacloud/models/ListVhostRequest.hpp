@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consoleSessionId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->vhostNamePrefix_ == nullptr; };
+        && this->instanceId_ == nullptr && this->vhostNamePrefix_ == nullptr; };
     // consoleSessionId Field Functions 
     bool hasConsoleSessionId() const { return this->consoleSessionId_ != nullptr;};
     void deleteConsoleSessionId() { this->consoleSessionId_ = nullptr;};
-    inline string consoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
+    inline string getConsoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
     inline ListVhostRequest& setConsoleSessionId(string consoleSessionId) { DARABONBA_PTR_SET_VALUE(consoleSessionId_, consoleSessionId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListVhostRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // vhostNamePrefix Field Functions 
     bool hasVhostNamePrefix() const { return this->vhostNamePrefix_ != nullptr;};
     void deleteVhostNamePrefix() { this->vhostNamePrefix_ = nullptr;};
-    inline string vhostNamePrefix() const { DARABONBA_PTR_GET_DEFAULT(vhostNamePrefix_, "") };
+    inline string getVhostNamePrefix() const { DARABONBA_PTR_GET_DEFAULT(vhostNamePrefix_, "") };
     inline ListVhostRequest& setVhostNamePrefix(string vhostNamePrefix) { DARABONBA_PTR_SET_VALUE(vhostNamePrefix_, vhostNamePrefix) };
 
 
   protected:
-    std::shared_ptr<string> consoleSessionId_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> vhostNamePrefix_ = nullptr;
+    shared_ptr<string> consoleSessionId_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> vhostNamePrefix_ {};
   };
 
   } // namespace Models

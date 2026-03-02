@@ -46,88 +46,88 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelId_ == nullptr
-        && return this->clientToken_ == nullptr && return this->connectionId_ == nullptr && return this->consoleSessionId_ == nullptr && return this->deliveryTag_ == nullptr && return this->endTime_ == nullptr
-        && return this->instanceId_ == nullptr && return this->startTime_ == nullptr && return this->vhostName_ == nullptr; };
+        && this->clientToken_ == nullptr && this->connectionId_ == nullptr && this->consoleSessionId_ == nullptr && this->deliveryTag_ == nullptr && this->endTime_ == nullptr
+        && this->instanceId_ == nullptr && this->startTime_ == nullptr && this->vhostName_ == nullptr; };
     // channelId Field Functions 
     bool hasChannelId() const { return this->channelId_ != nullptr;};
     void deleteChannelId() { this->channelId_ = nullptr;};
-    inline string channelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
+    inline string getChannelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
     inline GetSendTraceByConnectionAndChannelAndDeliveryTagRequest& setChannelId(string channelId) { DARABONBA_PTR_SET_VALUE(channelId_, channelId) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline GetSendTraceByConnectionAndChannelAndDeliveryTagRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // connectionId Field Functions 
     bool hasConnectionId() const { return this->connectionId_ != nullptr;};
     void deleteConnectionId() { this->connectionId_ = nullptr;};
-    inline string connectionId() const { DARABONBA_PTR_GET_DEFAULT(connectionId_, "") };
+    inline string getConnectionId() const { DARABONBA_PTR_GET_DEFAULT(connectionId_, "") };
     inline GetSendTraceByConnectionAndChannelAndDeliveryTagRequest& setConnectionId(string connectionId) { DARABONBA_PTR_SET_VALUE(connectionId_, connectionId) };
 
 
     // consoleSessionId Field Functions 
     bool hasConsoleSessionId() const { return this->consoleSessionId_ != nullptr;};
     void deleteConsoleSessionId() { this->consoleSessionId_ = nullptr;};
-    inline string consoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
+    inline string getConsoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
     inline GetSendTraceByConnectionAndChannelAndDeliveryTagRequest& setConsoleSessionId(string consoleSessionId) { DARABONBA_PTR_SET_VALUE(consoleSessionId_, consoleSessionId) };
 
 
     // deliveryTag Field Functions 
     bool hasDeliveryTag() const { return this->deliveryTag_ != nullptr;};
     void deleteDeliveryTag() { this->deliveryTag_ = nullptr;};
-    inline int64_t deliveryTag() const { DARABONBA_PTR_GET_DEFAULT(deliveryTag_, 0L) };
+    inline int64_t getDeliveryTag() const { DARABONBA_PTR_GET_DEFAULT(deliveryTag_, 0L) };
     inline GetSendTraceByConnectionAndChannelAndDeliveryTagRequest& setDeliveryTag(int64_t deliveryTag) { DARABONBA_PTR_SET_VALUE(deliveryTag_, deliveryTag) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int32_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0) };
+    inline int32_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0) };
     inline GetSendTraceByConnectionAndChannelAndDeliveryTagRequest& setEndTime(int32_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetSendTraceByConnectionAndChannelAndDeliveryTagRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int32_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0) };
+    inline int32_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0) };
     inline GetSendTraceByConnectionAndChannelAndDeliveryTagRequest& setStartTime(int32_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // vhostName Field Functions 
     bool hasVhostName() const { return this->vhostName_ != nullptr;};
     void deleteVhostName() { this->vhostName_ = nullptr;};
-    inline string vhostName() const { DARABONBA_PTR_GET_DEFAULT(vhostName_, "") };
+    inline string getVhostName() const { DARABONBA_PTR_GET_DEFAULT(vhostName_, "") };
     inline GetSendTraceByConnectionAndChannelAndDeliveryTagRequest& setVhostName(string vhostName) { DARABONBA_PTR_SET_VALUE(vhostName_, vhostName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> channelId_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> channelId_ {};
+    shared_ptr<string> clientToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> connectionId_ = nullptr;
-    std::shared_ptr<string> consoleSessionId_ = nullptr;
+    shared_ptr<string> connectionId_ {};
+    shared_ptr<string> consoleSessionId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> deliveryTag_ = nullptr;
+    shared_ptr<int64_t> deliveryTag_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> endTime_ = nullptr;
+    shared_ptr<int32_t> endTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> startTime_ = nullptr;
+    shared_ptr<int32_t> startTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> vhostName_ = nullptr;
+    shared_ptr<string> vhostName_ {};
   };
 
   } // namespace Models

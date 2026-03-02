@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETVHOSTRATERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetVhostRateResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,51 +38,123 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(ChannelNum, channelNum_);
+        DARABONBA_PTR_TO_JSON(ConnectionNum, connectionNum_);
+        DARABONBA_PTR_TO_JSON(InQps, inQps_);
+        DARABONBA_PTR_TO_JSON(OutQps, outQps_);
+        DARABONBA_PTR_TO_JSON(VhostName, vhostName_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(ChannelNum, channelNum_);
+        DARABONBA_PTR_FROM_JSON(ConnectionNum, connectionNum_);
+        DARABONBA_PTR_FROM_JSON(InQps, inQps_);
+        DARABONBA_PTR_FROM_JSON(OutQps, outQps_);
+        DARABONBA_PTR_FROM_JSON(VhostName, vhostName_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->channelNum_ == nullptr
+        && this->connectionNum_ == nullptr && this->inQps_ == nullptr && this->outQps_ == nullptr && this->vhostName_ == nullptr; };
+      // channelNum Field Functions 
+      bool hasChannelNum() const { return this->channelNum_ != nullptr;};
+      void deleteChannelNum() { this->channelNum_ = nullptr;};
+      inline int32_t getChannelNum() const { DARABONBA_PTR_GET_DEFAULT(channelNum_, 0) };
+      inline Data& setChannelNum(int32_t channelNum) { DARABONBA_PTR_SET_VALUE(channelNum_, channelNum) };
+
+
+      // connectionNum Field Functions 
+      bool hasConnectionNum() const { return this->connectionNum_ != nullptr;};
+      void deleteConnectionNum() { this->connectionNum_ = nullptr;};
+      inline int32_t getConnectionNum() const { DARABONBA_PTR_GET_DEFAULT(connectionNum_, 0) };
+      inline Data& setConnectionNum(int32_t connectionNum) { DARABONBA_PTR_SET_VALUE(connectionNum_, connectionNum) };
+
+
+      // inQps Field Functions 
+      bool hasInQps() const { return this->inQps_ != nullptr;};
+      void deleteInQps() { this->inQps_ = nullptr;};
+      inline int64_t getInQps() const { DARABONBA_PTR_GET_DEFAULT(inQps_, 0L) };
+      inline Data& setInQps(int64_t inQps) { DARABONBA_PTR_SET_VALUE(inQps_, inQps) };
+
+
+      // outQps Field Functions 
+      bool hasOutQps() const { return this->outQps_ != nullptr;};
+      void deleteOutQps() { this->outQps_ = nullptr;};
+      inline int64_t getOutQps() const { DARABONBA_PTR_GET_DEFAULT(outQps_, 0L) };
+      inline Data& setOutQps(int64_t outQps) { DARABONBA_PTR_SET_VALUE(outQps_, outQps) };
+
+
+      // vhostName Field Functions 
+      bool hasVhostName() const { return this->vhostName_ != nullptr;};
+      void deleteVhostName() { this->vhostName_ = nullptr;};
+      inline string getVhostName() const { DARABONBA_PTR_GET_DEFAULT(vhostName_, "") };
+      inline Data& setVhostName(string vhostName) { DARABONBA_PTR_SET_VALUE(vhostName_, vhostName) };
+
+
+    protected:
+      shared_ptr<int32_t> channelNum_ {};
+      shared_ptr<int32_t> connectionNum_ {};
+      shared_ptr<int64_t> inQps_ {};
+      shared_ptr<int64_t> outQps_ {};
+      shared_ptr<string> vhostName_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline GetVhostRateResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<GetVhostRateResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<GetVhostRateResponseBodyData>) };
-    inline vector<GetVhostRateResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<GetVhostRateResponseBodyData>) };
-    inline GetVhostRateResponseBody& setData(const vector<GetVhostRateResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetVhostRateResponseBody& setData(vector<GetVhostRateResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<GetVhostRateResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<GetVhostRateResponseBody::Data>) };
+    inline vector<GetVhostRateResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<GetVhostRateResponseBody::Data>) };
+    inline GetVhostRateResponseBody& setData(const vector<GetVhostRateResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetVhostRateResponseBody& setData(vector<GetVhostRateResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetVhostRateResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetVhostRateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetVhostRateResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<int32_t> code_ = nullptr;
-    std::shared_ptr<vector<GetVhostRateResponseBodyData>> data_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<int32_t> code_ {};
+    shared_ptr<vector<GetVhostRateResponseBody::Data>> data_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

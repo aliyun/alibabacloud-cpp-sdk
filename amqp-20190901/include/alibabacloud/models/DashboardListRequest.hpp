@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consoleSessionId_ == nullptr
-        && return this->dashboardName_ == nullptr; };
+        && this->dashboardName_ == nullptr; };
     // consoleSessionId Field Functions 
     bool hasConsoleSessionId() const { return this->consoleSessionId_ != nullptr;};
     void deleteConsoleSessionId() { this->consoleSessionId_ = nullptr;};
-    inline string consoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
+    inline string getConsoleSessionId() const { DARABONBA_PTR_GET_DEFAULT(consoleSessionId_, "") };
     inline DashboardListRequest& setConsoleSessionId(string consoleSessionId) { DARABONBA_PTR_SET_VALUE(consoleSessionId_, consoleSessionId) };
 
 
     // dashboardName Field Functions 
     bool hasDashboardName() const { return this->dashboardName_ != nullptr;};
     void deleteDashboardName() { this->dashboardName_ = nullptr;};
-    inline string dashboardName() const { DARABONBA_PTR_GET_DEFAULT(dashboardName_, "") };
+    inline string getDashboardName() const { DARABONBA_PTR_GET_DEFAULT(dashboardName_, "") };
     inline DashboardListRequest& setDashboardName(string dashboardName) { DARABONBA_PTR_SET_VALUE(dashboardName_, dashboardName) };
 
 
   protected:
-    std::shared_ptr<string> consoleSessionId_ = nullptr;
+    shared_ptr<string> consoleSessionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> dashboardName_ = nullptr;
+    shared_ptr<string> dashboardName_ {};
   };
 
   } // namespace Models
