@@ -1042,6 +1042,27 @@ namespace Ecd20200930
       Models::CreateNetworkPackageResponse createNetworkPackage(const Models::CreateNetworkPackageRequest &request);
 
       /**
+       * @summary Enables global acceleration for office networks.
+       *
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+       *
+       * @param request CreateOfficeSiteAcceleratorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateOfficeSiteAcceleratorResponse
+       */
+      Models::CreateOfficeSiteAcceleratorResponse createOfficeSiteAcceleratorWithOptions(const Models::CreateOfficeSiteAcceleratorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables global acceleration for office networks.
+       *
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+       *
+       * @param request CreateOfficeSiteAcceleratorRequest
+       * @return CreateOfficeSiteAcceleratorResponse
+       */
+      Models::CreateOfficeSiteAcceleratorResponse createOfficeSiteAccelerator(const Models::CreateOfficeSiteAcceleratorRequest &request);
+
+      /**
        * @summary Creates a cloud computer policy.
        *
        * @description A cloud computer policy is a collection of rules to manage cloud computers in performance and security. For example, you can create a basic policy that involves the disk mapping, USB redirection, watermarking features and rules such as DNS rules. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
@@ -1564,6 +1585,23 @@ namespace Ecd20200930
        * @return DeleteNetworkPackagesResponse
        */
       Models::DeleteNetworkPackagesResponse deleteNetworkPackages(const Models::DeleteNetworkPackagesRequest &request);
+
+      /**
+       * @summary Deletes Global Accelerator (GA) configuration.
+       *
+       * @param request DeleteOfficeSiteAcceleratorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteOfficeSiteAcceleratorResponse
+       */
+      Models::DeleteOfficeSiteAcceleratorResponse deleteOfficeSiteAcceleratorWithOptions(const Models::DeleteOfficeSiteAcceleratorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes Global Accelerator (GA) configuration.
+       *
+       * @param request DeleteOfficeSiteAcceleratorRequest
+       * @return DeleteOfficeSiteAcceleratorResponse
+       */
+      Models::DeleteOfficeSiteAcceleratorResponse deleteOfficeSiteAccelerator(const Models::DeleteOfficeSiteAcceleratorRequest &request);
 
       /**
        * @summary Deletes office networks (formerly workspaces).
@@ -4317,6 +4355,23 @@ namespace Ecd20200930
        * @return ModifyNetworkPackageEnabledResponse
        */
       Models::ModifyNetworkPackageEnabledResponse modifyNetworkPackageEnabled(const Models::ModifyNetworkPackageEnabledRequest &request);
+
+      /**
+       * @summary 修改全球加速配置
+       *
+       * @param request ModifyOfficeSiteAcceleratorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyOfficeSiteAcceleratorResponse
+       */
+      Models::ModifyOfficeSiteAcceleratorResponse modifyOfficeSiteAcceleratorWithOptions(const Models::ModifyOfficeSiteAcceleratorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改全球加速配置
+       *
+       * @param request ModifyOfficeSiteAcceleratorRequest
+       * @return ModifyOfficeSiteAcceleratorResponse
+       */
+      Models::ModifyOfficeSiteAcceleratorResponse modifyOfficeSiteAccelerator(const Models::ModifyOfficeSiteAcceleratorRequest &request);
 
       /**
        * @summary Modifies the basic properties of an office network, including the name and local administrator permission settings.

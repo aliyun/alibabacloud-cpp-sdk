@@ -4402,6 +4402,68 @@ CreateNetworkPackageResponse Client::createNetworkPackage(const CreateNetworkPac
 }
 
 /**
+ * @summary Enables global acceleration for office networks.
+ *
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+ *
+ * @param request CreateOfficeSiteAcceleratorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOfficeSiteAcceleratorResponse
+ */
+CreateOfficeSiteAcceleratorResponse Client::createOfficeSiteAcceleratorWithOptions(const CreateOfficeSiteAcceleratorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccelerateRegion()) {
+    query["AccelerateRegion"] = request.getAccelerateRegion();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.getOfficeSiteId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateOfficeSiteAccelerator"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOfficeSiteAcceleratorResponse>();
+}
+
+/**
+ * @summary Enables global acceleration for office networks.
+ *
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+ *
+ * @param request CreateOfficeSiteAcceleratorRequest
+ * @return CreateOfficeSiteAcceleratorResponse
+ */
+CreateOfficeSiteAcceleratorResponse Client::createOfficeSiteAccelerator(const CreateOfficeSiteAcceleratorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createOfficeSiteAcceleratorWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a cloud computer policy.
  *
  * @description A cloud computer policy is a collection of rules to manage cloud computers in performance and security. For example, you can create a basic policy that involves the disk mapping, USB redirection, watermarking features and rules such as DNS rules. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
@@ -6275,6 +6337,52 @@ DeleteNetworkPackagesResponse Client::deleteNetworkPackagesWithOptions(const Del
 DeleteNetworkPackagesResponse Client::deleteNetworkPackages(const DeleteNetworkPackagesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteNetworkPackagesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes Global Accelerator (GA) configuration.
+ *
+ * @param request DeleteOfficeSiteAcceleratorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteOfficeSiteAcceleratorResponse
+ */
+DeleteOfficeSiteAcceleratorResponse Client::deleteOfficeSiteAcceleratorWithOptions(const DeleteOfficeSiteAcceleratorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.getOfficeSiteId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteOfficeSiteAccelerator"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteOfficeSiteAcceleratorResponse>();
+}
+
+/**
+ * @summary Deletes Global Accelerator (GA) configuration.
+ *
+ * @param request DeleteOfficeSiteAcceleratorRequest
+ * @return DeleteOfficeSiteAcceleratorResponse
+ */
+DeleteOfficeSiteAcceleratorResponse Client::deleteOfficeSiteAccelerator(const DeleteOfficeSiteAcceleratorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteOfficeSiteAcceleratorWithOptions(request, runtime);
 }
 
 /**
@@ -12175,6 +12283,10 @@ DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesReques
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasVpcAccessZone()) {
+    query["VpcAccessZone"] = request.getVpcAccessZone();
+  }
+
   if (!!request.hasZoneType()) {
     query["ZoneType"] = request.getZoneType();
   }
@@ -16604,6 +16716,56 @@ ModifyNetworkPackageEnabledResponse Client::modifyNetworkPackageEnabled(const Mo
 }
 
 /**
+ * @summary 修改全球加速配置
+ *
+ * @param request ModifyOfficeSiteAcceleratorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyOfficeSiteAcceleratorResponse
+ */
+ModifyOfficeSiteAcceleratorResponse Client::modifyOfficeSiteAcceleratorWithOptions(const ModifyOfficeSiteAcceleratorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccelerateRegion()) {
+    query["AccelerateRegion"] = request.getAccelerateRegion();
+  }
+
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.getOfficeSiteId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyOfficeSiteAccelerator"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyOfficeSiteAcceleratorResponse>();
+}
+
+/**
+ * @summary 修改全球加速配置
+ *
+ * @param request ModifyOfficeSiteAcceleratorRequest
+ * @return ModifyOfficeSiteAcceleratorResponse
+ */
+ModifyOfficeSiteAcceleratorResponse Client::modifyOfficeSiteAccelerator(const ModifyOfficeSiteAcceleratorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyOfficeSiteAcceleratorWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the basic properties of an office network, including the name and local administrator permission settings.
  *
  * @param request ModifyOfficeSiteAttributeRequest
@@ -16659,6 +16821,10 @@ ModifyOfficeSiteAttributeResponse Client::modifyOfficeSiteAttributeWithOptions(c
 
   if (!!request.hasTenantId()) {
     query["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

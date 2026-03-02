@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_MODIFYOFFICESITEATTRIBUTEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_MODIFYOFFICESITEATTRIBUTEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyOfficeSiteAttributeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AuthorityHost, authorityHost_);
@@ -39,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
     };
     ModifyOfficeSiteAttributeRequest() = default ;
     ModifyOfficeSiteAttributeRequest(const ModifyOfficeSiteAttributeRequest &) = default ;
@@ -54,7 +57,7 @@ namespace Models
     virtual bool empty() const override { return this->authorityHost_ == nullptr
         && this->clientId_ == nullptr && this->clientSecret_ == nullptr && this->desktopAccessType_ == nullptr && this->domainName_ == nullptr && this->enableAdminAccess_ == nullptr
         && this->needVerifyLoginRisk_ == nullptr && this->needVerifyZeroDevice_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->regionId_ == nullptr
-        && this->tenantId_ == nullptr; };
+        && this->tenantId_ == nullptr && this->vSwitchId_ == nullptr; };
     // authorityHost Field Functions 
     bool hasAuthorityHost() const { return this->authorityHost_ != nullptr;};
     void deleteAuthorityHost() { this->authorityHost_ = nullptr;};
@@ -139,6 +142,15 @@ namespace Models
     inline ModifyOfficeSiteAttributeRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
+    // vSwitchId Field Functions 
+    bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+    void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+    inline const vector<string> & getVSwitchId() const { DARABONBA_PTR_GET_CONST(vSwitchId_, vector<string>) };
+    inline vector<string> getVSwitchId() { DARABONBA_PTR_GET(vSwitchId_, vector<string>) };
+    inline ModifyOfficeSiteAttributeRequest& setVSwitchId(const vector<string> & vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+    inline ModifyOfficeSiteAttributeRequest& setVSwitchId(vector<string> && vSwitchId) { DARABONBA_PTR_SET_RVALUE(vSwitchId_, vSwitchId) };
+
+
   protected:
     shared_ptr<string> authorityHost_ {};
     shared_ptr<string> clientId_ {};
@@ -177,6 +189,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> tenantId_ {};
+    shared_ptr<vector<string>> vSwitchId_ {};
   };
 
   } // namespace Models

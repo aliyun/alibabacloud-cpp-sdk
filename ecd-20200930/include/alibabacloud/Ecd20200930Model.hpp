@@ -166,6 +166,9 @@
 #include <alibabacloud/models/CreateNetworkPackageRequest.hpp>
 #include <alibabacloud/models/CreateNetworkPackageResponseBody.hpp>
 #include <alibabacloud/models/CreateNetworkPackageResponse.hpp>
+#include <alibabacloud/models/CreateOfficeSiteAcceleratorRequest.hpp>
+#include <alibabacloud/models/CreateOfficeSiteAcceleratorResponseBody.hpp>
+#include <alibabacloud/models/CreateOfficeSiteAcceleratorResponse.hpp>
 #include <alibabacloud/models/CreatePolicyGroupRequest.hpp>
 #include <alibabacloud/models/CreatePolicyGroupResponseBody.hpp>
 #include <alibabacloud/models/CreatePolicyGroupResponse.hpp>
@@ -250,6 +253,9 @@
 #include <alibabacloud/models/DeleteNetworkPackagesRequest.hpp>
 #include <alibabacloud/models/DeleteNetworkPackagesResponseBody.hpp>
 #include <alibabacloud/models/DeleteNetworkPackagesResponse.hpp>
+#include <alibabacloud/models/DeleteOfficeSiteAcceleratorRequest.hpp>
+#include <alibabacloud/models/DeleteOfficeSiteAcceleratorResponseBody.hpp>
+#include <alibabacloud/models/DeleteOfficeSiteAcceleratorResponse.hpp>
 #include <alibabacloud/models/DeleteOfficeSitesRequest.hpp>
 #include <alibabacloud/models/DeleteOfficeSitesResponseBody.hpp>
 #include <alibabacloud/models/DeleteOfficeSitesResponse.hpp>
@@ -692,6 +698,9 @@
 #include <alibabacloud/models/ModifyNetworkPackageEnabledRequest.hpp>
 #include <alibabacloud/models/ModifyNetworkPackageEnabledResponseBody.hpp>
 #include <alibabacloud/models/ModifyNetworkPackageEnabledResponse.hpp>
+#include <alibabacloud/models/ModifyOfficeSiteAcceleratorRequest.hpp>
+#include <alibabacloud/models/ModifyOfficeSiteAcceleratorResponseBody.hpp>
+#include <alibabacloud/models/ModifyOfficeSiteAcceleratorResponse.hpp>
 #include <alibabacloud/models/ModifyOfficeSiteAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyOfficeSiteAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyOfficeSiteAttributeResponse.hpp>
