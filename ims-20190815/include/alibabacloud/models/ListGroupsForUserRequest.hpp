@@ -38,8 +38,6 @@ namespace Models
 
 
   protected:
-    // The logon name of the RAM user.
-    // 
     // This parameter is required.
     shared_ptr<string> userPrincipalName_ {};
   };

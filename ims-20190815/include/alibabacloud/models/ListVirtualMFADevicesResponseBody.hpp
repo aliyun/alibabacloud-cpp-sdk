@@ -125,11 +125,8 @@ namespace Models
 
 
         protected:
-          // The display name of the RAM user.
           shared_ptr<string> displayName_ {};
-          // The ID of the RAM user.
           shared_ptr<string> userId_ {};
-          // The logon name of the RAM user.
           shared_ptr<string> userPrincipalName_ {};
         };
 
@@ -159,11 +156,8 @@ namespace Models
 
 
       protected:
-        // The time when the MFA device was activated.
         shared_ptr<string> activateDate_ {};
-        // The serial number of the MFA device.
         shared_ptr<string> serialNumber_ {};
-        // The information of the RAM user that has an MFA device bound.
         shared_ptr<VirtualMFADevice::User> user_ {};
       };
 
@@ -216,16 +210,16 @@ namespace Models
   protected:
     // Indicates whether the response is truncated. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> isTruncated_ {};
     // The pagination token that is used in the next request to retrieve a new page of results.
     // 
-    // >  This parameter is returned only when `IsTruncated` is `true`.
+    // > This parameter is returned only when `IsTruncated` is `true`.
     shared_ptr<string> marker_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the MFA device.
     shared_ptr<ListVirtualMFADevicesResponseBody::VirtualMFADevices> virtualMFADevices_ {};
   };
 

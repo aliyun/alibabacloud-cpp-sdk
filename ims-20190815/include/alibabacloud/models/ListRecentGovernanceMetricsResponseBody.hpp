@@ -102,15 +102,8 @@ namespace Models
 
 
       protected:
-        // The name of the governance item.
         shared_ptr<string> governanceItem_ {};
-        // The type of the metric value. Valid values:
-        // 
-        // *   Number
-        // *   String
-        // *   Boolean
         shared_ptr<string> metricType_ {};
-        // The metric value. The type of the metric value is determined by `MetricType`.
         Darabonba::Json metricValue_ {};
       };
 
@@ -156,7 +149,6 @@ namespace Models
   protected:
     // The time when the report was generated.
     shared_ptr<string> generateTime_ {};
-    // The metric values of all governance items. The value of the parameter is an array, and each row in the array contains the metric value of a governance item.
     shared_ptr<ListRecentGovernanceMetricsResponseBody::GovernanceMetrics> governanceMetrics_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

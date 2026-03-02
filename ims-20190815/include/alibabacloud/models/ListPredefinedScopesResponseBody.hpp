@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The description of the permission scope.
         shared_ptr<string> description_ {};
-        // The name of the permission scope.
         shared_ptr<string> name_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The information about application permissions.
     shared_ptr<ListPredefinedScopesResponseBody::PredefinedScopes> predefinedScopes_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -175,27 +175,16 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
         shared_ptr<string> arn_ {};
-        // The ID of the client, If you want to specify multiple client IDs, separate the client IDs with commas (,).
         shared_ptr<string> clientIds_ {};
-        // The time when the OIDC IdP was created. The time is displayed in UTC.
         shared_ptr<string> createDate_ {};
-        // The description of the OIDC IdP.
         shared_ptr<string> description_ {};
-        // The fingerprint of the HTTPS certificate. If multiple fingerprints are returned, the fingerprints are separated by commas (,).
         shared_ptr<string> fingerprints_ {};
-        // The timestamp when the OIDC IdP was created.
         shared_ptr<string> gmtCreate_ {};
-        // The timestamp when the OIDC IdP was modified.
         shared_ptr<string> gmtModified_ {};
-        // The earliest time when an external IdP can issue an ID token. If the value of the iat field in the ID token is later than the current time, the request is rejected. Unit: hours. Valid values: 1 to 168.
         shared_ptr<int64_t> issuanceLimitTime_ {};
-        // The URL of the issuer.
         shared_ptr<string> issuerUrl_ {};
-        // The name of the OIDC IdP.
         shared_ptr<string> OIDCProviderName_ {};
-        // The time when the OIDC IdP was modified. The time is displayed in UTC.
         shared_ptr<string> updateDate_ {};
       };
 
@@ -246,16 +235,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether the response is truncated. Valid values:
-    // 
-    // *   true
-    // *   false
     shared_ptr<bool> isTruncated_ {};
-    // The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.``
     shared_ptr<string> marker_ {};
-    // The information about the OIDC IdP.
     shared_ptr<ListOIDCProvidersResponseBody::OIDCProviders> OIDCProviders_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

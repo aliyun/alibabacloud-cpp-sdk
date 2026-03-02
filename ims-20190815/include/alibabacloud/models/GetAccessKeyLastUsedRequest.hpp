@@ -48,13 +48,8 @@ namespace Models
 
 
   protected:
-    // The ID of the AccessKey pair that you want to query.
-    // 
     // This parameter is required.
     shared_ptr<string> userAccessKeyId_ {};
-    // The logon name of the RAM user.
-    // 
-    // If you do not specify this parameter, the AccessKey pair of the current user is queried.
     shared_ptr<string> userPrincipalName_ {};
   };
 

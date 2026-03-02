@@ -48,11 +48,7 @@ namespace Models
 
 
   protected:
-    // The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
     shared_ptr<string> marker_ {};
-    // The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
-    // 
-    // Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> maxItems_ {};
   };
 

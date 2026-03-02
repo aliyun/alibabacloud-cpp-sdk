@@ -120,15 +120,10 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud Resource Name (ARN) of the IdP.
         shared_ptr<string> arn_ {};
-        // The creation time.
         shared_ptr<string> createDate_ {};
-        // The description.
         shared_ptr<string> description_ {};
-        // The name of the IdP.
         shared_ptr<string> SAMLProviderName_ {};
-        // The update time.
         shared_ptr<string> updateDate_ {};
       };
 
@@ -179,16 +174,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether the response is truncated. Valid values:
-    // 
-    // *   true
-    // *   false
     shared_ptr<bool> isTruncated_ {};
-    // The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.``
     shared_ptr<string> marker_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about IdPs.
     shared_ptr<ListSAMLProvidersResponseBody::SAMLProviders> SAMLProviders_ {};
   };
 

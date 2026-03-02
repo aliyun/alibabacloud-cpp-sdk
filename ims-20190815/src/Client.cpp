@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+ * @summary 为OIDC身份提供商添加指定客户端ID
  *
  * @param request AddClientIdToOIDCProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -71,7 +71,7 @@ AddClientIdToOIDCProviderResponse Client::addClientIdToOIDCProviderWithOptions(c
 }
 
 /**
- * @summary Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+ * @summary 为OIDC身份提供商添加指定客户端ID
  *
  * @param request AddClientIdToOIDCProviderRequest
  * @return AddClientIdToOIDCProviderResponse
@@ -82,10 +82,7 @@ AddClientIdToOIDCProviderResponse Client::addClientIdToOIDCProvider(const AddCli
 }
 
 /**
- * @summary Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
- *
- * @description ###
- * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+ * @summary 为OIDC身份提供商添加验证指纹
  *
  * @param request AddFingerprintToOIDCProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -120,10 +117,7 @@ AddFingerprintToOIDCProviderResponse Client::addFingerprintToOIDCProviderWithOpt
 }
 
 /**
- * @summary Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
- *
- * @description ###
- * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+ * @summary 为OIDC身份提供商添加验证指纹
  *
  * @param request AddFingerprintToOIDCProviderRequest
  * @return AddFingerprintToOIDCProviderResponse
@@ -134,7 +128,7 @@ AddFingerprintToOIDCProviderResponse Client::addFingerprintToOIDCProvider(const 
 }
 
 /**
- * @summary Adds a Resource Access Management (RAM) user to a RAM user group.
+ * @summary 将RAM用户添加到指定的用户组
  *
  * @param request AddUserToGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -169,7 +163,7 @@ AddUserToGroupResponse Client::addUserToGroupWithOptions(const AddUserToGroupReq
 }
 
 /**
- * @summary Adds a Resource Access Management (RAM) user to a RAM user group.
+ * @summary 将RAM用户添加到指定的用户组
  *
  * @param request AddUserToGroupRequest
  * @return AddUserToGroupResponse
@@ -180,7 +174,7 @@ AddUserToGroupResponse Client::addUserToGroup(const AddUserToGroupRequest &reque
 }
 
 /**
- * @summary Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
+ * @summary 为RAM用户绑定多因素认证设备
  *
  * @param request BindMFADeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -223,7 +217,7 @@ BindMFADeviceResponse Client::bindMFADeviceWithOptions(const BindMFADeviceReques
 }
 
 /**
- * @summary Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
+ * @summary 为RAM用户绑定多因素认证设备
  *
  * @param request BindMFADeviceRequest
  * @return BindMFADeviceResponse
@@ -234,9 +228,7 @@ BindMFADeviceResponse Client::bindMFADevice(const BindMFADeviceRequest &request)
 }
 
 /**
- * @summary Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
- *
- * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+ * @summary 修改RAM用户的登录密码
  *
  * @param request ChangePasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -271,9 +263,7 @@ ChangePasswordResponse Client::changePasswordWithOptions(const ChangePasswordReq
 }
 
 /**
- * @summary Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
- *
- * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+ * @summary 修改RAM用户的登录密码
  *
  * @param request ChangePasswordRequest
  * @return ChangePasswordResponse
@@ -284,7 +274,7 @@ ChangePasswordResponse Client::changePassword(const ChangePasswordRequest &reque
 }
 
 /**
- * @summary Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ * @summary 创建主账号或RAM用户访问密钥
  *
  * @param request CreateAccessKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -315,7 +305,7 @@ CreateAccessKeyResponse Client::createAccessKeyWithOptions(const CreateAccessKey
 }
 
 /**
- * @summary Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ * @summary 创建主账号或RAM用户访问密钥
  *
  * @param request CreateAccessKeyRequest
  * @return CreateAccessKeyResponse
@@ -326,7 +316,7 @@ CreateAccessKeyResponse Client::createAccessKey(const CreateAccessKeyRequest &re
 }
 
 /**
- * @summary Creates an application secret for an application.
+ * @summary 为指定的应用创建应用密钥
  *
  * @param request CreateAppSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -357,7 +347,7 @@ CreateAppSecretResponse Client::createAppSecretWithOptions(const CreateAppSecret
 }
 
 /**
- * @summary Creates an application secret for an application.
+ * @summary 为指定的应用创建应用密钥
  *
  * @param request CreateAppSecretRequest
  * @return CreateAppSecretResponse
@@ -450,7 +440,7 @@ CreateApplicationResponse Client::createApplication(const CreateApplicationReque
 }
 
 /**
- * @summary Creates a Resource Access Management (RAM) user group.
+ * @summary 创建用户组
  *
  * @param request CreateGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -489,7 +479,7 @@ CreateGroupResponse Client::createGroupWithOptions(const CreateGroupRequest &req
 }
 
 /**
- * @summary Creates a Resource Access Management (RAM) user group.
+ * @summary 创建用户组
  *
  * @param request CreateGroupRequest
  * @return CreateGroupResponse
@@ -500,7 +490,7 @@ CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
 }
 
 /**
- * @summary Enables logon to the console for a Resource Access Management (RAM) user.
+ * @summary Creates a logon configuration for a Resource Access Management (RAM) user.
  *
  * @param request CreateLoginProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -547,7 +537,7 @@ CreateLoginProfileResponse Client::createLoginProfileWithOptions(const CreateLog
 }
 
 /**
- * @summary Enables logon to the console for a Resource Access Management (RAM) user.
+ * @summary Creates a logon configuration for a Resource Access Management (RAM) user.
  *
  * @param request CreateLoginProfileRequest
  * @return CreateLoginProfileResponse
@@ -558,16 +548,7 @@ CreateLoginProfileResponse Client::createLoginProfile(const CreateLoginProfileRe
 }
 
 /**
- * @summary Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
- *
- * @description ### [](#)Prerequisites
- * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
- * ### [](#)Limits
- * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
- * *   You can add a maximum of 50 client IDs to an OIDC IdP.
- * *   You can add a maximum of five fingerprints to an OIDC IdP.
- * ### [](#)Operation description
- * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
+ * @summary 创建OIDC身份供应商
  *
  * @param request CreateOIDCProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -618,16 +599,7 @@ CreateOIDCProviderResponse Client::createOIDCProviderWithOptions(const CreateOID
 }
 
 /**
- * @summary Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
- *
- * @description ### [](#)Prerequisites
- * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
- * ### [](#)Limits
- * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
- * *   You can add a maximum of 50 client IDs to an OIDC IdP.
- * *   You can add a maximum of five fingerprints to an OIDC IdP.
- * ### [](#)Operation description
- * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
+ * @summary 创建OIDC身份供应商
  *
  * @param request CreateOIDCProviderRequest
  * @return CreateOIDCProviderResponse
@@ -692,9 +664,7 @@ CreateSAMLProviderResponse Client::createSAMLProvider(const CreateSAMLProviderRe
 }
 
 /**
- * @summary Creates a RAM user.
- *
- * @description This topic provides an example on how to create a RAM user named `test`.
+ * @summary 创建RAM用户
  *
  * @param request CreateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -745,9 +715,7 @@ CreateUserResponse Client::createUserWithOptions(const CreateUserRequest &reques
 }
 
 /**
- * @summary Creates a RAM user.
- *
- * @description This topic provides an example on how to create a RAM user named `test`.
+ * @summary 创建RAM用户
  *
  * @param request CreateUserRequest
  * @return CreateUserResponse
@@ -758,7 +726,7 @@ CreateUserResponse Client::createUser(const CreateUserRequest &request) {
 }
 
 /**
- * @summary Creates a virtual multi-factor authentication (MFA) device.
+ * @summary 创建多因素认证设备
  *
  * @param request CreateVirtualMFADeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -789,7 +757,7 @@ CreateVirtualMFADeviceResponse Client::createVirtualMFADeviceWithOptions(const C
 }
 
 /**
- * @summary Creates a virtual multi-factor authentication (MFA) device.
+ * @summary 创建多因素认证设备
  *
  * @param request CreateVirtualMFADeviceRequest
  * @return CreateVirtualMFADeviceResponse
@@ -800,7 +768,7 @@ CreateVirtualMFADeviceResponse Client::createVirtualMFADevice(const CreateVirtua
 }
 
 /**
- * @summary Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ * @summary 删除用户的访问密钥
  *
  * @param request DeleteAccessKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -835,7 +803,7 @@ DeleteAccessKeyResponse Client::deleteAccessKeyWithOptions(const DeleteAccessKey
 }
 
 /**
- * @summary Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ * @summary 删除用户的访问密钥
  *
  * @param request DeleteAccessKeyRequest
  * @return DeleteAccessKeyResponse
@@ -846,7 +814,7 @@ DeleteAccessKeyResponse Client::deleteAccessKey(const DeleteAccessKeyRequest &re
 }
 
 /**
- * @summary Deletes a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+ * @summary 删除回收站中的访问密钥
  *
  * @param request DeleteAccessKeyInRecycleBinRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -881,7 +849,7 @@ DeleteAccessKeyInRecycleBinResponse Client::deleteAccessKeyInRecycleBinWithOptio
 }
 
 /**
- * @summary Deletes a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+ * @summary 删除回收站中的访问密钥
  *
  * @param request DeleteAccessKeyInRecycleBinRequest
  * @return DeleteAccessKeyInRecycleBinResponse
@@ -892,7 +860,7 @@ DeleteAccessKeyInRecycleBinResponse Client::deleteAccessKeyInRecycleBin(const De
 }
 
 /**
- * @summary Deletes the application secret of an application.
+ * @summary 删除指定应用的应用密钥
  *
  * @param request DeleteAppSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -927,7 +895,7 @@ DeleteAppSecretResponse Client::deleteAppSecretWithOptions(const DeleteAppSecret
 }
 
 /**
- * @summary Deletes the application secret of an application.
+ * @summary 删除指定应用的应用密钥
  *
  * @param request DeleteAppSecretRequest
  * @return DeleteAppSecretResponse
@@ -938,7 +906,7 @@ DeleteAppSecretResponse Client::deleteAppSecret(const DeleteAppSecretRequest &re
 }
 
 /**
- * @summary Deletes an application.
+ * @summary 删除指定的应用
  *
  * @param request DeleteApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -969,7 +937,7 @@ DeleteApplicationResponse Client::deleteApplicationWithOptions(const DeleteAppli
 }
 
 /**
- * @summary Deletes an application.
+ * @summary 删除指定的应用
  *
  * @param request DeleteApplicationRequest
  * @return DeleteApplicationResponse
@@ -980,9 +948,7 @@ DeleteApplicationResponse Client::deleteApplication(const DeleteApplicationReque
 }
 
 /**
- * @summary Deletes a Resource Access Management (RAM) user group.
- *
- * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+ * @summary 删除指定的用户组
  *
  * @param request DeleteGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1013,9 +979,7 @@ DeleteGroupResponse Client::deleteGroupWithOptions(const DeleteGroupRequest &req
 }
 
 /**
- * @summary Deletes a Resource Access Management (RAM) user group.
- *
- * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+ * @summary 删除指定的用户组
  *
  * @param request DeleteGroupRequest
  * @return DeleteGroupResponse
@@ -1026,7 +990,7 @@ DeleteGroupResponse Client::deleteGroup(const DeleteGroupRequest &request) {
 }
 
 /**
- * @summary Disables logon to the console for a Resource Access Management (RAM) user.
+ * @summary 关闭指定RAM用户的控制台登录
  *
  * @param request DeleteLoginProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1057,7 +1021,7 @@ DeleteLoginProfileResponse Client::deleteLoginProfileWithOptions(const DeleteLog
 }
 
 /**
- * @summary Disables logon to the console for a Resource Access Management (RAM) user.
+ * @summary 关闭指定RAM用户的控制台登录
  *
  * @param request DeleteLoginProfileRequest
  * @return DeleteLoginProfileResponse
@@ -1068,10 +1032,7 @@ DeleteLoginProfileResponse Client::deleteLoginProfile(const DeleteLoginProfileRe
 }
 
 /**
- * @summary Deletes an OpenID Connect (OIDC) identity provider (IdP).
- *
- * @description ###
- * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+ * @summary 删除指定的角色SSO身份提供商
  *
  * @param request DeleteOIDCProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1102,10 +1063,7 @@ DeleteOIDCProviderResponse Client::deleteOIDCProviderWithOptions(const DeleteOID
 }
 
 /**
- * @summary Deletes an OpenID Connect (OIDC) identity provider (IdP).
- *
- * @description ###
- * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+ * @summary 删除指定的角色SSO身份提供商
  *
  * @param request DeleteOIDCProviderRequest
  * @return DeleteOIDCProviderResponse
@@ -1116,7 +1074,7 @@ DeleteOIDCProviderResponse Client::deleteOIDCProvider(const DeleteOIDCProviderRe
 }
 
 /**
- * @summary Deletes a passkey for a Resource Access Management (RAM) user.
+ * @summary 删除Passkey
  *
  * @param request DeletePasskeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1151,7 +1109,7 @@ DeletePasskeyResponse Client::deletePasskeyWithOptions(const DeletePasskeyReques
 }
 
 /**
- * @summary Deletes a passkey for a Resource Access Management (RAM) user.
+ * @summary 删除Passkey
  *
  * @param request DeletePasskeyRequest
  * @return DeletePasskeyResponse
@@ -1162,7 +1120,7 @@ DeletePasskeyResponse Client::deletePasskey(const DeletePasskeyRequest &request)
 }
 
 /**
- * @summary Deletes an identity provider (IdP) for role-based single sign-on (SSO).
+ * @summary 删除指定的角色SSO身份提供商
  *
  * @param request DeleteSAMLProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1193,7 +1151,7 @@ DeleteSAMLProviderResponse Client::deleteSAMLProviderWithOptions(const DeleteSAM
 }
 
 /**
- * @summary Deletes an identity provider (IdP) for role-based single sign-on (SSO).
+ * @summary 删除指定的角色SSO身份提供商
  *
  * @param request DeleteSAMLProviderRequest
  * @return DeleteSAMLProviderResponse
@@ -1204,7 +1162,7 @@ DeleteSAMLProviderResponse Client::deleteSAMLProvider(const DeleteSAMLProviderRe
 }
 
 /**
- * @summary Deletes a Resource Access Management (RAM) user.
+ * @summary 删除RAM用户
  *
  * @param request DeleteUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1239,7 +1197,7 @@ DeleteUserResponse Client::deleteUserWithOptions(const DeleteUserRequest &reques
 }
 
 /**
- * @summary Deletes a Resource Access Management (RAM) user.
+ * @summary 删除RAM用户
  *
  * @param request DeleteUserRequest
  * @return DeleteUserResponse
@@ -1250,7 +1208,7 @@ DeleteUserResponse Client::deleteUser(const DeleteUserRequest &request) {
 }
 
 /**
- * @summary Deletes a specific Resource Access Management (RAM) user from the recycle bin.
+ * @summary 删除回收站中的用户
  *
  * @param request DeleteUserInRecycleBinRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1281,7 +1239,7 @@ DeleteUserInRecycleBinResponse Client::deleteUserInRecycleBinWithOptions(const D
 }
 
 /**
- * @summary Deletes a specific Resource Access Management (RAM) user from the recycle bin.
+ * @summary 删除回收站中的用户
  *
  * @param request DeleteUserInRecycleBinRequest
  * @return DeleteUserInRecycleBinResponse
@@ -1292,7 +1250,7 @@ DeleteUserInRecycleBinResponse Client::deleteUserInRecycleBin(const DeleteUserIn
 }
 
 /**
- * @summary Deletes a multi-factor authentication (MFA) device.
+ * @summary 删除多因素认证设备
  *
  * @param request DeleteVirtualMFADeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1323,7 +1281,7 @@ DeleteVirtualMFADeviceResponse Client::deleteVirtualMFADeviceWithOptions(const D
 }
 
 /**
- * @summary Deletes a multi-factor authentication (MFA) device.
+ * @summary 删除多因素认证设备
  *
  * @param request DeleteVirtualMFADeviceRequest
  * @return DeleteVirtualMFADeviceResponse
@@ -1334,10 +1292,7 @@ DeleteVirtualMFADeviceResponse Client::deleteVirtualMFADevice(const DeleteVirtua
 }
 
 /**
- * @summary Uninstalls an external application or an internal application of the ServerApp type.
- *
- * @description If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
- * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+ * @summary 解除安装应用
  *
  * @param request DeprovisionApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1368,10 +1323,7 @@ DeprovisionApplicationResponse Client::deprovisionApplicationWithOptions(const D
 }
 
 /**
- * @summary Uninstalls an external application or an internal application of the ServerApp type.
- *
- * @description If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
- * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+ * @summary 解除安装应用
  *
  * @param request DeprovisionApplicationRequest
  * @return DeprovisionApplicationResponse
@@ -1382,7 +1334,7 @@ DeprovisionApplicationResponse Client::deprovisionApplication(const DeprovisionA
 }
 
 /**
- * @summary Deletes an installed external application.
+ * @summary 解除安装外部应用
  *
  * @param request DeprovisionExternalApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1413,7 +1365,7 @@ DeprovisionExternalApplicationResponse Client::deprovisionExternalApplicationWit
 }
 
 /**
- * @summary Deletes an installed external application.
+ * @summary 解除安装外部应用
  *
  * @param request DeprovisionExternalApplicationRequest
  * @return DeprovisionExternalApplicationResponse
@@ -1424,7 +1376,7 @@ DeprovisionExternalApplicationResponse Client::deprovisionExternalApplication(co
 }
 
 /**
- * @summary Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+ * @summary 解绑并删除多因素认证设备
  *
  * @param request DisableVirtualMFARequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1455,7 +1407,7 @@ DisableVirtualMFAResponse Client::disableVirtualMFAWithOptions(const DisableVirt
 }
 
 /**
- * @summary Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+ * @summary 解绑并删除多因素认证设备
  *
  * @param request DisableVirtualMFARequest
  * @return DisableVirtualMFAResponse
@@ -1466,7 +1418,7 @@ DisableVirtualMFAResponse Client::disableVirtualMFA(const DisableVirtualMFAReque
 }
 
 /**
- * @summary Generates the user credential report of an Alibaba Cloud account.
+ * @summary 生成用户凭证报告
  *
  * @param request GenerateCredentialReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1489,7 +1441,7 @@ GenerateCredentialReportResponse Client::generateCredentialReportWithOptions(con
 }
 
 /**
- * @summary Generates the user credential report of an Alibaba Cloud account.
+ * @summary 生成用户凭证报告
  *
  * @return GenerateCredentialReportResponse
  */
@@ -1499,7 +1451,7 @@ GenerateCredentialReportResponse Client::generateCredentialReport() {
 }
 
 /**
- * @summary Generates a check report for Cloud Governance.
+ * @summary 生成身份权限治理报告
  *
  * @param request GenerateGovernanceReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1522,7 +1474,7 @@ GenerateGovernanceReportResponse Client::generateGovernanceReportWithOptions(con
 }
 
 /**
- * @summary Generates a check report for Cloud Governance.
+ * @summary 生成身份权限治理报告
  *
  * @return GenerateGovernanceReportResponse
  */
@@ -1532,7 +1484,7 @@ GenerateGovernanceReportResponse Client::generateGovernanceReport() {
 }
 
 /**
- * @summary Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
+ * @summary 查询回收站中的访问密钥信息
  *
  * @param request GetAccessKeyInfoInRecycleBinRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1563,7 +1515,7 @@ GetAccessKeyInfoInRecycleBinResponse Client::getAccessKeyInfoInRecycleBinWithOpt
 }
 
 /**
- * @summary Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
+ * @summary 查询回收站中的访问密钥信息
  *
  * @param request GetAccessKeyInfoInRecycleBinRequest
  * @return GetAccessKeyInfoInRecycleBinResponse
@@ -1574,7 +1526,7 @@ GetAccessKeyInfoInRecycleBinResponse Client::getAccessKeyInfoInRecycleBin(const 
 }
 
 /**
- * @summary Queries the time when an AccessKey pair was used for the last time.
+ * @summary 查询指定访问密钥的最后使用时间
  *
  * @param request GetAccessKeyLastUsedRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1609,7 +1561,7 @@ GetAccessKeyLastUsedResponse Client::getAccessKeyLastUsedWithOptions(const GetAc
 }
 
 /**
- * @summary Queries the time when an AccessKey pair was used for the last time.
+ * @summary 查询指定访问密钥的最后使用时间
  *
  * @param request GetAccessKeyLastUsedRequest
  * @return GetAccessKeyLastUsedResponse
@@ -1620,7 +1572,7 @@ GetAccessKeyLastUsedResponse Client::getAccessKeyLastUsed(const GetAccessKeyLast
 }
 
 /**
- * @summary Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
+ * @summary 查询主账号多因素认证设备信息
  *
  * @param request GetAccountMFAInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1643,7 +1595,7 @@ GetAccountMFAInfoResponse Client::getAccountMFAInfoWithOptions(const Darabonba::
 }
 
 /**
- * @summary Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
+ * @summary 查询主账号多因素认证设备信息
  *
  * @return GetAccountMFAInfoResponse
  */
@@ -1653,7 +1605,7 @@ GetAccountMFAInfoResponse Client::getAccountMFAInfo() {
 }
 
 /**
- * @summary Queries the security report of an Alibaba Cloud account.
+ * @summary 查询阿里云账号的安全报告
  *
  * @param request GetAccountSecurityPracticeReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1676,7 +1628,7 @@ GetAccountSecurityPracticeReportResponse Client::getAccountSecurityPracticeRepor
 }
 
 /**
- * @summary Queries the security report of an Alibaba Cloud account.
+ * @summary 查询阿里云账号的安全报告
  *
  * @return GetAccountSecurityPracticeReportResponse
  */
@@ -1686,7 +1638,7 @@ GetAccountSecurityPracticeReportResponse Client::getAccountSecurityPracticeRepor
 }
 
 /**
- * @summary Queries the overview information about an Alibaba Cloud account.
+ * @summary Retrieves a summary of an Alibaba Cloud account.
  *
  * @param request GetAccountSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1709,7 +1661,7 @@ GetAccountSummaryResponse Client::getAccountSummaryWithOptions(const Darabonba::
 }
 
 /**
- * @summary Queries the overview information about an Alibaba Cloud account.
+ * @summary Retrieves a summary of an Alibaba Cloud account.
  *
  * @return GetAccountSummaryResponse
  */
@@ -1719,7 +1671,7 @@ GetAccountSummaryResponse Client::getAccountSummary() {
 }
 
 /**
- * @summary Queries the details of an application secret.
+ * @summary 查询指定应用密钥信息
  *
  * @param request GetAppSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1754,7 +1706,7 @@ GetAppSecretResponse Client::getAppSecretWithOptions(const GetAppSecretRequest &
 }
 
 /**
- * @summary Queries the details of an application secret.
+ * @summary 查询指定应用密钥信息
  *
  * @param request GetAppSecretRequest
  * @return GetAppSecretResponse
@@ -1765,9 +1717,9 @@ GetAppSecretResponse Client::getAppSecret(const GetAppSecretRequest &request) {
 }
 
 /**
- * @summary Queries the configuration information about an application.
+ * @summary Queries the configuration information of a specified application.
  *
- * @description This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+ * @description This topic provides an example of how to query the configuration information of the application `472457090344041****`.
  *
  * @param request GetApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1798,9 +1750,9 @@ GetApplicationResponse Client::getApplicationWithOptions(const GetApplicationReq
 }
 
 /**
- * @summary Queries the configuration information about an application.
+ * @summary Queries the configuration information of a specified application.
  *
- * @description This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+ * @description This topic provides an example of how to query the configuration information of the application `472457090344041****`.
  *
  * @param request GetApplicationRequest
  * @return GetApplicationResponse
@@ -1811,7 +1763,7 @@ GetApplicationResponse Client::getApplication(const GetApplicationRequest &reque
 }
 
 /**
- * @summary Queries installation information about a specified installed application.
+ * @summary 查询应用安装信息
  *
  * @param request GetApplicationProvisionInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1842,7 +1794,7 @@ GetApplicationProvisionInfoResponse Client::getApplicationProvisionInfoWithOptio
 }
 
 /**
- * @summary Queries installation information about a specified installed application.
+ * @summary 查询应用安装信息
  *
  * @param request GetApplicationProvisionInfoRequest
  * @return GetApplicationProvisionInfoResponse
@@ -1853,7 +1805,7 @@ GetApplicationProvisionInfoResponse Client::getApplicationProvisionInfo(const Ge
 }
 
 /**
- * @summary Queries the user credential reports of an Alibaba Cloud account.
+ * @summary 查询用户凭证报告内容
  *
  * @param request GetCredentialReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1888,7 +1840,7 @@ GetCredentialReportResponse Client::getCredentialReportWithOptions(const GetCred
 }
 
 /**
- * @summary Queries the user credential reports of an Alibaba Cloud account.
+ * @summary 查询用户凭证报告内容
  *
  * @param request GetCredentialReportRequest
  * @return GetCredentialReportResponse
@@ -1899,7 +1851,7 @@ GetCredentialReportResponse Client::getCredentialReport(const GetCredentialRepor
 }
 
 /**
- * @summary Queries the default domain name of an Alibaba Cloud account.
+ * @summary 查询默认域名
  *
  * @param request GetDefaultDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1922,7 +1874,7 @@ GetDefaultDomainResponse Client::getDefaultDomainWithOptions(const Darabonba::Ru
 }
 
 /**
- * @summary Queries the default domain name of an Alibaba Cloud account.
+ * @summary 查询默认域名
  *
  * @return GetDefaultDomainResponse
  */
@@ -1932,7 +1884,7 @@ GetDefaultDomainResponse Client::getDefaultDomain() {
 }
 
 /**
- * @summary Queries information about an installed external application.
+ * @summary 查询外部应用
  *
  * @param request GetExternalApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1963,7 +1915,7 @@ GetExternalApplicationResponse Client::getExternalApplicationWithOptions(const G
 }
 
 /**
- * @summary Queries information about an installed external application.
+ * @summary 查询外部应用
  *
  * @param request GetExternalApplicationRequest
  * @return GetExternalApplicationResponse
@@ -1974,7 +1926,7 @@ GetExternalApplicationResponse Client::getExternalApplication(const GetExternalA
 }
 
 /**
- * @summary 查询用户的单项ram治理报告
+ * @summary Queries the details of a specific check item in an identity and access governance report.
  *
  * @param request GetGovernanceItemReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2013,7 +1965,7 @@ GetGovernanceItemReportResponse Client::getGovernanceItemReportWithOptions(const
 }
 
 /**
- * @summary 查询用户的单项ram治理报告
+ * @summary Queries the details of a specific check item in an identity and access governance report.
  *
  * @param request GetGovernanceItemReportRequest
  * @return GetGovernanceItemReportResponse
@@ -2024,7 +1976,7 @@ GetGovernanceItemReportResponse Client::getGovernanceItemReport(const GetGoverna
 }
 
 /**
- * @summary 查询成熟度报告状态
+ * @summary Queries the status of an identity and access governance report.
  *
  * @param request GetGovernanceReportStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2047,7 +1999,7 @@ GetGovernanceReportStatusResponse Client::getGovernanceReportStatusWithOptions(c
 }
 
 /**
- * @summary 查询成熟度报告状态
+ * @summary Queries the status of an identity and access governance report.
  *
  * @return GetGovernanceReportStatusResponse
  */
@@ -2057,7 +2009,7 @@ GetGovernanceReportStatusResponse Client::getGovernanceReportStatus() {
 }
 
 /**
- * @summary Queries the information about a Resource Access Management (RAM) user group.
+ * @summary 查询指定用户组信息
  *
  * @param request GetGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2088,7 +2040,7 @@ GetGroupResponse Client::getGroupWithOptions(const GetGroupRequest &request, con
 }
 
 /**
- * @summary Queries the information about a Resource Access Management (RAM) user group.
+ * @summary 查询指定用户组信息
  *
  * @param request GetGroupRequest
  * @return GetGroupResponse
@@ -2099,7 +2051,7 @@ GetGroupResponse Client::getGroup(const GetGroupRequest &request) {
 }
 
 /**
- * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
+ * @summary Retrieves the logon information for a specified Resource Access Management (RAM) user.
  *
  * @param request GetLoginProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2130,7 +2082,7 @@ GetLoginProfileResponse Client::getLoginProfileWithOptions(const GetLoginProfile
 }
 
 /**
- * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
+ * @summary Retrieves the logon information for a specified Resource Access Management (RAM) user.
  *
  * @param request GetLoginProfileRequest
  * @return GetLoginProfileResponse
@@ -2141,10 +2093,7 @@ GetLoginProfileResponse Client::getLoginProfile(const GetLoginProfileRequest &re
 }
 
 /**
- * @summary Queries the information about an OIDC IdP.
- *
- * @description ###
- * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
+ * @summary 查询OIDC身份提供商信息
  *
  * @param request GetOIDCProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2175,10 +2124,7 @@ GetOIDCProviderResponse Client::getOIDCProviderWithOptions(const GetOIDCProvider
 }
 
 /**
- * @summary Queries the information about an OIDC IdP.
- *
- * @description ###
- * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
+ * @summary 查询OIDC身份提供商信息
  *
  * @param request GetOIDCProviderRequest
  * @return GetOIDCProviderResponse
@@ -2189,7 +2135,7 @@ GetOIDCProviderResponse Client::getOIDCProvider(const GetOIDCProviderRequest &re
 }
 
 /**
- * @summary Queries the details of the password policy for RAM users.
+ * @summary Retrieves the password strength policy for Resource Access Management (RAM) users.
  *
  * @param request GetPasswordPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2212,7 +2158,7 @@ GetPasswordPolicyResponse Client::getPasswordPolicyWithOptions(const Darabonba::
 }
 
 /**
- * @summary Queries the details of the password policy for RAM users.
+ * @summary Retrieves the password strength policy for Resource Access Management (RAM) users.
  *
  * @return GetPasswordPolicyResponse
  */
@@ -2222,7 +2168,7 @@ GetPasswordPolicyResponse Client::getPasswordPolicy() {
 }
 
 /**
- * @summary Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+ * @summary Retrieves information about a specified SAML provider for role-based SSO.
  *
  * @param request GetSAMLProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2253,7 +2199,7 @@ GetSAMLProviderResponse Client::getSAMLProviderWithOptions(const GetSAMLProvider
 }
 
 /**
- * @summary Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+ * @summary Retrieves information about a specified SAML provider for role-based SSO.
  *
  * @param request GetSAMLProviderRequest
  * @return GetSAMLProviderResponse
@@ -2264,7 +2210,7 @@ GetSAMLProviderResponse Client::getSAMLProvider(const GetSAMLProviderRequest &re
 }
 
 /**
- * @summary Queries the security preferences for RAM users.
+ * @summary Queries the global security preferences for Resource Access Management (RAM) users.
  *
  * @param request GetSecurityPreferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2287,7 +2233,7 @@ GetSecurityPreferenceResponse Client::getSecurityPreferenceWithOptions(const Dar
 }
 
 /**
- * @summary Queries the security preferences for RAM users.
+ * @summary Queries the global security preferences for Resource Access Management (RAM) users.
  *
  * @return GetSecurityPreferenceResponse
  */
@@ -2297,7 +2243,7 @@ GetSecurityPreferenceResponse Client::getSecurityPreference() {
 }
 
 /**
- * @summary Queries the information about a RAM user.
+ * @summary 查询RAM用户的详细信息
  *
  * @param request GetUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2336,7 +2282,7 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
 }
 
 /**
- * @summary Queries the information about a RAM user.
+ * @summary 查询RAM用户的详细信息
  *
  * @param request GetUserRequest
  * @return GetUserResponse
@@ -2347,7 +2293,7 @@ GetUserResponse Client::getUser(const GetUserRequest &request) {
 }
 
 /**
- * @summary Queries information about a specific Resource Access Management (RAM) user in the recycle bin.
+ * @summary 获取回收站中的用户
  *
  * @param request GetUserInRecycleBinRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2382,7 +2328,7 @@ GetUserInRecycleBinResponse Client::getUserInRecycleBinWithOptions(const GetUser
 }
 
 /**
- * @summary Queries information about a specific Resource Access Management (RAM) user in the recycle bin.
+ * @summary 获取回收站中的用户
  *
  * @param request GetUserInRecycleBinRequest
  * @return GetUserInRecycleBinResponse
@@ -2393,7 +2339,7 @@ GetUserInRecycleBinResponse Client::getUserInRecycleBin(const GetUserInRecycleBi
 }
 
 /**
- * @summary Queries information about the multi-factor authentication (MFA) device that is bound to a Resource Access Management (RAM) user.
+ * @summary 查询RAM用户多因素认证设备信息
  *
  * @param request GetUserMFAInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2424,7 +2370,7 @@ GetUserMFAInfoResponse Client::getUserMFAInfoWithOptions(const GetUserMFAInfoReq
 }
 
 /**
- * @summary Queries information about the multi-factor authentication (MFA) device that is bound to a Resource Access Management (RAM) user.
+ * @summary 查询RAM用户多因素认证设备信息
  *
  * @param request GetUserMFAInfoRequest
  * @return GetUserMFAInfoResponse
@@ -2435,7 +2381,7 @@ GetUserMFAInfoResponse Client::getUserMFAInfo(const GetUserMFAInfoRequest &reque
 }
 
 /**
- * @summary Queries the configurations of user-based single sign-on (SSO).
+ * @summary Queries the identity provider settings for user-based SSO.
  *
  * @param request GetUserSsoSettingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2458,7 +2404,7 @@ GetUserSsoSettingsResponse Client::getUserSsoSettingsWithOptions(const Darabonba
 }
 
 /**
- * @summary Queries the configurations of user-based single sign-on (SSO).
+ * @summary Queries the identity provider settings for user-based SSO.
  *
  * @return GetUserSsoSettingsResponse
  */
@@ -2468,7 +2414,7 @@ GetUserSsoSettingsResponse Client::getUserSsoSettings() {
 }
 
 /**
- * @summary Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+ * @summary 获取用户安全认证的信息
  *
  * @param request GetVerificationInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2499,7 +2445,7 @@ GetVerificationInfoResponse Client::getVerificationInfoWithOptions(const GetVeri
 }
 
 /**
- * @summary Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+ * @summary 获取用户安全认证的信息
  *
  * @param request GetVerificationInfoRequest
  * @return GetVerificationInfoResponse
@@ -2510,7 +2456,7 @@ GetVerificationInfoResponse Client::getVerificationInfo(const GetVerificationInf
 }
 
 /**
- * @summary Queries the AccessKey pairs of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ * @summary 查询主账号或RAM用户访问密钥列表
  *
  * @param request ListAccessKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2541,7 +2487,7 @@ ListAccessKeysResponse Client::listAccessKeysWithOptions(const ListAccessKeysReq
 }
 
 /**
- * @summary Queries the AccessKey pairs of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ * @summary 查询主账号或RAM用户访问密钥列表
  *
  * @param request ListAccessKeysRequest
  * @return ListAccessKeysResponse
@@ -2552,7 +2498,7 @@ ListAccessKeysResponse Client::listAccessKeys(const ListAccessKeysRequest &reque
 }
 
 /**
- * @summary Queries the AccessKey pairs of a specific Resource Access Management (RAM) user in the recycle bin.
+ * @summary 列出回收站中访问密钥列表
  *
  * @param request ListAccessKeysInRecycleBinRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2583,7 +2529,7 @@ ListAccessKeysInRecycleBinResponse Client::listAccessKeysInRecycleBinWithOptions
 }
 
 /**
- * @summary Queries the AccessKey pairs of a specific Resource Access Management (RAM) user in the recycle bin.
+ * @summary 列出回收站中访问密钥列表
  *
  * @param request ListAccessKeysInRecycleBinRequest
  * @return ListAccessKeysInRecycleBinResponse
@@ -2594,7 +2540,7 @@ ListAccessKeysInRecycleBinResponse Client::listAccessKeysInRecycleBin(const List
 }
 
 /**
- * @summary Queries the secret IDs of an application.
+ * @summary 查询指定应用的应用密钥ID列表
  *
  * @param request ListAppSecretIdsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2625,7 +2571,7 @@ ListAppSecretIdsResponse Client::listAppSecretIdsWithOptions(const ListAppSecret
 }
 
 /**
- * @summary Queries the secret IDs of an application.
+ * @summary 查询指定应用的应用密钥ID列表
  *
  * @param request ListAppSecretIdsRequest
  * @return ListAppSecretIdsResponse
@@ -2678,9 +2624,9 @@ ListApplicationProvisionInfosResponse Client::listApplicationProvisionInfos(cons
 }
 
 /**
- * @summary Lists the created applications.
+ * @summary Lists the applications that you have created.
  *
- * @description This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+ * @description This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
  *
  * @param request ListApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2703,9 +2649,9 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const Darabonba::Ru
 }
 
 /**
- * @summary Lists the created applications.
+ * @summary Lists the applications that you have created.
  *
- * @description This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+ * @description This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
  *
  * @return ListApplicationsResponse
  */
@@ -2794,7 +2740,7 @@ ListGroupsResponse Client::listGroups(const ListGroupsRequest &request) {
 }
 
 /**
- * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+ * @summary 查询RAM用户加入的用户组列表
  *
  * @param request ListGroupsForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2825,7 +2771,7 @@ ListGroupsForUserResponse Client::listGroupsForUserWithOptions(const ListGroupsF
 }
 
 /**
- * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+ * @summary 查询RAM用户加入的用户组列表
  *
  * @param request ListGroupsForUserRequest
  * @return ListGroupsForUserResponse
@@ -2836,10 +2782,7 @@ ListGroupsForUserResponse Client::listGroupsForUser(const ListGroupsForUserReque
 }
 
 /**
- * @summary Queries OIDC IdPs.
- *
- * @description ###
- * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+ * @summary 查询OIDC身份提供商列表
  *
  * @param request ListOIDCProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2874,10 +2817,7 @@ ListOIDCProvidersResponse Client::listOIDCProvidersWithOptions(const ListOIDCPro
 }
 
 /**
- * @summary Queries OIDC IdPs.
- *
- * @description ###
- * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+ * @summary 查询OIDC身份提供商列表
  *
  * @param request ListOIDCProvidersRequest
  * @return ListOIDCProvidersResponse
@@ -2888,7 +2828,7 @@ ListOIDCProvidersResponse Client::listOIDCProviders(const ListOIDCProvidersReque
 }
 
 /**
- * @summary Queries the information about the passkeys that are bound to a Resource Access Management (RAM) user.
+ * @summary 查询Passkey
  *
  * @param request ListPasskeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2919,7 +2859,7 @@ ListPasskeysResponse Client::listPasskeysWithOptions(const ListPasskeysRequest &
 }
 
 /**
- * @summary Queries the information about the passkeys that are bound to a Resource Access Management (RAM) user.
+ * @summary 查询Passkey
  *
  * @param request ListPasskeysRequest
  * @return ListPasskeysResponse
@@ -3005,7 +2945,7 @@ ListRecentGovernanceMetricsResponse Client::listRecentGovernanceMetrics() {
 }
 
 /**
- * @summary Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
+ * @summary 查询角色SSO身份提供商列表
  *
  * @param request ListSAMLProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3040,7 +2980,7 @@ ListSAMLProvidersResponse Client::listSAMLProvidersWithOptions(const ListSAMLPro
 }
 
 /**
- * @summary Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
+ * @summary 查询角色SSO身份提供商列表
  *
  * @param request ListSAMLProvidersRequest
  * @return ListSAMLProvidersResponse
@@ -3051,13 +2991,7 @@ ListSAMLProvidersResponse Client::listSAMLProviders(const ListSAMLProvidersReque
 }
 
 /**
- * @summary Queries the tags that are added resources.
- *
- * @description ###
- * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
- * *   `ResourceId.N`
- * *   `Tag.N.Key`
- * *   `Tag.N.Key` and `Tag.N.Value`
+ * @summary 查询资源与标签的关系
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3108,13 +3042,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags that are added resources.
- *
- * @description ###
- * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
- * *   `ResourceId.N`
- * *   `Tag.N.Key`
- * *   `Tag.N.Key` and `Tag.N.Value`
+ * @summary 查询资源与标签的关系
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -3128,8 +3056,8 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
  * @summary Queries the basic information about all Resource Access Management (RAM) users.
  *
  * @description You can call the following API operations to query information about all RAM users:
- * *   ListUsers: queries the details of all RAM users.
- * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+ * - ListUsers: queries the details of all RAM users.
+ * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
  *
  * @param request ListUserBasicInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3175,8 +3103,8 @@ ListUserBasicInfosResponse Client::listUserBasicInfosWithOptions(const ListUserB
  * @summary Queries the basic information about all Resource Access Management (RAM) users.
  *
  * @description You can call the following API operations to query information about all RAM users:
- * *   ListUsers: queries the details of all RAM users.
- * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+ * - ListUsers: queries the details of all RAM users.
+ * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
  *
  * @param request ListUserBasicInfosRequest
  * @return ListUserBasicInfosResponse
@@ -3191,8 +3119,8 @@ ListUserBasicInfosResponse Client::listUserBasicInfos(const ListUserBasicInfosRe
  *
  * @description ### [](#)
  * You can call the following API operations to query the details of all RAM users:
- * *   ListUsers: queries the details of all RAM users.
- * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+ * - ListUsers: queries the details of all RAM users.
+ * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
  *
  * @param request ListUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3239,8 +3167,8 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
  *
  * @description ### [](#)
  * You can call the following API operations to query the details of all RAM users:
- * *   ListUsers: queries the details of all RAM users.
- * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+ * - ListUsers: queries the details of all RAM users.
+ * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
  *
  * @param request ListUsersRequest
  * @return ListUsersResponse
@@ -3251,7 +3179,7 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
- * @summary Queries Resource Access Management (RAM) users in a RAM user group.
+ * @summary 查询用户组中用户列表
  *
  * @param request ListUsersForGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3290,7 +3218,7 @@ ListUsersForGroupResponse Client::listUsersForGroupWithOptions(const ListUsersFo
 }
 
 /**
- * @summary Queries Resource Access Management (RAM) users in a RAM user group.
+ * @summary 查询用户组中用户列表
  *
  * @param request ListUsersForGroupRequest
  * @return ListUsersForGroupResponse
@@ -3301,7 +3229,7 @@ ListUsersForGroupResponse Client::listUsersForGroup(const ListUsersForGroupReque
 }
 
 /**
- * @summary Queries the basic information about all Resource Access Management (RAM) users in the recycle bin.
+ * @summary 查询回收站中用户列表
  *
  * @param request ListUsersInRecycleBinRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3340,7 +3268,7 @@ ListUsersInRecycleBinResponse Client::listUsersInRecycleBinWithOptions(const Lis
 }
 
 /**
- * @summary Queries the basic information about all Resource Access Management (RAM) users in the recycle bin.
+ * @summary 查询回收站中用户列表
  *
  * @param request ListUsersInRecycleBinRequest
  * @return ListUsersInRecycleBinResponse
@@ -3397,7 +3325,7 @@ ListVirtualMFADevicesResponse Client::listVirtualMFADevices(const ListVirtualMFA
 }
 
 /**
- * @summary Installs an application.
+ * @summary 安装应用
  *
  * @param request ProvisionApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3432,7 +3360,7 @@ ProvisionApplicationResponse Client::provisionApplicationWithOptions(const Provi
 }
 
 /**
- * @summary Installs an application.
+ * @summary 安装应用
  *
  * @param request ProvisionApplicationRequest
  * @return ProvisionApplicationResponse
@@ -3443,7 +3371,7 @@ ProvisionApplicationResponse Client::provisionApplication(const ProvisionApplica
 }
 
 /**
- * @summary Installs an external application.
+ * @summary 安装外部应用
  *
  * @param request ProvisionExternalApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3478,7 +3406,7 @@ ProvisionExternalApplicationResponse Client::provisionExternalApplicationWithOpt
 }
 
 /**
- * @summary Installs an external application.
+ * @summary 安装外部应用
  *
  * @param request ProvisionExternalApplicationRequest
  * @return ProvisionExternalApplicationResponse
@@ -3489,10 +3417,7 @@ ProvisionExternalApplicationResponse Client::provisionExternalApplication(const 
 }
 
 /**
- * @summary Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
- *
- * @description ###
- * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+ * @summary 移除OIDC身份提供商中的指定客户端ID
  *
  * @param request RemoveClientIdFromOIDCProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3527,10 +3452,7 @@ RemoveClientIdFromOIDCProviderResponse Client::removeClientIdFromOIDCProviderWit
 }
 
 /**
- * @summary Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
- *
- * @description ###
- * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+ * @summary 移除OIDC身份提供商中的指定客户端ID
  *
  * @param request RemoveClientIdFromOIDCProviderRequest
  * @return RemoveClientIdFromOIDCProviderResponse
@@ -3541,10 +3463,7 @@ RemoveClientIdFromOIDCProviderResponse Client::removeClientIdFromOIDCProvider(co
 }
 
 /**
- * @summary Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
- *
- * @description ###
- * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+ * @summary 移除OIDC身份提供商中指定的验证指纹
  *
  * @param request RemoveFingerprintFromOIDCProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3579,10 +3498,7 @@ RemoveFingerprintFromOIDCProviderResponse Client::removeFingerprintFromOIDCProvi
 }
 
 /**
- * @summary Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
- *
- * @description ###
- * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+ * @summary 移除OIDC身份提供商中指定的验证指纹
  *
  * @param request RemoveFingerprintFromOIDCProviderRequest
  * @return RemoveFingerprintFromOIDCProviderResponse
@@ -3593,7 +3509,7 @@ RemoveFingerprintFromOIDCProviderResponse Client::removeFingerprintFromOIDCProvi
 }
 
 /**
- * @summary Removes a Resource Access Management (RAM) user from a RAM user group.
+ * @summary 将RAM用户从用户组中移除
  *
  * @param request RemoveUserFromGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3628,7 +3544,7 @@ RemoveUserFromGroupResponse Client::removeUserFromGroupWithOptions(const RemoveU
 }
 
 /**
- * @summary Removes a Resource Access Management (RAM) user from a RAM user group.
+ * @summary 将RAM用户从用户组中移除
  *
  * @param request RemoveUserFromGroupRequest
  * @return RemoveUserFromGroupResponse
@@ -3639,7 +3555,7 @@ RemoveUserFromGroupResponse Client::removeUserFromGroup(const RemoveUserFromGrou
 }
 
 /**
- * @summary Restores a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+ * @summary 清空回收站中的访问密钥
  *
  * @param request RestoreAccessKeyFromRecycleBinRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3674,7 +3590,7 @@ RestoreAccessKeyFromRecycleBinResponse Client::restoreAccessKeyFromRecycleBinWit
 }
 
 /**
- * @summary Restores a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+ * @summary 清空回收站中的访问密钥
  *
  * @param request RestoreAccessKeyFromRecycleBinRequest
  * @return RestoreAccessKeyFromRecycleBinResponse
@@ -3685,7 +3601,7 @@ RestoreAccessKeyFromRecycleBinResponse Client::restoreAccessKeyFromRecycleBin(co
 }
 
 /**
- * @summary Restores a specific Resource Access Management (RAM) user from the recycle bin.
+ * @summary 清空回收站中的用户
  *
  * @param request RestoreUserFromRecycleBinRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3716,7 +3632,7 @@ RestoreUserFromRecycleBinResponse Client::restoreUserFromRecycleBinWithOptions(c
 }
 
 /**
- * @summary Restores a specific Resource Access Management (RAM) user from the recycle bin.
+ * @summary 清空回收站中的用户
  *
  * @param request RestoreUserFromRecycleBinRequest
  * @return RestoreUserFromRecycleBinResponse
@@ -3727,7 +3643,7 @@ RestoreUserFromRecycleBinResponse Client::restoreUserFromRecycleBin(const Restor
 }
 
 /**
- * @summary Configures the default domain name for an Alibaba Cloud account.
+ * @summary 设置默认域名
  *
  * @param request SetDefaultDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3758,7 +3674,7 @@ SetDefaultDomainResponse Client::setDefaultDomainWithOptions(const SetDefaultDom
 }
 
 /**
- * @summary Configures the default domain name for an Alibaba Cloud account.
+ * @summary 设置默认域名
  *
  * @param request SetDefaultDomainRequest
  * @return SetDefaultDomainResponse
@@ -3769,7 +3685,7 @@ SetDefaultDomainResponse Client::setDefaultDomain(const SetDefaultDomainRequest 
 }
 
 /**
- * @summary Configures the password policy for Resource Access Management (RAM) users.
+ * @summary Sets the password strength policy for RAM users.
  *
  * @param request SetPasswordPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3784,6 +3700,10 @@ SetPasswordPolicyResponse Client::setPasswordPolicyWithOptions(const SetPassword
 
   if (!!request.hasInitialPasswordAge()) {
     query["InitialPasswordAge"] = request.getInitialPasswordAge();
+  }
+
+  if (!!request.hasInterceptRiskPasswordOnApi()) {
+    query["InterceptRiskPasswordOnApi"] = request.getInterceptRiskPasswordOnApi();
   }
 
   if (!!request.hasMaxLoginAttemps()) {
@@ -3844,7 +3764,7 @@ SetPasswordPolicyResponse Client::setPasswordPolicyWithOptions(const SetPassword
 }
 
 /**
- * @summary Configures the password policy for Resource Access Management (RAM) users.
+ * @summary Sets the password strength policy for RAM users.
  *
  * @param request SetPasswordPolicyRequest
  * @return SetPasswordPolicyResponse
@@ -3855,10 +3775,7 @@ SetPasswordPolicyResponse Client::setPasswordPolicy(const SetPasswordPolicyReque
 }
 
 /**
- * @summary Configures security preferences for a RAM user.
- *
- * @description ###
- * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+ * @summary Configures the global security preferences for a Resource Access Management (RAM) user.
  *
  * @param tmpReq SetSecurityPreferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3943,10 +3860,7 @@ SetSecurityPreferenceResponse Client::setSecurityPreferenceWithOptions(const Set
 }
 
 /**
- * @summary Configures security preferences for a RAM user.
- *
- * @description ###
- * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+ * @summary Configures the global security preferences for a Resource Access Management (RAM) user.
  *
  * @param request SetSecurityPreferenceRequest
  * @return SetSecurityPreferenceResponse
@@ -3957,7 +3871,7 @@ SetSecurityPreferenceResponse Client::setSecurityPreference(const SetSecurityPre
 }
 
 /**
- * @summary Configures information about user-based single sign-on (SSO).
+ * @summary Sets the identity provider (IdP) settings for user-based single sign-on (SSO).
  *
  * @param request SetUserSsoSettingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4004,7 +3918,7 @@ SetUserSsoSettingsResponse Client::setUserSsoSettingsWithOptions(const SetUserSs
 }
 
 /**
- * @summary Configures information about user-based single sign-on (SSO).
+ * @summary Sets the identity provider (IdP) settings for user-based single sign-on (SSO).
  *
  * @param request SetUserSsoSettingsRequest
  * @return SetUserSsoSettingsResponse
@@ -4015,7 +3929,7 @@ SetUserSsoSettingsResponse Client::setUserSsoSettings(const SetUserSsoSettingsRe
 }
 
 /**
- * @summary Binds a mobile phone or email to a Resource Access Management (RAM) user.
+ * @summary 新增录入/修改安全手机号码、安全邮箱的API
  *
  * @param request SetVerificationInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4058,7 +3972,7 @@ SetVerificationInfoResponse Client::setVerificationInfoWithOptions(const SetVeri
 }
 
 /**
- * @summary Binds a mobile phone or email to a Resource Access Management (RAM) user.
+ * @summary 新增录入/修改安全手机号码、安全邮箱的API
  *
  * @param request SetVerificationInfoRequest
  * @return SetVerificationInfoResponse
@@ -4069,7 +3983,7 @@ SetVerificationInfoResponse Client::setVerificationInfo(const SetVerificationInf
 }
 
 /**
- * @summary Adds tags to resources.
+ * @summary 资源打上标签
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4112,7 +4026,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Adds tags to resources.
+ * @summary 资源打上标签
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -4123,7 +4037,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+ * @summary 为RAM用户解绑多因素认证设备
  *
  * @param request UnbindMFADeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4154,7 +4068,7 @@ UnbindMFADeviceResponse Client::unbindMFADeviceWithOptions(const UnbindMFADevice
 }
 
 /**
- * @summary Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+ * @summary 为RAM用户解绑多因素认证设备
  *
  * @param request UnbindMFADeviceRequest
  * @return UnbindMFADeviceResponse
@@ -4165,7 +4079,7 @@ UnbindMFADeviceResponse Client::unbindMFADevice(const UnbindMFADeviceRequest &re
 }
 
 /**
- * @summary Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
+ * @summary 删除用户的安全认证
  *
  * @param request UnbindVerificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4208,7 +4122,7 @@ UnbindVerificationResponse Client::unbindVerificationWithOptions(const UnbindVer
 }
 
 /**
- * @summary Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
+ * @summary 删除用户的安全认证
  *
  * @param request UnbindVerificationRequest
  * @return UnbindVerificationResponse
@@ -4219,7 +4133,7 @@ UnbindVerificationResponse Client::unbindVerification(const UnbindVerificationRe
 }
 
 /**
- * @summary Removes tags from a resource.
+ * @summary 解绑资源的标签
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4266,7 +4180,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes tags from a resource.
+ * @summary 解绑资源的标签
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -4277,7 +4191,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ * @summary 修改访问密钥状态
  *
  * @param request UpdateAccessKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4316,7 +4230,7 @@ UpdateAccessKeyResponse Client::updateAccessKeyWithOptions(const UpdateAccessKey
 }
 
 /**
- * @summary Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ * @summary 修改访问密钥状态
  *
  * @param request UpdateAccessKeyRequest
  * @return UpdateAccessKeyResponse
@@ -4327,7 +4241,7 @@ UpdateAccessKeyResponse Client::updateAccessKey(const UpdateAccessKeyRequest &re
 }
 
 /**
- * @summary Modifies the information about a specified application.
+ * @summary Updates the configuration of a specified application.
  *
  * @param request UpdateApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4390,7 +4304,7 @@ UpdateApplicationResponse Client::updateApplicationWithOptions(const UpdateAppli
 }
 
 /**
- * @summary Modifies the information about a specified application.
+ * @summary Updates the configuration of a specified application.
  *
  * @param request UpdateApplicationRequest
  * @return UpdateApplicationResponse
@@ -4401,7 +4315,7 @@ UpdateApplicationResponse Client::updateApplication(const UpdateApplicationReque
 }
 
 /**
- * @summary Modifies information about a Resource Access Management (RAM) user group.
+ * @summary 修改指定用户组的信息
  *
  * @param request UpdateGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4444,7 +4358,7 @@ UpdateGroupResponse Client::updateGroupWithOptions(const UpdateGroupRequest &req
 }
 
 /**
- * @summary Modifies information about a Resource Access Management (RAM) user group.
+ * @summary 修改指定用户组的信息
  *
  * @param request UpdateGroupRequest
  * @return UpdateGroupResponse
@@ -4455,7 +4369,7 @@ UpdateGroupResponse Client::updateGroup(const UpdateGroupRequest &request) {
 }
 
 /**
- * @summary Modifies the console logon configurations of a Resource Access Management (RAM) user.
+ * @summary Modifies the console logon information for a specified Resource Access Management (RAM) user.
  *
  * @param request UpdateLoginProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4502,7 +4416,7 @@ UpdateLoginProfileResponse Client::updateLoginProfileWithOptions(const UpdateLog
 }
 
 /**
- * @summary Modifies the console logon configurations of a Resource Access Management (RAM) user.
+ * @summary Modifies the console logon information for a specified Resource Access Management (RAM) user.
  *
  * @param request UpdateLoginProfileRequest
  * @return UpdateLoginProfileResponse
@@ -4513,10 +4427,7 @@ UpdateLoginProfileResponse Client::updateLoginProfile(const UpdateLoginProfileRe
 }
 
 /**
- * @summary Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
- *
- * @description ###
- * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
+ * @summary 修改OIDC身份提供商的描述和客户端ID
  *
  * @param request UpdateOIDCProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4559,10 +4470,7 @@ UpdateOIDCProviderResponse Client::updateOIDCProviderWithOptions(const UpdateOID
 }
 
 /**
- * @summary Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
- *
- * @description ###
- * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
+ * @summary 修改OIDC身份提供商的描述和客户端ID
  *
  * @param request UpdateOIDCProviderRequest
  * @return UpdateOIDCProviderResponse
@@ -4573,7 +4481,7 @@ UpdateOIDCProviderResponse Client::updateOIDCProvider(const UpdateOIDCProviderRe
 }
 
 /**
- * @summary Updates the name of a passkey.
+ * @summary 更新Passkey
  *
  * @param request UpdatePasskeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4612,7 +4520,7 @@ UpdatePasskeyResponse Client::updatePasskeyWithOptions(const UpdatePasskeyReques
 }
 
 /**
- * @summary Updates the name of a passkey.
+ * @summary 更新Passkey
  *
  * @param request UpdatePasskeyRequest
  * @return UpdatePasskeyResponse
@@ -4623,9 +4531,9 @@ UpdatePasskeyResponse Client::updatePasskey(const UpdatePasskeyRequest &request)
 }
 
 /**
- * @summary Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+ * @summary Updates the information about a specified identity provider for role-based single sign-on (SSO).
  *
- * @description This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+ * @description This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
  *
  * @param request UpdateSAMLProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4668,9 +4576,9 @@ UpdateSAMLProviderResponse Client::updateSAMLProviderWithOptions(const UpdateSAM
 }
 
 /**
- * @summary Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+ * @summary Updates the information about a specified identity provider for role-based single sign-on (SSO).
  *
- * @description This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+ * @description This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
  *
  * @param request UpdateSAMLProviderRequest
  * @return UpdateSAMLProviderResponse
@@ -4681,9 +4589,7 @@ UpdateSAMLProviderResponse Client::updateSAMLProvider(const UpdateSAMLProviderRe
 }
 
 /**
- * @summary Modifies the information about a RAM user.
- *
- * @description This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+ * @summary 修改RAM用户信息
  *
  * @param request UpdateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4738,9 +4644,7 @@ UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &reques
 }
 
 /**
- * @summary Modifies the information about a RAM user.
- *
- * @description This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+ * @summary 修改RAM用户信息
  *
  * @param request UpdateUserRequest
  * @return UpdateUserResponse

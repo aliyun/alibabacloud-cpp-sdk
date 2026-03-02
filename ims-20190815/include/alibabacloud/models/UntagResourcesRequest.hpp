@@ -82,32 +82,10 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags from the resource. Valid values:
-    // 
-    // *   true: remove all tags from the resources.
-    // *   false (default): does not remove all tags from the resources.
-    // 
-    // > This parameter takes effect only when TagKey.N is not set in the request.
     shared_ptr<bool> all_ {};
-    // The IDs of resources.
-    // 
-    // Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource ID is the ID of the RAM user.
-    // 
-    // > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
     shared_ptr<vector<string>> resourceId_ {};
-    // The names of resources.
-    // 
-    // Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource name is the name of the RAM user.
-    // 
-    // > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
     shared_ptr<vector<string>> resourcePrincipalName_ {};
-    // The type of the resource. Valid value:
-    // 
-    // *   user: a RAM user
     shared_ptr<string> resourceType_ {};
-    // The tag keys of resources.
-    // 
-    // Valid values of N: 1 to 20. N must be consecutive.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

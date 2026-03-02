@@ -48,13 +48,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The generation status of the user credential report. Valid values:
-    // 
-    // *   STARTED: The system starts to generate the user credential report.
-    // *   INPROGRESS: The user credential report is being generated.
-    // *   COMPLETED: The user credential report is generated.
     shared_ptr<string> state_ {};
   };
 

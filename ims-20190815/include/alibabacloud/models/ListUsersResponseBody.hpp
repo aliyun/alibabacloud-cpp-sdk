@@ -153,9 +153,7 @@ namespace Models
 
 
           protected:
-            // The key of the tag.
             shared_ptr<string> tagKey_ {};
-            // The value of the tag
             shared_ptr<string> tagValue_ {};
           };
 
@@ -264,37 +262,17 @@ namespace Models
 
 
       protected:
-        // The description.
         shared_ptr<string> comments_ {};
-        // The point in time when the RAM user was created. The time is displayed in UTC.
         shared_ptr<string> createDate_ {};
-        // The display name of the RAM user.
         shared_ptr<string> displayName_ {};
-        // The email address of the RAM user.
-        // 
-        // >  This parameter applies only to the Alibaba Cloud China site (aliyun.com).
         shared_ptr<string> email_ {};
-        // The timestamp when the RAM user last logged on to the console.
         shared_ptr<string> lastLoginDate_ {};
-        // The mobile phone number of the RAM user.
-        // 
-        // >  This parameter applies only to the Alibaba Cloud China site (aliyun.com).
         shared_ptr<string> mobilePhone_ {};
-        // The source of the RAM user. Valid values:
-        // 
-        // *   Manual: The RAM user is manually created in the RAM console.
-        // *   SCIM: The RAM user is mapped by using System for Cross-domain Identity Management (SCIM).
-        // *   CloudSSO: The RAM user is mapped from a CloudSSO user.
         shared_ptr<string> provisionType_ {};
-        // The status of the RAM user.
         shared_ptr<string> status_ {};
-        // The tags.
         shared_ptr<User::Tags> tags_ {};
-        // The point in time when the information about the RAM user was last modified. The time is displayed in UTC.
         shared_ptr<string> updateDate_ {};
-        // The ID of the RAM user.
         shared_ptr<string> userId_ {};
-        // The logon name of the RAM user.
         shared_ptr<string> userPrincipalName_ {};
       };
 
@@ -347,14 +325,14 @@ namespace Models
   protected:
     // Indicates whether the response is truncated. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> isTruncated_ {};
     // The parameter that is used to obtain the truncated part. It takes effect only when `IsTruncated` is set to `true`.
     shared_ptr<string> marker_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the RAM users.
     shared_ptr<ListUsersResponseBody::Users> users_ {};
   };
 

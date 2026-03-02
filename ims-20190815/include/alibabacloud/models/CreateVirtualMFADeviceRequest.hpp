@@ -38,10 +38,6 @@ namespace Models
 
 
   protected:
-    // The name of the MFA device.
-    // 
-    // The name must be 1 to 64 characters in length and can contain letters, digits, and hyphens (-).
-    // 
     // This parameter is required.
     shared_ptr<string> virtualMFADeviceName_ {};
   };

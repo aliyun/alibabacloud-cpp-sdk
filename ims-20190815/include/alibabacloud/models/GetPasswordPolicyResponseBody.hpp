@@ -36,6 +36,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const PasswordPolicy& obj) { 
         DARABONBA_PTR_TO_JSON(HardExpire, hardExpire_);
         DARABONBA_PTR_TO_JSON(InitialPasswordAge, initialPasswordAge_);
+        DARABONBA_PTR_TO_JSON(InterceptRiskPasswordOnApi, interceptRiskPasswordOnApi_);
         DARABONBA_PTR_TO_JSON(MaxLoginAttemps, maxLoginAttemps_);
         DARABONBA_PTR_TO_JSON(MaxPasswordAge, maxPasswordAge_);
         DARABONBA_PTR_TO_JSON(MinimumPasswordDifferentCharacter, minimumPasswordDifferentCharacter_);
@@ -50,6 +51,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, PasswordPolicy& obj) { 
         DARABONBA_PTR_FROM_JSON(HardExpire, hardExpire_);
         DARABONBA_PTR_FROM_JSON(InitialPasswordAge, initialPasswordAge_);
+        DARABONBA_PTR_FROM_JSON(InterceptRiskPasswordOnApi, interceptRiskPasswordOnApi_);
         DARABONBA_PTR_FROM_JSON(MaxLoginAttemps, maxLoginAttemps_);
         DARABONBA_PTR_FROM_JSON(MaxPasswordAge, maxPasswordAge_);
         DARABONBA_PTR_FROM_JSON(MinimumPasswordDifferentCharacter, minimumPasswordDifferentCharacter_);
@@ -73,9 +75,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->hardExpire_ == nullptr
-        && this->initialPasswordAge_ == nullptr && this->maxLoginAttemps_ == nullptr && this->maxPasswordAge_ == nullptr && this->minimumPasswordDifferentCharacter_ == nullptr && this->minimumPasswordLength_ == nullptr
-        && this->passwordNotContainUserName_ == nullptr && this->passwordReusePrevention_ == nullptr && this->requireLowercaseCharacters_ == nullptr && this->requireNumbers_ == nullptr && this->requireSymbols_ == nullptr
-        && this->requireUppercaseCharacters_ == nullptr; };
+        && this->initialPasswordAge_ == nullptr && this->interceptRiskPasswordOnApi_ == nullptr && this->maxLoginAttemps_ == nullptr && this->maxPasswordAge_ == nullptr && this->minimumPasswordDifferentCharacter_ == nullptr
+        && this->minimumPasswordLength_ == nullptr && this->passwordNotContainUserName_ == nullptr && this->passwordReusePrevention_ == nullptr && this->requireLowercaseCharacters_ == nullptr && this->requireNumbers_ == nullptr
+        && this->requireSymbols_ == nullptr && this->requireUppercaseCharacters_ == nullptr; };
       // hardExpire Field Functions 
       bool hasHardExpire() const { return this->hardExpire_ != nullptr;};
       void deleteHardExpire() { this->hardExpire_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
       void deleteInitialPasswordAge() { this->initialPasswordAge_ = nullptr;};
       inline int32_t getInitialPasswordAge() const { DARABONBA_PTR_GET_DEFAULT(initialPasswordAge_, 0) };
       inline PasswordPolicy& setInitialPasswordAge(int32_t initialPasswordAge) { DARABONBA_PTR_SET_VALUE(initialPasswordAge_, initialPasswordAge) };
+
+
+      // interceptRiskPasswordOnApi Field Functions 
+      bool hasInterceptRiskPasswordOnApi() const { return this->interceptRiskPasswordOnApi_ != nullptr;};
+      void deleteInterceptRiskPasswordOnApi() { this->interceptRiskPasswordOnApi_ = nullptr;};
+      inline bool getInterceptRiskPasswordOnApi() const { DARABONBA_PTR_GET_DEFAULT(interceptRiskPasswordOnApi_, false) };
+      inline PasswordPolicy& setInterceptRiskPasswordOnApi(bool interceptRiskPasswordOnApi) { DARABONBA_PTR_SET_VALUE(interceptRiskPasswordOnApi_, interceptRiskPasswordOnApi) };
 
 
       // maxLoginAttemps Field Functions 
@@ -161,26 +170,37 @@ namespace Models
 
 
     protected:
-      // Indicates whether to disable logon after the password expires.
+      // Indicates whether logon is restricted after the password expires.
       shared_ptr<bool> hardExpire_ {};
+      // The validity period of the initial password.
       shared_ptr<int32_t> initialPasswordAge_ {};
-      // The maximum number of password retries.
+      // Indicates whether to block threat passwords when a password is set using OpenAPI.
+      // 
+      // Valid values:
+      // 
+      // - true: Threat passwords are blocked when you set a password using OpenAPI.
+      // 
+      // - false: Threat passwords are not blocked when you set a password using OpenAPI.
+      // 
+      // Default value: false
+      shared_ptr<bool> interceptRiskPasswordOnApi_ {};
+      // The maximum number of logon attempts.
       shared_ptr<int32_t> maxLoginAttemps_ {};
-      // The validity period of the password.
+      // The password validity period.
       shared_ptr<int32_t> maxPasswordAge_ {};
-      // The minimum number of unique characters in the password.
+      // The minimum number of different characters in the password.
       shared_ptr<int32_t> minimumPasswordDifferentCharacter_ {};
-      // The minimum required number of characters in a password.
+      // The minimum password length.
       shared_ptr<int32_t> minimumPasswordLength_ {};
-      // Indicates whether to exclude the username from the password.
+      // Indicates whether the password must not contain the username.
       shared_ptr<bool> passwordNotContainUserName_ {};
-      // The policy for password history check.
+      // The password reuse prevention policy.
       shared_ptr<int32_t> passwordReusePrevention_ {};
       // Indicates whether the password must contain lowercase letters.
       shared_ptr<bool> requireLowercaseCharacters_ {};
-      // Indicates whether the password must contain digits.
+      // Indicates whether the password must contain numbers.
       shared_ptr<bool> requireNumbers_ {};
-      // Indicates whether the password must contain special characters.
+      // Indicates whether the password must contain symbols.
       shared_ptr<bool> requireSymbols_ {};
       // Indicates whether the password must contain uppercase letters.
       shared_ptr<bool> requireUppercaseCharacters_ {};
@@ -205,7 +225,7 @@ namespace Models
 
 
   protected:
-    // The details of the password policy.
+    // The password strength policy information.
     shared_ptr<GetPasswordPolicyResponseBody::PasswordPolicy> passwordPolicy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

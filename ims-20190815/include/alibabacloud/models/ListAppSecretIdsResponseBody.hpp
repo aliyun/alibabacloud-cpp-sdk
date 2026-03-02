@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // The ID of the application.
         shared_ptr<string> appId_ {};
-        // The ID of the application secret.
         shared_ptr<string> appSecretId_ {};
-        // The creation time.
         shared_ptr<string> createDate_ {};
       };
 
@@ -139,9 +136,7 @@ namespace Models
 
 
   protected:
-    // The details of the application secret.
     shared_ptr<ListAppSecretIdsResponseBody::AppSecrets> appSecrets_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

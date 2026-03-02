@@ -48,10 +48,7 @@ namespace Models
 
 
   protected:
-    // The name of the RAM user group.
     shared_ptr<string> groupName_ {};
-    // The logon name of the RAM user.
-    // 
     // This parameter is required.
     shared_ptr<string> userPrincipalName_ {};
   };

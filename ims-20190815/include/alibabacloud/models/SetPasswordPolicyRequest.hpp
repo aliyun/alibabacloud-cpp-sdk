@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SetPasswordPolicyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(HardExpire, hardExpire_);
       DARABONBA_PTR_TO_JSON(InitialPasswordAge, initialPasswordAge_);
+      DARABONBA_PTR_TO_JSON(InterceptRiskPasswordOnApi, interceptRiskPasswordOnApi_);
       DARABONBA_PTR_TO_JSON(MaxLoginAttemps, maxLoginAttemps_);
       DARABONBA_PTR_TO_JSON(MaxPasswordAge, maxPasswordAge_);
       DARABONBA_PTR_TO_JSON(MinimumPasswordDifferentCharacter, minimumPasswordDifferentCharacter_);
@@ -29,6 +30,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, SetPasswordPolicyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(HardExpire, hardExpire_);
       DARABONBA_PTR_FROM_JSON(InitialPasswordAge, initialPasswordAge_);
+      DARABONBA_PTR_FROM_JSON(InterceptRiskPasswordOnApi, interceptRiskPasswordOnApi_);
       DARABONBA_PTR_FROM_JSON(MaxLoginAttemps, maxLoginAttemps_);
       DARABONBA_PTR_FROM_JSON(MaxPasswordAge, maxPasswordAge_);
       DARABONBA_PTR_FROM_JSON(MinimumPasswordDifferentCharacter, minimumPasswordDifferentCharacter_);
@@ -52,9 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hardExpire_ == nullptr
-        && this->initialPasswordAge_ == nullptr && this->maxLoginAttemps_ == nullptr && this->maxPasswordAge_ == nullptr && this->minimumPasswordDifferentCharacter_ == nullptr && this->minimumPasswordLength_ == nullptr
-        && this->passwordNotContainUserName_ == nullptr && this->passwordReusePrevention_ == nullptr && this->requireLowercaseCharacters_ == nullptr && this->requireNumbers_ == nullptr && this->requireSymbols_ == nullptr
-        && this->requireUppercaseCharacters_ == nullptr; };
+        && this->initialPasswordAge_ == nullptr && this->interceptRiskPasswordOnApi_ == nullptr && this->maxLoginAttemps_ == nullptr && this->maxPasswordAge_ == nullptr && this->minimumPasswordDifferentCharacter_ == nullptr
+        && this->minimumPasswordLength_ == nullptr && this->passwordNotContainUserName_ == nullptr && this->passwordReusePrevention_ == nullptr && this->requireLowercaseCharacters_ == nullptr && this->requireNumbers_ == nullptr
+        && this->requireSymbols_ == nullptr && this->requireUppercaseCharacters_ == nullptr; };
     // hardExpire Field Functions 
     bool hasHardExpire() const { return this->hardExpire_ != nullptr;};
     void deleteHardExpire() { this->hardExpire_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     void deleteInitialPasswordAge() { this->initialPasswordAge_ = nullptr;};
     inline int32_t getInitialPasswordAge() const { DARABONBA_PTR_GET_DEFAULT(initialPasswordAge_, 0) };
     inline SetPasswordPolicyRequest& setInitialPasswordAge(int32_t initialPasswordAge) { DARABONBA_PTR_SET_VALUE(initialPasswordAge_, initialPasswordAge) };
+
+
+    // interceptRiskPasswordOnApi Field Functions 
+    bool hasInterceptRiskPasswordOnApi() const { return this->interceptRiskPasswordOnApi_ != nullptr;};
+    void deleteInterceptRiskPasswordOnApi() { this->interceptRiskPasswordOnApi_ = nullptr;};
+    inline bool getInterceptRiskPasswordOnApi() const { DARABONBA_PTR_GET_DEFAULT(interceptRiskPasswordOnApi_, false) };
+    inline SetPasswordPolicyRequest& setInterceptRiskPasswordOnApi(bool interceptRiskPasswordOnApi) { DARABONBA_PTR_SET_VALUE(interceptRiskPasswordOnApi_, interceptRiskPasswordOnApi) };
 
 
     // maxLoginAttemps Field Functions 
@@ -140,64 +149,78 @@ namespace Models
 
 
   protected:
-    // Specifies whether to disable logon after the password expires. Valid values:
+    // Specifies whether to prevent a RAM user from logging on after the password expires. Valid values:
     // 
-    // *   true: After the password expires, you cannot use the password to log on to the console. You can log on to the console only after you reset the password by using your Alibaba Cloud account or as a RAM user that has administrative rights.
-    // *   false: After the password expires, you can change the password to log on to the console. This is the default value.
+    // - true: After the password expires, the RAM user cannot log on to the console. The password must be reset by the Alibaba Cloud account or a RAM user with administrative permissions before the RAM user can log on.
+    // 
+    // - false (default): After the password expires, the RAM user can change the password and then log on.
     shared_ptr<bool> hardExpire_ {};
+    // The validity period of an initial password. An initial password is the password that is set when you create a RAM user or re-enable console logon.
+    // 
+    // Valid values: 0 to 90. Unit: days.
+    // 
+    // Default value: 14.
+    // 
+    // A value of 0 disables this feature.
     shared_ptr<int32_t> initialPasswordAge_ {};
-    // The maximum number of password retries. If you enter the wrong passwords for the specified consecutive times, the account is locked for one hour.
+    shared_ptr<bool> interceptRiskPasswordOnApi_ {};
+    // The maximum number of consecutive logon failures that are allowed. If the number of failures is reached, the account is locked for one hour.
     // 
     // Valid values: 0 to 32.
     // 
-    // The default value is 0, which indicates that the password retries are not limited.
+    // Default value: 0. A value of 0 disables this feature.
     shared_ptr<int32_t> maxLoginAttemps_ {};
-    // The validity period of the password.
+    // The validity period of a password.
     // 
     // Valid values: 0 to 1095. Unit: days.
     // 
-    // The default value is 0, which indicates that the password never expires.
+    // Default value: 0. A value of 0 indicates that the password never expires.
     shared_ptr<int32_t> maxPasswordAge_ {};
-    // The minimum number of unique characters in the password.
+    // The minimum number of unique characters in a password.
     // 
     // Valid values: 0 to 8.
     // 
-    // The default value is 0, which indicates that no limits are imposed on the number of unique characters in a password.
+    // Default value: 0. A value of 0 indicates that no limit is imposed on the number of unique characters.
     shared_ptr<int32_t> minimumPasswordDifferentCharacter_ {};
-    // The minimum number of characters in the password.
+    // The minimum length of the password.
     // 
     // Valid values: 8 to 32. Default value: 8.
     shared_ptr<int32_t> minimumPasswordLength_ {};
-    // Specifies whether to exclude the username from the password. Valid values:
+    // Specifies whether the password can contain the username. Valid values:
     // 
-    // *   true: A password cannot contain the username.
-    // *   false: A password can contain the username. This is the default value.
+    // - true: The password cannot contain the username.
+    // 
+    // - false (default): The password can contain the username.
     shared_ptr<bool> passwordNotContainUserName_ {};
-    // The policy for password history check.
+    // The number of previous passwords that cannot be reused.
     // 
-    // The previous N passwords cannot be reused. Valid values of N: 0 to 24.
+    // Valid values: 0 to 24.
     // 
-    // The default value is 0, which indicates that RAM users can reuse previous passwords.
+    // Default value: 0. A value of 0 disables this feature.
     shared_ptr<int32_t> passwordReusePrevention_ {};
     // Specifies whether the password must contain lowercase letters. Valid values:
     // 
-    // *   true
-    // *   false (default)
+    // - true
+    // 
+    // - false (default)
     shared_ptr<bool> requireLowercaseCharacters_ {};
     // Specifies whether the password must contain digits. Valid values:
     // 
-    // *   true
-    // *   false (default)
-    shared_ptr<bool> requireNumbers_ {};
-    // Specifies whether the password must contain special characters. Valid values:
+    // - true
     // 
-    // *   true
-    // *   false (default)
+    // - false (default)
+    shared_ptr<bool> requireNumbers_ {};
+    // Specifies whether the password must contain symbols. Valid values:
+    // 
+    // - true
+    // 
+    // - false (default)
     shared_ptr<bool> requireSymbols_ {};
     // Specifies whether the password must contain uppercase letters. Valid values:
     // 
-    // *   true
-    // *   false (default)
+    // - true
+    // 
+    // - false (default)
     shared_ptr<bool> requireUppercaseCharacters_ {};
   };
 

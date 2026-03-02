@@ -78,11 +78,8 @@ namespace Models
 
 
     protected:
-      // The key of the MFA device.
       shared_ptr<string> base32StringSeed_ {};
-      // The Base64-encoded QR code of the key.
       shared_ptr<string> QRCodePNG_ {};
-      // The serial number of the MFA device.
       shared_ptr<string> serialNumber_ {};
     };
 
@@ -105,9 +102,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the MFA device.
     shared_ptr<CreateVirtualMFADeviceResponseBody::VirtualMFADevice> virtualMFADevice_ {};
   };
 

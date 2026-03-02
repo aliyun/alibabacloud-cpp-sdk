@@ -124,27 +124,39 @@ namespace Models
 
 
     protected:
-      // Indicates whether console logon is automatically disabled if a RAM user does not log on to the console in the previous specified number of days. The number of days is specified by MaxIdleDaysForUsers. The default value is true, and you cannot change the value.
+      // Indicates whether console logon is automatically disabled if the user is inactive. This feature is enabled by default and cannot be disabled.
       shared_ptr<string> autoDisableLoginStatus_ {};
-      // The time of the most recent logon. The time is displayed in UTC.
+      // The time when the RAM user last logged on to the console. The time is in UTC.
       shared_ptr<string> lastLoginTime_ {};
-      // Indicates whether multi-factor authentication (MFA) must be enabled. Valid values:
+      // Indicates whether multi-factor authentication (MFA) is required for the user. Valid values:
       // 
-      // *   false
-      // *   true
+      // - false: MFA is not required.
+      // 
+      // - true: MFA is required.
       shared_ptr<bool> MFABindRequired_ {};
-      // Indicates whether the RAM user is required to reset the password upon the next logon. Valid values:
+      // Indicates whether the RAM user must reset the password at the next logon. Valid values:
       // 
-      // *   false
-      // *   true
+      // - false: The RAM user is not required to reset the password.
+      // 
+      // - true: The RAM user is required to reset the password.
       shared_ptr<bool> passwordResetRequired_ {};
-      shared_ptr<string> passwordStatus_ {};
-      // Indicates whether console logon is enabled. Valid values:
+      // The status of the initial password. An initial password is the password that is configured when you create a logon profile or re-enable console logon.
       // 
-      // *   Active: enabled.
-      // *   Inactive: disabled.
+      // Valid values
+      // 
+      // - "NotInitial": The password is not an initial password.
+      // 
+      // - "InitialValid": The initial password is valid.
+      // 
+      // - "InitialExpired": The initial password has expired.
+      shared_ptr<string> passwordStatus_ {};
+      // The status of console logon. Valid values:
+      // 
+      // - Active: Console logon is enabled.
+      // 
+      // - Inactive: Console logon is disabled.
       shared_ptr<string> status_ {};
-      // The modification time. The time is displayed in UTC.
+      // The time when the logon profile was last updated. The time is in Coordinated Universal Time (UTC).
       shared_ptr<string> updateDate_ {};
       // The logon name of the RAM user.
       shared_ptr<string> userPrincipalName_ {};
@@ -169,9 +181,9 @@ namespace Models
 
 
   protected:
-    // The console logon configurations.
+    // The logon information for the console.
     shared_ptr<GetLoginProfileResponseBody::LoginProfile> loginProfile_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

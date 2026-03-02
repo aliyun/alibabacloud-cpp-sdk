@@ -78,13 +78,7 @@ namespace Models
 
 
     protected:
-      // The key of tag N.
-      // 
-      // Valid values of N: 1 to 20. N must be consecutive.
       shared_ptr<string> key_ {};
-      // The value of tag N.
-      // 
-      // Valid values of N: 1 to 20. N must be consecutive.
       shared_ptr<string> value_ {};
     };
 
@@ -139,29 +133,11 @@ namespace Models
 
 
   protected:
-    // The token that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.
     shared_ptr<string> nextToken_ {};
-    // The number of entries per page. If a response is truncated because it reaches the value of PageSize, the value of IsTruncated will be true. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of resource N.
-    // 
-    // Valid values of N: 1 to 50. If ResourceType is set to user, the resource ID is the ID of the RAM user.
-    // 
-    // > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
     shared_ptr<vector<string>> resourceId_ {};
-    // The name of resource N.
-    // 
-    // Valid values of N: 1 to 50. If ResourceType is set to user, the resource name is the name of the RAM user.
-    // 
-    // > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
     shared_ptr<vector<string>> resourcePrincipalName_ {};
-    // The type of the resource. Valid value:
-    // 
-    // *   user: a RAM user
     shared_ptr<string> resourceType_ {};
-    // The tag value.
-    // 
-    // Valid values of N: 1 to 20. N must be consecutive.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

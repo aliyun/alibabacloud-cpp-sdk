@@ -75,20 +75,10 @@ namespace Models
 
 
   protected:
-    // The content of the user credential report.
-    // 
-    // The report is Base64-encoded. After you decode the report, the credential report is in the CSV format.
     shared_ptr<string> content_ {};
-    // The time when the user credential report was generated.
     shared_ptr<string> generatedTime_ {};
-    // Indicates whether the response is truncated. Valid values:
-    // 
-    // *   true
-    // *   false
     shared_ptr<string> isTruncated_ {};
-    // The parameter that is used to obtain the truncated part. This parameter takes effect only when `IsTruncated` is set to true.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

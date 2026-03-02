@@ -129,17 +129,11 @@ namespace Models
 
 
       protected:
-        // The description.
         shared_ptr<string> comments_ {};
-        // The creation time.
         shared_ptr<string> createDate_ {};
-        // The display name of the RAM user group.
         shared_ptr<string> displayName_ {};
-        // The ID of the RAM user group.
         shared_ptr<string> groupId_ {};
-        // The name of the RAM user group.
         shared_ptr<string> groupName_ {};
-        // The update time.
         shared_ptr<string> updateDate_ {};
       };
 
@@ -190,12 +184,12 @@ namespace Models
 
 
   protected:
-    // The information about the RAM user groups.
     shared_ptr<ListGroupsResponseBody::Groups> groups_ {};
     // Indicates whether the response is truncated. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> isTruncated_ {};
     // The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
     shared_ptr<string> marker_ {};

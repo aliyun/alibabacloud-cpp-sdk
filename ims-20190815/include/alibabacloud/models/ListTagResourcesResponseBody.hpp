@@ -111,15 +111,9 @@ namespace Models
 
 
       protected:
-        // The ID of the resource.
         shared_ptr<string> resourceId_ {};
-        // The type of the resource. Valid values:
-        // 
-        // *   user: a RAM user
         shared_ptr<string> resourceType_ {};
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -170,16 +164,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether the response is truncated. Valid values:
-    // 
-    // *   true
-    // *   false
     shared_ptr<bool> isTruncated_ {};
-    // The marker. This parameter is returned only if the value of IsTruncated is true. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tag key.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

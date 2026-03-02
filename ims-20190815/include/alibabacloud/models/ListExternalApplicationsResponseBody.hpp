@@ -162,9 +162,7 @@ namespace Models
 
 
             protected:
-              // The description of the permission.
               shared_ptr<string> description_ {};
-              // The name of the permission.
               shared_ptr<string> name_ {};
             };
 
@@ -193,7 +191,6 @@ namespace Models
 
 
         protected:
-          // The information about the permissions that are granted to the external application.
           shared_ptr<DelegatedScope::PredefinedScopes> predefinedScopes_ {};
         };
 
@@ -252,19 +249,12 @@ namespace Models
 
 
       protected:
-        // The name of the external application principal. The value is in the `<app_name>@app.<account_id>.onaliyun.com` format.
         shared_ptr<string> appPrincipalName_ {};
-        // The time when the external application was installed. The value is a timestamp.
         shared_ptr<string> createDate_ {};
-        // The information about the permissions that are granted to the external application.
         shared_ptr<ExternalApplication::DelegatedScope> delegatedScope_ {};
-        // The display name of the external application.
         shared_ptr<string> displayName_ {};
-        // The ID of the external application.
         shared_ptr<string> foreignAppId_ {};
-        // The ID of the Alibaba Cloud account for which the external application was installed.
         shared_ptr<string> tenantId_ {};
-        // The update time of the external application. The value is a timestamp.
         shared_ptr<string> updateDate_ {};
       };
 
@@ -315,16 +305,16 @@ namespace Models
 
 
   protected:
-    // The information about the external applications.
     shared_ptr<ListExternalApplicationsResponseBody::ExternalApplications> externalApplications_ {};
     // Indicates whether the response is truncated. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> isTruncated_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results.
     // 
-    // >  This parameter is returned only when `IsTruncated` is `true`.
+    // > This parameter is returned only when `IsTruncated` is `true`.
     shared_ptr<string> marker_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,12 +48,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether MFA devices are enabled. Valid values:
-    // 
-    // *   true
-    // *   false
     shared_ptr<bool> isMFAEnable_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

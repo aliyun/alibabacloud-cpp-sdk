@@ -143,9 +143,7 @@ namespace Models
 
 
           protected:
-            // The description of the permission.
             shared_ptr<string> description_ {};
-            // The name of the permission.
             shared_ptr<string> name_ {};
           };
 
@@ -174,7 +172,6 @@ namespace Models
 
 
       protected:
-        // The information about the permissions that are granted to the application.
         shared_ptr<DelegatedScope::PredefinedScopes> predefinedScopes_ {};
       };
 
@@ -247,23 +244,14 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
       shared_ptr<string> accountId_ {};
-      // The ID of the application.
       shared_ptr<string> appId_ {};
-      // The name of the application.
       shared_ptr<string> appName_ {};
-      // The name of the application principal. The value is in the `<app_name>@app.<account_id>.onaliyun.com` format.
       shared_ptr<string> appPrincipalName_ {};
-      // The time when the application was installed. The value is a timestamp.
       shared_ptr<string> createDate_ {};
-      // The information about the permissions that are granted to the application.
       shared_ptr<ApplicationProvisionInfo::DelegatedScope> delegatedScope_ {};
-      // The display name of the application.
       shared_ptr<string> displayName_ {};
-      // The ID of the Alibaba Cloud account for which the application was installed.
       shared_ptr<string> tenantId_ {};
-      // The update time. The value is a timestamp.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -286,9 +274,7 @@ namespace Models
 
 
   protected:
-    // The installation information of the application.
     shared_ptr<ProvisionApplicationResponseBody::ApplicationProvisionInfo> applicationProvisionInfo_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -88,13 +88,9 @@ namespace Models
 
 
     protected:
-      // The time when the passkey was created. The value is a timestamp.
       shared_ptr<string> createDate_ {};
-      // The time when the passkey was last used. The value is a timestamp.
       shared_ptr<string> lastUseDate_ {};
-      // The ID of the passkey.
       shared_ptr<string> passkeyId_ {};
-      // The name of the passkey.
       shared_ptr<string> passkeyName_ {};
     };
 
@@ -117,9 +113,7 @@ namespace Models
 
 
   protected:
-    // The information about the passkeys.
     shared_ptr<vector<ListPasskeysResponseBody::Passkeys>> passkeys_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

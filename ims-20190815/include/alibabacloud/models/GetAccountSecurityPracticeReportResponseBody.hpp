@@ -154,30 +154,14 @@ namespace Models
 
 
       protected:
-        // Indicates whether multi-factor authentication (MFA) is enabled. Valid values:
-        // 
-        // *   true
-        // *   false
         shared_ptr<bool> bindMfa_ {};
-        // The number of old AccessKey pairs for the Alibaba Cloud account.
         shared_ptr<int32_t> oldAkNum_ {};
-        // The number of AccessKey pairs for the Alibaba Cloud account.
         shared_ptr<int32_t> rootWithAccessKey_ {};
-        // The number of RAM users within the Alibaba Cloud account.
         shared_ptr<int32_t> subUser_ {};
-        // The number of RAM users that have MFA devices bound.
         shared_ptr<int32_t> subUserBindMfa_ {};
-        // The complexity level of the password for the RAM user. Valid values:
-        // 
-        // *   low
-        // *   mid
-        // *   high
         shared_ptr<string> subUserPwdLevel_ {};
-        // The number of RAM users that use the old AccessKey pairs.
         shared_ptr<int32_t> subUserWithOldAccessKey_ {};
-        // The number of Resource Access Management (RAM) users that have unused AccessKey pairs.
         shared_ptr<int32_t> subUserWithUnusedAccessKey_ {};
-        // The number of AccessKey pairs that are not used for the Alibaba Cloud account.
         shared_ptr<int32_t> unusedAkNum_ {};
       };
 
@@ -200,9 +184,7 @@ namespace Models
 
 
     protected:
-      // The information about the security report for the Alibaba Cloud account.
       shared_ptr<AccountSecurityPracticeInfo::AccountSecurityPracticeUserInfo> accountSecurityPracticeUserInfo_ {};
-      // The security score of the Alibaba Cloud account.
       shared_ptr<int32_t> score_ {};
     };
 
@@ -225,9 +207,7 @@ namespace Models
 
 
   protected:
-    // The information about the security report for the Alibaba Cloud account.
     shared_ptr<GetAccountSecurityPracticeReportResponseBody::AccountSecurityPracticeInfo> accountSecurityPracticeInfo_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

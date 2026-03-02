@@ -107,13 +107,9 @@ namespace Models
 
 
       protected:
-        // The AccessKey ID.
         shared_ptr<string> accessKeyId_ {};
-        // The time when the AccessKey pair was created.
         shared_ptr<string> createDate_ {};
-        // The time when the AccessKey pair will be permanently deleted from the recycle bin.
         shared_ptr<string> deleteDate_ {};
-        // The time when the AccessKey pair was deleted and moved to the recycle bin.
         shared_ptr<string> recycleDate_ {};
       };
 
@@ -150,9 +146,7 @@ namespace Models
 
 
   protected:
-    // The information about the AccessKey pairs.
     shared_ptr<ListAccessKeysInRecycleBinResponseBody::AccessKeys> accessKeys_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -195,16 +195,8 @@ namespace Models
 
 
           protected:
-            // The description of the permission.
             shared_ptr<string> description_ {};
-            // The name of the permission.
             shared_ptr<string> name_ {};
-            // Indicates whether the permission is automatically selected by default when you install the application. Valid values:
-            // 
-            // *   true
-            // *   false
-            // 
-            // `openid` is required by default.
             shared_ptr<bool> required_ {};
           };
 
@@ -233,7 +225,6 @@ namespace Models
 
 
       protected:
-        // The information about the permissions that are granted on the application.
         shared_ptr<DelegatedScope::PredefinedScopes> predefinedScopes_ {};
       };
 
@@ -348,32 +339,38 @@ namespace Models
       shared_ptr<int32_t> accessTokenValidity_ {};
       // The ID of the Alibaba Cloud account to which the application belongs.
       shared_ptr<string> accountId_ {};
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
-      // The type of the application. Valid values:
+      // The application type. Valid values:
       // 
-      // *   WebApp: a web application.
-      // *   NativeApp: a native application that runs on an operating system, such as a desktop or mobile operating system.
-      // *   ServerApp: an application that can access Alibaba Cloud services without the need for user logon. Only applications that synchronize user information based on the System for Cross-domain Identity Management (SCIM) protocol are supported.
+      // - WebApp: a web application that is based on browser interaction.
+      // 
+      // - NativeApp: a native application that runs on an operating system, such as a desktop or mobile operating system.
+      // 
+      // - ServerApp: an application that can directly access Alibaba Cloud services without user logon. Currently, only applications that use the System for Cross-domain Identity Management (SCIM) for user synchronization are supported.
       shared_ptr<string> appType_ {};
-      // The creation time.
+      // The time when the application was created.
       shared_ptr<string> createDate_ {};
-      // The information about the permissions that are granted on the application.
+      // The permission scopes of the application.
       shared_ptr<Application::DelegatedScope> delegatedScope_ {};
       // The display name of the application.
       shared_ptr<string> displayName_ {};
-      // Indicates whether the application can be installed by using other Alibaba Cloud accounts.
+      // Indicates whether the application can be installed by other Alibaba Cloud accounts.
       shared_ptr<bool> isMultiTenant_ {};
+      // The OAuth protocol version of the application. Valid values:
+      // 
+      // - `2.0`: OAuth 2.0.
+      // 
+      // - `2.1`: OAuth 2.1.
       shared_ptr<string> protocolVersion_ {};
-      // The callback URL.
       shared_ptr<Application::RedirectUris> redirectUris_ {};
       // The validity period of the refresh token. Unit: seconds.
       shared_ptr<int32_t> refreshTokenValidity_ {};
-      // Indicates whether a secret is required.
+      // Indicates whether an application key is required.
       shared_ptr<bool> secretRequired_ {};
-      // The update time.
+      // The time when the application was last updated.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -398,7 +395,7 @@ namespace Models
   protected:
     // The information about the application.
     shared_ptr<GetApplicationResponseBody::Application> application_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

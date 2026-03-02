@@ -128,9 +128,7 @@ namespace Models
 
 
         protected:
-          // The tag key.
           shared_ptr<string> tagKey_ {};
-          // The tag value.
           shared_ptr<string> tagValue_ {};
         };
 
@@ -231,35 +229,16 @@ namespace Models
 
 
     protected:
-      // The description.
       shared_ptr<string> comments_ {};
-      // The time when the RAM user was created.
       shared_ptr<string> createDate_ {};
-      // The display name of the RAM user.
       shared_ptr<string> displayName_ {};
-      // The email address of the RAM user.
-      // 
-      // > This parameter is valid only on the China site (aliyun.com).
       shared_ptr<string> email_ {};
-      // The last time when the RAM user logged on to the Alibaba Cloud Management Console.
       shared_ptr<string> lastLoginDate_ {};
-      // The mobile phone number of the RAM user.
-      // 
-      // > This parameter is valid only on the China site (aliyun.com).
       shared_ptr<string> mobilePhone_ {};
-      // The source of the RAM user. Valid values:
-      // 
-      // *   Manual: The RAM user is manually created in the RAM console.
-      // *   SCIM: The RAM user is mapped by using System for Cross-domain Identity Management (SCIM).
-      // *   CloudSSO: The RAM user is mapped from a CloudSSO user.
       shared_ptr<string> provisionType_ {};
-      // The tag value.
       shared_ptr<User::Tags> tags_ {};
-      // The time when the information about the RAM user was updated.
       shared_ptr<string> updateDate_ {};
-      // The ID of the RAM user.
       shared_ptr<string> userId_ {};
-      // The logon name of the RAM user.
       shared_ptr<string> userPrincipalName_ {};
     };
 
@@ -282,9 +261,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the RAM user.
     shared_ptr<CreateUserResponseBody::User> user_ {};
   };
 

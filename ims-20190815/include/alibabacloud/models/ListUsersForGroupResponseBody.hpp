@@ -111,13 +111,9 @@ namespace Models
 
 
       protected:
-        // The display name of the RAM user.
         shared_ptr<string> displayName_ {};
-        // The time when the RAM user was added to the RAM user group. The time is displayed in UTC.
         shared_ptr<string> joinDate_ {};
-        // The ID of the RAM user.
         shared_ptr<string> userId_ {};
-        // The logon name of the RAM user.
         shared_ptr<string> userPrincipalName_ {};
       };
 
@@ -168,18 +164,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether the response is truncated. Valid values:
-    // 
-    // *   true
-    // *   false
     shared_ptr<bool> isTruncated_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
-    // 
-    // >  This parameter is returned only when `IsTruncated` is `true`.
     shared_ptr<string> marker_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the RAM users.
     shared_ptr<ListUsersForGroupResponseBody::Users> users_ {};
   };
 

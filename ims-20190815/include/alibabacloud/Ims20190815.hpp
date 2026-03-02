@@ -21,7 +21,7 @@ namespace Ims20190815
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+       * @summary 为OIDC身份提供商添加指定客户端ID
        *
        * @param request AddClientIdToOIDCProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Ims20190815
       Models::AddClientIdToOIDCProviderResponse addClientIdToOIDCProviderWithOptions(const Models::AddClientIdToOIDCProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+       * @summary 为OIDC身份提供商添加指定客户端ID
        *
        * @param request AddClientIdToOIDCProviderRequest
        * @return AddClientIdToOIDCProviderResponse
@@ -38,10 +38,7 @@ namespace Ims20190815
       Models::AddClientIdToOIDCProviderResponse addClientIdToOIDCProvider(const Models::AddClientIdToOIDCProviderRequest &request);
 
       /**
-       * @summary Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
-       *
-       * @description ###
-       * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+       * @summary 为OIDC身份提供商添加验证指纹
        *
        * @param request AddFingerprintToOIDCProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -50,10 +47,7 @@ namespace Ims20190815
       Models::AddFingerprintToOIDCProviderResponse addFingerprintToOIDCProviderWithOptions(const Models::AddFingerprintToOIDCProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
-       *
-       * @description ###
-       * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+       * @summary 为OIDC身份提供商添加验证指纹
        *
        * @param request AddFingerprintToOIDCProviderRequest
        * @return AddFingerprintToOIDCProviderResponse
@@ -61,7 +55,7 @@ namespace Ims20190815
       Models::AddFingerprintToOIDCProviderResponse addFingerprintToOIDCProvider(const Models::AddFingerprintToOIDCProviderRequest &request);
 
       /**
-       * @summary Adds a Resource Access Management (RAM) user to a RAM user group.
+       * @summary 将RAM用户添加到指定的用户组
        *
        * @param request AddUserToGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -70,7 +64,7 @@ namespace Ims20190815
       Models::AddUserToGroupResponse addUserToGroupWithOptions(const Models::AddUserToGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a Resource Access Management (RAM) user to a RAM user group.
+       * @summary 将RAM用户添加到指定的用户组
        *
        * @param request AddUserToGroupRequest
        * @return AddUserToGroupResponse
@@ -78,7 +72,7 @@ namespace Ims20190815
       Models::AddUserToGroupResponse addUserToGroup(const Models::AddUserToGroupRequest &request);
 
       /**
-       * @summary Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
+       * @summary 为RAM用户绑定多因素认证设备
        *
        * @param request BindMFADeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -87,7 +81,7 @@ namespace Ims20190815
       Models::BindMFADeviceResponse bindMFADeviceWithOptions(const Models::BindMFADeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
+       * @summary 为RAM用户绑定多因素认证设备
        *
        * @param request BindMFADeviceRequest
        * @return BindMFADeviceResponse
@@ -95,9 +89,7 @@ namespace Ims20190815
       Models::BindMFADeviceResponse bindMFADevice(const Models::BindMFADeviceRequest &request);
 
       /**
-       * @summary Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
-       *
-       * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+       * @summary 修改RAM用户的登录密码
        *
        * @param request ChangePasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -106,9 +98,7 @@ namespace Ims20190815
       Models::ChangePasswordResponse changePasswordWithOptions(const Models::ChangePasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
-       *
-       * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+       * @summary 修改RAM用户的登录密码
        *
        * @param request ChangePasswordRequest
        * @return ChangePasswordResponse
@@ -116,7 +106,7 @@ namespace Ims20190815
       Models::ChangePasswordResponse changePassword(const Models::ChangePasswordRequest &request);
 
       /**
-       * @summary Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+       * @summary 创建主账号或RAM用户访问密钥
        *
        * @param request CreateAccessKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -125,7 +115,7 @@ namespace Ims20190815
       Models::CreateAccessKeyResponse createAccessKeyWithOptions(const Models::CreateAccessKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+       * @summary 创建主账号或RAM用户访问密钥
        *
        * @param request CreateAccessKeyRequest
        * @return CreateAccessKeyResponse
@@ -133,7 +123,7 @@ namespace Ims20190815
       Models::CreateAccessKeyResponse createAccessKey(const Models::CreateAccessKeyRequest &request);
 
       /**
-       * @summary Creates an application secret for an application.
+       * @summary 为指定的应用创建应用密钥
        *
        * @param request CreateAppSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -142,7 +132,7 @@ namespace Ims20190815
       Models::CreateAppSecretResponse createAppSecretWithOptions(const Models::CreateAppSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an application secret for an application.
+       * @summary 为指定的应用创建应用密钥
        *
        * @param request CreateAppSecretRequest
        * @return CreateAppSecretResponse
@@ -167,7 +157,7 @@ namespace Ims20190815
       Models::CreateApplicationResponse createApplication(const Models::CreateApplicationRequest &request);
 
       /**
-       * @summary Creates a Resource Access Management (RAM) user group.
+       * @summary 创建用户组
        *
        * @param request CreateGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -176,7 +166,7 @@ namespace Ims20190815
       Models::CreateGroupResponse createGroupWithOptions(const Models::CreateGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Resource Access Management (RAM) user group.
+       * @summary 创建用户组
        *
        * @param request CreateGroupRequest
        * @return CreateGroupResponse
@@ -184,7 +174,7 @@ namespace Ims20190815
       Models::CreateGroupResponse createGroup(const Models::CreateGroupRequest &request);
 
       /**
-       * @summary Enables logon to the console for a Resource Access Management (RAM) user.
+       * @summary Creates a logon configuration for a Resource Access Management (RAM) user.
        *
        * @param request CreateLoginProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -193,7 +183,7 @@ namespace Ims20190815
       Models::CreateLoginProfileResponse createLoginProfileWithOptions(const Models::CreateLoginProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables logon to the console for a Resource Access Management (RAM) user.
+       * @summary Creates a logon configuration for a Resource Access Management (RAM) user.
        *
        * @param request CreateLoginProfileRequest
        * @return CreateLoginProfileResponse
@@ -201,16 +191,7 @@ namespace Ims20190815
       Models::CreateLoginProfileResponse createLoginProfile(const Models::CreateLoginProfileRequest &request);
 
       /**
-       * @summary Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
-       *
-       * @description ### [](#)Prerequisites
-       * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
-       * ### [](#)Limits
-       * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-       * *   You can add a maximum of 50 client IDs to an OIDC IdP.
-       * *   You can add a maximum of five fingerprints to an OIDC IdP.
-       * ### [](#)Operation description
-       * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
+       * @summary 创建OIDC身份供应商
        *
        * @param request CreateOIDCProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -219,16 +200,7 @@ namespace Ims20190815
       Models::CreateOIDCProviderResponse createOIDCProviderWithOptions(const Models::CreateOIDCProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
-       *
-       * @description ### [](#)Prerequisites
-       * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
-       * ### [](#)Limits
-       * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-       * *   You can add a maximum of 50 client IDs to an OIDC IdP.
-       * *   You can add a maximum of five fingerprints to an OIDC IdP.
-       * ### [](#)Operation description
-       * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
+       * @summary 创建OIDC身份供应商
        *
        * @param request CreateOIDCProviderRequest
        * @return CreateOIDCProviderResponse
@@ -253,9 +225,7 @@ namespace Ims20190815
       Models::CreateSAMLProviderResponse createSAMLProvider(const Models::CreateSAMLProviderRequest &request);
 
       /**
-       * @summary Creates a RAM user.
-       *
-       * @description This topic provides an example on how to create a RAM user named `test`.
+       * @summary 创建RAM用户
        *
        * @param request CreateUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -264,9 +234,7 @@ namespace Ims20190815
       Models::CreateUserResponse createUserWithOptions(const Models::CreateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a RAM user.
-       *
-       * @description This topic provides an example on how to create a RAM user named `test`.
+       * @summary 创建RAM用户
        *
        * @param request CreateUserRequest
        * @return CreateUserResponse
@@ -274,7 +242,7 @@ namespace Ims20190815
       Models::CreateUserResponse createUser(const Models::CreateUserRequest &request);
 
       /**
-       * @summary Creates a virtual multi-factor authentication (MFA) device.
+       * @summary 创建多因素认证设备
        *
        * @param request CreateVirtualMFADeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -283,7 +251,7 @@ namespace Ims20190815
       Models::CreateVirtualMFADeviceResponse createVirtualMFADeviceWithOptions(const Models::CreateVirtualMFADeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a virtual multi-factor authentication (MFA) device.
+       * @summary 创建多因素认证设备
        *
        * @param request CreateVirtualMFADeviceRequest
        * @return CreateVirtualMFADeviceResponse
@@ -291,7 +259,7 @@ namespace Ims20190815
       Models::CreateVirtualMFADeviceResponse createVirtualMFADevice(const Models::CreateVirtualMFADeviceRequest &request);
 
       /**
-       * @summary Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+       * @summary 删除用户的访问密钥
        *
        * @param request DeleteAccessKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -300,7 +268,7 @@ namespace Ims20190815
       Models::DeleteAccessKeyResponse deleteAccessKeyWithOptions(const Models::DeleteAccessKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+       * @summary 删除用户的访问密钥
        *
        * @param request DeleteAccessKeyRequest
        * @return DeleteAccessKeyResponse
@@ -308,7 +276,7 @@ namespace Ims20190815
       Models::DeleteAccessKeyResponse deleteAccessKey(const Models::DeleteAccessKeyRequest &request);
 
       /**
-       * @summary Deletes a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+       * @summary 删除回收站中的访问密钥
        *
        * @param request DeleteAccessKeyInRecycleBinRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -317,7 +285,7 @@ namespace Ims20190815
       Models::DeleteAccessKeyInRecycleBinResponse deleteAccessKeyInRecycleBinWithOptions(const Models::DeleteAccessKeyInRecycleBinRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+       * @summary 删除回收站中的访问密钥
        *
        * @param request DeleteAccessKeyInRecycleBinRequest
        * @return DeleteAccessKeyInRecycleBinResponse
@@ -325,7 +293,7 @@ namespace Ims20190815
       Models::DeleteAccessKeyInRecycleBinResponse deleteAccessKeyInRecycleBin(const Models::DeleteAccessKeyInRecycleBinRequest &request);
 
       /**
-       * @summary Deletes the application secret of an application.
+       * @summary 删除指定应用的应用密钥
        *
        * @param request DeleteAppSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -334,7 +302,7 @@ namespace Ims20190815
       Models::DeleteAppSecretResponse deleteAppSecretWithOptions(const Models::DeleteAppSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the application secret of an application.
+       * @summary 删除指定应用的应用密钥
        *
        * @param request DeleteAppSecretRequest
        * @return DeleteAppSecretResponse
@@ -342,7 +310,7 @@ namespace Ims20190815
       Models::DeleteAppSecretResponse deleteAppSecret(const Models::DeleteAppSecretRequest &request);
 
       /**
-       * @summary Deletes an application.
+       * @summary 删除指定的应用
        *
        * @param request DeleteApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -351,7 +319,7 @@ namespace Ims20190815
       Models::DeleteApplicationResponse deleteApplicationWithOptions(const Models::DeleteApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an application.
+       * @summary 删除指定的应用
        *
        * @param request DeleteApplicationRequest
        * @return DeleteApplicationResponse
@@ -359,9 +327,7 @@ namespace Ims20190815
       Models::DeleteApplicationResponse deleteApplication(const Models::DeleteApplicationRequest &request);
 
       /**
-       * @summary Deletes a Resource Access Management (RAM) user group.
-       *
-       * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+       * @summary 删除指定的用户组
        *
        * @param request DeleteGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,9 +336,7 @@ namespace Ims20190815
       Models::DeleteGroupResponse deleteGroupWithOptions(const Models::DeleteGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a Resource Access Management (RAM) user group.
-       *
-       * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+       * @summary 删除指定的用户组
        *
        * @param request DeleteGroupRequest
        * @return DeleteGroupResponse
@@ -380,7 +344,7 @@ namespace Ims20190815
       Models::DeleteGroupResponse deleteGroup(const Models::DeleteGroupRequest &request);
 
       /**
-       * @summary Disables logon to the console for a Resource Access Management (RAM) user.
+       * @summary 关闭指定RAM用户的控制台登录
        *
        * @param request DeleteLoginProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -389,7 +353,7 @@ namespace Ims20190815
       Models::DeleteLoginProfileResponse deleteLoginProfileWithOptions(const Models::DeleteLoginProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables logon to the console for a Resource Access Management (RAM) user.
+       * @summary 关闭指定RAM用户的控制台登录
        *
        * @param request DeleteLoginProfileRequest
        * @return DeleteLoginProfileResponse
@@ -397,10 +361,7 @@ namespace Ims20190815
       Models::DeleteLoginProfileResponse deleteLoginProfile(const Models::DeleteLoginProfileRequest &request);
 
       /**
-       * @summary Deletes an OpenID Connect (OIDC) identity provider (IdP).
-       *
-       * @description ###
-       * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+       * @summary 删除指定的角色SSO身份提供商
        *
        * @param request DeleteOIDCProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -409,10 +370,7 @@ namespace Ims20190815
       Models::DeleteOIDCProviderResponse deleteOIDCProviderWithOptions(const Models::DeleteOIDCProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an OpenID Connect (OIDC) identity provider (IdP).
-       *
-       * @description ###
-       * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+       * @summary 删除指定的角色SSO身份提供商
        *
        * @param request DeleteOIDCProviderRequest
        * @return DeleteOIDCProviderResponse
@@ -420,7 +378,7 @@ namespace Ims20190815
       Models::DeleteOIDCProviderResponse deleteOIDCProvider(const Models::DeleteOIDCProviderRequest &request);
 
       /**
-       * @summary Deletes a passkey for a Resource Access Management (RAM) user.
+       * @summary 删除Passkey
        *
        * @param request DeletePasskeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -429,7 +387,7 @@ namespace Ims20190815
       Models::DeletePasskeyResponse deletePasskeyWithOptions(const Models::DeletePasskeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a passkey for a Resource Access Management (RAM) user.
+       * @summary 删除Passkey
        *
        * @param request DeletePasskeyRequest
        * @return DeletePasskeyResponse
@@ -437,7 +395,7 @@ namespace Ims20190815
       Models::DeletePasskeyResponse deletePasskey(const Models::DeletePasskeyRequest &request);
 
       /**
-       * @summary Deletes an identity provider (IdP) for role-based single sign-on (SSO).
+       * @summary 删除指定的角色SSO身份提供商
        *
        * @param request DeleteSAMLProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -446,7 +404,7 @@ namespace Ims20190815
       Models::DeleteSAMLProviderResponse deleteSAMLProviderWithOptions(const Models::DeleteSAMLProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an identity provider (IdP) for role-based single sign-on (SSO).
+       * @summary 删除指定的角色SSO身份提供商
        *
        * @param request DeleteSAMLProviderRequest
        * @return DeleteSAMLProviderResponse
@@ -454,7 +412,7 @@ namespace Ims20190815
       Models::DeleteSAMLProviderResponse deleteSAMLProvider(const Models::DeleteSAMLProviderRequest &request);
 
       /**
-       * @summary Deletes a Resource Access Management (RAM) user.
+       * @summary 删除RAM用户
        *
        * @param request DeleteUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -463,7 +421,7 @@ namespace Ims20190815
       Models::DeleteUserResponse deleteUserWithOptions(const Models::DeleteUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a Resource Access Management (RAM) user.
+       * @summary 删除RAM用户
        *
        * @param request DeleteUserRequest
        * @return DeleteUserResponse
@@ -471,7 +429,7 @@ namespace Ims20190815
       Models::DeleteUserResponse deleteUser(const Models::DeleteUserRequest &request);
 
       /**
-       * @summary Deletes a specific Resource Access Management (RAM) user from the recycle bin.
+       * @summary 删除回收站中的用户
        *
        * @param request DeleteUserInRecycleBinRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -480,7 +438,7 @@ namespace Ims20190815
       Models::DeleteUserInRecycleBinResponse deleteUserInRecycleBinWithOptions(const Models::DeleteUserInRecycleBinRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a specific Resource Access Management (RAM) user from the recycle bin.
+       * @summary 删除回收站中的用户
        *
        * @param request DeleteUserInRecycleBinRequest
        * @return DeleteUserInRecycleBinResponse
@@ -488,7 +446,7 @@ namespace Ims20190815
       Models::DeleteUserInRecycleBinResponse deleteUserInRecycleBin(const Models::DeleteUserInRecycleBinRequest &request);
 
       /**
-       * @summary Deletes a multi-factor authentication (MFA) device.
+       * @summary 删除多因素认证设备
        *
        * @param request DeleteVirtualMFADeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -497,7 +455,7 @@ namespace Ims20190815
       Models::DeleteVirtualMFADeviceResponse deleteVirtualMFADeviceWithOptions(const Models::DeleteVirtualMFADeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a multi-factor authentication (MFA) device.
+       * @summary 删除多因素认证设备
        *
        * @param request DeleteVirtualMFADeviceRequest
        * @return DeleteVirtualMFADeviceResponse
@@ -505,10 +463,7 @@ namespace Ims20190815
       Models::DeleteVirtualMFADeviceResponse deleteVirtualMFADevice(const Models::DeleteVirtualMFADeviceRequest &request);
 
       /**
-       * @summary Uninstalls an external application or an internal application of the ServerApp type.
-       *
-       * @description If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
-       * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+       * @summary 解除安装应用
        *
        * @param request DeprovisionApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -517,10 +472,7 @@ namespace Ims20190815
       Models::DeprovisionApplicationResponse deprovisionApplicationWithOptions(const Models::DeprovisionApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uninstalls an external application or an internal application of the ServerApp type.
-       *
-       * @description If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
-       * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+       * @summary 解除安装应用
        *
        * @param request DeprovisionApplicationRequest
        * @return DeprovisionApplicationResponse
@@ -528,7 +480,7 @@ namespace Ims20190815
       Models::DeprovisionApplicationResponse deprovisionApplication(const Models::DeprovisionApplicationRequest &request);
 
       /**
-       * @summary Deletes an installed external application.
+       * @summary 解除安装外部应用
        *
        * @param request DeprovisionExternalApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -537,7 +489,7 @@ namespace Ims20190815
       Models::DeprovisionExternalApplicationResponse deprovisionExternalApplicationWithOptions(const Models::DeprovisionExternalApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an installed external application.
+       * @summary 解除安装外部应用
        *
        * @param request DeprovisionExternalApplicationRequest
        * @return DeprovisionExternalApplicationResponse
@@ -545,7 +497,7 @@ namespace Ims20190815
       Models::DeprovisionExternalApplicationResponse deprovisionExternalApplication(const Models::DeprovisionExternalApplicationRequest &request);
 
       /**
-       * @summary Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+       * @summary 解绑并删除多因素认证设备
        *
        * @param request DisableVirtualMFARequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -554,7 +506,7 @@ namespace Ims20190815
       Models::DisableVirtualMFAResponse disableVirtualMFAWithOptions(const Models::DisableVirtualMFARequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+       * @summary 解绑并删除多因素认证设备
        *
        * @param request DisableVirtualMFARequest
        * @return DisableVirtualMFAResponse
@@ -562,7 +514,7 @@ namespace Ims20190815
       Models::DisableVirtualMFAResponse disableVirtualMFA(const Models::DisableVirtualMFARequest &request);
 
       /**
-       * @summary Generates the user credential report of an Alibaba Cloud account.
+       * @summary 生成用户凭证报告
        *
        * @param request GenerateCredentialReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -571,14 +523,14 @@ namespace Ims20190815
       Models::GenerateCredentialReportResponse generateCredentialReportWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates the user credential report of an Alibaba Cloud account.
+       * @summary 生成用户凭证报告
        *
        * @return GenerateCredentialReportResponse
        */
       Models::GenerateCredentialReportResponse generateCredentialReport();
 
       /**
-       * @summary Generates a check report for Cloud Governance.
+       * @summary 生成身份权限治理报告
        *
        * @param request GenerateGovernanceReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -587,14 +539,14 @@ namespace Ims20190815
       Models::GenerateGovernanceReportResponse generateGovernanceReportWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates a check report for Cloud Governance.
+       * @summary 生成身份权限治理报告
        *
        * @return GenerateGovernanceReportResponse
        */
       Models::GenerateGovernanceReportResponse generateGovernanceReport();
 
       /**
-       * @summary Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
+       * @summary 查询回收站中的访问密钥信息
        *
        * @param request GetAccessKeyInfoInRecycleBinRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -603,7 +555,7 @@ namespace Ims20190815
       Models::GetAccessKeyInfoInRecycleBinResponse getAccessKeyInfoInRecycleBinWithOptions(const Models::GetAccessKeyInfoInRecycleBinRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
+       * @summary 查询回收站中的访问密钥信息
        *
        * @param request GetAccessKeyInfoInRecycleBinRequest
        * @return GetAccessKeyInfoInRecycleBinResponse
@@ -611,7 +563,7 @@ namespace Ims20190815
       Models::GetAccessKeyInfoInRecycleBinResponse getAccessKeyInfoInRecycleBin(const Models::GetAccessKeyInfoInRecycleBinRequest &request);
 
       /**
-       * @summary Queries the time when an AccessKey pair was used for the last time.
+       * @summary 查询指定访问密钥的最后使用时间
        *
        * @param request GetAccessKeyLastUsedRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -620,7 +572,7 @@ namespace Ims20190815
       Models::GetAccessKeyLastUsedResponse getAccessKeyLastUsedWithOptions(const Models::GetAccessKeyLastUsedRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the time when an AccessKey pair was used for the last time.
+       * @summary 查询指定访问密钥的最后使用时间
        *
        * @param request GetAccessKeyLastUsedRequest
        * @return GetAccessKeyLastUsedResponse
@@ -628,7 +580,7 @@ namespace Ims20190815
       Models::GetAccessKeyLastUsedResponse getAccessKeyLastUsed(const Models::GetAccessKeyLastUsedRequest &request);
 
       /**
-       * @summary Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
+       * @summary 查询主账号多因素认证设备信息
        *
        * @param request GetAccountMFAInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -637,14 +589,14 @@ namespace Ims20190815
       Models::GetAccountMFAInfoResponse getAccountMFAInfoWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
+       * @summary 查询主账号多因素认证设备信息
        *
        * @return GetAccountMFAInfoResponse
        */
       Models::GetAccountMFAInfoResponse getAccountMFAInfo();
 
       /**
-       * @summary Queries the security report of an Alibaba Cloud account.
+       * @summary 查询阿里云账号的安全报告
        *
        * @param request GetAccountSecurityPracticeReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -653,14 +605,14 @@ namespace Ims20190815
       Models::GetAccountSecurityPracticeReportResponse getAccountSecurityPracticeReportWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the security report of an Alibaba Cloud account.
+       * @summary 查询阿里云账号的安全报告
        *
        * @return GetAccountSecurityPracticeReportResponse
        */
       Models::GetAccountSecurityPracticeReportResponse getAccountSecurityPracticeReport();
 
       /**
-       * @summary Queries the overview information about an Alibaba Cloud account.
+       * @summary Retrieves a summary of an Alibaba Cloud account.
        *
        * @param request GetAccountSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -669,14 +621,14 @@ namespace Ims20190815
       Models::GetAccountSummaryResponse getAccountSummaryWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the overview information about an Alibaba Cloud account.
+       * @summary Retrieves a summary of an Alibaba Cloud account.
        *
        * @return GetAccountSummaryResponse
        */
       Models::GetAccountSummaryResponse getAccountSummary();
 
       /**
-       * @summary Queries the details of an application secret.
+       * @summary 查询指定应用密钥信息
        *
        * @param request GetAppSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -685,7 +637,7 @@ namespace Ims20190815
       Models::GetAppSecretResponse getAppSecretWithOptions(const Models::GetAppSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an application secret.
+       * @summary 查询指定应用密钥信息
        *
        * @param request GetAppSecretRequest
        * @return GetAppSecretResponse
@@ -693,9 +645,9 @@ namespace Ims20190815
       Models::GetAppSecretResponse getAppSecret(const Models::GetAppSecretRequest &request);
 
       /**
-       * @summary Queries the configuration information about an application.
+       * @summary Queries the configuration information of a specified application.
        *
-       * @description This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+       * @description This topic provides an example of how to query the configuration information of the application `472457090344041****`.
        *
        * @param request GetApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -704,9 +656,9 @@ namespace Ims20190815
       Models::GetApplicationResponse getApplicationWithOptions(const Models::GetApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration information about an application.
+       * @summary Queries the configuration information of a specified application.
        *
-       * @description This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+       * @description This topic provides an example of how to query the configuration information of the application `472457090344041****`.
        *
        * @param request GetApplicationRequest
        * @return GetApplicationResponse
@@ -714,7 +666,7 @@ namespace Ims20190815
       Models::GetApplicationResponse getApplication(const Models::GetApplicationRequest &request);
 
       /**
-       * @summary Queries installation information about a specified installed application.
+       * @summary 查询应用安装信息
        *
        * @param request GetApplicationProvisionInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -723,7 +675,7 @@ namespace Ims20190815
       Models::GetApplicationProvisionInfoResponse getApplicationProvisionInfoWithOptions(const Models::GetApplicationProvisionInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries installation information about a specified installed application.
+       * @summary 查询应用安装信息
        *
        * @param request GetApplicationProvisionInfoRequest
        * @return GetApplicationProvisionInfoResponse
@@ -731,7 +683,7 @@ namespace Ims20190815
       Models::GetApplicationProvisionInfoResponse getApplicationProvisionInfo(const Models::GetApplicationProvisionInfoRequest &request);
 
       /**
-       * @summary Queries the user credential reports of an Alibaba Cloud account.
+       * @summary 查询用户凭证报告内容
        *
        * @param request GetCredentialReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -740,7 +692,7 @@ namespace Ims20190815
       Models::GetCredentialReportResponse getCredentialReportWithOptions(const Models::GetCredentialReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the user credential reports of an Alibaba Cloud account.
+       * @summary 查询用户凭证报告内容
        *
        * @param request GetCredentialReportRequest
        * @return GetCredentialReportResponse
@@ -748,7 +700,7 @@ namespace Ims20190815
       Models::GetCredentialReportResponse getCredentialReport(const Models::GetCredentialReportRequest &request);
 
       /**
-       * @summary Queries the default domain name of an Alibaba Cloud account.
+       * @summary 查询默认域名
        *
        * @param request GetDefaultDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -757,14 +709,14 @@ namespace Ims20190815
       Models::GetDefaultDomainResponse getDefaultDomainWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the default domain name of an Alibaba Cloud account.
+       * @summary 查询默认域名
        *
        * @return GetDefaultDomainResponse
        */
       Models::GetDefaultDomainResponse getDefaultDomain();
 
       /**
-       * @summary Queries information about an installed external application.
+       * @summary 查询外部应用
        *
        * @param request GetExternalApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -773,7 +725,7 @@ namespace Ims20190815
       Models::GetExternalApplicationResponse getExternalApplicationWithOptions(const Models::GetExternalApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about an installed external application.
+       * @summary 查询外部应用
        *
        * @param request GetExternalApplicationRequest
        * @return GetExternalApplicationResponse
@@ -781,7 +733,7 @@ namespace Ims20190815
       Models::GetExternalApplicationResponse getExternalApplication(const Models::GetExternalApplicationRequest &request);
 
       /**
-       * @summary 查询用户的单项ram治理报告
+       * @summary Queries the details of a specific check item in an identity and access governance report.
        *
        * @param request GetGovernanceItemReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -790,7 +742,7 @@ namespace Ims20190815
       Models::GetGovernanceItemReportResponse getGovernanceItemReportWithOptions(const Models::GetGovernanceItemReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户的单项ram治理报告
+       * @summary Queries the details of a specific check item in an identity and access governance report.
        *
        * @param request GetGovernanceItemReportRequest
        * @return GetGovernanceItemReportResponse
@@ -798,7 +750,7 @@ namespace Ims20190815
       Models::GetGovernanceItemReportResponse getGovernanceItemReport(const Models::GetGovernanceItemReportRequest &request);
 
       /**
-       * @summary 查询成熟度报告状态
+       * @summary Queries the status of an identity and access governance report.
        *
        * @param request GetGovernanceReportStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -807,14 +759,14 @@ namespace Ims20190815
       Models::GetGovernanceReportStatusResponse getGovernanceReportStatusWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询成熟度报告状态
+       * @summary Queries the status of an identity and access governance report.
        *
        * @return GetGovernanceReportStatusResponse
        */
       Models::GetGovernanceReportStatusResponse getGovernanceReportStatus();
 
       /**
-       * @summary Queries the information about a Resource Access Management (RAM) user group.
+       * @summary 查询指定用户组信息
        *
        * @param request GetGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -823,7 +775,7 @@ namespace Ims20190815
       Models::GetGroupResponse getGroupWithOptions(const Models::GetGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a Resource Access Management (RAM) user group.
+       * @summary 查询指定用户组信息
        *
        * @param request GetGroupRequest
        * @return GetGroupResponse
@@ -831,7 +783,7 @@ namespace Ims20190815
       Models::GetGroupResponse getGroup(const Models::GetGroupRequest &request);
 
       /**
-       * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
+       * @summary Retrieves the logon information for a specified Resource Access Management (RAM) user.
        *
        * @param request GetLoginProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -840,7 +792,7 @@ namespace Ims20190815
       Models::GetLoginProfileResponse getLoginProfileWithOptions(const Models::GetLoginProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
+       * @summary Retrieves the logon information for a specified Resource Access Management (RAM) user.
        *
        * @param request GetLoginProfileRequest
        * @return GetLoginProfileResponse
@@ -848,10 +800,7 @@ namespace Ims20190815
       Models::GetLoginProfileResponse getLoginProfile(const Models::GetLoginProfileRequest &request);
 
       /**
-       * @summary Queries the information about an OIDC IdP.
-       *
-       * @description ###
-       * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
+       * @summary 查询OIDC身份提供商信息
        *
        * @param request GetOIDCProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -860,10 +809,7 @@ namespace Ims20190815
       Models::GetOIDCProviderResponse getOIDCProviderWithOptions(const Models::GetOIDCProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an OIDC IdP.
-       *
-       * @description ###
-       * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
+       * @summary 查询OIDC身份提供商信息
        *
        * @param request GetOIDCProviderRequest
        * @return GetOIDCProviderResponse
@@ -871,7 +817,7 @@ namespace Ims20190815
       Models::GetOIDCProviderResponse getOIDCProvider(const Models::GetOIDCProviderRequest &request);
 
       /**
-       * @summary Queries the details of the password policy for RAM users.
+       * @summary Retrieves the password strength policy for Resource Access Management (RAM) users.
        *
        * @param request GetPasswordPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -880,14 +826,14 @@ namespace Ims20190815
       Models::GetPasswordPolicyResponse getPasswordPolicyWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the password policy for RAM users.
+       * @summary Retrieves the password strength policy for Resource Access Management (RAM) users.
        *
        * @return GetPasswordPolicyResponse
        */
       Models::GetPasswordPolicyResponse getPasswordPolicy();
 
       /**
-       * @summary Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+       * @summary Retrieves information about a specified SAML provider for role-based SSO.
        *
        * @param request GetSAMLProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -896,7 +842,7 @@ namespace Ims20190815
       Models::GetSAMLProviderResponse getSAMLProviderWithOptions(const Models::GetSAMLProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+       * @summary Retrieves information about a specified SAML provider for role-based SSO.
        *
        * @param request GetSAMLProviderRequest
        * @return GetSAMLProviderResponse
@@ -904,7 +850,7 @@ namespace Ims20190815
       Models::GetSAMLProviderResponse getSAMLProvider(const Models::GetSAMLProviderRequest &request);
 
       /**
-       * @summary Queries the security preferences for RAM users.
+       * @summary Queries the global security preferences for Resource Access Management (RAM) users.
        *
        * @param request GetSecurityPreferenceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -913,14 +859,14 @@ namespace Ims20190815
       Models::GetSecurityPreferenceResponse getSecurityPreferenceWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the security preferences for RAM users.
+       * @summary Queries the global security preferences for Resource Access Management (RAM) users.
        *
        * @return GetSecurityPreferenceResponse
        */
       Models::GetSecurityPreferenceResponse getSecurityPreference();
 
       /**
-       * @summary Queries the information about a RAM user.
+       * @summary 查询RAM用户的详细信息
        *
        * @param request GetUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -929,7 +875,7 @@ namespace Ims20190815
       Models::GetUserResponse getUserWithOptions(const Models::GetUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a RAM user.
+       * @summary 查询RAM用户的详细信息
        *
        * @param request GetUserRequest
        * @return GetUserResponse
@@ -937,7 +883,7 @@ namespace Ims20190815
       Models::GetUserResponse getUser(const Models::GetUserRequest &request);
 
       /**
-       * @summary Queries information about a specific Resource Access Management (RAM) user in the recycle bin.
+       * @summary 获取回收站中的用户
        *
        * @param request GetUserInRecycleBinRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -946,7 +892,7 @@ namespace Ims20190815
       Models::GetUserInRecycleBinResponse getUserInRecycleBinWithOptions(const Models::GetUserInRecycleBinRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a specific Resource Access Management (RAM) user in the recycle bin.
+       * @summary 获取回收站中的用户
        *
        * @param request GetUserInRecycleBinRequest
        * @return GetUserInRecycleBinResponse
@@ -954,7 +900,7 @@ namespace Ims20190815
       Models::GetUserInRecycleBinResponse getUserInRecycleBin(const Models::GetUserInRecycleBinRequest &request);
 
       /**
-       * @summary Queries information about the multi-factor authentication (MFA) device that is bound to a Resource Access Management (RAM) user.
+       * @summary 查询RAM用户多因素认证设备信息
        *
        * @param request GetUserMFAInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -963,7 +909,7 @@ namespace Ims20190815
       Models::GetUserMFAInfoResponse getUserMFAInfoWithOptions(const Models::GetUserMFAInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about the multi-factor authentication (MFA) device that is bound to a Resource Access Management (RAM) user.
+       * @summary 查询RAM用户多因素认证设备信息
        *
        * @param request GetUserMFAInfoRequest
        * @return GetUserMFAInfoResponse
@@ -971,7 +917,7 @@ namespace Ims20190815
       Models::GetUserMFAInfoResponse getUserMFAInfo(const Models::GetUserMFAInfoRequest &request);
 
       /**
-       * @summary Queries the configurations of user-based single sign-on (SSO).
+       * @summary Queries the identity provider settings for user-based SSO.
        *
        * @param request GetUserSsoSettingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -980,14 +926,14 @@ namespace Ims20190815
       Models::GetUserSsoSettingsResponse getUserSsoSettingsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configurations of user-based single sign-on (SSO).
+       * @summary Queries the identity provider settings for user-based SSO.
        *
        * @return GetUserSsoSettingsResponse
        */
       Models::GetUserSsoSettingsResponse getUserSsoSettings();
 
       /**
-       * @summary Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+       * @summary 获取用户安全认证的信息
        *
        * @param request GetVerificationInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -996,7 +942,7 @@ namespace Ims20190815
       Models::GetVerificationInfoResponse getVerificationInfoWithOptions(const Models::GetVerificationInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+       * @summary 获取用户安全认证的信息
        *
        * @param request GetVerificationInfoRequest
        * @return GetVerificationInfoResponse
@@ -1004,7 +950,7 @@ namespace Ims20190815
       Models::GetVerificationInfoResponse getVerificationInfo(const Models::GetVerificationInfoRequest &request);
 
       /**
-       * @summary Queries the AccessKey pairs of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+       * @summary 查询主账号或RAM用户访问密钥列表
        *
        * @param request ListAccessKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1013,7 +959,7 @@ namespace Ims20190815
       Models::ListAccessKeysResponse listAccessKeysWithOptions(const Models::ListAccessKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the AccessKey pairs of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+       * @summary 查询主账号或RAM用户访问密钥列表
        *
        * @param request ListAccessKeysRequest
        * @return ListAccessKeysResponse
@@ -1021,7 +967,7 @@ namespace Ims20190815
       Models::ListAccessKeysResponse listAccessKeys(const Models::ListAccessKeysRequest &request);
 
       /**
-       * @summary Queries the AccessKey pairs of a specific Resource Access Management (RAM) user in the recycle bin.
+       * @summary 列出回收站中访问密钥列表
        *
        * @param request ListAccessKeysInRecycleBinRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1030,7 +976,7 @@ namespace Ims20190815
       Models::ListAccessKeysInRecycleBinResponse listAccessKeysInRecycleBinWithOptions(const Models::ListAccessKeysInRecycleBinRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the AccessKey pairs of a specific Resource Access Management (RAM) user in the recycle bin.
+       * @summary 列出回收站中访问密钥列表
        *
        * @param request ListAccessKeysInRecycleBinRequest
        * @return ListAccessKeysInRecycleBinResponse
@@ -1038,7 +984,7 @@ namespace Ims20190815
       Models::ListAccessKeysInRecycleBinResponse listAccessKeysInRecycleBin(const Models::ListAccessKeysInRecycleBinRequest &request);
 
       /**
-       * @summary Queries the secret IDs of an application.
+       * @summary 查询指定应用的应用密钥ID列表
        *
        * @param request ListAppSecretIdsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1047,7 +993,7 @@ namespace Ims20190815
       Models::ListAppSecretIdsResponse listAppSecretIdsWithOptions(const Models::ListAppSecretIdsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the secret IDs of an application.
+       * @summary 查询指定应用的应用密钥ID列表
        *
        * @param request ListAppSecretIdsRequest
        * @return ListAppSecretIdsResponse
@@ -1072,9 +1018,9 @@ namespace Ims20190815
       Models::ListApplicationProvisionInfosResponse listApplicationProvisionInfos(const Models::ListApplicationProvisionInfosRequest &request);
 
       /**
-       * @summary Lists the created applications.
+       * @summary Lists the applications that you have created.
        *
-       * @description This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+       * @description This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
        *
        * @param request ListApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1083,9 +1029,9 @@ namespace Ims20190815
       Models::ListApplicationsResponse listApplicationsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the created applications.
+       * @summary Lists the applications that you have created.
        *
-       * @description This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+       * @description This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
        *
        * @return ListApplicationsResponse
        */
@@ -1125,7 +1071,7 @@ namespace Ims20190815
       Models::ListGroupsResponse listGroups(const Models::ListGroupsRequest &request);
 
       /**
-       * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+       * @summary 查询RAM用户加入的用户组列表
        *
        * @param request ListGroupsForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1134,7 +1080,7 @@ namespace Ims20190815
       Models::ListGroupsForUserResponse listGroupsForUserWithOptions(const Models::ListGroupsForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+       * @summary 查询RAM用户加入的用户组列表
        *
        * @param request ListGroupsForUserRequest
        * @return ListGroupsForUserResponse
@@ -1142,10 +1088,7 @@ namespace Ims20190815
       Models::ListGroupsForUserResponse listGroupsForUser(const Models::ListGroupsForUserRequest &request);
 
       /**
-       * @summary Queries OIDC IdPs.
-       *
-       * @description ###
-       * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+       * @summary 查询OIDC身份提供商列表
        *
        * @param request ListOIDCProvidersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1154,10 +1097,7 @@ namespace Ims20190815
       Models::ListOIDCProvidersResponse listOIDCProvidersWithOptions(const Models::ListOIDCProvidersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries OIDC IdPs.
-       *
-       * @description ###
-       * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+       * @summary 查询OIDC身份提供商列表
        *
        * @param request ListOIDCProvidersRequest
        * @return ListOIDCProvidersResponse
@@ -1165,7 +1105,7 @@ namespace Ims20190815
       Models::ListOIDCProvidersResponse listOIDCProviders(const Models::ListOIDCProvidersRequest &request);
 
       /**
-       * @summary Queries the information about the passkeys that are bound to a Resource Access Management (RAM) user.
+       * @summary 查询Passkey
        *
        * @param request ListPasskeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1174,7 +1114,7 @@ namespace Ims20190815
       Models::ListPasskeysResponse listPasskeysWithOptions(const Models::ListPasskeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the passkeys that are bound to a Resource Access Management (RAM) user.
+       * @summary 查询Passkey
        *
        * @param request ListPasskeysRequest
        * @return ListPasskeysResponse
@@ -1215,7 +1155,7 @@ namespace Ims20190815
       Models::ListRecentGovernanceMetricsResponse listRecentGovernanceMetrics();
 
       /**
-       * @summary Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
+       * @summary 查询角色SSO身份提供商列表
        *
        * @param request ListSAMLProvidersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1224,7 +1164,7 @@ namespace Ims20190815
       Models::ListSAMLProvidersResponse listSAMLProvidersWithOptions(const Models::ListSAMLProvidersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
+       * @summary 查询角色SSO身份提供商列表
        *
        * @param request ListSAMLProvidersRequest
        * @return ListSAMLProvidersResponse
@@ -1232,13 +1172,7 @@ namespace Ims20190815
       Models::ListSAMLProvidersResponse listSAMLProviders(const Models::ListSAMLProvidersRequest &request);
 
       /**
-       * @summary Queries the tags that are added resources.
-       *
-       * @description ###
-       * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
-       * *   `ResourceId.N`
-       * *   `Tag.N.Key`
-       * *   `Tag.N.Key` and `Tag.N.Value`
+       * @summary 查询资源与标签的关系
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1247,13 +1181,7 @@ namespace Ims20190815
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags that are added resources.
-       *
-       * @description ###
-       * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
-       * *   `ResourceId.N`
-       * *   `Tag.N.Key`
-       * *   `Tag.N.Key` and `Tag.N.Value`
+       * @summary 查询资源与标签的关系
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -1264,8 +1192,8 @@ namespace Ims20190815
        * @summary Queries the basic information about all Resource Access Management (RAM) users.
        *
        * @description You can call the following API operations to query information about all RAM users:
-       * *   ListUsers: queries the details of all RAM users.
-       * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+       * - ListUsers: queries the details of all RAM users.
+       * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
        *
        * @param request ListUserBasicInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1277,8 +1205,8 @@ namespace Ims20190815
        * @summary Queries the basic information about all Resource Access Management (RAM) users.
        *
        * @description You can call the following API operations to query information about all RAM users:
-       * *   ListUsers: queries the details of all RAM users.
-       * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+       * - ListUsers: queries the details of all RAM users.
+       * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
        *
        * @param request ListUserBasicInfosRequest
        * @return ListUserBasicInfosResponse
@@ -1290,8 +1218,8 @@ namespace Ims20190815
        *
        * @description ### [](#)
        * You can call the following API operations to query the details of all RAM users:
-       * *   ListUsers: queries the details of all RAM users.
-       * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+       * - ListUsers: queries the details of all RAM users.
+       * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
        *
        * @param request ListUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1304,8 +1232,8 @@ namespace Ims20190815
        *
        * @description ### [](#)
        * You can call the following API operations to query the details of all RAM users:
-       * *   ListUsers: queries the details of all RAM users.
-       * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+       * - ListUsers: queries the details of all RAM users.
+       * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
        *
        * @param request ListUsersRequest
        * @return ListUsersResponse
@@ -1313,7 +1241,7 @@ namespace Ims20190815
       Models::ListUsersResponse listUsers(const Models::ListUsersRequest &request);
 
       /**
-       * @summary Queries Resource Access Management (RAM) users in a RAM user group.
+       * @summary 查询用户组中用户列表
        *
        * @param request ListUsersForGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1322,7 +1250,7 @@ namespace Ims20190815
       Models::ListUsersForGroupResponse listUsersForGroupWithOptions(const Models::ListUsersForGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Resource Access Management (RAM) users in a RAM user group.
+       * @summary 查询用户组中用户列表
        *
        * @param request ListUsersForGroupRequest
        * @return ListUsersForGroupResponse
@@ -1330,7 +1258,7 @@ namespace Ims20190815
       Models::ListUsersForGroupResponse listUsersForGroup(const Models::ListUsersForGroupRequest &request);
 
       /**
-       * @summary Queries the basic information about all Resource Access Management (RAM) users in the recycle bin.
+       * @summary 查询回收站中用户列表
        *
        * @param request ListUsersInRecycleBinRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1339,7 +1267,7 @@ namespace Ims20190815
       Models::ListUsersInRecycleBinResponse listUsersInRecycleBinWithOptions(const Models::ListUsersInRecycleBinRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic information about all Resource Access Management (RAM) users in the recycle bin.
+       * @summary 查询回收站中用户列表
        *
        * @param request ListUsersInRecycleBinRequest
        * @return ListUsersInRecycleBinResponse
@@ -1364,7 +1292,7 @@ namespace Ims20190815
       Models::ListVirtualMFADevicesResponse listVirtualMFADevices(const Models::ListVirtualMFADevicesRequest &request);
 
       /**
-       * @summary Installs an application.
+       * @summary 安装应用
        *
        * @param request ProvisionApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1373,7 +1301,7 @@ namespace Ims20190815
       Models::ProvisionApplicationResponse provisionApplicationWithOptions(const Models::ProvisionApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs an application.
+       * @summary 安装应用
        *
        * @param request ProvisionApplicationRequest
        * @return ProvisionApplicationResponse
@@ -1381,7 +1309,7 @@ namespace Ims20190815
       Models::ProvisionApplicationResponse provisionApplication(const Models::ProvisionApplicationRequest &request);
 
       /**
-       * @summary Installs an external application.
+       * @summary 安装外部应用
        *
        * @param request ProvisionExternalApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1390,7 +1318,7 @@ namespace Ims20190815
       Models::ProvisionExternalApplicationResponse provisionExternalApplicationWithOptions(const Models::ProvisionExternalApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs an external application.
+       * @summary 安装外部应用
        *
        * @param request ProvisionExternalApplicationRequest
        * @return ProvisionExternalApplicationResponse
@@ -1398,10 +1326,7 @@ namespace Ims20190815
       Models::ProvisionExternalApplicationResponse provisionExternalApplication(const Models::ProvisionExternalApplicationRequest &request);
 
       /**
-       * @summary Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
-       *
-       * @description ###
-       * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+       * @summary 移除OIDC身份提供商中的指定客户端ID
        *
        * @param request RemoveClientIdFromOIDCProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1410,10 +1335,7 @@ namespace Ims20190815
       Models::RemoveClientIdFromOIDCProviderResponse removeClientIdFromOIDCProviderWithOptions(const Models::RemoveClientIdFromOIDCProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
-       *
-       * @description ###
-       * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+       * @summary 移除OIDC身份提供商中的指定客户端ID
        *
        * @param request RemoveClientIdFromOIDCProviderRequest
        * @return RemoveClientIdFromOIDCProviderResponse
@@ -1421,10 +1343,7 @@ namespace Ims20190815
       Models::RemoveClientIdFromOIDCProviderResponse removeClientIdFromOIDCProvider(const Models::RemoveClientIdFromOIDCProviderRequest &request);
 
       /**
-       * @summary Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
-       *
-       * @description ###
-       * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+       * @summary 移除OIDC身份提供商中指定的验证指纹
        *
        * @param request RemoveFingerprintFromOIDCProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1433,10 +1352,7 @@ namespace Ims20190815
       Models::RemoveFingerprintFromOIDCProviderResponse removeFingerprintFromOIDCProviderWithOptions(const Models::RemoveFingerprintFromOIDCProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
-       *
-       * @description ###
-       * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+       * @summary 移除OIDC身份提供商中指定的验证指纹
        *
        * @param request RemoveFingerprintFromOIDCProviderRequest
        * @return RemoveFingerprintFromOIDCProviderResponse
@@ -1444,7 +1360,7 @@ namespace Ims20190815
       Models::RemoveFingerprintFromOIDCProviderResponse removeFingerprintFromOIDCProvider(const Models::RemoveFingerprintFromOIDCProviderRequest &request);
 
       /**
-       * @summary Removes a Resource Access Management (RAM) user from a RAM user group.
+       * @summary 将RAM用户从用户组中移除
        *
        * @param request RemoveUserFromGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1453,7 +1369,7 @@ namespace Ims20190815
       Models::RemoveUserFromGroupResponse removeUserFromGroupWithOptions(const Models::RemoveUserFromGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a Resource Access Management (RAM) user from a RAM user group.
+       * @summary 将RAM用户从用户组中移除
        *
        * @param request RemoveUserFromGroupRequest
        * @return RemoveUserFromGroupResponse
@@ -1461,7 +1377,7 @@ namespace Ims20190815
       Models::RemoveUserFromGroupResponse removeUserFromGroup(const Models::RemoveUserFromGroupRequest &request);
 
       /**
-       * @summary Restores a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+       * @summary 清空回收站中的访问密钥
        *
        * @param request RestoreAccessKeyFromRecycleBinRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1470,7 +1386,7 @@ namespace Ims20190815
       Models::RestoreAccessKeyFromRecycleBinResponse restoreAccessKeyFromRecycleBinWithOptions(const Models::RestoreAccessKeyFromRecycleBinRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restores a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+       * @summary 清空回收站中的访问密钥
        *
        * @param request RestoreAccessKeyFromRecycleBinRequest
        * @return RestoreAccessKeyFromRecycleBinResponse
@@ -1478,7 +1394,7 @@ namespace Ims20190815
       Models::RestoreAccessKeyFromRecycleBinResponse restoreAccessKeyFromRecycleBin(const Models::RestoreAccessKeyFromRecycleBinRequest &request);
 
       /**
-       * @summary Restores a specific Resource Access Management (RAM) user from the recycle bin.
+       * @summary 清空回收站中的用户
        *
        * @param request RestoreUserFromRecycleBinRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1487,7 +1403,7 @@ namespace Ims20190815
       Models::RestoreUserFromRecycleBinResponse restoreUserFromRecycleBinWithOptions(const Models::RestoreUserFromRecycleBinRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restores a specific Resource Access Management (RAM) user from the recycle bin.
+       * @summary 清空回收站中的用户
        *
        * @param request RestoreUserFromRecycleBinRequest
        * @return RestoreUserFromRecycleBinResponse
@@ -1495,7 +1411,7 @@ namespace Ims20190815
       Models::RestoreUserFromRecycleBinResponse restoreUserFromRecycleBin(const Models::RestoreUserFromRecycleBinRequest &request);
 
       /**
-       * @summary Configures the default domain name for an Alibaba Cloud account.
+       * @summary 设置默认域名
        *
        * @param request SetDefaultDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1504,7 +1420,7 @@ namespace Ims20190815
       Models::SetDefaultDomainResponse setDefaultDomainWithOptions(const Models::SetDefaultDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the default domain name for an Alibaba Cloud account.
+       * @summary 设置默认域名
        *
        * @param request SetDefaultDomainRequest
        * @return SetDefaultDomainResponse
@@ -1512,7 +1428,7 @@ namespace Ims20190815
       Models::SetDefaultDomainResponse setDefaultDomain(const Models::SetDefaultDomainRequest &request);
 
       /**
-       * @summary Configures the password policy for Resource Access Management (RAM) users.
+       * @summary Sets the password strength policy for RAM users.
        *
        * @param request SetPasswordPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1521,7 +1437,7 @@ namespace Ims20190815
       Models::SetPasswordPolicyResponse setPasswordPolicyWithOptions(const Models::SetPasswordPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the password policy for Resource Access Management (RAM) users.
+       * @summary Sets the password strength policy for RAM users.
        *
        * @param request SetPasswordPolicyRequest
        * @return SetPasswordPolicyResponse
@@ -1529,10 +1445,7 @@ namespace Ims20190815
       Models::SetPasswordPolicyResponse setPasswordPolicy(const Models::SetPasswordPolicyRequest &request);
 
       /**
-       * @summary Configures security preferences for a RAM user.
-       *
-       * @description ###
-       * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+       * @summary Configures the global security preferences for a Resource Access Management (RAM) user.
        *
        * @param tmpReq SetSecurityPreferenceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1541,10 +1454,7 @@ namespace Ims20190815
       Models::SetSecurityPreferenceResponse setSecurityPreferenceWithOptions(const Models::SetSecurityPreferenceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures security preferences for a RAM user.
-       *
-       * @description ###
-       * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+       * @summary Configures the global security preferences for a Resource Access Management (RAM) user.
        *
        * @param request SetSecurityPreferenceRequest
        * @return SetSecurityPreferenceResponse
@@ -1552,7 +1462,7 @@ namespace Ims20190815
       Models::SetSecurityPreferenceResponse setSecurityPreference(const Models::SetSecurityPreferenceRequest &request);
 
       /**
-       * @summary Configures information about user-based single sign-on (SSO).
+       * @summary Sets the identity provider (IdP) settings for user-based single sign-on (SSO).
        *
        * @param request SetUserSsoSettingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1561,7 +1471,7 @@ namespace Ims20190815
       Models::SetUserSsoSettingsResponse setUserSsoSettingsWithOptions(const Models::SetUserSsoSettingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures information about user-based single sign-on (SSO).
+       * @summary Sets the identity provider (IdP) settings for user-based single sign-on (SSO).
        *
        * @param request SetUserSsoSettingsRequest
        * @return SetUserSsoSettingsResponse
@@ -1569,7 +1479,7 @@ namespace Ims20190815
       Models::SetUserSsoSettingsResponse setUserSsoSettings(const Models::SetUserSsoSettingsRequest &request);
 
       /**
-       * @summary Binds a mobile phone or email to a Resource Access Management (RAM) user.
+       * @summary 新增录入/修改安全手机号码、安全邮箱的API
        *
        * @param request SetVerificationInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1578,7 +1488,7 @@ namespace Ims20190815
       Models::SetVerificationInfoResponse setVerificationInfoWithOptions(const Models::SetVerificationInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds a mobile phone or email to a Resource Access Management (RAM) user.
+       * @summary 新增录入/修改安全手机号码、安全邮箱的API
        *
        * @param request SetVerificationInfoRequest
        * @return SetVerificationInfoResponse
@@ -1586,7 +1496,7 @@ namespace Ims20190815
       Models::SetVerificationInfoResponse setVerificationInfo(const Models::SetVerificationInfoRequest &request);
 
       /**
-       * @summary Adds tags to resources.
+       * @summary 资源打上标签
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1595,7 +1505,7 @@ namespace Ims20190815
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds tags to resources.
+       * @summary 资源打上标签
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -1603,7 +1513,7 @@ namespace Ims20190815
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+       * @summary 为RAM用户解绑多因素认证设备
        *
        * @param request UnbindMFADeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1612,7 +1522,7 @@ namespace Ims20190815
       Models::UnbindMFADeviceResponse unbindMFADeviceWithOptions(const Models::UnbindMFADeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+       * @summary 为RAM用户解绑多因素认证设备
        *
        * @param request UnbindMFADeviceRequest
        * @return UnbindMFADeviceResponse
@@ -1620,7 +1530,7 @@ namespace Ims20190815
       Models::UnbindMFADeviceResponse unbindMFADevice(const Models::UnbindMFADeviceRequest &request);
 
       /**
-       * @summary Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
+       * @summary 删除用户的安全认证
        *
        * @param request UnbindVerificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1629,7 +1539,7 @@ namespace Ims20190815
       Models::UnbindVerificationResponse unbindVerificationWithOptions(const Models::UnbindVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
+       * @summary 删除用户的安全认证
        *
        * @param request UnbindVerificationRequest
        * @return UnbindVerificationResponse
@@ -1637,7 +1547,7 @@ namespace Ims20190815
       Models::UnbindVerificationResponse unbindVerification(const Models::UnbindVerificationRequest &request);
 
       /**
-       * @summary Removes tags from a resource.
+       * @summary 解绑资源的标签
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1646,7 +1556,7 @@ namespace Ims20190815
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from a resource.
+       * @summary 解绑资源的标签
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -1654,7 +1564,7 @@ namespace Ims20190815
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+       * @summary 修改访问密钥状态
        *
        * @param request UpdateAccessKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1663,7 +1573,7 @@ namespace Ims20190815
       Models::UpdateAccessKeyResponse updateAccessKeyWithOptions(const Models::UpdateAccessKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+       * @summary 修改访问密钥状态
        *
        * @param request UpdateAccessKeyRequest
        * @return UpdateAccessKeyResponse
@@ -1671,7 +1581,7 @@ namespace Ims20190815
       Models::UpdateAccessKeyResponse updateAccessKey(const Models::UpdateAccessKeyRequest &request);
 
       /**
-       * @summary Modifies the information about a specified application.
+       * @summary Updates the configuration of a specified application.
        *
        * @param request UpdateApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1680,7 +1590,7 @@ namespace Ims20190815
       Models::UpdateApplicationResponse updateApplicationWithOptions(const Models::UpdateApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about a specified application.
+       * @summary Updates the configuration of a specified application.
        *
        * @param request UpdateApplicationRequest
        * @return UpdateApplicationResponse
@@ -1688,7 +1598,7 @@ namespace Ims20190815
       Models::UpdateApplicationResponse updateApplication(const Models::UpdateApplicationRequest &request);
 
       /**
-       * @summary Modifies information about a Resource Access Management (RAM) user group.
+       * @summary 修改指定用户组的信息
        *
        * @param request UpdateGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1697,7 +1607,7 @@ namespace Ims20190815
       Models::UpdateGroupResponse updateGroupWithOptions(const Models::UpdateGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies information about a Resource Access Management (RAM) user group.
+       * @summary 修改指定用户组的信息
        *
        * @param request UpdateGroupRequest
        * @return UpdateGroupResponse
@@ -1705,7 +1615,7 @@ namespace Ims20190815
       Models::UpdateGroupResponse updateGroup(const Models::UpdateGroupRequest &request);
 
       /**
-       * @summary Modifies the console logon configurations of a Resource Access Management (RAM) user.
+       * @summary Modifies the console logon information for a specified Resource Access Management (RAM) user.
        *
        * @param request UpdateLoginProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1714,7 +1624,7 @@ namespace Ims20190815
       Models::UpdateLoginProfileResponse updateLoginProfileWithOptions(const Models::UpdateLoginProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the console logon configurations of a Resource Access Management (RAM) user.
+       * @summary Modifies the console logon information for a specified Resource Access Management (RAM) user.
        *
        * @param request UpdateLoginProfileRequest
        * @return UpdateLoginProfileResponse
@@ -1722,10 +1632,7 @@ namespace Ims20190815
       Models::UpdateLoginProfileResponse updateLoginProfile(const Models::UpdateLoginProfileRequest &request);
 
       /**
-       * @summary Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
-       *
-       * @description ###
-       * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
+       * @summary 修改OIDC身份提供商的描述和客户端ID
        *
        * @param request UpdateOIDCProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1734,10 +1641,7 @@ namespace Ims20190815
       Models::UpdateOIDCProviderResponse updateOIDCProviderWithOptions(const Models::UpdateOIDCProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
-       *
-       * @description ###
-       * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
+       * @summary 修改OIDC身份提供商的描述和客户端ID
        *
        * @param request UpdateOIDCProviderRequest
        * @return UpdateOIDCProviderResponse
@@ -1745,7 +1649,7 @@ namespace Ims20190815
       Models::UpdateOIDCProviderResponse updateOIDCProvider(const Models::UpdateOIDCProviderRequest &request);
 
       /**
-       * @summary Updates the name of a passkey.
+       * @summary 更新Passkey
        *
        * @param request UpdatePasskeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1754,7 +1658,7 @@ namespace Ims20190815
       Models::UpdatePasskeyResponse updatePasskeyWithOptions(const Models::UpdatePasskeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the name of a passkey.
+       * @summary 更新Passkey
        *
        * @param request UpdatePasskeyRequest
        * @return UpdatePasskeyResponse
@@ -1762,9 +1666,9 @@ namespace Ims20190815
       Models::UpdatePasskeyResponse updatePasskey(const Models::UpdatePasskeyRequest &request);
 
       /**
-       * @summary Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+       * @summary Updates the information about a specified identity provider for role-based single sign-on (SSO).
        *
-       * @description This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+       * @description This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
        *
        * @param request UpdateSAMLProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1773,9 +1677,9 @@ namespace Ims20190815
       Models::UpdateSAMLProviderResponse updateSAMLProviderWithOptions(const Models::UpdateSAMLProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+       * @summary Updates the information about a specified identity provider for role-based single sign-on (SSO).
        *
-       * @description This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+       * @description This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
        *
        * @param request UpdateSAMLProviderRequest
        * @return UpdateSAMLProviderResponse
@@ -1783,9 +1687,7 @@ namespace Ims20190815
       Models::UpdateSAMLProviderResponse updateSAMLProvider(const Models::UpdateSAMLProviderRequest &request);
 
       /**
-       * @summary Modifies the information about a RAM user.
-       *
-       * @description This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+       * @summary 修改RAM用户信息
        *
        * @param request UpdateUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1794,9 +1696,7 @@ namespace Ims20190815
       Models::UpdateUserResponse updateUserWithOptions(const Models::UpdateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about a RAM user.
-       *
-       * @description This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+       * @summary 修改RAM用户信息
        *
        * @param request UpdateUserRequest
        * @return UpdateUserResponse

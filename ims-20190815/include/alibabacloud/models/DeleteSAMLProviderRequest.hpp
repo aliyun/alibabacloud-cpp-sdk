@@ -38,8 +38,6 @@ namespace Models
 
 
   protected:
-    // The name of the IdP that you want to delete.
-    // 
     // This parameter is required.
     shared_ptr<string> SAMLProviderName_ {};
   };

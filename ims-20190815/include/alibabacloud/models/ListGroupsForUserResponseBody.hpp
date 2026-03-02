@@ -116,15 +116,10 @@ namespace Models
 
 
       protected:
-        // The description.
         shared_ptr<string> comments_ {};
-        // The display name of the RAM user group.
         shared_ptr<string> displayName_ {};
-        // The ID of the RAM user group.
         shared_ptr<string> groupId_ {};
-        // The name of the RAM user group.
         shared_ptr<string> groupName_ {};
-        // The time when the RAM user was added.
         shared_ptr<string> joinDate_ {};
       };
 
@@ -161,9 +156,7 @@ namespace Models
 
 
   protected:
-    // The information about the RAM user groups.
     shared_ptr<ListGroupsForUserResponseBody::Groups> groups_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

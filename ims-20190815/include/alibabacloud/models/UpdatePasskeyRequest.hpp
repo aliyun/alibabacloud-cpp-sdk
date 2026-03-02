@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The ID of the passkey.
     shared_ptr<string> passkeyId_ {};
-    // The name of the passkey.
     shared_ptr<string> passkeyName_ {};
-    // The logon name of the Resource Access Management (RAM) user.
     shared_ptr<string> userPrincipalName_ {};
   };
 

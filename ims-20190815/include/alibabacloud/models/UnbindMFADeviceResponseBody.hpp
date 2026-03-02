@@ -59,7 +59,6 @@ namespace Models
 
 
     protected:
-      // The serial number of the MFA device.
       shared_ptr<string> serialNumber_ {};
     };
 
@@ -82,9 +81,7 @@ namespace Models
 
 
   protected:
-    // The information about the MFA device.
     shared_ptr<UnbindMFADeviceResponseBody::MFADevice> MFADevice_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
