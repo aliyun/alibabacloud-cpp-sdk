@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Images, images_);
       DARABONBA_PTR_TO_JSON(NetworkConfig, networkConfig_);
       DARABONBA_PTR_TO_JSON(PaymentType, paymentType_);
+      DARABONBA_PTR_TO_JSON(Platform, platform_);
       DARABONBA_PTR_TO_JSON(ReadyTime, readyTime_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Images, images_);
       DARABONBA_PTR_FROM_JSON(NetworkConfig, networkConfig_);
       DARABONBA_PTR_FROM_JSON(PaymentType, paymentType_);
+      DARABONBA_PTR_FROM_JSON(Platform, platform_);
       DARABONBA_PTR_FROM_JSON(ReadyTime, readyTime_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -301,8 +303,8 @@ namespace Models
 
     virtual bool empty() const override { return this->createTime_ == nullptr
         && this->events_ == nullptr && this->imageCacheId_ == nullptr && this->imageCacheName_ == nullptr && this->images_ == nullptr && this->networkConfig_ == nullptr
-        && this->paymentType_ == nullptr && this->readyTime_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->size_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
+        && this->paymentType_ == nullptr && this->platform_ == nullptr && this->readyTime_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->size_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -356,6 +358,13 @@ namespace Models
     void deletePaymentType() { this->paymentType_ = nullptr;};
     inline string getPaymentType() const { DARABONBA_PTR_GET_DEFAULT(paymentType_, "") };
     inline GetImageCacheResponseBody& setPaymentType(string paymentType) { DARABONBA_PTR_SET_VALUE(paymentType_, paymentType) };
+
+
+    // platform Field Functions 
+    bool hasPlatform() const { return this->platform_ != nullptr;};
+    void deletePlatform() { this->platform_ = nullptr;};
+    inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+    inline GetImageCacheResponseBody& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
     // readyTime Field Functions 
@@ -417,6 +426,7 @@ namespace Models
     shared_ptr<vector<string>> images_ {};
     shared_ptr<GetImageCacheResponseBody::NetworkConfig> networkConfig_ {};
     shared_ptr<string> paymentType_ {};
+    shared_ptr<string> platform_ {};
     shared_ptr<string> readyTime_ {};
     shared_ptr<string> regionId_ {};
     shared_ptr<string> requestId_ {};

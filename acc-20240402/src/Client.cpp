@@ -113,6 +113,10 @@ CreateImageCacheResponse Client::createImageCacheWithOptions(const CreateImageCa
     query["NetworkConfig"] = request.getNetworkConfigShrink();
   }
 
+  if (!!request.hasPlatform()) {
+    query["Platform"] = request.getPlatform();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
   }
@@ -259,6 +263,10 @@ GetImageCacheResponse Client::getImageCache(const GetImageCacheRequest &request)
 ListImageCachesResponse Client::listImageCachesWithOptions(const ListImageCachesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasImage()) {
+    query["Image"] = request.getImage();
+  }
+
   if (!!request.hasImageCacheName()) {
     query["ImageCacheName"] = request.getImageCacheName();
   }

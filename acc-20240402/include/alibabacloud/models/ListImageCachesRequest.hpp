@@ -14,6 +14,7 @@ namespace Models
   class ListImageCachesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListImageCachesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Image, image_);
       DARABONBA_PTR_TO_JSON(ImageCacheName, imageCacheName_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
     friend void from_json(const Darabonba::Json& j, ListImageCachesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Image, image_);
       DARABONBA_PTR_FROM_JSON(ImageCacheName, imageCacheName_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -84,9 +86,16 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->imageCacheName_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr
-        && this->tags_ == nullptr; };
+    virtual bool empty() const override { return this->image_ == nullptr
+        && this->imageCacheName_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->status_ == nullptr && this->tags_ == nullptr; };
+    // image Field Functions 
+    bool hasImage() const { return this->image_ != nullptr;};
+    void deleteImage() { this->image_ = nullptr;};
+    inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+    inline ListImageCachesRequest& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
+
+
     // imageCacheName Field Functions 
     bool hasImageCacheName() const { return this->imageCacheName_ != nullptr;};
     void deleteImageCacheName() { this->imageCacheName_ = nullptr;};
@@ -139,6 +148,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> image_ {};
     shared_ptr<string> imageCacheName_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};

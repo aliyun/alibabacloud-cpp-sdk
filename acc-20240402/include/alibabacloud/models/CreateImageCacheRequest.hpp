@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImageRegistryCredentials, imageRegistryCredentials_);
       DARABONBA_PTR_TO_JSON(Images, images_);
       DARABONBA_PTR_TO_JSON(NetworkConfig, networkConfig_);
+      DARABONBA_PTR_TO_JSON(Platform, platform_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImageRegistryCredentials, imageRegistryCredentials_);
       DARABONBA_PTR_FROM_JSON(Images, images_);
       DARABONBA_PTR_FROM_JSON(NetworkConfig, networkConfig_);
+      DARABONBA_PTR_FROM_JSON(Platform, platform_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
@@ -314,7 +316,7 @@ namespace Models
 
     virtual bool empty() const override { return this->acrRegistryInfos_ == nullptr
         && this->clientToken_ == nullptr && this->imageCacheName_ == nullptr && this->imageRegistryCredentials_ == nullptr && this->images_ == nullptr && this->networkConfig_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr; };
+        && this->platform_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr; };
     // acrRegistryInfos Field Functions 
     bool hasAcrRegistryInfos() const { return this->acrRegistryInfos_ != nullptr;};
     void deleteAcrRegistryInfos() { this->acrRegistryInfos_ = nullptr;};
@@ -365,6 +367,13 @@ namespace Models
     inline CreateImageCacheRequest& setNetworkConfig(CreateImageCacheRequest::NetworkConfig && networkConfig) { DARABONBA_PTR_SET_RVALUE(networkConfig_, networkConfig) };
 
 
+    // platform Field Functions 
+    bool hasPlatform() const { return this->platform_ != nullptr;};
+    void deletePlatform() { this->platform_ = nullptr;};
+    inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+    inline CreateImageCacheRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -398,6 +407,7 @@ namespace Models
     shared_ptr<vector<string>> images_ {};
     // This parameter is required.
     shared_ptr<CreateImageCacheRequest::NetworkConfig> networkConfig_ {};
+    shared_ptr<string> platform_ {};
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceGroupId_ {};
