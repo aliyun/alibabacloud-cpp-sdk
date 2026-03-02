@@ -42,11 +42,18 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
         DARABONBA_PTR_TO_JSON(Categories, categories_);
+        DARABONBA_PTR_TO_JSON(Comment, comment_);
+        DARABONBA_PTR_TO_JSON(DataType, dataType_);
+        DARABONBA_PTR_TO_JSON(DbName, dbName_);
+        DARABONBA_PTR_TO_JSON(FileCategoryCode, fileCategoryCode_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(InstanceDescription, instanceDescription_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(IsRevision, isRevision_);
         DARABONBA_PTR_TO_JSON(LastModifiedTime, lastModifiedTime_);
         DARABONBA_PTR_TO_JSON(LastScanTime, lastScanTime_);
+        DARABONBA_PTR_TO_JSON(LogStore, logStore_);
+        DARABONBA_PTR_TO_JSON(MaskStatus, maskStatus_);
         DARABONBA_PTR_TO_JSON(MemberAccount, memberAccount_);
         DARABONBA_PTR_TO_JSON(ModelTags, modelTags_);
         DARABONBA_PTR_TO_JSON(Name, name_);
@@ -55,19 +62,36 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Path, path_);
         DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
         DARABONBA_PTR_TO_JSON(ProductId, productId_);
+        DARABONBA_PTR_TO_JSON(Project, project_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(RegionName, regionName_);
+        DARABONBA_PTR_TO_JSON(RiskLevelId, riskLevelId_);
+        DARABONBA_PTR_TO_JSON(RuleCount, ruleCount_);
         DARABONBA_PTR_TO_JSON(RuleList, ruleList_);
         DARABONBA_PTR_TO_JSON(SensitiveCount, sensitiveCount_);
+        DARABONBA_PTR_TO_JSON(Size, size_);
+        DARABONBA_PTR_TO_JSON(Sx, sx_);
+        DARABONBA_PTR_TO_JSON(TableName, tableName_);
+        DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+        DARABONBA_PTR_TO_JSON(TaskName, taskName_);
+        DARABONBA_PTR_TO_JSON(TaskNumber, taskNumber_);
         DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
+        DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(Categories, categories_);
+        DARABONBA_PTR_FROM_JSON(Comment, comment_);
+        DARABONBA_PTR_FROM_JSON(DataType, dataType_);
+        DARABONBA_PTR_FROM_JSON(DbName, dbName_);
+        DARABONBA_PTR_FROM_JSON(FileCategoryCode, fileCategoryCode_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(InstanceDescription, instanceDescription_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(IsRevision, isRevision_);
         DARABONBA_PTR_FROM_JSON(LastModifiedTime, lastModifiedTime_);
         DARABONBA_PTR_FROM_JSON(LastScanTime, lastScanTime_);
+        DARABONBA_PTR_FROM_JSON(LogStore, logStore_);
+        DARABONBA_PTR_FROM_JSON(MaskStatus, maskStatus_);
         DARABONBA_PTR_FROM_JSON(MemberAccount, memberAccount_);
         DARABONBA_PTR_FROM_JSON(ModelTags, modelTags_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -76,11 +100,21 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Path, path_);
         DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
         DARABONBA_PTR_FROM_JSON(ProductId, productId_);
+        DARABONBA_PTR_FROM_JSON(Project, project_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(RegionName, regionName_);
+        DARABONBA_PTR_FROM_JSON(RiskLevelId, riskLevelId_);
+        DARABONBA_PTR_FROM_JSON(RuleCount, ruleCount_);
         DARABONBA_PTR_FROM_JSON(RuleList, ruleList_);
         DARABONBA_PTR_FROM_JSON(SensitiveCount, sensitiveCount_);
+        DARABONBA_PTR_FROM_JSON(Size, size_);
+        DARABONBA_PTR_FROM_JSON(Sx, sx_);
+        DARABONBA_PTR_FROM_JSON(TableName, tableName_);
+        DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+        DARABONBA_PTR_FROM_JSON(TaskName, taskName_);
+        DARABONBA_PTR_FROM_JSON(TaskNumber, taskNumber_);
         DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
+        DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
       };
       Items() = default ;
       Items(const Items &) = default ;
@@ -98,16 +132,20 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const RuleList& obj) { 
           DARABONBA_PTR_TO_JSON(RiskLevelId, riskLevelId_);
           DARABONBA_PTR_TO_JSON(RiskLevelName, riskLevelName_);
+          DARABONBA_PTR_TO_JSON(RuleCategoryNameList, ruleCategoryNameList_);
           DARABONBA_PTR_TO_JSON(RuleCount, ruleCount_);
           DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
           DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
+          DARABONBA_PTR_TO_JSON(SampleList, sampleList_);
         };
         friend void from_json(const Darabonba::Json& j, RuleList& obj) { 
           DARABONBA_PTR_FROM_JSON(RiskLevelId, riskLevelId_);
           DARABONBA_PTR_FROM_JSON(RiskLevelName, riskLevelName_);
+          DARABONBA_PTR_FROM_JSON(RuleCategoryNameList, ruleCategoryNameList_);
           DARABONBA_PTR_FROM_JSON(RuleCount, ruleCount_);
           DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
           DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
+          DARABONBA_PTR_FROM_JSON(SampleList, sampleList_);
         };
         RuleList() = default ;
         RuleList(const RuleList &) = default ;
@@ -121,7 +159,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->riskLevelId_ == nullptr
-        && this->riskLevelName_ == nullptr && this->ruleCount_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr; };
+        && this->riskLevelName_ == nullptr && this->ruleCategoryNameList_ == nullptr && this->ruleCount_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr
+        && this->sampleList_ == nullptr; };
         // riskLevelId Field Functions 
         bool hasRiskLevelId() const { return this->riskLevelId_ != nullptr;};
         void deleteRiskLevelId() { this->riskLevelId_ = nullptr;};
@@ -134,6 +173,13 @@ namespace Models
         void deleteRiskLevelName() { this->riskLevelName_ = nullptr;};
         inline string getRiskLevelName() const { DARABONBA_PTR_GET_DEFAULT(riskLevelName_, "") };
         inline RuleList& setRiskLevelName(string riskLevelName) { DARABONBA_PTR_SET_VALUE(riskLevelName_, riskLevelName) };
+
+
+        // ruleCategoryNameList Field Functions 
+        bool hasRuleCategoryNameList() const { return this->ruleCategoryNameList_ != nullptr;};
+        void deleteRuleCategoryNameList() { this->ruleCategoryNameList_ = nullptr;};
+        inline string getRuleCategoryNameList() const { DARABONBA_PTR_GET_DEFAULT(ruleCategoryNameList_, "") };
+        inline RuleList& setRuleCategoryNameList(string ruleCategoryNameList) { DARABONBA_PTR_SET_VALUE(ruleCategoryNameList_, ruleCategoryNameList) };
 
 
         // ruleCount Field Functions 
@@ -157,6 +203,13 @@ namespace Models
         inline RuleList& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
+        // sampleList Field Functions 
+        bool hasSampleList() const { return this->sampleList_ != nullptr;};
+        void deleteSampleList() { this->sampleList_ = nullptr;};
+        inline string getSampleList() const { DARABONBA_PTR_GET_DEFAULT(sampleList_, "") };
+        inline RuleList& setSampleList(string sampleList) { DARABONBA_PTR_SET_VALUE(sampleList_, sampleList) };
+
+
       protected:
         // Risk level ID for sensitive data identification rules. Values:
         // - **1**: N/A: No sensitive data identified.
@@ -172,12 +225,14 @@ namespace Models
         // - **S3**: Level 3 sensitive data.
         // - **S4**: Level 4 sensitive data.
         shared_ptr<string> riskLevelName_ {};
+        shared_ptr<string> ruleCategoryNameList_ {};
         // Number of matched identification models.
         shared_ptr<int32_t> ruleCount_ {};
         // Identification model ID.
         shared_ptr<int64_t> ruleId_ {};
         // Identification model name.
         shared_ptr<string> ruleName_ {};
+        shared_ptr<string> sampleList_ {};
       };
 
       class ModelTags : public Darabonba::Model {
@@ -231,10 +286,13 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->categories_ == nullptr
-        && this->id_ == nullptr && this->instanceDescription_ == nullptr && this->instanceId_ == nullptr && this->lastModifiedTime_ == nullptr && this->lastScanTime_ == nullptr
-        && this->memberAccount_ == nullptr && this->modelTags_ == nullptr && this->name_ == nullptr && this->objectFileCategory_ == nullptr && this->objectType_ == nullptr
-        && this->path_ == nullptr && this->productCode_ == nullptr && this->productId_ == nullptr && this->regionId_ == nullptr && this->regionName_ == nullptr
-        && this->ruleList_ == nullptr && this->sensitiveCount_ == nullptr && this->templateId_ == nullptr; };
+        && this->comment_ == nullptr && this->dataType_ == nullptr && this->dbName_ == nullptr && this->fileCategoryCode_ == nullptr && this->id_ == nullptr
+        && this->instanceDescription_ == nullptr && this->instanceId_ == nullptr && this->isRevision_ == nullptr && this->lastModifiedTime_ == nullptr && this->lastScanTime_ == nullptr
+        && this->logStore_ == nullptr && this->maskStatus_ == nullptr && this->memberAccount_ == nullptr && this->modelTags_ == nullptr && this->name_ == nullptr
+        && this->objectFileCategory_ == nullptr && this->objectType_ == nullptr && this->path_ == nullptr && this->productCode_ == nullptr && this->productId_ == nullptr
+        && this->project_ == nullptr && this->regionId_ == nullptr && this->regionName_ == nullptr && this->riskLevelId_ == nullptr && this->ruleCount_ == nullptr
+        && this->ruleList_ == nullptr && this->sensitiveCount_ == nullptr && this->size_ == nullptr && this->sx_ == nullptr && this->tableName_ == nullptr
+        && this->taskId_ == nullptr && this->taskName_ == nullptr && this->taskNumber_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr; };
       // categories Field Functions 
       bool hasCategories() const { return this->categories_ != nullptr;};
       void deleteCategories() { this->categories_ = nullptr;};
@@ -242,6 +300,34 @@ namespace Models
       inline vector<string> getCategories() { DARABONBA_PTR_GET(categories_, vector<string>) };
       inline Items& setCategories(const vector<string> & categories) { DARABONBA_PTR_SET_VALUE(categories_, categories) };
       inline Items& setCategories(vector<string> && categories) { DARABONBA_PTR_SET_RVALUE(categories_, categories) };
+
+
+      // comment Field Functions 
+      bool hasComment() const { return this->comment_ != nullptr;};
+      void deleteComment() { this->comment_ = nullptr;};
+      inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+      inline Items& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
+
+
+      // dataType Field Functions 
+      bool hasDataType() const { return this->dataType_ != nullptr;};
+      void deleteDataType() { this->dataType_ = nullptr;};
+      inline string getDataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
+      inline Items& setDataType(string dataType) { DARABONBA_PTR_SET_VALUE(dataType_, dataType) };
+
+
+      // dbName Field Functions 
+      bool hasDbName() const { return this->dbName_ != nullptr;};
+      void deleteDbName() { this->dbName_ = nullptr;};
+      inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
+      inline Items& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
+
+
+      // fileCategoryCode Field Functions 
+      bool hasFileCategoryCode() const { return this->fileCategoryCode_ != nullptr;};
+      void deleteFileCategoryCode() { this->fileCategoryCode_ = nullptr;};
+      inline int32_t getFileCategoryCode() const { DARABONBA_PTR_GET_DEFAULT(fileCategoryCode_, 0) };
+      inline Items& setFileCategoryCode(int32_t fileCategoryCode) { DARABONBA_PTR_SET_VALUE(fileCategoryCode_, fileCategoryCode) };
 
 
       // id Field Functions 
@@ -265,6 +351,13 @@ namespace Models
       inline Items& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+      // isRevision Field Functions 
+      bool hasIsRevision() const { return this->isRevision_ != nullptr;};
+      void deleteIsRevision() { this->isRevision_ = nullptr;};
+      inline int32_t getIsRevision() const { DARABONBA_PTR_GET_DEFAULT(isRevision_, 0) };
+      inline Items& setIsRevision(int32_t isRevision) { DARABONBA_PTR_SET_VALUE(isRevision_, isRevision) };
+
+
       // lastModifiedTime Field Functions 
       bool hasLastModifiedTime() const { return this->lastModifiedTime_ != nullptr;};
       void deleteLastModifiedTime() { this->lastModifiedTime_ = nullptr;};
@@ -277,6 +370,20 @@ namespace Models
       void deleteLastScanTime() { this->lastScanTime_ = nullptr;};
       inline int64_t getLastScanTime() const { DARABONBA_PTR_GET_DEFAULT(lastScanTime_, 0L) };
       inline Items& setLastScanTime(int64_t lastScanTime) { DARABONBA_PTR_SET_VALUE(lastScanTime_, lastScanTime) };
+
+
+      // logStore Field Functions 
+      bool hasLogStore() const { return this->logStore_ != nullptr;};
+      void deleteLogStore() { this->logStore_ = nullptr;};
+      inline string getLogStore() const { DARABONBA_PTR_GET_DEFAULT(logStore_, "") };
+      inline Items& setLogStore(string logStore) { DARABONBA_PTR_SET_VALUE(logStore_, logStore) };
+
+
+      // maskStatus Field Functions 
+      bool hasMaskStatus() const { return this->maskStatus_ != nullptr;};
+      void deleteMaskStatus() { this->maskStatus_ = nullptr;};
+      inline int32_t getMaskStatus() const { DARABONBA_PTR_GET_DEFAULT(maskStatus_, 0) };
+      inline Items& setMaskStatus(int32_t maskStatus) { DARABONBA_PTR_SET_VALUE(maskStatus_, maskStatus) };
 
 
       // memberAccount Field Functions 
@@ -337,6 +444,13 @@ namespace Models
       inline Items& setProductId(int64_t productId) { DARABONBA_PTR_SET_VALUE(productId_, productId) };
 
 
+      // project Field Functions 
+      bool hasProject() const { return this->project_ != nullptr;};
+      void deleteProject() { this->project_ = nullptr;};
+      inline string getProject() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
+      inline Items& setProject(string project) { DARABONBA_PTR_SET_VALUE(project_, project) };
+
+
       // regionId Field Functions 
       bool hasRegionId() const { return this->regionId_ != nullptr;};
       void deleteRegionId() { this->regionId_ = nullptr;};
@@ -349,6 +463,20 @@ namespace Models
       void deleteRegionName() { this->regionName_ = nullptr;};
       inline string getRegionName() const { DARABONBA_PTR_GET_DEFAULT(regionName_, "") };
       inline Items& setRegionName(string regionName) { DARABONBA_PTR_SET_VALUE(regionName_, regionName) };
+
+
+      // riskLevelId Field Functions 
+      bool hasRiskLevelId() const { return this->riskLevelId_ != nullptr;};
+      void deleteRiskLevelId() { this->riskLevelId_ = nullptr;};
+      inline int32_t getRiskLevelId() const { DARABONBA_PTR_GET_DEFAULT(riskLevelId_, 0) };
+      inline Items& setRiskLevelId(int32_t riskLevelId) { DARABONBA_PTR_SET_VALUE(riskLevelId_, riskLevelId) };
+
+
+      // ruleCount Field Functions 
+      bool hasRuleCount() const { return this->ruleCount_ != nullptr;};
+      void deleteRuleCount() { this->ruleCount_ = nullptr;};
+      inline int32_t getRuleCount() const { DARABONBA_PTR_GET_DEFAULT(ruleCount_, 0) };
+      inline Items& setRuleCount(int32_t ruleCount) { DARABONBA_PTR_SET_VALUE(ruleCount_, ruleCount) };
 
 
       // ruleList Field Functions 
@@ -367,6 +495,48 @@ namespace Models
       inline Items& setSensitiveCount(int32_t sensitiveCount) { DARABONBA_PTR_SET_VALUE(sensitiveCount_, sensitiveCount) };
 
 
+      // size Field Functions 
+      bool hasSize() const { return this->size_ != nullptr;};
+      void deleteSize() { this->size_ = nullptr;};
+      inline int64_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
+      inline Items& setSize(int64_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+
+
+      // sx Field Functions 
+      bool hasSx() const { return this->sx_ != nullptr;};
+      void deleteSx() { this->sx_ = nullptr;};
+      inline string getSx() const { DARABONBA_PTR_GET_DEFAULT(sx_, "") };
+      inline Items& setSx(string sx) { DARABONBA_PTR_SET_VALUE(sx_, sx) };
+
+
+      // tableName Field Functions 
+      bool hasTableName() const { return this->tableName_ != nullptr;};
+      void deleteTableName() { this->tableName_ = nullptr;};
+      inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+      inline Items& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
+
+
+      // taskId Field Functions 
+      bool hasTaskId() const { return this->taskId_ != nullptr;};
+      void deleteTaskId() { this->taskId_ = nullptr;};
+      inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+      inline Items& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+      // taskName Field Functions 
+      bool hasTaskName() const { return this->taskName_ != nullptr;};
+      void deleteTaskName() { this->taskName_ = nullptr;};
+      inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+      inline Items& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
+
+
+      // taskNumber Field Functions 
+      bool hasTaskNumber() const { return this->taskNumber_ != nullptr;};
+      void deleteTaskNumber() { this->taskNumber_ = nullptr;};
+      inline int64_t getTaskNumber() const { DARABONBA_PTR_GET_DEFAULT(taskNumber_, 0L) };
+      inline Items& setTaskNumber(int64_t taskNumber) { DARABONBA_PTR_SET_VALUE(taskNumber_, taskNumber) };
+
+
       // templateId Field Functions 
       bool hasTemplateId() const { return this->templateId_ != nullptr;};
       void deleteTemplateId() { this->templateId_ = nullptr;};
@@ -374,19 +544,33 @@ namespace Models
       inline Items& setTemplateId(int64_t templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
+      // templateName Field Functions 
+      bool hasTemplateName() const { return this->templateName_ != nullptr;};
+      void deleteTemplateName() { this->templateName_ = nullptr;};
+      inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+      inline Items& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
+
+
     protected:
       // List of industry categories for the sensitive data.
       shared_ptr<vector<string>> categories_ {};
+      shared_ptr<string> comment_ {};
+      shared_ptr<string> dataType_ {};
+      shared_ptr<string> dbName_ {};
+      shared_ptr<int32_t> fileCategoryCode_ {};
       // The unique identifier ID of the data object.
       shared_ptr<string> id_ {};
       // The instance description of the data object.
       shared_ptr<string> instanceDescription_ {};
       // Data asset instance ID.
       shared_ptr<string> instanceId_ {};
+      shared_ptr<int32_t> isRevision_ {};
       // Latest file modification time, in milliseconds.
       shared_ptr<int64_t> lastModifiedTime_ {};
       // The timestamp of the last scan, in milliseconds.
       shared_ptr<int64_t> lastScanTime_ {};
+      shared_ptr<string> logStore_ {};
+      shared_ptr<int32_t> maskStatus_ {};
       // Member account ID.
       shared_ptr<int64_t> memberAccount_ {};
       // List of data tags.
@@ -427,16 +611,26 @@ namespace Models
       // - **11**: MongoDB
       // - **25**: Redis
       shared_ptr<int64_t> productId_ {};
+      shared_ptr<string> project_ {};
       // The region ID to which the OSS storage object belongs.
       shared_ptr<string> regionId_ {};
       // Region name.
       shared_ptr<string> regionName_ {};
+      shared_ptr<int32_t> riskLevelId_ {};
+      shared_ptr<int32_t> ruleCount_ {};
       // List of matched identification models.
       shared_ptr<vector<Items::RuleList>> ruleList_ {};
       // Number of sensitive data items.
       shared_ptr<int32_t> sensitiveCount_ {};
+      shared_ptr<int64_t> size_ {};
+      shared_ptr<string> sx_ {};
+      shared_ptr<string> tableName_ {};
+      shared_ptr<int64_t> taskId_ {};
+      shared_ptr<string> taskName_ {};
+      shared_ptr<int64_t> taskNumber_ {};
       // Industry template ID
       shared_ptr<int64_t> templateId_ {};
+      shared_ptr<string> templateName_ {};
     };
 
     virtual bool empty() const override { return this->currentPage_ == nullptr

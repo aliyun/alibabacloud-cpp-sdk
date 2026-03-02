@@ -970,6 +970,10 @@ DescribeColumnsResponse Client::describeColumnsWithOptions(const DescribeColumns
     query["SensLevelName"] = request.getSensLevelName();
   }
 
+  if (!!request.hasServiceRegionId()) {
+    query["ServiceRegionId"] = request.getServiceRegionId();
+  }
+
   if (!!request.hasTableId()) {
     query["TableId"] = request.getTableId();
   }
@@ -1277,7 +1281,7 @@ DescribeDataLimitDetailResponse Client::describeDataLimitDetail(const DescribeDa
 }
 
 /**
- * @summary Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+ * @summary Queries assets that Data Security Center (DSC) is authorized to scan, or the regions that DSC supports.
  *
  * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
  * # Limits
@@ -1328,7 +1332,7 @@ DescribeDataLimitSetResponse Client::describeDataLimitSetWithOptions(const Descr
 }
 
 /**
- * @summary Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+ * @summary Queries assets that Data Security Center (DSC) is authorized to scan, or the regions that DSC supports.
  *
  * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
  * # Limits
@@ -1752,8 +1756,20 @@ DescribeDataObjectColumnDetailV2Response Client::describeDataObjectColumnDetailV
 DescribeDataObjectsResponse Client::describeDataObjectsWithOptions(const DescribeDataObjectsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAPIVersion()) {
+    query["APIVersion"] = request.getAPIVersion();
+  }
+
+  if (!!request.hasBucket()) {
+    query["Bucket"] = request.getBucket();
+  }
+
   if (!!request.hasCurrentPage()) {
     query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasDbName()) {
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasDomainId()) {
@@ -1780,6 +1796,14 @@ DescribeDataObjectsResponse Client::describeDataObjectsWithOptions(const Describ
     query["Lang"] = request.getLang();
   }
 
+  if (!!request.hasLogStore()) {
+    query["LogStore"] = request.getLogStore();
+  }
+
+  if (!!request.hasLogStoreFlag()) {
+    query["LogStoreFlag"] = request.getLogStoreFlag();
+  }
+
   if (!!request.hasMemberAccount()) {
     query["MemberAccount"] = request.getMemberAccount();
   }
@@ -1800,20 +1824,52 @@ DescribeDataObjectsResponse Client::describeDataObjectsWithOptions(const Describ
     query["ParentCategoryIds"] = request.getParentCategoryIds();
   }
 
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  if (!!request.hasProductId()) {
+    query["ProductId"] = request.getProductId();
+  }
+
   if (!!request.hasProductIds()) {
     query["ProductIds"] = request.getProductIds();
+  }
+
+  if (!!request.hasProject()) {
+    query["Project"] = request.getProject();
   }
 
   if (!!request.hasQueryName()) {
     query["QueryName"] = request.getQueryName();
   }
 
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRiskLevelIdList()) {
+    query["RiskLevelIdList"] = request.getRiskLevelIdList();
+  }
+
   if (!!request.hasRiskLevels()) {
     query["RiskLevels"] = request.getRiskLevels();
   }
 
+  if (!!request.hasRuleIds()) {
+    query["RuleIds"] = request.getRuleIds();
+  }
+
   if (!!request.hasServiceRegionId()) {
     query["ServiceRegionId"] = request.getServiceRegionId();
+  }
+
+  if (!!request.hasTableName()) {
+    query["TableName"] = request.getTableName();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTemplateId()) {
@@ -2885,7 +2941,7 @@ DescribeRulesResponse Client::describeRules(const DescribeRulesRequest &request)
 }
 
 /**
- * @summary Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+ * @summary Queries tables in data assets such as MaxCompute projects and ApsaraDB RDS instances that Data Security Center (DSC) is authorized to access.
  *
  * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
  * # Limits
@@ -2964,7 +3020,7 @@ DescribeTablesResponse Client::describeTablesWithOptions(const DescribeTablesReq
 }
 
 /**
- * @summary Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+ * @summary Queries tables in data assets such as MaxCompute projects and ApsaraDB RDS instances that Data Security Center (DSC) is authorized to access.
  *
  * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
  * # Limits

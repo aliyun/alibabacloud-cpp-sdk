@@ -332,7 +332,7 @@ namespace Sddp20190103
       Models::DescribeDataLimitDetailResponse describeDataLimitDetail(const Models::DescribeDataLimitDetailRequest &request);
 
       /**
-       * @summary Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+       * @summary Queries assets that Data Security Center (DSC) is authorized to scan, or the regions that DSC supports.
        *
        * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
        * # Limits
@@ -345,7 +345,7 @@ namespace Sddp20190103
       Models::DescribeDataLimitSetResponse describeDataLimitSetWithOptions(const Models::DescribeDataLimitSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+       * @summary Queries assets that Data Security Center (DSC) is authorized to scan, or the regions that DSC supports.
        *
        * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
        * # Limits
@@ -779,7 +779,7 @@ namespace Sddp20190103
       Models::DescribeRulesResponse describeRules(const Models::DescribeRulesRequest &request);
 
       /**
-       * @summary Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+       * @summary Queries tables in data assets such as MaxCompute projects and ApsaraDB RDS instances that Data Security Center (DSC) is authorized to access.
        *
        * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
        * # Limits
@@ -792,7 +792,7 @@ namespace Sddp20190103
       Models::DescribeTablesResponse describeTablesWithOptions(const Models::DescribeTablesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+       * @summary Queries tables in data assets such as MaxCompute projects and ApsaraDB RDS instances that Data Security Center (DSC) is authorized to access.
        *
        * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
        * # Limits

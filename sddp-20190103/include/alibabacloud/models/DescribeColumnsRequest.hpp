@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
       DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
       DARABONBA_PTR_TO_JSON(SensLevelName, sensLevelName_);
+      DARABONBA_PTR_TO_JSON(ServiceRegionId, serviceRegionId_);
       DARABONBA_PTR_TO_JSON(TableId, tableId_);
       DARABONBA_PTR_TO_JSON(TableName, tableName_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
       DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
       DARABONBA_PTR_FROM_JSON(SensLevelName, sensLevelName_);
+      DARABONBA_PTR_FROM_JSON(ServiceRegionId, serviceRegionId_);
       DARABONBA_PTR_FROM_JSON(TableId, tableId_);
       DARABONBA_PTR_FROM_JSON(TableName, tableName_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
@@ -66,8 +68,8 @@ namespace Models
     virtual bool empty() const override { return this->currentPage_ == nullptr
         && this->engineType_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->lang_ == nullptr && this->modelTagId_ == nullptr
         && this->name_ == nullptr && this->pageSize_ == nullptr && this->productCode_ == nullptr && this->productId_ == nullptr && this->riskLevelId_ == nullptr
-        && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->sensLevelName_ == nullptr && this->tableId_ == nullptr && this->tableName_ == nullptr
-        && this->templateId_ == nullptr && this->templateRuleId_ == nullptr; };
+        && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->sensLevelName_ == nullptr && this->serviceRegionId_ == nullptr && this->tableId_ == nullptr
+        && this->tableName_ == nullptr && this->templateId_ == nullptr && this->templateRuleId_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -164,6 +166,13 @@ namespace Models
     void deleteSensLevelName() { this->sensLevelName_ = nullptr;};
     inline string getSensLevelName() const { DARABONBA_PTR_GET_DEFAULT(sensLevelName_, "") };
     inline DescribeColumnsRequest& setSensLevelName(string sensLevelName) { DARABONBA_PTR_SET_VALUE(sensLevelName_, sensLevelName) };
+
+
+    // serviceRegionId Field Functions 
+    bool hasServiceRegionId() const { return this->serviceRegionId_ != nullptr;};
+    void deleteServiceRegionId() { this->serviceRegionId_ = nullptr;};
+    inline string getServiceRegionId() const { DARABONBA_PTR_GET_DEFAULT(serviceRegionId_, "") };
+    inline DescribeColumnsRequest& setServiceRegionId(string serviceRegionId) { DARABONBA_PTR_SET_VALUE(serviceRegionId_, serviceRegionId) };
 
 
     // tableId Field Functions 
@@ -266,6 +275,7 @@ namespace Models
     // *   **S3**: indicates the high sensitivity level.
     // *   **S4**: indicates the highest sensitivity level.
     shared_ptr<string> sensLevelName_ {};
+    shared_ptr<string> serviceRegionId_ {};
     // The ID of the table to which the column belongs.
     // 
     // > You can call the [DescribeTables](~~DescribeTables~~) operation to query the IDs of tables.
