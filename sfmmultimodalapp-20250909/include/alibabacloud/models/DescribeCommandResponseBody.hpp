@@ -3,8 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBECOMMANDRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeCommandResponseBodyToolExamples.hpp>
-#include <alibabacloud/models/DescribeCommandResponseBodyToolParams.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -60,135 +58,218 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->createUserId_ != nullptr && this->createUserName_ != nullptr && this->description_ != nullptr && this->domainCode_ != nullptr && this->domainName_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->modifyUserId_ != nullptr && this->modifyUserName_ != nullptr && this->requestId_ != nullptr
-        && this->toolExamples_ != nullptr && this->toolId_ != nullptr && this->toolName_ != nullptr && this->toolParams_ != nullptr; };
+    class ToolParams : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ToolParams& obj) { 
+        DARABONBA_PTR_TO_JSON(ParamDesc, paramDesc_);
+        DARABONBA_PTR_TO_JSON(ParamExample, paramExample_);
+        DARABONBA_PTR_TO_JSON(ParamName, paramName_);
+      };
+      friend void from_json(const Darabonba::Json& j, ToolParams& obj) { 
+        DARABONBA_PTR_FROM_JSON(ParamDesc, paramDesc_);
+        DARABONBA_PTR_FROM_JSON(ParamExample, paramExample_);
+        DARABONBA_PTR_FROM_JSON(ParamName, paramName_);
+      };
+      ToolParams() = default ;
+      ToolParams(const ToolParams &) = default ;
+      ToolParams(ToolParams &&) = default ;
+      ToolParams(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ToolParams() = default ;
+      ToolParams& operator=(const ToolParams &) = default ;
+      ToolParams& operator=(ToolParams &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->paramDesc_ == nullptr
+        && this->paramExample_ == nullptr && this->paramName_ == nullptr; };
+      // paramDesc Field Functions 
+      bool hasParamDesc() const { return this->paramDesc_ != nullptr;};
+      void deleteParamDesc() { this->paramDesc_ = nullptr;};
+      inline string getParamDesc() const { DARABONBA_PTR_GET_DEFAULT(paramDesc_, "") };
+      inline ToolParams& setParamDesc(string paramDesc) { DARABONBA_PTR_SET_VALUE(paramDesc_, paramDesc) };
+
+
+      // paramExample Field Functions 
+      bool hasParamExample() const { return this->paramExample_ != nullptr;};
+      void deleteParamExample() { this->paramExample_ = nullptr;};
+      inline string getParamExample() const { DARABONBA_PTR_GET_DEFAULT(paramExample_, "") };
+      inline ToolParams& setParamExample(string paramExample) { DARABONBA_PTR_SET_VALUE(paramExample_, paramExample) };
+
+
+      // paramName Field Functions 
+      bool hasParamName() const { return this->paramName_ != nullptr;};
+      void deleteParamName() { this->paramName_ = nullptr;};
+      inline string getParamName() const { DARABONBA_PTR_GET_DEFAULT(paramName_, "") };
+      inline ToolParams& setParamName(string paramName) { DARABONBA_PTR_SET_VALUE(paramName_, paramName) };
+
+
+    protected:
+      shared_ptr<string> paramDesc_ {};
+      shared_ptr<string> paramExample_ {};
+      shared_ptr<string> paramName_ {};
+    };
+
+    class ToolExamples : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ToolExamples& obj) { 
+        DARABONBA_PTR_TO_JSON(Query, query_);
+      };
+      friend void from_json(const Darabonba::Json& j, ToolExamples& obj) { 
+        DARABONBA_PTR_FROM_JSON(Query, query_);
+      };
+      ToolExamples() = default ;
+      ToolExamples(const ToolExamples &) = default ;
+      ToolExamples(ToolExamples &&) = default ;
+      ToolExamples(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ToolExamples() = default ;
+      ToolExamples& operator=(const ToolExamples &) = default ;
+      ToolExamples& operator=(ToolExamples &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->query_ == nullptr; };
+      // query Field Functions 
+      bool hasQuery() const { return this->query_ != nullptr;};
+      void deleteQuery() { this->query_ = nullptr;};
+      inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+      inline ToolExamples& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
+
+
+    protected:
+      shared_ptr<string> query_ {};
+    };
+
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && this->createUserId_ == nullptr && this->createUserName_ == nullptr && this->description_ == nullptr && this->domainCode_ == nullptr && this->domainName_ == nullptr
+        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->modifyUserId_ == nullptr && this->modifyUserName_ == nullptr && this->requestId_ == nullptr
+        && this->toolExamples_ == nullptr && this->toolId_ == nullptr && this->toolName_ == nullptr && this->toolParams_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeCommandResponseBody& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // createUserId Field Functions 
     bool hasCreateUserId() const { return this->createUserId_ != nullptr;};
     void deleteCreateUserId() { this->createUserId_ = nullptr;};
-    inline string createUserId() const { DARABONBA_PTR_GET_DEFAULT(createUserId_, "") };
+    inline string getCreateUserId() const { DARABONBA_PTR_GET_DEFAULT(createUserId_, "") };
     inline DescribeCommandResponseBody& setCreateUserId(string createUserId) { DARABONBA_PTR_SET_VALUE(createUserId_, createUserId) };
 
 
     // createUserName Field Functions 
     bool hasCreateUserName() const { return this->createUserName_ != nullptr;};
     void deleteCreateUserName() { this->createUserName_ = nullptr;};
-    inline string createUserName() const { DARABONBA_PTR_GET_DEFAULT(createUserName_, "") };
+    inline string getCreateUserName() const { DARABONBA_PTR_GET_DEFAULT(createUserName_, "") };
     inline DescribeCommandResponseBody& setCreateUserName(string createUserName) { DARABONBA_PTR_SET_VALUE(createUserName_, createUserName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribeCommandResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // domainCode Field Functions 
     bool hasDomainCode() const { return this->domainCode_ != nullptr;};
     void deleteDomainCode() { this->domainCode_ = nullptr;};
-    inline string domainCode() const { DARABONBA_PTR_GET_DEFAULT(domainCode_, "") };
+    inline string getDomainCode() const { DARABONBA_PTR_GET_DEFAULT(domainCode_, "") };
     inline DescribeCommandResponseBody& setDomainCode(string domainCode) { DARABONBA_PTR_SET_VALUE(domainCode_, domainCode) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline DescribeCommandResponseBody& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // gmtCreate Field Functions 
     bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
     void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
-    inline string gmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
+    inline string getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
     inline DescribeCommandResponseBody& setGmtCreate(string gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
 
 
     // gmtModified Field Functions 
     bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
     void deleteGmtModified() { this->gmtModified_ = nullptr;};
-    inline string gmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+    inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
     inline DescribeCommandResponseBody& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
     // modifyUserId Field Functions 
     bool hasModifyUserId() const { return this->modifyUserId_ != nullptr;};
     void deleteModifyUserId() { this->modifyUserId_ = nullptr;};
-    inline string modifyUserId() const { DARABONBA_PTR_GET_DEFAULT(modifyUserId_, "") };
+    inline string getModifyUserId() const { DARABONBA_PTR_GET_DEFAULT(modifyUserId_, "") };
     inline DescribeCommandResponseBody& setModifyUserId(string modifyUserId) { DARABONBA_PTR_SET_VALUE(modifyUserId_, modifyUserId) };
 
 
     // modifyUserName Field Functions 
     bool hasModifyUserName() const { return this->modifyUserName_ != nullptr;};
     void deleteModifyUserName() { this->modifyUserName_ = nullptr;};
-    inline string modifyUserName() const { DARABONBA_PTR_GET_DEFAULT(modifyUserName_, "") };
+    inline string getModifyUserName() const { DARABONBA_PTR_GET_DEFAULT(modifyUserName_, "") };
     inline DescribeCommandResponseBody& setModifyUserName(string modifyUserName) { DARABONBA_PTR_SET_VALUE(modifyUserName_, modifyUserName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeCommandResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // toolExamples Field Functions 
     bool hasToolExamples() const { return this->toolExamples_ != nullptr;};
     void deleteToolExamples() { this->toolExamples_ = nullptr;};
-    inline const vector<DescribeCommandResponseBodyToolExamples> & toolExamples() const { DARABONBA_PTR_GET_CONST(toolExamples_, vector<DescribeCommandResponseBodyToolExamples>) };
-    inline vector<DescribeCommandResponseBodyToolExamples> toolExamples() { DARABONBA_PTR_GET(toolExamples_, vector<DescribeCommandResponseBodyToolExamples>) };
-    inline DescribeCommandResponseBody& setToolExamples(const vector<DescribeCommandResponseBodyToolExamples> & toolExamples) { DARABONBA_PTR_SET_VALUE(toolExamples_, toolExamples) };
-    inline DescribeCommandResponseBody& setToolExamples(vector<DescribeCommandResponseBodyToolExamples> && toolExamples) { DARABONBA_PTR_SET_RVALUE(toolExamples_, toolExamples) };
+    inline const vector<DescribeCommandResponseBody::ToolExamples> & getToolExamples() const { DARABONBA_PTR_GET_CONST(toolExamples_, vector<DescribeCommandResponseBody::ToolExamples>) };
+    inline vector<DescribeCommandResponseBody::ToolExamples> getToolExamples() { DARABONBA_PTR_GET(toolExamples_, vector<DescribeCommandResponseBody::ToolExamples>) };
+    inline DescribeCommandResponseBody& setToolExamples(const vector<DescribeCommandResponseBody::ToolExamples> & toolExamples) { DARABONBA_PTR_SET_VALUE(toolExamples_, toolExamples) };
+    inline DescribeCommandResponseBody& setToolExamples(vector<DescribeCommandResponseBody::ToolExamples> && toolExamples) { DARABONBA_PTR_SET_RVALUE(toolExamples_, toolExamples) };
 
 
     // toolId Field Functions 
     bool hasToolId() const { return this->toolId_ != nullptr;};
     void deleteToolId() { this->toolId_ = nullptr;};
-    inline string toolId() const { DARABONBA_PTR_GET_DEFAULT(toolId_, "") };
+    inline string getToolId() const { DARABONBA_PTR_GET_DEFAULT(toolId_, "") };
     inline DescribeCommandResponseBody& setToolId(string toolId) { DARABONBA_PTR_SET_VALUE(toolId_, toolId) };
 
 
     // toolName Field Functions 
     bool hasToolName() const { return this->toolName_ != nullptr;};
     void deleteToolName() { this->toolName_ = nullptr;};
-    inline string toolName() const { DARABONBA_PTR_GET_DEFAULT(toolName_, "") };
+    inline string getToolName() const { DARABONBA_PTR_GET_DEFAULT(toolName_, "") };
     inline DescribeCommandResponseBody& setToolName(string toolName) { DARABONBA_PTR_SET_VALUE(toolName_, toolName) };
 
 
     // toolParams Field Functions 
     bool hasToolParams() const { return this->toolParams_ != nullptr;};
     void deleteToolParams() { this->toolParams_ = nullptr;};
-    inline const vector<DescribeCommandResponseBodyToolParams> & toolParams() const { DARABONBA_PTR_GET_CONST(toolParams_, vector<DescribeCommandResponseBodyToolParams>) };
-    inline vector<DescribeCommandResponseBodyToolParams> toolParams() { DARABONBA_PTR_GET(toolParams_, vector<DescribeCommandResponseBodyToolParams>) };
-    inline DescribeCommandResponseBody& setToolParams(const vector<DescribeCommandResponseBodyToolParams> & toolParams) { DARABONBA_PTR_SET_VALUE(toolParams_, toolParams) };
-    inline DescribeCommandResponseBody& setToolParams(vector<DescribeCommandResponseBodyToolParams> && toolParams) { DARABONBA_PTR_SET_RVALUE(toolParams_, toolParams) };
+    inline const vector<DescribeCommandResponseBody::ToolParams> & getToolParams() const { DARABONBA_PTR_GET_CONST(toolParams_, vector<DescribeCommandResponseBody::ToolParams>) };
+    inline vector<DescribeCommandResponseBody::ToolParams> getToolParams() { DARABONBA_PTR_GET(toolParams_, vector<DescribeCommandResponseBody::ToolParams>) };
+    inline DescribeCommandResponseBody& setToolParams(const vector<DescribeCommandResponseBody::ToolParams> & toolParams) { DARABONBA_PTR_SET_VALUE(toolParams_, toolParams) };
+    inline DescribeCommandResponseBody& setToolParams(vector<DescribeCommandResponseBody::ToolParams> && toolParams) { DARABONBA_PTR_SET_RVALUE(toolParams_, toolParams) };
 
 
   protected:
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> createUserId_ = nullptr;
-    std::shared_ptr<string> createUserName_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> domainCode_ = nullptr;
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<string> gmtCreate_ = nullptr;
-    std::shared_ptr<string> gmtModified_ = nullptr;
-    std::shared_ptr<string> modifyUserId_ = nullptr;
-    std::shared_ptr<string> modifyUserName_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<DescribeCommandResponseBodyToolExamples>> toolExamples_ = nullptr;
-    std::shared_ptr<string> toolId_ = nullptr;
-    std::shared_ptr<string> toolName_ = nullptr;
-    std::shared_ptr<vector<DescribeCommandResponseBodyToolParams>> toolParams_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> createUserId_ {};
+    shared_ptr<string> createUserName_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> domainCode_ {};
+    shared_ptr<string> domainName_ {};
+    shared_ptr<string> gmtCreate_ {};
+    shared_ptr<string> gmtModified_ {};
+    shared_ptr<string> modifyUserId_ {};
+    shared_ptr<string> modifyUserName_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<DescribeCommandResponseBody::ToolExamples>> toolExamples_ {};
+    shared_ptr<string> toolId_ {};
+    shared_ptr<string> toolName_ {};
+    shared_ptr<vector<DescribeCommandResponseBody::ToolParams>> toolParams_ {};
   };
 
   } // namespace Models

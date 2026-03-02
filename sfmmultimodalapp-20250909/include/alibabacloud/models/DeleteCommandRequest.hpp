@@ -35,44 +35,44 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->domainCode_ != nullptr && this->toolId_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && this->domainCode_ == nullptr && this->toolId_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DeleteCommandRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // domainCode Field Functions 
     bool hasDomainCode() const { return this->domainCode_ != nullptr;};
     void deleteDomainCode() { this->domainCode_ = nullptr;};
-    inline string domainCode() const { DARABONBA_PTR_GET_DEFAULT(domainCode_, "") };
+    inline string getDomainCode() const { DARABONBA_PTR_GET_DEFAULT(domainCode_, "") };
     inline DeleteCommandRequest& setDomainCode(string domainCode) { DARABONBA_PTR_SET_VALUE(domainCode_, domainCode) };
 
 
     // toolId Field Functions 
     bool hasToolId() const { return this->toolId_ != nullptr;};
     void deleteToolId() { this->toolId_ = nullptr;};
-    inline string toolId() const { DARABONBA_PTR_GET_DEFAULT(toolId_, "") };
+    inline string getToolId() const { DARABONBA_PTR_GET_DEFAULT(toolId_, "") };
     inline DeleteCommandRequest& setToolId(string toolId) { DARABONBA_PTR_SET_VALUE(toolId_, toolId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline DeleteCommandRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainCode_ = nullptr;
+    shared_ptr<string> domainCode_ {};
     // This parameter is required.
-    std::shared_ptr<string> toolId_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> toolId_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

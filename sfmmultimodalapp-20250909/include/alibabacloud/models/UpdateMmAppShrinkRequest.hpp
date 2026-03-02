@@ -41,68 +41,68 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->appName_ != nullptr && this->bindingConfigShrink_ != nullptr && this->conversationConfigShrink_ != nullptr && this->modelConfigShrink_ != nullptr && this->prompt_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && this->appName_ == nullptr && this->bindingConfigShrink_ == nullptr && this->conversationConfigShrink_ == nullptr && this->modelConfigShrink_ == nullptr && this->prompt_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateMmAppShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline UpdateMmAppShrinkRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // bindingConfigShrink Field Functions 
     bool hasBindingConfigShrink() const { return this->bindingConfigShrink_ != nullptr;};
     void deleteBindingConfigShrink() { this->bindingConfigShrink_ = nullptr;};
-    inline string bindingConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(bindingConfigShrink_, "") };
+    inline string getBindingConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(bindingConfigShrink_, "") };
     inline UpdateMmAppShrinkRequest& setBindingConfigShrink(string bindingConfigShrink) { DARABONBA_PTR_SET_VALUE(bindingConfigShrink_, bindingConfigShrink) };
 
 
     // conversationConfigShrink Field Functions 
     bool hasConversationConfigShrink() const { return this->conversationConfigShrink_ != nullptr;};
     void deleteConversationConfigShrink() { this->conversationConfigShrink_ = nullptr;};
-    inline string conversationConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(conversationConfigShrink_, "") };
+    inline string getConversationConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(conversationConfigShrink_, "") };
     inline UpdateMmAppShrinkRequest& setConversationConfigShrink(string conversationConfigShrink) { DARABONBA_PTR_SET_VALUE(conversationConfigShrink_, conversationConfigShrink) };
 
 
     // modelConfigShrink Field Functions 
     bool hasModelConfigShrink() const { return this->modelConfigShrink_ != nullptr;};
     void deleteModelConfigShrink() { this->modelConfigShrink_ = nullptr;};
-    inline string modelConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(modelConfigShrink_, "") };
+    inline string getModelConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(modelConfigShrink_, "") };
     inline UpdateMmAppShrinkRequest& setModelConfigShrink(string modelConfigShrink) { DARABONBA_PTR_SET_VALUE(modelConfigShrink_, modelConfigShrink) };
 
 
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline UpdateMmAppShrinkRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline UpdateMmAppShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
-    std::shared_ptr<string> bindingConfigShrink_ = nullptr;
-    std::shared_ptr<string> conversationConfigShrink_ = nullptr;
-    std::shared_ptr<string> modelConfigShrink_ = nullptr;
-    std::shared_ptr<string> prompt_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> appName_ {};
+    shared_ptr<string> bindingConfigShrink_ {};
+    shared_ptr<string> conversationConfigShrink_ {};
+    shared_ptr<string> modelConfigShrink_ {};
+    shared_ptr<string> prompt_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

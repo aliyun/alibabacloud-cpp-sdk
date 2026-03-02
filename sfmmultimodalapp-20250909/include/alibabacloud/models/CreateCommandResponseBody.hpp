@@ -33,33 +33,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->domainCode_ != nullptr
-        && this->requestId_ != nullptr && this->toolId_ != nullptr; };
+    virtual bool empty() const override { return this->domainCode_ == nullptr
+        && this->requestId_ == nullptr && this->toolId_ == nullptr; };
     // domainCode Field Functions 
     bool hasDomainCode() const { return this->domainCode_ != nullptr;};
     void deleteDomainCode() { this->domainCode_ = nullptr;};
-    inline string domainCode() const { DARABONBA_PTR_GET_DEFAULT(domainCode_, "") };
+    inline string getDomainCode() const { DARABONBA_PTR_GET_DEFAULT(domainCode_, "") };
     inline CreateCommandResponseBody& setDomainCode(string domainCode) { DARABONBA_PTR_SET_VALUE(domainCode_, domainCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateCommandResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // toolId Field Functions 
     bool hasToolId() const { return this->toolId_ != nullptr;};
     void deleteToolId() { this->toolId_ = nullptr;};
-    inline string toolId() const { DARABONBA_PTR_GET_DEFAULT(toolId_, "") };
+    inline string getToolId() const { DARABONBA_PTR_GET_DEFAULT(toolId_, "") };
     inline CreateCommandResponseBody& setToolId(string toolId) { DARABONBA_PTR_SET_VALUE(toolId_, toolId) };
 
 
   protected:
-    std::shared_ptr<string> domainCode_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> toolId_ = nullptr;
+    shared_ptr<string> domainCode_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> toolId_ {};
   };
 
   } // namespace Models

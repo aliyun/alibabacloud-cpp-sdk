@@ -38,6 +38,23 @@ namespace SfmMultiModalApp20250909
       Models::CreateCommandResponse createCommand(const Models::CreateCommandRequest &request);
 
       /**
+       * @summary 新增用户记忆
+       *
+       * @param tmpReq CreateMemoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMemoryResponse
+       */
+      Models::CreateMemoryResponse createMemoryWithOptions(const Models::CreateMemoryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增用户记忆
+       *
+       * @param request CreateMemoryRequest
+       * @return CreateMemoryResponse
+       */
+      Models::CreateMemoryResponse createMemory(const Models::CreateMemoryRequest &request);
+
+      /**
        * @summary 创建多模态应用
        *
        * @param tmpReq CreateMmAppRequest
@@ -53,6 +70,23 @@ namespace SfmMultiModalApp20250909
        * @return CreateMmAppResponse
        */
       Models::CreateMmAppResponse createMmApp(const Models::CreateMmAppRequest &request);
+
+      /**
+       * @summary 创建用户画像配置
+       *
+       * @param tmpReq CreateProfileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateProfileResponse
+       */
+      Models::CreateProfileResponse createProfileWithOptions(const Models::CreateProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建用户画像配置
+       *
+       * @param request CreateProfileRequest
+       * @return CreateProfileResponse
+       */
+      Models::CreateProfileResponse createProfile(const Models::CreateProfileRequest &request);
 
       /**
        * @summary 删除指令
@@ -72,6 +106,23 @@ namespace SfmMultiModalApp20250909
       Models::DeleteCommandResponse deleteCommand(const Models::DeleteCommandRequest &request);
 
       /**
+       * @summary 删除用户记忆
+       *
+       * @param request DeleteMemoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMemoryResponse
+       */
+      Models::DeleteMemoryResponse deleteMemoryWithOptions(const Models::DeleteMemoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除用户记忆
+       *
+       * @param request DeleteMemoryRequest
+       * @return DeleteMemoryResponse
+       */
+      Models::DeleteMemoryResponse deleteMemory(const Models::DeleteMemoryRequest &request);
+
+      /**
        * @summary 删除多模态应用
        *
        * @param request DeleteMmAppRequest
@@ -87,6 +138,23 @@ namespace SfmMultiModalApp20250909
        * @return DeleteMmAppResponse
        */
       Models::DeleteMmAppResponse deleteMmApp(const Models::DeleteMmAppRequest &request);
+
+      /**
+       * @summary 删除用户画像配置
+       *
+       * @param request DeleteProfileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteProfileResponse
+       */
+      Models::DeleteProfileResponse deleteProfileWithOptions(const Models::DeleteProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除用户画像配置
+       *
+       * @param request DeleteProfileRequest
+       * @return DeleteProfileResponse
+       */
+      Models::DeleteProfileResponse deleteProfile(const Models::DeleteProfileRequest &request);
 
       /**
        * @summary 指令详情
@@ -174,6 +242,23 @@ namespace SfmMultiModalApp20250909
       Models::ListPublishedMmAppResponse listPublishedMmApp(const Models::ListPublishedMmAppRequest &request);
 
       /**
+       * @summary 变更用户记忆配置
+       *
+       * @param request PatchMemoryConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PatchMemoryConfigResponse
+       */
+      Models::PatchMemoryConfigResponse patchMemoryConfigWithOptions(const Models::PatchMemoryConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 变更用户记忆配置
+       *
+       * @param request PatchMemoryConfigRequest
+       * @return PatchMemoryConfigResponse
+       */
+      Models::PatchMemoryConfigResponse patchMemoryConfig(const Models::PatchMemoryConfigRequest &request);
+
+      /**
        * @summary 多模态应用发布
        *
        * @param request PublishMmAppRequest
@@ -189,6 +274,74 @@ namespace SfmMultiModalApp20250909
        * @return PublishMmAppResponse
        */
       Models::PublishMmAppResponse publishMmApp(const Models::PublishMmAppRequest &request);
+
+      /**
+       * @summary 查询用户记忆配置
+       *
+       * @param request QueryMemoryConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMemoryConfigResponse
+       */
+      Models::QueryMemoryConfigResponse queryMemoryConfigWithOptions(const Models::QueryMemoryConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用户记忆配置
+       *
+       * @param request QueryMemoryConfigRequest
+       * @return QueryMemoryConfigResponse
+       */
+      Models::QueryMemoryConfigResponse queryMemoryConfig(const Models::QueryMemoryConfigRequest &request);
+
+      /**
+       * @summary 查询用户记忆列表
+       *
+       * @param request QueryMemoryListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMemoryListResponse
+       */
+      Models::QueryMemoryListResponse queryMemoryListWithOptions(const Models::QueryMemoryListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用户记忆列表
+       *
+       * @param request QueryMemoryListRequest
+       * @return QueryMemoryListResponse
+       */
+      Models::QueryMemoryListResponse queryMemoryList(const Models::QueryMemoryListRequest &request);
+
+      /**
+       * @summary 查询用户画像配置
+       *
+       * @param request QueryProfileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryProfileResponse
+       */
+      Models::QueryProfileResponse queryProfileWithOptions(const Models::QueryProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用户画像配置
+       *
+       * @param request QueryProfileRequest
+       * @return QueryProfileResponse
+       */
+      Models::QueryProfileResponse queryProfile(const Models::QueryProfileRequest &request);
+
+      /**
+       * @summary 查询用户画像
+       *
+       * @param request QueryUserProfileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryUserProfileResponse
+       */
+      Models::QueryUserProfileResponse queryUserProfileWithOptions(const Models::QueryUserProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用户画像
+       *
+       * @param request QueryUserProfileRequest
+       * @return QueryUserProfileResponse
+       */
+      Models::QueryUserProfileResponse queryUserProfile(const Models::QueryUserProfileRequest &request);
 
       /**
        * @summary 指令更新
@@ -208,6 +361,23 @@ namespace SfmMultiModalApp20250909
       Models::UpdateCommandResponse updateCommand(const Models::UpdateCommandRequest &request);
 
       /**
+       * @summary 更新用户记忆
+       *
+       * @param tmpReq UpdateMemoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMemoryResponse
+       */
+      Models::UpdateMemoryResponse updateMemoryWithOptions(const Models::UpdateMemoryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新用户记忆
+       *
+       * @param request UpdateMemoryRequest
+       * @return UpdateMemoryResponse
+       */
+      Models::UpdateMemoryResponse updateMemory(const Models::UpdateMemoryRequest &request);
+
+      /**
        * @summary 多模态应用更新
        *
        * @param tmpReq UpdateMmAppRequest
@@ -223,6 +393,23 @@ namespace SfmMultiModalApp20250909
        * @return UpdateMmAppResponse
        */
       Models::UpdateMmAppResponse updateMmApp(const Models::UpdateMmAppRequest &request);
+
+      /**
+       * @summary 变更用户画像配置
+       *
+       * @param tmpReq UpdateProfileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateProfileResponse
+       */
+      Models::UpdateProfileResponse updateProfileWithOptions(const Models::UpdateProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 变更用户画像配置
+       *
+       * @param request UpdateProfileRequest
+       * @return UpdateProfileResponse
+       */
+      Models::UpdateProfileResponse updateProfile(const Models::UpdateProfileRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace SfmMultiModalApp20250909

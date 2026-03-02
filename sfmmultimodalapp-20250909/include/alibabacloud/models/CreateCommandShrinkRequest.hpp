@@ -43,78 +43,77 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->domainCode_ != nullptr && this->domainName_ != nullptr && this->toolDescription_ != nullptr && this->toolExamplesShrink_ != nullptr && this->toolName_ != nullptr
-        && this->toolParamsShrink_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && this->domainCode_ == nullptr && this->domainName_ == nullptr && this->toolDescription_ == nullptr && this->toolExamplesShrink_ == nullptr && this->toolName_ == nullptr
+        && this->toolParamsShrink_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateCommandShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // domainCode Field Functions 
     bool hasDomainCode() const { return this->domainCode_ != nullptr;};
     void deleteDomainCode() { this->domainCode_ = nullptr;};
-    inline string domainCode() const { DARABONBA_PTR_GET_DEFAULT(domainCode_, "") };
+    inline string getDomainCode() const { DARABONBA_PTR_GET_DEFAULT(domainCode_, "") };
     inline CreateCommandShrinkRequest& setDomainCode(string domainCode) { DARABONBA_PTR_SET_VALUE(domainCode_, domainCode) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline CreateCommandShrinkRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // toolDescription Field Functions 
     bool hasToolDescription() const { return this->toolDescription_ != nullptr;};
     void deleteToolDescription() { this->toolDescription_ = nullptr;};
-    inline string toolDescription() const { DARABONBA_PTR_GET_DEFAULT(toolDescription_, "") };
+    inline string getToolDescription() const { DARABONBA_PTR_GET_DEFAULT(toolDescription_, "") };
     inline CreateCommandShrinkRequest& setToolDescription(string toolDescription) { DARABONBA_PTR_SET_VALUE(toolDescription_, toolDescription) };
 
 
     // toolExamplesShrink Field Functions 
     bool hasToolExamplesShrink() const { return this->toolExamplesShrink_ != nullptr;};
     void deleteToolExamplesShrink() { this->toolExamplesShrink_ = nullptr;};
-    inline string toolExamplesShrink() const { DARABONBA_PTR_GET_DEFAULT(toolExamplesShrink_, "") };
+    inline string getToolExamplesShrink() const { DARABONBA_PTR_GET_DEFAULT(toolExamplesShrink_, "") };
     inline CreateCommandShrinkRequest& setToolExamplesShrink(string toolExamplesShrink) { DARABONBA_PTR_SET_VALUE(toolExamplesShrink_, toolExamplesShrink) };
 
 
     // toolName Field Functions 
     bool hasToolName() const { return this->toolName_ != nullptr;};
     void deleteToolName() { this->toolName_ = nullptr;};
-    inline string toolName() const { DARABONBA_PTR_GET_DEFAULT(toolName_, "") };
+    inline string getToolName() const { DARABONBA_PTR_GET_DEFAULT(toolName_, "") };
     inline CreateCommandShrinkRequest& setToolName(string toolName) { DARABONBA_PTR_SET_VALUE(toolName_, toolName) };
 
 
     // toolParamsShrink Field Functions 
     bool hasToolParamsShrink() const { return this->toolParamsShrink_ != nullptr;};
     void deleteToolParamsShrink() { this->toolParamsShrink_ = nullptr;};
-    inline string toolParamsShrink() const { DARABONBA_PTR_GET_DEFAULT(toolParamsShrink_, "") };
+    inline string getToolParamsShrink() const { DARABONBA_PTR_GET_DEFAULT(toolParamsShrink_, "") };
     inline CreateCommandShrinkRequest& setToolParamsShrink(string toolParamsShrink) { DARABONBA_PTR_SET_VALUE(toolParamsShrink_, toolParamsShrink) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline CreateCommandShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> domainCode_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> domainCode_ {};
+    shared_ptr<string> domainName_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> toolDescription_ {};
+    shared_ptr<string> toolExamplesShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> toolDescription_ = nullptr;
-    std::shared_ptr<string> toolExamplesShrink_ = nullptr;
-    // This parameter is required.
-    std::shared_ptr<string> toolName_ = nullptr;
-    std::shared_ptr<string> toolParamsShrink_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> toolName_ {};
+    shared_ptr<string> toolParamsShrink_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models
