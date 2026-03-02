@@ -260,7 +260,7 @@ namespace Cas20200407
       Models::DeleteCertificateRequestResponse deleteCertificateRequest(const Models::DeleteCertificateRequestRequest &request);
 
       /**
-       * @summary Deletes a certificate signing request (CSR) file.
+       * @summary Deletes a Certificate Signing Request (CSR) that is no longer required.
        *
        * @param request DeleteCsrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -269,7 +269,7 @@ namespace Cas20200407
       Models::DeleteCsrResponse deleteCsrWithOptions(const Models::DeleteCsrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a certificate signing request (CSR) file.
+       * @summary Deletes a Certificate Signing Request (CSR) that is no longer required.
        *
        * @param request DeleteCsrRequest
        * @return DeleteCsrResponse
@@ -486,7 +486,23 @@ namespace Cas20200407
       Models::EncryptResponse encrypt(const Models::EncryptRequest &request);
 
       /**
-       * @summary Queries the quota for certificate repositories.
+       * @summary 统计资产数量
+       *
+       * @param request GetAssetCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAssetCountResponse
+       */
+      Models::GetAssetCountResponse getAssetCountWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 统计资产数量
+       *
+       * @return GetAssetCountResponse
+       */
+      Models::GetAssetCountResponse getAssetCount();
+
+      /**
+       * @summary Queries the API call quota for certificate application repositories. When you call API operations for signature generation, signature verification, data encryption, and data decryption, your API call quota for certificate application repositories is consumed. If your API call quota is exhausted, you can no longer call specific certificate application repository-related operations. You can call this operation to query the API call quota for certificate application repositories.
        *
        * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -497,7 +513,7 @@ namespace Cas20200407
       Models::GetCertWarehouseQuotaResponse getCertWarehouseQuotaWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the quota for certificate repositories.
+       * @summary Queries the API call quota for certificate application repositories. When you call API operations for signature generation, signature verification, data encryption, and data decryption, your API call quota for certificate application repositories is consumed. If your API call quota is exhausted, you can no longer call specific certificate application repository-related operations. You can call this operation to query the API call quota for certificate application repositories.
        *
        * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -574,6 +590,22 @@ namespace Cas20200407
       Models::GetInstanceSummaryResponse getInstanceSummary(const Models::GetInstanceSummaryRequest &request);
 
       /**
+       * @summary 统计风险资产数量
+       *
+       * @param request GetRiskCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRiskCountResponse
+       */
+      Models::GetRiskCountResponse getRiskCountWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 统计风险资产数量
+       *
+       * @return GetRiskCountResponse
+       */
+      Models::GetRiskCountResponse getRiskCount();
+
+      /**
        * @summary 查询异步任务状态
        *
        * @param request GetTaskAttributeRequest
@@ -591,7 +623,7 @@ namespace Cas20200407
       Models::GetTaskAttributeResponse getTaskAttribute(const Models::GetTaskAttributeRequest &request);
 
       /**
-       * @summary Queries the details of a certificate.
+       * @summary Queries certificate details, including the basic information and public and private key content. You can call this operation to download the certificate and private key.
        *
        * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -602,7 +634,7 @@ namespace Cas20200407
       Models::GetUserCertificateDetailResponse getUserCertificateDetailWithOptions(const Models::GetUserCertificateDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a certificate.
+       * @summary Queries certificate details, including the basic information and public and private key content. You can call this operation to download the certificate and private key.
        *
        * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -610,6 +642,23 @@ namespace Cas20200407
        * @return GetUserCertificateDetailResponse
        */
       Models::GetUserCertificateDetailResponse getUserCertificateDetail(const Models::GetUserCertificateDetailRequest &request);
+
+      /**
+       * @summary 查询云产品资源统计列表
+       *
+       * @param request ListAssetCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAssetCountResponse
+       */
+      Models::ListAssetCountResponse listAssetCountWithOptions(const Models::ListAssetCountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询云产品资源统计列表
+       *
+       * @param request ListAssetCountRequest
+       * @return ListAssetCountResponse
+       */
+      Models::ListAssetCountResponse listAssetCount(const Models::ListAssetCountRequest &request);
 
       /**
        * @summary Queries the certificates in a certificate repository.
@@ -726,7 +775,7 @@ namespace Cas20200407
       Models::ListContactResponse listContact(const Models::ListContactRequest &request);
 
       /**
-       * @summary Queries certificate signing requests (CSRs).
+       * @summary Queries the details of Certificate Signing Requests (CSRs).
        *
        * @param request ListCsrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -735,7 +784,7 @@ namespace Cas20200407
       Models::ListCsrResponse listCsrWithOptions(const Models::ListCsrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries certificate signing requests (CSRs).
+       * @summary Queries the details of Certificate Signing Requests (CSRs).
        *
        * @param request ListCsrRequest
        * @return ListCsrResponse
@@ -952,7 +1001,7 @@ namespace Cas20200407
       Models::SignResponse sign(const Models::SignRequest &request);
 
       /**
-       * @summary Updates the private key of a certificate signing request (CSR).
+       * @summary Uploads or updates the private key for a Certificate Signing Request (CSR). If you did not upload the required priviate when you uploaded a CSR, you can call this operation to upload or update the private key.
        *
        * @param request UpdateCsrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -961,7 +1010,7 @@ namespace Cas20200407
       Models::UpdateCsrResponse updateCsrWithOptions(const Models::UpdateCsrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the private key of a certificate signing request (CSR).
+       * @summary Uploads or updates the private key for a Certificate Signing Request (CSR). If you did not upload the required priviate when you uploaded a CSR, you can call this operation to upload or update the private key.
        *
        * @param request UpdateCsrRequest
        * @return UpdateCsrResponse
@@ -1037,7 +1086,7 @@ namespace Cas20200407
       Models::UpdateWorkerResourceStatusResponse updateWorkerResourceStatus(const Models::UpdateWorkerResourceStatusRequest &request);
 
       /**
-       * @summary Uploads a certificate signing request (CSR) file
+       * @summary Uploads an existing Certificate Signing Request (CSR). You can use the CSR when you upload a certificate. You can also manage the uploaded CSRs in a centralized manner.
        *
        * @param request UploadCsrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1046,7 +1095,7 @@ namespace Cas20200407
       Models::UploadCsrResponse uploadCsrWithOptions(const Models::UploadCsrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads a certificate signing request (CSR) file
+       * @summary Uploads an existing Certificate Signing Request (CSR). You can use the CSR when you upload a certificate. You can also manage the uploaded CSRs in a centralized manner.
        *
        * @param request UploadCsrRequest
        * @return UploadCsrResponse

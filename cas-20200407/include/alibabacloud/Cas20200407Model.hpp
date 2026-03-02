@@ -71,6 +71,8 @@
 #include <alibabacloud/models/EncryptRequest.hpp>
 #include <alibabacloud/models/EncryptResponseBody.hpp>
 #include <alibabacloud/models/EncryptResponse.hpp>
+#include <alibabacloud/models/GetAssetCountResponseBody.hpp>
+#include <alibabacloud/models/GetAssetCountResponse.hpp>
 #include <alibabacloud/models/GetCertWarehouseQuotaResponseBody.hpp>
 #include <alibabacloud/models/GetCertWarehouseQuotaResponse.hpp>
 #include <alibabacloud/models/GetCertificateDetailRequest.hpp>
@@ -85,12 +87,17 @@
 #include <alibabacloud/models/GetInstanceSummaryRequest.hpp>
 #include <alibabacloud/models/GetInstanceSummaryResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceSummaryResponse.hpp>
+#include <alibabacloud/models/GetRiskCountResponseBody.hpp>
+#include <alibabacloud/models/GetRiskCountResponse.hpp>
 #include <alibabacloud/models/GetTaskAttributeRequest.hpp>
 #include <alibabacloud/models/GetTaskAttributeResponseBody.hpp>
 #include <alibabacloud/models/GetTaskAttributeResponse.hpp>
 #include <alibabacloud/models/GetUserCertificateDetailRequest.hpp>
 #include <alibabacloud/models/GetUserCertificateDetailResponseBody.hpp>
 #include <alibabacloud/models/GetUserCertificateDetailResponse.hpp>
+#include <alibabacloud/models/ListAssetCountRequest.hpp>
+#include <alibabacloud/models/ListAssetCountResponseBody.hpp>
+#include <alibabacloud/models/ListAssetCountResponse.hpp>
 #include <alibabacloud/models/ListCertRequest.hpp>
 #include <alibabacloud/models/ListCertResponseBody.hpp>
 #include <alibabacloud/models/ListCertResponse.hpp>

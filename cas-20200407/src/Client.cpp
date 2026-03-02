@@ -759,7 +759,7 @@ DeleteCertificateRequestResponse Client::deleteCertificateRequest(const DeleteCe
 }
 
 /**
- * @summary Deletes a certificate signing request (CSR) file.
+ * @summary Deletes a Certificate Signing Request (CSR) that is no longer required.
  *
  * @param request DeleteCsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -790,7 +790,7 @@ DeleteCsrResponse Client::deleteCsrWithOptions(const DeleteCsrRequest &request, 
 }
 
 /**
- * @summary Deletes a certificate signing request (CSR) file.
+ * @summary Deletes a Certificate Signing Request (CSR) that is no longer required.
  *
  * @param request DeleteCsrRequest
  * @return DeleteCsrResponse
@@ -1309,7 +1309,40 @@ EncryptResponse Client::encrypt(const EncryptRequest &request) {
 }
 
 /**
- * @summary Queries the quota for certificate repositories.
+ * @summary 统计资产数量
+ *
+ * @param request GetAssetCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAssetCountResponse
+ */
+GetAssetCountResponse Client::getAssetCountWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetAssetCount"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAssetCountResponse>();
+}
+
+/**
+ * @summary 统计资产数量
+ *
+ * @return GetAssetCountResponse
+ */
+GetAssetCountResponse Client::getAssetCount() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAssetCountWithOptions(runtime);
+}
+
+/**
+ * @summary Queries the API call quota for certificate application repositories. When you call API operations for signature generation, signature verification, data encryption, and data decryption, your API call quota for certificate application repositories is consumed. If your API call quota is exhausted, you can no longer call specific certificate application repository-related operations. You can call this operation to query the API call quota for certificate application repositories.
  *
  * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -1334,7 +1367,7 @@ GetCertWarehouseQuotaResponse Client::getCertWarehouseQuotaWithOptions(const Dar
 }
 
 /**
- * @summary Queries the quota for certificate repositories.
+ * @summary Queries the API call quota for certificate application repositories. When you call API operations for signature generation, signature verification, data encryption, and data decryption, your API call quota for certificate application repositories is consumed. If your API call quota is exhausted, you can no longer call specific certificate application repository-related operations. You can call this operation to query the API call quota for certificate application repositories.
  *
  * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -1514,6 +1547,39 @@ GetInstanceSummaryResponse Client::getInstanceSummary(const GetInstanceSummaryRe
 }
 
 /**
+ * @summary 统计风险资产数量
+ *
+ * @param request GetRiskCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRiskCountResponse
+ */
+GetRiskCountResponse Client::getRiskCountWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetRiskCount"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRiskCountResponse>();
+}
+
+/**
+ * @summary 统计风险资产数量
+ *
+ * @return GetRiskCountResponse
+ */
+GetRiskCountResponse Client::getRiskCount() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRiskCountWithOptions(runtime);
+}
+
+/**
  * @summary 查询异步任务状态
  *
  * @param request GetTaskAttributeRequest
@@ -1560,7 +1626,7 @@ GetTaskAttributeResponse Client::getTaskAttribute(const GetTaskAttributeRequest 
 }
 
 /**
- * @summary Queries the details of a certificate.
+ * @summary Queries certificate details, including the basic information and public and private key content. You can call this operation to download the certificate and private key.
  *
  * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -1597,7 +1663,7 @@ GetUserCertificateDetailResponse Client::getUserCertificateDetailWithOptions(con
 }
 
 /**
- * @summary Queries the details of a certificate.
+ * @summary Queries certificate details, including the basic information and public and private key content. You can call this operation to download the certificate and private key.
  *
  * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -1607,6 +1673,60 @@ GetUserCertificateDetailResponse Client::getUserCertificateDetailWithOptions(con
 GetUserCertificateDetailResponse Client::getUserCertificateDetail(const GetUserCertificateDetailRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getUserCertificateDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询云产品资源统计列表
+ *
+ * @param request ListAssetCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAssetCountResponse
+ */
+ListAssetCountResponse Client::listAssetCountWithOptions(const ListAssetCountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasShowSize()) {
+    query["ShowSize"] = request.getShowSize();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.getStartDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAssetCount"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAssetCountResponse>();
+}
+
+/**
+ * @summary 查询云产品资源统计列表
+ *
+ * @param request ListAssetCountRequest
+ * @return ListAssetCountResponse
+ */
+ListAssetCountResponse Client::listAssetCount(const ListAssetCountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAssetCountWithOptions(request, runtime);
 }
 
 /**
@@ -1988,7 +2108,7 @@ ListContactResponse Client::listContact(const ListContactRequest &request) {
 }
 
 /**
- * @summary Queries certificate signing requests (CSRs).
+ * @summary Queries the details of Certificate Signing Requests (CSRs).
  *
  * @param request ListCsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2031,7 +2151,7 @@ ListCsrResponse Client::listCsrWithOptions(const ListCsrRequest &request, const 
 }
 
 /**
- * @summary Queries certificate signing requests (CSRs).
+ * @summary Queries the details of Certificate Signing Requests (CSRs).
  *
  * @param request ListCsrRequest
  * @return ListCsrResponse
@@ -2646,7 +2766,7 @@ SignResponse Client::sign(const SignRequest &request) {
 }
 
 /**
- * @summary Updates the private key of a certificate signing request (CSR).
+ * @summary Uploads or updates the private key for a Certificate Signing Request (CSR). If you did not upload the required priviate when you uploaded a CSR, you can call this operation to upload or update the private key.
  *
  * @param request UpdateCsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2681,7 +2801,7 @@ UpdateCsrResponse Client::updateCsrWithOptions(const UpdateCsrRequest &request, 
 }
 
 /**
- * @summary Updates the private key of a certificate signing request (CSR).
+ * @summary Uploads or updates the private key for a Certificate Signing Request (CSR). If you did not upload the required priviate when you uploaded a CSR, you can call this operation to upload or update the private key.
  *
  * @param request UpdateCsrRequest
  * @return UpdateCsrResponse
@@ -2948,7 +3068,7 @@ UpdateWorkerResourceStatusResponse Client::updateWorkerResourceStatus(const Upda
 }
 
 /**
- * @summary Uploads a certificate signing request (CSR) file
+ * @summary Uploads an existing Certificate Signing Request (CSR). You can use the CSR when you upload a certificate. You can also manage the uploaded CSRs in a centralized manner.
  *
  * @param request UploadCsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2987,7 +3107,7 @@ UploadCsrResponse Client::uploadCsrWithOptions(const UploadCsrRequest &request, 
 }
 
 /**
- * @summary Uploads a certificate signing request (CSR) file
+ * @summary Uploads an existing Certificate Signing Request (CSR). You can use the CSR when you upload a certificate. You can also manage the uploaded CSRs in a centralized manner.
  *
  * @param request UploadCsrRequest
  * @return UploadCsrResponse
