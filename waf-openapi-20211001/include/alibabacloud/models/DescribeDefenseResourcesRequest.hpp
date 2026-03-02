@@ -144,8 +144,6 @@ namespace Models
     // The ID of the Web Application Firewall (WAF) instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
-    // 
-    // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The page number of the paginated results Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};

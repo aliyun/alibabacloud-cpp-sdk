@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_ANY_TO_JSON(Detail, detail_);
         DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
+        DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(OwnerUserId, ownerUserId_);
         DARABONBA_PTR_TO_JSON(Pattern, pattern_);
         DARABONBA_PTR_TO_JSON(Product, product_);
@@ -64,6 +65,7 @@ namespace Models
         DARABONBA_ANY_FROM_JSON(Detail, detail_);
         DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
+        DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(OwnerUserId, ownerUserId_);
         DARABONBA_PTR_FROM_JSON(Pattern, pattern_);
         DARABONBA_PTR_FROM_JSON(Product, product_);
@@ -131,9 +133,9 @@ namespace Models
 
       virtual bool empty() const override { return this->acwCookieStatus_ == nullptr
         && this->acwSecureStatus_ == nullptr && this->acwV3SecureStatus_ == nullptr && this->customHeaders_ == nullptr && this->description_ == nullptr && this->detail_ == nullptr
-        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->ownerUserId_ == nullptr && this->pattern_ == nullptr && this->product_ == nullptr
-        && this->resource_ == nullptr && this->resourceGroup_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->resourceOrigin_ == nullptr && this->responseHeaders_ == nullptr
-        && this->xffStatus_ == nullptr; };
+        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->instanceId_ == nullptr && this->ownerUserId_ == nullptr && this->pattern_ == nullptr
+        && this->product_ == nullptr && this->resource_ == nullptr && this->resourceGroup_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->resourceOrigin_ == nullptr
+        && this->responseHeaders_ == nullptr && this->xffStatus_ == nullptr; };
       // acwCookieStatus Field Functions 
       bool hasAcwCookieStatus() const { return this->acwCookieStatus_ != nullptr;};
       void deleteAcwCookieStatus() { this->acwCookieStatus_ = nullptr;};
@@ -192,6 +194,13 @@ namespace Models
       void deleteGmtModified() { this->gmtModified_ = nullptr;};
       inline int64_t getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, 0L) };
       inline Resources& setGmtModified(int64_t gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
+
+
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline Resources& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
       // ownerUserId Field Functions 
@@ -285,6 +294,7 @@ namespace Models
       shared_ptr<int64_t> gmtCreate_ {};
       // The most recent modification time of the protected object. Unit: seconds.
       shared_ptr<int64_t> gmtModified_ {};
+      shared_ptr<string> instanceId_ {};
       // The Alibaba Cloud account to which the protected object belongs. You can specify this parameter to query protected objects that belong to a specific Alibaba Cloud account. Exact match is supported.
       shared_ptr<string> ownerUserId_ {};
       // The protection pattern.
