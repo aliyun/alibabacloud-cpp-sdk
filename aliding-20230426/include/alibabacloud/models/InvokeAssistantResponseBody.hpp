@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(messages, messages_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
+      DARABONBA_PTR_TO_JSON(sessionStatus, sessionStatus_);
       DARABONBA_PTR_TO_JSON(streamEnd, streamEnd_);
     };
     friend void from_json(const Darabonba::Json& j, InvokeAssistantResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(messages, messages_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
+      DARABONBA_PTR_FROM_JSON(sessionStatus, sessionStatus_);
       DARABONBA_PTR_FROM_JSON(streamEnd, streamEnd_);
     };
     InvokeAssistantResponseBody() = default ;
@@ -1111,7 +1113,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->messages_ == nullptr
-        && this->requestId_ == nullptr && this->sessionId_ == nullptr && this->streamEnd_ == nullptr; };
+        && this->requestId_ == nullptr && this->sessionId_ == nullptr && this->sessionStatus_ == nullptr && this->streamEnd_ == nullptr; };
     // messages Field Functions 
     bool hasMessages() const { return this->messages_ != nullptr;};
     void deleteMessages() { this->messages_ = nullptr;};
@@ -1135,6 +1137,13 @@ namespace Models
     inline InvokeAssistantResponseBody& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
+    // sessionStatus Field Functions 
+    bool hasSessionStatus() const { return this->sessionStatus_ != nullptr;};
+    void deleteSessionStatus() { this->sessionStatus_ = nullptr;};
+    inline string getSessionStatus() const { DARABONBA_PTR_GET_DEFAULT(sessionStatus_, "") };
+    inline InvokeAssistantResponseBody& setSessionStatus(string sessionStatus) { DARABONBA_PTR_SET_VALUE(sessionStatus_, sessionStatus) };
+
+
     // streamEnd Field Functions 
     bool hasStreamEnd() const { return this->streamEnd_ != nullptr;};
     void deleteStreamEnd() { this->streamEnd_ = nullptr;};
@@ -1146,6 +1155,7 @@ namespace Models
     shared_ptr<vector<InvokeAssistantResponseBody::Messages>> messages_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<string> sessionId_ {};
+    shared_ptr<string> sessionStatus_ {};
     shared_ptr<bool> streamEnd_ {};
   };
 

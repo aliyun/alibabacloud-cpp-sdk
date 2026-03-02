@@ -18,11 +18,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(messages, messages_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(run, run_);
+      DARABONBA_PTR_TO_JSON(thread, thread_);
     };
     friend void from_json(const Darabonba::Json& j, CreateRunResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(messages, messages_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(run, run_);
+      DARABONBA_PTR_FROM_JSON(thread, thread_);
     };
     CreateRunResponseBody() = default ;
     CreateRunResponseBody(const CreateRunResponseBody &) = default ;
@@ -35,6 +37,58 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Thread : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Thread& obj) { 
+        DARABONBA_PTR_TO_JSON(createAt, createAt_);
+        DARABONBA_PTR_TO_JSON(id, id_);
+        DARABONBA_PTR_TO_JSON(status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, Thread& obj) { 
+        DARABONBA_PTR_FROM_JSON(createAt, createAt_);
+        DARABONBA_PTR_FROM_JSON(id, id_);
+        DARABONBA_PTR_FROM_JSON(status, status_);
+      };
+      Thread() = default ;
+      Thread(const Thread &) = default ;
+      Thread(Thread &&) = default ;
+      Thread(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Thread() = default ;
+      Thread& operator=(const Thread &) = default ;
+      Thread& operator=(Thread &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->createAt_ == nullptr
+        && this->id_ == nullptr && this->status_ == nullptr; };
+      // createAt Field Functions 
+      bool hasCreateAt() const { return this->createAt_ != nullptr;};
+      void deleteCreateAt() { this->createAt_ = nullptr;};
+      inline int64_t getCreateAt() const { DARABONBA_PTR_GET_DEFAULT(createAt_, 0L) };
+      inline Thread& setCreateAt(int64_t createAt) { DARABONBA_PTR_SET_VALUE(createAt_, createAt) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline Thread& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Thread& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      shared_ptr<int64_t> createAt_ {};
+      shared_ptr<string> id_ {};
+      shared_ptr<string> status_ {};
+    };
+
     class Run : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Run& obj) { 
@@ -1748,7 +1802,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->messages_ == nullptr
-        && this->requestId_ == nullptr && this->run_ == nullptr; };
+        && this->requestId_ == nullptr && this->run_ == nullptr && this->thread_ == nullptr; };
     // messages Field Functions 
     bool hasMessages() const { return this->messages_ != nullptr;};
     void deleteMessages() { this->messages_ = nullptr;};
@@ -1774,10 +1828,20 @@ namespace Models
     inline CreateRunResponseBody& setRun(CreateRunResponseBody::Run && run) { DARABONBA_PTR_SET_RVALUE(run_, run) };
 
 
+    // thread Field Functions 
+    bool hasThread() const { return this->thread_ != nullptr;};
+    void deleteThread() { this->thread_ = nullptr;};
+    inline const CreateRunResponseBody::Thread & getThread() const { DARABONBA_PTR_GET_CONST(thread_, CreateRunResponseBody::Thread) };
+    inline CreateRunResponseBody::Thread getThread() { DARABONBA_PTR_GET(thread_, CreateRunResponseBody::Thread) };
+    inline CreateRunResponseBody& setThread(const CreateRunResponseBody::Thread & thread) { DARABONBA_PTR_SET_VALUE(thread_, thread) };
+    inline CreateRunResponseBody& setThread(CreateRunResponseBody::Thread && thread) { DARABONBA_PTR_SET_RVALUE(thread_, thread) };
+
+
   protected:
     shared_ptr<vector<CreateRunResponseBody::Messages>> messages_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<CreateRunResponseBody::Run> run_ {};
+    shared_ptr<CreateRunResponseBody::Thread> thread_ {};
   };
 
   } // namespace Models
