@@ -48,6 +48,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(ConnectNum, connectNum_);
+        DARABONBA_PTR_TO_JSON(ConsoleUrl, consoleUrl_);
         DARABONBA_PTR_TO_JSON(Detail, detail_);
         DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -63,6 +64,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(ConnectNum, connectNum_);
+        DARABONBA_PTR_FROM_JSON(ConsoleUrl, consoleUrl_);
         DARABONBA_PTR_FROM_JSON(Detail, detail_);
         DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -88,14 +90,21 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->connectNum_ == nullptr
-        && this->detail_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->leftQuantity_ == nullptr
-        && this->messageTps_ == nullptr && this->orderId_ == nullptr && this->quantity_ == nullptr && this->specification_ == nullptr && this->startTime_ == nullptr
-        && this->status_ == nullptr && this->userId_ == nullptr; };
+        && this->consoleUrl_ == nullptr && this->detail_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr && this->instanceType_ == nullptr
+        && this->leftQuantity_ == nullptr && this->messageTps_ == nullptr && this->orderId_ == nullptr && this->quantity_ == nullptr && this->specification_ == nullptr
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->userId_ == nullptr; };
       // connectNum Field Functions 
       bool hasConnectNum() const { return this->connectNum_ != nullptr;};
       void deleteConnectNum() { this->connectNum_ = nullptr;};
       inline int32_t getConnectNum() const { DARABONBA_PTR_GET_DEFAULT(connectNum_, 0) };
       inline Data& setConnectNum(int32_t connectNum) { DARABONBA_PTR_SET_VALUE(connectNum_, connectNum) };
+
+
+      // consoleUrl Field Functions 
+      bool hasConsoleUrl() const { return this->consoleUrl_ != nullptr;};
+      void deleteConsoleUrl() { this->consoleUrl_ = nullptr;};
+      inline string getConsoleUrl() const { DARABONBA_PTR_GET_DEFAULT(consoleUrl_, "") };
+      inline Data& setConsoleUrl(string consoleUrl) { DARABONBA_PTR_SET_VALUE(consoleUrl_, consoleUrl) };
 
 
       // detail Field Functions 
@@ -184,6 +193,7 @@ namespace Models
 
     protected:
       shared_ptr<int32_t> connectNum_ {};
+      shared_ptr<string> consoleUrl_ {};
       shared_ptr<string> detail_ {};
       shared_ptr<string> expireTime_ {};
       shared_ptr<string> instanceId_ {};
