@@ -58,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Jdk, jdk_);
         DARABONBA_PTR_TO_JSON(Language, language_);
         DARABONBA_PTR_TO_JSON(LanguageVersion, languageVersion_);
+        DARABONBA_PTR_TO_JSON(LlmAsset, llmAsset_);
         DARABONBA_PTR_TO_JSON(MaxTimestamp, maxTimestamp_);
         DARABONBA_PTR_TO_JSON(Message, message_);
         DARABONBA_PTR_TO_JSON(Method, method_);
@@ -105,6 +106,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Jdk, jdk_);
         DARABONBA_PTR_FROM_JSON(Language, language_);
         DARABONBA_PTR_FROM_JSON(LanguageVersion, languageVersion_);
+        DARABONBA_PTR_FROM_JSON(LlmAsset, llmAsset_);
         DARABONBA_PTR_FROM_JSON(MaxTimestamp, maxTimestamp_);
         DARABONBA_PTR_FROM_JSON(Message, message_);
         DARABONBA_PTR_FROM_JSON(Method, method_);
@@ -198,11 +200,11 @@ namespace Models
         && this->content_ == nullptr && this->contentLength_ == nullptr && this->count_ == nullptr && this->data_ == nullptr && this->handleStatus_ == nullptr
         && this->handleTimestamp_ == nullptr && this->headers_ == nullptr && this->hostId_ == nullptr && this->hostname_ == nullptr && this->inputParamItemList_ == nullptr
         && this->installType_ == nullptr && this->ip_ == nullptr && this->jdk_ == nullptr && this->language_ == nullptr && this->languageVersion_ == nullptr
-        && this->maxTimestamp_ == nullptr && this->message_ == nullptr && this->method_ == nullptr && this->middlewareInstanceId_ == nullptr && this->minTimestamp_ == nullptr
-        && this->os_ == nullptr && this->osArch_ == nullptr && this->osVersion_ == nullptr && this->param_ == nullptr && this->payload_ == nullptr
-        && this->payloadLength_ == nullptr && this->pid_ == nullptr && this->raspVersion_ == nullptr && this->region_ == nullptr && this->remote_ == nullptr
-        && this->result_ == nullptr && this->ruleResult_ == nullptr && this->severity_ == nullptr && this->stacktrace_ == nullptr && this->time_ == nullptr
-        && this->timestamp_ == nullptr && this->type_ == nullptr && this->unionId_ == nullptr && this->url_ == nullptr; };
+        && this->llmAsset_ == nullptr && this->maxTimestamp_ == nullptr && this->message_ == nullptr && this->method_ == nullptr && this->middlewareInstanceId_ == nullptr
+        && this->minTimestamp_ == nullptr && this->os_ == nullptr && this->osArch_ == nullptr && this->osVersion_ == nullptr && this->param_ == nullptr
+        && this->payload_ == nullptr && this->payloadLength_ == nullptr && this->pid_ == nullptr && this->raspVersion_ == nullptr && this->region_ == nullptr
+        && this->remote_ == nullptr && this->result_ == nullptr && this->ruleResult_ == nullptr && this->severity_ == nullptr && this->stacktrace_ == nullptr
+        && this->time_ == nullptr && this->timestamp_ == nullptr && this->type_ == nullptr && this->unionId_ == nullptr && this->url_ == nullptr; };
       // appDir Field Functions 
       bool hasAppDir() const { return this->appDir_ != nullptr;};
       void deleteAppDir() { this->appDir_ = nullptr;};
@@ -350,6 +352,13 @@ namespace Models
       void deleteLanguageVersion() { this->languageVersion_ = nullptr;};
       inline string getLanguageVersion() const { DARABONBA_PTR_GET_DEFAULT(languageVersion_, "") };
       inline Attacks& setLanguageVersion(string languageVersion) { DARABONBA_PTR_SET_VALUE(languageVersion_, languageVersion) };
+
+
+      // llmAsset Field Functions 
+      bool hasLlmAsset() const { return this->llmAsset_ != nullptr;};
+      void deleteLlmAsset() { this->llmAsset_ = nullptr;};
+      inline bool getLlmAsset() const { DARABONBA_PTR_GET_DEFAULT(llmAsset_, false) };
+      inline Attacks& setLlmAsset(bool llmAsset) { DARABONBA_PTR_SET_VALUE(llmAsset_, llmAsset) };
 
 
       // maxTimestamp Field Functions 
@@ -544,6 +553,7 @@ namespace Models
       shared_ptr<string> jdk_ {};
       shared_ptr<string> language_ {};
       shared_ptr<string> languageVersion_ {};
+      shared_ptr<bool> llmAsset_ {};
       shared_ptr<int64_t> maxTimestamp_ {};
       shared_ptr<string> message_ {};
       shared_ptr<string> method_ {};
