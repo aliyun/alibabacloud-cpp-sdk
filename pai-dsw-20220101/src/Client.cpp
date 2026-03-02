@@ -153,6 +153,10 @@ CreateIdleInstanceCullerResponse Client::createIdleInstanceCuller(const string &
 CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAccessRestrictionRules()) {
+    body["AccessRestrictionRules"] = request.getAccessRestrictionRules();
+  }
+
   if (!!request.hasAccessibility()) {
     body["Accessibility"] = request.getAccessibility();
   }
@@ -175,6 +179,10 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 
   if (!!request.hasDatasets()) {
     body["Datasets"] = request.getDatasets();
+  }
+
+  if (!!request.hasDockerConfig()) {
+    body["DockerConfig"] = request.getDockerConfig();
   }
 
   if (!!request.hasDriver()) {

@@ -5,9 +5,9 @@
 #include <alibabacloud/models/BandwidthLimit.hpp>
 #include <vector>
 #include <alibabacloud/models/ForwardInfoResponse.hpp>
+#include <map>
 #include <alibabacloud/models/CredentialConfig.hpp>
 #include <alibabacloud/models/DynamicMount.hpp>
-#include <map>
 #include <alibabacloud/models/PodIp.hpp>
 #include <alibabacloud/models/ServiceConfig.hpp>
 using namespace std;
@@ -22,6 +22,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetInstanceResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AcceleratorType, acceleratorType_);
+      DARABONBA_PTR_TO_JSON(AccessRestrictionRules, accessRestrictionRules_);
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_TO_JSON(AccumulatedRunningTimeInMs, accumulatedRunningTimeInMs_);
       DARABONBA_PTR_TO_JSON(Affinity, affinity_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_TO_JSON(Datasets, datasets_);
+      DARABONBA_PTR_TO_JSON(DockerConfig, dockerConfig_);
       DARABONBA_PTR_TO_JSON(Driver, driver_);
       DARABONBA_PTR_TO_JSON(DynamicMount, dynamicMount_);
       DARABONBA_PTR_TO_JSON(EcsSpec, ecsSpec_);
@@ -78,6 +80,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetInstanceResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AcceleratorType, acceleratorType_);
+      DARABONBA_PTR_FROM_JSON(AccessRestrictionRules, accessRestrictionRules_);
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_FROM_JSON(AccumulatedRunningTimeInMs, accumulatedRunningTimeInMs_);
       DARABONBA_PTR_FROM_JSON(Affinity, affinity_);
@@ -85,6 +88,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_FROM_JSON(Datasets, datasets_);
+      DARABONBA_PTR_FROM_JSON(DockerConfig, dockerConfig_);
       DARABONBA_PTR_FROM_JSON(Driver, driver_);
       DARABONBA_PTR_FROM_JSON(DynamicMount, dynamicMount_);
       DARABONBA_PTR_FROM_JSON(EcsSpec, ecsSpec_);
@@ -892,6 +896,58 @@ namespace Models
       shared_ptr<int32_t> maxIdleTimeInMinutes_ {};
     };
 
+    class DockerConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DockerConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(ContainersLimit, containersLimit_);
+        DARABONBA_PTR_TO_JSON(Enable, enable_);
+        DARABONBA_PTR_TO_JSON(MountAccessConfigPath, mountAccessConfigPath_);
+      };
+      friend void from_json(const Darabonba::Json& j, DockerConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(ContainersLimit, containersLimit_);
+        DARABONBA_PTR_FROM_JSON(Enable, enable_);
+        DARABONBA_PTR_FROM_JSON(MountAccessConfigPath, mountAccessConfigPath_);
+      };
+      DockerConfig() = default ;
+      DockerConfig(const DockerConfig &) = default ;
+      DockerConfig(DockerConfig &&) = default ;
+      DockerConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DockerConfig() = default ;
+      DockerConfig& operator=(const DockerConfig &) = default ;
+      DockerConfig& operator=(DockerConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->containersLimit_ == nullptr
+        && this->enable_ == nullptr && this->mountAccessConfigPath_ == nullptr; };
+      // containersLimit Field Functions 
+      bool hasContainersLimit() const { return this->containersLimit_ != nullptr;};
+      void deleteContainersLimit() { this->containersLimit_ = nullptr;};
+      inline int64_t getContainersLimit() const { DARABONBA_PTR_GET_DEFAULT(containersLimit_, 0L) };
+      inline DockerConfig& setContainersLimit(int64_t containersLimit) { DARABONBA_PTR_SET_VALUE(containersLimit_, containersLimit) };
+
+
+      // enable Field Functions 
+      bool hasEnable() const { return this->enable_ != nullptr;};
+      void deleteEnable() { this->enable_ = nullptr;};
+      inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+      inline DockerConfig& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+      // mountAccessConfigPath Field Functions 
+      bool hasMountAccessConfigPath() const { return this->mountAccessConfigPath_ != nullptr;};
+      void deleteMountAccessConfigPath() { this->mountAccessConfigPath_ = nullptr;};
+      inline string getMountAccessConfigPath() const { DARABONBA_PTR_GET_DEFAULT(mountAccessConfigPath_, "") };
+      inline DockerConfig& setMountAccessConfigPath(string mountAccessConfigPath) { DARABONBA_PTR_SET_VALUE(mountAccessConfigPath_, mountAccessConfigPath) };
+
+
+    protected:
+      shared_ptr<int64_t> containersLimit_ {};
+      shared_ptr<bool> enable_ {};
+      shared_ptr<string> mountAccessConfigPath_ {};
+    };
+
     class Datasets : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Datasets& obj) { 
@@ -1212,22 +1268,31 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->acceleratorType_ == nullptr
-        && this->accessibility_ == nullptr && this->accumulatedRunningTimeInMs_ == nullptr && this->affinity_ == nullptr && this->cloudDisks_ == nullptr && this->code_ == nullptr
-        && this->credentialConfig_ == nullptr && this->datasets_ == nullptr && this->driver_ == nullptr && this->dynamicMount_ == nullptr && this->ecsSpec_ == nullptr
-        && this->environmentVariables_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->httpStatusCode_ == nullptr && this->idleInstanceCuller_ == nullptr
-        && this->imageAuth_ == nullptr && this->imageId_ == nullptr && this->imageName_ == nullptr && this->imageUrl_ == nullptr && this->instanceId_ == nullptr
-        && this->instanceName_ == nullptr && this->instanceShutdownTimer_ == nullptr && this->instanceSnapshotList_ == nullptr && this->instanceUrl_ == nullptr && this->jupyterlabUrl_ == nullptr
-        && this->labels_ == nullptr && this->latestSnapshot_ == nullptr && this->message_ == nullptr && this->migrationOptions_ == nullptr && this->nodeErrorRecovery_ == nullptr
-        && this->paymentType_ == nullptr && this->podIps_ == nullptr && this->priority_ == nullptr && this->proxyPath_ == nullptr && this->reasonCode_ == nullptr
-        && this->reasonMessage_ == nullptr && this->requestId_ == nullptr && this->requestedResource_ == nullptr && this->resourceId_ == nullptr && this->resourceName_ == nullptr
-        && this->serviceConfig_ == nullptr && this->status_ == nullptr && this->success_ == nullptr && this->tags_ == nullptr && this->terminalUrl_ == nullptr
-        && this->userCommandId_ == nullptr && this->userId_ == nullptr && this->userName_ == nullptr && this->userVpc_ == nullptr && this->webIDEUrl_ == nullptr
-        && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceSource_ == nullptr; };
+        && this->accessRestrictionRules_ == nullptr && this->accessibility_ == nullptr && this->accumulatedRunningTimeInMs_ == nullptr && this->affinity_ == nullptr && this->cloudDisks_ == nullptr
+        && this->code_ == nullptr && this->credentialConfig_ == nullptr && this->datasets_ == nullptr && this->dockerConfig_ == nullptr && this->driver_ == nullptr
+        && this->dynamicMount_ == nullptr && this->ecsSpec_ == nullptr && this->environmentVariables_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr
+        && this->httpStatusCode_ == nullptr && this->idleInstanceCuller_ == nullptr && this->imageAuth_ == nullptr && this->imageId_ == nullptr && this->imageName_ == nullptr
+        && this->imageUrl_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->instanceShutdownTimer_ == nullptr && this->instanceSnapshotList_ == nullptr
+        && this->instanceUrl_ == nullptr && this->jupyterlabUrl_ == nullptr && this->labels_ == nullptr && this->latestSnapshot_ == nullptr && this->message_ == nullptr
+        && this->migrationOptions_ == nullptr && this->nodeErrorRecovery_ == nullptr && this->paymentType_ == nullptr && this->podIps_ == nullptr && this->priority_ == nullptr
+        && this->proxyPath_ == nullptr && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr && this->requestId_ == nullptr && this->requestedResource_ == nullptr
+        && this->resourceId_ == nullptr && this->resourceName_ == nullptr && this->serviceConfig_ == nullptr && this->status_ == nullptr && this->success_ == nullptr
+        && this->tags_ == nullptr && this->terminalUrl_ == nullptr && this->userCommandId_ == nullptr && this->userId_ == nullptr && this->userName_ == nullptr
+        && this->userVpc_ == nullptr && this->webIDEUrl_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceSource_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
     inline string getAcceleratorType() const { DARABONBA_PTR_GET_DEFAULT(acceleratorType_, "") };
     inline GetInstanceResponseBody& setAcceleratorType(string acceleratorType) { DARABONBA_PTR_SET_VALUE(acceleratorType_, acceleratorType) };
+
+
+    // accessRestrictionRules Field Functions 
+    bool hasAccessRestrictionRules() const { return this->accessRestrictionRules_ != nullptr;};
+    void deleteAccessRestrictionRules() { this->accessRestrictionRules_ = nullptr;};
+    inline const map<string, string> & getAccessRestrictionRules() const { DARABONBA_PTR_GET_CONST(accessRestrictionRules_, map<string, string>) };
+    inline map<string, string> getAccessRestrictionRules() { DARABONBA_PTR_GET(accessRestrictionRules_, map<string, string>) };
+    inline GetInstanceResponseBody& setAccessRestrictionRules(const map<string, string> & accessRestrictionRules) { DARABONBA_PTR_SET_VALUE(accessRestrictionRules_, accessRestrictionRules) };
+    inline GetInstanceResponseBody& setAccessRestrictionRules(map<string, string> && accessRestrictionRules) { DARABONBA_PTR_SET_RVALUE(accessRestrictionRules_, accessRestrictionRules) };
 
 
     // accessibility Field Functions 
@@ -1285,6 +1350,15 @@ namespace Models
     inline vector<GetInstanceResponseBody::Datasets> getDatasets() { DARABONBA_PTR_GET(datasets_, vector<GetInstanceResponseBody::Datasets>) };
     inline GetInstanceResponseBody& setDatasets(const vector<GetInstanceResponseBody::Datasets> & datasets) { DARABONBA_PTR_SET_VALUE(datasets_, datasets) };
     inline GetInstanceResponseBody& setDatasets(vector<GetInstanceResponseBody::Datasets> && datasets) { DARABONBA_PTR_SET_RVALUE(datasets_, datasets) };
+
+
+    // dockerConfig Field Functions 
+    bool hasDockerConfig() const { return this->dockerConfig_ != nullptr;};
+    void deleteDockerConfig() { this->dockerConfig_ = nullptr;};
+    inline const GetInstanceResponseBody::DockerConfig & getDockerConfig() const { DARABONBA_PTR_GET_CONST(dockerConfig_, GetInstanceResponseBody::DockerConfig) };
+    inline GetInstanceResponseBody::DockerConfig getDockerConfig() { DARABONBA_PTR_GET(dockerConfig_, GetInstanceResponseBody::DockerConfig) };
+    inline GetInstanceResponseBody& setDockerConfig(const GetInstanceResponseBody::DockerConfig & dockerConfig) { DARABONBA_PTR_SET_VALUE(dockerConfig_, dockerConfig) };
+    inline GetInstanceResponseBody& setDockerConfig(GetInstanceResponseBody::DockerConfig && dockerConfig) { DARABONBA_PTR_SET_RVALUE(dockerConfig_, dockerConfig) };
 
 
     // driver Field Functions 
@@ -1645,6 +1719,7 @@ namespace Models
     // *   CPU
     // *   GPU
     shared_ptr<string> acceleratorType_ {};
+    shared_ptr<map<string, string>> accessRestrictionRules_ {};
     // The accessibility. Valid values:
     // 
     // *   PRIVATE: Accessible only to you and the administrator of the workspace.
@@ -1665,6 +1740,7 @@ namespace Models
     shared_ptr<CredentialConfig> credentialConfig_ {};
     // The datasets.
     shared_ptr<vector<GetInstanceResponseBody::Datasets>> datasets_ {};
+    shared_ptr<GetInstanceResponseBody::DockerConfig> dockerConfig_ {};
     // The NVIDIA driver configuration.
     shared_ptr<string> driver_ {};
     // The dynamic mount configuration.

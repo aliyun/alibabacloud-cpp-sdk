@@ -5,9 +5,9 @@
 #include <alibabacloud/models/BandwidthLimit.hpp>
 #include <vector>
 #include <alibabacloud/models/ForwardInfo.hpp>
+#include <map>
 #include <alibabacloud/models/CredentialConfig.hpp>
 #include <alibabacloud/models/DynamicMount.hpp>
-#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,12 +19,14 @@ namespace Models
   class CreateInstanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateInstanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessRestrictionRules, accessRestrictionRules_);
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_TO_JSON(Affinity, affinity_);
       DARABONBA_PTR_TO_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_TO_JSON(CloudDisks, cloudDisks_);
       DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_TO_JSON(Datasets, datasets_);
+      DARABONBA_PTR_TO_JSON(DockerConfig, dockerConfig_);
       DARABONBA_PTR_TO_JSON(Driver, driver_);
       DARABONBA_PTR_TO_JSON(DynamicMount, dynamicMount_);
       DARABONBA_PTR_TO_JSON(EcsSpec, ecsSpec_);
@@ -48,12 +50,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceSource, workspaceSource_);
     };
     friend void from_json(const Darabonba::Json& j, CreateInstanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessRestrictionRules, accessRestrictionRules_);
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_FROM_JSON(Affinity, affinity_);
       DARABONBA_PTR_FROM_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_FROM_JSON(CloudDisks, cloudDisks_);
       DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_FROM_JSON(Datasets, datasets_);
+      DARABONBA_PTR_FROM_JSON(DockerConfig, dockerConfig_);
       DARABONBA_PTR_FROM_JSON(Driver, driver_);
       DARABONBA_PTR_FROM_JSON(DynamicMount, dynamicMount_);
       DARABONBA_PTR_FROM_JSON(EcsSpec, ecsSpec_);
@@ -495,6 +499,58 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
+    class DockerConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DockerConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(ContainersLimit, containersLimit_);
+        DARABONBA_PTR_TO_JSON(Enable, enable_);
+        DARABONBA_PTR_TO_JSON(MountAccessConfigPath, mountAccessConfigPath_);
+      };
+      friend void from_json(const Darabonba::Json& j, DockerConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(ContainersLimit, containersLimit_);
+        DARABONBA_PTR_FROM_JSON(Enable, enable_);
+        DARABONBA_PTR_FROM_JSON(MountAccessConfigPath, mountAccessConfigPath_);
+      };
+      DockerConfig() = default ;
+      DockerConfig(const DockerConfig &) = default ;
+      DockerConfig(DockerConfig &&) = default ;
+      DockerConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DockerConfig() = default ;
+      DockerConfig& operator=(const DockerConfig &) = default ;
+      DockerConfig& operator=(DockerConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->containersLimit_ == nullptr
+        && this->enable_ == nullptr && this->mountAccessConfigPath_ == nullptr; };
+      // containersLimit Field Functions 
+      bool hasContainersLimit() const { return this->containersLimit_ != nullptr;};
+      void deleteContainersLimit() { this->containersLimit_ = nullptr;};
+      inline int64_t getContainersLimit() const { DARABONBA_PTR_GET_DEFAULT(containersLimit_, 0L) };
+      inline DockerConfig& setContainersLimit(int64_t containersLimit) { DARABONBA_PTR_SET_VALUE(containersLimit_, containersLimit) };
+
+
+      // enable Field Functions 
+      bool hasEnable() const { return this->enable_ != nullptr;};
+      void deleteEnable() { this->enable_ = nullptr;};
+      inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+      inline DockerConfig& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+      // mountAccessConfigPath Field Functions 
+      bool hasMountAccessConfigPath() const { return this->mountAccessConfigPath_ != nullptr;};
+      void deleteMountAccessConfigPath() { this->mountAccessConfigPath_ = nullptr;};
+      inline string getMountAccessConfigPath() const { DARABONBA_PTR_GET_DEFAULT(mountAccessConfigPath_, "") };
+      inline DockerConfig& setMountAccessConfigPath(string mountAccessConfigPath) { DARABONBA_PTR_SET_VALUE(mountAccessConfigPath_, mountAccessConfigPath) };
+
+
+    protected:
+      shared_ptr<int64_t> containersLimit_ {};
+      shared_ptr<bool> enable_ {};
+      shared_ptr<string> mountAccessConfigPath_ {};
+    };
+
     class Datasets : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Datasets& obj) { 
@@ -882,13 +938,22 @@ namespace Models
       shared_ptr<Affinity::CPU> CPU_ {};
     };
 
-    virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->affinity_ == nullptr && this->assignNodeSpec_ == nullptr && this->cloudDisks_ == nullptr && this->credentialConfig_ == nullptr && this->datasets_ == nullptr
-        && this->driver_ == nullptr && this->dynamicMount_ == nullptr && this->ecsSpec_ == nullptr && this->environmentVariables_ == nullptr && this->imageAuth_ == nullptr
-        && this->imageId_ == nullptr && this->imageUrl_ == nullptr && this->instanceName_ == nullptr && this->labels_ == nullptr && this->migrationOptions_ == nullptr
-        && this->oversoldType_ == nullptr && this->priority_ == nullptr && this->requestedResource_ == nullptr && this->resourceId_ == nullptr && this->spotSpec_ == nullptr
-        && this->tag_ == nullptr && this->userCommand_ == nullptr && this->userId_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr
-        && this->workspaceSource_ == nullptr; };
+    virtual bool empty() const override { return this->accessRestrictionRules_ == nullptr
+        && this->accessibility_ == nullptr && this->affinity_ == nullptr && this->assignNodeSpec_ == nullptr && this->cloudDisks_ == nullptr && this->credentialConfig_ == nullptr
+        && this->datasets_ == nullptr && this->dockerConfig_ == nullptr && this->driver_ == nullptr && this->dynamicMount_ == nullptr && this->ecsSpec_ == nullptr
+        && this->environmentVariables_ == nullptr && this->imageAuth_ == nullptr && this->imageId_ == nullptr && this->imageUrl_ == nullptr && this->instanceName_ == nullptr
+        && this->labels_ == nullptr && this->migrationOptions_ == nullptr && this->oversoldType_ == nullptr && this->priority_ == nullptr && this->requestedResource_ == nullptr
+        && this->resourceId_ == nullptr && this->spotSpec_ == nullptr && this->tag_ == nullptr && this->userCommand_ == nullptr && this->userId_ == nullptr
+        && this->userVpc_ == nullptr && this->workspaceId_ == nullptr && this->workspaceSource_ == nullptr; };
+    // accessRestrictionRules Field Functions 
+    bool hasAccessRestrictionRules() const { return this->accessRestrictionRules_ != nullptr;};
+    void deleteAccessRestrictionRules() { this->accessRestrictionRules_ = nullptr;};
+    inline const map<string, string> & getAccessRestrictionRules() const { DARABONBA_PTR_GET_CONST(accessRestrictionRules_, map<string, string>) };
+    inline map<string, string> getAccessRestrictionRules() { DARABONBA_PTR_GET(accessRestrictionRules_, map<string, string>) };
+    inline CreateInstanceRequest& setAccessRestrictionRules(const map<string, string> & accessRestrictionRules) { DARABONBA_PTR_SET_VALUE(accessRestrictionRules_, accessRestrictionRules) };
+    inline CreateInstanceRequest& setAccessRestrictionRules(map<string, string> && accessRestrictionRules) { DARABONBA_PTR_SET_RVALUE(accessRestrictionRules_, accessRestrictionRules) };
+
+
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -939,6 +1004,15 @@ namespace Models
     inline vector<CreateInstanceRequest::Datasets> getDatasets() { DARABONBA_PTR_GET(datasets_, vector<CreateInstanceRequest::Datasets>) };
     inline CreateInstanceRequest& setDatasets(const vector<CreateInstanceRequest::Datasets> & datasets) { DARABONBA_PTR_SET_VALUE(datasets_, datasets) };
     inline CreateInstanceRequest& setDatasets(vector<CreateInstanceRequest::Datasets> && datasets) { DARABONBA_PTR_SET_RVALUE(datasets_, datasets) };
+
+
+    // dockerConfig Field Functions 
+    bool hasDockerConfig() const { return this->dockerConfig_ != nullptr;};
+    void deleteDockerConfig() { this->dockerConfig_ = nullptr;};
+    inline const CreateInstanceRequest::DockerConfig & getDockerConfig() const { DARABONBA_PTR_GET_CONST(dockerConfig_, CreateInstanceRequest::DockerConfig) };
+    inline CreateInstanceRequest::DockerConfig getDockerConfig() { DARABONBA_PTR_GET(dockerConfig_, CreateInstanceRequest::DockerConfig) };
+    inline CreateInstanceRequest& setDockerConfig(const CreateInstanceRequest::DockerConfig & dockerConfig) { DARABONBA_PTR_SET_VALUE(dockerConfig_, dockerConfig) };
+    inline CreateInstanceRequest& setDockerConfig(CreateInstanceRequest::DockerConfig && dockerConfig) { DARABONBA_PTR_SET_RVALUE(dockerConfig_, dockerConfig) };
 
 
     // driver Field Functions 
@@ -1107,6 +1181,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<map<string, string>> accessRestrictionRules_ {};
     // The instance accessibility.
     // 
     // Valid values:
@@ -1123,6 +1198,7 @@ namespace Models
     shared_ptr<CredentialConfig> credentialConfig_ {};
     // The datasets.
     shared_ptr<vector<CreateInstanceRequest::Datasets>> datasets_ {};
+    shared_ptr<CreateInstanceRequest::DockerConfig> dockerConfig_ {};
     // The NVIDIA driver configuration.
     shared_ptr<string> driver_ {};
     // The dynamic mount configuration.
