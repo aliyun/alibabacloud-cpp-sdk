@@ -34,26 +34,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defaultEngineVersion_ == nullptr
-        && return this->engineVersionMetadata_ == nullptr; };
+        && this->engineVersionMetadata_ == nullptr; };
     // defaultEngineVersion Field Functions 
     bool hasDefaultEngineVersion() const { return this->defaultEngineVersion_ != nullptr;};
     void deleteDefaultEngineVersion() { this->defaultEngineVersion_ = nullptr;};
-    inline string defaultEngineVersion() const { DARABONBA_PTR_GET_DEFAULT(defaultEngineVersion_, "") };
+    inline string getDefaultEngineVersion() const { DARABONBA_PTR_GET_DEFAULT(defaultEngineVersion_, "") };
     inline EngineVersionMetadataIndex& setDefaultEngineVersion(string defaultEngineVersion) { DARABONBA_PTR_SET_VALUE(defaultEngineVersion_, defaultEngineVersion) };
 
 
     // engineVersionMetadata Field Functions 
     bool hasEngineVersionMetadata() const { return this->engineVersionMetadata_ != nullptr;};
     void deleteEngineVersionMetadata() { this->engineVersionMetadata_ = nullptr;};
-    inline const vector<EngineVersionMetadata> & engineVersionMetadata() const { DARABONBA_PTR_GET_CONST(engineVersionMetadata_, vector<EngineVersionMetadata>) };
-    inline vector<EngineVersionMetadata> engineVersionMetadata() { DARABONBA_PTR_GET(engineVersionMetadata_, vector<EngineVersionMetadata>) };
+    inline const vector<EngineVersionMetadata> & getEngineVersionMetadata() const { DARABONBA_PTR_GET_CONST(engineVersionMetadata_, vector<EngineVersionMetadata>) };
+    inline vector<EngineVersionMetadata> getEngineVersionMetadata() { DARABONBA_PTR_GET(engineVersionMetadata_, vector<EngineVersionMetadata>) };
     inline EngineVersionMetadataIndex& setEngineVersionMetadata(const vector<EngineVersionMetadata> & engineVersionMetadata) { DARABONBA_PTR_SET_VALUE(engineVersionMetadata_, engineVersionMetadata) };
     inline EngineVersionMetadataIndex& setEngineVersionMetadata(vector<EngineVersionMetadata> && engineVersionMetadata) { DARABONBA_PTR_SET_RVALUE(engineVersionMetadata_, engineVersionMetadata) };
 
 
   protected:
-    std::shared_ptr<string> defaultEngineVersion_ = nullptr;
-    std::shared_ptr<vector<EngineVersionMetadata>> engineVersionMetadata_ = nullptr;
+    // The default engine version that is used for a deployment.
+    shared_ptr<string> defaultEngineVersion_ {};
+    // The information about all supported engine versions.
+    shared_ptr<vector<EngineVersionMetadata>> engineVersionMetadata_ {};
   };
 
   } // namespace Models

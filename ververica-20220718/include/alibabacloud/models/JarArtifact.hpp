@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->additionalDependencies_ == nullptr
-        && return this->entryClass_ == nullptr && return this->jarUri_ == nullptr && return this->mainArgs_ == nullptr; };
+        && this->entryClass_ == nullptr && this->jarUri_ == nullptr && this->mainArgs_ == nullptr; };
     // additionalDependencies Field Functions 
     bool hasAdditionalDependencies() const { return this->additionalDependencies_ != nullptr;};
     void deleteAdditionalDependencies() { this->additionalDependencies_ = nullptr;};
-    inline const vector<string> & additionalDependencies() const { DARABONBA_PTR_GET_CONST(additionalDependencies_, vector<string>) };
-    inline vector<string> additionalDependencies() { DARABONBA_PTR_GET(additionalDependencies_, vector<string>) };
+    inline const vector<string> & getAdditionalDependencies() const { DARABONBA_PTR_GET_CONST(additionalDependencies_, vector<string>) };
+    inline vector<string> getAdditionalDependencies() { DARABONBA_PTR_GET(additionalDependencies_, vector<string>) };
     inline JarArtifact& setAdditionalDependencies(const vector<string> & additionalDependencies) { DARABONBA_PTR_SET_VALUE(additionalDependencies_, additionalDependencies) };
     inline JarArtifact& setAdditionalDependencies(vector<string> && additionalDependencies) { DARABONBA_PTR_SET_RVALUE(additionalDependencies_, additionalDependencies) };
 
@@ -50,29 +50,33 @@ namespace Models
     // entryClass Field Functions 
     bool hasEntryClass() const { return this->entryClass_ != nullptr;};
     void deleteEntryClass() { this->entryClass_ = nullptr;};
-    inline string entryClass() const { DARABONBA_PTR_GET_DEFAULT(entryClass_, "") };
+    inline string getEntryClass() const { DARABONBA_PTR_GET_DEFAULT(entryClass_, "") };
     inline JarArtifact& setEntryClass(string entryClass) { DARABONBA_PTR_SET_VALUE(entryClass_, entryClass) };
 
 
     // jarUri Field Functions 
     bool hasJarUri() const { return this->jarUri_ != nullptr;};
     void deleteJarUri() { this->jarUri_ = nullptr;};
-    inline string jarUri() const { DARABONBA_PTR_GET_DEFAULT(jarUri_, "") };
+    inline string getJarUri() const { DARABONBA_PTR_GET_DEFAULT(jarUri_, "") };
     inline JarArtifact& setJarUri(string jarUri) { DARABONBA_PTR_SET_VALUE(jarUri_, jarUri) };
 
 
     // mainArgs Field Functions 
     bool hasMainArgs() const { return this->mainArgs_ != nullptr;};
     void deleteMainArgs() { this->mainArgs_ = nullptr;};
-    inline string mainArgs() const { DARABONBA_PTR_GET_DEFAULT(mainArgs_, "") };
+    inline string getMainArgs() const { DARABONBA_PTR_GET_DEFAULT(mainArgs_, "") };
     inline JarArtifact& setMainArgs(string mainArgs) { DARABONBA_PTR_SET_VALUE(mainArgs_, mainArgs) };
 
 
   protected:
-    std::shared_ptr<vector<string>> additionalDependencies_ = nullptr;
-    std::shared_ptr<string> entryClass_ = nullptr;
-    std::shared_ptr<string> jarUri_ = nullptr;
-    std::shared_ptr<string> mainArgs_ = nullptr;
+    // The full URL of the additional dependency file. You can enter the dependency file for the JAR deployment.
+    shared_ptr<vector<string>> additionalDependencies_ {};
+    // The entry class. You must enter the full name of the class.
+    shared_ptr<string> entryClass_ {};
+    // The full URL for the JAR deployment.
+    shared_ptr<string> jarUri_ {};
+    // The parameters required by the entry class.
+    shared_ptr<string> mainArgs_ {};
   };
 
   } // namespace Models

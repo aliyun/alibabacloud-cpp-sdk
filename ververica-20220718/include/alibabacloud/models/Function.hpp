@@ -40,60 +40,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->className_ == nullptr
-        && return this->description_ == nullptr && return this->functionLanguage_ == nullptr && return this->functionType_ == nullptr && return this->gmtModified_ == nullptr && return this->name_ == nullptr; };
+        && this->description_ == nullptr && this->functionLanguage_ == nullptr && this->functionType_ == nullptr && this->gmtModified_ == nullptr && this->name_ == nullptr; };
     // className Field Functions 
     bool hasClassName() const { return this->className_ != nullptr;};
     void deleteClassName() { this->className_ = nullptr;};
-    inline string className() const { DARABONBA_PTR_GET_DEFAULT(className_, "") };
+    inline string getClassName() const { DARABONBA_PTR_GET_DEFAULT(className_, "") };
     inline Function& setClassName(string className) { DARABONBA_PTR_SET_VALUE(className_, className) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline Function& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // functionLanguage Field Functions 
     bool hasFunctionLanguage() const { return this->functionLanguage_ != nullptr;};
     void deleteFunctionLanguage() { this->functionLanguage_ = nullptr;};
-    inline string functionLanguage() const { DARABONBA_PTR_GET_DEFAULT(functionLanguage_, "") };
+    inline string getFunctionLanguage() const { DARABONBA_PTR_GET_DEFAULT(functionLanguage_, "") };
     inline Function& setFunctionLanguage(string functionLanguage) { DARABONBA_PTR_SET_VALUE(functionLanguage_, functionLanguage) };
 
 
     // functionType Field Functions 
     bool hasFunctionType() const { return this->functionType_ != nullptr;};
     void deleteFunctionType() { this->functionType_ = nullptr;};
-    inline string functionType() const { DARABONBA_PTR_GET_DEFAULT(functionType_, "") };
+    inline string getFunctionType() const { DARABONBA_PTR_GET_DEFAULT(functionType_, "") };
     inline Function& setFunctionType(string functionType) { DARABONBA_PTR_SET_VALUE(functionType_, functionType) };
 
 
     // gmtModified Field Functions 
     bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
     void deleteGmtModified() { this->gmtModified_ = nullptr;};
-    inline int64_t gmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, 0L) };
+    inline int64_t getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, 0L) };
     inline Function& setGmtModified(int64_t gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline Function& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> className_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> className_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> functionLanguage_ = nullptr;
+    shared_ptr<string> functionLanguage_ {};
     // This parameter is required.
-    std::shared_ptr<string> functionType_ = nullptr;
-    std::shared_ptr<int64_t> gmtModified_ = nullptr;
+    shared_ptr<string> functionType_ {};
+    shared_ptr<int64_t> gmtModified_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

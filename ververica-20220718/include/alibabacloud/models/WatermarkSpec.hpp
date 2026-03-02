@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->column_ == nullptr
-        && return this->watermarkExpression_ == nullptr && return this->watermarkType_ == nullptr; };
+        && this->watermarkExpression_ == nullptr && this->watermarkType_ == nullptr; };
     // column Field Functions 
     bool hasColumn() const { return this->column_ != nullptr;};
     void deleteColumn() { this->column_ = nullptr;};
-    inline string column() const { DARABONBA_PTR_GET_DEFAULT(column_, "") };
+    inline string getColumn() const { DARABONBA_PTR_GET_DEFAULT(column_, "") };
     inline WatermarkSpec& setColumn(string column) { DARABONBA_PTR_SET_VALUE(column_, column) };
 
 
     // watermarkExpression Field Functions 
     bool hasWatermarkExpression() const { return this->watermarkExpression_ != nullptr;};
     void deleteWatermarkExpression() { this->watermarkExpression_ = nullptr;};
-    inline string watermarkExpression() const { DARABONBA_PTR_GET_DEFAULT(watermarkExpression_, "") };
+    inline string getWatermarkExpression() const { DARABONBA_PTR_GET_DEFAULT(watermarkExpression_, "") };
     inline WatermarkSpec& setWatermarkExpression(string watermarkExpression) { DARABONBA_PTR_SET_VALUE(watermarkExpression_, watermarkExpression) };
 
 
     // watermarkType Field Functions 
     bool hasWatermarkType() const { return this->watermarkType_ != nullptr;};
     void deleteWatermarkType() { this->watermarkType_ = nullptr;};
-    inline string watermarkType() const { DARABONBA_PTR_GET_DEFAULT(watermarkType_, "") };
+    inline string getWatermarkType() const { DARABONBA_PTR_GET_DEFAULT(watermarkType_, "") };
     inline WatermarkSpec& setWatermarkType(string watermarkType) { DARABONBA_PTR_SET_VALUE(watermarkType_, watermarkType) };
 
 
   protected:
-    std::shared_ptr<string> column_ = nullptr;
-    std::shared_ptr<string> watermarkExpression_ = nullptr;
-    std::shared_ptr<string> watermarkType_ = nullptr;
+    shared_ptr<string> column_ {};
+    shared_ptr<string> watermarkExpression_ {};
+    shared_ptr<string> watermarkType_ {};
   };
 
   } // namespace Models

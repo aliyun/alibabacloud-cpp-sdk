@@ -40,56 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defaultValue_ == nullptr
-        && return this->definesFormat_ == nullptr && return this->description_ == nullptr && return this->key_ == nullptr && return this->required_ == nullptr && return this->sensitive_ == nullptr; };
+        && this->definesFormat_ == nullptr && this->description_ == nullptr && this->key_ == nullptr && this->required_ == nullptr && this->sensitive_ == nullptr; };
     // defaultValue Field Functions 
     bool hasDefaultValue() const { return this->defaultValue_ != nullptr;};
     void deleteDefaultValue() { this->defaultValue_ = nullptr;};
-    inline string defaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
+    inline string getDefaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
     inline Property& setDefaultValue(string defaultValue) { DARABONBA_PTR_SET_VALUE(defaultValue_, defaultValue) };
 
 
     // definesFormat Field Functions 
     bool hasDefinesFormat() const { return this->definesFormat_ != nullptr;};
     void deleteDefinesFormat() { this->definesFormat_ = nullptr;};
-    inline bool definesFormat() const { DARABONBA_PTR_GET_DEFAULT(definesFormat_, false) };
+    inline bool getDefinesFormat() const { DARABONBA_PTR_GET_DEFAULT(definesFormat_, false) };
     inline Property& setDefinesFormat(bool definesFormat) { DARABONBA_PTR_SET_VALUE(definesFormat_, definesFormat) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline Property& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline Property& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // required Field Functions 
     bool hasRequired() const { return this->required_ != nullptr;};
     void deleteRequired() { this->required_ = nullptr;};
-    inline bool required() const { DARABONBA_PTR_GET_DEFAULT(required_, false) };
+    inline bool getRequired() const { DARABONBA_PTR_GET_DEFAULT(required_, false) };
     inline Property& setRequired(bool required) { DARABONBA_PTR_SET_VALUE(required_, required) };
 
 
     // sensitive Field Functions 
     bool hasSensitive() const { return this->sensitive_ != nullptr;};
     void deleteSensitive() { this->sensitive_ = nullptr;};
-    inline bool sensitive() const { DARABONBA_PTR_GET_DEFAULT(sensitive_, false) };
+    inline bool getSensitive() const { DARABONBA_PTR_GET_DEFAULT(sensitive_, false) };
     inline Property& setSensitive(bool sensitive) { DARABONBA_PTR_SET_VALUE(sensitive_, sensitive) };
 
 
   protected:
-    std::shared_ptr<string> defaultValue_ = nullptr;
-    std::shared_ptr<bool> definesFormat_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> key_ = nullptr;
-    std::shared_ptr<bool> required_ = nullptr;
-    std::shared_ptr<bool> sensitive_ = nullptr;
+    // The default value of the parameter.
+    shared_ptr<string> defaultValue_ {};
+    // Indicates whether the format is defined.
+    shared_ptr<bool> definesFormat_ {};
+    // The description of the parameter.
+    shared_ptr<string> description_ {};
+    // The name of the parameter key.
+    shared_ptr<string> key_ {};
+    // Indicates whether the parameter is required.
+    shared_ptr<bool> required_ {};
+    // Indiactes whether the data is sensitive.
+    shared_ptr<bool> sensitive_ {};
   };
 
   } // namespace Models

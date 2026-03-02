@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->body_ == nullptr
-        && return this->sessionClusterName_ == nullptr; };
+        && this->sessionClusterName_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const SqlStatementWithContext & body() const { DARABONBA_PTR_GET_CONST(body_, SqlStatementWithContext) };
-    inline SqlStatementWithContext body() { DARABONBA_PTR_GET(body_, SqlStatementWithContext) };
+    inline const SqlStatementWithContext & getBody() const { DARABONBA_PTR_GET_CONST(body_, SqlStatementWithContext) };
+    inline SqlStatementWithContext getBody() { DARABONBA_PTR_GET(body_, SqlStatementWithContext) };
     inline SubmitSqlPreviewRequest& setBody(const SqlStatementWithContext & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline SubmitSqlPreviewRequest& setBody(SqlStatementWithContext && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -46,14 +46,14 @@ namespace Models
     // sessionClusterName Field Functions 
     bool hasSessionClusterName() const { return this->sessionClusterName_ != nullptr;};
     void deleteSessionClusterName() { this->sessionClusterName_ = nullptr;};
-    inline string sessionClusterName() const { DARABONBA_PTR_GET_DEFAULT(sessionClusterName_, "") };
+    inline string getSessionClusterName() const { DARABONBA_PTR_GET_DEFAULT(sessionClusterName_, "") };
     inline SubmitSqlPreviewRequest& setSessionClusterName(string sessionClusterName) { DARABONBA_PTR_SET_VALUE(sessionClusterName_, sessionClusterName) };
 
 
   protected:
-    std::shared_ptr<SqlStatementWithContext> body_ = nullptr;
+    shared_ptr<SqlStatementWithContext> body_ {};
     // This parameter is required.
-    std::shared_ptr<string> sessionClusterName_ = nullptr;
+    shared_ptr<string> sessionClusterName_ {};
   };
 
   } // namespace Models

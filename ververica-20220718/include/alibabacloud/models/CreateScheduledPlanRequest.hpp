@@ -34,14 +34,14 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const ScheduledPlan & body() const { DARABONBA_PTR_GET_CONST(body_, ScheduledPlan) };
-    inline ScheduledPlan body() { DARABONBA_PTR_GET(body_, ScheduledPlan) };
+    inline const ScheduledPlan & getBody() const { DARABONBA_PTR_GET_CONST(body_, ScheduledPlan) };
+    inline ScheduledPlan getBody() { DARABONBA_PTR_GET(body_, ScheduledPlan) };
     inline CreateScheduledPlanRequest& setBody(const ScheduledPlan & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateScheduledPlanRequest& setBody(ScheduledPlan && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
-    std::shared_ptr<ScheduledPlan> body_ = nullptr;
+    shared_ptr<ScheduledPlan> body_ {};
   };
 
   } // namespace Models

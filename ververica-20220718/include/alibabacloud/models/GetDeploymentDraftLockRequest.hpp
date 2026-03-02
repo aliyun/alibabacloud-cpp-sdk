@@ -33,13 +33,13 @@ namespace Models
     // deploymentDraftId Field Functions 
     bool hasDeploymentDraftId() const { return this->deploymentDraftId_ != nullptr;};
     void deleteDeploymentDraftId() { this->deploymentDraftId_ = nullptr;};
-    inline string deploymentDraftId() const { DARABONBA_PTR_GET_DEFAULT(deploymentDraftId_, "") };
+    inline string getDeploymentDraftId() const { DARABONBA_PTR_GET_DEFAULT(deploymentDraftId_, "") };
     inline GetDeploymentDraftLockRequest& setDeploymentDraftId(string deploymentDraftId) { DARABONBA_PTR_SET_VALUE(deploymentDraftId_, deploymentDraftId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> deploymentDraftId_ = nullptr;
+    shared_ptr<string> deploymentDraftId_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ignoreJobSummary_ == nullptr
-        && return this->ignoreResourceSetting_ == nullptr; };
+        && this->ignoreResourceSetting_ == nullptr; };
     // ignoreJobSummary Field Functions 
     bool hasIgnoreJobSummary() const { return this->ignoreJobSummary_ != nullptr;};
     void deleteIgnoreJobSummary() { this->ignoreJobSummary_ = nullptr;};
-    inline bool ignoreJobSummary() const { DARABONBA_PTR_GET_DEFAULT(ignoreJobSummary_, false) };
+    inline bool getIgnoreJobSummary() const { DARABONBA_PTR_GET_DEFAULT(ignoreJobSummary_, false) };
     inline GetDeploymentsByNameRequest& setIgnoreJobSummary(bool ignoreJobSummary) { DARABONBA_PTR_SET_VALUE(ignoreJobSummary_, ignoreJobSummary) };
 
 
     // ignoreResourceSetting Field Functions 
     bool hasIgnoreResourceSetting() const { return this->ignoreResourceSetting_ != nullptr;};
     void deleteIgnoreResourceSetting() { this->ignoreResourceSetting_ = nullptr;};
-    inline bool ignoreResourceSetting() const { DARABONBA_PTR_GET_DEFAULT(ignoreResourceSetting_, false) };
+    inline bool getIgnoreResourceSetting() const { DARABONBA_PTR_GET_DEFAULT(ignoreResourceSetting_, false) };
     inline GetDeploymentsByNameRequest& setIgnoreResourceSetting(bool ignoreResourceSetting) { DARABONBA_PTR_SET_VALUE(ignoreResourceSetting_, ignoreResourceSetting) };
 
 
   protected:
-    std::shared_ptr<bool> ignoreJobSummary_ = nullptr;
-    std::shared_ptr<bool> ignoreResourceSetting_ = nullptr;
+    shared_ptr<bool> ignoreJobSummary_ {};
+    shared_ptr<bool> ignoreResourceSetting_ {};
   };
 
   } // namespace Models

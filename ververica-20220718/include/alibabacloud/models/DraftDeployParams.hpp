@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deploymentDraftId_ == nullptr
-        && return this->deploymentTarget_ == nullptr && return this->skipValidate_ == nullptr; };
+        && this->deploymentTarget_ == nullptr && this->skipValidate_ == nullptr; };
     // deploymentDraftId Field Functions 
     bool hasDeploymentDraftId() const { return this->deploymentDraftId_ != nullptr;};
     void deleteDeploymentDraftId() { this->deploymentDraftId_ = nullptr;};
-    inline string deploymentDraftId() const { DARABONBA_PTR_GET_DEFAULT(deploymentDraftId_, "") };
+    inline string getDeploymentDraftId() const { DARABONBA_PTR_GET_DEFAULT(deploymentDraftId_, "") };
     inline DraftDeployParams& setDeploymentDraftId(string deploymentDraftId) { DARABONBA_PTR_SET_VALUE(deploymentDraftId_, deploymentDraftId) };
 
 
     // deploymentTarget Field Functions 
     bool hasDeploymentTarget() const { return this->deploymentTarget_ != nullptr;};
     void deleteDeploymentTarget() { this->deploymentTarget_ = nullptr;};
-    inline const BriefDeploymentTarget & deploymentTarget() const { DARABONBA_PTR_GET_CONST(deploymentTarget_, BriefDeploymentTarget) };
-    inline BriefDeploymentTarget deploymentTarget() { DARABONBA_PTR_GET(deploymentTarget_, BriefDeploymentTarget) };
+    inline const BriefDeploymentTarget & getDeploymentTarget() const { DARABONBA_PTR_GET_CONST(deploymentTarget_, BriefDeploymentTarget) };
+    inline BriefDeploymentTarget getDeploymentTarget() { DARABONBA_PTR_GET(deploymentTarget_, BriefDeploymentTarget) };
     inline DraftDeployParams& setDeploymentTarget(const BriefDeploymentTarget & deploymentTarget) { DARABONBA_PTR_SET_VALUE(deploymentTarget_, deploymentTarget) };
     inline DraftDeployParams& setDeploymentTarget(BriefDeploymentTarget && deploymentTarget) { DARABONBA_PTR_SET_RVALUE(deploymentTarget_, deploymentTarget) };
 
@@ -55,14 +55,17 @@ namespace Models
     // skipValidate Field Functions 
     bool hasSkipValidate() const { return this->skipValidate_ != nullptr;};
     void deleteSkipValidate() { this->skipValidate_ = nullptr;};
-    inline bool skipValidate() const { DARABONBA_PTR_GET_DEFAULT(skipValidate_, false) };
+    inline bool getSkipValidate() const { DARABONBA_PTR_GET_DEFAULT(skipValidate_, false) };
     inline DraftDeployParams& setSkipValidate(bool skipValidate) { DARABONBA_PTR_SET_VALUE(skipValidate_, skipValidate) };
 
 
   protected:
-    std::shared_ptr<string> deploymentDraftId_ = nullptr;
-    std::shared_ptr<BriefDeploymentTarget> deploymentTarget_ = nullptr;
-    std::shared_ptr<bool> skipValidate_ = nullptr;
+    // The draft ID.
+    shared_ptr<string> deploymentDraftId_ {};
+    // The cluster on which the deployment is deployed.
+    shared_ptr<BriefDeploymentTarget> deploymentTarget_ {};
+    // Specifies whether to skip the syntax check.
+    shared_ptr<bool> skipValidate_ {};
   };
 
   } // namespace Models

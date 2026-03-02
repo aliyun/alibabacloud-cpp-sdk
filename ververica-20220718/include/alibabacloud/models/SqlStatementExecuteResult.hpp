@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errorDetails_ == nullptr
-        && return this->executeSuccess_ == nullptr && return this->statement_ == nullptr; };
+        && this->executeSuccess_ == nullptr && this->statement_ == nullptr; };
     // errorDetails Field Functions 
     bool hasErrorDetails() const { return this->errorDetails_ != nullptr;};
     void deleteErrorDetails() { this->errorDetails_ = nullptr;};
-    inline const ErrorDetails & errorDetails() const { DARABONBA_PTR_GET_CONST(errorDetails_, ErrorDetails) };
-    inline ErrorDetails errorDetails() { DARABONBA_PTR_GET(errorDetails_, ErrorDetails) };
+    inline const ErrorDetails & getErrorDetails() const { DARABONBA_PTR_GET_CONST(errorDetails_, ErrorDetails) };
+    inline ErrorDetails getErrorDetails() { DARABONBA_PTR_GET(errorDetails_, ErrorDetails) };
     inline SqlStatementExecuteResult& setErrorDetails(const ErrorDetails & errorDetails) { DARABONBA_PTR_SET_VALUE(errorDetails_, errorDetails) };
     inline SqlStatementExecuteResult& setErrorDetails(ErrorDetails && errorDetails) { DARABONBA_PTR_SET_RVALUE(errorDetails_, errorDetails) };
 
@@ -48,21 +48,24 @@ namespace Models
     // executeSuccess Field Functions 
     bool hasExecuteSuccess() const { return this->executeSuccess_ != nullptr;};
     void deleteExecuteSuccess() { this->executeSuccess_ = nullptr;};
-    inline bool executeSuccess() const { DARABONBA_PTR_GET_DEFAULT(executeSuccess_, false) };
+    inline bool getExecuteSuccess() const { DARABONBA_PTR_GET_DEFAULT(executeSuccess_, false) };
     inline SqlStatementExecuteResult& setExecuteSuccess(bool executeSuccess) { DARABONBA_PTR_SET_VALUE(executeSuccess_, executeSuccess) };
 
 
     // statement Field Functions 
     bool hasStatement() const { return this->statement_ != nullptr;};
     void deleteStatement() { this->statement_ = nullptr;};
-    inline string statement() const { DARABONBA_PTR_GET_DEFAULT(statement_, "") };
+    inline string getStatement() const { DARABONBA_PTR_GET_DEFAULT(statement_, "") };
     inline SqlStatementExecuteResult& setStatement(string statement) { DARABONBA_PTR_SET_VALUE(statement_, statement) };
 
 
   protected:
-    std::shared_ptr<ErrorDetails> errorDetails_ = nullptr;
-    std::shared_ptr<bool> executeSuccess_ = nullptr;
-    std::shared_ptr<string> statement_ = nullptr;
+    // The error details returned.
+    shared_ptr<ErrorDetails> errorDetails_ {};
+    // Indicates whether the request was successful.
+    shared_ptr<bool> executeSuccess_ {};
+    // The statement that was executed.
+    shared_ptr<string> statement_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->properties_ == nullptr; };
+        && this->properties_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline JobInfo& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // properties Field Functions 
     bool hasProperties() const { return this->properties_ != nullptr;};
     void deleteProperties() { this->properties_ = nullptr;};
-    inline     const Darabonba::Json & properties() const { DARABONBA_GET(properties_) };
-    Darabonba::Json & properties() { DARABONBA_GET(properties_) };
+    inline     const Darabonba::Json & getProperties() const { DARABONBA_GET(properties_) };
+    Darabonba::Json & getProperties() { DARABONBA_GET(properties_) };
     inline JobInfo& setProperties(const Darabonba::Json & properties) { DARABONBA_SET_VALUE(properties_, properties) };
-    inline JobInfo& setProperties(Darabonba::Json & properties) { DARABONBA_SET_RVALUE(properties_, properties) };
+    inline JobInfo& setProperties(Darabonba::Json && properties) { DARABONBA_SET_RVALUE(properties_, properties) };
 
 
   protected:
-    std::shared_ptr<string> id_ = nullptr;
-    Darabonba::Json properties_ = nullptr;
+    shared_ptr<string> id_ {};
+    Darabonba::Json properties_ {};
   };
 
   } // namespace Models

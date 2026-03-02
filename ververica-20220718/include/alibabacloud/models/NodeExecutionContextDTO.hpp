@@ -34,14 +34,14 @@ namespace Models
     // context Field Functions 
     bool hasContext() const { return this->context_ != nullptr;};
     void deleteContext() { this->context_ = nullptr;};
-    inline const map<string, string> & context() const { DARABONBA_PTR_GET_CONST(context_, map<string, string>) };
-    inline map<string, string> context() { DARABONBA_PTR_GET(context_, map<string, string>) };
+    inline const map<string, string> & getContext() const { DARABONBA_PTR_GET_CONST(context_, map<string, string>) };
+    inline map<string, string> getContext() { DARABONBA_PTR_GET(context_, map<string, string>) };
     inline NodeExecutionContextDTO& setContext(const map<string, string> & context) { DARABONBA_PTR_SET_VALUE(context_, context) };
     inline NodeExecutionContextDTO& setContext(map<string, string> && context) { DARABONBA_PTR_SET_RVALUE(context_, context) };
 
 
   protected:
-    std::shared_ptr<map<string, string>> context_ = nullptr;
+    shared_ptr<map<string, string>> context_ {};
   };
 
   } // namespace Models

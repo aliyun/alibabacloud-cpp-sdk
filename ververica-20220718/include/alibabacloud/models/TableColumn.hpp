@@ -41,26 +41,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->expression_ == nullptr
-        && return this->logicalType_ == nullptr && return this->metadataInfo_ == nullptr && return this->name_ == nullptr && return this->nullable_ == nullptr && return this->type_ == nullptr; };
+        && this->logicalType_ == nullptr && this->metadataInfo_ == nullptr && this->name_ == nullptr && this->nullable_ == nullptr && this->type_ == nullptr; };
     // expression Field Functions 
     bool hasExpression() const { return this->expression_ != nullptr;};
     void deleteExpression() { this->expression_ = nullptr;};
-    inline string expression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
+    inline string getExpression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
     inline TableColumn& setExpression(string expression) { DARABONBA_PTR_SET_VALUE(expression_, expression) };
 
 
     // logicalType Field Functions 
     bool hasLogicalType() const { return this->logicalType_ != nullptr;};
     void deleteLogicalType() { this->logicalType_ = nullptr;};
-    inline string logicalType() const { DARABONBA_PTR_GET_DEFAULT(logicalType_, "") };
+    inline string getLogicalType() const { DARABONBA_PTR_GET_DEFAULT(logicalType_, "") };
     inline TableColumn& setLogicalType(string logicalType) { DARABONBA_PTR_SET_VALUE(logicalType_, logicalType) };
 
 
     // metadataInfo Field Functions 
     bool hasMetadataInfo() const { return this->metadataInfo_ != nullptr;};
     void deleteMetadataInfo() { this->metadataInfo_ = nullptr;};
-    inline const MetadataInfo & metadataInfo() const { DARABONBA_PTR_GET_CONST(metadataInfo_, MetadataInfo) };
-    inline MetadataInfo metadataInfo() { DARABONBA_PTR_GET(metadataInfo_, MetadataInfo) };
+    inline const MetadataInfo & getMetadataInfo() const { DARABONBA_PTR_GET_CONST(metadataInfo_, MetadataInfo) };
+    inline MetadataInfo getMetadataInfo() { DARABONBA_PTR_GET(metadataInfo_, MetadataInfo) };
     inline TableColumn& setMetadataInfo(const MetadataInfo & metadataInfo) { DARABONBA_PTR_SET_VALUE(metadataInfo_, metadataInfo) };
     inline TableColumn& setMetadataInfo(MetadataInfo && metadataInfo) { DARABONBA_PTR_SET_RVALUE(metadataInfo_, metadataInfo) };
 
@@ -68,32 +68,38 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline TableColumn& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // nullable Field Functions 
     bool hasNullable() const { return this->nullable_ != nullptr;};
     void deleteNullable() { this->nullable_ = nullptr;};
-    inline bool nullable() const { DARABONBA_PTR_GET_DEFAULT(nullable_, false) };
+    inline bool getNullable() const { DARABONBA_PTR_GET_DEFAULT(nullable_, false) };
     inline TableColumn& setNullable(bool nullable) { DARABONBA_PTR_SET_VALUE(nullable_, nullable) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline TableColumn& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> expression_ = nullptr;
-    std::shared_ptr<string> logicalType_ = nullptr;
-    std::shared_ptr<MetadataInfo> metadataInfo_ = nullptr;
+    // The computed column.
+    shared_ptr<string> expression_ {};
+    shared_ptr<string> logicalType_ {};
+    // The metadata information.
+    shared_ptr<MetadataInfo> metadataInfo_ {};
+    // The column name.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<bool> nullable_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> name_ {};
+    // Specifies whether the column can have a null value.
+    shared_ptr<bool> nullable_ {};
+    // The data type of the column.
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deploymentDraftId_ == nullptr
-        && return this->deploymentTargetName_ == nullptr; };
+        && this->deploymentTargetName_ == nullptr; };
     // deploymentDraftId Field Functions 
     bool hasDeploymentDraftId() const { return this->deploymentDraftId_ != nullptr;};
     void deleteDeploymentDraftId() { this->deploymentDraftId_ = nullptr;};
-    inline string deploymentDraftId() const { DARABONBA_PTR_GET_DEFAULT(deploymentDraftId_, "") };
+    inline string getDeploymentDraftId() const { DARABONBA_PTR_GET_DEFAULT(deploymentDraftId_, "") };
     inline DraftValidateParams& setDeploymentDraftId(string deploymentDraftId) { DARABONBA_PTR_SET_VALUE(deploymentDraftId_, deploymentDraftId) };
 
 
     // deploymentTargetName Field Functions 
     bool hasDeploymentTargetName() const { return this->deploymentTargetName_ != nullptr;};
     void deleteDeploymentTargetName() { this->deploymentTargetName_ = nullptr;};
-    inline string deploymentTargetName() const { DARABONBA_PTR_GET_DEFAULT(deploymentTargetName_, "") };
+    inline string getDeploymentTargetName() const { DARABONBA_PTR_GET_DEFAULT(deploymentTargetName_, "") };
     inline DraftValidateParams& setDeploymentTargetName(string deploymentTargetName) { DARABONBA_PTR_SET_VALUE(deploymentTargetName_, deploymentTargetName) };
 
 
   protected:
-    std::shared_ptr<string> deploymentDraftId_ = nullptr;
-    std::shared_ptr<string> deploymentTargetName_ = nullptr;
+    shared_ptr<string> deploymentDraftId_ {};
+    shared_ptr<string> deploymentTargetName_ {};
   };
 
   } // namespace Models

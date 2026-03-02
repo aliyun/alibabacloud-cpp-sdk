@@ -32,25 +32,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->member_ == nullptr
-        && return this->role_ == nullptr; };
+        && this->role_ == nullptr; };
     // member Field Functions 
     bool hasMember() const { return this->member_ != nullptr;};
     void deleteMember() { this->member_ = nullptr;};
-    inline string member() const { DARABONBA_PTR_GET_DEFAULT(member_, "") };
+    inline string getMember() const { DARABONBA_PTR_GET_DEFAULT(member_, "") };
     inline Member& setMember(string member) { DARABONBA_PTR_SET_VALUE(member_, member) };
 
 
     // role Field Functions 
     bool hasRole() const { return this->role_ != nullptr;};
     void deleteRole() { this->role_ = nullptr;};
-    inline string role() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
+    inline string getRole() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
     inline Member& setRole(string role) { DARABONBA_PTR_SET_VALUE(role_, role) };
 
 
   protected:
+    // The member ID.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> member_ = nullptr;
-    std::shared_ptr<string> role_ = nullptr;
+    shared_ptr<string> member_ {};
+    // The role of the member.
+    // 
+    // Valid values:
+    // 
+    // *   EDITOR
+    // *   VIEWER
+    // *   ADMIN
+    shared_ptr<string> role_ {};
   };
 
   } // namespace Models

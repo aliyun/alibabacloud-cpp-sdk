@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deploymentId_ == nullptr
-        && return this->description_ == nullptr && return this->nativeFormat_ == nullptr; };
+        && this->description_ == nullptr && this->nativeFormat_ == nullptr; };
     // deploymentId Field Functions 
     bool hasDeploymentId() const { return this->deploymentId_ != nullptr;};
     void deleteDeploymentId() { this->deploymentId_ = nullptr;};
-    inline string deploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
+    inline string getDeploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
     inline CreateSavepointRequest& setDeploymentId(string deploymentId) { DARABONBA_PTR_SET_VALUE(deploymentId_, deploymentId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateSavepointRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // nativeFormat Field Functions 
     bool hasNativeFormat() const { return this->nativeFormat_ != nullptr;};
     void deleteNativeFormat() { this->nativeFormat_ = nullptr;};
-    inline bool nativeFormat() const { DARABONBA_PTR_GET_DEFAULT(nativeFormat_, false) };
+    inline bool getNativeFormat() const { DARABONBA_PTR_GET_DEFAULT(nativeFormat_, false) };
     inline CreateSavepointRequest& setNativeFormat(bool nativeFormat) { DARABONBA_PTR_SET_VALUE(nativeFormat_, nativeFormat) };
 
 
@@ -60,14 +60,14 @@ namespace Models
     // The deployment ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> deploymentId_ = nullptr;
+    shared_ptr<string> deploymentId_ {};
     // The description of the savepoint.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Specifies whether to use the native format mode. Valid values:
     // 
     // *   true: The native format mode is used.
     // *   false: The native format mode is not used.
-    std::shared_ptr<bool> nativeFormat_ = nullptr;
+    shared_ptr<bool> nativeFormat_ {};
   };
 
   } // namespace Models

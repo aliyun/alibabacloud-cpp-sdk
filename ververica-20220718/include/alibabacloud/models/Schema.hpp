@@ -38,12 +38,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->columns_ == nullptr
-        && return this->primaryKey_ == nullptr && return this->watermarkSpecs_ == nullptr; };
+        && this->primaryKey_ == nullptr && this->watermarkSpecs_ == nullptr; };
     // columns Field Functions 
     bool hasColumns() const { return this->columns_ != nullptr;};
     void deleteColumns() { this->columns_ = nullptr;};
-    inline const vector<TableColumn> & columns() const { DARABONBA_PTR_GET_CONST(columns_, vector<TableColumn>) };
-    inline vector<TableColumn> columns() { DARABONBA_PTR_GET(columns_, vector<TableColumn>) };
+    inline const vector<TableColumn> & getColumns() const { DARABONBA_PTR_GET_CONST(columns_, vector<TableColumn>) };
+    inline vector<TableColumn> getColumns() { DARABONBA_PTR_GET(columns_, vector<TableColumn>) };
     inline Schema& setColumns(const vector<TableColumn> & columns) { DARABONBA_PTR_SET_VALUE(columns_, columns) };
     inline Schema& setColumns(vector<TableColumn> && columns) { DARABONBA_PTR_SET_RVALUE(columns_, columns) };
 
@@ -51,8 +51,8 @@ namespace Models
     // primaryKey Field Functions 
     bool hasPrimaryKey() const { return this->primaryKey_ != nullptr;};
     void deletePrimaryKey() { this->primaryKey_ = nullptr;};
-    inline const PrimaryKey & primaryKey() const { DARABONBA_PTR_GET_CONST(primaryKey_, PrimaryKey) };
-    inline PrimaryKey primaryKey() { DARABONBA_PTR_GET(primaryKey_, PrimaryKey) };
+    inline const PrimaryKey & getPrimaryKey() const { DARABONBA_PTR_GET_CONST(primaryKey_, PrimaryKey) };
+    inline PrimaryKey getPrimaryKey() { DARABONBA_PTR_GET(primaryKey_, PrimaryKey) };
     inline Schema& setPrimaryKey(const PrimaryKey & primaryKey) { DARABONBA_PTR_SET_VALUE(primaryKey_, primaryKey) };
     inline Schema& setPrimaryKey(PrimaryKey && primaryKey) { DARABONBA_PTR_SET_RVALUE(primaryKey_, primaryKey) };
 
@@ -60,16 +60,19 @@ namespace Models
     // watermarkSpecs Field Functions 
     bool hasWatermarkSpecs() const { return this->watermarkSpecs_ != nullptr;};
     void deleteWatermarkSpecs() { this->watermarkSpecs_ = nullptr;};
-    inline const vector<WatermarkSpec> & watermarkSpecs() const { DARABONBA_PTR_GET_CONST(watermarkSpecs_, vector<WatermarkSpec>) };
-    inline vector<WatermarkSpec> watermarkSpecs() { DARABONBA_PTR_GET(watermarkSpecs_, vector<WatermarkSpec>) };
+    inline const vector<WatermarkSpec> & getWatermarkSpecs() const { DARABONBA_PTR_GET_CONST(watermarkSpecs_, vector<WatermarkSpec>) };
+    inline vector<WatermarkSpec> getWatermarkSpecs() { DARABONBA_PTR_GET(watermarkSpecs_, vector<WatermarkSpec>) };
     inline Schema& setWatermarkSpecs(const vector<WatermarkSpec> & watermarkSpecs) { DARABONBA_PTR_SET_VALUE(watermarkSpecs_, watermarkSpecs) };
     inline Schema& setWatermarkSpecs(vector<WatermarkSpec> && watermarkSpecs) { DARABONBA_PTR_SET_RVALUE(watermarkSpecs_, watermarkSpecs) };
 
 
   protected:
-    std::shared_ptr<vector<TableColumn>> columns_ = nullptr;
-    std::shared_ptr<PrimaryKey> primaryKey_ = nullptr;
-    std::shared_ptr<vector<WatermarkSpec>> watermarkSpecs_ = nullptr;
+    // The information about columns.
+    shared_ptr<vector<TableColumn>> columns_ {};
+    // The information about the primary key.
+    shared_ptr<PrimaryKey> primaryKey_ {};
+    // The watermark information.
+    shared_ptr<vector<WatermarkSpec>> watermarkSpecs_ {};
   };
 
   } // namespace Models

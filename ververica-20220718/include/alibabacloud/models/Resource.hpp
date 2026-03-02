@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->elasticResource_ == nullptr
-        && return this->fixedResource_ == nullptr; };
+        && this->fixedResource_ == nullptr; };
     // elasticResource Field Functions 
     bool hasElasticResource() const { return this->elasticResource_ != nullptr;};
     void deleteElasticResource() { this->elasticResource_ = nullptr;};
-    inline const ResourceSpec & elasticResource() const { DARABONBA_PTR_GET_CONST(elasticResource_, ResourceSpec) };
-    inline ResourceSpec elasticResource() { DARABONBA_PTR_GET(elasticResource_, ResourceSpec) };
+    inline const ResourceSpec & getElasticResource() const { DARABONBA_PTR_GET_CONST(elasticResource_, ResourceSpec) };
+    inline ResourceSpec getElasticResource() { DARABONBA_PTR_GET(elasticResource_, ResourceSpec) };
     inline Resource& setElasticResource(const ResourceSpec & elasticResource) { DARABONBA_PTR_SET_VALUE(elasticResource_, elasticResource) };
     inline Resource& setElasticResource(ResourceSpec && elasticResource) { DARABONBA_PTR_SET_RVALUE(elasticResource_, elasticResource) };
 
@@ -46,16 +46,16 @@ namespace Models
     // fixedResource Field Functions 
     bool hasFixedResource() const { return this->fixedResource_ != nullptr;};
     void deleteFixedResource() { this->fixedResource_ = nullptr;};
-    inline const ResourceSpec & fixedResource() const { DARABONBA_PTR_GET_CONST(fixedResource_, ResourceSpec) };
-    inline ResourceSpec fixedResource() { DARABONBA_PTR_GET(fixedResource_, ResourceSpec) };
+    inline const ResourceSpec & getFixedResource() const { DARABONBA_PTR_GET_CONST(fixedResource_, ResourceSpec) };
+    inline ResourceSpec getFixedResource() { DARABONBA_PTR_GET(fixedResource_, ResourceSpec) };
     inline Resource& setFixedResource(const ResourceSpec & fixedResource) { DARABONBA_PTR_SET_VALUE(fixedResource_, fixedResource) };
     inline Resource& setFixedResource(ResourceSpec && fixedResource) { DARABONBA_PTR_SET_RVALUE(fixedResource_, fixedResource) };
 
 
   protected:
-    std::shared_ptr<ResourceSpec> elasticResource_ = nullptr;
+    shared_ptr<ResourceSpec> elasticResource_ {};
     // This parameter is required.
-    std::shared_ptr<ResourceSpec> fixedResource_ = nullptr;
+    shared_ptr<ResourceSpec> fixedResource_ {};
   };
 
   } // namespace Models

@@ -39,19 +39,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->log4j2ConfigurationTemplate_ == nullptr
-        && return this->log4jLoggers_ == nullptr && return this->logReservePolicy_ == nullptr && return this->loggingProfile_ == nullptr; };
+        && this->log4jLoggers_ == nullptr && this->logReservePolicy_ == nullptr && this->loggingProfile_ == nullptr; };
     // log4j2ConfigurationTemplate Field Functions 
     bool hasLog4j2ConfigurationTemplate() const { return this->log4j2ConfigurationTemplate_ != nullptr;};
     void deleteLog4j2ConfigurationTemplate() { this->log4j2ConfigurationTemplate_ = nullptr;};
-    inline string log4j2ConfigurationTemplate() const { DARABONBA_PTR_GET_DEFAULT(log4j2ConfigurationTemplate_, "") };
+    inline string getLog4j2ConfigurationTemplate() const { DARABONBA_PTR_GET_DEFAULT(log4j2ConfigurationTemplate_, "") };
     inline Logging& setLog4j2ConfigurationTemplate(string log4j2ConfigurationTemplate) { DARABONBA_PTR_SET_VALUE(log4j2ConfigurationTemplate_, log4j2ConfigurationTemplate) };
 
 
     // log4jLoggers Field Functions 
     bool hasLog4jLoggers() const { return this->log4jLoggers_ != nullptr;};
     void deleteLog4jLoggers() { this->log4jLoggers_ = nullptr;};
-    inline const vector<Log4jLogger> & log4jLoggers() const { DARABONBA_PTR_GET_CONST(log4jLoggers_, vector<Log4jLogger>) };
-    inline vector<Log4jLogger> log4jLoggers() { DARABONBA_PTR_GET(log4jLoggers_, vector<Log4jLogger>) };
+    inline const vector<Log4jLogger> & getLog4jLoggers() const { DARABONBA_PTR_GET_CONST(log4jLoggers_, vector<Log4jLogger>) };
+    inline vector<Log4jLogger> getLog4jLoggers() { DARABONBA_PTR_GET(log4jLoggers_, vector<Log4jLogger>) };
     inline Logging& setLog4jLoggers(const vector<Log4jLogger> & log4jLoggers) { DARABONBA_PTR_SET_VALUE(log4jLoggers_, log4jLoggers) };
     inline Logging& setLog4jLoggers(vector<Log4jLogger> && log4jLoggers) { DARABONBA_PTR_SET_RVALUE(log4jLoggers_, log4jLoggers) };
 
@@ -59,8 +59,8 @@ namespace Models
     // logReservePolicy Field Functions 
     bool hasLogReservePolicy() const { return this->logReservePolicy_ != nullptr;};
     void deleteLogReservePolicy() { this->logReservePolicy_ = nullptr;};
-    inline const LogReservePolicy & logReservePolicy() const { DARABONBA_PTR_GET_CONST(logReservePolicy_, LogReservePolicy) };
-    inline LogReservePolicy logReservePolicy() { DARABONBA_PTR_GET(logReservePolicy_, LogReservePolicy) };
+    inline const LogReservePolicy & getLogReservePolicy() const { DARABONBA_PTR_GET_CONST(logReservePolicy_, LogReservePolicy) };
+    inline LogReservePolicy getLogReservePolicy() { DARABONBA_PTR_GET(logReservePolicy_, LogReservePolicy) };
     inline Logging& setLogReservePolicy(const LogReservePolicy & logReservePolicy) { DARABONBA_PTR_SET_VALUE(logReservePolicy_, logReservePolicy) };
     inline Logging& setLogReservePolicy(LogReservePolicy && logReservePolicy) { DARABONBA_PTR_SET_RVALUE(logReservePolicy_, logReservePolicy) };
 
@@ -68,15 +68,22 @@ namespace Models
     // loggingProfile Field Functions 
     bool hasLoggingProfile() const { return this->loggingProfile_ != nullptr;};
     void deleteLoggingProfile() { this->loggingProfile_ = nullptr;};
-    inline string loggingProfile() const { DARABONBA_PTR_GET_DEFAULT(loggingProfile_, "") };
+    inline string getLoggingProfile() const { DARABONBA_PTR_GET_DEFAULT(loggingProfile_, "") };
     inline Logging& setLoggingProfile(string loggingProfile) { DARABONBA_PTR_SET_VALUE(loggingProfile_, loggingProfile) };
 
 
   protected:
-    std::shared_ptr<string> log4j2ConfigurationTemplate_ = nullptr;
-    std::shared_ptr<vector<Log4jLogger>> log4jLoggers_ = nullptr;
-    std::shared_ptr<LogReservePolicy> logReservePolicy_ = nullptr;
-    std::shared_ptr<string> loggingProfile_ = nullptr;
+    // Custom log templates.
+    shared_ptr<string> log4j2ConfigurationTemplate_ {};
+    // The Log4j configuration.
+    shared_ptr<vector<Log4jLogger>> log4jLoggers_ {};
+    // The log retention policy.
+    shared_ptr<LogReservePolicy> logReservePolicy_ {};
+    // The type of the system log template.
+    // 
+    // *   default: The default template is used.
+    // *   oss: Logs are delivered to Object Storage Service (OSS).
+    shared_ptr<string> loggingProfile_ {};
   };
 
   } // namespace Models

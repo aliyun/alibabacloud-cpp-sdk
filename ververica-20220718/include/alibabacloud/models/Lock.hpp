@@ -38,48 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->holderId_ == nullptr
-        && return this->holderName_ == nullptr && return this->id_ == nullptr && return this->namespace_ == nullptr && return this->workspace_ == nullptr; };
+        && this->holderName_ == nullptr && this->id_ == nullptr && this->namespace_ == nullptr && this->workspace_ == nullptr; };
     // holderId Field Functions 
     bool hasHolderId() const { return this->holderId_ != nullptr;};
     void deleteHolderId() { this->holderId_ = nullptr;};
-    inline string holderId() const { DARABONBA_PTR_GET_DEFAULT(holderId_, "") };
+    inline string getHolderId() const { DARABONBA_PTR_GET_DEFAULT(holderId_, "") };
     inline Lock& setHolderId(string holderId) { DARABONBA_PTR_SET_VALUE(holderId_, holderId) };
 
 
     // holderName Field Functions 
     bool hasHolderName() const { return this->holderName_ != nullptr;};
     void deleteHolderName() { this->holderName_ = nullptr;};
-    inline string holderName() const { DARABONBA_PTR_GET_DEFAULT(holderName_, "") };
+    inline string getHolderName() const { DARABONBA_PTR_GET_DEFAULT(holderName_, "") };
     inline Lock& setHolderName(string holderName) { DARABONBA_PTR_SET_VALUE(holderName_, holderName) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline Lock& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline Lock& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
-    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
     inline Lock& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
   protected:
-    std::shared_ptr<string> holderId_ = nullptr;
-    std::shared_ptr<string> holderName_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<string> workspace_ = nullptr;
+    // The ID of the lock holder.
+    shared_ptr<string> holderId_ {};
+    // The username of the lock holder.
+    shared_ptr<string> holderName_ {};
+    // The lock ID.
+    shared_ptr<string> id_ {};
+    // The name of the namespace.
+    shared_ptr<string> namespace_ {};
+    // The workspace ID.
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

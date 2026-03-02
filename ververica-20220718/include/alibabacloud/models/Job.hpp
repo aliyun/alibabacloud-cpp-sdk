@@ -89,16 +89,16 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->artifact_ == nullptr
-        && return this->batchResourceSetting_ == nullptr && return this->createdAt_ == nullptr && return this->creator_ == nullptr && return this->creatorName_ == nullptr && return this->deploymentId_ == nullptr
-        && return this->deploymentName_ == nullptr && return this->endTime_ == nullptr && return this->engineVersion_ == nullptr && return this->executionMode_ == nullptr && return this->flinkConf_ == nullptr
-        && return this->jobId_ == nullptr && return this->localVariables_ == nullptr && return this->logging_ == nullptr && return this->metric_ == nullptr && return this->modifiedAt_ == nullptr
-        && return this->modifier_ == nullptr && return this->modifierName_ == nullptr && return this->namespace_ == nullptr && return this->restoreStrategy_ == nullptr && return this->sessionClusterName_ == nullptr
-        && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->streamingResourceSetting_ == nullptr && return this->userFlinkConf_ == nullptr && return this->workspace_ == nullptr; };
+        && this->batchResourceSetting_ == nullptr && this->createdAt_ == nullptr && this->creator_ == nullptr && this->creatorName_ == nullptr && this->deploymentId_ == nullptr
+        && this->deploymentName_ == nullptr && this->endTime_ == nullptr && this->engineVersion_ == nullptr && this->executionMode_ == nullptr && this->flinkConf_ == nullptr
+        && this->jobId_ == nullptr && this->localVariables_ == nullptr && this->logging_ == nullptr && this->metric_ == nullptr && this->modifiedAt_ == nullptr
+        && this->modifier_ == nullptr && this->modifierName_ == nullptr && this->namespace_ == nullptr && this->restoreStrategy_ == nullptr && this->sessionClusterName_ == nullptr
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->streamingResourceSetting_ == nullptr && this->userFlinkConf_ == nullptr && this->workspace_ == nullptr; };
     // artifact Field Functions 
     bool hasArtifact() const { return this->artifact_ != nullptr;};
     void deleteArtifact() { this->artifact_ = nullptr;};
-    inline const Artifact & artifact() const { DARABONBA_PTR_GET_CONST(artifact_, Artifact) };
-    inline Artifact artifact() { DARABONBA_PTR_GET(artifact_, Artifact) };
+    inline const Artifact & getArtifact() const { DARABONBA_PTR_GET_CONST(artifact_, Artifact) };
+    inline Artifact getArtifact() { DARABONBA_PTR_GET(artifact_, Artifact) };
     inline Job& setArtifact(const Artifact & artifact) { DARABONBA_PTR_SET_VALUE(artifact_, artifact) };
     inline Job& setArtifact(Artifact && artifact) { DARABONBA_PTR_SET_RVALUE(artifact_, artifact) };
 
@@ -106,8 +106,8 @@ namespace Models
     // batchResourceSetting Field Functions 
     bool hasBatchResourceSetting() const { return this->batchResourceSetting_ != nullptr;};
     void deleteBatchResourceSetting() { this->batchResourceSetting_ = nullptr;};
-    inline const BatchResourceSetting & batchResourceSetting() const { DARABONBA_PTR_GET_CONST(batchResourceSetting_, BatchResourceSetting) };
-    inline BatchResourceSetting batchResourceSetting() { DARABONBA_PTR_GET(batchResourceSetting_, BatchResourceSetting) };
+    inline const BatchResourceSetting & getBatchResourceSetting() const { DARABONBA_PTR_GET_CONST(batchResourceSetting_, BatchResourceSetting) };
+    inline BatchResourceSetting getBatchResourceSetting() { DARABONBA_PTR_GET(batchResourceSetting_, BatchResourceSetting) };
     inline Job& setBatchResourceSetting(const BatchResourceSetting & batchResourceSetting) { DARABONBA_PTR_SET_VALUE(batchResourceSetting_, batchResourceSetting) };
     inline Job& setBatchResourceSetting(BatchResourceSetting && batchResourceSetting) { DARABONBA_PTR_SET_RVALUE(batchResourceSetting_, batchResourceSetting) };
 
@@ -115,80 +115,80 @@ namespace Models
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
-    inline string createdAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
+    inline string getCreatedAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
     inline Job& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
 
 
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
-    inline string creator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
+    inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
     inline Job& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
 
 
     // creatorName Field Functions 
     bool hasCreatorName() const { return this->creatorName_ != nullptr;};
     void deleteCreatorName() { this->creatorName_ = nullptr;};
-    inline string creatorName() const { DARABONBA_PTR_GET_DEFAULT(creatorName_, "") };
+    inline string getCreatorName() const { DARABONBA_PTR_GET_DEFAULT(creatorName_, "") };
     inline Job& setCreatorName(string creatorName) { DARABONBA_PTR_SET_VALUE(creatorName_, creatorName) };
 
 
     // deploymentId Field Functions 
     bool hasDeploymentId() const { return this->deploymentId_ != nullptr;};
     void deleteDeploymentId() { this->deploymentId_ = nullptr;};
-    inline string deploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
+    inline string getDeploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
     inline Job& setDeploymentId(string deploymentId) { DARABONBA_PTR_SET_VALUE(deploymentId_, deploymentId) };
 
 
     // deploymentName Field Functions 
     bool hasDeploymentName() const { return this->deploymentName_ != nullptr;};
     void deleteDeploymentName() { this->deploymentName_ = nullptr;};
-    inline string deploymentName() const { DARABONBA_PTR_GET_DEFAULT(deploymentName_, "") };
+    inline string getDeploymentName() const { DARABONBA_PTR_GET_DEFAULT(deploymentName_, "") };
     inline Job& setDeploymentName(string deploymentName) { DARABONBA_PTR_SET_VALUE(deploymentName_, deploymentName) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline Job& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // engineVersion Field Functions 
     bool hasEngineVersion() const { return this->engineVersion_ != nullptr;};
     void deleteEngineVersion() { this->engineVersion_ = nullptr;};
-    inline string engineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
+    inline string getEngineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
     inline Job& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
 
 
     // executionMode Field Functions 
     bool hasExecutionMode() const { return this->executionMode_ != nullptr;};
     void deleteExecutionMode() { this->executionMode_ = nullptr;};
-    inline string executionMode() const { DARABONBA_PTR_GET_DEFAULT(executionMode_, "") };
+    inline string getExecutionMode() const { DARABONBA_PTR_GET_DEFAULT(executionMode_, "") };
     inline Job& setExecutionMode(string executionMode) { DARABONBA_PTR_SET_VALUE(executionMode_, executionMode) };
 
 
     // flinkConf Field Functions 
     bool hasFlinkConf() const { return this->flinkConf_ != nullptr;};
     void deleteFlinkConf() { this->flinkConf_ = nullptr;};
-    inline     const Darabonba::Json & flinkConf() const { DARABONBA_GET(flinkConf_) };
-    Darabonba::Json & flinkConf() { DARABONBA_GET(flinkConf_) };
+    inline     const Darabonba::Json & getFlinkConf() const { DARABONBA_GET(flinkConf_) };
+    Darabonba::Json & getFlinkConf() { DARABONBA_GET(flinkConf_) };
     inline Job& setFlinkConf(const Darabonba::Json & flinkConf) { DARABONBA_SET_VALUE(flinkConf_, flinkConf) };
-    inline Job& setFlinkConf(Darabonba::Json & flinkConf) { DARABONBA_SET_RVALUE(flinkConf_, flinkConf) };
+    inline Job& setFlinkConf(Darabonba::Json && flinkConf) { DARABONBA_SET_RVALUE(flinkConf_, flinkConf) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline Job& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // localVariables Field Functions 
     bool hasLocalVariables() const { return this->localVariables_ != nullptr;};
     void deleteLocalVariables() { this->localVariables_ = nullptr;};
-    inline const vector<LocalVariable> & localVariables() const { DARABONBA_PTR_GET_CONST(localVariables_, vector<LocalVariable>) };
-    inline vector<LocalVariable> localVariables() { DARABONBA_PTR_GET(localVariables_, vector<LocalVariable>) };
+    inline const vector<LocalVariable> & getLocalVariables() const { DARABONBA_PTR_GET_CONST(localVariables_, vector<LocalVariable>) };
+    inline vector<LocalVariable> getLocalVariables() { DARABONBA_PTR_GET(localVariables_, vector<LocalVariable>) };
     inline Job& setLocalVariables(const vector<LocalVariable> & localVariables) { DARABONBA_PTR_SET_VALUE(localVariables_, localVariables) };
     inline Job& setLocalVariables(vector<LocalVariable> && localVariables) { DARABONBA_PTR_SET_RVALUE(localVariables_, localVariables) };
 
@@ -196,8 +196,8 @@ namespace Models
     // logging Field Functions 
     bool hasLogging() const { return this->logging_ != nullptr;};
     void deleteLogging() { this->logging_ = nullptr;};
-    inline const Logging & logging() const { DARABONBA_PTR_GET_CONST(logging_, Logging) };
-    inline Logging logging() { DARABONBA_PTR_GET(logging_, Logging) };
+    inline const Logging & getLogging() const { DARABONBA_PTR_GET_CONST(logging_, Logging) };
+    inline Logging getLogging() { DARABONBA_PTR_GET(logging_, Logging) };
     inline Job& setLogging(const Logging & logging) { DARABONBA_PTR_SET_VALUE(logging_, logging) };
     inline Job& setLogging(Logging && logging) { DARABONBA_PTR_SET_RVALUE(logging_, logging) };
 
@@ -205,8 +205,8 @@ namespace Models
     // metric Field Functions 
     bool hasMetric() const { return this->metric_ != nullptr;};
     void deleteMetric() { this->metric_ = nullptr;};
-    inline const JobMetric & metric() const { DARABONBA_PTR_GET_CONST(metric_, JobMetric) };
-    inline JobMetric metric() { DARABONBA_PTR_GET(metric_, JobMetric) };
+    inline const JobMetric & getMetric() const { DARABONBA_PTR_GET_CONST(metric_, JobMetric) };
+    inline JobMetric getMetric() { DARABONBA_PTR_GET(metric_, JobMetric) };
     inline Job& setMetric(const JobMetric & metric) { DARABONBA_PTR_SET_VALUE(metric_, metric) };
     inline Job& setMetric(JobMetric && metric) { DARABONBA_PTR_SET_RVALUE(metric_, metric) };
 
@@ -214,36 +214,36 @@ namespace Models
     // modifiedAt Field Functions 
     bool hasModifiedAt() const { return this->modifiedAt_ != nullptr;};
     void deleteModifiedAt() { this->modifiedAt_ = nullptr;};
-    inline string modifiedAt() const { DARABONBA_PTR_GET_DEFAULT(modifiedAt_, "") };
+    inline string getModifiedAt() const { DARABONBA_PTR_GET_DEFAULT(modifiedAt_, "") };
     inline Job& setModifiedAt(string modifiedAt) { DARABONBA_PTR_SET_VALUE(modifiedAt_, modifiedAt) };
 
 
     // modifier Field Functions 
     bool hasModifier() const { return this->modifier_ != nullptr;};
     void deleteModifier() { this->modifier_ = nullptr;};
-    inline string modifier() const { DARABONBA_PTR_GET_DEFAULT(modifier_, "") };
+    inline string getModifier() const { DARABONBA_PTR_GET_DEFAULT(modifier_, "") };
     inline Job& setModifier(string modifier) { DARABONBA_PTR_SET_VALUE(modifier_, modifier) };
 
 
     // modifierName Field Functions 
     bool hasModifierName() const { return this->modifierName_ != nullptr;};
     void deleteModifierName() { this->modifierName_ = nullptr;};
-    inline string modifierName() const { DARABONBA_PTR_GET_DEFAULT(modifierName_, "") };
+    inline string getModifierName() const { DARABONBA_PTR_GET_DEFAULT(modifierName_, "") };
     inline Job& setModifierName(string modifierName) { DARABONBA_PTR_SET_VALUE(modifierName_, modifierName) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline Job& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // restoreStrategy Field Functions 
     bool hasRestoreStrategy() const { return this->restoreStrategy_ != nullptr;};
     void deleteRestoreStrategy() { this->restoreStrategy_ = nullptr;};
-    inline const DeploymentRestoreStrategy & restoreStrategy() const { DARABONBA_PTR_GET_CONST(restoreStrategy_, DeploymentRestoreStrategy) };
-    inline DeploymentRestoreStrategy restoreStrategy() { DARABONBA_PTR_GET(restoreStrategy_, DeploymentRestoreStrategy) };
+    inline const DeploymentRestoreStrategy & getRestoreStrategy() const { DARABONBA_PTR_GET_CONST(restoreStrategy_, DeploymentRestoreStrategy) };
+    inline DeploymentRestoreStrategy getRestoreStrategy() { DARABONBA_PTR_GET(restoreStrategy_, DeploymentRestoreStrategy) };
     inline Job& setRestoreStrategy(const DeploymentRestoreStrategy & restoreStrategy) { DARABONBA_PTR_SET_VALUE(restoreStrategy_, restoreStrategy) };
     inline Job& setRestoreStrategy(DeploymentRestoreStrategy && restoreStrategy) { DARABONBA_PTR_SET_RVALUE(restoreStrategy_, restoreStrategy) };
 
@@ -251,22 +251,22 @@ namespace Models
     // sessionClusterName Field Functions 
     bool hasSessionClusterName() const { return this->sessionClusterName_ != nullptr;};
     void deleteSessionClusterName() { this->sessionClusterName_ = nullptr;};
-    inline string sessionClusterName() const { DARABONBA_PTR_GET_DEFAULT(sessionClusterName_, "") };
+    inline string getSessionClusterName() const { DARABONBA_PTR_GET_DEFAULT(sessionClusterName_, "") };
     inline Job& setSessionClusterName(string sessionClusterName) { DARABONBA_PTR_SET_VALUE(sessionClusterName_, sessionClusterName) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline Job& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline const JobStatus & status() const { DARABONBA_PTR_GET_CONST(status_, JobStatus) };
-    inline JobStatus status() { DARABONBA_PTR_GET(status_, JobStatus) };
+    inline const JobStatus & getStatus() const { DARABONBA_PTR_GET_CONST(status_, JobStatus) };
+    inline JobStatus getStatus() { DARABONBA_PTR_GET(status_, JobStatus) };
     inline Job& setStatus(const JobStatus & status) { DARABONBA_PTR_SET_VALUE(status_, status) };
     inline Job& setStatus(JobStatus && status) { DARABONBA_PTR_SET_RVALUE(status_, status) };
 
@@ -274,8 +274,8 @@ namespace Models
     // streamingResourceSetting Field Functions 
     bool hasStreamingResourceSetting() const { return this->streamingResourceSetting_ != nullptr;};
     void deleteStreamingResourceSetting() { this->streamingResourceSetting_ = nullptr;};
-    inline const StreamingResourceSetting & streamingResourceSetting() const { DARABONBA_PTR_GET_CONST(streamingResourceSetting_, StreamingResourceSetting) };
-    inline StreamingResourceSetting streamingResourceSetting() { DARABONBA_PTR_GET(streamingResourceSetting_, StreamingResourceSetting) };
+    inline const StreamingResourceSetting & getStreamingResourceSetting() const { DARABONBA_PTR_GET_CONST(streamingResourceSetting_, StreamingResourceSetting) };
+    inline StreamingResourceSetting getStreamingResourceSetting() { DARABONBA_PTR_GET(streamingResourceSetting_, StreamingResourceSetting) };
     inline Job& setStreamingResourceSetting(const StreamingResourceSetting & streamingResourceSetting) { DARABONBA_PTR_SET_VALUE(streamingResourceSetting_, streamingResourceSetting) };
     inline Job& setStreamingResourceSetting(StreamingResourceSetting && streamingResourceSetting) { DARABONBA_PTR_SET_RVALUE(streamingResourceSetting_, streamingResourceSetting) };
 
@@ -283,46 +283,75 @@ namespace Models
     // userFlinkConf Field Functions 
     bool hasUserFlinkConf() const { return this->userFlinkConf_ != nullptr;};
     void deleteUserFlinkConf() { this->userFlinkConf_ = nullptr;};
-    inline     const Darabonba::Json & userFlinkConf() const { DARABONBA_GET(userFlinkConf_) };
-    Darabonba::Json & userFlinkConf() { DARABONBA_GET(userFlinkConf_) };
+    inline     const Darabonba::Json & getUserFlinkConf() const { DARABONBA_GET(userFlinkConf_) };
+    Darabonba::Json & getUserFlinkConf() { DARABONBA_GET(userFlinkConf_) };
     inline Job& setUserFlinkConf(const Darabonba::Json & userFlinkConf) { DARABONBA_SET_VALUE(userFlinkConf_, userFlinkConf) };
-    inline Job& setUserFlinkConf(Darabonba::Json & userFlinkConf) { DARABONBA_SET_RVALUE(userFlinkConf_, userFlinkConf) };
+    inline Job& setUserFlinkConf(Darabonba::Json && userFlinkConf) { DARABONBA_SET_RVALUE(userFlinkConf_, userFlinkConf) };
 
 
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
-    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
     inline Job& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
   protected:
-    std::shared_ptr<Artifact> artifact_ = nullptr;
-    std::shared_ptr<BatchResourceSetting> batchResourceSetting_ = nullptr;
-    std::shared_ptr<string> createdAt_ = nullptr;
-    std::shared_ptr<string> creator_ = nullptr;
-    std::shared_ptr<string> creatorName_ = nullptr;
-    std::shared_ptr<string> deploymentId_ = nullptr;
-    std::shared_ptr<string> deploymentName_ = nullptr;
-    std::shared_ptr<int64_t> endTime_ = nullptr;
-    std::shared_ptr<string> engineVersion_ = nullptr;
-    std::shared_ptr<string> executionMode_ = nullptr;
-    Darabonba::Json flinkConf_ = nullptr;
-    std::shared_ptr<string> jobId_ = nullptr;
-    std::shared_ptr<vector<LocalVariable>> localVariables_ = nullptr;
-    std::shared_ptr<Logging> logging_ = nullptr;
-    std::shared_ptr<JobMetric> metric_ = nullptr;
-    std::shared_ptr<string> modifiedAt_ = nullptr;
-    std::shared_ptr<string> modifier_ = nullptr;
-    std::shared_ptr<string> modifierName_ = nullptr;
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<DeploymentRestoreStrategy> restoreStrategy_ = nullptr;
-    std::shared_ptr<string> sessionClusterName_ = nullptr;
-    std::shared_ptr<int64_t> startTime_ = nullptr;
-    std::shared_ptr<JobStatus> status_ = nullptr;
-    std::shared_ptr<StreamingResourceSetting> streamingResourceSetting_ = nullptr;
-    Darabonba::Json userFlinkConf_ = nullptr;
-    std::shared_ptr<string> workspace_ = nullptr;
+    // The content template of the job.
+    shared_ptr<Artifact> artifact_ {};
+    // The resource configuration of the job in batch mode.
+    shared_ptr<BatchResourceSetting> batchResourceSetting_ {};
+    // The time when the job was created.
+    shared_ptr<string> createdAt_ {};
+    // The ID of the account that is used to create the job.
+    shared_ptr<string> creator_ {};
+    // The name of the account that is used to create the job.
+    shared_ptr<string> creatorName_ {};
+    // The deployment ID.
+    shared_ptr<string> deploymentId_ {};
+    // The name of the deployment.
+    shared_ptr<string> deploymentName_ {};
+    // The end time of the job.
+    shared_ptr<int64_t> endTime_ {};
+    // The engine version of the deployment.
+    shared_ptr<string> engineVersion_ {};
+    // The execution mode of the job. Valid values:
+    // 
+    // *   STREAM
+    // *   BATCH
+    shared_ptr<string> executionMode_ {};
+    // The configuration of the job.
+    Darabonba::Json flinkConf_ {};
+    // The job ID.
+    shared_ptr<string> jobId_ {};
+    // The variables.
+    shared_ptr<vector<LocalVariable>> localVariables_ {};
+    // The logging configuration of the job.
+    shared_ptr<Logging> logging_ {};
+    // The resource information of the job.
+    shared_ptr<JobMetric> metric_ {};
+    // The time when the job was modified.
+    shared_ptr<string> modifiedAt_ {};
+    // The ID of the account that is used to modify the job.
+    shared_ptr<string> modifier_ {};
+    // The name of the account that is used to modify the job.
+    shared_ptr<string> modifierName_ {};
+    // The name of the namespace.
+    shared_ptr<string> namespace_ {};
+    // The startup strategy of the job.
+    shared_ptr<DeploymentRestoreStrategy> restoreStrategy_ {};
+    // If the job runs in a session cluster, the value of this parameter is the name of the session cluster. Otherwise, the value of this parameter is null.
+    shared_ptr<string> sessionClusterName_ {};
+    // The start time of the job.
+    shared_ptr<int64_t> startTime_ {};
+    // The status of the job.
+    shared_ptr<JobStatus> status_ {};
+    // The resource configuration of the job in streaming mode.
+    shared_ptr<StreamingResourceSetting> streamingResourceSetting_ {};
+    // The Flink configuration.
+    Darabonba::Json userFlinkConf_ {};
+    // The workspace.
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

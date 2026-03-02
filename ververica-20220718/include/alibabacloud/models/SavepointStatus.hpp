@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failure_ == nullptr
-        && return this->state_ == nullptr; };
+        && this->state_ == nullptr; };
     // failure Field Functions 
     bool hasFailure() const { return this->failure_ != nullptr;};
     void deleteFailure() { this->failure_ = nullptr;};
-    inline const SavepointFailure & failure() const { DARABONBA_PTR_GET_CONST(failure_, SavepointFailure) };
-    inline SavepointFailure failure() { DARABONBA_PTR_GET(failure_, SavepointFailure) };
+    inline const SavepointFailure & getFailure() const { DARABONBA_PTR_GET_CONST(failure_, SavepointFailure) };
+    inline SavepointFailure getFailure() { DARABONBA_PTR_GET(failure_, SavepointFailure) };
     inline SavepointStatus& setFailure(const SavepointFailure & failure) { DARABONBA_PTR_SET_VALUE(failure_, failure) };
     inline SavepointStatus& setFailure(SavepointFailure && failure) { DARABONBA_PTR_SET_RVALUE(failure_, failure) };
 
@@ -46,13 +46,19 @@ namespace Models
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
-    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline SavepointStatus& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
   protected:
-    std::shared_ptr<SavepointFailure> failure_ = nullptr;
-    std::shared_ptr<string> state_ = nullptr;
+    // The details of the failure to create a savepoint for the deployment.
+    shared_ptr<SavepointFailure> failure_ {};
+    // The status of the savepoint that is created for the deployment. Valid values:
+    // 
+    // *   STARTED
+    // *   COMPLETED
+    // *   FAILED
+    shared_ptr<string> state_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->loggerLevel_ == nullptr
-        && return this->loggerName_ == nullptr; };
+        && this->loggerName_ == nullptr; };
     // loggerLevel Field Functions 
     bool hasLoggerLevel() const { return this->loggerLevel_ != nullptr;};
     void deleteLoggerLevel() { this->loggerLevel_ = nullptr;};
-    inline string loggerLevel() const { DARABONBA_PTR_GET_DEFAULT(loggerLevel_, "") };
+    inline string getLoggerLevel() const { DARABONBA_PTR_GET_DEFAULT(loggerLevel_, "") };
     inline Log4jLogger& setLoggerLevel(string loggerLevel) { DARABONBA_PTR_SET_VALUE(loggerLevel_, loggerLevel) };
 
 
     // loggerName Field Functions 
     bool hasLoggerName() const { return this->loggerName_ != nullptr;};
     void deleteLoggerName() { this->loggerName_ = nullptr;};
-    inline string loggerName() const { DARABONBA_PTR_GET_DEFAULT(loggerName_, "") };
+    inline string getLoggerName() const { DARABONBA_PTR_GET_DEFAULT(loggerName_, "") };
     inline Log4jLogger& setLoggerName(string loggerName) { DARABONBA_PTR_SET_VALUE(loggerName_, loggerName) };
 
 
   protected:
-    std::shared_ptr<string> loggerLevel_ = nullptr;
-    std::shared_ptr<string> loggerName_ = nullptr;
+    // The level of the output log.
+    shared_ptr<string> loggerLevel_ {};
+    // The name of the class of the output log.
+    shared_ptr<string> loggerName_ {};
   };
 
   } // namespace Models

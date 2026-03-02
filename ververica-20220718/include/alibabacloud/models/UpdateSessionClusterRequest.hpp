@@ -34,14 +34,14 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const SessionCluster & body() const { DARABONBA_PTR_GET_CONST(body_, SessionCluster) };
-    inline SessionCluster body() { DARABONBA_PTR_GET(body_, SessionCluster) };
+    inline const SessionCluster & getBody() const { DARABONBA_PTR_GET_CONST(body_, SessionCluster) };
+    inline SessionCluster getBody() { DARABONBA_PTR_GET(body_, SessionCluster) };
     inline UpdateSessionClusterRequest& setBody(const SessionCluster & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline UpdateSessionClusterRequest& setBody(SessionCluster && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
-    std::shared_ptr<SessionCluster> body_ = nullptr;
+    shared_ptr<SessionCluster> body_ {};
   };
 
   } // namespace Models

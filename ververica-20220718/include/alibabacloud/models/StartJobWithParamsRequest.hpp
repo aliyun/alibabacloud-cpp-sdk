@@ -34,15 +34,15 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const JobStartParameters & body() const { DARABONBA_PTR_GET_CONST(body_, JobStartParameters) };
-    inline JobStartParameters body() { DARABONBA_PTR_GET(body_, JobStartParameters) };
+    inline const JobStartParameters & getBody() const { DARABONBA_PTR_GET_CONST(body_, JobStartParameters) };
+    inline JobStartParameters getBody() { DARABONBA_PTR_GET(body_, JobStartParameters) };
     inline StartJobWithParamsRequest& setBody(const JobStartParameters & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline StartJobWithParamsRequest& setBody(JobStartParameters && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     // The parameter that is used to start the job.
-    std::shared_ptr<JobStartParameters> body_ = nullptr;
+    shared_ptr<JobStartParameters> body_ {};
   };
 
   } // namespace Models

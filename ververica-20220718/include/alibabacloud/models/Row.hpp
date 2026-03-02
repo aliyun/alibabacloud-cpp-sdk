@@ -35,14 +35,14 @@ namespace Models
     // cells Field Functions 
     bool hasCells() const { return this->cells_ != nullptr;};
     void deleteCells() { this->cells_ = nullptr;};
-    inline const vector<Cell> & cells() const { DARABONBA_PTR_GET_CONST(cells_, vector<Cell>) };
-    inline vector<Cell> cells() { DARABONBA_PTR_GET(cells_, vector<Cell>) };
+    inline const vector<Cell> & getCells() const { DARABONBA_PTR_GET_CONST(cells_, vector<Cell>) };
+    inline vector<Cell> getCells() { DARABONBA_PTR_GET(cells_, vector<Cell>) };
     inline Row& setCells(const vector<Cell> & cells) { DARABONBA_PTR_SET_VALUE(cells_, cells) };
     inline Row& setCells(vector<Cell> && cells) { DARABONBA_PTR_SET_RVALUE(cells_, cells) };
 
 
   protected:
-    std::shared_ptr<vector<Cell>> cells_ = nullptr;
+    shared_ptr<vector<Cell>> cells_ {};
   };
 
   } // namespace Models

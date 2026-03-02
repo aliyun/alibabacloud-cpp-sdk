@@ -33,14 +33,14 @@ namespace Models
     // newFlinkConf Field Functions 
     bool hasNewFlinkConf() const { return this->newFlinkConf_ != nullptr;};
     void deleteNewFlinkConf() { this->newFlinkConf_ = nullptr;};
-    inline     const Darabonba::Json & newFlinkConf() const { DARABONBA_GET(newFlinkConf_) };
-    Darabonba::Json & newFlinkConf() { DARABONBA_GET(newFlinkConf_) };
+    inline     const Darabonba::Json & getNewFlinkConf() const { DARABONBA_GET(newFlinkConf_) };
+    Darabonba::Json & getNewFlinkConf() { DARABONBA_GET(newFlinkConf_) };
     inline UpdateJobConfigParam& setNewFlinkConf(const Darabonba::Json & newFlinkConf) { DARABONBA_SET_VALUE(newFlinkConf_, newFlinkConf) };
-    inline UpdateJobConfigParam& setNewFlinkConf(Darabonba::Json & newFlinkConf) { DARABONBA_SET_RVALUE(newFlinkConf_, newFlinkConf) };
+    inline UpdateJobConfigParam& setNewFlinkConf(Darabonba::Json && newFlinkConf) { DARABONBA_SET_RVALUE(newFlinkConf_, newFlinkConf) };
 
 
   protected:
-    Darabonba::Json newFlinkConf_ = nullptr;
+    Darabonba::Json newFlinkConf_ {};
   };
 
   } // namespace Models

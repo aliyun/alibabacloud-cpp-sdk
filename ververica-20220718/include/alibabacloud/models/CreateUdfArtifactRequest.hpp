@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const UdfArtifact & body() const { DARABONBA_PTR_GET_CONST(body_, UdfArtifact) };
-    inline UdfArtifact body() { DARABONBA_PTR_GET(body_, UdfArtifact) };
+    inline const UdfArtifact & getBody() const { DARABONBA_PTR_GET_CONST(body_, UdfArtifact) };
+    inline UdfArtifact getBody() { DARABONBA_PTR_GET(body_, UdfArtifact) };
     inline CreateUdfArtifactRequest& setBody(const UdfArtifact & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateUdfArtifactRequest& setBody(UdfArtifact && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The resource file of the UDF.
     // 
     // This parameter is required.
-    std::shared_ptr<UdfArtifact> body_ = nullptr;
+    shared_ptr<UdfArtifact> body_ {};
   };
 
   } // namespace Models

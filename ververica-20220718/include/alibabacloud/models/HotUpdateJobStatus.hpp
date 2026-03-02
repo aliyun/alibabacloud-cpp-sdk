@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failure_ == nullptr
-        && return this->requestId_ == nullptr && return this->status_ == nullptr; };
+        && this->requestId_ == nullptr && this->status_ == nullptr; };
     // failure Field Functions 
     bool hasFailure() const { return this->failure_ != nullptr;};
     void deleteFailure() { this->failure_ = nullptr;};
-    inline const HotUpdateJobFailureInfo & failure() const { DARABONBA_PTR_GET_CONST(failure_, HotUpdateJobFailureInfo) };
-    inline HotUpdateJobFailureInfo failure() { DARABONBA_PTR_GET(failure_, HotUpdateJobFailureInfo) };
+    inline const HotUpdateJobFailureInfo & getFailure() const { DARABONBA_PTR_GET_CONST(failure_, HotUpdateJobFailureInfo) };
+    inline HotUpdateJobFailureInfo getFailure() { DARABONBA_PTR_GET(failure_, HotUpdateJobFailureInfo) };
     inline HotUpdateJobStatus& setFailure(const HotUpdateJobFailureInfo & failure) { DARABONBA_PTR_SET_VALUE(failure_, failure) };
     inline HotUpdateJobStatus& setFailure(HotUpdateJobFailureInfo && failure) { DARABONBA_PTR_SET_RVALUE(failure_, failure) };
 
@@ -48,21 +48,24 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline HotUpdateJobStatus& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline HotUpdateJobStatus& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<HotUpdateJobFailureInfo> failure_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    // The error message of the dynamical update.
+    shared_ptr<HotUpdateJobFailureInfo> failure_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // The status of the dynamic update.
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->expirationDays_ == nullptr
-        && return this->openHistory_ == nullptr; };
+        && this->openHistory_ == nullptr; };
     // expirationDays Field Functions 
     bool hasExpirationDays() const { return this->expirationDays_ != nullptr;};
     void deleteExpirationDays() { this->expirationDays_ = nullptr;};
-    inline int64_t expirationDays() const { DARABONBA_PTR_GET_DEFAULT(expirationDays_, 0L) };
+    inline int64_t getExpirationDays() const { DARABONBA_PTR_GET_DEFAULT(expirationDays_, 0L) };
     inline LogReservePolicy& setExpirationDays(int64_t expirationDays) { DARABONBA_PTR_SET_VALUE(expirationDays_, expirationDays) };
 
 
     // openHistory Field Functions 
     bool hasOpenHistory() const { return this->openHistory_ != nullptr;};
     void deleteOpenHistory() { this->openHistory_ = nullptr;};
-    inline bool openHistory() const { DARABONBA_PTR_GET_DEFAULT(openHistory_, false) };
+    inline bool getOpenHistory() const { DARABONBA_PTR_GET_DEFAULT(openHistory_, false) };
     inline LogReservePolicy& setOpenHistory(bool openHistory) { DARABONBA_PTR_SET_VALUE(openHistory_, openHistory) };
 
 
   protected:
-    std::shared_ptr<int64_t> expirationDays_ = nullptr;
-    std::shared_ptr<bool> openHistory_ = nullptr;
+    // The number of days for which logs are retained after you enable the
+    // log archiving feature.
+    shared_ptr<int64_t> expirationDays_ {};
+    // Specifies whether to enable the log archiving feature.
+    shared_ptr<bool> openHistory_ {};
   };
 
   } // namespace Models

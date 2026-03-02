@@ -33,13 +33,19 @@ namespace Models
     // stopStrategy Field Functions 
     bool hasStopStrategy() const { return this->stopStrategy_ != nullptr;};
     void deleteStopStrategy() { this->stopStrategy_ = nullptr;};
-    inline string stopStrategy() const { DARABONBA_PTR_GET_DEFAULT(stopStrategy_, "") };
+    inline string getStopStrategy() const { DARABONBA_PTR_GET_DEFAULT(stopStrategy_, "") };
     inline StopJobRequestBody& setStopStrategy(string stopStrategy) { DARABONBA_PTR_SET_VALUE(stopStrategy_, stopStrategy) };
 
 
   protected:
+    // The strategy that is used to stop a job. Valid values:
+    // 
+    // *   `NONE`: Directly stop the job.
+    // *   `STOP_WITH_SAVEPOINT`: Stop the job after a savepoint is generated.
+    // *   `STOP_WITH_DRAIN`: Stop the job and drain the pipeline. Use this strategy only if you want to permanently terminate the job.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> stopStrategy_ = nullptr;
+    shared_ptr<string> stopStrategy_ {};
   };
 
   } // namespace Models

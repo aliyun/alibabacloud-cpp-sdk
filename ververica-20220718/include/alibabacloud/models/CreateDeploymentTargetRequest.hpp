@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->body_ == nullptr
-        && return this->deploymentTargetName_ == nullptr; };
+        && this->deploymentTargetName_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const ResourceSpec & body() const { DARABONBA_PTR_GET_CONST(body_, ResourceSpec) };
-    inline ResourceSpec body() { DARABONBA_PTR_GET(body_, ResourceSpec) };
+    inline const ResourceSpec & getBody() const { DARABONBA_PTR_GET_CONST(body_, ResourceSpec) };
+    inline ResourceSpec getBody() { DARABONBA_PTR_GET(body_, ResourceSpec) };
     inline CreateDeploymentTargetRequest& setBody(const ResourceSpec & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateDeploymentTargetRequest& setBody(ResourceSpec && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -46,14 +46,14 @@ namespace Models
     // deploymentTargetName Field Functions 
     bool hasDeploymentTargetName() const { return this->deploymentTargetName_ != nullptr;};
     void deleteDeploymentTargetName() { this->deploymentTargetName_ = nullptr;};
-    inline string deploymentTargetName() const { DARABONBA_PTR_GET_DEFAULT(deploymentTargetName_, "") };
+    inline string getDeploymentTargetName() const { DARABONBA_PTR_GET_DEFAULT(deploymentTargetName_, "") };
     inline CreateDeploymentTargetRequest& setDeploymentTargetName(string deploymentTargetName) { DARABONBA_PTR_SET_VALUE(deploymentTargetName_, deploymentTargetName) };
 
 
   protected:
-    std::shared_ptr<ResourceSpec> body_ = nullptr;
+    shared_ptr<ResourceSpec> body_ {};
     // This parameter is required.
-    std::shared_ptr<string> deploymentTargetName_ = nullptr;
+    shared_ptr<string> deploymentTargetName_ {};
   };
 
   } // namespace Models

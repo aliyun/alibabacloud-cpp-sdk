@@ -32,24 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->supportNativeSavepoint_ == nullptr
-        && return this->useForSqlDeployments_ == nullptr; };
+        && this->useForSqlDeployments_ == nullptr; };
     // supportNativeSavepoint Field Functions 
     bool hasSupportNativeSavepoint() const { return this->supportNativeSavepoint_ != nullptr;};
     void deleteSupportNativeSavepoint() { this->supportNativeSavepoint_ = nullptr;};
-    inline bool supportNativeSavepoint() const { DARABONBA_PTR_GET_DEFAULT(supportNativeSavepoint_, false) };
+    inline bool getSupportNativeSavepoint() const { DARABONBA_PTR_GET_DEFAULT(supportNativeSavepoint_, false) };
     inline EngineVersionSupportedFeatures& setSupportNativeSavepoint(bool supportNativeSavepoint) { DARABONBA_PTR_SET_VALUE(supportNativeSavepoint_, supportNativeSavepoint) };
 
 
     // useForSqlDeployments Field Functions 
     bool hasUseForSqlDeployments() const { return this->useForSqlDeployments_ != nullptr;};
     void deleteUseForSqlDeployments() { this->useForSqlDeployments_ = nullptr;};
-    inline bool useForSqlDeployments() const { DARABONBA_PTR_GET_DEFAULT(useForSqlDeployments_, false) };
+    inline bool getUseForSqlDeployments() const { DARABONBA_PTR_GET_DEFAULT(useForSqlDeployments_, false) };
     inline EngineVersionSupportedFeatures& setUseForSqlDeployments(bool useForSqlDeployments) { DARABONBA_PTR_SET_VALUE(useForSqlDeployments_, useForSqlDeployments) };
 
 
   protected:
-    std::shared_ptr<bool> supportNativeSavepoint_ = nullptr;
-    std::shared_ptr<bool> useForSqlDeployments_ = nullptr;
+    // Specifies whether the engine version can be used to create a native savepoint.
+    shared_ptr<bool> supportNativeSavepoint_ {};
+    // Specifies whether the engine version can be used to submit an SQL deployment.
+    shared_ptr<bool> useForSqlDeployments_ {};
   };
 
   } // namespace Models

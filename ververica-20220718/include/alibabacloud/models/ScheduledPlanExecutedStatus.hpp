@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->restartType_ == nullptr
-        && return this->statusState_ == nullptr; };
+        && this->statusState_ == nullptr; };
     // restartType Field Functions 
     bool hasRestartType() const { return this->restartType_ != nullptr;};
     void deleteRestartType() { this->restartType_ = nullptr;};
-    inline string restartType() const { DARABONBA_PTR_GET_DEFAULT(restartType_, "") };
+    inline string getRestartType() const { DARABONBA_PTR_GET_DEFAULT(restartType_, "") };
     inline ScheduledPlanExecutedStatus& setRestartType(string restartType) { DARABONBA_PTR_SET_VALUE(restartType_, restartType) };
 
 
     // statusState Field Functions 
     bool hasStatusState() const { return this->statusState_ != nullptr;};
     void deleteStatusState() { this->statusState_ = nullptr;};
-    inline string statusState() const { DARABONBA_PTR_GET_DEFAULT(statusState_, "") };
+    inline string getStatusState() const { DARABONBA_PTR_GET_DEFAULT(statusState_, "") };
     inline ScheduledPlanExecutedStatus& setStatusState(string statusState) { DARABONBA_PTR_SET_VALUE(statusState_, statusState) };
 
 
   protected:
-    std::shared_ptr<string> restartType_ = nullptr;
-    std::shared_ptr<string> statusState_ = nullptr;
+    shared_ptr<string> restartType_ {};
+    shared_ptr<string> statusState_ {};
   };
 
   } // namespace Models

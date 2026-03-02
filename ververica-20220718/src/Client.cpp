@@ -38,7 +38,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 执行定时计划
+ * @summary Executes a scheduled plan.
  *
  * @param headers ApplyScheduledPlanHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -47,11 +47,11 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 ApplyScheduledPlanResponse Client::applyScheduledPlanWithOptions(const string &_namespace, const string &scheduledPlanId, const ApplyScheduledPlanHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -72,7 +72,7 @@ ApplyScheduledPlanResponse Client::applyScheduledPlanWithOptions(const string &_
 }
 
 /**
- * @summary 执行定时计划
+ * @summary Executes a scheduled plan.
  *
  * @return ApplyScheduledPlanResponse
  */
@@ -94,24 +94,24 @@ CancelSqlPreviewResponse Client::cancelSqlPreviewWithOptions(const string &_name
   request.validate();
   json query = {};
   if (!!request.hasQueryId()) {
-    query["queryId"] = request.queryId();
+    query["queryId"] = request.getQueryId();
   }
 
   if (!!request.hasSessionClusterName()) {
-    query["sessionClusterName"] = request.sessionClusterName();
+    query["sessionClusterName"] = request.getSessionClusterName();
   }
 
   if (!!request.hasSessionId()) {
-    query["sessionId"] = request.sessionId();
+    query["sessionId"] = request.getSessionId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -156,16 +156,16 @@ CreateDeploymentResponse Client::createDeploymentWithOptions(const string &_name
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateDeployment"},
@@ -194,7 +194,7 @@ CreateDeploymentResponse Client::createDeployment(const string &_namespace, cons
 }
 
 /**
- * @summary create a deploymentDraft
+ * @summary Creates an SQL draft.
  *
  * @param request CreateDeploymentDraftRequest
  * @param headers CreateDeploymentDraftHeaders
@@ -205,16 +205,16 @@ CreateDeploymentDraftResponse Client::createDeploymentDraftWithOptions(const str
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateDeploymentDraft"},
@@ -231,7 +231,7 @@ CreateDeploymentDraftResponse Client::createDeploymentDraftWithOptions(const str
 }
 
 /**
- * @summary create a deploymentDraft
+ * @summary Creates an SQL draft.
  *
  * @param request CreateDeploymentDraftRequest
  * @return CreateDeploymentDraftResponse
@@ -243,7 +243,7 @@ CreateDeploymentDraftResponse Client::createDeploymentDraft(const string &_names
 }
 
 /**
- * @summary 创建deploymentTarget
+ * @summary Creates a deployment target.
  *
  * @param request CreateDeploymentTargetRequest
  * @param headers CreateDeploymentTargetHeaders
@@ -254,22 +254,22 @@ CreateDeploymentTargetResponse Client::createDeploymentTargetWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasDeploymentTargetName()) {
-    query["deploymentTargetName"] = request.deploymentTargetName();
+    query["deploymentTargetName"] = request.getDeploymentTargetName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateDeploymentTarget"},
@@ -286,7 +286,7 @@ CreateDeploymentTargetResponse Client::createDeploymentTargetWithOptions(const s
 }
 
 /**
- * @summary 创建deploymentTarget
+ * @summary Creates a deployment target.
  *
  * @param request CreateDeploymentTargetRequest
  * @return CreateDeploymentTargetResponse
@@ -309,22 +309,22 @@ CreateDeploymentTargetV2Response Client::createDeploymentTargetV2WithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasDeploymentTargetName()) {
-    query["deploymentTargetName"] = request.deploymentTargetName();
+    query["deploymentTargetName"] = request.getDeploymentTargetName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateDeploymentTargetV2"},
@@ -353,7 +353,7 @@ CreateDeploymentTargetV2Response Client::createDeploymentTargetV2(const string &
 }
 
 /**
- * @summary create a folder
+ * @summary Creates a folder.
  *
  * @param request CreateFolderRequest
  * @param headers CreateFolderHeaders
@@ -364,16 +364,16 @@ CreateFolderResponse Client::createFolderWithOptions(const string &_namespace, c
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateFolder"},
@@ -390,7 +390,7 @@ CreateFolderResponse Client::createFolderWithOptions(const string &_namespace, c
 }
 
 /**
- * @summary create a folder
+ * @summary Creates a folder.
  *
  * @param request CreateFolderRequest
  * @return CreateFolderResponse
@@ -413,16 +413,16 @@ CreateMemberResponse Client::createMemberWithOptions(const string &_namespace, c
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateMember"},
@@ -462,24 +462,24 @@ CreateSavepointResponse Client::createSavepointWithOptions(const string &_namesp
   request.validate();
   json body = {};
   if (!!request.hasDeploymentId()) {
-    body["deploymentId"] = request.deploymentId();
+    body["deploymentId"] = request.getDeploymentId();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasNativeFormat()) {
-    body["nativeFormat"] = request.nativeFormat();
+    body["nativeFormat"] = request.getNativeFormat();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -513,7 +513,7 @@ CreateSavepointResponse Client::createSavepoint(const string &_namespace, const 
 }
 
 /**
- * @summary 创建定时执行计划
+ * @summary Creates a scheduled tuning plan.
  *
  * @param request CreateScheduledPlanRequest
  * @param headers CreateScheduledPlanHeaders
@@ -524,16 +524,16 @@ CreateScheduledPlanResponse Client::createScheduledPlanWithOptions(const string 
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateScheduledPlan"},
@@ -550,7 +550,7 @@ CreateScheduledPlanResponse Client::createScheduledPlanWithOptions(const string 
 }
 
 /**
- * @summary 创建定时执行计划
+ * @summary Creates a scheduled tuning plan.
  *
  * @param request CreateScheduledPlanRequest
  * @return CreateScheduledPlanResponse
@@ -562,7 +562,7 @@ CreateScheduledPlanResponse Client::createScheduledPlan(const string &_namespace
 }
 
 /**
- * @summary 创建session集群
+ * @summary Create a session cluster
  *
  * @param request CreateSessionClusterRequest
  * @param headers CreateSessionClusterHeaders
@@ -573,16 +573,16 @@ CreateSessionClusterResponse Client::createSessionClusterWithOptions(const strin
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateSessionCluster"},
@@ -599,7 +599,7 @@ CreateSessionClusterResponse Client::createSessionClusterWithOptions(const strin
 }
 
 /**
- * @summary 创建session集群
+ * @summary Create a session cluster
  *
  * @param request CreateSessionClusterRequest
  * @return CreateSessionClusterResponse
@@ -622,16 +622,16 @@ CreateUdfArtifactResponse Client::createUdfArtifactWithOptions(const string &_na
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateUdfArtifact"},
@@ -671,16 +671,16 @@ CreateVariableResponse Client::createVariableWithOptions(const string &_namespac
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateVariable"},
@@ -718,11 +718,11 @@ CreateVariableResponse Client::createVariable(const string &_namespace, const Cr
 DeleteCustomConnectorResponse Client::deleteCustomConnectorWithOptions(const string &_namespace, const string &connectorName, const DeleteCustomConnectorHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -763,11 +763,11 @@ DeleteCustomConnectorResponse Client::deleteCustomConnector(const string &_names
 DeleteDeploymentResponse Client::deleteDeploymentWithOptions(const string &_namespace, const string &deploymentId, const DeleteDeploymentHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -799,7 +799,7 @@ DeleteDeploymentResponse Client::deleteDeployment(const string &_namespace, cons
 }
 
 /**
- * @summary delete a deploymentDraft
+ * @summary Deletes an SQL draft. If the draft is deployed as a deployment and the deployment is published or the deployment status is RUNNING, the deployment for the draft cannot be deleted.
  *
  * @param headers DeleteDeploymentDraftHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -808,11 +808,11 @@ DeleteDeploymentResponse Client::deleteDeployment(const string &_namespace, cons
 DeleteDeploymentDraftResponse Client::deleteDeploymentDraftWithOptions(const string &_namespace, const string &deploymentDraftId, const DeleteDeploymentDraftHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -833,7 +833,7 @@ DeleteDeploymentDraftResponse Client::deleteDeploymentDraftWithOptions(const str
 }
 
 /**
- * @summary delete a deploymentDraft
+ * @summary Deletes an SQL draft. If the draft is deployed as a deployment and the deployment is published or the deployment status is RUNNING, the deployment for the draft cannot be deleted.
  *
  * @return DeleteDeploymentDraftResponse
  */
@@ -844,7 +844,7 @@ DeleteDeploymentDraftResponse Client::deleteDeploymentDraft(const string &_names
 }
 
 /**
- * @summary 删除deploymentTarget
+ * @summary Deletes a deployment target.
  *
  * @param headers DeleteDeploymentTargetHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -853,11 +853,11 @@ DeleteDeploymentDraftResponse Client::deleteDeploymentDraft(const string &_names
 DeleteDeploymentTargetResponse Client::deleteDeploymentTargetWithOptions(const string &_namespace, const string &deploymentTargetName, const DeleteDeploymentTargetHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -878,7 +878,7 @@ DeleteDeploymentTargetResponse Client::deleteDeploymentTargetWithOptions(const s
 }
 
 /**
- * @summary 删除deploymentTarget
+ * @summary Deletes a deployment target.
  *
  * @return DeleteDeploymentTargetResponse
  */
@@ -889,7 +889,7 @@ DeleteDeploymentTargetResponse Client::deleteDeploymentTarget(const string &_nam
 }
 
 /**
- * @summary delete a folder
+ * @summary Deletes an empty folder. If files or folders exist in a folder, the folder cannot be deleted.
  *
  * @param headers DeleteFolderHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -898,11 +898,11 @@ DeleteDeploymentTargetResponse Client::deleteDeploymentTarget(const string &_nam
 DeleteFolderResponse Client::deleteFolderWithOptions(const string &_namespace, const string &folderId, const DeleteFolderHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -923,7 +923,7 @@ DeleteFolderResponse Client::deleteFolderWithOptions(const string &_namespace, c
 }
 
 /**
- * @summary delete a folder
+ * @summary Deletes an empty folder. If files or folders exist in a folder, the folder cannot be deleted.
  *
  * @return DeleteFolderResponse
  */
@@ -943,11 +943,11 @@ DeleteFolderResponse Client::deleteFolder(const string &_namespace, const string
 DeleteJobResponse Client::deleteJobWithOptions(const string &_namespace, const string &jobId, const DeleteJobHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -988,11 +988,11 @@ DeleteJobResponse Client::deleteJob(const string &_namespace, const string &jobI
 DeleteMemberResponse Client::deleteMemberWithOptions(const string &_namespace, const string &member, const DeleteMemberHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1033,11 +1033,11 @@ DeleteMemberResponse Client::deleteMember(const string &_namespace, const string
 DeleteSavepointResponse Client::deleteSavepointWithOptions(const string &_namespace, const string &savepointId, const DeleteSavepointHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1069,7 +1069,7 @@ DeleteSavepointResponse Client::deleteSavepoint(const string &_namespace, const 
 }
 
 /**
- * @summary 删除定时执行计划
+ * @summary Deletes a scheduled tuning plan.
  *
  * @param headers DeleteScheduledPlanHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -1078,11 +1078,11 @@ DeleteSavepointResponse Client::deleteSavepoint(const string &_namespace, const 
 DeleteScheduledPlanResponse Client::deleteScheduledPlanWithOptions(const string &_namespace, const string &scheduledPlanId, const DeleteScheduledPlanHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1103,7 +1103,7 @@ DeleteScheduledPlanResponse Client::deleteScheduledPlanWithOptions(const string 
 }
 
 /**
- * @summary 删除定时执行计划
+ * @summary Deletes a scheduled tuning plan.
  *
  * @return DeleteScheduledPlanResponse
  */
@@ -1114,7 +1114,7 @@ DeleteScheduledPlanResponse Client::deleteScheduledPlan(const string &_namespace
 }
 
 /**
- * @summary 删除session集群
+ * @summary Deletes a session cluster.
  *
  * @param headers DeleteSessionClusterHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -1123,11 +1123,11 @@ DeleteScheduledPlanResponse Client::deleteScheduledPlan(const string &_namespace
 DeleteSessionClusterResponse Client::deleteSessionClusterWithOptions(const string &_namespace, const string &sessionClusterName, const DeleteSessionClusterHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1148,7 +1148,7 @@ DeleteSessionClusterResponse Client::deleteSessionClusterWithOptions(const strin
 }
 
 /**
- * @summary 删除session集群
+ * @summary Deletes a session cluster.
  *
  * @return DeleteSessionClusterResponse
  */
@@ -1159,7 +1159,7 @@ DeleteSessionClusterResponse Client::deleteSessionCluster(const string &_namespa
 }
 
 /**
- * @summary 删除UdfArtifact
+ * @summary Deletes resources of a user-defined function (UDF) from a namespace. Before you delete the resources of a UDF, you must delete the UDF.
  *
  * @param headers DeleteUdfArtifactHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -1168,11 +1168,11 @@ DeleteSessionClusterResponse Client::deleteSessionCluster(const string &_namespa
 DeleteUdfArtifactResponse Client::deleteUdfArtifactWithOptions(const string &_namespace, const string &udfArtifactName, const DeleteUdfArtifactHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1193,7 +1193,7 @@ DeleteUdfArtifactResponse Client::deleteUdfArtifactWithOptions(const string &_na
 }
 
 /**
- * @summary 删除UdfArtifact
+ * @summary Deletes resources of a user-defined function (UDF) from a namespace. Before you delete the resources of a UDF, you must delete the UDF.
  *
  * @return DeleteUdfArtifactResponse
  */
@@ -1215,20 +1215,20 @@ DeleteUdfFunctionResponse Client::deleteUdfFunctionWithOptions(const string &_na
   request.validate();
   json query = {};
   if (!!request.hasClassName()) {
-    query["className"] = request.className();
+    query["className"] = request.getClassName();
   }
 
   if (!!request.hasUdfArtifactName()) {
-    query["udfArtifactName"] = request.udfArtifactName();
+    query["udfArtifactName"] = request.getUdfArtifactName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1271,11 +1271,11 @@ DeleteUdfFunctionResponse Client::deleteUdfFunction(const string &_namespace, co
 DeleteVariableResponse Client::deleteVariableWithOptions(const string &_namespace, const string &name, const DeleteVariableHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1307,7 +1307,7 @@ DeleteVariableResponse Client::deleteVariable(const string &_namespace, const st
 }
 
 /**
- * @summary deploy deploymentDraft async
+ * @summary Deploys an SQL draft.
  *
  * @param request DeployDeploymentDraftAsyncRequest
  * @param headers DeployDeploymentDraftAsyncHeaders
@@ -1318,16 +1318,16 @@ DeployDeploymentDraftAsyncResponse Client::deployDeploymentDraftAsyncWithOptions
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "DeployDeploymentDraftAsync"},
@@ -1344,7 +1344,7 @@ DeployDeploymentDraftAsyncResponse Client::deployDeploymentDraftAsyncWithOptions
 }
 
 /**
- * @summary deploy deploymentDraft async
+ * @summary Deploys an SQL draft.
  *
  * @param request DeployDeploymentDraftAsyncRequest
  * @return DeployDeploymentDraftAsyncResponse
@@ -1356,7 +1356,7 @@ DeployDeploymentDraftAsyncResponse Client::deployDeploymentDraftAsync(const stri
 }
 
 /**
- * @summary 执行sql语句
+ * @summary Executes SQL statements to query the metadata. Only DDL and DML statements are supported. DQL statements are not supported.
  *
  * @param request ExecuteSqlStatementRequest
  * @param headers ExecuteSqlStatementHeaders
@@ -1367,16 +1367,16 @@ ExecuteSqlStatementResponse Client::executeSqlStatementWithOptions(const string 
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "ExecuteSqlStatement"},
@@ -1393,7 +1393,7 @@ ExecuteSqlStatementResponse Client::executeSqlStatementWithOptions(const string 
 }
 
 /**
- * @summary 执行sql语句
+ * @summary Executes SQL statements to query the metadata. Only DDL and DML statements are supported. DQL statements are not supported.
  *
  * @param request ExecuteSqlStatementRequest
  * @return ExecuteSqlStatementResponse
@@ -1416,24 +1416,24 @@ FetchSqlPreviewResultsResponse Client::fetchSqlPreviewResultsWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasQueryId()) {
-    query["queryId"] = request.queryId();
+    query["queryId"] = request.getQueryId();
   }
 
   if (!!request.hasSessionClusterName()) {
-    query["sessionClusterName"] = request.sessionClusterName();
+    query["sessionClusterName"] = request.getSessionClusterName();
   }
 
   if (!!request.hasSessionId()) {
-    query["sessionId"] = request.sessionId();
+    query["sessionId"] = request.getSessionId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1467,7 +1467,7 @@ FetchSqlPreviewResultsResponse Client::fetchSqlPreviewResults(const string &_nam
 }
 
 /**
- * @summary Provides a Flink request proxy.
+ * @summary Provides a proxy for Realtime Compute for Apache Flink requests.
  *
  * @param request FlinkApiProxyRequest
  * @param headers FlinkApiProxyHeaders
@@ -1478,28 +1478,28 @@ FlinkApiProxyResponse Client::flinkApiProxyWithOptions(const FlinkApiProxyReques
   request.validate();
   json query = {};
   if (!!request.hasFlinkApiPath()) {
-    query["flinkApiPath"] = request.flinkApiPath();
+    query["flinkApiPath"] = request.getFlinkApiPath();
   }
 
   if (!!request.hasNamespace()) {
-    query["namespace"] = request._namespace();
+    query["namespace"] = request.getNamespace();
   }
 
   if (!!request.hasResourceId()) {
-    query["resourceId"] = request.resourceId();
+    query["resourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["resourceType"] = request.resourceType();
+    query["resourceType"] = request.getResourceType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1521,7 +1521,7 @@ FlinkApiProxyResponse Client::flinkApiProxyWithOptions(const FlinkApiProxyReques
 }
 
 /**
- * @summary Provides a Flink request proxy.
+ * @summary Provides a proxy for Realtime Compute for Apache Flink requests.
  *
  * @param request FlinkApiProxyRequest
  * @return FlinkApiProxyResponse
@@ -1544,16 +1544,16 @@ GenerateResourcePlanWithFlinkConfAsyncResponse Client::generateResourcePlanWithF
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "GenerateResourcePlanWithFlinkConfAsync"},
@@ -1582,7 +1582,7 @@ GenerateResourcePlanWithFlinkConfAsyncResponse Client::generateResourcePlanWithF
 }
 
 /**
- * @summary 获取应用中的执行定时计划
+ * @summary Queries the scheduled plan of an application.
  *
  * @param request GetAppliedScheduledPlanRequest
  * @param headers GetAppliedScheduledPlanHeaders
@@ -1593,16 +1593,16 @@ GetAppliedScheduledPlanResponse Client::getAppliedScheduledPlanWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasDeploymentId()) {
-    query["deploymentId"] = request.deploymentId();
+    query["deploymentId"] = request.getDeploymentId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1624,7 +1624,7 @@ GetAppliedScheduledPlanResponse Client::getAppliedScheduledPlanWithOptions(const
 }
 
 /**
- * @summary 获取应用中的执行定时计划
+ * @summary Queries the scheduled plan of an application.
  *
  * @param request GetAppliedScheduledPlanRequest
  * @return GetAppliedScheduledPlanResponse
@@ -1636,7 +1636,7 @@ GetAppliedScheduledPlanResponse Client::getAppliedScheduledPlan(const string &_n
 }
 
 /**
- * @summary 获取catalog
+ * @summary Obtains details of the specified catalog or all catalogs.
  *
  * @param request GetCatalogsRequest
  * @param headers GetCatalogsHeaders
@@ -1647,16 +1647,16 @@ GetCatalogsResponse Client::getCatalogsWithOptions(const string &_namespace, con
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["catalogName"] = request.catalogName();
+    query["catalogName"] = request.getCatalogName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1678,7 +1678,7 @@ GetCatalogsResponse Client::getCatalogsWithOptions(const string &_namespace, con
 }
 
 /**
- * @summary 获取catalog
+ * @summary Obtains details of the specified catalog or all catalogs.
  *
  * @param request GetCatalogsRequest
  * @return GetCatalogsResponse
@@ -1690,7 +1690,7 @@ GetCatalogsResponse Client::getCatalogs(const string &_namespace, const GetCatal
 }
 
 /**
- * @summary 获取database
+ * @summary Obtains the information about a database in a specified catalog or lists all databases in a specified catalog.
  *
  * @param request GetDatabasesRequest
  * @param headers GetDatabasesHeaders
@@ -1701,16 +1701,16 @@ GetDatabasesResponse Client::getDatabasesWithOptions(const string &_namespace, c
   request.validate();
   json query = {};
   if (!!request.hasDatabaseName()) {
-    query["databaseName"] = request.databaseName();
+    query["databaseName"] = request.getDatabaseName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1732,7 +1732,7 @@ GetDatabasesResponse Client::getDatabasesWithOptions(const string &_namespace, c
 }
 
 /**
- * @summary 获取database
+ * @summary Obtains the information about a database in a specified catalog or lists all databases in a specified catalog.
  *
  * @param request GetDatabasesRequest
  * @return GetDatabasesResponse
@@ -1744,7 +1744,7 @@ GetDatabasesResponse Client::getDatabases(const string &_namespace, const string
 }
 
 /**
- * @summary get deploy deploymentDraft result
+ * @summary Obtains the deployment result based on the ID of the asynchronous ticket.
  *
  * @param headers GetDeployDeploymentDraftResultHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -1753,11 +1753,11 @@ GetDatabasesResponse Client::getDatabases(const string &_namespace, const string
 GetDeployDeploymentDraftResultResponse Client::getDeployDeploymentDraftResultWithOptions(const string &_namespace, const string &ticketId, const GetDeployDeploymentDraftResultHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1778,7 +1778,7 @@ GetDeployDeploymentDraftResultResponse Client::getDeployDeploymentDraftResultWit
 }
 
 /**
- * @summary get deploy deploymentDraft result
+ * @summary Obtains the deployment result based on the ID of the asynchronous ticket.
  *
  * @return GetDeployDeploymentDraftResultResponse
  */
@@ -1798,11 +1798,11 @@ GetDeployDeploymentDraftResultResponse Client::getDeployDeploymentDraftResult(co
 GetDeploymentResponse Client::getDeploymentWithOptions(const string &_namespace, const string &deploymentId, const GetDeploymentHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1834,7 +1834,7 @@ GetDeploymentResponse Client::getDeployment(const string &_namespace, const stri
 }
 
 /**
- * @summary get a deploymentDraft
+ * @summary Obtains the details of an SQL draft.
  *
  * @param headers GetDeploymentDraftHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -1843,11 +1843,11 @@ GetDeploymentResponse Client::getDeployment(const string &_namespace, const stri
 GetDeploymentDraftResponse Client::getDeploymentDraftWithOptions(const string &_namespace, const string &deploymentDraftId, const GetDeploymentDraftHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1868,7 +1868,7 @@ GetDeploymentDraftResponse Client::getDeploymentDraftWithOptions(const string &_
 }
 
 /**
- * @summary get a deploymentDraft
+ * @summary Obtains the details of an SQL draft.
  *
  * @return GetDeploymentDraftResponse
  */
@@ -1879,7 +1879,7 @@ GetDeploymentDraftResponse Client::getDeploymentDraft(const string &_namespace, 
 }
 
 /**
- * @summary get deploymentDraft lock
+ * @summary Obtains the lock that is used to edit a draft. This can prevent operations performed on the page and API operations from affecting each other.
  *
  * @param request GetDeploymentDraftLockRequest
  * @param headers GetDeploymentDraftLockHeaders
@@ -1890,16 +1890,16 @@ GetDeploymentDraftLockResponse Client::getDeploymentDraftLockWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasDeploymentDraftId()) {
-    query["deploymentDraftId"] = request.deploymentDraftId();
+    query["deploymentDraftId"] = request.getDeploymentDraftId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1921,7 +1921,7 @@ GetDeploymentDraftLockResponse Client::getDeploymentDraftLockWithOptions(const s
 }
 
 /**
- * @summary get deploymentDraft lock
+ * @summary Obtains the lock that is used to edit a draft. This can prevent operations performed on the page and API operations from affecting each other.
  *
  * @param request GetDeploymentDraftLockRequest
  * @return GetDeploymentDraftLockResponse
@@ -1944,36 +1944,36 @@ GetDeploymentsByIpResponse Client::getDeploymentsByIpWithOptions(const string &_
   request.validate();
   json query = {};
   if (!!request.hasDstIp()) {
-    query["dstIp"] = request.dstIp();
+    query["dstIp"] = request.getDstIp();
   }
 
   if (!!request.hasDstPort()) {
-    query["dstPort"] = request.dstPort();
+    query["dstPort"] = request.getDstPort();
   }
 
   if (!!request.hasIgnoreJobSummary()) {
-    query["ignoreJobSummary"] = request.ignoreJobSummary();
+    query["ignoreJobSummary"] = request.getIgnoreJobSummary();
   }
 
   if (!!request.hasIgnoreResourceSetting()) {
-    query["ignoreResourceSetting"] = request.ignoreResourceSetting();
+    query["ignoreResourceSetting"] = request.getIgnoreResourceSetting();
   }
 
   if (!!request.hasSrcIp()) {
-    query["srcIp"] = request.srcIp();
+    query["srcIp"] = request.getSrcIp();
   }
 
   if (!!request.hasSrcPort()) {
-    query["srcPort"] = request.srcPort();
+    query["srcPort"] = request.getSrcPort();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2018,28 +2018,28 @@ GetDeploymentsByLabelResponse Client::getDeploymentsByLabelWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasIgnoreJobSummary()) {
-    query["ignoreJobSummary"] = request.ignoreJobSummary();
+    query["ignoreJobSummary"] = request.getIgnoreJobSummary();
   }
 
   if (!!request.hasIgnoreResourceSetting()) {
-    query["ignoreResourceSetting"] = request.ignoreResourceSetting();
+    query["ignoreResourceSetting"] = request.getIgnoreResourceSetting();
   }
 
   if (!!request.hasLabelKey()) {
-    query["labelKey"] = request.labelKey();
+    query["labelKey"] = request.getLabelKey();
   }
 
   if (!!request.hasLabelValue()) {
-    query["labelValue"] = request.labelValue();
+    query["labelValue"] = request.getLabelValue();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2084,20 +2084,20 @@ GetDeploymentsByNameResponse Client::getDeploymentsByNameWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasIgnoreJobSummary()) {
-    query["ignoreJobSummary"] = request.ignoreJobSummary();
+    query["ignoreJobSummary"] = request.getIgnoreJobSummary();
   }
 
   if (!!request.hasIgnoreResourceSetting()) {
-    query["ignoreResourceSetting"] = request.ignoreResourceSetting();
+    query["ignoreResourceSetting"] = request.getIgnoreResourceSetting();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2131,7 +2131,7 @@ GetDeploymentsByNameResponse Client::getDeploymentsByName(const string &_namespa
 }
 
 /**
- * @summary 获取运行事件
+ * @summary Queries events.
  *
  * @param request GetEventsRequest
  * @param headers GetEventsHeaders
@@ -2142,24 +2142,28 @@ GetEventsResponse Client::getEventsWithOptions(const string &_namespace, const G
   request.validate();
   json query = {};
   if (!!request.hasDeploymentId()) {
-    query["deploymentId"] = request.deploymentId();
+    query["deploymentId"] = request.getDeploymentId();
+  }
+
+  if (!!request.hasDeploymentName()) {
+    query["deploymentName"] = request.getDeploymentName();
   }
 
   if (!!request.hasPageIndex()) {
-    query["pageIndex"] = request.pageIndex();
+    query["pageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2181,7 +2185,7 @@ GetEventsResponse Client::getEventsWithOptions(const string &_namespace, const G
 }
 
 /**
- * @summary 获取运行事件
+ * @summary Queries events.
  *
  * @param request GetEventsRequest
  * @return GetEventsResponse
@@ -2193,7 +2197,7 @@ GetEventsResponse Client::getEvents(const string &_namespace, const GetEventsReq
 }
 
 /**
- * @summary get a folder
+ * @summary Obtains the details of a folder.
  *
  * @param request GetFolderRequest
  * @param headers GetFolderHeaders
@@ -2204,16 +2208,20 @@ GetFolderResponse Client::getFolderWithOptions(const string &_namespace, const G
   request.validate();
   json query = {};
   if (!!request.hasFolderId()) {
-    query["folderId"] = request.folderId();
+    query["folderId"] = request.getFolderId();
+  }
+
+  if (!!request.hasRootType()) {
+    query["rootType"] = request.getRootType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2235,7 +2243,7 @@ GetFolderResponse Client::getFolderWithOptions(const string &_namespace, const G
 }
 
 /**
- * @summary get a folder
+ * @summary Obtains the details of a folder.
  *
  * @param request GetFolderRequest
  * @return GetFolderResponse
@@ -2256,11 +2264,11 @@ GetFolderResponse Client::getFolder(const string &_namespace, const GetFolderReq
 GetGenerateResourcePlanResultResponse Client::getGenerateResourcePlanResultWithOptions(const string &_namespace, const string &ticketId, const GetGenerateResourcePlanResultHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2292,7 +2300,7 @@ GetGenerateResourcePlanResultResponse Client::getGenerateResourcePlanResult(cons
 }
 
 /**
- * @summary 查询动态更新结果
+ * @summary Obtains the dynamic update result of a deployment when you dynamically update the deployment.
  *
  * @param headers GetHotUpdateJobResultHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -2301,11 +2309,11 @@ GetGenerateResourcePlanResultResponse Client::getGenerateResourcePlanResult(cons
 GetHotUpdateJobResultResponse Client::getHotUpdateJobResultWithOptions(const string &_namespace, const string &jobHotUpdateId, const GetHotUpdateJobResultHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2326,7 +2334,7 @@ GetHotUpdateJobResultResponse Client::getHotUpdateJobResultWithOptions(const str
 }
 
 /**
- * @summary 查询动态更新结果
+ * @summary Obtains the dynamic update result of a deployment when you dynamically update the deployment.
  *
  * @return GetHotUpdateJobResultResponse
  */
@@ -2346,11 +2354,11 @@ GetHotUpdateJobResultResponse Client::getHotUpdateJobResult(const string &_names
 GetJobResponse Client::getJobWithOptions(const string &_namespace, const string &jobId, const GetJobHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2382,7 +2390,7 @@ GetJobResponse Client::getJob(const string &_namespace, const string &jobId) {
 }
 
 /**
- * @summary 获取作业诊断信息
+ * @summary Queries information about abnormal diagnostic items based on the intelligent deployment diagnostics feature.
  *
  * @param headers GetJobDiagnosisHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -2391,11 +2399,11 @@ GetJobResponse Client::getJob(const string &_namespace, const string &jobId) {
 GetJobDiagnosisResponse Client::getJobDiagnosisWithOptions(const string &_namespace, const string &deploymentId, const string &jobId, const GetJobDiagnosisHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2416,7 +2424,7 @@ GetJobDiagnosisResponse Client::getJobDiagnosisWithOptions(const string &_namesp
 }
 
 /**
- * @summary 获取作业诊断信息
+ * @summary Queries information about abnormal diagnostic items based on the intelligent deployment diagnostics feature.
  *
  * @return GetJobDiagnosisResponse
  */
@@ -2436,11 +2444,11 @@ GetJobDiagnosisResponse Client::getJobDiagnosis(const string &_namespace, const 
 GetLatestJobStartLogResponse Client::getLatestJobStartLogWithOptions(const string &_namespace, const string &deploymentId, const GetLatestJobStartLogHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2483,16 +2491,16 @@ GetLineageInfoResponse Client::getLineageInfoWithOptions(const GetLineageInfoReq
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "GetLineageInfo"},
@@ -2530,11 +2538,11 @@ GetLineageInfoResponse Client::getLineageInfo(const GetLineageInfoRequest &reque
 GetMemberResponse Client::getMemberWithOptions(const string &_namespace, const string &member, const GetMemberHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2577,16 +2585,16 @@ GetPreSignedUrlForPutObjectResponse Client::getPreSignedUrlForPutObjectWithOptio
   request.validate();
   json query = {};
   if (!!request.hasFileName()) {
-    query["fileName"] = request.fileName();
+    query["fileName"] = request.getFileName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2629,11 +2637,11 @@ GetPreSignedUrlForPutObjectResponse Client::getPreSignedUrlForPutObject(const st
 GetSavepointResponse Client::getSavepointWithOptions(const string &_namespace, const string &savepointId, const GetSavepointHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2665,7 +2673,7 @@ GetSavepointResponse Client::getSavepoint(const string &_namespace, const string
 }
 
 /**
- * @summary 获取session集群
+ * @summary Queries the information about a session cluster.
  *
  * @param headers GetSessionClusterHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -2674,11 +2682,11 @@ GetSavepointResponse Client::getSavepoint(const string &_namespace, const string
 GetSessionClusterResponse Client::getSessionClusterWithOptions(const string &_namespace, const string &sessionClusterName, const GetSessionClusterHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2699,7 +2707,7 @@ GetSessionClusterResponse Client::getSessionClusterWithOptions(const string &_na
 }
 
 /**
- * @summary 获取session集群
+ * @summary Queries the information about a session cluster.
  *
  * @return GetSessionClusterResponse
  */
@@ -2710,7 +2718,7 @@ GetSessionClusterResponse Client::getSessionCluster(const string &_namespace, co
 }
 
 /**
- * @summary 获取table
+ * @summary Obtains the details of a specific table in a database of a specific catalog or the information about all tables in a database.
  *
  * @param request GetTablesRequest
  * @param headers GetTablesHeaders
@@ -2721,16 +2729,16 @@ GetTablesResponse Client::getTablesWithOptions(const string &_namespace, const s
   request.validate();
   json query = {};
   if (!!request.hasTableName()) {
-    query["tableName"] = request.tableName();
+    query["tableName"] = request.getTableName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2752,7 +2760,7 @@ GetTablesResponse Client::getTablesWithOptions(const string &_namespace, const s
 }
 
 /**
- * @summary 获取table
+ * @summary Obtains the details of a specific table in a database of a specific catalog or the information about all tables in a database.
  *
  * @param request GetTablesRequest
  * @return GetTablesResponse
@@ -2775,16 +2783,16 @@ GetUdfArtifactsResponse Client::getUdfArtifactsWithOptions(const string &_namesp
   request.validate();
   json query = {};
   if (!!request.hasUdfArtifactName()) {
-    query["udfArtifactName"] = request.udfArtifactName();
+    query["udfArtifactName"] = request.getUdfArtifactName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2827,11 +2835,11 @@ GetUdfArtifactsResponse Client::getUdfArtifacts(const string &_namespace, const 
 GetValidateDeploymentDraftResultResponse Client::getValidateDeploymentDraftResultWithOptions(const string &_namespace, const string &ticketId, const GetValidateDeploymentDraftResultHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2872,11 +2880,11 @@ GetValidateDeploymentDraftResultResponse Client::getValidateDeploymentDraftResul
 HotUpdateJobResponse Client::hotUpdateJobWithOptions(const string &_namespace, const string &jobId, const HotUpdateJobHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2917,11 +2925,11 @@ HotUpdateJobResponse Client::hotUpdateJob(const string &_namespace, const string
 ListCustomConnectorsResponse Client::listCustomConnectorsWithOptions(const string &_namespace, const ListCustomConnectorsHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2953,7 +2961,7 @@ ListCustomConnectorsResponse Client::listCustomConnectors(const string &_namespa
 }
 
 /**
- * @summary list deploymentDrafts
+ * @summary Queries a list of SQL drafts.
  *
  * @param request ListDeploymentDraftsRequest
  * @param headers ListDeploymentDraftsHeaders
@@ -2964,20 +2972,20 @@ ListDeploymentDraftsResponse Client::listDeploymentDraftsWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasPageIndex()) {
-    query["pageIndex"] = request.pageIndex();
+    query["pageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2999,7 +3007,7 @@ ListDeploymentDraftsResponse Client::listDeploymentDraftsWithOptions(const strin
 }
 
 /**
- * @summary list deploymentDrafts
+ * @summary Queries a list of SQL drafts.
  *
  * @param request ListDeploymentDraftsRequest
  * @return ListDeploymentDraftsResponse
@@ -3022,20 +3030,20 @@ ListDeploymentTargetsResponse Client::listDeploymentTargetsWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasPageIndex()) {
-    query["pageIndex"] = request.pageIndex();
+    query["pageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3080,52 +3088,52 @@ ListDeploymentsResponse Client::listDeploymentsWithOptions(const string &_namesp
   request.validate();
   json query = {};
   if (!!request.hasCreator()) {
-    query["creator"] = request.creator();
+    query["creator"] = request.getCreator();
   }
 
   if (!!request.hasExecutionMode()) {
-    query["executionMode"] = request.executionMode();
+    query["executionMode"] = request.getExecutionMode();
   }
 
   if (!!request.hasLabelKey()) {
-    query["labelKey"] = request.labelKey();
+    query["labelKey"] = request.getLabelKey();
   }
 
   if (!!request.hasLabelValueArray()) {
-    query["labelValueArray"] = request.labelValueArray();
+    query["labelValueArray"] = request.getLabelValueArray();
   }
 
   if (!!request.hasModifier()) {
-    query["modifier"] = request.modifier();
+    query["modifier"] = request.getModifier();
   }
 
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   if (!!request.hasPageIndex()) {
-    query["pageIndex"] = request.pageIndex();
+    query["pageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortName()) {
-    query["sortName"] = request.sortName();
+    query["sortName"] = request.getSortName();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3170,23 +3178,23 @@ ListEditableNamespaceResponse Client::listEditableNamespaceWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasNamespace()) {
-    query["namespace"] = request._namespace();
+    query["namespace"] = request.getNamespace();
   }
 
   if (!!request.hasPageIndex()) {
-    query["pageIndex"] = request.pageIndex();
+    query["pageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    query["regionId"] = request.regionId();
+    query["regionId"] = request.getRegionId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["workspaceId"] = request.workspaceId();
+    query["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3229,11 +3237,11 @@ ListEditableNamespaceResponse Client::listEditableNamespace(const ListEditableNa
 ListEngineVersionMetadataResponse Client::listEngineVersionMetadataWithOptions(const ListEngineVersionMetadataHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3276,32 +3284,32 @@ ListJobsResponse Client::listJobsWithOptions(const string &_namespace, const Lis
   request.validate();
   json query = {};
   if (!!request.hasDeploymentId()) {
-    query["deploymentId"] = request.deploymentId();
+    query["deploymentId"] = request.getDeploymentId();
   }
 
   if (!!request.hasPageIndex()) {
-    query["pageIndex"] = request.pageIndex();
+    query["pageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortName()) {
-    query["sortName"] = request.sortName();
+    query["sortName"] = request.getSortName();
   }
 
   if (!!request.hasSortOrder()) {
-    query["sortOrder"] = request.sortOrder();
+    query["sortOrder"] = request.getSortOrder();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3346,20 +3354,20 @@ ListMembersResponse Client::listMembersWithOptions(const string &_namespace, con
   request.validate();
   json query = {};
   if (!!request.hasPageIndex()) {
-    query["pageIndex"] = request.pageIndex();
+    query["pageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3404,28 +3412,28 @@ ListSavepointsResponse Client::listSavepointsWithOptions(const string &_namespac
   request.validate();
   json query = {};
   if (!!request.hasDeploymentId()) {
-    query["deploymentId"] = request.deploymentId();
+    query["deploymentId"] = request.getDeploymentId();
   }
 
   if (!!request.hasJobId()) {
-    query["jobId"] = request.jobId();
+    query["jobId"] = request.getJobId();
   }
 
   if (!!request.hasPageIndex()) {
-    query["pageIndex"] = request.pageIndex();
+    query["pageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3459,7 +3467,7 @@ ListSavepointsResponse Client::listSavepoints(const string &_namespace, const Li
 }
 
 /**
- * @summary 列表定时执行计划
+ * @summary Obtains a list of scheduled tuning plans.
  *
  * @param request ListScheduledPlanRequest
  * @param headers ListScheduledPlanHeaders
@@ -3470,24 +3478,24 @@ ListScheduledPlanResponse Client::listScheduledPlanWithOptions(const string &_na
   request.validate();
   json query = {};
   if (!!request.hasDeploymentId()) {
-    query["deploymentId"] = request.deploymentId();
+    query["deploymentId"] = request.getDeploymentId();
   }
 
   if (!!request.hasPageIndex()) {
-    query["pageIndex"] = request.pageIndex();
+    query["pageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3509,7 +3517,7 @@ ListScheduledPlanResponse Client::listScheduledPlanWithOptions(const string &_na
 }
 
 /**
- * @summary 列表定时执行计划
+ * @summary Obtains a list of scheduled tuning plans.
  *
  * @param request ListScheduledPlanRequest
  * @return ListScheduledPlanResponse
@@ -3521,7 +3529,7 @@ ListScheduledPlanResponse Client::listScheduledPlan(const string &_namespace, co
 }
 
 /**
- * @summary 获取作业资源变更历史
+ * @summary Queries the execution history of a scheduled plan.
  *
  * @param request ListScheduledPlanExecutedHistoryRequest
  * @param headers ListScheduledPlanExecutedHistoryHeaders
@@ -3532,20 +3540,20 @@ ListScheduledPlanExecutedHistoryResponse Client::listScheduledPlanExecutedHistor
   request.validate();
   json query = {};
   if (!!request.hasDeploymentId()) {
-    query["deploymentId"] = request.deploymentId();
+    query["deploymentId"] = request.getDeploymentId();
   }
 
   if (!!request.hasOrigin()) {
-    query["origin"] = request.origin();
+    query["origin"] = request.getOrigin();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3567,7 +3575,7 @@ ListScheduledPlanExecutedHistoryResponse Client::listScheduledPlanExecutedHistor
 }
 
 /**
- * @summary 获取作业资源变更历史
+ * @summary Queries the execution history of a scheduled plan.
  *
  * @param request ListScheduledPlanExecutedHistoryRequest
  * @return ListScheduledPlanExecutedHistoryResponse
@@ -3579,7 +3587,7 @@ ListScheduledPlanExecutedHistoryResponse Client::listScheduledPlanExecutedHistor
 }
 
 /**
- * @summary 列举session集群
+ * @summary Queries a list of session clusters.
  *
  * @param headers ListSessionClustersHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -3588,11 +3596,11 @@ ListScheduledPlanExecutedHistoryResponse Client::listScheduledPlanExecutedHistor
 ListSessionClustersResponse Client::listSessionClustersWithOptions(const string &_namespace, const ListSessionClustersHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3613,7 +3621,7 @@ ListSessionClustersResponse Client::listSessionClustersWithOptions(const string 
 }
 
 /**
- * @summary 列举session集群
+ * @summary Queries a list of session clusters.
  *
  * @return ListSessionClustersResponse
  */
@@ -3635,20 +3643,20 @@ ListVariablesResponse Client::listVariablesWithOptions(const string &_namespace,
   request.validate();
   json query = {};
   if (!!request.hasPageIndex()) {
-    query["pageIndex"] = request.pageIndex();
+    query["pageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3693,16 +3701,16 @@ RegisterCustomConnectorResponse Client::registerCustomConnectorWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasJarUrl()) {
-    query["jarUrl"] = request.jarUrl();
+    query["jarUrl"] = request.getJarUrl();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3747,24 +3755,24 @@ RegisterUdfFunctionResponse Client::registerUdfFunctionWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasClassName()) {
-    query["className"] = request.className();
+    query["className"] = request.getClassName();
   }
 
   if (!!request.hasFunctionName()) {
-    query["functionName"] = request.functionName();
+    query["functionName"] = request.getFunctionName();
   }
 
   if (!!request.hasUdfArtifactName()) {
-    query["udfArtifactName"] = request.udfArtifactName();
+    query["udfArtifactName"] = request.getUdfArtifactName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3811,16 +3819,16 @@ StartJobResponse Client::startJobWithOptions(const string &_namespace, const Sta
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "StartJob"},
@@ -3862,16 +3870,16 @@ StartJobWithParamsResponse Client::startJobWithParamsWithOptions(const string &_
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "StartJobWithParams"},
@@ -3900,7 +3908,7 @@ StartJobWithParamsResponse Client::startJobWithParams(const string &_namespace, 
 }
 
 /**
- * @summary 启动session集群
+ * @summary Starts a session cluster.
  *
  * @param headers StartSessionClusterHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -3909,11 +3917,11 @@ StartJobWithParamsResponse Client::startJobWithParams(const string &_namespace, 
 StartSessionClusterResponse Client::startSessionClusterWithOptions(const string &_namespace, const string &sessionClusterName, const StartSessionClusterHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3934,7 +3942,7 @@ StartSessionClusterResponse Client::startSessionClusterWithOptions(const string 
 }
 
 /**
- * @summary 启动session集群
+ * @summary Starts a session cluster.
  *
  * @return StartSessionClusterResponse
  */
@@ -3945,7 +3953,7 @@ StartSessionClusterResponse Client::startSessionCluster(const string &_namespace
 }
 
 /**
- * @summary 停止应用执行定时计划
+ * @summary Stops the scheduled plan of an application.
  *
  * @param headers StopApplyScheduledPlanHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -3954,11 +3962,11 @@ StartSessionClusterResponse Client::startSessionCluster(const string &_namespace
 StopApplyScheduledPlanResponse Client::stopApplyScheduledPlanWithOptions(const string &_namespace, const string &scheduledPlanId, const StopApplyScheduledPlanHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3979,7 +3987,7 @@ StopApplyScheduledPlanResponse Client::stopApplyScheduledPlanWithOptions(const s
 }
 
 /**
- * @summary 停止应用执行定时计划
+ * @summary Stops the scheduled plan of an application.
  *
  * @return StopApplyScheduledPlanResponse
  */
@@ -4001,16 +4009,16 @@ StopJobResponse Client::stopJobWithOptions(const string &_namespace, const strin
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "StopJob"},
@@ -4039,7 +4047,7 @@ StopJobResponse Client::stopJob(const string &_namespace, const string &jobId, c
 }
 
 /**
- * @summary 停止session集群
+ * @summary Stops a session cluster.
  *
  * @param headers StopSessionClusterHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -4048,11 +4056,11 @@ StopJobResponse Client::stopJob(const string &_namespace, const string &jobId, c
 StopSessionClusterResponse Client::stopSessionClusterWithOptions(const string &_namespace, const string &sessionClusterName, const StopSessionClusterHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4073,7 +4081,7 @@ StopSessionClusterResponse Client::stopSessionClusterWithOptions(const string &_
 }
 
 /**
- * @summary 停止session集群
+ * @summary Stops a session cluster.
  *
  * @return StopSessionClusterResponse
  */
@@ -4095,22 +4103,22 @@ SubmitSqlPreviewResponse Client::submitSqlPreviewWithOptions(const string &_name
   request.validate();
   json query = {};
   if (!!request.hasSessionClusterName()) {
-    query["sessionClusterName"] = request.sessionClusterName();
+    query["sessionClusterName"] = request.getSessionClusterName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "SubmitSqlPreview"},
@@ -4150,16 +4158,16 @@ UpdateDeploymentResponse Client::updateDeploymentWithOptions(const string &_name
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateDeployment"},
@@ -4188,7 +4196,7 @@ UpdateDeploymentResponse Client::updateDeployment(const string &_namespace, cons
 }
 
 /**
- * @summary update a deploymentDraft
+ * @summary Updates an SQL draft.
  *
  * @param request UpdateDeploymentDraftRequest
  * @param headers UpdateDeploymentDraftHeaders
@@ -4199,16 +4207,16 @@ UpdateDeploymentDraftResponse Client::updateDeploymentDraftWithOptions(const str
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateDeploymentDraft"},
@@ -4225,7 +4233,7 @@ UpdateDeploymentDraftResponse Client::updateDeploymentDraftWithOptions(const str
 }
 
 /**
- * @summary update a deploymentDraft
+ * @summary Updates an SQL draft.
  *
  * @param request UpdateDeploymentDraftRequest
  * @return UpdateDeploymentDraftResponse
@@ -4237,7 +4245,7 @@ UpdateDeploymentDraftResponse Client::updateDeploymentDraft(const string &_names
 }
 
 /**
- * @summary 修改deploymentTarget
+ * @summary Updates a cluster on which the deployment is deployed.
  *
  * @param request UpdateDeploymentTargetRequest
  * @param headers UpdateDeploymentTargetHeaders
@@ -4248,16 +4256,16 @@ UpdateDeploymentTargetResponse Client::updateDeploymentTargetWithOptions(const s
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateDeploymentTarget"},
@@ -4274,7 +4282,7 @@ UpdateDeploymentTargetResponse Client::updateDeploymentTargetWithOptions(const s
 }
 
 /**
- * @summary 修改deploymentTarget
+ * @summary Updates a cluster on which the deployment is deployed.
  *
  * @param request UpdateDeploymentTargetRequest
  * @return UpdateDeploymentTargetResponse
@@ -4297,16 +4305,16 @@ UpdateDeploymentTargetV2Response Client::updateDeploymentTargetV2WithOptions(con
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateDeploymentTargetV2"},
@@ -4335,7 +4343,7 @@ UpdateDeploymentTargetV2Response Client::updateDeploymentTargetV2(const string &
 }
 
 /**
- * @summary update a folder
+ * @summary Updates a folder.
  *
  * @param request UpdateFolderRequest
  * @param headers UpdateFolderHeaders
@@ -4346,16 +4354,16 @@ UpdateFolderResponse Client::updateFolderWithOptions(const string &_namespace, c
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateFolder"},
@@ -4372,7 +4380,7 @@ UpdateFolderResponse Client::updateFolderWithOptions(const string &_namespace, c
 }
 
 /**
- * @summary update a folder
+ * @summary Updates a folder.
  *
  * @param request UpdateFolderRequest
  * @return UpdateFolderResponse
@@ -4395,16 +4403,16 @@ UpdateMemberResponse Client::updateMemberWithOptions(const string &_namespace, c
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateMember"},
@@ -4433,7 +4441,7 @@ UpdateMemberResponse Client::updateMember(const string &_namespace, const Update
 }
 
 /**
- * @summary 更新定时执行计划
+ * @summary Update a scheduled tuning plan.
  *
  * @param request UpdateScheduledPlanRequest
  * @param headers UpdateScheduledPlanHeaders
@@ -4444,16 +4452,16 @@ UpdateScheduledPlanResponse Client::updateScheduledPlanWithOptions(const string 
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateScheduledPlan"},
@@ -4470,7 +4478,7 @@ UpdateScheduledPlanResponse Client::updateScheduledPlanWithOptions(const string 
 }
 
 /**
- * @summary 更新定时执行计划
+ * @summary Update a scheduled tuning plan.
  *
  * @param request UpdateScheduledPlanRequest
  * @return UpdateScheduledPlanResponse
@@ -4482,7 +4490,7 @@ UpdateScheduledPlanResponse Client::updateScheduledPlan(const string &_namespace
 }
 
 /**
- * @summary 更新session集群
+ * @summary Updates a session cluster.
  *
  * @param request UpdateSessionClusterRequest
  * @param headers UpdateSessionClusterHeaders
@@ -4493,16 +4501,16 @@ UpdateSessionClusterResponse Client::updateSessionClusterWithOptions(const strin
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateSessionCluster"},
@@ -4519,7 +4527,7 @@ UpdateSessionClusterResponse Client::updateSessionClusterWithOptions(const strin
 }
 
 /**
- * @summary 更新session集群
+ * @summary Updates a session cluster.
  *
  * @param request UpdateSessionClusterRequest
  * @return UpdateSessionClusterResponse
@@ -4542,16 +4550,16 @@ UpdateUdfArtifactResponse Client::updateUdfArtifactWithOptions(const string &_na
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateUdfArtifact"},
@@ -4580,7 +4588,7 @@ UpdateUdfArtifactResponse Client::updateUdfArtifact(const string &_namespace, co
 }
 
 /**
- * @summary 更新秘钥
+ * @summary Updates the information about a variable in a namespace.
  *
  * @param request UpdateVariableRequest
  * @param headers UpdateVariableHeaders
@@ -4591,16 +4599,16 @@ UpdateVariableResponse Client::updateVariableWithOptions(const string &_namespac
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateVariable"},
@@ -4617,7 +4625,7 @@ UpdateVariableResponse Client::updateVariableWithOptions(const string &_namespac
 }
 
 /**
- * @summary 更新秘钥
+ * @summary Updates the information about a variable in a namespace.
  *
  * @param request UpdateVariableRequest
  * @return UpdateVariableResponse
@@ -4640,16 +4648,16 @@ ValidateDeploymentDraftAsyncResponse Client::validateDeploymentDraftAsyncWithOpt
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "ValidateDeploymentDraftAsync"},
@@ -4689,16 +4697,16 @@ ValidateSqlStatementResponse Client::validateSqlStatementWithOptions(const strin
   request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasWorkspace()) {
-    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "ValidateSqlStatement"},

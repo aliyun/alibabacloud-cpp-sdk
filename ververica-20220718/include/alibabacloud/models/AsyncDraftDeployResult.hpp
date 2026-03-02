@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->artifactValidationDetail_ == nullptr
-        && return this->deploymentId_ == nullptr && return this->message_ == nullptr && return this->success_ == nullptr && return this->ticketStatus_ == nullptr; };
+        && this->deploymentId_ == nullptr && this->message_ == nullptr && this->success_ == nullptr && this->ticketStatus_ == nullptr; };
     // artifactValidationDetail Field Functions 
     bool hasArtifactValidationDetail() const { return this->artifactValidationDetail_ != nullptr;};
     void deleteArtifactValidationDetail() { this->artifactValidationDetail_ = nullptr;};
-    inline const ValidateStatementResult & artifactValidationDetail() const { DARABONBA_PTR_GET_CONST(artifactValidationDetail_, ValidateStatementResult) };
-    inline ValidateStatementResult artifactValidationDetail() { DARABONBA_PTR_GET(artifactValidationDetail_, ValidateStatementResult) };
+    inline const ValidateStatementResult & getArtifactValidationDetail() const { DARABONBA_PTR_GET_CONST(artifactValidationDetail_, ValidateStatementResult) };
+    inline ValidateStatementResult getArtifactValidationDetail() { DARABONBA_PTR_GET(artifactValidationDetail_, ValidateStatementResult) };
     inline AsyncDraftDeployResult& setArtifactValidationDetail(const ValidateStatementResult & artifactValidationDetail) { DARABONBA_PTR_SET_VALUE(artifactValidationDetail_, artifactValidationDetail) };
     inline AsyncDraftDeployResult& setArtifactValidationDetail(ValidateStatementResult && artifactValidationDetail) { DARABONBA_PTR_SET_RVALUE(artifactValidationDetail_, artifactValidationDetail) };
 
@@ -52,37 +52,42 @@ namespace Models
     // deploymentId Field Functions 
     bool hasDeploymentId() const { return this->deploymentId_ != nullptr;};
     void deleteDeploymentId() { this->deploymentId_ = nullptr;};
-    inline string deploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
+    inline string getDeploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
     inline AsyncDraftDeployResult& setDeploymentId(string deploymentId) { DARABONBA_PTR_SET_VALUE(deploymentId_, deploymentId) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline AsyncDraftDeployResult& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline AsyncDraftDeployResult& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // ticketStatus Field Functions 
     bool hasTicketStatus() const { return this->ticketStatus_ != nullptr;};
     void deleteTicketStatus() { this->ticketStatus_ = nullptr;};
-    inline string ticketStatus() const { DARABONBA_PTR_GET_DEFAULT(ticketStatus_, "") };
+    inline string getTicketStatus() const { DARABONBA_PTR_GET_DEFAULT(ticketStatus_, "") };
     inline AsyncDraftDeployResult& setTicketStatus(string ticketStatus) { DARABONBA_PTR_SET_VALUE(ticketStatus_, ticketStatus) };
 
 
   protected:
-    std::shared_ptr<ValidateStatementResult> artifactValidationDetail_ = nullptr;
-    std::shared_ptr<string> deploymentId_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
-    std::shared_ptr<string> ticketStatus_ = nullptr;
+    // The verification result of the SQL syntax.
+    shared_ptr<ValidateStatementResult> artifactValidationDetail_ {};
+    // The deployment ID.
+    shared_ptr<string> deploymentId_ {};
+    // The information about the deployment result.
+    shared_ptr<string> message_ {};
+    // Indicates whether the request was successful.
+    shared_ptr<bool> success_ {};
+    // The state of the execution.
+    shared_ptr<string> ticketStatus_ {};
   };
 
   } // namespace Models

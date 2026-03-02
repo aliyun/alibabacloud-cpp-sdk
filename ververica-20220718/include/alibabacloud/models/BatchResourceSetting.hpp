@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->basicResourceSetting_ == nullptr
-        && return this->maxSlot_ == nullptr; };
+        && this->maxSlot_ == nullptr; };
     // basicResourceSetting Field Functions 
     bool hasBasicResourceSetting() const { return this->basicResourceSetting_ != nullptr;};
     void deleteBasicResourceSetting() { this->basicResourceSetting_ = nullptr;};
-    inline const BasicResourceSetting & basicResourceSetting() const { DARABONBA_PTR_GET_CONST(basicResourceSetting_, BasicResourceSetting) };
-    inline BasicResourceSetting basicResourceSetting() { DARABONBA_PTR_GET(basicResourceSetting_, BasicResourceSetting) };
+    inline const BasicResourceSetting & getBasicResourceSetting() const { DARABONBA_PTR_GET_CONST(basicResourceSetting_, BasicResourceSetting) };
+    inline BasicResourceSetting getBasicResourceSetting() { DARABONBA_PTR_GET(basicResourceSetting_, BasicResourceSetting) };
     inline BatchResourceSetting& setBasicResourceSetting(const BasicResourceSetting & basicResourceSetting) { DARABONBA_PTR_SET_VALUE(basicResourceSetting_, basicResourceSetting) };
     inline BatchResourceSetting& setBasicResourceSetting(BasicResourceSetting && basicResourceSetting) { DARABONBA_PTR_SET_RVALUE(basicResourceSetting_, basicResourceSetting) };
 
@@ -46,13 +46,15 @@ namespace Models
     // maxSlot Field Functions 
     bool hasMaxSlot() const { return this->maxSlot_ != nullptr;};
     void deleteMaxSlot() { this->maxSlot_ = nullptr;};
-    inline int64_t maxSlot() const { DARABONBA_PTR_GET_DEFAULT(maxSlot_, 0L) };
+    inline int64_t getMaxSlot() const { DARABONBA_PTR_GET_DEFAULT(maxSlot_, 0L) };
     inline BatchResourceSetting& setMaxSlot(int64_t maxSlot) { DARABONBA_PTR_SET_VALUE(maxSlot_, maxSlot) };
 
 
   protected:
-    std::shared_ptr<BasicResourceSetting> basicResourceSetting_ = nullptr;
-    std::shared_ptr<int64_t> maxSlot_ = nullptr;
+    // The resource parameters in basic mode.
+    shared_ptr<BasicResourceSetting> basicResourceSetting_ {};
+    // The maximum number of slots.
+    shared_ptr<int64_t> maxSlot_ {};
   };
 
   } // namespace Models

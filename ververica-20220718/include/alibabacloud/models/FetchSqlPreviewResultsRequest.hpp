@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->queryId_ == nullptr
-        && return this->sessionClusterName_ == nullptr && return this->sessionId_ == nullptr; };
+        && this->sessionClusterName_ == nullptr && this->sessionId_ == nullptr; };
     // queryId Field Functions 
     bool hasQueryId() const { return this->queryId_ != nullptr;};
     void deleteQueryId() { this->queryId_ = nullptr;};
-    inline string queryId() const { DARABONBA_PTR_GET_DEFAULT(queryId_, "") };
+    inline string getQueryId() const { DARABONBA_PTR_GET_DEFAULT(queryId_, "") };
     inline FetchSqlPreviewResultsRequest& setQueryId(string queryId) { DARABONBA_PTR_SET_VALUE(queryId_, queryId) };
 
 
     // sessionClusterName Field Functions 
     bool hasSessionClusterName() const { return this->sessionClusterName_ != nullptr;};
     void deleteSessionClusterName() { this->sessionClusterName_ = nullptr;};
-    inline string sessionClusterName() const { DARABONBA_PTR_GET_DEFAULT(sessionClusterName_, "") };
+    inline string getSessionClusterName() const { DARABONBA_PTR_GET_DEFAULT(sessionClusterName_, "") };
     inline FetchSqlPreviewResultsRequest& setSessionClusterName(string sessionClusterName) { DARABONBA_PTR_SET_VALUE(sessionClusterName_, sessionClusterName) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline FetchSqlPreviewResultsRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> queryId_ = nullptr;
+    shared_ptr<string> queryId_ {};
     // This parameter is required.
-    std::shared_ptr<string> sessionClusterName_ = nullptr;
+    shared_ptr<string> sessionClusterName_ {};
     // This parameter is required.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
   };
 
   } // namespace Models

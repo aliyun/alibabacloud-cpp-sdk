@@ -41,12 +41,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->collidingClasses_ == nullptr
-        && return this->message_ == nullptr && return this->missingClasses_ == nullptr && return this->udfArtifact_ == nullptr && return this->updateSuccess_ == nullptr; };
+        && this->message_ == nullptr && this->missingClasses_ == nullptr && this->udfArtifact_ == nullptr && this->updateSuccess_ == nullptr; };
     // collidingClasses Field Functions 
     bool hasCollidingClasses() const { return this->collidingClasses_ != nullptr;};
     void deleteCollidingClasses() { this->collidingClasses_ = nullptr;};
-    inline const vector<UdfClass> & collidingClasses() const { DARABONBA_PTR_GET_CONST(collidingClasses_, vector<UdfClass>) };
-    inline vector<UdfClass> collidingClasses() { DARABONBA_PTR_GET(collidingClasses_, vector<UdfClass>) };
+    inline const vector<UdfClass> & getCollidingClasses() const { DARABONBA_PTR_GET_CONST(collidingClasses_, vector<UdfClass>) };
+    inline vector<UdfClass> getCollidingClasses() { DARABONBA_PTR_GET(collidingClasses_, vector<UdfClass>) };
     inline UpdateUdfArtifactResult& setCollidingClasses(const vector<UdfClass> & collidingClasses) { DARABONBA_PTR_SET_VALUE(collidingClasses_, collidingClasses) };
     inline UpdateUdfArtifactResult& setCollidingClasses(vector<UdfClass> && collidingClasses) { DARABONBA_PTR_SET_RVALUE(collidingClasses_, collidingClasses) };
 
@@ -54,15 +54,15 @@ namespace Models
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline UpdateUdfArtifactResult& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // missingClasses Field Functions 
     bool hasMissingClasses() const { return this->missingClasses_ != nullptr;};
     void deleteMissingClasses() { this->missingClasses_ = nullptr;};
-    inline const vector<UdfClass> & missingClasses() const { DARABONBA_PTR_GET_CONST(missingClasses_, vector<UdfClass>) };
-    inline vector<UdfClass> missingClasses() { DARABONBA_PTR_GET(missingClasses_, vector<UdfClass>) };
+    inline const vector<UdfClass> & getMissingClasses() const { DARABONBA_PTR_GET_CONST(missingClasses_, vector<UdfClass>) };
+    inline vector<UdfClass> getMissingClasses() { DARABONBA_PTR_GET(missingClasses_, vector<UdfClass>) };
     inline UpdateUdfArtifactResult& setMissingClasses(const vector<UdfClass> & missingClasses) { DARABONBA_PTR_SET_VALUE(missingClasses_, missingClasses) };
     inline UpdateUdfArtifactResult& setMissingClasses(vector<UdfClass> && missingClasses) { DARABONBA_PTR_SET_RVALUE(missingClasses_, missingClasses) };
 
@@ -70,8 +70,8 @@ namespace Models
     // udfArtifact Field Functions 
     bool hasUdfArtifact() const { return this->udfArtifact_ != nullptr;};
     void deleteUdfArtifact() { this->udfArtifact_ = nullptr;};
-    inline const UdfArtifact & udfArtifact() const { DARABONBA_PTR_GET_CONST(udfArtifact_, UdfArtifact) };
-    inline UdfArtifact udfArtifact() { DARABONBA_PTR_GET(udfArtifact_, UdfArtifact) };
+    inline const UdfArtifact & getUdfArtifact() const { DARABONBA_PTR_GET_CONST(udfArtifact_, UdfArtifact) };
+    inline UdfArtifact getUdfArtifact() { DARABONBA_PTR_GET(udfArtifact_, UdfArtifact) };
     inline UpdateUdfArtifactResult& setUdfArtifact(const UdfArtifact & udfArtifact) { DARABONBA_PTR_SET_VALUE(udfArtifact_, udfArtifact) };
     inline UpdateUdfArtifactResult& setUdfArtifact(UdfArtifact && udfArtifact) { DARABONBA_PTR_SET_RVALUE(udfArtifact_, udfArtifact) };
 
@@ -79,16 +79,16 @@ namespace Models
     // updateSuccess Field Functions 
     bool hasUpdateSuccess() const { return this->updateSuccess_ != nullptr;};
     void deleteUpdateSuccess() { this->updateSuccess_ = nullptr;};
-    inline bool updateSuccess() const { DARABONBA_PTR_GET_DEFAULT(updateSuccess_, false) };
+    inline bool getUpdateSuccess() const { DARABONBA_PTR_GET_DEFAULT(updateSuccess_, false) };
     inline UpdateUdfArtifactResult& setUpdateSuccess(bool updateSuccess) { DARABONBA_PTR_SET_VALUE(updateSuccess_, updateSuccess) };
 
 
   protected:
-    std::shared_ptr<vector<UdfClass>> collidingClasses_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<vector<UdfClass>> missingClasses_ = nullptr;
-    std::shared_ptr<UdfArtifact> udfArtifact_ = nullptr;
-    std::shared_ptr<bool> updateSuccess_ = nullptr;
+    shared_ptr<vector<UdfClass>> collidingClasses_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<vector<UdfClass>> missingClasses_ {};
+    shared_ptr<UdfArtifact> udfArtifact_ {};
+    shared_ptr<bool> updateSuccess_ {};
   };
 
   } // namespace Models

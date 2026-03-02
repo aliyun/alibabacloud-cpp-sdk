@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const StopJobRequestBody & body() const { DARABONBA_PTR_GET_CONST(body_, StopJobRequestBody) };
-    inline StopJobRequestBody body() { DARABONBA_PTR_GET(body_, StopJobRequestBody) };
+    inline const StopJobRequestBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, StopJobRequestBody) };
+    inline StopJobRequestBody getBody() { DARABONBA_PTR_GET(body_, StopJobRequestBody) };
     inline StopJobRequest& setBody(const StopJobRequestBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline StopJobRequest& setBody(StopJobRequestBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The parameter that is used to stop the job.
     // 
     // This parameter is required.
-    std::shared_ptr<StopJobRequestBody> body_ = nullptr;
+    shared_ptr<StopJobRequestBody> body_ {};
   };
 
   } // namespace Models

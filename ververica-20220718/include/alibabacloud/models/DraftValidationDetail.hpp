@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->draftMetaInfoErrorDetails_ == nullptr
-        && return this->sqlErrorDetail_ == nullptr && return this->sqlValidationResult_ == nullptr; };
+        && this->sqlErrorDetail_ == nullptr && this->sqlValidationResult_ == nullptr; };
     // draftMetaInfoErrorDetails Field Functions 
     bool hasDraftMetaInfoErrorDetails() const { return this->draftMetaInfoErrorDetails_ != nullptr;};
     void deleteDraftMetaInfoErrorDetails() { this->draftMetaInfoErrorDetails_ = nullptr;};
-    inline const vector<DraftMetaInfoErrorDetail> & draftMetaInfoErrorDetails() const { DARABONBA_PTR_GET_CONST(draftMetaInfoErrorDetails_, vector<DraftMetaInfoErrorDetail>) };
-    inline vector<DraftMetaInfoErrorDetail> draftMetaInfoErrorDetails() { DARABONBA_PTR_GET(draftMetaInfoErrorDetails_, vector<DraftMetaInfoErrorDetail>) };
+    inline const vector<DraftMetaInfoErrorDetail> & getDraftMetaInfoErrorDetails() const { DARABONBA_PTR_GET_CONST(draftMetaInfoErrorDetails_, vector<DraftMetaInfoErrorDetail>) };
+    inline vector<DraftMetaInfoErrorDetail> getDraftMetaInfoErrorDetails() { DARABONBA_PTR_GET(draftMetaInfoErrorDetails_, vector<DraftMetaInfoErrorDetail>) };
     inline DraftValidationDetail& setDraftMetaInfoErrorDetails(const vector<DraftMetaInfoErrorDetail> & draftMetaInfoErrorDetails) { DARABONBA_PTR_SET_VALUE(draftMetaInfoErrorDetails_, draftMetaInfoErrorDetails) };
     inline DraftValidationDetail& setDraftMetaInfoErrorDetails(vector<DraftMetaInfoErrorDetail> && draftMetaInfoErrorDetails) { DARABONBA_PTR_SET_RVALUE(draftMetaInfoErrorDetails_, draftMetaInfoErrorDetails) };
 
@@ -50,8 +50,8 @@ namespace Models
     // sqlErrorDetail Field Functions 
     bool hasSqlErrorDetail() const { return this->sqlErrorDetail_ != nullptr;};
     void deleteSqlErrorDetail() { this->sqlErrorDetail_ = nullptr;};
-    inline const ValidationErrorDetails & sqlErrorDetail() const { DARABONBA_PTR_GET_CONST(sqlErrorDetail_, ValidationErrorDetails) };
-    inline ValidationErrorDetails sqlErrorDetail() { DARABONBA_PTR_GET(sqlErrorDetail_, ValidationErrorDetails) };
+    inline const ValidationErrorDetails & getSqlErrorDetail() const { DARABONBA_PTR_GET_CONST(sqlErrorDetail_, ValidationErrorDetails) };
+    inline ValidationErrorDetails getSqlErrorDetail() { DARABONBA_PTR_GET(sqlErrorDetail_, ValidationErrorDetails) };
     inline DraftValidationDetail& setSqlErrorDetail(const ValidationErrorDetails & sqlErrorDetail) { DARABONBA_PTR_SET_VALUE(sqlErrorDetail_, sqlErrorDetail) };
     inline DraftValidationDetail& setSqlErrorDetail(ValidationErrorDetails && sqlErrorDetail) { DARABONBA_PTR_SET_RVALUE(sqlErrorDetail_, sqlErrorDetail) };
 
@@ -59,14 +59,14 @@ namespace Models
     // sqlValidationResult Field Functions 
     bool hasSqlValidationResult() const { return this->sqlValidationResult_ != nullptr;};
     void deleteSqlValidationResult() { this->sqlValidationResult_ = nullptr;};
-    inline string sqlValidationResult() const { DARABONBA_PTR_GET_DEFAULT(sqlValidationResult_, "") };
+    inline string getSqlValidationResult() const { DARABONBA_PTR_GET_DEFAULT(sqlValidationResult_, "") };
     inline DraftValidationDetail& setSqlValidationResult(string sqlValidationResult) { DARABONBA_PTR_SET_VALUE(sqlValidationResult_, sqlValidationResult) };
 
 
   protected:
-    std::shared_ptr<vector<DraftMetaInfoErrorDetail>> draftMetaInfoErrorDetails_ = nullptr;
-    std::shared_ptr<ValidationErrorDetails> sqlErrorDetail_ = nullptr;
-    std::shared_ptr<string> sqlValidationResult_ = nullptr;
+    shared_ptr<vector<DraftMetaInfoErrorDetail>> draftMetaInfoErrorDetails_ {};
+    shared_ptr<ValidationErrorDetails> sqlErrorDetail_ {};
+    shared_ptr<string> sqlValidationResult_ {};
   };
 
   } // namespace Models

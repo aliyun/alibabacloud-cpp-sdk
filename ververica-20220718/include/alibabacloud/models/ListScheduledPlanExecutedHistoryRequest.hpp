@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deploymentId_ == nullptr
-        && return this->origin_ == nullptr; };
+        && this->origin_ == nullptr; };
     // deploymentId Field Functions 
     bool hasDeploymentId() const { return this->deploymentId_ != nullptr;};
     void deleteDeploymentId() { this->deploymentId_ = nullptr;};
-    inline string deploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
+    inline string getDeploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
     inline ListScheduledPlanExecutedHistoryRequest& setDeploymentId(string deploymentId) { DARABONBA_PTR_SET_VALUE(deploymentId_, deploymentId) };
 
 
     // origin Field Functions 
     bool hasOrigin() const { return this->origin_ != nullptr;};
     void deleteOrigin() { this->origin_ = nullptr;};
-    inline string origin() const { DARABONBA_PTR_GET_DEFAULT(origin_, "") };
+    inline string getOrigin() const { DARABONBA_PTR_GET_DEFAULT(origin_, "") };
     inline ListScheduledPlanExecutedHistoryRequest& setOrigin(string origin) { DARABONBA_PTR_SET_VALUE(origin_, origin) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> deploymentId_ = nullptr;
-    std::shared_ptr<string> origin_ = nullptr;
+    shared_ptr<string> deploymentId_ {};
+    shared_ptr<string> origin_ {};
   };
 
   } // namespace Models

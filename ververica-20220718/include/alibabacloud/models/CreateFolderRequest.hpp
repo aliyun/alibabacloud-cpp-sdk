@@ -34,14 +34,15 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const Folder & body() const { DARABONBA_PTR_GET_CONST(body_, Folder) };
-    inline Folder body() { DARABONBA_PTR_GET(body_, Folder) };
+    inline const Folder & getBody() const { DARABONBA_PTR_GET_CONST(body_, Folder) };
+    inline Folder getBody() { DARABONBA_PTR_GET(body_, Folder) };
     inline CreateFolderRequest& setBody(const Folder & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateFolderRequest& setBody(Folder && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
-    std::shared_ptr<Folder> body_ = nullptr;
+    // The structure of data in the folder.
+    shared_ptr<Folder> body_ {};
   };
 
   } // namespace Models

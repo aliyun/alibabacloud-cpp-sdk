@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->additionalDependencies_ == nullptr
-        && return this->batchMode_ == nullptr && return this->flinkConfiguration_ == nullptr && return this->statement_ == nullptr && return this->versionName_ == nullptr; };
+        && this->batchMode_ == nullptr && this->flinkConfiguration_ == nullptr && this->statement_ == nullptr && this->versionName_ == nullptr; };
     // additionalDependencies Field Functions 
     bool hasAdditionalDependencies() const { return this->additionalDependencies_ != nullptr;};
     void deleteAdditionalDependencies() { this->additionalDependencies_ = nullptr;};
-    inline const vector<string> & additionalDependencies() const { DARABONBA_PTR_GET_CONST(additionalDependencies_, vector<string>) };
-    inline vector<string> additionalDependencies() { DARABONBA_PTR_GET(additionalDependencies_, vector<string>) };
+    inline const vector<string> & getAdditionalDependencies() const { DARABONBA_PTR_GET_CONST(additionalDependencies_, vector<string>) };
+    inline vector<string> getAdditionalDependencies() { DARABONBA_PTR_GET(additionalDependencies_, vector<string>) };
     inline SqlStatementWithContext& setAdditionalDependencies(const vector<string> & additionalDependencies) { DARABONBA_PTR_SET_VALUE(additionalDependencies_, additionalDependencies) };
     inline SqlStatementWithContext& setAdditionalDependencies(vector<string> && additionalDependencies) { DARABONBA_PTR_SET_RVALUE(additionalDependencies_, additionalDependencies) };
 
@@ -52,41 +52,48 @@ namespace Models
     // batchMode Field Functions 
     bool hasBatchMode() const { return this->batchMode_ != nullptr;};
     void deleteBatchMode() { this->batchMode_ = nullptr;};
-    inline bool batchMode() const { DARABONBA_PTR_GET_DEFAULT(batchMode_, false) };
+    inline bool getBatchMode() const { DARABONBA_PTR_GET_DEFAULT(batchMode_, false) };
     inline SqlStatementWithContext& setBatchMode(bool batchMode) { DARABONBA_PTR_SET_VALUE(batchMode_, batchMode) };
 
 
     // flinkConfiguration Field Functions 
     bool hasFlinkConfiguration() const { return this->flinkConfiguration_ != nullptr;};
     void deleteFlinkConfiguration() { this->flinkConfiguration_ = nullptr;};
-    inline     const Darabonba::Json & flinkConfiguration() const { DARABONBA_GET(flinkConfiguration_) };
-    Darabonba::Json & flinkConfiguration() { DARABONBA_GET(flinkConfiguration_) };
+    inline     const Darabonba::Json & getFlinkConfiguration() const { DARABONBA_GET(flinkConfiguration_) };
+    Darabonba::Json & getFlinkConfiguration() { DARABONBA_GET(flinkConfiguration_) };
     inline SqlStatementWithContext& setFlinkConfiguration(const Darabonba::Json & flinkConfiguration) { DARABONBA_SET_VALUE(flinkConfiguration_, flinkConfiguration) };
-    inline SqlStatementWithContext& setFlinkConfiguration(Darabonba::Json & flinkConfiguration) { DARABONBA_SET_RVALUE(flinkConfiguration_, flinkConfiguration) };
+    inline SqlStatementWithContext& setFlinkConfiguration(Darabonba::Json && flinkConfiguration) { DARABONBA_SET_RVALUE(flinkConfiguration_, flinkConfiguration) };
 
 
     // statement Field Functions 
     bool hasStatement() const { return this->statement_ != nullptr;};
     void deleteStatement() { this->statement_ = nullptr;};
-    inline string statement() const { DARABONBA_PTR_GET_DEFAULT(statement_, "") };
+    inline string getStatement() const { DARABONBA_PTR_GET_DEFAULT(statement_, "") };
     inline SqlStatementWithContext& setStatement(string statement) { DARABONBA_PTR_SET_VALUE(statement_, statement) };
 
 
     // versionName Field Functions 
     bool hasVersionName() const { return this->versionName_ != nullptr;};
     void deleteVersionName() { this->versionName_ = nullptr;};
-    inline string versionName() const { DARABONBA_PTR_GET_DEFAULT(versionName_, "") };
+    inline string getVersionName() const { DARABONBA_PTR_GET_DEFAULT(versionName_, "") };
     inline SqlStatementWithContext& setVersionName(string versionName) { DARABONBA_PTR_SET_VALUE(versionName_, versionName) };
 
 
   protected:
-    std::shared_ptr<vector<string>> additionalDependencies_ = nullptr;
+    // The additional dependencies.
+    shared_ptr<vector<string>> additionalDependencies_ {};
+    // Specifies whether the deployment is a batch deployment.
+    // 
     // This parameter is required.
-    std::shared_ptr<bool> batchMode_ = nullptr;
-    Darabonba::Json flinkConfiguration_ = nullptr;
+    shared_ptr<bool> batchMode_ {};
+    // The Realtime Compute for Apache Flink configuration.
+    Darabonba::Json flinkConfiguration_ {};
+    // The code of the deployment.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> statement_ = nullptr;
-    std::shared_ptr<string> versionName_ = nullptr;
+    shared_ptr<string> statement_ {};
+    // The engine version.
+    shared_ptr<string> versionName_ {};
   };
 
   } // namespace Models

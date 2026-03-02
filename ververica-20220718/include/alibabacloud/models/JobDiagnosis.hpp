@@ -41,40 +41,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->diagnoseId_ == nullptr
-        && return this->diagnoseTime_ == nullptr && return this->namespace_ == nullptr && return this->riskLevel_ == nullptr && return this->symptoms_ == nullptr && return this->workspace_ == nullptr; };
+        && this->diagnoseTime_ == nullptr && this->namespace_ == nullptr && this->riskLevel_ == nullptr && this->symptoms_ == nullptr && this->workspace_ == nullptr; };
     // diagnoseId Field Functions 
     bool hasDiagnoseId() const { return this->diagnoseId_ != nullptr;};
     void deleteDiagnoseId() { this->diagnoseId_ = nullptr;};
-    inline string diagnoseId() const { DARABONBA_PTR_GET_DEFAULT(diagnoseId_, "") };
+    inline string getDiagnoseId() const { DARABONBA_PTR_GET_DEFAULT(diagnoseId_, "") };
     inline JobDiagnosis& setDiagnoseId(string diagnoseId) { DARABONBA_PTR_SET_VALUE(diagnoseId_, diagnoseId) };
 
 
     // diagnoseTime Field Functions 
     bool hasDiagnoseTime() const { return this->diagnoseTime_ != nullptr;};
     void deleteDiagnoseTime() { this->diagnoseTime_ = nullptr;};
-    inline int64_t diagnoseTime() const { DARABONBA_PTR_GET_DEFAULT(diagnoseTime_, 0L) };
+    inline int64_t getDiagnoseTime() const { DARABONBA_PTR_GET_DEFAULT(diagnoseTime_, 0L) };
     inline JobDiagnosis& setDiagnoseTime(int64_t diagnoseTime) { DARABONBA_PTR_SET_VALUE(diagnoseTime_, diagnoseTime) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline JobDiagnosis& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // riskLevel Field Functions 
     bool hasRiskLevel() const { return this->riskLevel_ != nullptr;};
     void deleteRiskLevel() { this->riskLevel_ = nullptr;};
-    inline string riskLevel() const { DARABONBA_PTR_GET_DEFAULT(riskLevel_, "") };
+    inline string getRiskLevel() const { DARABONBA_PTR_GET_DEFAULT(riskLevel_, "") };
     inline JobDiagnosis& setRiskLevel(string riskLevel) { DARABONBA_PTR_SET_VALUE(riskLevel_, riskLevel) };
 
 
     // symptoms Field Functions 
     bool hasSymptoms() const { return this->symptoms_ != nullptr;};
     void deleteSymptoms() { this->symptoms_ = nullptr;};
-    inline const JobDiagnosisSymptoms & symptoms() const { DARABONBA_PTR_GET_CONST(symptoms_, JobDiagnosisSymptoms) };
-    inline JobDiagnosisSymptoms symptoms() { DARABONBA_PTR_GET(symptoms_, JobDiagnosisSymptoms) };
+    inline const JobDiagnosisSymptoms & getSymptoms() const { DARABONBA_PTR_GET_CONST(symptoms_, JobDiagnosisSymptoms) };
+    inline JobDiagnosisSymptoms getSymptoms() { DARABONBA_PTR_GET(symptoms_, JobDiagnosisSymptoms) };
     inline JobDiagnosis& setSymptoms(const JobDiagnosisSymptoms & symptoms) { DARABONBA_PTR_SET_VALUE(symptoms_, symptoms) };
     inline JobDiagnosis& setSymptoms(JobDiagnosisSymptoms && symptoms) { DARABONBA_PTR_SET_RVALUE(symptoms_, symptoms) };
 
@@ -82,17 +82,29 @@ namespace Models
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
-    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
     inline JobDiagnosis& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
   protected:
-    std::shared_ptr<string> diagnoseId_ = nullptr;
-    std::shared_ptr<int64_t> diagnoseTime_ = nullptr;
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<string> riskLevel_ = nullptr;
-    std::shared_ptr<JobDiagnosisSymptoms> symptoms_ = nullptr;
-    std::shared_ptr<string> workspace_ = nullptr;
+    // The diagnostic task ID.
+    shared_ptr<string> diagnoseId_ {};
+    // The time when the deployment is diagnosed.
+    shared_ptr<int64_t> diagnoseTime_ {};
+    // The namespace.
+    shared_ptr<string> namespace_ {};
+    // The severity level of the risk.
+    // 
+    // Valid values:
+    // 
+    // *   RISK_LEVEL_HIGH
+    // *   RISK_LEVEL_MID
+    // *   RISK_LEVEL_LOW
+    shared_ptr<string> riskLevel_ {};
+    // The diagnostic details.
+    shared_ptr<JobDiagnosisSymptoms> symptoms_ {};
+    // The workspace to which the deployment belongs.
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

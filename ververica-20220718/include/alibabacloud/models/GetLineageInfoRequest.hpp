@@ -34,15 +34,15 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const GetLineageInfoParams & body() const { DARABONBA_PTR_GET_CONST(body_, GetLineageInfoParams) };
-    inline GetLineageInfoParams body() { DARABONBA_PTR_GET(body_, GetLineageInfoParams) };
+    inline const GetLineageInfoParams & getBody() const { DARABONBA_PTR_GET_CONST(body_, GetLineageInfoParams) };
+    inline GetLineageInfoParams getBody() { DARABONBA_PTR_GET(body_, GetLineageInfoParams) };
     inline GetLineageInfoRequest& setBody(const GetLineageInfoParams & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline GetLineageInfoRequest& setBody(GetLineageInfoParams && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     // The parameters about the lineage information.
-    std::shared_ptr<GetLineageInfoParams> body_ = nullptr;
+    shared_ptr<GetLineageInfoParams> body_ {};
   };
 
   } // namespace Models

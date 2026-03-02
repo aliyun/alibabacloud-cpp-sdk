@@ -34,34 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->name_ == nullptr && return this->properties_ == nullptr; };
+        && this->name_ == nullptr && this->properties_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline Database& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline Database& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // properties Field Functions 
     bool hasProperties() const { return this->properties_ != nullptr;};
     void deleteProperties() { this->properties_ = nullptr;};
-    inline     const Darabonba::Json & properties() const { DARABONBA_GET(properties_) };
-    Darabonba::Json & properties() { DARABONBA_GET(properties_) };
+    inline     const Darabonba::Json & getProperties() const { DARABONBA_GET(properties_) };
+    Darabonba::Json & getProperties() { DARABONBA_GET(properties_) };
     inline Database& setProperties(const Darabonba::Json & properties) { DARABONBA_SET_VALUE(properties_, properties) };
-    inline Database& setProperties(Darabonba::Json & properties) { DARABONBA_SET_RVALUE(properties_, properties) };
+    inline Database& setProperties(Darabonba::Json && properties) { DARABONBA_SET_RVALUE(properties_, properties) };
 
 
   protected:
-    std::shared_ptr<string> comment_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    Darabonba::Json properties_ = nullptr;
+    // The comment.
+    shared_ptr<string> comment_ {};
+    // The name of the database.
+    shared_ptr<string> name_ {};
+    // The parameters of the database.
+    Darabonba::Json properties_ {};
   };
 
   } // namespace Models

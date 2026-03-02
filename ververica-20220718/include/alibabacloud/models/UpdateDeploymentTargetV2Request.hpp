@@ -34,14 +34,14 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const Resource & body() const { DARABONBA_PTR_GET_CONST(body_, Resource) };
-    inline Resource body() { DARABONBA_PTR_GET(body_, Resource) };
+    inline const Resource & getBody() const { DARABONBA_PTR_GET_CONST(body_, Resource) };
+    inline Resource getBody() { DARABONBA_PTR_GET(body_, Resource) };
     inline UpdateDeploymentTargetV2Request& setBody(const Resource & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline UpdateDeploymentTargetV2Request& setBody(Resource && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
-    std::shared_ptr<Resource> body_ = nullptr;
+    shared_ptr<Resource> body_ {};
   };
 
   } // namespace Models

@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->batchResourceSetting_ == nullptr
-        && return this->flinkConf_ == nullptr && return this->streamingResourceSetting_ == nullptr; };
+        && this->flinkConf_ == nullptr && this->streamingResourceSetting_ == nullptr; };
     // batchResourceSetting Field Functions 
     bool hasBatchResourceSetting() const { return this->batchResourceSetting_ != nullptr;};
     void deleteBatchResourceSetting() { this->batchResourceSetting_ = nullptr;};
-    inline const BatchResourceSetting & batchResourceSetting() const { DARABONBA_PTR_GET_CONST(batchResourceSetting_, BatchResourceSetting) };
-    inline BatchResourceSetting batchResourceSetting() { DARABONBA_PTR_GET(batchResourceSetting_, BatchResourceSetting) };
+    inline const BatchResourceSetting & getBatchResourceSetting() const { DARABONBA_PTR_GET_CONST(batchResourceSetting_, BatchResourceSetting) };
+    inline BatchResourceSetting getBatchResourceSetting() { DARABONBA_PTR_GET(batchResourceSetting_, BatchResourceSetting) };
     inline BriefResourceSetting& setBatchResourceSetting(const BatchResourceSetting & batchResourceSetting) { DARABONBA_PTR_SET_VALUE(batchResourceSetting_, batchResourceSetting) };
     inline BriefResourceSetting& setBatchResourceSetting(BatchResourceSetting && batchResourceSetting) { DARABONBA_PTR_SET_RVALUE(batchResourceSetting_, batchResourceSetting) };
 
@@ -49,25 +49,28 @@ namespace Models
     // flinkConf Field Functions 
     bool hasFlinkConf() const { return this->flinkConf_ != nullptr;};
     void deleteFlinkConf() { this->flinkConf_ = nullptr;};
-    inline     const Darabonba::Json & flinkConf() const { DARABONBA_GET(flinkConf_) };
-    Darabonba::Json & flinkConf() { DARABONBA_GET(flinkConf_) };
+    inline     const Darabonba::Json & getFlinkConf() const { DARABONBA_GET(flinkConf_) };
+    Darabonba::Json & getFlinkConf() { DARABONBA_GET(flinkConf_) };
     inline BriefResourceSetting& setFlinkConf(const Darabonba::Json & flinkConf) { DARABONBA_SET_VALUE(flinkConf_, flinkConf) };
-    inline BriefResourceSetting& setFlinkConf(Darabonba::Json & flinkConf) { DARABONBA_SET_RVALUE(flinkConf_, flinkConf) };
+    inline BriefResourceSetting& setFlinkConf(Darabonba::Json && flinkConf) { DARABONBA_SET_RVALUE(flinkConf_, flinkConf) };
 
 
     // streamingResourceSetting Field Functions 
     bool hasStreamingResourceSetting() const { return this->streamingResourceSetting_ != nullptr;};
     void deleteStreamingResourceSetting() { this->streamingResourceSetting_ = nullptr;};
-    inline const StreamingResourceSetting & streamingResourceSetting() const { DARABONBA_PTR_GET_CONST(streamingResourceSetting_, StreamingResourceSetting) };
-    inline StreamingResourceSetting streamingResourceSetting() { DARABONBA_PTR_GET(streamingResourceSetting_, StreamingResourceSetting) };
+    inline const StreamingResourceSetting & getStreamingResourceSetting() const { DARABONBA_PTR_GET_CONST(streamingResourceSetting_, StreamingResourceSetting) };
+    inline StreamingResourceSetting getStreamingResourceSetting() { DARABONBA_PTR_GET(streamingResourceSetting_, StreamingResourceSetting) };
     inline BriefResourceSetting& setStreamingResourceSetting(const StreamingResourceSetting & streamingResourceSetting) { DARABONBA_PTR_SET_VALUE(streamingResourceSetting_, streamingResourceSetting) };
     inline BriefResourceSetting& setStreamingResourceSetting(StreamingResourceSetting && streamingResourceSetting) { DARABONBA_PTR_SET_RVALUE(streamingResourceSetting_, streamingResourceSetting) };
 
 
   protected:
-    std::shared_ptr<BatchResourceSetting> batchResourceSetting_ = nullptr;
-    Darabonba::Json flinkConf_ = nullptr;
-    std::shared_ptr<StreamingResourceSetting> streamingResourceSetting_ = nullptr;
+    // The resource configuration for the deployment in batch mode. This parameter is required for a deployment in batch mode.
+    shared_ptr<BatchResourceSetting> batchResourceSetting_ {};
+    // The Realtime Compute for Apache Flink configuration.
+    Darabonba::Json flinkConf_ {};
+    // The resource configuration for the deployment in streaming mode. This parameter is required for a deployment in streaming mode.
+    shared_ptr<StreamingResourceSetting> streamingResourceSetting_ {};
   };
 
   } // namespace Models

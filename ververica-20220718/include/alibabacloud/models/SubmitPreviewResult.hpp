@@ -36,34 +36,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->queryId_ == nullptr
-        && return this->sessionId_ == nullptr && return this->tableSchemas_ == nullptr; };
+        && this->sessionId_ == nullptr && this->tableSchemas_ == nullptr; };
     // queryId Field Functions 
     bool hasQueryId() const { return this->queryId_ != nullptr;};
     void deleteQueryId() { this->queryId_ = nullptr;};
-    inline string queryId() const { DARABONBA_PTR_GET_DEFAULT(queryId_, "") };
+    inline string getQueryId() const { DARABONBA_PTR_GET_DEFAULT(queryId_, "") };
     inline SubmitPreviewResult& setQueryId(string queryId) { DARABONBA_PTR_SET_VALUE(queryId_, queryId) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline SubmitPreviewResult& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // tableSchemas Field Functions 
     bool hasTableSchemas() const { return this->tableSchemas_ != nullptr;};
     void deleteTableSchemas() { this->tableSchemas_ = nullptr;};
-    inline const vector<TableSchema> & tableSchemas() const { DARABONBA_PTR_GET_CONST(tableSchemas_, vector<TableSchema>) };
-    inline vector<TableSchema> tableSchemas() { DARABONBA_PTR_GET(tableSchemas_, vector<TableSchema>) };
+    inline const vector<TableSchema> & getTableSchemas() const { DARABONBA_PTR_GET_CONST(tableSchemas_, vector<TableSchema>) };
+    inline vector<TableSchema> getTableSchemas() { DARABONBA_PTR_GET(tableSchemas_, vector<TableSchema>) };
     inline SubmitPreviewResult& setTableSchemas(const vector<TableSchema> & tableSchemas) { DARABONBA_PTR_SET_VALUE(tableSchemas_, tableSchemas) };
     inline SubmitPreviewResult& setTableSchemas(vector<TableSchema> && tableSchemas) { DARABONBA_PTR_SET_RVALUE(tableSchemas_, tableSchemas) };
 
 
   protected:
-    std::shared_ptr<string> queryId_ = nullptr;
-    std::shared_ptr<string> sessionId_ = nullptr;
-    std::shared_ptr<vector<TableSchema>> tableSchemas_ = nullptr;
+    shared_ptr<string> queryId_ {};
+    shared_ptr<string> sessionId_ {};
+    shared_ptr<vector<TableSchema>> tableSchemas_ {};
   };
 
   } // namespace Models

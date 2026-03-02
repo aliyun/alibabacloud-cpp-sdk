@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->executionId_ == nullptr
-        && return this->namespace_ == nullptr && return this->resourceId_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr && return this->workspace_ == nullptr; };
+        && this->namespace_ == nullptr && this->resourceId_ == nullptr && this->status_ == nullptr && this->type_ == nullptr && this->workspace_ == nullptr; };
     // executionId Field Functions 
     bool hasExecutionId() const { return this->executionId_ != nullptr;};
     void deleteExecutionId() { this->executionId_ = nullptr;};
-    inline string executionId() const { DARABONBA_PTR_GET_DEFAULT(executionId_, "") };
+    inline string getExecutionId() const { DARABONBA_PTR_GET_DEFAULT(executionId_, "") };
     inline NodeExecutionStatusDTO& setExecutionId(string executionId) { DARABONBA_PTR_SET_VALUE(executionId_, executionId) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline NodeExecutionStatusDTO& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline string resourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+    inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
     inline NodeExecutionStatusDTO& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline NodeExecutionStatusDTO& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline NodeExecutionStatusDTO& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
-    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
     inline NodeExecutionStatusDTO& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
   protected:
-    std::shared_ptr<string> executionId_ = nullptr;
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<string> resourceId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<string> workspace_ = nullptr;
+    shared_ptr<string> executionId_ {};
+    shared_ptr<string> namespace_ {};
+    shared_ptr<string> resourceId_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

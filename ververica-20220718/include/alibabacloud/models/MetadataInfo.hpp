@@ -32,24 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->key_ == nullptr
-        && return this->virtual_ == nullptr; };
+        && this->virtual_ == nullptr; };
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline MetadataInfo& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // virtual Field Functions 
     bool hasVirtual() const { return this->virtual_ != nullptr;};
     void deleteVirtual() { this->virtual_ = nullptr;};
-    inline bool _virtual() const { DARABONBA_PTR_GET_DEFAULT(virtual_, false) };
+    inline bool getVirtual() const { DARABONBA_PTR_GET_DEFAULT(virtual_, false) };
     inline MetadataInfo& setVirtual(bool _virtual) { DARABONBA_PTR_SET_VALUE(virtual_, _virtual) };
 
 
   protected:
-    std::shared_ptr<string> key_ = nullptr;
-    std::shared_ptr<bool> virtual_ = nullptr;
+    // The metadata field.
+    shared_ptr<string> key_ {};
+    // Specifies whether the metadata is read only.
+    shared_ptr<bool> virtual_ {};
   };
 
   } // namespace Models

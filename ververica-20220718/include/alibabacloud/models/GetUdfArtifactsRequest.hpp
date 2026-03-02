@@ -33,13 +33,13 @@ namespace Models
     // udfArtifactName Field Functions 
     bool hasUdfArtifactName() const { return this->udfArtifactName_ != nullptr;};
     void deleteUdfArtifactName() { this->udfArtifactName_ = nullptr;};
-    inline string udfArtifactName() const { DARABONBA_PTR_GET_DEFAULT(udfArtifactName_, "") };
+    inline string getUdfArtifactName() const { DARABONBA_PTR_GET_DEFAULT(udfArtifactName_, "") };
     inline GetUdfArtifactsRequest& setUdfArtifactName(string udfArtifactName) { DARABONBA_PTR_SET_VALUE(udfArtifactName_, udfArtifactName) };
 
 
   protected:
     // The name of the JAR or Python file that corresponds to the UDF.
-    std::shared_ptr<string> udfArtifactName_ = nullptr;
+    shared_ptr<string> udfArtifactName_ {};
   };
 
   } // namespace Models

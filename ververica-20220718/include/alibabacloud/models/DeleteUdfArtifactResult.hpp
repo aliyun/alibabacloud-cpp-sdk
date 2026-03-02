@@ -36,34 +36,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deleteSuccess_ == nullptr
-        && return this->message_ == nullptr && return this->referencedClasses_ == nullptr; };
+        && this->message_ == nullptr && this->referencedClasses_ == nullptr; };
     // deleteSuccess Field Functions 
     bool hasDeleteSuccess() const { return this->deleteSuccess_ != nullptr;};
     void deleteDeleteSuccess() { this->deleteSuccess_ = nullptr;};
-    inline bool deleteSuccess() const { DARABONBA_PTR_GET_DEFAULT(deleteSuccess_, false) };
+    inline bool getDeleteSuccess() const { DARABONBA_PTR_GET_DEFAULT(deleteSuccess_, false) };
     inline DeleteUdfArtifactResult& setDeleteSuccess(bool deleteSuccess) { DARABONBA_PTR_SET_VALUE(deleteSuccess_, deleteSuccess) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DeleteUdfArtifactResult& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // referencedClasses Field Functions 
     bool hasReferencedClasses() const { return this->referencedClasses_ != nullptr;};
     void deleteReferencedClasses() { this->referencedClasses_ = nullptr;};
-    inline const vector<UdfClass> & referencedClasses() const { DARABONBA_PTR_GET_CONST(referencedClasses_, vector<UdfClass>) };
-    inline vector<UdfClass> referencedClasses() { DARABONBA_PTR_GET(referencedClasses_, vector<UdfClass>) };
+    inline const vector<UdfClass> & getReferencedClasses() const { DARABONBA_PTR_GET_CONST(referencedClasses_, vector<UdfClass>) };
+    inline vector<UdfClass> getReferencedClasses() { DARABONBA_PTR_GET(referencedClasses_, vector<UdfClass>) };
     inline DeleteUdfArtifactResult& setReferencedClasses(const vector<UdfClass> & referencedClasses) { DARABONBA_PTR_SET_VALUE(referencedClasses_, referencedClasses) };
     inline DeleteUdfArtifactResult& setReferencedClasses(vector<UdfClass> && referencedClasses) { DARABONBA_PTR_SET_RVALUE(referencedClasses_, referencedClasses) };
 
 
   protected:
-    std::shared_ptr<bool> deleteSuccess_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<vector<UdfClass>> referencedClasses_ = nullptr;
+    // Indicates whether the JAR file was deleted.
+    shared_ptr<bool> deleteSuccess_ {};
+    // The message used to delete the JAR file.
+    shared_ptr<string> message_ {};
+    // All associated classes.
+    shared_ptr<vector<UdfClass>> referencedClasses_ {};
   };
 
   } // namespace Models

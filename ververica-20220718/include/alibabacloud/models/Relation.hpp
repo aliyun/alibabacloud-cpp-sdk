@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destination_ == nullptr
-        && return this->jobId_ == nullptr && return this->source_ == nullptr; };
+        && this->jobId_ == nullptr && this->source_ == nullptr; };
     // destination Field Functions 
     bool hasDestination() const { return this->destination_ != nullptr;};
     void deleteDestination() { this->destination_ = nullptr;};
-    inline string destination() const { DARABONBA_PTR_GET_DEFAULT(destination_, "") };
+    inline string getDestination() const { DARABONBA_PTR_GET_DEFAULT(destination_, "") };
     inline Relation& setDestination(string destination) { DARABONBA_PTR_SET_VALUE(destination_, destination) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline Relation& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline Relation& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
   protected:
-    std::shared_ptr<string> destination_ = nullptr;
-    std::shared_ptr<string> jobId_ = nullptr;
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> destination_ {};
+    shared_ptr<string> jobId_ {};
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

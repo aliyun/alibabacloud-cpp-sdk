@@ -33,12 +33,12 @@ namespace Models
     // jobParallelism Field Functions 
     bool hasJobParallelism() const { return this->jobParallelism_ != nullptr;};
     void deleteJobParallelism() { this->jobParallelism_ = nullptr;};
-    inline int64_t jobParallelism() const { DARABONBA_PTR_GET_DEFAULT(jobParallelism_, 0L) };
+    inline int64_t getJobParallelism() const { DARABONBA_PTR_GET_DEFAULT(jobParallelism_, 0L) };
     inline RescaleJobParam& setJobParallelism(int64_t jobParallelism) { DARABONBA_PTR_SET_VALUE(jobParallelism_, jobParallelism) };
 
 
   protected:
-    std::shared_ptr<int64_t> jobParallelism_ = nullptr;
+    shared_ptr<int64_t> jobParallelism_ {};
   };
 
   } // namespace Models

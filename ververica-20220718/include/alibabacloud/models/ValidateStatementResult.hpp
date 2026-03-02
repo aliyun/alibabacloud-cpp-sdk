@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errorDetails_ == nullptr
-        && return this->validationResult_ == nullptr; };
+        && this->validationResult_ == nullptr; };
     // errorDetails Field Functions 
     bool hasErrorDetails() const { return this->errorDetails_ != nullptr;};
     void deleteErrorDetails() { this->errorDetails_ = nullptr;};
-    inline const ValidationErrorDetails & errorDetails() const { DARABONBA_PTR_GET_CONST(errorDetails_, ValidationErrorDetails) };
-    inline ValidationErrorDetails errorDetails() { DARABONBA_PTR_GET(errorDetails_, ValidationErrorDetails) };
+    inline const ValidationErrorDetails & getErrorDetails() const { DARABONBA_PTR_GET_CONST(errorDetails_, ValidationErrorDetails) };
+    inline ValidationErrorDetails getErrorDetails() { DARABONBA_PTR_GET(errorDetails_, ValidationErrorDetails) };
     inline ValidateStatementResult& setErrorDetails(const ValidationErrorDetails & errorDetails) { DARABONBA_PTR_SET_VALUE(errorDetails_, errorDetails) };
     inline ValidateStatementResult& setErrorDetails(ValidationErrorDetails && errorDetails) { DARABONBA_PTR_SET_RVALUE(errorDetails_, errorDetails) };
 
@@ -46,13 +46,15 @@ namespace Models
     // validationResult Field Functions 
     bool hasValidationResult() const { return this->validationResult_ != nullptr;};
     void deleteValidationResult() { this->validationResult_ = nullptr;};
-    inline string validationResult() const { DARABONBA_PTR_GET_DEFAULT(validationResult_, "") };
+    inline string getValidationResult() const { DARABONBA_PTR_GET_DEFAULT(validationResult_, "") };
     inline ValidateStatementResult& setValidationResult(string validationResult) { DARABONBA_PTR_SET_VALUE(validationResult_, validationResult) };
 
 
   protected:
-    std::shared_ptr<ValidationErrorDetails> errorDetails_ = nullptr;
-    std::shared_ptr<string> validationResult_ = nullptr;
+    // The details of verification errors of the SQL syntax.
+    shared_ptr<ValidationErrorDetails> errorDetails_ {};
+    // The verification result.
+    shared_ptr<string> validationResult_ {};
   };
 
   } // namespace Models

@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->limit_ == nullptr
-        && return this->request_ == nullptr && return this->used_ == nullptr; };
+        && this->request_ == nullptr && this->used_ == nullptr; };
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline const ResourceSpec & limit() const { DARABONBA_PTR_GET_CONST(limit_, ResourceSpec) };
-    inline ResourceSpec limit() { DARABONBA_PTR_GET(limit_, ResourceSpec) };
+    inline const ResourceSpec & getLimit() const { DARABONBA_PTR_GET_CONST(limit_, ResourceSpec) };
+    inline ResourceSpec getLimit() { DARABONBA_PTR_GET(limit_, ResourceSpec) };
     inline ResourceQuota& setLimit(const ResourceSpec & limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
     inline ResourceQuota& setLimit(ResourceSpec && limit) { DARABONBA_PTR_SET_RVALUE(limit_, limit) };
 
@@ -48,8 +48,8 @@ namespace Models
     // request Field Functions 
     bool hasRequest() const { return this->request_ != nullptr;};
     void deleteRequest() { this->request_ = nullptr;};
-    inline const ResourceSpec & request() const { DARABONBA_PTR_GET_CONST(request_, ResourceSpec) };
-    inline ResourceSpec request() { DARABONBA_PTR_GET(request_, ResourceSpec) };
+    inline const ResourceSpec & getRequest() const { DARABONBA_PTR_GET_CONST(request_, ResourceSpec) };
+    inline ResourceSpec getRequest() { DARABONBA_PTR_GET(request_, ResourceSpec) };
     inline ResourceQuota& setRequest(const ResourceSpec & request) { DARABONBA_PTR_SET_VALUE(request_, request) };
     inline ResourceQuota& setRequest(ResourceSpec && request) { DARABONBA_PTR_SET_RVALUE(request_, request) };
 
@@ -57,16 +57,16 @@ namespace Models
     // used Field Functions 
     bool hasUsed() const { return this->used_ != nullptr;};
     void deleteUsed() { this->used_ = nullptr;};
-    inline const ResourceSpec & used() const { DARABONBA_PTR_GET_CONST(used_, ResourceSpec) };
-    inline ResourceSpec used() { DARABONBA_PTR_GET(used_, ResourceSpec) };
+    inline const ResourceSpec & getUsed() const { DARABONBA_PTR_GET_CONST(used_, ResourceSpec) };
+    inline ResourceSpec getUsed() { DARABONBA_PTR_GET(used_, ResourceSpec) };
     inline ResourceQuota& setUsed(const ResourceSpec & used) { DARABONBA_PTR_SET_VALUE(used_, used) };
     inline ResourceQuota& setUsed(ResourceSpec && used) { DARABONBA_PTR_SET_RVALUE(used_, used) };
 
 
   protected:
-    std::shared_ptr<ResourceSpec> limit_ = nullptr;
-    std::shared_ptr<ResourceSpec> request_ = nullptr;
-    std::shared_ptr<ResourceSpec> used_ = nullptr;
+    shared_ptr<ResourceSpec> limit_ {};
+    shared_ptr<ResourceSpec> request_ {};
+    shared_ptr<ResourceSpec> used_ {};
   };
 
   } // namespace Models

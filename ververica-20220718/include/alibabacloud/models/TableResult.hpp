@@ -15,10 +15,12 @@ namespace Models
   class TableResult : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const TableResult& obj) { 
+      DARABONBA_PTR_TO_JSON(collectSinkOperatorId, collectSinkOperatorId_);
       DARABONBA_PTR_TO_JSON(rowUpdates, rowUpdates_);
       DARABONBA_PTR_TO_JSON(tableName, tableName_);
     };
     friend void from_json(const Darabonba::Json& j, TableResult& obj) { 
+      DARABONBA_PTR_FROM_JSON(collectSinkOperatorId, collectSinkOperatorId_);
       DARABONBA_PTR_FROM_JSON(rowUpdates, rowUpdates_);
       DARABONBA_PTR_FROM_JSON(tableName, tableName_);
     };
@@ -33,13 +35,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->rowUpdates_ == nullptr
-        && return this->tableName_ == nullptr; };
+    virtual bool empty() const override { return this->collectSinkOperatorId_ == nullptr
+        && this->rowUpdates_ == nullptr && this->tableName_ == nullptr; };
+    // collectSinkOperatorId Field Functions 
+    bool hasCollectSinkOperatorId() const { return this->collectSinkOperatorId_ != nullptr;};
+    void deleteCollectSinkOperatorId() { this->collectSinkOperatorId_ = nullptr;};
+    inline string getCollectSinkOperatorId() const { DARABONBA_PTR_GET_DEFAULT(collectSinkOperatorId_, "") };
+    inline TableResult& setCollectSinkOperatorId(string collectSinkOperatorId) { DARABONBA_PTR_SET_VALUE(collectSinkOperatorId_, collectSinkOperatorId) };
+
+
     // rowUpdates Field Functions 
     bool hasRowUpdates() const { return this->rowUpdates_ != nullptr;};
     void deleteRowUpdates() { this->rowUpdates_ = nullptr;};
-    inline const vector<RowUpdate> & rowUpdates() const { DARABONBA_PTR_GET_CONST(rowUpdates_, vector<RowUpdate>) };
-    inline vector<RowUpdate> rowUpdates() { DARABONBA_PTR_GET(rowUpdates_, vector<RowUpdate>) };
+    inline const vector<RowUpdate> & getRowUpdates() const { DARABONBA_PTR_GET_CONST(rowUpdates_, vector<RowUpdate>) };
+    inline vector<RowUpdate> getRowUpdates() { DARABONBA_PTR_GET(rowUpdates_, vector<RowUpdate>) };
     inline TableResult& setRowUpdates(const vector<RowUpdate> & rowUpdates) { DARABONBA_PTR_SET_VALUE(rowUpdates_, rowUpdates) };
     inline TableResult& setRowUpdates(vector<RowUpdate> && rowUpdates) { DARABONBA_PTR_SET_RVALUE(rowUpdates_, rowUpdates) };
 
@@ -47,13 +56,14 @@ namespace Models
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline TableResult& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
   protected:
-    std::shared_ptr<vector<RowUpdate>> rowUpdates_ = nullptr;
-    std::shared_ptr<string> tableName_ = nullptr;
+    shared_ptr<string> collectSinkOperatorId_ {};
+    shared_ptr<vector<RowUpdate>> rowUpdates_ {};
+    shared_ptr<string> tableName_ {};
   };
 
   } // namespace Models

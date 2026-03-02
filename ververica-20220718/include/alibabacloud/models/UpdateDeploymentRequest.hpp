@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const Deployment & body() const { DARABONBA_PTR_GET_CONST(body_, Deployment) };
-    inline Deployment body() { DARABONBA_PTR_GET(body_, Deployment) };
+    inline const Deployment & getBody() const { DARABONBA_PTR_GET_CONST(body_, Deployment) };
+    inline Deployment getBody() { DARABONBA_PTR_GET(body_, Deployment) };
     inline UpdateDeploymentRequest& setBody(const Deployment & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline UpdateDeploymentRequest& setBody(Deployment && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The information about the deployment that you want to update.
     // 
     // This parameter is required.
-    std::shared_ptr<Deployment> body_ = nullptr;
+    shared_ptr<Deployment> body_ {};
   };
 
   } // namespace Models

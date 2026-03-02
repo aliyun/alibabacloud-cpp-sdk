@@ -38,48 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->columnNumber_ == nullptr
-        && return this->endColumnNumber_ == nullptr && return this->endLineNumber_ == nullptr && return this->lineNumber_ == nullptr && return this->message_ == nullptr; };
+        && this->endColumnNumber_ == nullptr && this->endLineNumber_ == nullptr && this->lineNumber_ == nullptr && this->message_ == nullptr; };
     // columnNumber Field Functions 
     bool hasColumnNumber() const { return this->columnNumber_ != nullptr;};
     void deleteColumnNumber() { this->columnNumber_ = nullptr;};
-    inline string columnNumber() const { DARABONBA_PTR_GET_DEFAULT(columnNumber_, "") };
+    inline string getColumnNumber() const { DARABONBA_PTR_GET_DEFAULT(columnNumber_, "") };
     inline ValidationErrorDetails& setColumnNumber(string columnNumber) { DARABONBA_PTR_SET_VALUE(columnNumber_, columnNumber) };
 
 
     // endColumnNumber Field Functions 
     bool hasEndColumnNumber() const { return this->endColumnNumber_ != nullptr;};
     void deleteEndColumnNumber() { this->endColumnNumber_ = nullptr;};
-    inline string endColumnNumber() const { DARABONBA_PTR_GET_DEFAULT(endColumnNumber_, "") };
+    inline string getEndColumnNumber() const { DARABONBA_PTR_GET_DEFAULT(endColumnNumber_, "") };
     inline ValidationErrorDetails& setEndColumnNumber(string endColumnNumber) { DARABONBA_PTR_SET_VALUE(endColumnNumber_, endColumnNumber) };
 
 
     // endLineNumber Field Functions 
     bool hasEndLineNumber() const { return this->endLineNumber_ != nullptr;};
     void deleteEndLineNumber() { this->endLineNumber_ = nullptr;};
-    inline string endLineNumber() const { DARABONBA_PTR_GET_DEFAULT(endLineNumber_, "") };
+    inline string getEndLineNumber() const { DARABONBA_PTR_GET_DEFAULT(endLineNumber_, "") };
     inline ValidationErrorDetails& setEndLineNumber(string endLineNumber) { DARABONBA_PTR_SET_VALUE(endLineNumber_, endLineNumber) };
 
 
     // lineNumber Field Functions 
     bool hasLineNumber() const { return this->lineNumber_ != nullptr;};
     void deleteLineNumber() { this->lineNumber_ = nullptr;};
-    inline string lineNumber() const { DARABONBA_PTR_GET_DEFAULT(lineNumber_, "") };
+    inline string getLineNumber() const { DARABONBA_PTR_GET_DEFAULT(lineNumber_, "") };
     inline ValidationErrorDetails& setLineNumber(string lineNumber) { DARABONBA_PTR_SET_VALUE(lineNumber_, lineNumber) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ValidationErrorDetails& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
   protected:
-    std::shared_ptr<string> columnNumber_ = nullptr;
-    std::shared_ptr<string> endColumnNumber_ = nullptr;
-    std::shared_ptr<string> endLineNumber_ = nullptr;
-    std::shared_ptr<string> lineNumber_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
+    // The number of the column at which the error starts.
+    shared_ptr<string> columnNumber_ {};
+    // The number of the column at which the error ends.
+    shared_ptr<string> endColumnNumber_ {};
+    // The number of the row at which the error ends.
+    shared_ptr<string> endLineNumber_ {};
+    // The number the row at which the error starts.
+    shared_ptr<string> lineNumber_ {};
+    // The error message.
+    shared_ptr<string> message_ {};
   };
 
   } // namespace Models

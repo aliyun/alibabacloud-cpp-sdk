@@ -48,89 +48,89 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deploymentId_ == nullptr
-        && return this->expectedState_ == nullptr && return this->modifiedAt_ == nullptr && return this->modifier_ == nullptr && return this->modifierName_ == nullptr && return this->namespace_ == nullptr
-        && return this->scheduledPlanId_ == nullptr && return this->scheduledPlanName_ == nullptr && return this->statusState_ == nullptr && return this->workspace_ == nullptr; };
+        && this->expectedState_ == nullptr && this->modifiedAt_ == nullptr && this->modifier_ == nullptr && this->modifierName_ == nullptr && this->namespace_ == nullptr
+        && this->scheduledPlanId_ == nullptr && this->scheduledPlanName_ == nullptr && this->statusState_ == nullptr && this->workspace_ == nullptr; };
     // deploymentId Field Functions 
     bool hasDeploymentId() const { return this->deploymentId_ != nullptr;};
     void deleteDeploymentId() { this->deploymentId_ = nullptr;};
-    inline string deploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
+    inline string getDeploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
     inline ScheduledPlanAppliedInfo& setDeploymentId(string deploymentId) { DARABONBA_PTR_SET_VALUE(deploymentId_, deploymentId) };
 
 
     // expectedState Field Functions 
     bool hasExpectedState() const { return this->expectedState_ != nullptr;};
     void deleteExpectedState() { this->expectedState_ = nullptr;};
-    inline string expectedState() const { DARABONBA_PTR_GET_DEFAULT(expectedState_, "") };
+    inline string getExpectedState() const { DARABONBA_PTR_GET_DEFAULT(expectedState_, "") };
     inline ScheduledPlanAppliedInfo& setExpectedState(string expectedState) { DARABONBA_PTR_SET_VALUE(expectedState_, expectedState) };
 
 
     // modifiedAt Field Functions 
     bool hasModifiedAt() const { return this->modifiedAt_ != nullptr;};
     void deleteModifiedAt() { this->modifiedAt_ = nullptr;};
-    inline string modifiedAt() const { DARABONBA_PTR_GET_DEFAULT(modifiedAt_, "") };
+    inline string getModifiedAt() const { DARABONBA_PTR_GET_DEFAULT(modifiedAt_, "") };
     inline ScheduledPlanAppliedInfo& setModifiedAt(string modifiedAt) { DARABONBA_PTR_SET_VALUE(modifiedAt_, modifiedAt) };
 
 
     // modifier Field Functions 
     bool hasModifier() const { return this->modifier_ != nullptr;};
     void deleteModifier() { this->modifier_ = nullptr;};
-    inline string modifier() const { DARABONBA_PTR_GET_DEFAULT(modifier_, "") };
+    inline string getModifier() const { DARABONBA_PTR_GET_DEFAULT(modifier_, "") };
     inline ScheduledPlanAppliedInfo& setModifier(string modifier) { DARABONBA_PTR_SET_VALUE(modifier_, modifier) };
 
 
     // modifierName Field Functions 
     bool hasModifierName() const { return this->modifierName_ != nullptr;};
     void deleteModifierName() { this->modifierName_ = nullptr;};
-    inline string modifierName() const { DARABONBA_PTR_GET_DEFAULT(modifierName_, "") };
+    inline string getModifierName() const { DARABONBA_PTR_GET_DEFAULT(modifierName_, "") };
     inline ScheduledPlanAppliedInfo& setModifierName(string modifierName) { DARABONBA_PTR_SET_VALUE(modifierName_, modifierName) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline ScheduledPlanAppliedInfo& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // scheduledPlanId Field Functions 
     bool hasScheduledPlanId() const { return this->scheduledPlanId_ != nullptr;};
     void deleteScheduledPlanId() { this->scheduledPlanId_ = nullptr;};
-    inline string scheduledPlanId() const { DARABONBA_PTR_GET_DEFAULT(scheduledPlanId_, "") };
+    inline string getScheduledPlanId() const { DARABONBA_PTR_GET_DEFAULT(scheduledPlanId_, "") };
     inline ScheduledPlanAppliedInfo& setScheduledPlanId(string scheduledPlanId) { DARABONBA_PTR_SET_VALUE(scheduledPlanId_, scheduledPlanId) };
 
 
     // scheduledPlanName Field Functions 
     bool hasScheduledPlanName() const { return this->scheduledPlanName_ != nullptr;};
     void deleteScheduledPlanName() { this->scheduledPlanName_ = nullptr;};
-    inline string scheduledPlanName() const { DARABONBA_PTR_GET_DEFAULT(scheduledPlanName_, "") };
+    inline string getScheduledPlanName() const { DARABONBA_PTR_GET_DEFAULT(scheduledPlanName_, "") };
     inline ScheduledPlanAppliedInfo& setScheduledPlanName(string scheduledPlanName) { DARABONBA_PTR_SET_VALUE(scheduledPlanName_, scheduledPlanName) };
 
 
     // statusState Field Functions 
     bool hasStatusState() const { return this->statusState_ != nullptr;};
     void deleteStatusState() { this->statusState_ = nullptr;};
-    inline string statusState() const { DARABONBA_PTR_GET_DEFAULT(statusState_, "") };
+    inline string getStatusState() const { DARABONBA_PTR_GET_DEFAULT(statusState_, "") };
     inline ScheduledPlanAppliedInfo& setStatusState(string statusState) { DARABONBA_PTR_SET_VALUE(statusState_, statusState) };
 
 
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
-    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
     inline ScheduledPlanAppliedInfo& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
   protected:
-    std::shared_ptr<string> deploymentId_ = nullptr;
-    std::shared_ptr<string> expectedState_ = nullptr;
-    std::shared_ptr<string> modifiedAt_ = nullptr;
-    std::shared_ptr<string> modifier_ = nullptr;
-    std::shared_ptr<string> modifierName_ = nullptr;
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<string> scheduledPlanId_ = nullptr;
-    std::shared_ptr<string> scheduledPlanName_ = nullptr;
-    std::shared_ptr<string> statusState_ = nullptr;
-    std::shared_ptr<string> workspace_ = nullptr;
+    shared_ptr<string> deploymentId_ {};
+    shared_ptr<string> expectedState_ {};
+    shared_ptr<string> modifiedAt_ {};
+    shared_ptr<string> modifier_ {};
+    shared_ptr<string> modifierName_ {};
+    shared_ptr<string> namespace_ {};
+    shared_ptr<string> scheduledPlanId_ {};
+    shared_ptr<string> scheduledPlanName_ {};
+    shared_ptr<string> statusState_ {};
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

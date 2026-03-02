@@ -34,32 +34,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->message_ == nullptr
-        && return this->plan_ == nullptr && return this->ticketStatus_ == nullptr; };
+        && this->plan_ == nullptr && this->ticketStatus_ == nullptr; };
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline AsyncResourcePlanOperationResult& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // plan Field Functions 
     bool hasPlan() const { return this->plan_ != nullptr;};
     void deletePlan() { this->plan_ = nullptr;};
-    inline string plan() const { DARABONBA_PTR_GET_DEFAULT(plan_, "") };
+    inline string getPlan() const { DARABONBA_PTR_GET_DEFAULT(plan_, "") };
     inline AsyncResourcePlanOperationResult& setPlan(string plan) { DARABONBA_PTR_SET_VALUE(plan_, plan) };
 
 
     // ticketStatus Field Functions 
     bool hasTicketStatus() const { return this->ticketStatus_ != nullptr;};
     void deleteTicketStatus() { this->ticketStatus_ = nullptr;};
-    inline string ticketStatus() const { DARABONBA_PTR_GET_DEFAULT(ticketStatus_, "") };
+    inline string getTicketStatus() const { DARABONBA_PTR_GET_DEFAULT(ticketStatus_, "") };
     inline AsyncResourcePlanOperationResult& setTicketStatus(string ticketStatus) { DARABONBA_PTR_SET_VALUE(ticketStatus_, ticketStatus) };
 
 
   protected:
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> plan_ = nullptr;
-    std::shared_ptr<string> ticketStatus_ = nullptr;
+    // The information about the ticket. The value of this parameter is returned when the value of the ticketStatus parameter is FAILED or EXECUTING.
+    shared_ptr<string> message_ {};
+    // The resource configuration plan of the deployment in expert mode. The value of this parameter is returned when the value of the ticketStatus parameter is FINISHED.
+    shared_ptr<string> plan_ {};
+    // The status of the ticket that applies for an asynchronous operation. Valid values:
+    // 
+    // *   EXECUTING
+    // *   FINISHED
+    // *   FAILED
+    shared_ptr<string> ticketStatus_ {};
   };
 
   } // namespace Models

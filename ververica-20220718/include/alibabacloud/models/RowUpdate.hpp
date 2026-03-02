@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->row_ == nullptr
-        && return this->rowKind_ == nullptr; };
+        && this->rowKind_ == nullptr; };
     // row Field Functions 
     bool hasRow() const { return this->row_ != nullptr;};
     void deleteRow() { this->row_ = nullptr;};
-    inline const Row & row() const { DARABONBA_PTR_GET_CONST(row_, Row) };
-    inline Row row() { DARABONBA_PTR_GET(row_, Row) };
+    inline const Row & getRow() const { DARABONBA_PTR_GET_CONST(row_, Row) };
+    inline Row getRow() { DARABONBA_PTR_GET(row_, Row) };
     inline RowUpdate& setRow(const Row & row) { DARABONBA_PTR_SET_VALUE(row_, row) };
     inline RowUpdate& setRow(Row && row) { DARABONBA_PTR_SET_RVALUE(row_, row) };
 
@@ -46,13 +46,13 @@ namespace Models
     // rowKind Field Functions 
     bool hasRowKind() const { return this->rowKind_ != nullptr;};
     void deleteRowKind() { this->rowKind_ = nullptr;};
-    inline string rowKind() const { DARABONBA_PTR_GET_DEFAULT(rowKind_, "") };
+    inline string getRowKind() const { DARABONBA_PTR_GET_DEFAULT(rowKind_, "") };
     inline RowUpdate& setRowKind(string rowKind) { DARABONBA_PTR_SET_VALUE(rowKind_, rowKind) };
 
 
   protected:
-    std::shared_ptr<Row> row_ = nullptr;
-    std::shared_ptr<string> rowKind_ = nullptr;
+    shared_ptr<Row> row_ {};
+    shared_ptr<string> rowKind_ {};
   };
 
   } // namespace Models

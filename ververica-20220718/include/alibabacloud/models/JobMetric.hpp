@@ -32,24 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->totalCpu_ == nullptr
-        && return this->totalMemoryByte_ == nullptr; };
+        && this->totalMemoryByte_ == nullptr; };
     // totalCpu Field Functions 
     bool hasTotalCpu() const { return this->totalCpu_ != nullptr;};
     void deleteTotalCpu() { this->totalCpu_ = nullptr;};
-    inline double totalCpu() const { DARABONBA_PTR_GET_DEFAULT(totalCpu_, 0.0) };
+    inline double getTotalCpu() const { DARABONBA_PTR_GET_DEFAULT(totalCpu_, 0.0) };
     inline JobMetric& setTotalCpu(double totalCpu) { DARABONBA_PTR_SET_VALUE(totalCpu_, totalCpu) };
 
 
     // totalMemoryByte Field Functions 
     bool hasTotalMemoryByte() const { return this->totalMemoryByte_ != nullptr;};
     void deleteTotalMemoryByte() { this->totalMemoryByte_ = nullptr;};
-    inline int64_t totalMemoryByte() const { DARABONBA_PTR_GET_DEFAULT(totalMemoryByte_, 0L) };
+    inline int64_t getTotalMemoryByte() const { DARABONBA_PTR_GET_DEFAULT(totalMemoryByte_, 0L) };
     inline JobMetric& setTotalMemoryByte(int64_t totalMemoryByte) { DARABONBA_PTR_SET_VALUE(totalMemoryByte_, totalMemoryByte) };
 
 
   protected:
-    std::shared_ptr<double> totalCpu_ = nullptr;
-    std::shared_ptr<int64_t> totalMemoryByte_ = nullptr;
+    // The number of CPU cores.
+    shared_ptr<double> totalCpu_ {};
+    // The memory size. Unit: bytes.
+    shared_ptr<int64_t> totalMemoryByte_ {};
   };
 
   } // namespace Models

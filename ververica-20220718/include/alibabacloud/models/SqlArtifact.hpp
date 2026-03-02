@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->additionalDependencies_ == nullptr
-        && return this->sqlScript_ == nullptr; };
+        && this->sqlScript_ == nullptr; };
     // additionalDependencies Field Functions 
     bool hasAdditionalDependencies() const { return this->additionalDependencies_ != nullptr;};
     void deleteAdditionalDependencies() { this->additionalDependencies_ = nullptr;};
-    inline const vector<string> & additionalDependencies() const { DARABONBA_PTR_GET_CONST(additionalDependencies_, vector<string>) };
-    inline vector<string> additionalDependencies() { DARABONBA_PTR_GET(additionalDependencies_, vector<string>) };
+    inline const vector<string> & getAdditionalDependencies() const { DARABONBA_PTR_GET_CONST(additionalDependencies_, vector<string>) };
+    inline vector<string> getAdditionalDependencies() { DARABONBA_PTR_GET(additionalDependencies_, vector<string>) };
     inline SqlArtifact& setAdditionalDependencies(const vector<string> & additionalDependencies) { DARABONBA_PTR_SET_VALUE(additionalDependencies_, additionalDependencies) };
     inline SqlArtifact& setAdditionalDependencies(vector<string> && additionalDependencies) { DARABONBA_PTR_SET_RVALUE(additionalDependencies_, additionalDependencies) };
 
@@ -46,13 +46,15 @@ namespace Models
     // sqlScript Field Functions 
     bool hasSqlScript() const { return this->sqlScript_ != nullptr;};
     void deleteSqlScript() { this->sqlScript_ = nullptr;};
-    inline string sqlScript() const { DARABONBA_PTR_GET_DEFAULT(sqlScript_, "") };
+    inline string getSqlScript() const { DARABONBA_PTR_GET_DEFAULT(sqlScript_, "") };
     inline SqlArtifact& setSqlScript(string sqlScript) { DARABONBA_PTR_SET_VALUE(sqlScript_, sqlScript) };
 
 
   protected:
-    std::shared_ptr<vector<string>> additionalDependencies_ = nullptr;
-    std::shared_ptr<string> sqlScript_ = nullptr;
+    // The additional dependency files. If you want to use dependencies such as UDFs, connectors, and formats that are not registered on Ververica Platform (VVP), you need to configure this parameter. You do not need to configure this parameter for dependencies that are registered on VVP.
+    shared_ptr<vector<string>> additionalDependencies_ {};
+    // The script of the SQL deployment.
+    shared_ptr<string> sqlScript_ {};
   };
 
   } // namespace Models

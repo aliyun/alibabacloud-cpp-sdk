@@ -33,7 +33,7 @@ namespace Models
     // jarUrl Field Functions 
     bool hasJarUrl() const { return this->jarUrl_ != nullptr;};
     void deleteJarUrl() { this->jarUrl_ = nullptr;};
-    inline string jarUrl() const { DARABONBA_PTR_GET_DEFAULT(jarUrl_, "") };
+    inline string getJarUrl() const { DARABONBA_PTR_GET_DEFAULT(jarUrl_, "") };
     inline RegisterCustomConnectorRequest& setJarUrl(string jarUrl) { DARABONBA_PTR_SET_VALUE(jarUrl_, jarUrl) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The URL in which the JAR package of the custom connector is stored. The platform must be able to access this address.
     // 
     // This parameter is required.
-    std::shared_ptr<string> jarUrl_ = nullptr;
+    shared_ptr<string> jarUrl_ {};
   };
 
   } // namespace Models

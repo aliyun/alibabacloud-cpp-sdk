@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const SqlStatementWithContext & body() const { DARABONBA_PTR_GET_CONST(body_, SqlStatementWithContext) };
-    inline SqlStatementWithContext body() { DARABONBA_PTR_GET(body_, SqlStatementWithContext) };
+    inline const SqlStatementWithContext & getBody() const { DARABONBA_PTR_GET_CONST(body_, SqlStatementWithContext) };
+    inline SqlStatementWithContext getBody() { DARABONBA_PTR_GET(body_, SqlStatementWithContext) };
     inline ValidateSqlStatementRequest& setBody(const SqlStatementWithContext & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline ValidateSqlStatementRequest& setBody(SqlStatementWithContext && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The content of the code that you want to verify.
     // 
     // This parameter is required.
-    std::shared_ptr<SqlStatementWithContext> body_ = nullptr;
+    shared_ptr<SqlStatementWithContext> body_ {};
   };
 
   } // namespace Models

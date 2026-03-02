@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetEventsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(deploymentId, deploymentId_);
+      DARABONBA_PTR_TO_JSON(deploymentName, deploymentName_);
       DARABONBA_PTR_TO_JSON(pageIndex, pageIndex_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, GetEventsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(deploymentId, deploymentId_);
+      DARABONBA_PTR_FROM_JSON(deploymentName, deploymentName_);
       DARABONBA_PTR_FROM_JSON(pageIndex, pageIndex_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
     };
@@ -34,32 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deploymentId_ == nullptr
-        && return this->pageIndex_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->deploymentName_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr; };
     // deploymentId Field Functions 
     bool hasDeploymentId() const { return this->deploymentId_ != nullptr;};
     void deleteDeploymentId() { this->deploymentId_ = nullptr;};
-    inline string deploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
+    inline string getDeploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
     inline GetEventsRequest& setDeploymentId(string deploymentId) { DARABONBA_PTR_SET_VALUE(deploymentId_, deploymentId) };
+
+
+    // deploymentName Field Functions 
+    bool hasDeploymentName() const { return this->deploymentName_ != nullptr;};
+    void deleteDeploymentName() { this->deploymentName_ = nullptr;};
+    inline string getDeploymentName() const { DARABONBA_PTR_GET_DEFAULT(deploymentName_, "") };
+    inline GetEventsRequest& setDeploymentName(string deploymentName) { DARABONBA_PTR_SET_VALUE(deploymentName_, deploymentName) };
 
 
     // pageIndex Field Functions 
     bool hasPageIndex() const { return this->pageIndex_ != nullptr;};
     void deletePageIndex() { this->pageIndex_ = nullptr;};
-    inline int32_t pageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
+    inline int32_t getPageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
     inline GetEventsRequest& setPageIndex(int32_t pageIndex) { DARABONBA_PTR_SET_VALUE(pageIndex_, pageIndex) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetEventsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
-    std::shared_ptr<string> deploymentId_ = nullptr;
-    std::shared_ptr<int32_t> pageIndex_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<string> deploymentId_ {};
+    shared_ptr<string> deploymentName_ {};
+    shared_ptr<int32_t> pageIndex_ {};
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

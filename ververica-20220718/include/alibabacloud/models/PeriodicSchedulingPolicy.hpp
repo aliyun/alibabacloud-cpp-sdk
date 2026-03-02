@@ -44,41 +44,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isFinished_ == nullptr
-        && return this->onlyOnceTriggerTime_ == nullptr && return this->onlyOnceTriggerTimeIsExpired_ == nullptr && return this->periodicSchedulingLevel_ == nullptr && return this->periodicSchedulingValues_ == nullptr && return this->periodicTriggerTime_ == nullptr
-        && return this->resourceSetting_ == nullptr; };
+        && this->onlyOnceTriggerTime_ == nullptr && this->onlyOnceTriggerTimeIsExpired_ == nullptr && this->periodicSchedulingLevel_ == nullptr && this->periodicSchedulingValues_ == nullptr && this->periodicTriggerTime_ == nullptr
+        && this->resourceSetting_ == nullptr; };
     // isFinished Field Functions 
     bool hasIsFinished() const { return this->isFinished_ != nullptr;};
     void deleteIsFinished() { this->isFinished_ = nullptr;};
-    inline bool isFinished() const { DARABONBA_PTR_GET_DEFAULT(isFinished_, false) };
+    inline bool getIsFinished() const { DARABONBA_PTR_GET_DEFAULT(isFinished_, false) };
     inline PeriodicSchedulingPolicy& setIsFinished(bool isFinished) { DARABONBA_PTR_SET_VALUE(isFinished_, isFinished) };
 
 
     // onlyOnceTriggerTime Field Functions 
     bool hasOnlyOnceTriggerTime() const { return this->onlyOnceTriggerTime_ != nullptr;};
     void deleteOnlyOnceTriggerTime() { this->onlyOnceTriggerTime_ = nullptr;};
-    inline int64_t onlyOnceTriggerTime() const { DARABONBA_PTR_GET_DEFAULT(onlyOnceTriggerTime_, 0L) };
+    inline int64_t getOnlyOnceTriggerTime() const { DARABONBA_PTR_GET_DEFAULT(onlyOnceTriggerTime_, 0L) };
     inline PeriodicSchedulingPolicy& setOnlyOnceTriggerTime(int64_t onlyOnceTriggerTime) { DARABONBA_PTR_SET_VALUE(onlyOnceTriggerTime_, onlyOnceTriggerTime) };
 
 
     // onlyOnceTriggerTimeIsExpired Field Functions 
     bool hasOnlyOnceTriggerTimeIsExpired() const { return this->onlyOnceTriggerTimeIsExpired_ != nullptr;};
     void deleteOnlyOnceTriggerTimeIsExpired() { this->onlyOnceTriggerTimeIsExpired_ = nullptr;};
-    inline bool onlyOnceTriggerTimeIsExpired() const { DARABONBA_PTR_GET_DEFAULT(onlyOnceTriggerTimeIsExpired_, false) };
+    inline bool getOnlyOnceTriggerTimeIsExpired() const { DARABONBA_PTR_GET_DEFAULT(onlyOnceTriggerTimeIsExpired_, false) };
     inline PeriodicSchedulingPolicy& setOnlyOnceTriggerTimeIsExpired(bool onlyOnceTriggerTimeIsExpired) { DARABONBA_PTR_SET_VALUE(onlyOnceTriggerTimeIsExpired_, onlyOnceTriggerTimeIsExpired) };
 
 
     // periodicSchedulingLevel Field Functions 
     bool hasPeriodicSchedulingLevel() const { return this->periodicSchedulingLevel_ != nullptr;};
     void deletePeriodicSchedulingLevel() { this->periodicSchedulingLevel_ = nullptr;};
-    inline string periodicSchedulingLevel() const { DARABONBA_PTR_GET_DEFAULT(periodicSchedulingLevel_, "") };
+    inline string getPeriodicSchedulingLevel() const { DARABONBA_PTR_GET_DEFAULT(periodicSchedulingLevel_, "") };
     inline PeriodicSchedulingPolicy& setPeriodicSchedulingLevel(string periodicSchedulingLevel) { DARABONBA_PTR_SET_VALUE(periodicSchedulingLevel_, periodicSchedulingLevel) };
 
 
     // periodicSchedulingValues Field Functions 
     bool hasPeriodicSchedulingValues() const { return this->periodicSchedulingValues_ != nullptr;};
     void deletePeriodicSchedulingValues() { this->periodicSchedulingValues_ = nullptr;};
-    inline const vector<int32_t> & periodicSchedulingValues() const { DARABONBA_PTR_GET_CONST(periodicSchedulingValues_, vector<int32_t>) };
-    inline vector<int32_t> periodicSchedulingValues() { DARABONBA_PTR_GET(periodicSchedulingValues_, vector<int32_t>) };
+    inline const vector<int32_t> & getPeriodicSchedulingValues() const { DARABONBA_PTR_GET_CONST(periodicSchedulingValues_, vector<int32_t>) };
+    inline vector<int32_t> getPeriodicSchedulingValues() { DARABONBA_PTR_GET(periodicSchedulingValues_, vector<int32_t>) };
     inline PeriodicSchedulingPolicy& setPeriodicSchedulingValues(const vector<int32_t> & periodicSchedulingValues) { DARABONBA_PTR_SET_VALUE(periodicSchedulingValues_, periodicSchedulingValues) };
     inline PeriodicSchedulingPolicy& setPeriodicSchedulingValues(vector<int32_t> && periodicSchedulingValues) { DARABONBA_PTR_SET_RVALUE(periodicSchedulingValues_, periodicSchedulingValues) };
 
@@ -86,27 +86,27 @@ namespace Models
     // periodicTriggerTime Field Functions 
     bool hasPeriodicTriggerTime() const { return this->periodicTriggerTime_ != nullptr;};
     void deletePeriodicTriggerTime() { this->periodicTriggerTime_ = nullptr;};
-    inline int64_t periodicTriggerTime() const { DARABONBA_PTR_GET_DEFAULT(periodicTriggerTime_, 0L) };
+    inline int64_t getPeriodicTriggerTime() const { DARABONBA_PTR_GET_DEFAULT(periodicTriggerTime_, 0L) };
     inline PeriodicSchedulingPolicy& setPeriodicTriggerTime(int64_t periodicTriggerTime) { DARABONBA_PTR_SET_VALUE(periodicTriggerTime_, periodicTriggerTime) };
 
 
     // resourceSetting Field Functions 
     bool hasResourceSetting() const { return this->resourceSetting_ != nullptr;};
     void deleteResourceSetting() { this->resourceSetting_ = nullptr;};
-    inline const BriefResourceSetting & resourceSetting() const { DARABONBA_PTR_GET_CONST(resourceSetting_, BriefResourceSetting) };
-    inline BriefResourceSetting resourceSetting() { DARABONBA_PTR_GET(resourceSetting_, BriefResourceSetting) };
+    inline const BriefResourceSetting & getResourceSetting() const { DARABONBA_PTR_GET_CONST(resourceSetting_, BriefResourceSetting) };
+    inline BriefResourceSetting getResourceSetting() { DARABONBA_PTR_GET(resourceSetting_, BriefResourceSetting) };
     inline PeriodicSchedulingPolicy& setResourceSetting(const BriefResourceSetting & resourceSetting) { DARABONBA_PTR_SET_VALUE(resourceSetting_, resourceSetting) };
     inline PeriodicSchedulingPolicy& setResourceSetting(BriefResourceSetting && resourceSetting) { DARABONBA_PTR_SET_RVALUE(resourceSetting_, resourceSetting) };
 
 
   protected:
-    std::shared_ptr<bool> isFinished_ = nullptr;
-    std::shared_ptr<int64_t> onlyOnceTriggerTime_ = nullptr;
-    std::shared_ptr<bool> onlyOnceTriggerTimeIsExpired_ = nullptr;
-    std::shared_ptr<string> periodicSchedulingLevel_ = nullptr;
-    std::shared_ptr<vector<int32_t>> periodicSchedulingValues_ = nullptr;
-    std::shared_ptr<int64_t> periodicTriggerTime_ = nullptr;
-    std::shared_ptr<BriefResourceSetting> resourceSetting_ = nullptr;
+    shared_ptr<bool> isFinished_ {};
+    shared_ptr<int64_t> onlyOnceTriggerTime_ {};
+    shared_ptr<bool> onlyOnceTriggerTimeIsExpired_ {};
+    shared_ptr<string> periodicSchedulingLevel_ {};
+    shared_ptr<vector<int32_t>> periodicSchedulingValues_ {};
+    shared_ptr<int64_t> periodicTriggerTime_ {};
+    shared_ptr<BriefResourceSetting> resourceSetting_ {};
   };
 
   } // namespace Models

@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ignoreJobSummary_ == nullptr
-        && return this->ignoreResourceSetting_ == nullptr && return this->labelKey_ == nullptr && return this->labelValue_ == nullptr; };
+        && this->ignoreResourceSetting_ == nullptr && this->labelKey_ == nullptr && this->labelValue_ == nullptr; };
     // ignoreJobSummary Field Functions 
     bool hasIgnoreJobSummary() const { return this->ignoreJobSummary_ != nullptr;};
     void deleteIgnoreJobSummary() { this->ignoreJobSummary_ = nullptr;};
-    inline bool ignoreJobSummary() const { DARABONBA_PTR_GET_DEFAULT(ignoreJobSummary_, false) };
+    inline bool getIgnoreJobSummary() const { DARABONBA_PTR_GET_DEFAULT(ignoreJobSummary_, false) };
     inline GetDeploymentsByLabelRequest& setIgnoreJobSummary(bool ignoreJobSummary) { DARABONBA_PTR_SET_VALUE(ignoreJobSummary_, ignoreJobSummary) };
 
 
     // ignoreResourceSetting Field Functions 
     bool hasIgnoreResourceSetting() const { return this->ignoreResourceSetting_ != nullptr;};
     void deleteIgnoreResourceSetting() { this->ignoreResourceSetting_ = nullptr;};
-    inline bool ignoreResourceSetting() const { DARABONBA_PTR_GET_DEFAULT(ignoreResourceSetting_, false) };
+    inline bool getIgnoreResourceSetting() const { DARABONBA_PTR_GET_DEFAULT(ignoreResourceSetting_, false) };
     inline GetDeploymentsByLabelRequest& setIgnoreResourceSetting(bool ignoreResourceSetting) { DARABONBA_PTR_SET_VALUE(ignoreResourceSetting_, ignoreResourceSetting) };
 
 
     // labelKey Field Functions 
     bool hasLabelKey() const { return this->labelKey_ != nullptr;};
     void deleteLabelKey() { this->labelKey_ = nullptr;};
-    inline string labelKey() const { DARABONBA_PTR_GET_DEFAULT(labelKey_, "") };
+    inline string getLabelKey() const { DARABONBA_PTR_GET_DEFAULT(labelKey_, "") };
     inline GetDeploymentsByLabelRequest& setLabelKey(string labelKey) { DARABONBA_PTR_SET_VALUE(labelKey_, labelKey) };
 
 
     // labelValue Field Functions 
     bool hasLabelValue() const { return this->labelValue_ != nullptr;};
     void deleteLabelValue() { this->labelValue_ = nullptr;};
-    inline string labelValue() const { DARABONBA_PTR_GET_DEFAULT(labelValue_, "") };
+    inline string getLabelValue() const { DARABONBA_PTR_GET_DEFAULT(labelValue_, "") };
     inline GetDeploymentsByLabelRequest& setLabelValue(string labelValue) { DARABONBA_PTR_SET_VALUE(labelValue_, labelValue) };
 
 
   protected:
-    std::shared_ptr<bool> ignoreJobSummary_ = nullptr;
-    std::shared_ptr<bool> ignoreResourceSetting_ = nullptr;
+    shared_ptr<bool> ignoreJobSummary_ {};
+    shared_ptr<bool> ignoreResourceSetting_ {};
     // This parameter is required.
-    std::shared_ptr<string> labelKey_ = nullptr;
+    shared_ptr<string> labelKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> labelValue_ = nullptr;
+    shared_ptr<string> labelValue_ {};
   };
 
   } // namespace Models

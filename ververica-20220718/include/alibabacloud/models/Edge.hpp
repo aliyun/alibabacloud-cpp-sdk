@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->columnLineage_ == nullptr
-        && return this->tableLineage_ == nullptr; };
+        && this->tableLineage_ == nullptr; };
     // columnLineage Field Functions 
     bool hasColumnLineage() const { return this->columnLineage_ != nullptr;};
     void deleteColumnLineage() { this->columnLineage_ = nullptr;};
-    inline const vector<Relation> & columnLineage() const { DARABONBA_PTR_GET_CONST(columnLineage_, vector<Relation>) };
-    inline vector<Relation> columnLineage() { DARABONBA_PTR_GET(columnLineage_, vector<Relation>) };
+    inline const vector<Relation> & getColumnLineage() const { DARABONBA_PTR_GET_CONST(columnLineage_, vector<Relation>) };
+    inline vector<Relation> getColumnLineage() { DARABONBA_PTR_GET(columnLineage_, vector<Relation>) };
     inline Edge& setColumnLineage(const vector<Relation> & columnLineage) { DARABONBA_PTR_SET_VALUE(columnLineage_, columnLineage) };
     inline Edge& setColumnLineage(vector<Relation> && columnLineage) { DARABONBA_PTR_SET_RVALUE(columnLineage_, columnLineage) };
 
@@ -47,15 +47,17 @@ namespace Models
     // tableLineage Field Functions 
     bool hasTableLineage() const { return this->tableLineage_ != nullptr;};
     void deleteTableLineage() { this->tableLineage_ = nullptr;};
-    inline const vector<Relation> & tableLineage() const { DARABONBA_PTR_GET_CONST(tableLineage_, vector<Relation>) };
-    inline vector<Relation> tableLineage() { DARABONBA_PTR_GET(tableLineage_, vector<Relation>) };
+    inline const vector<Relation> & getTableLineage() const { DARABONBA_PTR_GET_CONST(tableLineage_, vector<Relation>) };
+    inline vector<Relation> getTableLineage() { DARABONBA_PTR_GET(tableLineage_, vector<Relation>) };
     inline Edge& setTableLineage(const vector<Relation> & tableLineage) { DARABONBA_PTR_SET_VALUE(tableLineage_, tableLineage) };
     inline Edge& setTableLineage(vector<Relation> && tableLineage) { DARABONBA_PTR_SET_RVALUE(tableLineage_, tableLineage) };
 
 
   protected:
-    std::shared_ptr<vector<Relation>> columnLineage_ = nullptr;
-    std::shared_ptr<vector<Relation>> tableLineage_ = nullptr;
+    // The field-level data lineage.
+    shared_ptr<vector<Relation>> columnLineage_ {};
+    // The table-level data lineage.
+    shared_ptr<vector<Relation>> tableLineage_ {};
   };
 
   } // namespace Models

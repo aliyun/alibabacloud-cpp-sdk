@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->basicResourceSetting_ == nullptr
-        && return this->expertResourceSetting_ == nullptr && return this->resourceSettingMode_ == nullptr; };
+        && this->expertResourceSetting_ == nullptr && this->resourceSettingMode_ == nullptr; };
     // basicResourceSetting Field Functions 
     bool hasBasicResourceSetting() const { return this->basicResourceSetting_ != nullptr;};
     void deleteBasicResourceSetting() { this->basicResourceSetting_ = nullptr;};
-    inline const BasicResourceSetting & basicResourceSetting() const { DARABONBA_PTR_GET_CONST(basicResourceSetting_, BasicResourceSetting) };
-    inline BasicResourceSetting basicResourceSetting() { DARABONBA_PTR_GET(basicResourceSetting_, BasicResourceSetting) };
+    inline const BasicResourceSetting & getBasicResourceSetting() const { DARABONBA_PTR_GET_CONST(basicResourceSetting_, BasicResourceSetting) };
+    inline BasicResourceSetting getBasicResourceSetting() { DARABONBA_PTR_GET(basicResourceSetting_, BasicResourceSetting) };
     inline StreamingResourceSetting& setBasicResourceSetting(const BasicResourceSetting & basicResourceSetting) { DARABONBA_PTR_SET_VALUE(basicResourceSetting_, basicResourceSetting) };
     inline StreamingResourceSetting& setBasicResourceSetting(BasicResourceSetting && basicResourceSetting) { DARABONBA_PTR_SET_RVALUE(basicResourceSetting_, basicResourceSetting) };
 
@@ -49,8 +49,8 @@ namespace Models
     // expertResourceSetting Field Functions 
     bool hasExpertResourceSetting() const { return this->expertResourceSetting_ != nullptr;};
     void deleteExpertResourceSetting() { this->expertResourceSetting_ = nullptr;};
-    inline const ExpertResourceSetting & expertResourceSetting() const { DARABONBA_PTR_GET_CONST(expertResourceSetting_, ExpertResourceSetting) };
-    inline ExpertResourceSetting expertResourceSetting() { DARABONBA_PTR_GET(expertResourceSetting_, ExpertResourceSetting) };
+    inline const ExpertResourceSetting & getExpertResourceSetting() const { DARABONBA_PTR_GET_CONST(expertResourceSetting_, ExpertResourceSetting) };
+    inline ExpertResourceSetting getExpertResourceSetting() { DARABONBA_PTR_GET(expertResourceSetting_, ExpertResourceSetting) };
     inline StreamingResourceSetting& setExpertResourceSetting(const ExpertResourceSetting & expertResourceSetting) { DARABONBA_PTR_SET_VALUE(expertResourceSetting_, expertResourceSetting) };
     inline StreamingResourceSetting& setExpertResourceSetting(ExpertResourceSetting && expertResourceSetting) { DARABONBA_PTR_SET_RVALUE(expertResourceSetting_, expertResourceSetting) };
 
@@ -58,14 +58,20 @@ namespace Models
     // resourceSettingMode Field Functions 
     bool hasResourceSettingMode() const { return this->resourceSettingMode_ != nullptr;};
     void deleteResourceSettingMode() { this->resourceSettingMode_ = nullptr;};
-    inline string resourceSettingMode() const { DARABONBA_PTR_GET_DEFAULT(resourceSettingMode_, "") };
+    inline string getResourceSettingMode() const { DARABONBA_PTR_GET_DEFAULT(resourceSettingMode_, "") };
     inline StreamingResourceSetting& setResourceSettingMode(string resourceSettingMode) { DARABONBA_PTR_SET_VALUE(resourceSettingMode_, resourceSettingMode) };
 
 
   protected:
-    std::shared_ptr<BasicResourceSetting> basicResourceSetting_ = nullptr;
-    std::shared_ptr<ExpertResourceSetting> expertResourceSetting_ = nullptr;
-    std::shared_ptr<string> resourceSettingMode_ = nullptr;
+    // The resource parameters in basic mode.
+    shared_ptr<BasicResourceSetting> basicResourceSetting_ {};
+    // The resource parameters in expert mode.
+    shared_ptr<ExpertResourceSetting> expertResourceSetting_ {};
+    // The resource configuration mode used by a deployment that runs in streaming mode. Valid values:
+    // 
+    // *   EXPERT
+    // *   BASIC
+    shared_ptr<string> resourceSettingMode_ {};
   };
 
   } // namespace Models

@@ -34,15 +34,17 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const Variable & body() const { DARABONBA_PTR_GET_CONST(body_, Variable) };
-    inline Variable body() { DARABONBA_PTR_GET(body_, Variable) };
+    inline const Variable & getBody() const { DARABONBA_PTR_GET_CONST(body_, Variable) };
+    inline Variable getBody() { DARABONBA_PTR_GET(body_, Variable) };
     inline UpdateVariableRequest& setBody(const Variable & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline UpdateVariableRequest& setBody(Variable && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
+    // The information about the variable after the update.
+    // 
     // This parameter is required.
-    std::shared_ptr<Variable> body_ = nullptr;
+    shared_ptr<Variable> body_ {};
   };
 
   } // namespace Models

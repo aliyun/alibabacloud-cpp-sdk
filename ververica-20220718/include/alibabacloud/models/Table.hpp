@@ -45,20 +45,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->metadata_ == nullptr && return this->name_ == nullptr && return this->partitionKeys_ == nullptr && return this->properties_ == nullptr && return this->schema_ == nullptr
-        && return this->tableType_ == nullptr; };
+        && this->metadata_ == nullptr && this->name_ == nullptr && this->partitionKeys_ == nullptr && this->properties_ == nullptr && this->schema_ == nullptr
+        && this->tableType_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline Table& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // metadata Field Functions 
     bool hasMetadata() const { return this->metadata_ != nullptr;};
     void deleteMetadata() { this->metadata_ = nullptr;};
-    inline const map<string, string> & metadata() const { DARABONBA_PTR_GET_CONST(metadata_, map<string, string>) };
-    inline map<string, string> metadata() { DARABONBA_PTR_GET(metadata_, map<string, string>) };
+    inline const map<string, string> & getMetadata() const { DARABONBA_PTR_GET_CONST(metadata_, map<string, string>) };
+    inline map<string, string> getMetadata() { DARABONBA_PTR_GET(metadata_, map<string, string>) };
     inline Table& setMetadata(const map<string, string> & metadata) { DARABONBA_PTR_SET_VALUE(metadata_, metadata) };
     inline Table& setMetadata(map<string, string> && metadata) { DARABONBA_PTR_SET_RVALUE(metadata_, metadata) };
 
@@ -66,15 +66,15 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline Table& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // partitionKeys Field Functions 
     bool hasPartitionKeys() const { return this->partitionKeys_ != nullptr;};
     void deletePartitionKeys() { this->partitionKeys_ = nullptr;};
-    inline const vector<string> & partitionKeys() const { DARABONBA_PTR_GET_CONST(partitionKeys_, vector<string>) };
-    inline vector<string> partitionKeys() { DARABONBA_PTR_GET(partitionKeys_, vector<string>) };
+    inline const vector<string> & getPartitionKeys() const { DARABONBA_PTR_GET_CONST(partitionKeys_, vector<string>) };
+    inline vector<string> getPartitionKeys() { DARABONBA_PTR_GET(partitionKeys_, vector<string>) };
     inline Table& setPartitionKeys(const vector<string> & partitionKeys) { DARABONBA_PTR_SET_VALUE(partitionKeys_, partitionKeys) };
     inline Table& setPartitionKeys(vector<string> && partitionKeys) { DARABONBA_PTR_SET_RVALUE(partitionKeys_, partitionKeys) };
 
@@ -82,17 +82,17 @@ namespace Models
     // properties Field Functions 
     bool hasProperties() const { return this->properties_ != nullptr;};
     void deleteProperties() { this->properties_ = nullptr;};
-    inline     const Darabonba::Json & properties() const { DARABONBA_GET(properties_) };
-    Darabonba::Json & properties() { DARABONBA_GET(properties_) };
+    inline     const Darabonba::Json & getProperties() const { DARABONBA_GET(properties_) };
+    Darabonba::Json & getProperties() { DARABONBA_GET(properties_) };
     inline Table& setProperties(const Darabonba::Json & properties) { DARABONBA_SET_VALUE(properties_, properties) };
-    inline Table& setProperties(Darabonba::Json & properties) { DARABONBA_SET_RVALUE(properties_, properties) };
+    inline Table& setProperties(Darabonba::Json && properties) { DARABONBA_SET_RVALUE(properties_, properties) };
 
 
     // schema Field Functions 
     bool hasSchema() const { return this->schema_ != nullptr;};
     void deleteSchema() { this->schema_ = nullptr;};
-    inline const Schema & schema() const { DARABONBA_PTR_GET_CONST(schema_, Schema) };
-    inline Schema schema() { DARABONBA_PTR_GET(schema_, Schema) };
+    inline const Schema & getSchema() const { DARABONBA_PTR_GET_CONST(schema_, Schema) };
+    inline Schema getSchema() { DARABONBA_PTR_GET(schema_, Schema) };
     inline Table& setSchema(const Schema & schema) { DARABONBA_PTR_SET_VALUE(schema_, schema) };
     inline Table& setSchema(Schema && schema) { DARABONBA_PTR_SET_RVALUE(schema_, schema) };
 
@@ -100,20 +100,30 @@ namespace Models
     // tableType Field Functions 
     bool hasTableType() const { return this->tableType_ != nullptr;};
     void deleteTableType() { this->tableType_ = nullptr;};
-    inline string tableType() const { DARABONBA_PTR_GET_DEFAULT(tableType_, "") };
+    inline string getTableType() const { DARABONBA_PTR_GET_DEFAULT(tableType_, "") };
     inline Table& setTableType(string tableType) { DARABONBA_PTR_SET_VALUE(tableType_, tableType) };
 
 
   protected:
-    std::shared_ptr<string> comment_ = nullptr;
-    std::shared_ptr<map<string, string>> metadata_ = nullptr;
+    // The comment.
+    shared_ptr<string> comment_ {};
+    shared_ptr<map<string, string>> metadata_ {};
+    // The name of the table.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<vector<string>> partitionKeys_ = nullptr;
-    Darabonba::Json properties_ = nullptr;
-    std::shared_ptr<Schema> schema_ = nullptr;
+    shared_ptr<string> name_ {};
+    // The partition key column.
+    shared_ptr<vector<string>> partitionKeys_ {};
+    // The parameter configurations of the table.
+    Darabonba::Json properties_ {};
+    // The schema information about the table.
+    shared_ptr<Schema> schema_ {};
+    // TABLE;
+    //   MATERIALIZED_TABLE;
+    //   VIEW;
+    // 
     // This parameter is required.
-    std::shared_ptr<string> tableType_ = nullptr;
+    shared_ptr<string> tableType_ {};
   };
 
   } // namespace Models

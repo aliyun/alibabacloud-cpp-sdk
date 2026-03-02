@@ -48,34 +48,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->artifactType_ == nullptr
-        && return this->createdAt_ == nullptr && return this->creator_ == nullptr && return this->dependencyJarUris_ == nullptr && return this->jarUrl_ == nullptr && return this->modifiedAt_ == nullptr
-        && return this->name_ == nullptr && return this->namespace_ == nullptr && return this->udfClasses_ == nullptr; };
+        && this->createdAt_ == nullptr && this->creator_ == nullptr && this->dependencyJarUris_ == nullptr && this->jarUrl_ == nullptr && this->modifiedAt_ == nullptr
+        && this->name_ == nullptr && this->namespace_ == nullptr && this->udfClasses_ == nullptr; };
     // artifactType Field Functions 
     bool hasArtifactType() const { return this->artifactType_ != nullptr;};
     void deleteArtifactType() { this->artifactType_ = nullptr;};
-    inline string artifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
+    inline string getArtifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
     inline UdfArtifact& setArtifactType(string artifactType) { DARABONBA_PTR_SET_VALUE(artifactType_, artifactType) };
 
 
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
-    inline int64_t createdAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, 0L) };
+    inline int64_t getCreatedAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, 0L) };
     inline UdfArtifact& setCreatedAt(int64_t createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
 
 
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
-    inline string creator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
+    inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
     inline UdfArtifact& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
 
 
     // dependencyJarUris Field Functions 
     bool hasDependencyJarUris() const { return this->dependencyJarUris_ != nullptr;};
     void deleteDependencyJarUris() { this->dependencyJarUris_ = nullptr;};
-    inline const vector<string> & dependencyJarUris() const { DARABONBA_PTR_GET_CONST(dependencyJarUris_, vector<string>) };
-    inline vector<string> dependencyJarUris() { DARABONBA_PTR_GET(dependencyJarUris_, vector<string>) };
+    inline const vector<string> & getDependencyJarUris() const { DARABONBA_PTR_GET_CONST(dependencyJarUris_, vector<string>) };
+    inline vector<string> getDependencyJarUris() { DARABONBA_PTR_GET(dependencyJarUris_, vector<string>) };
     inline UdfArtifact& setDependencyJarUris(const vector<string> & dependencyJarUris) { DARABONBA_PTR_SET_VALUE(dependencyJarUris_, dependencyJarUris) };
     inline UdfArtifact& setDependencyJarUris(vector<string> && dependencyJarUris) { DARABONBA_PTR_SET_RVALUE(dependencyJarUris_, dependencyJarUris) };
 
@@ -83,50 +83,59 @@ namespace Models
     // jarUrl Field Functions 
     bool hasJarUrl() const { return this->jarUrl_ != nullptr;};
     void deleteJarUrl() { this->jarUrl_ = nullptr;};
-    inline string jarUrl() const { DARABONBA_PTR_GET_DEFAULT(jarUrl_, "") };
+    inline string getJarUrl() const { DARABONBA_PTR_GET_DEFAULT(jarUrl_, "") };
     inline UdfArtifact& setJarUrl(string jarUrl) { DARABONBA_PTR_SET_VALUE(jarUrl_, jarUrl) };
 
 
     // modifiedAt Field Functions 
     bool hasModifiedAt() const { return this->modifiedAt_ != nullptr;};
     void deleteModifiedAt() { this->modifiedAt_ = nullptr;};
-    inline int64_t modifiedAt() const { DARABONBA_PTR_GET_DEFAULT(modifiedAt_, 0L) };
+    inline int64_t getModifiedAt() const { DARABONBA_PTR_GET_DEFAULT(modifiedAt_, 0L) };
     inline UdfArtifact& setModifiedAt(int64_t modifiedAt) { DARABONBA_PTR_SET_VALUE(modifiedAt_, modifiedAt) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UdfArtifact& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline UdfArtifact& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // udfClasses Field Functions 
     bool hasUdfClasses() const { return this->udfClasses_ != nullptr;};
     void deleteUdfClasses() { this->udfClasses_ = nullptr;};
-    inline const vector<UdfClass> & udfClasses() const { DARABONBA_PTR_GET_CONST(udfClasses_, vector<UdfClass>) };
-    inline vector<UdfClass> udfClasses() { DARABONBA_PTR_GET(udfClasses_, vector<UdfClass>) };
+    inline const vector<UdfClass> & getUdfClasses() const { DARABONBA_PTR_GET_CONST(udfClasses_, vector<UdfClass>) };
+    inline vector<UdfClass> getUdfClasses() { DARABONBA_PTR_GET(udfClasses_, vector<UdfClass>) };
     inline UdfArtifact& setUdfClasses(const vector<UdfClass> & udfClasses) { DARABONBA_PTR_SET_VALUE(udfClasses_, udfClasses) };
     inline UdfArtifact& setUdfClasses(vector<UdfClass> && udfClasses) { DARABONBA_PTR_SET_RVALUE(udfClasses_, udfClasses) };
 
 
   protected:
-    std::shared_ptr<string> artifactType_ = nullptr;
-    std::shared_ptr<int64_t> createdAt_ = nullptr;
-    std::shared_ptr<string> creator_ = nullptr;
-    std::shared_ptr<vector<string>> dependencyJarUris_ = nullptr;
-    std::shared_ptr<string> jarUrl_ = nullptr;
-    std::shared_ptr<int64_t> modifiedAt_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<vector<UdfClass>> udfClasses_ = nullptr;
+    // The type of the JAR file.
+    shared_ptr<string> artifactType_ {};
+    // The time when the JAR file was created.
+    shared_ptr<int64_t> createdAt_ {};
+    // The user that creates the JAR file.
+    shared_ptr<string> creator_ {};
+    // The list of paths in which the additional dependencies of the JAR file are stored.
+    shared_ptr<vector<string>> dependencyJarUris_ {};
+    // The path in which the JAR file is stored.
+    shared_ptr<string> jarUrl_ {};
+    // The time when the JAR file was modified.
+    shared_ptr<int64_t> modifiedAt_ {};
+    // The name of the JAR file.
+    shared_ptr<string> name_ {};
+    // The namespace.
+    shared_ptr<string> namespace_ {};
+    // The list of the class name of the JAR file.
+    shared_ptr<vector<UdfClass>> udfClasses_ {};
   };
 
   } // namespace Models

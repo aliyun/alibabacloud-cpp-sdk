@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jarUrl_ == nullptr
-        && return this->preSignedUrl_ == nullptr; };
+        && this->preSignedUrl_ == nullptr; };
     // jarUrl Field Functions 
     bool hasJarUrl() const { return this->jarUrl_ != nullptr;};
     void deleteJarUrl() { this->jarUrl_ = nullptr;};
-    inline string jarUrl() const { DARABONBA_PTR_GET_DEFAULT(jarUrl_, "") };
+    inline string getJarUrl() const { DARABONBA_PTR_GET_DEFAULT(jarUrl_, "") };
     inline GetPreSignedUrlForObjectResult& setJarUrl(string jarUrl) { DARABONBA_PTR_SET_VALUE(jarUrl_, jarUrl) };
 
 
     // preSignedUrl Field Functions 
     bool hasPreSignedUrl() const { return this->preSignedUrl_ != nullptr;};
     void deletePreSignedUrl() { this->preSignedUrl_ = nullptr;};
-    inline string preSignedUrl() const { DARABONBA_PTR_GET_DEFAULT(preSignedUrl_, "") };
+    inline string getPreSignedUrl() const { DARABONBA_PTR_GET_DEFAULT(preSignedUrl_, "") };
     inline GetPreSignedUrlForObjectResult& setPreSignedUrl(string preSignedUrl) { DARABONBA_PTR_SET_VALUE(preSignedUrl_, preSignedUrl) };
 
 
   protected:
-    std::shared_ptr<string> jarUrl_ = nullptr;
-    std::shared_ptr<string> preSignedUrl_ = nullptr;
+    shared_ptr<string> jarUrl_ {};
+    shared_ptr<string> preSignedUrl_ {};
   };
 
   } // namespace Models

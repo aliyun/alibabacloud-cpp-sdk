@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalogName_ == nullptr
-        && return this->databaseName_ == nullptr && return this->tableName_ == nullptr; };
+        && this->databaseName_ == nullptr && this->tableName_ == nullptr; };
     // catalogName Field Functions 
     bool hasCatalogName() const { return this->catalogName_ != nullptr;};
     void deleteCatalogName() { this->catalogName_ = nullptr;};
-    inline string catalogName() const { DARABONBA_PTR_GET_DEFAULT(catalogName_, "") };
+    inline string getCatalogName() const { DARABONBA_PTR_GET_DEFAULT(catalogName_, "") };
     inline TableMeta& setCatalogName(string catalogName) { DARABONBA_PTR_SET_VALUE(catalogName_, catalogName) };
 
 
     // databaseName Field Functions 
     bool hasDatabaseName() const { return this->databaseName_ != nullptr;};
     void deleteDatabaseName() { this->databaseName_ = nullptr;};
-    inline string databaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
+    inline string getDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
     inline TableMeta& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
 
 
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline TableMeta& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
   protected:
-    std::shared_ptr<string> catalogName_ = nullptr;
-    std::shared_ptr<string> databaseName_ = nullptr;
-    std::shared_ptr<string> tableName_ = nullptr;
+    shared_ptr<string> catalogName_ {};
+    shared_ptr<string> databaseName_ {};
+    shared_ptr<string> tableName_ {};
   };
 
   } // namespace Models

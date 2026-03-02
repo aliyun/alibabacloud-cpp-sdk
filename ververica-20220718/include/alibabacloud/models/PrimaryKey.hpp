@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->columns_ == nullptr
-        && return this->constraintName_ == nullptr && return this->constraintType_ == nullptr && return this->enforced_ == nullptr; };
+        && this->constraintName_ == nullptr && this->constraintType_ == nullptr && this->enforced_ == nullptr; };
     // columns Field Functions 
     bool hasColumns() const { return this->columns_ != nullptr;};
     void deleteColumns() { this->columns_ = nullptr;};
-    inline const vector<string> & columns() const { DARABONBA_PTR_GET_CONST(columns_, vector<string>) };
-    inline vector<string> columns() { DARABONBA_PTR_GET(columns_, vector<string>) };
+    inline const vector<string> & getColumns() const { DARABONBA_PTR_GET_CONST(columns_, vector<string>) };
+    inline vector<string> getColumns() { DARABONBA_PTR_GET(columns_, vector<string>) };
     inline PrimaryKey& setColumns(const vector<string> & columns) { DARABONBA_PTR_SET_VALUE(columns_, columns) };
     inline PrimaryKey& setColumns(vector<string> && columns) { DARABONBA_PTR_SET_RVALUE(columns_, columns) };
 
@@ -50,33 +50,33 @@ namespace Models
     // constraintName Field Functions 
     bool hasConstraintName() const { return this->constraintName_ != nullptr;};
     void deleteConstraintName() { this->constraintName_ = nullptr;};
-    inline string constraintName() const { DARABONBA_PTR_GET_DEFAULT(constraintName_, "") };
+    inline string getConstraintName() const { DARABONBA_PTR_GET_DEFAULT(constraintName_, "") };
     inline PrimaryKey& setConstraintName(string constraintName) { DARABONBA_PTR_SET_VALUE(constraintName_, constraintName) };
 
 
     // constraintType Field Functions 
     bool hasConstraintType() const { return this->constraintType_ != nullptr;};
     void deleteConstraintType() { this->constraintType_ = nullptr;};
-    inline string constraintType() const { DARABONBA_PTR_GET_DEFAULT(constraintType_, "") };
+    inline string getConstraintType() const { DARABONBA_PTR_GET_DEFAULT(constraintType_, "") };
     inline PrimaryKey& setConstraintType(string constraintType) { DARABONBA_PTR_SET_VALUE(constraintType_, constraintType) };
 
 
     // enforced Field Functions 
     bool hasEnforced() const { return this->enforced_ != nullptr;};
     void deleteEnforced() { this->enforced_ = nullptr;};
-    inline bool enforced() const { DARABONBA_PTR_GET_DEFAULT(enforced_, false) };
+    inline bool getEnforced() const { DARABONBA_PTR_GET_DEFAULT(enforced_, false) };
     inline PrimaryKey& setEnforced(bool enforced) { DARABONBA_PTR_SET_VALUE(enforced_, enforced) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> columns_ = nullptr;
+    shared_ptr<vector<string>> columns_ {};
     // This parameter is required.
-    std::shared_ptr<string> constraintName_ = nullptr;
+    shared_ptr<string> constraintName_ {};
     // This parameter is required.
-    std::shared_ptr<string> constraintType_ = nullptr;
+    shared_ptr<string> constraintType_ {};
     // This parameter is required.
-    std::shared_ptr<bool> enforced_ = nullptr;
+    shared_ptr<bool> enforced_ {};
   };
 
   } // namespace Models

@@ -34,15 +34,15 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const Member & body() const { DARABONBA_PTR_GET_CONST(body_, Member) };
-    inline Member body() { DARABONBA_PTR_GET(body_, Member) };
+    inline const Member & getBody() const { DARABONBA_PTR_GET_CONST(body_, Member) };
+    inline Member getBody() { DARABONBA_PTR_GET(body_, Member) };
     inline CreateMemberRequest& setBody(const Member & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateMemberRequest& setBody(Member && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     // The mappings between the ID and permissions of the member.
-    std::shared_ptr<Member> body_ = nullptr;
+    shared_ptr<Member> body_ {};
   };
 
   } // namespace Models

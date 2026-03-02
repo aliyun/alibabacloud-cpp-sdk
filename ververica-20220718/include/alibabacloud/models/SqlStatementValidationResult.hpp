@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errorDetails_ == nullptr
-        && return this->message_ == nullptr && return this->success_ == nullptr && return this->validationResult_ == nullptr; };
+        && this->message_ == nullptr && this->success_ == nullptr && this->validationResult_ == nullptr; };
     // errorDetails Field Functions 
     bool hasErrorDetails() const { return this->errorDetails_ != nullptr;};
     void deleteErrorDetails() { this->errorDetails_ = nullptr;};
-    inline const ErrorDetails & errorDetails() const { DARABONBA_PTR_GET_CONST(errorDetails_, ErrorDetails) };
-    inline ErrorDetails errorDetails() { DARABONBA_PTR_GET(errorDetails_, ErrorDetails) };
+    inline const ErrorDetails & getErrorDetails() const { DARABONBA_PTR_GET_CONST(errorDetails_, ErrorDetails) };
+    inline ErrorDetails getErrorDetails() { DARABONBA_PTR_GET(errorDetails_, ErrorDetails) };
     inline SqlStatementValidationResult& setErrorDetails(const ErrorDetails & errorDetails) { DARABONBA_PTR_SET_VALUE(errorDetails_, errorDetails) };
     inline SqlStatementValidationResult& setErrorDetails(ErrorDetails && errorDetails) { DARABONBA_PTR_SET_RVALUE(errorDetails_, errorDetails) };
 
@@ -50,29 +50,33 @@ namespace Models
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline SqlStatementValidationResult& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline SqlStatementValidationResult& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // validationResult Field Functions 
     bool hasValidationResult() const { return this->validationResult_ != nullptr;};
     void deleteValidationResult() { this->validationResult_ = nullptr;};
-    inline string validationResult() const { DARABONBA_PTR_GET_DEFAULT(validationResult_, "") };
+    inline string getValidationResult() const { DARABONBA_PTR_GET_DEFAULT(validationResult_, "") };
     inline SqlStatementValidationResult& setValidationResult(string validationResult) { DARABONBA_PTR_SET_VALUE(validationResult_, validationResult) };
 
 
   protected:
-    std::shared_ptr<ErrorDetails> errorDetails_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
-    std::shared_ptr<string> validationResult_ = nullptr;
+    // The error message of the verification result.
+    shared_ptr<ErrorDetails> errorDetails_ {};
+    // The verification information.
+    shared_ptr<string> message_ {};
+    // Indicates whether the request was successful.
+    shared_ptr<bool> success_ {};
+    // The verification result.
+    shared_ptr<string> validationResult_ {};
   };
 
   } // namespace Models

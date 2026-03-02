@@ -33,13 +33,13 @@ namespace Models
     // deploymentId Field Functions 
     bool hasDeploymentId() const { return this->deploymentId_ != nullptr;};
     void deleteDeploymentId() { this->deploymentId_ = nullptr;};
-    inline string deploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
+    inline string getDeploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
     inline GetAppliedScheduledPlanRequest& setDeploymentId(string deploymentId) { DARABONBA_PTR_SET_VALUE(deploymentId_, deploymentId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> deploymentId_ = nullptr;
+    shared_ptr<string> deploymentId_ {};
   };
 
   } // namespace Models

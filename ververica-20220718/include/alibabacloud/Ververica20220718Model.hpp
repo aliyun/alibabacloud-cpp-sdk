@@ -47,6 +47,12 @@
 #include <alibabacloud/models/ResourceSpec.hpp>
 #include <alibabacloud/models/ResourceQuota.hpp>
 #include <alibabacloud/models/DeploymentTarget.hpp>
+#include <alibabacloud/models/TableSchema.hpp>
+#include <alibabacloud/models/SubmitPreviewResult.hpp>
+#include <alibabacloud/models/Row.hpp>
+#include <alibabacloud/models/RowUpdate.hpp>
+#include <alibabacloud/models/TableResult.hpp>
+#include <alibabacloud/models/DqlResult.hpp>
 #include <alibabacloud/models/DraftDeployParams.hpp>
 #include <alibabacloud/models/DraftDeployResult.hpp>
 #include <alibabacloud/models/DraftValidateParams.hpp>
@@ -58,9 +64,6 @@
 #include <alibabacloud/models/EngineVersionMetadataIndex.hpp>
 #include <alibabacloud/models/ErrorDetails.hpp>
 #include <alibabacloud/models/Event.hpp>
-#include <alibabacloud/models/Row.hpp>
-#include <alibabacloud/models/RowUpdate.hpp>
-#include <alibabacloud/models/TableResult.hpp>
 #include <alibabacloud/models/FetchResult.hpp>
 #include <alibabacloud/models/SubFolder.hpp>
 #include <alibabacloud/models/Folder.hpp>
@@ -88,8 +91,8 @@
 #include <alibabacloud/models/Node.hpp>
 #include <alibabacloud/models/LineageInfo.hpp>
 #include <alibabacloud/models/Member.hpp>
-#include <alibabacloud/models/NodeExecutionContextDto.hpp>
-#include <alibabacloud/models/NodeExecutionStatusDto.hpp>
+#include <alibabacloud/models/NodeExecutionContextDTO.hpp>
+#include <alibabacloud/models/NodeExecutionStatusDTO.hpp>
 #include <alibabacloud/models/PeriodicSchedulingPolicy.hpp>
 #include <alibabacloud/models/Resource.hpp>
 #include <alibabacloud/models/SavepointFailure.hpp>
@@ -103,14 +106,18 @@
 #include <alibabacloud/models/SessionClusterRunningInfo.hpp>
 #include <alibabacloud/models/SessionClusterStatus.hpp>
 #include <alibabacloud/models/SessionCluster.hpp>
+#include <alibabacloud/models/SqlStatement.hpp>
+#include <alibabacloud/models/SqlExecution.hpp>
+#include <alibabacloud/models/SqlExecutionFetchResult.hpp>
+#include <alibabacloud/models/SqlFile.hpp>
 #include <alibabacloud/models/SqlStatementExecuteResult.hpp>
 #include <alibabacloud/models/SqlStatementValidationResult.hpp>
 #include <alibabacloud/models/SqlStatementWithContext.hpp>
 #include <alibabacloud/models/StartJobRequestBody.hpp>
+#include <alibabacloud/models/StartSqlExecutionBody.hpp>
+#include <alibabacloud/models/StartSqlExecutionResult.hpp>
 #include <alibabacloud/models/StopJobRequestBody.hpp>
-#include <alibabacloud/models/TableSchema.hpp>
 #include <alibabacloud/models/SubmitPreview.hpp>
-#include <alibabacloud/models/SubmitPreviewResult.hpp>
 #include <alibabacloud/models/Table.hpp>
 #include <alibabacloud/models/TableMeta.hpp>
 #include <alibabacloud/models/UdfFunction.hpp>
@@ -447,9 +454,5 @@
 #include <alibabacloud/models/ValidateSqlStatementRequest.hpp>
 #include <alibabacloud/models/ValidateSqlStatementResponseBody.hpp>
 #include <alibabacloud/models/ValidateSqlStatementResponse.hpp>
-#include <alibabacloud/models/DeployDeploymentDraftAsyncResponseBodyData.hpp>
-#include <alibabacloud/models/GenerateResourcePlanWithFlinkConfAsyncResponseBodyData.hpp>
-#include <alibabacloud/models/ListEditableNamespaceResponseBodyData.hpp>
-#include <alibabacloud/models/ValidateDeploymentDraftAsyncResponseBodyData.hpp>
 
 #endif

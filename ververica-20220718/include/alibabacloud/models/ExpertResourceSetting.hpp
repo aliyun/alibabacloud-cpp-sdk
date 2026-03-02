@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobmanagerResourceSettingSpec_ == nullptr
-        && return this->resourcePlan_ == nullptr; };
+        && this->resourcePlan_ == nullptr; };
     // jobmanagerResourceSettingSpec Field Functions 
     bool hasJobmanagerResourceSettingSpec() const { return this->jobmanagerResourceSettingSpec_ != nullptr;};
     void deleteJobmanagerResourceSettingSpec() { this->jobmanagerResourceSettingSpec_ = nullptr;};
-    inline const BasicResourceSettingSpec & jobmanagerResourceSettingSpec() const { DARABONBA_PTR_GET_CONST(jobmanagerResourceSettingSpec_, BasicResourceSettingSpec) };
-    inline BasicResourceSettingSpec jobmanagerResourceSettingSpec() { DARABONBA_PTR_GET(jobmanagerResourceSettingSpec_, BasicResourceSettingSpec) };
+    inline const BasicResourceSettingSpec & getJobmanagerResourceSettingSpec() const { DARABONBA_PTR_GET_CONST(jobmanagerResourceSettingSpec_, BasicResourceSettingSpec) };
+    inline BasicResourceSettingSpec getJobmanagerResourceSettingSpec() { DARABONBA_PTR_GET(jobmanagerResourceSettingSpec_, BasicResourceSettingSpec) };
     inline ExpertResourceSetting& setJobmanagerResourceSettingSpec(const BasicResourceSettingSpec & jobmanagerResourceSettingSpec) { DARABONBA_PTR_SET_VALUE(jobmanagerResourceSettingSpec_, jobmanagerResourceSettingSpec) };
     inline ExpertResourceSetting& setJobmanagerResourceSettingSpec(BasicResourceSettingSpec && jobmanagerResourceSettingSpec) { DARABONBA_PTR_SET_RVALUE(jobmanagerResourceSettingSpec_, jobmanagerResourceSettingSpec) };
 
@@ -46,13 +46,15 @@ namespace Models
     // resourcePlan Field Functions 
     bool hasResourcePlan() const { return this->resourcePlan_ != nullptr;};
     void deleteResourcePlan() { this->resourcePlan_ = nullptr;};
-    inline string resourcePlan() const { DARABONBA_PTR_GET_DEFAULT(resourcePlan_, "") };
+    inline string getResourcePlan() const { DARABONBA_PTR_GET_DEFAULT(resourcePlan_, "") };
     inline ExpertResourceSetting& setResourcePlan(string resourcePlan) { DARABONBA_PTR_SET_VALUE(resourcePlan_, resourcePlan) };
 
 
   protected:
-    std::shared_ptr<BasicResourceSettingSpec> jobmanagerResourceSettingSpec_ = nullptr;
-    std::shared_ptr<string> resourcePlan_ = nullptr;
+    // The basic resource configuration of the JobManager.
+    shared_ptr<BasicResourceSettingSpec> jobmanagerResourceSettingSpec_ {};
+    // The resource configuration plan of the deployment in expert mode.
+    shared_ptr<string> resourcePlan_ {};
   };
 
   } // namespace Models

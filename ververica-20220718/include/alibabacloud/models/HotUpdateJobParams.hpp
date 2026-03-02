@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->rescaleJobParam_ == nullptr
-        && return this->updateJobConfigParam_ == nullptr; };
+        && this->updateJobConfigParam_ == nullptr; };
     // rescaleJobParam Field Functions 
     bool hasRescaleJobParam() const { return this->rescaleJobParam_ != nullptr;};
     void deleteRescaleJobParam() { this->rescaleJobParam_ = nullptr;};
-    inline const RescaleJobParam & rescaleJobParam() const { DARABONBA_PTR_GET_CONST(rescaleJobParam_, RescaleJobParam) };
-    inline RescaleJobParam rescaleJobParam() { DARABONBA_PTR_GET(rescaleJobParam_, RescaleJobParam) };
+    inline const RescaleJobParam & getRescaleJobParam() const { DARABONBA_PTR_GET_CONST(rescaleJobParam_, RescaleJobParam) };
+    inline RescaleJobParam getRescaleJobParam() { DARABONBA_PTR_GET(rescaleJobParam_, RescaleJobParam) };
     inline HotUpdateJobParams& setRescaleJobParam(const RescaleJobParam & rescaleJobParam) { DARABONBA_PTR_SET_VALUE(rescaleJobParam_, rescaleJobParam) };
     inline HotUpdateJobParams& setRescaleJobParam(RescaleJobParam && rescaleJobParam) { DARABONBA_PTR_SET_RVALUE(rescaleJobParam_, rescaleJobParam) };
 
@@ -47,15 +47,15 @@ namespace Models
     // updateJobConfigParam Field Functions 
     bool hasUpdateJobConfigParam() const { return this->updateJobConfigParam_ != nullptr;};
     void deleteUpdateJobConfigParam() { this->updateJobConfigParam_ = nullptr;};
-    inline const UpdateJobConfigParam & updateJobConfigParam() const { DARABONBA_PTR_GET_CONST(updateJobConfigParam_, UpdateJobConfigParam) };
-    inline UpdateJobConfigParam updateJobConfigParam() { DARABONBA_PTR_GET(updateJobConfigParam_, UpdateJobConfigParam) };
+    inline const UpdateJobConfigParam & getUpdateJobConfigParam() const { DARABONBA_PTR_GET_CONST(updateJobConfigParam_, UpdateJobConfigParam) };
+    inline UpdateJobConfigParam getUpdateJobConfigParam() { DARABONBA_PTR_GET(updateJobConfigParam_, UpdateJobConfigParam) };
     inline HotUpdateJobParams& setUpdateJobConfigParam(const UpdateJobConfigParam & updateJobConfigParam) { DARABONBA_PTR_SET_VALUE(updateJobConfigParam_, updateJobConfigParam) };
     inline HotUpdateJobParams& setUpdateJobConfigParam(UpdateJobConfigParam && updateJobConfigParam) { DARABONBA_PTR_SET_RVALUE(updateJobConfigParam_, updateJobConfigParam) };
 
 
   protected:
-    std::shared_ptr<RescaleJobParam> rescaleJobParam_ = nullptr;
-    std::shared_ptr<UpdateJobConfigParam> updateJobConfigParam_ = nullptr;
+    shared_ptr<RescaleJobParam> rescaleJobParam_ {};
+    shared_ptr<UpdateJobConfigParam> updateJobConfigParam_ {};
   };
 
   } // namespace Models

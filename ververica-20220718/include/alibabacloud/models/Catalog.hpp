@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->extensionConf_ == nullptr
-        && return this->name_ == nullptr && return this->properties_ == nullptr; };
+        && this->name_ == nullptr && this->properties_ == nullptr; };
     // extensionConf Field Functions 
     bool hasExtensionConf() const { return this->extensionConf_ != nullptr;};
     void deleteExtensionConf() { this->extensionConf_ = nullptr;};
-    inline const map<string, string> & extensionConf() const { DARABONBA_PTR_GET_CONST(extensionConf_, map<string, string>) };
-    inline map<string, string> extensionConf() { DARABONBA_PTR_GET(extensionConf_, map<string, string>) };
+    inline const map<string, string> & getExtensionConf() const { DARABONBA_PTR_GET_CONST(extensionConf_, map<string, string>) };
+    inline map<string, string> getExtensionConf() { DARABONBA_PTR_GET(extensionConf_, map<string, string>) };
     inline Catalog& setExtensionConf(const map<string, string> & extensionConf) { DARABONBA_PTR_SET_VALUE(extensionConf_, extensionConf) };
     inline Catalog& setExtensionConf(map<string, string> && extensionConf) { DARABONBA_PTR_SET_RVALUE(extensionConf_, extensionConf) };
 
@@ -48,25 +48,25 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline Catalog& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // properties Field Functions 
     bool hasProperties() const { return this->properties_ != nullptr;};
     void deleteProperties() { this->properties_ = nullptr;};
-    inline     const Darabonba::Json & properties() const { DARABONBA_GET(properties_) };
-    Darabonba::Json & properties() { DARABONBA_GET(properties_) };
+    inline     const Darabonba::Json & getProperties() const { DARABONBA_GET(properties_) };
+    Darabonba::Json & getProperties() { DARABONBA_GET(properties_) };
     inline Catalog& setProperties(const Darabonba::Json & properties) { DARABONBA_SET_VALUE(properties_, properties) };
-    inline Catalog& setProperties(Darabonba::Json & properties) { DARABONBA_SET_RVALUE(properties_, properties) };
+    inline Catalog& setProperties(Darabonba::Json && properties) { DARABONBA_SET_RVALUE(properties_, properties) };
 
 
   protected:
-    std::shared_ptr<map<string, string>> extensionConf_ = nullptr;
+    shared_ptr<map<string, string>> extensionConf_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    Darabonba::Json properties_ = nullptr;
+    Darabonba::Json properties_ {};
   };
 
   } // namespace Models

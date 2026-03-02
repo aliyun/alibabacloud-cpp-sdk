@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jarArtifact_ == nullptr
-        && return this->kind_ == nullptr && return this->pythonArtifact_ == nullptr && return this->sqlArtifact_ == nullptr; };
+        && this->kind_ == nullptr && this->pythonArtifact_ == nullptr && this->sqlArtifact_ == nullptr; };
     // jarArtifact Field Functions 
     bool hasJarArtifact() const { return this->jarArtifact_ != nullptr;};
     void deleteJarArtifact() { this->jarArtifact_ = nullptr;};
-    inline const JarArtifact & jarArtifact() const { DARABONBA_PTR_GET_CONST(jarArtifact_, JarArtifact) };
-    inline JarArtifact jarArtifact() { DARABONBA_PTR_GET(jarArtifact_, JarArtifact) };
+    inline const JarArtifact & getJarArtifact() const { DARABONBA_PTR_GET_CONST(jarArtifact_, JarArtifact) };
+    inline JarArtifact getJarArtifact() { DARABONBA_PTR_GET(jarArtifact_, JarArtifact) };
     inline Artifact& setJarArtifact(const JarArtifact & jarArtifact) { DARABONBA_PTR_SET_VALUE(jarArtifact_, jarArtifact) };
     inline Artifact& setJarArtifact(JarArtifact && jarArtifact) { DARABONBA_PTR_SET_RVALUE(jarArtifact_, jarArtifact) };
 
@@ -52,15 +52,15 @@ namespace Models
     // kind Field Functions 
     bool hasKind() const { return this->kind_ != nullptr;};
     void deleteKind() { this->kind_ = nullptr;};
-    inline string kind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
+    inline string getKind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
     inline Artifact& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
 
 
     // pythonArtifact Field Functions 
     bool hasPythonArtifact() const { return this->pythonArtifact_ != nullptr;};
     void deletePythonArtifact() { this->pythonArtifact_ = nullptr;};
-    inline const PythonArtifact & pythonArtifact() const { DARABONBA_PTR_GET_CONST(pythonArtifact_, PythonArtifact) };
-    inline PythonArtifact pythonArtifact() { DARABONBA_PTR_GET(pythonArtifact_, PythonArtifact) };
+    inline const PythonArtifact & getPythonArtifact() const { DARABONBA_PTR_GET_CONST(pythonArtifact_, PythonArtifact) };
+    inline PythonArtifact getPythonArtifact() { DARABONBA_PTR_GET(pythonArtifact_, PythonArtifact) };
     inline Artifact& setPythonArtifact(const PythonArtifact & pythonArtifact) { DARABONBA_PTR_SET_VALUE(pythonArtifact_, pythonArtifact) };
     inline Artifact& setPythonArtifact(PythonArtifact && pythonArtifact) { DARABONBA_PTR_SET_RVALUE(pythonArtifact_, pythonArtifact) };
 
@@ -68,17 +68,25 @@ namespace Models
     // sqlArtifact Field Functions 
     bool hasSqlArtifact() const { return this->sqlArtifact_ != nullptr;};
     void deleteSqlArtifact() { this->sqlArtifact_ = nullptr;};
-    inline const SqlArtifact & sqlArtifact() const { DARABONBA_PTR_GET_CONST(sqlArtifact_, SqlArtifact) };
-    inline SqlArtifact sqlArtifact() { DARABONBA_PTR_GET(sqlArtifact_, SqlArtifact) };
+    inline const SqlArtifact & getSqlArtifact() const { DARABONBA_PTR_GET_CONST(sqlArtifact_, SqlArtifact) };
+    inline SqlArtifact getSqlArtifact() { DARABONBA_PTR_GET(sqlArtifact_, SqlArtifact) };
     inline Artifact& setSqlArtifact(const SqlArtifact & sqlArtifact) { DARABONBA_PTR_SET_VALUE(sqlArtifact_, sqlArtifact) };
     inline Artifact& setSqlArtifact(SqlArtifact && sqlArtifact) { DARABONBA_PTR_SET_RVALUE(sqlArtifact_, sqlArtifact) };
 
 
   protected:
-    std::shared_ptr<JarArtifact> jarArtifact_ = nullptr;
-    std::shared_ptr<string> kind_ = nullptr;
-    std::shared_ptr<PythonArtifact> pythonArtifact_ = nullptr;
-    std::shared_ptr<SqlArtifact> sqlArtifact_ = nullptr;
+    // The information required for the SQL deployment.
+    shared_ptr<JarArtifact> jarArtifact_ {};
+    // The type of the deployment. This parameter is required and cannot be modified after the deployment is created.
+    // 
+    // *   SQLSCRIPT
+    // *   JAR
+    // *   PYTHON
+    shared_ptr<string> kind_ {};
+    // The information required for the Python deployment.
+    shared_ptr<PythonArtifact> pythonArtifact_ {};
+    // The information required for the JAR deployment.
+    shared_ptr<SqlArtifact> sqlArtifact_ {};
   };
 
   } // namespace Models

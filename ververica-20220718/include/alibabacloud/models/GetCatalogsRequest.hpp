@@ -33,12 +33,12 @@ namespace Models
     // catalogName Field Functions 
     bool hasCatalogName() const { return this->catalogName_ != nullptr;};
     void deleteCatalogName() { this->catalogName_ = nullptr;};
-    inline string catalogName() const { DARABONBA_PTR_GET_DEFAULT(catalogName_, "") };
+    inline string getCatalogName() const { DARABONBA_PTR_GET_DEFAULT(catalogName_, "") };
     inline GetCatalogsRequest& setCatalogName(string catalogName) { DARABONBA_PTR_SET_VALUE(catalogName_, catalogName) };
 
 
   protected:
-    std::shared_ptr<string> catalogName_ = nullptr;
+    shared_ptr<string> catalogName_ {};
   };
 
   } // namespace Models

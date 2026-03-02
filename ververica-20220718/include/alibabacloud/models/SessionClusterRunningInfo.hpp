@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lastUpdateTime_ == nullptr
-        && return this->referenceDeploymentIds_ == nullptr && return this->startedAt_ == nullptr; };
+        && this->referenceDeploymentIds_ == nullptr && this->startedAt_ == nullptr; };
     // lastUpdateTime Field Functions 
     bool hasLastUpdateTime() const { return this->lastUpdateTime_ != nullptr;};
     void deleteLastUpdateTime() { this->lastUpdateTime_ = nullptr;};
-    inline int64_t lastUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(lastUpdateTime_, 0L) };
+    inline int64_t getLastUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(lastUpdateTime_, 0L) };
     inline SessionClusterRunningInfo& setLastUpdateTime(int64_t lastUpdateTime) { DARABONBA_PTR_SET_VALUE(lastUpdateTime_, lastUpdateTime) };
 
 
     // referenceDeploymentIds Field Functions 
     bool hasReferenceDeploymentIds() const { return this->referenceDeploymentIds_ != nullptr;};
     void deleteReferenceDeploymentIds() { this->referenceDeploymentIds_ = nullptr;};
-    inline const vector<string> & referenceDeploymentIds() const { DARABONBA_PTR_GET_CONST(referenceDeploymentIds_, vector<string>) };
-    inline vector<string> referenceDeploymentIds() { DARABONBA_PTR_GET(referenceDeploymentIds_, vector<string>) };
+    inline const vector<string> & getReferenceDeploymentIds() const { DARABONBA_PTR_GET_CONST(referenceDeploymentIds_, vector<string>) };
+    inline vector<string> getReferenceDeploymentIds() { DARABONBA_PTR_GET(referenceDeploymentIds_, vector<string>) };
     inline SessionClusterRunningInfo& setReferenceDeploymentIds(const vector<string> & referenceDeploymentIds) { DARABONBA_PTR_SET_VALUE(referenceDeploymentIds_, referenceDeploymentIds) };
     inline SessionClusterRunningInfo& setReferenceDeploymentIds(vector<string> && referenceDeploymentIds) { DARABONBA_PTR_SET_RVALUE(referenceDeploymentIds_, referenceDeploymentIds) };
 
@@ -55,14 +55,14 @@ namespace Models
     // startedAt Field Functions 
     bool hasStartedAt() const { return this->startedAt_ != nullptr;};
     void deleteStartedAt() { this->startedAt_ = nullptr;};
-    inline int64_t startedAt() const { DARABONBA_PTR_GET_DEFAULT(startedAt_, 0L) };
+    inline int64_t getStartedAt() const { DARABONBA_PTR_GET_DEFAULT(startedAt_, 0L) };
     inline SessionClusterRunningInfo& setStartedAt(int64_t startedAt) { DARABONBA_PTR_SET_VALUE(startedAt_, startedAt) };
 
 
   protected:
-    std::shared_ptr<int64_t> lastUpdateTime_ = nullptr;
-    std::shared_ptr<vector<string>> referenceDeploymentIds_ = nullptr;
-    std::shared_ptr<int64_t> startedAt_ = nullptr;
+    shared_ptr<int64_t> lastUpdateTime_ {};
+    shared_ptr<vector<string>> referenceDeploymentIds_ {};
+    shared_ptr<int64_t> startedAt_ {};
   };
 
   } // namespace Models

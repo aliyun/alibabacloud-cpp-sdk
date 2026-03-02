@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failureSeverity_ == nullptr
-        && return this->message_ == nullptr && return this->reason_ == nullptr; };
+        && this->message_ == nullptr && this->reason_ == nullptr; };
     // failureSeverity Field Functions 
     bool hasFailureSeverity() const { return this->failureSeverity_ != nullptr;};
     void deleteFailureSeverity() { this->failureSeverity_ = nullptr;};
-    inline string failureSeverity() const { DARABONBA_PTR_GET_DEFAULT(failureSeverity_, "") };
+    inline string getFailureSeverity() const { DARABONBA_PTR_GET_DEFAULT(failureSeverity_, "") };
     inline HotUpdateJobFailureInfo& setFailureSeverity(string failureSeverity) { DARABONBA_PTR_SET_VALUE(failureSeverity_, failureSeverity) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline HotUpdateJobFailureInfo& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline HotUpdateJobFailureInfo& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
   protected:
-    std::shared_ptr<string> failureSeverity_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> reason_ = nullptr;
+    shared_ptr<string> failureSeverity_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> reason_ {};
   };
 
   } // namespace Models
