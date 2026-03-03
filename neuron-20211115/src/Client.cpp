@@ -3718,6 +3718,14 @@ GetHistoryDeveloperResponse Client::getHistoryDeveloperWithOptions(const string 
     query["enterpriseId"] = request.getEnterpriseId();
   }
 
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
