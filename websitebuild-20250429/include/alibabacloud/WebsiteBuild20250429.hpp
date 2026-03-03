@@ -21,6 +21,23 @@ namespace WebsiteBuild20250429
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 分配Supabase实例
+       *
+       * @param request AllocateSupabaseForAdminRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AllocateSupabaseForAdminResponse
+       */
+      Models::AllocateSupabaseForAdminResponse allocateSupabaseForAdminWithOptions(const Models::AllocateSupabaseForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分配Supabase实例
+       *
+       * @param request AllocateSupabaseForAdminRequest
+       * @return AllocateSupabaseForAdminResponse
+       */
+      Models::AllocateSupabaseForAdminResponse allocateSupabaseForAdmin(const Models::AllocateSupabaseForAdminRequest &request);
+
+      /**
        * @summary Bind Application Domain
        *
        * @param request BindAppDomainRequest
@@ -546,6 +563,23 @@ namespace WebsiteBuild20250429
        * @return OperateAppServiceForPartnerResponse
        */
       Models::OperateAppServiceForPartnerResponse operateAppServiceForPartner(const Models::OperateAppServiceForPartnerRequest &request);
+
+      /**
+       * @summary 通用Supabase操作
+       *
+       * @param request OperateSupabaseForAdminRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateSupabaseForAdminResponse
+       */
+      Models::OperateSupabaseForAdminResponse operateSupabaseForAdminWithOptions(const Models::OperateSupabaseForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通用Supabase操作
+       *
+       * @param request OperateSupabaseForAdminRequest
+       * @return OperateSupabaseForAdminResponse
+       */
+      Models::OperateSupabaseForAdminResponse operateSupabaseForAdmin(const Models::OperateSupabaseForAdminRequest &request);
 
       /**
        * @summary 查询素材中心文件夹树结构

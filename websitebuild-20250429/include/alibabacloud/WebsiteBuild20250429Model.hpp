@@ -15,6 +15,9 @@
 #include <alibabacloud/models/AppMaterialTask.hpp>
 #include <alibabacloud/models/AppService.hpp>
 #include <alibabacloud/models/AppServiceGroup.hpp>
+#include <alibabacloud/models/AllocateSupabaseForAdminRequest.hpp>
+#include <alibabacloud/models/AllocateSupabaseForAdminResponseBody.hpp>
+#include <alibabacloud/models/AllocateSupabaseForAdminResponse.hpp>
 #include <alibabacloud/models/BindAppDomainRequest.hpp>
 #include <alibabacloud/models/BindAppDomainResponseBody.hpp>
 #include <alibabacloud/models/BindAppDomainResponse.hpp>
@@ -114,6 +117,9 @@
 #include <alibabacloud/models/OperateAppServiceForPartnerRequest.hpp>
 #include <alibabacloud/models/OperateAppServiceForPartnerResponseBody.hpp>
 #include <alibabacloud/models/OperateAppServiceForPartnerResponse.hpp>
+#include <alibabacloud/models/OperateSupabaseForAdminRequest.hpp>
+#include <alibabacloud/models/OperateSupabaseForAdminResponseBody.hpp>
+#include <alibabacloud/models/OperateSupabaseForAdminResponse.hpp>
 #include <alibabacloud/models/QueryMaterialDirectoryTreeRequest.hpp>
 #include <alibabacloud/models/QueryMaterialDirectoryTreeResponseBody.hpp>
 #include <alibabacloud/models/QueryMaterialDirectoryTreeResponse.hpp>

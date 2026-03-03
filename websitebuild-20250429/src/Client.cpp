@@ -36,6 +36,68 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 分配Supabase实例
+ *
+ * @param request AllocateSupabaseForAdminRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AllocateSupabaseForAdminResponse
+ */
+AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdminWithOptions(const AllocateSupabaseForAdminRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AllocateSupabaseForAdmin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AllocateSupabaseForAdminResponse>();
+}
+
+/**
+ * @summary 分配Supabase实例
+ *
+ * @param request AllocateSupabaseForAdminRequest
+ * @return AllocateSupabaseForAdminResponse
+ */
+AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdmin(const AllocateSupabaseForAdminRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return allocateSupabaseForAdminWithOptions(request, runtime);
+}
+
+/**
  * @summary Bind Application Domain
  *
  * @param request BindAppDomainRequest
@@ -1696,6 +1758,88 @@ OperateAppServiceForPartnerResponse Client::operateAppServiceForPartner(const Op
 }
 
 /**
+ * @summary 通用Supabase操作
+ *
+ * @param request OperateSupabaseForAdminRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateSupabaseForAdminResponse
+ */
+OperateSupabaseForAdminResponse Client::operateSupabaseForAdminWithOptions(const OperateSupabaseForAdminRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasExecuteSql()) {
+    query["ExecuteSql"] = request.getExecuteSql();
+  }
+
+  if (!!request.hasOperateType()) {
+    query["OperateType"] = request.getOperateType();
+  }
+
+  if (!!request.hasOrderByClause()) {
+    query["OrderByClause"] = request.getOrderByClause();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasTableName()) {
+    query["TableName"] = request.getTableName();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  if (!!request.hasWhereClause()) {
+    query["WhereClause"] = request.getWhereClause();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OperateSupabaseForAdmin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateSupabaseForAdminResponse>();
+}
+
+/**
+ * @summary 通用Supabase操作
+ *
+ * @param request OperateSupabaseForAdminRequest
+ * @return OperateSupabaseForAdminResponse
+ */
+OperateSupabaseForAdminResponse Client::operateSupabaseForAdmin(const OperateSupabaseForAdminRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateSupabaseForAdminWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询素材中心文件夹树结构
  *
  * @param request QueryMaterialDirectoryTreeRequest
@@ -2121,6 +2265,22 @@ QuerySupabaseInstanceInfoForAdminResponse Client::querySupabaseInstanceInfoForAd
 
   if (!!request.hasEnv()) {
     query["Env"] = request.getEnv();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasUserId()) {
