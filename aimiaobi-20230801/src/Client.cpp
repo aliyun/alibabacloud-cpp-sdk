@@ -5829,56 +5829,19 @@ ListDatasetDocumentsResponse Client::listDatasetDocumentsWithOptions(const ListD
     request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
-  json query = {};
+  json body = {};
   if (!!request.hasCategoryUuidsShrink()) {
-    query["CategoryUuids"] = request.getCategoryUuidsShrink();
+    body["CategoryUuids"] = request.getCategoryUuidsShrink();
   }
 
   if (!!request.hasCreateTimeEnd()) {
-    query["CreateTimeEnd"] = request.getCreateTimeEnd();
+    body["CreateTimeEnd"] = request.getCreateTimeEnd();
   }
 
   if (!!request.hasCreateTimeStart()) {
-    query["CreateTimeStart"] = request.getCreateTimeStart();
+    body["CreateTimeStart"] = request.getCreateTimeStart();
   }
 
-  if (!!request.hasDocIdsShrink()) {
-    query["DocIds"] = request.getDocIdsShrink();
-  }
-
-  if (!!request.hasDocUuidsShrink()) {
-    query["DocUuids"] = request.getDocUuidsShrink();
-  }
-
-  if (!!request.hasEndTime()) {
-    query["EndTime"] = request.getEndTime();
-  }
-
-  if (!!request.hasExtend1()) {
-    query["Extend1"] = request.getExtend1();
-  }
-
-  if (!!request.hasExtend2()) {
-    query["Extend2"] = request.getExtend2();
-  }
-
-  if (!!request.hasExtend3()) {
-    query["Extend3"] = request.getExtend3();
-  }
-
-  if (!!request.hasStartTime()) {
-    query["StartTime"] = request.getStartTime();
-  }
-
-  if (!!request.hasTagsShrink()) {
-    query["Tags"] = request.getTagsShrink();
-  }
-
-  if (!!request.hasTitle()) {
-    query["Title"] = request.getTitle();
-  }
-
-  json body = {};
   if (!!request.hasDatasetDescription()) {
     body["DatasetDescription"] = request.getDatasetDescription();
   }
@@ -5891,12 +5854,36 @@ ListDatasetDocumentsResponse Client::listDatasetDocumentsWithOptions(const ListD
     body["DatasetName"] = request.getDatasetName();
   }
 
+  if (!!request.hasDocIdsShrink()) {
+    body["DocIds"] = request.getDocIdsShrink();
+  }
+
   if (!!request.hasDocType()) {
     body["DocType"] = request.getDocType();
   }
 
+  if (!!request.hasDocUuidsShrink()) {
+    body["DocUuids"] = request.getDocUuidsShrink();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
   if (!!request.hasExcludeFieldsShrink()) {
     body["ExcludeFields"] = request.getExcludeFieldsShrink();
+  }
+
+  if (!!request.hasExtend1()) {
+    body["Extend1"] = request.getExtend1();
+  }
+
+  if (!!request.hasExtend2()) {
+    body["Extend2"] = request.getExtend2();
+  }
+
+  if (!!request.hasExtend3()) {
+    body["Extend3"] = request.getExtend3();
   }
 
   if (!!request.hasIncludeFieldsShrink()) {
@@ -5915,8 +5902,20 @@ ListDatasetDocumentsResponse Client::listDatasetDocumentsWithOptions(const ListD
     body["Query"] = request.getQuery();
   }
 
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.getStartTime();
+  }
+
   if (!!request.hasStatus()) {
     body["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    body["Tags"] = request.getTagsShrink();
+  }
+
+  if (!!request.hasTitle()) {
+    body["Title"] = request.getTitle();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -5924,9 +5923,8 @@ ListDatasetDocumentsResponse Client::listDatasetDocumentsWithOptions(const ListD
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListDatasetDocuments"},
     {"version" , "2023-08-01"},
@@ -13318,56 +13316,19 @@ SearchDatasetDocumentsResponse Client::searchDatasetDocumentsWithOptions(const S
     request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
-  json query = {};
+  json body = {};
   if (!!request.hasCategoryUuidsShrink()) {
-    query["CategoryUuids"] = request.getCategoryUuidsShrink();
+    body["CategoryUuids"] = request.getCategoryUuidsShrink();
   }
 
   if (!!request.hasCreateTimeEnd()) {
-    query["CreateTimeEnd"] = request.getCreateTimeEnd();
+    body["CreateTimeEnd"] = request.getCreateTimeEnd();
   }
 
   if (!!request.hasCreateTimeStart()) {
-    query["CreateTimeStart"] = request.getCreateTimeStart();
+    body["CreateTimeStart"] = request.getCreateTimeStart();
   }
 
-  if (!!request.hasDocIdsShrink()) {
-    query["DocIds"] = request.getDocIdsShrink();
-  }
-
-  if (!!request.hasDocTypesShrink()) {
-    query["DocTypes"] = request.getDocTypesShrink();
-  }
-
-  if (!!request.hasDocUuidsShrink()) {
-    query["DocUuids"] = request.getDocUuidsShrink();
-  }
-
-  if (!!request.hasEndTime()) {
-    query["EndTime"] = request.getEndTime();
-  }
-
-  if (!!request.hasExtend2()) {
-    query["Extend2"] = request.getExtend2();
-  }
-
-  if (!!request.hasExtend3()) {
-    query["Extend3"] = request.getExtend3();
-  }
-
-  if (!!request.hasSearchMode()) {
-    query["SearchMode"] = request.getSearchMode();
-  }
-
-  if (!!request.hasStartTime()) {
-    query["StartTime"] = request.getStartTime();
-  }
-
-  if (!!request.hasTagsShrink()) {
-    query["Tags"] = request.getTagsShrink();
-  }
-
-  json body = {};
   if (!!request.hasDatasetId()) {
     body["DatasetId"] = request.getDatasetId();
   }
@@ -13376,8 +13337,32 @@ SearchDatasetDocumentsResponse Client::searchDatasetDocumentsWithOptions(const S
     body["DatasetName"] = request.getDatasetName();
   }
 
+  if (!!request.hasDocIdsShrink()) {
+    body["DocIds"] = request.getDocIdsShrink();
+  }
+
+  if (!!request.hasDocTypesShrink()) {
+    body["DocTypes"] = request.getDocTypesShrink();
+  }
+
+  if (!!request.hasDocUuidsShrink()) {
+    body["DocUuids"] = request.getDocUuidsShrink();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
   if (!!request.hasExtend1()) {
     body["Extend1"] = request.getExtend1();
+  }
+
+  if (!!request.hasExtend2()) {
+    body["Extend2"] = request.getExtend2();
+  }
+
+  if (!!request.hasExtend3()) {
+    body["Extend3"] = request.getExtend3();
   }
 
   if (!!request.hasIncludeContent()) {
@@ -13392,14 +13377,25 @@ SearchDatasetDocumentsResponse Client::searchDatasetDocumentsWithOptions(const S
     body["Query"] = request.getQuery();
   }
 
+  if (!!request.hasSearchMode()) {
+    body["SearchMode"] = request.getSearchMode();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    body["Tags"] = request.getTagsShrink();
+  }
+
   if (!!request.hasWorkspaceId()) {
     body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SearchDatasetDocuments"},
     {"version" , "2023-08-01"},
