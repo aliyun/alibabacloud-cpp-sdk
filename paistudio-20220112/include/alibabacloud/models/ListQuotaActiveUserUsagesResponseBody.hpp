@@ -16,11 +16,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListQuotaActiveUserUsagesResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(QuotaUserUsage, quotaUserUsage_);
+      DARABONBA_PTR_TO_JSON(QuotaUserUsages, quotaUserUsages_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, ListQuotaActiveUserUsagesResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(QuotaUserUsage, quotaUserUsage_);
+      DARABONBA_PTR_FROM_JSON(QuotaUserUsages, quotaUserUsages_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->quotaUserUsage_ == nullptr
-        && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
+        && this->quotaUserUsages_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // quotaUserUsage Field Functions 
     bool hasQuotaUserUsage() const { return this->quotaUserUsage_ != nullptr;};
     void deleteQuotaUserUsage() { this->quotaUserUsage_ = nullptr;};
@@ -44,6 +46,15 @@ namespace Models
     inline vector<QuotaUser> getQuotaUserUsage() { DARABONBA_PTR_GET(quotaUserUsage_, vector<QuotaUser>) };
     inline ListQuotaActiveUserUsagesResponseBody& setQuotaUserUsage(const vector<QuotaUser> & quotaUserUsage) { DARABONBA_PTR_SET_VALUE(quotaUserUsage_, quotaUserUsage) };
     inline ListQuotaActiveUserUsagesResponseBody& setQuotaUserUsage(vector<QuotaUser> && quotaUserUsage) { DARABONBA_PTR_SET_RVALUE(quotaUserUsage_, quotaUserUsage) };
+
+
+    // quotaUserUsages Field Functions 
+    bool hasQuotaUserUsages() const { return this->quotaUserUsages_ != nullptr;};
+    void deleteQuotaUserUsages() { this->quotaUserUsages_ = nullptr;};
+    inline const vector<QuotaUser> & getQuotaUserUsages() const { DARABONBA_PTR_GET_CONST(quotaUserUsages_, vector<QuotaUser>) };
+    inline vector<QuotaUser> getQuotaUserUsages() { DARABONBA_PTR_GET(quotaUserUsages_, vector<QuotaUser>) };
+    inline ListQuotaActiveUserUsagesResponseBody& setQuotaUserUsages(const vector<QuotaUser> & quotaUserUsages) { DARABONBA_PTR_SET_VALUE(quotaUserUsages_, quotaUserUsages) };
+    inline ListQuotaActiveUserUsagesResponseBody& setQuotaUserUsages(vector<QuotaUser> && quotaUserUsages) { DARABONBA_PTR_SET_RVALUE(quotaUserUsages_, quotaUserUsages) };
 
 
     // requestId Field Functions 
@@ -62,6 +73,7 @@ namespace Models
 
   protected:
     shared_ptr<vector<QuotaUser>> quotaUserUsage_ {};
+    shared_ptr<vector<QuotaUser>> quotaUserUsages_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<int32_t> totalCount_ {};
