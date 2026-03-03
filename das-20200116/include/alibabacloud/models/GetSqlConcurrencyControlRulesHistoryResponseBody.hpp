@@ -189,38 +189,15 @@ namespace Models
 
 
         protected:
-          // The duration within which the SQL throttling rule takes effect. Unit: seconds.
-          // 
-          // >  The throttling rule takes effect only within this duration.
           shared_ptr<int64_t> concurrencyControlTime_ {};
-          // The instance ID.
           shared_ptr<string> instanceId_ {};
-          // The ID of the throttling rule that is applied to the instance.
           shared_ptr<int64_t> itemId_ {};
-          // The hash value of the SQL keywords. The SQL keywords are contained in the SQL statements to which the throttling rule is applied.
           shared_ptr<string> keywordsHash_ {};
-          // The maximum number of concurrent SQL statements. Set this parameter to a positive integer.
-          // 
-          // >  When the number of concurrent SQL statements that contain the specified keywords reaches this upper limit, the throttling rule is triggered.
           shared_ptr<int64_t> maxConcurrency_ {};
-          // The keywords that are used to identify the SQL statements that need to be throttled.
-          // 
-          // > SQL keywords are separated with tildes (~). When the number of concurrent SQL statements that contain all the specified SQL keywords reaches the specified upper limit, the throttling rule is triggered.
           shared_ptr<string> sqlKeywords_ {};
-          // The type of the SQL statements. Valid values:
-          // 
-          // * **SELECT**
-          // * **UPDATE**
-          // * **DELETE**
           shared_ptr<string> sqlType_ {};
-          // The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
           shared_ptr<int64_t> startTime_ {};
-          // The state of the throttling rule. Valid values:
-          // 
-          // * **Open**: The throttling rule is in effect.
-          // * **Closed**: The throttling rule was in effect.
           shared_ptr<string> status_ {};
-          // The user ID.
           shared_ptr<string> userId_ {};
         };
 
@@ -257,7 +234,6 @@ namespace Models
 
 
     protected:
-      // The list of the queried throttling rules.
       shared_ptr<Data::List> list_ {};
       // The total number of entries returned.
       shared_ptr<int64_t> total_ {};

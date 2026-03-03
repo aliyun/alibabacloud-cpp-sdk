@@ -189,35 +189,15 @@ namespace Models
 
 
         protected:
-          // The duration within which the SQL throttling rule takes effect. Unit: seconds.
-          // 
-          // > The throttling rule takes effect only within this duration.
           shared_ptr<int64_t> concurrencyControlTime_ {};
-          // The instance ID.
           shared_ptr<string> instanceId_ {};
-          // The ID of the throttling rule that is applied to the instance.
           shared_ptr<int64_t> itemId_ {};
-          // The hash value of the SQL keywords. The hash value is calculated based on the SQL keywords that are contained in the SQL statements to which the throttling rule is applied.
           shared_ptr<string> keywordsHash_ {};
-          // The maximum number of concurrent SQL statements. The value is a positive integer.
-          // 
-          // > If the number of concurrent SQL statements that contain the specified keywords reaches this upper limit, the throttling rule is triggered.
           shared_ptr<string> maxConcurrency_ {};
-          // The keywords contained in the SQL statements to which the throttling rule was applied.
-          // 
-          // > SQL keywords are separated by tildes (~). If the number of concurrent SQL statements that contain all the specified SQL keywords reaches the specified upper limit, the throttling rule is triggered.
           shared_ptr<string> sqlKeywords_ {};
-          // The type of the SQL statements. Valid values:
-          // 
-          // * **SELECT**
-          // * **UPDATE**
-          // * **DELETE**
           shared_ptr<string> sqlType_ {};
-          // The time when the throttling rule started to take effect. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
           shared_ptr<int64_t> startTime_ {};
-          // The status of the throttling rule. The value of **Open** indicates that the throttling rule is in effect.
           shared_ptr<string> status_ {};
-          // The Alibaba Cloud account ID.
           shared_ptr<string> userId_ {};
         };
 
@@ -254,7 +234,6 @@ namespace Models
 
 
     protected:
-      // The returned data.
       shared_ptr<Data::List> list_ {};
       // The total number of entries returned.
       shared_ptr<int64_t> total_ {};

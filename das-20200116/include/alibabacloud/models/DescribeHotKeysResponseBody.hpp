@@ -160,18 +160,13 @@ namespace Models
 
       protected:
         shared_ptr<string> category_ {};
-        // The database in which the key is stored.
         shared_ptr<int32_t> db_ {};
-        // The frequency at which the key is accessed, which indicates the queries per second (QPS) of the key.
         shared_ptr<string> hot_ {};
         shared_ptr<int64_t> inBytes_ {};
-        // The name of the key.
         shared_ptr<string> key_ {};
-        // The type of the key.
         shared_ptr<string> keyType_ {};
         shared_ptr<string> nodeId_ {};
         shared_ptr<int64_t> outBytes_ {};
-        // The number of elements in the key.
         shared_ptr<int64_t> size_ {};
       };
 
@@ -231,7 +226,6 @@ namespace Models
   protected:
     // The HTTP status code returned.
     shared_ptr<string> code_ {};
-    // The details of the hot keys.
     shared_ptr<DescribeHotKeysResponseBody::Data> data_ {};
     // The returned message.
     // 

@@ -279,17 +279,11 @@ namespace Models
 
 
         protected:
-          // The database in which the key is stored.
           shared_ptr<int32_t> db_ {};
-          // The frequency at which the key is accessed, which indicates the queries per second (QPS) of the key.
           shared_ptr<string> hot_ {};
-          // The key.
           shared_ptr<string> key_ {};
-          // The type of the key.
           shared_ptr<string> keyType_ {};
-          // The statistical value that is calculated based on the least frequently used (LFU) caching algorithm.
           shared_ptr<int32_t> lfu_ {};
-          // The ID of the data shard on the ApsaraDB for Redis instance.
           shared_ptr<string> nodeId_ {};
           shared_ptr<int64_t> size_ {};
         };
@@ -528,15 +522,10 @@ namespace Models
 
 
         protected:
-          // The database in which the key is stored.
           shared_ptr<int32_t> db_ {};
-          // The key.
           shared_ptr<string> key_ {};
-          // The type of the key.
           shared_ptr<string> keyType_ {};
-          // The ID of the data shard on the ApsaraDB for Redis instance.
           shared_ptr<string> nodeId_ {};
-          // The number of elements in the key.
           shared_ptr<int64_t> size_ {};
         };
 
@@ -624,13 +613,11 @@ namespace Models
     protected:
       // The reason why the large key failed to be queried.
       shared_ptr<string> bigKeyMsg_ {};
-      // The list of large keys.
       shared_ptr<Data::BigKeys> bigKeys_ {};
       shared_ptr<string> highTrafficKeyMsg_ {};
       shared_ptr<Data::HighTrafficKeys> highTrafficKeys_ {};
       // The reason why the hot key failed to be queried.
       shared_ptr<string> hotKeyMsg_ {};
-      // The list of hot keys.
       shared_ptr<Data::HotKeys> hotKeys_ {};
       shared_ptr<string> largeKeyMsg_ {};
       shared_ptr<Data::LargeKeys> largeKeys_ {};

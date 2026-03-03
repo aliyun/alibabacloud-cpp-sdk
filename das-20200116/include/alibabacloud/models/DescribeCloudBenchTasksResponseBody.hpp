@@ -480,182 +480,46 @@ namespace Models
 
 
         protected:
-          // The archiving task ID.
           shared_ptr<string> archiveJobId_ {};
-          // The name of the table that was archived to Object Storage Service (OSS).
           shared_ptr<string> archiveOssTableName_ {};
-          // The archiving status of the file that stores the analysis result of full SQL statistics. Valid values:
-          // 
-          // * **0**: The file archiving is not started.
-          // * **1**: The file is archived.
-          // * **2**: An error occurred.
-          // * **3**: The file is being archived.
-          // * **4**: The archived file does not need to be downloaded.
           shared_ptr<int32_t> archiveState_ {};
-          // The ID of the backup set. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/26273.html) operation to query the ID of the backup set.
           shared_ptr<string> backupId_ {};
-          // The backup type. Valid values:
-          // 
-          // * **TIMESTAMP**: Data is restored to the state at a specific point in time.
-          // * **BACKUPID**: Data is restored from a backup set that is identified by an ID.
           shared_ptr<string> backupType_ {};
-          // The substep in the stress testing task. Valid values:
-          // 
-          // * **NEW**: Initialize the stress testing task.
-          // * **WAIT_BUY_ECS**: Purchase an ECS instance.
-          // * **WAIT_START_ECS**: Start the ECS instance.
-          // * **WAIT_INSTALL_JDK**: Install the Java Development Kit (JDK).
-          // * **WAIT_INSTALL_DBGATEWAY**: Install the database gateway (DBGateway).
-          // * **ADD_SECURITY_IPS_STEP**: Configure the whitelist of the security group.
-          // * **ARCHIVE**: Archive the file that stores the analysis results of full SQL statistics.
-          // * **DOWNLOAD**: Download the file that stores the analysis result of full SQL statistics.
-          // * **PROCEED**: Preprocess the file that stores the analysis result of full SQL statistics.
-          // * **PRE_LOAD**: Preload the file that stores the analysis result of full SQL statistics.
-          // * **VALIDATE**: Verify the functionality of stress testing.
-          // * **PRESSURE**: Start the stress testing task.
           shared_ptr<string> benchStep_ {};
-          // The status that indicates the substep performed for the stress testing task. Valid values:
-          // 
-          // * **NEW**: The task is being initialized.
-          // * **RUNNING**: The task is running.
-          // * **FAILED**: The task failed.
-          // * **FINISHED**: The task is complete.
-          // * **Terminated**: The task is terminated.
-          // * **Deleted**: The task is deleted.
           shared_ptr<string> benchStepStatus_ {};
-          // The DBGateway ID of the stress testing client.
           shared_ptr<string> clientGatewayId_ {};
-          // The type of the stress testing client. Valid values:
-          // 
-          // * **ECS**: indicates that you must prepare the DBGateway.
-          // * **DAS_ECS**: indicates that DAS automatically purchases and deploys an ECS instance for stress testing.
           shared_ptr<string> clientType_ {};
-          // The description of the stress testing task.
           shared_ptr<string> description_ {};
-          // The UUID of the destination instance.
           shared_ptr<string> dstInstanceUuid_ {};
-          // The reserved parameter.
           shared_ptr<string> dstIp_ {};
-          // The port number of the destination instance.
           shared_ptr<int32_t> dstPort_ {};
-          // The type of the identifier that is used to indicate the destination instance. Valid values:
-          // 
-          // * **Instance** (default): the instance ID.
-          // * **ConnectionString**: the endpoint of the instance.
           shared_ptr<string> dstType_ {};
-          // The specification of the DTS instance.
-          // 
-          // > For more information about the specifications of DTS instances and the test performance of each instance, see [Specifications of data migration instances](https://help.aliyun.com/document_detail/26606.html).
           shared_ptr<string> dtsJobClass_ {};
-          // The ID of the DTS migration task.
           shared_ptr<string> dtsJobId_ {};
-          // The name of the Data Transmission Service (DTS) migration task.
           shared_ptr<string> dtsJobName_ {};
-          // The status of the DTS migration task. Valid values:
-          // 
-          // * **NOT_STARTED**: The task is not started.
-          // * **PRE_CHECKING**: The task is in precheck.
-          // * **PRE_CHECK_FAILED**: The precheck failed.
-          // * **CHECKING**: The task is being checked.
-          // * **MIGRATING**: The data is being migrated.
-          // * **CATCHED**: The data is migrated from the source instance to the destination instance.
-          // * **SUSPENDING**: The task is suspended.
-          // * **MIGRATION_FAILED**: The data failed to be migrated.
-          // * **FINISHED**: The task is complete.
-          // * **INITIALIZING**: The synchronization is being initialized.
-          // * **INITIALIZE_FAILED**: The synchronization failed to be initialized.
-          // * **SYNCHRONIZING**: The data is being synchronized.
-          // * **MODIFYING**: The roles of the instances are being changed.
-          // * **SWITCHING**: The roles of the instances are being switched.
-          // * **FAILED**: The task failed.
           shared_ptr<int32_t> dtsJobState_ {};
-          // The status of the DTS migration task. Valid values:
-          // 
-          // * **NOT_STARTED**: The task is not started.
-          // * **PRE_CHECKING**: The task is in precheck.
-          // * **PRE_CHECK_FAILED**: The precheck failed.
-          // * **CHECKING**: The task is being checked.
-          // * **MIGRATING**: The data is being migrated.
-          // * **CATCHED**: The data is migrated from the source instance to the destination instance.
-          // * **SUSPENDING**: The task is suspended.
-          // * **MIGRATION_FAILED**: The data failed to be migrated.
-          // * **FINISHED**: The task is complete.
-          // * **INITIALIZING**: The synchronization is being initialized.
-          // * **INITIALIZE_FAILED**: The synchronization failed to be initialized.
-          // * **SYNCHRONIZING**: The data is being synchronized.
-          // * **MODIFYING**: The roles of the instances are being changed.
-          // * **SWITCHING**: The roles of the instances are being switched.
-          // * **FAILED**: The task failed.
           shared_ptr<string> dtsJobStatus_ {};
-          // The ID of the Elastic Compute Service (ECS) instance.
           shared_ptr<string> ecsInstanceId_ {};
-          // The state that indicates the last operation performed for the stress testing task. Valid values:
-          // 
-          // * **WAIT_TARGET**: prepares the destination instance.
-          // * **WAIT_DBGATEWAY**: prepares the DBGateway.
-          // * **WAIT_SQL**: prepares the full SQL statistics.
-          // * **WAIT_LOGIC**: prepares to replay the traffic.
-          // 
-          // > When the state of a stress testing task changes to the state that is specified by the EndState parameter, the stress testing task is complete.
           shared_ptr<string> endState_ {};
-          // The error code returned for the substep of the stress testing task.
           shared_ptr<string> errorCode_ {};
-          // The error message returned if the task failed.
           shared_ptr<string> errorMessage_ {};
-          // The additional information.
           shared_ptr<string> external_ {};
-          // The rate at which the stress testing task replayed the traffic. This value is a positive integer. Valid values: **0** to **30**. Default value: **1**.
           shared_ptr<int32_t> rate_ {};
-          // The duration of the stress testing task. Unit: millisecond.
           shared_ptr<int64_t> requestDuration_ {};
-          // The duration of the stress testing task of the smart pressure test type. Unit: millisecond.
           shared_ptr<int32_t> smartPressureTime_ {};
-          // The source of the task. Valid values:
-          // 
-          // * **DAS**
-          // * **OPEN_API**
           shared_ptr<string> source_ {};
-          // The reused information about the analysis result of full SQL statistics.
           shared_ptr<string> sqlCompleteReuse_ {};
-          // The database engine of the source instance. Valid values:
           shared_ptr<string> srcInstanceArea_ {};
-          // The UUID of the source instance.
           shared_ptr<string> srcInstanceUuid_ {};
-          // The reserved parameter.
           shared_ptr<string> srcPublicIp_ {};
-          // The state that indicates the operation performed for the stress testing task. Valid values:
-          // 
-          // * **WAIT_TARGET**: prepares the destination instance.
-          // * **WAIT_DBGATEWAY**: prepares the DBGateway.
-          // * **WAIT_SQL**: prepares the full SQL statistics.
-          // * **WAIT_LOGIC**: prepares to replay the traffic.
           shared_ptr<string> state_ {};
-          // The status of the stress testing task. Valid values:
-          // 
-          // * **SUCCESS**: The task was successful.
-          // * **IGNORED**: The task was ignored.
-          // * **RUNNING**: The task is running.
-          // * **EXCEPTION**: The task is abnormal.
           shared_ptr<string> status_ {};
-          // The name of the table that is used for stress testing.
           shared_ptr<string> tableSchema_ {};
-          // The task ID.
           shared_ptr<string> taskId_ {};
-          // The type of the stress testing task. Valid values:
-          // 
-          // * **pressure test** (default): A task of this type replays the traffic that is captured from the source instance on the destination instance at the maximum playback rate that is supported by the destination instance.
-          // * **smart pressure test**: A task of this type analyzes the traffic that is captured from the source instance over a short period of time and generates traffic on the destination instance for continuous stress testing. The business model based on which the traffic is generated on the destination instance and the traffic distribution are consistent with those on the source instance. Stress testing tasks of this type can help you reduce the amount of time that is consumed to collect data from the source instance and reduce storage costs and performance overheads.
           shared_ptr<string> taskType_ {};
-          // The topic that contains the consumed data. This topic is a topic in Message Queue for Apache Kafka.
           shared_ptr<string> topic_ {};
-          // The Alibaba Cloud account ID.
           shared_ptr<string> userId_ {};
-          // The version of the stress testing task. Valid values:
-          // 
-          // * **V2.0**
-          // * **V3.0**
           shared_ptr<string> version_ {};
-          // The path of the temporary directory that is generated for stress testing.
           shared_ptr<string> workDir_ {};
         };
 
@@ -715,7 +579,6 @@ namespace Models
     protected:
       // The reserved parameter.
       shared_ptr<string> extra_ {};
-      // The detailed information of the stress testing task.
       shared_ptr<Data::List> list_ {};
       // The page number.
       shared_ptr<int32_t> pageNo_ {};

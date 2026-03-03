@@ -183,7 +183,7 @@ namespace DAS20200116
       Models::CreateKillInstanceSessionTaskWithMaintainUserResponse createKillInstanceSessionTaskWithMaintainUser(const Models::CreateKillInstanceSessionTaskWithMaintainUserRequest &request);
 
       /**
-       * @summary 创建最近死锁分析任务
+       * @summary Creates a recent deadlock analysis task.
        *
        * @param request CreateLatestDeadLockAnalysisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -192,7 +192,7 @@ namespace DAS20200116
       Models::CreateLatestDeadLockAnalysisResponse createLatestDeadLockAnalysisWithOptions(const Models::CreateLatestDeadLockAnalysisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建最近死锁分析任务
+       * @summary Creates a recent deadlock analysis task.
        *
        * @param request CreateLatestDeadLockAnalysisRequest
        * @return CreateLatestDeadLockAnalysisResponse
@@ -716,7 +716,7 @@ namespace DAS20200116
       Models::DescribeInstanceDasProResponse describeInstanceDasPro(const Models::DescribeInstanceDasProRequest &request);
 
       /**
-       * @summary 获取执行计划
+       * @summary Queries the execution plan of an SQL statement.
        *
        * @param request DescribeQueryExplainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -725,7 +725,7 @@ namespace DAS20200116
       Models::DescribeQueryExplainResponse describeQueryExplainWithOptions(const Models::DescribeQueryExplainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取执行计划
+       * @summary Queries the execution plan of an SQL statement.
        *
        * @param request DescribeQueryExplainRequest
        * @return DescribeQueryExplainResponse
@@ -767,7 +767,7 @@ namespace DAS20200116
       Models::DescribeSecurityIPGroupRelationResponse describeSecurityIPGroupRelation(const Models::DescribeSecurityIPGroupRelationRequest &request);
 
       /**
-       * @summary DescribeSlowLogHistogramAsync
+       * @summary Asynchronously queries the trend data of slow query logs of an instance.
        *
        * @param request DescribeSlowLogHistogramAsyncRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -776,7 +776,7 @@ namespace DAS20200116
       Models::DescribeSlowLogHistogramAsyncResponse describeSlowLogHistogramAsyncWithOptions(const Models::DescribeSlowLogHistogramAsyncRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeSlowLogHistogramAsync
+       * @summary Asynchronously queries the trend data of slow query logs of an instance.
        *
        * @param request DescribeSlowLogHistogramAsyncRequest
        * @return DescribeSlowLogHistogramAsyncResponse
@@ -784,7 +784,7 @@ namespace DAS20200116
       Models::DescribeSlowLogHistogramAsyncResponse describeSlowLogHistogramAsync(const Models::DescribeSlowLogHistogramAsyncRequest &request);
 
       /**
-       * @summary 查看慢日志明细接口
+       * @summary Queries the slow logs of a database instance. You can filter and sort data by multiple conditions.
        *
        * @param request DescribeSlowLogRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -793,7 +793,7 @@ namespace DAS20200116
       Models::DescribeSlowLogRecordsResponse describeSlowLogRecordsWithOptions(const Models::DescribeSlowLogRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看慢日志明细接口
+       * @summary Queries the slow logs of a database instance. You can filter and sort data by multiple conditions.
        *
        * @param request DescribeSlowLogRecordsRequest
        * @return DescribeSlowLogRecordsResponse
@@ -801,7 +801,7 @@ namespace DAS20200116
       Models::DescribeSlowLogRecordsResponse describeSlowLogRecords(const Models::DescribeSlowLogRecordsRequest &request);
 
       /**
-       * @summary 慢日志统计信息
+       * @summary Queries statistical information about slow query logs.
        *
        * @param request DescribeSlowLogStatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -810,7 +810,7 @@ namespace DAS20200116
       Models::DescribeSlowLogStatisticResponse describeSlowLogStatisticWithOptions(const Models::DescribeSlowLogStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 慢日志统计信息
+       * @summary Queries statistical information about slow query logs.
        *
        * @param request DescribeSlowLogStatisticRequest
        * @return DescribeSlowLogStatisticResponse
@@ -1557,7 +1557,7 @@ namespace DAS20200116
       Models::GetDasSQLLogHotDataResponse getDasSQLLogHotData(const Models::GetDasSQLLogHotDataRequest &request);
 
       /**
-       * @summary 查询单个死锁详情
+       * @summary Queries the details of a deadlock.
        *
        * @param request GetDeadLockDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1566,7 +1566,7 @@ namespace DAS20200116
       Models::GetDeadLockDetailResponse getDeadLockDetailWithOptions(const Models::GetDeadLockDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单个死锁详情
+       * @summary Queries the details of a deadlock.
        *
        * @param request GetDeadLockDetailRequest
        * @return GetDeadLockDetailResponse
@@ -1599,7 +1599,7 @@ namespace DAS20200116
       Models::GetDeadLockDetailListResponse getDeadLockDetailList(const Models::GetDeadLockDetailListRequest &request);
 
       /**
-       * @summary 获取历史死锁记录
+       * @summary Queries the historical tasks of recent deadlock analysis and full deadlock analysis.
        *
        * @param request GetDeadLockHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1608,7 +1608,7 @@ namespace DAS20200116
       Models::GetDeadLockHistoryResponse getDeadLockHistoryWithOptions(const Models::GetDeadLockHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取历史死锁记录
+       * @summary Queries the historical tasks of recent deadlock analysis and full deadlock analysis.
        *
        * @param request GetDeadLockHistoryRequest
        * @return GetDeadLockHistoryResponse
@@ -1616,7 +1616,7 @@ namespace DAS20200116
       Models::GetDeadLockHistoryResponse getDeadLockHistory(const Models::GetDeadLockHistoryRequest &request);
 
       /**
-       * @summary 查询时间范围内基于错误日志分析的死锁数量
+       * @summary Queries the trend of the number of deadlocks in full deadlock analysis within a specified period of time.
        *
        * @param request GetDeadlockHistogramRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1625,7 +1625,7 @@ namespace DAS20200116
       Models::GetDeadlockHistogramResponse getDeadlockHistogramWithOptions(const Models::GetDeadlockHistogramRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询时间范围内基于错误日志分析的死锁数量
+       * @summary Queries the trend of the number of deadlocks in full deadlock analysis within a specified period of time.
        *
        * @param request GetDeadlockHistogramRequest
        * @return GetDeadlockHistogramResponse
@@ -2632,6 +2632,32 @@ namespace DAS20200116
        * @return GetStorageAnalysisResultResponse
        */
       Models::GetStorageAnalysisResultResponse getStorageAnalysisResult(const Models::GetStorageAnalysisResultRequest &request);
+
+      /**
+       * @summary 瑶池AI助理大模型能力接口
+       *
+       * @param request GetYaoChiAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYaoChiAgentResponse
+       */
+      FutureGenerator<Models::GetYaoChiAgentResponse> getYaoChiAgentWithSSE(const Models::GetYaoChiAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 瑶池AI助理大模型能力接口
+       *
+       * @param request GetYaoChiAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYaoChiAgentResponse
+       */
+      Models::GetYaoChiAgentResponse getYaoChiAgentWithOptions(const Models::GetYaoChiAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 瑶池AI助理大模型能力接口
+       *
+       * @param request GetYaoChiAgentRequest
+       * @return GetYaoChiAgentResponse
+       */
+      Models::GetYaoChiAgentResponse getYaoChiAgent(const Models::GetYaoChiAgentRequest &request);
 
       /**
        * @summary Terminates all sessions on an instance.

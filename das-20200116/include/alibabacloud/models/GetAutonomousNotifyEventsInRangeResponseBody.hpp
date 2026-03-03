@@ -140,7 +140,6 @@ namespace Models
     protected:
       // The reserved parameter.
       shared_ptr<string> extra_ {};
-      // The detailed information, including the error codes and the number of entries that are returned.
       shared_ptr<Data::List> list_ {};
       // The page number.
       shared_ptr<int64_t> pageNo_ {};

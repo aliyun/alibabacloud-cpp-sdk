@@ -312,6 +312,9 @@
 #include <alibabacloud/models/GetStorageAnalysisResultRequest.hpp>
 #include <alibabacloud/models/GetStorageAnalysisResultResponseBody.hpp>
 #include <alibabacloud/models/GetStorageAnalysisResultResponse.hpp>
+#include <alibabacloud/models/GetYaoChiAgentRequest.hpp>
+#include <alibabacloud/models/GetYaoChiAgentResponseBody.hpp>
+#include <alibabacloud/models/GetYaoChiAgentResponse.hpp>
 #include <alibabacloud/models/KillInstanceAllSessionRequest.hpp>
 #include <alibabacloud/models/KillInstanceAllSessionResponseBody.hpp>
 #include <alibabacloud/models/KillInstanceAllSessionResponse.hpp>

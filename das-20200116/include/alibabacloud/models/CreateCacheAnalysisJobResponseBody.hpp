@@ -179,21 +179,13 @@ namespace Models
 
 
         protected:
-          // The number of bytes that are occupied by the key.
           shared_ptr<int64_t> bytes_ {};
-          // The number of elements in the key.
           shared_ptr<int64_t> count_ {};
-          // The name of the database.
           shared_ptr<int32_t> db_ {};
-          // The data type of the key.
           shared_ptr<string> encoding_ {};
-          // The expiration period of the key. Unit: milliseconds. A value of 0 indicates that the key does not expire.
           shared_ptr<int64_t> expirationTimeMillis_ {};
-          // The name of the key.
           shared_ptr<string> key_ {};
-          // The ID of the data node on the instance.
           shared_ptr<string> nodeId_ {};
-          // The data type of the ApsaraDB for Redis instance.
           shared_ptr<string> type_ {};
         };
 
@@ -258,7 +250,6 @@ namespace Models
 
 
     protected:
-      // The number of elements in the key.
       shared_ptr<Data::BigKeys> bigKeys_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};

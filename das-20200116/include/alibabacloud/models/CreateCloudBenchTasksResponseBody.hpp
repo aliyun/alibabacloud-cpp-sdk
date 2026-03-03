@@ -113,7 +113,6 @@ namespace Models
   protected:
     // The HTTP status code returned.
     shared_ptr<string> code_ {};
-    // The detailed information.
     shared_ptr<CreateCloudBenchTasksResponseBody::Data> data_ {};
     // The returned message.
     // 

@@ -564,7 +564,7 @@ CreateKillInstanceSessionTaskWithMaintainUserResponse Client::createKillInstance
 }
 
 /**
- * @summary 创建最近死锁分析任务
+ * @summary Creates a recent deadlock analysis task.
  *
  * @param request CreateLatestDeadLockAnalysisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -599,7 +599,7 @@ CreateLatestDeadLockAnalysisResponse Client::createLatestDeadLockAnalysisWithOpt
 }
 
 /**
- * @summary 创建最近死锁分析任务
+ * @summary Creates a recent deadlock analysis task.
  *
  * @param request CreateLatestDeadLockAnalysisRequest
  * @return CreateLatestDeadLockAnalysisResponse
@@ -1804,7 +1804,7 @@ DescribeInstanceDasProResponse Client::describeInstanceDasPro(const DescribeInst
 }
 
 /**
- * @summary 获取执行计划
+ * @summary Queries the execution plan of an SQL statement.
  *
  * @param request DescribeQueryExplainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1851,7 +1851,7 @@ DescribeQueryExplainResponse Client::describeQueryExplainWithOptions(const Descr
 }
 
 /**
- * @summary 获取执行计划
+ * @summary Queries the execution plan of an SQL statement.
  *
  * @param request DescribeQueryExplainRequest
  * @return DescribeQueryExplainResponse
@@ -1950,7 +1950,7 @@ DescribeSecurityIPGroupRelationResponse Client::describeSecurityIPGroupRelation(
 }
 
 /**
- * @summary DescribeSlowLogHistogramAsync
+ * @summary Asynchronously queries the trend data of slow query logs of an instance.
  *
  * @param request DescribeSlowLogHistogramAsyncRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1997,7 +1997,7 @@ DescribeSlowLogHistogramAsyncResponse Client::describeSlowLogHistogramAsyncWithO
 }
 
 /**
- * @summary DescribeSlowLogHistogramAsync
+ * @summary Asynchronously queries the trend data of slow query logs of an instance.
  *
  * @param request DescribeSlowLogHistogramAsyncRequest
  * @return DescribeSlowLogHistogramAsyncResponse
@@ -2008,7 +2008,7 @@ DescribeSlowLogHistogramAsyncResponse Client::describeSlowLogHistogramAsync(cons
 }
 
 /**
- * @summary 查看慢日志明细接口
+ * @summary Queries the slow logs of a database instance. You can filter and sort data by multiple conditions.
  *
  * @param request DescribeSlowLogRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2073,7 +2073,7 @@ DescribeSlowLogRecordsResponse Client::describeSlowLogRecordsWithOptions(const D
 }
 
 /**
- * @summary 查看慢日志明细接口
+ * @summary Queries the slow logs of a database instance. You can filter and sort data by multiple conditions.
  *
  * @param request DescribeSlowLogRecordsRequest
  * @return DescribeSlowLogRecordsResponse
@@ -2084,7 +2084,7 @@ DescribeSlowLogRecordsResponse Client::describeSlowLogRecords(const DescribeSlow
 }
 
 /**
- * @summary 慢日志统计信息
+ * @summary Queries statistical information about slow query logs.
  *
  * @param request DescribeSlowLogStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2155,7 +2155,7 @@ DescribeSlowLogStatisticResponse Client::describeSlowLogStatisticWithOptions(con
 }
 
 /**
- * @summary 慢日志统计信息
+ * @summary Queries statistical information about slow query logs.
  *
  * @param request DescribeSlowLogStatisticRequest
  * @return DescribeSlowLogStatisticResponse
@@ -3789,16 +3789,18 @@ FutureGenerator<GetDasAgentSSEResponse> Client::getDasAgentSSEWithSSE(const GetD
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<GetDasAgentSSEResponse>();
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<GetDasAgentSSEResponse>();
 return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -4077,7 +4079,7 @@ GetDasSQLLogHotDataResponse Client::getDasSQLLogHotData(const GetDasSQLLogHotDat
 }
 
 /**
- * @summary 查询单个死锁详情
+ * @summary Queries the details of a deadlock.
  *
  * @param request GetDeadLockDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4120,7 +4122,7 @@ GetDeadLockDetailResponse Client::getDeadLockDetailWithOptions(const GetDeadLock
 }
 
 /**
- * @summary 查询单个死锁详情
+ * @summary Queries the details of a deadlock.
  *
  * @param request GetDeadLockDetailRequest
  * @return GetDeadLockDetailResponse
@@ -4201,7 +4203,7 @@ GetDeadLockDetailListResponse Client::getDeadLockDetailList(const GetDeadLockDet
 }
 
 /**
- * @summary 获取历史死锁记录
+ * @summary Queries the historical tasks of recent deadlock analysis and full deadlock analysis.
  *
  * @param request GetDeadLockHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4256,7 +4258,7 @@ GetDeadLockHistoryResponse Client::getDeadLockHistoryWithOptions(const GetDeadLo
 }
 
 /**
- * @summary 获取历史死锁记录
+ * @summary Queries the historical tasks of recent deadlock analysis and full deadlock analysis.
  *
  * @param request GetDeadLockHistoryRequest
  * @return GetDeadLockHistoryResponse
@@ -4267,7 +4269,7 @@ GetDeadLockHistoryResponse Client::getDeadLockHistory(const GetDeadLockHistoryRe
 }
 
 /**
- * @summary 查询时间范围内基于错误日志分析的死锁数量
+ * @summary Queries the trend of the number of deadlocks in full deadlock analysis within a specified period of time.
  *
  * @param request GetDeadlockHistogramRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4314,7 +4316,7 @@ GetDeadlockHistogramResponse Client::getDeadlockHistogramWithOptions(const GetDe
 }
 
 /**
- * @summary 查询时间范围内基于错误日志分析的死锁数量
+ * @summary Queries the trend of the number of deadlocks in full deadlock analysis within a specified period of time.
  *
  * @param request GetDeadlockHistogramRequest
  * @return GetDeadlockHistogramResponse
@@ -6874,6 +6876,117 @@ GetStorageAnalysisResultResponse Client::getStorageAnalysisResultWithOptions(con
 GetStorageAnalysisResultResponse Client::getStorageAnalysisResult(const GetStorageAnalysisResultRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getStorageAnalysisResultWithOptions(request, runtime);
+}
+
+/**
+ * @summary 瑶池AI助理大模型能力接口
+ *
+ * @param request GetYaoChiAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYaoChiAgentResponse
+ */
+FutureGenerator<GetYaoChiAgentResponse> Client::getYaoChiAgentWithSSE(const GetYaoChiAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExtraInfo()) {
+    query["ExtraInfo"] = request.getExtraInfo();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetYaoChiAgent"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<GetYaoChiAgentResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 瑶池AI助理大模型能力接口
+ *
+ * @param request GetYaoChiAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYaoChiAgentResponse
+ */
+GetYaoChiAgentResponse Client::getYaoChiAgentWithOptions(const GetYaoChiAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExtraInfo()) {
+    query["ExtraInfo"] = request.getExtraInfo();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetYaoChiAgent"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYaoChiAgentResponse>();
+}
+
+/**
+ * @summary 瑶池AI助理大模型能力接口
+ *
+ * @param request GetYaoChiAgentRequest
+ * @return GetYaoChiAgentResponse
+ */
+GetYaoChiAgentResponse Client::getYaoChiAgent(const GetYaoChiAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYaoChiAgentWithOptions(request, runtime);
 }
 
 /**

@@ -1,9 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GETDASAGENTSSERESPONSE_HPP_
-#define ALIBABACLOUD_MODELS_GETDASAGENTSSERESPONSE_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETYAOCHIAGENTRESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_GETYAOCHIAGENTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/models/GetDasAgentSSEResponseBody.hpp>
+#include <alibabacloud/models/GetYaoChiAgentResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,29 +12,29 @@ namespace DAS20200116
 {
 namespace Models
 {
-  class GetDasAgentSSEResponse : public Darabonba::Model {
+  class GetYaoChiAgentResponse : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GetDasAgentSSEResponse& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetYaoChiAgentResponse& obj) { 
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(event, event_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
-    friend void from_json(const Darabonba::Json& j, GetDasAgentSSEResponse& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetYaoChiAgentResponse& obj) { 
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(event, event_);
       DARABONBA_PTR_FROM_JSON(body, body_);
     };
-    GetDasAgentSSEResponse() = default ;
-    GetDasAgentSSEResponse(const GetDasAgentSSEResponse &) = default ;
-    GetDasAgentSSEResponse(GetDasAgentSSEResponse &&) = default ;
-    GetDasAgentSSEResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GetDasAgentSSEResponse() = default ;
-    GetDasAgentSSEResponse& operator=(const GetDasAgentSSEResponse &) = default ;
-    GetDasAgentSSEResponse& operator=(GetDasAgentSSEResponse &&) = default ;
+    GetYaoChiAgentResponse() = default ;
+    GetYaoChiAgentResponse(const GetYaoChiAgentResponse &) = default ;
+    GetYaoChiAgentResponse(GetYaoChiAgentResponse &&) = default ;
+    GetYaoChiAgentResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetYaoChiAgentResponse() = default ;
+    GetYaoChiAgentResponse& operator=(const GetYaoChiAgentResponse &) = default ;
+    GetYaoChiAgentResponse& operator=(GetYaoChiAgentResponse &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -46,38 +46,38 @@ namespace Models
     void deleteHeaders() { this->headers_ = nullptr;};
     inline const map<string, string> & getHeaders() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
     inline map<string, string> getHeaders() { DARABONBA_PTR_GET(headers_, map<string, string>) };
-    inline GetDasAgentSSEResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
-    inline GetDasAgentSSEResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+    inline GetYaoChiAgentResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline GetYaoChiAgentResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
     inline int32_t getStatusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
-    inline GetDasAgentSSEResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+    inline GetYaoChiAgentResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
     inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
-    inline GetDasAgentSSEResponse& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+    inline GetYaoChiAgentResponse& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // event Field Functions 
     bool hasEvent() const { return this->event_ != nullptr;};
     void deleteEvent() { this->event_ = nullptr;};
     inline string getEvent() const { DARABONBA_PTR_GET_DEFAULT(event_, "") };
-    inline GetDasAgentSSEResponse& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
+    inline GetYaoChiAgentResponse& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const GetDasAgentSSEResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, GetDasAgentSSEResponseBody) };
-    inline GetDasAgentSSEResponseBody getBody() { DARABONBA_PTR_GET(body_, GetDasAgentSSEResponseBody) };
-    inline GetDasAgentSSEResponse& setBody(const GetDasAgentSSEResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline GetDasAgentSSEResponse& setBody(GetDasAgentSSEResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const GetYaoChiAgentResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, GetYaoChiAgentResponseBody) };
+    inline GetYaoChiAgentResponseBody getBody() { DARABONBA_PTR_GET(body_, GetYaoChiAgentResponseBody) };
+    inline GetYaoChiAgentResponse& setBody(const GetYaoChiAgentResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline GetYaoChiAgentResponse& setBody(GetYaoChiAgentResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
@@ -85,7 +85,7 @@ namespace Models
     shared_ptr<int32_t> statusCode_ {};
     shared_ptr<string> id_ {};
     shared_ptr<string> event_ {};
-    shared_ptr<GetDasAgentSSEResponseBody> body_ {};
+    shared_ptr<GetYaoChiAgentResponseBody> body_ {};
   };
 
   } // namespace Models

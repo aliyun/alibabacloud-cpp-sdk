@@ -122,15 +122,10 @@ namespace Models
 
 
       protected:
-        // The database in which the key is stored.
         shared_ptr<int32_t> db_ {};
-        // The key.
         shared_ptr<string> key_ {};
-        // The type of the key.
         shared_ptr<string> keyType_ {};
-        // The ID of the data shard on the ApsaraDB for Redis instance.
         shared_ptr<string> nodeId_ {};
-        // The number of elements in the key.
         shared_ptr<int64_t> size_ {};
       };
 
@@ -190,9 +185,6 @@ namespace Models
   protected:
     // The HTTP status code returned.
     shared_ptr<string> code_ {};
-    // The detailed information about the large keys.
-    // 
-    // > This parameter is left empty If no large keys exist within the specified time range.
     shared_ptr<DescribeTopBigKeysResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};

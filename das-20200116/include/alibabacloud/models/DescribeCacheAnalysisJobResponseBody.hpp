@@ -189,21 +189,13 @@ namespace Models
 
 
         protected:
-          // The number of bytes that are occupied by the key.
           shared_ptr<int64_t> bytes_ {};
-          // The number of elements in the key.
           shared_ptr<int64_t> count_ {};
-          // The database name.
           shared_ptr<int32_t> db_ {};
-          // The data type of the key.
           shared_ptr<string> encoding_ {};
-          // The time when the key expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A value of 0 indicates that the key never expires.
           shared_ptr<int64_t> expirationTimeMillis_ {};
-          // The key name.
           shared_ptr<string> key_ {};
-          // The ID of the data node on the instance.
           shared_ptr<string> nodeId_ {};
-          // The data type of the instance.
           shared_ptr<string> type_ {};
         };
 
@@ -333,21 +325,13 @@ namespace Models
 
 
         protected:
-          // The number of bytes that are occupied by the key.
           shared_ptr<int64_t> bytes_ {};
-          // The number of elements in the key.
           shared_ptr<int64_t> count_ {};
-          // The database name.
           shared_ptr<int32_t> db_ {};
-          // The data type of the key.
           shared_ptr<string> encoding_ {};
-          // The time when the key expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A value of 0 indicates that the key never expires.
           shared_ptr<int64_t> expirationTimeMillis_ {};
-          // The key name.
           shared_ptr<string> key_ {};
-          // The ID of the data node on the instance.
           shared_ptr<string> nodeId_ {};
-          // The data type of the instance.
           shared_ptr<string> type_ {};
         };
 
@@ -449,15 +433,10 @@ namespace Models
 
 
         protected:
-          // The number of bytes that are occupied by the key.
           shared_ptr<int64_t> bytes_ {};
-          // The number of elements in the key.
           shared_ptr<int64_t> count_ {};
-          // The number of keys that contain the prefix.
           shared_ptr<int64_t> keyNum_ {};
-          // The prefix of the key.
           shared_ptr<string> prefix_ {};
-          // The data type of the instance.
           shared_ptr<string> type_ {};
         };
 
@@ -550,23 +529,9 @@ namespace Models
 
 
         protected:
-          // The time when the cache analysis task was complete. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
           shared_ptr<int64_t> analysisTs_ {};
-          // The expiration level. Valid values:
-          // 
-          // *   **0**: The key never expires.
-          // *   **1**: The key has expired.
-          // *   **2**: The key has expired for 0 to 1 hour.
-          // *   **3**: The key has expired for 1 to 3 hours.
-          // *   **4**: The key has expired for 3 to 12 hours.
-          // *   **5**: The key has expired for 12 to 24 hours.
-          // *   **6**: The key has expired for one to two days.
-          // *   **7**: The key has expired for three to seven days.
-          // *   **8**: The key has expired for more than seven days.
           shared_ptr<int32_t> level_ {};
-          // The number of bytes occupied by the keys that have expired.
           shared_ptr<int64_t> totalBytes_ {};
-          // The total number of the keys that have expired.
           shared_ptr<int64_t> totalKeys_ {};
         };
 
@@ -696,21 +661,13 @@ namespace Models
 
 
         protected:
-          // The number of bytes that are occupied by the key.
           shared_ptr<int64_t> bytes_ {};
-          // The number of elements in the key.
           shared_ptr<int64_t> count_ {};
-          // The database name.
           shared_ptr<int32_t> db_ {};
-          // The data type of the key.
           shared_ptr<string> encoding_ {};
-          // The time when the key expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A value of 0 indicates that the key never expires.
           shared_ptr<int64_t> expirationTimeMillis_ {};
-          // The key name.
           shared_ptr<string> key_ {};
-          // The ID of the data node on the instance.
           shared_ptr<string> nodeId_ {};
-          // The data type of the instance.
           shared_ptr<string> type_ {};
         };
 
@@ -840,21 +797,13 @@ namespace Models
 
 
         protected:
-          // The number of bytes that are occupied by the key.
           shared_ptr<int64_t> bytes_ {};
-          // The number of elements in the key.
           shared_ptr<int64_t> count_ {};
-          // The database name.
           shared_ptr<int32_t> db_ {};
-          // The data type of the key.
           shared_ptr<string> encoding_ {};
-          // The time when the key expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A value of 0 indicates that the key never expires.
           shared_ptr<int64_t> expirationTimeMillis_ {};
-          // The key name.
           shared_ptr<string> key_ {};
-          // The ID of the data node on the instance.
           shared_ptr<string> nodeId_ {};
-          // The data type of the instance.
           shared_ptr<string> type_ {};
         };
 
@@ -965,17 +914,13 @@ namespace Models
 
 
     protected:
-      // The details of the large keys. The returned large keys are sorted in descending order based on the number of bytes occupied by the keys.
       shared_ptr<Data::BigKeys> bigKeys_ {};
-      // The details of the large keys. The returned large keys are sorted in descending order based on the number of keys.
       shared_ptr<Data::BigKeysOfNum> bigKeysOfNum_ {};
-      // The statistics of the keys that have expired.
       shared_ptr<Data::ExpiryKeysLevelCount> expiryKeysLevelCount_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The ID of the cache analysis task.
       shared_ptr<string> jobId_ {};
-      // The prefixes of the keys.
       shared_ptr<Data::KeyPrefixes> keyPrefixes_ {};
       // The message that is returned for the request.
       // 
@@ -990,9 +935,7 @@ namespace Models
       // *   **FINISHED**: The data is analyzed.
       // *   **FAILED**: An error occurred.
       shared_ptr<string> taskState_ {};
-      // The details of permanent keys. The returned keys are sorted in descending order based on the number of bytes occupied by the keys.
       shared_ptr<Data::UnexBigKeysOfBytes> unexBigKeysOfBytes_ {};
-      // The details of permanent keys. The returned keys are sorted in descending order based on the number of keys.
       shared_ptr<Data::UnexBigKeysOfNum> unexBigKeysOfNum_ {};
     };
 

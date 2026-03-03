@@ -160,18 +160,12 @@ namespace Models
 
       protected:
         shared_ptr<string> category_ {};
-        // The database in which the key is stored.
         shared_ptr<int32_t> db_ {};
-        // The frequency at which the key is accessed, which indicates the QPS of the key.
         shared_ptr<string> hot_ {};
         shared_ptr<int64_t> inBytes_ {};
-        // The key.
         shared_ptr<string> key_ {};
-        // The type of the key.
         shared_ptr<string> keyType_ {};
-        // The statistical value that is calculated based on the least frequently used (LFU) caching algorithm.
         shared_ptr<int32_t> lfu_ {};
-        // The ID of the data shard on the ApsaraDB for Redis instance.
         shared_ptr<string> nodeId_ {};
         shared_ptr<int64_t> outBytes_ {};
       };
@@ -232,7 +226,6 @@ namespace Models
   protected:
     // The HTTP status code returned.
     shared_ptr<string> code_ {};
-    // The detailed information about the hot keys.
     shared_ptr<DescribeTopHotKeysResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};

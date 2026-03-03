@@ -225,21 +225,13 @@ namespace Models
 
 
             protected:
-              // The number of bytes that are occupied by the key.
               shared_ptr<int64_t> bytes_ {};
-              // The number of elements in the key.
               shared_ptr<int64_t> count_ {};
-              // The name of the database.
               shared_ptr<int32_t> db_ {};
-              // The data type of the key.
               shared_ptr<string> encoding_ {};
-              // The expiration period of the key. Unit: milliseconds. A value of 0 indicates that the key does not expire.
               shared_ptr<int64_t> expirationTimeMillis_ {};
-              // The name of the key.
               shared_ptr<string> key_ {};
-              // The ID of the data node on the instance.
               shared_ptr<string> nodeId_ {};
-              // The data type of the instance.
               shared_ptr<string> type_ {};
             };
 
@@ -304,26 +296,11 @@ namespace Models
 
 
         protected:
-          // The details about the large keys.
-          // 
-          // > The sub-parameters of this parameter and the content of the sub-parameters are not returned. To query the detailed information about the cache analysis tasks, call the [DescribeCacheAnalysisJob](https://help.aliyun.com/document_detail/443012.html) operation.
           shared_ptr<CacheAnalysisJob::BigKeys> bigKeys_ {};
-          // The instance ID.
           shared_ptr<string> instanceId_ {};
-          // The ID of the cache analysis task.
           shared_ptr<string> jobId_ {};
-          // The returned message.
-          // 
-          // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
           shared_ptr<string> message_ {};
-          // The ID of the data node on the instance.
           shared_ptr<string> nodeId_ {};
-          // The state of the cache analysis task. Valid values:
-          // 
-          // * **BACKUP**: The data is being backed up.
-          // * **ANALYZING**: The data is being analyzed.
-          // * **FINISHED**: The data is analyzed.
-          // * **FAILED**: An error occurred.
           shared_ptr<string> taskState_ {};
         };
 
@@ -383,7 +360,6 @@ namespace Models
     protected:
       // The reserved parameter.
       shared_ptr<string> extra_ {};
-      // The ID of the data node on the instance.
       shared_ptr<Data::List> list_ {};
       // The page number. The value must be an integer that is greater than 0. Default value: 1.
       shared_ptr<int64_t> pageNo_ {};
