@@ -21,7 +21,7 @@ namespace Eventbridge20200401
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 检查账号是否存在ServiceLinkedRole授权
+       * @summary Checks whether a service-linked role is created for an Alibaba Cloud account.
        *
        * @param request CheckServiceLinkedRoleForProductRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Eventbridge20200401
       Models::CheckServiceLinkedRoleForProductResponse checkServiceLinkedRoleForProductWithOptions(const Models::CheckServiceLinkedRoleForProductRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检查账号是否存在ServiceLinkedRole授权
+       * @summary Checks whether a service-linked role is created for an Alibaba Cloud account.
        *
        * @param request CheckServiceLinkedRoleForProductRequest
        * @return CheckServiceLinkedRoleForProductResponse
@@ -353,7 +353,7 @@ namespace Eventbridge20200401
       Models::DisableRuleResponse disableRule(const Models::DisableRuleRequest &request);
 
       /**
-       * @summary 发现EventSource(例如：Mysql)的Schema和SimpleData
+       * @summary Discovers the schema and simple data of an event source (such as MySQL).
        *
        * @param tmpReq DiscoverEventSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -362,7 +362,7 @@ namespace Eventbridge20200401
       Models::DiscoverEventSourceResponse discoverEventSourceWithOptions(const Models::DiscoverEventSourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发现EventSource(例如：Mysql)的Schema和SimpleData
+       * @summary Discovers the schema and simple data of an event source (such as MySQL).
        *
        * @param request DiscoverEventSourceRequest
        * @return DiscoverEventSourceResponse
@@ -970,7 +970,7 @@ namespace Eventbridge20200401
       Models::UpdateEventStreamingResponse updateEventStreaming(const Models::UpdateEventStreamingRequest &request);
 
       /**
-       * @summary 查询事件流
+       * @summary This API operation allows you to query event streams.
        *
        * @param request UpdateEventStreamingBusinessOptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -979,7 +979,7 @@ namespace Eventbridge20200401
       Models::UpdateEventStreamingBusinessOptionResponse updateEventStreamingBusinessOptionWithOptions(const Models::UpdateEventStreamingBusinessOptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询事件流
+       * @summary This API operation allows you to query event streams.
        *
        * @param request UpdateEventStreamingBusinessOptionRequest
        * @return UpdateEventStreamingBusinessOptionResponse

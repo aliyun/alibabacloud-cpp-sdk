@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiDestinationName_ == nullptr
-        && return this->connectionName_ == nullptr && return this->description_ == nullptr && return this->httpApiParametersShrink_ == nullptr; };
+        && this->connectionName_ == nullptr && this->description_ == nullptr && this->httpApiParametersShrink_ == nullptr; };
     // apiDestinationName Field Functions 
     bool hasApiDestinationName() const { return this->apiDestinationName_ != nullptr;};
     void deleteApiDestinationName() { this->apiDestinationName_ = nullptr;};
-    inline string apiDestinationName() const { DARABONBA_PTR_GET_DEFAULT(apiDestinationName_, "") };
+    inline string getApiDestinationName() const { DARABONBA_PTR_GET_DEFAULT(apiDestinationName_, "") };
     inline CreateApiDestinationShrinkRequest& setApiDestinationName(string apiDestinationName) { DARABONBA_PTR_SET_VALUE(apiDestinationName_, apiDestinationName) };
 
 
     // connectionName Field Functions 
     bool hasConnectionName() const { return this->connectionName_ != nullptr;};
     void deleteConnectionName() { this->connectionName_ = nullptr;};
-    inline string connectionName() const { DARABONBA_PTR_GET_DEFAULT(connectionName_, "") };
+    inline string getConnectionName() const { DARABONBA_PTR_GET_DEFAULT(connectionName_, "") };
     inline CreateApiDestinationShrinkRequest& setConnectionName(string connectionName) { DARABONBA_PTR_SET_VALUE(connectionName_, connectionName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateApiDestinationShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // httpApiParametersShrink Field Functions 
     bool hasHttpApiParametersShrink() const { return this->httpApiParametersShrink_ != nullptr;};
     void deleteHttpApiParametersShrink() { this->httpApiParametersShrink_ = nullptr;};
-    inline string httpApiParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(httpApiParametersShrink_, "") };
+    inline string getHttpApiParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(httpApiParametersShrink_, "") };
     inline CreateApiDestinationShrinkRequest& setHttpApiParametersShrink(string httpApiParametersShrink) { DARABONBA_PTR_SET_VALUE(httpApiParametersShrink_, httpApiParametersShrink) };
 
 
@@ -69,20 +69,20 @@ namespace Models
     // The name of the API destination. The name must be 2 to 127 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiDestinationName_ = nullptr;
+    shared_ptr<string> apiDestinationName_ {};
     // The name of the connection. The name must be 2 to 127 characters in length.
     // 
     // > 
     // >  Before you configure this parameter, you must call the CreateConnection operation to create a connection. Then, set this parameter to the name of the connection that you created.
     // 
     // This parameter is required.
-    std::shared_ptr<string> connectionName_ = nullptr;
+    shared_ptr<string> connectionName_ {};
     // The description of the API destination. The description can be up to 255 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The parameters that are configured for the API destination.
     // 
     // This parameter is required.
-    std::shared_ptr<string> httpApiParametersShrink_ = nullptr;
+    shared_ptr<string> httpApiParametersShrink_ {};
   };
 
   } // namespace Models

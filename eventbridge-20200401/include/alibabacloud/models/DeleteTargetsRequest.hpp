@@ -35,26 +35,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventBusName_ == nullptr
-        && return this->ruleName_ == nullptr && return this->targetIds_ == nullptr; };
+        && this->ruleName_ == nullptr && this->targetIds_ == nullptr; };
     // eventBusName Field Functions 
     bool hasEventBusName() const { return this->eventBusName_ != nullptr;};
     void deleteEventBusName() { this->eventBusName_ = nullptr;};
-    inline string eventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
+    inline string getEventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
     inline DeleteTargetsRequest& setEventBusName(string eventBusName) { DARABONBA_PTR_SET_VALUE(eventBusName_, eventBusName) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline DeleteTargetsRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // targetIds Field Functions 
     bool hasTargetIds() const { return this->targetIds_ != nullptr;};
     void deleteTargetIds() { this->targetIds_ = nullptr;};
-    inline const vector<string> & targetIds() const { DARABONBA_PTR_GET_CONST(targetIds_, vector<string>) };
-    inline vector<string> targetIds() { DARABONBA_PTR_GET(targetIds_, vector<string>) };
+    inline const vector<string> & getTargetIds() const { DARABONBA_PTR_GET_CONST(targetIds_, vector<string>) };
+    inline vector<string> getTargetIds() { DARABONBA_PTR_GET(targetIds_, vector<string>) };
     inline DeleteTargetsRequest& setTargetIds(const vector<string> & targetIds) { DARABONBA_PTR_SET_VALUE(targetIds_, targetIds) };
     inline DeleteTargetsRequest& setTargetIds(vector<string> && targetIds) { DARABONBA_PTR_SET_RVALUE(targetIds_, targetIds) };
 
@@ -63,13 +63,13 @@ namespace Models
     // The name of the event bus.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eventBusName_ = nullptr;
+    shared_ptr<string> eventBusName_ {};
     // The name of the event rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // The IDs of the event targets that you want to delete.
-    std::shared_ptr<vector<string>> targetIds_ = nullptr;
+    shared_ptr<vector<string>> targetIds_ {};
   };
 
   } // namespace Models

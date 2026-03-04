@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_TESTEVENTPATTERNRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_TESTEVENTPATTERNRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/TestEventPatternResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,56 +37,88 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Result, result_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Result, result_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->result_ == nullptr; };
+      // result Field Functions 
+      bool hasResult() const { return this->result_ != nullptr;};
+      void deleteResult() { this->result_ = nullptr;};
+      inline bool getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, false) };
+      inline Data& setResult(bool result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+
+
+    protected:
+      // The value true indicates that the event pattern matches the provided JSON format. The value false indicates that the event pattern does not match the provided JSON format.
+      shared_ptr<bool> result_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline TestEventPatternResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const TestEventPatternResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, TestEventPatternResponseBodyData) };
-    inline TestEventPatternResponseBodyData data() { DARABONBA_PTR_GET(data_, TestEventPatternResponseBodyData) };
-    inline TestEventPatternResponseBody& setData(const TestEventPatternResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline TestEventPatternResponseBody& setData(TestEventPatternResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const TestEventPatternResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, TestEventPatternResponseBody::Data) };
+    inline TestEventPatternResponseBody::Data getData() { DARABONBA_PTR_GET(data_, TestEventPatternResponseBody::Data) };
+    inline TestEventPatternResponseBody& setData(const TestEventPatternResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline TestEventPatternResponseBody& setData(TestEventPatternResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline TestEventPatternResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline TestEventPatternResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline TestEventPatternResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The returned response code. The value Success indicates that the request is successful. Other values indicate that the request failed. For more information about error codes, see Error codes.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The returned result.
-    std::shared_ptr<TestEventPatternResponseBodyData> data_ = nullptr;
+    shared_ptr<TestEventPatternResponseBody::Data> data_ {};
     // The error message returned if the request failed.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the operation is successful. If the operation is successful, the value true is returned.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

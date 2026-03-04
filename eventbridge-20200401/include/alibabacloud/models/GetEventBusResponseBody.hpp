@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETEVENTBUSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETEVENTBUSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetEventBusResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,56 +37,122 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(CreateTimestamp, createTimestamp_);
+        DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(EventBusARN, eventBusARN_);
+        DARABONBA_PTR_TO_JSON(EventBusName, eventBusName_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(CreateTimestamp, createTimestamp_);
+        DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(EventBusARN, eventBusARN_);
+        DARABONBA_PTR_FROM_JSON(EventBusName, eventBusName_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->createTimestamp_ == nullptr
+        && this->description_ == nullptr && this->eventBusARN_ == nullptr && this->eventBusName_ == nullptr; };
+      // createTimestamp Field Functions 
+      bool hasCreateTimestamp() const { return this->createTimestamp_ != nullptr;};
+      void deleteCreateTimestamp() { this->createTimestamp_ = nullptr;};
+      inline int64_t getCreateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(createTimestamp_, 0L) };
+      inline Data& setCreateTimestamp(int64_t createTimestamp) { DARABONBA_PTR_SET_VALUE(createTimestamp_, createTimestamp) };
+
+
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Data& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // eventBusARN Field Functions 
+      bool hasEventBusARN() const { return this->eventBusARN_ != nullptr;};
+      void deleteEventBusARN() { this->eventBusARN_ = nullptr;};
+      inline string getEventBusARN() const { DARABONBA_PTR_GET_DEFAULT(eventBusARN_, "") };
+      inline Data& setEventBusARN(string eventBusARN) { DARABONBA_PTR_SET_VALUE(eventBusARN_, eventBusARN) };
+
+
+      // eventBusName Field Functions 
+      bool hasEventBusName() const { return this->eventBusName_ != nullptr;};
+      void deleteEventBusName() { this->eventBusName_ = nullptr;};
+      inline string getEventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
+      inline Data& setEventBusName(string eventBusName) { DARABONBA_PTR_SET_VALUE(eventBusName_, eventBusName) };
+
+
+    protected:
+      // The timestamp that indicates when the event bus was created.
+      shared_ptr<int64_t> createTimestamp_ {};
+      // The description of the event bus.
+      shared_ptr<string> description_ {};
+      // The Alibaba Cloud Resource Name (ARN) of the event bus.
+      shared_ptr<string> eventBusARN_ {};
+      // The name of the event bus.
+      shared_ptr<string> eventBusName_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetEventBusResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetEventBusResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetEventBusResponseBodyData) };
-    inline GetEventBusResponseBodyData data() { DARABONBA_PTR_GET(data_, GetEventBusResponseBodyData) };
-    inline GetEventBusResponseBody& setData(const GetEventBusResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetEventBusResponseBody& setData(GetEventBusResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetEventBusResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetEventBusResponseBody::Data) };
+    inline GetEventBusResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetEventBusResponseBody::Data) };
+    inline GetEventBusResponseBody& setData(const GetEventBusResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetEventBusResponseBody& setData(GetEventBusResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetEventBusResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetEventBusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetEventBusResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The response code. The value Success indicates that the request was successful. Other values indicate that the request failed. For more information about error codes, see Error codes.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The data returned.
-    std::shared_ptr<GetEventBusResponseBodyData> data_ = nullptr;
+    shared_ptr<GetEventBusResponseBody::Data> data_ {};
     // The error message that is returned if the request failed.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the operation was successful. If the operation was successful, the value true is returned.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bodyShrink_ == nullptr
-        && return this->busName_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr; };
+        && this->busName_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr; };
     // bodyShrink Field Functions 
     bool hasBodyShrink() const { return this->bodyShrink_ != nullptr;};
     void deleteBodyShrink() { this->bodyShrink_ = nullptr;};
-    inline string bodyShrink() const { DARABONBA_PTR_GET_DEFAULT(bodyShrink_, "") };
+    inline string getBodyShrink() const { DARABONBA_PTR_GET_DEFAULT(bodyShrink_, "") };
     inline EventCenterQueryEventsShrinkRequest& setBodyShrink(string bodyShrink) { DARABONBA_PTR_SET_VALUE(bodyShrink_, bodyShrink) };
 
 
     // busName Field Functions 
     bool hasBusName() const { return this->busName_ != nullptr;};
     void deleteBusName() { this->busName_ = nullptr;};
-    inline string busName() const { DARABONBA_PTR_GET_DEFAULT(busName_, "") };
+    inline string getBusName() const { DARABONBA_PTR_GET_DEFAULT(busName_, "") };
     inline EventCenterQueryEventsShrinkRequest& setBusName(string busName) { DARABONBA_PTR_SET_VALUE(busName_, busName) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline EventCenterQueryEventsShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline EventCenterQueryEventsShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
@@ -69,13 +69,13 @@ namespace Models
     // The request body.
     // 
     // This parameter is required.
-    std::shared_ptr<string> bodyShrink_ = nullptr;
+    shared_ptr<string> bodyShrink_ {};
     // The name of the event bus.
-    std::shared_ptr<string> busName_ = nullptr;
+    shared_ptr<string> busName_ {};
     // The number of entries per page. Valid values: 0 to 10000. Default value: 100.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // 用来标记当前开始读取的位置。置空表示从头开始。
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

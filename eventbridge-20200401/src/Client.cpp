@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 检查账号是否存在ServiceLinkedRole授权
+ * @summary Checks whether a service-linked role is created for an Alibaba Cloud account.
  *
  * @param request CheckServiceLinkedRoleForProductRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -46,7 +46,7 @@ CheckServiceLinkedRoleForProductResponse Client::checkServiceLinkedRoleForProduc
   request.validate();
   json query = {};
   if (!!request.hasProductName()) {
-    query["ProductName"] = request.productName();
+    query["ProductName"] = request.getProductName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -67,7 +67,7 @@ CheckServiceLinkedRoleForProductResponse Client::checkServiceLinkedRoleForProduc
 }
 
 /**
- * @summary 检查账号是否存在ServiceLinkedRole授权
+ * @summary Checks whether a service-linked role is created for an Alibaba Cloud account.
  *
  * @param request CheckServiceLinkedRoleForProductRequest
  * @return CheckServiceLinkedRoleForProductResponse
@@ -91,24 +91,24 @@ CreateApiDestinationResponse Client::createApiDestinationWithOptions(const Creat
   CreateApiDestinationShrinkRequest request = CreateApiDestinationShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasHttpApiParameters()) {
-    request.setHttpApiParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.httpApiParameters(), "HttpApiParameters", "json"));
+    request.setHttpApiParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHttpApiParameters(), "HttpApiParameters", "json"));
   }
 
   json query = {};
   if (!!request.hasApiDestinationName()) {
-    query["ApiDestinationName"] = request.apiDestinationName();
+    query["ApiDestinationName"] = request.getApiDestinationName();
   }
 
   if (!!request.hasConnectionName()) {
-    query["ConnectionName"] = request.connectionName();
+    query["ConnectionName"] = request.getConnectionName();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasHttpApiParametersShrink()) {
-    query["HttpApiParameters"] = request.httpApiParametersShrink();
+    query["HttpApiParameters"] = request.getHttpApiParametersShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -155,28 +155,28 @@ CreateConnectionResponse Client::createConnectionWithOptions(const CreateConnect
   CreateConnectionShrinkRequest request = CreateConnectionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAuthParameters()) {
-    request.setAuthParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.authParameters(), "AuthParameters", "json"));
+    request.setAuthParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAuthParameters(), "AuthParameters", "json"));
   }
 
   if (!!tmpReq.hasNetworkParameters()) {
-    request.setNetworkParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.networkParameters(), "NetworkParameters", "json"));
+    request.setNetworkParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNetworkParameters(), "NetworkParameters", "json"));
   }
 
   json query = {};
   if (!!request.hasAuthParametersShrink()) {
-    query["AuthParameters"] = request.authParametersShrink();
+    query["AuthParameters"] = request.getAuthParametersShrink();
   }
 
   if (!!request.hasConnectionName()) {
-    query["ConnectionName"] = request.connectionName();
+    query["ConnectionName"] = request.getConnectionName();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasNetworkParametersShrink()) {
-    query["NetworkParameters"] = request.networkParametersShrink();
+    query["NetworkParameters"] = request.getNetworkParametersShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -222,11 +222,11 @@ CreateEventBusResponse Client::createEventBusWithOptions(const CreateEventBusReq
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -273,96 +273,96 @@ CreateEventSourceResponse Client::createEventSourceWithOptions(const CreateEvent
   CreateEventSourceShrinkRequest request = CreateEventSourceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExternalSourceConfig()) {
-    request.setExternalSourceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.externalSourceConfig(), "ExternalSourceConfig", "json"));
+    request.setExternalSourceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExternalSourceConfig(), "ExternalSourceConfig", "json"));
   }
 
   if (!!tmpReq.hasSourceHttpEventParameters()) {
-    request.setSourceHttpEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceHttpEventParameters(), "SourceHttpEventParameters", "json"));
+    request.setSourceHttpEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceHttpEventParameters(), "SourceHttpEventParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceKafkaParameters()) {
-    request.setSourceKafkaParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceKafkaParameters(), "SourceKafkaParameters", "json"));
+    request.setSourceKafkaParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceKafkaParameters(), "SourceKafkaParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceMNSParameters()) {
-    request.setSourceMNSParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceMNSParameters(), "SourceMNSParameters", "json"));
+    request.setSourceMNSParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceMNSParameters(), "SourceMNSParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceOSSEventParameters()) {
-    request.setSourceOSSEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceOSSEventParameters(), "SourceOSSEventParameters", "json"));
+    request.setSourceOSSEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceOSSEventParameters(), "SourceOSSEventParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceRabbitMQParameters()) {
-    request.setSourceRabbitMQParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceRabbitMQParameters(), "SourceRabbitMQParameters", "json"));
+    request.setSourceRabbitMQParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceRabbitMQParameters(), "SourceRabbitMQParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceRocketMQParameters()) {
-    request.setSourceRocketMQParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceRocketMQParameters(), "SourceRocketMQParameters", "json"));
+    request.setSourceRocketMQParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceRocketMQParameters(), "SourceRocketMQParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceSLSParameters()) {
-    request.setSourceSLSParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceSLSParameters(), "SourceSLSParameters", "json"));
+    request.setSourceSLSParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceSLSParameters(), "SourceSLSParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceScheduledEventParameters()) {
-    request.setSourceScheduledEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceScheduledEventParameters(), "SourceScheduledEventParameters", "json"));
+    request.setSourceScheduledEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceScheduledEventParameters(), "SourceScheduledEventParameters", "json"));
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEventBusName()) {
-    body["EventBusName"] = request.eventBusName();
+    body["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasEventSourceName()) {
-    body["EventSourceName"] = request.eventSourceName();
+    body["EventSourceName"] = request.getEventSourceName();
   }
 
   if (!!request.hasExternalSourceConfigShrink()) {
-    body["ExternalSourceConfig"] = request.externalSourceConfigShrink();
+    body["ExternalSourceConfig"] = request.getExternalSourceConfigShrink();
   }
 
   if (!!request.hasExternalSourceType()) {
-    body["ExternalSourceType"] = request.externalSourceType();
+    body["ExternalSourceType"] = request.getExternalSourceType();
   }
 
   if (!!request.hasLinkedExternalSource()) {
-    body["LinkedExternalSource"] = request.linkedExternalSource();
+    body["LinkedExternalSource"] = request.getLinkedExternalSource();
   }
 
   if (!!request.hasSourceHttpEventParametersShrink()) {
-    body["SourceHttpEventParameters"] = request.sourceHttpEventParametersShrink();
+    body["SourceHttpEventParameters"] = request.getSourceHttpEventParametersShrink();
   }
 
   if (!!request.hasSourceKafkaParametersShrink()) {
-    body["SourceKafkaParameters"] = request.sourceKafkaParametersShrink();
+    body["SourceKafkaParameters"] = request.getSourceKafkaParametersShrink();
   }
 
   if (!!request.hasSourceMNSParametersShrink()) {
-    body["SourceMNSParameters"] = request.sourceMNSParametersShrink();
+    body["SourceMNSParameters"] = request.getSourceMNSParametersShrink();
   }
 
   if (!!request.hasSourceOSSEventParametersShrink()) {
-    body["SourceOSSEventParameters"] = request.sourceOSSEventParametersShrink();
+    body["SourceOSSEventParameters"] = request.getSourceOSSEventParametersShrink();
   }
 
   if (!!request.hasSourceRabbitMQParametersShrink()) {
-    body["SourceRabbitMQParameters"] = request.sourceRabbitMQParametersShrink();
+    body["SourceRabbitMQParameters"] = request.getSourceRabbitMQParametersShrink();
   }
 
   if (!!request.hasSourceRocketMQParametersShrink()) {
-    body["SourceRocketMQParameters"] = request.sourceRocketMQParametersShrink();
+    body["SourceRocketMQParameters"] = request.getSourceRocketMQParametersShrink();
   }
 
   if (!!request.hasSourceSLSParametersShrink()) {
-    body["SourceSLSParameters"] = request.sourceSLSParametersShrink();
+    body["SourceSLSParameters"] = request.getSourceSLSParametersShrink();
   }
 
   if (!!request.hasSourceScheduledEventParametersShrink()) {
-    body["SourceScheduledEventParameters"] = request.sourceScheduledEventParametersShrink();
+    body["SourceScheduledEventParameters"] = request.getSourceScheduledEventParametersShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -409,52 +409,52 @@ CreateEventStreamingResponse Client::createEventStreamingWithOptions(const Creat
   CreateEventStreamingShrinkRequest request = CreateEventStreamingShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRunOptions()) {
-    request.setRunOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.runOptions(), "RunOptions", "json"));
+    request.setRunOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRunOptions(), "RunOptions", "json"));
   }
 
   if (!!tmpReq.hasSink()) {
-    request.setSinkShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sink(), "Sink", "json"));
+    request.setSinkShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSink(), "Sink", "json"));
   }
 
   if (!!tmpReq.hasSource()) {
-    request.setSourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.source(), "Source", "json"));
+    request.setSourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSource(), "Source", "json"));
   }
 
   if (!!tmpReq.hasTransforms()) {
-    request.setTransformsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.transforms(), "Transforms", "json"));
+    request.setTransformsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTransforms(), "Transforms", "json"));
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEventStreamingName()) {
-    body["EventStreamingName"] = request.eventStreamingName();
+    body["EventStreamingName"] = request.getEventStreamingName();
   }
 
   if (!!request.hasFilterPattern()) {
-    body["FilterPattern"] = request.filterPattern();
+    body["FilterPattern"] = request.getFilterPattern();
   }
 
   if (!!request.hasRunOptionsShrink()) {
-    body["RunOptions"] = request.runOptionsShrink();
+    body["RunOptions"] = request.getRunOptionsShrink();
   }
 
   if (!!request.hasSinkShrink()) {
-    body["Sink"] = request.sinkShrink();
+    body["Sink"] = request.getSinkShrink();
   }
 
   if (!!request.hasSourceShrink()) {
-    body["Source"] = request.sourceShrink();
+    body["Source"] = request.getSourceShrink();
   }
 
   if (!!request.hasTags()) {
-    body["Tags"] = request.tags();
+    body["Tags"] = request.getTags();
   }
 
   if (!!request.hasTransformsShrink()) {
-    body["Transforms"] = request.transformsShrink();
+    body["Transforms"] = request.getTransformsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -501,32 +501,32 @@ CreateRuleResponse Client::createRuleWithOptions(const CreateRuleRequest &tmpReq
   CreateRuleShrinkRequest request = CreateRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEventTargets()) {
-    request.setEventTargetsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.eventTargets(), "EventTargets", "json"));
+    request.setEventTargetsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEventTargets(), "EventTargets", "json"));
   }
 
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasEventTargetsShrink()) {
-    query["EventTargets"] = request.eventTargetsShrink();
+    query["EventTargets"] = request.getEventTargetsShrink();
   }
 
   if (!!request.hasFilterPattern()) {
-    query["FilterPattern"] = request.filterPattern();
+    query["FilterPattern"] = request.getFilterPattern();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -572,7 +572,7 @@ CreateServiceLinkedRoleForProductResponse Client::createServiceLinkedRoleForProd
   request.validate();
   json query = {};
   if (!!request.hasProductName()) {
-    query["ProductName"] = request.productName();
+    query["ProductName"] = request.getProductName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -618,7 +618,7 @@ DeleteApiDestinationResponse Client::deleteApiDestinationWithOptions(const Delet
   request.validate();
   json query = {};
   if (!!request.hasApiDestinationName()) {
-    query["ApiDestinationName"] = request.apiDestinationName();
+    query["ApiDestinationName"] = request.getApiDestinationName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -664,7 +664,7 @@ DeleteConnectionResponse Client::deleteConnectionWithOptions(const DeleteConnect
   request.validate();
   json query = {};
   if (!!request.hasConnectionName()) {
-    query["ConnectionName"] = request.connectionName();
+    query["ConnectionName"] = request.getConnectionName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -710,7 +710,7 @@ DeleteEventBusResponse Client::deleteEventBusWithOptions(const DeleteEventBusReq
   request.validate();
   json query = {};
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -756,11 +756,11 @@ DeleteEventSourceResponse Client::deleteEventSourceWithOptions(const DeleteEvent
   request.validate();
   json body = {};
   if (!!request.hasEventBusName()) {
-    body["EventBusName"] = request.eventBusName();
+    body["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasEventSourceName()) {
-    body["EventSourceName"] = request.eventSourceName();
+    body["EventSourceName"] = request.getEventSourceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -806,7 +806,7 @@ DeleteEventStreamingResponse Client::deleteEventStreamingWithOptions(const Delet
   request.validate();
   json body = {};
   if (!!request.hasEventStreamingName()) {
-    body["EventStreamingName"] = request.eventStreamingName();
+    body["EventStreamingName"] = request.getEventStreamingName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -852,11 +852,11 @@ DeleteRuleResponse Client::deleteRuleWithOptions(const DeleteRuleRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -903,20 +903,20 @@ DeleteTargetsResponse Client::deleteTargetsWithOptions(const DeleteTargetsReques
   DeleteTargetsShrinkRequest request = DeleteTargetsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTargetIds()) {
-    request.setTargetIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.targetIds(), "TargetIds", "json"));
+    request.setTargetIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTargetIds(), "TargetIds", "json"));
   }
 
   json query = {};
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasTargetIdsShrink()) {
-    query["TargetIds"] = request.targetIdsShrink();
+    query["TargetIds"] = request.getTargetIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -962,11 +962,11 @@ DisableRuleResponse Client::disableRuleWithOptions(const DisableRuleRequest &req
   request.validate();
   json query = {};
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1000,7 +1000,7 @@ DisableRuleResponse Client::disableRule(const DisableRuleRequest &request) {
 }
 
 /**
- * @summary 发现EventSource(例如：Mysql)的Schema和SimpleData
+ * @summary Discovers the schema and simple data of an event source (such as MySQL).
  *
  * @param tmpReq DiscoverEventSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1011,12 +1011,12 @@ DiscoverEventSourceResponse Client::discoverEventSourceWithOptions(const Discove
   DiscoverEventSourceShrinkRequest request = DiscoverEventSourceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSourceMySQLParameters()) {
-    request.setSourceMySQLParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceMySQLParameters(), "SourceMySQLParameters", "json"));
+    request.setSourceMySQLParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceMySQLParameters(), "SourceMySQLParameters", "json"));
   }
 
   json body = {};
   if (!!request.hasSourceMySQLParametersShrink()) {
-    body["SourceMySQLParameters"] = request.sourceMySQLParametersShrink();
+    body["SourceMySQLParameters"] = request.getSourceMySQLParametersShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1037,7 +1037,7 @@ DiscoverEventSourceResponse Client::discoverEventSourceWithOptions(const Discove
 }
 
 /**
- * @summary 发现EventSource(例如：Mysql)的Schema和SimpleData
+ * @summary Discovers the schema and simple data of an event source (such as MySQL).
  *
  * @param request DiscoverEventSourceRequest
  * @return DiscoverEventSourceResponse
@@ -1060,11 +1060,11 @@ EnableRuleResponse Client::enableRuleWithOptions(const EnableRuleRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1109,25 +1109,25 @@ EventCenterQueryEventsResponse Client::eventCenterQueryEventsWithOptions(const E
   EventCenterQueryEventsShrinkRequest request = EventCenterQueryEventsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBody()) {
-    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.body(), "Body", "json"));
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "Body", "json"));
   }
 
   json query = {};
   if (!!request.hasBusName()) {
-    query["BusName"] = request.busName();
+    query["BusName"] = request.getBusName();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   json body = {};
   if (!!request.hasBodyShrink()) {
-    body["Body"] = request.bodyShrink();
+    body["Body"] = request.getBodyShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1172,7 +1172,7 @@ GetApiDestinationResponse Client::getApiDestinationWithOptions(const GetApiDesti
   request.validate();
   json query = {};
   if (!!request.hasApiDestinationName()) {
-    query["ApiDestinationName"] = request.apiDestinationName();
+    query["ApiDestinationName"] = request.getApiDestinationName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1218,7 +1218,7 @@ GetConnectionResponse Client::getConnectionWithOptions(const GetConnectionReques
   request.validate();
   json query = {};
   if (!!request.hasConnectionName()) {
-    query["ConnectionName"] = request.connectionName();
+    query["ConnectionName"] = request.getConnectionName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1264,7 +1264,7 @@ GetEventBusResponse Client::getEventBusWithOptions(const GetEventBusRequest &req
   request.validate();
   json query = {};
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1310,7 +1310,7 @@ GetEventStreamingResponse Client::getEventStreamingWithOptions(const GetEventStr
   request.validate();
   json body = {};
   if (!!request.hasEventStreamingName()) {
-    body["EventStreamingName"] = request.eventStreamingName();
+    body["EventStreamingName"] = request.getEventStreamingName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1356,11 +1356,11 @@ GetRuleResponse Client::getRuleWithOptions(const GetRuleRequest &request, const 
   request.validate();
   json query = {};
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1443,19 +1443,19 @@ ListApiDestinationsResponse Client::listApiDestinationsWithOptions(const ListApi
   request.validate();
   json query = {};
   if (!!request.hasApiDestinationNamePrefix()) {
-    query["ApiDestinationNamePrefix"] = request.apiDestinationNamePrefix();
+    query["ApiDestinationNamePrefix"] = request.getApiDestinationNamePrefix();
   }
 
   if (!!request.hasConnectionName()) {
-    query["ConnectionName"] = request.connectionName();
+    query["ConnectionName"] = request.getConnectionName();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1501,15 +1501,15 @@ ListConnectionsResponse Client::listConnectionsWithOptions(const ListConnections
   request.validate();
   json body = {};
   if (!!request.hasConnectionNamePrefix()) {
-    body["ConnectionNamePrefix"] = request.connectionNamePrefix();
+    body["ConnectionNamePrefix"] = request.getConnectionNamePrefix();
   }
 
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1555,15 +1555,15 @@ ListEventBusesResponse Client::listEventBusesWithOptions(const ListEventBusesReq
   request.validate();
   json query = {};
   if (!!request.hasLimit()) {
-    query["Limit"] = request.limit();
+    query["Limit"] = request.getLimit();
   }
 
   if (!!request.hasNamePrefix()) {
-    query["NamePrefix"] = request.namePrefix();
+    query["NamePrefix"] = request.getNamePrefix();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1609,27 +1609,27 @@ ListEventStreamingsResponse Client::listEventStreamingsWithOptions(const ListEve
   request.validate();
   json body = {};
   if (!!request.hasLimit()) {
-    body["Limit"] = request.limit();
+    body["Limit"] = request.getLimit();
   }
 
   if (!!request.hasNamePrefix()) {
-    body["NamePrefix"] = request.namePrefix();
+    body["NamePrefix"] = request.getNamePrefix();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasSinkArn()) {
-    body["SinkArn"] = request.sinkArn();
+    body["SinkArn"] = request.getSinkArn();
   }
 
   if (!!request.hasSourceArn()) {
-    body["SourceArn"] = request.sourceArn();
+    body["SourceArn"] = request.getSourceArn();
   }
 
   if (!!request.hasTags()) {
-    body["Tags"] = request.tags();
+    body["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1675,19 +1675,19 @@ ListRulesResponse Client::listRulesWithOptions(const ListRulesRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasLimit()) {
-    query["Limit"] = request.limit();
+    query["Limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRuleNamePrefix()) {
-    query["RuleNamePrefix"] = request.ruleNamePrefix();
+    query["RuleNamePrefix"] = request.getRuleNamePrefix();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1731,23 +1731,23 @@ ListTargetsResponse Client::listTargetsWithOptions(const ListTargetsRequest &req
   request.validate();
   json query = {};
   if (!!request.hasArn()) {
-    query["Arn"] = request.arn();
+    query["Arn"] = request.getArn();
   }
 
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasLimit()) {
-    query["Limit"] = request.limit();
+    query["Limit"] = request.getLimit();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1791,19 +1791,19 @@ ListUserDefinedEventSourcesResponse Client::listUserDefinedEventSourcesWithOptio
   request.validate();
   json query = {};
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasLimit()) {
-    query["Limit"] = request.limit();
+    query["Limit"] = request.getLimit();
   }
 
   if (!!request.hasNamePrefix()) {
-    query["NamePrefix"] = request.namePrefix();
+    query["NamePrefix"] = request.getNamePrefix();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1849,7 +1849,7 @@ PauseEventStreamingResponse Client::pauseEventStreamingWithOptions(const PauseEv
   request.validate();
   json body = {};
   if (!!request.hasEventStreamingName()) {
-    body["EventStreamingName"] = request.eventStreamingName();
+    body["EventStreamingName"] = request.getEventStreamingName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1896,20 +1896,20 @@ PutTargetsResponse Client::putTargetsWithOptions(const PutTargetsRequest &tmpReq
   PutTargetsShrinkRequest request = PutTargetsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTargets()) {
-    request.setTargetsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.targets(), "Targets", "json"));
+    request.setTargetsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTargets(), "Targets", "json"));
   }
 
   json query = {};
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasTargetsShrink()) {
-    query["Targets"] = request.targetsShrink();
+    query["Targets"] = request.getTargetsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1955,15 +1955,15 @@ QueryEventResponse Client::queryEventWithOptions(const QueryEventRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasEventId()) {
-    query["EventId"] = request.eventId();
+    query["EventId"] = request.getEventId();
   }
 
   if (!!request.hasEventSource()) {
-    query["EventSource"] = request.eventSource();
+    query["EventSource"] = request.getEventSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2009,11 +2009,11 @@ QueryEventTracesResponse Client::queryEventTracesWithOptions(const QueryEventTra
   request.validate();
   json query = {};
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasEventId()) {
-    query["EventId"] = request.eventId();
+    query["EventId"] = request.getEventId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2059,15 +2059,15 @@ QueryTracedEventByEventIdResponse Client::queryTracedEventByEventIdWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasEventId()) {
-    query["EventId"] = request.eventId();
+    query["EventId"] = request.getEventId();
   }
 
   if (!!request.hasEventSource()) {
-    query["EventSource"] = request.eventSource();
+    query["EventSource"] = request.getEventSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2113,35 +2113,39 @@ QueryTracedEventsResponse Client::queryTracedEventsWithOptions(const QueryTraced
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasEventSource()) {
-    query["EventSource"] = request.eventSource();
+    query["EventSource"] = request.getEventSource();
   }
 
   if (!!request.hasEventType()) {
-    query["EventType"] = request.eventType();
+    query["EventType"] = request.getEventType();
   }
 
   if (!!request.hasLimit()) {
-    query["Limit"] = request.limit();
+    query["Limit"] = request.getLimit();
   }
 
   if (!!request.hasMatchedRule()) {
-    query["MatchedRule"] = request.matchedRule();
+    query["MatchedRule"] = request.getMatchedRule();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasSubject()) {
+    query["Subject"] = request.getSubject();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2187,7 +2191,7 @@ StartEventStreamingResponse Client::startEventStreamingWithOptions(const StartEv
   request.validate();
   json body = {};
   if (!!request.hasEventStreamingName()) {
-    body["EventStreamingName"] = request.eventStreamingName();
+    body["EventStreamingName"] = request.getEventStreamingName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2233,11 +2237,11 @@ TestEventPatternResponse Client::testEventPatternWithOptions(const TestEventPatt
   request.validate();
   json body = {};
   if (!!request.hasEvent()) {
-    body["Event"] = request.event();
+    body["Event"] = request.getEvent();
   }
 
   if (!!request.hasEventPattern()) {
-    body["EventPattern"] = request.eventPattern();
+    body["EventPattern"] = request.getEventPattern();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2284,12 +2288,12 @@ TestEventSourceConfigResponse Client::testEventSourceConfigWithOptions(const Tes
   TestEventSourceConfigShrinkRequest request = TestEventSourceConfigShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSourceMySQLParameters()) {
-    request.setSourceMySQLParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceMySQLParameters(), "SourceMySQLParameters", "json"));
+    request.setSourceMySQLParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceMySQLParameters(), "SourceMySQLParameters", "json"));
   }
 
   json body = {};
   if (!!request.hasSourceMySQLParametersShrink()) {
-    body["SourceMySQLParameters"] = request.sourceMySQLParametersShrink();
+    body["SourceMySQLParameters"] = request.getSourceMySQLParametersShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2336,24 +2340,24 @@ UpdateApiDestinationResponse Client::updateApiDestinationWithOptions(const Updat
   UpdateApiDestinationShrinkRequest request = UpdateApiDestinationShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasHttpApiParameters()) {
-    request.setHttpApiParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.httpApiParameters(), "HttpApiParameters", "json"));
+    request.setHttpApiParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHttpApiParameters(), "HttpApiParameters", "json"));
   }
 
   json query = {};
   if (!!request.hasApiDestinationName()) {
-    query["ApiDestinationName"] = request.apiDestinationName();
+    query["ApiDestinationName"] = request.getApiDestinationName();
   }
 
   if (!!request.hasConnectionName()) {
-    query["ConnectionName"] = request.connectionName();
+    query["ConnectionName"] = request.getConnectionName();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasHttpApiParametersShrink()) {
-    query["HttpApiParameters"] = request.httpApiParametersShrink();
+    query["HttpApiParameters"] = request.getHttpApiParametersShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2400,28 +2404,28 @@ UpdateConnectionResponse Client::updateConnectionWithOptions(const UpdateConnect
   UpdateConnectionShrinkRequest request = UpdateConnectionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAuthParameters()) {
-    request.setAuthParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.authParameters(), "AuthParameters", "json"));
+    request.setAuthParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAuthParameters(), "AuthParameters", "json"));
   }
 
   if (!!tmpReq.hasNetworkParameters()) {
-    request.setNetworkParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.networkParameters(), "NetworkParameters", "json"));
+    request.setNetworkParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNetworkParameters(), "NetworkParameters", "json"));
   }
 
   json query = {};
   if (!!request.hasAuthParametersShrink()) {
-    query["AuthParameters"] = request.authParametersShrink();
+    query["AuthParameters"] = request.getAuthParametersShrink();
   }
 
   if (!!request.hasConnectionName()) {
-    query["ConnectionName"] = request.connectionName();
+    query["ConnectionName"] = request.getConnectionName();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasNetworkParametersShrink()) {
-    query["NetworkParameters"] = request.networkParametersShrink();
+    query["NetworkParameters"] = request.getNetworkParametersShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2467,11 +2471,11 @@ UpdateEventBusResponse Client::updateEventBusWithOptions(const UpdateEventBusReq
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2518,96 +2522,96 @@ UpdateEventSourceResponse Client::updateEventSourceWithOptions(const UpdateEvent
   UpdateEventSourceShrinkRequest request = UpdateEventSourceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExternalSourceConfig()) {
-    request.setExternalSourceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.externalSourceConfig(), "ExternalSourceConfig", "json"));
+    request.setExternalSourceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExternalSourceConfig(), "ExternalSourceConfig", "json"));
   }
 
   if (!!tmpReq.hasSourceHttpEventParameters()) {
-    request.setSourceHttpEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceHttpEventParameters(), "SourceHttpEventParameters", "json"));
+    request.setSourceHttpEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceHttpEventParameters(), "SourceHttpEventParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceKafkaParameters()) {
-    request.setSourceKafkaParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceKafkaParameters(), "SourceKafkaParameters", "json"));
+    request.setSourceKafkaParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceKafkaParameters(), "SourceKafkaParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceMNSParameters()) {
-    request.setSourceMNSParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceMNSParameters(), "SourceMNSParameters", "json"));
+    request.setSourceMNSParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceMNSParameters(), "SourceMNSParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceOSSEventParameters()) {
-    request.setSourceOSSEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceOSSEventParameters(), "SourceOSSEventParameters", "json"));
+    request.setSourceOSSEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceOSSEventParameters(), "SourceOSSEventParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceRabbitMQParameters()) {
-    request.setSourceRabbitMQParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceRabbitMQParameters(), "SourceRabbitMQParameters", "json"));
+    request.setSourceRabbitMQParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceRabbitMQParameters(), "SourceRabbitMQParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceRocketMQParameters()) {
-    request.setSourceRocketMQParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceRocketMQParameters(), "SourceRocketMQParameters", "json"));
+    request.setSourceRocketMQParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceRocketMQParameters(), "SourceRocketMQParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceSLSParameters()) {
-    request.setSourceSLSParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceSLSParameters(), "SourceSLSParameters", "json"));
+    request.setSourceSLSParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceSLSParameters(), "SourceSLSParameters", "json"));
   }
 
   if (!!tmpReq.hasSourceScheduledEventParameters()) {
-    request.setSourceScheduledEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceScheduledEventParameters(), "SourceScheduledEventParameters", "json"));
+    request.setSourceScheduledEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceScheduledEventParameters(), "SourceScheduledEventParameters", "json"));
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEventBusName()) {
-    body["EventBusName"] = request.eventBusName();
+    body["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasEventSourceName()) {
-    body["EventSourceName"] = request.eventSourceName();
+    body["EventSourceName"] = request.getEventSourceName();
   }
 
   if (!!request.hasExternalSourceConfigShrink()) {
-    body["ExternalSourceConfig"] = request.externalSourceConfigShrink();
+    body["ExternalSourceConfig"] = request.getExternalSourceConfigShrink();
   }
 
   if (!!request.hasExternalSourceType()) {
-    body["ExternalSourceType"] = request.externalSourceType();
+    body["ExternalSourceType"] = request.getExternalSourceType();
   }
 
   if (!!request.hasLinkedExternalSource()) {
-    body["LinkedExternalSource"] = request.linkedExternalSource();
+    body["LinkedExternalSource"] = request.getLinkedExternalSource();
   }
 
   if (!!request.hasSourceHttpEventParametersShrink()) {
-    body["SourceHttpEventParameters"] = request.sourceHttpEventParametersShrink();
+    body["SourceHttpEventParameters"] = request.getSourceHttpEventParametersShrink();
   }
 
   if (!!request.hasSourceKafkaParametersShrink()) {
-    body["SourceKafkaParameters"] = request.sourceKafkaParametersShrink();
+    body["SourceKafkaParameters"] = request.getSourceKafkaParametersShrink();
   }
 
   if (!!request.hasSourceMNSParametersShrink()) {
-    body["SourceMNSParameters"] = request.sourceMNSParametersShrink();
+    body["SourceMNSParameters"] = request.getSourceMNSParametersShrink();
   }
 
   if (!!request.hasSourceOSSEventParametersShrink()) {
-    body["SourceOSSEventParameters"] = request.sourceOSSEventParametersShrink();
+    body["SourceOSSEventParameters"] = request.getSourceOSSEventParametersShrink();
   }
 
   if (!!request.hasSourceRabbitMQParametersShrink()) {
-    body["SourceRabbitMQParameters"] = request.sourceRabbitMQParametersShrink();
+    body["SourceRabbitMQParameters"] = request.getSourceRabbitMQParametersShrink();
   }
 
   if (!!request.hasSourceRocketMQParametersShrink()) {
-    body["SourceRocketMQParameters"] = request.sourceRocketMQParametersShrink();
+    body["SourceRocketMQParameters"] = request.getSourceRocketMQParametersShrink();
   }
 
   if (!!request.hasSourceSLSParametersShrink()) {
-    body["SourceSLSParameters"] = request.sourceSLSParametersShrink();
+    body["SourceSLSParameters"] = request.getSourceSLSParametersShrink();
   }
 
   if (!!request.hasSourceScheduledEventParametersShrink()) {
-    body["SourceScheduledEventParameters"] = request.sourceScheduledEventParametersShrink();
+    body["SourceScheduledEventParameters"] = request.getSourceScheduledEventParametersShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2654,48 +2658,48 @@ UpdateEventStreamingResponse Client::updateEventStreamingWithOptions(const Updat
   UpdateEventStreamingShrinkRequest request = UpdateEventStreamingShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRunOptions()) {
-    request.setRunOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.runOptions(), "RunOptions", "json"));
+    request.setRunOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRunOptions(), "RunOptions", "json"));
   }
 
   if (!!tmpReq.hasSink()) {
-    request.setSinkShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sink(), "Sink", "json"));
+    request.setSinkShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSink(), "Sink", "json"));
   }
 
   if (!!tmpReq.hasSource()) {
-    request.setSourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.source(), "Source", "json"));
+    request.setSourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSource(), "Source", "json"));
   }
 
   if (!!tmpReq.hasTransforms()) {
-    request.setTransformsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.transforms(), "Transforms", "json"));
+    request.setTransformsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTransforms(), "Transforms", "json"));
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEventStreamingName()) {
-    body["EventStreamingName"] = request.eventStreamingName();
+    body["EventStreamingName"] = request.getEventStreamingName();
   }
 
   if (!!request.hasFilterPattern()) {
-    body["FilterPattern"] = request.filterPattern();
+    body["FilterPattern"] = request.getFilterPattern();
   }
 
   if (!!request.hasRunOptionsShrink()) {
-    body["RunOptions"] = request.runOptionsShrink();
+    body["RunOptions"] = request.getRunOptionsShrink();
   }
 
   if (!!request.hasSinkShrink()) {
-    body["Sink"] = request.sinkShrink();
+    body["Sink"] = request.getSinkShrink();
   }
 
   if (!!request.hasSourceShrink()) {
-    body["Source"] = request.sourceShrink();
+    body["Source"] = request.getSourceShrink();
   }
 
   if (!!request.hasTransformsShrink()) {
-    body["Transforms"] = request.transformsShrink();
+    body["Transforms"] = request.getTransformsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2729,7 +2733,7 @@ UpdateEventStreamingResponse Client::updateEventStreaming(const UpdateEventStrea
 }
 
 /**
- * @summary 查询事件流
+ * @summary This API operation allows you to query event streams.
  *
  * @param request UpdateEventStreamingBusinessOptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2739,19 +2743,19 @@ UpdateEventStreamingBusinessOptionResponse Client::updateEventStreamingBusinessO
   request.validate();
   json body = {};
   if (!!request.hasBusinessMode()) {
-    body["BusinessMode"] = request.businessMode();
+    body["BusinessMode"] = request.getBusinessMode();
   }
 
   if (!!request.hasEventStreamingName()) {
-    body["EventStreamingName"] = request.eventStreamingName();
+    body["EventStreamingName"] = request.getEventStreamingName();
   }
 
   if (!!request.hasMaxCapacityUnitCount()) {
-    body["MaxCapacityUnitCount"] = request.maxCapacityUnitCount();
+    body["MaxCapacityUnitCount"] = request.getMaxCapacityUnitCount();
   }
 
   if (!!request.hasMinCapacityUnitCount()) {
-    body["MinCapacityUnitCount"] = request.minCapacityUnitCount();
+    body["MinCapacityUnitCount"] = request.getMinCapacityUnitCount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2772,7 +2776,7 @@ UpdateEventStreamingBusinessOptionResponse Client::updateEventStreamingBusinessO
 }
 
 /**
- * @summary 查询事件流
+ * @summary This API operation allows you to query event streams.
  *
  * @param request UpdateEventStreamingBusinessOptionRequest
  * @return UpdateEventStreamingBusinessOptionResponse
@@ -2795,23 +2799,23 @@ UpdateRuleResponse Client::updateRuleWithOptions(const UpdateRuleRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasEventBusName()) {
-    query["EventBusName"] = request.eventBusName();
+    query["EventBusName"] = request.getEventBusName();
   }
 
   if (!!request.hasFilterPattern()) {
-    query["FilterPattern"] = request.filterPattern();
+    query["FilterPattern"] = request.getFilterPattern();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

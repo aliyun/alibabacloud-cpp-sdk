@@ -34,39 +34,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectionNamePrefix_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr; };
     // connectionNamePrefix Field Functions 
     bool hasConnectionNamePrefix() const { return this->connectionNamePrefix_ != nullptr;};
     void deleteConnectionNamePrefix() { this->connectionNamePrefix_ = nullptr;};
-    inline string connectionNamePrefix() const { DARABONBA_PTR_GET_DEFAULT(connectionNamePrefix_, "") };
+    inline string getConnectionNamePrefix() const { DARABONBA_PTR_GET_DEFAULT(connectionNamePrefix_, "") };
     inline ListConnectionsRequest& setConnectionNamePrefix(string connectionNamePrefix) { DARABONBA_PTR_SET_VALUE(connectionNamePrefix_, connectionNamePrefix) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int64_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
+    inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline ListConnectionsRequest& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListConnectionsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
     // The key word that you specify to query connections. Connections can be queried by prefixes.
-    std::shared_ptr<string> connectionNamePrefix_ = nullptr;
+    shared_ptr<string> connectionNamePrefix_ {};
     // The maximum number of entries to be returned in a single call. You can use this parameter and the NextToken parameter to implement paging.
     // 
     // *   Default value: 10.
-    std::shared_ptr<int64_t> maxResults_ = nullptr;
+    shared_ptr<int64_t> maxResults_ {};
     // If you set the Limit parameter and excess return values exist, this parameter is returned.
     // 
     // *   Default value: 0.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

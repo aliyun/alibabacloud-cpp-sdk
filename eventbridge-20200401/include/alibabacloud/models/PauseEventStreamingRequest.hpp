@@ -33,7 +33,7 @@ namespace Models
     // eventStreamingName Field Functions 
     bool hasEventStreamingName() const { return this->eventStreamingName_ != nullptr;};
     void deleteEventStreamingName() { this->eventStreamingName_ = nullptr;};
-    inline string eventStreamingName() const { DARABONBA_PTR_GET_DEFAULT(eventStreamingName_, "") };
+    inline string getEventStreamingName() const { DARABONBA_PTR_GET_DEFAULT(eventStreamingName_, "") };
     inline PauseEventStreamingRequest& setEventStreamingName(string eventStreamingName) { DARABONBA_PTR_SET_VALUE(eventStreamingName_, eventStreamingName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the event stream that you want to stop.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eventStreamingName_ = nullptr;
+    shared_ptr<string> eventStreamingName_ {};
   };
 
   } // namespace Models

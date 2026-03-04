@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->eventBusName_ == nullptr; };
+        && this->eventBusName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateEventBusRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // eventBusName Field Functions 
     bool hasEventBusName() const { return this->eventBusName_ != nullptr;};
     void deleteEventBusName() { this->eventBusName_ = nullptr;};
-    inline string eventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
+    inline string getEventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
     inline UpdateEventBusRequest& setEventBusName(string eventBusName) { DARABONBA_PTR_SET_VALUE(eventBusName_, eventBusName) };
 
 
   protected:
     // The description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the event bus.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eventBusName_ = nullptr;
+    shared_ptr<string> eventBusName_ {};
   };
 
   } // namespace Models

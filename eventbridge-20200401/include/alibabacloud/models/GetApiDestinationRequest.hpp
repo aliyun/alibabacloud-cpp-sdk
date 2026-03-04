@@ -33,7 +33,7 @@ namespace Models
     // apiDestinationName Field Functions 
     bool hasApiDestinationName() const { return this->apiDestinationName_ != nullptr;};
     void deleteApiDestinationName() { this->apiDestinationName_ = nullptr;};
-    inline string apiDestinationName() const { DARABONBA_PTR_GET_DEFAULT(apiDestinationName_, "") };
+    inline string getApiDestinationName() const { DARABONBA_PTR_GET_DEFAULT(apiDestinationName_, "") };
     inline GetApiDestinationRequest& setApiDestinationName(string apiDestinationName) { DARABONBA_PTR_SET_VALUE(apiDestinationName_, apiDestinationName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the API destination.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiDestinationName_ = nullptr;
+    shared_ptr<string> apiDestinationName_ {};
   };
 
   } // namespace Models

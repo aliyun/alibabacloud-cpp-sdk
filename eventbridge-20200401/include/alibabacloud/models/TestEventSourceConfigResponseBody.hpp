@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_TESTEVENTSOURCECONFIGRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/TestEventSourceConfigResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,42 +38,97 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(CheckItem, checkItem_);
+        DARABONBA_PTR_TO_JSON(ErrorMsg, errorMsg_);
+        DARABONBA_PTR_TO_JSON(IsSucceed, isSucceed_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(CheckItem, checkItem_);
+        DARABONBA_PTR_FROM_JSON(ErrorMsg, errorMsg_);
+        DARABONBA_PTR_FROM_JSON(IsSucceed, isSucceed_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->checkItem_ == nullptr
+        && this->errorMsg_ == nullptr && this->isSucceed_ == nullptr; };
+      // checkItem Field Functions 
+      bool hasCheckItem() const { return this->checkItem_ != nullptr;};
+      void deleteCheckItem() { this->checkItem_ = nullptr;};
+      inline string getCheckItem() const { DARABONBA_PTR_GET_DEFAULT(checkItem_, "") };
+      inline Data& setCheckItem(string checkItem) { DARABONBA_PTR_SET_VALUE(checkItem_, checkItem) };
+
+
+      // errorMsg Field Functions 
+      bool hasErrorMsg() const { return this->errorMsg_ != nullptr;};
+      void deleteErrorMsg() { this->errorMsg_ = nullptr;};
+      inline string getErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
+      inline Data& setErrorMsg(string errorMsg) { DARABONBA_PTR_SET_VALUE(errorMsg_, errorMsg) };
+
+
+      // isSucceed Field Functions 
+      bool hasIsSucceed() const { return this->isSucceed_ != nullptr;};
+      void deleteIsSucceed() { this->isSucceed_ = nullptr;};
+      inline string getIsSucceed() const { DARABONBA_PTR_GET_DEFAULT(isSucceed_, "") };
+      inline Data& setIsSucceed(string isSucceed) { DARABONBA_PTR_SET_VALUE(isSucceed_, isSucceed) };
+
+
+    protected:
+      // The name of the check item.
+      shared_ptr<string> checkItem_ {};
+      // The error message.
+      shared_ptr<string> errorMsg_ {};
+      // Indicates whether the check item is executed.
+      shared_ptr<string> isSucceed_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline TestEventSourceConfigResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<TestEventSourceConfigResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<TestEventSourceConfigResponseBodyData>) };
-    inline vector<TestEventSourceConfigResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<TestEventSourceConfigResponseBodyData>) };
-    inline TestEventSourceConfigResponseBody& setData(const vector<TestEventSourceConfigResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline TestEventSourceConfigResponseBody& setData(vector<TestEventSourceConfigResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<TestEventSourceConfigResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<TestEventSourceConfigResponseBody::Data>) };
+    inline vector<TestEventSourceConfigResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<TestEventSourceConfigResponseBody::Data>) };
+    inline TestEventSourceConfigResponseBody& setData(const vector<TestEventSourceConfigResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline TestEventSourceConfigResponseBody& setData(vector<TestEventSourceConfigResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline TestEventSourceConfigResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline TestEventSourceConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline TestEventSourceConfigResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
@@ -83,15 +137,15 @@ namespace Models
     // 
     // *   Success: The request was successful.
     // *   Other codes indicate that the request failed. For information about error codes, see Error codes.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The update result.
-    std::shared_ptr<vector<TestEventSourceConfigResponseBodyData>> data_ = nullptr;
+    shared_ptr<vector<TestEventSourceConfigResponseBody::Data>> data_ {};
     // The error message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the operation was successful. If the operation was successful, the value true is returned.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

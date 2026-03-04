@@ -33,12 +33,12 @@ namespace Models
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline string enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
+    inline string getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
     inline SinkDataWorksTriggerParameters& setEnable(string enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
   protected:
-    std::shared_ptr<string> enable_ = nullptr;
+    shared_ptr<string> enable_ {};
   };
 
   } // namespace Models

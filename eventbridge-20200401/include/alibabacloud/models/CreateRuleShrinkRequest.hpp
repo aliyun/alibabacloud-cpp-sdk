@@ -40,70 +40,70 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->eventBusName_ == nullptr && return this->eventTargetsShrink_ == nullptr && return this->filterPattern_ == nullptr && return this->ruleName_ == nullptr && return this->status_ == nullptr; };
+        && this->eventBusName_ == nullptr && this->eventTargetsShrink_ == nullptr && this->filterPattern_ == nullptr && this->ruleName_ == nullptr && this->status_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateRuleShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // eventBusName Field Functions 
     bool hasEventBusName() const { return this->eventBusName_ != nullptr;};
     void deleteEventBusName() { this->eventBusName_ = nullptr;};
-    inline string eventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
+    inline string getEventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
     inline CreateRuleShrinkRequest& setEventBusName(string eventBusName) { DARABONBA_PTR_SET_VALUE(eventBusName_, eventBusName) };
 
 
     // eventTargetsShrink Field Functions 
     bool hasEventTargetsShrink() const { return this->eventTargetsShrink_ != nullptr;};
     void deleteEventTargetsShrink() { this->eventTargetsShrink_ = nullptr;};
-    inline string eventTargetsShrink() const { DARABONBA_PTR_GET_DEFAULT(eventTargetsShrink_, "") };
+    inline string getEventTargetsShrink() const { DARABONBA_PTR_GET_DEFAULT(eventTargetsShrink_, "") };
     inline CreateRuleShrinkRequest& setEventTargetsShrink(string eventTargetsShrink) { DARABONBA_PTR_SET_VALUE(eventTargetsShrink_, eventTargetsShrink) };
 
 
     // filterPattern Field Functions 
     bool hasFilterPattern() const { return this->filterPattern_ != nullptr;};
     void deleteFilterPattern() { this->filterPattern_ = nullptr;};
-    inline string filterPattern() const { DARABONBA_PTR_GET_DEFAULT(filterPattern_, "") };
+    inline string getFilterPattern() const { DARABONBA_PTR_GET_DEFAULT(filterPattern_, "") };
     inline CreateRuleShrinkRequest& setFilterPattern(string filterPattern) { DARABONBA_PTR_SET_VALUE(filterPattern_, filterPattern) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline CreateRuleShrinkRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline CreateRuleShrinkRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The description of the event bus.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the event bus.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eventBusName_ = nullptr;
+    shared_ptr<string> eventBusName_ {};
     // The event targets.
-    std::shared_ptr<string> eventTargetsShrink_ = nullptr;
+    shared_ptr<string> eventTargetsShrink_ {};
     // The event pattern, in JSON format. Valid values: stringEqual and stringExpression. You can specify up to five expressions in the map data structure in each field.
     // 
     // You can specify up to five expressions in the map data structure in each field.
     // 
     // This parameter is required.
-    std::shared_ptr<string> filterPattern_ = nullptr;
+    shared_ptr<string> filterPattern_ {};
     // The name of the event rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // The status of the event rule. Valid values: ENABLE: enables the event rule. It is the default status of the event rule. DISABLE: disables the event rule.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

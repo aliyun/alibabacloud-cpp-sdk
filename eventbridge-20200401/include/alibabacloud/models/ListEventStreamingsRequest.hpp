@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTEVENTSTREAMINGSREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListEventStreamingsRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -41,64 +40,106 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->limit_ == nullptr
-        && return this->namePrefix_ == nullptr && return this->nextToken_ == nullptr && return this->sinkArn_ == nullptr && return this->sourceArn_ == nullptr && return this->tags_ == nullptr; };
+        && this->namePrefix_ == nullptr && this->nextToken_ == nullptr && this->sinkArn_ == nullptr && this->sourceArn_ == nullptr && this->tags_ == nullptr; };
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int32_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
+    inline int32_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
     inline ListEventStreamingsRequest& setLimit(int32_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // namePrefix Field Functions 
     bool hasNamePrefix() const { return this->namePrefix_ != nullptr;};
     void deleteNamePrefix() { this->namePrefix_ = nullptr;};
-    inline string namePrefix() const { DARABONBA_PTR_GET_DEFAULT(namePrefix_, "") };
+    inline string getNamePrefix() const { DARABONBA_PTR_GET_DEFAULT(namePrefix_, "") };
     inline ListEventStreamingsRequest& setNamePrefix(string namePrefix) { DARABONBA_PTR_SET_VALUE(namePrefix_, namePrefix) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListEventStreamingsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // sinkArn Field Functions 
     bool hasSinkArn() const { return this->sinkArn_ != nullptr;};
     void deleteSinkArn() { this->sinkArn_ = nullptr;};
-    inline string sinkArn() const { DARABONBA_PTR_GET_DEFAULT(sinkArn_, "") };
+    inline string getSinkArn() const { DARABONBA_PTR_GET_DEFAULT(sinkArn_, "") };
     inline ListEventStreamingsRequest& setSinkArn(string sinkArn) { DARABONBA_PTR_SET_VALUE(sinkArn_, sinkArn) };
 
 
     // sourceArn Field Functions 
     bool hasSourceArn() const { return this->sourceArn_ != nullptr;};
     void deleteSourceArn() { this->sourceArn_ = nullptr;};
-    inline string sourceArn() const { DARABONBA_PTR_GET_DEFAULT(sourceArn_, "") };
+    inline string getSourceArn() const { DARABONBA_PTR_GET_DEFAULT(sourceArn_, "") };
     inline ListEventStreamingsRequest& setSourceArn(string sourceArn) { DARABONBA_PTR_SET_VALUE(sourceArn_, sourceArn) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<ListEventStreamingsRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<ListEventStreamingsRequestTags>) };
-    inline vector<ListEventStreamingsRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<ListEventStreamingsRequestTags>) };
-    inline ListEventStreamingsRequest& setTags(const vector<ListEventStreamingsRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline ListEventStreamingsRequest& setTags(vector<ListEventStreamingsRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+    inline const vector<ListEventStreamingsRequest::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<ListEventStreamingsRequest::Tags>) };
+    inline vector<ListEventStreamingsRequest::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<ListEventStreamingsRequest::Tags>) };
+    inline ListEventStreamingsRequest& setTags(const vector<ListEventStreamingsRequest::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline ListEventStreamingsRequest& setTags(vector<ListEventStreamingsRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
   protected:
     // The maximum number of entries to be returned in a call. You can use this parameter and NextToken to implement paging. A maximum of 100 entries can be returned in a call.
-    std::shared_ptr<int32_t> limit_ = nullptr;
+    shared_ptr<int32_t> limit_ {};
     // The name of the event stream that you want to query.
-    std::shared_ptr<string> namePrefix_ = nullptr;
+    shared_ptr<string> namePrefix_ {};
     // If you configure Limit and excess return values exist, this parameter is returned.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The ARN of the event target.
-    std::shared_ptr<string> sinkArn_ = nullptr;
+    shared_ptr<string> sinkArn_ {};
     // The Alibaba Cloud Resource Name (ARN) of the event source.
-    std::shared_ptr<string> sourceArn_ = nullptr;
-    std::shared_ptr<vector<ListEventStreamingsRequestTags>> tags_ = nullptr;
+    shared_ptr<string> sourceArn_ {};
+    shared_ptr<vector<ListEventStreamingsRequest::Tags>> tags_ {};
   };
 
   } // namespace Models

@@ -36,48 +36,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiDestinationNamePrefix_ == nullptr
-        && return this->connectionName_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr; };
+        && this->connectionName_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr; };
     // apiDestinationNamePrefix Field Functions 
     bool hasApiDestinationNamePrefix() const { return this->apiDestinationNamePrefix_ != nullptr;};
     void deleteApiDestinationNamePrefix() { this->apiDestinationNamePrefix_ = nullptr;};
-    inline string apiDestinationNamePrefix() const { DARABONBA_PTR_GET_DEFAULT(apiDestinationNamePrefix_, "") };
+    inline string getApiDestinationNamePrefix() const { DARABONBA_PTR_GET_DEFAULT(apiDestinationNamePrefix_, "") };
     inline ListApiDestinationsRequest& setApiDestinationNamePrefix(string apiDestinationNamePrefix) { DARABONBA_PTR_SET_VALUE(apiDestinationNamePrefix_, apiDestinationNamePrefix) };
 
 
     // connectionName Field Functions 
     bool hasConnectionName() const { return this->connectionName_ != nullptr;};
     void deleteConnectionName() { this->connectionName_ = nullptr;};
-    inline string connectionName() const { DARABONBA_PTR_GET_DEFAULT(connectionName_, "") };
+    inline string getConnectionName() const { DARABONBA_PTR_GET_DEFAULT(connectionName_, "") };
     inline ListApiDestinationsRequest& setConnectionName(string connectionName) { DARABONBA_PTR_SET_VALUE(connectionName_, connectionName) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int64_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
+    inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline ListApiDestinationsRequest& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListApiDestinationsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
     // The prefix of the API destination name.
-    std::shared_ptr<string> apiDestinationNamePrefix_ = nullptr;
+    shared_ptr<string> apiDestinationNamePrefix_ {};
     // The connection name.
-    std::shared_ptr<string> connectionName_ = nullptr;
+    shared_ptr<string> connectionName_ {};
     // The maximum number of entries to be returned in a call. You can use this parameter and NextToken to implement paging.
     // 
     // *   Default value: 10.
-    std::shared_ptr<int64_t> maxResults_ = nullptr;
+    shared_ptr<int64_t> maxResults_ {};
     // If you set Limit and excess return values exist, this parameter is returned.
     // 
     // *   Default value: 0.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

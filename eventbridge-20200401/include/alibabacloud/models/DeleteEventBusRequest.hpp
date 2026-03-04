@@ -33,7 +33,7 @@ namespace Models
     // eventBusName Field Functions 
     bool hasEventBusName() const { return this->eventBusName_ != nullptr;};
     void deleteEventBusName() { this->eventBusName_ = nullptr;};
-    inline string eventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
+    inline string getEventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
     inline DeleteEventBusRequest& setEventBusName(string eventBusName) { DARABONBA_PTR_SET_VALUE(eventBusName_, eventBusName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the event bus.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eventBusName_ = nullptr;
+    shared_ptr<string> eventBusName_ {};
   };
 
   } // namespace Models

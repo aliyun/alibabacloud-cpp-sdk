@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->event_ == nullptr
-        && return this->eventPattern_ == nullptr; };
+        && this->eventPattern_ == nullptr; };
     // event Field Functions 
     bool hasEvent() const { return this->event_ != nullptr;};
     void deleteEvent() { this->event_ = nullptr;};
-    inline string event() const { DARABONBA_PTR_GET_DEFAULT(event_, "") };
+    inline string getEvent() const { DARABONBA_PTR_GET_DEFAULT(event_, "") };
     inline TestEventPatternRequest& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
 
 
     // eventPattern Field Functions 
     bool hasEventPattern() const { return this->eventPattern_ != nullptr;};
     void deleteEventPattern() { this->eventPattern_ = nullptr;};
-    inline string eventPattern() const { DARABONBA_PTR_GET_DEFAULT(eventPattern_, "") };
+    inline string getEventPattern() const { DARABONBA_PTR_GET_DEFAULT(eventPattern_, "") };
     inline TestEventPatternRequest& setEventPattern(string eventPattern) { DARABONBA_PTR_SET_VALUE(eventPattern_, eventPattern) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The event.
     // 
     // This parameter is required.
-    std::shared_ptr<string> event_ = nullptr;
+    shared_ptr<string> event_ {};
     // The event pattern.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eventPattern_ = nullptr;
+    shared_ptr<string> eventPattern_ {};
   };
 
   } // namespace Models

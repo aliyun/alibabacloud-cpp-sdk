@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventBusName_ == nullptr
-        && return this->limit_ == nullptr && return this->nextToken_ == nullptr && return this->ruleNamePrefix_ == nullptr; };
+        && this->limit_ == nullptr && this->nextToken_ == nullptr && this->ruleNamePrefix_ == nullptr; };
     // eventBusName Field Functions 
     bool hasEventBusName() const { return this->eventBusName_ != nullptr;};
     void deleteEventBusName() { this->eventBusName_ = nullptr;};
-    inline string eventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
+    inline string getEventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
     inline ListRulesRequest& setEventBusName(string eventBusName) { DARABONBA_PTR_SET_VALUE(eventBusName_, eventBusName) };
 
 
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int32_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
+    inline int32_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
     inline ListRulesRequest& setLimit(int32_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListRulesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // ruleNamePrefix Field Functions 
     bool hasRuleNamePrefix() const { return this->ruleNamePrefix_ != nullptr;};
     void deleteRuleNamePrefix() { this->ruleNamePrefix_ = nullptr;};
-    inline string ruleNamePrefix() const { DARABONBA_PTR_GET_DEFAULT(ruleNamePrefix_, "") };
+    inline string getRuleNamePrefix() const { DARABONBA_PTR_GET_DEFAULT(ruleNamePrefix_, "") };
     inline ListRulesRequest& setRuleNamePrefix(string ruleNamePrefix) { DARABONBA_PTR_SET_VALUE(ruleNamePrefix_, ruleNamePrefix) };
 
 
@@ -69,13 +69,13 @@ namespace Models
     // The name of the event bus.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eventBusName_ = nullptr;
+    shared_ptr<string> eventBusName_ {};
     // The maximum number of entries to be returned in a single call. You can use this parameter and the NextToken parameter to implement paging. A maximum of 100 entries can be returned in a single call.
-    std::shared_ptr<int32_t> limit_ = nullptr;
+    shared_ptr<int32_t> limit_ {};
     // If you set the Limit parameter and excess return values exist, this parameter is returned.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The prefix of the rule name.
-    std::shared_ptr<string> ruleNamePrefix_ = nullptr;
+    shared_ptr<string> ruleNamePrefix_ {};
   };
 
   } // namespace Models

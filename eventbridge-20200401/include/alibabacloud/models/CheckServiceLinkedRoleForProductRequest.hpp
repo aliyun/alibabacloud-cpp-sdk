@@ -33,12 +33,12 @@ namespace Models
     // productName Field Functions 
     bool hasProductName() const { return this->productName_ != nullptr;};
     void deleteProductName() { this->productName_ = nullptr;};
-    inline string productName() const { DARABONBA_PTR_GET_DEFAULT(productName_, "") };
+    inline string getProductName() const { DARABONBA_PTR_GET_DEFAULT(productName_, "") };
     inline CheckServiceLinkedRoleForProductRequest& setProductName(string productName) { DARABONBA_PTR_SET_VALUE(productName_, productName) };
 
 
   protected:
-    std::shared_ptr<string> productName_ = nullptr;
+    shared_ptr<string> productName_ {};
   };
 
   } // namespace Models

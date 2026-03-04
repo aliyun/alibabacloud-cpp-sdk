@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventBusName_ == nullptr
-        && return this->ruleName_ == nullptr && return this->targetIdsShrink_ == nullptr; };
+        && this->ruleName_ == nullptr && this->targetIdsShrink_ == nullptr; };
     // eventBusName Field Functions 
     bool hasEventBusName() const { return this->eventBusName_ != nullptr;};
     void deleteEventBusName() { this->eventBusName_ = nullptr;};
-    inline string eventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
+    inline string getEventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
     inline DeleteTargetsShrinkRequest& setEventBusName(string eventBusName) { DARABONBA_PTR_SET_VALUE(eventBusName_, eventBusName) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline DeleteTargetsShrinkRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // targetIdsShrink Field Functions 
     bool hasTargetIdsShrink() const { return this->targetIdsShrink_ != nullptr;};
     void deleteTargetIdsShrink() { this->targetIdsShrink_ = nullptr;};
-    inline string targetIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(targetIdsShrink_, "") };
+    inline string getTargetIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(targetIdsShrink_, "") };
     inline DeleteTargetsShrinkRequest& setTargetIdsShrink(string targetIdsShrink) { DARABONBA_PTR_SET_VALUE(targetIdsShrink_, targetIdsShrink) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The name of the event bus.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eventBusName_ = nullptr;
+    shared_ptr<string> eventBusName_ {};
     // The name of the event rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // The IDs of the event targets that you want to delete.
-    std::shared_ptr<string> targetIdsShrink_ = nullptr;
+    shared_ptr<string> targetIdsShrink_ {};
   };
 
   } // namespace Models

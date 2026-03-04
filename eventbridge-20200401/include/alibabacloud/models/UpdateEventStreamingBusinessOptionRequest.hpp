@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessMode_ == nullptr
-        && return this->eventStreamingName_ == nullptr && return this->maxCapacityUnitCount_ == nullptr && return this->minCapacityUnitCount_ == nullptr; };
+        && this->eventStreamingName_ == nullptr && this->maxCapacityUnitCount_ == nullptr && this->minCapacityUnitCount_ == nullptr; };
     // businessMode Field Functions 
     bool hasBusinessMode() const { return this->businessMode_ != nullptr;};
     void deleteBusinessMode() { this->businessMode_ = nullptr;};
-    inline string businessMode() const { DARABONBA_PTR_GET_DEFAULT(businessMode_, "") };
+    inline string getBusinessMode() const { DARABONBA_PTR_GET_DEFAULT(businessMode_, "") };
     inline UpdateEventStreamingBusinessOptionRequest& setBusinessMode(string businessMode) { DARABONBA_PTR_SET_VALUE(businessMode_, businessMode) };
 
 
     // eventStreamingName Field Functions 
     bool hasEventStreamingName() const { return this->eventStreamingName_ != nullptr;};
     void deleteEventStreamingName() { this->eventStreamingName_ = nullptr;};
-    inline string eventStreamingName() const { DARABONBA_PTR_GET_DEFAULT(eventStreamingName_, "") };
+    inline string getEventStreamingName() const { DARABONBA_PTR_GET_DEFAULT(eventStreamingName_, "") };
     inline UpdateEventStreamingBusinessOptionRequest& setEventStreamingName(string eventStreamingName) { DARABONBA_PTR_SET_VALUE(eventStreamingName_, eventStreamingName) };
 
 
     // maxCapacityUnitCount Field Functions 
     bool hasMaxCapacityUnitCount() const { return this->maxCapacityUnitCount_ != nullptr;};
     void deleteMaxCapacityUnitCount() { this->maxCapacityUnitCount_ = nullptr;};
-    inline int64_t maxCapacityUnitCount() const { DARABONBA_PTR_GET_DEFAULT(maxCapacityUnitCount_, 0L) };
+    inline int64_t getMaxCapacityUnitCount() const { DARABONBA_PTR_GET_DEFAULT(maxCapacityUnitCount_, 0L) };
     inline UpdateEventStreamingBusinessOptionRequest& setMaxCapacityUnitCount(int64_t maxCapacityUnitCount) { DARABONBA_PTR_SET_VALUE(maxCapacityUnitCount_, maxCapacityUnitCount) };
 
 
     // minCapacityUnitCount Field Functions 
     bool hasMinCapacityUnitCount() const { return this->minCapacityUnitCount_ != nullptr;};
     void deleteMinCapacityUnitCount() { this->minCapacityUnitCount_ = nullptr;};
-    inline int64_t minCapacityUnitCount() const { DARABONBA_PTR_GET_DEFAULT(minCapacityUnitCount_, 0L) };
+    inline int64_t getMinCapacityUnitCount() const { DARABONBA_PTR_GET_DEFAULT(minCapacityUnitCount_, 0L) };
     inline UpdateEventStreamingBusinessOptionRequest& setMinCapacityUnitCount(int64_t minCapacityUnitCount) { DARABONBA_PTR_SET_VALUE(minCapacityUnitCount_, minCapacityUnitCount) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> businessMode_ = nullptr;
+    shared_ptr<string> businessMode_ {};
     // This parameter is required.
-    std::shared_ptr<string> eventStreamingName_ = nullptr;
-    std::shared_ptr<int64_t> maxCapacityUnitCount_ = nullptr;
-    std::shared_ptr<int64_t> minCapacityUnitCount_ = nullptr;
+    shared_ptr<string> eventStreamingName_ {};
+    shared_ptr<int64_t> maxCapacityUnitCount_ {};
+    shared_ptr<int64_t> minCapacityUnitCount_ {};
   };
 
   } // namespace Models

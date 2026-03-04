@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->limit_ == nullptr
-        && return this->namePrefix_ == nullptr && return this->nextToken_ == nullptr; };
+        && this->namePrefix_ == nullptr && this->nextToken_ == nullptr; };
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int32_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
+    inline int32_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
     inline ListEventBusesRequest& setLimit(int32_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // namePrefix Field Functions 
     bool hasNamePrefix() const { return this->namePrefix_ != nullptr;};
     void deleteNamePrefix() { this->namePrefix_ = nullptr;};
-    inline string namePrefix() const { DARABONBA_PTR_GET_DEFAULT(namePrefix_, "") };
+    inline string getNamePrefix() const { DARABONBA_PTR_GET_DEFAULT(namePrefix_, "") };
     inline ListEventBusesRequest& setNamePrefix(string namePrefix) { DARABONBA_PTR_SET_VALUE(namePrefix_, namePrefix) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListEventBusesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The maximum number of entries to return in a request. You can use this parameter and NextToken to implement paging.
     // 
     // >  A maximum of 100 entries can be returned in a request.
-    std::shared_ptr<int32_t> limit_ = nullptr;
+    shared_ptr<int32_t> limit_ {};
     // The prefix of the names of the event buses that you want to query.
-    std::shared_ptr<string> namePrefix_ = nullptr;
+    shared_ptr<string> namePrefix_ {};
     // If you configure Limit and excess return values exist, this parameter is returned. You can use this parameter and Limit to implement paging.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

@@ -36,48 +36,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authParametersShrink_ == nullptr
-        && return this->connectionName_ == nullptr && return this->description_ == nullptr && return this->networkParametersShrink_ == nullptr; };
+        && this->connectionName_ == nullptr && this->description_ == nullptr && this->networkParametersShrink_ == nullptr; };
     // authParametersShrink Field Functions 
     bool hasAuthParametersShrink() const { return this->authParametersShrink_ != nullptr;};
     void deleteAuthParametersShrink() { this->authParametersShrink_ = nullptr;};
-    inline string authParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(authParametersShrink_, "") };
+    inline string getAuthParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(authParametersShrink_, "") };
     inline UpdateConnectionShrinkRequest& setAuthParametersShrink(string authParametersShrink) { DARABONBA_PTR_SET_VALUE(authParametersShrink_, authParametersShrink) };
 
 
     // connectionName Field Functions 
     bool hasConnectionName() const { return this->connectionName_ != nullptr;};
     void deleteConnectionName() { this->connectionName_ = nullptr;};
-    inline string connectionName() const { DARABONBA_PTR_GET_DEFAULT(connectionName_, "") };
+    inline string getConnectionName() const { DARABONBA_PTR_GET_DEFAULT(connectionName_, "") };
     inline UpdateConnectionShrinkRequest& setConnectionName(string connectionName) { DARABONBA_PTR_SET_VALUE(connectionName_, connectionName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateConnectionShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // networkParametersShrink Field Functions 
     bool hasNetworkParametersShrink() const { return this->networkParametersShrink_ != nullptr;};
     void deleteNetworkParametersShrink() { this->networkParametersShrink_ = nullptr;};
-    inline string networkParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(networkParametersShrink_, "") };
+    inline string getNetworkParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(networkParametersShrink_, "") };
     inline UpdateConnectionShrinkRequest& setNetworkParametersShrink(string networkParametersShrink) { DARABONBA_PTR_SET_VALUE(networkParametersShrink_, networkParametersShrink) };
 
 
   protected:
     // The parameters that are configured for authentication.
-    std::shared_ptr<string> authParametersShrink_ = nullptr;
+    shared_ptr<string> authParametersShrink_ {};
     // The name of the connection that you want to update. The name must be 2 to 127 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> connectionName_ = nullptr;
+    shared_ptr<string> connectionName_ {};
     // The description of the connection. The description can be up to 255 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The parameters that are configured for the network.
     // 
     // This parameter is required.
-    std::shared_ptr<string> networkParametersShrink_ = nullptr;
+    shared_ptr<string> networkParametersShrink_ {};
   };
 
   } // namespace Models

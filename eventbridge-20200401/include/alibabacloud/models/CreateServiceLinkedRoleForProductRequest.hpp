@@ -33,7 +33,7 @@ namespace Models
     // productName Field Functions 
     bool hasProductName() const { return this->productName_ != nullptr;};
     void deleteProductName() { this->productName_ = nullptr;};
-    inline string productName() const { DARABONBA_PTR_GET_DEFAULT(productName_, "") };
+    inline string getProductName() const { DARABONBA_PTR_GET_DEFAULT(productName_, "") };
     inline CreateServiceLinkedRoleForProductRequest& setProductName(string productName) { DARABONBA_PTR_SET_VALUE(productName_, productName) };
 
 
@@ -59,7 +59,7 @@ namespace Models
     // *   AliyunServiceRoleForEventBridgeSourceSLS: allows EventBridge to integrate with Simple Log Service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> productName_ = nullptr;
+    shared_ptr<string> productName_ {};
   };
 
   } // namespace Models

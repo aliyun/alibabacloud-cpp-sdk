@@ -32,27 +32,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventBusName_ == nullptr
-        && return this->eventSourceName_ == nullptr; };
+        && this->eventSourceName_ == nullptr; };
     // eventBusName Field Functions 
     bool hasEventBusName() const { return this->eventBusName_ != nullptr;};
     void deleteEventBusName() { this->eventBusName_ = nullptr;};
-    inline string eventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
+    inline string getEventBusName() const { DARABONBA_PTR_GET_DEFAULT(eventBusName_, "") };
     inline DeleteEventSourceRequest& setEventBusName(string eventBusName) { DARABONBA_PTR_SET_VALUE(eventBusName_, eventBusName) };
 
 
     // eventSourceName Field Functions 
     bool hasEventSourceName() const { return this->eventSourceName_ != nullptr;};
     void deleteEventSourceName() { this->eventSourceName_ = nullptr;};
-    inline string eventSourceName() const { DARABONBA_PTR_GET_DEFAULT(eventSourceName_, "") };
+    inline string getEventSourceName() const { DARABONBA_PTR_GET_DEFAULT(eventSourceName_, "") };
     inline DeleteEventSourceRequest& setEventSourceName(string eventSourceName) { DARABONBA_PTR_SET_VALUE(eventSourceName_, eventSourceName) };
 
 
   protected:
-    std::shared_ptr<string> eventBusName_ = nullptr;
+    shared_ptr<string> eventBusName_ {};
     // The name of the event source.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eventSourceName_ = nullptr;
+    shared_ptr<string> eventSourceName_ {};
   };
 
   } // namespace Models

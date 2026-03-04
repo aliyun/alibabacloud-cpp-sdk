@@ -33,12 +33,12 @@ namespace Models
     // sourceMySQLParametersShrink Field Functions 
     bool hasSourceMySQLParametersShrink() const { return this->sourceMySQLParametersShrink_ != nullptr;};
     void deleteSourceMySQLParametersShrink() { this->sourceMySQLParametersShrink_ = nullptr;};
-    inline string sourceMySQLParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(sourceMySQLParametersShrink_, "") };
+    inline string getSourceMySQLParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(sourceMySQLParametersShrink_, "") };
     inline DiscoverEventSourceShrinkRequest& setSourceMySQLParametersShrink(string sourceMySQLParametersShrink) { DARABONBA_PTR_SET_VALUE(sourceMySQLParametersShrink_, sourceMySQLParametersShrink) };
 
 
   protected:
-    std::shared_ptr<string> sourceMySQLParametersShrink_ = nullptr;
+    shared_ptr<string> sourceMySQLParametersShrink_ {};
   };
 
   } // namespace Models

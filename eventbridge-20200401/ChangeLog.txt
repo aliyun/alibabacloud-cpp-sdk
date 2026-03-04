@@ -1,3 +1,80 @@
+2026-03-04 Version: 6.0.0
+- Update API CreateEventStreaming: add request parameters Sink.SinkApiDestinationParameters.
+- Update API CreateEventStreaming: add request parameters Sink.SinkEventHouseParameters.
+- Update API CreateEventStreaming: add request parameters Sink.SinkHttpsParameters.
+- Update API CreateEventStreaming: add request parameters Sink.SinkMQTTParameters.
+- Update API CreateEventStreaming: add request parameters Sink.SinkOSSParameters.
+- Update API CreateEventStreaming: add request parameters Sink.SinkRabbitMQMetaParameters.
+- Update API CreateEventStreaming: add request parameters Sink.SinkRabbitMQMsgSyncParameters.
+- Update API CreateEventStreaming: add request parameters Sink.SinkApacheKafkaParameters.CompressionType.
+- Update API CreateEventStreaming: add request parameters Sink.SinkApacheKafkaParameters.SslTruststoreCertificates.
+- Update API CreateEventStreaming: add request parameters Sink.SinkKafkaParameters.CompressionType.
+- Update API CreateEventStreaming: add request parameters Source.SourcePostgreSQLParameters.
+- Update API CreateEventStreaming: add request parameters Source.SourceRabbitMQMetaParameters.
+- Update API CreateEventStreaming: add request parameters Source.SourceRabbitMQMsgSyncParameters.
+- Update API CreateEventStreaming: add request parameters Source.SourceApacheKafkaParameters.SslTruststoreCertificates.
+- Update API CreateEventStreaming: add request parameters Transforms.$.BaiLianAgentTransformParameters.
+- Update API CreateEventStreaming: add request parameters Transforms.$.DashScopeTransformParameters.
+- Update API CreateEventStreaming: add request parameters Transforms.$.EmbeddingTransformParameters.
+- Update API CreateEventStreaming: update request parameters Sink.SinkDashVectorParameters.DashVectorSchemaParameters' type has changed.
+- Update API CreateEventStreaming: delete request parameters Sink.SinkDashVectorParameters.DashVectorSchemaParameters.
+- Update API GetEventStreaming: add response parameters Body.Data.Sink.SinkApiDestinationParameters.
+- Update API GetEventStreaming: add response parameters Body.Data.Sink.SinkHttpsParameters.
+- Update API GetEventStreaming: add response parameters Body.Data.Sink.SinkMQTTParameters.
+- Update API GetEventStreaming: add response parameters Body.Data.Sink.SinkOSSParameters.
+- Update API GetEventStreaming: add response parameters Body.Data.Sink.SinkRabbitMQMetaParameters.
+- Update API GetEventStreaming: add response parameters Body.Data.Sink.SinkRabbitMQMsgSyncParameters.
+- Update API GetEventStreaming: add response parameters Body.Data.Sink.SinkApacheKafkaParameters.CompressionType.
+- Update API GetEventStreaming: add response parameters Body.Data.Sink.SinkApacheKafkaParameters.SslTruststoreCertificates.
+- Update API GetEventStreaming: add response parameters Body.Data.Sink.SinkKafkaParameters.CompressionType.
+- Update API GetEventStreaming: add response parameters Body.Data.Source.SourcePostgreSQLParameters.
+- Update API GetEventStreaming: add response parameters Body.Data.Source.SourceRabbitMQMetaParameters.
+- Update API GetEventStreaming: add response parameters Body.Data.Source.SourceRabbitMQMsgSyncParameters.
+- Update API GetEventStreaming: add response parameters Body.Data.Source.SourceApacheKafkaParameters.SslTruststoreCertificates.
+- Update API GetEventStreaming: add response parameters Body.Data.Transforms.$.BaiLianAgentTransformParameters.
+- Update API GetEventStreaming: add response parameters Body.Data.Transforms.$.DashScopeTransformParameters.
+- Update API GetEventStreaming: update response parameters Body.Data.Sink.SinkDashVectorParameters.DashVectorSchemaParameters' type has changed.
+- Update API GetEventStreaming: delete response parameters Body.Data.Sink.SinkDashVectorParameters.DashVectorSchemaParameters.
+- Update API ListEventStreamings: add response parameters Body.Data.EventStreamings.$.Sink.SinkApiDestinationParameters.
+- Update API ListEventStreamings: add response parameters Body.Data.EventStreamings.$.Sink.SinkEventHouseParameters.
+- Update API ListEventStreamings: add response parameters Body.Data.EventStreamings.$.Sink.SinkHttpsParameters.
+- Update API ListEventStreamings: add response parameters Body.Data.EventStreamings.$.Sink.SinkMQTTParameters.
+- Update API ListEventStreamings: add response parameters Body.Data.EventStreamings.$.Sink.SinkOSSParameters.
+- Update API ListEventStreamings: add response parameters Body.Data.EventStreamings.$.Sink.SinkRabbitMQMetaParameters.
+- Update API ListEventStreamings: add response parameters Body.Data.EventStreamings.$.Sink.SinkRabbitMQMsgSyncParameters.
+- Update API ListEventStreamings: add response parameters Body.Data.EventStreamings.$.Sink.SinkKafkaParameters.CompressionType.
+- Update API ListEventStreamings: add response parameters Body.Data.EventStreamings.$.Source.SourcePostgreSQLParameters.
+- Update API ListEventStreamings: add response parameters Body.Data.EventStreamings.$.Source.SourceRabbitMQMetaParameters.
+- Update API ListEventStreamings: add response parameters Body.Data.EventStreamings.$.Source.SourceRabbitMQMsgSyncParameters.
+- Update API ListEventStreamings: add response parameters Body.Data.EventStreamings.$.Transforms.$.BaiLianAgentTransformParameters.
+- Update API ListEventStreamings: add response parameters Body.Data.EventStreamings.$.Transforms.$.DashScopeTransformParameters.
+- Update API ListEventStreamings: delete response parameters Body.Data.EventStreamings.$.Sink.SinkApacheKafkaParameters.
+- Update API ListEventStreamings: update response parameters Body.Data.EventStreamings.$.Sink.SinkDashVectorParameters.DashVectorSchemaParameters' type has changed.
+- Update API ListEventStreamings: delete response parameters Body.Data.EventStreamings.$.Sink.SinkDashVectorParameters.DashVectorSchemaParameters.
+- Update API ListEventStreamings: delete response parameters Body.Data.EventStreamings.$.Sink.SinkDataWorksTriggerParameters.
+- Update API ListEventStreamings: delete response parameters Body.Data.EventStreamings.$.Source.SourceApacheKafkaParameters.
+- Update API QueryTracedEvents: add request parameters Subject.
+- Update API TestEventSourceConfig: add request parameters SourceMySQLParameters.AllowedCIDRs.
+- Update API UpdateEventStreaming: add request parameters Sink.SinkApiDestinationParameters.
+- Update API UpdateEventStreaming: add request parameters Sink.SinkEventHouseParameters.
+- Update API UpdateEventStreaming: add request parameters Sink.SinkHttpsParameters.
+- Update API UpdateEventStreaming: add request parameters Sink.SinkMQTTParameters.
+- Update API UpdateEventStreaming: add request parameters Sink.SinkOSSParameters.
+- Update API UpdateEventStreaming: add request parameters Sink.SinkRabbitMQMetaParameters.
+- Update API UpdateEventStreaming: add request parameters Sink.SinkRabbitMQMsgSyncParameters.
+- Update API UpdateEventStreaming: add request parameters Sink.SinkApacheKafkaParameters.CompressionType.
+- Update API UpdateEventStreaming: add request parameters Sink.SinkApacheKafkaParameters.SslTruststoreCertificates.
+- Update API UpdateEventStreaming: add request parameters Sink.SinkKafkaParameters.CompressionType.
+- Update API UpdateEventStreaming: add request parameters Source.SourcePostgreSQLParameters.
+- Update API UpdateEventStreaming: add request parameters Source.SourceRabbitMQMetaParameters.
+- Update API UpdateEventStreaming: add request parameters Source.SourceRabbitMQMsgSyncParameters.
+- Update API UpdateEventStreaming: add request parameters Source.SourceApacheKafkaParameters.SslTruststoreCertificates.
+- Update API UpdateEventStreaming: add request parameters Transforms.$.BaiLianAgentTransformParameters.
+- Update API UpdateEventStreaming: add request parameters Transforms.$.DashScopeTransformParameters.
+- Update API UpdateEventStreaming: update request parameters Sink.SinkDashVectorParameters.DashVectorSchemaParameters' type has changed.
+- Update API UpdateEventStreaming: delete request parameters Sink.SinkDashVectorParameters.DashVectorSchemaParameters.
+
+
 2025-11-03 Version: 6.0.0
 - Update API CreateEventStreaming: add request parameters Sink.SinkApiDestinationParameters.
 - Update API CreateEventStreaming: add request parameters Sink.SinkHttpsParameters.
