@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_TO_JSON(type, type_);
       DARABONBA_PTR_TO_JSON(vectorStoreConfig, vectorStoreConfig_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateMemoryCollectionInput& obj) { 
       DARABONBA_PTR_FROM_JSON(description, description_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_FROM_JSON(type, type_);
       DARABONBA_PTR_FROM_JSON(vectorStoreConfig, vectorStoreConfig_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     CreateMemoryCollectionInput() = default ;
     CreateMemoryCollectionInput(const CreateMemoryCollectionInput &) = default ;
@@ -53,7 +55,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
         && this->embedderConfig_ == nullptr && this->enableConversationHistory_ == nullptr && this->enableConversationState_ == nullptr && this->executionRoleArn_ == nullptr && this->llmConfig_ == nullptr
-        && this->memoryCollectionName_ == nullptr && this->networkConfiguration_ == nullptr && this->type_ == nullptr && this->vectorStoreConfig_ == nullptr; };
+        && this->memoryCollectionName_ == nullptr && this->networkConfiguration_ == nullptr && this->type_ == nullptr && this->vectorStoreConfig_ == nullptr && this->workspaceId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -132,6 +134,13 @@ namespace Models
     inline CreateMemoryCollectionInput& setVectorStoreConfig(VectorStoreConfig && vectorStoreConfig) { DARABONBA_PTR_SET_RVALUE(vectorStoreConfig_, vectorStoreConfig) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline CreateMemoryCollectionInput& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     shared_ptr<string> description_ {};
     shared_ptr<EmbedderConfig> embedderConfig_ {};
@@ -143,6 +152,7 @@ namespace Models
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
     shared_ptr<string> type_ {};
     shared_ptr<VectorStoreConfig> vectorStoreConfig_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

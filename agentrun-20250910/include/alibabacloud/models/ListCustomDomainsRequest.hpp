@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListCustomDomainsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(domainName, domainName_);
+      DARABONBA_PTR_TO_JSON(domainType, domainType_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(resourceName, resourceName_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListCustomDomainsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(domainName, domainName_);
+      DARABONBA_PTR_FROM_JSON(domainType, domainType_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(resourceName, resourceName_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceName_ == nullptr && this->resourceType_ == nullptr; };
+        && this->domainType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceName_ == nullptr && this->resourceType_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
     inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline ListCustomDomainsRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+
+
+    // domainType Field Functions 
+    bool hasDomainType() const { return this->domainType_ != nullptr;};
+    void deleteDomainType() { this->domainType_ = nullptr;};
+    inline string getDomainType() const { DARABONBA_PTR_GET_DEFAULT(domainType_, "") };
+    inline ListCustomDomainsRequest& setDomainType(string domainType) { DARABONBA_PTR_SET_VALUE(domainType_, domainType) };
 
 
     // pageNumber Field Functions 
@@ -76,6 +85,7 @@ namespace Models
 
   protected:
     shared_ptr<string> domainName_ {};
+    shared_ptr<string> domainType_ {};
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceName_ {};

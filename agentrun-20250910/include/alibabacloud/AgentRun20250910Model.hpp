@@ -251,6 +251,8 @@
 #include <alibabacloud/models/CreateSandboxResponse.hpp>
 #include <alibabacloud/models/CreateTemplateRequest.hpp>
 #include <alibabacloud/models/CreateTemplateResponse.hpp>
+#include <alibabacloud/models/CreateWorkspaceRequest.hpp>
+#include <alibabacloud/models/CreateWorkspaceResponse.hpp>
 #include <alibabacloud/models/DeleteAgentRuntimeResponse.hpp>
 #include <alibabacloud/models/DeleteAgentRuntimeEndpointResponse.hpp>
 #include <alibabacloud/models/DeleteBrowserResponse.hpp>
@@ -263,6 +265,7 @@
 #include <alibabacloud/models/DeleteModelServiceResponse.hpp>
 #include <alibabacloud/models/DeleteSandboxResponse.hpp>
 #include <alibabacloud/models/DeleteTemplateResponse.hpp>
+#include <alibabacloud/models/DeleteWorkspaceResponse.hpp>
 #include <alibabacloud/models/GetAccessTokenRequest.hpp>
 #include <alibabacloud/models/GetAccessTokenResponseBody.hpp>
 #include <alibabacloud/models/GetAccessTokenResponse.hpp>
@@ -279,6 +282,8 @@
 #include <alibabacloud/models/GetModelServiceResponse.hpp>
 #include <alibabacloud/models/GetSandboxResponse.hpp>
 #include <alibabacloud/models/GetTemplateResponse.hpp>
+#include <alibabacloud/models/GetWorkspaceResponse.hpp>
+#include <alibabacloud/models/GetWorkspaceDiscoveryEndpointsResponse.hpp>
 #include <alibabacloud/models/ListAgentRuntimeEndpointsRequest.hpp>
 #include <alibabacloud/models/ListAgentRuntimeEndpointsResponse.hpp>
 #include <alibabacloud/models/ListAgentRuntimeVersionsRequest.hpp>
@@ -330,5 +335,9 @@
 #include <alibabacloud/models/UpdateModelServiceResponse.hpp>
 #include <alibabacloud/models/UpdateTemplateRequest.hpp>
 #include <alibabacloud/models/UpdateTemplateResponse.hpp>
+#include <alibabacloud/models/UpdateWorkspaceRequest.hpp>
+#include <alibabacloud/models/UpdateWorkspaceResponse.hpp>
+#include <alibabacloud/models/UpdateWorkspaceDiscoveryEndpointsRequest.hpp>
+#include <alibabacloud/models/UpdateWorkspaceDiscoveryEndpointsResponse.hpp>
 
 #endif

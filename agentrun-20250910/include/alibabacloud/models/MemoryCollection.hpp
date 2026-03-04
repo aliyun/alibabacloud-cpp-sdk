@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(memoryCollectionName, memoryCollectionName_);
       DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_TO_JSON(vectorStoreConfig, vectorStoreConfig_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, MemoryCollection& obj) { 
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(memoryCollectionName, memoryCollectionName_);
       DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_FROM_JSON(vectorStoreConfig, vectorStoreConfig_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     MemoryCollection() = default ;
     MemoryCollection(const MemoryCollection &) = default ;
@@ -58,7 +60,7 @@ namespace Models
     virtual bool empty() const override { return this->createdAt_ == nullptr
         && this->description_ == nullptr && this->embedderConfig_ == nullptr && this->enableConversationHistory_ == nullptr && this->enableConversationState_ == nullptr && this->executionRoleArn_ == nullptr
         && this->lastUpdatedAt_ == nullptr && this->llmConfig_ == nullptr && this->memoryCollectionId_ == nullptr && this->memoryCollectionName_ == nullptr && this->networkConfiguration_ == nullptr
-        && this->vectorStoreConfig_ == nullptr; };
+        && this->vectorStoreConfig_ == nullptr && this->workspaceId_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -151,6 +153,13 @@ namespace Models
     inline MemoryCollection& setVectorStoreConfig(VectorStoreConfig && vectorStoreConfig) { DARABONBA_PTR_SET_RVALUE(vectorStoreConfig_, vectorStoreConfig) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline MemoryCollection& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     shared_ptr<string> createdAt_ {};
     shared_ptr<string> description_ {};
@@ -164,6 +173,7 @@ namespace Models
     shared_ptr<string> memoryCollectionName_ {};
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
     shared_ptr<VectorStoreConfig> vectorStoreConfig_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

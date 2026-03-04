@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(agentRuntimeEndpointName, agentRuntimeEndpointName_);
       DARABONBA_PTR_TO_JSON(methods, methods_);
       DARABONBA_PTR_TO_JSON(path, path_);
+      DARABONBA_PTR_TO_JSON(removeBasePathOnForward, removeBasePathOnForward_);
       DARABONBA_PTR_TO_JSON(resourceName, resourceName_);
       DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
     };
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(agentRuntimeEndpointName, agentRuntimeEndpointName_);
       DARABONBA_PTR_FROM_JSON(methods, methods_);
       DARABONBA_PTR_FROM_JSON(path, path_);
+      DARABONBA_PTR_FROM_JSON(removeBasePathOnForward, removeBasePathOnForward_);
       DARABONBA_PTR_FROM_JSON(resourceName, resourceName_);
       DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
     };
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeEndpointName_ == nullptr
-        && this->methods_ == nullptr && this->path_ == nullptr && this->resourceName_ == nullptr && this->resourceType_ == nullptr; };
+        && this->methods_ == nullptr && this->path_ == nullptr && this->removeBasePathOnForward_ == nullptr && this->resourceName_ == nullptr && this->resourceType_ == nullptr; };
     // agentRuntimeEndpointName Field Functions 
     bool hasAgentRuntimeEndpointName() const { return this->agentRuntimeEndpointName_ != nullptr;};
     void deleteAgentRuntimeEndpointName() { this->agentRuntimeEndpointName_ = nullptr;};
@@ -63,6 +65,13 @@ namespace Models
     inline PathConfig& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
+    // removeBasePathOnForward Field Functions 
+    bool hasRemoveBasePathOnForward() const { return this->removeBasePathOnForward_ != nullptr;};
+    void deleteRemoveBasePathOnForward() { this->removeBasePathOnForward_ = nullptr;};
+    inline bool getRemoveBasePathOnForward() const { DARABONBA_PTR_GET_DEFAULT(removeBasePathOnForward_, false) };
+    inline PathConfig& setRemoveBasePathOnForward(bool removeBasePathOnForward) { DARABONBA_PTR_SET_VALUE(removeBasePathOnForward_, removeBasePathOnForward) };
+
+
     // resourceName Field Functions 
     bool hasResourceName() const { return this->resourceName_ != nullptr;};
     void deleteResourceName() { this->resourceName_ = nullptr;};
@@ -84,6 +93,7 @@ namespace Models
     shared_ptr<vector<string>> methods_ {};
     // 此条路由规则对应的请求路径。
     shared_ptr<string> path_ {};
+    shared_ptr<bool> removeBasePathOnForward_ {};
     // 资源名称
     shared_ptr<string> resourceName_ {};
     // 资源类型（和凭证关联资源类型一致）

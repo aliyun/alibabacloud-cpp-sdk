@@ -279,6 +279,28 @@ namespace AgentRun20250910
       Models::CreateTemplateResponse createTemplate(const Models::CreateTemplateRequest &request);
 
       /**
+       * @summary 创建工作空间
+       *
+       * @description 创建工作空间
+       *
+       * @param request CreateWorkspaceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWorkspaceResponse
+       */
+      Models::CreateWorkspaceResponse createWorkspaceWithOptions(const Models::CreateWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建工作空间
+       *
+       * @description 创建工作空间
+       *
+       * @param request CreateWorkspaceRequest
+       * @return CreateWorkspaceResponse
+       */
+      Models::CreateWorkspaceResponse createWorkspace(const Models::CreateWorkspaceRequest &request);
+
+      /**
        * @summary 删除智能体运行时
        *
        * @description 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
@@ -485,6 +507,26 @@ namespace AgentRun20250910
        * @return DeleteTemplateResponse
        */
       Models::DeleteTemplateResponse deleteTemplate(const string &templateName);
+
+      /**
+       * @summary 删除工作空间
+       *
+       * @description 删除工作空间
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWorkspaceResponse
+       */
+      Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除工作空间
+       *
+       * @description 删除工作空间
+       *
+       * @return DeleteWorkspaceResponse
+       */
+      Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceId);
 
       /**
        * @summary Get access token for a resource
@@ -717,6 +759,42 @@ namespace AgentRun20250910
        * @return GetTemplateResponse
        */
       Models::GetTemplateResponse getTemplate(const string &templateName);
+
+      /**
+       * @summary 查看工作空间
+       *
+       * @description 查看工作空间
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkspaceResponse
+       */
+      Models::GetWorkspaceResponse getWorkspaceWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看工作空间
+       *
+       * @description 查看工作空间
+       *
+       * @return GetWorkspaceResponse
+       */
+      Models::GetWorkspaceResponse getWorkspace(const string &workspaceId);
+
+      /**
+       * @summary 获取工作空间下的发现端点
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkspaceDiscoveryEndpointsResponse
+       */
+      Models::GetWorkspaceDiscoveryEndpointsResponse getWorkspaceDiscoveryEndpointsWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作空间下的发现端点
+       *
+       * @return GetWorkspaceDiscoveryEndpointsResponse
+       */
+      Models::GetWorkspaceDiscoveryEndpointsResponse getWorkspaceDiscoveryEndpoints(const string &workspaceId);
 
       /**
        * @summary Retrieve the list of access endpoints for an agent runtime
@@ -1221,6 +1299,46 @@ namespace AgentRun20250910
        * @return UpdateTemplateResponse
        */
       Models::UpdateTemplateResponse updateTemplate(const string &templateName, const Models::UpdateTemplateRequest &request);
+
+      /**
+       * @summary 更新工作空间
+       *
+       * @description 更新工作空间
+       *
+       * @param request UpdateWorkspaceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWorkspaceResponse
+       */
+      Models::UpdateWorkspaceResponse updateWorkspaceWithOptions(const string &workspaceId, const Models::UpdateWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新工作空间
+       *
+       * @description 更新工作空间
+       *
+       * @param request UpdateWorkspaceRequest
+       * @return UpdateWorkspaceResponse
+       */
+      Models::UpdateWorkspaceResponse updateWorkspace(const string &workspaceId, const Models::UpdateWorkspaceRequest &request);
+
+      /**
+       * @summary 获取工作空间下的发现端点
+       *
+       * @param request UpdateWorkspaceDiscoveryEndpointsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWorkspaceDiscoveryEndpointsResponse
+       */
+      Models::UpdateWorkspaceDiscoveryEndpointsResponse updateWorkspaceDiscoveryEndpointsWithOptions(const string &workspaceId, const Models::UpdateWorkspaceDiscoveryEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作空间下的发现端点
+       *
+       * @param request UpdateWorkspaceDiscoveryEndpointsRequest
+       * @return UpdateWorkspaceDiscoveryEndpointsResponse
+       */
+      Models::UpdateWorkspaceDiscoveryEndpointsResponse updateWorkspaceDiscoveryEndpoints(const string &workspaceId, const Models::UpdateWorkspaceDiscoveryEndpointsRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AgentRun20250910

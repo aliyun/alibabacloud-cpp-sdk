@@ -590,6 +590,50 @@ CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &reque
 }
 
 /**
+ * @summary 创建工作空间
+ *
+ * @description 创建工作空间
+ *
+ * @param request CreateWorkspaceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWorkspaceResponse
+ */
+CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateWorkspace"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/workspaces")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWorkspaceResponse>();
+}
+
+/**
+ * @summary 创建工作空间
+ *
+ * @description 创建工作空间
+ *
+ * @param request CreateWorkspaceRequest
+ * @return CreateWorkspaceResponse
+ */
+CreateWorkspaceResponse Client::createWorkspace(const CreateWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createWorkspaceWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 删除智能体运行时
  *
  * @description 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
@@ -1035,6 +1079,46 @@ DeleteTemplateResponse Client::deleteTemplate(const string &templateName) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteTemplateWithOptions(templateName, headers, runtime);
+}
+
+/**
+ * @summary 删除工作空间
+ *
+ * @description 删除工作空间
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWorkspaceResponse
+ */
+DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteWorkspace"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWorkspaceResponse>();
+}
+
+/**
+ * @summary 删除工作空间
+ *
+ * @description 删除工作空间
+ *
+ * @return DeleteWorkspaceResponse
+ */
+DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteWorkspaceWithOptions(workspaceId, headers, runtime);
 }
 
 /**
@@ -1552,6 +1636,82 @@ GetTemplateResponse Client::getTemplate(const string &templateName) {
 }
 
 /**
+ * @summary 查看工作空间
+ *
+ * @description 查看工作空间
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkspaceResponse
+ */
+GetWorkspaceResponse Client::getWorkspaceWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkspace"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkspaceResponse>();
+}
+
+/**
+ * @summary 查看工作空间
+ *
+ * @description 查看工作空间
+ *
+ * @return GetWorkspaceResponse
+ */
+GetWorkspaceResponse Client::getWorkspace(const string &workspaceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkspaceWithOptions(workspaceId, headers, runtime);
+}
+
+/**
+ * @summary 获取工作空间下的发现端点
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkspaceDiscoveryEndpointsResponse
+ */
+GetWorkspaceDiscoveryEndpointsResponse Client::getWorkspaceDiscoveryEndpointsWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkspaceDiscoveryEndpoints"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/discovery/endpoints")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkspaceDiscoveryEndpointsResponse>();
+}
+
+/**
+ * @summary 获取工作空间下的发现端点
+ *
+ * @return GetWorkspaceDiscoveryEndpointsResponse
+ */
+GetWorkspaceDiscoveryEndpointsResponse Client::getWorkspaceDiscoveryEndpoints(const string &workspaceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkspaceDiscoveryEndpointsWithOptions(workspaceId, headers, runtime);
+}
+
+/**
  * @summary Retrieve the list of access endpoints for an agent runtime
  *
  * @description 获取指定智能体运行时的所有端点列表，支持按名称过滤和分页查询。端点用于外部系统访问智能体运行时服务。
@@ -1704,6 +1864,10 @@ ListAgentRuntimesResponse Client::listAgentRuntimesWithOptions(const ListAgentRu
 
   if (!!request.hasWorkspaceId()) {
     query["workspaceId"] = request.getWorkspaceId();
+  }
+
+  if (!!request.hasWorkspaceIds()) {
+    query["workspaceIds"] = request.getWorkspaceIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1940,6 +2104,10 @@ ListCustomDomainsResponse Client::listCustomDomainsWithOptions(const ListCustomD
     query["domainName"] = request.getDomainName();
   }
 
+  if (!!request.hasDomainType()) {
+    query["domainType"] = request.getDomainType();
+  }
+
   if (!!request.hasPageNumber()) {
     query["pageNumber"] = request.getPageNumber();
   }
@@ -2068,6 +2236,10 @@ ListMemoryCollectionsResponse Client::listMemoryCollectionsWithOptions(const Lis
 
   if (!!request.hasType()) {
     query["type"] = request.getType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2905,6 +3077,90 @@ UpdateTemplateResponse Client::updateTemplate(const string &templateName, const 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateTemplateWithOptions(templateName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新工作空间
+ *
+ * @description 更新工作空间
+ *
+ * @param request UpdateWorkspaceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWorkspaceResponse
+ */
+UpdateWorkspaceResponse Client::updateWorkspaceWithOptions(const string &workspaceId, const UpdateWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateWorkspace"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWorkspaceResponse>();
+}
+
+/**
+ * @summary 更新工作空间
+ *
+ * @description 更新工作空间
+ *
+ * @param request UpdateWorkspaceRequest
+ * @return UpdateWorkspaceResponse
+ */
+UpdateWorkspaceResponse Client::updateWorkspace(const string &workspaceId, const UpdateWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateWorkspaceWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取工作空间下的发现端点
+ *
+ * @param request UpdateWorkspaceDiscoveryEndpointsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWorkspaceDiscoveryEndpointsResponse
+ */
+UpdateWorkspaceDiscoveryEndpointsResponse Client::updateWorkspaceDiscoveryEndpointsWithOptions(const string &workspaceId, const UpdateWorkspaceDiscoveryEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateWorkspaceDiscoveryEndpoints"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/discovery/endpoints")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWorkspaceDiscoveryEndpointsResponse>();
+}
+
+/**
+ * @summary 获取工作空间下的发现端点
+ *
+ * @param request UpdateWorkspaceDiscoveryEndpointsRequest
+ * @return UpdateWorkspaceDiscoveryEndpointsResponse
+ */
+UpdateWorkspaceDiscoveryEndpointsResponse Client::updateWorkspaceDiscoveryEndpoints(const string &workspaceId, const UpdateWorkspaceDiscoveryEndpointsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateWorkspaceDiscoveryEndpointsWithOptions(workspaceId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace AgentRun20250910
