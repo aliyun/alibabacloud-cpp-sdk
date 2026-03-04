@@ -1118,6 +1118,39 @@ IntrospectAppInstanceTicketForPreviewResponse Client::introspectAppInstanceTicke
 }
 
 /**
+ * @summary 获取商品配置信息
+ *
+ * @param request ListAppCommoditySpecificationsForPartnerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppCommoditySpecificationsForPartnerResponse
+ */
+ListAppCommoditySpecificationsForPartnerResponse Client::listAppCommoditySpecificationsForPartnerWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "ListAppCommoditySpecificationsForPartner"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppCommoditySpecificationsForPartnerResponse>();
+}
+
+/**
+ * @summary 获取商品配置信息
+ *
+ * @return ListAppCommoditySpecificationsForPartnerResponse
+ */
+ListAppCommoditySpecificationsForPartnerResponse Client::listAppCommoditySpecificationsForPartner() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppCommoditySpecificationsForPartnerWithOptions(runtime);
+}
+
+/**
  * @summary Query the list of domain redirection rules
  *
  * @param request ListAppDomainRedirectRecordsRequest

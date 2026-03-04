@@ -15,6 +15,9 @@
 #include <alibabacloud/models/AppMaterialTask.hpp>
 #include <alibabacloud/models/AppService.hpp>
 #include <alibabacloud/models/AppServiceGroup.hpp>
+#include <alibabacloud/models/ModuleVersionsValueComponentsValuePropertiesValue.hpp>
+#include <alibabacloud/models/ModuleVersionsValueComponentsValue.hpp>
+#include <alibabacloud/models/ModuleVersionsValue.hpp>
 #include <alibabacloud/models/AllocateSupabaseForAdminRequest.hpp>
 #include <alibabacloud/models/AllocateSupabaseForAdminResponseBody.hpp>
 #include <alibabacloud/models/AllocateSupabaseForAdminResponse.hpp>
@@ -81,6 +84,8 @@
 #include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewRequest.hpp>
 #include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewResponseBody.hpp>
 #include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewResponse.hpp>
+#include <alibabacloud/models/ListAppCommoditySpecificationsForPartnerResponseBody.hpp>
+#include <alibabacloud/models/ListAppCommoditySpecificationsForPartnerResponse.hpp>
 #include <alibabacloud/models/ListAppDomainRedirectRecordsRequest.hpp>
 #include <alibabacloud/models/ListAppDomainRedirectRecordsResponseBody.hpp>
 #include <alibabacloud/models/ListAppDomainRedirectRecordsResponse.hpp>

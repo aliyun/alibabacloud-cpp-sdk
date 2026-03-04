@@ -378,6 +378,22 @@ namespace WebsiteBuild20250429
       Models::IntrospectAppInstanceTicketForPreviewResponse introspectAppInstanceTicketForPreview(const Models::IntrospectAppInstanceTicketForPreviewRequest &request);
 
       /**
+       * @summary 获取商品配置信息
+       *
+       * @param request ListAppCommoditySpecificationsForPartnerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppCommoditySpecificationsForPartnerResponse
+       */
+      Models::ListAppCommoditySpecificationsForPartnerResponse listAppCommoditySpecificationsForPartnerWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取商品配置信息
+       *
+       * @return ListAppCommoditySpecificationsForPartnerResponse
+       */
+      Models::ListAppCommoditySpecificationsForPartnerResponse listAppCommoditySpecificationsForPartner();
+
+      /**
        * @summary Query the list of domain redirection rules
        *
        * @param request ListAppDomainRedirectRecordsRequest
