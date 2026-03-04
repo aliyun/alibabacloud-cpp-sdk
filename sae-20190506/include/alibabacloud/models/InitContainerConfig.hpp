@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Envs, envs_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(SecretMountDesc, secretMountDesc_);
     };
     friend void from_json(const Darabonba::Json& j, InitContainerConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(Command, command_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Envs, envs_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(SecretMountDesc, secretMountDesc_);
     };
     InitContainerConfig() = default ;
     InitContainerConfig(const InitContainerConfig &) = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->command_ == nullptr
         && this->commandArgs_ == nullptr && this->configMapMountDesc_ == nullptr && this->emptyDirDesc_ == nullptr && this->envs_ == nullptr && this->imageUrl_ == nullptr
-        && this->name_ == nullptr; };
+        && this->name_ == nullptr && this->secretMountDesc_ == nullptr; };
     // command Field Functions 
     bool hasCommand() const { return this->command_ != nullptr;};
     void deleteCommand() { this->command_ = nullptr;};
@@ -93,6 +95,13 @@ namespace Models
     inline InitContainerConfig& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // secretMountDesc Field Functions 
+    bool hasSecretMountDesc() const { return this->secretMountDesc_ != nullptr;};
+    void deleteSecretMountDesc() { this->secretMountDesc_ = nullptr;};
+    inline string getSecretMountDesc() const { DARABONBA_PTR_GET_DEFAULT(secretMountDesc_, "") };
+    inline InitContainerConfig& setSecretMountDesc(string secretMountDesc) { DARABONBA_PTR_SET_VALUE(secretMountDesc_, secretMountDesc) };
+
+
   protected:
     shared_ptr<string> command_ {};
     shared_ptr<string> commandArgs_ {};
@@ -101,6 +110,7 @@ namespace Models
     shared_ptr<string> envs_ {};
     shared_ptr<string> imageUrl_ {};
     shared_ptr<string> name_ {};
+    shared_ptr<string> secretMountDesc_ {};
   };
 
   } // namespace Models
