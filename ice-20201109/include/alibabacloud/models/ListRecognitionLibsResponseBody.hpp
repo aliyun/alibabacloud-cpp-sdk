@@ -104,11 +104,8 @@ namespace Models
 
 
       protected:
-        // The description of the recognition library.
         shared_ptr<string> libDescription_ {};
-        // The ID of the recognition library.
         shared_ptr<string> libId_ {};
-        // The name of the recognition library.
         shared_ptr<string> libName_ {};
       };
 
@@ -166,7 +163,6 @@ namespace Models
 
 
   protected:
-    // The recognition libraries.
     shared_ptr<ListRecognitionLibsResponseBody::Libs> libs_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

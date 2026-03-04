@@ -58,6 +58,7 @@ namespace Models
 
 
     protected:
+      // The encoding format for the subtitle stream.
       shared_ptr<string> codec_ {};
     };
 
@@ -72,6 +73,7 @@ namespace Models
 
 
   protected:
+    // Subtitle stream configurations.
     shared_ptr<vector<MediaConvertJobOverwiteParams::Subtitles>> subtitles_ {};
   };
 

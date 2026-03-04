@@ -126,11 +126,17 @@ namespace Models
 
 
     protected:
+      // The name of the channel.
       shared_ptr<string> channelName_ {};
+      // The streaming protocol. Only HTTP Live Streaming (HLS) is supported.
       shared_ptr<string> format_ {};
+      // The name of the manifest file.
       shared_ptr<string> manifestName_ {};
+      // The manifest settings.
       shared_ptr<string> manifestSettings_ {};
+      // The playback URL.
       shared_ptr<string> playbackUrl_ {};
+      // The name of the source group.
       shared_ptr<string> sourceGroupName_ {};
     };
 
@@ -225,17 +231,29 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable access control.
     shared_ptr<bool> accessPolicy_ {};
+    // The token for accessing the channel.
     shared_ptr<string> accessToken_ {};
+    // The ARN of the channel.
     shared_ptr<string> arn_ {};
+    // The name of the channel.
     shared_ptr<string> channelName_ {};
+    // The tier of the channel. Valid values: basic and standard.
     shared_ptr<string> channelTier_ {};
+    // The source location of the filler slate.
     shared_ptr<string> fillerSourceLocationName_ {};
+    // The source name of the filler slate.
     shared_ptr<string> fillerSourceName_ {};
+    // The time when the channel was created.
     shared_ptr<string> gmtCreate_ {};
+    // The time when the channel was last modified.
     shared_ptr<string> gmtModified_ {};
+    // The channel output configurations.
     shared_ptr<vector<ChannelAssemblyChannel::OutPutConfigList>> outPutConfigList_ {};
+    // The playback mode. Valid values: loop and linear.
     shared_ptr<string> playbackMode_ {};
+    // The channel status. A value of 0 specifies stopped. A value of 1 specifies running.
     shared_ptr<int32_t> state_ {};
   };
 

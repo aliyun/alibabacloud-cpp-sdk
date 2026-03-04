@@ -103,6 +103,7 @@ namespace Models
 
 
   protected:
+    // The template configurations. For more information, see [Config object of a regular template](https://help.aliyun.com/document_detail/456193.html).
     shared_ptr<string> config_ {};
     // The URL of the template thumbnail.
     shared_ptr<string> coverUrl_ {};

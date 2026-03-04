@@ -87,11 +87,17 @@ namespace Models
 
 
   protected:
+    // The feature parameters.
     shared_ptr<string> features_ {};
+    // The name of the output.
     shared_ptr<string> name_ {};
+    // The output file.
     shared_ptr<MediaObject> outputFile_ {};
+    // A JSON string containing parameters to overwrite the corresponding settings of the template.
     shared_ptr<string> overrideParams_ {};
+    // The priority. Valid values: 1 to 10. A larger value indicates a higher priority. Default value: 6.
     shared_ptr<int32_t> priority_ {};
+    // The ID of the transcoding template.
     shared_ptr<string> templateId_ {};
   };
 

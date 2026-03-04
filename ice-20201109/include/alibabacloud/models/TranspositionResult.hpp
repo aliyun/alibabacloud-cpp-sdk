@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // *   The target language of the translation.
+    // *   This field is only used in translation-related scenarios.
     shared_ptr<string> targetLanguage_ {};
+    // *   The translated text corresponding to the matched hotwords. Maximum length: 100 characters.
+    // *   This field is only used in translation-related scenarios.
     shared_ptr<string> translatedText_ {};
   };
 

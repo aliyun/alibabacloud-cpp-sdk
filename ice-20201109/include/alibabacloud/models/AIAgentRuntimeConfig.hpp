@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // Required. The name of the agent in the ARTC channel.
       shared_ptr<string> agentUserId_ {};
+      // Required. The authentication token for the agent to join the channel. This must be generated using your AppKey.
       shared_ptr<string> authToken_ {};
+      // Required. The ID of the ARTC channel.
       shared_ptr<string> channelId_ {};
     };
 
@@ -138,8 +141,11 @@ namespace Models
 
 
     protected:
+      // Required. The name of the agent in the ARTC channel.
       shared_ptr<string> agentUserId_ {};
+      // Required. The authentication token for the agent to join the channel. This must be generated using your AppKey.
       shared_ptr<string> authToken_ {};
+      // Required. The ID of the ARTC channel.
       shared_ptr<string> channelId_ {};
     };
 
@@ -190,8 +196,11 @@ namespace Models
 
 
     protected:
+      // Required. The name of the agent in the ARTC channel.
       shared_ptr<string> agentUserId_ {};
+      // Required. The authentication token for the agent to join the channel. This must be generated using your AppKey.
       shared_ptr<string> authToken_ {};
+      // Required. The ID of the ARTC channel.
       shared_ptr<string> channelId_ {};
     };
 
@@ -246,11 +255,17 @@ namespace Models
 
 
   protected:
+    // The name of the agent in the ARTC channel.
     shared_ptr<string> agentUserId_ {};
+    // The authentication token for the agent to join the channel. This must be generated using your AppKey.
     shared_ptr<string> authToken_ {};
+    // The runtime parameters of the avatar call.
     shared_ptr<AIAgentRuntimeConfig::AvatarChat3D> avatarChat3D_ {};
+    // The ID of the ARTC channel.
     shared_ptr<string> channelId_ {};
+    // The runtime parameters of the vision call.
     shared_ptr<AIAgentRuntimeConfig::VisionChat> visionChat_ {};
+    // The runtime parameters of the voice call.
     shared_ptr<AIAgentRuntimeConfig::VoiceChat> voiceChat_ {};
   };
 

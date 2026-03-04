@@ -143,13 +143,21 @@ namespace Models
 
 
     protected:
+      // The name of the channel.
       shared_ptr<string> channelName_ {};
+      // MessageType
       shared_ptr<string> messageType_ {};
+      // The offset.
       shared_ptr<int64_t> offsetMillis_ {};
+      // The name of the program.
       shared_ptr<string> programName_ {};
+      // The name of the source location.
       shared_ptr<string> sourceLocationName_ {};
+      // The name of the source.
       shared_ptr<string> sourceName_ {};
+      // The SpliceInsert configurations.
       shared_ptr<string> spliceInsertSettings_ {};
+      // The TimeSignal configurations.
       shared_ptr<string> timeSignalSettings_ {};
     };
 
@@ -236,16 +244,27 @@ namespace Models
 
 
   protected:
+    // The ad breaks.
     shared_ptr<vector<Program::AdBreaks>> adBreaks_ {};
+    // The ARN of the program.
     shared_ptr<string> arn_ {};
+    // The name of the channel.
     shared_ptr<string> channelName_ {};
+    // The information about the clip.
     shared_ptr<string> clipRange_ {};
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
+    // The modification time.
     shared_ptr<string> gmtModified_ {};
+    // The name of the program.
     shared_ptr<string> programName_ {};
+    // The name of the source location.
     shared_ptr<string> sourceLocationName_ {};
+    // The name of the source.
     shared_ptr<string> sourceName_ {};
+    // The source type.
     shared_ptr<string> sourceType_ {};
+    // The program transition method.
     shared_ptr<string> transition_ {};
   };
 

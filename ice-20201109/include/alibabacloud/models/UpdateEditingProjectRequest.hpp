@@ -120,6 +120,7 @@ namespace Models
     shared_ptr<string> projectId_ {};
     // The template ID. This parameter is used to quickly build a timeline with ease. Note: Only one of ProjectId, Timeline, and TemplateId can be specified. If TemplateId is specified, ClipsParam must also be specified.
     shared_ptr<string> templateId_ {};
+    // The timeline of the online editing project, in the JSON format.
     shared_ptr<string> timeline_ {};
     // The title of the online editing project.
     shared_ptr<string> title_ {};

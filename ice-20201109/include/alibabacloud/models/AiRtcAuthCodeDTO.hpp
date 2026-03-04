@@ -116,6 +116,7 @@ namespace Models
     shared_ptr<string> authCode_ {};
     shared_ptr<string> creationTime_ {};
     shared_ptr<string> deviceId_ {};
+    // license。
     shared_ptr<string> license_ {};
     shared_ptr<string> licenseItemId_ {};
     shared_ptr<string> modificationTime_ {};

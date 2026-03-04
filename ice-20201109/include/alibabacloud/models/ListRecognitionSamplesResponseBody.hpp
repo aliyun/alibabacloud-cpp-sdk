@@ -114,10 +114,8 @@ namespace Models
 
       protected:
         shared_ptr<string> entityId_ {};
-        // The URL of the image sample.
         shared_ptr<string> imageUrl_ {};
         shared_ptr<string> libId_ {};
-        // The sample ID.
         shared_ptr<string> sampleId_ {};
       };
 
@@ -181,7 +179,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The samples.
     shared_ptr<ListRecognitionSamplesResponseBody::Samples> samples_ {};
     // The total number of samples.
     shared_ptr<int64_t> totalCount_ {};

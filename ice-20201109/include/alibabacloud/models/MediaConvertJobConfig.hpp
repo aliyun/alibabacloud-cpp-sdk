@@ -190,14 +190,38 @@ namespace Models
 
 
         protected:
+          // The audio group this video stream references. Effective when Type is video.
+          // 
+          // Default value: audio.
           shared_ptr<string> audioGroup_ {};
+          // Whether this stream should be automatically selected by the player. Effective when Type is audio or subtitle.
           shared_ptr<string> autoSelect_ {};
+          // Whether this stream must be played. Effective when Type is audio or subtitle.
           shared_ptr<string> forced_ {};
+          // The GROUP-ID attribute for this stream in the HLS manifest. Effective when Type is audio or subtitle.
+          // 
+          // Default value: Same as the Type value.
           shared_ptr<string> group_ {};
+          // Whether this is the default stream within its group. Effective when Type is audio or subtitle. Only one stream per group can be the default.
           shared_ptr<string> isDefault_ {};
+          // The LANGUAGE attribute for this stream in the HLS manifest (must conform to RFC 5646). Effective when Type is audio or subtitle.
           shared_ptr<string> language_ {};
+          // The NAME attribute for this stream in the HLS manifest. **Required** when Type is audio or subtitle.
           shared_ptr<string> name_ {};
+          // The subtitle group this video or hybrid stream references. Effective when Type is video or hybrid.
+          // 
+          // Default value: subtitle.
           shared_ptr<string> subtitleGroup_ {};
+          // Specifies the stream type.
+          // 
+          // Valid values:
+          // 
+          // *   video: Video stream.
+          // *   audio: Audio stream.
+          // *   subtitle: Subtitle stream.
+          // *   hybrid: A stream containing both audio and video.
+          // 
+          // Default value: hybrid.
           shared_ptr<string> type_ {};
         };
 
@@ -256,12 +280,19 @@ namespace Models
 
 
       protected:
+        // Additional feature parameters. See [MediaConvertJobFeature](https://help.aliyun.com/document_detail/2979993.html) for details.
         shared_ptr<string> features_ {};
+        // HLS-specific settings for this stream\\"s behavior in the manifest. Effective only when the group Type is Hls.
         shared_ptr<Outputs::HlsGroupConfig> hlsGroupConfig_ {};
+        // A name to label this output. This is for identification purposes only and does not affect the filename.
         shared_ptr<string> name_ {};
+        // The filename for this output. It is used in conjunction with OutputFileBase from the GroupConfig.
         shared_ptr<string> outputFileName_ {};
+        // A JSON string of parameters to override the settings in the specified template.
         shared_ptr<string> overrideParams_ {};
+        // The priority of the task, from 1 to 10. A higher value indicates a higher priority. Default: 6.
         shared_ptr<int32_t> priority_ {};
+        // The ID of the transcoding template.
         shared_ptr<string> templateId_ {};
       };
 
@@ -328,7 +359,15 @@ namespace Models
 
 
         protected:
+          // The media asset location.
+          // 
+          // *   If Type is OSS, this is the destination URL (OSS or HTTP).
+          // *   If Type is Media, this is the destination media asset ID.
           shared_ptr<string> media_ {};
+          // The type of the output file. Valid values:
+          // 
+          // *   OSS: an OSS object.
+          // *   Media: a media asset.
           shared_ptr<string> type_ {};
         };
 
@@ -400,8 +439,16 @@ namespace Models
 
 
           protected:
+            // Excludes streams based on their Language field. It must conform to RFC 5646.
             shared_ptr<string> language_ {};
+            // Excludes streams based on their Name field.
             shared_ptr<string> name_ {};
+            // Excludes streams based on their Type field.
+            // 
+            // Valid values:
+            // 
+            // *   Audio
+            // *   Subtitle
             shared_ptr<string> type_ {};
           };
 
@@ -424,7 +471,9 @@ namespace Models
 
 
         protected:
+          // Specifies streams to exclude from the referenced manifest. Multiple conditions within a single exclusion object are combined using AND logic. Multiple exclusion objects in the array are combined using OR logic.
           shared_ptr<vector<ManifestExtend::Excludes>> excludes_ {};
+          // References the Name of an input that contains the manifest to be extended.
           shared_ptr<string> inputRef_ {};
         };
 
@@ -463,9 +512,16 @@ namespace Models
 
 
       protected:
+        // Configures an extension to an existing manifest file. This allows you to reference an existing manifest and combine it with the results of the current output group to generate a new manifest.
         shared_ptr<GroupConfig::ManifestExtend> manifestExtend_ {};
+        // The name of the manifest file. This parameter is only applicable when Type is set to Hls or Dash.
         shared_ptr<string> manifestName_ {};
+        // The base output directory. All files generated by this OutputGroup are placed in this directory.
         shared_ptr<GroupConfig::OutputFileBase> outputFileBase_ {};
+        // The type of the output group. Valid values:
+        // 
+        // *   File: An individual file.
+        // *   Hls: HLS files for adaptive bitrate streaming.
         shared_ptr<string> type_ {};
       };
 
@@ -497,8 +553,11 @@ namespace Models
 
 
     protected:
+      // The configuration for this output group.
       shared_ptr<OutputGroups::GroupConfig> groupConfig_ {};
+      // The name of the output group.
       shared_ptr<string> name_ {};
+      // A list of individual output stream configurations. Each object in this array defines a specific rendition.
       shared_ptr<vector<OutputGroups::Outputs>> outputs_ {};
     };
 
@@ -561,7 +620,15 @@ namespace Models
 
 
       protected:
+        // The URL or ID of the media file.
+        // 
+        // *   If Type is OSS, this is the file URL (OSS or HTTP). Do not use a signed URL, as it may cause authentication failure.
+        // *   If Type is Media, this is the media asset ID. The source stream is used by default.
         shared_ptr<string> media_ {};
+        // The type of the media file. Valid values:
+        // 
+        // *   OSS: an OSS object.
+        // *   Media: a media asset.
         shared_ptr<string> type_ {};
       };
 
@@ -584,7 +651,9 @@ namespace Models
 
 
     protected:
+      // The input file.
       shared_ptr<Inputs::InputFile> inputFile_ {};
+      // The name of the input file. InputRef can reference it in the output configuration.
       shared_ptr<string> name_ {};
     };
 
@@ -616,8 +685,13 @@ namespace Models
 
 
   protected:
+    // Inputs.
     shared_ptr<vector<MediaConvertJobConfig::Inputs>> inputs_ {};
+    // The task name.
+    // 
+    // *   Maximum length: 64 bytes.
     shared_ptr<string> jobName_ {};
+    // An array of output group configurations.
     shared_ptr<vector<MediaConvertJobConfig::OutputGroups>> outputGroups_ {};
   };
 

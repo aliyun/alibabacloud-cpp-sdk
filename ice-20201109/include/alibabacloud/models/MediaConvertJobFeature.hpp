@@ -183,19 +183,98 @@ namespace Models
 
 
     protected:
+      // Specifies if the font size adapts to the output resolution. Valid values:
+      // 
+      // *   true
+      // *   false
+      // *   Default value: false.
       shared_ptr<string> adaptive_ {};
+      // The color of the font border.
+      // 
+      // *   Default value: Black.
       shared_ptr<string> borderColor_ {};
+      // The width of the font border.
+      // 
+      // *   Unit: pixels.
+      // *   Valid values: [0,4096].
+      // *   Default value: 0.
       shared_ptr<string> borderWidth_ {};
+      // The text to be displayed as the watermark.
       shared_ptr<string> content_ {};
+      // The font opacity.
+      // 
+      // *   Valid values: (0,1].
+      // *   Default value: 1.0.
       shared_ptr<string> fontAlpha_ {};
+      // The font color of the text watermark.
+      // 
+      // *   Default value: black.
       shared_ptr<string> fontColor_ {};
+      // The font of the text watermark.
+      // 
+      // *   Default value: SimSum.
       shared_ptr<string> fontName_ {};
+      // The font size of the text watermark.
+      // 
+      // *   Valid values: (4,120).
+      // *   Default value: 16.
       shared_ptr<string> fontSize_ {};
+      // The height of the image watermark. This parameter overrides the corresponding setting from a specified watermark template. The following value types are supported:
+      // 
+      // *   Integer: the pixel value of the watermark height.
+      // 
+      //     *
+      //     *   Valid values: [8,4096].
+      // 
+      // *   Decimal: A decimal of the output video\\"s height.
+      // 
+      //     *   Valid values: (0,1).
+      //     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
       shared_ptr<string> height_ {};
+      // The ID of the watermark template.
       shared_ptr<string> templateId_ {};
+      // The watermark type.
+      // 
+      // *   Text: a text watermark. In this case, you must specify the parameters related to the text watermark.
+      // *   Image: an image watermark. In this case, you must specify the parameters related to the image watermark.
+      // 
+      // If not specified, the type is inferred from the TemplateId.
       shared_ptr<string> type_ {};
+      // The width of the image watermark. This parameter overrides the corresponding setting from a specified watermark template. The following value types are supported:
+      // 
+      // *   Integer: the pixel value of the watermark width.
+      // 
+      //     *
+      //     *   Valid values: [8,4096].
+      // 
+      // *   Decimal: A decimal of the output video\\"s width.
+      // 
+      //     *   Valid values: (0,1).
+      //     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
       shared_ptr<string> width_ {};
+      // The horizontal offset of the image watermark relative to the output video. This parameter overrides the corresponding setting from a specified watermark template. The following value types are supported:
+      // 
+      // *   Integer: the pixel value of the horizontal offset.
+      // 
+      //     *   Unit: pixels.
+      //     *   Valid values: [8,4096].
+      // 
+      // *   Decimal: the ratio of the horizontal offset to the width of the output video.
+      // 
+      //     *   Valid values: (0,1).
+      //     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
       shared_ptr<string> x_ {};
+      // The vertical offset of the image watermark relative to the output video. This parameter overrides the corresponding setting from a specified watermark template. The following value types are supported:
+      // 
+      // *   Integer: the pixel value of the vertical offset.
+      // 
+      //     *   Unit: pixels.
+      //     *   Valid values: [8,4096].
+      // 
+      // *   Decimal: the ratio of the vertical offset to the height of the output video.
+      // 
+      //     *   Valid values: (0,1).
+      //     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
       shared_ptr<string> y_ {};
     };
 
@@ -267,8 +346,23 @@ namespace Models
 
 
       protected:
+        // The duration of the clip, starting from the Seek time. The default duration is from the Seek time to the end of the video. Duration and End are mutually exclusive. If End is set, Duration is ignored.
+        // 
+        // *   Format: hh:mm:ss[.SSS] or sssss[.SSS].
+        // *   Valid values: [00:00:00.000,23:59:59.999] or [0.000,86399.999].
+        // *   Example: 00:01:59.99 or 180.30.
         shared_ptr<string> duration_ {};
+        // Specifies a duration to trim from the end of the video. Duration and End are mutually exclusive. If End is set, Duration is ignored.
+        // 
+        // *   Format: hh:mm:ss[.SSS] or sssss[.SSS].
+        // *   Valid values: [00:00:00.000,23:59:59.999] or [0.000,86399.999].
+        // *   Example: 00:01:59.99 or 180.30.
         shared_ptr<string> end_ {};
+        // The start time of the clip. It defaults to the beginning of the video.
+        // 
+        // *   Format: hh:mm:ss[.SSS] or sssss[.SSS].
+        // *   Valid values: [00:00:00.000,23:59:59.999] or [0.000,86399.999].
+        // *   Example: 00:01:59.99 or 180.30.
         shared_ptr<string> seek_ {};
       };
 
@@ -291,7 +385,13 @@ namespace Models
 
 
     protected:
+      // Specifies the order of operations when concatenating multiple files and clipping.
+      // 
+      // *   true: Clips the first input file before it is concatenated.
+      // *   false: Concatenates all input files first, then applies clipping.
+      // *   Default value: false.
       shared_ptr<string> configToClipFirstPart_ {};
+      // The time range for the clip.
       shared_ptr<Clip::TimeSpan> timeSpan_ {};
     };
 
@@ -325,8 +425,18 @@ namespace Models
 
 
   protected:
+    // Configuration for clipping from the source video.
     shared_ptr<MediaConvertJobFeature::Clip> clip_ {};
+    // A map of key-value pairs to be embedded as container-level metadata in the output file. Provided as a JSON string. Example: {"key1":"value1","key2":"value2"}.
+    // 
+    // *   Max key length: 64 characters.
+    // *   Max value length: 512 characters.
+    // 
+    // Max 4 key-value pairs.
     shared_ptr<map<string, string>> metadata_ {};
+    // Image or text watermarks to add to the video. These parameters override the corresponding settings from a specified watermark template.
+    // 
+    // *   You can add up to four watermarks to a transcoding task.
     shared_ptr<vector<MediaConvertJobFeature::Watermarks>> watermarks_ {};
   };
 

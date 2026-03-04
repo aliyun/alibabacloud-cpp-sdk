@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The ARN of the source location.
     shared_ptr<string> arn_ {};
+    // The base URL of the source location.
     shared_ptr<string> baseUrl_ {};
+    // The time when the source location was created.
     shared_ptr<string> gmtCreate_ {};
+    // The time when the source location was last modified.
     shared_ptr<string> gmtModified_ {};
+    // The segment delivery server configurations.
     shared_ptr<string> segmentDeliveryConfigurations_ {};
+    // The name of the source location.
     shared_ptr<string> sourceLocationName_ {};
+    // The status of the source location. 0: normal. 1: deleted.
     shared_ptr<int32_t> state_ {};
   };
 

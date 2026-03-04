@@ -103,6 +103,8 @@ namespace Models
 
 
   protected:
+    // *   The template configurations. The Config object of a regular template is encapsulated based on the Timeline object of an online editing project. The Config object of a custom template provides more flexible features. If you have special requirements, we recommend that you understand the structure of a Config object and configure a custom template. For more information, see [Config object of a regular template](https://help.aliyun.com/document_detail/456193.html).
+    // *   For more information about Config object examples, see [Basic template configurations](https://help.aliyun.com/document_detail/451634.html).
     shared_ptr<string> config_ {};
     // The URL of the template thumbnail.
     shared_ptr<string> coverUrl_ {};

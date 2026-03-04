@@ -60,8 +60,15 @@ namespace Models
 
 
   protected:
+    // The filename for the manifest. This parameter is only applicable when Type is set to Hls or Dash.
     shared_ptr<string> manifestName_ {};
+    // The directory where all files for this output group are stored.
     shared_ptr<MediaObject> outputFileBase_ {};
+    // The type of the output group. Valid values:
+    // 
+    // *   File: Generates one or more standalone files.
+    // *   Hls: Generates HLS manifests.
+    // *   Dash: Generates DASH manifests.
     shared_ptr<string> type_ {};
   };
 

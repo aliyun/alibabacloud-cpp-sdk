@@ -140,17 +140,35 @@ namespace Models
 
 
   protected:
+    // The remaining usage capacity of the batch.
     shared_ptr<int64_t> availableCapacity_ {};
+    // The time when the batch became active.
     shared_ptr<string> beginOn_ {};
+    // The contract number.
     shared_ptr<string> contractNo_ {};
+    // The creation time.
     shared_ptr<string> creationTime_ {};
+    // The expiration time.
     shared_ptr<string> expiredOn_ {};
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The total number of licenses contained within this batch.
     shared_ptr<int64_t> licenseCount_ {};
+    // The ID of the batch.
     shared_ptr<string> licenseItemId_ {};
+    // The update time.
     shared_ptr<string> modificationTime_ {};
+    // The status of the batch. Valid values:
+    // 
+    // *   1: Active
+    // *   2\\. Expired
     shared_ptr<int32_t> status_ {};
+    // The license type. Valid values:
+    // 
+    // *   1: Audio call
+    // *   2: Vision call
     shared_ptr<int32_t> type_ {};
+    // The validity period of the licenses in this batch, in days.
     shared_ptr<int64_t> validDays_ {};
   };
 

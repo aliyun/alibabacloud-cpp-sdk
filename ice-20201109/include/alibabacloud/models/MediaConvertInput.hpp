@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The input file.
     shared_ptr<MediaObject> inputFile_ {};
+    // The name of the input file. If Output contains InputRef, use this name to reference the input file.
     shared_ptr<string> name_ {};
   };
 

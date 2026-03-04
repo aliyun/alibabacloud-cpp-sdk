@@ -64,8 +64,11 @@ namespace Models
 
 
   protected:
+    // The output group configuration.
     shared_ptr<MediaConvertOutputGroupConfig> groupConfig_ {};
+    // The name of the output group.
     shared_ptr<string> name_ {};
+    // A list of individual output stream configurations. Each object in this array defines a specific rendition.
     shared_ptr<vector<MediaConvertOutputGroupOutput>> outputs_ {};
   };
 

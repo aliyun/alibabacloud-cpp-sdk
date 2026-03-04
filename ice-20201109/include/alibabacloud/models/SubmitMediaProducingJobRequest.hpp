@@ -185,6 +185,9 @@ namespace Models
     // 
     // > : You must specify one of ProgectId, Timeline, and TempalteId and leave the other two parameters empty. If TemplateId is specified, ClipsParam must also be specified.
     shared_ptr<string> templateId_ {};
+    // The timeline of the online editing job. For more information about the parameters, see [Timeline configurations](https://help.aliyun.com/document_detail/198823.html).
+    // 
+    // > : You must specify one of ProgectId, Timeline, and TempalteId and leave the other two parameters empty.
     shared_ptr<string> timeline_ {};
     // The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
     shared_ptr<string> userData_ {};

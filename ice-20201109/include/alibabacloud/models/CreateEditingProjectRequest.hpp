@@ -146,6 +146,7 @@ namespace Models
     // *   Timeline: a regular template.
     // *   VETemplate: an advanced template.
     shared_ptr<string> templateType_ {};
+    // The timeline of the online editing project, in the JSON format.
     shared_ptr<string> timeline_ {};
     // The title of the online editing project.
     // 

@@ -104,11 +104,8 @@ namespace Models
 
 
       protected:
-        // The ID of the entity.
         shared_ptr<string> entityId_ {};
-        // The additional information of the entity, in JSON format.
         shared_ptr<string> entityInfo_ {};
-        // The name of the entity.
         shared_ptr<string> entityName_ {};
       };
 
@@ -166,7 +163,6 @@ namespace Models
 
 
   protected:
-    // The entities.
     shared_ptr<ListRecognitionEntitiesResponseBody::Entities> entities_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

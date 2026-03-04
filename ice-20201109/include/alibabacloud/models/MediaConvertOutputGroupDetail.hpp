@@ -107,13 +107,27 @@ namespace Models
 
 
   protected:
+    // The error code for the failed output group task.
     shared_ptr<string> code_ {};
+    // The time the task was created.
     shared_ptr<string> createTime_ {};
+    // The end time of the task.
     shared_ptr<string> finishTime_ {};
+    // The reason for a task failure.
     shared_ptr<string> message_ {};
+    // The name of the output group.
     shared_ptr<string> name_ {};
+    // The output details.
     shared_ptr<vector<MediaConvertOutputDetail>> outputs_ {};
+    // The status of the output group task.
+    // 
+    // *   Init: The task is submitted.
+    // *   Running
+    // *   Success
+    // *   Failed
+    // *   Skipped
     shared_ptr<string> status_ {};
+    // The ID of the output group task.
     shared_ptr<string> taskId_ {};
   };
 

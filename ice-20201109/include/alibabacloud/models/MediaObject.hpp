@@ -48,7 +48,16 @@ namespace Models
 
 
   protected:
+    // The identifier for the media file.
+    // 
+    // *   If Type is set to OSS, the value is the URL of the media file. The following formats are supported: oss://... and https://...
+    // *   If Type is set to Media, the value is the ID of the media asset.
     shared_ptr<string> media_ {};
+    // The type of media source. Valid values:
+    // 
+    // *   OSS: an OSS object.
+    // *   Media: a media asset.
+    // *   ExternalURL: a publicly accessible external URL. This is not available for public use.
     shared_ptr<string> type_ {};
   };
 

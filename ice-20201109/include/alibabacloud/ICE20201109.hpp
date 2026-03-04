@@ -268,7 +268,7 @@ namespace ICE20201109
       Models::AlterSearchIndexResponse alterSearchIndex(const Models::AlterSearchIndexRequest &request);
 
       /**
-       * @summary 修改库
+       * @summary Modifies a search library.
        *
        * @param request AlterSearchLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -277,7 +277,7 @@ namespace ICE20201109
       Models::AlterSearchLibResponse alterSearchLibWithOptions(const Models::AlterSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改库
+       * @summary Modifies a search library.
        *
        * @param request AlterSearchLibRequest
        * @return AlterSearchLibResponse
@@ -454,7 +454,7 @@ namespace ICE20201109
       Models::CreateAuditResponse createAudit(const Models::CreateAuditRequest &request);
 
       /**
-       * @summary Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
+       * @summary Creates an avatar training job. You can configure the basic information of the avatar and the materials required for the training.
        *
        * @param request CreateAvatarTrainingJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -463,7 +463,7 @@ namespace ICE20201109
       Models::CreateAvatarTrainingJobResponse createAvatarTrainingJobWithOptions(const Models::CreateAvatarTrainingJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
+       * @summary Creates an avatar training job. You can configure the basic information of the avatar and the materials required for the training.
        *
        * @param request CreateAvatarTrainingJobRequest
        * @return CreateAvatarTrainingJobResponse
@@ -488,7 +488,7 @@ namespace ICE20201109
       Models::CreateChannelResponse createChannel(const Models::CreateChannelRequest &request);
 
       /**
-       * @summary Creates a custom template.
+       * @summary Creates a custom media processing template.
        *
        * @param request CreateCustomTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -497,7 +497,7 @@ namespace ICE20201109
       Models::CreateCustomTemplateResponse createCustomTemplateWithOptions(const Models::CreateCustomTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom template.
+       * @summary Creates a custom media processing template.
        *
        * @param request CreateCustomTemplateRequest
        * @return CreateCustomTemplateResponse
@@ -577,7 +577,7 @@ namespace ICE20201109
       Models::CreateHotwordLibraryResponse createHotwordLibrary(const Models::CreateHotwordLibraryRequest &request);
 
       /**
-       * @summary IPC下单
+       * @summary Creates an IPC order. The purchased capacity is shared at the account level.
        *
        * @param request CreateIpcOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -586,7 +586,7 @@ namespace ICE20201109
       Models::CreateIpcOrderResponse createIpcOrderWithOptions(const Models::CreateIpcOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary IPC下单
+       * @summary Creates an IPC order. The purchased capacity is shared at the account level.
        *
        * @param request CreateIpcOrderRequest
        * @return CreateIpcOrderResponse
@@ -711,7 +711,7 @@ namespace ICE20201109
       Models::CreateLiveSnapshotTemplateResponse createLiveSnapshotTemplate(const Models::CreateLiveSnapshotTemplateRequest &request);
 
       /**
-       * @summary Creates a live stream transcoding template to submit live stream transcoding jobs.
+       * @summary Creates a live stream transcoding template, which can be referenced when submitting a transcoding job.
        *
        * @param tmpReq CreateLiveTranscodeTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -720,7 +720,7 @@ namespace ICE20201109
       Models::CreateLiveTranscodeTemplateResponse createLiveTranscodeTemplateWithOptions(const Models::CreateLiveTranscodeTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a live stream transcoding template to submit live stream transcoding jobs.
+       * @summary Creates a live stream transcoding template, which can be referenced when submitting a transcoding job.
        *
        * @param request CreateLiveTranscodeTemplateRequest
        * @return CreateLiveTranscodeTemplateResponse
@@ -925,7 +925,7 @@ namespace ICE20201109
       Models::CreateRecognitionSampleResponse createRecognitionSample(const Models::CreateRecognitionSampleRequest &request);
 
       /**
-       * @summary 创建搜索索引
+       * @summary Creates a search index in a search library. Each search library can contain multiple indexes.
        *
        * @description The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
        *
@@ -936,7 +936,7 @@ namespace ICE20201109
       Models::CreateSearchIndexResponse createSearchIndexWithOptions(const Models::CreateSearchIndexRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建搜索索引
+       * @summary Creates a search index in a search library. Each search library can contain multiple indexes.
        *
        * @description The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
        *
@@ -1089,7 +1089,7 @@ namespace ICE20201109
       Models::CreateVodPackagingAssetResponse createVodPackagingAsset(const Models::CreateVodPackagingAssetRequest &request);
 
       /**
-       * @summary Creates a packaging configuration.
+       * @summary Creates a VOD packaging configuration.
        *
        * @param tmpReq CreateVodPackagingConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1098,7 +1098,7 @@ namespace ICE20201109
       Models::CreateVodPackagingConfigurationResponse createVodPackagingConfigurationWithOptions(const Models::CreateVodPackagingConfigurationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a packaging configuration.
+       * @summary Creates a VOD packaging configuration.
        *
        * @param request CreateVodPackagingConfigurationRequest
        * @return CreateVodPackagingConfigurationResponse
@@ -1106,7 +1106,7 @@ namespace ICE20201109
       Models::CreateVodPackagingConfigurationResponse createVodPackagingConfiguration(const Models::CreateVodPackagingConfigurationRequest &request);
 
       /**
-       * @summary Creates a packaging group.
+       * @summary Creates a VOD packaging group.
        *
        * @param request CreateVodPackagingGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1115,12 +1115,29 @@ namespace ICE20201109
       Models::CreateVodPackagingGroupResponse createVodPackagingGroupWithOptions(const Models::CreateVodPackagingGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a packaging group.
+       * @summary Creates a VOD packaging group.
        *
        * @param request CreateVodPackagingGroupRequest
        * @return CreateVodPackagingGroupResponse
        */
       Models::CreateVodPackagingGroupResponse createVodPackagingGroup(const Models::CreateVodPackagingGroupRequest &request);
+
+      /**
+       * @summary 获取一刻媒资上传凭证
+       *
+       * @param request CreateYikeAssetUploadRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateYikeAssetUploadResponse
+       */
+      Models::CreateYikeAssetUploadResponse createYikeAssetUploadWithOptions(const Models::CreateYikeAssetUploadRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一刻媒资上传凭证
+       *
+       * @param request CreateYikeAssetUploadRequest
+       * @return CreateYikeAssetUploadResponse
+       */
+      Models::CreateYikeAssetUploadResponse createYikeAssetUpload(const Models::CreateYikeAssetUploadRequest &request);
 
       /**
        * @summary Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
@@ -1945,7 +1962,7 @@ namespace ICE20201109
       Models::DeleteVodPackagingAssetResponse deleteVodPackagingAsset(const Models::DeleteVodPackagingAssetRequest &request);
 
       /**
-       * @summary Deletes a packaging configuration.
+       * @summary Deletes a VOD packaging configuration.
        *
        * @param request DeleteVodPackagingConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1954,7 +1971,7 @@ namespace ICE20201109
       Models::DeleteVodPackagingConfigurationResponse deleteVodPackagingConfigurationWithOptions(const Models::DeleteVodPackagingConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a packaging configuration.
+       * @summary Deletes a VOD packaging configuration.
        *
        * @param request DeleteVodPackagingConfigurationRequest
        * @return DeleteVodPackagingConfigurationResponse
@@ -1962,7 +1979,7 @@ namespace ICE20201109
       Models::DeleteVodPackagingConfigurationResponse deleteVodPackagingConfiguration(const Models::DeleteVodPackagingConfigurationRequest &request);
 
       /**
-       * @summary Deletes a packaging group.
+       * @summary Deletes a VOD packaging group.
        *
        * @param request DeleteVodPackagingGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1971,7 +1988,7 @@ namespace ICE20201109
       Models::DeleteVodPackagingGroupResponse deleteVodPackagingGroupWithOptions(const Models::DeleteVodPackagingGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a packaging group.
+       * @summary Deletes a VOD packaging group.
        *
        * @param request DeleteVodPackagingGroupRequest
        * @return DeleteVodPackagingGroupResponse
@@ -2127,7 +2144,7 @@ namespace ICE20201109
       Models::DescribePlayListResponse describePlayList(const Models::DescribePlayListRequest &request);
 
       /**
-       * @summary 查询实例
+       * @summary Queries the information about an AI agent for real-time communication (RTC).
        *
        * @param request DescribeRtcRobotInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2136,7 +2153,7 @@ namespace ICE20201109
       Models::DescribeRtcRobotInstanceResponse describeRtcRobotInstanceWithOptions(const Models::DescribeRtcRobotInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例
+       * @summary Queries the information about an AI agent for real-time communication (RTC).
        *
        * @param request DescribeRtcRobotInstanceRequest
        * @return DescribeRtcRobotInstanceResponse
@@ -2714,7 +2731,7 @@ namespace ICE20201109
       Models::GetHotwordLibraryResponse getHotwordLibrary(const Models::GetHotwordLibraryRequest &request);
 
       /**
-       * @summary 查询IPC设备信息
+       * @summary Retrieves information about IPC devices.
        *
        * @param request GetIpcDeviceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2723,7 +2740,7 @@ namespace ICE20201109
       Models::GetIpcDeviceInfoResponse getIpcDeviceInfoWithOptions(const Models::GetIpcDeviceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询IPC设备信息
+       * @summary Retrieves information about IPC devices.
        *
        * @param request GetIpcDeviceInfoRequest
        * @return GetIpcDeviceInfoResponse
@@ -3224,7 +3241,7 @@ namespace ICE20201109
       Models::GetPipelineResponse getPipeline(const Models::GetPipelineRequest &request);
 
       /**
-       * @summary Queries the playback URL of a video or audio file based on its ID.
+       * @summary Queries the playback URL of a video or audio file by its ID. You can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
        *
        * @description You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
        *
@@ -3235,7 +3252,7 @@ namespace ICE20201109
       Models::GetPlayInfoResponse getPlayInfoWithOptions(const Models::GetPlayInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the playback URL of a video or audio file based on its ID.
+       * @summary Queries the playback URL of a video or audio file by its ID. You can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
        *
        * @description You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
        *
@@ -3586,7 +3603,7 @@ namespace ICE20201109
       Models::GetVodPackagingConfigurationResponse getVodPackagingConfiguration(const Models::GetVodPackagingConfigurationRequest &request);
 
       /**
-       * @summary Queries a packaging group.
+       * @summary Queries a VOD packaging group.
        *
        * @param request GetVodPackagingGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3595,7 +3612,7 @@ namespace ICE20201109
       Models::GetVodPackagingGroupResponse getVodPackagingGroupWithOptions(const Models::GetVodPackagingGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a packaging group.
+       * @summary Queries a VOD packaging group.
        *
        * @param request GetVodPackagingGroupRequest
        * @return GetVodPackagingGroupResponse
@@ -3618,6 +3635,40 @@ namespace ICE20201109
        * @return GetWorkflowTaskResponse
        */
       Models::GetWorkflowTaskResponse getWorkflowTask(const Models::GetWorkflowTaskRequest &request);
+
+      /**
+       * @summary 获取一刻AI应用任务
+       *
+       * @param request GetYikeAIAppJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeAIAppJobResponse
+       */
+      Models::GetYikeAIAppJobResponse getYikeAIAppJobWithOptions(const Models::GetYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一刻AI应用任务
+       *
+       * @param request GetYikeAIAppJobRequest
+       * @return GetYikeAIAppJobResponse
+       */
+      Models::GetYikeAIAppJobResponse getYikeAIAppJob(const Models::GetYikeAIAppJobRequest &request);
+
+      /**
+       * @summary 获取一刻媒资内容信息
+       *
+       * @param request GetYikeAssetMediaInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeAssetMediaInfoResponse
+       */
+      Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfoWithOptions(const Models::GetYikeAssetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一刻媒资内容信息
+       *
+       * @param request GetYikeAssetMediaInfoRequest
+       * @return GetYikeAssetMediaInfoResponse
+       */
+      Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfo(const Models::GetYikeAssetMediaInfoRequest &request);
 
       /**
        * @summary Adds a media asset in a search library. Before you call this operation, you must create a search library.
@@ -3681,7 +3732,7 @@ namespace ICE20201109
       Models::ListAIAgentInstanceResponse listAIAgentInstance(const Models::ListAIAgentInstanceRequest &request);
 
       /**
-       * @summary 罗列用户电话资源接口
+       * @summary Lists available phone numbers.
        *
        * @param request ListAIAgentPhoneNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3690,7 +3741,7 @@ namespace ICE20201109
       Models::ListAIAgentPhoneNumberResponse listAIAgentPhoneNumberWithOptions(const Models::ListAIAgentPhoneNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 罗列用户电话资源接口
+       * @summary Lists available phone numbers.
        *
        * @param request ListAIAgentPhoneNumberRequest
        * @return ListAIAgentPhoneNumberResponse
@@ -4376,7 +4427,7 @@ namespace ICE20201109
       Models::ListMediaProducingJobsResponse listMediaProducingJobs(const Models::ListMediaProducingJobsRequest &request);
 
       /**
-       * @summary Queries a list of packaging jobs.
+       * @summary Queries packaging jobs.
        *
        * @param request ListPackageJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4385,7 +4436,7 @@ namespace ICE20201109
       Models::ListPackageJobsResponse listPackageJobsWithOptions(const Models::ListPackageJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of packaging jobs.
+       * @summary Queries packaging jobs.
        *
        * @param request ListPackageJobsRequest
        * @return ListPackageJobsResponse
@@ -4775,7 +4826,7 @@ namespace ICE20201109
       Models::ListVodPackagingAssetsResponse listVodPackagingAssets(const Models::ListVodPackagingAssetsRequest &request);
 
       /**
-       * @summary Lists packaging configurations.
+       * @summary Lists VOD packaging configurations.
        *
        * @param request ListVodPackagingConfigurationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4784,7 +4835,7 @@ namespace ICE20201109
       Models::ListVodPackagingConfigurationsResponse listVodPackagingConfigurationsWithOptions(const Models::ListVodPackagingConfigurationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists packaging configurations.
+       * @summary Lists VOD packaging configurations.
        *
        * @param request ListVodPackagingConfigurationsRequest
        * @return ListVodPackagingConfigurationsResponse
@@ -4792,7 +4843,7 @@ namespace ICE20201109
       Models::ListVodPackagingConfigurationsResponse listVodPackagingConfigurations(const Models::ListVodPackagingConfigurationsRequest &request);
 
       /**
-       * @summary Lists packaging groups.
+       * @summary Lists VOD packaging groups.
        *
        * @param request ListVodPackagingGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4801,7 +4852,7 @@ namespace ICE20201109
       Models::ListVodPackagingGroupsResponse listVodPackagingGroupsWithOptions(const Models::ListVodPackagingGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists packaging groups.
+       * @summary Lists VOD packaging groups.
        *
        * @param request ListVodPackagingGroupsRequest
        * @return ListVodPackagingGroupsResponse
@@ -4828,6 +4879,40 @@ namespace ICE20201109
        * @return ListWorkflowTasksResponse
        */
       Models::ListWorkflowTasksResponse listWorkflowTasks(const Models::ListWorkflowTasksRequest &request);
+
+      /**
+       * @summary 获取一刻文件夹列表
+       *
+       * @param request ListYikeAssetFoldersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListYikeAssetFoldersResponse
+       */
+      Models::ListYikeAssetFoldersResponse listYikeAssetFoldersWithOptions(const Models::ListYikeAssetFoldersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一刻文件夹列表
+       *
+       * @param request ListYikeAssetFoldersRequest
+       * @return ListYikeAssetFoldersResponse
+       */
+      Models::ListYikeAssetFoldersResponse listYikeAssetFolders(const Models::ListYikeAssetFoldersRequest &request);
+
+      /**
+       * @summary 获取一刻项目列表
+       *
+       * @param request ListYikeProductionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListYikeProductionsResponse
+       */
+      Models::ListYikeProductionsResponse listYikeProductionsWithOptions(const Models::ListYikeProductionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一刻项目列表
+       *
+       * @param request ListYikeProductionsRequest
+       * @return ListYikeProductionsResponse
+       */
+      Models::ListYikeProductionsResponse listYikeProductions(const Models::ListYikeProductionsRequest &request);
 
       /**
        * @summary Enables Source Failover for a MediaConnect flow.
@@ -4925,7 +5010,7 @@ namespace ICE20201109
       Models::QueryIProductionJobResponse queryIProductionJob(const Models::QueryIProductionJobRequest &request);
 
       /**
-       * @summary 查询IPC用量
+       * @summary Queries the usage for the IPC service.
        *
        * @param request QueryIpcQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4934,7 +5019,7 @@ namespace ICE20201109
       Models::QueryIpcQuotaResponse queryIpcQuotaWithOptions(const Models::QueryIpcQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询IPC用量
+       * @summary Queries the usage for the IPC service.
        *
        * @param request QueryIpcQuotaRequest
        * @return QueryIpcQuotaResponse
@@ -5195,6 +5280,23 @@ namespace ICE20201109
        * @return RegisterMediaStreamResponse
        */
       Models::RegisterMediaStreamResponse registerMediaStream(const Models::RegisterMediaStreamRequest &request);
+
+      /**
+       * @summary 注册一刻媒资
+       *
+       * @param request RegisterYikeAssetMediaInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RegisterYikeAssetMediaInfoResponse
+       */
+      Models::RegisterYikeAssetMediaInfoResponse registerYikeAssetMediaInfoWithOptions(const Models::RegisterYikeAssetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 注册一刻媒资
+       *
+       * @param request RegisterYikeAssetMediaInfoRequest
+       * @return RegisterYikeAssetMediaInfoResponse
+       */
+      Models::RegisterYikeAssetMediaInfoResponse registerYikeAssetMediaInfo(const Models::RegisterYikeAssetMediaInfoRequest &request);
 
       /**
        * @summary Resumes an output of a MediaConnect flow. When resumed, the output can deliver the live stream to the destination.
@@ -5630,7 +5732,7 @@ namespace ICE20201109
       Models::StartAIAgentInstanceResponse startAIAgentInstance(const Models::StartAIAgentInstanceRequest &request);
 
       /**
-       * @summary 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+       * @summary Initiates an outbound phone call for an AI agent.
        *
        * @param tmpReq StartAIAgentOutboundCallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5639,7 +5741,7 @@ namespace ICE20201109
       Models::StartAIAgentOutboundCallResponse startAIAgentOutboundCallWithOptions(const Models::StartAIAgentOutboundCallRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+       * @summary Initiates an outbound phone call for an AI agent.
        *
        * @param request StartAIAgentOutboundCallRequest
        * @return StartAIAgentOutboundCallResponse
@@ -5710,7 +5812,7 @@ namespace ICE20201109
       Models::StartMediaLiveChannelResponse startMediaLiveChannel(const Models::StartMediaLiveChannelRequest &request);
 
       /**
-       * @summary 开启一个机器人实例
+       * @summary Starts an AI agent and joins a real-time communication (RTC) call.
        *
        * @param tmpReq StartRtcRobotInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5719,7 +5821,7 @@ namespace ICE20201109
       Models::StartRtcRobotInstanceResponse startRtcRobotInstanceWithOptions(const Models::StartRtcRobotInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开启一个机器人实例
+       * @summary Starts an AI agent and joins a real-time communication (RTC) call.
        *
        * @param request StartRtcRobotInstanceRequest
        * @return StartRtcRobotInstanceResponse
@@ -5836,7 +5938,7 @@ namespace ICE20201109
       Models::StopMediaLiveChannelResponse stopMediaLiveChannel(const Models::StopMediaLiveChannelRequest &request);
 
       /**
-       * @summary 停止一个机器人实例
+       * @summary Stops an AI agent for real-time communication (RTC).
        *
        * @param request StopRtcRobotInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5845,7 +5947,7 @@ namespace ICE20201109
       Models::StopRtcRobotInstanceResponse stopRtcRobotInstanceWithOptions(const Models::StopRtcRobotInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止一个机器人实例
+       * @summary Stops an AI agent for real-time communication (RTC).
        *
        * @param request StopRtcRobotInstanceRequest
        * @return StopRtcRobotInstanceResponse
@@ -5891,7 +5993,7 @@ namespace ICE20201109
       Models::SubmitASRJobResponse submitASRJob(const Models::SubmitASRJobRequest &request);
 
       /**
-       * @summary Submits an audio production job that converts text into an audio file.
+       * @summary Converts the provided text content into a high-quality audio file.
        *
        * @param request SubmitAudioProduceJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5900,7 +6002,7 @@ namespace ICE20201109
       Models::SubmitAudioProduceJobResponse submitAudioProduceJobWithOptions(const Models::SubmitAudioProduceJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits an audio production job that converts text into an audio file.
+       * @summary Converts the provided text content into a high-quality audio file.
        *
        * @param request SubmitAudioProduceJobRequest
        * @return SubmitAudioProduceJobResponse
@@ -6013,7 +6115,7 @@ namespace ICE20201109
       Models::SubmitCopyrightJobResponse submitCopyrightJob(const Models::SubmitCopyrightJobRequest &request);
 
       /**
-       * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
+       * @summary Submits a basic voice cloning job.
        *
        * @param request SubmitCustomizedVoiceJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6022,7 +6124,7 @@ namespace ICE20201109
       Models::SubmitCustomizedVoiceJobResponse submitCustomizedVoiceJobWithOptions(const Models::SubmitCustomizedVoiceJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
+       * @summary Submits a basic voice cloning job.
        *
        * @param request SubmitCustomizedVoiceJobRequest
        * @return SubmitCustomizedVoiceJobResponse
@@ -6710,7 +6812,7 @@ namespace ICE20201109
       Models::SubmitVideoCognitionJobResponse submitVideoCognitionJob(const Models::SubmitVideoCognitionJobRequest &request);
 
       /**
-       * @summary Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
+       * @summary Submits a video translation job. You can call this operation to translate video subtitles and speech to a specific language, and synchronize the speakers\\" lip movements with the translated audio.
        *
        * @description After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
        *
@@ -6721,7 +6823,7 @@ namespace ICE20201109
       Models::SubmitVideoTranslationJobResponse submitVideoTranslationJobWithOptions(const Models::SubmitVideoTranslationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
+       * @summary Submits a video translation job. You can call this operation to translate video subtitles and speech to a specific language, and synchronize the speakers\\" lip movements with the translated audio.
        *
        * @description After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
        *
@@ -6729,6 +6831,23 @@ namespace ICE20201109
        * @return SubmitVideoTranslationJobResponse
        */
       Models::SubmitVideoTranslationJobResponse submitVideoTranslationJob(const Models::SubmitVideoTranslationJobRequest &request);
+
+      /**
+       * @summary 提交一刻AI应用任务
+       *
+       * @param request SubmitYikeAIAppJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitYikeAIAppJobResponse
+       */
+      Models::SubmitYikeAIAppJobResponse submitYikeAIAppJobWithOptions(const Models::SubmitYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交一刻AI应用任务
+       *
+       * @param request SubmitYikeAIAppJobRequest
+       * @return SubmitYikeAIAppJobResponse
+       */
+      Models::SubmitYikeAIAppJobResponse submitYikeAIAppJob(const Models::SubmitYikeAIAppJobRequest &request);
 
       /**
        * @summary Hands off a conversation to a human agent.
@@ -7322,7 +7441,7 @@ namespace ICE20201109
       Models::UpdateProgramResponse updateProgram(const Models::UpdateProgramRequest &request);
 
       /**
-       * @summary 修改实例的配置
+       * @summary Modifies an AI agent for real-time communication (RTC), such as the tone and greeting.
        *
        * @param tmpReq UpdateRtcRobotInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7331,7 +7450,7 @@ namespace ICE20201109
       Models::UpdateRtcRobotInstanceResponse updateRtcRobotInstanceWithOptions(const Models::UpdateRtcRobotInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改实例的配置
+       * @summary Modifies an AI agent for real-time communication (RTC), such as the tone and greeting.
        *
        * @param request UpdateRtcRobotInstanceRequest
        * @return UpdateRtcRobotInstanceResponse
@@ -7339,7 +7458,7 @@ namespace ICE20201109
       Models::UpdateRtcRobotInstanceResponse updateRtcRobotInstance(const Models::UpdateRtcRobotInstanceRequest &request);
 
       /**
-       * @summary Modifies a source in MediaWeaver.
+       * @summary Modifies a source.
        *
        * @param request UpdateSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7348,7 +7467,7 @@ namespace ICE20201109
       Models::UpdateSourceResponse updateSourceWithOptions(const Models::UpdateSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a source in MediaWeaver.
+       * @summary Modifies a source.
        *
        * @param request UpdateSourceRequest
        * @return UpdateSourceResponse

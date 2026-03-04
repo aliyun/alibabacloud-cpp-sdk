@@ -126,11 +126,17 @@ namespace Models
 
 
     protected:
+      // The name of the channel.
       shared_ptr<string> channelName_ {};
+      // The format.
       shared_ptr<string> format_ {};
+      // The manifest name.
       shared_ptr<string> manifestName_ {};
+      // The manifest settings.
       shared_ptr<string> manifestSettings_ {};
+      // The playback URL.
       shared_ptr<string> playbackUrl_ {};
+      // The name of the source group.
       shared_ptr<string> sourceGroupName_ {};
     };
 
@@ -225,17 +231,29 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable access control.
     shared_ptr<bool> accessPolicy_ {};
+    // The token for accessing the channel.
     shared_ptr<string> accessToken_ {};
+    // The ARN of the channel.
     shared_ptr<string> arn_ {};
+    // The name of the channel.
     shared_ptr<string> channelName_ {};
+    // The tier of the channel.
     shared_ptr<string> channelTier_ {};
+    // The source location of the filler slate.
     shared_ptr<string> fillerSourceLocationName_ {};
+    // The source name of the filler slate.
     shared_ptr<string> fillerSourceName_ {};
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
+    // The modification time.
     shared_ptr<string> gmtModified_ {};
+    // The output configurations.
     shared_ptr<vector<Channel::OutPutConfigList>> outPutConfigList_ {};
+    // The playback mode.
     shared_ptr<string> playbackMode_ {};
+    // The state of the channel.
     shared_ptr<int32_t> state_ {};
   };
 

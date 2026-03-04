@@ -115,9 +115,13 @@ namespace Models
 
 
     protected:
+      // The input files for the task.
       shared_ptr<vector<MediaConvertInput>> inputs_ {};
+      // The task name.
       shared_ptr<string> jobName_ {};
+      // The output groups.
       shared_ptr<vector<MediaConvertOutputGroup>> outputGroups_ {};
+      // The output configurations.
       shared_ptr<vector<MediaConvertOutput>> outputs_ {};
     };
 
@@ -204,16 +208,33 @@ namespace Models
 
 
   protected:
+    // The idempotency token provided during the task creation request.
     shared_ptr<string> clientToken_ {};
+    // The error code for a failed task.
     shared_ptr<string> code_ {};
+    // The task configuration.
     shared_ptr<MediaConvertJobWithoutDetail::Config> config_ {};
+    // The time the task was created, in UTC format (*yyyy-MM-dd*T*HH:mm:ss*Z).
     shared_ptr<string> createTime_ {};
+    // The time the task finished processing, in UTC format (*yyyy-MM-dd*T*HH:mm:ss*Z).
     shared_ptr<string> finishTime_ {};
+    // The ID of the task.
     shared_ptr<string> jobId_ {};
+    // The reason for a task failure.
     shared_ptr<string> message_ {};
+    // The ID of the queue on which this task was processed.
     shared_ptr<string> pipelineId_ {};
+    // The ID of the API request that created this task.
     shared_ptr<string> requestId_ {};
+    // The status of the task.
+    // 
+    // *   Inited: The task is initialized.
+    // *   Running
+    // *   Complete
+    // *   Error
+    // *   Cancelled
     shared_ptr<string> state_ {};
+    // The user-defined data.
     shared_ptr<string> userData_ {};
   };
 

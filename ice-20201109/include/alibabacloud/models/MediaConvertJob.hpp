@@ -168,19 +168,39 @@ namespace Models
 
 
   protected:
+    // The idempotency key of the request for creating the task.
     shared_ptr<string> clientToken_ {};
+    // An error code returned if the task failed.
     shared_ptr<string> code_ {};
+    // The task configuration.
     shared_ptr<MediaConvertJobConfig> config_ {};
+    // The time the task was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> createTime_ {};
+    // The time the task was completed. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> finishTime_ {};
+    // The ID of the task.
     shared_ptr<string> jobId_ {};
+    // The reason for a failed task.
     shared_ptr<string> message_ {};
+    // An array containing the results for each output.
     shared_ptr<vector<MediaConvertOutputDetail>> outputDetails_ {};
+    // The details of the output groups.
     shared_ptr<vector<MediaConvertOutputGroupDetail>> outputGroupDetails_ {};
+    // The completion percentage of the task.
     shared_ptr<int32_t> percent_ {};
+    // The ID of the queue that processed the task.
     shared_ptr<string> pipelineId_ {};
+    // The ID of the API request that created this task.
     shared_ptr<string> requestId_ {};
+    // The task status.
+    // 
+    // *   Inited: Initialized
+    // *   Running
+    // *   Complete
+    // *   Error
+    // *   Cancelled
     shared_ptr<string> state_ {};
+    // The user-defined data.
     shared_ptr<string> userData_ {};
   };
 

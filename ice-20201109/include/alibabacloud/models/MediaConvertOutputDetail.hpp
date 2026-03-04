@@ -112,8 +112,17 @@ namespace Models
 
 
       protected:
+        // The value depends on the Type field:
+        // 
+        // *   If Type is set to OSS, the value is the URL of the output file. The following formats are supported: oss://... and https://...
+        // *   If Type is set to Media, the value is the ID of the media asset.
         shared_ptr<string> media_ {};
+        // The type of the output file. Valid values:
+        // 
+        // *   OSS: an Object Storage Service (OSS) object.
+        // *   Media: a media asset.
         shared_ptr<string> type_ {};
+        // If Type is set to Media, this field provides the actual storage URL of the media asset.
         shared_ptr<string> url_ {};
       };
 
@@ -138,7 +147,9 @@ namespace Models
 
 
     protected:
+      // The metadata of the audio and video streams.
       shared_ptr<MediaConvertOutputDetailFileMeta> outFileMeta_ {};
+      // Details about the generated output file.
       shared_ptr<Result::OutputFile> outputFile_ {};
     };
 
@@ -204,13 +215,27 @@ namespace Models
 
 
   protected:
+    // The error code for a failed task.
     shared_ptr<string> code_ {};
+    // The time the output task was created, in UTC format (*yyyy-MM-dd*T*HH:mm:ss*Z)
     shared_ptr<string> createTime_ {};
+    // The time the output task finished, in UTC format (*yyyy-MM-dd*T*HH:mm:ss*Z)
     shared_ptr<string> finishTime_ {};
+    // The reason for a task failure.
     shared_ptr<string> message_ {};
+    // The name of the output.
     shared_ptr<string> name_ {};
+    // The detailed output results.
     shared_ptr<MediaConvertOutputDetail::Result> result_ {};
+    // The task status. Valid values:
+    // 
+    // *   Init: Initializing the task.
+    // *   Scheduled: The task is scheduled for processing.
+    // *   Success: The task is completed.
+    // *   Failed: The task failed.
+    // *   Skipped: The task was skipped.
     shared_ptr<string> status_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

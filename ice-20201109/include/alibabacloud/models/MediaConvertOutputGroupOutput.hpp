@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The feature parameters.
     shared_ptr<string> features_ {};
+    // A name to label this output. This is for identification purposes only and does not affect the filename.
     shared_ptr<string> name_ {};
+    // The filename for this output. This path is relative to OutputFileBase defined in MediaConvertOutputGroupConfig. The final output path is {OutputFileBase}/{OutputFileName}.
     shared_ptr<string> outputFileName_ {};
+    // A JSON string containing parameters to override the settings from the associated transcoding template.
     shared_ptr<string> overrideParams_ {};
+    // The processing priority for this output. Valid values: 1 to 10. A higher value indicates higher priority. Default value: 6.
     shared_ptr<int32_t> priority_ {};
+    // The ID of the transcoding template.
     shared_ptr<string> templateId_ {};
   };
 

@@ -225,6 +225,9 @@
 #include <alibabacloud/models/CreateVodPackagingGroupRequest.hpp>
 #include <alibabacloud/models/CreateVodPackagingGroupResponseBody.hpp>
 #include <alibabacloud/models/CreateVodPackagingGroupResponse.hpp>
+#include <alibabacloud/models/CreateYikeAssetUploadRequest.hpp>
+#include <alibabacloud/models/CreateYikeAssetUploadResponseBody.hpp>
+#include <alibabacloud/models/CreateYikeAssetUploadResponse.hpp>
 #include <alibabacloud/models/DecryptKMSDataKeyRequest.hpp>
 #include <alibabacloud/models/DecryptKMSDataKeyResponseBody.hpp>
 #include <alibabacloud/models/DecryptKMSDataKeyResponse.hpp>
@@ -612,6 +615,12 @@
 #include <alibabacloud/models/GetWorkflowTaskRequest.hpp>
 #include <alibabacloud/models/GetWorkflowTaskResponseBody.hpp>
 #include <alibabacloud/models/GetWorkflowTaskResponse.hpp>
+#include <alibabacloud/models/GetYikeAIAppJobRequest.hpp>
+#include <alibabacloud/models/GetYikeAIAppJobResponseBody.hpp>
+#include <alibabacloud/models/GetYikeAIAppJobResponse.hpp>
+#include <alibabacloud/models/GetYikeAssetMediaInfoRequest.hpp>
+#include <alibabacloud/models/GetYikeAssetMediaInfoResponseBody.hpp>
+#include <alibabacloud/models/GetYikeAssetMediaInfoResponse.hpp>
 #include <alibabacloud/models/InsertMediaToSearchLibRequest.hpp>
 #include <alibabacloud/models/InsertMediaToSearchLibResponseBody.hpp>
 #include <alibabacloud/models/InsertMediaToSearchLibResponse.hpp>
@@ -798,6 +807,12 @@
 #include <alibabacloud/models/ListWorkflowTasksRequest.hpp>
 #include <alibabacloud/models/ListWorkflowTasksResponseBody.hpp>
 #include <alibabacloud/models/ListWorkflowTasksResponse.hpp>
+#include <alibabacloud/models/ListYikeAssetFoldersRequest.hpp>
+#include <alibabacloud/models/ListYikeAssetFoldersResponseBody.hpp>
+#include <alibabacloud/models/ListYikeAssetFoldersResponse.hpp>
+#include <alibabacloud/models/ListYikeProductionsRequest.hpp>
+#include <alibabacloud/models/ListYikeProductionsResponseBody.hpp>
+#include <alibabacloud/models/ListYikeProductionsResponse.hpp>
 #include <alibabacloud/models/OpenMediaConnectFlowFailoverRequest.hpp>
 #include <alibabacloud/models/OpenMediaConnectFlowFailoverResponseBody.hpp>
 #include <alibabacloud/models/OpenMediaConnectFlowFailoverResponse.hpp>
@@ -856,6 +871,9 @@
 #include <alibabacloud/models/RegisterMediaStreamRequest.hpp>
 #include <alibabacloud/models/RegisterMediaStreamResponseBody.hpp>
 #include <alibabacloud/models/RegisterMediaStreamResponse.hpp>
+#include <alibabacloud/models/RegisterYikeAssetMediaInfoRequest.hpp>
+#include <alibabacloud/models/RegisterYikeAssetMediaInfoResponseBody.hpp>
+#include <alibabacloud/models/RegisterYikeAssetMediaInfoResponse.hpp>
 #include <alibabacloud/models/ResumeMediaConnectFlowOutputRequest.hpp>
 #include <alibabacloud/models/ResumeMediaConnectFlowOutputResponseBody.hpp>
 #include <alibabacloud/models/ResumeMediaConnectFlowOutputResponse.hpp>
@@ -1108,6 +1126,9 @@
 #include <alibabacloud/models/SubmitVideoTranslationJobRequest.hpp>
 #include <alibabacloud/models/SubmitVideoTranslationJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitVideoTranslationJobResponse.hpp>
+#include <alibabacloud/models/SubmitYikeAIAppJobRequest.hpp>
+#include <alibabacloud/models/SubmitYikeAIAppJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitYikeAIAppJobResponse.hpp>
 #include <alibabacloud/models/TakeoverAIAgentCallRequest.hpp>
 #include <alibabacloud/models/TakeoverAIAgentCallResponseBody.hpp>
 #include <alibabacloud/models/TakeoverAIAgentCallResponse.hpp>

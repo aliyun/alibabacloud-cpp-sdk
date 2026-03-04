@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The ARN of the source.
     shared_ptr<string> arn_ {};
+    // The time when the source was created.
     shared_ptr<string> gmtCreate_ {};
+    // The time when the source was last modified.
     shared_ptr<string> gmtModified_ {};
+    // The source configuration.
     shared_ptr<string> httpPackageConfigurations_ {};
+    // The name of the source location.
     shared_ptr<string> sourceLocationName_ {};
+    // The name of the source.
     shared_ptr<string> sourceName_ {};
+    // The source type. Valid values: vodSource and liveSource.
     shared_ptr<string> sourceType_ {};
+    // The status of the source. 0: normal. 1: deleted.
     shared_ptr<int32_t> state_ {};
   };
 

@@ -83,8 +83,18 @@ namespace Models
 
 
     protected:
+      // The OSS path where the output file is saved. You can specify the path in one of the following formats:
+      // 
+      // 1\\. oss://bucket/object
+      // 
+      // 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object where bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object path in OSS.
+      // 
       // This parameter is required.
       shared_ptr<string> media_ {};
+      // The type of the output file. Valid value:
+      // 
+      // 1.  OSS: an OSS object.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -127,8 +137,21 @@ namespace Models
 
 
     protected:
+      // The URL of the source file. You can specify the path of an OSS object in one of the following formats:
+      // 
+      // 1\\. oss://bucket/object
+      // 
+      // 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object
+      // 
+      // where bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object path in OSS.
+      // 
       // This parameter is required.
       shared_ptr<string> media_ {};
+      // The type of the source file. Valid values:
+      // 
+      // 1.  OSS: an OSS object.
+      // 2.  Media: a media asset.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };

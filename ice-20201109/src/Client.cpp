@@ -810,7 +810,7 @@ AlterSearchIndexResponse Client::alterSearchIndex(const AlterSearchIndexRequest 
 }
 
 /**
- * @summary 修改库
+ * @summary Modifies a search library.
  *
  * @param request AlterSearchLibRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -845,7 +845,7 @@ AlterSearchLibResponse Client::alterSearchLibWithOptions(const AlterSearchLibReq
 }
 
 /**
- * @summary 修改库
+ * @summary Modifies a search library.
  *
  * @param request AlterSearchLibRequest
  * @return AlterSearchLibResponse
@@ -1300,7 +1300,7 @@ CreateAuditResponse Client::createAudit(const CreateAuditRequest &request) {
 }
 
 /**
- * @summary Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
+ * @summary Creates an avatar training job. You can configure the basic information of the avatar and the materials required for the training.
  *
  * @param request CreateAvatarTrainingJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1355,7 +1355,7 @@ CreateAvatarTrainingJobResponse Client::createAvatarTrainingJobWithOptions(const
 }
 
 /**
- * @summary Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
+ * @summary Creates an avatar training job. You can configure the basic information of the avatar and the materials required for the training.
  *
  * @param request CreateAvatarTrainingJobRequest
  * @return CreateAvatarTrainingJobResponse
@@ -1436,7 +1436,7 @@ CreateChannelResponse Client::createChannel(const CreateChannelRequest &request)
 }
 
 /**
- * @summary Creates a custom template.
+ * @summary Creates a custom media processing template.
  *
  * @param request CreateCustomTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1479,7 +1479,7 @@ CreateCustomTemplateResponse Client::createCustomTemplateWithOptions(const Creat
 }
 
 /**
- * @summary Creates a custom template.
+ * @summary Creates a custom media processing template.
  *
  * @param request CreateCustomTemplateRequest
  * @return CreateCustomTemplateResponse
@@ -1758,7 +1758,7 @@ CreateHotwordLibraryResponse Client::createHotwordLibrary(const CreateHotwordLib
 }
 
 /**
- * @summary IPC下单
+ * @summary Creates an IPC order. The purchased capacity is shared at the account level.
  *
  * @param request CreateIpcOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1797,7 +1797,7 @@ CreateIpcOrderResponse Client::createIpcOrderWithOptions(const CreateIpcOrderReq
 }
 
 /**
- * @summary IPC下单
+ * @summary Creates an IPC order. The purchased capacity is shared at the account level.
  *
  * @param request CreateIpcOrderRequest
  * @return CreateIpcOrderResponse
@@ -2160,7 +2160,7 @@ CreateLiveSnapshotTemplateResponse Client::createLiveSnapshotTemplate(const Crea
 }
 
 /**
- * @summary Creates a live stream transcoding template to submit live stream transcoding jobs.
+ * @summary Creates a live stream transcoding template, which can be referenced when submitting a transcoding job.
  *
  * @param tmpReq CreateLiveTranscodeTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2205,7 +2205,7 @@ CreateLiveTranscodeTemplateResponse Client::createLiveTranscodeTemplateWithOptio
 }
 
 /**
- * @summary Creates a live stream transcoding template to submit live stream transcoding jobs.
+ * @summary Creates a live stream transcoding template, which can be referenced when submitting a transcoding job.
  *
  * @param request CreateLiveTranscodeTemplateRequest
  * @return CreateLiveTranscodeTemplateResponse
@@ -2828,7 +2828,7 @@ CreateRecognitionSampleResponse Client::createRecognitionSample(const CreateReco
 }
 
 /**
- * @summary 创建搜索索引
+ * @summary Creates a search index in a search library. Each search library can contain multiple indexes.
  *
  * @description The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
  *
@@ -2873,7 +2873,7 @@ CreateSearchIndexResponse Client::createSearchIndexWithOptions(const CreateSearc
 }
 
 /**
- * @summary 创建搜索索引
+ * @summary Creates a search index in a search library. Each search library can contain multiple indexes.
  *
  * @description The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
  *
@@ -3302,7 +3302,7 @@ CreateVodPackagingAssetResponse Client::createVodPackagingAsset(const CreateVodP
 }
 
 /**
- * @summary Creates a packaging configuration.
+ * @summary Creates a VOD packaging configuration.
  *
  * @param tmpReq CreateVodPackagingConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3355,7 +3355,7 @@ CreateVodPackagingConfigurationResponse Client::createVodPackagingConfigurationW
 }
 
 /**
- * @summary Creates a packaging configuration.
+ * @summary Creates a VOD packaging configuration.
  *
  * @param request CreateVodPackagingConfigurationRequest
  * @return CreateVodPackagingConfigurationResponse
@@ -3366,7 +3366,7 @@ CreateVodPackagingConfigurationResponse Client::createVodPackagingConfiguration(
 }
 
 /**
- * @summary Creates a packaging group.
+ * @summary Creates a VOD packaging group.
  *
  * @param request CreateVodPackagingGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3401,7 +3401,7 @@ CreateVodPackagingGroupResponse Client::createVodPackagingGroupWithOptions(const
 }
 
 /**
- * @summary Creates a packaging group.
+ * @summary Creates a VOD packaging group.
  *
  * @param request CreateVodPackagingGroupRequest
  * @return CreateVodPackagingGroupResponse
@@ -3409,6 +3409,48 @@ CreateVodPackagingGroupResponse Client::createVodPackagingGroupWithOptions(const
 CreateVodPackagingGroupResponse Client::createVodPackagingGroup(const CreateVodPackagingGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createVodPackagingGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取一刻媒资上传凭证
+ *
+ * @param request CreateYikeAssetUploadRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateYikeAssetUploadResponse
+ */
+CreateYikeAssetUploadResponse Client::createYikeAssetUploadWithOptions(const CreateYikeAssetUploadRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileExt()) {
+    query["FileExt"] = request.getFileExt();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateYikeAssetUpload"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateYikeAssetUploadResponse>();
+}
+
+/**
+ * @summary 获取一刻媒资上传凭证
+ *
+ * @param request CreateYikeAssetUploadRequest
+ * @return CreateYikeAssetUploadResponse
+ */
+CreateYikeAssetUploadResponse Client::createYikeAssetUpload(const CreateYikeAssetUploadRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createYikeAssetUploadWithOptions(request, runtime);
 }
 
 /**
@@ -5494,7 +5536,7 @@ DeleteVodPackagingAssetResponse Client::deleteVodPackagingAsset(const DeleteVodP
 }
 
 /**
- * @summary Deletes a packaging configuration.
+ * @summary Deletes a VOD packaging configuration.
  *
  * @param request DeleteVodPackagingConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5525,7 +5567,7 @@ DeleteVodPackagingConfigurationResponse Client::deleteVodPackagingConfigurationW
 }
 
 /**
- * @summary Deletes a packaging configuration.
+ * @summary Deletes a VOD packaging configuration.
  *
  * @param request DeleteVodPackagingConfigurationRequest
  * @return DeleteVodPackagingConfigurationResponse
@@ -5536,7 +5578,7 @@ DeleteVodPackagingConfigurationResponse Client::deleteVodPackagingConfiguration(
 }
 
 /**
- * @summary Deletes a packaging group.
+ * @summary Deletes a VOD packaging group.
  *
  * @param request DeleteVodPackagingGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5567,7 +5609,7 @@ DeleteVodPackagingGroupResponse Client::deleteVodPackagingGroupWithOptions(const
 }
 
 /**
- * @summary Deletes a packaging group.
+ * @summary Deletes a VOD packaging group.
  *
  * @param request DeleteVodPackagingGroupRequest
  * @return DeleteVodPackagingGroupResponse
@@ -6014,7 +6056,7 @@ DescribePlayListResponse Client::describePlayList(const DescribePlayListRequest 
 }
 
 /**
- * @summary 查询实例
+ * @summary Queries the information about an AI agent for real-time communication (RTC).
  *
  * @param request DescribeRtcRobotInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6045,7 +6087,7 @@ DescribeRtcRobotInstanceResponse Client::describeRtcRobotInstanceWithOptions(con
 }
 
 /**
- * @summary 查询实例
+ * @summary Queries the information about an AI agent for real-time communication (RTC).
  *
  * @param request DescribeRtcRobotInstanceRequest
  * @return DescribeRtcRobotInstanceResponse
@@ -7448,7 +7490,7 @@ GetHotwordLibraryResponse Client::getHotwordLibrary(const GetHotwordLibraryReque
 }
 
 /**
- * @summary 查询IPC设备信息
+ * @summary Retrieves information about IPC devices.
  *
  * @param request GetIpcDeviceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7499,7 +7541,7 @@ GetIpcDeviceInfoResponse Client::getIpcDeviceInfoWithOptions(const GetIpcDeviceI
 }
 
 /**
- * @summary 查询IPC设备信息
+ * @summary Retrieves information about IPC devices.
  *
  * @param request GetIpcDeviceInfoRequest
  * @return GetIpcDeviceInfoResponse
@@ -8673,7 +8715,7 @@ GetPipelineResponse Client::getPipeline(const GetPipelineRequest &request) {
 }
 
 /**
- * @summary Queries the playback URL of a video or audio file based on its ID.
+ * @summary Queries the playback URL of a video or audio file by its ID. You can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
  *
  * @description You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
  *
@@ -8714,7 +8756,7 @@ GetPlayInfoResponse Client::getPlayInfoWithOptions(const GetPlayInfoRequest &req
 }
 
 /**
- * @summary Queries the playback URL of a video or audio file based on its ID.
+ * @summary Queries the playback URL of a video or audio file by its ID. You can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
  *
  * @description You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
  *
@@ -9643,7 +9685,7 @@ GetVodPackagingConfigurationResponse Client::getVodPackagingConfiguration(const 
 }
 
 /**
- * @summary Queries a packaging group.
+ * @summary Queries a VOD packaging group.
  *
  * @param request GetVodPackagingGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9674,7 +9716,7 @@ GetVodPackagingGroupResponse Client::getVodPackagingGroupWithOptions(const GetVo
 }
 
 /**
- * @summary Queries a packaging group.
+ * @summary Queries a VOD packaging group.
  *
  * @param request GetVodPackagingGroupRequest
  * @return GetVodPackagingGroupResponse
@@ -9724,6 +9766,90 @@ GetWorkflowTaskResponse Client::getWorkflowTaskWithOptions(const GetWorkflowTask
 GetWorkflowTaskResponse Client::getWorkflowTask(const GetWorkflowTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getWorkflowTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取一刻AI应用任务
+ *
+ * @param request GetYikeAIAppJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikeAIAppJobResponse
+ */
+GetYikeAIAppJobResponse Client::getYikeAIAppJobWithOptions(const GetYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetYikeAIAppJob"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikeAIAppJobResponse>();
+}
+
+/**
+ * @summary 获取一刻AI应用任务
+ *
+ * @param request GetYikeAIAppJobRequest
+ * @return GetYikeAIAppJobResponse
+ */
+GetYikeAIAppJobResponse Client::getYikeAIAppJob(const GetYikeAIAppJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikeAIAppJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取一刻媒资内容信息
+ *
+ * @param request GetYikeAssetMediaInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikeAssetMediaInfoResponse
+ */
+GetYikeAssetMediaInfoResponse Client::getYikeAssetMediaInfoWithOptions(const GetYikeAssetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMediaId()) {
+    query["MediaId"] = request.getMediaId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetYikeAssetMediaInfo"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikeAssetMediaInfoResponse>();
+}
+
+/**
+ * @summary 获取一刻媒资内容信息
+ *
+ * @param request GetYikeAssetMediaInfoRequest
+ * @return GetYikeAssetMediaInfoResponse
+ */
+GetYikeAssetMediaInfoResponse Client::getYikeAssetMediaInfo(const GetYikeAssetMediaInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikeAssetMediaInfoWithOptions(request, runtime);
 }
 
 /**
@@ -9927,7 +10053,7 @@ ListAIAgentInstanceResponse Client::listAIAgentInstance(const ListAIAgentInstanc
 }
 
 /**
- * @summary 罗列用户电话资源接口
+ * @summary Lists available phone numbers.
  *
  * @param request ListAIAgentPhoneNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9970,7 +10096,7 @@ ListAIAgentPhoneNumberResponse Client::listAIAgentPhoneNumberWithOptions(const L
 }
 
 /**
- * @summary 罗列用户电话资源接口
+ * @summary Lists available phone numbers.
  *
  * @param request ListAIAgentPhoneNumberRequest
  * @return ListAIAgentPhoneNumberResponse
@@ -12151,7 +12277,7 @@ ListMediaProducingJobsResponse Client::listMediaProducingJobs(const ListMediaPro
 }
 
 /**
- * @summary Queries a list of packaging jobs.
+ * @summary Queries packaging jobs.
  *
  * @param request ListPackageJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12206,7 +12332,7 @@ ListPackageJobsResponse Client::listPackageJobsWithOptions(const ListPackageJobs
 }
 
 /**
- * @summary Queries a list of packaging jobs.
+ * @summary Queries packaging jobs.
  *
  * @param request ListPackageJobsRequest
  * @return ListPackageJobsResponse
@@ -13357,7 +13483,7 @@ ListVodPackagingAssetsResponse Client::listVodPackagingAssets(const ListVodPacka
 }
 
 /**
- * @summary Lists packaging configurations.
+ * @summary Lists VOD packaging configurations.
  *
  * @param request ListVodPackagingConfigurationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13404,7 +13530,7 @@ ListVodPackagingConfigurationsResponse Client::listVodPackagingConfigurationsWit
 }
 
 /**
- * @summary Lists packaging configurations.
+ * @summary Lists VOD packaging configurations.
  *
  * @param request ListVodPackagingConfigurationsRequest
  * @return ListVodPackagingConfigurationsResponse
@@ -13415,7 +13541,7 @@ ListVodPackagingConfigurationsResponse Client::listVodPackagingConfigurations(co
 }
 
 /**
- * @summary Lists packaging groups.
+ * @summary Lists VOD packaging groups.
  *
  * @param request ListVodPackagingGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13458,7 +13584,7 @@ ListVodPackagingGroupsResponse Client::listVodPackagingGroupsWithOptions(const L
 }
 
 /**
- * @summary Lists packaging groups.
+ * @summary Lists VOD packaging groups.
  *
  * @param request ListVodPackagingGroupsRequest
  * @return ListVodPackagingGroupsResponse
@@ -13536,6 +13662,110 @@ ListWorkflowTasksResponse Client::listWorkflowTasksWithOptions(const ListWorkflo
 ListWorkflowTasksResponse Client::listWorkflowTasks(const ListWorkflowTasksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listWorkflowTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取一刻文件夹列表
+ *
+ * @param request ListYikeAssetFoldersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListYikeAssetFoldersResponse
+ */
+ListYikeAssetFoldersResponse Client::listYikeAssetFoldersWithOptions(const ListYikeAssetFoldersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProductionId()) {
+    query["ProductionId"] = request.getProductionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListYikeAssetFolders"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListYikeAssetFoldersResponse>();
+}
+
+/**
+ * @summary 获取一刻文件夹列表
+ *
+ * @param request ListYikeAssetFoldersRequest
+ * @return ListYikeAssetFoldersResponse
+ */
+ListYikeAssetFoldersResponse Client::listYikeAssetFolders(const ListYikeAssetFoldersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listYikeAssetFoldersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取一刻项目列表
+ *
+ * @param request ListYikeProductionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListYikeProductionsResponse
+ */
+ListYikeProductionsResponse Client::listYikeProductionsWithOptions(const ListYikeProductionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListYikeProductions"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListYikeProductionsResponse>();
+}
+
+/**
+ * @summary 获取一刻项目列表
+ *
+ * @param request ListYikeProductionsRequest
+ * @return ListYikeProductionsResponse
+ */
+ListYikeProductionsResponse Client::listYikeProductions(const ListYikeProductionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listYikeProductionsWithOptions(request, runtime);
 }
 
 /**
@@ -13799,7 +14029,7 @@ QueryIProductionJobResponse Client::queryIProductionJob(const QueryIProductionJo
 }
 
 /**
- * @summary 查询IPC用量
+ * @summary Queries the usage for the IPC service.
  *
  * @param request QueryIpcQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13846,7 +14076,7 @@ QueryIpcQuotaResponse Client::queryIpcQuotaWithOptions(const QueryIpcQuotaReques
 }
 
 /**
- * @summary 查询IPC用量
+ * @summary Queries the usage for the IPC service.
  *
  * @param request QueryIpcQuotaRequest
  * @return QueryIpcQuotaResponse
@@ -14628,6 +14858,60 @@ RegisterMediaStreamResponse Client::registerMediaStreamWithOptions(const Registe
 RegisterMediaStreamResponse Client::registerMediaStream(const RegisterMediaStreamRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return registerMediaStreamWithOptions(request, runtime);
+}
+
+/**
+ * @summary 注册一刻媒资
+ *
+ * @param request RegisterYikeAssetMediaInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RegisterYikeAssetMediaInfoResponse
+ */
+RegisterYikeAssetMediaInfoResponse Client::registerYikeAssetMediaInfoWithOptions(const RegisterYikeAssetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFolderId()) {
+    query["FolderId"] = request.getFolderId();
+  }
+
+  if (!!request.hasInputURL()) {
+    query["InputURL"] = request.getInputURL();
+  }
+
+  if (!!request.hasMediaType()) {
+    query["MediaType"] = request.getMediaType();
+  }
+
+  if (!!request.hasProductionId()) {
+    query["ProductionId"] = request.getProductionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RegisterYikeAssetMediaInfo"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RegisterYikeAssetMediaInfoResponse>();
+}
+
+/**
+ * @summary 注册一刻媒资
+ *
+ * @param request RegisterYikeAssetMediaInfoRequest
+ * @return RegisterYikeAssetMediaInfoResponse
+ */
+RegisterYikeAssetMediaInfoResponse Client::registerYikeAssetMediaInfo(const RegisterYikeAssetMediaInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return registerYikeAssetMediaInfoWithOptions(request, runtime);
 }
 
 /**
@@ -16071,7 +16355,7 @@ StartAIAgentInstanceResponse Client::startAIAgentInstance(const StartAIAgentInst
 }
 
 /**
- * @summary 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+ * @summary Initiates an outbound phone call for an AI agent.
  *
  * @param tmpReq StartAIAgentOutboundCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16132,7 +16416,7 @@ StartAIAgentOutboundCallResponse Client::startAIAgentOutboundCallWithOptions(con
 }
 
 /**
- * @summary 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+ * @summary Initiates an outbound phone call for an AI agent.
  *
  * @param request StartAIAgentOutboundCallRequest
  * @return StartAIAgentOutboundCallResponse
@@ -16293,7 +16577,7 @@ StartMediaLiveChannelResponse Client::startMediaLiveChannel(const StartMediaLive
 }
 
 /**
- * @summary 开启一个机器人实例
+ * @summary Starts an AI agent and joins a real-time communication (RTC) call.
  *
  * @param tmpReq StartRtcRobotInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16350,7 +16634,7 @@ StartRtcRobotInstanceResponse Client::startRtcRobotInstanceWithOptions(const Sta
 }
 
 /**
- * @summary 开启一个机器人实例
+ * @summary Starts an AI agent and joins a real-time communication (RTC) call.
  *
  * @param request StartRtcRobotInstanceRequest
  * @return StartRtcRobotInstanceResponse
@@ -16607,7 +16891,7 @@ StopMediaLiveChannelResponse Client::stopMediaLiveChannel(const StopMediaLiveCha
 }
 
 /**
- * @summary 停止一个机器人实例
+ * @summary Stops an AI agent for real-time communication (RTC).
  *
  * @param request StopRtcRobotInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16638,7 +16922,7 @@ StopRtcRobotInstanceResponse Client::stopRtcRobotInstanceWithOptions(const StopR
 }
 
 /**
- * @summary 停止一个机器人实例
+ * @summary Stops an AI agent for real-time communication (RTC).
  *
  * @param request StopRtcRobotInstanceRequest
  * @return StopRtcRobotInstanceResponse
@@ -16795,7 +17079,7 @@ SubmitASRJobResponse Client::submitASRJob(const SubmitASRJobRequest &request) {
 }
 
 /**
- * @summary Submits an audio production job that converts text into an audio file.
+ * @summary Converts the provided text content into a high-quality audio file.
  *
  * @param request SubmitAudioProduceJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16850,7 +17134,7 @@ SubmitAudioProduceJobResponse Client::submitAudioProduceJobWithOptions(const Sub
 }
 
 /**
- * @summary Submits an audio production job that converts text into an audio file.
+ * @summary Converts the provided text content into a high-quality audio file.
  *
  * @param request SubmitAudioProduceJobRequest
  * @return SubmitAudioProduceJobResponse
@@ -17189,7 +17473,7 @@ SubmitCopyrightJobResponse Client::submitCopyrightJob(const SubmitCopyrightJobRe
 }
 
 /**
- * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
+ * @summary Submits a basic voice cloning job.
  *
  * @param request SubmitCustomizedVoiceJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17224,7 +17508,7 @@ SubmitCustomizedVoiceJobResponse Client::submitCustomizedVoiceJobWithOptions(con
 }
 
 /**
- * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
+ * @summary Submits a basic voice cloning job.
  *
  * @param request SubmitCustomizedVoiceJobRequest
  * @return SubmitCustomizedVoiceJobResponse
@@ -19565,7 +19849,7 @@ SubmitVideoCognitionJobResponse Client::submitVideoCognitionJob(const SubmitVide
 }
 
 /**
- * @summary Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
+ * @summary Submits a video translation job. You can call this operation to translate video subtitles and speech to a specific language, and synchronize the speakers\\" lip movements with the translated audio.
  *
  * @description After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
  *
@@ -19642,7 +19926,7 @@ SubmitVideoTranslationJobResponse Client::submitVideoTranslationJobWithOptions(c
 }
 
 /**
- * @summary Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
+ * @summary Submits a video translation job. You can call this operation to translate video subtitles and speech to a specific language, and synchronize the speakers\\" lip movements with the translated audio.
  *
  * @description After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
  *
@@ -19652,6 +19936,60 @@ SubmitVideoTranslationJobResponse Client::submitVideoTranslationJobWithOptions(c
 SubmitVideoTranslationJobResponse Client::submitVideoTranslationJob(const SubmitVideoTranslationJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitVideoTranslationJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交一刻AI应用任务
+ *
+ * @param request SubmitYikeAIAppJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitYikeAIAppJobResponse
+ */
+SubmitYikeAIAppJobResponse Client::submitYikeAIAppJobWithOptions(const SubmitYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAppParams()) {
+    body["AppParams"] = request.getAppParams();
+  }
+
+  if (!!request.hasFolderId()) {
+    body["FolderId"] = request.getFolderId();
+  }
+
+  if (!!request.hasProductionId()) {
+    body["ProductionId"] = request.getProductionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SubmitYikeAIAppJob"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitYikeAIAppJobResponse>();
+}
+
+/**
+ * @summary 提交一刻AI应用任务
+ *
+ * @param request SubmitYikeAIAppJobRequest
+ * @return SubmitYikeAIAppJobResponse
+ */
+SubmitYikeAIAppJobResponse Client::submitYikeAIAppJob(const SubmitYikeAIAppJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitYikeAIAppJobWithOptions(request, runtime);
 }
 
 /**
@@ -21529,7 +21867,7 @@ UpdateProgramResponse Client::updateProgram(const UpdateProgramRequest &request)
 }
 
 /**
- * @summary 修改实例的配置
+ * @summary Modifies an AI agent for real-time communication (RTC), such as the tone and greeting.
  *
  * @param tmpReq UpdateRtcRobotInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21570,7 +21908,7 @@ UpdateRtcRobotInstanceResponse Client::updateRtcRobotInstanceWithOptions(const U
 }
 
 /**
- * @summary 修改实例的配置
+ * @summary Modifies an AI agent for real-time communication (RTC), such as the tone and greeting.
  *
  * @param request UpdateRtcRobotInstanceRequest
  * @return UpdateRtcRobotInstanceResponse
@@ -21581,7 +21919,7 @@ UpdateRtcRobotInstanceResponse Client::updateRtcRobotInstance(const UpdateRtcRob
 }
 
 /**
- * @summary Modifies a source in MediaWeaver.
+ * @summary Modifies a source.
  *
  * @param request UpdateSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21624,7 +21962,7 @@ UpdateSourceResponse Client::updateSourceWithOptions(const UpdateSourceRequest &
 }
 
 /**
- * @summary Modifies a source in MediaWeaver.
+ * @summary Modifies a source.
  *
  * @param request UpdateSourceRequest
  * @return UpdateSourceResponse

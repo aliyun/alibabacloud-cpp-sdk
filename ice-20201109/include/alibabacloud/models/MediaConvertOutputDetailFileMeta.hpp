@@ -265,28 +265,55 @@ namespace Models
 
 
     protected:
+      // The average frame rate.
       shared_ptr<string> avgFps_ {};
+      // The bitrate.
       shared_ptr<string> bitRate_ {};
+      // The full name of the codec.
       shared_ptr<string> codecLongName_ {};
+      // The short name of the codec.
       shared_ptr<string> codecName_ {};
+      // The tag of the codec.
       shared_ptr<string> codecTag_ {};
+      // The tag of the codec.
       shared_ptr<string> codecTagString_ {};
+      // The time base used by the codec.
       shared_ptr<string> codecTimeBase_ {};
+      // The display aspect ratio.
       shared_ptr<string> dar_ {};
+      // The duration of the stream. Unit: seconds.
       shared_ptr<string> duration_ {};
+      // The frame rate.
       shared_ptr<string> fps_ {};
+      // Indicates whether the video stream contains B-frames. Valid value:
+      // 
+      // *   0: None.
+      // *   1: One B-frame.
+      // *   2: Multiple consecutive B-frames.
       shared_ptr<string> hasBFrames_ {};
+      // The height of the video stream, in pixels.
       shared_ptr<string> height_ {};
+      // The index of this stream within the file.
       shared_ptr<string> index_ {};
+      // The language code for the stream.
       shared_ptr<string> lang_ {};
+      // The codec level.
       shared_ptr<string> level_ {};
+      // The total number of frames.
       shared_ptr<string> numFrames_ {};
+      // The pixel format.
       shared_ptr<string> pixFmt_ {};
+      // The codec profile.
       shared_ptr<string> profile_ {};
+      // The rotation angle applied to the video. Valid values: 0, 90, 180, and 270. Default value: 0.
       shared_ptr<string> rotate_ {};
+      // The sample aspect ratio.
       shared_ptr<string> sar_ {};
+      // The start time of the stream.
       shared_ptr<string> startTime_ {};
+      // The time base of the stream\\"s presentation timestamps.
       shared_ptr<string> timeBase_ {};
+      // The width of the video stream, in pixels.
       shared_ptr<string> width_ {};
     };
 
@@ -420,17 +447,29 @@ namespace Models
 
 
     protected:
+      // The video bitrate.
       shared_ptr<string> bitrate_ {};
+      // The total duration of the media file. Unit: seconds.
       shared_ptr<string> duration_ {};
+      // The name of the file.
       shared_ptr<string> fileName_ {};
+      // The file size. Unit: bytes.
       shared_ptr<string> fileSize_ {};
+      // The status of the file.
       shared_ptr<string> fileStatus_ {};
+      // Indicates if this is the source or a transcoded output. Valid values: source_file and transcode_file.
       shared_ptr<string> fileType_ {};
+      // The URL of the file.
       shared_ptr<string> fileUrl_ {};
+      // The container format name.
       shared_ptr<string> formatName_ {};
+      // The height of the video, in pixels.
       shared_ptr<string> height_ {};
+      // The ID of the media asset.
       shared_ptr<string> mediaId_ {};
+      // The storage region of the file.
       shared_ptr<string> region_ {};
+      // The width of the video, in pixels.
       shared_ptr<string> width_ {};
     };
 
@@ -591,20 +630,35 @@ namespace Models
 
 
     protected:
+      // The bitrate.
       shared_ptr<string> bitrate_ {};
+      // The layout of the audio channels.
       shared_ptr<string> channelLayout_ {};
+      // The number of audio channels.
       shared_ptr<string> channels_ {};
+      // The full name of the codec.
       shared_ptr<string> codecLongName_ {};
+      // The short name of the codec.
       shared_ptr<string> codecName_ {};
+      // The tag of the codec.
       shared_ptr<string> codecTag_ {};
+      // The tag of the codec.
       shared_ptr<string> codecTagString_ {};
+      // The time base used by the codec.
       shared_ptr<string> codecTimeBase_ {};
+      // The duration of the stream. Unit: seconds.
       shared_ptr<string> duration_ {};
+      // The index of this stream within the file.
       shared_ptr<string> index_ {};
+      // The language code for the stream.
       shared_ptr<string> lang_ {};
+      // The audio sample format.
       shared_ptr<string> sampleFmt_ {};
+      // The sample rate. Unit: Hz.
       shared_ptr<string> sampleRate_ {};
+      // The start time of the stream. Unit: seconds.
       shared_ptr<string> startTime_ {};
+      // The time base of the stream\\"s presentation timestamps.
       shared_ptr<string> timebase_ {};
     };
 
@@ -638,8 +692,11 @@ namespace Models
 
 
   protected:
+    // The audio stream information.
     shared_ptr<vector<MediaConvertOutputDetailFileMeta::AudioStreamInfoList>> audioStreamInfoList_ {};
+    // The basic information of the media file.
     shared_ptr<MediaConvertOutputDetailFileMeta::FileBasicInfo> fileBasicInfo_ {};
+    // The video stream information.
     shared_ptr<vector<MediaConvertOutputDetailFileMeta::VideoStreamInfoList>> videoStreamInfoList_ {};
   };
 

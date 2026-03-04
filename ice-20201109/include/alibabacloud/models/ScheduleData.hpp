@@ -118,11 +118,17 @@ namespace Models
 
 
     protected:
+      // MessageType
       shared_ptr<string> messageType_ {};
+      // The time offset.
       shared_ptr<string> offsetMillis_ {};
+      // The name of the source location.
       shared_ptr<string> sourceLocationName_ {};
+      // The name of the source.
       shared_ptr<string> sourceName_ {};
+      // The SpliceInsert configurations.
       shared_ptr<string> spliceInsertSettings_ {};
+      // The TimeSignal configurations.
       shared_ptr<string> timeSignalSettings_ {};
     };
 
@@ -188,13 +194,26 @@ namespace Models
 
 
   protected:
+    // The information about ad breaks.
     shared_ptr<vector<ScheduleData::AdBreaks>> adBreaks_ {};
+    // The scheduled playback duration.
     shared_ptr<int64_t> approximateDurationSeconds_ {};
+    // The scheduled start time.
     shared_ptr<string> approximateStartTime_ {};
+    // The entry type.
+    // 
+    // Valid values:
+    // 
+    // *   FillerSlate
+    // *   program
     shared_ptr<string> entryType_ {};
+    // The name of the program.
     shared_ptr<string> programName_ {};
+    // The name of the source location.
     shared_ptr<string> sourceLocationName_ {};
+    // The name of the source.
     shared_ptr<string> sourceName_ {};
+    // The source type.
     shared_ptr<string> sourceType_ {};
   };
 

@@ -207,13 +207,8 @@ namespace Models
 
 
           protected:
-            // The OSS bucket in which the output snapshot is stored.
             shared_ptr<string> bucket_ {};
-            // The ID of the region in which the output snapshot resides.
             shared_ptr<string> location_ {};
-            // The OSS object that is generated as the output snapshot.
-            // 
-            // >  In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg, output00002-****.jpg`, and so on.
             shared_ptr<string> object_ {};
           };
 
@@ -243,16 +238,8 @@ namespace Models
 
 
         protected:
-          // The moderation template. Default value: common. The default value indicates that the default template is used.
-          // 
-          // >  If the moderation template is not specified, the default value common is returned. If a custom moderation template that is created by submitting a ticket is specified, the UID of the template is returned.
           shared_ptr<string> bizType_ {};
-          // The information about output snapshots.
           shared_ptr<VideoCensorConfig::OutputFile> outputFile_ {};
-          // Indicates whether the video content needs to be moderated. Default value: **true**. Valid values:
-          // 
-          // *   **true**: The video content needs to be moderated.
-          // *   **false**: The video content does not need to be moderated.
           shared_ptr<string> videoCensor_ {};
         };
 
@@ -396,74 +383,9 @@ namespace Models
 
 
                 protected:
-                  // The label of the moderation result. Separate multiple labels with commas (,).
-                  // 
-                  // *   Valid values in the pornographic content moderation scenario:
-                  // 
-                  //     *   **normal**: normal content.
-                  //     *   **sexy**: sexy content.
-                  //     *   **porn**: pornographic content.
-                  // 
-                  // *   Valid values in the terrorist content moderation scenario:
-                  // 
-                  //     *   **normal**: normal content.
-                  //     *   **bloody**: bloody content.
-                  //     *   **explosion**: explosion and smoke.
-                  //     *   **outfit**: special costume.
-                  //     *   **logo**: special logo.
-                  //     *   **weapon**: weapon.
-                  //     *   **politics**: political content.
-                  //     *   **violence**: violence.
-                  //     *   **crowd**: crowd.
-                  //     *   **parade**: parade.
-                  //     *   **carcrash**: car accident.
-                  //     *   **flag**: flag.
-                  //     *   **location**: landmark.
-                  //     *   **others**: other content.
-                  // 
-                  // *   Valid values in the ad moderation scenario:
-                  // 
-                  //     *   **normal**: normal content.
-                  //     *   **ad**: other ads.
-                  //     *   **politics**: political content in text.
-                  //     *   **porn**: pornographic content in text.
-                  //     *   **abuse**: abuse in text.
-                  //     *   **terrorism**: terrorist content in text.
-                  //     *   **contraband**: prohibited content in text.
-                  //     *   **spam**: spam in text.
-                  //     *   **npx**: illegal ad.
-                  //     *   **qrcode**: QR code.
-                  //     *   **programCode**: mini program code.
-                  // 
-                  // *   Valid values in the undesirable scene moderation scenario:
-                  // 
-                  //     *   **normal**: normal content.
-                  //     *   **meaningless**: meaningless content, such as a black or white screen.
-                  //     *   **PIP**: picture-in-picture.
-                  //     *   **smoking**: smoking.
-                  //     *   **drivelive**: live streaming in a running vehicle.
-                  // 
-                  // *   Valid values in the logo moderation scenario:
-                  // 
-                  //     *   **normal**: normal content.
-                  //     *   **TV**: controlled logo.
-                  //     *   **trademark**: trademark.
                   shared_ptr<string> label_ {};
-                  // The score. Valid values: 0 to 100.
                   shared_ptr<string> rate_ {};
-                  // The moderation scenario. Valid values:
-                  // 
-                  // *   **porn**: pornographic content moderation.
-                  // *   **terrorism**: terrorist content moderation.
-                  // *   **ad**: ad moderation.
-                  // *   **live**: undesirable scene moderation.
-                  // *   **logo**: logo moderation.
                   shared_ptr<string> scene_ {};
-                  // The recommended subsequent operation. Valid values:
-                  // 
-                  // *   **pass**: The content passes the moderation.
-                  // *   **review**: The content needs to be manually reviewed.
-                  // *   **block**: The content needs to be blocked.
                   shared_ptr<string> suggestion_ {};
                 };
 
@@ -507,13 +429,8 @@ namespace Models
 
 
             protected:
-              // The moderation results that include information such as labels and scores.
               shared_ptr<VideoTimeline::CensorResults> censorResults_ {};
-              // The OSS object that is generated as the output snapshot.
-              // 
-              // >  In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg`, `output00002-****.jpg`, and so on.
               shared_ptr<string> object_ {};
-              // The position in the video. Format: `hh:mm:ss[.SSS]`.
               shared_ptr<string> timestamp_ {};
             };
 
@@ -606,74 +523,9 @@ namespace Models
 
 
             protected:
-              // The label of the moderation result. Separate multiple labels with commas (,).
-              // 
-              // *   Valid values in the pornographic content moderation scenario:
-              // 
-              //     *   **normal**: normal content.
-              //     *   **sexy**: sexy content.
-              //     *   **porn**: pornographic content.
-              // 
-              // *   Valid values in the terrorist content moderation scenario:
-              // 
-              //     *   **normal**: normal content.
-              //     *   **bloody**: bloody content.
-              //     *   **explosion**: explosion and smoke.
-              //     *   **outfit**: special costume.
-              //     *   **logo**: special logo.
-              //     *   **weapon**: weapon.
-              //     *   **politics**: political content.
-              //     *   **violence**: violence.
-              //     *   **crowd**: crowd.
-              //     *   **parade**: parade.
-              //     *   **carcrash**: car accident.
-              //     *   **flag**: flag.
-              //     *   **location**: landmark.
-              //     *   **others**: other content.
-              // 
-              // *   Valid values in the ad moderation scenario:
-              // 
-              //     *   **normal**: normal content.
-              //     *   **ad**: other ads.
-              //     *   **politics**: political content in text.
-              //     *   **porn**: pornographic content in text.
-              //     *   **abuse**: abuse in text.
-              //     *   **terrorism**: terrorist content in text.
-              //     *   **contraband**: prohibited content in text.
-              //     *   **spam**: spam in text.
-              //     *   **npx**: illegal ad.
-              //     *   **qrcode**: QR code.
-              //     *   **programCode**: mini program code.
-              // 
-              // *   Valid values in the undesirable scene moderation scenario:
-              // 
-              //     *   **normal**: normal content.
-              //     *   **meaningless**: meaningless content, such as a black or white screen.
-              //     *   **PIP**: picture-in-picture.
-              //     *   **smoking**: smoking.
-              //     *   **drivelive**: live streaming in a running vehicle.
-              // 
-              // *   Valid values in the logo moderation scenario:
-              // 
-              //     *   **normal**: normal content.
-              //     *   **TV**: controlled logo.
-              //     *   **trademark**: trademark.
               shared_ptr<string> label_ {};
-              // The score. Valid values: 0 to 100.
               shared_ptr<string> rate_ {};
-              // The moderation scenario. Valid values:
-              // 
-              // *   **porn**: pornographic content moderation.
-              // *   **terrorism**: terrorist content moderation.
-              // *   **ad**: ad moderation.
-              // *   **live**: undesirable scene moderation.
-              // *   **logo**: logo moderation.
               shared_ptr<string> scene_ {};
-              // The recommended subsequent operation. Valid values:
-              // 
-              // *   **pass**: The content passes the moderation.
-              // *   **review**: The content needs to be manually reviewed.
-              // *   **block**: The content needs to be blocked.
               shared_ptr<string> suggestion_ {};
             };
 
@@ -719,11 +571,8 @@ namespace Models
 
 
         protected:
-          // A collection of moderation results. The information includes the summary about various scenarios such as pornographic content moderation and terrorist content moderation.
           shared_ptr<VensorCensorResult::CensorResults> censorResults_ {};
-          // A pagination token. It can be used in the next request to retrieve a new page of results.
           shared_ptr<string> nextPageToken_ {};
-          // The moderation results that are sorted in ascending order by time.
           shared_ptr<VensorCensorResult::VideoTimelines> videoTimelines_ {};
         };
 
@@ -783,25 +632,9 @@ namespace Models
 
 
         protected:
-          // The label of the moderation result. Separate multiple labels with commas (,). Valid values:
-          // 
-          // *   **normal**: normal content.
-          // *   **spam**: spam.
-          // *   **ad**: ads.
-          // *   **abuse**: abuse content.
-          // *   **flood**: excessive junk content.
-          // *   **contraband**: prohibited content.
-          // *   **meaningless**: meaningless content.
           shared_ptr<string> label_ {};
-          // The score. Valid values: 0 to 100.
           shared_ptr<string> rate_ {};
-          // The moderation scenario. The value is **antispam**.
           shared_ptr<string> scene_ {};
-          // The recommended subsequent operation. Valid values:
-          // 
-          // *   **pass**: The content passes the moderation.
-          // *   **review**: The content needs to be manually reviewed.
-          // *   **block**: The content needs to be blocked.
           shared_ptr<string> suggestion_ {};
         };
 
@@ -852,11 +685,8 @@ namespace Models
 
 
         protected:
-          // The name of the OSS bucket in which the input file is stored.
           shared_ptr<string> bucket_ {};
-          // The OSS region in which the input file resides.
           shared_ptr<string> location_ {};
-          // The name of the OSS object that is used as the input file.
           shared_ptr<string> object_ {};
         };
 
@@ -916,25 +746,9 @@ namespace Models
 
 
         protected:
-          // The label of the moderation result. Separate multiple labels with commas (,). Valid values:
-          // 
-          // *   **normal**: normal content.
-          // *   **spam**: spam.
-          // *   **ad**: ads.
-          // *   **abuse**: abuse content.
-          // *   **flood**: excessive junk content.
-          // *   **contraband**: prohibited content.
-          // *   **meaningless**: meaningless content.
           shared_ptr<string> label_ {};
-          // The score. Valid values: 0 to 100.
           shared_ptr<string> rate_ {};
-          // The moderation scenario. The value is **antispam**.
           shared_ptr<string> scene_ {};
-          // The recommended subsequent operation. Valid values:
-          // 
-          // *   **pass**: The content passes the moderation.
-          // *   **review**: The content needs to be manually reviewed.
-          // *   **block**: The content needs to be blocked.
           shared_ptr<string> suggestion_ {};
         };
 
@@ -1057,76 +871,9 @@ namespace Models
 
 
               protected:
-                // The label of the moderation result. Separate multiple labels with commas (,).
-                // 
-                // *   Valid values in the pornographic content moderation scenario:
-                // 
-                //     *   **normal**: normal content.
-                //     *   **sexy**: sexy content.
-                //     *   **porn**: pornographic content.
-                // 
-                // *   Valid values in the terrorist content moderation scenario:
-                // 
-                //     *   **normal**: normal content.
-                //     *   **bloody**: bloody content.
-                //     *   **explosion**: explosion and smoke.
-                //     *   **outfit**: special costume.
-                //     *   **logo**: special logo.
-                //     *   **weapon**: weapon.
-                //     *   **politics**: political content.
-                //     *   **violence**: violence.
-                //     *   **crowd**: crowd.
-                //     *   **parade**: parade.
-                //     *   **carcrash**: car accident.
-                //     *   **flag**: flag.
-                //     *   **location**: landmark.
-                //     *   **others**: other content.
-                // 
-                // *   Valid values in the ad moderation scenario:
-                // 
-                //     *   **normal**: normal content.
-                //     *   **ad**: other ads.
-                //     *   **politics**: political content in text.
-                //     *   **porn**: pornographic content in text.
-                //     *   **abuse**: abuse in text.
-                //     *   **terrorism**: terrorist content in text.
-                //     *   **contraband**: prohibited content in text.
-                //     *   **spam**: spam in text.
-                //     *   **npx**: illegal ad.
-                //     *   **qrcode**: QR code.
-                //     *   **programCode**: mini program code.
-                // 
-                // *   Valid values in the undesirable scene moderation scenario:
-                // 
-                //     *   **normal**: normal content.
-                //     *   **meaningless**: meaningless content, such as a black or white screen.
-                //     *   **PIP**: picture-in-picture.
-                //     *   **smoking**: smoking.
-                //     *   **drivelive**: live streaming in a running vehicle.
-                // 
-                // *   Valid values in the logo moderation scenario:
-                // 
-                //     *   **normal**: normal content.
-                //     *   **TV**: controlled logo.
-                //     *   **trademark**: trademark.
                 shared_ptr<string> label_ {};
-                // The score. Valid values: 0 to 100.
                 shared_ptr<string> rate_ {};
-                // The moderation scenario. Valid values:
-                // 
-                // *   **porn**: pornographic content moderation.
-                // *   **terrorism**: terrorist content moderation.
-                // *   **ad**: ad moderation.
-                // *   **live**: undesirable scene moderation.
-                // *   **logo**: logo moderation.
                 shared_ptr<string> scene_ {};
-                // The overall result of the moderation job. Valid values:
-                // 
-                // *   **pass**: The content passes the moderation.
-                // *   **review**: The content needs to be manually reviewed.
-                // *   **block**: The content needs to be blocked.
-                // 
-                // >  If the moderation result of any type of content is review, the overall result is review. If the moderation result of any type of content is block, the overall result is block.
                 shared_ptr<string> suggestion_ {};
               };
 
@@ -1177,13 +924,9 @@ namespace Models
 
 
           protected:
-            // The OSS bucket in which the thumbnail is stored.
             shared_ptr<string> bucket_ {};
-            // The OSS region in which the thumbnail resides.
             shared_ptr<string> location_ {};
-            // The Object Storage Service (OSS) object that is used as the thumbnail.
             shared_ptr<string> object_ {};
-            // The moderation results.
             shared_ptr<CoverImageCensorResult::Results> results_ {};
           };
 
@@ -1257,25 +1000,9 @@ namespace Models
 
 
         protected:
-          // The label of the moderation result. Separate multiple labels with commas (,). Valid values:
-          // 
-          // *   **normal**: normal content.
-          // *   **spam**: spam.
-          // *   **ad**: ads.
-          // *   **abuse**: abuse content.
-          // *   **flood**: excessive junk content.
-          // *   **contraband**: prohibited content.
-          // *   **meaningless**: meaningless content.
           shared_ptr<string> label_ {};
-          // The score. Valid values: 0 to 100.
           shared_ptr<string> rate_ {};
-          // The moderation scenario. The value is **antispam**.
           shared_ptr<string> scene_ {};
-          // The recommended subsequent operation. Valid values:
-          // 
-          // *   **pass**: The content passes the moderation.
-          // *   **review**: The content needs to be manually reviewed.
-          // *   **block**: The content needs to be blocked.
           shared_ptr<string> suggestion_ {};
         };
 
@@ -1410,41 +1137,21 @@ namespace Models
 
 
       protected:
-        // The moderation results of live comments.
         shared_ptr<MediaCensorJob::BarrageCensorResult> barrageCensorResult_ {};
-        // The error code returned if the job failed. This parameter is not returned if the job is successful.
         shared_ptr<string> code_ {};
-        // The moderation results of thumbnails.
         shared_ptr<MediaCensorJob::CoverImageCensorResults> coverImageCensorResults_ {};
-        // The time when the content moderation job was created.
         shared_ptr<string> creationTime_ {};
-        // The moderation results of descriptions.
         shared_ptr<MediaCensorJob::DescCensorResult> descCensorResult_ {};
-        // The time when the content moderation job was complete.
         shared_ptr<string> finishTime_ {};
-        // The information about the job input.
         shared_ptr<MediaCensorJob::Input> input_ {};
-        // The ID of the content moderation job.
         shared_ptr<string> jobId_ {};
-        // The error message returned if the job failed. This parameter is not returned if the job is successful.
         shared_ptr<string> message_ {};
-        // The ID of the MPS queue to which the job was submitted.
         shared_ptr<string> pipelineId_ {};
-        // The job state.
         shared_ptr<string> state_ {};
-        // The recommended subsequent operation. Valid values:
-        // 
-        // *   **pass**: The content passes the moderation.
-        // *   **review**: The content needs to be manually reviewed.
-        // *   **block**: The content needs to be blocked.
         shared_ptr<string> suggestion_ {};
-        // The moderation results of titles.
         shared_ptr<MediaCensorJob::TitleCensorResult> titleCensorResult_ {};
-        // The user-defined data.
         shared_ptr<string> userData_ {};
-        // The moderation results of videos.
         shared_ptr<MediaCensorJob::VensorCensorResult> vensorCensorResult_ {};
-        // The video moderation configurations.
         shared_ptr<MediaCensorJob::VideoCensorConfig> videoCensorConfig_ {};
       };
 
@@ -1497,11 +1204,9 @@ namespace Models
 
 
   protected:
-    // The queried content moderation jobs.
     shared_ptr<QueryMediaCensorJobListResponseBody::MediaCensorJobList> mediaCensorJobList_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results. The value is 32-character UUID. If the returned query results cannot be displayed within one page, this parameter is returned. The value of this parameter is updated for each query.
     shared_ptr<string> nextPageToken_ {};
-    // The IDs of the jobs that do not exist. This parameter is not returned if all the specified jobs are found.
     shared_ptr<QueryMediaCensorJobListResponseBody::NonExistIds> nonExistIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

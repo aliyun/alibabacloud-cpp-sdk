@@ -93,16 +93,7 @@ namespace Models
 
 
       protected:
-        // A JSON string containing the detailed analysis data. The structure of this data depends on the Type field. For details, see the Result parameters section below.
         shared_ptr<string> data_ {};
-        // The type of analysis result. Valid values:
-        // 
-        // 1.  TextLabel: Tags from text content.
-        // 2.  VideoLabel: Tags from video content.
-        // 3.  ASR: Raw speech recognition results. Not returned by default.
-        // 4.  OCR: Raw text recognition results. Not returned by default.
-        // 5.  NLP: Natural Language Processing results. Not returned by default.
-        // 6.  Process: URL to the raw algorithm output. Not returned by default.
         shared_ptr<string> type_ {};
       };
 
@@ -162,7 +153,6 @@ namespace Models
     shared_ptr<string> jobStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array of analysis result objects.
     shared_ptr<QueryVideoCognitionJobResponseBody::Results> results_ {};
     // The user-defined data.
     shared_ptr<string> userData_ {};
