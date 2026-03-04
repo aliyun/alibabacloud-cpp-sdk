@@ -2309,6 +2309,23 @@ namespace CCC20200701
       Models::ListMultiChannelRecordingsResponse listMultiChannelRecordings(const Models::ListMultiChannelRecordingsRequest &request);
 
       /**
+       * @summary 查询消息推送记录
+       *
+       * @param request ListNotificationRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListNotificationRecordsResponse
+       */
+      Models::ListNotificationRecordsResponse listNotificationRecordsWithOptions(const Models::ListNotificationRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询消息推送记录
+       *
+       * @param request ListNotificationRecordsRequest
+       * @return ListNotificationRecordsResponse
+       */
+      Models::ListNotificationRecordsResponse listNotificationRecords(const Models::ListNotificationRecordsRequest &request);
+
+      /**
        * @summary 该坐席可用的外呼号码列表
        *
        * @param request ListOutboundNumbersOfUserRequest
@@ -3595,6 +3612,23 @@ namespace CCC20200701
        * @return UpdateSchemaPropertyResponse
        */
       Models::UpdateSchemaPropertyResponse updateSchemaProperty(const Models::UpdateSchemaPropertyRequest &request);
+
+      /**
+       * @summary UpdateSubscription
+       *
+       * @param request UpdateSubscriptionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSubscriptionResponse
+       */
+      Models::UpdateSubscriptionResponse updateSubscriptionWithOptions(const Models::UpdateSubscriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary UpdateSubscription
+       *
+       * @param request UpdateSubscriptionRequest
+       * @return UpdateSubscriptionResponse
+       */
+      Models::UpdateSubscriptionResponse updateSubscription(const Models::UpdateSubscriptionRequest &request);
 
       /**
        * @param request UpdateTicketRequest

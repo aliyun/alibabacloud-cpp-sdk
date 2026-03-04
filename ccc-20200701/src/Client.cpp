@@ -8274,6 +8274,52 @@ ListMultiChannelRecordingsResponse Client::listMultiChannelRecordings(const List
 }
 
 /**
+ * @summary 查询消息推送记录
+ *
+ * @param request ListNotificationRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListNotificationRecordsResponse
+ */
+ListNotificationRecordsResponse Client::listNotificationRecordsWithOptions(const ListNotificationRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNotificationKeys()) {
+    query["NotificationKeys"] = request.getNotificationKeys();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListNotificationRecords"},
+    {"version" , "2020-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListNotificationRecordsResponse>();
+}
+
+/**
+ * @summary 查询消息推送记录
+ *
+ * @param request ListNotificationRecordsRequest
+ * @return ListNotificationRecordsResponse
+ */
+ListNotificationRecordsResponse Client::listNotificationRecords(const ListNotificationRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listNotificationRecordsWithOptions(request, runtime);
+}
+
+/**
  * @summary 该坐席可用的外呼号码列表
  *
  * @param request ListOutboundNumbersOfUserRequest
@@ -13175,6 +13221,84 @@ UpdateSchemaPropertyResponse Client::updateSchemaPropertyWithOptions(const Updat
 UpdateSchemaPropertyResponse Client::updateSchemaProperty(const UpdateSchemaPropertyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateSchemaPropertyWithOptions(request, runtime);
+}
+
+/**
+ * @summary UpdateSubscription
+ *
+ * @param request UpdateSubscriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSubscriptionResponse
+ */
+UpdateSubscriptionResponse Client::updateSubscriptionWithOptions(const UpdateSubscriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccessPoint()) {
+    query["AccessPoint"] = request.getAccessPoint();
+  }
+
+  if (!!request.hasAliyunUid()) {
+    query["AliyunUid"] = request.getAliyunUid();
+  }
+
+  if (!!request.hasDefaultTopic()) {
+    query["DefaultTopic"] = request.getDefaultTopic();
+  }
+
+  if (!!request.hasEventSubscriptionsJson()) {
+    query["EventSubscriptionsJson"] = request.getEventSubscriptionsJson();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMqInstanceId()) {
+    query["MqInstanceId"] = request.getMqInstanceId();
+  }
+
+  if (!!request.hasMqType()) {
+    query["MqType"] = request.getMqType();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasProducerId()) {
+    query["ProducerId"] = request.getProducerId();
+  }
+
+  if (!!request.hasUsername()) {
+    query["Username"] = request.getUsername();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateSubscription"},
+    {"version" , "2020-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSubscriptionResponse>();
+}
+
+/**
+ * @summary UpdateSubscription
+ *
+ * @param request UpdateSubscriptionRequest
+ * @return UpdateSubscriptionResponse
+ */
+UpdateSubscriptionResponse Client::updateSubscription(const UpdateSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSubscriptionWithOptions(request, runtime);
 }
 
 /**

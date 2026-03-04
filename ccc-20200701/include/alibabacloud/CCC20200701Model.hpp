@@ -481,6 +481,9 @@
 #include <alibabacloud/models/ListMultiChannelRecordingsRequest.hpp>
 #include <alibabacloud/models/ListMultiChannelRecordingsResponseBody.hpp>
 #include <alibabacloud/models/ListMultiChannelRecordingsResponse.hpp>
+#include <alibabacloud/models/ListNotificationRecordsRequest.hpp>
+#include <alibabacloud/models/ListNotificationRecordsResponseBody.hpp>
+#include <alibabacloud/models/ListNotificationRecordsResponse.hpp>
 #include <alibabacloud/models/ListOutboundNumbersOfUserRequest.hpp>
 #include <alibabacloud/models/ListOutboundNumbersOfUserResponseBody.hpp>
 #include <alibabacloud/models/ListOutboundNumbersOfUserResponse.hpp>
@@ -760,6 +763,9 @@
 #include <alibabacloud/models/UpdateSchemaPropertyShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateSchemaPropertyResponseBody.hpp>
 #include <alibabacloud/models/UpdateSchemaPropertyResponse.hpp>
+#include <alibabacloud/models/UpdateSubscriptionRequest.hpp>
+#include <alibabacloud/models/UpdateSubscriptionResponseBody.hpp>
+#include <alibabacloud/models/UpdateSubscriptionResponse.hpp>
 #include <alibabacloud/models/UpdateTicketRequest.hpp>
 #include <alibabacloud/models/UpdateTicketResponseBody.hpp>
 #include <alibabacloud/models/UpdateTicketResponse.hpp>
