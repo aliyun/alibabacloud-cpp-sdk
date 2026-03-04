@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IsColumnarReadDBInstance, isColumnarReadDBInstance_);
       DARABONBA_PTR_TO_JSON(IsReadDBInstance, isReadDBInstance_);
       DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
+      DARABONBA_PTR_TO_JSON(OriginMinorVersion, originMinorVersion_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PrimaryDBInstanceName, primaryDBInstanceName_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SecondaryZone, secondaryZone_);
       DARABONBA_PTR_TO_JSON(Series, series_);
+      DARABONBA_PTR_TO_JSON(StorageType, storageType_);
       DARABONBA_PTR_TO_JSON(TertiaryZone, tertiaryZone_);
       DARABONBA_PTR_TO_JSON(TopologyType, topologyType_);
       DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
@@ -59,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IsColumnarReadDBInstance, isColumnarReadDBInstance_);
       DARABONBA_PTR_FROM_JSON(IsReadDBInstance, isReadDBInstance_);
       DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
+      DARABONBA_PTR_FROM_JSON(OriginMinorVersion, originMinorVersion_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PrimaryDBInstanceName, primaryDBInstanceName_);
@@ -67,6 +70,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(SecondaryZone, secondaryZone_);
       DARABONBA_PTR_FROM_JSON(Series, series_);
+      DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
       DARABONBA_PTR_FROM_JSON(TertiaryZone, tertiaryZone_);
       DARABONBA_PTR_FROM_JSON(TopologyType, topologyType_);
       DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
@@ -88,10 +92,10 @@ namespace Models
     virtual bool empty() const override { return this->autoRenew_ == nullptr
         && this->CNNodeCount_ == nullptr && this->clientToken_ == nullptr && this->cnClass_ == nullptr && this->DBNodeClass_ == nullptr && this->DBNodeCount_ == nullptr
         && this->DNNodeCount_ == nullptr && this->description_ == nullptr && this->dnClass_ == nullptr && this->dnStorageSpace_ == nullptr && this->engineVersion_ == nullptr
-        && this->extraParamsShrink_ == nullptr && this->isColumnarReadDBInstance_ == nullptr && this->isReadDBInstance_ == nullptr && this->networkType_ == nullptr && this->payType_ == nullptr
-        && this->period_ == nullptr && this->primaryDBInstanceName_ == nullptr && this->primaryZone_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->secondaryZone_ == nullptr && this->series_ == nullptr && this->tertiaryZone_ == nullptr && this->topologyType_ == nullptr && this->usedTime_ == nullptr
-        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->extraParamsShrink_ == nullptr && this->isColumnarReadDBInstance_ == nullptr && this->isReadDBInstance_ == nullptr && this->networkType_ == nullptr && this->originMinorVersion_ == nullptr
+        && this->payType_ == nullptr && this->period_ == nullptr && this->primaryDBInstanceName_ == nullptr && this->primaryZone_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->secondaryZone_ == nullptr && this->series_ == nullptr && this->storageType_ == nullptr && this->tertiaryZone_ == nullptr
+        && this->topologyType_ == nullptr && this->usedTime_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -197,6 +201,13 @@ namespace Models
     inline CreateDBInstanceShrinkRequest& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
 
 
+    // originMinorVersion Field Functions 
+    bool hasOriginMinorVersion() const { return this->originMinorVersion_ != nullptr;};
+    void deleteOriginMinorVersion() { this->originMinorVersion_ = nullptr;};
+    inline string getOriginMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(originMinorVersion_, "") };
+    inline CreateDBInstanceShrinkRequest& setOriginMinorVersion(string originMinorVersion) { DARABONBA_PTR_SET_VALUE(originMinorVersion_, originMinorVersion) };
+
+
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
@@ -251,6 +262,13 @@ namespace Models
     void deleteSeries() { this->series_ = nullptr;};
     inline string getSeries() const { DARABONBA_PTR_GET_DEFAULT(series_, "") };
     inline CreateDBInstanceShrinkRequest& setSeries(string series) { DARABONBA_PTR_SET_VALUE(series_, series) };
+
+
+    // storageType Field Functions 
+    bool hasStorageType() const { return this->storageType_ != nullptr;};
+    void deleteStorageType() { this->storageType_ = nullptr;};
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline CreateDBInstanceShrinkRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
     // tertiaryZone Field Functions 
@@ -312,6 +330,7 @@ namespace Models
     shared_ptr<bool> isColumnarReadDBInstance_ {};
     shared_ptr<bool> isReadDBInstance_ {};
     shared_ptr<string> networkType_ {};
+    shared_ptr<string> originMinorVersion_ {};
     // This parameter is required.
     shared_ptr<string> payType_ {};
     shared_ptr<string> period_ {};
@@ -322,6 +341,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> secondaryZone_ {};
     shared_ptr<string> series_ {};
+    shared_ptr<string> storageType_ {};
     shared_ptr<string> tertiaryZone_ {};
     // This parameter is required.
     shared_ptr<string> topologyType_ {};

@@ -906,6 +906,10 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
     query["NetworkType"] = request.getNetworkType();
   }
 
+  if (!!request.hasOriginMinorVersion()) {
+    query["OriginMinorVersion"] = request.getOriginMinorVersion();
+  }
+
   if (!!request.hasPayType()) {
     query["PayType"] = request.getPayType();
   }
@@ -936,6 +940,10 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
 
   if (!!request.hasSeries()) {
     query["Series"] = request.getSeries();
+  }
+
+  if (!!request.hasStorageType()) {
+    query["StorageType"] = request.getStorageType();
   }
 
   if (!!request.hasTertiaryZone()) {
