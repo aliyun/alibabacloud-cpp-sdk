@@ -98,6 +98,68 @@ AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdmin(const Allocate
 }
 
 /**
+ * @summary 批量校验资源计量
+ *
+ * @param request BatchCheckResourceMeasureRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchCheckResourceMeasureResponse
+ */
+BatchCheckResourceMeasureResponse Client::batchCheckResourceMeasureWithOptions(const BatchCheckResourceMeasureRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBelongId()) {
+    query["BelongId"] = request.getBelongId();
+  }
+
+  if (!!request.hasBelongIdType()) {
+    query["BelongIdType"] = request.getBelongIdType();
+  }
+
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasEspBizId()) {
+    query["EspBizId"] = request.getEspBizId();
+  }
+
+  if (!!request.hasOrderComponentParams()) {
+    query["OrderComponentParams"] = request.getOrderComponentParams();
+  }
+
+  if (!!request.hasResourceCheckItems()) {
+    query["ResourceCheckItems"] = request.getResourceCheckItems();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchCheckResourceMeasure"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchCheckResourceMeasureResponse>();
+}
+
+/**
+ * @summary 批量校验资源计量
+ *
+ * @param request BatchCheckResourceMeasureRequest
+ * @return BatchCheckResourceMeasureResponse
+ */
+BatchCheckResourceMeasureResponse Client::batchCheckResourceMeasure(const BatchCheckResourceMeasureRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchCheckResourceMeasureWithOptions(request, runtime);
+}
+
+/**
  * @summary Bind Application Domain
  *
  * @param request BindAppDomainRequest
@@ -149,6 +211,72 @@ BindAppDomainResponse Client::bindAppDomainWithOptions(const BindAppDomainReques
 BindAppDomainResponse Client::bindAppDomain(const BindAppDomainRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return bindAppDomainWithOptions(request, runtime);
+}
+
+/**
+ * @summary 校验资源计量
+ *
+ * @param request CheckResourceMeasureRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckResourceMeasureResponse
+ */
+CheckResourceMeasureResponse Client::checkResourceMeasureWithOptions(const CheckResourceMeasureRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBelongId()) {
+    query["BelongId"] = request.getBelongId();
+  }
+
+  if (!!request.hasBelongIdType()) {
+    query["BelongIdType"] = request.getBelongIdType();
+  }
+
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasEspBizId()) {
+    query["EspBizId"] = request.getEspBizId();
+  }
+
+  if (!!request.hasOrderComponentParams()) {
+    query["OrderComponentParams"] = request.getOrderComponentParams();
+  }
+
+  if (!!request.hasResourceCode()) {
+    query["ResourceCode"] = request.getResourceCode();
+  }
+
+  if (!!request.hasResourceValue()) {
+    query["ResourceValue"] = request.getResourceValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckResourceMeasure"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckResourceMeasureResponse>();
+}
+
+/**
+ * @summary 校验资源计量
+ *
+ * @param request CheckResourceMeasureRequest
+ * @return CheckResourceMeasureResponse
+ */
+CheckResourceMeasureResponse Client::checkResourceMeasure(const CheckResourceMeasureRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkResourceMeasureWithOptions(request, runtime);
 }
 
 /**
@@ -289,6 +417,48 @@ CreateAppInstanceTicketResponse Client::createAppInstanceTicketWithOptions(const
 CreateAppInstanceTicketResponse Client::createAppInstanceTicket(const CreateAppInstanceTicketRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createAppInstanceTicketWithOptions(request, runtime);
+}
+
+/**
+ * @summary 万小智开通灵感值服务
+ *
+ * @param request CreateAppTokenServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAppTokenServiceResponse
+ */
+CreateAppTokenServiceResponse Client::createAppTokenServiceWithOptions(const CreateAppTokenServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCreateAction()) {
+    query["CreateAction"] = request.getCreateAction();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAppTokenService"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAppTokenServiceResponse>();
+}
+
+/**
+ * @summary 万小智开通灵感值服务
+ *
+ * @param request CreateAppTokenServiceRequest
+ * @return CreateAppTokenServiceResponse
+ */
+CreateAppTokenServiceResponse Client::createAppTokenService(const CreateAppTokenServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAppTokenServiceWithOptions(request, runtime);
 }
 
 /**
@@ -827,6 +997,85 @@ GetAppPluginConfigResponse Client::getAppPluginConfigWithOptions(const GetAppPlu
 GetAppPluginConfigResponse Client::getAppPluginConfig(const GetAppPluginConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAppPluginConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询万小智推荐商品
+ *
+ * @param request GetAppRecommendedCommoditiesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppRecommendedCommoditiesResponse
+ */
+GetAppRecommendedCommoditiesResponse Client::getAppRecommendedCommoditiesWithOptions(const GetAppRecommendedCommoditiesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasScene()) {
+    query["Scene"] = request.getScene();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppRecommendedCommodities"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppRecommendedCommoditiesResponse>();
+}
+
+/**
+ * @summary 查询万小智推荐商品
+ *
+ * @param request GetAppRecommendedCommoditiesRequest
+ * @return GetAppRecommendedCommoditiesResponse
+ */
+GetAppRecommendedCommoditiesResponse Client::getAppRecommendedCommodities(const GetAppRecommendedCommoditiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppRecommendedCommoditiesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询万小智灵感值服务
+ *
+ * @param request GetAppTokenServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppTokenServiceResponse
+ */
+GetAppTokenServiceResponse Client::getAppTokenServiceWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetAppTokenService"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppTokenServiceResponse>();
+}
+
+/**
+ * @summary 查询万小智灵感值服务
+ *
+ * @return GetAppTokenServiceResponse
+ */
+GetAppTokenServiceResponse Client::getAppTokenService() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppTokenServiceWithOptions(runtime);
 }
 
 /**
@@ -1870,6 +2119,245 @@ OperateSupabaseForAdminResponse Client::operateSupabaseForAdminWithOptions(const
 OperateSupabaseForAdminResponse Client::operateSupabaseForAdmin(const OperateSupabaseForAdminRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return operateSupabaseForAdminWithOptions(request, runtime);
+}
+
+/**
+ * @summary 推送资源计量数据
+ *
+ * @param request PushResourceMeasureRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PushResourceMeasureResponse
+ */
+PushResourceMeasureResponse Client::pushResourceMeasureWithOptions(const PushResourceMeasureRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAmount()) {
+    query["Amount"] = request.getAmount();
+  }
+
+  if (!!request.hasBelongId()) {
+    query["BelongId"] = request.getBelongId();
+  }
+
+  if (!!request.hasBelongIdType()) {
+    query["BelongIdType"] = request.getBelongIdType();
+  }
+
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasMeasureData()) {
+    query["MeasureData"] = request.getMeasureData();
+  }
+
+  if (!!request.hasMetaData()) {
+    query["MetaData"] = request.getMetaData();
+  }
+
+  if (!!request.hasResourceCode()) {
+    query["ResourceCode"] = request.getResourceCode();
+  }
+
+  if (!!request.hasUseTime()) {
+    query["UseTime"] = request.getUseTime();
+  }
+
+  if (!!request.hasUseType()) {
+    query["UseType"] = request.getUseType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PushResourceMeasure"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PushResourceMeasureResponse>();
+}
+
+/**
+ * @summary 推送资源计量数据
+ *
+ * @param request PushResourceMeasureRequest
+ * @return PushResourceMeasureResponse
+ */
+PushResourceMeasureResponse Client::pushResourceMeasure(const PushResourceMeasureRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return pushResourceMeasureWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询灵感值获取明细
+ *
+ * @param request QueryInspirationAccountDetailsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryInspirationAccountDetailsResponse
+ */
+QueryInspirationAccountDetailsResponse Client::queryInspirationAccountDetailsWithOptions(const QueryInspirationAccountDetailsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.getSourceType();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryInspirationAccountDetails"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryInspirationAccountDetailsResponse>();
+}
+
+/**
+ * @summary 查询灵感值获取明细
+ *
+ * @param request QueryInspirationAccountDetailsRequest
+ * @return QueryInspirationAccountDetailsResponse
+ */
+QueryInspirationAccountDetailsResponse Client::queryInspirationAccountDetails(const QueryInspirationAccountDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryInspirationAccountDetailsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询灵感值余额总览
+ *
+ * @param request QueryInspirationBalanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryInspirationBalanceResponse
+ */
+QueryInspirationBalanceResponse Client::queryInspirationBalanceWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "QueryInspirationBalance"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryInspirationBalanceResponse>();
+}
+
+/**
+ * @summary 查询灵感值余额总览
+ *
+ * @return QueryInspirationBalanceResponse
+ */
+QueryInspirationBalanceResponse Client::queryInspirationBalance() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryInspirationBalanceWithOptions(runtime);
+}
+
+/**
+ * @summary 查询灵感值消耗明细
+ *
+ * @param request QueryInspirationConsumeRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryInspirationConsumeRecordsResponse
+ */
+QueryInspirationConsumeRecordsResponse Client::queryInspirationConsumeRecordsWithOptions(const QueryInspirationConsumeRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSceneName()) {
+    query["SceneName"] = request.getSceneName();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryInspirationConsumeRecords"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryInspirationConsumeRecordsResponse>();
+}
+
+/**
+ * @summary 查询灵感值消耗明细
+ *
+ * @param request QueryInspirationConsumeRecordsRequest
+ * @return QueryInspirationConsumeRecordsResponse
+ */
+QueryInspirationConsumeRecordsResponse Client::queryInspirationConsumeRecords(const QueryInspirationConsumeRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryInspirationConsumeRecordsWithOptions(request, runtime);
 }
 
 /**

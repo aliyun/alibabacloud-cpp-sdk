@@ -38,6 +38,23 @@ namespace WebsiteBuild20250429
       Models::AllocateSupabaseForAdminResponse allocateSupabaseForAdmin(const Models::AllocateSupabaseForAdminRequest &request);
 
       /**
+       * @summary 批量校验资源计量
+       *
+       * @param request BatchCheckResourceMeasureRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchCheckResourceMeasureResponse
+       */
+      Models::BatchCheckResourceMeasureResponse batchCheckResourceMeasureWithOptions(const Models::BatchCheckResourceMeasureRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量校验资源计量
+       *
+       * @param request BatchCheckResourceMeasureRequest
+       * @return BatchCheckResourceMeasureResponse
+       */
+      Models::BatchCheckResourceMeasureResponse batchCheckResourceMeasure(const Models::BatchCheckResourceMeasureRequest &request);
+
+      /**
        * @summary Bind Application Domain
        *
        * @param request BindAppDomainRequest
@@ -53,6 +70,23 @@ namespace WebsiteBuild20250429
        * @return BindAppDomainResponse
        */
       Models::BindAppDomainResponse bindAppDomain(const Models::BindAppDomainRequest &request);
+
+      /**
+       * @summary 校验资源计量
+       *
+       * @param request CheckResourceMeasureRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckResourceMeasureResponse
+       */
+      Models::CheckResourceMeasureResponse checkResourceMeasureWithOptions(const Models::CheckResourceMeasureRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 校验资源计量
+       *
+       * @param request CheckResourceMeasureRequest
+       * @return CheckResourceMeasureResponse
+       */
+      Models::CheckResourceMeasureResponse checkResourceMeasure(const Models::CheckResourceMeasureRequest &request);
 
       /**
        * @summary Create a website instance
@@ -87,6 +121,23 @@ namespace WebsiteBuild20250429
        * @return CreateAppInstanceTicketResponse
        */
       Models::CreateAppInstanceTicketResponse createAppInstanceTicket(const Models::CreateAppInstanceTicketRequest &request);
+
+      /**
+       * @summary 万小智开通灵感值服务
+       *
+       * @param request CreateAppTokenServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAppTokenServiceResponse
+       */
+      Models::CreateAppTokenServiceResponse createAppTokenServiceWithOptions(const Models::CreateAppTokenServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 万小智开通灵感值服务
+       *
+       * @param request CreateAppTokenServiceRequest
+       * @return CreateAppTokenServiceResponse
+       */
+      Models::CreateAppTokenServiceResponse createAppTokenService(const Models::CreateAppTokenServiceRequest &request);
 
       /**
        * @summary 提交创建Logo任务
@@ -274,6 +325,39 @@ namespace WebsiteBuild20250429
        * @return GetAppPluginConfigResponse
        */
       Models::GetAppPluginConfigResponse getAppPluginConfig(const Models::GetAppPluginConfigRequest &request);
+
+      /**
+       * @summary 查询万小智推荐商品
+       *
+       * @param request GetAppRecommendedCommoditiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppRecommendedCommoditiesResponse
+       */
+      Models::GetAppRecommendedCommoditiesResponse getAppRecommendedCommoditiesWithOptions(const Models::GetAppRecommendedCommoditiesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询万小智推荐商品
+       *
+       * @param request GetAppRecommendedCommoditiesRequest
+       * @return GetAppRecommendedCommoditiesResponse
+       */
+      Models::GetAppRecommendedCommoditiesResponse getAppRecommendedCommodities(const Models::GetAppRecommendedCommoditiesRequest &request);
+
+      /**
+       * @summary 查询万小智灵感值服务
+       *
+       * @param request GetAppTokenServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppTokenServiceResponse
+       */
+      Models::GetAppTokenServiceResponse getAppTokenServiceWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询万小智灵感值服务
+       *
+       * @return GetAppTokenServiceResponse
+       */
+      Models::GetAppTokenServiceResponse getAppTokenService();
 
       /**
        * @summary 查询Logo创建任务
@@ -596,6 +680,73 @@ namespace WebsiteBuild20250429
        * @return OperateSupabaseForAdminResponse
        */
       Models::OperateSupabaseForAdminResponse operateSupabaseForAdmin(const Models::OperateSupabaseForAdminRequest &request);
+
+      /**
+       * @summary 推送资源计量数据
+       *
+       * @param request PushResourceMeasureRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PushResourceMeasureResponse
+       */
+      Models::PushResourceMeasureResponse pushResourceMeasureWithOptions(const Models::PushResourceMeasureRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 推送资源计量数据
+       *
+       * @param request PushResourceMeasureRequest
+       * @return PushResourceMeasureResponse
+       */
+      Models::PushResourceMeasureResponse pushResourceMeasure(const Models::PushResourceMeasureRequest &request);
+
+      /**
+       * @summary 查询灵感值获取明细
+       *
+       * @param request QueryInspirationAccountDetailsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryInspirationAccountDetailsResponse
+       */
+      Models::QueryInspirationAccountDetailsResponse queryInspirationAccountDetailsWithOptions(const Models::QueryInspirationAccountDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询灵感值获取明细
+       *
+       * @param request QueryInspirationAccountDetailsRequest
+       * @return QueryInspirationAccountDetailsResponse
+       */
+      Models::QueryInspirationAccountDetailsResponse queryInspirationAccountDetails(const Models::QueryInspirationAccountDetailsRequest &request);
+
+      /**
+       * @summary 查询灵感值余额总览
+       *
+       * @param request QueryInspirationBalanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryInspirationBalanceResponse
+       */
+      Models::QueryInspirationBalanceResponse queryInspirationBalanceWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询灵感值余额总览
+       *
+       * @return QueryInspirationBalanceResponse
+       */
+      Models::QueryInspirationBalanceResponse queryInspirationBalance();
+
+      /**
+       * @summary 查询灵感值消耗明细
+       *
+       * @param request QueryInspirationConsumeRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryInspirationConsumeRecordsResponse
+       */
+      Models::QueryInspirationConsumeRecordsResponse queryInspirationConsumeRecordsWithOptions(const Models::QueryInspirationConsumeRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询灵感值消耗明细
+       *
+       * @param request QueryInspirationConsumeRecordsRequest
+       * @return QueryInspirationConsumeRecordsResponse
+       */
+      Models::QueryInspirationConsumeRecordsResponse queryInspirationConsumeRecords(const Models::QueryInspirationConsumeRecordsRequest &request);
 
       /**
        * @summary 查询素材中心文件夹树结构
