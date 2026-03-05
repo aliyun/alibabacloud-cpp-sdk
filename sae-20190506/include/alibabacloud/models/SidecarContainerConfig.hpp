@@ -21,8 +21,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EmptyDirDesc, emptyDirDesc_);
       DARABONBA_PTR_TO_JSON(Envs, envs_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
+      DARABONBA_PTR_TO_JSON(Liveness, liveness_);
       DARABONBA_PTR_TO_JSON(Memory, memory_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(Readiness, readiness_);
+      DARABONBA_PTR_TO_JSON(SecretMountDesc, secretMountDesc_);
     };
     friend void from_json(const Darabonba::Json& j, SidecarContainerConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(AcrInstanceId, acrInstanceId_);
@@ -33,8 +36,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EmptyDirDesc, emptyDirDesc_);
       DARABONBA_PTR_FROM_JSON(Envs, envs_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
+      DARABONBA_PTR_FROM_JSON(Liveness, liveness_);
       DARABONBA_PTR_FROM_JSON(Memory, memory_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(Readiness, readiness_);
+      DARABONBA_PTR_FROM_JSON(SecretMountDesc, secretMountDesc_);
     };
     SidecarContainerConfig() = default ;
     SidecarContainerConfig(const SidecarContainerConfig &) = default ;
@@ -49,7 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acrInstanceId_ == nullptr
         && this->command_ == nullptr && this->commandArgs_ == nullptr && this->configMapMountDesc_ == nullptr && this->cpu_ == nullptr && this->emptyDirDesc_ == nullptr
-        && this->envs_ == nullptr && this->imageUrl_ == nullptr && this->memory_ == nullptr && this->name_ == nullptr; };
+        && this->envs_ == nullptr && this->imageUrl_ == nullptr && this->liveness_ == nullptr && this->memory_ == nullptr && this->name_ == nullptr
+        && this->readiness_ == nullptr && this->secretMountDesc_ == nullptr; };
     // acrInstanceId Field Functions 
     bool hasAcrInstanceId() const { return this->acrInstanceId_ != nullptr;};
     void deleteAcrInstanceId() { this->acrInstanceId_ = nullptr;};
@@ -106,6 +113,13 @@ namespace Models
     inline SidecarContainerConfig& setImageUrl(string imageUrl) { DARABONBA_PTR_SET_VALUE(imageUrl_, imageUrl) };
 
 
+    // liveness Field Functions 
+    bool hasLiveness() const { return this->liveness_ != nullptr;};
+    void deleteLiveness() { this->liveness_ = nullptr;};
+    inline string getLiveness() const { DARABONBA_PTR_GET_DEFAULT(liveness_, "") };
+    inline SidecarContainerConfig& setLiveness(string liveness) { DARABONBA_PTR_SET_VALUE(liveness_, liveness) };
+
+
     // memory Field Functions 
     bool hasMemory() const { return this->memory_ != nullptr;};
     void deleteMemory() { this->memory_ = nullptr;};
@@ -118,6 +132,20 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline SidecarContainerConfig& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // readiness Field Functions 
+    bool hasReadiness() const { return this->readiness_ != nullptr;};
+    void deleteReadiness() { this->readiness_ = nullptr;};
+    inline string getReadiness() const { DARABONBA_PTR_GET_DEFAULT(readiness_, "") };
+    inline SidecarContainerConfig& setReadiness(string readiness) { DARABONBA_PTR_SET_VALUE(readiness_, readiness) };
+
+
+    // secretMountDesc Field Functions 
+    bool hasSecretMountDesc() const { return this->secretMountDesc_ != nullptr;};
+    void deleteSecretMountDesc() { this->secretMountDesc_ = nullptr;};
+    inline string getSecretMountDesc() const { DARABONBA_PTR_GET_DEFAULT(secretMountDesc_, "") };
+    inline SidecarContainerConfig& setSecretMountDesc(string secretMountDesc) { DARABONBA_PTR_SET_VALUE(secretMountDesc_, secretMountDesc) };
 
 
   protected:
@@ -137,10 +165,13 @@ namespace Models
     shared_ptr<string> envs_ {};
     // The image address.
     shared_ptr<string> imageUrl_ {};
+    shared_ptr<string> liveness_ {};
     // Memory
     shared_ptr<int32_t> memory_ {};
     // The container name.
     shared_ptr<string> name_ {};
+    shared_ptr<string> readiness_ {};
+    shared_ptr<string> secretMountDesc_ {};
   };
 
   } // namespace Models

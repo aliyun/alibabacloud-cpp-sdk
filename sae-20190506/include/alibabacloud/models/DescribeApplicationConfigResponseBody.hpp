@@ -319,8 +319,11 @@ namespace Models
           DARABONBA_PTR_TO_JSON(EmptyDirDesc, emptyDirDesc_);
           DARABONBA_PTR_TO_JSON(Envs, envs_);
           DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
+          DARABONBA_PTR_TO_JSON(Liveness, liveness_);
           DARABONBA_PTR_TO_JSON(Memory, memory_);
           DARABONBA_PTR_TO_JSON(Name, name_);
+          DARABONBA_PTR_TO_JSON(Readiness, readiness_);
+          DARABONBA_PTR_TO_JSON(SecretMountDesc, secretMountDesc_);
         };
         friend void from_json(const Darabonba::Json& j, SidecarContainersConfig& obj) { 
           DARABONBA_PTR_FROM_JSON(AcrInstanceId, acrInstanceId_);
@@ -331,8 +334,11 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(EmptyDirDesc, emptyDirDesc_);
           DARABONBA_PTR_FROM_JSON(Envs, envs_);
           DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
+          DARABONBA_PTR_FROM_JSON(Liveness, liveness_);
           DARABONBA_PTR_FROM_JSON(Memory, memory_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
+          DARABONBA_PTR_FROM_JSON(Readiness, readiness_);
+          DARABONBA_PTR_FROM_JSON(SecretMountDesc, secretMountDesc_);
         };
         SidecarContainersConfig() = default ;
         SidecarContainersConfig(const SidecarContainersConfig &) = default ;
@@ -345,6 +351,68 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class SecretMountDesc : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const SecretMountDesc& obj) { 
+            DARABONBA_PTR_TO_JSON(Key, key_);
+            DARABONBA_PTR_TO_JSON(MountPath, mountPath_);
+            DARABONBA_PTR_TO_JSON(SecretId, secretId_);
+            DARABONBA_PTR_TO_JSON(SecretName, secretName_);
+          };
+          friend void from_json(const Darabonba::Json& j, SecretMountDesc& obj) { 
+            DARABONBA_PTR_FROM_JSON(Key, key_);
+            DARABONBA_PTR_FROM_JSON(MountPath, mountPath_);
+            DARABONBA_PTR_FROM_JSON(SecretId, secretId_);
+            DARABONBA_PTR_FROM_JSON(SecretName, secretName_);
+          };
+          SecretMountDesc() = default ;
+          SecretMountDesc(const SecretMountDesc &) = default ;
+          SecretMountDesc(SecretMountDesc &&) = default ;
+          SecretMountDesc(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~SecretMountDesc() = default ;
+          SecretMountDesc& operator=(const SecretMountDesc &) = default ;
+          SecretMountDesc& operator=(SecretMountDesc &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->key_ == nullptr
+        && this->mountPath_ == nullptr && this->secretId_ == nullptr && this->secretName_ == nullptr; };
+          // key Field Functions 
+          bool hasKey() const { return this->key_ != nullptr;};
+          void deleteKey() { this->key_ = nullptr;};
+          inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+          inline SecretMountDesc& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+          // mountPath Field Functions 
+          bool hasMountPath() const { return this->mountPath_ != nullptr;};
+          void deleteMountPath() { this->mountPath_ = nullptr;};
+          inline string getMountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
+          inline SecretMountDesc& setMountPath(string mountPath) { DARABONBA_PTR_SET_VALUE(mountPath_, mountPath) };
+
+
+          // secretId Field Functions 
+          bool hasSecretId() const { return this->secretId_ != nullptr;};
+          void deleteSecretId() { this->secretId_ = nullptr;};
+          inline int64_t getSecretId() const { DARABONBA_PTR_GET_DEFAULT(secretId_, 0L) };
+          inline SecretMountDesc& setSecretId(int64_t secretId) { DARABONBA_PTR_SET_VALUE(secretId_, secretId) };
+
+
+          // secretName Field Functions 
+          bool hasSecretName() const { return this->secretName_ != nullptr;};
+          void deleteSecretName() { this->secretName_ = nullptr;};
+          inline string getSecretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
+          inline SecretMountDesc& setSecretName(string secretName) { DARABONBA_PTR_SET_VALUE(secretName_, secretName) };
+
+
+        protected:
+          shared_ptr<string> key_ {};
+          shared_ptr<string> mountPath_ {};
+          shared_ptr<int64_t> secretId_ {};
+          shared_ptr<string> secretName_ {};
+        };
+
         class EmptyDirDesc : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const EmptyDirDesc& obj) { 
@@ -457,7 +525,8 @@ namespace Models
 
         virtual bool empty() const override { return this->acrInstanceId_ == nullptr
         && this->command_ == nullptr && this->commandArgs_ == nullptr && this->configMapMountDesc_ == nullptr && this->cpu_ == nullptr && this->emptyDirDesc_ == nullptr
-        && this->envs_ == nullptr && this->imageUrl_ == nullptr && this->memory_ == nullptr && this->name_ == nullptr; };
+        && this->envs_ == nullptr && this->imageUrl_ == nullptr && this->liveness_ == nullptr && this->memory_ == nullptr && this->name_ == nullptr
+        && this->readiness_ == nullptr && this->secretMountDesc_ == nullptr; };
         // acrInstanceId Field Functions 
         bool hasAcrInstanceId() const { return this->acrInstanceId_ != nullptr;};
         void deleteAcrInstanceId() { this->acrInstanceId_ = nullptr;};
@@ -518,6 +587,13 @@ namespace Models
         inline SidecarContainersConfig& setImageUrl(string imageUrl) { DARABONBA_PTR_SET_VALUE(imageUrl_, imageUrl) };
 
 
+        // liveness Field Functions 
+        bool hasLiveness() const { return this->liveness_ != nullptr;};
+        void deleteLiveness() { this->liveness_ = nullptr;};
+        inline string getLiveness() const { DARABONBA_PTR_GET_DEFAULT(liveness_, "") };
+        inline SidecarContainersConfig& setLiveness(string liveness) { DARABONBA_PTR_SET_VALUE(liveness_, liveness) };
+
+
         // memory Field Functions 
         bool hasMemory() const { return this->memory_ != nullptr;};
         void deleteMemory() { this->memory_ = nullptr;};
@@ -530,6 +606,22 @@ namespace Models
         void deleteName() { this->name_ = nullptr;};
         inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
         inline SidecarContainersConfig& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // readiness Field Functions 
+        bool hasReadiness() const { return this->readiness_ != nullptr;};
+        void deleteReadiness() { this->readiness_ = nullptr;};
+        inline string getReadiness() const { DARABONBA_PTR_GET_DEFAULT(readiness_, "") };
+        inline SidecarContainersConfig& setReadiness(string readiness) { DARABONBA_PTR_SET_VALUE(readiness_, readiness) };
+
+
+        // secretMountDesc Field Functions 
+        bool hasSecretMountDesc() const { return this->secretMountDesc_ != nullptr;};
+        void deleteSecretMountDesc() { this->secretMountDesc_ = nullptr;};
+        inline const vector<SidecarContainersConfig::SecretMountDesc> & getSecretMountDesc() const { DARABONBA_PTR_GET_CONST(secretMountDesc_, vector<SidecarContainersConfig::SecretMountDesc>) };
+        inline vector<SidecarContainersConfig::SecretMountDesc> getSecretMountDesc() { DARABONBA_PTR_GET(secretMountDesc_, vector<SidecarContainersConfig::SecretMountDesc>) };
+        inline SidecarContainersConfig& setSecretMountDesc(const vector<SidecarContainersConfig::SecretMountDesc> & secretMountDesc) { DARABONBA_PTR_SET_VALUE(secretMountDesc_, secretMountDesc) };
+        inline SidecarContainersConfig& setSecretMountDesc(vector<SidecarContainersConfig::SecretMountDesc> && secretMountDesc) { DARABONBA_PTR_SET_RVALUE(secretMountDesc_, secretMountDesc) };
 
 
       protected:
@@ -580,10 +672,13 @@ namespace Models
         shared_ptr<string> envs_ {};
         // The URL of the image.
         shared_ptr<string> imageUrl_ {};
+        shared_ptr<string> liveness_ {};
         // Set the memory limit of the primary container that can be used by Sidecar container.
         shared_ptr<int32_t> memory_ {};
         // The container name.
         shared_ptr<string> name_ {};
+        shared_ptr<string> readiness_ {};
+        shared_ptr<vector<SidecarContainersConfig::SecretMountDesc>> secretMountDesc_ {};
       };
 
       class SecretMountDesc : public Darabonba::Model {
