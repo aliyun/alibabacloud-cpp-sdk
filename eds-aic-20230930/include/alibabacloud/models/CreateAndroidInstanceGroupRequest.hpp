@@ -138,6 +138,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PayType, payType_);
         DARABONBA_PTR_TO_JSON(Period, period_);
         DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
+        DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
         DARABONBA_PTR_TO_JSON(VisibleType, visibleType_);
       };
       friend void from_json(const Darabonba::Json& j, NetworkInfo& obj) { 
@@ -152,6 +153,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PayType, payType_);
         DARABONBA_PTR_FROM_JSON(Period, period_);
         DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
+        DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
         DARABONBA_PTR_FROM_JSON(VisibleType, visibleType_);
       };
       NetworkInfo() = default ;
@@ -168,7 +170,7 @@ namespace Models
       virtual bool empty() const override { return this->autoPay_ == nullptr
         && this->autoRenew_ == nullptr && this->bandwidthPackageName_ == nullptr && this->cidrBlock_ == nullptr && this->internetChargeType_ == nullptr && this->ipRatio_ == nullptr
         && this->isp_ == nullptr && this->limitedBandwidth_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr
-        && this->visibleType_ == nullptr; };
+        && this->promotionId_ == nullptr && this->visibleType_ == nullptr; };
       // autoPay Field Functions 
       bool hasAutoPay() const { return this->autoPay_ != nullptr;};
       void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -246,6 +248,13 @@ namespace Models
       inline NetworkInfo& setPeriodUnit(string periodUnit) { DARABONBA_PTR_SET_VALUE(periodUnit_, periodUnit) };
 
 
+      // promotionId Field Functions 
+      bool hasPromotionId() const { return this->promotionId_ != nullptr;};
+      void deletePromotionId() { this->promotionId_ = nullptr;};
+      inline string getPromotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
+      inline NetworkInfo& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
+
+
       // visibleType Field Functions 
       bool hasVisibleType() const { return this->visibleType_ != nullptr;};
       void deleteVisibleType() { this->visibleType_ = nullptr;};
@@ -265,6 +274,7 @@ namespace Models
       shared_ptr<string> payType_ {};
       shared_ptr<int32_t> period_ {};
       shared_ptr<string> periodUnit_ {};
+      shared_ptr<string> promotionId_ {};
       shared_ptr<string> visibleType_ {};
     };
 

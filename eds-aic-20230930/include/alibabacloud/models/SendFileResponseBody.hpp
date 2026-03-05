@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The ID of the cloud phone instance.
       shared_ptr<string> androidInstanceId_ {};
+      // The ID of the task.
       shared_ptr<string> taskId_ {};
     };
 
