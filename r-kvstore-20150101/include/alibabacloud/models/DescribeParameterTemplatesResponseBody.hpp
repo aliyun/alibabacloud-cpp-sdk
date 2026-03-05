@@ -131,23 +131,11 @@ namespace Models
 
 
       protected:
-        // The valid values of the parameter.
         shared_ptr<string> checkingCode_ {};
-        // Indicates whether the parameter can be reconfigured. Valid values:
-        // 
-        // *   **true**: The parameter can be reconfigured.
-        // *   **false**: The parameter cannot be reconfigured.
         shared_ptr<bool> forceModify_ {};
-        // Indicates whether a restart of the instance is required after the parameter is reconfigured. Valid values:
-        // 
-        // *   **true**: After the parameter is reconfigured, you must restart the instance to make the new value of the parameter take effect.
-        // *   **false**: After the parameter is reconfigured, the new value of the parameter immediately takes effect. You do not need to restart the instance.
         shared_ptr<bool> forceRestart_ {};
-        // The description of the parameter.
         shared_ptr<string> parameterDescription_ {};
-        // The name of the parameter. For more information about the parameters and the parameter settings, see [Parameters](https://help.aliyun.com/document_detail/259681.html).
         shared_ptr<string> parameterName_ {};
-        // The default value of the parameter.
         shared_ptr<string> parameterValue_ {};
       };
 
@@ -211,7 +199,6 @@ namespace Models
     shared_ptr<string> engineVersion_ {};
     // The number of parameters that are supported by the instance.
     shared_ptr<string> parameterCount_ {};
-    // An array that consists of the details about the parameters returned.
     shared_ptr<DescribeParameterTemplatesResponseBody::Parameters> parameters_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

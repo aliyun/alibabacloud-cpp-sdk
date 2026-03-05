@@ -239,9 +239,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -674,199 +672,62 @@ namespace Models
 
 
       protected:
-        // The architecture of the instance. Valid values:
-        // 
-        // *   **cluster**: cluster architecture
-        // *   **standard**: standard architecture
-        // *   **rwsplit**: read/write splitting architecture
         shared_ptr<string> architectureType_ {};
-        // The retention period of audit logs. Unit: day. A value of 0 indicates that the audit log feature is disabled. For information about how to enable the feature, see [Enable the audit log feature](https://help.aliyun.com/document_detail/102015.html).
         shared_ptr<string> auditLogRetention_ {};
-        // Indicates whether a secondary zone is automatically allocated.
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> autoSecondaryZone_ {};
-        // The availability metric of the current month.
         shared_ptr<string> availabilityValue_ {};
-        // The earliest point in time to which data can be restored. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-        // 
-        // > 
-        // 
-        // *   This parameter is returned only when the data flashback feature is enabled for the instance. For more information, see [Restore data to a point in time by using the data flashback feature](https://help.aliyun.com/document_detail/148479.html).
-        // 
-        // *   When you call the [RestoreInstance](https://help.aliyun.com/document_detail/473824.html) operation to implement data flashback, you can obtain the earliest point in time for data flashback from the return value of this parameter and set the **RestoreTime** parameter to this point in time.
         shared_ptr<string> backupLogStartTime_ {};
-        // The bandwidth of the instance. Unit: Mbit/s.
         shared_ptr<int64_t> bandwidth_ {};
-        // The storage capacity of the instance. Unit: MB.
         shared_ptr<int64_t> capacity_ {};
-        // The billing method of the instance. Valid values:
-        // 
-        // *   **PrePaid**: subscription
-        // *   **PostPaid**: pay-as-you-go
         shared_ptr<string> chargeType_ {};
-        // This parameter is returned only when the instance is in a cloud box.
         shared_ptr<string> cloudType_ {};
         shared_ptr<string> computingType_ {};
-        // The parameter configurations of the instance in the JSON format. For more information, see [Parameter descriptions](https://help.aliyun.com/document_detail/43885.html). You can use the [DescribeAuditLogConfig](https://help.aliyun.com/document_detail/473830.html) operation to query audit log configurations.
         shared_ptr<string> config_ {};
-        // The internal endpoint of the instance.
         shared_ptr<string> connectionDomain_ {};
-        // The maximum number of connections supported by the instance.
         shared_ptr<int64_t> connections_ {};
-        // The time when the instance was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The time when the subscription expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> endTime_ {};
-        // The database engine of the instance. The return value is **Redis**.
         shared_ptr<string> engine_ {};
-        // The database engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, **6.0**, and **7.0**.
         shared_ptr<string> engineVersion_ {};
-        // The ID of the distributed instance to which the instance belongs.
-        // 
-        // >  This parameter is returned only when the Tair (Redis OSS-compatible) instance is a child instance of a distributed instance.
         shared_ptr<string> globalInstanceId_ {};
-        // Indicates whether your Alibaba Cloud account has pending orders for renewal and configuration change. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<string> hasRenewChangeOrder_ {};
-        // The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/107984.html).
         shared_ptr<string> instanceClass_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The name of the instance.
         shared_ptr<string> instanceName_ {};
-        // Indicates whether the release protection feature is enabled for the instance. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> instanceReleaseProtection_ {};
-        // The state of the instance. Valid values:
-        // 
-        // *   **Normal**: The instance is normal.
-        // *   **Creating**: The instance is being created.
-        // *   **Changing**: The configurations of the instance are being changed.
-        // *   **Inactive**: The instance is disabled.
-        // *   **Flushing**: The instance is being released.
-        // *   **Released**: The instance is released.
-        // *   **Transforming**: The billing method of the instance is being changed.
-        // *   **Unavailable**: The instance is unavailable.
-        // *   **Error**: The instance failed to be created.
-        // *   **Migrating**: The instance is being migrated.
-        // *   **BackupRecovering**: The instance is being restored from a backup.
-        // *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
-        // *   **NetworkModifying**: The network type of the instance is being changed.
-        // *   **SSLModifying**: The SSL configurations of the instance are being changed.
-        // *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
-        // 
-        // >  For more information about instance states, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
         shared_ptr<string> instanceStatus_ {};
-        // The database engine of the instance. Valid values:
-        // 
-        // *   **Tair**
-        // *   **Redis**
-        // *   **Memcache**
         shared_ptr<string> instanceType_ {};
-        // Indicates whether the order for instance configuration change has reached the final state. Valid values:
-        // 
-        // *   **true**: The configuration change has been completed or has not been performed.
-        // *   **false**: The configurations of the instance are being changed.
         shared_ptr<bool> isOrderCompleted_ {};
-        // Indicates whether the instance is managed by ApsaraDB RDS. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> isRds_ {};
-        // Indicates whether the transparent data encryption (TDE) feature is supported for the instance. Valid values:
-        // 
-        // *   **true**: This feature is supported only for DRAM-based classic instances.
-        // *   **false**: This feature is not supported.
         shared_ptr<bool> isSupportTDE_ {};
-        // The end time of the maintenance window. The time is in the *HH:mmZ* format. The time is displayed in UTC.
         shared_ptr<string> maintainEndTime_ {};
-        // The start time of the maintenance window. The time is in the *HH:mmZ* format. The time is displayed in UTC.
         shared_ptr<string> maintainStartTime_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   **CLASSIC**
-        // *   **VPC**
         shared_ptr<string> networkType_ {};
-        // The node type. Valid values:
-        // 
-        // *   **double**: The instance contains a master node and a replica node.
-        // *   **single**: The instance is a standalone instance.
         shared_ptr<string> nodeType_ {};
-        // The plan type. Valid values:
-        // 
-        // *   **standard**: standard plan.
-        // *   **customized**: custom plan. This plan type is phased out.
         shared_ptr<string> packageType_ {};
-        // The service port of the instance.
         shared_ptr<int64_t> port_ {};
-        // The private IP address of the instance.
-        // 
-        // >  This parameter is not returned when the instance is deployed in the classic network.
         shared_ptr<string> privateIp_ {};
-        // The expected maximum queries per second (QPS).
         shared_ptr<int64_t> QPS_ {};
-        // The number of read replicas. This parameter is available only for read/write splitting instances that use cloud disks.
         shared_ptr<int32_t> readOnlyCount_ {};
-        // If the instance is a cluster instance that uses cloud disks, this parameter indicates the actual instance type of individual shards in the instance. The InstanceClass parameter indicates the virtual instance type.
-        // 
-        // >  To query fees for instances of the instance type, you can specify the instance type that is returned by this parameter in the [DescribePrice](https://help.aliyun.com/document_detail/473807.html) operation.
         shared_ptr<string> realInstanceClass_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The number of replica nodes in the primary zone.
-        // 
-        // >  The **ReplicaCount** and **SlaveReplicaCount** parameters are applicable only to cloud-native instances. If the instance is a cluster instance, the preceding parameters indicate the number of replica nodes **per node** in the primary and secondary zones of the instance.
         shared_ptr<int32_t> replicaCount_ {};
-        // The ID of the replica node.
         shared_ptr<string> replicaId_ {};
-        // The architecture of the replica node. Valid values:
-        // 
-        // *   **master-slave**: the standard master-replica architecture.
-        // *   **cluster**: the cluster architecture, which includes the read/write splitting instances and cluster instances.
         shared_ptr<string> replicationMode_ {};
-        // The ID of the resource group to which the instance belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The ID of the secondary zone.
-        // 
-        // >  This parameter is returned only if the instance has a secondary zone ID.
         shared_ptr<string> secondaryZoneId_ {};
-        // The IP addresses in the whitelist.
         shared_ptr<string> securityIPList_ {};
-        // The number of shards. This parameter is available only for instances that are purchased on the China site (aliyun.com).
         shared_ptr<int32_t> shardCount_ {};
-        // The number of read replicas in the secondary zone. This parameter is returned only after read/write splitting is enabled for the instance across multiple zones.
         shared_ptr<int64_t> slaveReadOnlyCount_ {};
-        // The number of replica nodes in the secondary zone.
         shared_ptr<int32_t> slaveReplicaCount_ {};
-        // The storage capacity of the cloud disk.
         shared_ptr<string> storage_ {};
-        // The storage type.
         shared_ptr<string> storageType_ {};
-        // Details about the tags.
         shared_ptr<DBInstanceAttribute::Tags> tags_ {};
-        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
-        // Indicates whether password authentication is enabled. Valid values:
-        // 
-        // *   **Open**: Password authentication is enabled.
-        // *   **Close**: Password authentication is disabled and [password-free access](https://help.aliyun.com/document_detail/85168.html) is enabled.
         shared_ptr<string> vpcAuthMode_ {};
-        // The ID of the instance in the VPC.
         shared_ptr<string> vpcCloudInstanceId_ {};
-        // The ID of the virtual private cloud (VPC).
         shared_ptr<string> vpcId_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
-        // The deployment type of the instance. Valid values:
-        // 
-        // *   **singlezone**: The instance is deployed in a single zone.
-        // *   **doublezone**: The instance is deployed in two zones of the same region.
         shared_ptr<string> zoneType_ {};
       };
 
@@ -903,7 +764,6 @@ namespace Models
 
 
   protected:
-    // Details about the instances.
     shared_ptr<DescribeInstanceAttributeResponseBody::Instances> instances_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

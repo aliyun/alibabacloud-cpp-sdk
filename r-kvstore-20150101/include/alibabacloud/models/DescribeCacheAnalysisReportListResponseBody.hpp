@@ -149,16 +149,9 @@ namespace Models
 
 
           protected:
-            // The ID of the child node in the cluster instance.
             shared_ptr<string> nodeId_ {};
-            // The start time of the offline key analytics task.
             shared_ptr<string> startTime_ {};
-            // The state of the offline key analytics task. Valid values:
-            // 
-            // *   **success**
-            // *   **running**
             shared_ptr<string> status_ {};
-            // The ID of the task.
             shared_ptr<string> taskId_ {};
           };
 
@@ -195,9 +188,7 @@ namespace Models
 
 
       protected:
-        // The date when the offline key analytics task was performed.
         shared_ptr<string> date_ {};
-        // Details about the offline key analysis reports.
         shared_ptr<DailyTask::Tasks> tasks_ {};
       };
 
@@ -241,7 +232,6 @@ namespace Models
 
 
   protected:
-    // The list of the offline key analysis reports.
     shared_ptr<DescribeCacheAnalysisReportListResponseBody::DailyTasks> dailyTasks_ {};
     // The ID of the instance.
     shared_ptr<string> instanceId_ {};

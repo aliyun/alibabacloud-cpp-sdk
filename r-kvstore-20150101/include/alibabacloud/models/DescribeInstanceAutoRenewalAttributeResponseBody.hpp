@@ -113,16 +113,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether auto-renewal is enabled. Valid values:
-        // 
-        // *   **true**: Auto-renewal is enabled.
-        // *   **false**: Auto-renewal is disabled.
         shared_ptr<string> autoRenew_ {};
-        // The ID of the instance.
         shared_ptr<string> DBInstanceId_ {};
-        // The auto-renewal period. Unit: months.
         shared_ptr<int32_t> duration_ {};
-        // The region ID of the instance.
         shared_ptr<string> regionId_ {};
       };
 
@@ -180,7 +173,6 @@ namespace Models
 
 
   protected:
-    // Details of the auto-renewal information for the instance.
     shared_ptr<DescribeInstanceAutoRenewalAttributeResponseBody::Items> items_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

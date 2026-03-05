@@ -107,13 +107,9 @@ namespace Models
 
 
       protected:
-        // The time when the parameter was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> modifyTime_ {};
-        // The parameter value after modification.
         shared_ptr<string> newParameterValue_ {};
-        // The parameter value before modification.
         shared_ptr<string> oldParameterValue_ {};
-        // The name of the parameter.
         shared_ptr<string> parameterName_ {};
       };
 
@@ -150,7 +146,6 @@ namespace Models
 
 
   protected:
-    // The modification records of the parameters.
     shared_ptr<DescribeParameterModificationHistoryResponseBody::HistoricalParameters> historicalParameters_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

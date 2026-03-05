@@ -247,21 +247,13 @@ namespace Models
 
 
           protected:
-            // The additional activity information.
             Darabonba::Json activityExtInfo_ {};
-            // The derived promotion type.
             shared_ptr<string> derivedPromType_ {};
-            // The discount amount.
             shared_ptr<double> finalPromFee_ {};
-            // The coupon code.
             shared_ptr<string> optionCode_ {};
-            // The promotion type.
             shared_ptr<string> promType_ {};
-            // The promotion code.
             shared_ptr<string> promotionCode_ {};
-            // The promotion ID.
             shared_ptr<int64_t> promotionId_ {};
-            // The promotion name.
             shared_ptr<string> promotionName_ {};
           };
 
@@ -411,28 +403,15 @@ namespace Models
 
 
           protected:
-            // The additional activity information.
             Darabonba::Json activityExtInfo_ {};
-            // The amount that can be deducted by using the coupon.
             shared_ptr<string> canPromFee_ {};
-            // Indicates whether coupons are used. Valid values:
-            // 
-            // *   default or null (default): Coupons are used.
-            // *   youhuiquan_promotion_option_id_for_blank: Coupons are not used.
             shared_ptr<string> couponNo_ {};
-            // The description of the coupon.
             shared_ptr<string> description_ {};
-            // The coupon name.
             shared_ptr<string> name_ {};
-            // The promotion code.
             shared_ptr<string> optionCode_ {};
-            // The promotion name.
             shared_ptr<string> promotionName_ {};
-            // The promotion ID.
             shared_ptr<string> promotionOptionNo_ {};
-            // Indicates whether the promotion option is selected.
             shared_ptr<bool> selected_ {};
-            // Indicates whether the discount is displayed.
             shared_ptr<bool> show_ {};
           };
 
@@ -585,13 +564,9 @@ namespace Models
 
 
               protected:
-                // The attribute code.
                 shared_ptr<string> code_ {};
-                // The attribute name.
                 shared_ptr<string> name_ {};
-                // The attribute type.
                 shared_ptr<int64_t> type_ {};
-                // The attribute value.
                 shared_ptr<string> value_ {};
               };
 
@@ -720,25 +695,15 @@ namespace Models
 
 
             protected:
-              // The price reduction rate.
               shared_ptr<double> cheapRate_ {};
-              // The new total price displayed on the official website.
               shared_ptr<double> cheapStandAmount_ {};
-              // The promotional offer (displayed in the total order amount).
               shared_ptr<double> differential_ {};
-              // The name of the promotional offer.
               shared_ptr<string> differentialName_ {};
-              // Indicates whether eligibility for the contracted discount is met.
               shared_ptr<bool> isContractActivity_ {};
-              // Indicates whether the price reduction rate is displayed.
               shared_ptr<bool> isShow_ {};
-              // The list price.
               shared_ptr<double> listPrice_ {};
-              // The monthly price.
               shared_ptr<double> monthPrice_ {};
-              // The original total price displayed on the official website.
               shared_ptr<double> originalStandAmount_ {};
-              // The start time of the activity.
               shared_ptr<string> startTime_ {};
             };
 
@@ -835,29 +800,17 @@ namespace Models
 
 
           protected:
-            // Indicates whether eligibility for the contracted discount is met.
             shared_ptr<bool> contractActivity_ {};
-            // The price reduction information.
             shared_ptr<ModuleInstanceItem::DepreciateInfo> depreciateInfo_ {};
-            // The discount.
             shared_ptr<double> discountFee_ {};
-            // The module attributes.
             shared_ptr<ModuleInstanceItem::ModuleAttrs> moduleAttrs_ {};
-            // The module code.
             shared_ptr<string> moduleCode_ {};
-            // The module ID.
             shared_ptr<string> moduleId_ {};
-            // The module name.
             shared_ptr<string> moduleName_ {};
-            // Indicates whether the order is paid.
             shared_ptr<bool> needOrderPay_ {};
-            // The actual amount paid.
             shared_ptr<double> payFee_ {};
-            // Indicates whether the item is billed.
             shared_ptr<bool> pricingModule_ {};
-            // The discounted price.
             shared_ptr<double> standPrice_ {};
-            // The original price of the instance.
             shared_ptr<double> totalProductFee_ {};
           };
 
@@ -1031,19 +984,12 @@ namespace Models
 
 
           protected:
-            // The activity ID.
             shared_ptr<int64_t> activityId_ {};
-            // The activity name.
             shared_ptr<string> activityName_ {};
-            // The preferential price.
             shared_ptr<double> finalFee_ {};
-            // The total discount amount.
             shared_ptr<double> finalPromFee_ {};
-            // The promotion ID.
             shared_ptr<string> optionCode_ {};
-            // The promotion IDs.
             shared_ptr<ContractActivity::OptionIds> optionIds_ {};
-            // The original price.
             shared_ptr<double> prodFee_ {};
           };
 
@@ -1123,25 +1069,15 @@ namespace Models
 
 
         protected:
-          // The price reduction rate.
           shared_ptr<int64_t> cheapRate_ {};
-          // The new total price displayed on the official website.
           shared_ptr<int64_t> cheapStandAmount_ {};
-          // The contract promotion.
           shared_ptr<DepreciateInfo::ContractActivity> contractActivity_ {};
-          // The promotional offer (displayed in the total order amount).
           shared_ptr<int64_t> differential_ {};
-          // The name of the promotional offer.
           shared_ptr<string> differentialName_ {};
-          // Indicates whether eligibility for the contracted discount is met.
           shared_ptr<bool> isContractActivity_ {};
-          // The list price.
           shared_ptr<int64_t> listPrice_ {};
-          // The monthly price.
           shared_ptr<int64_t> monthPrice_ {};
-          // The original total price displayed on the official website.
           shared_ptr<int64_t> originalStandAmount_ {};
-          // The start time of the activity.
           shared_ptr<string> startTime_ {};
         };
 
@@ -1251,31 +1187,18 @@ namespace Models
 
 
       protected:
-        // Indicates whether eligibility for the contracted discount is met.
         shared_ptr<bool> contractActivity_ {};
-        // The price reduction information.
         shared_ptr<SubOrder::DepreciateInfo> depreciateInfo_ {};
-        // The discount amount of the order.
         shared_ptr<string> discountAmount_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // Indicates whether eligibility for the contracted discount is met.
         shared_ptr<bool> isContractActivity_ {};
-        // The configuration details for each instance of an order line item.
         shared_ptr<SubOrder::ModuleInstance> moduleInstance_ {};
-        // The optional promotions.
         shared_ptr<SubOrder::OptionalPromotions> optionalPromotions_ {};
-        // The original price of the order.
         shared_ptr<string> originalAmount_ {};
-        // Details about promotions.
         shared_ptr<SubOrder::PromDetailList> promDetailList_ {};
-        // The hit rule IDs.
         shared_ptr<SubOrder::RuleIds> ruleIds_ {};
-        // The discounted price.
         shared_ptr<int64_t> standDiscountPrice_ {};
-        // The discounted price.
         shared_ptr<int64_t> standPrice_ {};
-        // The transaction price of the order.
         shared_ptr<string> tradeAmount_ {};
       };
 
@@ -1359,11 +1282,8 @@ namespace Models
 
 
       protected:
-        // The name of the rule.
         shared_ptr<string> name_ {};
-        // The ID of the rule.
         shared_ptr<int64_t> ruleDescId_ {};
-        // The title of the rule.
         shared_ptr<string> title_ {};
       };
 
@@ -1625,7 +1545,6 @@ namespace Models
           shared_ptr<double> finalPromFee_ {};
           // The promotion code.
           shared_ptr<string> optionCode_ {};
-          // The promotion IDs.
           shared_ptr<ContractActivity::OptionIds> optionIds_ {};
           // The original price.
           shared_ptr<double> prodFee_ {};
@@ -1804,13 +1723,9 @@ namespace Models
 
 
         protected:
-          // The coupon ID.
           shared_ptr<string> couponNo_ {};
-          // The coupon description.
           shared_ptr<string> description_ {};
-          // Indicates whether the coupon is selected.
           shared_ptr<string> isSelected_ {};
-          // The coupon name.
           shared_ptr<string> name_ {};
         };
 
@@ -1939,7 +1854,6 @@ namespace Models
     protected:
       // The order code.
       shared_ptr<string> code_ {};
-      // Details about coupons.
       shared_ptr<Order::Coupons> coupons_ {};
       // The currency used for payment. A value of CNY is used when the order was generated on the China site (aliyun.com), and a value of USD is used when the order was generated on the international site (alibabacloud.com).
       shared_ptr<string> currency_ {};
@@ -1955,7 +1869,6 @@ namespace Models
       shared_ptr<string> message_ {};
       // The original price of the order.
       shared_ptr<string> originalAmount_ {};
-      // The rule IDs.
       shared_ptr<Order::RuleIds> ruleIds_ {};
       // Indicates whether the discount information is displayed.
       shared_ptr<bool> showDiscountInfo_ {};
@@ -2017,9 +1930,7 @@ namespace Models
     shared_ptr<string> orderParams_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details about promotion rules.
     shared_ptr<DescribePriceResponseBody::Rules> rules_ {};
-    // The orders that match the coupons.
     shared_ptr<DescribePriceResponseBody::SubOrders> subOrders_ {};
   };
 

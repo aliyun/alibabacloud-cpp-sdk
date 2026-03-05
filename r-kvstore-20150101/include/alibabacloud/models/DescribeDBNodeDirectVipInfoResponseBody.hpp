@@ -109,15 +109,9 @@ namespace Models
 
 
       protected:
-        // The network type of the security group. Valid values:
-        // 
-        // *   **vpc**: Virtual Private Cloud (VPC)
         shared_ptr<string> netType_ {};
-        // The shard ID.
         shared_ptr<string> nodeId_ {};
-        // The port number. Valid values: **1024** to **65535**. Default value: **6379**.
         shared_ptr<string> port_ {};
-        // The VIP of the shard.
         shared_ptr<string> vip_ {};
       };
 
@@ -161,7 +155,6 @@ namespace Models
 
 
   protected:
-    // The VIP information of shards in the cluster instance.
     shared_ptr<DescribeDBNodeDirectVipInfoResponseBody::DirectVipInfo> directVipInfo_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};

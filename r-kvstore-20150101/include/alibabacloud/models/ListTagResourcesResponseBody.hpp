@@ -109,13 +109,9 @@ namespace Models
 
 
       protected:
-        // The resource ID, which is also the ID of the instance.
         shared_ptr<string> resourceId_ {};
-        // The resource type. The return value is **ALIYUN::KVSTORE::INSTANCE**. This value indicates a Tair (Redis OSS-compatible) instance.
         shared_ptr<string> resourceType_ {};
-        // The keys of the tags.
         shared_ptr<string> tagKey_ {};
-        // The values of the tags.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -163,7 +159,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Details about the instances and tags.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

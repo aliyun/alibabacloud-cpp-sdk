@@ -151,15 +151,10 @@ namespace Models
 
 
       protected:
-        // The name of the region.
         shared_ptr<string> localName_ {};
-        // The endpoint of the region.
         shared_ptr<string> regionEndpoint_ {};
-        // The ID of the region.
         shared_ptr<string> regionId_ {};
-        // The zone IDs.
         shared_ptr<KVStoreRegion::ZoneIdList> zoneIdList_ {};
-        // The IDs of the zones in the region.
         shared_ptr<string> zoneIds_ {};
       };
 
@@ -196,7 +191,6 @@ namespace Models
 
 
   protected:
-    // The **region IDs**.
     shared_ptr<DescribeRegionsResponseBody::RegionIds> regionIds_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

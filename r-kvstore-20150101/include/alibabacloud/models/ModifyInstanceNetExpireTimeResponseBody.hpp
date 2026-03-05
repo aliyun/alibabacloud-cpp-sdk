@@ -118,15 +118,10 @@ namespace Models
 
 
       protected:
-        // The endpoint of the classic network.
         shared_ptr<string> connectionString_ {};
-        // The network type of the instance. The returned value is **Classic**.
         shared_ptr<string> DBInstanceNetType_ {};
-        // The expiration time of the classic network endpoint.
         shared_ptr<string> expiredTime_ {};
-        // The IP address of the instance in the classic network.
         shared_ptr<string> IPAddress_ {};
-        // The port number that is used to connect to the instance.
         shared_ptr<string> port_ {};
       };
 
@@ -172,7 +167,6 @@ namespace Models
   protected:
     // The ID of the instance.
     shared_ptr<string> instanceId_ {};
-    // Details about the extension period for which the classic network endpoint of the instance is retained.
     shared_ptr<ModifyInstanceNetExpireTimeResponseBody::NetInfoItems> netInfoItems_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

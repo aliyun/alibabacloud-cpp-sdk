@@ -93,7 +93,6 @@ namespace Models
 
 
   protected:
-    // The IDs of instances that were created.
     shared_ptr<CreateInstancesResponseBody::InstanceIds> instanceIds_ {};
     // The ID of the order.
     shared_ptr<string> orderId_ {};

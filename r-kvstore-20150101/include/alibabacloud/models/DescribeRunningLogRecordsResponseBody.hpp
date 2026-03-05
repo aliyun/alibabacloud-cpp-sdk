@@ -121,15 +121,9 @@ namespace Models
 
 
       protected:
-        // The content of the log.
         shared_ptr<string> content_ {};
-        // The time when the log was generated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The ID of the node.
-        // 
-        // >  If a standard instance is queried, `(null)` is returned.
         shared_ptr<string> nodeId_ {};
       };
 
@@ -220,7 +214,6 @@ namespace Models
     shared_ptr<string> engine_ {};
     // The ID of the instance.
     shared_ptr<string> instanceId_ {};
-    // Details about the log entries.
     shared_ptr<DescribeRunningLogRecordsResponseBody::Items> items_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

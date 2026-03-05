@@ -131,23 +131,11 @@ namespace Models
 
 
       protected:
-        // The check code that indicates the valid values of the parameter.
         shared_ptr<string> checkingCode_ {};
-        // Indicates whether the instance must be restarted for the modifications to take effect. Valid values:
-        // 
-        // *   **True**: The instance must be restarted for the modifications to take effect.
-        // *   **False**: The instance does not need to be restarted for the modifications to take effect. Modifications immediately take effect.
         shared_ptr<string> forceRestart_ {};
-        // Indicates whether the parameter can be reset. Valid values:
-        // 
-        // *   **False**: The parameter cannot be reset.
-        // *   **True**: The parameter can be reset.
         shared_ptr<string> modifiableStatus_ {};
-        // The description of the parameter.
         shared_ptr<string> parameterDescription_ {};
-        // The name of the parameter.
         shared_ptr<string> parameterName_ {};
-        // The value of the parameter.
         shared_ptr<string> parameterValue_ {};
       };
 
@@ -258,23 +246,11 @@ namespace Models
 
 
       protected:
-        // The check code that indicates the valid values of the parameter.
         shared_ptr<string> checkingCode_ {};
-        // Indicates whether the instance must be restarted for the modifications to take effect. Valid values:
-        // 
-        // *   **True**: The instance must be restarted for the modifications to take effect.
-        // *   **False**: The instance does not need to be restarted for the modifications to take effect. Modifications immediately take effect.
         shared_ptr<bool> forceRestart_ {};
-        // Indicates whether the parameter can be reset. Valid values:
-        // 
-        // *   **False**: The parameter cannot be reset.
-        // *   **True**: The parameter can be reset.
         shared_ptr<bool> modifiableStatus_ {};
-        // The description of the parameter.
         shared_ptr<string> parameterDescription_ {};
-        // The name of the parameter.
         shared_ptr<string> parameterName_ {};
-        // The value of the parameter.
         shared_ptr<string> parameterValue_ {};
       };
 
@@ -334,7 +310,6 @@ namespace Models
 
 
   protected:
-    // The configuration parameters that have not taken effect.
     shared_ptr<DescribeParametersResponseBody::ConfigParameters> configParameters_ {};
     // The database engine that the instance runs.
     shared_ptr<string> engine_ {};
@@ -342,7 +317,6 @@ namespace Models
     shared_ptr<string> engineVersion_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The running parameters.
     shared_ptr<DescribeParametersResponseBody::RunningParameters> runningParameters_ {};
   };
 

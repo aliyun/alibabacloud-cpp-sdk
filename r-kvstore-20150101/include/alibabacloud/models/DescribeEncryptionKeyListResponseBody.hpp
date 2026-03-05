@@ -84,7 +84,6 @@ namespace Models
 
 
   protected:
-    // The custom keys that are available in the region.
     shared_ptr<DescribeEncryptionKeyListResponseBody::KeyIds> keyIds_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

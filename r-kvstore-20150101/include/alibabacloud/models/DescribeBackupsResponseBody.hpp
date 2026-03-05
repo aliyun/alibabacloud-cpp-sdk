@@ -231,52 +231,21 @@ namespace Models
 
 
       protected:
-        // The names of the databases that are backed up. The default value is **all**, which indicates that all databases are backed up.
         shared_ptr<string> backupDBNames_ {};
-        // The public download URL of the backup file.
         shared_ptr<string> backupDownloadURL_ {};
-        // The end time of the backup.
         shared_ptr<string> backupEndTime_ {};
-        // The ID of the backup file.
         shared_ptr<int64_t> backupId_ {};
-        // The internal download URL of the backup file.
-        // 
-        // >  You can use this URL to download the backup file from an Elastic Compute Service (ECS) instance that is connected to the Tair instance. The ECS instance must belong to the same classic network or reside in the same virtual private cloud (VPC) as the Tair instance.
         shared_ptr<string> backupIntranetDownloadURL_ {};
-        // The ID of the backup task.
         shared_ptr<int64_t> backupJobID_ {};
-        // The backup method. Valid values:
-        // 
-        // *   **Logical**
-        // *   **Physical**
         shared_ptr<string> backupMethod_ {};
-        // The backup mode. Valid values:
-        // 
-        // *   **Automated**
-        // *   **Manual**
         shared_ptr<string> backupMode_ {};
-        // The size of the backup file.
         shared_ptr<int64_t> backupSize_ {};
-        // The start time of the backup.
         shared_ptr<string> backupStartTime_ {};
-        // The status of the backup. Valid values:
-        // 
-        // *   **Success**
-        // *   **Failed**
         shared_ptr<string> backupStatus_ {};
-        // The backup type. Valid values:
-        // 
-        // *   **FullBackup**
-        // *   **IncrementalBackup**
         shared_ptr<string> backupType_ {};
-        // The engine version (major version) of the instance.
         shared_ptr<string> engineVersion_ {};
         shared_ptr<string> expectExpireTime_ {};
-        // The node ID.
-        // 
-        // >  If the instance uses the standard architecture, this parameter returns the instance ID.
         shared_ptr<string> nodeInstanceId_ {};
-        // If the backup includes account information, kernel parameters and whitelist details.
         shared_ptr<string> recoverConfigMode_ {};
       };
 
@@ -467,7 +436,6 @@ namespace Models
   protected:
     // The following parameters are no longer used. Ignore the parameters.
     shared_ptr<DescribeBackupsResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The queried backup sets.
     shared_ptr<DescribeBackupsResponseBody::Backups> backups_ {};
     // This parameter does not take effect. Ignore this parameter.
     shared_ptr<int64_t> freeSize_ {};

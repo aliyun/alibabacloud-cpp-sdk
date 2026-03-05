@@ -219,9 +219,7 @@ namespace Models
 
 
           protected:
-            // The key of the tag.
             shared_ptr<string> key_ {};
-            // The value of the tag.
             shared_ptr<string> value_ {};
           };
 
@@ -560,159 +558,49 @@ namespace Models
 
 
       protected:
-        // The architecture of the instance. Default value: NULL. Valid values:
-        // 
-        // *   **cluster**: cluster architecture
-        // *   **standard**: standard architecture
-        // *   **rwsplit**: read/write splitting architecture
-        // *   **NULL**: all of the preceding architectures
         shared_ptr<string> architectureType_ {};
-        // The bandwidth of the instance. Unit: Mbit/s.
         shared_ptr<int64_t> bandwidth_ {};
-        // The storage capacity of the instance. Unit: MB.
         shared_ptr<int64_t> capacity_ {};
-        // The billing method of the instance. Valid values:
-        // 
-        // *   **PrePaid**: subscription
-        // *   **PostPaid**: pay-as-you-go
         shared_ptr<string> chargeType_ {};
-        // This parameter is returned only when the instance is in a cloud box.
         shared_ptr<string> cloudType_ {};
-        // The type of the computing resource. Valid values:
-        // 
-        // *   **Ecs**: cloud-native computing service
-        // *   **Machine**: physical machine
         shared_ptr<string> computingType_ {};
-        // The parameter configurations of the instance. For more information, see [Modify parameters of an instance](https://help.aliyun.com/document_detail/43885.html).
         shared_ptr<string> config_ {};
-        // The internal endpoint of the instance.
         shared_ptr<string> connectionDomain_ {};
-        // The connection mode of the instance. Valid values:
-        // 
-        // *   **Standard**: standard mode
-        // *   **Safe**: database proxy mode
         shared_ptr<string> connectionMode_ {};
-        // The maximum number of connections supported by the instance.
         shared_ptr<int64_t> connections_ {};
-        // The time when the instance was created.
         shared_ptr<string> createTime_ {};
-        // The time when the instance was deleted.
         shared_ptr<string> destroyTime_ {};
-        // The edition of the instance. Valid values:
-        // 
-        // *   **Community**: Redis Open-Source Edition
-        // *   **Enterprise**: Tair (Enterprise Edition)
         shared_ptr<string> editionType_ {};
-        // The time when the subscription instance expires.
         shared_ptr<string> endTime_ {};
-        // The database engine version of the instance.
         shared_ptr<string> engineVersion_ {};
-        // The ID of the distributed instance.
-        // 
-        // >  This parameter is returned only if the instance is a child instance of a distributed instance.
         shared_ptr<string> globalInstanceId_ {};
-        // Indicates whether your Alibaba Cloud account has pending orders for renewal and configuration change. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> hasRenewChangeOrder_ {};
-        // The instance class.
         shared_ptr<string> instanceClass_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The name of the instance.
         shared_ptr<string> instanceName_ {};
-        // The state of the instance. Valid values:
-        // 
-        // *   **Normal**: The instance is normal.
-        // *   **Creating**: The instance is being created.
-        // *   **Changing**: The configurations of the instance are being changed.
-        // *   **Inactive**: The instance is disabled.
-        // *   **Flushing**: The instance is being released.
-        // *   **Released**: The instance is released.
-        // *   **Transforming**: The billing method of the instance is being changed.
-        // *   **Unavailable**: The instance is unavailable.
-        // *   **Error**: The instance failed to be created.
-        // *   **Migrating**: The instance is being migrated.
-        // *   **BackupRecovering**: The instance is being restored from a backup.
-        // *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
-        // *   **NetworkModifying**: The network type of the instance is being changed.
-        // *   **SSLModifying**: The SSL configurations of the instance are being changed.
-        // *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
         shared_ptr<string> instanceStatus_ {};
-        // The database engine of the instance. Valid values:
-        // 
-        // *   **Tair**
-        // *   **Redis**
-        // *   **Memcache**
         shared_ptr<string> instanceType_ {};
-        // Indicates whether the instance is managed by ApsaraDB RDS. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> isRds_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   **CLASSIC**
-        // *   **VPC**
         shared_ptr<string> networkType_ {};
-        // The node type. Valid values:
-        // 
-        // *   **double**: The instance contains a master node and a replica node.
-        // *   **single**: The instance contains only a master node. This node type is phased out.
         shared_ptr<string> nodeType_ {};
-        // The plan type. Valid values:
-        // 
-        // *   **standard**: standard plan
-        // *   **customized**: custom plan
         shared_ptr<string> packageType_ {};
-        // The service port of the instance.
         shared_ptr<int64_t> port_ {};
-        // The private IP address.
-        // 
-        // >  This parameter is not returned when the instance is deployed in the classic network.
         shared_ptr<string> privateIp_ {};
-        // The number of queries per second (QPS).
         shared_ptr<int64_t> QPS_ {};
-        // The number of read replicas in the primary zone.
-        // 
-        // >  The **ReadOnlyCount** and **SlaveReadOnlyCount** parameters are applicable only to cloud-native instances for which read/write splitting is enabled. If the instance is a cluster instance, the preceding parameters indicate the number of read replicas **per node** in the primary and secondary zones of the instance.
         shared_ptr<string> readOnlyCount_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The logical ID of the distributed instance.
         shared_ptr<string> replacateId_ {};
-        // The number of replica nodes in the primary zone.
-        // 
-        // >  The **ReplicaCount** and **SlaveReplicaCount** parameters are applicable only to cloud-native instances. If the instance is a cluster instance, the preceding parameters indicate the number of replica nodes **per node** in the primary and secondary zones of the instance.
         shared_ptr<int32_t> replicaCount_ {};
-        // The ID of the resource group to which the instance belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The ID of the secondary zone.
-        // 
-        // >  If multiple zones are returned for **ZoneId**, such as cn-hangzhou-MAZ10(h,i), this parameter is ignored.
         shared_ptr<string> secondaryZoneId_ {};
-        // The shard class. For more information about shard classes, see [Overview](https://help.aliyun.com/document_detail/26350.html).
-        // 
-        // >  The overall performance of a cluster instance is calculated by multiplying the class of a single shard (ShardClass) by the number of shards (ShardCount).
         shared_ptr<string> shardClass_ {};
-        // The number of data shards in the cluster instance.
-        // 
-        // >  This parameter is returned only for cloud-native cluster instances or read/write splitting instances.
         shared_ptr<int32_t> shardCount_ {};
-        // The number of read replicas in the secondary zone.
         shared_ptr<int32_t> slaveReadOnlyCount_ {};
-        // The number of replica nodes in the secondary zone.
         shared_ptr<int32_t> slaveReplicaCount_ {};
-        // Details about the tags.
         shared_ptr<KVStoreInstance::Tags> tags_ {};
-        // The username used to connect to the instance. By default, a username named after the instance ID is included.
         shared_ptr<string> userName_ {};
-        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
-        // The ID of the virtual private cloud (VPC).
         shared_ptr<string> vpcId_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -770,7 +658,6 @@ namespace Models
 
 
   protected:
-    // Details about the instances.
     shared_ptr<DescribeInstancesResponseBody::Instances> instances_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

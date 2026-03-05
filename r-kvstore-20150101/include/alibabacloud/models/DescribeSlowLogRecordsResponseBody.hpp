@@ -167,23 +167,14 @@ namespace Models
 
 
       protected:
-        // The ID of the account.
         shared_ptr<string> account_ {};
-        // The username of the account.
         shared_ptr<string> accountName_ {};
-        // The slow query statement.
         shared_ptr<string> command_ {};
-        // The database name.
         shared_ptr<string> DBName_ {};
-        // The database name. This parameter serves the same purpose as the **DBName** parameter. We recommend that you use the **DBName** parameter.
         shared_ptr<string> dataBaseName_ {};
-        // The amount of time consumed to execute the slow query statement. Unit: microseconds.
         shared_ptr<int64_t> elapsedTime_ {};
-        // The start time when the slow query statement was executed. The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> executeTime_ {};
-        // The IP address of the client.
         shared_ptr<string> IPAddress_ {};
-        // The node ID.
         shared_ptr<string> nodeId_ {};
       };
 
@@ -274,7 +265,6 @@ namespace Models
     shared_ptr<string> engine_ {};
     // The ID of the instance.
     shared_ptr<string> instanceId_ {};
-    // The slow query log entries.
     shared_ptr<DescribeSlowLogRecordsResponseBody::Items> items_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

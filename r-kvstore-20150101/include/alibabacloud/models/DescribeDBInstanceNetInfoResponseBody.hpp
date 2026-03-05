@@ -183,44 +183,17 @@ namespace Models
 
 
       protected:
-        // The endpoint of the instance.
         shared_ptr<string> connectionString_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   **0**: Internet
-        // *   **1**: classic network
-        // *   **2**: Virtual Private Cloud (VPC)
         shared_ptr<string> DBInstanceNetType_ {};
-        // Indicates whether the address is a private endpoint. Valid values:
-        // 
-        // *   **0**: The address is not a private endpoint.
-        // *   **1**: The address is a private endpoint.
         shared_ptr<int32_t> directConnection_ {};
-        // The expiration time of the classic network endpoint. Unit: seconds.
         shared_ptr<string> expiredTime_ {};
-        // The IP address.
         shared_ptr<string> IPAddress_ {};
-        // The network type of the IP address. Valid values:
-        // 
-        // *   **Public**: Internet
-        // *   **Inner**: classic network
-        // *   **Private**: VPC
         shared_ptr<string> IPType_ {};
-        // Indicates whether the address is the endpoint for the secondary zone. Valid values: 1 and 0. A value of 1 indicates that the address is the endpoint for the secondary zone.
-        // 
-        // >  This parameter is returned only after you enable the multi-zone read/write splitting architecture for the instance.
         shared_ptr<int32_t> isSlaveProxy_ {};
-        // The service port of the instance.
         shared_ptr<string> port_ {};
-        // The remaining validity period of the classic network endpoint. Unit: seconds.
-        // 
-        // >  **A value of 0 indicates that the endpoint never expires.
         shared_ptr<string> upgradeable_ {};
-        // The ID of the VPC to which the instance belongs.
         shared_ptr<string> VPCId_ {};
-        // The instance ID.
         shared_ptr<string> VPCInstanceId_ {};
-        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
       };
 
@@ -269,7 +242,6 @@ namespace Models
     // *   **CLASSIC**: The instance runs in a classic network.
     // *   **VPC**: The instance runs in a virtual private cloud (VPC).
     shared_ptr<string> instanceNetworkType_ {};
-    // The network information about the instance.
     shared_ptr<DescribeDBInstanceNetInfoResponseBody::NetInfoItems> netInfoItems_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

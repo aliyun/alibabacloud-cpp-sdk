@@ -125,23 +125,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether Tair (Redis OSS-compatible) instances can be created in the current zone. Valid values:
-        // 
-        // *   **true**: Tair (Redis OSS-compatible) instances cannot be created in the current zone.
-        // *   **false**: Tair (Redis OSS-compatible) instances can be created in the current zone.
         shared_ptr<bool> disabled_ {};
-        // Indicates whether the zone is managed by ApsaraDB RDS. The return value of this parameter is **true** in Tair (Redis OSS-compatible).
         shared_ptr<bool> isRds_ {};
-        // The ID of the region.
         shared_ptr<string> regionId_ {};
-        // Indicates whether the network type of the instance can be changed from the classic network to Virtual Private Cloud (VPC). Valid values:
-        // 
-        // *   **true**: The network type of the instance can be changed from the classic network to VPC.
-        // *   **false**: The network type of the instance cannot be changed from the classic network to VPC.
         shared_ptr<bool> switchNetwork_ {};
-        // The ID of the zone within the specified region.
         shared_ptr<string> zoneId_ {};
-        // The name of the zone within the specified region.
         shared_ptr<string> zoneName_ {};
       };
 
@@ -180,7 +168,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The queried zones.
     shared_ptr<DescribeZonesResponseBody::Zones> zones_ {};
   };
 

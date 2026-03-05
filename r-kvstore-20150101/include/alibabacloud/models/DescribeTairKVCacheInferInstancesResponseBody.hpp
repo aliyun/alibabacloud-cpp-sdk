@@ -183,9 +183,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -394,62 +392,31 @@ namespace Models
 
 
       protected:
-        // The ACK cluster ID corresponding to the virtual cluster instance.
         shared_ptr<string> ackId_ {};
-        // The capacity of the KVCache. Unit: GB.
         shared_ptr<int64_t> capacity_ {};
-        // The billing method of the instance.
         shared_ptr<string> chargeType_ {};
-        // The number of compute units.
         shared_ptr<int32_t> computeUnitNum_ {};
-        // The creation time of the instance.
         shared_ptr<string> createTime_ {};
-        // The time when the instance was deleted.
         shared_ptr<string> destroyTime_ {};
         shared_ptr<int32_t> elasticVNodeCount_ {};
-        // The time when the subscription instance expires.
         shared_ptr<string> endTime_ {};
         shared_ptr<int32_t> fixedVNodeCount_ {};
-        // The instance type.
         shared_ptr<string> instanceClass_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // The instance state. Valid values:
-        // 
-        // *   **Normal**: The instance is normal.
-        // *   **Creating**: The instance is being created.
         shared_ptr<string> instanceStatus_ {};
-        // The type of the instance. Valid values:
-        // 
-        // *   **TairInfer**: the inference operator instance
-        // *   **TairKVCacheVnode**: the virtual cluster instance.
-        // *   **TairKVCacheService**: the cache service instance.
         shared_ptr<string> instanceType_ {};
-        // The built-in model of the inference operator instance.
         shared_ptr<string> model_ {};
-        // The number of model services of the inference operator instance.
         shared_ptr<int32_t> modelServiceNum_ {};
-        // The network type of the instance.
         shared_ptr<string> networkType_ {};
-        // The private IP address of the instance. This parameter is deprecated.
         shared_ptr<string> privateIp_ {};
-        // The region ID of the instance.
         shared_ptr<string> regionId_ {};
-        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // Details of the tags.
         shared_ptr<TairInferInstanceDTO::Tags> tags_ {};
-        // The number of vNodes in the virtual cluster.
         shared_ptr<int32_t> VNodeCount_ {};
-        // The list of vNode instance names under the virtual cluster instance. This parameter is deprecated.
         shared_ptr<string> VNodeName_ {};
-        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The VPC ID of the instance.
         shared_ptr<string> vpcId_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -507,7 +474,6 @@ namespace Models
 
 
   protected:
-    // The information about the returned Tair (Redis OSS-compatible) KVCache instance.
     shared_ptr<DescribeTairKVCacheInferInstancesResponseBody::Instances> instances_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

@@ -253,7 +253,7 @@ AllocateDirectConnectionResponse Client::allocateDirectConnection(const Allocate
 }
 
 /**
- * @summary Applies for a public endpoint for an ApsaraDB for Redis instance.
+ * @summary Applies for a public endpoint for a Tair (Redis OSS-compatible) instance.
  *
  * @description You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
  *
@@ -314,7 +314,7 @@ AllocateInstancePublicConnectionResponse Client::allocateInstancePublicConnectio
 }
 
 /**
- * @summary Applies for a public endpoint for an ApsaraDB for Redis instance.
+ * @summary Applies for a public endpoint for a Tair (Redis OSS-compatible) instance.
  *
  * @description You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
  *
@@ -942,6 +942,10 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
     query["InstanceClass"] = request.getInstanceClass();
   }
 
+  if (!!request.hasInstanceEndpointType()) {
+    query["InstanceEndpointType"] = request.getInstanceEndpointType();
+  }
+
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
   }
@@ -1285,7 +1289,7 @@ CreateParameterGroupResponse Client::createParameterGroup(const CreateParameterG
 }
 
 /**
- * @summary 创建TairCustom实例
+ * @summary Creates a TairCustom instance.
  *
  * @param request CreateTCInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1420,7 +1424,7 @@ CreateTCInstanceResponse Client::createTCInstanceWithOptions(const CreateTCInsta
 }
 
 /**
- * @summary 创建TairCustom实例
+ * @summary Creates a TairCustom instance.
  *
  * @param request CreateTCInstanceRequest
  * @return CreateTCInstanceResponse
@@ -1508,6 +1512,10 @@ CreateTairInstanceResponse Client::createTairInstanceWithOptions(const CreateTai
 
   if (!!request.hasInstanceClass()) {
     query["InstanceClass"] = request.getInstanceClass();
+  }
+
+  if (!!request.hasInstanceEndpointType()) {
+    query["InstanceEndpointType"] = request.getInstanceEndpointType();
   }
 
   if (!!request.hasInstanceName()) {
@@ -2023,7 +2031,7 @@ DeleteGlobalSecurityIPGroupResponse Client::deleteGlobalSecurityIPGroup(const De
 }
 
 /**
- * @summary Release the Redis instance.
+ * @summary Releases a Tair (Redis OSS-compatible) instance.
  *
  * @description For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
  * Before you call this operation, make sure that the following requirements are met:
@@ -2084,7 +2092,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 }
 
 /**
- * @summary Release the Redis instance.
+ * @summary Releases a Tair (Redis OSS-compatible) instance.
  *
  * @description For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
  * Before you call this operation, make sure that the following requirements are met:
@@ -2379,7 +2387,7 @@ DescribeActiveOperationMaintenanceConfigResponse Client::describeActiveOperation
 }
 
 /**
- * @summary Queries the details of the O\\&M tasks of a Tair (Redis OSS-compatible) instance.
+ * @summary Queries the details of the O\\\\\\&M tasks of a Tair (Redis OSS-compatible) instance.
  *
  * @description After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](https://help.aliyun.com/document_detail/473864.html) operation to modify the scheduled switchover time of the O&M task.
  *
@@ -2448,7 +2456,7 @@ DescribeActiveOperationTaskResponse Client::describeActiveOperationTaskWithOptio
 }
 
 /**
- * @summary Queries the details of the O\\&M tasks of a Tair (Redis OSS-compatible) instance.
+ * @summary Queries the details of the O\\\\\\&M tasks of a Tair (Redis OSS-compatible) instance.
  *
  * @description After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](https://help.aliyun.com/document_detail/473864.html) operation to modify the scheduled switchover time of the O&M task.
  *
@@ -2523,7 +2531,7 @@ DescribeActiveOperationTaskCountResponse Client::describeActiveOperationTaskCoun
 }
 
 /**
- * @summary Queries the O\\\\\\\\\\\\&M event details of an instance.
+ * @summary Queries the O\\\\\\\\\\\\\\\\\\\\&M event details of an instance.
  *
  * @param request DescribeActiveOperationTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2614,7 +2622,7 @@ DescribeActiveOperationTasksResponse Client::describeActiveOperationTasksWithOpt
 }
 
 /**
- * @summary Queries the O\\\\\\\\\\\\&M event details of an instance.
+ * @summary Queries the O\\\\\\\\\\\\\\\\\\\\&M event details of an instance.
  *
  * @param request DescribeActiveOperationTasksRequest
  * @return DescribeActiveOperationTasksResponse
@@ -3479,7 +3487,7 @@ DescribeDBInstanceMonitorResponse Client::describeDBInstanceMonitor(const Descri
 }
 
 /**
- * @summary Queries the network information of an ApsaraDB for Redis instance.
+ * @summary Queries the network information of a Tair (Redis OSS-compatible) instance.
  *
  * @param request DescribeDBInstanceNetInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3534,7 +3542,7 @@ DescribeDBInstanceNetInfoResponse Client::describeDBInstanceNetInfoWithOptions(c
 }
 
 /**
- * @summary Queries the network information of an ApsaraDB for Redis instance.
+ * @summary Queries the network information of a Tair (Redis OSS-compatible) instance.
  *
  * @param request DescribeDBInstanceNetInfoRequest
  * @return DescribeDBInstanceNetInfoResponse
@@ -4881,7 +4889,7 @@ DescribeInstanceConfigResponse Client::describeInstanceConfig(const DescribeInst
 }
 
 /**
- * @summary Queries whether TLS (SSL) encryption is enabled for an instance.
+ * @summary Queries whether TLS (SSL) encryption is enabled for a Tair (Redis OSS-compatible) instance.
  *
  * @description SSL encryption is supported for Tair (Redis OSS-compatible) 2.8 standard master-replica instances, Tair (Redis OSS-compatible) 2.8 master-replica cluster instances, and Tair (Redis OSS-compatible) 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
  * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for a Tair (Redis OSS-compatible) instance:
@@ -4938,7 +4946,7 @@ DescribeInstanceSSLResponse Client::describeInstanceSSLWithOptions(const Describ
 }
 
 /**
- * @summary Queries whether TLS (SSL) encryption is enabled for an instance.
+ * @summary Queries whether TLS (SSL) encryption is enabled for a Tair (Redis OSS-compatible) instance.
  *
  * @description SSL encryption is supported for Tair (Redis OSS-compatible) 2.8 standard master-replica instances, Tair (Redis OSS-compatible) 2.8 master-replica cluster instances, and Tair (Redis OSS-compatible) 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
  * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for a Tair (Redis OSS-compatible) instance:
@@ -5297,7 +5305,7 @@ DescribeInstancesOverviewResponse Client::describeInstancesOverview(const Descri
 }
 
 /**
- * @summary Queries the internal bandwidth of a Tair (Redis OSS-compatible) instance.
+ * @summary Queries the current bandwidth of a Tair (Redis OSS-compatible) instance.
  *
  * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to increase the internal bandwidth of an instance.
  *
@@ -5354,7 +5362,7 @@ DescribeIntranetAttributeResponse Client::describeIntranetAttributeWithOptions(c
 }
 
 /**
- * @summary Queries the internal bandwidth of a Tair (Redis OSS-compatible) instance.
+ * @summary Queries the current bandwidth of a Tair (Redis OSS-compatible) instance.
  *
  * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to increase the internal bandwidth of an instance.
  *
@@ -6139,7 +6147,7 @@ DescribePriceResponse Client::describePrice(const DescribePriceRequest &request)
 }
 
 /**
- * @summary Queries the regions in which ApsaraDB for Redis instances can be created.
+ * @summary Queries all regions and zones supported for a Tair (Redis OSS-compatible) instance.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6190,7 +6198,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Queries the regions in which ApsaraDB for Redis instances can be created.
+ * @summary Queries all regions and zones supported for a Tair (Redis OSS-compatible) instance.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -6753,7 +6761,7 @@ DescribeTagsResponse Client::describeTags(const DescribeTagsRequest &request) {
 }
 
 /**
- * @summary 查看TairCustom实例
+ * @summary Queries the details of a TairKVCache instance.
  *
  * @param request DescribeTairKVCacheCustomInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6780,7 +6788,7 @@ DescribeTairKVCacheCustomInstanceAttributeResponse Client::describeTairKVCacheCu
 }
 
 /**
- * @summary 查看TairCustom实例
+ * @summary Queries the details of a TairKVCache instance.
  *
  * @param request DescribeTairKVCacheCustomInstanceAttributeRequest
  * @return DescribeTairKVCacheCustomInstanceAttributeResponse
@@ -6791,7 +6799,7 @@ DescribeTairKVCacheCustomInstanceAttributeResponse Client::describeTairKVCacheCu
 }
 
 /**
- * @summary 查询TairCustom主机监控
+ * @summary Queries the monitoring data of a Tair-KVCache instance.
  *
  * @param request DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6818,7 +6826,7 @@ DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse Client::describeTa
 }
 
 /**
- * @summary 查询TairCustom主机监控
+ * @summary Queries the monitoring data of a Tair-KVCache instance.
  *
  * @param request DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
  * @return DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse
@@ -6829,7 +6837,7 @@ DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse Client::describeTa
 }
 
 /**
- * @summary 查看TairCustom实例
+ * @summary Queries Tair-KVCache instances.
  *
  * @param request DescribeTairKVCacheCustomInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6856,7 +6864,7 @@ DescribeTairKVCacheCustomInstancesResponse Client::describeTairKVCacheCustomInst
 }
 
 /**
- * @summary 查看TairCustom实例
+ * @summary Queries Tair-KVCache instances.
  *
  * @param request DescribeTairKVCacheCustomInstancesRequest
  * @return DescribeTairKVCacheCustomInstancesResponse
@@ -6947,7 +6955,7 @@ DescribeTairKVCacheInferInstancesResponse Client::describeTairKVCacheInferInstan
 }
 
 /**
- * @summary Queries the zones available for Tair (Redis OSS-compatible).
+ * @summary Queries the zones that support Tair (Redis OSS-compatible) in a specific region. To query the zones where Tair (Redis OSS-compatible) instances can be purchased, call the DescribeAvailableResource operation.
  *
  * @param request DescribeZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7002,7 +7010,7 @@ DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesReques
 }
 
 /**
- * @summary Queries the zones available for Tair (Redis OSS-compatible).
+ * @summary Queries the zones that support Tair (Redis OSS-compatible) in a specific region. To query the zones where Tair (Redis OSS-compatible) instances can be purchased, call the DescribeAvailableResource operation.
  *
  * @param request DescribeZonesRequest
  * @return DescribeZonesResponse
@@ -7621,7 +7629,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Places a write lock on an instance. After the instance is locked, it supports only read operations.
+ * @summary Locks an instance. After the instance is locked, you can only read data from the instance, but cannot write data to the instance.
  *
  * @param request LockDBInstanceWriteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7676,7 +7684,7 @@ LockDBInstanceWriteResponse Client::lockDBInstanceWriteWithOptions(const LockDBI
 }
 
 /**
- * @summary Places a write lock on an instance. After the instance is locked, it supports only read operations.
+ * @summary Locks an instance. After the instance is locked, you can only read data from the instance, but cannot write data to the instance.
  *
  * @param request LockDBInstanceWriteRequest
  * @return LockDBInstanceWriteResponse
@@ -7935,7 +7943,7 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescription(const ModifyAc
 }
 
 /**
- * @summary Changes the password of a specific account for a Tair (Redis OSS-compatible) instance.
+ * @summary Modifies the password of an account for a Tair (Redis OSS-compatible) instance.
  *
  * @param request ModifyAccountPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8002,7 +8010,7 @@ ModifyAccountPasswordResponse Client::modifyAccountPasswordWithOptions(const Mod
 }
 
 /**
- * @summary Changes the password of a specific account for a Tair (Redis OSS-compatible) instance.
+ * @summary Modifies the password of an account for a Tair (Redis OSS-compatible) instance.
  *
  * @param request ModifyAccountPasswordRequest
  * @return ModifyAccountPasswordResponse
@@ -8091,7 +8099,7 @@ ModifyActiveOperationMaintainConfigResponse Client::modifyActiveOperationMaintai
 }
 
 /**
- * @summary Changes the scheduled switchover time of an O&M task.
+ * @summary Changes the scheduled switchover time of an O\\&M task.
  *
  * @description You can receive notifications for Tair (Redis OSS-compatible) events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the console. You can also change the scheduled switchover time of a task by using the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
  *
@@ -8148,7 +8156,7 @@ ModifyActiveOperationTaskResponse Client::modifyActiveOperationTaskWithOptions(c
 }
 
 /**
- * @summary Changes the scheduled switchover time of an O&M task.
+ * @summary Changes the scheduled switchover time of an O\\&M task.
  *
  * @description You can receive notifications for Tair (Redis OSS-compatible) events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the console. You can also change the scheduled switchover time of a task by using the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
  *
@@ -8455,7 +8463,7 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicy(const ModifyBackupPolicyRe
 }
 
 /**
- * @summary Modifies the setting related to the automatic update of minor versions for an instance.
+ * @summary Modifies the settings related to the automatic minor version update for an instance.
  *
  * @param request ModifyDBInstanceAutoUpgradeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8510,7 +8518,7 @@ ModifyDBInstanceAutoUpgradeResponse Client::modifyDBInstanceAutoUpgradeWithOptio
 }
 
 /**
- * @summary Modifies the setting related to the automatic update of minor versions for an instance.
+ * @summary Modifies the settings related to the automatic minor version update for an instance.
  *
  * @param request ModifyDBInstanceAutoUpgradeRequest
  * @return ModifyDBInstanceAutoUpgradeResponse
@@ -9271,7 +9279,7 @@ ModifyInstanceConfigResponse Client::modifyInstanceConfig(const ModifyInstanceCo
 }
 
 /**
- * @summary Modifies the maintenance window of an Tair (Redis OSS-compatible) instance. Alibaba Cloud maintains Tair (Redis OSS-compatible) instances during the specified maintenance window.
+ * @summary Modifies the maintenance window of a Tair (Redis OSS-compatible) instance. Alibaba Cloud maintains Tair (Redis OSS-compatible) instances during the specified maintenance window.
  *
  * @description You can also modify the maintenance window of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
  *
@@ -9332,7 +9340,7 @@ ModifyInstanceMaintainTimeResponse Client::modifyInstanceMaintainTimeWithOptions
 }
 
 /**
- * @summary Modifies the maintenance window of an Tair (Redis OSS-compatible) instance. Alibaba Cloud maintains Tair (Redis OSS-compatible) instances during the specified maintenance window.
+ * @summary Modifies the maintenance window of a Tair (Redis OSS-compatible) instance. Alibaba Cloud maintains Tair (Redis OSS-compatible) instances during the specified maintenance window.
  *
  * @description You can also modify the maintenance window of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
  *
@@ -10179,7 +10187,7 @@ ModifyParameterGroupResponse Client::modifyParameterGroup(const ModifyParameterG
 }
 
 /**
- * @summary Changes the resource group to which a Tair (Redis OSS-compatible) instance belongs.
+ * @summary Modifies the resource group to which a Tair (Redis OSS-compatible) instance belongs.
  *
  * @description You can also perform this operation in the [Resource Management](https://resourcemanager.console.aliyun.com/resource-center) console. For more information, see [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html).
  * >  Resource Group allows you to sort resources owned by your Alibaba Cloud account into groups. This simplifies the resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
@@ -10241,7 +10249,7 @@ ModifyResourceGroupResponse Client::modifyResourceGroupWithOptions(const ModifyR
 }
 
 /**
- * @summary Changes the resource group to which a Tair (Redis OSS-compatible) instance belongs.
+ * @summary Modifies the resource group to which a Tair (Redis OSS-compatible) instance belongs.
  *
  * @description You can also perform this operation in the [Resource Management](https://resourcemanager.console.aliyun.com/resource-center) console. For more information, see [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html).
  * >  Resource Group allows you to sort resources owned by your Alibaba Cloud account into groups. This simplifies the resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
@@ -10325,7 +10333,7 @@ ModifySecurityGroupConfigurationResponse Client::modifySecurityGroupConfiguratio
 }
 
 /**
- * @summary Modifies the IP address whitelists of a Tair (Redis OSS-compatible) instance.
+ * @summary Configures an IP address whitelist for a Tair (Redis OSS-compatible) instance.
  *
  * @description You can also modify the whitelists of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
  *
@@ -10394,7 +10402,7 @@ ModifySecurityIpsResponse Client::modifySecurityIpsWithOptions(const ModifySecur
 }
 
 /**
- * @summary Modifies the IP address whitelists of a Tair (Redis OSS-compatible) instance.
+ * @summary Configures an IP address whitelist for a Tair (Redis OSS-compatible) instance.
  *
  * @description You can also modify the whitelists of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
  *
@@ -10407,7 +10415,7 @@ ModifySecurityIpsResponse Client::modifySecurityIps(const ModifySecurityIpsReque
 }
 
 /**
- * @summary 修改TairCustom实例基本参数
+ * @summary Modifies the basic parameters of a Tair-KVCache instance.
  *
  * @param request ModifyTairKVCacheCustomInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10466,7 +10474,7 @@ ModifyTairKVCacheCustomInstanceAttributeResponse Client::modifyTairKVCacheCustom
 }
 
 /**
- * @summary 修改TairCustom实例基本参数
+ * @summary Modifies the basic parameters of a Tair-KVCache instance.
  *
  * @param request ModifyTairKVCacheCustomInstanceAttributeRequest
  * @return ModifyTairKVCacheCustomInstanceAttributeResponse
@@ -10625,7 +10633,7 @@ RebootProxyResponse Client::rebootProxy(const RebootProxyRequest &request) {
 }
 
 /**
- * @summary Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+ * @summary Releases the private endpoint of a Tair (Redis OSS-compatible) cluster instance.
  *
  * @description In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
  *
@@ -10678,7 +10686,7 @@ ReleaseDirectConnectionResponse Client::releaseDirectConnectionWithOptions(const
 }
 
 /**
- * @summary Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+ * @summary Releases the private endpoint of a Tair (Redis OSS-compatible) cluster instance.
  *
  * @description In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
  *
@@ -10909,7 +10917,7 @@ RenewAdditionalBandwidthResponse Client::renewAdditionalBandwidth(const RenewAdd
 }
 
 /**
- * @summary Renews an ApsaraDB for Redis instance.
+ * @summary Renews a Tair (Redis OSS-compatible) subscription instance.
  *
  * @description This operation is applicable only to subscription instances.
  *
@@ -10998,7 +11006,7 @@ RenewInstanceResponse Client::renewInstanceWithOptions(const RenewInstanceReques
 }
 
 /**
- * @summary Renews an ApsaraDB for Redis instance.
+ * @summary Renews a Tair (Redis OSS-compatible) subscription instance.
  *
  * @description This operation is applicable only to subscription instances.
  *
@@ -11089,7 +11097,7 @@ ResetAccountPasswordResponse Client::resetAccountPassword(const ResetAccountPass
 }
 
 /**
- * @summary 重置TairCustom上主机密码
+ * @summary Modifies the basic parameters of a Tair-KVCache instance.
  *
  * @param request ResetTairKVCacheCustomInstancePasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11148,7 +11156,7 @@ ResetTairKVCacheCustomInstancePasswordResponse Client::resetTairKVCacheCustomIns
 }
 
 /**
- * @summary 重置TairCustom上主机密码
+ * @summary Modifies the basic parameters of a Tair-KVCache instance.
  *
  * @param request ResetTairKVCacheCustomInstancePasswordRequest
  * @return ResetTairKVCacheCustomInstancePasswordResponse
@@ -11159,7 +11167,7 @@ ResetTairKVCacheCustomInstancePasswordResponse Client::resetTairKVCacheCustomIns
 }
 
 /**
- * @summary 变配TairCustom的主机的磁盘
+ * @summary Modifies the disk size of a Tair-KVCache instance.
  *
  * @param request ResizeTairKVCacheCustomInstanceDiskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11222,7 +11230,7 @@ ResizeTairKVCacheCustomInstanceDiskResponse Client::resizeTairKVCacheCustomInsta
 }
 
 /**
- * @summary 变配TairCustom的主机的磁盘
+ * @summary Modifies the disk size of a Tair-KVCache instance.
  *
  * @param request ResizeTairKVCacheCustomInstanceDiskRequest
  * @return ResizeTairKVCacheCustomInstanceDiskResponse
@@ -11233,7 +11241,7 @@ ResizeTairKVCacheCustomInstanceDiskResponse Client::resizeTairKVCacheCustomInsta
 }
 
 /**
- * @summary Restarts a running ApsaraDB for Redis instance.
+ * @summary Restarts a running Tair (Redis OSS-compatible) instance.
  *
  * @param request RestartInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11292,7 +11300,7 @@ RestartInstanceResponse Client::restartInstanceWithOptions(const RestartInstance
 }
 
 /**
- * @summary Restarts a running ApsaraDB for Redis instance.
+ * @summary Restarts a running Tair (Redis OSS-compatible) instance.
  *
  * @param request RestartInstanceRequest
  * @return RestartInstanceResponse
@@ -11303,7 +11311,7 @@ RestartInstanceResponse Client::restartInstance(const RestartInstanceRequest &re
 }
 
 /**
- * @summary 重启TairCustom的主机
+ * @summary Restarts a Tair-KVCache instance.
  *
  * @param request RestartTairKVCacheCustomInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11354,7 +11362,7 @@ RestartTairKVCacheCustomInstanceResponse Client::restartTairKVCacheCustomInstanc
 }
 
 /**
- * @summary 重启TairCustom的主机
+ * @summary Restarts a Tair-KVCache instance.
  *
  * @param request RestartTairKVCacheCustomInstanceRequest
  * @return RestartTairKVCacheCustomInstanceResponse
@@ -11453,7 +11461,7 @@ RestoreInstanceResponse Client::restoreInstance(const RestoreInstanceRequest &re
 }
 
 /**
- * @summary 启动TairCustom的主机
+ * @summary Starts a Tair-KVCache instance.
  *
  * @param request StartTairKVCacheCustomInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11504,7 +11512,7 @@ StartTairKVCacheCustomInstanceResponse Client::startTairKVCacheCustomInstanceWit
 }
 
 /**
- * @summary 启动TairCustom的主机
+ * @summary Starts a Tair-KVCache instance.
  *
  * @param request StartTairKVCacheCustomInstanceRequest
  * @return StartTairKVCacheCustomInstanceResponse
@@ -11515,7 +11523,7 @@ StartTairKVCacheCustomInstanceResponse Client::startTairKVCacheCustomInstance(co
 }
 
 /**
- * @summary 停止TairCustom的主机
+ * @summary Stops a Tair-KVCache instance.
  *
  * @param request StopTairKVCacheCustomInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11566,7 +11574,7 @@ StopTairKVCacheCustomInstanceResponse Client::stopTairKVCacheCustomInstanceWithO
 }
 
 /**
- * @summary 停止TairCustom的主机
+ * @summary Stops a Tair-KVCache instance.
  *
  * @param request StopTairKVCacheCustomInstanceRequest
  * @return StopTairKVCacheCustomInstanceResponse
@@ -12303,7 +12311,7 @@ TransformToPrePaidResponse Client::transformToPrePaid(const TransformToPrePaidRe
 }
 
 /**
- * @summary Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+ * @summary Unlocks a write-locked instance. After the instance is unlocked, you can read and write data to and from the instance.
  *
  * @param request UnlockDBInstanceWriteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12354,7 +12362,7 @@ UnlockDBInstanceWriteResponse Client::unlockDBInstanceWriteWithOptions(const Unl
 }
 
 /**
- * @summary Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+ * @summary Unlocks a write-locked instance. After the instance is unlocked, you can read and write data to and from the instance.
  *
  * @param request UnlockDBInstanceWriteRequest
  * @return UnlockDBInstanceWriteResponse

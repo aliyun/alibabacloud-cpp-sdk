@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GlobalInstanceId, globalInstanceId_);
       DARABONBA_PTR_TO_JSON(GlobalSecurityGroupIds, globalSecurityGroupIds_);
       DARABONBA_PTR_TO_JSON(InstanceClass, instanceClass_);
+      DARABONBA_PTR_TO_JSON(InstanceEndpointType, instanceEndpointType_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
@@ -78,6 +79,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GlobalInstanceId, globalInstanceId_);
       DARABONBA_PTR_FROM_JSON(GlobalSecurityGroupIds, globalSecurityGroupIds_);
       DARABONBA_PTR_FROM_JSON(InstanceClass, instanceClass_);
+      DARABONBA_PTR_FROM_JSON(InstanceEndpointType, instanceEndpointType_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
@@ -172,12 +174,13 @@ namespace Models
         && this->autoRenew_ == nullptr && this->autoRenewPeriod_ == nullptr && this->autoUseCoupon_ == nullptr && this->backupId_ == nullptr && this->businessInfo_ == nullptr
         && this->chargeType_ == nullptr && this->clientToken_ == nullptr && this->clusterBackupId_ == nullptr && this->connectionStringPrefix_ == nullptr && this->couponNo_ == nullptr
         && this->dryRun_ == nullptr && this->engineVersion_ == nullptr && this->globalInstanceId_ == nullptr && this->globalSecurityGroupIds_ == nullptr && this->instanceClass_ == nullptr
-        && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->paramGroupId_ == nullptr
-        && this->password_ == nullptr && this->period_ == nullptr && this->port_ == nullptr && this->privateIpAddress_ == nullptr && this->readOnlyCount_ == nullptr
-        && this->recoverConfigMode_ == nullptr && this->regionId_ == nullptr && this->replicaCount_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->restoreTime_ == nullptr && this->secondaryZoneId_ == nullptr && this->securityToken_ == nullptr && this->shardCount_ == nullptr
-        && this->shardType_ == nullptr && this->slaveReadOnlyCount_ == nullptr && this->slaveReplicaCount_ == nullptr && this->srcDBInstanceId_ == nullptr && this->storage_ == nullptr
-        && this->storageType_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->instanceEndpointType_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->paramGroupId_ == nullptr && this->password_ == nullptr && this->period_ == nullptr && this->port_ == nullptr && this->privateIpAddress_ == nullptr
+        && this->readOnlyCount_ == nullptr && this->recoverConfigMode_ == nullptr && this->regionId_ == nullptr && this->replicaCount_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->restoreTime_ == nullptr && this->secondaryZoneId_ == nullptr && this->securityToken_ == nullptr
+        && this->shardCount_ == nullptr && this->shardType_ == nullptr && this->slaveReadOnlyCount_ == nullptr && this->slaveReplicaCount_ == nullptr && this->srcDBInstanceId_ == nullptr
+        && this->storage_ == nullptr && this->storageType_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -288,6 +291,13 @@ namespace Models
     void deleteInstanceClass() { this->instanceClass_ = nullptr;};
     inline string getInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(instanceClass_, "") };
     inline CreateTairInstanceRequest& setInstanceClass(string instanceClass) { DARABONBA_PTR_SET_VALUE(instanceClass_, instanceClass) };
+
+
+    // instanceEndpointType Field Functions 
+    bool hasInstanceEndpointType() const { return this->instanceEndpointType_ != nullptr;};
+    void deleteInstanceEndpointType() { this->instanceEndpointType_ = nullptr;};
+    inline string getInstanceEndpointType() const { DARABONBA_PTR_GET_DEFAULT(instanceEndpointType_, "") };
+    inline CreateTairInstanceRequest& setInstanceEndpointType(string instanceEndpointType) { DARABONBA_PTR_SET_VALUE(instanceEndpointType_, instanceEndpointType) };
 
 
     // instanceName Field Functions 
@@ -572,6 +582,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceClass_ {};
+    shared_ptr<string> instanceEndpointType_ {};
     // The name of the instance. The name must meet the following requirements:
     // 
     // *   The name must be 2 to 80 characters in length.

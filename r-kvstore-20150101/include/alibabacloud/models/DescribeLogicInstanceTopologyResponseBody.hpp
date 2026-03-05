@@ -129,22 +129,11 @@ namespace Models
 
 
       protected:
-        // The bandwidth throttling of the node. Unit: MB/s.
         shared_ptr<string> bandwidth_ {};
-        // The storage capacity of the node. Unit: MB.
         shared_ptr<string> capacity_ {};
-        // The maximum number of connections.
         shared_ptr<string> connection_ {};
-        // The ID of the node.
         shared_ptr<string> nodeId_ {};
-        // The node type. Valid values:
-        // 
-        // *   **proxy**: proxy node
-        // *   **db**: data node
         shared_ptr<string> nodeType_ {};
-        // 子实例类型，返回值：
-        // * **master**：主节点类型。
-        // * **readonly**：只读实例类型。
         shared_ptr<string> subInstanceType_ {};
       };
 
@@ -246,18 +235,10 @@ namespace Models
 
 
       protected:
-        // The bandwidth throttling of the node. Unit: MB/s.
         shared_ptr<string> bandwidth_ {};
-        // The storage capacity of the node. Unit: MB.
         shared_ptr<string> capacity_ {};
-        // The maximum number of connections.
         shared_ptr<string> connection_ {};
-        // The ID of the node.
         shared_ptr<string> nodeId_ {};
-        // The node type. Valid values:
-        // 
-        // *   **proxy**: proxy node
-        // *   **db**: data node
         shared_ptr<string> nodeType_ {};
       };
 
@@ -312,9 +293,7 @@ namespace Models
   protected:
     // The ID of the instance.
     shared_ptr<string> instanceId_ {};
-    // The detailed proxy information, including information about proxy nodes.
     shared_ptr<DescribeLogicInstanceTopologyResponseBody::RedisProxyList> redisProxyList_ {};
-    // Details of data shards, which includes node information such as NodeInfo.
     shared_ptr<DescribeLogicInstanceTopologyResponseBody::RedisShardList> redisShardList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

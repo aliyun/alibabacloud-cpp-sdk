@@ -165,25 +165,14 @@ namespace Models
 
 
       protected:
-        // The username of the account.
         shared_ptr<string> accountName_ {};
-        // The database name.
         shared_ptr<string> databaseName_ {};
-        // The time when the command was run.
         shared_ptr<string> executeTime_ {};
-        // The IP address of the client.
         shared_ptr<string> hostAddress_ {};
-        // The IP address of the instance.
         shared_ptr<string> IPAddress_ {};
-        // The ID of the node.
-        // 
-        // > A specific node ID is returned only if the instance uses the cluster or read/write splitting architecture.
         shared_ptr<string> nodeId_ {};
-        // The command that was run.
         shared_ptr<string> SQLText_ {};
-        // The type of the command.
         shared_ptr<string> SQLType_ {};
-        // The amount of time consumed to run the command.
         shared_ptr<string> totalExecutionTimes_ {};
       };
 
@@ -267,7 +256,6 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The name of the instance.
     shared_ptr<string> instanceName_ {};
-    // The collection of returned audit log entries.
     shared_ptr<DescribeAuditRecordsResponseBody::Items> items_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

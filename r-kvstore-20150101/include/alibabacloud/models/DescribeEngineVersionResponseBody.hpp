@@ -190,19 +190,10 @@ namespace Models
 
 
           protected:
-            // The time when the version was released.
             shared_ptr<string> createTime_ {};
-            // The version update level. Valid values:
-            // 
-            // *   **0**: regular
-            // *   **1**: recommended
-            // *   **2**: critical
             shared_ptr<string> level_ {};
-            // The release notes.
             shared_ptr<string> releaseNote_ {};
-            // The description of the minor versions to which the instance can be updated.
             shared_ptr<string> releaseNoteEn_ {};
-            // The release version of EMR.
             shared_ptr<string> releaseVersion_ {};
           };
 
@@ -239,7 +230,6 @@ namespace Models
 
 
       protected:
-        // The information about the minor versions.
         shared_ptr<VersionRelease::ReleaseInfo> releaseInfo_ {};
         // The version update level, which indicates how strongly the update is recommended. Valid values:
         // 
@@ -415,15 +405,10 @@ namespace Models
 
 
           protected:
-            // The creation time of the instance.
             shared_ptr<string> createTime_ {};
-            // The importance level.
             shared_ptr<string> level_ {};
-            // The release notes.
             shared_ptr<string> releaseNote_ {};
-            // The description of the minor versions to which the instance can be updated.
             shared_ptr<string> releaseNoteEn_ {};
-            // The release version of EMR.
             shared_ptr<string> releaseVersion_ {};
           };
 
@@ -460,7 +445,6 @@ namespace Models
 
 
       protected:
-        // The information about the minor versions.
         shared_ptr<VersionRelease::ReleaseInfo> releaseInfo_ {};
         // The version update level, which indicates how strongly the update is recommended. Valid values:
         // 

@@ -32,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GlobalInstanceId, globalInstanceId_);
       DARABONBA_PTR_TO_JSON(GlobalSecurityGroupIds, globalSecurityGroupIds_);
       DARABONBA_PTR_TO_JSON(InstanceClass, instanceClass_);
+      DARABONBA_PTR_TO_JSON(InstanceEndpointType, instanceEndpointType_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
@@ -82,6 +83,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GlobalInstanceId, globalInstanceId_);
       DARABONBA_PTR_FROM_JSON(GlobalSecurityGroupIds, globalSecurityGroupIds_);
       DARABONBA_PTR_FROM_JSON(InstanceClass, instanceClass_);
+      DARABONBA_PTR_FROM_JSON(InstanceEndpointType, instanceEndpointType_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
@@ -177,13 +179,13 @@ namespace Models
         && this->autoRenew_ == nullptr && this->autoRenewPeriod_ == nullptr && this->autoUseCoupon_ == nullptr && this->backupId_ == nullptr && this->businessInfo_ == nullptr
         && this->capacity_ == nullptr && this->chargeType_ == nullptr && this->clusterBackupId_ == nullptr && this->connectionStringPrefix_ == nullptr && this->couponNo_ == nullptr
         && this->dedicatedHostGroupId_ == nullptr && this->dryRun_ == nullptr && this->engineVersion_ == nullptr && this->globalInstance_ == nullptr && this->globalInstanceId_ == nullptr
-        && this->globalSecurityGroupIds_ == nullptr && this->instanceClass_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->networkType_ == nullptr
-        && this->nodeType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->paramGroupId_ == nullptr && this->password_ == nullptr
-        && this->period_ == nullptr && this->port_ == nullptr && this->privateIpAddress_ == nullptr && this->readOnlyCount_ == nullptr && this->recoverConfigMode_ == nullptr
-        && this->regionId_ == nullptr && this->replicaCount_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->restoreTime_ == nullptr && this->secondaryZoneId_ == nullptr && this->securityToken_ == nullptr && this->shardCount_ == nullptr && this->slaveReadOnlyCount_ == nullptr
-        && this->slaveReplicaCount_ == nullptr && this->srcDBInstanceId_ == nullptr && this->tag_ == nullptr && this->token_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->globalSecurityGroupIds_ == nullptr && this->instanceClass_ == nullptr && this->instanceEndpointType_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr
+        && this->networkType_ == nullptr && this->nodeType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->paramGroupId_ == nullptr
+        && this->password_ == nullptr && this->period_ == nullptr && this->port_ == nullptr && this->privateIpAddress_ == nullptr && this->readOnlyCount_ == nullptr
+        && this->recoverConfigMode_ == nullptr && this->regionId_ == nullptr && this->replicaCount_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->restoreTime_ == nullptr && this->secondaryZoneId_ == nullptr && this->securityToken_ == nullptr && this->shardCount_ == nullptr
+        && this->slaveReadOnlyCount_ == nullptr && this->slaveReplicaCount_ == nullptr && this->srcDBInstanceId_ == nullptr && this->tag_ == nullptr && this->token_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // appendonly Field Functions 
     bool hasAppendonly() const { return this->appendonly_ != nullptr;};
     void deleteAppendonly() { this->appendonly_ = nullptr;};
@@ -308,6 +310,13 @@ namespace Models
     void deleteInstanceClass() { this->instanceClass_ = nullptr;};
     inline string getInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(instanceClass_, "") };
     inline CreateInstanceRequest& setInstanceClass(string instanceClass) { DARABONBA_PTR_SET_VALUE(instanceClass_, instanceClass) };
+
+
+    // instanceEndpointType Field Functions 
+    bool hasInstanceEndpointType() const { return this->instanceEndpointType_ != nullptr;};
+    void deleteInstanceEndpointType() { this->instanceEndpointType_ = nullptr;};
+    inline string getInstanceEndpointType() const { DARABONBA_PTR_GET_DEFAULT(instanceEndpointType_, "") };
+    inline CreateInstanceRequest& setInstanceEndpointType(string instanceEndpointType) { DARABONBA_PTR_SET_VALUE(instanceEndpointType_, instanceEndpointType) };
 
 
     // instanceName Field Functions 
@@ -612,6 +621,7 @@ namespace Models
     // 
     // **Description** You must specify at least one of the **Capacity** and **InstanceClass** parameters when you call the CreateInstance operation.
     shared_ptr<string> instanceClass_ {};
+    shared_ptr<string> instanceEndpointType_ {};
     // The name of the instance. The name must be 2 to 80 characters in length and must start with a letter. It cannot contain spaces or specific special characters. These special characters include `@ / : = " < > { [ ] }`
     shared_ptr<string> instanceName_ {};
     // The database engine of the instance. Valid values:
@@ -675,7 +685,6 @@ namespace Models
     // 
     // > If you specify this parameter, the master node and replica node of the instance can be deployed in different zones and disaster recovery is implemented across zones. The instance can withstand failures in data centers.
     shared_ptr<string> secondaryZoneId_ {};
-    // 系统自动生成的安全 Token，无需传入
     shared_ptr<string> securityToken_ {};
     // The number of shards. This parameter applies only to cloud-native cluster instances.
     shared_ptr<int32_t> shardCount_ {};

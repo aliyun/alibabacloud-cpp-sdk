@@ -98,14 +98,8 @@ namespace Models
 
 
       protected:
-        // The network type of the security group. Valid values:
-        // 
-        // *   **classic**: the classic network.
-        // *   **vpc**: the virtual private cloud (VPC).
         shared_ptr<string> netType_ {};
-        // The ID of the region where the instance is deployed.
         shared_ptr<string> regionId_ {};
-        // The ID of the security group.
         shared_ptr<string> securityGroupId_ {};
       };
 
@@ -142,7 +136,6 @@ namespace Models
 
 
   protected:
-    // The list of security groups.
     shared_ptr<DescribeSecurityGroupConfigurationResponseBody::Items> items_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

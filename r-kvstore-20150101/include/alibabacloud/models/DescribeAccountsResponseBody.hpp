@@ -127,10 +127,6 @@ namespace Models
 
 
           protected:
-            // The permission of the account. Default value: RoleReadWrite. Valid values:
-            // 
-            // *   **RoleReadOnly**: The account has the read-only permissions.
-            // *   **RoleReadWrite**: The account has the read and write permissions.
             shared_ptr<string> accountPrivilege_ {};
           };
 
@@ -195,23 +191,11 @@ namespace Models
 
 
       protected:
-        // The description of the account.
         shared_ptr<string> accountDescription_ {};
-        // The name of the account.
         shared_ptr<string> accountName_ {};
-        // The state of the account. Valid values:
-        // 
-        // *   **Unavailable**: The account is unavailable.
-        // *   **Available**: The account is available.
         shared_ptr<string> accountStatus_ {};
-        // The type of the account. Valid values:
-        // 
-        // *   **Normal**: standard account
-        // *   **Super**: super account
         shared_ptr<string> accountType_ {};
-        // Details about account permissions.
         shared_ptr<Account::DatabasePrivileges> databasePrivileges_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
       };
 
@@ -248,7 +232,6 @@ namespace Models
 
 
   protected:
-    // Details about returned accounts of the instance.
     shared_ptr<DescribeAccountsResponseBody::Accounts> accounts_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

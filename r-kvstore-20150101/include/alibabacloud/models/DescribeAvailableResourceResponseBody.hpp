@@ -424,11 +424,8 @@ namespace Models
 
 
                                       protected:
-                                        // The memory size of the instance. Unit: MB.
                                         shared_ptr<int64_t> capacity_ {};
-                                        // The code of the instance type. If you want to view the code of an instance type, you can search for the code of the instance type in Help Center.
                                         shared_ptr<string> instanceClass_ {};
-                                        // The description of the instance type.
                                         shared_ptr<string> instanceClassRemark_ {};
                                       };
 
@@ -465,12 +462,7 @@ namespace Models
 
 
                                   protected:
-                                    // The available instance types.
                                     shared_ptr<SupportedNodeType::AvailableResources> availableResources_ {};
-                                    // The node type of the instance. Valid values:
-                                    // 
-                                    // *   **single**: standalone
-                                    // *   **double**: master-replica
                                     shared_ptr<string> supportedNodeType_ {};
                                   };
 
@@ -507,9 +499,7 @@ namespace Models
 
 
                               protected:
-                                // The number of shards.
                                 shared_ptr<string> shardNumber_ {};
-                                // The supported node types.
                                 shared_ptr<SupportedShardNumber::SupportedNodeTypes> supportedNodeTypes_ {};
                               };
 
@@ -546,13 +536,7 @@ namespace Models
 
 
                           protected:
-                            // The architecture of the instance. Valid values:
-                            // 
-                            // *   **standard**: standard architecture
-                            // *   **cluster**: cluster architecture
-                            // *   **rwsplit**: read/write splitting architecture
                             shared_ptr<string> architecture_ {};
-                            // The numbers of available shards.
                             shared_ptr<SupportedArchitectureType::SupportedShardNumbers> supportedShardNumbers_ {};
                           };
 
@@ -589,9 +573,7 @@ namespace Models
 
 
                       protected:
-                        // The available architectures.
                         shared_ptr<SupportedEngineVersion::SupportedArchitectureTypes> supportedArchitectureTypes_ {};
-                        // The engine version of the instance.
                         shared_ptr<string> version_ {};
                       };
 
@@ -628,12 +610,7 @@ namespace Models
 
 
                   protected:
-                    // The instance series. Valid values:
-                    // 
-                    // *   **enhanced_performance_type**: Tair (Enterprise Edition) DRAM-based instance
-                    // *   **hybrid_storage**: Redis Open-Source Edition hybrid-storage instance
                     shared_ptr<string> seriesType_ {};
-                    // The available engine versions.
                     shared_ptr<SupportedSeriesType::SupportedEngineVersions> supportedEngineVersions_ {};
                   };
 
@@ -670,12 +647,7 @@ namespace Models
 
 
               protected:
-                // The edition of the instance. Valid values:
-                // 
-                // *   **Community**: Community Edition
-                // *   **Enterprise**: Enhanced Edition (Tair)
                 shared_ptr<string> editionType_ {};
-                // The instance series types.
                 shared_ptr<SupportedEditionType::SupportedSeriesTypes> supportedSeriesTypes_ {};
               };
 
@@ -712,9 +684,7 @@ namespace Models
 
 
           protected:
-            // The database engine of the instance.
             shared_ptr<string> engine_ {};
-            // The instance edition types.
             shared_ptr<SupportedEngine::SupportedEditionTypes> supportedEditionTypes_ {};
           };
 
@@ -772,15 +742,10 @@ namespace Models
 
 
       protected:
-        // An internal parameter.
         shared_ptr<bool> isMainSale_ {};
-        // The ID of the region.
         shared_ptr<string> regionId_ {};
-        // The supported engines.
         shared_ptr<AvailableZone::SupportedEngines> supportedEngines_ {};
-        // The ID of the zone in which the instance is located.
         shared_ptr<string> zoneId_ {};
-        // The name of the zone.
         shared_ptr<string> zoneName_ {};
       };
 
@@ -817,7 +782,6 @@ namespace Models
 
 
   protected:
-    // Details about the zones.
     shared_ptr<DescribeAvailableResourceResponseBody::AvailableZones> availableZones_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -98,13 +98,8 @@ namespace Models
 
 
       protected:
-        // The attribute of the whitelist. This parameter is empty by default.
-        // 
-        // >  If the instance is authorized to use a service such as Database Autonomy Service (DAS), Data Management (DMS), or Data Transmission Service (DTS), this service automatically generates a **hidden** whitelist for the instance. This type of whitelists cannot be modified or deleted.
         shared_ptr<string> securityIpGroupAttribute_ {};
-        // The name of the whitelist.
         shared_ptr<string> securityIpGroupName_ {};
-        // The IP addresses in the whitelist. A maximum of 1,000 IP addresses can be specified in a whitelist.
         shared_ptr<string> securityIpList_ {};
       };
 
@@ -143,7 +138,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The whitelists of the instance.
     shared_ptr<DescribeSecurityIpsResponseBody::SecurityIpGroups> securityIpGroups_ {};
   };
 

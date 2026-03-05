@@ -187,49 +187,17 @@ namespace Models
 
 
       protected:
-        // The current bandwidth of the node, which consists of the default bandwidth and the increased bandwidth. Unit: MB/s.
-        // 
-        // > *   You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to specify the increased bandwidth.
-        // > *   You can also use this parameter to calculate the increased bandwidth. For example, if the default bandwidth of the node is 96 MB/s and the returned value of this parameter is 100, the increased bandwidth is 4 MB/s.
         shared_ptr<int64_t> currentBandWidth_ {};
-        // The minor version of the node.
         shared_ptr<string> currentMinorVersion_ {};
-        // The ID of the data shard.
         shared_ptr<string> custinsId_ {};
-        // The default bandwidth of the node. Unit: MB/s.
         shared_ptr<int64_t> defaultBandWidth_ {};
-        // The ID of the node.
         shared_ptr<string> insName_ {};
-        // Indicates whether the node is a read replica. If the node is a read replica, **3** is returned.
-        // 
-        // >  If the node is not a read replica, no value is returned.
         shared_ptr<int32_t> insType_ {};
-        // Indicates whether the minor version is the latest version. Valid values:
-        // 
-        // *   **0**: The minor version is not the latest version.
-        // *   **1**: The minor version is the latest version.
-        // 
-        // >  To update the minor version, call the [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/473777.html) operation.
         shared_ptr<int32_t> isLatestVersion_ {};
-        // Indicates whether the bandwidth of the node is increased. Valid values:
-        // 
-        // *   **true**: The bandwidth of the node is not increased.
-        // *   **false**: The bandwidth of the node is increased.
         shared_ptr<bool> isOpenBandWidthService_ {};
-        // This parameter is used only for internal maintenance of instances.
         shared_ptr<string> nodeId_ {};
-        // The node type. Valid values:
-        // 
-        // *   **db**: data node.
-        // *   **proxy**: proxy node.
-        // *   **normal**: regular node. This value is returned when the instance runs in the standard architecture.
         shared_ptr<string> nodeType_ {};
-        // The role of the node. Valid values:
-        // 
-        // *   **master**: master node
-        // *   **slave**: replica node
         shared_ptr<string> role_ {};
-        // The ID of the zone.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -287,7 +255,6 @@ namespace Models
 
 
   protected:
-    // Details about each node in the instance.
     shared_ptr<DescribeRoleZoneInfoResponseBody::Node> node_ {};
     // The number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
