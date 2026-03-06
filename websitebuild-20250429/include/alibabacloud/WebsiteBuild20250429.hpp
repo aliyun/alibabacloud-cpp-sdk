@@ -885,6 +885,40 @@ namespace WebsiteBuild20250429
       Models::QueryMaterialTaskListResponse queryMaterialTaskList(const Models::QueryMaterialTaskListRequest &request);
 
       /**
+       * @summary 查询Supabase Auth配置信息
+       *
+       * @param request QuerySupabaseAuthConfigsForAdminRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QuerySupabaseAuthConfigsForAdminResponse
+       */
+      Models::QuerySupabaseAuthConfigsForAdminResponse querySupabaseAuthConfigsForAdminWithOptions(const Models::QuerySupabaseAuthConfigsForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Supabase Auth配置信息
+       *
+       * @param request QuerySupabaseAuthConfigsForAdminRequest
+       * @return QuerySupabaseAuthConfigsForAdminResponse
+       */
+      Models::QuerySupabaseAuthConfigsForAdminResponse querySupabaseAuthConfigsForAdmin(const Models::QuerySupabaseAuthConfigsForAdminRequest &request);
+
+      /**
+       * @summary 查询Supabase配置信息
+       *
+       * @param request QuerySupabaseConfigsForAdminRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QuerySupabaseConfigsForAdminResponse
+       */
+      Models::QuerySupabaseConfigsForAdminResponse querySupabaseConfigsForAdminWithOptions(const Models::QuerySupabaseConfigsForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Supabase配置信息
+       *
+       * @param request QuerySupabaseConfigsForAdminRequest
+       * @return QuerySupabaseConfigsForAdminResponse
+       */
+      Models::QuerySupabaseConfigsForAdminResponse querySupabaseConfigsForAdmin(const Models::QuerySupabaseConfigsForAdminRequest &request);
+
+      /**
        * @summary 查询Supabase实例信息
        *
        * @param request QuerySupabaseInstanceInfoForAdminRequest

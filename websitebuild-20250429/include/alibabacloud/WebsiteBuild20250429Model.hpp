@@ -184,6 +184,12 @@
 #include <alibabacloud/models/QueryMaterialTaskListShrinkRequest.hpp>
 #include <alibabacloud/models/QueryMaterialTaskListResponseBody.hpp>
 #include <alibabacloud/models/QueryMaterialTaskListResponse.hpp>
+#include <alibabacloud/models/QuerySupabaseAuthConfigsForAdminRequest.hpp>
+#include <alibabacloud/models/QuerySupabaseAuthConfigsForAdminResponseBody.hpp>
+#include <alibabacloud/models/QuerySupabaseAuthConfigsForAdminResponse.hpp>
+#include <alibabacloud/models/QuerySupabaseConfigsForAdminRequest.hpp>
+#include <alibabacloud/models/QuerySupabaseConfigsForAdminResponseBody.hpp>
+#include <alibabacloud/models/QuerySupabaseConfigsForAdminResponse.hpp>
 #include <alibabacloud/models/QuerySupabaseInstanceInfoForAdminRequest.hpp>
 #include <alibabacloud/models/QuerySupabaseInstanceInfoForAdminResponseBody.hpp>
 #include <alibabacloud/models/QuerySupabaseInstanceInfoForAdminResponse.hpp>

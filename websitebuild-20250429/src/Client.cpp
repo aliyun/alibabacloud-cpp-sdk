@@ -2859,6 +2859,134 @@ QueryMaterialTaskListResponse Client::queryMaterialTaskList(const QueryMaterialT
 }
 
 /**
+ * @summary 查询Supabase Auth配置信息
+ *
+ * @param request QuerySupabaseAuthConfigsForAdminRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QuerySupabaseAuthConfigsForAdminResponse
+ */
+QuerySupabaseAuthConfigsForAdminResponse Client::querySupabaseAuthConfigsForAdminWithOptions(const QuerySupabaseAuthConfigsForAdminRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QuerySupabaseAuthConfigsForAdmin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QuerySupabaseAuthConfigsForAdminResponse>();
+}
+
+/**
+ * @summary 查询Supabase Auth配置信息
+ *
+ * @param request QuerySupabaseAuthConfigsForAdminRequest
+ * @return QuerySupabaseAuthConfigsForAdminResponse
+ */
+QuerySupabaseAuthConfigsForAdminResponse Client::querySupabaseAuthConfigsForAdmin(const QuerySupabaseAuthConfigsForAdminRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return querySupabaseAuthConfigsForAdminWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询Supabase配置信息
+ *
+ * @param request QuerySupabaseConfigsForAdminRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QuerySupabaseConfigsForAdminResponse
+ */
+QuerySupabaseConfigsForAdminResponse Client::querySupabaseConfigsForAdminWithOptions(const QuerySupabaseConfigsForAdminRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QuerySupabaseConfigsForAdmin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QuerySupabaseConfigsForAdminResponse>();
+}
+
+/**
+ * @summary 查询Supabase配置信息
+ *
+ * @param request QuerySupabaseConfigsForAdminRequest
+ * @return QuerySupabaseConfigsForAdminResponse
+ */
+QuerySupabaseConfigsForAdminResponse Client::querySupabaseConfigsForAdmin(const QuerySupabaseConfigsForAdminRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return querySupabaseConfigsForAdminWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询Supabase实例信息
  *
  * @param request QuerySupabaseInstanceInfoForAdminRequest
