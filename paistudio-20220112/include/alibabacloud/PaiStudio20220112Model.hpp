@@ -14,6 +14,7 @@
 #include <alibabacloud/models/BindingPolicy.hpp>
 #include <alibabacloud/models/NodeSpec.hpp>
 #include <alibabacloud/models/AllocateStrategySpec.hpp>
+#include <alibabacloud/models/AllocatedHyperNodeDetail.hpp>
 #include <alibabacloud/models/AssignNodeSpec.hpp>
 #include <alibabacloud/models/CacheInfo.hpp>
 #include <alibabacloud/models/ForwardInfo.hpp>
@@ -63,6 +64,7 @@
 #include <alibabacloud/models/SelfQuotaPreemptionConfig.hpp>
 #include <alibabacloud/models/SubQuotaPreemptionConfig.hpp>
 #include <alibabacloud/models/QuotaConfig.hpp>
+#include <alibabacloud/models/QuotaNodeStatistics.hpp>
 #include <alibabacloud/models/QuotaDetails.hpp>
 #include <alibabacloud/models/WorkspaceIdName.hpp>
 #include <alibabacloud/models/Quota.hpp>
