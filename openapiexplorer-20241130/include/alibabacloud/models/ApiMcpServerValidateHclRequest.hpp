@@ -33,12 +33,13 @@ namespace Models
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ApiMcpServerValidateHclRequest& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
+    // The content of the Terraform HCL code. For more information, see [HCL language overview](https://www.alibabacloud.com/help/en/terraform/terraform-configuration-and-hcl-language-overview).
+    shared_ptr<string> code_ {};
   };
 
   } // namespace Models

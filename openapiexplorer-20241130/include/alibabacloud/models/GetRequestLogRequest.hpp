@@ -33,15 +33,15 @@ namespace Models
     // logRequestId Field Functions 
     bool hasLogRequestId() const { return this->logRequestId_ != nullptr;};
     void deleteLogRequestId() { this->logRequestId_ = nullptr;};
-    inline string logRequestId() const { DARABONBA_PTR_GET_DEFAULT(logRequestId_, "") };
+    inline string getLogRequestId() const { DARABONBA_PTR_GET_DEFAULT(logRequestId_, "") };
     inline GetRequestLogRequest& setLogRequestId(string logRequestId) { DARABONBA_PTR_SET_VALUE(logRequestId_, logRequestId) };
 
 
   protected:
-    // The request ID returned by the API for which you want to query the log. The value is the universally unique identifiers (UUID) of the API request and must be uppercase.
+    // The request ID of the log to query. The request ID is the unique identifier of an API request. The ID must be in the UUID format and in uppercase.
     // 
     // This parameter is required.
-    std::shared_ptr<string> logRequestId_ = nullptr;
+    shared_ptr<string> logRequestId_ {};
   };
 
   } // namespace Models

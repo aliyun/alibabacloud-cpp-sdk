@@ -32,25 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->id_ == nullptr; };
+        && this->id_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DeleteApiMcpServerRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline DeleteApiMcpServerRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
   protected:
-    std::shared_ptr<string> clientToken_ = nullptr;
+    // The client token used to ensure the idempotence of the request. Generate this value on your client and make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. Use a universally unique identifier (UUID). The token is valid for three days.
+    shared_ptr<string> clientToken_ {};
+    // The ID of the API MCP service.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
   };
 
   } // namespace Models

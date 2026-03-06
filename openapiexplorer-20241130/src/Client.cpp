@@ -40,7 +40,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 验证 Terraform HCL 语法
+ * @summary Validates the syntax of HashiCorp Configuration Language (HCL) for Terraform.
  *
  * @param request ApiMcpServerValidateHclRequest
  * @param headers map
@@ -51,7 +51,7 @@ ApiMcpServerValidateHclResponse Client::apiMcpServerValidateHclWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -73,7 +73,7 @@ ApiMcpServerValidateHclResponse Client::apiMcpServerValidateHclWithOptions(const
 }
 
 /**
- * @summary 验证 Terraform HCL 语法
+ * @summary Validates the syntax of HashiCorp Configuration Language (HCL) for Terraform.
  *
  * @param request ApiMcpServerValidateHclRequest
  * @return ApiMcpServerValidateHclResponse
@@ -85,7 +85,7 @@ ApiMcpServerValidateHclResponse Client::apiMcpServerValidateHcl(const ApiMcpServ
 }
 
 /**
- * @summary 创建ApiMcpServer
+ * @summary Creates an API MCP service.
  *
  * @param request CreateApiMcpServerRequest
  * @param headers map
@@ -96,71 +96,71 @@ CreateApiMcpServerResponse Client::createApiMcpServerWithOptions(const CreateApi
   request.validate();
   json body = {};
   if (!!request.hasAdditionalApiDescriptions()) {
-    body["additionalApiDescriptions"] = request.additionalApiDescriptions();
+    body["additionalApiDescriptions"] = request.getAdditionalApiDescriptions();
   }
 
   if (!!request.hasApis()) {
-    body["apis"] = request.apis();
+    body["apis"] = request.getApis();
   }
 
   if (!!request.hasAssumeRoleExtraPolicy()) {
-    body["assumeRoleExtraPolicy"] = request.assumeRoleExtraPolicy();
+    body["assumeRoleExtraPolicy"] = request.getAssumeRoleExtraPolicy();
   }
 
   if (!!request.hasAssumeRoleName()) {
-    body["assumeRoleName"] = request.assumeRoleName();
+    body["assumeRoleName"] = request.getAssumeRoleName();
   }
 
   if (!!request.hasClientToken()) {
-    body["clientToken"] = request.clientToken();
+    body["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasEnableAssumeRole()) {
-    body["enableAssumeRole"] = request.enableAssumeRole();
+    body["enableAssumeRole"] = request.getEnableAssumeRole();
   }
 
   if (!!request.hasEnableCustomVpcWhitelist()) {
-    body["enableCustomVpcWhitelist"] = request.enableCustomVpcWhitelist();
+    body["enableCustomVpcWhitelist"] = request.getEnableCustomVpcWhitelist();
   }
 
   if (!!request.hasInstructions()) {
-    body["instructions"] = request.instructions();
+    body["instructions"] = request.getInstructions();
   }
 
   if (!!request.hasLanguage()) {
-    body["language"] = request.language();
+    body["language"] = request.getLanguage();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasOauthClientId()) {
-    body["oauthClientId"] = request.oauthClientId();
+    body["oauthClientId"] = request.getOauthClientId();
   }
 
   if (!!request.hasPrompts()) {
-    body["prompts"] = request.prompts();
+    body["prompts"] = request.getPrompts();
   }
 
   if (!!request.hasPublicAccess()) {
-    body["publicAccess"] = request.publicAccess();
+    body["publicAccess"] = request.getPublicAccess();
   }
 
   if (!!request.hasSystemTools()) {
-    body["systemTools"] = request.systemTools();
+    body["systemTools"] = request.getSystemTools();
   }
 
   if (!!request.hasTerraformTools()) {
-    body["terraformTools"] = request.terraformTools();
+    body["terraformTools"] = request.getTerraformTools();
   }
 
   if (!!request.hasVpcWhitelists()) {
-    body["vpcWhitelists"] = request.vpcWhitelists();
+    body["vpcWhitelists"] = request.getVpcWhitelists();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -182,7 +182,7 @@ CreateApiMcpServerResponse Client::createApiMcpServerWithOptions(const CreateApi
 }
 
 /**
- * @summary 创建ApiMcpServer
+ * @summary Creates an API MCP service.
  *
  * @param request CreateApiMcpServerRequest
  * @return CreateApiMcpServerResponse
@@ -194,7 +194,7 @@ CreateApiMcpServerResponse Client::createApiMcpServer(const CreateApiMcpServerRe
 }
 
 /**
- * @summary 删除ApiMcpServer
+ * @summary Deletes an API MCP service.
  *
  * @param request DeleteApiMcpServerRequest
  * @param headers map
@@ -205,11 +205,11 @@ DeleteApiMcpServerResponse Client::deleteApiMcpServerWithOptions(const DeleteApi
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasId()) {
-    query["id"] = request.id();
+    query["id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -231,7 +231,7 @@ DeleteApiMcpServerResponse Client::deleteApiMcpServerWithOptions(const DeleteApi
 }
 
 /**
- * @summary 删除ApiMcpServer
+ * @summary Deletes an API MCP service.
  *
  * @param request DeleteApiMcpServerRequest
  * @return DeleteApiMcpServerResponse
@@ -243,7 +243,7 @@ DeleteApiMcpServerResponse Client::deleteApiMcpServer(const DeleteApiMcpServerRe
 }
 
 /**
- * @summary 动态生成Aliyun CLI命令
+ * @summary Generates commands for the Alibaba Cloud command-line interface (CLI).
  *
  * @param tmpReq GenerateCLICommandRequest
  * @param headers map
@@ -255,32 +255,36 @@ GenerateCLICommandResponse Client::generateCLICommandWithOptions(const GenerateC
   GenerateCLICommandShrinkRequest request = GenerateCLICommandShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasApiParams()) {
-    request.setApiParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.apiParams(), "apiParams", "json"));
+    request.setApiParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApiParams(), "apiParams", "json"));
   }
 
   json body = {};
+  if (!!request.hasAggregatePagination()) {
+    body["aggregatePagination"] = request.getAggregatePagination();
+  }
+
   if (!!request.hasApi()) {
-    body["api"] = request.api();
+    body["api"] = request.getApi();
   }
 
   if (!!request.hasApiParamsShrink()) {
-    body["apiParams"] = request.apiParamsShrink();
+    body["apiParams"] = request.getApiParamsShrink();
   }
 
   if (!!request.hasApiVersion()) {
-    body["apiVersion"] = request.apiVersion();
+    body["apiVersion"] = request.getApiVersion();
   }
 
   if (!!request.hasJsonApiParams()) {
-    body["jsonApiParams"] = request.jsonApiParams();
+    body["jsonApiParams"] = request.getJsonApiParams();
   }
 
   if (!!request.hasProduct()) {
-    body["product"] = request.product();
+    body["product"] = request.getProduct();
   }
 
   if (!!request.hasRegionId()) {
-    body["regionId"] = request.regionId();
+    body["regionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -302,7 +306,7 @@ GenerateCLICommandResponse Client::generateCLICommandWithOptions(const GenerateC
 }
 
 /**
- * @summary 动态生成Aliyun CLI命令
+ * @summary Generates commands for the Alibaba Cloud command-line interface (CLI).
  *
  * @param request GenerateCLICommandRequest
  * @return GenerateCLICommandResponse
@@ -314,7 +318,7 @@ GenerateCLICommandResponse Client::generateCLICommand(const GenerateCLICommandRe
 }
 
 /**
- * @summary 获取产品相关接口的开放元数据
+ * @summary Retrieves the OpenAPI metadata for an API in a product.
  *
  * @param request GetApiDefinitionRequest
  * @param headers map
@@ -325,15 +329,15 @@ GetApiDefinitionResponse Client::getApiDefinitionWithOptions(const GetApiDefinit
   request.validate();
   json query = {};
   if (!!request.hasApi()) {
-    query["api"] = request.api();
+    query["api"] = request.getApi();
   }
 
   if (!!request.hasApiVersion()) {
-    query["apiVersion"] = request.apiVersion();
+    query["apiVersion"] = request.getApiVersion();
   }
 
   if (!!request.hasProduct()) {
-    query["product"] = request.product();
+    query["product"] = request.getProduct();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -355,7 +359,7 @@ GetApiDefinitionResponse Client::getApiDefinitionWithOptions(const GetApiDefinit
 }
 
 /**
- * @summary 获取产品相关接口的开放元数据
+ * @summary Retrieves the OpenAPI metadata for an API in a product.
  *
  * @param request GetApiDefinitionRequest
  * @return GetApiDefinitionResponse
@@ -367,7 +371,7 @@ GetApiDefinitionResponse Client::getApiDefinition(const GetApiDefinitionRequest 
 }
 
 /**
- * @summary 查询 ApiMcpServer
+ * @summary Retrieves the details of a specific API MCP service.
  *
  * @param request GetApiMcpServerRequest
  * @param headers map
@@ -378,7 +382,7 @@ GetApiMcpServerResponse Client::getApiMcpServerWithOptions(const GetApiMcpServer
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["id"] = request.id();
+    query["id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -400,7 +404,7 @@ GetApiMcpServerResponse Client::getApiMcpServerWithOptions(const GetApiMcpServer
 }
 
 /**
- * @summary 查询 ApiMcpServer
+ * @summary Retrieves the details of a specific API MCP service.
  *
  * @param request GetApiMcpServerRequest
  * @return GetApiMcpServerResponse
@@ -412,7 +416,7 @@ GetApiMcpServerResponse Client::getApiMcpServer(const GetApiMcpServerRequest &re
 }
 
 /**
- * @summary 查询用户全局API MCP Server配置
+ * @summary Queries the global API MCP Server configuration for a user. The configuration includes settings for public network access and the whitelist of source VPC IDs for requests from a VPC.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -437,7 +441,7 @@ GetApiMcpServerUserConfigResponse Client::getApiMcpServerUserConfigWithOptions(c
 }
 
 /**
- * @summary 查询用户全局API MCP Server配置
+ * @summary Queries the global API MCP Server configuration for a user. The configuration includes settings for public network access and the whitelist of source VPC IDs for requests from a VPC.
  *
  * @return GetApiMcpServerUserConfigResponse
  */
@@ -461,19 +465,19 @@ GetErrorCodeSolutionsResponse Client::getErrorCodeSolutionsWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasAcceptLanguage()) {
-    query["acceptLanguage"] = request.acceptLanguage();
+    query["acceptLanguage"] = request.getAcceptLanguage();
   }
 
   if (!!request.hasErrorCode()) {
-    query["errorCode"] = request.errorCode();
+    query["errorCode"] = request.getErrorCode();
   }
 
   if (!!request.hasErrorMessage()) {
-    query["errorMessage"] = request.errorMessage();
+    query["errorMessage"] = request.getErrorMessage();
   }
 
   if (!!request.hasProduct()) {
-    query["product"] = request.product();
+    query["product"] = request.getProduct();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -509,9 +513,9 @@ GetErrorCodeSolutionsResponse Client::getErrorCodeSolutions(const GetErrorCodeSo
 }
 
 /**
- * @summary Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
+ * @summary Queries the details of an OpenAPI call log for your account using the request ID returned from an API call. This operation is used for troubleshooting.
  *
- * @description Permissions on this API cannot be granted to other members.
+ * @description This API does not support authorization.
  *
  * @param request GetOwnRequestLogRequest
  * @param headers map
@@ -522,7 +526,7 @@ GetOwnRequestLogResponse Client::getOwnRequestLogWithOptions(const GetOwnRequest
   request.validate();
   json query = {};
   if (!!request.hasLogRequestId()) {
-    query["logRequestId"] = request.logRequestId();
+    query["logRequestId"] = request.getLogRequestId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -544,9 +548,9 @@ GetOwnRequestLogResponse Client::getOwnRequestLogWithOptions(const GetOwnRequest
 }
 
 /**
- * @summary Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
+ * @summary Queries the details of an OpenAPI call log for your account using the request ID returned from an API call. This operation is used for troubleshooting.
  *
- * @description Permissions on this API cannot be granted to other members.
+ * @description This API does not support authorization.
  *
  * @param request GetOwnRequestLogRequest
  * @return GetOwnRequestLogResponse
@@ -558,7 +562,7 @@ GetOwnRequestLogResponse Client::getOwnRequestLog(const GetOwnRequestLogRequest 
 }
 
 /**
- * @summary 获取产品的接入点信息
+ * @summary Retrieves the endpoint information for a product.
  *
  * @param request GetProductEndpointsRequest
  * @param headers map
@@ -569,7 +573,7 @@ GetProductEndpointsResponse Client::getProductEndpointsWithOptions(const GetProd
   request.validate();
   json query = {};
   if (!!request.hasProduct()) {
-    query["product"] = request.product();
+    query["product"] = request.getProduct();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -591,7 +595,7 @@ GetProductEndpointsResponse Client::getProductEndpointsWithOptions(const GetProd
 }
 
 /**
- * @summary 获取产品的接入点信息
+ * @summary Retrieves the endpoint information for a product.
  *
  * @param request GetProductEndpointsRequest
  * @return GetProductEndpointsResponse
@@ -603,9 +607,9 @@ GetProductEndpointsResponse Client::getProductEndpoints(const GetProductEndpoint
 }
 
 /**
- * @summary Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
+ * @summary Queries the details of a request log using the request ID that is returned from an API call. This operation is useful for troubleshooting.
  *
- * @description You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
+ * @description You can query call logs across different RAM users or Alibaba Cloud accounts using RAM authorization or role assumption. For more information, see [Cross-account API error diagnosis authorization](https://help.aliyun.com/document_detail/2868101.html).
  *
  * @param request GetRequestLogRequest
  * @param headers map
@@ -616,7 +620,7 @@ GetRequestLogResponse Client::getRequestLogWithOptions(const GetRequestLogReques
   request.validate();
   json query = {};
   if (!!request.hasLogRequestId()) {
-    query["logRequestId"] = request.logRequestId();
+    query["logRequestId"] = request.getLogRequestId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -638,9 +642,9 @@ GetRequestLogResponse Client::getRequestLogWithOptions(const GetRequestLogReques
 }
 
 /**
- * @summary Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
+ * @summary Queries the details of a request log using the request ID that is returned from an API call. This operation is useful for troubleshooting.
  *
- * @description You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
+ * @description You can query call logs across different RAM users or Alibaba Cloud accounts using RAM authorization or role assumption. For more information, see [Cross-account API error diagnosis authorization](https://help.aliyun.com/document_detail/2868101.html).
  *
  * @param request GetRequestLogRequest
  * @return GetRequestLogResponse
@@ -652,7 +656,7 @@ GetRequestLogResponse Client::getRequestLog(const GetRequestLogRequest &request)
 }
 
 /**
- * @summary 获取产品的开放元数据
+ * @summary Retrieves the OpenAPI metadata for a product.
  *
  * @param request ListApiDefinitionsRequest
  * @param headers map
@@ -663,11 +667,11 @@ ListApiDefinitionsResponse Client::listApiDefinitionsWithOptions(const ListApiDe
   request.validate();
   json query = {};
   if (!!request.hasApiVersion()) {
-    query["apiVersion"] = request.apiVersion();
+    query["apiVersion"] = request.getApiVersion();
   }
 
   if (!!request.hasProduct()) {
-    query["product"] = request.product();
+    query["product"] = request.getProduct();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -689,7 +693,7 @@ ListApiDefinitionsResponse Client::listApiDefinitionsWithOptions(const ListApiDe
 }
 
 /**
- * @summary 获取产品的开放元数据
+ * @summary Retrieves the OpenAPI metadata for a product.
  *
  * @param request ListApiDefinitionsRequest
  * @return ListApiDefinitionsResponse
@@ -701,7 +705,7 @@ ListApiDefinitionsResponse Client::listApiDefinitions(const ListApiDefinitionsRe
 }
 
 /**
- * @summary 查询系统工具列表
+ * @summary Lists the system tools supported by the MCP service.
  *
  * @param request ListApiMcpServerSystemToolsRequest
  * @param headers map
@@ -712,15 +716,15 @@ ListApiMcpServerSystemToolsResponse Client::listApiMcpServerSystemToolsWithOptio
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasSkip()) {
-    query["skip"] = request.skip();
+    query["skip"] = request.getSkip();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -742,7 +746,7 @@ ListApiMcpServerSystemToolsResponse Client::listApiMcpServerSystemToolsWithOptio
 }
 
 /**
- * @summary 查询系统工具列表
+ * @summary Lists the system tools supported by the MCP service.
  *
  * @param request ListApiMcpServerSystemToolsRequest
  * @return ListApiMcpServerSystemToolsResponse
@@ -754,7 +758,7 @@ ListApiMcpServerSystemToolsResponse Client::listApiMcpServerSystemTools(const Li
 }
 
 /**
- * @summary 列出资源ApiMcpServer
+ * @summary This operation queries a list of all API MCP servers in an Alibaba Cloud account.
  *
  * @param request ListApiMcpServersRequest
  * @param headers map
@@ -765,43 +769,43 @@ ListApiMcpServersResponse Client::listApiMcpServersWithOptions(const ListApiMcpS
   request.validate();
   json query = {};
   if (!!request.hasCreateTime()) {
-    query["createTime"] = request.createTime();
+    query["createTime"] = request.getCreateTime();
   }
 
   if (!!request.hasDescription()) {
-    query["description"] = request.description();
+    query["description"] = request.getDescription();
   }
 
   if (!!request.hasId()) {
-    query["id"] = request.id();
+    query["id"] = request.getId();
   }
 
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasLanguage()) {
-    query["language"] = request.language();
+    query["language"] = request.getLanguage();
   }
 
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasSkip()) {
-    query["skip"] = request.skip();
+    query["skip"] = request.getSkip();
   }
 
   if (!!request.hasSourceType()) {
-    query["sourceType"] = request.sourceType();
+    query["sourceType"] = request.getSourceType();
   }
 
   if (!!request.hasUpdateTime()) {
-    query["updateTime"] = request.updateTime();
+    query["updateTime"] = request.getUpdateTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -823,7 +827,7 @@ ListApiMcpServersResponse Client::listApiMcpServersWithOptions(const ListApiMcpS
 }
 
 /**
- * @summary 列出资源ApiMcpServer
+ * @summary This operation queries a list of all API MCP servers in an Alibaba Cloud account.
  *
  * @param request ListApiMcpServersRequest
  * @return ListApiMcpServersResponse
@@ -835,7 +839,7 @@ ListApiMcpServersResponse Client::listApiMcpServers(const ListApiMcpServersReque
 }
 
 /**
- * @summary 更新UpdateApiMcpServer
+ * @summary Updates an API MCP service.
  *
  * @param request UpdateApiMcpServerRequest
  * @param headers map
@@ -846,72 +850,72 @@ UpdateApiMcpServerResponse Client::updateApiMcpServerWithOptions(const UpdateApi
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasId()) {
-    query["id"] = request.id();
+    query["id"] = request.getId();
   }
 
   json body = {};
   if (!!request.hasAdditionalApiDescriptions()) {
-    body["additionalApiDescriptions"] = request.additionalApiDescriptions();
+    body["additionalApiDescriptions"] = request.getAdditionalApiDescriptions();
   }
 
   if (!!request.hasApis()) {
-    body["apis"] = request.apis();
+    body["apis"] = request.getApis();
   }
 
   if (!!request.hasAssumeRoleExtraPolicy()) {
-    body["assumeRoleExtraPolicy"] = request.assumeRoleExtraPolicy();
+    body["assumeRoleExtraPolicy"] = request.getAssumeRoleExtraPolicy();
   }
 
   if (!!request.hasAssumeRoleName()) {
-    body["assumeRoleName"] = request.assumeRoleName();
+    body["assumeRoleName"] = request.getAssumeRoleName();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasEnableAssumeRole()) {
-    body["enableAssumeRole"] = request.enableAssumeRole();
+    body["enableAssumeRole"] = request.getEnableAssumeRole();
   }
 
   if (!!request.hasEnableCustomVpcWhitelist()) {
-    body["enableCustomVpcWhitelist"] = request.enableCustomVpcWhitelist();
+    body["enableCustomVpcWhitelist"] = request.getEnableCustomVpcWhitelist();
   }
 
   if (!!request.hasInstructions()) {
-    body["instructions"] = request.instructions();
+    body["instructions"] = request.getInstructions();
   }
 
   if (!!request.hasLanguage()) {
-    body["language"] = request.language();
+    body["language"] = request.getLanguage();
   }
 
   if (!!request.hasOauthClientId()) {
-    body["oauthClientId"] = request.oauthClientId();
+    body["oauthClientId"] = request.getOauthClientId();
   }
 
   if (!!request.hasPrompts()) {
-    body["prompts"] = request.prompts();
+    body["prompts"] = request.getPrompts();
   }
 
   if (!!request.hasPublicAccess()) {
-    body["publicAccess"] = request.publicAccess();
+    body["publicAccess"] = request.getPublicAccess();
   }
 
   if (!!request.hasSystemTools()) {
-    body["systemTools"] = request.systemTools();
+    body["systemTools"] = request.getSystemTools();
   }
 
   if (!!request.hasTerraformTools()) {
-    body["terraformTools"] = request.terraformTools();
+    body["terraformTools"] = request.getTerraformTools();
   }
 
   if (!!request.hasVpcWhitelists()) {
-    body["vpcWhitelists"] = request.vpcWhitelists();
+    body["vpcWhitelists"] = request.getVpcWhitelists();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -934,7 +938,7 @@ UpdateApiMcpServerResponse Client::updateApiMcpServerWithOptions(const UpdateApi
 }
 
 /**
- * @summary 更新UpdateApiMcpServer
+ * @summary Updates an API MCP service.
  *
  * @param request UpdateApiMcpServerRequest
  * @return UpdateApiMcpServerResponse
@@ -946,7 +950,7 @@ UpdateApiMcpServerResponse Client::updateApiMcpServer(const UpdateApiMcpServerRe
 }
 
 /**
- * @summary 修改用户全局API MCP Server配置
+ * @summary Updates the global API MCP Server configuration for a user.
  *
  * @param request UpdateApiMcpServerUserConfigRequest
  * @param headers map
@@ -957,11 +961,11 @@ UpdateApiMcpServerUserConfigResponse Client::updateApiMcpServerUserConfigWithOpt
   request.validate();
   json body = {};
   if (!!request.hasEnablePublicAccess()) {
-    body["enablePublicAccess"] = request.enablePublicAccess();
+    body["enablePublicAccess"] = request.getEnablePublicAccess();
   }
 
   if (!!request.hasVpcWhitelists()) {
-    body["vpcWhitelists"] = request.vpcWhitelists();
+    body["vpcWhitelists"] = request.getVpcWhitelists();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -983,7 +987,7 @@ UpdateApiMcpServerUserConfigResponse Client::updateApiMcpServerUserConfigWithOpt
 }
 
 /**
- * @summary 修改用户全局API MCP Server配置
+ * @summary Updates the global API MCP Server configuration for a user.
  *
  * @param request UpdateApiMcpServerUserConfigRequest
  * @return UpdateApiMcpServerUserConfigResponse

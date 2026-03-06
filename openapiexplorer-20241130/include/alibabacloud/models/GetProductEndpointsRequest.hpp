@@ -33,13 +33,20 @@ namespace Models
     // product Field Functions 
     bool hasProduct() const { return this->product_ != nullptr;};
     void deleteProduct() { this->product_ = nullptr;};
-    inline string product() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
+    inline string getProduct() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
     inline GetProductEndpointsRequest& setProduct(string product) { DARABONBA_PTR_SET_VALUE(product_, product) };
 
 
   protected:
+    // The product code.
+    // 
+    // - Call the GetRequestLog operation and find the product code in the response.
+    // 
+    // - Find the product code in the URL of the OpenAPI Portal page for the product. For example, <props="china">the URL for the Short Message Service (SMS) OpenAPI Portal page is https\\://api.aliyun.com/product/Dysmsapi. The product code is Dysmsapi.
+    //   <props="intl">the URL for the Short Message Service (SMS) OpenAPI Portal page is https\\://api.alibabacloud.com/product/Dysmsapi. The product code is Dysmsapi.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> product_ = nullptr;
+    shared_ptr<string> product_ {};
   };
 
   } // namespace Models

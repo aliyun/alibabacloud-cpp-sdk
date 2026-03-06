@@ -34,35 +34,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->api_ == nullptr
-        && return this->apiVersion_ == nullptr && return this->product_ == nullptr; };
+        && this->apiVersion_ == nullptr && this->product_ == nullptr; };
     // api Field Functions 
     bool hasApi() const { return this->api_ != nullptr;};
     void deleteApi() { this->api_ = nullptr;};
-    inline string api() const { DARABONBA_PTR_GET_DEFAULT(api_, "") };
+    inline string getApi() const { DARABONBA_PTR_GET_DEFAULT(api_, "") };
     inline GetApiDefinitionRequest& setApi(string api) { DARABONBA_PTR_SET_VALUE(api_, api) };
 
 
     // apiVersion Field Functions 
     bool hasApiVersion() const { return this->apiVersion_ != nullptr;};
     void deleteApiVersion() { this->apiVersion_ = nullptr;};
-    inline string apiVersion() const { DARABONBA_PTR_GET_DEFAULT(apiVersion_, "") };
+    inline string getApiVersion() const { DARABONBA_PTR_GET_DEFAULT(apiVersion_, "") };
     inline GetApiDefinitionRequest& setApiVersion(string apiVersion) { DARABONBA_PTR_SET_VALUE(apiVersion_, apiVersion) };
 
 
     // product Field Functions 
     bool hasProduct() const { return this->product_ != nullptr;};
     void deleteProduct() { this->product_ = nullptr;};
-    inline string product() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
+    inline string getProduct() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
     inline GetApiDefinitionRequest& setProduct(string product) { DARABONBA_PTR_SET_VALUE(product_, product) };
 
 
   protected:
+    // The API name.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> api_ = nullptr;
+    shared_ptr<string> api_ {};
+    // The API version.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> apiVersion_ = nullptr;
+    shared_ptr<string> apiVersion_ {};
+    // The product code.
+    // 
+    // - Call the GetRequestLog operation to obtain the product code from the response.
+    // 
+    // - Find the product code in the product\\"s OpenAPI Portal URL. <props="china">For example, the OpenAPI Portal URL for Short Message Service is https\\://api.aliyun.com/product/Dysmsapi. The product code for Short Message Service is Dysmsapi.
+    //   <props="intl">For example, the OpenAPI Portal URL for Short Message Service is https\\://api.alibabacloud.com/product/Dysmsapi. The product code for Short Message Service is Dysmsapi.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> product_ = nullptr;
+    shared_ptr<string> product_ {};
   };
 
   } // namespace Models

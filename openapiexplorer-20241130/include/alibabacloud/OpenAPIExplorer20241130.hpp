@@ -21,7 +21,7 @@ namespace OpenAPIExplorer20241130
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 验证 Terraform HCL 语法
+       * @summary Validates the syntax of HashiCorp Configuration Language (HCL) for Terraform.
        *
        * @param request ApiMcpServerValidateHclRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace OpenAPIExplorer20241130
       Models::ApiMcpServerValidateHclResponse apiMcpServerValidateHclWithOptions(const Models::ApiMcpServerValidateHclRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 验证 Terraform HCL 语法
+       * @summary Validates the syntax of HashiCorp Configuration Language (HCL) for Terraform.
        *
        * @param request ApiMcpServerValidateHclRequest
        * @return ApiMcpServerValidateHclResponse
@@ -39,7 +39,7 @@ namespace OpenAPIExplorer20241130
       Models::ApiMcpServerValidateHclResponse apiMcpServerValidateHcl(const Models::ApiMcpServerValidateHclRequest &request);
 
       /**
-       * @summary 创建ApiMcpServer
+       * @summary Creates an API MCP service.
        *
        * @param request CreateApiMcpServerRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace OpenAPIExplorer20241130
       Models::CreateApiMcpServerResponse createApiMcpServerWithOptions(const Models::CreateApiMcpServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建ApiMcpServer
+       * @summary Creates an API MCP service.
        *
        * @param request CreateApiMcpServerRequest
        * @return CreateApiMcpServerResponse
@@ -57,7 +57,7 @@ namespace OpenAPIExplorer20241130
       Models::CreateApiMcpServerResponse createApiMcpServer(const Models::CreateApiMcpServerRequest &request);
 
       /**
-       * @summary 删除ApiMcpServer
+       * @summary Deletes an API MCP service.
        *
        * @param request DeleteApiMcpServerRequest
        * @param headers map
@@ -67,7 +67,7 @@ namespace OpenAPIExplorer20241130
       Models::DeleteApiMcpServerResponse deleteApiMcpServerWithOptions(const Models::DeleteApiMcpServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除ApiMcpServer
+       * @summary Deletes an API MCP service.
        *
        * @param request DeleteApiMcpServerRequest
        * @return DeleteApiMcpServerResponse
@@ -75,7 +75,7 @@ namespace OpenAPIExplorer20241130
       Models::DeleteApiMcpServerResponse deleteApiMcpServer(const Models::DeleteApiMcpServerRequest &request);
 
       /**
-       * @summary 动态生成Aliyun CLI命令
+       * @summary Generates commands for the Alibaba Cloud command-line interface (CLI).
        *
        * @param tmpReq GenerateCLICommandRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace OpenAPIExplorer20241130
       Models::GenerateCLICommandResponse generateCLICommandWithOptions(const Models::GenerateCLICommandRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 动态生成Aliyun CLI命令
+       * @summary Generates commands for the Alibaba Cloud command-line interface (CLI).
        *
        * @param request GenerateCLICommandRequest
        * @return GenerateCLICommandResponse
@@ -93,7 +93,7 @@ namespace OpenAPIExplorer20241130
       Models::GenerateCLICommandResponse generateCLICommand(const Models::GenerateCLICommandRequest &request);
 
       /**
-       * @summary 获取产品相关接口的开放元数据
+       * @summary Retrieves the OpenAPI metadata for an API in a product.
        *
        * @param request GetApiDefinitionRequest
        * @param headers map
@@ -103,7 +103,7 @@ namespace OpenAPIExplorer20241130
       Models::GetApiDefinitionResponse getApiDefinitionWithOptions(const Models::GetApiDefinitionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取产品相关接口的开放元数据
+       * @summary Retrieves the OpenAPI metadata for an API in a product.
        *
        * @param request GetApiDefinitionRequest
        * @return GetApiDefinitionResponse
@@ -111,7 +111,7 @@ namespace OpenAPIExplorer20241130
       Models::GetApiDefinitionResponse getApiDefinition(const Models::GetApiDefinitionRequest &request);
 
       /**
-       * @summary 查询 ApiMcpServer
+       * @summary Retrieves the details of a specific API MCP service.
        *
        * @param request GetApiMcpServerRequest
        * @param headers map
@@ -121,7 +121,7 @@ namespace OpenAPIExplorer20241130
       Models::GetApiMcpServerResponse getApiMcpServerWithOptions(const Models::GetApiMcpServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 ApiMcpServer
+       * @summary Retrieves the details of a specific API MCP service.
        *
        * @param request GetApiMcpServerRequest
        * @return GetApiMcpServerResponse
@@ -129,7 +129,7 @@ namespace OpenAPIExplorer20241130
       Models::GetApiMcpServerResponse getApiMcpServer(const Models::GetApiMcpServerRequest &request);
 
       /**
-       * @summary 查询用户全局API MCP Server配置
+       * @summary Queries the global API MCP Server configuration for a user. The configuration includes settings for public network access and the whitelist of source VPC IDs for requests from a VPC.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -138,7 +138,7 @@ namespace OpenAPIExplorer20241130
       Models::GetApiMcpServerUserConfigResponse getApiMcpServerUserConfigWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户全局API MCP Server配置
+       * @summary Queries the global API MCP Server configuration for a user. The configuration includes settings for public network access and the whitelist of source VPC IDs for requests from a VPC.
        *
        * @return GetApiMcpServerUserConfigResponse
        */
@@ -167,9 +167,9 @@ namespace OpenAPIExplorer20241130
       Models::GetErrorCodeSolutionsResponse getErrorCodeSolutions(const Models::GetErrorCodeSolutionsRequest &request);
 
       /**
-       * @summary Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
+       * @summary Queries the details of an OpenAPI call log for your account using the request ID returned from an API call. This operation is used for troubleshooting.
        *
-       * @description Permissions on this API cannot be granted to other members.
+       * @description This API does not support authorization.
        *
        * @param request GetOwnRequestLogRequest
        * @param headers map
@@ -179,9 +179,9 @@ namespace OpenAPIExplorer20241130
       Models::GetOwnRequestLogResponse getOwnRequestLogWithOptions(const Models::GetOwnRequestLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
+       * @summary Queries the details of an OpenAPI call log for your account using the request ID returned from an API call. This operation is used for troubleshooting.
        *
-       * @description Permissions on this API cannot be granted to other members.
+       * @description This API does not support authorization.
        *
        * @param request GetOwnRequestLogRequest
        * @return GetOwnRequestLogResponse
@@ -189,7 +189,7 @@ namespace OpenAPIExplorer20241130
       Models::GetOwnRequestLogResponse getOwnRequestLog(const Models::GetOwnRequestLogRequest &request);
 
       /**
-       * @summary 获取产品的接入点信息
+       * @summary Retrieves the endpoint information for a product.
        *
        * @param request GetProductEndpointsRequest
        * @param headers map
@@ -199,7 +199,7 @@ namespace OpenAPIExplorer20241130
       Models::GetProductEndpointsResponse getProductEndpointsWithOptions(const Models::GetProductEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取产品的接入点信息
+       * @summary Retrieves the endpoint information for a product.
        *
        * @param request GetProductEndpointsRequest
        * @return GetProductEndpointsResponse
@@ -207,9 +207,9 @@ namespace OpenAPIExplorer20241130
       Models::GetProductEndpointsResponse getProductEndpoints(const Models::GetProductEndpointsRequest &request);
 
       /**
-       * @summary Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
+       * @summary Queries the details of a request log using the request ID that is returned from an API call. This operation is useful for troubleshooting.
        *
-       * @description You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
+       * @description You can query call logs across different RAM users or Alibaba Cloud accounts using RAM authorization or role assumption. For more information, see [Cross-account API error diagnosis authorization](https://help.aliyun.com/document_detail/2868101.html).
        *
        * @param request GetRequestLogRequest
        * @param headers map
@@ -219,9 +219,9 @@ namespace OpenAPIExplorer20241130
       Models::GetRequestLogResponse getRequestLogWithOptions(const Models::GetRequestLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
+       * @summary Queries the details of a request log using the request ID that is returned from an API call. This operation is useful for troubleshooting.
        *
-       * @description You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
+       * @description You can query call logs across different RAM users or Alibaba Cloud accounts using RAM authorization or role assumption. For more information, see [Cross-account API error diagnosis authorization](https://help.aliyun.com/document_detail/2868101.html).
        *
        * @param request GetRequestLogRequest
        * @return GetRequestLogResponse
@@ -229,7 +229,7 @@ namespace OpenAPIExplorer20241130
       Models::GetRequestLogResponse getRequestLog(const Models::GetRequestLogRequest &request);
 
       /**
-       * @summary 获取产品的开放元数据
+       * @summary Retrieves the OpenAPI metadata for a product.
        *
        * @param request ListApiDefinitionsRequest
        * @param headers map
@@ -239,7 +239,7 @@ namespace OpenAPIExplorer20241130
       Models::ListApiDefinitionsResponse listApiDefinitionsWithOptions(const Models::ListApiDefinitionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取产品的开放元数据
+       * @summary Retrieves the OpenAPI metadata for a product.
        *
        * @param request ListApiDefinitionsRequest
        * @return ListApiDefinitionsResponse
@@ -247,7 +247,7 @@ namespace OpenAPIExplorer20241130
       Models::ListApiDefinitionsResponse listApiDefinitions(const Models::ListApiDefinitionsRequest &request);
 
       /**
-       * @summary 查询系统工具列表
+       * @summary Lists the system tools supported by the MCP service.
        *
        * @param request ListApiMcpServerSystemToolsRequest
        * @param headers map
@@ -257,7 +257,7 @@ namespace OpenAPIExplorer20241130
       Models::ListApiMcpServerSystemToolsResponse listApiMcpServerSystemToolsWithOptions(const Models::ListApiMcpServerSystemToolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询系统工具列表
+       * @summary Lists the system tools supported by the MCP service.
        *
        * @param request ListApiMcpServerSystemToolsRequest
        * @return ListApiMcpServerSystemToolsResponse
@@ -265,7 +265,7 @@ namespace OpenAPIExplorer20241130
       Models::ListApiMcpServerSystemToolsResponse listApiMcpServerSystemTools(const Models::ListApiMcpServerSystemToolsRequest &request);
 
       /**
-       * @summary 列出资源ApiMcpServer
+       * @summary This operation queries a list of all API MCP servers in an Alibaba Cloud account.
        *
        * @param request ListApiMcpServersRequest
        * @param headers map
@@ -275,7 +275,7 @@ namespace OpenAPIExplorer20241130
       Models::ListApiMcpServersResponse listApiMcpServersWithOptions(const Models::ListApiMcpServersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出资源ApiMcpServer
+       * @summary This operation queries a list of all API MCP servers in an Alibaba Cloud account.
        *
        * @param request ListApiMcpServersRequest
        * @return ListApiMcpServersResponse
@@ -283,7 +283,7 @@ namespace OpenAPIExplorer20241130
       Models::ListApiMcpServersResponse listApiMcpServers(const Models::ListApiMcpServersRequest &request);
 
       /**
-       * @summary 更新UpdateApiMcpServer
+       * @summary Updates an API MCP service.
        *
        * @param request UpdateApiMcpServerRequest
        * @param headers map
@@ -293,7 +293,7 @@ namespace OpenAPIExplorer20241130
       Models::UpdateApiMcpServerResponse updateApiMcpServerWithOptions(const Models::UpdateApiMcpServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新UpdateApiMcpServer
+       * @summary Updates an API MCP service.
        *
        * @param request UpdateApiMcpServerRequest
        * @return UpdateApiMcpServerResponse
@@ -301,7 +301,7 @@ namespace OpenAPIExplorer20241130
       Models::UpdateApiMcpServerResponse updateApiMcpServer(const Models::UpdateApiMcpServerRequest &request);
 
       /**
-       * @summary 修改用户全局API MCP Server配置
+       * @summary Updates the global API MCP Server configuration for a user.
        *
        * @param request UpdateApiMcpServerUserConfigRequest
        * @param headers map
@@ -311,7 +311,7 @@ namespace OpenAPIExplorer20241130
       Models::UpdateApiMcpServerUserConfigResponse updateApiMcpServerUserConfigWithOptions(const Models::UpdateApiMcpServerUserConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改用户全局API MCP Server配置
+       * @summary Updates the global API MCP Server configuration for a user.
        *
        * @param request UpdateApiMcpServerUserConfigRequest
        * @return UpdateApiMcpServerUserConfigResponse

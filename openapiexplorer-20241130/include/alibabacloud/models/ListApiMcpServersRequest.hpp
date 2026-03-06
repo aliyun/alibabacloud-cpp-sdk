@@ -48,89 +48,105 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->description_ == nullptr && return this->id_ == nullptr && return this->keyword_ == nullptr && return this->language_ == nullptr && return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr && return this->skip_ == nullptr && return this->sourceType_ == nullptr && return this->updateTime_ == nullptr; };
+        && this->description_ == nullptr && this->id_ == nullptr && this->keyword_ == nullptr && this->language_ == nullptr && this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->skip_ == nullptr && this->sourceType_ == nullptr && this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline ListApiMcpServersRequest& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ListApiMcpServersRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline ListApiMcpServersRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline ListApiMcpServersRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline ListApiMcpServersRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListApiMcpServersRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListApiMcpServersRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // skip Field Functions 
     bool hasSkip() const { return this->skip_ != nullptr;};
     void deleteSkip() { this->skip_ = nullptr;};
-    inline int32_t skip() const { DARABONBA_PTR_GET_DEFAULT(skip_, 0) };
+    inline int32_t getSkip() const { DARABONBA_PTR_GET_DEFAULT(skip_, 0) };
     inline ListApiMcpServersRequest& setSkip(int32_t skip) { DARABONBA_PTR_SET_VALUE(skip_, skip) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline ListApiMcpServersRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
-    inline string updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
+    inline string getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
     inline ListApiMcpServersRequest& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
   protected:
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> keyword_ = nullptr;
-    std::shared_ptr<string> language_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<int32_t> skip_ = nullptr;
-    std::shared_ptr<string> sourceType_ = nullptr;
-    std::shared_ptr<string> updateTime_ = nullptr;
+    // The time when the API MCP server was created.
+    shared_ptr<string> createTime_ {};
+    // The description of the API MCP service.
+    shared_ptr<string> description_ {};
+    // The ID of the API MCP service.
+    shared_ptr<string> id_ {};
+    // The search keyword. Supports fuzzy search by API name and exact search by API ID.
+    shared_ptr<string> keyword_ {};
+    // The language of the API reference for the API MCP service. The language of the prompt can affect the response from the AI. Valid values: \\`ZH_CN\\`, \\`EN_US\\`.
+    shared_ptr<string> language_ {};
+    // The maximum number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
+    shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to start the next query. Set this parameter to the \\`nextToken\\` value that was returned from the previous API call.
+    // 
+    // > This parameter is not required for the first query. If a query does not return all results, pass the \\`nextToken\\` value from the previous query to continue.
+    shared_ptr<string> nextToken_ {};
+    // The number of data entries to skip.
+    shared_ptr<int32_t> skip_ {};
+    // The type of the API MCP service.
+    // 
+    // - custom: a custom service
+    // 
+    // - system: a system service
+    shared_ptr<string> sourceType_ {};
+    // The time when the API MCP server was last updated.
+    shared_ptr<string> updateTime_ {};
   };
 
   } // namespace Models

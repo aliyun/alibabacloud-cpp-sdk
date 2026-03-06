@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GenerateCLICommandResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(cli, cli_);
+      DARABONBA_PTR_TO_JSON(requestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, GenerateCLICommandResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(cli, cli_);
+      DARABONBA_PTR_FROM_JSON(requestId, requestId_);
     };
     GenerateCLICommandResponseBody() = default ;
     GenerateCLICommandResponseBody(const GenerateCLICommandResponseBody &) = default ;
@@ -29,16 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->cli_ == nullptr; };
+    virtual bool empty() const override { return this->cli_ == nullptr
+        && this->requestId_ == nullptr; };
     // cli Field Functions 
     bool hasCli() const { return this->cli_ != nullptr;};
     void deleteCli() { this->cli_ = nullptr;};
-    inline string cli() const { DARABONBA_PTR_GET_DEFAULT(cli_, "") };
+    inline string getCli() const { DARABONBA_PTR_GET_DEFAULT(cli_, "") };
     inline GenerateCLICommandResponseBody& setCli(string cli) { DARABONBA_PTR_SET_VALUE(cli_, cli) };
 
 
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline GenerateCLICommandResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
   protected:
-    std::shared_ptr<string> cli_ = nullptr;
+    // The CLI instruction.
+    shared_ptr<string> cli_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
