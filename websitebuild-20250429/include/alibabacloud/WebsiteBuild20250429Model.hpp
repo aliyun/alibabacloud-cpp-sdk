@@ -19,6 +19,12 @@
 #include <alibabacloud/models/ModuleVersionsValueComponentsValuePropertiesValue.hpp>
 #include <alibabacloud/models/ModuleVersionsValueComponentsValue.hpp>
 #include <alibabacloud/models/ModuleVersionsValue.hpp>
+#include <alibabacloud/models/ModuleDataComponentsValuePropertiesValue.hpp>
+#include <alibabacloud/models/ModuleDataComponentsValue.hpp>
+#include <alibabacloud/models/ModuleDataPropertiesValue.hpp>
+#include <alibabacloud/models/ModuleNextComponentsValuePropertiesValue.hpp>
+#include <alibabacloud/models/ModuleNextComponentsValue.hpp>
+#include <alibabacloud/models/ModuleNextPropertiesValue.hpp>
 #include <alibabacloud/models/AllocateSupabaseForAdminRequest.hpp>
 #include <alibabacloud/models/AllocateSupabaseForAdminResponseBody.hpp>
 #include <alibabacloud/models/AllocateSupabaseForAdminResponse.hpp>
@@ -73,6 +79,9 @@
 #include <alibabacloud/models/GetAppInstanceRequest.hpp>
 #include <alibabacloud/models/GetAppInstanceResponseBody.hpp>
 #include <alibabacloud/models/GetAppInstanceResponse.hpp>
+#include <alibabacloud/models/GetAppInstanceForPartnerRequest.hpp>
+#include <alibabacloud/models/GetAppInstanceForPartnerResponseBody.hpp>
+#include <alibabacloud/models/GetAppInstanceForPartnerResponse.hpp>
 #include <alibabacloud/models/GetAppPluginConfigRequest.hpp>
 #include <alibabacloud/models/GetAppPluginConfigResponseBody.hpp>
 #include <alibabacloud/models/GetAppPluginConfigResponse.hpp>
@@ -101,6 +110,9 @@
 #include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewResponse.hpp>
 #include <alibabacloud/models/ListAppCommoditySpecificationsForPartnerResponseBody.hpp>
 #include <alibabacloud/models/ListAppCommoditySpecificationsForPartnerResponse.hpp>
+#include <alibabacloud/models/ListAppCommoditySpecificationsV2ForPartnerRequest.hpp>
+#include <alibabacloud/models/ListAppCommoditySpecificationsV2ForPartnerResponseBody.hpp>
+#include <alibabacloud/models/ListAppCommoditySpecificationsV2ForPartnerResponse.hpp>
 #include <alibabacloud/models/ListAppDomainRedirectRecordsRequest.hpp>
 #include <alibabacloud/models/ListAppDomainRedirectRecordsResponseBody.hpp>
 #include <alibabacloud/models/ListAppDomainRedirectRecordsResponse.hpp>

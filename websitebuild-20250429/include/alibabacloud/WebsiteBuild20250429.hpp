@@ -310,6 +310,23 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceResponse getAppInstance(const Models::GetAppInstanceRequest &request);
 
       /**
+       * @summary 实例详情查询
+       *
+       * @param request GetAppInstanceForPartnerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppInstanceForPartnerResponse
+       */
+      Models::GetAppInstanceForPartnerResponse getAppInstanceForPartnerWithOptions(const Models::GetAppInstanceForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 实例详情查询
+       *
+       * @param request GetAppInstanceForPartnerRequest
+       * @return GetAppInstanceForPartnerResponse
+       */
+      Models::GetAppInstanceForPartnerResponse getAppInstanceForPartner(const Models::GetAppInstanceForPartnerRequest &request);
+
+      /**
        * @summary 生码-获取插件配置信息
        *
        * @param request GetAppPluginConfigRequest
@@ -476,6 +493,23 @@ namespace WebsiteBuild20250429
        * @return ListAppCommoditySpecificationsForPartnerResponse
        */
       Models::ListAppCommoditySpecificationsForPartnerResponse listAppCommoditySpecificationsForPartner();
+
+      /**
+       * @summary 网站信息查询
+       *
+       * @param request ListAppCommoditySpecificationsV2ForPartnerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppCommoditySpecificationsV2ForPartnerResponse
+       */
+      Models::ListAppCommoditySpecificationsV2ForPartnerResponse listAppCommoditySpecificationsV2ForPartnerWithOptions(const Models::ListAppCommoditySpecificationsV2ForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 网站信息查询
+       *
+       * @param request ListAppCommoditySpecificationsV2ForPartnerRequest
+       * @return ListAppCommoditySpecificationsV2ForPartnerResponse
+       */
+      Models::ListAppCommoditySpecificationsV2ForPartnerResponse listAppCommoditySpecificationsV2ForPartner(const Models::ListAppCommoditySpecificationsV2ForPartnerRequest &request);
 
       /**
        * @summary Query the list of domain redirection rules

@@ -954,6 +954,48 @@ GetAppInstanceResponse Client::getAppInstance(const GetAppInstanceRequest &reque
 }
 
 /**
+ * @summary 实例详情查询
+ *
+ * @param request GetAppInstanceForPartnerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppInstanceForPartnerResponse
+ */
+GetAppInstanceForPartnerResponse Client::getAppInstanceForPartnerWithOptions(const GetAppInstanceForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppInstanceForPartner"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppInstanceForPartnerResponse>();
+}
+
+/**
+ * @summary 实例详情查询
+ *
+ * @param request GetAppInstanceForPartnerRequest
+ * @return GetAppInstanceForPartnerResponse
+ */
+GetAppInstanceForPartnerResponse Client::getAppInstanceForPartner(const GetAppInstanceForPartnerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppInstanceForPartnerWithOptions(request, runtime);
+}
+
+/**
  * @summary 生码-获取插件配置信息
  *
  * @param request GetAppPluginConfigRequest
@@ -1397,6 +1439,52 @@ ListAppCommoditySpecificationsForPartnerResponse Client::listAppCommoditySpecifi
 ListAppCommoditySpecificationsForPartnerResponse Client::listAppCommoditySpecificationsForPartner() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listAppCommoditySpecificationsForPartnerWithOptions(runtime);
+}
+
+/**
+ * @summary 网站信息查询
+ *
+ * @param request ListAppCommoditySpecificationsV2ForPartnerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppCommoditySpecificationsV2ForPartnerResponse
+ */
+ListAppCommoditySpecificationsV2ForPartnerResponse Client::listAppCommoditySpecificationsV2ForPartnerWithOptions(const ListAppCommoditySpecificationsV2ForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppCommoditySpecificationsV2ForPartner"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppCommoditySpecificationsV2ForPartnerResponse>();
+}
+
+/**
+ * @summary 网站信息查询
+ *
+ * @param request ListAppCommoditySpecificationsV2ForPartnerRequest
+ * @return ListAppCommoditySpecificationsV2ForPartnerResponse
+ */
+ListAppCommoditySpecificationsV2ForPartnerResponse Client::listAppCommoditySpecificationsV2ForPartner(const ListAppCommoditySpecificationsV2ForPartnerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppCommoditySpecificationsV2ForPartnerWithOptions(request, runtime);
 }
 
 /**
