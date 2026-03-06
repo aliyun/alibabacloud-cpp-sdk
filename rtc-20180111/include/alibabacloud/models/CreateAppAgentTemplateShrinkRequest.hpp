@@ -19,11 +19,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AsrConfig, asrConfigShrink_);
       DARABONBA_PTR_TO_JSON(BackChannelConfig, backChannelConfigShrink_);
       DARABONBA_PTR_TO_JSON(ChatMode, chatMode_);
+      DARABONBA_PTR_TO_JSON(EnableVideoUnderstanding, enableVideoUnderstanding_);
       DARABONBA_PTR_TO_JSON(Greeting, greeting_);
       DARABONBA_PTR_TO_JSON(InterruptConfig, interruptConfigShrink_);
       DARABONBA_PTR_TO_JSON(InterruptMode, interruptMode_);
       DARABONBA_PTR_TO_JSON(LlmConfig, llmConfigShrink_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(PreferVideo, preferVideo_);
       DARABONBA_PTR_TO_JSON(TtsConfig, ttsConfigShrink_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
@@ -34,11 +36,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AsrConfig, asrConfigShrink_);
       DARABONBA_PTR_FROM_JSON(BackChannelConfig, backChannelConfigShrink_);
       DARABONBA_PTR_FROM_JSON(ChatMode, chatMode_);
+      DARABONBA_PTR_FROM_JSON(EnableVideoUnderstanding, enableVideoUnderstanding_);
       DARABONBA_PTR_FROM_JSON(Greeting, greeting_);
       DARABONBA_PTR_FROM_JSON(InterruptConfig, interruptConfigShrink_);
       DARABONBA_PTR_FROM_JSON(InterruptMode, interruptMode_);
       DARABONBA_PTR_FROM_JSON(LlmConfig, llmConfigShrink_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(PreferVideo, preferVideo_);
       DARABONBA_PTR_FROM_JSON(TtsConfig, ttsConfigShrink_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
@@ -55,8 +59,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentSilenceConfigShrink_ == nullptr
         && this->ambientSoundConfigShrink_ == nullptr && this->appId_ == nullptr && this->asrConfigShrink_ == nullptr && this->backChannelConfigShrink_ == nullptr && this->chatMode_ == nullptr
-        && this->greeting_ == nullptr && this->interruptConfigShrink_ == nullptr && this->interruptMode_ == nullptr && this->llmConfigShrink_ == nullptr && this->name_ == nullptr
-        && this->ttsConfigShrink_ == nullptr && this->type_ == nullptr; };
+        && this->enableVideoUnderstanding_ == nullptr && this->greeting_ == nullptr && this->interruptConfigShrink_ == nullptr && this->interruptMode_ == nullptr && this->llmConfigShrink_ == nullptr
+        && this->name_ == nullptr && this->preferVideo_ == nullptr && this->ttsConfigShrink_ == nullptr && this->type_ == nullptr; };
     // agentSilenceConfigShrink Field Functions 
     bool hasAgentSilenceConfigShrink() const { return this->agentSilenceConfigShrink_ != nullptr;};
     void deleteAgentSilenceConfigShrink() { this->agentSilenceConfigShrink_ = nullptr;};
@@ -99,6 +103,13 @@ namespace Models
     inline CreateAppAgentTemplateShrinkRequest& setChatMode(int32_t chatMode) { DARABONBA_PTR_SET_VALUE(chatMode_, chatMode) };
 
 
+    // enableVideoUnderstanding Field Functions 
+    bool hasEnableVideoUnderstanding() const { return this->enableVideoUnderstanding_ != nullptr;};
+    void deleteEnableVideoUnderstanding() { this->enableVideoUnderstanding_ = nullptr;};
+    inline bool getEnableVideoUnderstanding() const { DARABONBA_PTR_GET_DEFAULT(enableVideoUnderstanding_, false) };
+    inline CreateAppAgentTemplateShrinkRequest& setEnableVideoUnderstanding(bool enableVideoUnderstanding) { DARABONBA_PTR_SET_VALUE(enableVideoUnderstanding_, enableVideoUnderstanding) };
+
+
     // greeting Field Functions 
     bool hasGreeting() const { return this->greeting_ != nullptr;};
     void deleteGreeting() { this->greeting_ = nullptr;};
@@ -134,6 +145,13 @@ namespace Models
     inline CreateAppAgentTemplateShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // preferVideo Field Functions 
+    bool hasPreferVideo() const { return this->preferVideo_ != nullptr;};
+    void deletePreferVideo() { this->preferVideo_ = nullptr;};
+    inline int32_t getPreferVideo() const { DARABONBA_PTR_GET_DEFAULT(preferVideo_, 0) };
+    inline CreateAppAgentTemplateShrinkRequest& setPreferVideo(int32_t preferVideo) { DARABONBA_PTR_SET_VALUE(preferVideo_, preferVideo) };
+
+
     // ttsConfigShrink Field Functions 
     bool hasTtsConfigShrink() const { return this->ttsConfigShrink_ != nullptr;};
     void deleteTtsConfigShrink() { this->ttsConfigShrink_ = nullptr;};
@@ -156,12 +174,14 @@ namespace Models
     shared_ptr<string> asrConfigShrink_ {};
     shared_ptr<string> backChannelConfigShrink_ {};
     shared_ptr<int32_t> chatMode_ {};
+    shared_ptr<bool> enableVideoUnderstanding_ {};
     shared_ptr<string> greeting_ {};
     shared_ptr<string> interruptConfigShrink_ {};
     shared_ptr<int32_t> interruptMode_ {};
     shared_ptr<string> llmConfigShrink_ {};
     // This parameter is required.
     shared_ptr<string> name_ {};
+    shared_ptr<int32_t> preferVideo_ {};
     shared_ptr<string> ttsConfigShrink_ {};
     shared_ptr<int32_t> type_ {};
   };

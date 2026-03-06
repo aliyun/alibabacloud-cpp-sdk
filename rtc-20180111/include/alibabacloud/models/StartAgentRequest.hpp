@@ -48,11 +48,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AmbientSoundConfig, ambientSoundConfig_);
         DARABONBA_PTR_TO_JSON(BackChannelConfig, backChannelConfig_);
         DARABONBA_PTR_TO_JSON(ChatMode, chatMode_);
+        DARABONBA_PTR_TO_JSON(EnableVideoUnderstanding, enableVideoUnderstanding_);
         DARABONBA_PTR_TO_JSON(Greeting, greeting_);
         DARABONBA_PTR_TO_JSON(InterruptConfig, interruptConfig_);
         DARABONBA_PTR_TO_JSON(InterruptMode, interruptMode_);
         DARABONBA_PTR_TO_JSON(LLMConfig, LLMConfig_);
         DARABONBA_PTR_TO_JSON(TTSConfig, TTSConfig_);
+        DARABONBA_PTR_TO_JSON(preferVideo, preferVideo_);
       };
       friend void from_json(const Darabonba::Json& j, VoiceChatConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(ASRConfig, ASRConfig_);
@@ -60,11 +62,13 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AmbientSoundConfig, ambientSoundConfig_);
         DARABONBA_PTR_FROM_JSON(BackChannelConfig, backChannelConfig_);
         DARABONBA_PTR_FROM_JSON(ChatMode, chatMode_);
+        DARABONBA_PTR_FROM_JSON(EnableVideoUnderstanding, enableVideoUnderstanding_);
         DARABONBA_PTR_FROM_JSON(Greeting, greeting_);
         DARABONBA_PTR_FROM_JSON(InterruptConfig, interruptConfig_);
         DARABONBA_PTR_FROM_JSON(InterruptMode, interruptMode_);
         DARABONBA_PTR_FROM_JSON(LLMConfig, LLMConfig_);
         DARABONBA_PTR_FROM_JSON(TTSConfig, TTSConfig_);
+        DARABONBA_PTR_FROM_JSON(preferVideo, preferVideo_);
       };
       VoiceChatConfig() = default ;
       VoiceChatConfig(const VoiceChatConfig &) = default ;
@@ -187,6 +191,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const LLMConfig& obj) { 
           DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
           DARABONBA_PTR_TO_JSON(AppId, appId_);
+          DARABONBA_ANY_TO_JSON(BizParams, bizParams_);
           DARABONBA_PTR_TO_JSON(HistoryDepth, historyDepth_);
           DARABONBA_PTR_TO_JSON(MaxToken, maxToken_);
           DARABONBA_PTR_TO_JSON(Model, model_);
@@ -202,6 +207,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, LLMConfig& obj) { 
           DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
           DARABONBA_PTR_FROM_JSON(AppId, appId_);
+          DARABONBA_ANY_FROM_JSON(BizParams, bizParams_);
           DARABONBA_PTR_FROM_JSON(HistoryDepth, historyDepth_);
           DARABONBA_PTR_FROM_JSON(MaxToken, maxToken_);
           DARABONBA_PTR_FROM_JSON(Model, model_);
@@ -226,9 +232,9 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->appId_ == nullptr && this->historyDepth_ == nullptr && this->maxToken_ == nullptr && this->model_ == nullptr && this->params_ == nullptr
-        && this->prompt_ == nullptr && this->temperature_ == nullptr && this->toolExecutionConfig_ == nullptr && this->tools_ == nullptr && this->topP_ == nullptr
-        && this->url_ == nullptr && this->vendor_ == nullptr; };
+        && this->appId_ == nullptr && this->bizParams_ == nullptr && this->historyDepth_ == nullptr && this->maxToken_ == nullptr && this->model_ == nullptr
+        && this->params_ == nullptr && this->prompt_ == nullptr && this->temperature_ == nullptr && this->toolExecutionConfig_ == nullptr && this->tools_ == nullptr
+        && this->topP_ == nullptr && this->url_ == nullptr && this->vendor_ == nullptr; };
         // apiKey Field Functions 
         bool hasApiKey() const { return this->apiKey_ != nullptr;};
         void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -241,6 +247,15 @@ namespace Models
         void deleteAppId() { this->appId_ = nullptr;};
         inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
         inline LLMConfig& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+        // bizParams Field Functions 
+        bool hasBizParams() const { return this->bizParams_ != nullptr;};
+        void deleteBizParams() { this->bizParams_ = nullptr;};
+        inline         const Darabonba::Json & getBizParams() const { DARABONBA_GET(bizParams_) };
+        Darabonba::Json & getBizParams() { DARABONBA_GET(bizParams_) };
+        inline LLMConfig& setBizParams(const Darabonba::Json & bizParams) { DARABONBA_SET_VALUE(bizParams_, bizParams) };
+        inline LLMConfig& setBizParams(Darabonba::Json && bizParams) { DARABONBA_SET_RVALUE(bizParams_, bizParams) };
 
 
         // historyDepth Field Functions 
@@ -329,6 +344,7 @@ namespace Models
       protected:
         shared_ptr<string> apiKey_ {};
         shared_ptr<string> appId_ {};
+        Darabonba::Json bizParams_ {};
         shared_ptr<int32_t> historyDepth_ {};
         shared_ptr<int32_t> maxToken_ {};
         shared_ptr<string> model_ {};
@@ -636,8 +652,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->ASRConfig_ == nullptr
-        && this->agentSilenceConfig_ == nullptr && this->ambientSoundConfig_ == nullptr && this->backChannelConfig_ == nullptr && this->chatMode_ == nullptr && this->greeting_ == nullptr
-        && this->interruptConfig_ == nullptr && this->interruptMode_ == nullptr && this->LLMConfig_ == nullptr && this->TTSConfig_ == nullptr; };
+        && this->agentSilenceConfig_ == nullptr && this->ambientSoundConfig_ == nullptr && this->backChannelConfig_ == nullptr && this->chatMode_ == nullptr && this->enableVideoUnderstanding_ == nullptr
+        && this->greeting_ == nullptr && this->interruptConfig_ == nullptr && this->interruptMode_ == nullptr && this->LLMConfig_ == nullptr && this->TTSConfig_ == nullptr
+        && this->preferVideo_ == nullptr; };
       // ASRConfig Field Functions 
       bool hasASRConfig() const { return this->ASRConfig_ != nullptr;};
       void deleteASRConfig() { this->ASRConfig_ = nullptr;};
@@ -681,6 +698,13 @@ namespace Models
       inline VoiceChatConfig& setChatMode(int32_t chatMode) { DARABONBA_PTR_SET_VALUE(chatMode_, chatMode) };
 
 
+      // enableVideoUnderstanding Field Functions 
+      bool hasEnableVideoUnderstanding() const { return this->enableVideoUnderstanding_ != nullptr;};
+      void deleteEnableVideoUnderstanding() { this->enableVideoUnderstanding_ = nullptr;};
+      inline bool getEnableVideoUnderstanding() const { DARABONBA_PTR_GET_DEFAULT(enableVideoUnderstanding_, false) };
+      inline VoiceChatConfig& setEnableVideoUnderstanding(bool enableVideoUnderstanding) { DARABONBA_PTR_SET_VALUE(enableVideoUnderstanding_, enableVideoUnderstanding) };
+
+
       // greeting Field Functions 
       bool hasGreeting() const { return this->greeting_ != nullptr;};
       void deleteGreeting() { this->greeting_ = nullptr;};
@@ -722,17 +746,26 @@ namespace Models
       inline VoiceChatConfig& setTTSConfig(VoiceChatConfig::TTSConfig && tTSConfig) { DARABONBA_PTR_SET_RVALUE(TTSConfig_, tTSConfig) };
 
 
+      // preferVideo Field Functions 
+      bool hasPreferVideo() const { return this->preferVideo_ != nullptr;};
+      void deletePreferVideo() { this->preferVideo_ = nullptr;};
+      inline int32_t getPreferVideo() const { DARABONBA_PTR_GET_DEFAULT(preferVideo_, 0) };
+      inline VoiceChatConfig& setPreferVideo(int32_t preferVideo) { DARABONBA_PTR_SET_VALUE(preferVideo_, preferVideo) };
+
+
     protected:
       shared_ptr<VoiceChatConfig::ASRConfig> ASRConfig_ {};
       shared_ptr<VoiceChatConfig::AgentSilenceConfig> agentSilenceConfig_ {};
       shared_ptr<VoiceChatConfig::AmbientSoundConfig> ambientSoundConfig_ {};
       shared_ptr<VoiceChatConfig::BackChannelConfig> backChannelConfig_ {};
       shared_ptr<int32_t> chatMode_ {};
+      shared_ptr<bool> enableVideoUnderstanding_ {};
       shared_ptr<string> greeting_ {};
       shared_ptr<VoiceChatConfig::InterruptConfig> interruptConfig_ {};
       shared_ptr<int32_t> interruptMode_ {};
       shared_ptr<VoiceChatConfig::LLMConfig> LLMConfig_ {};
       shared_ptr<VoiceChatConfig::TTSConfig> TTSConfig_ {};
+      shared_ptr<int32_t> preferVideo_ {};
     };
 
     class RtcConfig : public Darabonba::Model {

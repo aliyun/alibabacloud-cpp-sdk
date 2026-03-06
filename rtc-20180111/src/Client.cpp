@@ -209,6 +209,10 @@ CreateAppAgentTemplateResponse Client::createAppAgentTemplateWithOptions(const C
     query["ChatMode"] = request.getChatMode();
   }
 
+  if (!!request.hasEnableVideoUnderstanding()) {
+    query["EnableVideoUnderstanding"] = request.getEnableVideoUnderstanding();
+  }
+
   if (!!request.hasGreeting()) {
     query["Greeting"] = request.getGreeting();
   }
@@ -227,6 +231,10 @@ CreateAppAgentTemplateResponse Client::createAppAgentTemplateWithOptions(const C
 
   if (!!request.hasName()) {
     query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPreferVideo()) {
+    query["PreferVideo"] = request.getPreferVideo();
   }
 
   if (!!request.hasTtsConfigShrink()) {
@@ -4776,6 +4784,10 @@ ModifyAppAgentTemplateResponse Client::modifyAppAgentTemplateWithOptions(const M
     query["ChatMode"] = request.getChatMode();
   }
 
+  if (!!request.hasEnableVideoUnderstanding()) {
+    query["EnableVideoUnderstanding"] = request.getEnableVideoUnderstanding();
+  }
+
   if (!!request.hasGreeting()) {
     query["Greeting"] = request.getGreeting();
   }
@@ -4798,6 +4810,10 @@ ModifyAppAgentTemplateResponse Client::modifyAppAgentTemplateWithOptions(const M
 
   if (!!request.hasName()) {
     query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPreferVideo()) {
+    query["PreferVideo"] = request.getPreferVideo();
   }
 
   if (!!request.hasTtsConfigShrink()) {
