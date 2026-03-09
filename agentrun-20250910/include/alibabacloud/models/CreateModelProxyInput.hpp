@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(proxyConfig, proxyConfig_);
       DARABONBA_PTR_TO_JSON(proxyMode, proxyMode_);
       DARABONBA_PTR_TO_JSON(serviceRegionId, serviceRegionId_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateModelProxyInput& obj) { 
       DARABONBA_PTR_FROM_JSON(armsConfiguration, armsConfiguration_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(proxyConfig, proxyConfig_);
       DARABONBA_PTR_FROM_JSON(proxyMode, proxyMode_);
       DARABONBA_PTR_FROM_JSON(serviceRegionId, serviceRegionId_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     CreateModelProxyInput() = default ;
     CreateModelProxyInput(const CreateModelProxyInput &) = default ;
@@ -62,7 +64,7 @@ namespace Models
     virtual bool empty() const override { return this->armsConfiguration_ == nullptr
         && this->cpu_ == nullptr && this->credentialName_ == nullptr && this->description_ == nullptr && this->executionRoleArn_ == nullptr && this->litellmVersion_ == nullptr
         && this->logConfiguration_ == nullptr && this->memory_ == nullptr && this->modelProxyName_ == nullptr && this->modelType_ == nullptr && this->networkConfiguration_ == nullptr
-        && this->proxyConfig_ == nullptr && this->proxyMode_ == nullptr && this->serviceRegionId_ == nullptr; };
+        && this->proxyConfig_ == nullptr && this->proxyMode_ == nullptr && this->serviceRegionId_ == nullptr && this->workspaceId_ == nullptr; };
     // armsConfiguration Field Functions 
     bool hasArmsConfiguration() const { return this->armsConfiguration_ != nullptr;};
     void deleteArmsConfiguration() { this->armsConfiguration_ = nullptr;};
@@ -169,26 +171,43 @@ namespace Models
     inline CreateModelProxyInput& setServiceRegionId(string serviceRegionId) { DARABONBA_PTR_SET_VALUE(serviceRegionId_, serviceRegionId) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline CreateModelProxyInput& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     shared_ptr<ArmsConfiguration> armsConfiguration_ {};
     // This parameter is required.
     shared_ptr<float> cpu_ {};
+    // credentialName
     shared_ptr<string> credentialName_ {};
     shared_ptr<string> description_ {};
     shared_ptr<string> executionRoleArn_ {};
+    // litellmVersion
     shared_ptr<string> litellmVersion_ {};
     shared_ptr<LogConfiguration> logConfiguration_ {};
     // This parameter is required.
     shared_ptr<int32_t> memory_ {};
+    // modelProxyName
+    // 
     // This parameter is required.
     shared_ptr<string> modelProxyName_ {};
     shared_ptr<string> modelType_ {};
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
+    // ProxyConfig
+    // 
     // This parameter is required.
     shared_ptr<ProxyConfig> proxyConfig_ {};
+    // proxyMode
+    // 
     // This parameter is required.
     shared_ptr<string> proxyMode_ {};
+    // serviceRegionId
     shared_ptr<string> serviceRegionId_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

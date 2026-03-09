@@ -2360,6 +2360,10 @@ ListModelProxiesResponse Client::listModelProxiesWithOptions(const ListModelProx
     query["status"] = request.getStatus();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["workspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -2419,6 +2423,10 @@ ListModelServicesResponse Client::listModelServicesWithOptions(const ListModelSe
 
   if (!!request.hasProviderType()) {
     query["providerType"] = request.getProviderType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(serviceRegionId, serviceRegionId_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(statusReason, statusReason_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ModelProxy& obj) { 
       DARABONBA_PTR_FROM_JSON(cpu, cpu_);
@@ -58,6 +59,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(serviceRegionId, serviceRegionId_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(statusReason, statusReason_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     ModelProxy() = default ;
     ModelProxy(const ModelProxy &) = default ;
@@ -74,7 +76,7 @@ namespace Models
         && this->createdAt_ == nullptr && this->credentialName_ == nullptr && this->description_ == nullptr && this->endpoint_ == nullptr && this->executionRoleArn_ == nullptr
         && this->functionName_ == nullptr && this->lastUpdatedAt_ == nullptr && this->litellmVersion_ == nullptr && this->logConfiguration_ == nullptr && this->memory_ == nullptr
         && this->modelProxyId_ == nullptr && this->modelProxyName_ == nullptr && this->modelType_ == nullptr && this->networkConfiguration_ == nullptr && this->proxyConfig_ == nullptr
-        && this->proxyMode_ == nullptr && this->serviceRegionId_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr; };
+        && this->proxyMode_ == nullptr && this->serviceRegionId_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr && this->workspaceId_ == nullptr; };
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
@@ -221,6 +223,13 @@ namespace Models
     inline ModelProxy& setStatusReason(string statusReason) { DARABONBA_PTR_SET_VALUE(statusReason_, statusReason) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ModelProxy& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     shared_ptr<float> cpu_ {};
     shared_ptr<string> createdAt_ {};
@@ -242,6 +251,7 @@ namespace Models
     shared_ptr<string> serviceRegionId_ {};
     shared_ptr<string> status_ {};
     shared_ptr<string> statusReason_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

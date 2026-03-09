@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(logConfiguration, logConfiguration_);
       DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_TO_JSON(proxyConfig, proxyConfig_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateModelProxyInput& obj) { 
       DARABONBA_PTR_FROM_JSON(armsConfiguration, armsConfiguration_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(logConfiguration, logConfiguration_);
       DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_FROM_JSON(proxyConfig, proxyConfig_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     UpdateModelProxyInput() = default ;
     UpdateModelProxyInput(const UpdateModelProxyInput &) = default ;
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->armsConfiguration_ == nullptr
         && this->credentialName_ == nullptr && this->description_ == nullptr && this->executionRoleArn_ == nullptr && this->logConfiguration_ == nullptr && this->networkConfiguration_ == nullptr
-        && this->proxyConfig_ == nullptr; };
+        && this->proxyConfig_ == nullptr && this->workspaceId_ == nullptr; };
     // armsConfiguration Field Functions 
     bool hasArmsConfiguration() const { return this->armsConfiguration_ != nullptr;};
     void deleteArmsConfiguration() { this->armsConfiguration_ = nullptr;};
@@ -105,6 +107,13 @@ namespace Models
     inline UpdateModelProxyInput& setProxyConfig(ProxyConfig && proxyConfig) { DARABONBA_PTR_SET_RVALUE(proxyConfig_, proxyConfig) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline UpdateModelProxyInput& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     shared_ptr<ArmsConfiguration> armsConfiguration_ {};
     shared_ptr<string> credentialName_ {};
@@ -113,6 +122,7 @@ namespace Models
     shared_ptr<LogConfiguration> logConfiguration_ {};
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
     shared_ptr<ProxyConfig> proxyConfig_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

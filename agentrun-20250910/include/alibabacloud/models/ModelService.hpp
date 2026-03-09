@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(providerSettings, providerSettings_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(statusReason, statusReason_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ModelService& obj) { 
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(providerSettings, providerSettings_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(statusReason, statusReason_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     ModelService() = default ;
     ModelService(const ModelService &) = default ;
@@ -60,7 +62,7 @@ namespace Models
     virtual bool empty() const override { return this->createdAt_ == nullptr
         && this->credentialName_ == nullptr && this->description_ == nullptr && this->lastUpdatedAt_ == nullptr && this->modelInfoConfigs_ == nullptr && this->modelServiceId_ == nullptr
         && this->modelServiceName_ == nullptr && this->modelType_ == nullptr && this->networkConfiguration_ == nullptr && this->provider_ == nullptr && this->providerSettings_ == nullptr
-        && this->status_ == nullptr && this->statusReason_ == nullptr; };
+        && this->status_ == nullptr && this->statusReason_ == nullptr && this->workspaceId_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -158,6 +160,13 @@ namespace Models
     inline ModelService& setStatusReason(string statusReason) { DARABONBA_PTR_SET_VALUE(statusReason_, statusReason) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ModelService& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     shared_ptr<string> createdAt_ {};
     shared_ptr<string> credentialName_ {};
@@ -172,6 +181,7 @@ namespace Models
     shared_ptr<ProviderSettings> providerSettings_ {};
     shared_ptr<string> status_ {};
     shared_ptr<string> statusReason_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

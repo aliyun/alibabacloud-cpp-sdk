@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_TO_JSON(provider, provider_);
       DARABONBA_PTR_TO_JSON(providerSettings, providerSettings_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateModelServiceInput& obj) { 
       DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_FROM_JSON(provider, provider_);
       DARABONBA_PTR_FROM_JSON(providerSettings, providerSettings_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     CreateModelServiceInput() = default ;
     CreateModelServiceInput(const CreateModelServiceInput &) = default ;
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialName_ == nullptr
         && this->description_ == nullptr && this->modelInfoConfigs_ == nullptr && this->modelServiceName_ == nullptr && this->modelType_ == nullptr && this->networkConfiguration_ == nullptr
-        && this->provider_ == nullptr && this->providerSettings_ == nullptr; };
+        && this->provider_ == nullptr && this->providerSettings_ == nullptr && this->workspaceId_ == nullptr; };
     // credentialName Field Functions 
     bool hasCredentialName() const { return this->credentialName_ != nullptr;};
     void deleteCredentialName() { this->credentialName_ = nullptr;};
@@ -112,10 +114,20 @@ namespace Models
     inline CreateModelServiceInput& setProviderSettings(ProviderSettings && providerSettings) { DARABONBA_PTR_SET_RVALUE(providerSettings_, providerSettings) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline CreateModelServiceInput& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     shared_ptr<string> credentialName_ {};
     shared_ptr<string> description_ {};
+    // modelInfoConfigs
     shared_ptr<vector<ModelInfoConfig>> modelInfoConfigs_ {};
+    // modelServiceName
+    // 
     // This parameter is required.
     shared_ptr<string> modelServiceName_ {};
     // This parameter is required.
@@ -123,8 +135,11 @@ namespace Models
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
     // This parameter is required.
     shared_ptr<string> provider_ {};
+    // providerSettings
+    // 
     // This parameter is required.
     shared_ptr<ProviderSettings> providerSettings_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models
