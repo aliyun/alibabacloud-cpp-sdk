@@ -3063,7 +3063,7 @@ CreateDBInstanceForRebuildResponse Client::createDBInstanceForRebuild(const Crea
 }
 
 /**
- * @summary 原生复制实例创建复制通道
+ * @summary Create a replication channel for a native replication instance
  *
  * @param request CreateDBInstanceReplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3122,7 +3122,7 @@ CreateDBInstanceReplicationResponse Client::createDBInstanceReplicationWithOptio
 }
 
 /**
- * @summary 原生复制实例创建复制通道
+ * @summary Create a replication channel for a native replication instance
  *
  * @param request CreateDBInstanceReplicationRequest
  * @return CreateDBInstanceReplicationResponse
@@ -6227,7 +6227,7 @@ DeleteDBInstanceEndpointAddressResponse Client::deleteDBInstanceEndpointAddress(
 }
 
 /**
- * @summary 原生复制实例删除复制通道
+ * @summary Delete a replication link from a native replication instance
  *
  * @param request DeleteDBInstanceReplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6270,7 +6270,7 @@ DeleteDBInstanceReplicationResponse Client::deleteDBInstanceReplicationWithOptio
 }
 
 /**
- * @summary 原生复制实例删除复制通道
+ * @summary Delete a replication link from a native replication instance
  *
  * @param request DeleteDBInstanceReplicationRequest
  * @return DeleteDBInstanceReplicationResponse
@@ -17126,6 +17126,48 @@ DescribeRCMetricListResponse Client::describeRCMetricListWithOptions(const Descr
 DescribeRCMetricListResponse Client::describeRCMetricList(const DescribeRCMetricListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeRCMetricListWithOptions(request, runtime);
+}
+
+/**
+ * @summary DescribeRCNetworkInterfaces
+ *
+ * @param request DescribeRCNetworkInterfacesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRCNetworkInterfacesResponse
+ */
+DescribeRCNetworkInterfacesResponse Client::describeRCNetworkInterfacesWithOptions(const DescribeRCNetworkInterfacesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRCNetworkInterfaces"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRCNetworkInterfacesResponse>();
+}
+
+/**
+ * @summary DescribeRCNetworkInterfaces
+ *
+ * @param request DescribeRCNetworkInterfacesRequest
+ * @return DescribeRCNetworkInterfacesResponse
+ */
+DescribeRCNetworkInterfacesResponse Client::describeRCNetworkInterfaces(const DescribeRCNetworkInterfacesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRCNetworkInterfacesWithOptions(request, runtime);
 }
 
 /**
@@ -32143,7 +32185,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary 原生复制实例更新复制通道
+ * @summary Update replication channel for a native replication instance
  *
  * @param request UpdateDBInstanceReplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32206,7 +32248,7 @@ UpdateDBInstanceReplicationResponse Client::updateDBInstanceReplicationWithOptio
 }
 
 /**
- * @summary 原生复制实例更新复制通道
+ * @summary Update replication channel for a native replication instance
  *
  * @param request UpdateDBInstanceReplicationRequest
  * @return UpdateDBInstanceReplicationResponse

@@ -646,6 +646,9 @@
 #include <alibabacloud/models/DescribeRCMetricListRequest.hpp>
 #include <alibabacloud/models/DescribeRCMetricListResponseBody.hpp>
 #include <alibabacloud/models/DescribeRCMetricListResponse.hpp>
+#include <alibabacloud/models/DescribeRCNetworkInterfacesRequest.hpp>
+#include <alibabacloud/models/DescribeRCNetworkInterfacesResponseBody.hpp>
+#include <alibabacloud/models/DescribeRCNetworkInterfacesResponse.hpp>
 #include <alibabacloud/models/DescribeRCNodePoolRequest.hpp>
 #include <alibabacloud/models/DescribeRCNodePoolResponseBody.hpp>
 #include <alibabacloud/models/DescribeRCNodePoolResponse.hpp>

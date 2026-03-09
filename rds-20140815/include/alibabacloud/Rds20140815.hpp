@@ -1041,7 +1041,7 @@ namespace Rds20140815
       Models::CreateDBInstanceForRebuildResponse createDBInstanceForRebuild(const Models::CreateDBInstanceForRebuildRequest &request);
 
       /**
-       * @summary 原生复制实例创建复制通道
+       * @summary Create a replication channel for a native replication instance
        *
        * @param request CreateDBInstanceReplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1050,7 +1050,7 @@ namespace Rds20140815
       Models::CreateDBInstanceReplicationResponse createDBInstanceReplicationWithOptions(const Models::CreateDBInstanceReplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 原生复制实例创建复制通道
+       * @summary Create a replication channel for a native replication instance
        *
        * @param request CreateDBInstanceReplicationRequest
        * @return CreateDBInstanceReplicationResponse
@@ -2006,7 +2006,7 @@ namespace Rds20140815
       Models::DeleteDBInstanceEndpointAddressResponse deleteDBInstanceEndpointAddress(const Models::DeleteDBInstanceEndpointAddressRequest &request);
 
       /**
-       * @summary 原生复制实例删除复制通道
+       * @summary Delete a replication link from a native replication instance
        *
        * @param request DeleteDBInstanceReplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2015,7 +2015,7 @@ namespace Rds20140815
       Models::DeleteDBInstanceReplicationResponse deleteDBInstanceReplicationWithOptions(const Models::DeleteDBInstanceReplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 原生复制实例删除复制通道
+       * @summary Delete a replication link from a native replication instance
        *
        * @param request DeleteDBInstanceReplicationRequest
        * @return DeleteDBInstanceReplicationResponse
@@ -5684,6 +5684,23 @@ namespace Rds20140815
        * @return DescribeRCMetricListResponse
        */
       Models::DescribeRCMetricListResponse describeRCMetricList(const Models::DescribeRCMetricListRequest &request);
+
+      /**
+       * @summary DescribeRCNetworkInterfaces
+       *
+       * @param request DescribeRCNetworkInterfacesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRCNetworkInterfacesResponse
+       */
+      Models::DescribeRCNetworkInterfacesResponse describeRCNetworkInterfacesWithOptions(const Models::DescribeRCNetworkInterfacesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DescribeRCNetworkInterfaces
+       *
+       * @param request DescribeRCNetworkInterfacesRequest
+       * @return DescribeRCNetworkInterfacesResponse
+       */
+      Models::DescribeRCNetworkInterfacesResponse describeRCNetworkInterfaces(const Models::DescribeRCNetworkInterfacesRequest &request);
 
       /**
        * @summary Queries the configuration information about the edge node pool of an RDS Custom instance.
@@ -10811,7 +10828,7 @@ namespace Rds20140815
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary 原生复制实例更新复制通道
+       * @summary Update replication channel for a native replication instance
        *
        * @param request UpdateDBInstanceReplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10820,7 +10837,7 @@ namespace Rds20140815
       Models::UpdateDBInstanceReplicationResponse updateDBInstanceReplicationWithOptions(const Models::UpdateDBInstanceReplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 原生复制实例更新复制通道
+       * @summary Update replication channel for a native replication instance
        *
        * @param request UpdateDBInstanceReplicationRequest
        * @return UpdateDBInstanceReplicationResponse
