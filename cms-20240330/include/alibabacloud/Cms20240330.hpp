@@ -21,6 +21,24 @@ namespace Cms20240330
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 添加记忆
+       *
+       * @param request AddMemoriesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddMemoriesResponse
+       */
+      Models::AddMemoriesResponse addMemoriesWithOptions(const string &workspace, const string &memoryStoreName, const Models::AddMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加记忆
+       *
+       * @param request AddMemoriesRequest
+       * @return AddMemoriesResponse
+       */
+      Models::AddMemoriesResponse addMemories(const string &workspace, const string &memoryStoreName, const Models::AddMemoriesRequest &request);
+
+      /**
        * @summary 修改资源所属资源组
        *
        * @param request ChangeResourceGroupRequest
@@ -231,6 +249,24 @@ namespace Cms20240330
        * @return CreateIntegrationPolicyResponse
        */
       Models::CreateIntegrationPolicyResponse createIntegrationPolicy(const Models::CreateIntegrationPolicyRequest &request);
+
+      /**
+       * @summary 创建记忆库
+       *
+       * @param request CreateMemoryStoreRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMemoryStoreResponse
+       */
+      Models::CreateMemoryStoreResponse createMemoryStoreWithOptions(const string &workspace, const Models::CreateMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建记忆库
+       *
+       * @param request CreateMemoryStoreRequest
+       * @return CreateMemoryStoreResponse
+       */
+      Models::CreateMemoryStoreResponse createMemoryStore(const string &workspace, const Models::CreateMemoryStoreRequest &request);
 
       /**
        * @summary Create a Prometheus monitoring instance
@@ -535,6 +571,56 @@ namespace Cms20240330
        * @return DeleteIntegrationPolicyResponse
        */
       Models::DeleteIntegrationPolicyResponse deleteIntegrationPolicy(const string &policyId, const Models::DeleteIntegrationPolicyRequest &request);
+
+      /**
+       * @summary 批量删除记忆
+       *
+       * @param request DeleteMemoriesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMemoriesResponse
+       */
+      Models::DeleteMemoriesResponse deleteMemoriesWithOptions(const string &workspace, const string &memoryStoreName, const Models::DeleteMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除记忆
+       *
+       * @param request DeleteMemoriesRequest
+       * @return DeleteMemoriesResponse
+       */
+      Models::DeleteMemoriesResponse deleteMemories(const string &workspace, const string &memoryStoreName, const Models::DeleteMemoriesRequest &request);
+
+      /**
+       * @summary 删除记忆
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMemoryResponse
+       */
+      Models::DeleteMemoryResponse deleteMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除记忆
+       *
+       * @return DeleteMemoryResponse
+       */
+      Models::DeleteMemoryResponse deleteMemory(const string &workspace, const string &memoryStoreName, const string &memoryId);
+
+      /**
+       * @summary 删除记忆库
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMemoryStoreResponse
+       */
+      Models::DeleteMemoryStoreResponse deleteMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除记忆库
+       *
+       * @return DeleteMemoryStoreResponse
+       */
+      Models::DeleteMemoryStoreResponse deleteMemoryStore(const string &workspace, const string &memoryStoreName);
 
       /**
        * @summary Delete prom instance
@@ -957,6 +1043,72 @@ namespace Cms20240330
        * @return GetIntegrationVersionForCSResponse
        */
       Models::GetIntegrationVersionForCSResponse getIntegrationVersionForCS(const Models::GetIntegrationVersionForCSRequest &request);
+
+      /**
+       * @summary 查询全部记忆
+       *
+       * @param request GetMemoriesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoriesResponse
+       */
+      Models::GetMemoriesResponse getMemoriesWithOptions(const string &workspace, const string &memoryStoreName, const Models::GetMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询全部记忆
+       *
+       * @param request GetMemoriesRequest
+       * @return GetMemoriesResponse
+       */
+      Models::GetMemoriesResponse getMemories(const string &workspace, const string &memoryStoreName, const Models::GetMemoriesRequest &request);
+
+      /**
+       * @summary 查询记忆
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoryResponse
+       */
+      Models::GetMemoryResponse getMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询记忆
+       *
+       * @return GetMemoryResponse
+       */
+      Models::GetMemoryResponse getMemory(const string &workspace, const string &memoryStoreName, const string &memoryId);
+
+      /**
+       * @summary 查询记忆历史记录
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoryHistoryResponse
+       */
+      Models::GetMemoryHistoryResponse getMemoryHistoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询记忆历史记录
+       *
+       * @return GetMemoryHistoryResponse
+       */
+      Models::GetMemoryHistoryResponse getMemoryHistory(const string &workspace, const string &memoryStoreName, const string &memoryId);
+
+      /**
+       * @summary 查询记忆库
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoryStoreResponse
+       */
+      Models::GetMemoryStoreResponse getMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询记忆库
+       *
+       * @return GetMemoryStoreResponse
+       */
+      Models::GetMemoryStoreResponse getMemoryStore(const string &workspace, const string &memoryStoreName);
 
       /**
        * @summary Query the instance in a specified environment
@@ -1487,6 +1639,24 @@ namespace Cms20240330
       Models::ListIntegrationPolicyStorageRequirementsResponse listIntegrationPolicyStorageRequirements(const string &policyId, const Models::ListIntegrationPolicyStorageRequirementsRequest &request);
 
       /**
+       * @summary 查询记忆库列表
+       *
+       * @param request ListMemoryStoresRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMemoryStoresResponse
+       */
+      Models::ListMemoryStoresResponse listMemoryStoresWithOptions(const string &workspace, const Models::ListMemoryStoresRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询记忆库列表
+       *
+       * @param request ListMemoryStoresRequest
+       * @return ListMemoryStoresResponse
+       */
+      Models::ListMemoryStoresResponse listMemoryStores(const string &workspace, const Models::ListMemoryStoresRequest &request);
+
+      /**
        * @summary Get Prometheus Instance Dashboard List
        *
        * @description Get the list of Prometheus instance dashboards.
@@ -1663,6 +1833,24 @@ namespace Cms20240330
        * @return PutWorkspaceResponse
        */
       Models::PutWorkspaceResponse putWorkspace(const string &workspaceName, const Models::PutWorkspaceRequest &request);
+
+      /**
+       * @summary 搜索记忆
+       *
+       * @param request SearchMemoriesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchMemoriesResponse
+       */
+      Models::SearchMemoriesResponse searchMemoriesWithOptions(const string &workspace, const string &memoryStoreName, const Models::SearchMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 搜索记忆
+       *
+       * @param request SearchMemoriesRequest
+       * @return SearchMemoriesResponse
+       */
+      Models::SearchMemoriesResponse searchMemories(const string &workspace, const string &memoryStoreName, const Models::SearchMemoriesRequest &request);
 
       /**
        * @summary 打标签接口
@@ -1843,6 +2031,42 @@ namespace Cms20240330
        * @return UpdateIntegrationPolicyResponse
        */
       Models::UpdateIntegrationPolicyResponse updateIntegrationPolicy(const string &integrationPolicyId, const Models::UpdateIntegrationPolicyRequest &request);
+
+      /**
+       * @summary 修改记忆
+       *
+       * @param request UpdateMemoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMemoryResponse
+       */
+      Models::UpdateMemoryResponse updateMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const Models::UpdateMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改记忆
+       *
+       * @param request UpdateMemoryRequest
+       * @return UpdateMemoryResponse
+       */
+      Models::UpdateMemoryResponse updateMemory(const string &workspace, const string &memoryStoreName, const string &memoryId, const Models::UpdateMemoryRequest &request);
+
+      /**
+       * @summary 修改记忆库配置
+       *
+       * @param request UpdateMemoryStoreRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMemoryStoreResponse
+       */
+      Models::UpdateMemoryStoreResponse updateMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const Models::UpdateMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改记忆库配置
+       *
+       * @param request UpdateMemoryStoreRequest
+       * @return UpdateMemoryStoreResponse
+       */
+      Models::UpdateMemoryStoreResponse updateMemoryStore(const string &workspace, const string &memoryStoreName, const Models::UpdateMemoryStoreRequest &request);
 
       /**
        * @summary 修改已存在的告警通知策略

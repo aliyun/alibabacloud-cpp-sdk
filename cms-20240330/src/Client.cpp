@@ -39,6 +39,83 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 添加记忆
+ *
+ * @param request AddMemoriesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddMemoriesResponse
+ */
+AddMemoriesResponse Client::addMemoriesWithOptions(const string &workspace, const string &memoryStoreName, const AddMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentId()) {
+    body["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAppId()) {
+    body["appId"] = request.getAppId();
+  }
+
+  if (!!request.hasAsyncMode()) {
+    body["asyncMode"] = request.getAsyncMode();
+  }
+
+  if (!!request.hasCustomInstructions()) {
+    body["customInstructions"] = request.getCustomInstructions();
+  }
+
+  if (!!request.hasInfer()) {
+    body["infer"] = request.getInfer();
+  }
+
+  if (!!request.hasMessages()) {
+    body["messages"] = request.getMessages();
+  }
+
+  if (!!request.hasMetadata()) {
+    body["metadata"] = request.getMetadata();
+  }
+
+  if (!!request.hasRunId()) {
+    body["runId"] = request.getRunId();
+  }
+
+  if (!!request.hasUserId()) {
+    body["userId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddMemories"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/memorystore/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memory")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddMemoriesResponse>();
+}
+
+/**
+ * @summary 添加记忆
+ *
+ * @param request AddMemoriesRequest
+ * @return AddMemoriesResponse
+ */
+AddMemoriesResponse Client::addMemories(const string &workspace, const string &memoryStoreName, const AddMemoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return addMemoriesWithOptions(workspace, memoryStoreName, request, headers, runtime);
+}
+
+/**
  * @summary 修改资源所属资源组
  *
  * @param request ChangeResourceGroupRequest
@@ -818,6 +895,67 @@ CreateIntegrationPolicyResponse Client::createIntegrationPolicy(const CreateInte
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createIntegrationPolicyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建记忆库
+ *
+ * @param request CreateMemoryStoreRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMemoryStoreResponse
+ */
+CreateMemoryStoreResponse Client::createMemoryStoreWithOptions(const string &workspace, const CreateMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCustomExtractionStrategies()) {
+    body["customExtractionStrategies"] = request.getCustomExtractionStrategies();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasExtractionStrategies()) {
+    body["extractionStrategies"] = request.getExtractionStrategies();
+  }
+
+  if (!!request.hasMemoryStoreName()) {
+    body["memoryStoreName"] = request.getMemoryStoreName();
+  }
+
+  if (!!request.hasShortTermTtl()) {
+    body["shortTermTtl"] = request.getShortTermTtl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateMemoryStore"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/memorystore")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMemoryStoreResponse>();
+}
+
+/**
+ * @summary 创建记忆库
+ *
+ * @param request CreateMemoryStoreRequest
+ * @return CreateMemoryStoreResponse
+ */
+CreateMemoryStoreResponse Client::createMemoryStore(const string &workspace, const CreateMemoryStoreRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createMemoryStoreWithOptions(workspace, request, headers, runtime);
 }
 
 /**
@@ -1666,6 +1804,135 @@ DeleteIntegrationPolicyResponse Client::deleteIntegrationPolicy(const string &po
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteIntegrationPolicyWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 批量删除记忆
+ *
+ * @param request DeleteMemoriesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMemoriesResponse
+ */
+DeleteMemoriesResponse Client::deleteMemoriesWithOptions(const string &workspace, const string &memoryStoreName, const DeleteMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAppId()) {
+    query["appId"] = request.getAppId();
+  }
+
+  if (!!request.hasRunId()) {
+    query["runId"] = request.getRunId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["userId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMemories"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/memorystore/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memory")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMemoriesResponse>();
+}
+
+/**
+ * @summary 批量删除记忆
+ *
+ * @param request DeleteMemoriesRequest
+ * @return DeleteMemoriesResponse
+ */
+DeleteMemoriesResponse Client::deleteMemories(const string &workspace, const string &memoryStoreName, const DeleteMemoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteMemoriesWithOptions(workspace, memoryStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary 删除记忆
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMemoryResponse
+ */
+DeleteMemoryResponse Client::deleteMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMemory"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/memorystore/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memory/" , Darabonba::Encode::Encoder::percentEncode(memoryId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMemoryResponse>();
+}
+
+/**
+ * @summary 删除记忆
+ *
+ * @return DeleteMemoryResponse
+ */
+DeleteMemoryResponse Client::deleteMemory(const string &workspace, const string &memoryStoreName, const string &memoryId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteMemoryWithOptions(workspace, memoryStoreName, memoryId, headers, runtime);
+}
+
+/**
+ * @summary 删除记忆库
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMemoryStoreResponse
+ */
+DeleteMemoryStoreResponse Client::deleteMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMemoryStore"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/memorystore/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMemoryStoreResponse>();
+}
+
+/**
+ * @summary 删除记忆库
+ *
+ * @return DeleteMemoryStoreResponse
+ */
+DeleteMemoryStoreResponse Client::deleteMemoryStore(const string &workspace, const string &memoryStoreName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteMemoryStoreWithOptions(workspace, memoryStoreName, headers, runtime);
 }
 
 /**
@@ -2706,6 +2973,179 @@ GetIntegrationVersionForCSResponse Client::getIntegrationVersionForCS(const GetI
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getIntegrationVersionForCSWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询全部记忆
+ *
+ * @param request GetMemoriesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMemoriesResponse
+ */
+GetMemoriesResponse Client::getMemoriesWithOptions(const string &workspace, const string &memoryStoreName, const GetMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentId()) {
+    body["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAppId()) {
+    body["appId"] = request.getAppId();
+  }
+
+  if (!!request.hasPage()) {
+    body["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRunId()) {
+    body["runId"] = request.getRunId();
+  }
+
+  if (!!request.hasUserId()) {
+    body["userId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetMemories"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/memorystore/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memory/query")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMemoriesResponse>();
+}
+
+/**
+ * @summary 查询全部记忆
+ *
+ * @param request GetMemoriesRequest
+ * @return GetMemoriesResponse
+ */
+GetMemoriesResponse Client::getMemories(const string &workspace, const string &memoryStoreName, const GetMemoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMemoriesWithOptions(workspace, memoryStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary 查询记忆
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMemoryResponse
+ */
+GetMemoryResponse Client::getMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMemory"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/memorystore/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memory/" , Darabonba::Encode::Encoder::percentEncode(memoryId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMemoryResponse>();
+}
+
+/**
+ * @summary 查询记忆
+ *
+ * @return GetMemoryResponse
+ */
+GetMemoryResponse Client::getMemory(const string &workspace, const string &memoryStoreName, const string &memoryId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMemoryWithOptions(workspace, memoryStoreName, memoryId, headers, runtime);
+}
+
+/**
+ * @summary 查询记忆历史记录
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMemoryHistoryResponse
+ */
+GetMemoryHistoryResponse Client::getMemoryHistoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMemoryHistory"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/memorystore/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memory/" , Darabonba::Encode::Encoder::percentEncode(memoryId) , "/history")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMemoryHistoryResponse>();
+}
+
+/**
+ * @summary 查询记忆历史记录
+ *
+ * @return GetMemoryHistoryResponse
+ */
+GetMemoryHistoryResponse Client::getMemoryHistory(const string &workspace, const string &memoryStoreName, const string &memoryId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMemoryHistoryWithOptions(workspace, memoryStoreName, memoryId, headers, runtime);
+}
+
+/**
+ * @summary 查询记忆库
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMemoryStoreResponse
+ */
+GetMemoryStoreResponse Client::getMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMemoryStore"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/memorystore/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMemoryStoreResponse>();
+}
+
+/**
+ * @summary 查询记忆库
+ *
+ * @return GetMemoryStoreResponse
+ */
+GetMemoryStoreResponse Client::getMemoryStore(const string &workspace, const string &memoryStoreName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMemoryStoreWithOptions(workspace, memoryStoreName, headers, runtime);
 }
 
 /**
@@ -4197,6 +4637,59 @@ ListIntegrationPolicyStorageRequirementsResponse Client::listIntegrationPolicySt
 }
 
 /**
+ * @summary 查询记忆库列表
+ *
+ * @param request ListMemoryStoresRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMemoryStoresResponse
+ */
+ListMemoryStoresResponse Client::listMemoryStoresWithOptions(const string &workspace, const ListMemoryStoresRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasMemoryStoreName()) {
+    query["memoryStoreName"] = request.getMemoryStoreName();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMemoryStores"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/memorystore")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMemoryStoresResponse>();
+}
+
+/**
+ * @summary 查询记忆库列表
+ *
+ * @param request ListMemoryStoresRequest
+ * @return ListMemoryStoresResponse
+ */
+ListMemoryStoresResponse Client::listMemoryStores(const string &workspace, const ListMemoryStoresRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMemoryStoresWithOptions(workspace, request, headers, runtime);
+}
+
+/**
  * @summary Get Prometheus Instance Dashboard List
  *
  * @description Get the list of Prometheus instance dashboards.
@@ -4807,6 +5300,79 @@ PutWorkspaceResponse Client::putWorkspace(const string &workspaceName, const Put
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return putWorkspaceWithOptions(workspaceName, request, headers, runtime);
+}
+
+/**
+ * @summary 搜索记忆
+ *
+ * @param request SearchMemoriesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchMemoriesResponse
+ */
+SearchMemoriesResponse Client::searchMemoriesWithOptions(const string &workspace, const string &memoryStoreName, const SearchMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentId()) {
+    body["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAppId()) {
+    body["appId"] = request.getAppId();
+  }
+
+  if (!!request.hasMetadata()) {
+    body["metadata"] = request.getMetadata();
+  }
+
+  if (!!request.hasQuery()) {
+    body["query"] = request.getQuery();
+  }
+
+  if (!!request.hasRerank()) {
+    body["rerank"] = request.getRerank();
+  }
+
+  if (!!request.hasRunId()) {
+    body["runId"] = request.getRunId();
+  }
+
+  if (!!request.hasTopK()) {
+    body["topK"] = request.getTopK();
+  }
+
+  if (!!request.hasUserId()) {
+    body["userId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SearchMemories"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/memorystore/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memory/search")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchMemoriesResponse>();
+}
+
+/**
+ * @summary 搜索记忆
+ *
+ * @param request SearchMemoriesRequest
+ * @return SearchMemoriesResponse
+ */
+SearchMemoriesResponse Client::searchMemories(const string &workspace, const string &memoryStoreName, const SearchMemoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return searchMemoriesWithOptions(workspace, memoryStoreName, request, headers, runtime);
 }
 
 /**
@@ -5435,6 +6001,112 @@ UpdateIntegrationPolicyResponse Client::updateIntegrationPolicy(const string &in
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateIntegrationPolicyWithOptions(integrationPolicyId, request, headers, runtime);
+}
+
+/**
+ * @summary 修改记忆
+ *
+ * @param request UpdateMemoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMemoryResponse
+ */
+UpdateMemoryResponse Client::updateMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const UpdateMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasMetadata()) {
+    body["metadata"] = request.getMetadata();
+  }
+
+  if (!!request.hasText()) {
+    body["text"] = request.getText();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMemory"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/memorystore/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memory/" , Darabonba::Encode::Encoder::percentEncode(memoryId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMemoryResponse>();
+}
+
+/**
+ * @summary 修改记忆
+ *
+ * @param request UpdateMemoryRequest
+ * @return UpdateMemoryResponse
+ */
+UpdateMemoryResponse Client::updateMemory(const string &workspace, const string &memoryStoreName, const string &memoryId, const UpdateMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMemoryWithOptions(workspace, memoryStoreName, memoryId, request, headers, runtime);
+}
+
+/**
+ * @summary 修改记忆库配置
+ *
+ * @param request UpdateMemoryStoreRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMemoryStoreResponse
+ */
+UpdateMemoryStoreResponse Client::updateMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const UpdateMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCustomExtractionStrategies()) {
+    body["customExtractionStrategies"] = request.getCustomExtractionStrategies();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasExtractionStrategies()) {
+    body["extractionStrategies"] = request.getExtractionStrategies();
+  }
+
+  if (!!request.hasShortTermTtl()) {
+    body["shortTermTtl"] = request.getShortTermTtl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMemoryStore"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/memorystore/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMemoryStoreResponse>();
+}
+
+/**
+ * @summary 修改记忆库配置
+ *
+ * @param request UpdateMemoryStoreRequest
+ * @return UpdateMemoryStoreResponse
+ */
+UpdateMemoryStoreResponse Client::updateMemoryStore(const string &workspace, const string &memoryStoreName, const UpdateMemoryStoreRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMemoryStoreWithOptions(workspace, memoryStoreName, request, headers, runtime);
 }
 
 /**

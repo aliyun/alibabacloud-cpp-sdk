@@ -36,8 +36,8 @@ namespace Models
     // chn Field Functions 
     bool hasChn() const { return this->chn_ != nullptr;};
     void deleteChn() { this->chn_ = nullptr;};
-    inline string getChn() const { DARABONBA_PTR_GET_DEFAULT(chn_, "") };
-    inline IndexJsonKey& setChn(string chn) { DARABONBA_PTR_SET_VALUE(chn_, chn) };
+    inline bool getChn() const { DARABONBA_PTR_GET_DEFAULT(chn_, false) };
+    inline IndexJsonKey& setChn(bool chn) { DARABONBA_PTR_SET_VALUE(chn_, chn) };
 
 
     // type Field Functions 
@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    shared_ptr<string> chn_ {};
+    shared_ptr<bool> chn_ {};
     shared_ptr<string> type_ {};
   };
 
