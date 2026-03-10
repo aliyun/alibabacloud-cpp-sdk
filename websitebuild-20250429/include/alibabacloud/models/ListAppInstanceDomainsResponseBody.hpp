@@ -97,6 +97,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DomainName, domainName_);
           DARABONBA_PTR_TO_JSON(OverallStatus, overallStatus_);
           DARABONBA_PTR_TO_JSON(Ownership, ownership_);
+          DARABONBA_PTR_TO_JSON(Qualification, qualification_);
           DARABONBA_PTR_TO_JSON(Resolution, resolution_);
           DARABONBA_PTR_TO_JSON(Verification, verification_);
         };
@@ -106,6 +107,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
           DARABONBA_PTR_FROM_JSON(OverallStatus, overallStatus_);
           DARABONBA_PTR_FROM_JSON(Ownership, ownership_);
+          DARABONBA_PTR_FROM_JSON(Qualification, qualification_);
           DARABONBA_PTR_FROM_JSON(Resolution, resolution_);
           DARABONBA_PTR_FROM_JSON(Verification, verification_);
         };
@@ -344,6 +346,58 @@ namespace Models
           shared_ptr<string> resolutionStatus_ {};
         };
 
+        class Qualification : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Qualification& obj) { 
+            DARABONBA_PTR_TO_JSON(IcpRecordNumber, icpRecordNumber_);
+            DARABONBA_PTR_TO_JSON(IcpSiteRecordNumber, icpSiteRecordNumber_);
+            DARABONBA_PTR_TO_JSON(PoliceRecordNumber, policeRecordNumber_);
+          };
+          friend void from_json(const Darabonba::Json& j, Qualification& obj) { 
+            DARABONBA_PTR_FROM_JSON(IcpRecordNumber, icpRecordNumber_);
+            DARABONBA_PTR_FROM_JSON(IcpSiteRecordNumber, icpSiteRecordNumber_);
+            DARABONBA_PTR_FROM_JSON(PoliceRecordNumber, policeRecordNumber_);
+          };
+          Qualification() = default ;
+          Qualification(const Qualification &) = default ;
+          Qualification(Qualification &&) = default ;
+          Qualification(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Qualification() = default ;
+          Qualification& operator=(const Qualification &) = default ;
+          Qualification& operator=(Qualification &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->icpRecordNumber_ == nullptr
+        && this->icpSiteRecordNumber_ == nullptr && this->policeRecordNumber_ == nullptr; };
+          // icpRecordNumber Field Functions 
+          bool hasIcpRecordNumber() const { return this->icpRecordNumber_ != nullptr;};
+          void deleteIcpRecordNumber() { this->icpRecordNumber_ = nullptr;};
+          inline string getIcpRecordNumber() const { DARABONBA_PTR_GET_DEFAULT(icpRecordNumber_, "") };
+          inline Qualification& setIcpRecordNumber(string icpRecordNumber) { DARABONBA_PTR_SET_VALUE(icpRecordNumber_, icpRecordNumber) };
+
+
+          // icpSiteRecordNumber Field Functions 
+          bool hasIcpSiteRecordNumber() const { return this->icpSiteRecordNumber_ != nullptr;};
+          void deleteIcpSiteRecordNumber() { this->icpSiteRecordNumber_ = nullptr;};
+          inline string getIcpSiteRecordNumber() const { DARABONBA_PTR_GET_DEFAULT(icpSiteRecordNumber_, "") };
+          inline Qualification& setIcpSiteRecordNumber(string icpSiteRecordNumber) { DARABONBA_PTR_SET_VALUE(icpSiteRecordNumber_, icpSiteRecordNumber) };
+
+
+          // policeRecordNumber Field Functions 
+          bool hasPoliceRecordNumber() const { return this->policeRecordNumber_ != nullptr;};
+          void deletePoliceRecordNumber() { this->policeRecordNumber_ = nullptr;};
+          inline string getPoliceRecordNumber() const { DARABONBA_PTR_GET_DEFAULT(policeRecordNumber_, "") };
+          inline Qualification& setPoliceRecordNumber(string policeRecordNumber) { DARABONBA_PTR_SET_VALUE(policeRecordNumber_, policeRecordNumber) };
+
+
+        protected:
+          shared_ptr<string> icpRecordNumber_ {};
+          shared_ptr<string> icpSiteRecordNumber_ {};
+          shared_ptr<string> policeRecordNumber_ {};
+        };
+
         class Ownership : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Ownership& obj) { 
@@ -455,8 +509,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->certificate_ == nullptr
-        && this->createTime_ == nullptr && this->domainName_ == nullptr && this->overallStatus_ == nullptr && this->ownership_ == nullptr && this->resolution_ == nullptr
-        && this->verification_ == nullptr; };
+        && this->createTime_ == nullptr && this->domainName_ == nullptr && this->overallStatus_ == nullptr && this->ownership_ == nullptr && this->qualification_ == nullptr
+        && this->resolution_ == nullptr && this->verification_ == nullptr; };
         // certificate Field Functions 
         bool hasCertificate() const { return this->certificate_ != nullptr;};
         void deleteCertificate() { this->certificate_ = nullptr;};
@@ -496,6 +550,15 @@ namespace Models
         inline Next& setOwnership(Next::Ownership && ownership) { DARABONBA_PTR_SET_RVALUE(ownership_, ownership) };
 
 
+        // qualification Field Functions 
+        bool hasQualification() const { return this->qualification_ != nullptr;};
+        void deleteQualification() { this->qualification_ = nullptr;};
+        inline const Next::Qualification & getQualification() const { DARABONBA_PTR_GET_CONST(qualification_, Next::Qualification) };
+        inline Next::Qualification getQualification() { DARABONBA_PTR_GET(qualification_, Next::Qualification) };
+        inline Next& setQualification(const Next::Qualification & qualification) { DARABONBA_PTR_SET_VALUE(qualification_, qualification) };
+        inline Next& setQualification(Next::Qualification && qualification) { DARABONBA_PTR_SET_RVALUE(qualification_, qualification) };
+
+
         // resolution Field Functions 
         bool hasResolution() const { return this->resolution_ != nullptr;};
         void deleteResolution() { this->resolution_ = nullptr;};
@@ -525,6 +588,7 @@ namespace Models
         shared_ptr<string> overallStatus_ {};
         // Domain ownership information
         shared_ptr<Next::Ownership> ownership_ {};
+        shared_ptr<Next::Qualification> qualification_ {};
         // Domain resolution information
         shared_ptr<Next::Resolution> resolution_ {};
         // Domain verification information
@@ -539,6 +603,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DomainName, domainName_);
           DARABONBA_PTR_TO_JSON(OverallStatus, overallStatus_);
           DARABONBA_PTR_TO_JSON(Ownership, ownership_);
+          DARABONBA_PTR_TO_JSON(Qualification, qualification_);
           DARABONBA_PTR_TO_JSON(Resolution, resolution_);
           DARABONBA_PTR_TO_JSON(Verification, verification_);
         };
@@ -548,6 +613,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
           DARABONBA_PTR_FROM_JSON(OverallStatus, overallStatus_);
           DARABONBA_PTR_FROM_JSON(Ownership, ownership_);
+          DARABONBA_PTR_FROM_JSON(Qualification, qualification_);
           DARABONBA_PTR_FROM_JSON(Resolution, resolution_);
           DARABONBA_PTR_FROM_JSON(Verification, verification_);
         };
@@ -797,6 +863,58 @@ namespace Models
           shared_ptr<string> resolutionStatus_ {};
         };
 
+        class Qualification : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Qualification& obj) { 
+            DARABONBA_PTR_TO_JSON(IcpRecordNumber, icpRecordNumber_);
+            DARABONBA_PTR_TO_JSON(IcpSiteRecordNumber, icpSiteRecordNumber_);
+            DARABONBA_PTR_TO_JSON(PoliceRecordNumber, policeRecordNumber_);
+          };
+          friend void from_json(const Darabonba::Json& j, Qualification& obj) { 
+            DARABONBA_PTR_FROM_JSON(IcpRecordNumber, icpRecordNumber_);
+            DARABONBA_PTR_FROM_JSON(IcpSiteRecordNumber, icpSiteRecordNumber_);
+            DARABONBA_PTR_FROM_JSON(PoliceRecordNumber, policeRecordNumber_);
+          };
+          Qualification() = default ;
+          Qualification(const Qualification &) = default ;
+          Qualification(Qualification &&) = default ;
+          Qualification(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Qualification() = default ;
+          Qualification& operator=(const Qualification &) = default ;
+          Qualification& operator=(Qualification &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->icpRecordNumber_ == nullptr
+        && this->icpSiteRecordNumber_ == nullptr && this->policeRecordNumber_ == nullptr; };
+          // icpRecordNumber Field Functions 
+          bool hasIcpRecordNumber() const { return this->icpRecordNumber_ != nullptr;};
+          void deleteIcpRecordNumber() { this->icpRecordNumber_ = nullptr;};
+          inline string getIcpRecordNumber() const { DARABONBA_PTR_GET_DEFAULT(icpRecordNumber_, "") };
+          inline Qualification& setIcpRecordNumber(string icpRecordNumber) { DARABONBA_PTR_SET_VALUE(icpRecordNumber_, icpRecordNumber) };
+
+
+          // icpSiteRecordNumber Field Functions 
+          bool hasIcpSiteRecordNumber() const { return this->icpSiteRecordNumber_ != nullptr;};
+          void deleteIcpSiteRecordNumber() { this->icpSiteRecordNumber_ = nullptr;};
+          inline string getIcpSiteRecordNumber() const { DARABONBA_PTR_GET_DEFAULT(icpSiteRecordNumber_, "") };
+          inline Qualification& setIcpSiteRecordNumber(string icpSiteRecordNumber) { DARABONBA_PTR_SET_VALUE(icpSiteRecordNumber_, icpSiteRecordNumber) };
+
+
+          // policeRecordNumber Field Functions 
+          bool hasPoliceRecordNumber() const { return this->policeRecordNumber_ != nullptr;};
+          void deletePoliceRecordNumber() { this->policeRecordNumber_ = nullptr;};
+          inline string getPoliceRecordNumber() const { DARABONBA_PTR_GET_DEFAULT(policeRecordNumber_, "") };
+          inline Qualification& setPoliceRecordNumber(string policeRecordNumber) { DARABONBA_PTR_SET_VALUE(policeRecordNumber_, policeRecordNumber) };
+
+
+        protected:
+          shared_ptr<string> icpRecordNumber_ {};
+          shared_ptr<string> icpSiteRecordNumber_ {};
+          shared_ptr<string> policeRecordNumber_ {};
+        };
+
         class Ownership : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Ownership& obj) { 
@@ -919,8 +1037,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->certificate_ == nullptr
-        && this->createTime_ == nullptr && this->domainName_ == nullptr && this->overallStatus_ == nullptr && this->ownership_ == nullptr && this->resolution_ == nullptr
-        && this->verification_ == nullptr; };
+        && this->createTime_ == nullptr && this->domainName_ == nullptr && this->overallStatus_ == nullptr && this->ownership_ == nullptr && this->qualification_ == nullptr
+        && this->resolution_ == nullptr && this->verification_ == nullptr; };
         // certificate Field Functions 
         bool hasCertificate() const { return this->certificate_ != nullptr;};
         void deleteCertificate() { this->certificate_ = nullptr;};
@@ -960,6 +1078,15 @@ namespace Models
         inline Data& setOwnership(Data::Ownership && ownership) { DARABONBA_PTR_SET_RVALUE(ownership_, ownership) };
 
 
+        // qualification Field Functions 
+        bool hasQualification() const { return this->qualification_ != nullptr;};
+        void deleteQualification() { this->qualification_ = nullptr;};
+        inline const Data::Qualification & getQualification() const { DARABONBA_PTR_GET_CONST(qualification_, Data::Qualification) };
+        inline Data::Qualification getQualification() { DARABONBA_PTR_GET(qualification_, Data::Qualification) };
+        inline Data& setQualification(const Data::Qualification & qualification) { DARABONBA_PTR_SET_VALUE(qualification_, qualification) };
+        inline Data& setQualification(Data::Qualification && qualification) { DARABONBA_PTR_SET_RVALUE(qualification_, qualification) };
+
+
         // resolution Field Functions 
         bool hasResolution() const { return this->resolution_ != nullptr;};
         void deleteResolution() { this->resolution_ = nullptr;};
@@ -989,6 +1116,7 @@ namespace Models
         shared_ptr<string> overallStatus_ {};
         // Domain ownership information
         shared_ptr<Data::Ownership> ownership_ {};
+        shared_ptr<Data::Qualification> qualification_ {};
         // Domain resolution information
         shared_ptr<Data::Resolution> resolution_ {};
         // Domain verification information
