@@ -191,6 +191,10 @@
 #include <alibabacloud/models/CreateFileUncompressionTaskShrinkRequest.hpp>
 #include <alibabacloud/models/CreateFileUncompressionTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateFileUncompressionTaskResponse.hpp>
+#include <alibabacloud/models/CreateHighlightTaskRequest.hpp>
+#include <alibabacloud/models/CreateHighlightTaskShrinkRequest.hpp>
+#include <alibabacloud/models/CreateHighlightTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateHighlightTaskResponse.hpp>
 #include <alibabacloud/models/CreateImageModerationTaskRequest.hpp>
 #include <alibabacloud/models/CreateImageModerationTaskShrinkRequest.hpp>
 #include <alibabacloud/models/CreateImageModerationTaskResponseBody.hpp>

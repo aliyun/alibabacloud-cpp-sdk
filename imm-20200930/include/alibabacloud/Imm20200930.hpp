@@ -679,6 +679,23 @@ namespace Imm20200930
       Models::CreateFileUncompressionTaskResponse createFileUncompressionTask(const Models::CreateFileUncompressionTaskRequest &request);
 
       /**
+       * @summary 创建高光任务
+       *
+       * @param tmpReq CreateHighlightTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateHighlightTaskResponse
+       */
+      Models::CreateHighlightTaskResponse createHighlightTaskWithOptions(const Models::CreateHighlightTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建高光任务
+       *
+       * @param request CreateHighlightTaskRequest
+       * @return CreateHighlightTaskResponse
+       */
+      Models::CreateHighlightTaskResponse createHighlightTask(const Models::CreateHighlightTaskRequest &request);
+
+      /**
        * @summary Creates an image moderation task to ensure image content compliance. You can call this operation to identify inappropriate content, such as pornography, violence, terrorism, politically sensitive content, undesirable scenes, unauthorized logos, and non-compliant ads.
        *
        * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****

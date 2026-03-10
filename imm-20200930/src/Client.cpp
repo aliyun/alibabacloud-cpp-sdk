@@ -2003,6 +2003,120 @@ CreateFileUncompressionTaskResponse Client::createFileUncompressionTask(const Cr
 }
 
 /**
+ * @summary 创建高光任务
+ *
+ * @param tmpReq CreateHighlightTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateHighlightTaskResponse
+ */
+CreateHighlightTaskResponse Client::createHighlightTaskWithOptions(const CreateHighlightTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateHighlightTaskShrinkRequest request = CreateHighlightTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCredentialConfig()) {
+    request.setCredentialConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCredentialConfig(), "CredentialConfig", "json"));
+  }
+
+  if (!!tmpReq.hasEdit()) {
+    request.setEditShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEdit(), "Edit", "json"));
+  }
+
+  if (!!tmpReq.hasHighlight()) {
+    request.setHighlightShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHighlight(), "Highlight", "json"));
+  }
+
+  if (!!tmpReq.hasNotification()) {
+    request.setNotificationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotification(), "Notification", "json"));
+  }
+
+  if (!!tmpReq.hasOutput()) {
+    request.setOutputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOutput(), "Output", "json"));
+  }
+
+  if (!!tmpReq.hasSources()) {
+    request.setSourcesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSources(), "Sources", "json"));
+  }
+
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  json body = {};
+  if (!!request.hasCredentialConfigShrink()) {
+    body["CredentialConfig"] = request.getCredentialConfigShrink();
+  }
+
+  if (!!request.hasEditShrink()) {
+    body["Edit"] = request.getEditShrink();
+  }
+
+  if (!!request.hasHighlightShrink()) {
+    body["Highlight"] = request.getHighlightShrink();
+  }
+
+  if (!!request.hasMode()) {
+    body["Mode"] = request.getMode();
+  }
+
+  if (!!request.hasNotificationShrink()) {
+    body["Notification"] = request.getNotificationShrink();
+  }
+
+  if (!!request.hasOutputShrink()) {
+    body["Output"] = request.getOutputShrink();
+  }
+
+  if (!!request.hasSourcesShrink()) {
+    body["Sources"] = request.getSourcesShrink();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    body["Tags"] = request.getTagsShrink();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  if (!!request.hasUserData()) {
+    body["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateHighlightTask"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateHighlightTaskResponse>();
+}
+
+/**
+ * @summary 创建高光任务
+ *
+ * @param request CreateHighlightTaskRequest
+ * @return CreateHighlightTaskResponse
+ */
+CreateHighlightTaskResponse Client::createHighlightTask(const CreateHighlightTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createHighlightTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an image moderation task to ensure image content compliance. You can call this operation to identify inappropriate content, such as pornography, violence, terrorism, politically sensitive content, undesirable scenes, unauthorized logos, and non-compliant ads.
  *
  * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
