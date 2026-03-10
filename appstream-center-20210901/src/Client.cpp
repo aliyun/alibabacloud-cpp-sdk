@@ -1713,6 +1713,10 @@ ListNodeInstanceTypeResponse Client::listNodeInstanceTypeWithOptions(const ListN
     query["GpuMemory"] = request.getGpuMemory();
   }
 
+  if (!!request.hasInstanceTypeForModify()) {
+    query["InstanceTypeForModify"] = request.getInstanceTypeForModify();
+  }
+
   if (!!request.hasLanguage()) {
     query["Language"] = request.getLanguage();
   }
@@ -1731,6 +1735,10 @@ ListNodeInstanceTypeResponse Client::listNodeInstanceTypeWithOptions(const ListN
 
   if (!!request.hasOrderBy()) {
     query["OrderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasOsType()) {

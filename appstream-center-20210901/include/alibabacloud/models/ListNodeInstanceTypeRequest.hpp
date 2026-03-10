@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Cpu, cpu_);
       DARABONBA_PTR_TO_JSON(Gpu, gpu_);
       DARABONBA_PTR_TO_JSON(GpuMemory, gpuMemory_);
+      DARABONBA_PTR_TO_JSON(InstanceTypeForModify, instanceTypeForModify_);
       DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(Memory, memory_);
       DARABONBA_PTR_TO_JSON(NodeInstanceType, nodeInstanceType_);
       DARABONBA_PTR_TO_JSON(NodeInstanceTypeFamily, nodeInstanceTypeFamily_);
       DARABONBA_PTR_TO_JSON(OrderBy, orderBy_);
+      DARABONBA_PTR_TO_JSON(OrderType, orderType_);
       DARABONBA_PTR_TO_JSON(OsType, osType_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -33,11 +35,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(Gpu, gpu_);
       DARABONBA_PTR_FROM_JSON(GpuMemory, gpuMemory_);
+      DARABONBA_PTR_FROM_JSON(InstanceTypeForModify, instanceTypeForModify_);
       DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(Memory, memory_);
       DARABONBA_PTR_FROM_JSON(NodeInstanceType, nodeInstanceType_);
       DARABONBA_PTR_FROM_JSON(NodeInstanceTypeFamily, nodeInstanceTypeFamily_);
       DARABONBA_PTR_FROM_JSON(OrderBy, orderBy_);
+      DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
       DARABONBA_PTR_FROM_JSON(OsType, osType_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -56,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizRegionId_ == nullptr
-        && this->cpu_ == nullptr && this->gpu_ == nullptr && this->gpuMemory_ == nullptr && this->language_ == nullptr && this->memory_ == nullptr
-        && this->nodeInstanceType_ == nullptr && this->nodeInstanceTypeFamily_ == nullptr && this->orderBy_ == nullptr && this->osType_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->productType_ == nullptr && this->sortType_ == nullptr; };
+        && this->cpu_ == nullptr && this->gpu_ == nullptr && this->gpuMemory_ == nullptr && this->instanceTypeForModify_ == nullptr && this->language_ == nullptr
+        && this->memory_ == nullptr && this->nodeInstanceType_ == nullptr && this->nodeInstanceTypeFamily_ == nullptr && this->orderBy_ == nullptr && this->orderType_ == nullptr
+        && this->osType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->productType_ == nullptr && this->sortType_ == nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
@@ -85,6 +89,13 @@ namespace Models
     void deleteGpuMemory() { this->gpuMemory_ = nullptr;};
     inline int32_t getGpuMemory() const { DARABONBA_PTR_GET_DEFAULT(gpuMemory_, 0) };
     inline ListNodeInstanceTypeRequest& setGpuMemory(int32_t gpuMemory) { DARABONBA_PTR_SET_VALUE(gpuMemory_, gpuMemory) };
+
+
+    // instanceTypeForModify Field Functions 
+    bool hasInstanceTypeForModify() const { return this->instanceTypeForModify_ != nullptr;};
+    void deleteInstanceTypeForModify() { this->instanceTypeForModify_ = nullptr;};
+    inline string getInstanceTypeForModify() const { DARABONBA_PTR_GET_DEFAULT(instanceTypeForModify_, "") };
+    inline ListNodeInstanceTypeRequest& setInstanceTypeForModify(string instanceTypeForModify) { DARABONBA_PTR_SET_VALUE(instanceTypeForModify_, instanceTypeForModify) };
 
 
     // language Field Functions 
@@ -120,6 +131,13 @@ namespace Models
     void deleteOrderBy() { this->orderBy_ = nullptr;};
     inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline ListNodeInstanceTypeRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
+
+
+    // orderType Field Functions 
+    bool hasOrderType() const { return this->orderType_ != nullptr;};
+    void deleteOrderType() { this->orderType_ = nullptr;};
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline ListNodeInstanceTypeRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
     // osType Field Functions 
@@ -168,6 +186,7 @@ namespace Models
     shared_ptr<float> cpu_ {};
     shared_ptr<float> gpu_ {};
     shared_ptr<int32_t> gpuMemory_ {};
+    shared_ptr<string> instanceTypeForModify_ {};
     // The language that you want to use.
     // 
     // Valid values:
@@ -180,6 +199,7 @@ namespace Models
     shared_ptr<string> nodeInstanceType_ {};
     shared_ptr<string> nodeInstanceTypeFamily_ {};
     shared_ptr<string> orderBy_ {};
+    shared_ptr<string> orderType_ {};
     // The operating system that is supported.
     // 
     // Valid value:
