@@ -135,6 +135,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(IpRatio, ipRatio_);
         DARABONBA_PTR_TO_JSON(Isp, isp_);
         DARABONBA_PTR_TO_JSON(LimitedBandwidth, limitedBandwidth_);
+        DARABONBA_PTR_TO_JSON(PaidCallbackUrl, paidCallbackUrl_);
         DARABONBA_PTR_TO_JSON(PayType, payType_);
         DARABONBA_PTR_TO_JSON(Period, period_);
         DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
@@ -150,6 +151,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(IpRatio, ipRatio_);
         DARABONBA_PTR_FROM_JSON(Isp, isp_);
         DARABONBA_PTR_FROM_JSON(LimitedBandwidth, limitedBandwidth_);
+        DARABONBA_PTR_FROM_JSON(PaidCallbackUrl, paidCallbackUrl_);
         DARABONBA_PTR_FROM_JSON(PayType, payType_);
         DARABONBA_PTR_FROM_JSON(Period, period_);
         DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
@@ -169,8 +171,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->autoPay_ == nullptr
         && this->autoRenew_ == nullptr && this->bandwidthPackageName_ == nullptr && this->cidrBlock_ == nullptr && this->internetChargeType_ == nullptr && this->ipRatio_ == nullptr
-        && this->isp_ == nullptr && this->limitedBandwidth_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr
-        && this->promotionId_ == nullptr && this->visibleType_ == nullptr; };
+        && this->isp_ == nullptr && this->limitedBandwidth_ == nullptr && this->paidCallbackUrl_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr
+        && this->periodUnit_ == nullptr && this->promotionId_ == nullptr && this->visibleType_ == nullptr; };
       // autoPay Field Functions 
       bool hasAutoPay() const { return this->autoPay_ != nullptr;};
       void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -227,6 +229,13 @@ namespace Models
       inline NetworkInfo& setLimitedBandwidth(int32_t limitedBandwidth) { DARABONBA_PTR_SET_VALUE(limitedBandwidth_, limitedBandwidth) };
 
 
+      // paidCallbackUrl Field Functions 
+      bool hasPaidCallbackUrl() const { return this->paidCallbackUrl_ != nullptr;};
+      void deletePaidCallbackUrl() { this->paidCallbackUrl_ = nullptr;};
+      inline string getPaidCallbackUrl() const { DARABONBA_PTR_GET_DEFAULT(paidCallbackUrl_, "") };
+      inline NetworkInfo& setPaidCallbackUrl(string paidCallbackUrl) { DARABONBA_PTR_SET_VALUE(paidCallbackUrl_, paidCallbackUrl) };
+
+
       // payType Field Functions 
       bool hasPayType() const { return this->payType_ != nullptr;};
       void deletePayType() { this->payType_ = nullptr;};
@@ -271,6 +280,7 @@ namespace Models
       shared_ptr<int32_t> ipRatio_ {};
       shared_ptr<string> isp_ {};
       shared_ptr<int32_t> limitedBandwidth_ {};
+      shared_ptr<string> paidCallbackUrl_ {};
       shared_ptr<string> payType_ {};
       shared_ptr<int32_t> period_ {};
       shared_ptr<string> periodUnit_ {};
