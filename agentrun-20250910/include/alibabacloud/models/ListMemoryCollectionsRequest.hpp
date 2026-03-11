@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(type, type_);
       DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
+      DARABONBA_PTR_TO_JSON(workspaceIds, workspaceIds_);
     };
     friend void from_json(const Darabonba::Json& j, ListMemoryCollectionsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(memoryCollectionName, memoryCollectionName_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(type, type_);
       DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
+      DARABONBA_PTR_FROM_JSON(workspaceIds, workspaceIds_);
     };
     ListMemoryCollectionsRequest() = default ;
     ListMemoryCollectionsRequest(const ListMemoryCollectionsRequest &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->memoryCollectionName_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr && this->type_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr && this->type_ == nullptr && this->workspaceId_ == nullptr
+        && this->workspaceIds_ == nullptr; };
     // memoryCollectionName Field Functions 
     bool hasMemoryCollectionName() const { return this->memoryCollectionName_ != nullptr;};
     void deleteMemoryCollectionName() { this->memoryCollectionName_ = nullptr;};
@@ -83,6 +86,13 @@ namespace Models
     inline ListMemoryCollectionsRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
+    // workspaceIds Field Functions 
+    bool hasWorkspaceIds() const { return this->workspaceIds_ != nullptr;};
+    void deleteWorkspaceIds() { this->workspaceIds_ = nullptr;};
+    inline string getWorkspaceIds() const { DARABONBA_PTR_GET_DEFAULT(workspaceIds_, "") };
+    inline ListMemoryCollectionsRequest& setWorkspaceIds(string workspaceIds) { DARABONBA_PTR_SET_VALUE(workspaceIds_, workspaceIds) };
+
+
   protected:
     shared_ptr<string> memoryCollectionName_ {};
     shared_ptr<int32_t> pageNumber_ {};
@@ -90,6 +100,7 @@ namespace Models
     shared_ptr<string> status_ {};
     shared_ptr<string> type_ {};
     shared_ptr<string> workspaceId_ {};
+    shared_ptr<string> workspaceIds_ {};
   };
 
   } // namespace Models

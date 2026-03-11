@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(provider, provider_);
       DARABONBA_PTR_TO_JSON(providerType, providerType_);
       DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
+      DARABONBA_PTR_TO_JSON(workspaceIds, workspaceIds_);
     };
     friend void from_json(const Darabonba::Json& j, ListModelServicesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(modelType, modelType_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(provider, provider_);
       DARABONBA_PTR_FROM_JSON(providerType, providerType_);
       DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
+      DARABONBA_PTR_FROM_JSON(workspaceIds, workspaceIds_);
     };
     ListModelServicesRequest() = default ;
     ListModelServicesRequest(const ListModelServicesRequest &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->modelType_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->provider_ == nullptr && this->providerType_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->provider_ == nullptr && this->providerType_ == nullptr && this->workspaceId_ == nullptr
+        && this->workspaceIds_ == nullptr; };
     // modelType Field Functions 
     bool hasModelType() const { return this->modelType_ != nullptr;};
     void deleteModelType() { this->modelType_ = nullptr;};
@@ -83,6 +86,13 @@ namespace Models
     inline ListModelServicesRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
+    // workspaceIds Field Functions 
+    bool hasWorkspaceIds() const { return this->workspaceIds_ != nullptr;};
+    void deleteWorkspaceIds() { this->workspaceIds_ = nullptr;};
+    inline string getWorkspaceIds() const { DARABONBA_PTR_GET_DEFAULT(workspaceIds_, "") };
+    inline ListModelServicesRequest& setWorkspaceIds(string workspaceIds) { DARABONBA_PTR_SET_VALUE(workspaceIds_, workspaceIds) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> modelType_ {};
@@ -91,6 +101,7 @@ namespace Models
     shared_ptr<string> provider_ {};
     shared_ptr<string> providerType_ {};
     shared_ptr<string> workspaceId_ {};
+    shared_ptr<string> workspaceIds_ {};
   };
 
   } // namespace Models
