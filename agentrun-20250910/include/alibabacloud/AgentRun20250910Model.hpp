@@ -89,6 +89,8 @@
 #include <alibabacloud/models/ModelInfoConfig.hpp>
 #include <alibabacloud/models/ProviderSettings.hpp>
 #include <alibabacloud/models/CreateModelServiceInput.hpp>
+#include <alibabacloud/models/PolarFsMountConfig.hpp>
+#include <alibabacloud/models/PolarFsConfig.hpp>
 #include <alibabacloud/models/CreateSandboxInput.hpp>
 #include <alibabacloud/models/CredentialConfiguration.hpp>
 #include <alibabacloud/models/OssConfiguration.hpp>
@@ -185,8 +187,6 @@
 #include <alibabacloud/models/ModelProxyResult.hpp>
 #include <alibabacloud/models/ModelServiceResult.hpp>
 #include <alibabacloud/models/PaginationInfo.hpp>
-#include <alibabacloud/models/PolarFsMountConfig.hpp>
-#include <alibabacloud/models/PolarFsConfig.hpp>
 #include <alibabacloud/models/PublishRuntimeVersionInput.hpp>
 #include <alibabacloud/models/RecordingConfiguration.hpp>
 #include <alibabacloud/models/RegisterServiceInput.hpp>

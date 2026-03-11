@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/NASConfig.hpp>
 #include <alibabacloud/models/OSSMountConfig.hpp>
+#include <alibabacloud/models/PolarFsConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateSandboxInput& obj) { 
       DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_TO_JSON(ossMountConfig, ossMountConfig_);
+      DARABONBA_PTR_TO_JSON(polarFsConfig, polarFsConfig_);
       DARABONBA_PTR_TO_JSON(sandboxId, sandboxId_);
       DARABONBA_PTR_TO_JSON(sandboxIdleTimeoutInSeconds, sandboxIdleTimeoutInSeconds_);
       DARABONBA_PTR_TO_JSON(sandboxIdleTimeoutSeconds, sandboxIdleTimeoutSeconds_);
@@ -25,6 +27,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateSandboxInput& obj) { 
       DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_FROM_JSON(ossMountConfig, ossMountConfig_);
+      DARABONBA_PTR_FROM_JSON(polarFsConfig, polarFsConfig_);
       DARABONBA_PTR_FROM_JSON(sandboxId, sandboxId_);
       DARABONBA_PTR_FROM_JSON(sandboxIdleTimeoutInSeconds, sandboxIdleTimeoutInSeconds_);
       DARABONBA_PTR_FROM_JSON(sandboxIdleTimeoutSeconds, sandboxIdleTimeoutSeconds_);
@@ -42,7 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nasConfig_ == nullptr
-        && this->ossMountConfig_ == nullptr && this->sandboxId_ == nullptr && this->sandboxIdleTimeoutInSeconds_ == nullptr && this->sandboxIdleTimeoutSeconds_ == nullptr && this->templateName_ == nullptr; };
+        && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->sandboxId_ == nullptr && this->sandboxIdleTimeoutInSeconds_ == nullptr && this->sandboxIdleTimeoutSeconds_ == nullptr
+        && this->templateName_ == nullptr; };
     // nasConfig Field Functions 
     bool hasNasConfig() const { return this->nasConfig_ != nullptr;};
     void deleteNasConfig() { this->nasConfig_ = nullptr;};
@@ -59,6 +63,15 @@ namespace Models
     inline OSSMountConfig getOssMountConfig() { DARABONBA_PTR_GET(ossMountConfig_, OSSMountConfig) };
     inline CreateSandboxInput& setOssMountConfig(const OSSMountConfig & ossMountConfig) { DARABONBA_PTR_SET_VALUE(ossMountConfig_, ossMountConfig) };
     inline CreateSandboxInput& setOssMountConfig(OSSMountConfig && ossMountConfig) { DARABONBA_PTR_SET_RVALUE(ossMountConfig_, ossMountConfig) };
+
+
+    // polarFsConfig Field Functions 
+    bool hasPolarFsConfig() const { return this->polarFsConfig_ != nullptr;};
+    void deletePolarFsConfig() { this->polarFsConfig_ = nullptr;};
+    inline const PolarFsConfig & getPolarFsConfig() const { DARABONBA_PTR_GET_CONST(polarFsConfig_, PolarFsConfig) };
+    inline PolarFsConfig getPolarFsConfig() { DARABONBA_PTR_GET(polarFsConfig_, PolarFsConfig) };
+    inline CreateSandboxInput& setPolarFsConfig(const PolarFsConfig & polarFsConfig) { DARABONBA_PTR_SET_VALUE(polarFsConfig_, polarFsConfig) };
+    inline CreateSandboxInput& setPolarFsConfig(PolarFsConfig && polarFsConfig) { DARABONBA_PTR_SET_RVALUE(polarFsConfig_, polarFsConfig) };
 
 
     // sandboxId Field Functions 
@@ -92,6 +105,7 @@ namespace Models
   protected:
     shared_ptr<NASConfig> nasConfig_ {};
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
+    shared_ptr<PolarFsConfig> polarFsConfig_ {};
     shared_ptr<string> sandboxId_ {};
     shared_ptr<int32_t> sandboxIdleTimeoutInSeconds_ {};
     // 沙箱空闲超时时间（秒）
