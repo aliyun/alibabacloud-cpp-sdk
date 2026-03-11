@@ -149,6 +149,7 @@ namespace Models
     shared_ptr<bool> isShared_ {};
     shared_ptr<string> name_ {};
     shared_ptr<map<string, string>> options_ {};
+    // Owner。
     shared_ptr<string> owner_ {};
     shared_ptr<string> shareId_ {};
     shared_ptr<string> status_ {};

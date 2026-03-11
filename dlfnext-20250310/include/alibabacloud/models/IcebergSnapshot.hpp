@@ -125,6 +125,7 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> addedRows_ {};
+    // id
     shared_ptr<int64_t> id_ {};
     shared_ptr<string> idString_ {};
     shared_ptr<string> operation_ {};

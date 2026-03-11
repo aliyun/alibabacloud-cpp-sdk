@@ -219,6 +219,7 @@ namespace Models
     shared_ptr<int64_t> updatedAt_ {};
     shared_ptr<string> updatedBy_ {};
     shared_ptr<vector<CacheCluster::VSwitches>> vSwitches_ {};
+    // VPC ID
     shared_ptr<string> vpcId_ {};
   };
 

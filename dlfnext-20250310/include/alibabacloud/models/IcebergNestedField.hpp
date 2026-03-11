@@ -76,6 +76,7 @@ namespace Models
 
   protected:
     shared_ptr<string> doc_ {};
+    // id
     shared_ptr<int64_t> id_ {};
     shared_ptr<string> name_ {};
     shared_ptr<bool> optional_ {};

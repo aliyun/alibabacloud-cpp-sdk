@@ -128,6 +128,8 @@
 #include <alibabacloud/models/GetTableTokenResponse.hpp>
 #include <alibabacloud/models/GetUserRequest.hpp>
 #include <alibabacloud/models/GetUserResponse.hpp>
+#include <alibabacloud/models/GetVpcConfigResponseBody.hpp>
+#include <alibabacloud/models/GetVpcConfigResponse.hpp>
 #include <alibabacloud/models/GrantRoleToUsersRequest.hpp>
 #include <alibabacloud/models/GrantRoleToUsersResponse.hpp>
 #include <alibabacloud/models/ListCatalogsRequest.hpp>

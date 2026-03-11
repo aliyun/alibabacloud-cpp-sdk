@@ -723,6 +723,22 @@ namespace DlfNext20250310
       Models::GetUserResponse getUser(const Models::GetUserRequest &request);
 
       /**
+       * @summary 获取可信 VPC 配置
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVpcConfigResponse
+       */
+      Models::GetVpcConfigResponse getVpcConfigWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取可信 VPC 配置
+       *
+       * @return GetVpcConfigResponse
+       */
+      Models::GetVpcConfigResponse getVpcConfig();
+
+      /**
        * @summary 批量授予角色权限给用户
        *
        * @param request GrantRoleToUsersRequest

@@ -1800,6 +1800,42 @@ GetUserResponse Client::getUser(const GetUserRequest &request) {
 }
 
 /**
+ * @summary 获取可信 VPC 配置
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVpcConfigResponse
+ */
+GetVpcConfigResponse Client::getVpcConfigWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetVpcConfig"},
+    {"version" , "2025-03-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/auth/vpc")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVpcConfigResponse>();
+}
+
+/**
+ * @summary 获取可信 VPC 配置
+ *
+ * @return GetVpcConfigResponse
+ */
+GetVpcConfigResponse Client::getVpcConfig() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getVpcConfigWithOptions(headers, runtime);
+}
+
+/**
  * @summary 批量授予角色权限给用户
  *
  * @param request GrantRoleToUsersRequest
