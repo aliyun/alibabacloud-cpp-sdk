@@ -79,6 +79,9 @@
 #include <alibabacloud/models/GetAppInstanceRequest.hpp>
 #include <alibabacloud/models/GetAppInstanceResponseBody.hpp>
 #include <alibabacloud/models/GetAppInstanceResponse.hpp>
+#include <alibabacloud/models/GetAppInstanceForAdminRequest.hpp>
+#include <alibabacloud/models/GetAppInstanceForAdminResponseBody.hpp>
+#include <alibabacloud/models/GetAppInstanceForAdminResponse.hpp>
 #include <alibabacloud/models/GetAppInstanceForPartnerRequest.hpp>
 #include <alibabacloud/models/GetAppInstanceForPartnerResponseBody.hpp>
 #include <alibabacloud/models/GetAppInstanceForPartnerResponse.hpp>

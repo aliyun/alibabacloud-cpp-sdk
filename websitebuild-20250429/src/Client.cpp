@@ -420,7 +420,7 @@ CreateAppInstanceTicketResponse Client::createAppInstanceTicket(const CreateAppI
 }
 
 /**
- * @summary 万小智开通灵感值服务
+ * @summary Activate the Wanxiaozhi Inspiration Value service
  *
  * @param request CreateAppTokenServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -451,7 +451,7 @@ CreateAppTokenServiceResponse Client::createAppTokenServiceWithOptions(const Cre
 }
 
 /**
- * @summary 万小智开通灵感值服务
+ * @summary Activate the Wanxiaozhi Inspiration Value service
  *
  * @param request CreateAppTokenServiceRequest
  * @return CreateAppTokenServiceResponse
@@ -954,7 +954,53 @@ GetAppInstanceResponse Client::getAppInstance(const GetAppInstanceRequest &reque
 }
 
 /**
- * @summary 实例详情查询
+ * @summary Query application instance information
+ *
+ * @param request GetAppInstanceForAdminRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppInstanceForAdminResponse
+ */
+GetAppInstanceForAdminResponse Client::getAppInstanceForAdminWithOptions(const GetAppInstanceForAdminRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppInstanceForAdmin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppInstanceForAdminResponse>();
+}
+
+/**
+ * @summary Query application instance information
+ *
+ * @param request GetAppInstanceForAdminRequest
+ * @return GetAppInstanceForAdminResponse
+ */
+GetAppInstanceForAdminResponse Client::getAppInstanceForAdmin(const GetAppInstanceForAdminRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppInstanceForAdminWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query instance details
  *
  * @param request GetAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -985,7 +1031,7 @@ GetAppInstanceForPartnerResponse Client::getAppInstanceForPartnerWithOptions(con
 }
 
 /**
- * @summary 实例详情查询
+ * @summary Query instance details
  *
  * @param request GetAppInstanceForPartnerRequest
  * @return GetAppInstanceForPartnerResponse

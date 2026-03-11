@@ -123,7 +123,7 @@ namespace WebsiteBuild20250429
       Models::CreateAppInstanceTicketResponse createAppInstanceTicket(const Models::CreateAppInstanceTicketRequest &request);
 
       /**
-       * @summary 万小智开通灵感值服务
+       * @summary Activate the Wanxiaozhi Inspiration Value service
        *
        * @param request CreateAppTokenServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace WebsiteBuild20250429
       Models::CreateAppTokenServiceResponse createAppTokenServiceWithOptions(const Models::CreateAppTokenServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 万小智开通灵感值服务
+       * @summary Activate the Wanxiaozhi Inspiration Value service
        *
        * @param request CreateAppTokenServiceRequest
        * @return CreateAppTokenServiceResponse
@@ -310,7 +310,24 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceResponse getAppInstance(const Models::GetAppInstanceRequest &request);
 
       /**
-       * @summary 实例详情查询
+       * @summary Query application instance information
+       *
+       * @param request GetAppInstanceForAdminRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppInstanceForAdminResponse
+       */
+      Models::GetAppInstanceForAdminResponse getAppInstanceForAdminWithOptions(const Models::GetAppInstanceForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query application instance information
+       *
+       * @param request GetAppInstanceForAdminRequest
+       * @return GetAppInstanceForAdminResponse
+       */
+      Models::GetAppInstanceForAdminResponse getAppInstanceForAdmin(const Models::GetAppInstanceForAdminRequest &request);
+
+      /**
+       * @summary Query instance details
        *
        * @param request GetAppInstanceForPartnerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +336,7 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceForPartnerResponse getAppInstanceForPartnerWithOptions(const Models::GetAppInstanceForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实例详情查询
+       * @summary Query instance details
        *
        * @param request GetAppInstanceForPartnerRequest
        * @return GetAppInstanceForPartnerResponse
