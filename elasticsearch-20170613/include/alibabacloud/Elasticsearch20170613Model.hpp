@@ -206,6 +206,9 @@
 #include <alibabacloud/models/GetTransferableNodesRequest.hpp>
 #include <alibabacloud/models/GetTransferableNodesResponseBody.hpp>
 #include <alibabacloud/models/GetTransferableNodesResponse.hpp>
+#include <alibabacloud/models/GrayPublishRequest.hpp>
+#include <alibabacloud/models/GrayPublishResponseBody.hpp>
+#include <alibabacloud/models/GrayPublishResponse.hpp>
 #include <alibabacloud/models/InitializeOperationRoleRequest.hpp>
 #include <alibabacloud/models/InitializeOperationRoleResponseBody.hpp>
 #include <alibabacloud/models/InitializeOperationRoleResponse.hpp>

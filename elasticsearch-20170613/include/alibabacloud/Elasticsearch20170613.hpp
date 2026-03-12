@@ -111,6 +111,8 @@ namespace Elasticsearch20170613
       Models::CancelLogstashDeletionResponse cancelLogstashDeletion(const string &InstanceId, const Models::CancelLogstashDeletionRequest &request);
 
       /**
+       * @summary Call CancelTask to cancel a data migration task.
+       *
        * @param request CancelTaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -119,6 +121,8 @@ namespace Elasticsearch20170613
       Models::CancelTaskResponse cancelTaskWithOptions(const string &InstanceId, const Models::CancelTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call CancelTask to cancel a data migration task.
+       *
        * @param request CancelTaskRequest
        * @return CancelTaskResponse
        */
@@ -143,7 +147,7 @@ namespace Elasticsearch20170613
       Models::CapacityPlanResponse capacityPlan(const Models::CapacityPlanRequest &request);
 
       /**
-       * @summary 关闭实例的智能运维功能
+       * @summary Disables the intelligent O\\&M feature for an Elasticsearch cluster.
        *
        * @param request CloseDiagnosisRequest
        * @param headers map
@@ -153,7 +157,7 @@ namespace Elasticsearch20170613
       Models::CloseDiagnosisResponse closeDiagnosisWithOptions(const string &InstanceId, const Models::CloseDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭实例的智能运维功能
+       * @summary Disables the intelligent O\\&M feature for an Elasticsearch cluster.
        *
        * @param request CloseDiagnosisRequest
        * @return CloseDiagnosisResponse
@@ -161,6 +165,8 @@ namespace Elasticsearch20170613
       Models::CloseDiagnosisResponse closeDiagnosis(const string &InstanceId, const Models::CloseDiagnosisRequest &request);
 
       /**
+       * @summary Call CloseHttps to close the HTTPS protocol.
+       *
        * @param request CloseHttpsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -169,6 +175,8 @@ namespace Elasticsearch20170613
       Models::CloseHttpsResponse closeHttpsWithOptions(const string &InstanceId, const Models::CloseHttpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call CloseHttps to close the HTTPS protocol.
+       *
        * @param request CloseHttpsRequest
        * @return CloseHttpsResponse
        */
@@ -283,7 +291,7 @@ namespace Elasticsearch20170613
       Models::CreateIndexTemplateResponse createIndexTemplate(const string &InstanceId, const Models::CreateIndexTemplateRequest &request);
 
       /**
-       * @summary 创建logstash实例
+       * @summary Creates a Logstash cluster.
        *
        * @param request CreateLogstashRequest
        * @param headers map
@@ -293,7 +301,7 @@ namespace Elasticsearch20170613
       Models::CreateLogstashResponse createLogstashWithOptions(const Models::CreateLogstashRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建logstash实例
+       * @summary Creates a Logstash cluster.
        *
        * @param request CreateLogstashRequest
        * @return CreateLogstashResponse
@@ -301,7 +309,7 @@ namespace Elasticsearch20170613
       Models::CreateLogstashResponse createLogstash(const Models::CreateLogstashRequest &request);
 
       /**
-       * @summary 创建Logstash管道任务
+       * @summary Creates a pipeline in a Logstash cluster.
        *
        * @param request CreatePipelinesRequest
        * @param headers map
@@ -311,7 +319,7 @@ namespace Elasticsearch20170613
       Models::CreatePipelinesResponse createPipelinesWithOptions(const string &InstanceId, const Models::CreatePipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Logstash管道任务
+       * @summary Creates a pipeline in a Logstash cluster.
        *
        * @param request CreatePipelinesRequest
        * @return CreatePipelinesResponse
@@ -319,6 +327,8 @@ namespace Elasticsearch20170613
       Models::CreatePipelinesResponse createPipelines(const string &InstanceId, const Models::CreatePipelinesRequest &request);
 
       /**
+       * @summary Call CreateSnapshot to manually back up a cluster snapshot.
+       *
        * @param request CreateSnapshotRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -327,6 +337,8 @@ namespace Elasticsearch20170613
       Models::CreateSnapshotResponse createSnapshotWithOptions(const string &InstanceId, const Models::CreateSnapshotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call CreateSnapshot to manually back up a cluster snapshot.
+       *
        * @param request CreateSnapshotRequest
        * @return CreateSnapshotResponse
        */
@@ -355,7 +367,7 @@ namespace Elasticsearch20170613
       Models::CreateVpcEndpointResponse createVpcEndpoint(const string &InstanceId, const Models::CreateVpcEndpointRequest &request);
 
       /**
-       * @summary Invoke DeactivateZones to offline certain zones when there are multiple availability zones, and migrate nodes in the offline zones to other availability zones.
+       * @summary Disables one or more zones where a multi-zone Elasticsearch cluster resides and migrates the nodes in the disabled zones to other zones.
        *
        * @param request DeactivateZonesRequest
        * @param headers map
@@ -365,7 +377,7 @@ namespace Elasticsearch20170613
       Models::DeactivateZonesResponse deactivateZonesWithOptions(const string &InstanceId, const Models::DeactivateZonesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invoke DeactivateZones to offline certain zones when there are multiple availability zones, and migrate nodes in the offline zones to other availability zones.
+       * @summary Disables one or more zones where a multi-zone Elasticsearch cluster resides and migrates the nodes in the disabled zones to other zones.
        *
        * @param request DeactivateZonesRequest
        * @return DeactivateZonesResponse
@@ -407,6 +419,8 @@ namespace Elasticsearch20170613
       Models::DeleteComponentIndexResponse deleteComponentIndex(const string &InstanceId, const string &name);
 
       /**
+       * @summary Call DeleteConnectedCluster to remove the interconnected instance.
+       *
        * @param request DeleteConnectedClusterRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -415,6 +429,8 @@ namespace Elasticsearch20170613
       Models::DeleteConnectedClusterResponse deleteConnectedClusterWithOptions(const string &InstanceId, const Models::DeleteConnectedClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call DeleteConnectedCluster to remove the interconnected instance.
+       *
        * @param request DeleteConnectedClusterRequest
        * @return DeleteConnectedClusterResponse
        */
@@ -439,6 +455,8 @@ namespace Elasticsearch20170613
       Models::DeleteDataStreamResponse deleteDataStream(const string &InstanceId, const string &DataStream, const Models::DeleteDataStreamRequest &request);
 
       /**
+       * @summary You can call this operation to delete an index migration task.
+       *
        * @param request DeleteDataTaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -447,6 +465,8 @@ namespace Elasticsearch20170613
       Models::DeleteDataTaskResponse deleteDataTaskWithOptions(const string &InstanceId, const Models::DeleteDataTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can call this operation to delete an index migration task.
+       *
        * @param request DeleteDataTaskRequest
        * @return DeleteDataTaskResponse
        */
@@ -481,7 +501,7 @@ namespace Elasticsearch20170613
       Models::DeleteILMPolicyResponse deleteILMPolicy(const string &InstanceId, const string &PolicyName);
 
       /**
-       * @summary 删除ES集群索引模版
+       * @summary Deletes a top index template.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -490,13 +510,15 @@ namespace Elasticsearch20170613
       Models::DeleteIndexTemplateResponse deleteIndexTemplateWithOptions(const string &InstanceId, const string &IndexTemplate, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除ES集群索引模版
+       * @summary Deletes a top index template.
        *
        * @return DeleteIndexTemplateResponse
        */
       Models::DeleteIndexTemplateResponse deleteIndexTemplate(const string &InstanceId, const string &IndexTemplate);
 
       /**
+       * @summary You can call this operation to release a pay-as-you-go Elasticsearch instance. After the instance is released, the physical resources of the instance is reclaimed. The data of the instance is deleted and cannot be recovered. The disks mounted to the instance nodes and the snapshots are released.
+       *
        * @param request DeleteInstanceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -505,6 +527,8 @@ namespace Elasticsearch20170613
       Models::DeleteInstanceResponse deleteInstanceWithOptions(const string &InstanceId, const Models::DeleteInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can call this operation to release a pay-as-you-go Elasticsearch instance. After the instance is released, the physical resources of the instance is reclaimed. The data of the instance is deleted and cannot be recovered. The disks mounted to the instance nodes and the snapshots are released.
+       *
        * @param request DeleteInstanceRequest
        * @return DeleteInstanceResponse
        */
@@ -551,6 +575,8 @@ namespace Elasticsearch20170613
       Models::DeletePipelinesResponse deletePipelines(const string &InstanceId, const Models::DeletePipelinesRequest &request);
 
       /**
+       * @summary Call DeleteSnapshotRepo to delete a cross-cluster OSS repository.
+       *
        * @param request DeleteSnapshotRepoRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -559,13 +585,15 @@ namespace Elasticsearch20170613
       Models::DeleteSnapshotRepoResponse deleteSnapshotRepoWithOptions(const string &InstanceId, const Models::DeleteSnapshotRepoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call DeleteSnapshotRepo to delete a cross-cluster OSS repository.
+       *
        * @param request DeleteSnapshotRepoRequest
        * @return DeleteSnapshotRepoResponse
        */
       Models::DeleteSnapshotRepoResponse deleteSnapshotRepo(const string &InstanceId, const Models::DeleteSnapshotRepoRequest &request);
 
       /**
-       * @summary 删除服务账号vpc下的终端节点
+       * @summary Deletes an endpoint in the VPC within the Elasticsearch service account.
        *
        * @param request DeleteVpcEndpointRequest
        * @param headers map
@@ -575,7 +603,7 @@ namespace Elasticsearch20170613
       Models::DeleteVpcEndpointResponse deleteVpcEndpointWithOptions(const string &InstanceId, const string &EndpointId, const Models::DeleteVpcEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除服务账号vpc下的终端节点
+       * @summary Deletes an endpoint in the VPC within the Elasticsearch service account.
        *
        * @param request DeleteVpcEndpointRequest
        * @return DeleteVpcEndpointResponse
@@ -603,7 +631,7 @@ namespace Elasticsearch20170613
       Models::DescribeAckOperatorResponse describeAckOperator(const string &ClusterId);
 
       /**
-       * @summary Queries the details of a shipper.
+       * @summary Queries the detailed information of a shipper.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -612,7 +640,7 @@ namespace Elasticsearch20170613
       Models::DescribeCollectorResponse describeCollectorWithOptions(const string &ResId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a shipper.
+       * @summary Queries the detailed information of a shipper.
        *
        * @return DescribeCollectorResponse
        */
@@ -635,6 +663,8 @@ namespace Elasticsearch20170613
       Models::DescribeComponentIndexResponse describeComponentIndex(const string &InstanceId, const string &name);
 
       /**
+       * @summary Queries the Elasticsearch clusters that can be connected to a specified Elasticsearch cluster.
+       *
        * @param request DescribeConnectableClustersRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -643,6 +673,8 @@ namespace Elasticsearch20170613
       Models::DescribeConnectableClustersResponse describeConnectableClustersWithOptions(const string &InstanceId, const Models::DescribeConnectableClustersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the Elasticsearch clusters that can be connected to a specified Elasticsearch cluster.
+       *
        * @param request DescribeConnectableClustersRequest
        * @return DescribeConnectableClustersResponse
        */
@@ -665,6 +697,8 @@ namespace Elasticsearch20170613
       Models::DescribeDeprecatedTemplateResponse describeDeprecatedTemplate(const string &InstanceId, const string &name);
 
       /**
+       * @summary Queries a historical intelligent O\\&M report.
+       *
        * @param request DescribeDiagnoseReportRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -673,12 +707,16 @@ namespace Elasticsearch20170613
       Models::DescribeDiagnoseReportResponse describeDiagnoseReportWithOptions(const string &InstanceId, const string &ReportId, const Models::DescribeDiagnoseReportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries a historical intelligent O\\&M report.
+       *
        * @param request DescribeDiagnoseReportRequest
        * @return DescribeDiagnoseReportResponse
        */
       Models::DescribeDiagnoseReportResponse describeDiagnoseReport(const string &InstanceId, const string &ReportId, const Models::DescribeDiagnoseReportRequest &request);
 
       /**
+       * @summary Call DescribeDiagnosisSettings to obtain the scenario settings of intelligent maintenance.
+       *
        * @param request DescribeDiagnosisSettingsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -687,6 +725,8 @@ namespace Elasticsearch20170613
       Models::DescribeDiagnosisSettingsResponse describeDiagnosisSettingsWithOptions(const string &InstanceId, const Models::DescribeDiagnosisSettingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call DescribeDiagnosisSettings to obtain the scenario settings of intelligent maintenance.
+       *
        * @param request DescribeDiagnosisSettingsRequest
        * @return DescribeDiagnosisSettingsResponse
        */
@@ -709,7 +749,7 @@ namespace Elasticsearch20170613
       Models::DescribeDynamicSettingsResponse describeDynamicSettings(const string &InstanceId);
 
       /**
-       * @summary Queries the health status of an Elasticsearch cluster.
+       * @summary Check the health status of the cluster and whether it is running normally.
        *
        * @description An Elasticsearch cluster can be in a health state indicated by one of the following colors:
        * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
@@ -723,7 +763,7 @@ namespace Elasticsearch20170613
       Models::DescribeElasticsearchHealthResponse describeElasticsearchHealthWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the health status of an Elasticsearch cluster.
+       * @summary Check the health status of the cluster and whether it is running normally.
        *
        * @description An Elasticsearch cluster can be in a health state indicated by one of the following colors:
        * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
@@ -775,7 +815,7 @@ namespace Elasticsearch20170613
       Models::DescribeInstanceResponse describeInstance(const string &InstanceId);
 
       /**
-       * @summary 获取Elasticsearch集群Kibana节点settings配置
+       * @summary Get the configuration of the Kibana node for the Elasticsearch cluster.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -784,14 +824,14 @@ namespace Elasticsearch20170613
       Models::DescribeKibanaSettingsResponse describeKibanaSettingsWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Elasticsearch集群Kibana节点settings配置
+       * @summary Get the configuration of the Kibana node for the Elasticsearch cluster.
        *
        * @return DescribeKibanaSettingsResponse
        */
       Models::DescribeKibanaSettingsResponse describeKibanaSettings(const string &InstanceId);
 
       /**
-       * @summary 查看Logstash实例详情
+       * @summary Queries the information about a Logstash cluster.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -800,13 +840,15 @@ namespace Elasticsearch20170613
       Models::DescribeLogstashResponse describeLogstashWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看Logstash实例详情
+       * @summary Queries the information about a Logstash cluster.
        *
        * @return DescribeLogstashResponse
        */
       Models::DescribeLogstashResponse describeLogstash(const string &InstanceId);
 
       /**
+       * @summary Queries the information about a pipeline in a Logstash cluster.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribePipelineResponse
@@ -814,6 +856,8 @@ namespace Elasticsearch20170613
       Models::DescribePipelineResponse describePipelineWithOptions(const string &InstanceId, const string &PipelineId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the information about a pipeline in a Logstash cluster.
+       *
        * @return DescribePipelineResponse
        */
       Models::DescribePipelineResponse describePipeline(const string &InstanceId, const string &PipelineId);
@@ -837,6 +881,8 @@ namespace Elasticsearch20170613
       Models::DescribePipelineManagementConfigResponse describePipelineManagementConfig(const string &InstanceId, const Models::DescribePipelineManagementConfigRequest &request);
 
       /**
+       * @summary Get the region information of Alibaba Cloud Elasticsearch.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRegionsResponse
@@ -844,12 +890,14 @@ namespace Elasticsearch20170613
       Models::DescribeRegionsResponse describeRegionsWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Get the region information of Alibaba Cloud Elasticsearch.
+       *
        * @return DescribeRegionsResponse
        */
       Models::DescribeRegionsResponse describeRegions();
 
       /**
-       * @summary 查看备份设置
+       * @summary Get the snapshot backup settings of the cluster, backup cycle.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -858,7 +906,7 @@ namespace Elasticsearch20170613
       Models::DescribeSnapshotSettingResponse describeSnapshotSettingWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看备份设置
+       * @summary Get the snapshot backup settings of the cluster, backup cycle.
        *
        * @return DescribeSnapshotSettingResponse
        */
@@ -877,7 +925,7 @@ namespace Elasticsearch20170613
       Models::DescribeTemplatesResponse describeTemplates(const string &InstanceId);
 
       /**
-       * @summary Queries the configurations of the X-Pack Monitoring feature of a Logstash cluster.
+       * @summary Queries the X-Pack Monitoring configurations of a Logstash cluster.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -886,14 +934,14 @@ namespace Elasticsearch20170613
       Models::DescribeXpackMonitorConfigResponse describeXpackMonitorConfigWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configurations of the X-Pack Monitoring feature of a Logstash cluster.
+       * @summary Queries the X-Pack Monitoring configurations of a Logstash cluster.
        *
        * @return DescribeXpackMonitorConfigResponse
        */
       Models::DescribeXpackMonitorConfigResponse describeXpackMonitorConfig(const string &InstanceId);
 
       /**
-       * @summary 触发ES实例智能诊断
+       * @summary Diagnoses an Elasticsearch cluster.
        *
        * @param request DiagnoseInstanceRequest
        * @param headers map
@@ -903,7 +951,7 @@ namespace Elasticsearch20170613
       Models::DiagnoseInstanceResponse diagnoseInstanceWithOptions(const string &InstanceId, const Models::DiagnoseInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 触发ES实例智能诊断
+       * @summary Diagnoses an Elasticsearch cluster.
        *
        * @param request DiagnoseInstanceRequest
        * @return DiagnoseInstanceResponse
@@ -911,7 +959,7 @@ namespace Elasticsearch20170613
       Models::DiagnoseInstanceResponse diagnoseInstance(const string &InstanceId, const Models::DiagnoseInstanceRequest &request);
 
       /**
-       * @summary 关闭kibana私网
+       * @summary Disable Private Network Access of Kibana
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -920,7 +968,7 @@ namespace Elasticsearch20170613
       Models::DisableKibanaPvlNetworkResponse disableKibanaPvlNetworkWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭kibana私网
+       * @summary Disable Private Network Access of Kibana
        *
        * @return DisableKibanaPvlNetworkResponse
        */
@@ -1083,7 +1131,7 @@ namespace Elasticsearch20170613
       Models::GetEmonMonitorDataResponse getEmonMonitorData(const string &ProjectId, const Models::GetEmonMonitorDataRequest &request);
 
       /**
-       * @summary 统计OpenStore实例的存储容量和使用情况
+       * @summary View the storage capacity and usage of the OpensStore instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1092,14 +1140,14 @@ namespace Elasticsearch20170613
       Models::GetOpenStoreUsageResponse getOpenStoreUsageWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 统计OpenStore实例的存储容量和使用情况
+       * @summary View the storage capacity and usage of the OpensStore instance.
        *
        * @return GetOpenStoreUsageResponse
        */
       Models::GetOpenStoreUsageResponse getOpenStoreUsage(const string &InstanceId);
 
       /**
-       * @summary The maximum number of nodes.
+       * @summary Queries the configuration information about the current region.
        *
        * @param request GetRegionConfigurationRequest
        * @param headers map
@@ -1109,7 +1157,7 @@ namespace Elasticsearch20170613
       Models::GetRegionConfigurationResponse getRegionConfigurationWithOptions(const Models::GetRegionConfigurationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The maximum number of nodes.
+       * @summary Queries the configuration information about the current region.
        *
        * @param request GetRegionConfigurationRequest
        * @return GetRegionConfigurationResponse
@@ -1133,7 +1181,7 @@ namespace Elasticsearch20170613
       Models::GetRegionalInstanceConfigResponse getRegionalInstanceConfig();
 
       /**
-       * @summary ES集群可缩容节点
+       * @summary Call GetSuggestShrinkableNodes to specify the type and number of nodes to obtain the nodes that can be removed.
        *
        * @param request GetSuggestShrinkableNodesRequest
        * @param headers map
@@ -1143,7 +1191,7 @@ namespace Elasticsearch20170613
       Models::GetSuggestShrinkableNodesResponse getSuggestShrinkableNodesWithOptions(const string &InstanceId, const Models::GetSuggestShrinkableNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ES集群可缩容节点
+       * @summary Call GetSuggestShrinkableNodes to specify the type and number of nodes to obtain the nodes that can be removed.
        *
        * @param request GetSuggestShrinkableNodesRequest
        * @return GetSuggestShrinkableNodesResponse
@@ -1151,7 +1199,7 @@ namespace Elasticsearch20170613
       Models::GetSuggestShrinkableNodesResponse getSuggestShrinkableNodes(const string &InstanceId, const Models::GetSuggestShrinkableNodesRequest &request);
 
       /**
-       * @summary 获取可数据迁移节点
+       * @summary Call GetTransferableNodes to specify the type and number of nodes to obtain the nodes that can be migrated.
        *
        * @param request GetTransferableNodesRequest
        * @param headers map
@@ -1161,12 +1209,30 @@ namespace Elasticsearch20170613
       Models::GetTransferableNodesResponse getTransferableNodesWithOptions(const string &InstanceId, const Models::GetTransferableNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取可数据迁移节点
+       * @summary Call GetTransferableNodes to specify the type and number of nodes to obtain the nodes that can be migrated.
        *
        * @param request GetTransferableNodesRequest
        * @return GetTransferableNodesResponse
        */
       Models::GetTransferableNodesResponse getTransferableNodes(const string &InstanceId, const Models::GetTransferableNodesRequest &request);
+
+      /**
+       * @summary 灰度完成继续变更
+       *
+       * @param request GrayPublishRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GrayPublishResponse
+       */
+      Models::GrayPublishResponse grayPublishWithOptions(const string &InstanceId, const Models::GrayPublishRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 灰度完成继续变更
+       *
+       * @param request GrayPublishRequest
+       * @return GrayPublishResponse
+       */
+      Models::GrayPublishResponse grayPublish(const string &InstanceId, const Models::GrayPublishRequest &request);
 
       /**
        * @summary Creates a service-linked role.
@@ -1231,7 +1297,7 @@ namespace Elasticsearch20170613
       Models::InstallKibanaSystemPluginResponse installKibanaSystemPlugin(const string &InstanceId, const Models::InstallKibanaSystemPluginRequest &request);
 
       /**
-       * @summary The returned data also contains **Headers** parameters, indicating that header information is returned.
+       * @summary Installs a plug-in.
        *
        * @description ls-cn-oew1qbgl\\*\\*\\*\\*
        *
@@ -1243,7 +1309,7 @@ namespace Elasticsearch20170613
       Models::InstallLogstashSystemPluginResponse installLogstashSystemPluginWithOptions(const string &InstanceId, const Models::InstallLogstashSystemPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The returned data also contains **Headers** parameters, indicating that header information is returned.
+       * @summary Installs a plug-in.
        *
        * @description ls-cn-oew1qbgl\\*\\*\\*\\*
        *
@@ -1289,6 +1355,8 @@ namespace Elasticsearch20170613
       Models::InstallUserPluginsResponse installUserPlugins(const string &InstanceId, const Models::InstallUserPluginsRequest &request);
 
       /**
+       * @summary Call InterruptElasticsearchTask to interrupt the Alibaba cloud elasticsearch instance in the change. This parameter is valid only for instances in the initializing state. When the instance is interrupted, it enters the suspended state.
+       *
        * @param request InterruptElasticsearchTaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1297,6 +1365,8 @@ namespace Elasticsearch20170613
       Models::InterruptElasticsearchTaskResponse interruptElasticsearchTaskWithOptions(const string &InstanceId, const Models::InterruptElasticsearchTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call InterruptElasticsearchTask to interrupt the Alibaba cloud elasticsearch instance in the change. This parameter is valid only for instances in the initializing state. When the instance is interrupted, it enters the suspended state.
+       *
        * @param request InterruptElasticsearchTaskRequest
        * @return InterruptElasticsearchTaskResponse
        */
@@ -1339,7 +1409,7 @@ namespace Elasticsearch20170613
       Models::ListAckClustersResponse listAckClusters(const Models::ListAckClustersRequest &request);
 
       /**
-       * @summary Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
+       * @summary View all namespaces of the specified Container Service for Kubernetes (ACK) cluster.
        *
        * @description > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
        *
@@ -1351,7 +1421,7 @@ namespace Elasticsearch20170613
       Models::ListAckNamespacesResponse listAckNamespacesWithOptions(const string &ClusterId, const Models::ListAckNamespacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
+       * @summary View all namespaces of the specified Container Service for Kubernetes (ACK) cluster.
        *
        * @description > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
        *
@@ -1379,7 +1449,7 @@ namespace Elasticsearch20170613
       Models::ListActionRecordsResponse listActionRecords(const string &InstanceId, const Models::ListActionRecordsRequest &request);
 
       /**
-       * @summary es-cn-tl32cpgwa002l\\*\\*\\*\\*
+       * @summary Queries the information of all the nodes in an Elasticsearch cluster.
        *
        * @param request ListAllNodeRequest
        * @param headers map
@@ -1389,7 +1459,7 @@ namespace Elasticsearch20170613
       Models::ListAllNodeResponse listAllNodeWithOptions(const string &InstanceId, const Models::ListAllNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary es-cn-tl32cpgwa002l\\*\\*\\*\\*
+       * @summary Queries the information of all the nodes in an Elasticsearch cluster.
        *
        * @param request ListAllNodeRequest
        * @return ListAllNodeResponse
@@ -1397,7 +1467,7 @@ namespace Elasticsearch20170613
       Models::ListAllNodeResponse listAllNode(const string &InstanceId, const Models::ListAllNodeRequest &request);
 
       /**
-       * @summary 实例可添加的OSS引用仓库
+       * @summary Call ListAlternativeSnapshotRepos to get the OSS reference warehouses that can be added to the current instance.
        *
        * @param request ListAlternativeSnapshotReposRequest
        * @param headers map
@@ -1407,7 +1477,7 @@ namespace Elasticsearch20170613
       Models::ListAlternativeSnapshotReposResponse listAlternativeSnapshotReposWithOptions(const string &InstanceId, const Models::ListAlternativeSnapshotReposRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实例可添加的OSS引用仓库
+       * @summary Call ListAlternativeSnapshotRepos to get the OSS reference warehouses that can be added to the current instance.
        *
        * @param request ListAlternativeSnapshotReposRequest
        * @return ListAlternativeSnapshotReposResponse
@@ -1431,7 +1501,7 @@ namespace Elasticsearch20170613
       Models::ListAvailableEsInstanceIdsResponse listAvailableEsInstanceIds(const string &InstanceId);
 
       /**
-       * @summary Queries shippers.
+       * @summary Queries a list of shippers.
        *
        * @param request ListCollectorsRequest
        * @param headers map
@@ -1441,7 +1511,7 @@ namespace Elasticsearch20170613
       Models::ListCollectorsResponse listCollectorsWithOptions(const Models::ListCollectorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries shippers.
+       * @summary Queries a list of shippers.
        *
        * @param request ListCollectorsRequest
        * @return ListCollectorsResponse
@@ -1467,7 +1537,7 @@ namespace Elasticsearch20170613
       Models::ListComponentIndicesResponse listComponentIndices(const string &InstanceId, const Models::ListComponentIndicesRequest &request);
 
       /**
-       * @summary 获取与当前实例进行网络互通的实例列表
+       * @summary Call ListConnectedClusters to query the instances that are interconnected with the current instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1476,7 +1546,7 @@ namespace Elasticsearch20170613
       Models::ListConnectedClustersResponse listConnectedClustersWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取与当前实例进行网络互通的实例列表
+       * @summary Call ListConnectedClusters to query the instances that are interconnected with the current instance.
        *
        * @return ListConnectedClustersResponse
        */
@@ -1501,6 +1571,8 @@ namespace Elasticsearch20170613
       Models::ListDataStreamsResponse listDataStreams(const string &InstanceId, const Models::ListDataStreamsRequest &request);
 
       /**
+       * @summary Call ListDataTasks to obtain the information of a data migration task.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListDataTasksResponse
@@ -1508,6 +1580,8 @@ namespace Elasticsearch20170613
       Models::ListDataTasksResponse listDataTasksWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call ListDataTasks to obtain the information of a data migration task.
+       *
        * @return ListDataTasksResponse
        */
       Models::ListDataTasksResponse listDataTasks(const string &InstanceId);
@@ -1567,7 +1641,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnoseIndicesResponse listDiagnoseIndices(const string &InstanceId, const Models::ListDiagnoseIndicesRequest &request);
 
       /**
-       * @summary 获取集群诊断报告列表
+       * @summary Queries the historical intelligent O\\&M reports of an Elasticsearch cluster.
        *
        * @param request ListDiagnoseReportRequest
        * @param headers map
@@ -1577,7 +1651,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnoseReportResponse listDiagnoseReportWithOptions(const string &InstanceId, const Models::ListDiagnoseReportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取集群诊断报告列表
+       * @summary Queries the historical intelligent O\\&M reports of an Elasticsearch cluster.
        *
        * @param request ListDiagnoseReportRequest
        * @return ListDiagnoseReportResponse
@@ -1585,7 +1659,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnoseReportResponse listDiagnoseReport(const string &InstanceId, const Models::ListDiagnoseReportRequest &request);
 
       /**
-       * @summary Queries the IDs of the historical intelligent O&M reports of an Elasticsearch cluster.
+       * @summary Queries the IDs of the historical intelligent O\\\\\\&M reports of an Elasticsearch cluster.
        *
        * @param request ListDiagnoseReportIdsRequest
        * @param headers map
@@ -1595,7 +1669,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnoseReportIdsResponse listDiagnoseReportIdsWithOptions(const string &InstanceId, const Models::ListDiagnoseReportIdsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IDs of the historical intelligent O&M reports of an Elasticsearch cluster.
+       * @summary Queries the IDs of the historical intelligent O\\\\\\&M reports of an Elasticsearch cluster.
        *
        * @param request ListDiagnoseReportIdsRequest
        * @return ListDiagnoseReportIdsResponse
@@ -1603,7 +1677,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnoseReportIdsResponse listDiagnoseReportIds(const string &InstanceId, const Models::ListDiagnoseReportIdsRequest &request);
 
       /**
-       * @summary The diagnostic item is used to check whether data write requests of a cluster are accumulated. If data write requests are accumulated, a bulk rejection occurs. This may cause data loss and severely consume system resources.
+       * @summary Queries the intelligent diagnostic items of an Elasticsearch cluster.
        *
        * @param request ListDiagnosisItemsRequest
        * @param headers map
@@ -1613,7 +1687,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnosisItemsResponse listDiagnosisItemsWithOptions(const Models::ListDiagnosisItemsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The diagnostic item is used to check whether data write requests of a cluster are accumulated. If data write requests are accumulated, a bulk rejection occurs. This may cause data loss and severely consume system resources.
+       * @summary Queries the intelligent diagnostic items of an Elasticsearch cluster.
        *
        * @param request ListDiagnosisItemsRequest
        * @return ListDiagnosisItemsResponse
@@ -1621,6 +1695,8 @@ namespace Elasticsearch20170613
       Models::ListDiagnosisItemsResponse listDiagnosisItems(const Models::ListDiagnosisItemsRequest &request);
 
       /**
+       * @summary Queries information about a dictionary.
+       *
        * @param request ListDictInformationRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1629,6 +1705,8 @@ namespace Elasticsearch20170613
       Models::ListDictInformationResponse listDictInformationWithOptions(const string &InstanceId, const Models::ListDictInformationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries information about a dictionary.
+       *
        * @param request ListDictInformationRequest
        * @return ListDictInformationResponse
        */
@@ -1653,7 +1731,7 @@ namespace Elasticsearch20170613
       Models::ListDictsResponse listDicts(const string &InstanceId, const Models::ListDictsRequest &request);
 
       /**
-       * @summary 查询ecs实例
+       * @summary When you create a Beats collector, call the ListEcsInstances to obtain the list of ECS instances.
        *
        * @description **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
        *
@@ -1665,7 +1743,7 @@ namespace Elasticsearch20170613
       Models::ListEcsInstancesResponse listEcsInstancesWithOptions(const Models::ListEcsInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询ecs实例
+       * @summary When you create a Beats collector, call the ListEcsInstances to obtain the list of ECS instances.
        *
        * @description **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
        *
@@ -1675,7 +1753,7 @@ namespace Elasticsearch20170613
       Models::ListEcsInstancesResponse listEcsInstances(const Models::ListEcsInstancesRequest &request);
 
       /**
-       * @summary Queries the driver files of a Logstash cluster.
+       * @summary Queries the extended file configuration of a Logstash instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1684,7 +1762,7 @@ namespace Elasticsearch20170613
       Models::ListExtendfilesResponse listExtendfilesWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the driver files of a Logstash cluster.
+       * @summary Queries the extended file configuration of a Logstash instance.
        *
        * @return ListExtendfilesResponse
        */
@@ -1719,7 +1797,7 @@ namespace Elasticsearch20170613
       Models::ListIndexTemplatesResponse listIndexTemplates(const string &InstanceId, const Models::ListIndexTemplatesRequest &request);
 
       /**
-       * @summary 查询Elasticsearch实例列表
+       * @summary Queries a list of Elasticsearch clusters.
        *
        * @param request ListInstanceRequest
        * @param headers map
@@ -1729,7 +1807,7 @@ namespace Elasticsearch20170613
       Models::ListInstanceResponse listInstanceWithOptions(const Models::ListInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Elasticsearch实例列表
+       * @summary Queries a list of Elasticsearch clusters.
        *
        * @param request ListInstanceRequest
        * @return ListInstanceResponse
@@ -1755,7 +1833,7 @@ namespace Elasticsearch20170613
       Models::ListInstanceHistoryEventsResponse listInstanceHistoryEvents(const Models::ListInstanceHistoryEventsRequest &request);
 
       /**
-       * @summary 获取当前实例先特定的索引列表
+       * @summary Queries the indexes stored on an Elasticsearch cluster.
        *
        * @param request ListInstanceIndicesRequest
        * @param headers map
@@ -1765,7 +1843,7 @@ namespace Elasticsearch20170613
       Models::ListInstanceIndicesResponse listInstanceIndicesWithOptions(const string &InstanceId, const Models::ListInstanceIndicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取当前实例先特定的索引列表
+       * @summary Queries the indexes stored on an Elasticsearch cluster.
        *
        * @param request ListInstanceIndicesRequest
        * @return ListInstanceIndicesResponse
@@ -1807,7 +1885,7 @@ namespace Elasticsearch20170613
       Models::ListKibanaPvlNetworkResponse listKibanaPvlNetwork(const string &InstanceId);
 
       /**
-       * @summary Logstash集群列表
+       * @summary Queries the information about a Logstash cluster or all Logstash clusters.
        *
        * @param request ListLogstashRequest
        * @param headers map
@@ -1817,7 +1895,7 @@ namespace Elasticsearch20170613
       Models::ListLogstashResponse listLogstashWithOptions(const Models::ListLogstashRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Logstash集群列表
+       * @summary Queries the information about a Logstash cluster or all Logstash clusters.
        *
        * @param request ListLogstashRequest
        * @return ListLogstashResponse
@@ -1825,7 +1903,7 @@ namespace Elasticsearch20170613
       Models::ListLogstashResponse listLogstash(const Models::ListLogstashRequest &request);
 
       /**
-       * @summary 获取Logstash日志
+       * @summary Queries the logs of a Logstash cluster.
        *
        * @param request ListLogstashLogRequest
        * @param headers map
@@ -1835,7 +1913,7 @@ namespace Elasticsearch20170613
       Models::ListLogstashLogResponse listLogstashLogWithOptions(const string &InstanceId, const Models::ListLogstashLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Logstash日志
+       * @summary Queries the logs of a Logstash cluster.
        *
        * @param request ListLogstashLogRequest
        * @return ListLogstashLogResponse
@@ -1843,7 +1921,7 @@ namespace Elasticsearch20170613
       Models::ListLogstashLogResponse listLogstashLog(const string &InstanceId, const Models::ListLogstashLogRequest &request);
 
       /**
-       * @summary Logstash插件列表
+       * @summary Queries the information about a plug-in or all plug-ins.
        *
        * @param request ListLogstashPluginsRequest
        * @param headers map
@@ -1853,7 +1931,7 @@ namespace Elasticsearch20170613
       Models::ListLogstashPluginsResponse listLogstashPluginsWithOptions(const string &InstanceId, const Models::ListLogstashPluginsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Logstash插件列表
+       * @summary Queries the information about a plug-in or all plug-ins.
        *
        * @param request ListLogstashPluginsRequest
        * @return ListLogstashPluginsResponse
@@ -1861,7 +1939,7 @@ namespace Elasticsearch20170613
       Models::ListLogstashPluginsResponse listLogstashPlugins(const string &InstanceId, const Models::ListLogstashPluginsRequest &request);
 
       /**
-       * @summary Queries the statuses of Elastic Compute Service (ECS) instances on which a shipper is installed.
+       * @summary The list of historical reports of Intelligent Maintenance.
        *
        * @param request ListNodesRequest
        * @param headers map
@@ -1871,7 +1949,7 @@ namespace Elasticsearch20170613
       Models::ListNodesResponse listNodesWithOptions(const string &ResId, const Models::ListNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the statuses of Elastic Compute Service (ECS) instances on which a shipper is installed.
+       * @summary The list of historical reports of Intelligent Maintenance.
        *
        * @param request ListNodesRequest
        * @return ListNodesResponse
@@ -1879,7 +1957,7 @@ namespace Elasticsearch20170613
       Models::ListNodesResponse listNodes(const string &ResId, const Models::ListNodesRequest &request);
 
       /**
-       * @summary ListPipeline
+       * @summary Queries a list of pipelines.
        *
        * @param request ListPipelineRequest
        * @param headers map
@@ -1889,7 +1967,7 @@ namespace Elasticsearch20170613
       Models::ListPipelineResponse listPipelineWithOptions(const string &InstanceId, const Models::ListPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListPipeline
+       * @summary Queries a list of pipelines.
        *
        * @param request ListPipelineRequest
        * @return ListPipelineResponse
@@ -1897,7 +1975,7 @@ namespace Elasticsearch20170613
       Models::ListPipelineResponse listPipeline(const string &InstanceId, const Models::ListPipelineRequest &request);
 
       /**
-       * @summary The error message returned.
+       * @summary Queries the IDs of pipelines for a Logstash cluster.
        *
        * @param request ListPipelineIdsRequest
        * @param headers map
@@ -1907,7 +1985,7 @@ namespace Elasticsearch20170613
       Models::ListPipelineIdsResponse listPipelineIdsWithOptions(const string &InstanceId, const Models::ListPipelineIdsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The error message returned.
+       * @summary Queries the IDs of pipelines for a Logstash cluster.
        *
        * @param request ListPipelineIdsRequest
        * @return ListPipelineIdsResponse
@@ -1915,7 +1993,7 @@ namespace Elasticsearch20170613
       Models::ListPipelineIdsResponse listPipelineIds(const string &InstanceId, const Models::ListPipelineIdsRequest &request);
 
       /**
-       * @summary ES系统插件列表
+       * @summary Queries the plug-ins that are installed on a specified Elasticsearch cluster.
        *
        * @param request ListPluginsRequest
        * @param headers map
@@ -1925,7 +2003,7 @@ namespace Elasticsearch20170613
       Models::ListPluginsResponse listPluginsWithOptions(const string &InstanceId, const Models::ListPluginsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ES系统插件列表
+       * @summary Queries the plug-ins that are installed on a specified Elasticsearch cluster.
        *
        * @param request ListPluginsRequest
        * @return ListPluginsResponse
@@ -1933,7 +2011,7 @@ namespace Elasticsearch20170613
       Models::ListPluginsResponse listPlugins(const string &InstanceId, const Models::ListPluginsRequest &request);
 
       /**
-       * @summary 查看Elasticsearch集群各种类型的日志
+       * @summary Queries the logs of an Elasticsearch cluster.
        *
        * @param request ListSearchLogRequest
        * @param headers map
@@ -1943,7 +2021,7 @@ namespace Elasticsearch20170613
       Models::ListSearchLogResponse listSearchLogWithOptions(const string &InstanceId, const Models::ListSearchLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看Elasticsearch集群各种类型的日志
+       * @summary Queries the logs of an Elasticsearch cluster.
        *
        * @param request ListSearchLogRequest
        * @return ListSearchLogResponse
@@ -1973,7 +2051,7 @@ namespace Elasticsearch20170613
       Models::ListShardRecoveriesResponse listShardRecoveries(const string &InstanceId, const Models::ListShardRecoveriesRequest &request);
 
       /**
-       * @summary 获取跨集群索引仓库列表
+       * @summary Call the ListSnapshotReposByInstanceId to get the cross-cluster OSS repositories of the current instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1982,14 +2060,14 @@ namespace Elasticsearch20170613
       Models::ListSnapshotReposByInstanceIdResponse listSnapshotReposByInstanceIdWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取跨集群索引仓库列表
+       * @summary Call the ListSnapshotReposByInstanceId to get the cross-cluster OSS repositories of the current instance.
        *
        * @return ListSnapshotReposByInstanceIdResponse
        */
       Models::ListSnapshotReposByInstanceIdResponse listSnapshotReposByInstanceId(const string &InstanceId);
 
       /**
-       * @summary 查看资源和标签关系
+       * @summary Queries the tags that are added to one or more resources.
        *
        * @param request ListTagResourcesRequest
        * @param headers map
@@ -1999,7 +2077,7 @@ namespace Elasticsearch20170613
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看资源和标签关系
+       * @summary Queries the tags that are added to one or more resources.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -2007,7 +2085,7 @@ namespace Elasticsearch20170613
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary 查看所有已常见的标签
+       * @summary All tags created by the user in the current region.
        *
        * @param request ListTagsRequest
        * @param headers map
@@ -2017,7 +2095,7 @@ namespace Elasticsearch20170613
       Models::ListTagsResponse listTagsWithOptions(const Models::ListTagsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看所有已常见的标签
+       * @summary All tags created by the user in the current region.
        *
        * @param request ListTagsRequest
        * @return ListTagsResponse
@@ -2105,21 +2183,7 @@ namespace Elasticsearch20170613
       Models::ModifyElastictaskResponse modifyElastictask(const string &InstanceId, const Models::ModifyElastictaskRequest &request);
 
       /**
-       * @summary ## RequestBody
-       * You must also specify the following parameters in the RequestBody parameter to specify the maintenance window information.  
-       * | Parameter | Type | Required | Example | Description |
-       * | --------- | ---- | -------- | ------- | ----------- |
-       * | maintainStartTime | String | No | 02:00Z | The start time of the maintenance window. Specify the time in the HH:mmZ format. The time must be in UTC. |
-       * | maintainEndTime | String | No | 06:00Z | The end time of the maintenance window. Specify the time in the HH:mmZ format. The time must be displayed in UTC. |
-       * | openMaintainTime | boolean | Yes | true | Specifies whether to enable the maintenance window feature. Only **true** is supported, indicating that the feature is enabled. |
-       * Examples: 
-       * ```
-       * {
-       *     "openMaintainTime": true,
-       *     "maintainStartTime": "03:00Z",
-       *     "maintainEndTime": "04:00Z"
-       * }
-       * ```
+       * @summary Enables and modifies the maintenance window of an Elasticsearch cluster.
        *
        * @description es-cn-n6w1o1x0w001c\\*\\*\\*\\*
        *
@@ -2131,21 +2195,7 @@ namespace Elasticsearch20170613
       Models::ModifyInstanceMaintainTimeResponse modifyInstanceMaintainTimeWithOptions(const string &InstanceId, const Models::ModifyInstanceMaintainTimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ## RequestBody
-       * You must also specify the following parameters in the RequestBody parameter to specify the maintenance window information.  
-       * | Parameter | Type | Required | Example | Description |
-       * | --------- | ---- | -------- | ------- | ----------- |
-       * | maintainStartTime | String | No | 02:00Z | The start time of the maintenance window. Specify the time in the HH:mmZ format. The time must be in UTC. |
-       * | maintainEndTime | String | No | 06:00Z | The end time of the maintenance window. Specify the time in the HH:mmZ format. The time must be displayed in UTC. |
-       * | openMaintainTime | boolean | Yes | true | Specifies whether to enable the maintenance window feature. Only **true** is supported, indicating that the feature is enabled. |
-       * Examples: 
-       * ```
-       * {
-       *     "openMaintainTime": true,
-       *     "maintainStartTime": "03:00Z",
-       *     "maintainEndTime": "04:00Z"
-       * }
-       * ```
+       * @summary Enables and modifies the maintenance window of an Elasticsearch cluster.
        *
        * @description es-cn-n6w1o1x0w001c\\*\\*\\*\\*
        *
@@ -2155,10 +2205,7 @@ namespace Elasticsearch20170613
       Models::ModifyInstanceMaintainTimeResponse modifyInstanceMaintainTime(const string &InstanceId, const Models::ModifyInstanceMaintainTimeRequest &request);
 
       /**
-       * @summary >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
-       * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
-       * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
-       * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+       * @summary Updates an IP address whitelist of an Elasticsearch cluster.
        *
        * @description The ID of the cluster.
        *
@@ -2170,10 +2217,7 @@ namespace Elasticsearch20170613
       Models::ModifyWhiteIpsResponse modifyWhiteIpsWithOptions(const string &InstanceId, const Models::ModifyWhiteIpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
-       * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
-       * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
-       * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+       * @summary Updates an IP address whitelist of an Elasticsearch cluster.
        *
        * @description The ID of the cluster.
        *
@@ -2201,6 +2245,8 @@ namespace Elasticsearch20170613
       Models::MoveResourceGroupResponse moveResourceGroup(const string &InstanceId, const Models::MoveResourceGroupRequest &request);
 
       /**
+       * @summary Enables the intelligent O\\\\\\&M feature for an instance.
+       *
        * @param request OpenDiagnosisRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2209,12 +2255,16 @@ namespace Elasticsearch20170613
       Models::OpenDiagnosisResponse openDiagnosisWithOptions(const string &InstanceId, const Models::OpenDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Enables the intelligent O\\\\\\&M feature for an instance.
+       *
        * @param request OpenDiagnosisRequest
        * @return OpenDiagnosisResponse
        */
       Models::OpenDiagnosisResponse openDiagnosis(const string &InstanceId, const Models::OpenDiagnosisRequest &request);
 
       /**
+       * @summary Call OpenHttps to enable the HTTPS protocol. Make sure that you have purchased a client node before enabling this feature.
+       *
        * @description >  To ensure data security, we recommend that you enable HTTPS.
        *
        * @param request OpenHttpsRequest
@@ -2225,6 +2275,8 @@ namespace Elasticsearch20170613
       Models::OpenHttpsResponse openHttpsWithOptions(const string &InstanceId, const Models::OpenHttpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call OpenHttps to enable the HTTPS protocol. Make sure that you have purchased a client node before enabling this feature.
+       *
        * @description >  To ensure data security, we recommend that you enable HTTPS.
        *
        * @param request OpenHttpsRequest
@@ -2359,7 +2411,7 @@ namespace Elasticsearch20170613
       Models::RestartInstanceResponse restartInstance(const string &InstanceId, const Models::RestartInstanceRequest &request);
 
       /**
-       * @summary 重启Logstash集群
+       * @summary Restarts a specified Logstash cluster. After the cluster is restarted, it is in the activating state.
        *
        * @param request RestartLogstashRequest
        * @param headers map
@@ -2369,7 +2421,7 @@ namespace Elasticsearch20170613
       Models::RestartLogstashResponse restartLogstashWithOptions(const string &InstanceId, const Models::RestartLogstashRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重启Logstash集群
+       * @summary Restarts a specified Logstash cluster. After the cluster is restarted, it is in the activating state.
        *
        * @param request RestartLogstashRequest
        * @return RestartLogstashResponse
@@ -2377,6 +2429,8 @@ namespace Elasticsearch20170613
       Models::RestartLogstashResponse restartLogstash(const string &InstanceId, const Models::RestartLogstashRequest &request);
 
       /**
+       * @summary Call ResumeElasticsearchTask to resume interrupted change of Elasticsearch instance. After you resume or interrupt a change, the instance enters the activating state.
+       *
        * @param request ResumeElasticsearchTaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2385,6 +2439,8 @@ namespace Elasticsearch20170613
       Models::ResumeElasticsearchTaskResponse resumeElasticsearchTaskWithOptions(const string &InstanceId, const Models::ResumeElasticsearchTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call ResumeElasticsearchTask to resume interrupted change of Elasticsearch instance. After you resume or interrupt a change, the instance enters the activating state.
+       *
        * @param request ResumeElasticsearchTaskRequest
        * @return ResumeElasticsearchTaskResponse
        */
@@ -2445,7 +2501,7 @@ namespace Elasticsearch20170613
       Models::RunPipelinesResponse runPipelines(const string &InstanceId, const Models::RunPipelinesRequest &request);
 
       /**
-       * @summary ES集群缩节点
+       * @summary Removes nodes from an Elasticsearch cluster.
        *
        * @param request ShrinkNodeRequest
        * @param headers map
@@ -2455,7 +2511,7 @@ namespace Elasticsearch20170613
       Models::ShrinkNodeResponse shrinkNodeWithOptions(const string &InstanceId, const Models::ShrinkNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ES集群缩节点
+       * @summary Removes nodes from an Elasticsearch cluster.
        *
        * @param request ShrinkNodeRequest
        * @return ShrinkNodeResponse
@@ -2517,7 +2573,7 @@ namespace Elasticsearch20170613
       Models::StopPipelinesResponse stopPipelines(const string &InstanceId, const Models::StopPipelinesRequest &request);
 
       /**
-       * @summary The information about the clusters and tags.
+       * @summary Adds tags to clusters.
        *
        * @param request TagResourcesRequest
        * @param headers map
@@ -2527,7 +2583,7 @@ namespace Elasticsearch20170613
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The information about the clusters and tags.
+       * @summary Adds tags to clusters.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -2535,7 +2591,7 @@ namespace Elasticsearch20170613
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary 缩节点，数据迁移
+       * @summary Runs a data migration task for node scaling operations.
        *
        * @param request TransferNodeRequest
        * @param headers map
@@ -2545,7 +2601,7 @@ namespace Elasticsearch20170613
       Models::TransferNodeResponse transferNodeWithOptions(const string &InstanceId, const Models::TransferNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 缩节点，数据迁移
+       * @summary Runs a data migration task for node scaling operations.
        *
        * @param request TransferNodeRequest
        * @return TransferNodeResponse
@@ -2553,7 +2609,7 @@ namespace Elasticsearch20170613
       Models::TransferNodeResponse transferNode(const string &InstanceId, const Models::TransferNodeRequest &request);
 
       /**
-       * @summary 开关ES集群及Kibana节点公私网访问
+       * @summary You can call this operation to enable or disable public or private network access for a Elasticsearch or Kibana cluster.
        *
        * @param request TriggerNetworkRequest
        * @param headers map
@@ -2563,7 +2619,7 @@ namespace Elasticsearch20170613
       Models::TriggerNetworkResponse triggerNetworkWithOptions(const string &InstanceId, const Models::TriggerNetworkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开关ES集群及Kibana节点公私网访问
+       * @summary You can call this operation to enable or disable public or private network access for a Elasticsearch or Kibana cluster.
        *
        * @param request TriggerNetworkRequest
        * @return TriggerNetworkResponse
@@ -2571,7 +2627,7 @@ namespace Elasticsearch20170613
       Models::TriggerNetworkResponse triggerNetwork(const string &InstanceId, const Models::TriggerNetworkRequest &request);
 
       /**
-       * @summary 可用区关机
+       * @summary Multi-zone Instance: Shutting down an existing availability zone is only for disaster recovery drills. Proceed with caution!
        *
        * @param request TurnOffZoneRequest
        * @param headers map
@@ -2581,7 +2637,7 @@ namespace Elasticsearch20170613
       Models::TurnOffZoneResponse turnOffZoneWithOptions(const string &instanceId, const Models::TurnOffZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 可用区关机
+       * @summary Multi-zone Instance: Shutting down an existing availability zone is only for disaster recovery drills. Proceed with caution!
        *
        * @param request TurnOffZoneRequest
        * @return TurnOffZoneResponse
@@ -2589,7 +2645,7 @@ namespace Elasticsearch20170613
       Models::TurnOffZoneResponse turnOffZone(const string &instanceId, const Models::TurnOffZoneRequest &request);
 
       /**
-       * @summary 可用区开机
+       * @summary Multi-zone Instance, reopening a zone that has been taken offline is only for disaster recovery drills. Please proceed with caution!
        *
        * @param request TurnOnZoneRequest
        * @param headers map
@@ -2599,7 +2655,7 @@ namespace Elasticsearch20170613
       Models::TurnOnZoneResponse turnOnZoneWithOptions(const string &instanceId, const Models::TurnOnZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 可用区开机
+       * @summary Multi-zone Instance, reopening a zone that has been taken offline is only for disaster recovery drills. Please proceed with caution!
        *
        * @param request TurnOnZoneRequest
        * @return TurnOnZoneResponse
@@ -2625,7 +2681,7 @@ namespace Elasticsearch20170613
       Models::UninstallKibanaPluginResponse uninstallKibanaPlugin(const string &InstanceId, const Models::UninstallKibanaPluginRequest &request);
 
       /**
-       * @summary 卸载Logstash实例已安装的插件
+       * @summary Removes one or more Logstash plug-ins.
        *
        * @param request UninstallLogstashPluginRequest
        * @param headers map
@@ -2635,7 +2691,7 @@ namespace Elasticsearch20170613
       Models::UninstallLogstashPluginResponse uninstallLogstashPluginWithOptions(const string &InstanceId, const Models::UninstallLogstashPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 卸载Logstash实例已安装的插件
+       * @summary Removes one or more Logstash plug-ins.
        *
        * @param request UninstallLogstashPluginRequest
        * @return UninstallLogstashPluginResponse
@@ -2661,7 +2717,7 @@ namespace Elasticsearch20170613
       Models::UninstallPluginResponse uninstallPlugin(const string &InstanceId, const Models::UninstallPluginRequest &request);
 
       /**
-       * @summary 删除ES集群实例的用户可见标签
+       * @summary Deletes a user resource tag relationship.
        *
        * @description When you call this operation, take note of the following items:
        * *   You can only delete user tags.
@@ -2676,7 +2732,7 @@ namespace Elasticsearch20170613
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除ES集群实例的用户可见标签
+       * @summary Deletes a user resource tag relationship.
        *
        * @description When you call this operation, take note of the following items:
        * *   You can only delete user tags.
@@ -2689,7 +2745,7 @@ namespace Elasticsearch20170613
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary 修改ES集群密码
+       * @summary You can call this operation to UpdateAdminPassword the password of the elastic account of the specified Elasticsearch instance.
        *
        * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
        *
@@ -2701,7 +2757,7 @@ namespace Elasticsearch20170613
       Models::UpdateAdminPasswordResponse updateAdminPasswordWithOptions(const string &InstanceId, const Models::UpdateAdminPasswordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改ES集群密码
+       * @summary You can call this operation to UpdateAdminPassword the password of the elastic account of the specified Elasticsearch instance.
        *
        * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
        *
@@ -2833,7 +2889,7 @@ namespace Elasticsearch20170613
       Models::UpdateComponentIndexResponse updateComponentIndex(const string &InstanceId, const string &name, const Models::UpdateComponentIndexRequest &request);
 
       /**
-       * @summary 修改elasticsearch实例名称名称
+       * @summary Changes the name of a specified Elasticsearch cluster.
        *
        * @param request UpdateDescriptionRequest
        * @param headers map
@@ -2843,7 +2899,7 @@ namespace Elasticsearch20170613
       Models::UpdateDescriptionResponse updateDescriptionWithOptions(const string &InstanceId, const Models::UpdateDescriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改elasticsearch实例名称名称
+       * @summary Changes the name of a specified Elasticsearch cluster.
        *
        * @param request UpdateDescriptionRequest
        * @return UpdateDescriptionResponse
@@ -2851,7 +2907,7 @@ namespace Elasticsearch20170613
       Models::UpdateDescriptionResponse updateDescription(const string &InstanceId, const Models::UpdateDescriptionRequest &request);
 
       /**
-       * @summary Call UpdateDiagnosisSettings to update the instance of intelligent operation&maintenance (O&M) scene settings.
+       * @summary Call UpdateDiagnosisSettings to update the instance of intelligent operation\\&maintenance (O\\&M) scene settings.
        *
        * @param request UpdateDiagnosisSettingsRequest
        * @param headers map
@@ -2861,7 +2917,7 @@ namespace Elasticsearch20170613
       Models::UpdateDiagnosisSettingsResponse updateDiagnosisSettingsWithOptions(const string &InstanceId, const Models::UpdateDiagnosisSettingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call UpdateDiagnosisSettings to update the instance of intelligent operation&maintenance (O&M) scene settings.
+       * @summary Call UpdateDiagnosisSettings to update the instance of intelligent operation\\&maintenance (O\\&M) scene settings.
        *
        * @param request UpdateDiagnosisSettingsRequest
        * @return UpdateDiagnosisSettingsResponse
@@ -2949,7 +3005,7 @@ namespace Elasticsearch20170613
       Models::UpdateExtendfilesResponse updateExtendfiles(const string &InstanceId, const Models::UpdateExtendfilesRequest &request);
 
       /**
-       * @summary Performs a rolling update for the IK dictionaries of an Elasticsearch cluster.
+       * @summary null
        *
        * @description Before you call this operation, take note of the following items:
        * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
@@ -2963,7 +3019,7 @@ namespace Elasticsearch20170613
       Models::UpdateHotIkDictsResponse updateHotIkDictsWithOptions(const string &InstanceId, const Models::UpdateHotIkDictsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a rolling update for the IK dictionaries of an Elasticsearch cluster.
+       * @summary null
        *
        * @description Before you call this operation, take note of the following items:
        * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
@@ -3011,7 +3067,7 @@ namespace Elasticsearch20170613
       Models::UpdateIndexTemplateResponse updateIndexTemplate(const string &InstanceId, const string &IndexTemplate, const Models::UpdateIndexTemplateRequest &request);
 
       /**
-       * @summary 修改ES集群节点配置
+       * @summary Updates the configurations of a cluster, such as the number of nodes, the number of roles, specifications, and disk configurations.
        *
        * @description es-cn-n6w1ptcb30009\\*\\*\\*\\*
        *
@@ -3023,7 +3079,7 @@ namespace Elasticsearch20170613
       Models::UpdateInstanceResponse updateInstanceWithOptions(const string &InstanceId, const Models::UpdateInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改ES集群节点配置
+       * @summary Updates the configurations of a cluster, such as the number of nodes, the number of roles, specifications, and disk configurations.
        *
        * @description es-cn-n6w1ptcb30009\\*\\*\\*\\*
        *
@@ -3033,7 +3089,7 @@ namespace Elasticsearch20170613
       Models::UpdateInstanceResponse updateInstance(const string &InstanceId, const Models::UpdateInstanceRequest &request);
 
       /**
-       * @summary Call UpdateInstanceChargeType to change the billing method of a pay-as-you-go instance to subscription.
+       * @summary null
        *
        * @param request UpdateInstanceChargeTypeRequest
        * @param headers map
@@ -3043,7 +3099,7 @@ namespace Elasticsearch20170613
       Models::UpdateInstanceChargeTypeResponse updateInstanceChargeTypeWithOptions(const string &InstanceId, const Models::UpdateInstanceChargeTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call UpdateInstanceChargeType to change the billing method of a pay-as-you-go instance to subscription.
+       * @summary null
        *
        * @param request UpdateInstanceChargeTypeRequest
        * @return UpdateInstanceChargeTypeResponse
@@ -3141,7 +3197,7 @@ namespace Elasticsearch20170613
       Models::UpdateKibanaWhiteIpsResponse updateKibanaWhiteIps(const string &InstanceId, const Models::UpdateKibanaWhiteIpsRequest &request);
 
       /**
-       * @summary 修改Logstash节点规格磁盘配置
+       * @summary Modifies the configuration of a specified Logstash cluster, such as the name, quota, disk size, and number of nodes.
        *
        * @param request UpdateLogstashRequest
        * @param headers map
@@ -3151,7 +3207,7 @@ namespace Elasticsearch20170613
       Models::UpdateLogstashResponse updateLogstashWithOptions(const string &InstanceId, const Models::UpdateLogstashRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改Logstash节点规格磁盘配置
+       * @summary Modifies the configuration of a specified Logstash cluster, such as the name, quota, disk size, and number of nodes.
        *
        * @param request UpdateLogstashRequest
        * @return UpdateLogstashResponse
@@ -3199,7 +3255,7 @@ namespace Elasticsearch20170613
       Models::UpdateLogstashDescriptionResponse updateLogstashDescription(const string &InstanceId, const Models::UpdateLogstashDescriptionRequest &request);
 
       /**
-       * @summary Updates the configuration of a specified Logstash cluster.
+       * @summary Updates the configuration of the specified Logstash instance.
        *
        * @description When you call this operation, take note of the following items:
        * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
@@ -3212,7 +3268,7 @@ namespace Elasticsearch20170613
       Models::UpdateLogstashSettingsResponse updateLogstashSettingsWithOptions(const string &InstanceId, const Models::UpdateLogstashSettingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configuration of a specified Logstash cluster.
+       * @summary Updates the configuration of the specified Logstash instance.
        *
        * @description When you call this operation, take note of the following items:
        * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
@@ -3223,7 +3279,7 @@ namespace Elasticsearch20170613
       Models::UpdateLogstashSettingsResponse updateLogstashSettings(const string &InstanceId, const Models::UpdateLogstashSettingsRequest &request);
 
       /**
-       * @summary 修改Logstash管道配置
+       * @summary Modifies the pipeline management method of the specified Logstash cluster.
        *
        * @param request UpdatePipelineManagementConfigRequest
        * @param headers map
@@ -3233,7 +3289,7 @@ namespace Elasticsearch20170613
       Models::UpdatePipelineManagementConfigResponse updatePipelineManagementConfigWithOptions(const string &InstanceId, const Models::UpdatePipelineManagementConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改Logstash管道配置
+       * @summary Modifies the pipeline management method of the specified Logstash cluster.
        *
        * @param request UpdatePipelineManagementConfigRequest
        * @return UpdatePipelineManagementConfigResponse
@@ -3259,18 +3315,7 @@ namespace Elasticsearch20170613
       Models::UpdatePipelinesResponse updatePipelines(const string &InstanceId, const Models::UpdatePipelinesRequest &request);
 
       /**
-       * @summary ## RequestBody
-       * | Property | Type | Required | Example | Description |
-       * | -------- | ---- | -------- | ------- | ----------- |
-       * | privateNetworkIpWhiteList | List<String> | No | ["0.0.XX.XX","10.2.XX.XX","192.168.XX.XX/25"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.  
-       * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
-       * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.  
-       * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
-       * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-       * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-       * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
-       * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
-       * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+       * @summary You can call this operation to update the VPC private network access whitelist of a specified Elasticsearch instance UpdatePrivateNetworkWhiteIps.
        *
        * @description >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
        *
@@ -3282,18 +3327,7 @@ namespace Elasticsearch20170613
       Models::UpdatePrivateNetworkWhiteIpsResponse updatePrivateNetworkWhiteIpsWithOptions(const string &InstanceId, const Models::UpdatePrivateNetworkWhiteIpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ## RequestBody
-       * | Property | Type | Required | Example | Description |
-       * | -------- | ---- | -------- | ------- | ----------- |
-       * | privateNetworkIpWhiteList | List<String> | No | ["0.0.XX.XX","10.2.XX.XX","192.168.XX.XX/25"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.  
-       * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
-       * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.  
-       * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
-       * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-       * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-       * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
-       * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
-       * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+       * @summary You can call this operation to update the VPC private network access whitelist of a specified Elasticsearch instance UpdatePrivateNetworkWhiteIps.
        *
        * @description >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
        *
@@ -3303,7 +3337,7 @@ namespace Elasticsearch20170613
       Models::UpdatePrivateNetworkWhiteIpsResponse updatePrivateNetworkWhiteIps(const string &InstanceId, const Models::UpdatePrivateNetworkWhiteIpsRequest &request);
 
       /**
-       * @summary Call UpdatePublicNetwork to open or close the public network address of the specified elasticsearch instance.
+       * @summary null
        *
        * @description When you call this operation, take note of the following items:
        * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
@@ -3316,7 +3350,7 @@ namespace Elasticsearch20170613
       Models::UpdatePublicNetworkResponse updatePublicNetworkWithOptions(const string &InstanceId, const Models::UpdatePublicNetworkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call UpdatePublicNetwork to open or close the public network address of the specified elasticsearch instance.
+       * @summary null
        *
        * @description When you call this operation, take note of the following items:
        * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
@@ -3327,18 +3361,7 @@ namespace Elasticsearch20170613
       Models::UpdatePublicNetworkResponse updatePublicNetwork(const string &InstanceId, const Models::UpdatePublicNetworkRequest &request);
 
       /**
-       * @summary ## RequestBody
-       * | Property | Type | Required | Example | Description |
-       * | -------- | ---- | -------- | ------- | ----------- |
-       * | publicIpWhitelist | List<String> | Yes | ["0.0.0.0/0","0.0.0.0/1"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.  
-       * You cannot configure both publicIpWhitelist and whiteIpGroup. |
-       * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.  
-       * You cannot configure both publicIpWhitelist and whiteIpGroup. |
-       * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-       * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-       * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
-       * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
-       * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+       * @summary null
        *
        * @description >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
        *
@@ -3350,18 +3373,7 @@ namespace Elasticsearch20170613
       Models::UpdatePublicWhiteIpsResponse updatePublicWhiteIpsWithOptions(const string &InstanceId, const Models::UpdatePublicWhiteIpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ## RequestBody
-       * | Property | Type | Required | Example | Description |
-       * | -------- | ---- | -------- | ------- | ----------- |
-       * | publicIpWhitelist | List<String> | Yes | ["0.0.0.0/0","0.0.0.0/1"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.  
-       * You cannot configure both publicIpWhitelist and whiteIpGroup. |
-       * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.  
-       * You cannot configure both publicIpWhitelist and whiteIpGroup. |
-       * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-       * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
-       * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
-       * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
-       * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+       * @summary null
        *
        * @description >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
        *
@@ -3447,10 +3459,7 @@ namespace Elasticsearch20170613
       Models::UpdateTemplateResponse updateTemplate(const string &InstanceId, const string &TemplateName, const Models::UpdateTemplateRequest &request);
 
       /**
-       * @summary >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
-       * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
-       * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
-       * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+       * @summary Updates a private IP address whitelist of an Elasticsearch cluster.
        *
        * @description > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
        *
@@ -3462,10 +3471,7 @@ namespace Elasticsearch20170613
       Models::UpdateWhiteIpsResponse updateWhiteIpsWithOptions(const string &InstanceId, const Models::UpdateWhiteIpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
-       * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
-       * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
-       * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+       * @summary Updates a private IP address whitelist of an Elasticsearch cluster.
        *
        * @description > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
        *
@@ -3475,7 +3481,7 @@ namespace Elasticsearch20170613
       Models::UpdateWhiteIpsResponse updateWhiteIps(const string &InstanceId, const Models::UpdateWhiteIpsRequest &request);
 
       /**
-       * @summary 修改Logstash实例的X-Pack监控报警配置。
+       * @summary Updates the X-Pack monitoring and alert configuration of a Logstash cluster.
        *
        * @param request UpdateXpackMonitorConfigRequest
        * @param headers map
@@ -3485,7 +3491,7 @@ namespace Elasticsearch20170613
       Models::UpdateXpackMonitorConfigResponse updateXpackMonitorConfigWithOptions(const string &InstanceId, const Models::UpdateXpackMonitorConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改Logstash实例的X-Pack监控报警配置。
+       * @summary Updates the X-Pack monitoring and alert configuration of a Logstash cluster.
        *
        * @param request UpdateXpackMonitorConfigRequest
        * @return UpdateXpackMonitorConfigResponse
@@ -3493,7 +3499,7 @@ namespace Elasticsearch20170613
       Models::UpdateXpackMonitorConfigResponse updateXpackMonitorConfig(const string &InstanceId, const Models::UpdateXpackMonitorConfigRequest &request);
 
       /**
-       * @summary ES集群版本升级
+       * @summary Upgrades the version or kernel of an Elasticsearch cluster.
        *
        * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
        *
@@ -3505,7 +3511,7 @@ namespace Elasticsearch20170613
       Models::UpgradeEngineVersionResponse upgradeEngineVersionWithOptions(const string &InstanceId, const Models::UpgradeEngineVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ES集群版本升级
+       * @summary Upgrades the version or kernel of an Elasticsearch cluster.
        *
        * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
        *
@@ -3537,7 +3543,7 @@ namespace Elasticsearch20170613
       Models::ValidateConnectionResponse validateConnection(const string &InstanceId, const Models::ValidateConnectionRequest &request);
 
       /**
-       * @summary 校验缩节点合法性
+       * @summary Checks whether specific nodes can be removed from a specified Elasticsearch cluster.
        *
        * @param request ValidateShrinkNodesRequest
        * @param headers map
@@ -3547,7 +3553,7 @@ namespace Elasticsearch20170613
       Models::ValidateShrinkNodesResponse validateShrinkNodesWithOptions(const string &InstanceId, const Models::ValidateShrinkNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 校验缩节点合法性
+       * @summary Checks whether specific nodes can be removed from a specified Elasticsearch cluster.
        *
        * @param request ValidateShrinkNodesRequest
        * @return ValidateShrinkNodesResponse
@@ -3555,6 +3561,8 @@ namespace Elasticsearch20170613
       Models::ValidateShrinkNodesResponse validateShrinkNodes(const string &InstanceId, const Models::ValidateShrinkNodesRequest &request);
 
       /**
+       * @summary Verify the SLR permissions of the current account.
+       *
        * @param request ValidateSlrPermissionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -3563,13 +3571,15 @@ namespace Elasticsearch20170613
       Models::ValidateSlrPermissionResponse validateSlrPermissionWithOptions(const Models::ValidateSlrPermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Verify the SLR permissions of the current account.
+       *
        * @param request ValidateSlrPermissionRequest
        * @return ValidateSlrPermissionResponse
        */
       Models::ValidateSlrPermissionResponse validateSlrPermission(const Models::ValidateSlrPermissionRequest &request);
 
       /**
-       * @summary 缩节点校验数据迁移合法性
+       * @summary Checks whether the data on specific nodes in a specified Elasticsearch cluster can be migrated.
        *
        * @param request ValidateTransferableNodesRequest
        * @param headers map
@@ -3579,7 +3589,7 @@ namespace Elasticsearch20170613
       Models::ValidateTransferableNodesResponse validateTransferableNodesWithOptions(const string &InstanceId, const Models::ValidateTransferableNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 缩节点校验数据迁移合法性
+       * @summary Checks whether the data on specific nodes in a specified Elasticsearch cluster can be migrated.
        *
        * @param request ValidateTransferableNodesRequest
        * @return ValidateTransferableNodesResponse
@@ -3587,7 +3597,7 @@ namespace Elasticsearch20170613
       Models::ValidateTransferableNodesResponse validateTransferableNodes(const string &InstanceId, const Models::ValidateTransferableNodesRequest &request);
 
       /**
-       * @summary The configurations of dedicated master nodes.
+       * @summary Creates an Elasticsearch cluster.
        *
        * @description The configurations of warm nodes.
        *
@@ -3599,7 +3609,7 @@ namespace Elasticsearch20170613
       Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The configurations of dedicated master nodes.
+       * @summary Creates an Elasticsearch cluster.
        *
        * @description The configurations of warm nodes.
        *

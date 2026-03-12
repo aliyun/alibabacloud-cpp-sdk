@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The ID of the remote instance that is connected to the network of the current instance.
         shared_ptr<string> instances_ {};
-        // The network type of the instance.
         shared_ptr<string> networkType_ {};
       };
 
@@ -130,7 +128,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The return results.
     shared_ptr<ListConnectedClustersResponseBody::Result> result_ {};
   };
 
