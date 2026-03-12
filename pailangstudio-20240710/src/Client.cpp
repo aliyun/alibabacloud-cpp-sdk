@@ -37,7 +37,100 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建知识库
+ * @summary 创建部署
+ *
+ * @param request CreateDeploymentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDeploymentResponse
+ */
+CreateDeploymentResponse Client::createDeploymentWithOptions(const CreateDeploymentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccessibility()) {
+    body["Accessibility"] = request.getAccessibility();
+  }
+
+  if (!!request.hasAutoApproval()) {
+    body["AutoApproval"] = request.getAutoApproval();
+  }
+
+  if (!!request.hasChatHistoryConfig()) {
+    body["ChatHistoryConfig"] = request.getChatHistoryConfig();
+  }
+
+  if (!!request.hasContentModerationConfig()) {
+    body["ContentModerationConfig"] = request.getContentModerationConfig();
+  }
+
+  if (!!request.hasDeploymentConfig()) {
+    body["DeploymentConfig"] = request.getDeploymentConfig();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnableTrace()) {
+    body["EnableTrace"] = request.getEnableTrace();
+  }
+
+  if (!!request.hasResourceId()) {
+    body["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceSnapshotId()) {
+    body["ResourceSnapshotId"] = request.getResourceSnapshotId();
+  }
+
+  if (!!request.hasResourceType()) {
+    body["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasServiceName()) {
+    body["ServiceName"] = request.getServiceName();
+  }
+
+  if (!!request.hasWorkDir()) {
+    body["WorkDir"] = request.getWorkDir();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDeployment"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/deployments")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDeploymentResponse>();
+}
+
+/**
+ * @summary 创建部署
+ *
+ * @param request CreateDeploymentRequest
+ * @return CreateDeploymentResponse
+ */
+CreateDeploymentResponse Client::createDeployment(const CreateDeploymentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createDeploymentWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Create a knowledge base.
  *
  * @param request CreateKnowledgeBaseRequest
  * @param headers map
@@ -118,7 +211,7 @@ CreateKnowledgeBaseResponse Client::createKnowledgeBaseWithOptions(const CreateK
 }
 
 /**
- * @summary 创建知识库
+ * @summary Create a knowledge base.
  *
  * @param request CreateKnowledgeBaseRequest
  * @return CreateKnowledgeBaseResponse
@@ -130,7 +223,7 @@ CreateKnowledgeBaseResponse Client::createKnowledgeBase(const CreateKnowledgeBas
 }
 
 /**
- * @summary 创建知识库任务
+ * @summary Create a Knowledge Base Task.
  *
  * @param request CreateKnowledgeBaseJobRequest
  * @param headers map
@@ -195,7 +288,7 @@ CreateKnowledgeBaseJobResponse Client::createKnowledgeBaseJobWithOptions(const s
 }
 
 /**
- * @summary 创建知识库任务
+ * @summary Create a Knowledge Base Task.
  *
  * @param request CreateKnowledgeBaseJobRequest
  * @return CreateKnowledgeBaseJobResponse
@@ -207,7 +300,222 @@ CreateKnowledgeBaseJobResponse Client::createKnowledgeBaseJob(const string &Know
 }
 
 /**
- * @summary 删除知识库
+ * @summary Create a runtime.
+ *
+ * @param request CreateRuntimeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRuntimeResponse
+ */
+CreateRuntimeResponse Client::createRuntimeWithOptions(const CreateRuntimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccessibility()) {
+    body["Accessibility"] = request.getAccessibility();
+  }
+
+  if (!!request.hasCredentialConfig()) {
+    body["CredentialConfig"] = request.getCredentialConfig();
+  }
+
+  if (!!request.hasDataSources()) {
+    body["DataSources"] = request.getDataSources();
+  }
+
+  if (!!request.hasEcsSpec()) {
+    body["EcsSpec"] = request.getEcsSpec();
+  }
+
+  if (!!request.hasEnvs()) {
+    body["Envs"] = request.getEnvs();
+  }
+
+  if (!!request.hasLabels()) {
+    body["Labels"] = request.getLabels();
+  }
+
+  if (!!request.hasResourceId()) {
+    body["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasRunTimeout()) {
+    body["RunTimeout"] = request.getRunTimeout();
+  }
+
+  if (!!request.hasRuntimeName()) {
+    body["RuntimeName"] = request.getRuntimeName();
+  }
+
+  if (!!request.hasRuntimeType()) {
+    body["RuntimeType"] = request.getRuntimeType();
+  }
+
+  if (!!request.hasUserVpc()) {
+    body["UserVpc"] = request.getUserVpc();
+  }
+
+  if (!!request.hasWorkDir()) {
+    body["WorkDir"] = request.getWorkDir();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateRuntime"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/runtimes")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRuntimeResponse>();
+}
+
+/**
+ * @summary Create a runtime.
+ *
+ * @param request CreateRuntimeRequest
+ * @return CreateRuntimeResponse
+ */
+CreateRuntimeResponse Client::createRuntime(const CreateRuntimeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createRuntimeWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建快照
+ *
+ * @param request CreateSnapshotRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSnapshotResponse
+ */
+CreateSnapshotResponse Client::createSnapshotWithOptions(const CreateSnapshotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccessibility()) {
+    body["Accessibility"] = request.getAccessibility();
+  }
+
+  if (!!request.hasCreationType()) {
+    body["CreationType"] = request.getCreationType();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasSnapshotName()) {
+    body["SnapshotName"] = request.getSnapshotName();
+  }
+
+  if (!!request.hasSnapshotResourceId()) {
+    body["SnapshotResourceId"] = request.getSnapshotResourceId();
+  }
+
+  if (!!request.hasSnapshotResourceType()) {
+    body["SnapshotResourceType"] = request.getSnapshotResourceType();
+  }
+
+  if (!!request.hasSourceStoragePath()) {
+    body["SourceStoragePath"] = request.getSourceStoragePath();
+  }
+
+  if (!!request.hasWorkDir()) {
+    body["WorkDir"] = request.getWorkDir();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSnapshot"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/snapshots")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSnapshotResponse>();
+}
+
+/**
+ * @summary 创建快照
+ *
+ * @param request CreateSnapshotRequest
+ * @return CreateSnapshotResponse
+ */
+CreateSnapshotResponse Client::createSnapshot(const CreateSnapshotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createSnapshotWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 删除部署
+ *
+ * @param request DeleteDeploymentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDeploymentResponse
+ */
+DeleteDeploymentResponse Client::deleteDeploymentWithOptions(const string &DeploymentId, const DeleteDeploymentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDeployment"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/deployments/" , Darabonba::Encode::Encoder::percentEncode(DeploymentId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDeploymentResponse>();
+}
+
+/**
+ * @summary 删除部署
+ *
+ * @param request DeleteDeploymentRequest
+ * @return DeleteDeploymentResponse
+ */
+DeleteDeploymentResponse Client::deleteDeployment(const string &DeploymentId, const DeleteDeploymentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteDeploymentWithOptions(DeploymentId, request, headers, runtime);
+}
+
+/**
+ * @summary Delete knowledge base.
  *
  * @param request DeleteKnowledgeBaseRequest
  * @param headers map
@@ -240,7 +548,7 @@ DeleteKnowledgeBaseResponse Client::deleteKnowledgeBaseWithOptions(const string 
 }
 
 /**
- * @summary 删除知识库
+ * @summary Delete knowledge base.
  *
  * @param request DeleteKnowledgeBaseRequest
  * @return DeleteKnowledgeBaseResponse
@@ -252,7 +560,7 @@ DeleteKnowledgeBaseResponse Client::deleteKnowledgeBase(const string &KnowledgeB
 }
 
 /**
- * @summary 删除知识库任务
+ * @summary Delete Knowledge Base Task.
  *
  * @param request DeleteKnowledgeBaseJobRequest
  * @param headers map
@@ -285,7 +593,7 @@ DeleteKnowledgeBaseJobResponse Client::deleteKnowledgeBaseJobWithOptions(const s
 }
 
 /**
- * @summary 删除知识库任务
+ * @summary Delete Knowledge Base Task.
  *
  * @param request DeleteKnowledgeBaseJobRequest
  * @return DeleteKnowledgeBaseJobResponse
@@ -297,7 +605,142 @@ DeleteKnowledgeBaseJobResponse Client::deleteKnowledgeBaseJob(const string &Know
 }
 
 /**
- * @summary 查看知识库
+ * @summary Delete a runtime.
+ *
+ * @param request DeleteRuntimeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRuntimeResponse
+ */
+DeleteRuntimeResponse Client::deleteRuntimeWithOptions(const string &RuntimeId, const DeleteRuntimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteRuntime"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/runtimes/" , Darabonba::Encode::Encoder::percentEncode(RuntimeId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRuntimeResponse>();
+}
+
+/**
+ * @summary Delete a runtime.
+ *
+ * @param request DeleteRuntimeRequest
+ * @return DeleteRuntimeResponse
+ */
+DeleteRuntimeResponse Client::deleteRuntime(const string &RuntimeId, const DeleteRuntimeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteRuntimeWithOptions(RuntimeId, request, headers, runtime);
+}
+
+/**
+ * @summary 删除快照
+ *
+ * @param request DeleteSnapshotRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSnapshotResponse
+ */
+DeleteSnapshotResponse Client::deleteSnapshotWithOptions(const string &SnapshotId, const DeleteSnapshotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSnapshot"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/snapshots/" , Darabonba::Encode::Encoder::percentEncode(SnapshotId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSnapshotResponse>();
+}
+
+/**
+ * @summary 删除快照
+ *
+ * @param request DeleteSnapshotRequest
+ * @return DeleteSnapshotResponse
+ */
+DeleteSnapshotResponse Client::deleteSnapshot(const string &SnapshotId, const DeleteSnapshotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteSnapshotWithOptions(SnapshotId, request, headers, runtime);
+}
+
+/**
+ * @summary 查看部署
+ *
+ * @param request GetDeploymentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDeploymentResponse
+ */
+GetDeploymentResponse Client::getDeploymentWithOptions(const string &DeploymentId, const GetDeploymentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDeployment"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/deployments/" , Darabonba::Encode::Encoder::percentEncode(DeploymentId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDeploymentResponse>();
+}
+
+/**
+ * @summary 查看部署
+ *
+ * @param request GetDeploymentRequest
+ * @return GetDeploymentResponse
+ */
+GetDeploymentResponse Client::getDeployment(const string &DeploymentId, const GetDeploymentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getDeploymentWithOptions(DeploymentId, request, headers, runtime);
+}
+
+/**
+ * @summary Get knowledge base.
  *
  * @param request GetKnowledgeBaseRequest
  * @param headers map
@@ -334,7 +777,7 @@ GetKnowledgeBaseResponse Client::getKnowledgeBaseWithOptions(const string &Knowl
 }
 
 /**
- * @summary 查看知识库
+ * @summary Get knowledge base.
  *
  * @param request GetKnowledgeBaseRequest
  * @return GetKnowledgeBaseResponse
@@ -388,6 +831,197 @@ GetKnowledgeBaseJobResponse Client::getKnowledgeBaseJob(const string &KnowledgeB
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getKnowledgeBaseJobWithOptions(KnowledgeBaseId, KnowledgeBaseJobId, request, headers, runtime);
+}
+
+/**
+ * @summary Obtain the details of the runtime.
+ *
+ * @param request GetRuntimeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRuntimeResponse
+ */
+GetRuntimeResponse Client::getRuntimeWithOptions(const string &RuntimeId, const GetRuntimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRuntime"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/runtimes/" , Darabonba::Encode::Encoder::percentEncode(RuntimeId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRuntimeResponse>();
+}
+
+/**
+ * @summary Obtain the details of the runtime.
+ *
+ * @param request GetRuntimeRequest
+ * @return GetRuntimeResponse
+ */
+GetRuntimeResponse Client::getRuntime(const string &RuntimeId, const GetRuntimeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getRuntimeWithOptions(RuntimeId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取快照详情
+ *
+ * @param request GetSnapshotRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSnapshotResponse
+ */
+GetSnapshotResponse Client::getSnapshotWithOptions(const string &SnapshotId, const GetSnapshotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSnapshot"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/snapshots/" , Darabonba::Encode::Encoder::percentEncode(SnapshotId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSnapshotResponse>();
+}
+
+/**
+ * @summary 获取快照详情
+ *
+ * @param request GetSnapshotRequest
+ * @return GetSnapshotResponse
+ */
+GetSnapshotResponse Client::getSnapshot(const string &SnapshotId, const GetSnapshotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getSnapshotWithOptions(SnapshotId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取部署列表
+ *
+ * @param request ListDeploymentsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDeploymentsResponse
+ */
+ListDeploymentsResponse Client::listDeploymentsWithOptions(const ListDeploymentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCreator()) {
+    query["Creator"] = request.getCreator();
+  }
+
+  if (!!request.hasDeploymentId()) {
+    query["DeploymentId"] = request.getDeploymentId();
+  }
+
+  if (!!request.hasDeploymentStatus()) {
+    query["DeploymentStatus"] = request.getDeploymentStatus();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOperationType()) {
+    query["OperationType"] = request.getOperationType();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceSnapshotId()) {
+    query["ResourceSnapshotId"] = request.getResourceSnapshotId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasServiceName()) {
+    query["ServiceName"] = request.getServiceName();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDeployments"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/deployments")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDeploymentsResponse>();
+}
+
+/**
+ * @summary 获取部署列表
+ *
+ * @param request ListDeploymentsRequest
+ * @return ListDeploymentsResponse
+ */
+ListDeploymentsResponse Client::listDeployments(const ListDeploymentsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listDeploymentsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -452,7 +1086,7 @@ ListKnowledgeBaseChunksResponse Client::listKnowledgeBaseChunks(const string &Kn
 }
 
 /**
- * @summary 获取知识库任务列表
+ * @summary Get the Knowledge Base task list.
  *
  * @param request ListKnowledgeBaseJobsRequest
  * @param headers map
@@ -521,7 +1155,7 @@ ListKnowledgeBaseJobsResponse Client::listKnowledgeBaseJobsWithOptions(const str
 }
 
 /**
- * @summary 获取知识库任务列表
+ * @summary Get the Knowledge Base task list.
  *
  * @param request ListKnowledgeBaseJobsRequest
  * @return ListKnowledgeBaseJobsResponse
@@ -533,7 +1167,7 @@ ListKnowledgeBaseJobsResponse Client::listKnowledgeBaseJobs(const string &Knowle
 }
 
 /**
- * @summary 获取知识库列表
+ * @summary Queries a list of knowledge bases.
  *
  * @param request ListKnowledgeBasesRequest
  * @param headers map
@@ -606,7 +1240,7 @@ ListKnowledgeBasesResponse Client::listKnowledgeBasesWithOptions(const ListKnowl
 }
 
 /**
- * @summary 获取知识库列表
+ * @summary Queries a list of knowledge bases.
  *
  * @param request ListKnowledgeBasesRequest
  * @return ListKnowledgeBasesResponse
@@ -618,7 +1252,189 @@ ListKnowledgeBasesResponse Client::listKnowledgeBases(const ListKnowledgeBasesRe
 }
 
 /**
- * @summary 搜索知识库
+ * @summary Get the list of runtimes.
+ *
+ * @param request ListRuntimesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRuntimesResponse
+ */
+ListRuntimesResponse Client::listRuntimesWithOptions(const ListRuntimesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCreator()) {
+    query["Creator"] = request.getCreator();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRuntimeId()) {
+    query["RuntimeId"] = request.getRuntimeId();
+  }
+
+  if (!!request.hasRuntimeName()) {
+    query["RuntimeName"] = request.getRuntimeName();
+  }
+
+  if (!!request.hasRuntimeStatus()) {
+    query["RuntimeStatus"] = request.getRuntimeStatus();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasVersion()) {
+    query["Version"] = request.getVersion();
+  }
+
+  if (!!request.hasWorkDir()) {
+    query["WorkDir"] = request.getWorkDir();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRuntimes"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/runtimes")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRuntimesResponse>();
+}
+
+/**
+ * @summary Get the list of runtimes.
+ *
+ * @param request ListRuntimesRequest
+ * @return ListRuntimesResponse
+ */
+ListRuntimesResponse Client::listRuntimes(const ListRuntimesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listRuntimesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取快照列表
+ *
+ * @param request ListSnapshotsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSnapshotsResponse
+ */
+ListSnapshotsResponse Client::listSnapshotsWithOptions(const ListSnapshotsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCreationType()) {
+    query["CreationType"] = request.getCreationType();
+  }
+
+  if (!!request.hasCreator()) {
+    query["Creator"] = request.getCreator();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSnapshotId()) {
+    query["SnapshotId"] = request.getSnapshotId();
+  }
+
+  if (!!request.hasSnapshotResourceId()) {
+    query["SnapshotResourceId"] = request.getSnapshotResourceId();
+  }
+
+  if (!!request.hasSnapshotResourceType()) {
+    query["SnapshotResourceType"] = request.getSnapshotResourceType();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSnapshots"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/snapshots")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSnapshotsResponse>();
+}
+
+/**
+ * @summary 获取快照列表
+ *
+ * @param request ListSnapshotsRequest
+ * @return ListSnapshotsResponse
+ */
+ListSnapshotsResponse Client::listSnapshots(const ListSnapshotsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSnapshotsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieve the knowledge base.
  *
  * @param request RetrieveKnowledgeBaseRequest
  * @param headers map
@@ -687,7 +1503,7 @@ RetrieveKnowledgeBaseResponse Client::retrieveKnowledgeBaseWithOptions(const str
 }
 
 /**
- * @summary 搜索知识库
+ * @summary Retrieve the knowledge base.
  *
  * @param request RetrieveKnowledgeBaseRequest
  * @return RetrieveKnowledgeBaseResponse
@@ -699,7 +1515,68 @@ RetrieveKnowledgeBaseResponse Client::retrieveKnowledgeBase(const string &Knowle
 }
 
 /**
- * @summary 更新知识库
+ * @summary 更新部署
+ *
+ * @param request UpdateDeploymentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDeploymentResponse
+ */
+UpdateDeploymentResponse Client::updateDeploymentWithOptions(const string &DeploymentId, const UpdateDeploymentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAutoApproval()) {
+    body["AutoApproval"] = request.getAutoApproval();
+  }
+
+  if (!!request.hasDeploymentConfig()) {
+    body["DeploymentConfig"] = request.getDeploymentConfig();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasStageAction()) {
+    body["StageAction"] = request.getStageAction();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDeployment"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/deployments/" , Darabonba::Encode::Encoder::percentEncode(DeploymentId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDeploymentResponse>();
+}
+
+/**
+ * @summary 更新部署
+ *
+ * @param request UpdateDeploymentRequest
+ * @return UpdateDeploymentResponse
+ */
+UpdateDeploymentResponse Client::updateDeployment(const string &DeploymentId, const UpdateDeploymentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateDeploymentWithOptions(DeploymentId, request, headers, runtime);
+}
+
+/**
+ * @summary Update Knowledge Base.
  *
  * @param request UpdateKnowledgeBaseRequest
  * @param headers map
@@ -752,7 +1629,7 @@ UpdateKnowledgeBaseResponse Client::updateKnowledgeBaseWithOptions(const string 
 }
 
 /**
- * @summary 更新知识库
+ * @summary Update Knowledge Base.
  *
  * @param request UpdateKnowledgeBaseRequest
  * @return UpdateKnowledgeBaseResponse
@@ -813,7 +1690,7 @@ UpdateKnowledgeBaseChunkResponse Client::updateKnowledgeBaseChunk(const string &
 }
 
 /**
- * @summary 更新知识库任务
+ * @summary Update Knowledge Base Task.
  *
  * @param request UpdateKnowledgeBaseJobRequest
  * @param headers map
@@ -850,7 +1727,7 @@ UpdateKnowledgeBaseJobResponse Client::updateKnowledgeBaseJobWithOptions(const s
 }
 
 /**
- * @summary 更新知识库任务
+ * @summary Update Knowledge Base Task.
  *
  * @param request UpdateKnowledgeBaseJobRequest
  * @return UpdateKnowledgeBaseJobResponse
@@ -859,6 +1736,116 @@ UpdateKnowledgeBaseJobResponse Client::updateKnowledgeBaseJob(const string &Know
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateKnowledgeBaseJobWithOptions(KnowledgeBaseId, KnowledgeBaseJobId, request, headers, runtime);
+}
+
+/**
+ * @summary Update runtime.
+ *
+ * @param request UpdateRuntimeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateRuntimeResponse
+ */
+UpdateRuntimeResponse Client::updateRuntimeWithOptions(const string &RuntimeId, const UpdateRuntimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAction()) {
+    body["Action"] = request.getAction();
+  }
+
+  if (!!request.hasRunTimeout()) {
+    body["RunTimeout"] = request.getRunTimeout();
+  }
+
+  if (!!request.hasVersion()) {
+    body["Version"] = request.getVersion();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateRuntime"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/runtimes/" , Darabonba::Encode::Encoder::percentEncode(RuntimeId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateRuntimeResponse>();
+}
+
+/**
+ * @summary Update runtime.
+ *
+ * @param request UpdateRuntimeRequest
+ * @return UpdateRuntimeResponse
+ */
+UpdateRuntimeResponse Client::updateRuntime(const string &RuntimeId, const UpdateRuntimeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateRuntimeWithOptions(RuntimeId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新快照
+ *
+ * @param request UpdateSnapshotRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSnapshotResponse
+ */
+UpdateSnapshotResponse Client::updateSnapshotWithOptions(const string &SnapshotId, const UpdateSnapshotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasSnapshotName()) {
+    body["SnapshotName"] = request.getSnapshotName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateSnapshot"},
+    {"version" , "2024-07-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/langstudio/snapshots/" , Darabonba::Encode::Encoder::percentEncode(SnapshotId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSnapshotResponse>();
+}
+
+/**
+ * @summary 更新快照
+ *
+ * @param request UpdateSnapshotRequest
+ * @return UpdateSnapshotResponse
+ */
+UpdateSnapshotResponse Client::updateSnapshot(const string &SnapshotId, const UpdateSnapshotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateSnapshotWithOptions(SnapshotId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace PAILangStudio20240710

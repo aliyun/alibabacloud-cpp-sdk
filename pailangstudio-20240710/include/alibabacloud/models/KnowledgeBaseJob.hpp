@@ -117,7 +117,7 @@ namespace Models
       shared_ptr<string> securityGroupId_ {};
       // 交换机ID
       shared_ptr<string> vSwitchId_ {};
-      // VPC ID
+      // VPC ID。
       shared_ptr<string> vpcId_ {};
     };
 

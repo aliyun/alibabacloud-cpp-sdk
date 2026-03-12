@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_RUNTIME_HPP_
-#define ALIBABACLOUD_MODELS_RUNTIME_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETRUNTIMERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_GETRUNTIMERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,9 +11,9 @@ namespace PAILangStudio20240710
 {
 namespace Models
 {
-  class Runtime : public Darabonba::Model {
+  class GetRuntimeResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const Runtime& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetRuntimeResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_TO_JSON(Creator, creator_);
       DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfig_);
@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_TO_JSON(Labels, labels_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(RunTimeout, runTimeout_);
       DARABONBA_PTR_TO_JSON(RuntimeId, runtimeId_);
@@ -35,7 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkDir, workDir_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
-    friend void from_json(const Darabonba::Json& j, Runtime& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetRuntimeResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_FROM_JSON(Creator, creator_);
       DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfig_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(RunTimeout, runTimeout_);
       DARABONBA_PTR_FROM_JSON(RuntimeId, runtimeId_);
@@ -57,13 +59,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(WorkDir, workDir_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
-    Runtime() = default ;
-    Runtime(const Runtime &) = default ;
-    Runtime(Runtime &&) = default ;
-    Runtime(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~Runtime() = default ;
-    Runtime& operator=(const Runtime &) = default ;
-    Runtime& operator=(Runtime &&) = default ;
+    GetRuntimeResponseBody() = default ;
+    GetRuntimeResponseBody(const GetRuntimeResponseBody &) = default ;
+    GetRuntimeResponseBody(GetRuntimeResponseBody &&) = default ;
+    GetRuntimeResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetRuntimeResponseBody() = default ;
+    GetRuntimeResponseBody& operator=(const GetRuntimeResponseBody &) = default ;
+    GetRuntimeResponseBody& operator=(GetRuntimeResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -561,171 +563,179 @@ namespace Models
 
     virtual bool empty() const override { return this->accessibility_ == nullptr
         && this->creator_ == nullptr && this->credentialConfig_ == nullptr && this->dataSources_ == nullptr && this->ecsSpec_ == nullptr && this->envs_ == nullptr
-        && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->labels_ == nullptr && this->resourceId_ == nullptr && this->runTimeout_ == nullptr
-        && this->runtimeId_ == nullptr && this->runtimeLog_ == nullptr && this->runtimeName_ == nullptr && this->runtimeStatus_ == nullptr && this->runtimeType_ == nullptr
-        && this->userVpc_ == nullptr && this->version_ == nullptr && this->workDir_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->labels_ == nullptr && this->requestId_ == nullptr && this->resourceId_ == nullptr
+        && this->runTimeout_ == nullptr && this->runtimeId_ == nullptr && this->runtimeLog_ == nullptr && this->runtimeName_ == nullptr && this->runtimeStatus_ == nullptr
+        && this->runtimeType_ == nullptr && this->userVpc_ == nullptr && this->version_ == nullptr && this->workDir_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
     inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
-    inline Runtime& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+    inline GetRuntimeResponseBody& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
 
 
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
     inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
-    inline Runtime& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+    inline GetRuntimeResponseBody& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
 
 
     // credentialConfig Field Functions 
     bool hasCredentialConfig() const { return this->credentialConfig_ != nullptr;};
     void deleteCredentialConfig() { this->credentialConfig_ = nullptr;};
-    inline const Runtime::CredentialConfig & getCredentialConfig() const { DARABONBA_PTR_GET_CONST(credentialConfig_, Runtime::CredentialConfig) };
-    inline Runtime::CredentialConfig getCredentialConfig() { DARABONBA_PTR_GET(credentialConfig_, Runtime::CredentialConfig) };
-    inline Runtime& setCredentialConfig(const Runtime::CredentialConfig & credentialConfig) { DARABONBA_PTR_SET_VALUE(credentialConfig_, credentialConfig) };
-    inline Runtime& setCredentialConfig(Runtime::CredentialConfig && credentialConfig) { DARABONBA_PTR_SET_RVALUE(credentialConfig_, credentialConfig) };
+    inline const GetRuntimeResponseBody::CredentialConfig & getCredentialConfig() const { DARABONBA_PTR_GET_CONST(credentialConfig_, GetRuntimeResponseBody::CredentialConfig) };
+    inline GetRuntimeResponseBody::CredentialConfig getCredentialConfig() { DARABONBA_PTR_GET(credentialConfig_, GetRuntimeResponseBody::CredentialConfig) };
+    inline GetRuntimeResponseBody& setCredentialConfig(const GetRuntimeResponseBody::CredentialConfig & credentialConfig) { DARABONBA_PTR_SET_VALUE(credentialConfig_, credentialConfig) };
+    inline GetRuntimeResponseBody& setCredentialConfig(GetRuntimeResponseBody::CredentialConfig && credentialConfig) { DARABONBA_PTR_SET_RVALUE(credentialConfig_, credentialConfig) };
 
 
     // dataSources Field Functions 
     bool hasDataSources() const { return this->dataSources_ != nullptr;};
     void deleteDataSources() { this->dataSources_ = nullptr;};
-    inline const vector<Runtime::DataSources> & getDataSources() const { DARABONBA_PTR_GET_CONST(dataSources_, vector<Runtime::DataSources>) };
-    inline vector<Runtime::DataSources> getDataSources() { DARABONBA_PTR_GET(dataSources_, vector<Runtime::DataSources>) };
-    inline Runtime& setDataSources(const vector<Runtime::DataSources> & dataSources) { DARABONBA_PTR_SET_VALUE(dataSources_, dataSources) };
-    inline Runtime& setDataSources(vector<Runtime::DataSources> && dataSources) { DARABONBA_PTR_SET_RVALUE(dataSources_, dataSources) };
+    inline const vector<GetRuntimeResponseBody::DataSources> & getDataSources() const { DARABONBA_PTR_GET_CONST(dataSources_, vector<GetRuntimeResponseBody::DataSources>) };
+    inline vector<GetRuntimeResponseBody::DataSources> getDataSources() { DARABONBA_PTR_GET(dataSources_, vector<GetRuntimeResponseBody::DataSources>) };
+    inline GetRuntimeResponseBody& setDataSources(const vector<GetRuntimeResponseBody::DataSources> & dataSources) { DARABONBA_PTR_SET_VALUE(dataSources_, dataSources) };
+    inline GetRuntimeResponseBody& setDataSources(vector<GetRuntimeResponseBody::DataSources> && dataSources) { DARABONBA_PTR_SET_RVALUE(dataSources_, dataSources) };
 
 
     // ecsSpec Field Functions 
     bool hasEcsSpec() const { return this->ecsSpec_ != nullptr;};
     void deleteEcsSpec() { this->ecsSpec_ = nullptr;};
-    inline const Runtime::EcsSpec & getEcsSpec() const { DARABONBA_PTR_GET_CONST(ecsSpec_, Runtime::EcsSpec) };
-    inline Runtime::EcsSpec getEcsSpec() { DARABONBA_PTR_GET(ecsSpec_, Runtime::EcsSpec) };
-    inline Runtime& setEcsSpec(const Runtime::EcsSpec & ecsSpec) { DARABONBA_PTR_SET_VALUE(ecsSpec_, ecsSpec) };
-    inline Runtime& setEcsSpec(Runtime::EcsSpec && ecsSpec) { DARABONBA_PTR_SET_RVALUE(ecsSpec_, ecsSpec) };
+    inline const GetRuntimeResponseBody::EcsSpec & getEcsSpec() const { DARABONBA_PTR_GET_CONST(ecsSpec_, GetRuntimeResponseBody::EcsSpec) };
+    inline GetRuntimeResponseBody::EcsSpec getEcsSpec() { DARABONBA_PTR_GET(ecsSpec_, GetRuntimeResponseBody::EcsSpec) };
+    inline GetRuntimeResponseBody& setEcsSpec(const GetRuntimeResponseBody::EcsSpec & ecsSpec) { DARABONBA_PTR_SET_VALUE(ecsSpec_, ecsSpec) };
+    inline GetRuntimeResponseBody& setEcsSpec(GetRuntimeResponseBody::EcsSpec && ecsSpec) { DARABONBA_PTR_SET_RVALUE(ecsSpec_, ecsSpec) };
 
 
     // envs Field Functions 
     bool hasEnvs() const { return this->envs_ != nullptr;};
     void deleteEnvs() { this->envs_ = nullptr;};
-    inline const vector<Runtime::Envs> & getEnvs() const { DARABONBA_PTR_GET_CONST(envs_, vector<Runtime::Envs>) };
-    inline vector<Runtime::Envs> getEnvs() { DARABONBA_PTR_GET(envs_, vector<Runtime::Envs>) };
-    inline Runtime& setEnvs(const vector<Runtime::Envs> & envs) { DARABONBA_PTR_SET_VALUE(envs_, envs) };
-    inline Runtime& setEnvs(vector<Runtime::Envs> && envs) { DARABONBA_PTR_SET_RVALUE(envs_, envs) };
+    inline const vector<GetRuntimeResponseBody::Envs> & getEnvs() const { DARABONBA_PTR_GET_CONST(envs_, vector<GetRuntimeResponseBody::Envs>) };
+    inline vector<GetRuntimeResponseBody::Envs> getEnvs() { DARABONBA_PTR_GET(envs_, vector<GetRuntimeResponseBody::Envs>) };
+    inline GetRuntimeResponseBody& setEnvs(const vector<GetRuntimeResponseBody::Envs> & envs) { DARABONBA_PTR_SET_VALUE(envs_, envs) };
+    inline GetRuntimeResponseBody& setEnvs(vector<GetRuntimeResponseBody::Envs> && envs) { DARABONBA_PTR_SET_RVALUE(envs_, envs) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
     inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
-    inline Runtime& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
+    inline GetRuntimeResponseBody& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // gmtModifiedTime Field Functions 
     bool hasGmtModifiedTime() const { return this->gmtModifiedTime_ != nullptr;};
     void deleteGmtModifiedTime() { this->gmtModifiedTime_ = nullptr;};
     inline string getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
-    inline Runtime& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
+    inline GetRuntimeResponseBody& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
 
 
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline const vector<Runtime::Labels> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, vector<Runtime::Labels>) };
-    inline vector<Runtime::Labels> getLabels() { DARABONBA_PTR_GET(labels_, vector<Runtime::Labels>) };
-    inline Runtime& setLabels(const vector<Runtime::Labels> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
-    inline Runtime& setLabels(vector<Runtime::Labels> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
+    inline const vector<GetRuntimeResponseBody::Labels> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, vector<GetRuntimeResponseBody::Labels>) };
+    inline vector<GetRuntimeResponseBody::Labels> getLabels() { DARABONBA_PTR_GET(labels_, vector<GetRuntimeResponseBody::Labels>) };
+    inline GetRuntimeResponseBody& setLabels(const vector<GetRuntimeResponseBody::Labels> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
+    inline GetRuntimeResponseBody& setLabels(vector<GetRuntimeResponseBody::Labels> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline GetRuntimeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
     inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
-    inline Runtime& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
+    inline GetRuntimeResponseBody& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
     // runTimeout Field Functions 
     bool hasRunTimeout() const { return this->runTimeout_ != nullptr;};
     void deleteRunTimeout() { this->runTimeout_ = nullptr;};
     inline int32_t getRunTimeout() const { DARABONBA_PTR_GET_DEFAULT(runTimeout_, 0) };
-    inline Runtime& setRunTimeout(int32_t runTimeout) { DARABONBA_PTR_SET_VALUE(runTimeout_, runTimeout) };
+    inline GetRuntimeResponseBody& setRunTimeout(int32_t runTimeout) { DARABONBA_PTR_SET_VALUE(runTimeout_, runTimeout) };
 
 
     // runtimeId Field Functions 
     bool hasRuntimeId() const { return this->runtimeId_ != nullptr;};
     void deleteRuntimeId() { this->runtimeId_ = nullptr;};
     inline string getRuntimeId() const { DARABONBA_PTR_GET_DEFAULT(runtimeId_, "") };
-    inline Runtime& setRuntimeId(string runtimeId) { DARABONBA_PTR_SET_VALUE(runtimeId_, runtimeId) };
+    inline GetRuntimeResponseBody& setRuntimeId(string runtimeId) { DARABONBA_PTR_SET_VALUE(runtimeId_, runtimeId) };
 
 
     // runtimeLog Field Functions 
     bool hasRuntimeLog() const { return this->runtimeLog_ != nullptr;};
     void deleteRuntimeLog() { this->runtimeLog_ = nullptr;};
     inline string getRuntimeLog() const { DARABONBA_PTR_GET_DEFAULT(runtimeLog_, "") };
-    inline Runtime& setRuntimeLog(string runtimeLog) { DARABONBA_PTR_SET_VALUE(runtimeLog_, runtimeLog) };
+    inline GetRuntimeResponseBody& setRuntimeLog(string runtimeLog) { DARABONBA_PTR_SET_VALUE(runtimeLog_, runtimeLog) };
 
 
     // runtimeName Field Functions 
     bool hasRuntimeName() const { return this->runtimeName_ != nullptr;};
     void deleteRuntimeName() { this->runtimeName_ = nullptr;};
     inline string getRuntimeName() const { DARABONBA_PTR_GET_DEFAULT(runtimeName_, "") };
-    inline Runtime& setRuntimeName(string runtimeName) { DARABONBA_PTR_SET_VALUE(runtimeName_, runtimeName) };
+    inline GetRuntimeResponseBody& setRuntimeName(string runtimeName) { DARABONBA_PTR_SET_VALUE(runtimeName_, runtimeName) };
 
 
     // runtimeStatus Field Functions 
     bool hasRuntimeStatus() const { return this->runtimeStatus_ != nullptr;};
     void deleteRuntimeStatus() { this->runtimeStatus_ = nullptr;};
     inline string getRuntimeStatus() const { DARABONBA_PTR_GET_DEFAULT(runtimeStatus_, "") };
-    inline Runtime& setRuntimeStatus(string runtimeStatus) { DARABONBA_PTR_SET_VALUE(runtimeStatus_, runtimeStatus) };
+    inline GetRuntimeResponseBody& setRuntimeStatus(string runtimeStatus) { DARABONBA_PTR_SET_VALUE(runtimeStatus_, runtimeStatus) };
 
 
     // runtimeType Field Functions 
     bool hasRuntimeType() const { return this->runtimeType_ != nullptr;};
     void deleteRuntimeType() { this->runtimeType_ = nullptr;};
     inline string getRuntimeType() const { DARABONBA_PTR_GET_DEFAULT(runtimeType_, "") };
-    inline Runtime& setRuntimeType(string runtimeType) { DARABONBA_PTR_SET_VALUE(runtimeType_, runtimeType) };
+    inline GetRuntimeResponseBody& setRuntimeType(string runtimeType) { DARABONBA_PTR_SET_VALUE(runtimeType_, runtimeType) };
 
 
     // userVpc Field Functions 
     bool hasUserVpc() const { return this->userVpc_ != nullptr;};
     void deleteUserVpc() { this->userVpc_ = nullptr;};
-    inline const Runtime::UserVpc & getUserVpc() const { DARABONBA_PTR_GET_CONST(userVpc_, Runtime::UserVpc) };
-    inline Runtime::UserVpc getUserVpc() { DARABONBA_PTR_GET(userVpc_, Runtime::UserVpc) };
-    inline Runtime& setUserVpc(const Runtime::UserVpc & userVpc) { DARABONBA_PTR_SET_VALUE(userVpc_, userVpc) };
-    inline Runtime& setUserVpc(Runtime::UserVpc && userVpc) { DARABONBA_PTR_SET_RVALUE(userVpc_, userVpc) };
+    inline const GetRuntimeResponseBody::UserVpc & getUserVpc() const { DARABONBA_PTR_GET_CONST(userVpc_, GetRuntimeResponseBody::UserVpc) };
+    inline GetRuntimeResponseBody::UserVpc getUserVpc() { DARABONBA_PTR_GET(userVpc_, GetRuntimeResponseBody::UserVpc) };
+    inline GetRuntimeResponseBody& setUserVpc(const GetRuntimeResponseBody::UserVpc & userVpc) { DARABONBA_PTR_SET_VALUE(userVpc_, userVpc) };
+    inline GetRuntimeResponseBody& setUserVpc(GetRuntimeResponseBody::UserVpc && userVpc) { DARABONBA_PTR_SET_RVALUE(userVpc_, userVpc) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
     inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
-    inline Runtime& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+    inline GetRuntimeResponseBody& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
     // workDir Field Functions 
     bool hasWorkDir() const { return this->workDir_ != nullptr;};
     void deleteWorkDir() { this->workDir_ = nullptr;};
     inline string getWorkDir() const { DARABONBA_PTR_GET_DEFAULT(workDir_, "") };
-    inline Runtime& setWorkDir(string workDir) { DARABONBA_PTR_SET_VALUE(workDir_, workDir) };
+    inline GetRuntimeResponseBody& setWorkDir(string workDir) { DARABONBA_PTR_SET_VALUE(workDir_, workDir) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
     inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
-    inline Runtime& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+    inline GetRuntimeResponseBody& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     shared_ptr<string> accessibility_ {};
     shared_ptr<string> creator_ {};
-    shared_ptr<Runtime::CredentialConfig> credentialConfig_ {};
-    shared_ptr<vector<Runtime::DataSources>> dataSources_ {};
-    shared_ptr<Runtime::EcsSpec> ecsSpec_ {};
-    shared_ptr<vector<Runtime::Envs>> envs_ {};
+    shared_ptr<GetRuntimeResponseBody::CredentialConfig> credentialConfig_ {};
+    shared_ptr<vector<GetRuntimeResponseBody::DataSources>> dataSources_ {};
+    shared_ptr<GetRuntimeResponseBody::EcsSpec> ecsSpec_ {};
+    shared_ptr<vector<GetRuntimeResponseBody::Envs>> envs_ {};
     shared_ptr<string> gmtCreateTime_ {};
     shared_ptr<string> gmtModifiedTime_ {};
-    shared_ptr<vector<Runtime::Labels>> labels_ {};
+    shared_ptr<vector<GetRuntimeResponseBody::Labels>> labels_ {};
+    shared_ptr<string> requestId_ {};
     shared_ptr<string> resourceId_ {};
     shared_ptr<int32_t> runTimeout_ {};
     shared_ptr<string> runtimeId_ {};
@@ -733,7 +743,7 @@ namespace Models
     shared_ptr<string> runtimeName_ {};
     shared_ptr<string> runtimeStatus_ {};
     shared_ptr<string> runtimeType_ {};
-    shared_ptr<Runtime::UserVpc> userVpc_ {};
+    shared_ptr<GetRuntimeResponseBody::UserVpc> userVpc_ {};
     shared_ptr<string> version_ {};
     shared_ptr<string> workDir_ {};
     shared_ptr<string> workspaceId_ {};

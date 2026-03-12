@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_FLOWTEMPLATE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FlowStoragePath, flowStoragePath_);
       DARABONBA_PTR_TO_JSON(FlowTemplateId, flowTemplateId_);
       DARABONBA_PTR_TO_JSON(FlowType, flowType_);
+      DARABONBA_PTR_TO_JSON(Labels, labels_);
       DARABONBA_PTR_TO_JSON(Locale, locale_);
       DARABONBA_PTR_TO_JSON(ReferenceCount, referenceCount_);
       DARABONBA_PTR_TO_JSON(TemplateGroup, templateGroup_);
@@ -43,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FlowStoragePath, flowStoragePath_);
       DARABONBA_PTR_FROM_JSON(FlowTemplateId, flowTemplateId_);
       DARABONBA_PTR_FROM_JSON(FlowType, flowType_);
+      DARABONBA_PTR_FROM_JSON(Labels, labels_);
       DARABONBA_PTR_FROM_JSON(Locale, locale_);
       DARABONBA_PTR_FROM_JSON(ReferenceCount, referenceCount_);
       DARABONBA_PTR_FROM_JSON(TemplateGroup, templateGroup_);
@@ -62,11 +65,55 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Labels : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Labels& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Labels& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Labels() = default ;
+      Labels(const Labels &) = default ;
+      Labels(Labels &&) = default ;
+      Labels(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Labels() = default ;
+      Labels& operator=(const Labels &) = default ;
+      Labels& operator=(Labels &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Labels& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Labels& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // 标签Key
+      shared_ptr<string> key_ {};
+      // 标签Value
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->accessibility_ == nullptr
         && this->aliyunDocumentId_ == nullptr && this->description_ == nullptr && this->descriptionI18N_ == nullptr && this->displayName_ == nullptr && this->displayNameI18N_ == nullptr
-        && this->flowFiles_ == nullptr && this->flowStoragePath_ == nullptr && this->flowTemplateId_ == nullptr && this->flowType_ == nullptr && this->locale_ == nullptr
-        && this->referenceCount_ == nullptr && this->templateGroup_ == nullptr && this->templateName_ == nullptr && this->url_ == nullptr && this->version_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->flowFiles_ == nullptr && this->flowStoragePath_ == nullptr && this->flowTemplateId_ == nullptr && this->flowType_ == nullptr && this->labels_ == nullptr
+        && this->locale_ == nullptr && this->referenceCount_ == nullptr && this->templateGroup_ == nullptr && this->templateName_ == nullptr && this->url_ == nullptr
+        && this->version_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -141,6 +188,15 @@ namespace Models
     inline FlowTemplate& setFlowType(string flowType) { DARABONBA_PTR_SET_VALUE(flowType_, flowType) };
 
 
+    // labels Field Functions 
+    bool hasLabels() const { return this->labels_ != nullptr;};
+    void deleteLabels() { this->labels_ = nullptr;};
+    inline const vector<FlowTemplate::Labels> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, vector<FlowTemplate::Labels>) };
+    inline vector<FlowTemplate::Labels> getLabels() { DARABONBA_PTR_GET(labels_, vector<FlowTemplate::Labels>) };
+    inline FlowTemplate& setLabels(const vector<FlowTemplate::Labels> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
+    inline FlowTemplate& setLabels(vector<FlowTemplate::Labels> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
+
+
     // locale Field Functions 
     bool hasLocale() const { return this->locale_ != nullptr;};
     void deleteLocale() { this->locale_ = nullptr;};
@@ -201,6 +257,7 @@ namespace Models
     shared_ptr<string> flowStoragePath_ {};
     shared_ptr<string> flowTemplateId_ {};
     shared_ptr<string> flowType_ {};
+    shared_ptr<vector<FlowTemplate::Labels>> labels_ {};
     shared_ptr<string> locale_ {};
     shared_ptr<int32_t> referenceCount_ {};
     shared_ptr<string> templateGroup_ {};

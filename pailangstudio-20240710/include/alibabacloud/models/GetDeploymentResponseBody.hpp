@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DEPLOYMENT_HPP_
-#define ALIBABACLOUD_MODELS_DEPLOYMENT_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETDEPLOYMENTRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_GETDEPLOYMENTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,9 +11,9 @@ namespace PAILangStudio20240710
 {
 namespace Models
 {
-  class Deployment : public Darabonba::Model {
+  class GetDeploymentResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const Deployment& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetDeploymentResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_TO_JSON(AutoApproval, autoApproval_);
       DARABONBA_PTR_TO_JSON(ChatHistoryConfig, chatHistoryConfig_);
@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_TO_JSON(OperationType, operationType_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(ResourceSnapshotId, resourceSnapshotId_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
@@ -36,7 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkDir, workDir_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
-    friend void from_json(const Darabonba::Json& j, Deployment& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetDeploymentResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_FROM_JSON(AutoApproval, autoApproval_);
       DARABONBA_PTR_FROM_JSON(ChatHistoryConfig, chatHistoryConfig_);
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_FROM_JSON(OperationType, operationType_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(ResourceSnapshotId, resourceSnapshotId_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
@@ -59,13 +61,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(WorkDir, workDir_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
-    Deployment() = default ;
-    Deployment(const Deployment &) = default ;
-    Deployment(Deployment &&) = default ;
-    Deployment(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~Deployment() = default ;
-    Deployment& operator=(const Deployment &) = default ;
-    Deployment& operator=(Deployment &&) = default ;
+    GetDeploymentResponseBody() = default ;
+    GetDeploymentResponseBody(const GetDeploymentResponseBody &) = default ;
+    GetDeploymentResponseBody(GetDeploymentResponseBody &&) = default ;
+    GetDeploymentResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetDeploymentResponseBody() = default ;
+    GetDeploymentResponseBody& operator=(const GetDeploymentResponseBody &) = default ;
+    GetDeploymentResponseBody& operator=(GetDeploymentResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -283,170 +285,178 @@ namespace Models
     virtual bool empty() const override { return this->accessibility_ == nullptr
         && this->autoApproval_ == nullptr && this->chatHistoryConfig_ == nullptr && this->contentModerationConfig_ == nullptr && this->creator_ == nullptr && this->deploymentConfig_ == nullptr
         && this->deploymentId_ == nullptr && this->deploymentStages_ == nullptr && this->deploymentStatus_ == nullptr && this->description_ == nullptr && this->enableTrace_ == nullptr
-        && this->errorMessage_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->operationType_ == nullptr && this->resourceId_ == nullptr
-        && this->resourceSnapshotId_ == nullptr && this->resourceType_ == nullptr && this->serviceName_ == nullptr && this->workDir_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->errorMessage_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->operationType_ == nullptr && this->requestId_ == nullptr
+        && this->resourceId_ == nullptr && this->resourceSnapshotId_ == nullptr && this->resourceType_ == nullptr && this->serviceName_ == nullptr && this->workDir_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
     inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
-    inline Deployment& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+    inline GetDeploymentResponseBody& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
 
 
     // autoApproval Field Functions 
     bool hasAutoApproval() const { return this->autoApproval_ != nullptr;};
     void deleteAutoApproval() { this->autoApproval_ = nullptr;};
     inline bool getAutoApproval() const { DARABONBA_PTR_GET_DEFAULT(autoApproval_, false) };
-    inline Deployment& setAutoApproval(bool autoApproval) { DARABONBA_PTR_SET_VALUE(autoApproval_, autoApproval) };
+    inline GetDeploymentResponseBody& setAutoApproval(bool autoApproval) { DARABONBA_PTR_SET_VALUE(autoApproval_, autoApproval) };
 
 
     // chatHistoryConfig Field Functions 
     bool hasChatHistoryConfig() const { return this->chatHistoryConfig_ != nullptr;};
     void deleteChatHistoryConfig() { this->chatHistoryConfig_ = nullptr;};
-    inline const Deployment::ChatHistoryConfig & getChatHistoryConfig() const { DARABONBA_PTR_GET_CONST(chatHistoryConfig_, Deployment::ChatHistoryConfig) };
-    inline Deployment::ChatHistoryConfig getChatHistoryConfig() { DARABONBA_PTR_GET(chatHistoryConfig_, Deployment::ChatHistoryConfig) };
-    inline Deployment& setChatHistoryConfig(const Deployment::ChatHistoryConfig & chatHistoryConfig) { DARABONBA_PTR_SET_VALUE(chatHistoryConfig_, chatHistoryConfig) };
-    inline Deployment& setChatHistoryConfig(Deployment::ChatHistoryConfig && chatHistoryConfig) { DARABONBA_PTR_SET_RVALUE(chatHistoryConfig_, chatHistoryConfig) };
+    inline const GetDeploymentResponseBody::ChatHistoryConfig & getChatHistoryConfig() const { DARABONBA_PTR_GET_CONST(chatHistoryConfig_, GetDeploymentResponseBody::ChatHistoryConfig) };
+    inline GetDeploymentResponseBody::ChatHistoryConfig getChatHistoryConfig() { DARABONBA_PTR_GET(chatHistoryConfig_, GetDeploymentResponseBody::ChatHistoryConfig) };
+    inline GetDeploymentResponseBody& setChatHistoryConfig(const GetDeploymentResponseBody::ChatHistoryConfig & chatHistoryConfig) { DARABONBA_PTR_SET_VALUE(chatHistoryConfig_, chatHistoryConfig) };
+    inline GetDeploymentResponseBody& setChatHistoryConfig(GetDeploymentResponseBody::ChatHistoryConfig && chatHistoryConfig) { DARABONBA_PTR_SET_RVALUE(chatHistoryConfig_, chatHistoryConfig) };
 
 
     // contentModerationConfig Field Functions 
     bool hasContentModerationConfig() const { return this->contentModerationConfig_ != nullptr;};
     void deleteContentModerationConfig() { this->contentModerationConfig_ = nullptr;};
-    inline const Deployment::ContentModerationConfig & getContentModerationConfig() const { DARABONBA_PTR_GET_CONST(contentModerationConfig_, Deployment::ContentModerationConfig) };
-    inline Deployment::ContentModerationConfig getContentModerationConfig() { DARABONBA_PTR_GET(contentModerationConfig_, Deployment::ContentModerationConfig) };
-    inline Deployment& setContentModerationConfig(const Deployment::ContentModerationConfig & contentModerationConfig) { DARABONBA_PTR_SET_VALUE(contentModerationConfig_, contentModerationConfig) };
-    inline Deployment& setContentModerationConfig(Deployment::ContentModerationConfig && contentModerationConfig) { DARABONBA_PTR_SET_RVALUE(contentModerationConfig_, contentModerationConfig) };
+    inline const GetDeploymentResponseBody::ContentModerationConfig & getContentModerationConfig() const { DARABONBA_PTR_GET_CONST(contentModerationConfig_, GetDeploymentResponseBody::ContentModerationConfig) };
+    inline GetDeploymentResponseBody::ContentModerationConfig getContentModerationConfig() { DARABONBA_PTR_GET(contentModerationConfig_, GetDeploymentResponseBody::ContentModerationConfig) };
+    inline GetDeploymentResponseBody& setContentModerationConfig(const GetDeploymentResponseBody::ContentModerationConfig & contentModerationConfig) { DARABONBA_PTR_SET_VALUE(contentModerationConfig_, contentModerationConfig) };
+    inline GetDeploymentResponseBody& setContentModerationConfig(GetDeploymentResponseBody::ContentModerationConfig && contentModerationConfig) { DARABONBA_PTR_SET_RVALUE(contentModerationConfig_, contentModerationConfig) };
 
 
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
     inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
-    inline Deployment& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+    inline GetDeploymentResponseBody& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
 
 
     // deploymentConfig Field Functions 
     bool hasDeploymentConfig() const { return this->deploymentConfig_ != nullptr;};
     void deleteDeploymentConfig() { this->deploymentConfig_ = nullptr;};
     inline string getDeploymentConfig() const { DARABONBA_PTR_GET_DEFAULT(deploymentConfig_, "") };
-    inline Deployment& setDeploymentConfig(string deploymentConfig) { DARABONBA_PTR_SET_VALUE(deploymentConfig_, deploymentConfig) };
+    inline GetDeploymentResponseBody& setDeploymentConfig(string deploymentConfig) { DARABONBA_PTR_SET_VALUE(deploymentConfig_, deploymentConfig) };
 
 
     // deploymentId Field Functions 
     bool hasDeploymentId() const { return this->deploymentId_ != nullptr;};
     void deleteDeploymentId() { this->deploymentId_ = nullptr;};
     inline string getDeploymentId() const { DARABONBA_PTR_GET_DEFAULT(deploymentId_, "") };
-    inline Deployment& setDeploymentId(string deploymentId) { DARABONBA_PTR_SET_VALUE(deploymentId_, deploymentId) };
+    inline GetDeploymentResponseBody& setDeploymentId(string deploymentId) { DARABONBA_PTR_SET_VALUE(deploymentId_, deploymentId) };
 
 
     // deploymentStages Field Functions 
     bool hasDeploymentStages() const { return this->deploymentStages_ != nullptr;};
     void deleteDeploymentStages() { this->deploymentStages_ = nullptr;};
-    inline const vector<Deployment::DeploymentStages> & getDeploymentStages() const { DARABONBA_PTR_GET_CONST(deploymentStages_, vector<Deployment::DeploymentStages>) };
-    inline vector<Deployment::DeploymentStages> getDeploymentStages() { DARABONBA_PTR_GET(deploymentStages_, vector<Deployment::DeploymentStages>) };
-    inline Deployment& setDeploymentStages(const vector<Deployment::DeploymentStages> & deploymentStages) { DARABONBA_PTR_SET_VALUE(deploymentStages_, deploymentStages) };
-    inline Deployment& setDeploymentStages(vector<Deployment::DeploymentStages> && deploymentStages) { DARABONBA_PTR_SET_RVALUE(deploymentStages_, deploymentStages) };
+    inline const vector<GetDeploymentResponseBody::DeploymentStages> & getDeploymentStages() const { DARABONBA_PTR_GET_CONST(deploymentStages_, vector<GetDeploymentResponseBody::DeploymentStages>) };
+    inline vector<GetDeploymentResponseBody::DeploymentStages> getDeploymentStages() { DARABONBA_PTR_GET(deploymentStages_, vector<GetDeploymentResponseBody::DeploymentStages>) };
+    inline GetDeploymentResponseBody& setDeploymentStages(const vector<GetDeploymentResponseBody::DeploymentStages> & deploymentStages) { DARABONBA_PTR_SET_VALUE(deploymentStages_, deploymentStages) };
+    inline GetDeploymentResponseBody& setDeploymentStages(vector<GetDeploymentResponseBody::DeploymentStages> && deploymentStages) { DARABONBA_PTR_SET_RVALUE(deploymentStages_, deploymentStages) };
 
 
     // deploymentStatus Field Functions 
     bool hasDeploymentStatus() const { return this->deploymentStatus_ != nullptr;};
     void deleteDeploymentStatus() { this->deploymentStatus_ = nullptr;};
     inline string getDeploymentStatus() const { DARABONBA_PTR_GET_DEFAULT(deploymentStatus_, "") };
-    inline Deployment& setDeploymentStatus(string deploymentStatus) { DARABONBA_PTR_SET_VALUE(deploymentStatus_, deploymentStatus) };
+    inline GetDeploymentResponseBody& setDeploymentStatus(string deploymentStatus) { DARABONBA_PTR_SET_VALUE(deploymentStatus_, deploymentStatus) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
-    inline Deployment& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+    inline GetDeploymentResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // enableTrace Field Functions 
     bool hasEnableTrace() const { return this->enableTrace_ != nullptr;};
     void deleteEnableTrace() { this->enableTrace_ = nullptr;};
     inline bool getEnableTrace() const { DARABONBA_PTR_GET_DEFAULT(enableTrace_, false) };
-    inline Deployment& setEnableTrace(bool enableTrace) { DARABONBA_PTR_SET_VALUE(enableTrace_, enableTrace) };
+    inline GetDeploymentResponseBody& setEnableTrace(bool enableTrace) { DARABONBA_PTR_SET_VALUE(enableTrace_, enableTrace) };
 
 
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
     inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
-    inline Deployment& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+    inline GetDeploymentResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
     inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
-    inline Deployment& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
+    inline GetDeploymentResponseBody& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // gmtModifiedTime Field Functions 
     bool hasGmtModifiedTime() const { return this->gmtModifiedTime_ != nullptr;};
     void deleteGmtModifiedTime() { this->gmtModifiedTime_ = nullptr;};
     inline string getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
-    inline Deployment& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
+    inline GetDeploymentResponseBody& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
 
 
     // operationType Field Functions 
     bool hasOperationType() const { return this->operationType_ != nullptr;};
     void deleteOperationType() { this->operationType_ = nullptr;};
     inline string getOperationType() const { DARABONBA_PTR_GET_DEFAULT(operationType_, "") };
-    inline Deployment& setOperationType(string operationType) { DARABONBA_PTR_SET_VALUE(operationType_, operationType) };
+    inline GetDeploymentResponseBody& setOperationType(string operationType) { DARABONBA_PTR_SET_VALUE(operationType_, operationType) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline GetDeploymentResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
     inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
-    inline Deployment& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
+    inline GetDeploymentResponseBody& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
     // resourceSnapshotId Field Functions 
     bool hasResourceSnapshotId() const { return this->resourceSnapshotId_ != nullptr;};
     void deleteResourceSnapshotId() { this->resourceSnapshotId_ = nullptr;};
     inline string getResourceSnapshotId() const { DARABONBA_PTR_GET_DEFAULT(resourceSnapshotId_, "") };
-    inline Deployment& setResourceSnapshotId(string resourceSnapshotId) { DARABONBA_PTR_SET_VALUE(resourceSnapshotId_, resourceSnapshotId) };
+    inline GetDeploymentResponseBody& setResourceSnapshotId(string resourceSnapshotId) { DARABONBA_PTR_SET_VALUE(resourceSnapshotId_, resourceSnapshotId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
     inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
-    inline Deployment& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+    inline GetDeploymentResponseBody& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // serviceName Field Functions 
     bool hasServiceName() const { return this->serviceName_ != nullptr;};
     void deleteServiceName() { this->serviceName_ = nullptr;};
     inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
-    inline Deployment& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
+    inline GetDeploymentResponseBody& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
     // workDir Field Functions 
     bool hasWorkDir() const { return this->workDir_ != nullptr;};
     void deleteWorkDir() { this->workDir_ = nullptr;};
     inline string getWorkDir() const { DARABONBA_PTR_GET_DEFAULT(workDir_, "") };
-    inline Deployment& setWorkDir(string workDir) { DARABONBA_PTR_SET_VALUE(workDir_, workDir) };
+    inline GetDeploymentResponseBody& setWorkDir(string workDir) { DARABONBA_PTR_SET_VALUE(workDir_, workDir) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
     inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
-    inline Deployment& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+    inline GetDeploymentResponseBody& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     shared_ptr<string> accessibility_ {};
     shared_ptr<bool> autoApproval_ {};
-    shared_ptr<Deployment::ChatHistoryConfig> chatHistoryConfig_ {};
-    shared_ptr<Deployment::ContentModerationConfig> contentModerationConfig_ {};
+    shared_ptr<GetDeploymentResponseBody::ChatHistoryConfig> chatHistoryConfig_ {};
+    shared_ptr<GetDeploymentResponseBody::ContentModerationConfig> contentModerationConfig_ {};
     shared_ptr<string> creator_ {};
     shared_ptr<string> deploymentConfig_ {};
     shared_ptr<string> deploymentId_ {};
-    shared_ptr<vector<Deployment::DeploymentStages>> deploymentStages_ {};
+    shared_ptr<vector<GetDeploymentResponseBody::DeploymentStages>> deploymentStages_ {};
     shared_ptr<string> deploymentStatus_ {};
     shared_ptr<string> description_ {};
     shared_ptr<bool> enableTrace_ {};
@@ -454,6 +464,7 @@ namespace Models
     shared_ptr<string> gmtCreateTime_ {};
     shared_ptr<string> gmtModifiedTime_ {};
     shared_ptr<string> operationType_ {};
+    shared_ptr<string> requestId_ {};
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceSnapshotId_ {};
     shared_ptr<string> resourceType_ {};

@@ -295,12 +295,18 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const EvaluationConfigs& obj) { 
         DARABONBA_PTR_TO_JSON(DataColumnMapping, dataColumnMapping_);
         DARABONBA_PTR_TO_JSON(FlowSource, flowSource_);
+        DARABONBA_PTR_TO_JSON(Inputs, inputs_);
         DARABONBA_PTR_TO_JSON(InputsOverrideConfig, inputsOverrideConfig_);
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
       };
       friend void from_json(const Darabonba::Json& j, EvaluationConfigs& obj) { 
         DARABONBA_PTR_FROM_JSON(DataColumnMapping, dataColumnMapping_);
         DARABONBA_PTR_FROM_JSON(FlowSource, flowSource_);
+        DARABONBA_PTR_FROM_JSON(Inputs, inputs_);
         DARABONBA_PTR_FROM_JSON(InputsOverrideConfig, inputsOverrideConfig_);
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
       };
       EvaluationConfigs() = default ;
       EvaluationConfigs(const EvaluationConfigs &) = default ;
@@ -369,7 +375,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->dataColumnMapping_ == nullptr
-        && this->flowSource_ == nullptr && this->inputsOverrideConfig_ == nullptr; };
+        && this->flowSource_ == nullptr && this->inputs_ == nullptr && this->inputsOverrideConfig_ == nullptr && this->name_ == nullptr && this->type_ == nullptr; };
       // dataColumnMapping Field Functions 
       bool hasDataColumnMapping() const { return this->dataColumnMapping_ != nullptr;};
       void deleteDataColumnMapping() { this->dataColumnMapping_ = nullptr;};
@@ -388,6 +394,13 @@ namespace Models
       inline EvaluationConfigs& setFlowSource(EvaluationConfigs::FlowSource && flowSource) { DARABONBA_PTR_SET_RVALUE(flowSource_, flowSource) };
 
 
+      // inputs Field Functions 
+      bool hasInputs() const { return this->inputs_ != nullptr;};
+      void deleteInputs() { this->inputs_ = nullptr;};
+      inline string getInputs() const { DARABONBA_PTR_GET_DEFAULT(inputs_, "") };
+      inline EvaluationConfigs& setInputs(string inputs) { DARABONBA_PTR_SET_VALUE(inputs_, inputs) };
+
+
       // inputsOverrideConfig Field Functions 
       bool hasInputsOverrideConfig() const { return this->inputsOverrideConfig_ != nullptr;};
       void deleteInputsOverrideConfig() { this->inputsOverrideConfig_ = nullptr;};
@@ -395,13 +408,33 @@ namespace Models
       inline EvaluationConfigs& setInputsOverrideConfig(string inputsOverrideConfig) { DARABONBA_PTR_SET_VALUE(inputsOverrideConfig_, inputsOverrideConfig) };
 
 
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline EvaluationConfigs& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline EvaluationConfigs& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
     protected:
       // 映射配置
       shared_ptr<map<string, string>> dataColumnMapping_ {};
       // 应用流来源
       shared_ptr<EvaluationConfigs::FlowSource> flowSource_ {};
+      // 评测输入
+      shared_ptr<string> inputs_ {};
       // 输入配置
       shared_ptr<string> inputsOverrideConfig_ {};
+      // 评测名称
+      shared_ptr<string> name_ {};
+      // 评测类型
+      shared_ptr<string> type_ {};
     };
 
     class Envs : public Darabonba::Model {
