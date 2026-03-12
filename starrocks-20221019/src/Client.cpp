@@ -396,6 +396,152 @@ DeleteGatewayResponse Client::deleteGateway(const DeleteGatewayRequest &request)
 }
 
 /**
+ * @summary 查询实例配置历史
+ *
+ * @param request DescribeConfigHistoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeConfigHistoryResponse
+ */
+DescribeConfigHistoryResponse Client::describeConfigHistoryWithOptions(const DescribeConfigHistoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEffectStatuses()) {
+    query["EffectStatuses"] = request.getEffectStatuses();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNeedTotal()) {
+    query["NeedTotal"] = request.getNeedTotal();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeConfigHistory"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/config/describeConfigHistory")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeConfigHistoryResponse>();
+}
+
+/**
+ * @summary 查询实例配置历史
+ *
+ * @param request DescribeConfigHistoryRequest
+ * @return DescribeConfigHistoryResponse
+ */
+DescribeConfigHistoryResponse Client::describeConfigHistory(const DescribeConfigHistoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeConfigHistoryWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询实例配置
+ *
+ * @param request DescribeInstanceConfigsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInstanceConfigsResponse
+ */
+DescribeInstanceConfigsResponse Client::describeInstanceConfigsWithOptions(const DescribeInstanceConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAllowModify()) {
+    query["AllowModify"] = request.getAllowModify();
+  }
+
+  if (!!request.hasConfigKey()) {
+    query["ConfigKey"] = request.getConfigKey();
+  }
+
+  if (!!request.hasConfigType()) {
+    query["ConfigType"] = request.getConfigType();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNeedTotal()) {
+    query["NeedTotal"] = request.getNeedTotal();
+  }
+
+  if (!!request.hasNodeGroupId()) {
+    query["NodeGroupId"] = request.getNodeGroupId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInstanceConfigs"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/config/describeInstanceConfigs")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInstanceConfigsResponse>();
+}
+
+/**
+ * @summary 查询实例配置
+ *
+ * @param request DescribeInstanceConfigsRequest
+ * @return DescribeInstanceConfigsResponse
+ */
+DescribeInstanceConfigsResponse Client::describeInstanceConfigs(const DescribeInstanceConfigsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeInstanceConfigsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary This operation is used to query Serverless StarRocks instances, supporting filtering based on instance name or tags and other information.
  *
  * @param tmpReq DescribeInstancesRequest
@@ -1294,6 +1440,148 @@ ModifyDiskTypeResponse Client::modifyDiskType(const ModifyDiskTypeRequest &reque
 }
 
 /**
+ * @summary 修改实例配置
+ *
+ * @param request ModifyInstanceConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyInstanceConfigResponse
+ */
+ModifyInstanceConfigResponse Client::modifyInstanceConfigWithOptions(const ModifyInstanceConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddConfigList()) {
+    query["AddConfigList"] = request.getAddConfigList();
+  }
+
+  if (!!request.hasConfigList()) {
+    query["ConfigList"] = request.getConfigList();
+  }
+
+  if (!!request.hasDeleteConfigList()) {
+    query["DeleteConfigList"] = request.getDeleteConfigList();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasReason()) {
+    query["Reason"] = request.getReason();
+  }
+
+  json body = {};
+  if (!!request.hasConfigsToAdd()) {
+    body["configsToAdd"] = request.getConfigsToAdd();
+  }
+
+  if (!!request.hasConfigsToDelete()) {
+    body["configsToDelete"] = request.getConfigsToDelete();
+  }
+
+  if (!!request.hasConfigsToUpdate()) {
+    body["configsToUpdate"] = request.getConfigsToUpdate();
+  }
+
+  if (!!request.hasFastMode()) {
+    body["fastMode"] = request.getFastMode();
+  }
+
+  if (!!request.hasRestart()) {
+    body["restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModifyInstanceConfig"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/config/modifyInstanceConfig")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyInstanceConfigResponse>();
+}
+
+/**
+ * @summary 修改实例配置
+ *
+ * @param request ModifyInstanceConfigRequest
+ * @return ModifyInstanceConfigResponse
+ */
+ModifyInstanceConfigResponse Client::modifyInstanceConfig(const ModifyInstanceConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modifyInstanceConfigWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 配置变更预检查，返回此次变更需要重启的计算组ID
+ *
+ * @param request ModifyInstanceConfigPreCheckRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyInstanceConfigPreCheckResponse
+ */
+ModifyInstanceConfigPreCheckResponse Client::modifyInstanceConfigPreCheckWithOptions(const ModifyInstanceConfigPreCheckRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  json body = {};
+  if (!!request.hasConfigsToAdd()) {
+    body["configsToAdd"] = request.getConfigsToAdd();
+  }
+
+  if (!!request.hasConfigsToDelete()) {
+    body["configsToDelete"] = request.getConfigsToDelete();
+  }
+
+  if (!!request.hasConfigsToUpdate()) {
+    body["configsToUpdate"] = request.getConfigsToUpdate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModifyInstanceConfigPreCheck"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/config/modifyInstanceConfigPreCheck")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyInstanceConfigPreCheckResponse>();
+}
+
+/**
+ * @summary 配置变更预检查，返回此次变更需要重启的计算组ID
+ *
+ * @param request ModifyInstanceConfigPreCheckRequest
+ * @return ModifyInstanceConfigPreCheckResponse
+ */
+ModifyInstanceConfigPreCheckResponse Client::modifyInstanceConfigPreCheck(const ModifyInstanceConfigPreCheckRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modifyInstanceConfigPreCheckWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Modifies the number of nodes in a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
  *
  * @description Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances. Before you call this operation, take note of the following items:
@@ -1816,6 +2104,59 @@ ResumeInstanceResponse Client::resumeInstance(const ResumeInstanceRequest &reque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return resumeInstanceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 回滚正在进行中的配置修改
+ *
+ * @param request RollbackConfigModificationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RollbackConfigModificationResponse
+ */
+RollbackConfigModificationResponse Client::rollbackConfigModificationWithOptions(const RollbackConfigModificationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfigHistoryId()) {
+    query["ConfigHistoryId"] = request.getConfigHistoryId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RollbackConfigModification"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/config/rollbackConfigModification")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RollbackConfigModificationResponse>();
+}
+
+/**
+ * @summary 回滚正在进行中的配置修改
+ *
+ * @param request RollbackConfigModificationRequest
+ * @return RollbackConfigModificationResponse
+ */
+RollbackConfigModificationResponse Client::rollbackConfigModification(const RollbackConfigModificationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return rollbackConfigModificationWithOptions(request, headers, runtime);
 }
 
 /**

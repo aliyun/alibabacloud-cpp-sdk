@@ -18,6 +18,12 @@
 #include <alibabacloud/models/DeleteGatewayRequest.hpp>
 #include <alibabacloud/models/DeleteGatewayResponseBody.hpp>
 #include <alibabacloud/models/DeleteGatewayResponse.hpp>
+#include <alibabacloud/models/DescribeConfigHistoryRequest.hpp>
+#include <alibabacloud/models/DescribeConfigHistoryResponseBody.hpp>
+#include <alibabacloud/models/DescribeConfigHistoryResponse.hpp>
+#include <alibabacloud/models/DescribeInstanceConfigsRequest.hpp>
+#include <alibabacloud/models/DescribeInstanceConfigsResponseBody.hpp>
+#include <alibabacloud/models/DescribeInstanceConfigsResponse.hpp>
 #include <alibabacloud/models/DescribeInstancesRequest.hpp>
 #include <alibabacloud/models/DescribeInstancesShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeInstancesResponseBody.hpp>
@@ -61,6 +67,12 @@
 #include <alibabacloud/models/ModifyDiskTypeRequest.hpp>
 #include <alibabacloud/models/ModifyDiskTypeResponseBody.hpp>
 #include <alibabacloud/models/ModifyDiskTypeResponse.hpp>
+#include <alibabacloud/models/ModifyInstanceConfigRequest.hpp>
+#include <alibabacloud/models/ModifyInstanceConfigResponseBody.hpp>
+#include <alibabacloud/models/ModifyInstanceConfigResponse.hpp>
+#include <alibabacloud/models/ModifyInstanceConfigPreCheckRequest.hpp>
+#include <alibabacloud/models/ModifyInstanceConfigPreCheckResponseBody.hpp>
+#include <alibabacloud/models/ModifyInstanceConfigPreCheckResponse.hpp>
 #include <alibabacloud/models/ModifyNodeNumberRequest.hpp>
 #include <alibabacloud/models/ModifyNodeNumberResponseBody.hpp>
 #include <alibabacloud/models/ModifyNodeNumberResponse.hpp>
@@ -88,6 +100,9 @@
 #include <alibabacloud/models/ResumeInstanceRequest.hpp>
 #include <alibabacloud/models/ResumeInstanceResponseBody.hpp>
 #include <alibabacloud/models/ResumeInstanceResponse.hpp>
+#include <alibabacloud/models/RollbackConfigModificationRequest.hpp>
+#include <alibabacloud/models/RollbackConfigModificationResponseBody.hpp>
+#include <alibabacloud/models/RollbackConfigModificationResponse.hpp>
 #include <alibabacloud/models/TagResourcesRequest.hpp>
 #include <alibabacloud/models/TagResourcesResponseBody.hpp>
 #include <alibabacloud/models/TagResourcesResponse.hpp>

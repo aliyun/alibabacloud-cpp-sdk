@@ -109,6 +109,42 @@ namespace Starrocks20221019
       Models::DeleteGatewayResponse deleteGateway(const Models::DeleteGatewayRequest &request);
 
       /**
+       * @summary 查询实例配置历史
+       *
+       * @param request DescribeConfigHistoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeConfigHistoryResponse
+       */
+      Models::DescribeConfigHistoryResponse describeConfigHistoryWithOptions(const Models::DescribeConfigHistoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例配置历史
+       *
+       * @param request DescribeConfigHistoryRequest
+       * @return DescribeConfigHistoryResponse
+       */
+      Models::DescribeConfigHistoryResponse describeConfigHistory(const Models::DescribeConfigHistoryRequest &request);
+
+      /**
+       * @summary 查询实例配置
+       *
+       * @param request DescribeInstanceConfigsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInstanceConfigsResponse
+       */
+      Models::DescribeInstanceConfigsResponse describeInstanceConfigsWithOptions(const Models::DescribeInstanceConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例配置
+       *
+       * @param request DescribeInstanceConfigsRequest
+       * @return DescribeInstanceConfigsResponse
+       */
+      Models::DescribeInstanceConfigsResponse describeInstanceConfigs(const Models::DescribeInstanceConfigsRequest &request);
+
+      /**
        * @summary This operation is used to query Serverless StarRocks instances, supporting filtering based on instance name or tags and other information.
        *
        * @param tmpReq DescribeInstancesRequest
@@ -433,6 +469,42 @@ namespace Starrocks20221019
       Models::ModifyDiskTypeResponse modifyDiskType(const Models::ModifyDiskTypeRequest &request);
 
       /**
+       * @summary 修改实例配置
+       *
+       * @param request ModifyInstanceConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInstanceConfigResponse
+       */
+      Models::ModifyInstanceConfigResponse modifyInstanceConfigWithOptions(const Models::ModifyInstanceConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改实例配置
+       *
+       * @param request ModifyInstanceConfigRequest
+       * @return ModifyInstanceConfigResponse
+       */
+      Models::ModifyInstanceConfigResponse modifyInstanceConfig(const Models::ModifyInstanceConfigRequest &request);
+
+      /**
+       * @summary 配置变更预检查，返回此次变更需要重启的计算组ID
+       *
+       * @param request ModifyInstanceConfigPreCheckRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInstanceConfigPreCheckResponse
+       */
+      Models::ModifyInstanceConfigPreCheckResponse modifyInstanceConfigPreCheckWithOptions(const Models::ModifyInstanceConfigPreCheckRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置变更预检查，返回此次变更需要重启的计算组ID
+       *
+       * @param request ModifyInstanceConfigPreCheckRequest
+       * @return ModifyInstanceConfigPreCheckResponse
+       */
+      Models::ModifyInstanceConfigPreCheckResponse modifyInstanceConfigPreCheck(const Models::ModifyInstanceConfigPreCheckRequest &request);
+
+      /**
        * @summary Modifies the number of nodes in a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
        *
        * @description Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances. Before you call this operation, take note of the following items:
@@ -619,6 +691,24 @@ namespace Starrocks20221019
        * @return ResumeInstanceResponse
        */
       Models::ResumeInstanceResponse resumeInstance(const Models::ResumeInstanceRequest &request);
+
+      /**
+       * @summary 回滚正在进行中的配置修改
+       *
+       * @param request RollbackConfigModificationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RollbackConfigModificationResponse
+       */
+      Models::RollbackConfigModificationResponse rollbackConfigModificationWithOptions(const Models::RollbackConfigModificationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 回滚正在进行中的配置修改
+       *
+       * @param request RollbackConfigModificationRequest
+       * @return RollbackConfigModificationResponse
+       */
+      Models::RollbackConfigModificationResponse rollbackConfigModification(const Models::RollbackConfigModificationRequest &request);
 
       /**
        * @summary Adds a tag to a resource.
