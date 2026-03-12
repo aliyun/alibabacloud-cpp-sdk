@@ -47,6 +47,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Reports& obj) { 
         DARABONBA_PTR_TO_JSON(CreatedTime, createdTime_);
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+        DARABONBA_PTR_TO_JSON(ReportLanguage, reportLanguage_);
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
@@ -54,6 +55,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Reports& obj) { 
         DARABONBA_PTR_FROM_JSON(CreatedTime, createdTime_);
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+        DARABONBA_PTR_FROM_JSON(ReportLanguage, reportLanguage_);
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -70,7 +72,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createdTime_ == nullptr
-        && this->endTime_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
+        && this->endTime_ == nullptr && this->reportLanguage_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
       // createdTime Field Functions 
       bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
       void deleteCreatedTime() { this->createdTime_ = nullptr;};
@@ -83,6 +85,13 @@ namespace Models
       void deleteEndTime() { this->endTime_ = nullptr;};
       inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
       inline Reports& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+      // reportLanguage Field Functions 
+      bool hasReportLanguage() const { return this->reportLanguage_ != nullptr;};
+      void deleteReportLanguage() { this->reportLanguage_ = nullptr;};
+      inline string getReportLanguage() const { DARABONBA_PTR_GET_DEFAULT(reportLanguage_, "") };
+      inline Reports& setReportLanguage(string reportLanguage) { DARABONBA_PTR_SET_VALUE(reportLanguage_, reportLanguage) };
 
 
       // startTime Field Functions 
@@ -107,10 +116,16 @@ namespace Models
 
 
     protected:
+      // The creation time of the task.
       shared_ptr<string> createdTime_ {};
+      // The end time of the inspection task. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> endTime_ {};
+      shared_ptr<string> reportLanguage_ {};
+      // The start time of the inspection task. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> startTime_ {};
+      // The status of the task.
       shared_ptr<string> status_ {};
+      // The ID of the report.
       shared_ptr<string> taskId_ {};
     };
 
@@ -169,12 +184,19 @@ namespace Models
 
 
   protected:
+    // The response message.
     shared_ptr<string> message_ {};
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of reports returned on each page.
     shared_ptr<int64_t> pageSize_ {};
+    // The details of the report.
     shared_ptr<vector<GetScheduledReportsResponseBody::Reports>> reports_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of returned reports.
     shared_ptr<int64_t> totalCount_ {};
   };
 

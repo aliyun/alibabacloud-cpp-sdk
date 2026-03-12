@@ -135,13 +135,21 @@ namespace Models
 
 
     protected:
+      // The content of the skill.
       Darabonba::Json content_ {};
+      // The creation time of the skill.
       shared_ptr<string> createdAt_ {};
+      // The list of database engines.
       shared_ptr<vector<string>> dbtypes_ {};
+      // The description of the skill.
       shared_ptr<string> description_ {};
+      // The unique identifier of the skill.
       shared_ptr<string> id_ {};
+      // The name of the skill.
       shared_ptr<string> name_ {};
+      // The type of the skill.
       shared_ptr<string> skillType_ {};
+      // The update time of the skill.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -185,10 +193,15 @@ namespace Models
 
 
   protected:
+    // The list of skills.
     shared_ptr<vector<ListSkillResponseBody::Data>> data_ {};
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of records returned on each page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of returned records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

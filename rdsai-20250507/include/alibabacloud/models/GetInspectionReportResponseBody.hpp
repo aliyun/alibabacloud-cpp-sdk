@@ -127,9 +127,13 @@ namespace Models
 
 
       protected:
+        // The number of errors in the report.
         shared_ptr<int64_t> error_ {};
+        // The number of failures in the report.
         shared_ptr<int64_t> failed_ {};
+        // The number of normal records in the report.
         shared_ptr<int64_t> normal_ {};
+        // The number of warnings in the report.
         shared_ptr<int64_t> warning_ {};
       };
 
@@ -217,7 +221,9 @@ namespace Models
 
 
           protected:
+            // The tag key.
             shared_ptr<string> key_ {};
+            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -254,9 +260,13 @@ namespace Models
 
 
         protected:
+          // The returned results.
           shared_ptr<vector<Items::Data>> data_ {};
+          // The level of the alert.
           shared_ptr<string> level_ {};
+          // The response message.
           shared_ptr<string> message_ {};
+          // The name of the category.
           shared_ptr<string> name_ {};
         };
 
@@ -279,7 +289,9 @@ namespace Models
 
 
       protected:
+        // The group ID.
         shared_ptr<string> group_ {};
+        // The items in the result.
         shared_ptr<vector<DataItem::Items>> items_ {};
       };
 
@@ -354,14 +366,26 @@ namespace Models
 
 
     protected:
+      // The returned results.
       shared_ptr<vector<Data::DataItem>> data_ {};
+      // The end time of the inspection. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> endTime_ {};
+      // The engine type.
       shared_ptr<string> engineType_ {};
+      // The description of the instance.
       shared_ptr<string> instanceDesc_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The hierarchical summary of the report.
       shared_ptr<Data::LevelSummary> levelSummary_ {};
+      // The report text in the markdown format.
+      // 
+      // *   If the InstanceId parameter is not specified, all content of the inspection report is returned. However, the MarkdownText field is empty.
+      // *   If the InstanceId parameter is specified, the content related to the instance is returned in the MarkdownText field.
       shared_ptr<string> markdownText_ {};
+      // The region where the instance resides.
       shared_ptr<string> region_ {};
+      // The start time of the inspection task. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> startTime_ {};
     };
 
@@ -398,9 +422,13 @@ namespace Models
 
 
   protected:
+    // The details of the result.
     shared_ptr<vector<GetInspectionReportResponseBody::Data>> data_ {};
+    // The report text in the markdown format.
     shared_ptr<string> markdownText_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The inspection report ID.
     shared_ptr<string> taskId_ {};
   };
 

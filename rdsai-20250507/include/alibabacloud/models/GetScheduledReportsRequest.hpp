@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // The task end time based on which the reports are filtered. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. If you leave this parameter unspecified, all reports are returned.
     shared_ptr<string> endTime_ {};
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of reports returned on each page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
+    // The inspection task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scheduledId_ {};
+    // The task start time based on which the reports are filtered. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. If you leave this parameter unspecified, all reports are returned.
     shared_ptr<string> startTime_ {};
   };
 

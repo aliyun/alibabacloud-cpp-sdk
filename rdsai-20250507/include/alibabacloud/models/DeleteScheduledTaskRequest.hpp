@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the scheduled inspection configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> scheduledId_ {};
   };

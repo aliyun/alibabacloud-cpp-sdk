@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of records on each page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
+    // The ID of the scheduled inspection configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> scheduledId_ {};
   };

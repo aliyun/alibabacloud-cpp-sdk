@@ -110,7 +110,7 @@ namespace RdsAi20250507
       Models::CreateCustomAgentResponse createCustomAgent(const Models::CreateCustomAgentRequest &request);
 
       /**
-       * @summary 创建一个批量实例巡检任务
+       * @summary Creates an inspection task for multiple instances.
        *
        * @param request CreateInspectionTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -119,7 +119,7 @@ namespace RdsAi20250507
       Models::CreateInspectionTaskResponse createInspectionTaskWithOptions(const Models::CreateInspectionTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建一个批量实例巡检任务
+       * @summary Creates an inspection task for multiple instances.
        *
        * @param request CreateInspectionTaskRequest
        * @return CreateInspectionTaskResponse
@@ -127,7 +127,7 @@ namespace RdsAi20250507
       Models::CreateInspectionTaskResponse createInspectionTask(const Models::CreateInspectionTaskRequest &request);
 
       /**
-       * @summary 创建一个新的批量实例巡检任务
+       * @summary Creates a new scheduled inspection configuration for multiple instances.
        *
        * @param request CreateScheduledTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -136,7 +136,7 @@ namespace RdsAi20250507
       Models::CreateScheduledTaskResponse createScheduledTaskWithOptions(const Models::CreateScheduledTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建一个新的批量实例巡检任务
+       * @summary Creates a new scheduled inspection configuration for multiple instances.
        *
        * @param request CreateScheduledTaskRequest
        * @return CreateScheduledTaskResponse
@@ -144,7 +144,7 @@ namespace RdsAi20250507
       Models::CreateScheduledTaskResponse createScheduledTask(const Models::CreateScheduledTaskRequest &request);
 
       /**
-       * @summary 创建Skill
+       * @summary Create a user-defined skill.
        *
        * @param tmpReq CreateSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -153,7 +153,7 @@ namespace RdsAi20250507
       Models::CreateSkillResponse createSkillWithOptions(const Models::CreateSkillRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Skill
+       * @summary Create a user-defined skill.
        *
        * @param request CreateSkillRequest
        * @return CreateSkillResponse
@@ -209,7 +209,7 @@ namespace RdsAi20250507
       Models::DeleteCustomAgentResponse deleteCustomAgent(const Models::DeleteCustomAgentRequest &request);
 
       /**
-       * @summary 删除指定的巡检任务
+       * @summary Deletes a specified inspection configuration.
        *
        * @param request DeleteScheduledTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -218,7 +218,7 @@ namespace RdsAi20250507
       Models::DeleteScheduledTaskResponse deleteScheduledTaskWithOptions(const Models::DeleteScheduledTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定的巡检任务
+       * @summary Deletes a specified inspection configuration.
        *
        * @param request DeleteScheduledTaskRequest
        * @return DeleteScheduledTaskResponse
@@ -226,7 +226,7 @@ namespace RdsAi20250507
       Models::DeleteScheduledTaskResponse deleteScheduledTask(const Models::DeleteScheduledTaskRequest &request);
 
       /**
-       * @summary 删除Skill
+       * @summary Deletes the specified skill.
        *
        * @param request DeleteSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -235,7 +235,7 @@ namespace RdsAi20250507
       Models::DeleteSkillResponse deleteSkillWithOptions(const Models::DeleteSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Skill
+       * @summary Deletes the specified skill.
        *
        * @param request DeleteSkillRequest
        * @return DeleteSkillResponse
@@ -502,7 +502,7 @@ namespace RdsAi20250507
       Models::GetCustomAgentResponse getCustomAgent(const Models::GetCustomAgentRequest &request);
 
       /**
-       * @summary 获取巡检任务报告结果
+       * @summary Queries the content of a specified inspection report.
        *
        * @param request GetInspectionReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -511,7 +511,7 @@ namespace RdsAi20250507
       Models::GetInspectionReportResponse getInspectionReportWithOptions(const Models::GetInspectionReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取巡检任务报告结果
+       * @summary Queries the content of a specified inspection report.
        *
        * @param request GetInspectionReportRequest
        * @return GetInspectionReportResponse
@@ -536,7 +536,7 @@ namespace RdsAi20250507
       Models::GetMessagesResponse getMessages(const Models::GetMessagesRequest &request);
 
       /**
-       * @summary 查询指定定时任务配置中包含的所有实例ID列表，支持分页
+       * @summary Queries the IDs of all instances that are included by a specified scheduled inspection configuration.
        *
        * @param request GetScheduledInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -545,7 +545,7 @@ namespace RdsAi20250507
       Models::GetScheduledInstancesResponse getScheduledInstancesWithOptions(const Models::GetScheduledInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定定时任务配置中包含的所有实例ID列表，支持分页
+       * @summary Queries the IDs of all instances that are included by a specified scheduled inspection configuration.
        *
        * @param request GetScheduledInstancesRequest
        * @return GetScheduledInstancesResponse
@@ -553,7 +553,7 @@ namespace RdsAi20250507
       Models::GetScheduledInstancesResponse getScheduledInstances(const Models::GetScheduledInstancesRequest &request);
 
       /**
-       * @summary 获取定时任务的所有巡检报告，支持分页
+       * @summary Queries the list of all inspection reports for a specified scheduled task. You can filter and paginate inspection reports by time range.
        *
        * @param request GetScheduledReportsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -562,7 +562,7 @@ namespace RdsAi20250507
       Models::GetScheduledReportsResponse getScheduledReportsWithOptions(const Models::GetScheduledReportsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取定时任务的所有巡检报告，支持分页
+       * @summary Queries the list of all inspection reports for a specified scheduled task. You can filter and paginate inspection reports by time range.
        *
        * @param request GetScheduledReportsRequest
        * @return GetScheduledReportsResponse
@@ -570,7 +570,7 @@ namespace RdsAi20250507
       Models::GetScheduledReportsResponse getScheduledReports(const Models::GetScheduledReportsRequest &request);
 
       /**
-       * @summary 获取Skill详情
+       * @summary Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
        *
        * @param request GetSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -579,7 +579,7 @@ namespace RdsAi20250507
       Models::GetSkillResponse getSkillWithOptions(const Models::GetSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Skill详情
+       * @summary Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
        *
        * @param request GetSkillRequest
        * @return GetSkillResponse
@@ -587,7 +587,7 @@ namespace RdsAi20250507
       Models::GetSkillResponse getSkill(const Models::GetSkillRequest &request);
 
       /**
-       * @summary 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
+       * @summary Queries the individual inspection reports of all non-scheduled tasks under a specified user. Pagination is supported.
        *
        * @param request GetStandAloneReportsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -596,7 +596,7 @@ namespace RdsAi20250507
       Models::GetStandAloneReportsResponse getStandAloneReportsWithOptions(const Models::GetStandAloneReportsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
+       * @summary Queries the individual inspection reports of all non-scheduled tasks under a specified user. Pagination is supported.
        *
        * @param request GetStandAloneReportsRequest
        * @return GetStandAloneReportsResponse
@@ -637,7 +637,7 @@ namespace RdsAi20250507
       Models::ListCustomAgentToolsResponse listCustomAgentTools();
 
       /**
-       * @summary 查询指定用户UID下所有巡检任务的基本信息列表
+       * @summary Queries the basic information of all inspection configurations under a specified user.
        *
        * @param request ListScheduledTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -646,7 +646,7 @@ namespace RdsAi20250507
       Models::ListScheduledTasksResponse listScheduledTasksWithOptions(const Models::ListScheduledTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定用户UID下所有巡检任务的基本信息列表
+       * @summary Queries the basic information of all inspection configurations under a specified user.
        *
        * @param request ListScheduledTasksRequest
        * @return ListScheduledTasksResponse
@@ -654,7 +654,7 @@ namespace RdsAi20250507
       Models::ListScheduledTasksResponse listScheduledTasks(const Models::ListScheduledTasksRequest &request);
 
       /**
-       * @summary 获取Skill列表
+       * @summary Obtains the user-defined skills and all system preset skills of the current user.
        *
        * @param request ListSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -663,7 +663,7 @@ namespace RdsAi20250507
       Models::ListSkillResponse listSkillWithOptions(const Models::ListSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Skill列表
+       * @summary Obtains the user-defined skills and all system preset skills of the current user.
        *
        * @param request ListSkillRequest
        * @return ListSkillResponse
@@ -859,7 +859,7 @@ namespace RdsAi20250507
       Models::ModifyMessagesFeedbacksResponse modifyMessagesFeedbacks(const Models::ModifyMessagesFeedbacksRequest &request);
 
       /**
-       * @summary 修改已存在的巡检任务信息
+       * @summary Modifies an existing inspection configuration.
        *
        * @param request ModifyScheduledTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -868,7 +868,7 @@ namespace RdsAi20250507
       Models::ModifyScheduledTaskResponse modifyScheduledTaskWithOptions(const Models::ModifyScheduledTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改已存在的巡检任务信息
+       * @summary Modifies an existing inspection configuration.
        *
        * @param request ModifyScheduledTaskRequest
        * @return ModifyScheduledTaskResponse
@@ -1003,7 +1003,7 @@ namespace RdsAi20250507
       Models::UpdateCustomAgentResponse updateCustomAgent(const Models::UpdateCustomAgentRequest &request);
 
       /**
-       * @summary 更新Skill
+       * @summary Updates the information about a specified skill.
        *
        * @param tmpReq UpdateSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1012,7 +1012,7 @@ namespace RdsAi20250507
       Models::UpdateSkillResponse updateSkillWithOptions(const Models::UpdateSkillRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新Skill
+       * @summary Updates the information about a specified skill.
        *
        * @param request UpdateSkillRequest
        * @return UpdateSkillResponse

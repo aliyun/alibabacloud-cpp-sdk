@@ -394,7 +394,7 @@ CreateCustomAgentResponse Client::createCustomAgent(const CreateCustomAgentReque
 }
 
 /**
- * @summary 创建一个批量实例巡检任务
+ * @summary Creates an inspection task for multiple instances.
  *
  * @param request CreateInspectionTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -413,6 +413,10 @@ CreateInspectionTaskResponse Client::createInspectionTaskWithOptions(const Creat
 
   if (!!request.hasInstanceIds()) {
     query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasReportLanguage()) {
+    query["ReportLanguage"] = request.getReportLanguage();
   }
 
   if (!!request.hasStartTime()) {
@@ -437,7 +441,7 @@ CreateInspectionTaskResponse Client::createInspectionTaskWithOptions(const Creat
 }
 
 /**
- * @summary 创建一个批量实例巡检任务
+ * @summary Creates an inspection task for multiple instances.
  *
  * @param request CreateInspectionTaskRequest
  * @return CreateInspectionTaskResponse
@@ -448,7 +452,7 @@ CreateInspectionTaskResponse Client::createInspectionTask(const CreateInspection
 }
 
 /**
- * @summary 创建一个新的批量实例巡检任务
+ * @summary Creates a new scheduled inspection configuration for multiple instances.
  *
  * @param request CreateScheduledTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -471,6 +475,10 @@ CreateScheduledTaskResponse Client::createScheduledTaskWithOptions(const CreateS
 
   if (!!request.hasName()) {
     query["Name"] = request.getName();
+  }
+
+  if (!!request.hasReportLanguage()) {
+    query["ReportLanguage"] = request.getReportLanguage();
   }
 
   if (!!request.hasStartTime()) {
@@ -499,7 +507,7 @@ CreateScheduledTaskResponse Client::createScheduledTaskWithOptions(const CreateS
 }
 
 /**
- * @summary 创建一个新的批量实例巡检任务
+ * @summary Creates a new scheduled inspection configuration for multiple instances.
  *
  * @param request CreateScheduledTaskRequest
  * @return CreateScheduledTaskResponse
@@ -510,7 +518,7 @@ CreateScheduledTaskResponse Client::createScheduledTask(const CreateScheduledTas
 }
 
 /**
- * @summary 创建Skill
+ * @summary Create a user-defined skill.
  *
  * @param tmpReq CreateSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -563,7 +571,7 @@ CreateSkillResponse Client::createSkillWithOptions(const CreateSkillRequest &tmp
 }
 
 /**
- * @summary 创建Skill
+ * @summary Create a user-defined skill.
  *
  * @param request CreateSkillRequest
  * @return CreateSkillResponse
@@ -680,7 +688,7 @@ DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentReque
 }
 
 /**
- * @summary 删除指定的巡检任务
+ * @summary Deletes a specified inspection configuration.
  *
  * @param request DeleteScheduledTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -711,7 +719,7 @@ DeleteScheduledTaskResponse Client::deleteScheduledTaskWithOptions(const DeleteS
 }
 
 /**
- * @summary 删除指定的巡检任务
+ * @summary Deletes a specified inspection configuration.
  *
  * @param request DeleteScheduledTaskRequest
  * @return DeleteScheduledTaskResponse
@@ -722,7 +730,7 @@ DeleteScheduledTaskResponse Client::deleteScheduledTask(const DeleteScheduledTas
 }
 
 /**
- * @summary 删除Skill
+ * @summary Deletes the specified skill.
  *
  * @param request DeleteSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -753,7 +761,7 @@ DeleteSkillResponse Client::deleteSkillWithOptions(const DeleteSkillRequest &req
 }
 
 /**
- * @summary 删除Skill
+ * @summary Deletes the specified skill.
  *
  * @param request DeleteSkillRequest
  * @return DeleteSkillResponse
@@ -1378,7 +1386,7 @@ GetCustomAgentResponse Client::getCustomAgent(const GetCustomAgentRequest &reque
 }
 
 /**
- * @summary 获取巡检任务报告结果
+ * @summary Queries the content of a specified inspection report.
  *
  * @param request GetInspectionReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1413,7 +1421,7 @@ GetInspectionReportResponse Client::getInspectionReportWithOptions(const GetInsp
 }
 
 /**
- * @summary 获取巡检任务报告结果
+ * @summary Queries the content of a specified inspection report.
  *
  * @param request GetInspectionReportRequest
  * @return GetInspectionReportResponse
@@ -1478,7 +1486,7 @@ GetMessagesResponse Client::getMessages(const GetMessagesRequest &request) {
 }
 
 /**
- * @summary 查询指定定时任务配置中包含的所有实例ID列表，支持分页
+ * @summary Queries the IDs of all instances that are included by a specified scheduled inspection configuration.
  *
  * @param request GetScheduledInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1517,7 +1525,7 @@ GetScheduledInstancesResponse Client::getScheduledInstancesWithOptions(const Get
 }
 
 /**
- * @summary 查询指定定时任务配置中包含的所有实例ID列表，支持分页
+ * @summary Queries the IDs of all instances that are included by a specified scheduled inspection configuration.
  *
  * @param request GetScheduledInstancesRequest
  * @return GetScheduledInstancesResponse
@@ -1528,7 +1536,7 @@ GetScheduledInstancesResponse Client::getScheduledInstances(const GetScheduledIn
 }
 
 /**
- * @summary 获取定时任务的所有巡检报告，支持分页
+ * @summary Queries the list of all inspection reports for a specified scheduled task. You can filter and paginate inspection reports by time range.
  *
  * @param request GetScheduledReportsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1575,7 +1583,7 @@ GetScheduledReportsResponse Client::getScheduledReportsWithOptions(const GetSche
 }
 
 /**
- * @summary 获取定时任务的所有巡检报告，支持分页
+ * @summary Queries the list of all inspection reports for a specified scheduled task. You can filter and paginate inspection reports by time range.
  *
  * @param request GetScheduledReportsRequest
  * @return GetScheduledReportsResponse
@@ -1586,7 +1594,7 @@ GetScheduledReportsResponse Client::getScheduledReports(const GetScheduledReport
 }
 
 /**
- * @summary 获取Skill详情
+ * @summary Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
  *
  * @param request GetSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1621,7 +1629,7 @@ GetSkillResponse Client::getSkillWithOptions(const GetSkillRequest &request, con
 }
 
 /**
- * @summary 获取Skill详情
+ * @summary Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
  *
  * @param request GetSkillRequest
  * @return GetSkillResponse
@@ -1632,7 +1640,7 @@ GetSkillResponse Client::getSkill(const GetSkillRequest &request) {
 }
 
 /**
- * @summary 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
+ * @summary Queries the individual inspection reports of all non-scheduled tasks under a specified user. Pagination is supported.
  *
  * @param request GetStandAloneReportsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1675,7 +1683,7 @@ GetStandAloneReportsResponse Client::getStandAloneReportsWithOptions(const GetSt
 }
 
 /**
- * @summary 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页
+ * @summary Queries the individual inspection reports of all non-scheduled tasks under a specified user. Pagination is supported.
  *
  * @param request GetStandAloneReportsRequest
  * @return GetStandAloneReportsResponse
@@ -1765,7 +1773,7 @@ ListCustomAgentToolsResponse Client::listCustomAgentTools() {
 }
 
 /**
- * @summary 查询指定用户UID下所有巡检任务的基本信息列表
+ * @summary Queries the basic information of all inspection configurations under a specified user.
  *
  * @param request ListScheduledTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1804,7 +1812,7 @@ ListScheduledTasksResponse Client::listScheduledTasksWithOptions(const ListSched
 }
 
 /**
- * @summary 查询指定用户UID下所有巡检任务的基本信息列表
+ * @summary Queries the basic information of all inspection configurations under a specified user.
  *
  * @param request ListScheduledTasksRequest
  * @return ListScheduledTasksResponse
@@ -1815,7 +1823,7 @@ ListScheduledTasksResponse Client::listScheduledTasks(const ListScheduledTasksRe
 }
 
 /**
- * @summary 获取Skill列表
+ * @summary Obtains the user-defined skills and all system preset skills of the current user.
  *
  * @param request ListSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1854,7 +1862,7 @@ ListSkillResponse Client::listSkillWithOptions(const ListSkillRequest &request, 
 }
 
 /**
- * @summary 获取Skill列表
+ * @summary Obtains the user-defined skills and all system preset skills of the current user.
  *
  * @param request ListSkillRequest
  * @return ListSkillResponse
@@ -2397,7 +2405,7 @@ ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacks(const ModifyMess
 }
 
 /**
- * @summary 修改已存在的巡检任务信息
+ * @summary Modifies an existing inspection configuration.
  *
  * @param request ModifyScheduledTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2420,6 +2428,10 @@ ModifyScheduledTaskResponse Client::modifyScheduledTaskWithOptions(const ModifyS
 
   if (!!request.hasName()) {
     query["Name"] = request.getName();
+  }
+
+  if (!!request.hasReportLanguage()) {
+    query["ReportLanguage"] = request.getReportLanguage();
   }
 
   if (!!request.hasScheduledId()) {
@@ -2452,7 +2464,7 @@ ModifyScheduledTaskResponse Client::modifyScheduledTaskWithOptions(const ModifyS
 }
 
 /**
- * @summary 修改已存在的巡检任务信息
+ * @summary Modifies an existing inspection configuration.
  *
  * @param request ModifyScheduledTaskRequest
  * @return ModifyScheduledTaskResponse
@@ -2769,7 +2781,7 @@ UpdateCustomAgentResponse Client::updateCustomAgent(const UpdateCustomAgentReque
 }
 
 /**
- * @summary 更新Skill
+ * @summary Updates the information about a specified skill.
  *
  * @param tmpReq UpdateSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2826,7 +2838,7 @@ UpdateSkillResponse Client::updateSkillWithOptions(const UpdateSkillRequest &tmp
 }
 
 /**
- * @summary 更新Skill
+ * @summary Updates the information about a specified skill.
  *
  * @param request UpdateSkillRequest
  * @return UpdateSkillResponse

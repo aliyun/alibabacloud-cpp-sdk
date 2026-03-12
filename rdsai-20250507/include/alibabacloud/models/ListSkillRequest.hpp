@@ -57,8 +57,16 @@ namespace Models
 
 
   protected:
+    // The languages supported by the skills.
+    // 
+    // *   zh-CN: Simplified Chinese
+    // *   zh-TW: Traditional Chinese
+    // *   en-US: English
+    // *   ja-JP: Japanese
     shared_ptr<string> language_ {};
+    // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of records to return on each page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
   };
 

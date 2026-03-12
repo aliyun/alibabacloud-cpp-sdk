@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the scheduled inspection configuration.
     shared_ptr<string> scheduledId_ {};
+    // The returned results.
     shared_ptr<bool> success_ {};
   };
 

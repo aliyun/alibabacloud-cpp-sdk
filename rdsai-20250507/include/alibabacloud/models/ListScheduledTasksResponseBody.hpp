@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Frequency, frequency_);
         DARABONBA_PTR_TO_JSON(InstanceCount, instanceCount_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(ReportLanguage, reportLanguage_);
         DARABONBA_PTR_TO_JSON(ScheduledId, scheduledId_);
         DARABONBA_PTR_TO_JSON(TaskStartTime, taskStartTime_);
         DARABONBA_PTR_TO_JSON(TimeRange, timeRange_);
@@ -60,6 +61,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Frequency, frequency_);
         DARABONBA_PTR_FROM_JSON(InstanceCount, instanceCount_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(ReportLanguage, reportLanguage_);
         DARABONBA_PTR_FROM_JSON(ScheduledId, scheduledId_);
         DARABONBA_PTR_FROM_JSON(TaskStartTime, taskStartTime_);
         DARABONBA_PTR_FROM_JSON(TimeRange, timeRange_);
@@ -76,8 +78,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->description_ == nullptr && this->frequency_ == nullptr && this->instanceCount_ == nullptr && this->name_ == nullptr && this->scheduledId_ == nullptr
-        && this->taskStartTime_ == nullptr && this->timeRange_ == nullptr; };
+        && this->description_ == nullptr && this->frequency_ == nullptr && this->instanceCount_ == nullptr && this->name_ == nullptr && this->reportLanguage_ == nullptr
+        && this->scheduledId_ == nullptr && this->taskStartTime_ == nullptr && this->timeRange_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -113,6 +115,13 @@ namespace Models
       inline Schedules& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // reportLanguage Field Functions 
+      bool hasReportLanguage() const { return this->reportLanguage_ != nullptr;};
+      void deleteReportLanguage() { this->reportLanguage_ = nullptr;};
+      inline string getReportLanguage() const { DARABONBA_PTR_GET_DEFAULT(reportLanguage_, "") };
+      inline Schedules& setReportLanguage(string reportLanguage) { DARABONBA_PTR_SET_VALUE(reportLanguage_, reportLanguage) };
+
+
       // scheduledId Field Functions 
       bool hasScheduledId() const { return this->scheduledId_ != nullptr;};
       void deleteScheduledId() { this->scheduledId_ = nullptr;};
@@ -135,13 +144,33 @@ namespace Models
 
 
     protected:
+      // The creation time of the task.
       shared_ptr<string> createTime_ {};
+      // The description of the inspection task.
       shared_ptr<string> description_ {};
+      // The new inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
+      // 
+      // *   DAILY
+      // *   Monday
+      // *   Tuesday
+      // *   Wednesday
+      // *   Thursday
+      // *   Friday
+      // *   Saturday
+      // *   Sunday
+      // 
+      // ### [](#daily--dailymonday--daily-)Note: DAILY takes precedence over other values. For example, if you set this parameter to DAILY,Monday, the backend will use DAILY as the inspection frequency.
       shared_ptr<string> frequency_ {};
+      // The number of instances covered by the task.
       shared_ptr<int64_t> instanceCount_ {};
+      // The name of the task.
       shared_ptr<string> name_ {};
+      shared_ptr<string> reportLanguage_ {};
+      // The ID of the scheduled inspection configuration.
       shared_ptr<string> scheduledId_ {};
+      // The actual start time of the task.
       shared_ptr<string> taskStartTime_ {};
+      // The inspection time range. The default value is the latest 24 hours. Valid values: 1 to 168. The maximum value is 7 days.
       shared_ptr<string> timeRange_ {};
     };
 
@@ -200,12 +229,19 @@ namespace Models
 
 
   protected:
+    // The response message.
     shared_ptr<string> message_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of records returned on each page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of scheduled inspection tasks.
     shared_ptr<vector<ListScheduledTasksResponseBody::Schedules>> schedules_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of entries that are returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

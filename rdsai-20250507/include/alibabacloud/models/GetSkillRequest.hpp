@@ -48,7 +48,15 @@ namespace Models
 
 
   protected:
+    // The languages supported by the skill. Valid values:
+    // 
+    // *   zh-CN: Simplified Chinese
+    // *   zh-TW: Traditional Chinese
+    // *   en-US: English
+    // *   ja-JP: Japanese
     shared_ptr<string> language_ {};
+    // The unique identifier of the skill.
+    // 
     // This parameter is required.
     shared_ptr<string> skillId_ {};
   };

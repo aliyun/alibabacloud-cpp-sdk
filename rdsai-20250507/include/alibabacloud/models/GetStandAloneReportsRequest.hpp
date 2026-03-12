@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The task end time based on which the reports are filtered. If you do not specify this parameter, all reports are returned.
     shared_ptr<string> endTime_ {};
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of records on each page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
+    // The task start time based on which the reports are filtered. If you do not specify this parameter, all reports are returned.
     shared_ptr<string> startTime_ {};
   };
 

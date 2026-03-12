@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The content of the skill.
     shared_ptr<string> contentShrink_ {};
+    // The list of database engines.
+    // 
     // This parameter is required.
     shared_ptr<string> dbtypesShrink_ {};
+    // The description of the skill. It can be up to 1000 characters in length.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The name of the skill, which can contain only lowercase letters, numbers, and hyphens.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };
