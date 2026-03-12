@@ -96,6 +96,12 @@
 #include <alibabacloud/models/BatchGetMediaInfosRequest.hpp>
 #include <alibabacloud/models/BatchGetMediaInfosResponseBody.hpp>
 #include <alibabacloud/models/BatchGetMediaInfosResponse.hpp>
+#include <alibabacloud/models/BatchGetYikeAIAppJobRequest.hpp>
+#include <alibabacloud/models/BatchGetYikeAIAppJobResponseBody.hpp>
+#include <alibabacloud/models/BatchGetYikeAIAppJobResponse.hpp>
+#include <alibabacloud/models/BatchGetYikeAssetMediaInfosRequest.hpp>
+#include <alibabacloud/models/BatchGetYikeAssetMediaInfosResponseBody.hpp>
+#include <alibabacloud/models/BatchGetYikeAssetMediaInfosResponse.hpp>
 #include <alibabacloud/models/CancelDNAJobRequest.hpp>
 #include <alibabacloud/models/CancelDNAJobResponseBody.hpp>
 #include <alibabacloud/models/CancelDNAJobResponse.hpp>
@@ -361,6 +367,9 @@
 #include <alibabacloud/models/DeleteVodPackagingGroupRequest.hpp>
 #include <alibabacloud/models/DeleteVodPackagingGroupResponseBody.hpp>
 #include <alibabacloud/models/DeleteVodPackagingGroupResponse.hpp>
+#include <alibabacloud/models/DeleteYikeAssetMediaInfosRequest.hpp>
+#include <alibabacloud/models/DeleteYikeAssetMediaInfosResponseBody.hpp>
+#include <alibabacloud/models/DeleteYikeAssetMediaInfosResponse.hpp>
 #include <alibabacloud/models/DescribeAIAgentInstanceRequest.hpp>
 #include <alibabacloud/models/DescribeAIAgentInstanceResponseBody.hpp>
 #include <alibabacloud/models/DescribeAIAgentInstanceResponse.hpp>

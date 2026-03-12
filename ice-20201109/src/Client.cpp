@@ -958,6 +958,90 @@ BatchGetMediaInfosResponse Client::batchGetMediaInfos(const BatchGetMediaInfosRe
 }
 
 /**
+ * @summary 批量获取一刻AI应用生成任务
+ *
+ * @param request BatchGetYikeAIAppJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchGetYikeAIAppJobResponse
+ */
+BatchGetYikeAIAppJobResponse Client::batchGetYikeAIAppJobWithOptions(const BatchGetYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobIds()) {
+    query["JobIds"] = request.getJobIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchGetYikeAIAppJob"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchGetYikeAIAppJobResponse>();
+}
+
+/**
+ * @summary 批量获取一刻AI应用生成任务
+ *
+ * @param request BatchGetYikeAIAppJobRequest
+ * @return BatchGetYikeAIAppJobResponse
+ */
+BatchGetYikeAIAppJobResponse Client::batchGetYikeAIAppJob(const BatchGetYikeAIAppJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchGetYikeAIAppJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量获取媒资信息
+ *
+ * @param request BatchGetYikeAssetMediaInfosRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchGetYikeAssetMediaInfosResponse
+ */
+BatchGetYikeAssetMediaInfosResponse Client::batchGetYikeAssetMediaInfosWithOptions(const BatchGetYikeAssetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMediaIds()) {
+    query["MediaIds"] = request.getMediaIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchGetYikeAssetMediaInfos"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchGetYikeAssetMediaInfosResponse>();
+}
+
+/**
+ * @summary 批量获取媒资信息
+ *
+ * @param request BatchGetYikeAssetMediaInfosRequest
+ * @return BatchGetYikeAssetMediaInfosResponse
+ */
+BatchGetYikeAssetMediaInfosResponse Client::batchGetYikeAssetMediaInfos(const BatchGetYikeAssetMediaInfosRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchGetYikeAssetMediaInfosWithOptions(request, runtime);
+}
+
+/**
  * @summary Cancels a media fingerprint analysis job.
  *
  * @description *   You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
@@ -5617,6 +5701,52 @@ DeleteVodPackagingGroupResponse Client::deleteVodPackagingGroupWithOptions(const
 DeleteVodPackagingGroupResponse Client::deleteVodPackagingGroup(const DeleteVodPackagingGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteVodPackagingGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除媒资信息
+ *
+ * @param request DeleteYikeAssetMediaInfosRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteYikeAssetMediaInfosResponse
+ */
+DeleteYikeAssetMediaInfosResponse Client::deleteYikeAssetMediaInfosWithOptions(const DeleteYikeAssetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLogicDelete()) {
+    query["LogicDelete"] = request.getLogicDelete();
+  }
+
+  if (!!request.hasMediaIds()) {
+    query["MediaIds"] = request.getMediaIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteYikeAssetMediaInfos"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteYikeAssetMediaInfosResponse>();
+}
+
+/**
+ * @summary 删除媒资信息
+ *
+ * @param request DeleteYikeAssetMediaInfosRequest
+ * @return DeleteYikeAssetMediaInfosResponse
+ */
+DeleteYikeAssetMediaInfosResponse Client::deleteYikeAssetMediaInfos(const DeleteYikeAssetMediaInfosRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteYikeAssetMediaInfosWithOptions(request, runtime);
 }
 
 /**

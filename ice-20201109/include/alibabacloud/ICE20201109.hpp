@@ -319,6 +319,40 @@ namespace ICE20201109
       Models::BatchGetMediaInfosResponse batchGetMediaInfos(const Models::BatchGetMediaInfosRequest &request);
 
       /**
+       * @summary 批量获取一刻AI应用生成任务
+       *
+       * @param request BatchGetYikeAIAppJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchGetYikeAIAppJobResponse
+       */
+      Models::BatchGetYikeAIAppJobResponse batchGetYikeAIAppJobWithOptions(const Models::BatchGetYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量获取一刻AI应用生成任务
+       *
+       * @param request BatchGetYikeAIAppJobRequest
+       * @return BatchGetYikeAIAppJobResponse
+       */
+      Models::BatchGetYikeAIAppJobResponse batchGetYikeAIAppJob(const Models::BatchGetYikeAIAppJobRequest &request);
+
+      /**
+       * @summary 批量获取媒资信息
+       *
+       * @param request BatchGetYikeAssetMediaInfosRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchGetYikeAssetMediaInfosResponse
+       */
+      Models::BatchGetYikeAssetMediaInfosResponse batchGetYikeAssetMediaInfosWithOptions(const Models::BatchGetYikeAssetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量获取媒资信息
+       *
+       * @param request BatchGetYikeAssetMediaInfosRequest
+       * @return BatchGetYikeAssetMediaInfosResponse
+       */
+      Models::BatchGetYikeAssetMediaInfosResponse batchGetYikeAssetMediaInfos(const Models::BatchGetYikeAssetMediaInfosRequest &request);
+
+      /**
        * @summary Cancels a media fingerprint analysis job.
        *
        * @description *   You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
@@ -1994,6 +2028,23 @@ namespace ICE20201109
        * @return DeleteVodPackagingGroupResponse
        */
       Models::DeleteVodPackagingGroupResponse deleteVodPackagingGroup(const Models::DeleteVodPackagingGroupRequest &request);
+
+      /**
+       * @summary 删除媒资信息
+       *
+       * @param request DeleteYikeAssetMediaInfosRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteYikeAssetMediaInfosResponse
+       */
+      Models::DeleteYikeAssetMediaInfosResponse deleteYikeAssetMediaInfosWithOptions(const Models::DeleteYikeAssetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除媒资信息
+       *
+       * @param request DeleteYikeAssetMediaInfosRequest
+       * @return DeleteYikeAssetMediaInfosResponse
+       */
+      Models::DeleteYikeAssetMediaInfosResponse deleteYikeAssetMediaInfos(const Models::DeleteYikeAssetMediaInfosRequest &request);
 
       /**
        * @summary Queries the information about an AI agent.
