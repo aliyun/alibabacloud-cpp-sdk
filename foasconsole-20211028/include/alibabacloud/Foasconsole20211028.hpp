@@ -38,7 +38,7 @@ namespace Foasconsole20211028
       Models::ConvertHybridInstanceResponse convertHybridInstance(const Models::ConvertHybridInstanceRequest &request);
 
       /**
-       * @summary 按量付费转包年包月
+       * @summary Changes the billing method of a workspace from pay-as-you-go to subscription.
        *
        * @param tmpReq ConvertInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Foasconsole20211028
       Models::ConvertInstanceResponse convertInstanceWithOptions(const Models::ConvertInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 按量付费转包年包月
+       * @summary Changes the billing method of a workspace from pay-as-you-go to subscription.
        *
        * @param request ConvertInstanceRequest
        * @return ConvertInstanceResponse
@@ -55,7 +55,7 @@ namespace Foasconsole20211028
       Models::ConvertInstanceResponse convertInstance(const Models::ConvertInstanceRequest &request);
 
       /**
-       * @summary 包年包月转按量付费
+       * @summary Changes the billing method of a workspace from subscription to pay-as-you-go.
        *
        * @param request ConvertPrepayInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Foasconsole20211028
       Models::ConvertPrepayInstanceResponse convertPrepayInstanceWithOptions(const Models::ConvertPrepayInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 包年包月转按量付费
+       * @summary Changes the billing method of a workspace from subscription to pay-as-you-go.
        *
        * @param request ConvertPrepayInstanceRequest
        * @return ConvertPrepayInstanceResponse
@@ -72,7 +72,7 @@ namespace Foasconsole20211028
       Models::ConvertPrepayInstanceResponse convertPrepayInstance(const Models::ConvertPrepayInstanceRequest &request);
 
       /**
-       * @summary 创建实例
+       * @summary Creates a subscription workspace or a pay-as-you-go workspace of Realtime Compute for Apache Flink.
        *
        * @param tmpReq CreateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Foasconsole20211028
       Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建实例
+       * @summary Creates a subscription workspace or a pay-as-you-go workspace of Realtime Compute for Apache Flink.
        *
        * @param request CreateInstanceRequest
        * @return CreateInstanceResponse
@@ -89,7 +89,7 @@ namespace Foasconsole20211028
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
-       * @summary 创建命名空间
+       * @summary Creates a namespace in a Realtime Compute for Apache Flink workspace.
        *
        * @param tmpReq CreateNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace Foasconsole20211028
       Models::CreateNamespaceResponse createNamespaceWithOptions(const Models::CreateNamespaceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建命名空间
+       * @summary Creates a namespace in a Realtime Compute for Apache Flink workspace.
        *
        * @param request CreateNamespaceRequest
        * @return CreateNamespaceResponse
@@ -106,7 +106,7 @@ namespace Foasconsole20211028
       Models::CreateNamespaceResponse createNamespace(const Models::CreateNamespaceRequest &request);
 
       /**
-       * @summary 释放按量付费的实例
+       * @summary Deletes a pay-as-you-go workspace of Realtime Compute for Apache Flink.
        *
        * @param request DeleteInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Foasconsole20211028
       Models::DeleteInstanceResponse deleteInstanceWithOptions(const Models::DeleteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 释放按量付费的实例
+       * @summary Deletes a pay-as-you-go workspace of Realtime Compute for Apache Flink.
        *
        * @param request DeleteInstanceRequest
        * @return DeleteInstanceResponse
@@ -123,7 +123,7 @@ namespace Foasconsole20211028
       Models::DeleteInstanceResponse deleteInstance(const Models::DeleteInstanceRequest &request);
 
       /**
-       * @summary 删除namespace
+       * @summary Deletes a namespace.
        *
        * @param request DeleteNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace Foasconsole20211028
       Models::DeleteNamespaceResponse deleteNamespaceWithOptions(const Models::DeleteNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除namespace
+       * @summary Deletes a namespace.
        *
        * @param request DeleteNamespaceRequest
        * @return DeleteNamespaceResponse
@@ -140,7 +140,7 @@ namespace Foasconsole20211028
       Models::DeleteNamespaceResponse deleteNamespace(const Models::DeleteNamespaceRequest &request);
 
       /**
-       * @summary instance列表
+       * @summary Queries the details of one or more Realtime Compute for Apache Flink workspaces.
        *
        * @param tmpReq DescribeInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +149,7 @@ namespace Foasconsole20211028
       Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary instance列表
+       * @summary Queries the details of one or more Realtime Compute for Apache Flink workspaces.
        *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
@@ -157,7 +157,7 @@ namespace Foasconsole20211028
       Models::DescribeInstancesResponse describeInstances(const Models::DescribeInstancesRequest &request);
 
       /**
-       * @summary namespace列表
+       * @summary Queries the information about a namespace that belongs to a workspace.
        *
        * @param tmpReq DescribeNamespacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace Foasconsole20211028
       Models::DescribeNamespacesResponse describeNamespacesWithOptions(const Models::DescribeNamespacesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary namespace列表
+       * @summary Queries the information about a namespace that belongs to a workspace.
        *
        * @param request DescribeNamespacesRequest
        * @return DescribeNamespacesResponse
@@ -174,7 +174,7 @@ namespace Foasconsole20211028
       Models::DescribeNamespacesResponse describeNamespaces(const Models::DescribeNamespacesRequest &request);
 
       /**
-       * @summary 获取支持的region列表
+       * @summary Queries the regions that are available in which Realtime Compute for Apache Flink is supported.
        *
        * @param request DescribeSupportedRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,14 +183,14 @@ namespace Foasconsole20211028
       Models::DescribeSupportedRegionsResponse describeSupportedRegionsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取支持的region列表
+       * @summary Queries the regions that are available in which Realtime Compute for Apache Flink is supported.
        *
        * @return DescribeSupportedRegionsResponse
        */
       Models::DescribeSupportedRegionsResponse describeSupportedRegions();
 
       /**
-       * @summary 获取支持的zoneId列表
+       * @summary Obtains the zones that are supported by Realtime Compute for Apache Flink.
        *
        * @param request DescribeSupportedZonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -199,7 +199,7 @@ namespace Foasconsole20211028
       Models::DescribeSupportedZonesResponse describeSupportedZonesWithOptions(const Models::DescribeSupportedZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取支持的zoneId列表
+       * @summary Obtains the zones that are supported by Realtime Compute for Apache Flink.
        *
        * @param request DescribeSupportedZonesRequest
        * @return DescribeSupportedZonesResponse
@@ -207,7 +207,7 @@ namespace Foasconsole20211028
       Models::DescribeSupportedZonesResponse describeSupportedZones(const Models::DescribeSupportedZonesRequest &request);
 
       /**
-       * @summary 列举flinkasi标签
+       * @summary Queries the tags of specified resources. You can query the key of a tag by tag value, or query the value of a tag by tag key. You can also obtain information about all tags that you use in a workspace in the console of fully managed Flink.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -216,7 +216,7 @@ namespace Foasconsole20211028
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举flinkasi标签
+       * @summary Queries the tags of specified resources. You can query the key of a tag by tag value, or query the value of a tag by tag key. You can also obtain information about all tags that you use in a workspace in the console of fully managed Flink.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -241,7 +241,7 @@ namespace Foasconsole20211028
       Models::ModifyElasticResourceSpecResponse modifyElasticResourceSpec(const Models::ModifyElasticResourceSpecRequest &request);
 
       /**
-       * @summary 对包年实例升降配，对按量实例修改resource quota
+       * @summary Scale in or out a workspace to reconfigure resources for the workspace.
        *
        * @param tmpReq ModifyInstanceSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -250,7 +250,7 @@ namespace Foasconsole20211028
       Models::ModifyInstanceSpecResponse modifyInstanceSpecWithOptions(const Models::ModifyInstanceSpecRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 对包年实例升降配，对按量实例修改resource quota
+       * @summary Scale in or out a workspace to reconfigure resources for the workspace.
        *
        * @param request ModifyInstanceSpecRequest
        * @return ModifyInstanceSpecResponse
@@ -298,7 +298,7 @@ namespace Foasconsole20211028
       /**
        * @deprecated OpenAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
        *
-       * @summary 扩容/缩容
+       * @summary Modifies the configuration of the computing resources of a subscription fully managed Flink workspace. If the number of computing resources after the modification is less than the current number of computing resources, the scale-in operation is performed. If the number of computing resources after the modification is larger than the current number of computing resources, the scale-out operation is performed.
        *
        * @param tmpReq ModifyPrepayInstanceSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -309,7 +309,7 @@ namespace Foasconsole20211028
       /**
        * @deprecated OpenAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
        *
-       * @summary 扩容/缩容
+       * @summary Modifies the configuration of the computing resources of a subscription fully managed Flink workspace. If the number of computing resources after the modification is less than the current number of computing resources, the scale-in operation is performed. If the number of computing resources after the modification is larger than the current number of computing resources, the scale-out operation is performed.
        *
        * @param request ModifyPrepayInstanceSpecRequest
        * @return ModifyPrepayInstanceSpecResponse
@@ -319,7 +319,7 @@ namespace Foasconsole20211028
       /**
        * @deprecated OpenAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
        *
-       * @summary 修改namespace资源分配
+       * @summary Modifies the resource configurations of a namespace in a subscription workspace.
        *
        * @param tmpReq ModifyPrepayNamespaceSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -330,7 +330,7 @@ namespace Foasconsole20211028
       /**
        * @deprecated OpenAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
        *
-       * @summary 修改namespace资源分配
+       * @summary Modifies the resource configurations of a namespace in a subscription workspace.
        *
        * @param request ModifyPrepayNamespaceSpecRequest
        * @return ModifyPrepayNamespaceSpecResponse
@@ -338,7 +338,7 @@ namespace Foasconsole20211028
       Models::ModifyPrepayNamespaceSpecResponse modifyPrepayNamespaceSpec(const Models::ModifyPrepayNamespaceSpecRequest &request);
 
       /**
-       * @summary 按量付费转包年包月询价
+       * @summary Queries the fee of switching the billing method of a workspace from pay-as-you-go to subscription.
        *
        * @param tmpReq QueryConvertInstancePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -347,7 +347,7 @@ namespace Foasconsole20211028
       Models::QueryConvertInstancePriceResponse queryConvertInstancePriceWithOptions(const Models::QueryConvertInstancePriceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 按量付费转包年包月询价
+       * @summary Queries the fee of switching the billing method of a workspace from pay-as-you-go to subscription.
        *
        * @param request QueryConvertInstancePriceRequest
        * @return QueryConvertInstancePriceResponse
@@ -355,7 +355,7 @@ namespace Foasconsole20211028
       Models::QueryConvertInstancePriceResponse queryConvertInstancePrice(const Models::QueryConvertInstancePriceRequest &request);
 
       /**
-       * @summary 包年包月转按量付费询价
+       * @summary Obtains the estimated refund after the billing method of your Realtime Compute for Apache Flink workspace is changed from subscription to pay-as-you-go. After you change the billing method of your workspace to pay-as-you-go, bills are generated on an hourly basis.
        *
        * @param request QueryConvertPrepayInstancePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -364,7 +364,7 @@ namespace Foasconsole20211028
       Models::QueryConvertPrepayInstancePriceResponse queryConvertPrepayInstancePriceWithOptions(const Models::QueryConvertPrepayInstancePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 包年包月转按量付费询价
+       * @summary Obtains the estimated refund after the billing method of your Realtime Compute for Apache Flink workspace is changed from subscription to pay-as-you-go. After you change the billing method of your workspace to pay-as-you-go, bills are generated on an hourly basis.
        *
        * @param request QueryConvertPrepayInstancePriceRequest
        * @return QueryConvertPrepayInstancePriceResponse
@@ -372,7 +372,7 @@ namespace Foasconsole20211028
       Models::QueryConvertPrepayInstancePriceResponse queryConvertPrepayInstancePrice(const Models::QueryConvertPrepayInstancePriceRequest &request);
 
       /**
-       * @summary 获取创建实例的价格
+       * @summary Queries the fee of creating a workspace.
        *
        * @param tmpReq QueryCreateInstancePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -381,7 +381,7 @@ namespace Foasconsole20211028
       Models::QueryCreateInstancePriceResponse queryCreateInstancePriceWithOptions(const Models::QueryCreateInstancePriceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取创建实例的价格
+       * @summary Queries the fee of creating a workspace.
        *
        * @param request QueryCreateInstancePriceRequest
        * @return QueryCreateInstancePriceResponse
@@ -389,7 +389,7 @@ namespace Foasconsole20211028
       Models::QueryCreateInstancePriceResponse queryCreateInstancePrice(const Models::QueryCreateInstancePriceRequest &request);
 
       /**
-       * @summary 查询付费类型为包年包月的实例修改资源规格的价格
+       * @summary Queries the fee of modifying the resource configuration of a workspace.
        *
        * @param tmpReq QueryModifyInstancePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -398,7 +398,7 @@ namespace Foasconsole20211028
       Models::QueryModifyInstancePriceResponse queryModifyInstancePriceWithOptions(const Models::QueryModifyInstancePriceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询付费类型为包年包月的实例修改资源规格的价格
+       * @summary Queries the fee of modifying the resource configuration of a workspace.
        *
        * @param request QueryModifyInstancePriceRequest
        * @return QueryModifyInstancePriceResponse
@@ -406,7 +406,7 @@ namespace Foasconsole20211028
       Models::QueryModifyInstancePriceResponse queryModifyInstancePrice(const Models::QueryModifyInstancePriceRequest &request);
 
       /**
-       * @summary 查询付费类型为包年包月的实例续费价格
+       * @summary Queries the fee of renewing a subscription workspace.
        *
        * @param request QueryRenewInstancePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -415,7 +415,7 @@ namespace Foasconsole20211028
       Models::QueryRenewInstancePriceResponse queryRenewInstancePriceWithOptions(const Models::QueryRenewInstancePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询付费类型为包年包月的实例续费价格
+       * @summary Queries the fee of renewing a subscription workspace.
        *
        * @param request QueryRenewInstancePriceRequest
        * @return QueryRenewInstancePriceResponse
@@ -423,7 +423,7 @@ namespace Foasconsole20211028
       Models::QueryRenewInstancePriceResponse queryRenewInstancePrice(const Models::QueryRenewInstancePriceRequest &request);
 
       /**
-       * @summary 续费
+       * @summary Renews a subscription workspace of Realtime Compute for Apache Flink.
        *
        * @param request RenewInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -432,7 +432,7 @@ namespace Foasconsole20211028
       Models::RenewInstanceResponse renewInstanceWithOptions(const Models::RenewInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 续费
+       * @summary Renews a subscription workspace of Realtime Compute for Apache Flink.
        *
        * @param request RenewInstanceRequest
        * @return RenewInstanceResponse
@@ -440,7 +440,7 @@ namespace Foasconsole20211028
       Models::RenewInstanceResponse renewInstance(const Models::RenewInstanceRequest &request);
 
       /**
-       * @summary 打标签接口
+       * @summary Adds tags to specified resources.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -449,7 +449,7 @@ namespace Foasconsole20211028
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 打标签接口
+       * @summary Adds tags to specified resources.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -457,7 +457,7 @@ namespace Foasconsole20211028
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary flinkasi去标签
+       * @summary Removes tags from specified resources.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -466,7 +466,7 @@ namespace Foasconsole20211028
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary flinkasi去标签
+       * @summary Removes tags from specified resources.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse

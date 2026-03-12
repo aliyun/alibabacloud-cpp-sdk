@@ -92,7 +92,7 @@ ConvertHybridInstanceResponse Client::convertHybridInstance(const ConvertHybridI
 }
 
 /**
- * @summary 按量付费转包年包月
+ * @summary Changes the billing method of a workspace from pay-as-you-go to subscription.
  *
  * @param tmpReq ConvertInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -157,7 +157,7 @@ ConvertInstanceResponse Client::convertInstanceWithOptions(const ConvertInstance
 }
 
 /**
- * @summary 按量付费转包年包月
+ * @summary Changes the billing method of a workspace from pay-as-you-go to subscription.
  *
  * @param request ConvertInstanceRequest
  * @return ConvertInstanceResponse
@@ -168,7 +168,7 @@ ConvertInstanceResponse Client::convertInstance(const ConvertInstanceRequest &re
 }
 
 /**
- * @summary 包年包月转按量付费
+ * @summary Changes the billing method of a workspace from subscription to pay-as-you-go.
  *
  * @param request ConvertPrepayInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -203,7 +203,7 @@ ConvertPrepayInstanceResponse Client::convertPrepayInstanceWithOptions(const Con
 }
 
 /**
- * @summary 包年包月转按量付费
+ * @summary Changes the billing method of a workspace from subscription to pay-as-you-go.
  *
  * @param request ConvertPrepayInstanceRequest
  * @return ConvertPrepayInstanceResponse
@@ -214,7 +214,7 @@ ConvertPrepayInstanceResponse Client::convertPrepayInstance(const ConvertPrepayI
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates a subscription workspace or a pay-as-you-go workspace of Realtime Compute for Apache Flink.
  *
  * @param tmpReq CreateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -347,7 +347,7 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates a subscription workspace or a pay-as-you-go workspace of Realtime Compute for Apache Flink.
  *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
@@ -358,7 +358,7 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
- * @summary 创建命名空间
+ * @summary Creates a namespace in a Realtime Compute for Apache Flink workspace.
  *
  * @param tmpReq CreateNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -411,7 +411,7 @@ CreateNamespaceResponse Client::createNamespaceWithOptions(const CreateNamespace
 }
 
 /**
- * @summary 创建命名空间
+ * @summary Creates a namespace in a Realtime Compute for Apache Flink workspace.
  *
  * @param request CreateNamespaceRequest
  * @return CreateNamespaceResponse
@@ -422,7 +422,7 @@ CreateNamespaceResponse Client::createNamespace(const CreateNamespaceRequest &re
 }
 
 /**
- * @summary 释放按量付费的实例
+ * @summary Deletes a pay-as-you-go workspace of Realtime Compute for Apache Flink.
  *
  * @param request DeleteInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -457,7 +457,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 }
 
 /**
- * @summary 释放按量付费的实例
+ * @summary Deletes a pay-as-you-go workspace of Realtime Compute for Apache Flink.
  *
  * @param request DeleteInstanceRequest
  * @return DeleteInstanceResponse
@@ -468,7 +468,7 @@ DeleteInstanceResponse Client::deleteInstance(const DeleteInstanceRequest &reque
 }
 
 /**
- * @summary 删除namespace
+ * @summary Deletes a namespace.
  *
  * @param request DeleteNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -507,7 +507,7 @@ DeleteNamespaceResponse Client::deleteNamespaceWithOptions(const DeleteNamespace
 }
 
 /**
- * @summary 删除namespace
+ * @summary Deletes a namespace.
  *
  * @param request DeleteNamespaceRequest
  * @return DeleteNamespaceResponse
@@ -518,7 +518,7 @@ DeleteNamespaceResponse Client::deleteNamespace(const DeleteNamespaceRequest &re
 }
 
 /**
- * @summary instance列表
+ * @summary Queries the details of one or more Realtime Compute for Apache Flink workspaces.
  *
  * @param tmpReq DescribeInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -551,7 +551,7 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
 }
 
 /**
- * @summary instance列表
+ * @summary Queries the details of one or more Realtime Compute for Apache Flink workspaces.
  *
  * @param request DescribeInstancesRequest
  * @return DescribeInstancesResponse
@@ -562,7 +562,7 @@ DescribeInstancesResponse Client::describeInstances(const DescribeInstancesReque
 }
 
 /**
- * @summary namespace列表
+ * @summary Queries the information about a namespace that belongs to a workspace.
  *
  * @param tmpReq DescribeNamespacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -595,7 +595,7 @@ DescribeNamespacesResponse Client::describeNamespacesWithOptions(const DescribeN
 }
 
 /**
- * @summary namespace列表
+ * @summary Queries the information about a namespace that belongs to a workspace.
  *
  * @param request DescribeNamespacesRequest
  * @return DescribeNamespacesResponse
@@ -606,7 +606,7 @@ DescribeNamespacesResponse Client::describeNamespaces(const DescribeNamespacesRe
 }
 
 /**
- * @summary 获取支持的region列表
+ * @summary Queries the regions that are available in which Realtime Compute for Apache Flink is supported.
  *
  * @param request DescribeSupportedRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -629,7 +629,7 @@ DescribeSupportedRegionsResponse Client::describeSupportedRegionsWithOptions(con
 }
 
 /**
- * @summary 获取支持的region列表
+ * @summary Queries the regions that are available in which Realtime Compute for Apache Flink is supported.
  *
  * @return DescribeSupportedRegionsResponse
  */
@@ -639,7 +639,7 @@ DescribeSupportedRegionsResponse Client::describeSupportedRegions() {
 }
 
 /**
- * @summary 获取支持的zoneId列表
+ * @summary Obtains the zones that are supported by Realtime Compute for Apache Flink.
  *
  * @param request DescribeSupportedZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -666,7 +666,7 @@ DescribeSupportedZonesResponse Client::describeSupportedZonesWithOptions(const D
 }
 
 /**
- * @summary 获取支持的zoneId列表
+ * @summary Obtains the zones that are supported by Realtime Compute for Apache Flink.
  *
  * @param request DescribeSupportedZonesRequest
  * @return DescribeSupportedZonesResponse
@@ -677,7 +677,7 @@ DescribeSupportedZonesResponse Client::describeSupportedZones(const DescribeSupp
 }
 
 /**
- * @summary 列举flinkasi标签
+ * @summary Queries the tags of specified resources. You can query the key of a tag by tag value, or query the value of a tag by tag key. You can also obtain information about all tags that you use in a workspace in the console of fully managed Flink.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -724,7 +724,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary 列举flinkasi标签
+ * @summary Queries the tags of specified resources. You can query the key of a tag by tag value, or query the value of a tag by tag key. You can also obtain information about all tags that you use in a workspace in the console of fully managed Flink.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -791,7 +791,7 @@ ModifyElasticResourceSpecResponse Client::modifyElasticResourceSpec(const Modify
 }
 
 /**
- * @summary 对包年实例升降配，对按量实例修改resource quota
+ * @summary Scale in or out a workspace to reconfigure resources for the workspace.
  *
  * @param tmpReq ModifyInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -864,7 +864,7 @@ ModifyInstanceSpecResponse Client::modifyInstanceSpecWithOptions(const ModifyIns
 }
 
 /**
- * @summary 对包年实例升降配，对按量实例修改resource quota
+ * @summary Scale in or out a workspace to reconfigure resources for the workspace.
  *
  * @param request ModifyInstanceSpecRequest
  * @return ModifyInstanceSpecResponse
@@ -1015,7 +1015,7 @@ ModifyNamespaceSpecV2Response Client::modifyNamespaceSpecV2(const ModifyNamespac
 /**
  * @deprecated OpenAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
  *
- * @summary 扩容/缩容
+ * @summary Modifies the configuration of the computing resources of a subscription fully managed Flink workspace. If the number of computing resources after the modification is less than the current number of computing resources, the scale-in operation is performed. If the number of computing resources after the modification is larger than the current number of computing resources, the scale-out operation is performed.
  *
  * @param tmpReq ModifyPrepayInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1086,7 +1086,7 @@ ModifyPrepayInstanceSpecResponse Client::modifyPrepayInstanceSpecWithOptions(con
 /**
  * @deprecated OpenAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
  *
- * @summary 扩容/缩容
+ * @summary Modifies the configuration of the computing resources of a subscription fully managed Flink workspace. If the number of computing resources after the modification is less than the current number of computing resources, the scale-in operation is performed. If the number of computing resources after the modification is larger than the current number of computing resources, the scale-out operation is performed.
  *
  * @param request ModifyPrepayInstanceSpecRequest
  * @return ModifyPrepayInstanceSpecResponse
@@ -1099,7 +1099,7 @@ ModifyPrepayInstanceSpecResponse Client::modifyPrepayInstanceSpec(const ModifyPr
 /**
  * @deprecated OpenAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
  *
- * @summary 修改namespace资源分配
+ * @summary Modifies the resource configurations of a namespace in a subscription workspace.
  *
  * @param tmpReq ModifyPrepayNamespaceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1150,7 +1150,7 @@ ModifyPrepayNamespaceSpecResponse Client::modifyPrepayNamespaceSpecWithOptions(c
 /**
  * @deprecated OpenAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
  *
- * @summary 修改namespace资源分配
+ * @summary Modifies the resource configurations of a namespace in a subscription workspace.
  *
  * @param request ModifyPrepayNamespaceSpecRequest
  * @return ModifyPrepayNamespaceSpecResponse
@@ -1161,7 +1161,7 @@ ModifyPrepayNamespaceSpecResponse Client::modifyPrepayNamespaceSpec(const Modify
 }
 
 /**
- * @summary 按量付费转包年包月询价
+ * @summary Queries the fee of switching the billing method of a workspace from pay-as-you-go to subscription.
  *
  * @param tmpReq QueryConvertInstancePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1226,7 +1226,7 @@ QueryConvertInstancePriceResponse Client::queryConvertInstancePriceWithOptions(c
 }
 
 /**
- * @summary 按量付费转包年包月询价
+ * @summary Queries the fee of switching the billing method of a workspace from pay-as-you-go to subscription.
  *
  * @param request QueryConvertInstancePriceRequest
  * @return QueryConvertInstancePriceResponse
@@ -1237,7 +1237,7 @@ QueryConvertInstancePriceResponse Client::queryConvertInstancePrice(const QueryC
 }
 
 /**
- * @summary 包年包月转按量付费询价
+ * @summary Obtains the estimated refund after the billing method of your Realtime Compute for Apache Flink workspace is changed from subscription to pay-as-you-go. After you change the billing method of your workspace to pay-as-you-go, bills are generated on an hourly basis.
  *
  * @param request QueryConvertPrepayInstancePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1272,7 +1272,7 @@ QueryConvertPrepayInstancePriceResponse Client::queryConvertPrepayInstancePriceW
 }
 
 /**
- * @summary 包年包月转按量付费询价
+ * @summary Obtains the estimated refund after the billing method of your Realtime Compute for Apache Flink workspace is changed from subscription to pay-as-you-go. After you change the billing method of your workspace to pay-as-you-go, bills are generated on an hourly basis.
  *
  * @param request QueryConvertPrepayInstancePriceRequest
  * @return QueryConvertPrepayInstancePriceResponse
@@ -1283,7 +1283,7 @@ QueryConvertPrepayInstancePriceResponse Client::queryConvertPrepayInstancePrice(
 }
 
 /**
- * @summary 获取创建实例的价格
+ * @summary Queries the fee of creating a workspace.
  *
  * @param tmpReq QueryCreateInstancePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1392,7 +1392,7 @@ QueryCreateInstancePriceResponse Client::queryCreateInstancePriceWithOptions(con
 }
 
 /**
- * @summary 获取创建实例的价格
+ * @summary Queries the fee of creating a workspace.
  *
  * @param request QueryCreateInstancePriceRequest
  * @return QueryCreateInstancePriceResponse
@@ -1403,7 +1403,7 @@ QueryCreateInstancePriceResponse Client::queryCreateInstancePrice(const QueryCre
 }
 
 /**
- * @summary 查询付费类型为包年包月的实例修改资源规格的价格
+ * @summary Queries the fee of modifying the resource configuration of a workspace.
  *
  * @param tmpReq QueryModifyInstancePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1476,7 +1476,7 @@ QueryModifyInstancePriceResponse Client::queryModifyInstancePriceWithOptions(con
 }
 
 /**
- * @summary 查询付费类型为包年包月的实例修改资源规格的价格
+ * @summary Queries the fee of modifying the resource configuration of a workspace.
  *
  * @param request QueryModifyInstancePriceRequest
  * @return QueryModifyInstancePriceResponse
@@ -1487,7 +1487,7 @@ QueryModifyInstancePriceResponse Client::queryModifyInstancePrice(const QueryMod
 }
 
 /**
- * @summary 查询付费类型为包年包月的实例续费价格
+ * @summary Queries the fee of renewing a subscription workspace.
  *
  * @param request QueryRenewInstancePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1538,7 +1538,7 @@ QueryRenewInstancePriceResponse Client::queryRenewInstancePriceWithOptions(const
 }
 
 /**
- * @summary 查询付费类型为包年包月的实例续费价格
+ * @summary Queries the fee of renewing a subscription workspace.
  *
  * @param request QueryRenewInstancePriceRequest
  * @return QueryRenewInstancePriceResponse
@@ -1549,7 +1549,7 @@ QueryRenewInstancePriceResponse Client::queryRenewInstancePrice(const QueryRenew
 }
 
 /**
- * @summary 续费
+ * @summary Renews a subscription workspace of Realtime Compute for Apache Flink.
  *
  * @param request RenewInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1600,7 +1600,7 @@ RenewInstanceResponse Client::renewInstanceWithOptions(const RenewInstanceReques
 }
 
 /**
- * @summary 续费
+ * @summary Renews a subscription workspace of Realtime Compute for Apache Flink.
  *
  * @param request RenewInstanceRequest
  * @return RenewInstanceResponse
@@ -1611,7 +1611,7 @@ RenewInstanceResponse Client::renewInstance(const RenewInstanceRequest &request)
 }
 
 /**
- * @summary 打标签接口
+ * @summary Adds tags to specified resources.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1654,7 +1654,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary 打标签接口
+ * @summary Adds tags to specified resources.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -1665,7 +1665,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary flinkasi去标签
+ * @summary Removes tags from specified resources.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1712,7 +1712,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary flinkasi去标签
+ * @summary Removes tags from specified resources.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
