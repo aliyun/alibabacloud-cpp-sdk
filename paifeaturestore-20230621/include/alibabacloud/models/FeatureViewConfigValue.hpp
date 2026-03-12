@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Equal, equal_);
       DARABONBA_PTR_TO_JSON(UseMock, useMock_);
       DARABONBA_PTR_TO_JSON(Snapshot, snapshot_);
+      DARABONBA_PTR_TO_JSON(SecondJoinKey, secondJoinKey_);
     };
     friend void from_json(const Darabonba::Json& j, FeatureViewConfigValue& obj) { 
       DARABONBA_PTR_FROM_JSON(Partitions, partitions_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Equal, equal_);
       DARABONBA_PTR_FROM_JSON(UseMock, useMock_);
       DARABONBA_PTR_FROM_JSON(Snapshot, snapshot_);
+      DARABONBA_PTR_FROM_JSON(SecondJoinKey, secondJoinKey_);
     };
     FeatureViewConfigValue() = default ;
     FeatureViewConfigValue(const FeatureViewConfigValue &) = default ;
@@ -85,7 +87,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->partitions_ == nullptr
-        && this->eventTime_ == nullptr && this->equal_ == nullptr && this->useMock_ == nullptr && this->snapshot_ == nullptr; };
+        && this->eventTime_ == nullptr && this->equal_ == nullptr && this->useMock_ == nullptr && this->snapshot_ == nullptr && this->secondJoinKey_ == nullptr; };
     // partitions Field Functions 
     bool hasPartitions() const { return this->partitions_ != nullptr;};
     void deletePartitions() { this->partitions_ = nullptr;};
@@ -125,12 +127,20 @@ namespace Models
     inline FeatureViewConfigValue& setSnapshot(FeatureViewConfigValue::Snapshot && snapshot) { DARABONBA_PTR_SET_RVALUE(snapshot_, snapshot) };
 
 
+    // secondJoinKey Field Functions 
+    bool hasSecondJoinKey() const { return this->secondJoinKey_ != nullptr;};
+    void deleteSecondJoinKey() { this->secondJoinKey_ = nullptr;};
+    inline string getSecondJoinKey() const { DARABONBA_PTR_GET_DEFAULT(secondJoinKey_, "") };
+    inline FeatureViewConfigValue& setSecondJoinKey(string secondJoinKey) { DARABONBA_PTR_SET_VALUE(secondJoinKey_, secondJoinKey) };
+
+
   protected:
     shared_ptr<map<string, FeatureViewConfigValuePartitionsValue>> partitions_ {};
     shared_ptr<string> eventTime_ {};
     shared_ptr<bool> equal_ {};
     shared_ptr<bool> useMock_ {};
     shared_ptr<FeatureViewConfigValue::Snapshot> snapshot_ {};
+    shared_ptr<string> secondJoinKey_ {};
   };
 
   } // namespace Models
