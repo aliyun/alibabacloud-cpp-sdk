@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The description of the trigger.
     shared_ptr<string> description_ {};
+    // The role that is used by the event source such as object Storage Service (OSS) to invoke the function.
     shared_ptr<string> invocationRole_ {};
+    // The version or alias of the service to which the function belongs.
     shared_ptr<string> qualifier_ {};
+    // The configuration of the trigger. The configuration vary based on the trigger type.
     shared_ptr<string> triggerConfig_ {};
   };
 

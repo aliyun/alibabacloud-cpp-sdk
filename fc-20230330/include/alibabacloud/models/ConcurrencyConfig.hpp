@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The Alibaba Cloud Resource Name (ARN).
     shared_ptr<string> functionArn_ {};
+    // The reserved concurrency of the function. Other functions cannot use the concurrency. The reserved concurrency includes the total concurrency of provisioned instances and on-demand instances.
     shared_ptr<int64_t> reservedConcurrency_ {};
   };
 

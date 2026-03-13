@@ -247,6 +247,8 @@
 #include <alibabacloud/models/ListTriggersRequest.hpp>
 #include <alibabacloud/models/ListTriggersResponse.hpp>
 #include <alibabacloud/models/ListVpcBindingsResponse.hpp>
+#include <alibabacloud/models/PauseSessionRequest.hpp>
+#include <alibabacloud/models/PauseSessionResponse.hpp>
 #include <alibabacloud/models/PublishFunctionVersionRequest.hpp>
 #include <alibabacloud/models/PublishFunctionVersionResponse.hpp>
 #include <alibabacloud/models/PutAsyncInvokeConfigRequest.hpp>
@@ -259,6 +261,8 @@
 #include <alibabacloud/models/PutProvisionConfigResponse.hpp>
 #include <alibabacloud/models/PutScalingConfigRequest.hpp>
 #include <alibabacloud/models/PutScalingConfigResponse.hpp>
+#include <alibabacloud/models/ResumeSessionRequest.hpp>
+#include <alibabacloud/models/ResumeSessionResponse.hpp>
 #include <alibabacloud/models/StopAsyncTaskRequest.hpp>
 #include <alibabacloud/models/StopAsyncTaskResponse.hpp>
 #include <alibabacloud/models/TagResourcesRequest.hpp>

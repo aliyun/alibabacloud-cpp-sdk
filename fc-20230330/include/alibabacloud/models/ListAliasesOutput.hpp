@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The information about aliases.
     shared_ptr<vector<Alias>> aliases_ {};
+    // The next version.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // The Alibaba Cloud Resource Name (ARN) of the resource.
     shared_ptr<string> resourceId_ {};
+    // The name of the resource type.
+    // 
+    // The function type in Function Compute 3.0 is ALIYUN::FC::FUNCTION, which is abbreviated as "function".
     shared_ptr<string> resourceType_ {};
+    // The tag key.
     shared_ptr<string> tagKey_ {};
+    // The tag value.
     shared_ptr<string> tagValue_ {};
   };
 

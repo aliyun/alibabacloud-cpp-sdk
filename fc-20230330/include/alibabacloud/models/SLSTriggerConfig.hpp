@@ -87,10 +87,15 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the trigger.
     shared_ptr<bool> enable_ {};
+    // The invocation configurations. Simple Log Service passes the configurations into the function as part of the event. The configuration content must be a JSON string.
     shared_ptr<map<string, string>> functionParameter_ {};
+    // The interval at which the trigger reads logs, and the retry configuration upon errors.
     shared_ptr<JobConfig> jobConfig_ {};
+    // The log configurations of the trigger.
     shared_ptr<SLSTriggerLogConfig> logConfig_ {};
+    // The configurations of the trigger source.
     shared_ptr<SourceConfig> sourceConfig_ {};
   };
 

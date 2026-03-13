@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The list of concurrency configurations.
     shared_ptr<vector<ConcurrencyConfig>> configs_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results. If this parameter is not returned, all the concurrency configurations are returned.
     shared_ptr<string> nextToken_ {};
   };
 

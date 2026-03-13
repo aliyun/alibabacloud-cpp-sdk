@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the Logstore. Exceptions and function execution statistics during function triggering are recorded in the Logstore.
     shared_ptr<string> logstore_ {};
+    // The name of the project. Exceptions that occur during function triggering and execution statistics are recorded in the Logstore under the project.
     shared_ptr<string> project_ {};
   };
 

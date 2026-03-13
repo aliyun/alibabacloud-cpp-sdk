@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
     shared_ptr<string> nextToken_ {};
+    // The provisioned configurations of the function.
     shared_ptr<vector<ProvisionConfig>> provisionConfigs_ {};
   };
 

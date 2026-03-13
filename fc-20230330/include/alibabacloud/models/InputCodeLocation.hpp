@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The CRC-64 value of the function code package. If checksum is provided, Function Compute checks whether the checksum of the code package is the same as that provided.
     shared_ptr<string> checksum_ {};
+    // The name of the OSS bucket where the ZIP package of the function code is stored.
     shared_ptr<string> ossBucketName_ {};
+    // The name of the OSS object where the ZIP package of the function code is stored.
     shared_ptr<string> ossObjectName_ {};
+    // The ZIP package of the function code that is encoded in Base64 format.
     shared_ptr<string> zipFile_ {};
   };
 

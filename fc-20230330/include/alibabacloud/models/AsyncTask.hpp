@@ -171,20 +171,45 @@ namespace Models
 
 
   protected:
+    // The number of retries after the asynchronous task fails.
     shared_ptr<int64_t> alreadyRetriedTimes_ {};
+    // The final state of the asynchronous task.
     shared_ptr<string> destinationStatus_ {};
+    // The execution duration of the asynchronous task.
     shared_ptr<int64_t> durationMs_ {};
+    // The end time of the asynchronous task. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The events of the asynchronous task.
     shared_ptr<vector<AsyncTaskEvent>> events_ {};
+    // The Alibaba Cloud Resource Name (ARN) of the function.
     shared_ptr<string> functionArn_ {};
+    // The ID of the instance that corresponds to the asynchronous task.
     shared_ptr<string> instanceId_ {};
+    // The version or alias of the function.
     shared_ptr<string> qualifier_ {};
+    // The ID of the request corresponding to this asynchronous task.
     shared_ptr<string> requestId_ {};
+    // The content of the response after the asynchronous task is executed. The maximum size is 1 MB. This parameter is in public preview. If you want to use this parameter, [contact us](https://help.aliyun.com/document_detail/2513733.html).
     shared_ptr<string> returnPayload_ {};
+    // The start time of the asynchronous task. Unit: milliseconds.
     shared_ptr<int64_t> startedTime_ {};
+    // The state of the asynchronous task.
+    // 
+    // *   Enqueued: The asynchronous invocation is enqueued and waiting to be executed.
+    // *   Succeeded: The invocation is successful.
+    // *   Failed: The invocation fails.
+    // *   Running: The invocation is being executed.
+    // *   Stopped: The invocation is terminated.
+    // *   Stopping: The invocation is being terminated.
+    // *   Invalid: The invocation is invalid and not executed due to specific reasons. For example, the function is deleted.
+    // *   Expired: The maximum validity period of messages is specified for asynchronous invocation. The invocation is discarded and not executed because the specified maximum validity period of messages expires.
+    // *   Retrying: The asynchronous invocation is being retried due to an execution error.
     shared_ptr<string> status_ {};
+    // The error message for an asynchronous task failure.
     shared_ptr<string> taskErrorMessage_ {};
+    // The ID of the asynchronous task.
     shared_ptr<string> taskId_ {};
+    // The content of the input parameter during asynchronous task execution.
     shared_ptr<string> taskPayload_ {};
   };
 

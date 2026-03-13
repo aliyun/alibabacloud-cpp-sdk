@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the VPC.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

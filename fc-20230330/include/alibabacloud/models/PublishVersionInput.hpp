@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The description of the layer version.
     shared_ptr<string> description_ {};
   };
 

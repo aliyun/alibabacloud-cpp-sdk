@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The OSS mount targets.
     shared_ptr<vector<OSSMountPoint>> mountPoints_ {};
   };
 

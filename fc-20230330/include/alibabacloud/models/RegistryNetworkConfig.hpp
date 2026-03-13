@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the security group that can be used to connect to the image repository.
     shared_ptr<string> securityGroupId_ {};
+    // The ID of the vSwitch that can be used to connect to the image repository.
     shared_ptr<string> vSwitchId_ {};
+    // The ID of the virtual private cloud (VPC) that can be used to connect to the image repository.
     shared_ptr<string> vpcId_ {};
   };
 

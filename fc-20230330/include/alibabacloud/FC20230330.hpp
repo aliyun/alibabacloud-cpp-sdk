@@ -43,7 +43,7 @@ namespace FC20230330
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary 创建函数别名。
+       * @summary Creates an alias.
        *
        * @param request CreateAliasRequest
        * @param headers map
@@ -53,7 +53,7 @@ namespace FC20230330
       Models::CreateAliasResponse createAliasWithOptions(const string &functionName, const Models::CreateAliasRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建函数别名。
+       * @summary Creates an alias.
        *
        * @param request CreateAliasRequest
        * @return CreateAliasResponse
@@ -105,7 +105,7 @@ namespace FC20230330
       Models::CreateFunctionResponse createFunction(const Models::CreateFunctionRequest &request);
 
       /**
-       * @summary 创建层版本。
+       * @summary Releases a layer version.
        *
        * @param request CreateLayerVersionRequest
        * @param headers map
@@ -115,7 +115,7 @@ namespace FC20230330
       Models::CreateLayerVersionResponse createLayerVersionWithOptions(const string &layerName, const Models::CreateLayerVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建层版本。
+       * @summary Releases a layer version.
        *
        * @param request CreateLayerVersionRequest
        * @return CreateLayerVersionResponse
@@ -141,7 +141,7 @@ namespace FC20230330
       Models::CreateSessionResponse createSession(const string &functionName, const Models::CreateSessionRequest &request);
 
       /**
-       * @summary 创建函数触发器。
+       * @summary Creates a trigger.
        *
        * @param request CreateTriggerRequest
        * @param headers map
@@ -151,7 +151,7 @@ namespace FC20230330
       Models::CreateTriggerResponse createTriggerWithOptions(const string &functionName, const Models::CreateTriggerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建函数触发器。
+       * @summary Creates a trigger.
        *
        * @param request CreateTriggerRequest
        * @return CreateTriggerResponse
@@ -259,7 +259,7 @@ namespace FC20230330
       Models::DeleteFunctionResponse deleteFunction(const string &functionName);
 
       /**
-       * @summary http://pre.hhht/#vpc
+       * @summary Deletes a function version.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +268,7 @@ namespace FC20230330
       Models::DeleteFunctionVersionResponse deleteFunctionVersionWithOptions(const string &functionName, const string &versionId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary http://pre.hhht/#vpc
+       * @summary Deletes a function version.
        *
        * @return DeleteFunctionVersionResponse
        */
@@ -727,7 +727,7 @@ namespace FC20230330
       Models::ListAsyncTasksResponse listAsyncTasks(const string &functionName, const Models::ListAsyncTasksRequest &request);
 
       /**
-       * @summary 列出函数并发度配置。
+       * @summary Queries a list of concurrency configurations.
        *
        * @param request ListConcurrencyConfigsRequest
        * @param headers map
@@ -737,7 +737,7 @@ namespace FC20230330
       Models::ListConcurrencyConfigsResponse listConcurrencyConfigsWithOptions(const Models::ListConcurrencyConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出函数并发度配置。
+       * @summary Queries a list of concurrency configurations.
        *
        * @param request ListConcurrencyConfigsRequest
        * @return ListConcurrencyConfigsResponse
@@ -781,7 +781,7 @@ namespace FC20230330
       Models::ListFunctionVersionsResponse listFunctionVersions(const string &functionName, const Models::ListFunctionVersionsRequest &request);
 
       /**
-       * @summary 列出函数。
+       * @summary Queries a list of functions.
        *
        * @description ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
        *
@@ -793,7 +793,7 @@ namespace FC20230330
       Models::ListFunctionsResponse listFunctionsWithOptions(const Models::ListFunctionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出函数。
+       * @summary Queries a list of functions.
        *
        * @description ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
        *
@@ -963,6 +963,24 @@ namespace FC20230330
       Models::ListVpcBindingsResponse listVpcBindings(const string &functionName);
 
       /**
+       * @summary 暂停/保存会话
+       *
+       * @param request PauseSessionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PauseSessionResponse
+       */
+      Models::PauseSessionResponse pauseSessionWithOptions(const string &functionName, const string &sessionId, const Models::PauseSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 暂停/保存会话
+       *
+       * @param request PauseSessionRequest
+       * @return PauseSessionResponse
+       */
+      Models::PauseSessionResponse pauseSession(const string &functionName, const string &sessionId, const Models::PauseSessionRequest &request);
+
+      /**
        * @summary Publishes a function version.
        *
        * @param request PublishFunctionVersionRequest
@@ -1069,6 +1087,24 @@ namespace FC20230330
        * @return PutScalingConfigResponse
        */
       Models::PutScalingConfigResponse putScalingConfig(const string &functionName, const Models::PutScalingConfigRequest &request);
+
+      /**
+       * @summary 恢复会话
+       *
+       * @param request ResumeSessionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResumeSessionResponse
+       */
+      Models::ResumeSessionResponse resumeSessionWithOptions(const string &functionName, const string &sessionId, const Models::ResumeSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 恢复会话
+       *
+       * @param request ResumeSessionRequest
+       * @return ResumeSessionResponse
+       */
+      Models::ResumeSessionResponse resumeSession(const string &functionName, const string &sessionId, const Models::ResumeSessionRequest &request);
 
       /**
        * @summary Stops an asynchronous task.

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The VPC IDs.
     shared_ptr<vector<string>> vpcIds_ {};
   };
 

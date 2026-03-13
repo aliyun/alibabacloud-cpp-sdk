@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the ApsaraMQ for MQTT instance.
     shared_ptr<string> instanceId_ {};
+    // The region in which the ApsaraMQ for MQTT instance resides.
     shared_ptr<string> regionId_ {};
+    // The name of the topic in the ApsaraMQ for MQTT instance.
     shared_ptr<string> topic_ {};
   };
 

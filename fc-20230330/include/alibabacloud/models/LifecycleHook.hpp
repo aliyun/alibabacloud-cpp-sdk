@@ -61,7 +61,9 @@ namespace Models
 
   protected:
     shared_ptr<vector<string>> command_ {};
+    // The handler of the hook. The definition is similar to that of a request handler.
     shared_ptr<string> handler_ {};
+    // The timeout period of the hook. Unit: seconds.
     shared_ptr<int32_t> timeout_ {};
   };
 

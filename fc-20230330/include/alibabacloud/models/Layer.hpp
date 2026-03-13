@@ -136,17 +136,29 @@ namespace Models
 
 
   protected:
+    // The permission of the layer. Valid value: 0 and 1. 0 specifies that the layer is private, and 1 specifies that the layer is public. By default, public layers are public. Custom layers can be set to private or public.
     shared_ptr<string> acl_ {};
+    // The information about the code package of the layer.
     shared_ptr<OutputCodeLocation> code_ {};
+    // The crc64 verification code of the layer code package, which is calculated based on ECMA-182.
     shared_ptr<string> codeChecksum_ {};
+    // The size of the layer code package. Unit: bytes.
     shared_ptr<int64_t> codeSize_ {};
+    // The runtimes that are supported by the layer.
     shared_ptr<vector<string>> compatibleRuntime_ {};
+    // The time when the layer version was created.
     shared_ptr<string> createTime_ {};
+    // The description of the layer version.
     shared_ptr<string> description_ {};
+    // The name of the layer.
+    // 
     // This parameter is required.
     shared_ptr<string> layerName_ {};
+    // The name of the resource in the layer version. The name is in the acs:fc:{region}:{accountID}:layers/{layerName}/versions/{layerVersion} format.
     shared_ptr<string> layerVersionArn_ {};
+    // The license agreement.
     shared_ptr<string> license_ {};
+    // The layer version.
     shared_ptr<int32_t> version_ {};
   };
 

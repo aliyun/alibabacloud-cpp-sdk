@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The status of image acceleration.
     shared_ptr<string> status_ {};
   };
 

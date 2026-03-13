@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The GPU memory size. Unit: MB. The value is a multiple of 1024 MB.
     shared_ptr<int32_t> gpuMemorySize_ {};
+    // The type of GPU cards. Valid values: fc.gpu.tesla.1: Tesla T4 fc.gpu.ampere.1: Ampere A10
     shared_ptr<string> gpuType_ {};
   };
 

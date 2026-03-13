@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The time when the version was created.
     shared_ptr<string> createdTime_ {};
+    // The description of the layer version.
     shared_ptr<string> description_ {};
+    // The time when the version was last updated.
     shared_ptr<string> lastModifiedTime_ {};
+    // The version ID.
     shared_ptr<string> versionId_ {};
   };
 

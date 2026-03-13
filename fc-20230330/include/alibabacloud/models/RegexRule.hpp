@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The matching rule.
+    // 
     // This parameter is required.
     shared_ptr<string> match_ {};
+    // The replacement rule.
+    // 
     // This parameter is required.
     shared_ptr<string> replacement_ {};
   };

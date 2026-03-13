@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The ID of the ApsaraMQ for RabbitMQ instance.
     shared_ptr<string> instanceId_ {};
+    // The queue name of the ApsaraMQ for RabbitMQ instance.
     shared_ptr<string> queueName_ {};
+    // The region in which the ApsaraMQ for RabbitMQ instance resides.
     shared_ptr<string> regionId_ {};
+    // The vhost name of the ApsaraMQ for RabbitMQ instance.
     shared_ptr<string> virtualHostName_ {};
   };
 

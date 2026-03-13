@@ -186,22 +186,39 @@ namespace Models
 
 
   protected:
+    // The authentication type. Set the value to ACL or leave the value empty. The value ACL indicates that authentication is enabled. In this case, you must specify InstanceUsername and InstancePassword.
     shared_ptr<string> authType_ {};
+    // The message filter type.
     shared_ptr<string> filterType_ {};
+    // The ID of the consumer group of the ApsaraMQ for RocketMQ instance.
     shared_ptr<string> groupID_ {};
+    // The information about the endpoint of the ApsaraMQ for RocketMQ instance.
     shared_ptr<string> instanceEndpoint_ {};
+    // The ID of the ApsaraMQ for RocketMQ instance.
     shared_ptr<string> instanceId_ {};
+    // The network type.
     shared_ptr<string> instanceNetwork_ {};
+    // The password of the ApsaraMQ for RocketMQ instance.
     shared_ptr<string> instancePassword_ {};
+    // The security group ID.
     shared_ptr<string> instanceSecurityGroupId_ {};
+    // The type of ApsaraMQ for RocketMQ instance.
     shared_ptr<string> instanceType_ {};
+    // The username of the ApsaraMQ for RocketMQ instance. If you use the Internet, you must configure the username and password of the instance in the SDK code for authentication.
     shared_ptr<string> instanceUsername_ {};
+    // The ID of the vSwitch associated with the instance.
     shared_ptr<string> instanceVSwitchIds_ {};
+    // The ID of the virtual private cloud (VPC) associated with the instance.
     shared_ptr<string> instanceVpcId_ {};
+    // The consumer offset of the message. CONSUME_FROM_LAST_OFFSET: consumes messages from the latest offset. This is the default value. CONSUME_FROM_FIRST_OFFSET: consumes messages from the earliest offset. CONSUME_FROM_TIMESTAMP: consumes messages from the offset at the specified point in time.
     shared_ptr<string> offset_ {};
+    // The region to which the ApsaraMQ for RocketMQ queue belongs.
     shared_ptr<string> regionId_ {};
+    // The tags that are used to filter messages.
     shared_ptr<string> tag_ {};
+    // The timestamp. This parameter is valid only when you set Offset to CONSUME_FROM_TIMESTAMP.
     shared_ptr<int32_t> timestamp_ {};
+    // The name of the topic in the ApsaraMQ for RocketMQ instance.
     shared_ptr<string> topic_ {};
   };
 

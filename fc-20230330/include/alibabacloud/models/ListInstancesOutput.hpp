@@ -52,6 +52,7 @@ namespace Models
 
 
   protected:
+    // public
     shared_ptr<vector<InstanceInfo>> instances_ {};
     shared_ptr<string> requestId_ {};
   };

@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the asynchronous task feature.
     shared_ptr<bool> asyncTask_ {};
+    // The time when the asynchronous invocation configuration was created.
     shared_ptr<string> createdTime_ {};
+    // The destination configuration.
     shared_ptr<DestinationConfig> destinationConfig_ {};
+    // The Alibaba Cloud Resource Name (ARN) of the function.
     shared_ptr<string> functionArn_ {};
+    // The time when the asynchronous invocation was last modified.
     shared_ptr<string> lastModifiedTime_ {};
+    // The maximum time to live (TTL) value of an event.
     shared_ptr<int64_t> maxAsyncEventAgeInSeconds_ {};
+    // The number of times when an asynchronous invocation is retried.
     shared_ptr<int64_t> maxAsyncRetryAttempts_ {};
   };
 

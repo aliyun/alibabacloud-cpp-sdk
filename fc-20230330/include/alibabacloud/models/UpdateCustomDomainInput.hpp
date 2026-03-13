@@ -112,12 +112,18 @@ namespace Models
 
 
   protected:
+    // The configuration of permission authentication.
     shared_ptr<AuthConfig> authConfig_ {};
+    // The configuration of the HTTPS certificate.
     shared_ptr<CertConfig> certConfig_ {};
     shared_ptr<CORSConfig> corsConfig_ {};
+    // The protocol type that is supported by the custom domain name. Valid values: HTTP HTTPS HTTP,HTTPS
     shared_ptr<string> protocol_ {};
+    // The route table that maps paths to functions when the function is invoked by using the custom domain name.
     shared_ptr<RouteConfig> routeConfig_ {};
+    // The Transport Layer Security (TLS) configuration.
     shared_ptr<TLSConfig> tlsConfig_ {};
+    // The Web Application Firewall (WAF) configuration.
     shared_ptr<WAFConfig> wafConfig_ {};
   };
 

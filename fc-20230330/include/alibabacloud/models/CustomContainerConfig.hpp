@@ -135,15 +135,25 @@ namespace Models
 
 
   protected:
+    // The information about image acceleration.
     shared_ptr<AccelerationInfo> accelerationInfo_ {};
+    // Specifies whether to enable image acceleration. Valid values: Default: enables image acceleration. None: disables image acceleration.
     shared_ptr<string> accelerationType_ {};
+    // The ID of the image repository for the Container Registry Enterprise Edition. You must specify this parameter if you use an image of Container Registry Enterprise Edition.
     shared_ptr<string> acrInstanceId_ {};
+    // The startup parameter of the container.
     shared_ptr<vector<string>> command_ {};
+    // The container startup command.
     shared_ptr<vector<string>> entrypoint_ {};
+    // The custom health check configurations of the function.
     shared_ptr<CustomHealthCheckConfig> healthCheckConfig_ {};
+    // The endpoint of the container image.
     shared_ptr<string> image_ {};
+    // The port on which the HTTP server listens for the Custom Container runtime.
     shared_ptr<int32_t> port_ {};
+    // registry related
     shared_ptr<RegistryConfig> registryConfig_ {};
+    // The actual digest version of the deployed image. The code version specified by digest is actually used when the function starts. This parameter is returned by GetFunction and is not required as a parameter.
     shared_ptr<string> resolvedImageUri_ {};
   };
 

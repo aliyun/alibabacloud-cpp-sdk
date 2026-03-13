@@ -72,9 +72,13 @@ namespace Models
 
 
   protected:
+    // The code information of the layer.
     shared_ptr<InputCodeLocation> code_ {};
+    // The runtimes that are supported by the layer.
     shared_ptr<vector<string>> compatibleRuntime_ {};
+    // The description of the layer version.
     shared_ptr<string> description_ {};
+    // The license agreement for the layer.
     shared_ptr<string> license_ {};
   };
 

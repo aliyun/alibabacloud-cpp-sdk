@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The name of the certificate.
+    // 
     // This parameter is required.
     shared_ptr<string> certName_ {};
+    // The certificate in the .pem format.
+    // 
     // This parameter is required.
     shared_ptr<string> certificate_ {};
+    // The private key in the .pem format.
+    // 
     // This parameter is required.
     shared_ptr<string> privateKey_ {};
   };

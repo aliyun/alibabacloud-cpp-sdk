@@ -81,10 +81,19 @@ namespace Models
 
 
   protected:
+    // The authentication configurations.
     shared_ptr<string> authConfig_ {};
+    // The authentication type. Valid values:
+    // 
+    // *   **function**: requires authentication.
+    // *   **anonymous**: does not require authentication.
+    // 
+    // >  The default value is **function**
     shared_ptr<string> authType_ {};
     shared_ptr<CORSConfig> corsConfig_ {};
+    // Specifies whether to disable access to the default Internet domain. If you set this parameter to true, a 403 error is returned if you access the default public URL provided by the function. A value of false does not have affect the running of the function.
     shared_ptr<bool> disableURLInternet_ {};
+    // The list of request methods. Multiple methods are supported.
     shared_ptr<vector<string>> methods_ {};
   };
 

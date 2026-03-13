@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The list of events. Enter an event related to OSS. For more information about event types,see [OSS events](https://help.aliyun.com/document_detail/2513613.html).
     shared_ptr<vector<string>> events_ {};
+    // The event filtering rule.
     shared_ptr<Filter> filter_ {};
   };
 

@@ -69,10 +69,16 @@ namespace Models
 
 
   protected:
+    // The weight of the canary release version.
     shared_ptr<map<string, float>> additionalVersionWeight_ {};
+    // The alias.
+    // 
     // This parameter is required.
     shared_ptr<string> aliasName_ {};
+    // The description of the alias.
     shared_ptr<string> description_ {};
+    // The version to which the alias points.
+    // 
     // This parameter is required.
     shared_ptr<string> versionId_ {};
   };

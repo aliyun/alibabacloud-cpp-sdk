@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The CRC-64 value of the function code package.
     shared_ptr<string> checksum_ {};
+    // The URL of the function code package.
     shared_ptr<string> url_ {};
   };
 

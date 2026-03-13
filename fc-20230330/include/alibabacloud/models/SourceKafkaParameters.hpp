@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The group ID of the consumer that subscribes to the topic.
     shared_ptr<string> consumerGroup_ {};
+    // The ID of the EventBridge instance.
     shared_ptr<string> instanceId_ {};
+    // The network type. Default value: Default. The value PublicNetwork specifies a virtual private cloud (VPC) network.
     shared_ptr<string> network_ {};
+    // The offset. earliest: consumes messages from the earliest offset. latest: consumes messages from the latest offset.
     shared_ptr<string> offsetReset_ {};
+    // The region in which the ApsaraMQ for Kafka instance resides.
     shared_ptr<string> regionId_ {};
+    // The ID of the security group.
     shared_ptr<string> securityGroupId_ {};
+    // The name of the topic in the ApsaraMQ for Kafka instance.
     shared_ptr<string> topic_ {};
+    // The ID of the vSwitch.
     shared_ptr<string> vSwitchIds_ {};
+    // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
   };
 

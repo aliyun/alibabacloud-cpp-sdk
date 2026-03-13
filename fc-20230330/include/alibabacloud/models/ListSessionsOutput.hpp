@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The starting position for the next session list query.
     shared_ptr<string> nextToken_ {};
+    // The list of sessions.
     shared_ptr<vector<Session>> sessions_ {};
   };
 

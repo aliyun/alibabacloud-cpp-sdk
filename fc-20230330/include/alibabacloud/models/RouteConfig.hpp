@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The route configurations.
     shared_ptr<vector<PathConfig>> routes_ {};
   };
 

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The event push configurations.
     shared_ptr<DeliveryOption> deliveryOption_ {};
   };
 

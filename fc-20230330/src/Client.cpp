@@ -83,7 +83,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary 创建函数别名。
+ * @summary Creates an alias.
  *
  * @param request CreateAliasRequest
  * @param headers map
@@ -111,7 +111,7 @@ CreateAliasResponse Client::createAliasWithOptions(const string &functionName, c
 }
 
 /**
- * @summary 创建函数别名。
+ * @summary Creates an alias.
  *
  * @param request CreateAliasRequest
  * @return CreateAliasResponse
@@ -211,7 +211,7 @@ CreateFunctionResponse Client::createFunction(const CreateFunctionRequest &reque
 }
 
 /**
- * @summary 创建层版本。
+ * @summary Releases a layer version.
  *
  * @param request CreateLayerVersionRequest
  * @param headers map
@@ -239,7 +239,7 @@ CreateLayerVersionResponse Client::createLayerVersionWithOptions(const string &l
 }
 
 /**
- * @summary 创建层版本。
+ * @summary Releases a layer version.
  *
  * @param request CreateLayerVersionRequest
  * @return CreateLayerVersionResponse
@@ -297,7 +297,7 @@ CreateSessionResponse Client::createSession(const string &functionName, const Cr
 }
 
 /**
- * @summary 创建函数触发器。
+ * @summary Creates a trigger.
  *
  * @param request CreateTriggerRequest
  * @param headers map
@@ -325,7 +325,7 @@ CreateTriggerResponse Client::createTriggerWithOptions(const string &functionNam
 }
 
 /**
- * @summary 创建函数触发器。
+ * @summary Creates a trigger.
  *
  * @param request CreateTriggerRequest
  * @return CreateTriggerResponse
@@ -566,7 +566,7 @@ DeleteFunctionResponse Client::deleteFunction(const string &functionName) {
 }
 
 /**
- * @summary http://pre.hhht/#vpc
+ * @summary Deletes a function version.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +591,7 @@ DeleteFunctionVersionResponse Client::deleteFunctionVersionWithOptions(const str
 }
 
 /**
- * @summary http://pre.hhht/#vpc
+ * @summary Deletes a function version.
  *
  * @return DeleteFunctionVersionResponse
  */
@@ -1561,17 +1561,17 @@ InvokeFunctionResponse Client::invokeFunctionWithOptions(const string &functionN
   InvokeFunctionResponse res = InvokeFunctionResponse();
   json tmp = callApi(params, req, runtime);
   if (!!tmp.contains("body")) {
-    shared_ptr<Darabonba::IStream> respBody = Darabonba::Stream::toReadable(tmp["body"]);
+    shared_ptr<Darabonba::IStream> respBody = Darabonba::Stream::toReadable(tmp.value("body", Darabonba::Json()));
     res.setBody(respBody);
   }
 
   if (!!tmp.contains("headers")) {
-    json respHeaders = json(tmp["headers"]);
+    json respHeaders = json(tmp.value("headers", Darabonba::Json()));
     res.setHeaders(Utils::Utils::stringifyMapValue(respHeaders));
   }
 
   if (!!tmp.contains("statusCode")) {
-    int32_t statusCode = Darabonba::Convert::integerVal(tmp["statusCode"]);
+    int32_t statusCode = Darabonba::Convert::integerVal(tmp.value("statusCode", Darabonba::Json()));
     res.setStatusCode(statusCode);
   }
 
@@ -1774,7 +1774,7 @@ ListAsyncTasksResponse Client::listAsyncTasks(const string &functionName, const 
 }
 
 /**
- * @summary 列出函数并发度配置。
+ * @summary Queries a list of concurrency configurations.
  *
  * @param request ListConcurrencyConfigsRequest
  * @param headers map
@@ -1815,7 +1815,7 @@ ListConcurrencyConfigsResponse Client::listConcurrencyConfigsWithOptions(const L
 }
 
 /**
- * @summary 列出函数并发度配置。
+ * @summary Queries a list of concurrency configurations.
  *
  * @param request ListConcurrencyConfigsRequest
  * @return ListConcurrencyConfigsResponse
@@ -1933,7 +1933,7 @@ ListFunctionVersionsResponse Client::listFunctionVersions(const string &function
 }
 
 /**
- * @summary 列出函数。
+ * @summary Queries a list of functions.
  *
  * @description ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
  *
@@ -2010,7 +2010,7 @@ ListFunctionsResponse Client::listFunctionsWithOptions(const ListFunctionsReques
 }
 
 /**
- * @summary 列出函数。
+ * @summary Queries a list of functions.
  *
  * @description ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
  *
@@ -2544,6 +2544,51 @@ ListVpcBindingsResponse Client::listVpcBindings(const string &functionName) {
 }
 
 /**
+ * @summary 暂停/保存会话
+ *
+ * @param request PauseSessionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PauseSessionResponse
+ */
+PauseSessionResponse Client::pauseSessionWithOptions(const string &functionName, const string &sessionId, const PauseSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQualifier()) {
+    query["qualifier"] = request.getQualifier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PauseSession"},
+    {"version" , "2023-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2023-03-30/functions/" , Darabonba::Encode::Encoder::percentEncode(functionName) , "/sessions/" , Darabonba::Encode::Encoder::percentEncode(sessionId) , "/pause")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PauseSessionResponse>();
+}
+
+/**
+ * @summary 暂停/保存会话
+ *
+ * @param request PauseSessionRequest
+ * @return PauseSessionResponse
+ */
+PauseSessionResponse Client::pauseSession(const string &functionName, const string &sessionId, const PauseSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return pauseSessionWithOptions(functionName, sessionId, request, headers, runtime);
+}
+
+/**
  * @summary Publishes a function version.
  *
  * @param request PublishFunctionVersionRequest
@@ -2808,6 +2853,51 @@ PutScalingConfigResponse Client::putScalingConfig(const string &functionName, co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return putScalingConfigWithOptions(functionName, request, headers, runtime);
+}
+
+/**
+ * @summary 恢复会话
+ *
+ * @param request ResumeSessionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResumeSessionResponse
+ */
+ResumeSessionResponse Client::resumeSessionWithOptions(const string &functionName, const string &sessionId, const ResumeSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQualifier()) {
+    query["qualifier"] = request.getQualifier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResumeSession"},
+    {"version" , "2023-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2023-03-30/functions/" , Darabonba::Encode::Encoder::percentEncode(functionName) , "/sessions/" , Darabonba::Encode::Encoder::percentEncode(sessionId) , "/resume")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResumeSessionResponse>();
+}
+
+/**
+ * @summary 恢复会话
+ *
+ * @param request ResumeSessionRequest
+ * @return ResumeSessionResponse
+ */
+ResumeSessionResponse Client::resumeSession(const string &functionName, const string &sessionId, const ResumeSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return resumeSessionWithOptions(functionName, sessionId, request, headers, runtime);
 }
 
 /**

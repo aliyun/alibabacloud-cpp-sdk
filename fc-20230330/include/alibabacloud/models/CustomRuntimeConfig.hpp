@@ -74,9 +74,13 @@ namespace Models
 
 
   protected:
+    // The arguments that are passed to the startup command.
     shared_ptr<vector<string>> args_ {};
+    // The startup commands.
     shared_ptr<vector<string>> command_ {};
+    // The custom health check configuration of the function.
     shared_ptr<CustomHealthCheckConfig> healthCheckConfig_ {};
+    // The port on which the HTTP server is listening.
     shared_ptr<int32_t> port_ {};
   };
 

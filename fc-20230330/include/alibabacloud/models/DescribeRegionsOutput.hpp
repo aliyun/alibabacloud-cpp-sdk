@@ -87,7 +87,9 @@ namespace Models
 
 
       protected:
+        // The region name.
         shared_ptr<string> localName_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -102,6 +104,7 @@ namespace Models
 
 
     protected:
+      // The collection of region information.
       shared_ptr<vector<Regions::Region>> region_ {};
     };
 
@@ -116,6 +119,7 @@ namespace Models
 
 
   protected:
+    // The region information.
     shared_ptr<DescribeRegionsOutput::Regions> regions_ {};
   };
 

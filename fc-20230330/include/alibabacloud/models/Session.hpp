@@ -167,19 +167,30 @@ namespace Models
 
 
   protected:
+    // The ID of the function instance associated with the session.
     shared_ptr<string> containerId_ {};
+    // The time when the session was created.
     shared_ptr<string> createdTime_ {};
     shared_ptr<bool> disableSessionIdReuse_ {};
+    // The name of the function to which the session belongs.
     shared_ptr<string> functionName_ {};
+    // The time when the session was last updated.
     shared_ptr<string> lastModifiedTime_ {};
+    // The File Storage NAS (NAS) configuration. Once configured, the instance associated with the session can access designated NAS resources.
     shared_ptr<NASConfig> nasConfig_ {};
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
     shared_ptr<PolarFsConfig> polarFsConfig_ {};
+    // The qualifier specified when creating a session. If not provided, the default value is LATEST.
     shared_ptr<string> qualifier_ {};
+    // The session affinity type.
     shared_ptr<string> sessionAffinityType_ {};
+    // The unique identifier of the function session.
     shared_ptr<string> sessionId_ {};
+    // The timeout period for idle sessions.
     shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ {};
+    // The session status, which can be either Active (session is valid) or Expired (session has expired).
     shared_ptr<string> sessionStatus_ {};
+    // The maximum session lifecycle.
     shared_ptr<int64_t> sessionTTLInSeconds_ {};
   };
 

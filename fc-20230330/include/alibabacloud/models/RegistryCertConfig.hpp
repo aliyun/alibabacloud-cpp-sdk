@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Whether to skip certificate verification.
     shared_ptr<bool> insecure_ {};
+    // The certificate authority (CA) certificate of the image repository.
     shared_ptr<string> rootCaCertBase64_ {};
   };
 

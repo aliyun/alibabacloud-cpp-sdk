@@ -65,8 +65,11 @@ namespace Models
 
 
   protected:
+    // The DNS resolution configurations in the resolv.conf file. Each item corresponds to a key-value pair in the key:value format, in which the key is required.
     shared_ptr<vector<DNSOption>> dnsOptions_ {};
+    // The IP addresses of the DNS server.
     shared_ptr<vector<string>> nameServers_ {};
+    // The search domains of DNS server.
     shared_ptr<vector<string>> searches_ {};
   };
 

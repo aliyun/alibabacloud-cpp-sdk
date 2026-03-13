@@ -103,18 +103,31 @@ namespace Models
 
 
   protected:
+    // The end time of the policy, in UTC.
     shared_ptr<string> endTime_ {};
+    // The maximum number of provisioned instances for scale-out.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> maxCapacity_ {};
+    // The threshold value for metric-based auto scaling.
+    // 
     // This parameter is required.
     shared_ptr<float> metricTarget_ {};
+    // The metric type for tracing. ProvisionedConcurrencyUtilization: the concurrency utilization of provisioned instances. CPUUtilization: the CPU utilization. GPUMemUtilization: the GPU utilization.
+    // 
     // This parameter is required.
     shared_ptr<string> metricType_ {};
+    // The minimum number of provisioned instances for scale-in.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> minCapacity_ {};
+    // The policy name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The time when the policy starts to take effect, in UTC.
     shared_ptr<string> startTime_ {};
+    // The time zone. If the time zone parameter is empty, the time of startTime and endTime must be in UTC format.
     shared_ptr<string> timeZone_ {};
   };
 

@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The retry policy. Valid values:
+    // 
+    // *   **BACKOFF_RETRY**: retries with a fixed backoff interval.
+    // *   **EXPONENTIAL_DECAY_RETRY**: retries with exponential backoff.
     shared_ptr<string> pushRetryStrategy_ {};
   };
 

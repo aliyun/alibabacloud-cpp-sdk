@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The address of the code package.
     shared_ptr<string> location_ {};
+    // The type of the code package.
     shared_ptr<string> repositoryType_ {};
   };
 

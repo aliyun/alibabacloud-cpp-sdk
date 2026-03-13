@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The group ID.
     shared_ptr<int32_t> groupId_ {};
+    // The mount targets.
     shared_ptr<vector<NASMountConfig>> mountPoints_ {};
+    // The account ID.
     shared_ptr<int32_t> userId_ {};
   };
 

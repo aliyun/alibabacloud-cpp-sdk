@@ -93,7 +93,9 @@ namespace Models
   protected:
     shared_ptr<bool> alwaysAllocateCPU_ {};
     shared_ptr<bool> alwaysAllocateGPU_ {};
+    // The number of target provisioned instances. Valid values: [0,10000].
     shared_ptr<int64_t> defaultTarget_ {};
+    // public
     shared_ptr<vector<ScheduledAction>> scheduledActions_ {};
     // This parameter is required.
     shared_ptr<int64_t> target_ {};

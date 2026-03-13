@@ -53,7 +53,9 @@ namespace Models
 
 
   protected:
+    // The destination struct of a failed callback.
     shared_ptr<Destination> onFailure_ {};
+    // The destination struct of a successful callback.
     shared_ptr<Destination> onSuccess_ {};
   };
 

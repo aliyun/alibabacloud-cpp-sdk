@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The descriptor of the destination for the asynchronous invocation.
     shared_ptr<string> destination_ {};
   };
 

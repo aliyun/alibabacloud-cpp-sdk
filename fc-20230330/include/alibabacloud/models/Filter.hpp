@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The description of the event filtering rule.
     shared_ptr<Key> key_ {};
   };
 

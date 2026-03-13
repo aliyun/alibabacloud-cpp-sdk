@@ -93,11 +93,27 @@ namespace Models
 
 
   protected:
+    // Whether to invoke the function in asynchronous mode. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
+    // 
+    // >  The default value is **false**.
     shared_ptr<bool> asyncInvocationType_ {};
+    // The event pattern. The value is in the JSON format. For more information, see [Event patterns](https://help.aliyun.com/document_detail/181432.html).
     shared_ptr<string> eventRuleFilterPattern_ {};
+    // The event destination configurations.
     shared_ptr<EventSinkConfig> eventSinkConfig_ {};
+    // The event source configurations.
     shared_ptr<EventSourceConfig> eventSourceConfig_ {};
+    // The runtime configurations.
     shared_ptr<RunOptions> runOptions_ {};
+    // Whether to enable the trigger. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
+    // 
+    // >  The default value is **true**.
     shared_ptr<bool> triggerEnable_ {};
   };
 

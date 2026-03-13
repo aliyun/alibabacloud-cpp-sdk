@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // The name of the trigger event. For more information, see [CDN events](https://help.aliyun.com/document_detail/2513636.html).
     shared_ptr<string> eventName_ {};
+    // The version of the trigger event. Only the 1.0.0 event version is supported.
     shared_ptr<string> eventVersion_ {};
+    // The details of the event filtering rules.
     shared_ptr<map<string, vector<string>>> filter_ {};
+    // The description of the trigger.
     shared_ptr<string> notes_ {};
   };
 

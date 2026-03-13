@@ -96,10 +96,12 @@ namespace Models
   protected:
     shared_ptr<int64_t> createdTimeMs_ {};
     shared_ptr<int64_t> destroyedTimeMs_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> qualifier_ {};
     shared_ptr<string> resourceType_ {};
     shared_ptr<string> status_ {};
+    // The version of the function to which the instance belongs. If the instance belongs to the LATEST alias, 0 is returned as the version.
     shared_ptr<string> versionId_ {};
   };
 

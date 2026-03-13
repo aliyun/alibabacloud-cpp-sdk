@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The network address and port number of the change tracking instance.
     shared_ptr<string> brokerUrl_ {};
+    // The UNIX timestamp that is generated when the SDK client consumes the first data record.
     shared_ptr<int32_t> initCheckPoint_ {};
+    // The consumer group password.
     shared_ptr<string> password_ {};
+    // The region of the DTS instance.
     shared_ptr<string> regionId_ {};
+    // The consumer group ID.
     shared_ptr<string> sid_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // The name of the tracked topic of the change tracking instance.
     shared_ptr<string> topic_ {};
+    // The account of the consumer group.
     shared_ptr<string> username_ {};
   };
 

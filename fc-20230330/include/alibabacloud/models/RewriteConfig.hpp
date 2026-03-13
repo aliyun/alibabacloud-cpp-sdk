@@ -67,8 +67,11 @@ namespace Models
 
 
   protected:
+    // The exact match rules.
     shared_ptr<vector<EqualRule>> equalRules_ {};
+    // The regex matching rules.
     shared_ptr<vector<RegexRule>> regexRules_ {};
+    // The wildcard matching rules.
     shared_ptr<vector<WildcardRule>> wildcardRules_ {};
   };
 

@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Optional. Specify whether to enable the asynchronous task feature.
     shared_ptr<bool> asyncTask_ {};
+    // Optional. The struct of the destination of asynchronous invocations.
     shared_ptr<DestinationConfig> destinationConfig_ {};
+    // Optional. The maximum validity period of a message. Valid values: [1,604800]. Default value: 86400. Unit: seconds.
     shared_ptr<int64_t> maxAsyncEventAgeInSeconds_ {};
+    // Optional. The maximum number of retries if an asynchronous invocation fails. Valid values: [0,8]. If you do not configure this parameter, the default number of retries is 3.
     shared_ptr<int64_t> maxAsyncRetryAttempts_ {};
   };
 

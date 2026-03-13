@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable WAF protection.
     shared_ptr<bool> enableWAF_ {};
   };
 

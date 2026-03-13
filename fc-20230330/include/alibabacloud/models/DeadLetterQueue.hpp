@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The Alibaba Cloud Resource Name (ARN) of the dead-letter queue.
     shared_ptr<string> arn_ {};
   };
 

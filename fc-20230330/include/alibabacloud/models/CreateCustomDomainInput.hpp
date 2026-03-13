@@ -121,14 +121,22 @@ namespace Models
 
 
   protected:
+    // The configuration of permission authentication.
     shared_ptr<AuthConfig> authConfig_ {};
+    // The configuration of the HTTPS certificate.
     shared_ptr<CertConfig> certConfig_ {};
     shared_ptr<CORSConfig> corsConfig_ {};
+    // The domain name. Enter a custom domain name that has obtained an Internet content provider (ICP) filing in the Alibaba Cloud ICP Filing system, or a custom domain name whose ICP filing information includes Alibaba Cloud as a service provider.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The protocol type that is supported by the custom domain name. Valid values: HTTP HTTPS HTTP,HTTPS
     shared_ptr<string> protocol_ {};
+    // The route table that maps paths to functions when the function is invoked by using the custom domain name.
     shared_ptr<RouteConfig> routeConfig_ {};
+    // The Transport Layer Security (TLS) configuration.
     shared_ptr<TLSConfig> tlsConfig_ {};
+    // The Web Application Firewall (WAF) configuration.
     shared_ptr<WAFConfig> wafConfig_ {};
   };
 

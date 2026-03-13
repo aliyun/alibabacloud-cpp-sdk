@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The sorting method of versions.
     shared_ptr<string> direction_ {};
+    // The ID of the next version.
     shared_ptr<string> nextToken_ {};
+    // The version IDs.
     shared_ptr<vector<Version>> versions_ {};
   };
 

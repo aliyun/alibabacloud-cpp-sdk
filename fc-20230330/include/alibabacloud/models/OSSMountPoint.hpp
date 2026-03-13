@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The OSS bucket that you want to mount.
     shared_ptr<string> bucketName_ {};
+    // The path of the mounted OSS bucket.
     shared_ptr<string> bucketPath_ {};
+    // The OSS endpoint.
     shared_ptr<string> endpoint_ {};
+    // The mount directory.
     shared_ptr<string> mountDir_ {};
+    // Specifies whether it is read-only.
     shared_ptr<bool> readOnly_ {};
   };
 

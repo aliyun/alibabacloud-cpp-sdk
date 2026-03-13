@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The name of the next trigger. The pagination token that is used in the next request to retrieve a new page of results. If this parameter is not returned, all the layers are returned.
     shared_ptr<string> nextToken_ {};
+    // The triggers.
     shared_ptr<vector<Trigger>> triggers_ {};
   };
 

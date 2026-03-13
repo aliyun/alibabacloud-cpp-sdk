@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The public domain address. You can access HTTP triggers over the Internet by using HTTP or HTTPS.
     shared_ptr<string> urlInternet_ {};
+    // The private endpoint. In a VPC, you can access HTTP triggers by using HTTP or HTTPS.
     shared_ptr<string> urlIntranet_ {};
   };
 

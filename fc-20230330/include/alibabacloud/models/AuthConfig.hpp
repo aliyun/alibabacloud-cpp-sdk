@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The authentication information.
     shared_ptr<string> authInfo_ {};
+    // The authentication type. Valid values: anonymous, function, and jwt.
     shared_ptr<string> authType_ {};
   };
 

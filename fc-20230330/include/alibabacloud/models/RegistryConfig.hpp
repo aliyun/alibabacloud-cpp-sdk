@@ -66,8 +66,11 @@ namespace Models
 
 
   protected:
+    // The permission authentication configurations.
     shared_ptr<RegistryAuthConfig> authConfig_ {};
+    // The certificate configurations.
     shared_ptr<RegistryCertConfig> certConfig_ {};
+    // The network settings.
     shared_ptr<RegistryNetworkConfig> networkConfig_ {};
   };
 

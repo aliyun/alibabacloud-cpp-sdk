@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to use the Transport Layer Security (TLS) protocol to secure data transmission. Note: Only General-purpose NAS supports transmission encryption.
     shared_ptr<bool> enableTLS_ {};
+    // The local mount directory.
     shared_ptr<string> mountDir_ {};
+    // The address of a NAS server.
     shared_ptr<string> serverAddr_ {};
   };
 

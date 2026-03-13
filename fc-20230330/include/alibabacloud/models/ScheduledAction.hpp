@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // The time when the policy expires.
     shared_ptr<string> endTime_ {};
+    // The policy name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The schedule expression.
+    // 
     // This parameter is required.
     shared_ptr<string> scheduleExpression_ {};
+    // The time when the policy takes effect.
     shared_ptr<string> startTime_ {};
+    // The number of target provisioned instances.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> target_ {};
+    // The time zone. If the time zone parameter is empty, the value of startTime, endTime, and scheduleExpression must be in UTC format.
     shared_ptr<string> timeZone_ {};
   };
 

@@ -87,11 +87,17 @@ namespace Models
 
 
   protected:
+    // The weight of the canary release version.
     shared_ptr<map<string, float>> additionalVersionWeight_ {};
+    // The name of the alias.
     shared_ptr<string> aliasName_ {};
+    // The time when the alias was created.
     shared_ptr<string> createdTime_ {};
+    // The description of the alias.
     shared_ptr<string> description_ {};
+    // The time when the alias was modified.
     shared_ptr<string> lastModifiedTime_ {};
+    // The version to which the alias points.
     shared_ptr<string> versionId_ {};
   };
 

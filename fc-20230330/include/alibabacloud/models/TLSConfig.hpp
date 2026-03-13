@@ -60,9 +60,14 @@ namespace Models
 
 
   protected:
+    // The TLS cipher suites.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> cipherSuites_ {};
+    // The maximum TLS version. Valid values: TLSv1.3 and TLSv1.2.
     shared_ptr<string> maxVersion_ {};
+    // The minimum TLS version. Valid values: TLSv1.3 and TLSv1.2.
+    // 
     // This parameter is required.
     shared_ptr<string> minVersion_ {};
   };

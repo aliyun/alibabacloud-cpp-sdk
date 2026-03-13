@@ -13,8 +13,10 @@ namespace Models
   class PutScalingConfigOutput : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const PutScalingConfigOutput& obj) { 
+      (void)j; (void)obj; 
     };
     friend void from_json(const Darabonba::Json& j, PutScalingConfigOutput& obj) { 
+      (void)j; (void)obj; 
     };
     PutScalingConfigOutput() = default ;
     PutScalingConfigOutput(const PutScalingConfigOutput &) = default ;

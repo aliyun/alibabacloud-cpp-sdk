@@ -152,18 +152,31 @@ namespace Models
 
 
   protected:
+    // The time when the trigger was created.
     shared_ptr<string> createdTime_ {};
+    // The description of the trigger.
     shared_ptr<string> description_ {};
+    // The information about the HTTP trigger.
     shared_ptr<HTTPTrigger> httpTrigger_ {};
+    // The role that is used by the event source such as OSS to invoke the function.
     shared_ptr<string> invocationRole_ {};
+    // The time when the trigger was last modified.
     shared_ptr<string> lastModifiedTime_ {};
+    // The version or alias of the function.
     shared_ptr<string> qualifier_ {};
+    // The Alibaba Cloud Resource Name (ARN) of the event source for the trigger.
     shared_ptr<string> sourceArn_ {};
+    // The status of the trigger.
     shared_ptr<string> status_ {};
+    // The ARN of the function.
     shared_ptr<string> targetArn_ {};
+    // The configurations of the trigger. The configurations vary based on trigger types.
     shared_ptr<string> triggerConfig_ {};
+    // The unique ID of the trigger.
     shared_ptr<string> triggerId_ {};
+    // The name of the trigger. The name contains only letters, digits, hyphens (-), and underscores (_). The name must be 1 to 128 characters in length and cannot start with a digit or hyphen (-).
     shared_ptr<string> triggerName_ {};
+    // The type of the trigger.
     shared_ptr<string> triggerType_ {};
   };
 

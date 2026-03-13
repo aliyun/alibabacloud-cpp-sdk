@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Specify whether to enable Base64 encoding. Default value: true. Valid values: true false
     shared_ptr<bool> isBase64Decode_ {};
+    // The name of the queue of Simple Message Queue (formerly MNS).
     shared_ptr<string> queueName_ {};
+    // The region to which the queue of Simple Message Queue (formerly MNS) belongs.
     shared_ptr<string> regionId_ {};
   };
 

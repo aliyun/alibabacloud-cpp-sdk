@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The layers.
     shared_ptr<vector<Layer>> layers_ {};
+    // The name of the start layer for the next query, which is also the token used to obtain more results.
     shared_ptr<string> nextToken_ {};
   };
 

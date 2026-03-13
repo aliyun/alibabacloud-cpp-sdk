@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The RAM role that is assumed by Function Compute to access VPC.
     shared_ptr<string> role_ {};
+    // The security group ID.
     shared_ptr<string> securityGroupId_ {};
+    // The list of vSwitches.
     shared_ptr<vector<string>> vSwitchIds_ {};
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
   };
 

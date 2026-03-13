@@ -81,12 +81,19 @@ namespace Models
 
 
   protected:
+    // The name of the function.
+    // 
     // This parameter is required.
     shared_ptr<string> functionName_ {};
+    // The supported methods.
     shared_ptr<vector<string>> methods_ {};
+    // The route matching rule.
+    // 
     // This parameter is required.
     shared_ptr<string> path_ {};
+    // The version or alias.
     shared_ptr<string> qualifier_ {};
+    // The rewrite configuration.
     shared_ptr<RewriteConfig> rewriteConfig_ {};
   };
 

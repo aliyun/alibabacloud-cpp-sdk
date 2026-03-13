@@ -84,11 +84,16 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the collection of instance-level metrics. If you enable this feature, you can view core metrics, such as CPU utilization, memory usage, network conditions of instances, and the number of requests that an instance concurrently processes. Valid values: false: disables the collection of instance-level metrics. This is the default value. true: enables the collection of instance-level metrics.
     shared_ptr<bool> enableInstanceMetrics_ {};
     shared_ptr<bool> enableLlmMetrics_ {};
+    // Specifies whether to enable request-level metrics. If you enable this feature, you can view the amount of time and memory consumed for a specific invocation of each function in the service. Valid values: false: disables request-level metrics. true: enables request-level metrics. This is the default value.
     shared_ptr<bool> enableRequestMetrics_ {};
+    // The log segmentation rule.
     shared_ptr<string> logBeginRule_ {};
+    // The name of the Logstore of Simple Log Service.
     shared_ptr<string> logstore_ {};
+    // The name of the project in Simple Log Service.
     shared_ptr<string> project_ {};
   };
 

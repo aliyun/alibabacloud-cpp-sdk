@@ -63,9 +63,14 @@ namespace Models
 
 
   protected:
+    // The resource IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
+    // The type of the resource.
     shared_ptr<string> resourceType_ {};
+    // The tags.
+    // 
     // This parameter is required.
     shared_ptr<vector<Tag>> tag_ {};
   };

@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The list of layer versions.
     shared_ptr<vector<Layer>> layers_ {};
+    // The next version, which is used to return more results.
     shared_ptr<int32_t> nextVersion_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The resource identifier of the layer version.
     shared_ptr<string> arn_ {};
+    // The size of the layer code package. Unit: bytes.
     shared_ptr<int64_t> size_ {};
   };
 
