@@ -61,158 +61,158 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cause_ != nullptr
-        && this->city_ != nullptr && this->cityCodeSet_ != nullptr && this->date_ != nullptr && this->finishedDate_ != nullptr && this->projectCode_ != nullptr
-        && this->projectName_ != nullptr && this->status_ != nullptr && this->thirdPartApplyId_ != nullptr && this->thirdPartCostCenterId_ != nullptr && this->thirdPartInvoiceId_ != nullptr
-        && this->timesTotal_ != nullptr && this->timesType_ != nullptr && this->timesUsed_ != nullptr && this->title_ != nullptr && this->travelerStandardShrink_ != nullptr
-        && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->cause_ == nullptr
+        && this->city_ == nullptr && this->cityCodeSet_ == nullptr && this->date_ == nullptr && this->finishedDate_ == nullptr && this->projectCode_ == nullptr
+        && this->projectName_ == nullptr && this->status_ == nullptr && this->thirdPartApplyId_ == nullptr && this->thirdPartCostCenterId_ == nullptr && this->thirdPartInvoiceId_ == nullptr
+        && this->timesTotal_ == nullptr && this->timesType_ == nullptr && this->timesUsed_ == nullptr && this->title_ == nullptr && this->travelerStandardShrink_ == nullptr
+        && this->userId_ == nullptr; };
     // cause Field Functions 
     bool hasCause() const { return this->cause_ != nullptr;};
     void deleteCause() { this->cause_ = nullptr;};
-    inline string cause() const { DARABONBA_PTR_GET_DEFAULT(cause_, "") };
+    inline string getCause() const { DARABONBA_PTR_GET_DEFAULT(cause_, "") };
     inline CarApplyAddShrinkRequest& setCause(string cause) { DARABONBA_PTR_SET_VALUE(cause_, cause) };
 
 
     // city Field Functions 
     bool hasCity() const { return this->city_ != nullptr;};
     void deleteCity() { this->city_ = nullptr;};
-    inline string city() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
+    inline string getCity() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
     inline CarApplyAddShrinkRequest& setCity(string city) { DARABONBA_PTR_SET_VALUE(city_, city) };
 
 
     // cityCodeSet Field Functions 
     bool hasCityCodeSet() const { return this->cityCodeSet_ != nullptr;};
     void deleteCityCodeSet() { this->cityCodeSet_ = nullptr;};
-    inline string cityCodeSet() const { DARABONBA_PTR_GET_DEFAULT(cityCodeSet_, "") };
+    inline string getCityCodeSet() const { DARABONBA_PTR_GET_DEFAULT(cityCodeSet_, "") };
     inline CarApplyAddShrinkRequest& setCityCodeSet(string cityCodeSet) { DARABONBA_PTR_SET_VALUE(cityCodeSet_, cityCodeSet) };
 
 
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};
-    inline string date() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+    inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
     inline CarApplyAddShrinkRequest& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
     // finishedDate Field Functions 
     bool hasFinishedDate() const { return this->finishedDate_ != nullptr;};
     void deleteFinishedDate() { this->finishedDate_ = nullptr;};
-    inline string finishedDate() const { DARABONBA_PTR_GET_DEFAULT(finishedDate_, "") };
+    inline string getFinishedDate() const { DARABONBA_PTR_GET_DEFAULT(finishedDate_, "") };
     inline CarApplyAddShrinkRequest& setFinishedDate(string finishedDate) { DARABONBA_PTR_SET_VALUE(finishedDate_, finishedDate) };
 
 
     // projectCode Field Functions 
     bool hasProjectCode() const { return this->projectCode_ != nullptr;};
     void deleteProjectCode() { this->projectCode_ = nullptr;};
-    inline string projectCode() const { DARABONBA_PTR_GET_DEFAULT(projectCode_, "") };
+    inline string getProjectCode() const { DARABONBA_PTR_GET_DEFAULT(projectCode_, "") };
     inline CarApplyAddShrinkRequest& setProjectCode(string projectCode) { DARABONBA_PTR_SET_VALUE(projectCode_, projectCode) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline CarApplyAddShrinkRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline CarApplyAddShrinkRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // thirdPartApplyId Field Functions 
     bool hasThirdPartApplyId() const { return this->thirdPartApplyId_ != nullptr;};
     void deleteThirdPartApplyId() { this->thirdPartApplyId_ = nullptr;};
-    inline string thirdPartApplyId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartApplyId_, "") };
+    inline string getThirdPartApplyId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartApplyId_, "") };
     inline CarApplyAddShrinkRequest& setThirdPartApplyId(string thirdPartApplyId) { DARABONBA_PTR_SET_VALUE(thirdPartApplyId_, thirdPartApplyId) };
 
 
     // thirdPartCostCenterId Field Functions 
     bool hasThirdPartCostCenterId() const { return this->thirdPartCostCenterId_ != nullptr;};
     void deleteThirdPartCostCenterId() { this->thirdPartCostCenterId_ = nullptr;};
-    inline string thirdPartCostCenterId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartCostCenterId_, "") };
+    inline string getThirdPartCostCenterId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartCostCenterId_, "") };
     inline CarApplyAddShrinkRequest& setThirdPartCostCenterId(string thirdPartCostCenterId) { DARABONBA_PTR_SET_VALUE(thirdPartCostCenterId_, thirdPartCostCenterId) };
 
 
     // thirdPartInvoiceId Field Functions 
     bool hasThirdPartInvoiceId() const { return this->thirdPartInvoiceId_ != nullptr;};
     void deleteThirdPartInvoiceId() { this->thirdPartInvoiceId_ = nullptr;};
-    inline string thirdPartInvoiceId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartInvoiceId_, "") };
+    inline string getThirdPartInvoiceId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartInvoiceId_, "") };
     inline CarApplyAddShrinkRequest& setThirdPartInvoiceId(string thirdPartInvoiceId) { DARABONBA_PTR_SET_VALUE(thirdPartInvoiceId_, thirdPartInvoiceId) };
 
 
     // timesTotal Field Functions 
     bool hasTimesTotal() const { return this->timesTotal_ != nullptr;};
     void deleteTimesTotal() { this->timesTotal_ = nullptr;};
-    inline int32_t timesTotal() const { DARABONBA_PTR_GET_DEFAULT(timesTotal_, 0) };
+    inline int32_t getTimesTotal() const { DARABONBA_PTR_GET_DEFAULT(timesTotal_, 0) };
     inline CarApplyAddShrinkRequest& setTimesTotal(int32_t timesTotal) { DARABONBA_PTR_SET_VALUE(timesTotal_, timesTotal) };
 
 
     // timesType Field Functions 
     bool hasTimesType() const { return this->timesType_ != nullptr;};
     void deleteTimesType() { this->timesType_ = nullptr;};
-    inline int32_t timesType() const { DARABONBA_PTR_GET_DEFAULT(timesType_, 0) };
+    inline int32_t getTimesType() const { DARABONBA_PTR_GET_DEFAULT(timesType_, 0) };
     inline CarApplyAddShrinkRequest& setTimesType(int32_t timesType) { DARABONBA_PTR_SET_VALUE(timesType_, timesType) };
 
 
     // timesUsed Field Functions 
     bool hasTimesUsed() const { return this->timesUsed_ != nullptr;};
     void deleteTimesUsed() { this->timesUsed_ = nullptr;};
-    inline int32_t timesUsed() const { DARABONBA_PTR_GET_DEFAULT(timesUsed_, 0) };
+    inline int32_t getTimesUsed() const { DARABONBA_PTR_GET_DEFAULT(timesUsed_, 0) };
     inline CarApplyAddShrinkRequest& setTimesUsed(int32_t timesUsed) { DARABONBA_PTR_SET_VALUE(timesUsed_, timesUsed) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline CarApplyAddShrinkRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // travelerStandardShrink Field Functions 
     bool hasTravelerStandardShrink() const { return this->travelerStandardShrink_ != nullptr;};
     void deleteTravelerStandardShrink() { this->travelerStandardShrink_ = nullptr;};
-    inline string travelerStandardShrink() const { DARABONBA_PTR_GET_DEFAULT(travelerStandardShrink_, "") };
+    inline string getTravelerStandardShrink() const { DARABONBA_PTR_GET_DEFAULT(travelerStandardShrink_, "") };
     inline CarApplyAddShrinkRequest& setTravelerStandardShrink(string travelerStandardShrink) { DARABONBA_PTR_SET_VALUE(travelerStandardShrink_, travelerStandardShrink) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline CarApplyAddShrinkRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> cause_ = nullptr;
+    shared_ptr<string> cause_ {};
     // This parameter is required.
-    std::shared_ptr<string> city_ = nullptr;
-    std::shared_ptr<string> cityCodeSet_ = nullptr;
+    shared_ptr<string> city_ {};
+    shared_ptr<string> cityCodeSet_ {};
     // This parameter is required.
-    std::shared_ptr<string> date_ = nullptr;
-    std::shared_ptr<string> finishedDate_ = nullptr;
-    std::shared_ptr<string> projectCode_ = nullptr;
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> date_ {};
+    shared_ptr<string> finishedDate_ {};
+    shared_ptr<string> projectCode_ {};
+    shared_ptr<string> projectName_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
     // This parameter is required.
-    std::shared_ptr<string> thirdPartApplyId_ = nullptr;
-    std::shared_ptr<string> thirdPartCostCenterId_ = nullptr;
-    std::shared_ptr<string> thirdPartInvoiceId_ = nullptr;
+    shared_ptr<string> thirdPartApplyId_ {};
+    shared_ptr<string> thirdPartCostCenterId_ {};
+    shared_ptr<string> thirdPartInvoiceId_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> timesTotal_ = nullptr;
+    shared_ptr<int32_t> timesTotal_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> timesType_ = nullptr;
+    shared_ptr<int32_t> timesType_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> timesUsed_ = nullptr;
+    shared_ptr<int32_t> timesUsed_ {};
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
-    std::shared_ptr<string> travelerStandardShrink_ = nullptr;
+    shared_ptr<string> title_ {};
+    shared_ptr<string> travelerStandardShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

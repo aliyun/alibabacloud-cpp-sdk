@@ -35,42 +35,42 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applyId_ != nullptr
-        && this->bizCategory_ != nullptr && this->businessInstanceId_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->applyId_ == nullptr
+        && this->bizCategory_ == nullptr && this->businessInstanceId_ == nullptr && this->userId_ == nullptr; };
     // applyId Field Functions 
     bool hasApplyId() const { return this->applyId_ != nullptr;};
     void deleteApplyId() { this->applyId_ = nullptr;};
-    inline int64_t applyId() const { DARABONBA_PTR_GET_DEFAULT(applyId_, 0L) };
+    inline int64_t getApplyId() const { DARABONBA_PTR_GET_DEFAULT(applyId_, 0L) };
     inline CommonApplyQueryRequest& setApplyId(int64_t applyId) { DARABONBA_PTR_SET_VALUE(applyId_, applyId) };
 
 
     // bizCategory Field Functions 
     bool hasBizCategory() const { return this->bizCategory_ != nullptr;};
     void deleteBizCategory() { this->bizCategory_ = nullptr;};
-    inline int32_t bizCategory() const { DARABONBA_PTR_GET_DEFAULT(bizCategory_, 0) };
+    inline int32_t getBizCategory() const { DARABONBA_PTR_GET_DEFAULT(bizCategory_, 0) };
     inline CommonApplyQueryRequest& setBizCategory(int32_t bizCategory) { DARABONBA_PTR_SET_VALUE(bizCategory_, bizCategory) };
 
 
     // businessInstanceId Field Functions 
     bool hasBusinessInstanceId() const { return this->businessInstanceId_ != nullptr;};
     void deleteBusinessInstanceId() { this->businessInstanceId_ = nullptr;};
-    inline string businessInstanceId() const { DARABONBA_PTR_GET_DEFAULT(businessInstanceId_, "") };
+    inline string getBusinessInstanceId() const { DARABONBA_PTR_GET_DEFAULT(businessInstanceId_, "") };
     inline CommonApplyQueryRequest& setBusinessInstanceId(string businessInstanceId) { DARABONBA_PTR_SET_VALUE(businessInstanceId_, businessInstanceId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline CommonApplyQueryRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<int64_t> applyId_ = nullptr;
+    shared_ptr<int64_t> applyId_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> bizCategory_ = nullptr;
-    std::shared_ptr<string> businessInstanceId_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<int32_t> bizCategory_ {};
+    shared_ptr<string> businessInstanceId_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

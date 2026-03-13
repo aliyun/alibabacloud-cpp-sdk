@@ -32,13 +32,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commonHeaders_ != nullptr
-        && this->xAcsBtripAccessToken_ != nullptr; };
+    virtual bool empty() const override { return this->commonHeaders_ == nullptr
+        && this->xAcsBtripAccessToken_ == nullptr; };
     // commonHeaders Field Functions 
     bool hasCommonHeaders() const { return this->commonHeaders_ != nullptr;};
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};
-    inline const map<string, string> & commonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
-    inline map<string, string> commonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
+    inline const map<string, string> & getCommonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
+    inline map<string, string> getCommonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
     inline BaseCityInfoSearchHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
     inline BaseCityInfoSearchHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
 
@@ -46,13 +46,13 @@ namespace Models
     // xAcsBtripAccessToken Field Functions 
     bool hasXAcsBtripAccessToken() const { return this->xAcsBtripAccessToken_ != nullptr;};
     void deleteXAcsBtripAccessToken() { this->xAcsBtripAccessToken_ = nullptr;};
-    inline string xAcsBtripAccessToken() const { DARABONBA_PTR_GET_DEFAULT(xAcsBtripAccessToken_, "") };
+    inline string getXAcsBtripAccessToken() const { DARABONBA_PTR_GET_DEFAULT(xAcsBtripAccessToken_, "") };
     inline BaseCityInfoSearchHeaders& setXAcsBtripAccessToken(string xAcsBtripAccessToken) { DARABONBA_PTR_SET_VALUE(xAcsBtripAccessToken_, xAcsBtripAccessToken) };
 
 
   protected:
-    std::shared_ptr<map<string, string>> commonHeaders_ = nullptr;
-    std::shared_ptr<string> xAcsBtripAccessToken_ = nullptr;
+    shared_ptr<map<string, string>> commonHeaders_ {};
+    shared_ptr<string> xAcsBtripAccessToken_ {};
   };
 
   } // namespace Models

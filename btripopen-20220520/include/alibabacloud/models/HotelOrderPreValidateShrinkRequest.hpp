@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(item_id, itemId_);
       DARABONBA_PTR_TO_JSON(number_of_adults_per_room, numberOfAdultsPerRoom_);
       DARABONBA_PTR_TO_JSON(occupant_info_list, occupantInfoListShrink_);
+      DARABONBA_PTR_TO_JSON(rate_key, rateKey_);
       DARABONBA_PTR_TO_JSON(rate_plan_id, ratePlanId_);
       DARABONBA_PTR_TO_JSON(room_id, roomId_);
       DARABONBA_PTR_TO_JSON(room_num, roomNum_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(item_id, itemId_);
       DARABONBA_PTR_FROM_JSON(number_of_adults_per_room, numberOfAdultsPerRoom_);
       DARABONBA_PTR_FROM_JSON(occupant_info_list, occupantInfoListShrink_);
+      DARABONBA_PTR_FROM_JSON(rate_key, rateKey_);
       DARABONBA_PTR_FROM_JSON(rate_plan_id, ratePlanId_);
       DARABONBA_PTR_FROM_JSON(room_id, roomId_);
       DARABONBA_PTR_FROM_JSON(room_num, roomNum_);
@@ -53,126 +55,134 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->btripUserId_ != nullptr
-        && this->checkIn_ != nullptr && this->checkOut_ != nullptr && this->dailyListShrink_ != nullptr && this->itemId_ != nullptr && this->numberOfAdultsPerRoom_ != nullptr
-        && this->occupantInfoListShrink_ != nullptr && this->ratePlanId_ != nullptr && this->roomId_ != nullptr && this->roomNum_ != nullptr && this->searchRoomPrice_ != nullptr
-        && this->sellerId_ != nullptr && this->shid_ != nullptr; };
+    virtual bool empty() const override { return this->btripUserId_ == nullptr
+        && this->checkIn_ == nullptr && this->checkOut_ == nullptr && this->dailyListShrink_ == nullptr && this->itemId_ == nullptr && this->numberOfAdultsPerRoom_ == nullptr
+        && this->occupantInfoListShrink_ == nullptr && this->rateKey_ == nullptr && this->ratePlanId_ == nullptr && this->roomId_ == nullptr && this->roomNum_ == nullptr
+        && this->searchRoomPrice_ == nullptr && this->sellerId_ == nullptr && this->shid_ == nullptr; };
     // btripUserId Field Functions 
     bool hasBtripUserId() const { return this->btripUserId_ != nullptr;};
     void deleteBtripUserId() { this->btripUserId_ = nullptr;};
-    inline string btripUserId() const { DARABONBA_PTR_GET_DEFAULT(btripUserId_, "") };
+    inline string getBtripUserId() const { DARABONBA_PTR_GET_DEFAULT(btripUserId_, "") };
     inline HotelOrderPreValidateShrinkRequest& setBtripUserId(string btripUserId) { DARABONBA_PTR_SET_VALUE(btripUserId_, btripUserId) };
 
 
     // checkIn Field Functions 
     bool hasCheckIn() const { return this->checkIn_ != nullptr;};
     void deleteCheckIn() { this->checkIn_ = nullptr;};
-    inline string checkIn() const { DARABONBA_PTR_GET_DEFAULT(checkIn_, "") };
+    inline string getCheckIn() const { DARABONBA_PTR_GET_DEFAULT(checkIn_, "") };
     inline HotelOrderPreValidateShrinkRequest& setCheckIn(string checkIn) { DARABONBA_PTR_SET_VALUE(checkIn_, checkIn) };
 
 
     // checkOut Field Functions 
     bool hasCheckOut() const { return this->checkOut_ != nullptr;};
     void deleteCheckOut() { this->checkOut_ = nullptr;};
-    inline string checkOut() const { DARABONBA_PTR_GET_DEFAULT(checkOut_, "") };
+    inline string getCheckOut() const { DARABONBA_PTR_GET_DEFAULT(checkOut_, "") };
     inline HotelOrderPreValidateShrinkRequest& setCheckOut(string checkOut) { DARABONBA_PTR_SET_VALUE(checkOut_, checkOut) };
 
 
     // dailyListShrink Field Functions 
     bool hasDailyListShrink() const { return this->dailyListShrink_ != nullptr;};
     void deleteDailyListShrink() { this->dailyListShrink_ = nullptr;};
-    inline string dailyListShrink() const { DARABONBA_PTR_GET_DEFAULT(dailyListShrink_, "") };
+    inline string getDailyListShrink() const { DARABONBA_PTR_GET_DEFAULT(dailyListShrink_, "") };
     inline HotelOrderPreValidateShrinkRequest& setDailyListShrink(string dailyListShrink) { DARABONBA_PTR_SET_VALUE(dailyListShrink_, dailyListShrink) };
 
 
     // itemId Field Functions 
     bool hasItemId() const { return this->itemId_ != nullptr;};
     void deleteItemId() { this->itemId_ = nullptr;};
-    inline int64_t itemId() const { DARABONBA_PTR_GET_DEFAULT(itemId_, 0L) };
+    inline int64_t getItemId() const { DARABONBA_PTR_GET_DEFAULT(itemId_, 0L) };
     inline HotelOrderPreValidateShrinkRequest& setItemId(int64_t itemId) { DARABONBA_PTR_SET_VALUE(itemId_, itemId) };
 
 
     // numberOfAdultsPerRoom Field Functions 
     bool hasNumberOfAdultsPerRoom() const { return this->numberOfAdultsPerRoom_ != nullptr;};
     void deleteNumberOfAdultsPerRoom() { this->numberOfAdultsPerRoom_ = nullptr;};
-    inline int32_t numberOfAdultsPerRoom() const { DARABONBA_PTR_GET_DEFAULT(numberOfAdultsPerRoom_, 0) };
+    inline int32_t getNumberOfAdultsPerRoom() const { DARABONBA_PTR_GET_DEFAULT(numberOfAdultsPerRoom_, 0) };
     inline HotelOrderPreValidateShrinkRequest& setNumberOfAdultsPerRoom(int32_t numberOfAdultsPerRoom) { DARABONBA_PTR_SET_VALUE(numberOfAdultsPerRoom_, numberOfAdultsPerRoom) };
 
 
     // occupantInfoListShrink Field Functions 
     bool hasOccupantInfoListShrink() const { return this->occupantInfoListShrink_ != nullptr;};
     void deleteOccupantInfoListShrink() { this->occupantInfoListShrink_ = nullptr;};
-    inline string occupantInfoListShrink() const { DARABONBA_PTR_GET_DEFAULT(occupantInfoListShrink_, "") };
+    inline string getOccupantInfoListShrink() const { DARABONBA_PTR_GET_DEFAULT(occupantInfoListShrink_, "") };
     inline HotelOrderPreValidateShrinkRequest& setOccupantInfoListShrink(string occupantInfoListShrink) { DARABONBA_PTR_SET_VALUE(occupantInfoListShrink_, occupantInfoListShrink) };
+
+
+    // rateKey Field Functions 
+    bool hasRateKey() const { return this->rateKey_ != nullptr;};
+    void deleteRateKey() { this->rateKey_ = nullptr;};
+    inline string getRateKey() const { DARABONBA_PTR_GET_DEFAULT(rateKey_, "") };
+    inline HotelOrderPreValidateShrinkRequest& setRateKey(string rateKey) { DARABONBA_PTR_SET_VALUE(rateKey_, rateKey) };
 
 
     // ratePlanId Field Functions 
     bool hasRatePlanId() const { return this->ratePlanId_ != nullptr;};
     void deleteRatePlanId() { this->ratePlanId_ = nullptr;};
-    inline int64_t ratePlanId() const { DARABONBA_PTR_GET_DEFAULT(ratePlanId_, 0L) };
+    inline int64_t getRatePlanId() const { DARABONBA_PTR_GET_DEFAULT(ratePlanId_, 0L) };
     inline HotelOrderPreValidateShrinkRequest& setRatePlanId(int64_t ratePlanId) { DARABONBA_PTR_SET_VALUE(ratePlanId_, ratePlanId) };
 
 
     // roomId Field Functions 
     bool hasRoomId() const { return this->roomId_ != nullptr;};
     void deleteRoomId() { this->roomId_ = nullptr;};
-    inline int64_t roomId() const { DARABONBA_PTR_GET_DEFAULT(roomId_, 0L) };
+    inline int64_t getRoomId() const { DARABONBA_PTR_GET_DEFAULT(roomId_, 0L) };
     inline HotelOrderPreValidateShrinkRequest& setRoomId(int64_t roomId) { DARABONBA_PTR_SET_VALUE(roomId_, roomId) };
 
 
     // roomNum Field Functions 
     bool hasRoomNum() const { return this->roomNum_ != nullptr;};
     void deleteRoomNum() { this->roomNum_ = nullptr;};
-    inline int32_t roomNum() const { DARABONBA_PTR_GET_DEFAULT(roomNum_, 0) };
+    inline int32_t getRoomNum() const { DARABONBA_PTR_GET_DEFAULT(roomNum_, 0) };
     inline HotelOrderPreValidateShrinkRequest& setRoomNum(int32_t roomNum) { DARABONBA_PTR_SET_VALUE(roomNum_, roomNum) };
 
 
     // searchRoomPrice Field Functions 
     bool hasSearchRoomPrice() const { return this->searchRoomPrice_ != nullptr;};
     void deleteSearchRoomPrice() { this->searchRoomPrice_ = nullptr;};
-    inline int64_t searchRoomPrice() const { DARABONBA_PTR_GET_DEFAULT(searchRoomPrice_, 0L) };
+    inline int64_t getSearchRoomPrice() const { DARABONBA_PTR_GET_DEFAULT(searchRoomPrice_, 0L) };
     inline HotelOrderPreValidateShrinkRequest& setSearchRoomPrice(int64_t searchRoomPrice) { DARABONBA_PTR_SET_VALUE(searchRoomPrice_, searchRoomPrice) };
 
 
     // sellerId Field Functions 
     bool hasSellerId() const { return this->sellerId_ != nullptr;};
     void deleteSellerId() { this->sellerId_ = nullptr;};
-    inline int64_t sellerId() const { DARABONBA_PTR_GET_DEFAULT(sellerId_, 0L) };
+    inline int64_t getSellerId() const { DARABONBA_PTR_GET_DEFAULT(sellerId_, 0L) };
     inline HotelOrderPreValidateShrinkRequest& setSellerId(int64_t sellerId) { DARABONBA_PTR_SET_VALUE(sellerId_, sellerId) };
 
 
     // shid Field Functions 
     bool hasShid() const { return this->shid_ != nullptr;};
     void deleteShid() { this->shid_ = nullptr;};
-    inline int64_t shid() const { DARABONBA_PTR_GET_DEFAULT(shid_, 0L) };
+    inline int64_t getShid() const { DARABONBA_PTR_GET_DEFAULT(shid_, 0L) };
     inline HotelOrderPreValidateShrinkRequest& setShid(int64_t shid) { DARABONBA_PTR_SET_VALUE(shid_, shid) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> btripUserId_ = nullptr;
+    shared_ptr<string> btripUserId_ {};
     // This parameter is required.
-    std::shared_ptr<string> checkIn_ = nullptr;
+    shared_ptr<string> checkIn_ {};
     // This parameter is required.
-    std::shared_ptr<string> checkOut_ = nullptr;
+    shared_ptr<string> checkOut_ {};
     // This parameter is required.
-    std::shared_ptr<string> dailyListShrink_ = nullptr;
+    shared_ptr<string> dailyListShrink_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> itemId_ = nullptr;
-    std::shared_ptr<int32_t> numberOfAdultsPerRoom_ = nullptr;
-    std::shared_ptr<string> occupantInfoListShrink_ = nullptr;
+    shared_ptr<int64_t> itemId_ {};
+    shared_ptr<int32_t> numberOfAdultsPerRoom_ {};
+    shared_ptr<string> occupantInfoListShrink_ {};
+    shared_ptr<string> rateKey_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> ratePlanId_ = nullptr;
+    shared_ptr<int64_t> ratePlanId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> roomId_ = nullptr;
+    shared_ptr<int64_t> roomId_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> roomNum_ = nullptr;
+    shared_ptr<int32_t> roomNum_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> searchRoomPrice_ = nullptr;
+    shared_ptr<int64_t> searchRoomPrice_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> sellerId_ = nullptr;
+    shared_ptr<int64_t> sellerId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> shid_ = nullptr;
+    shared_ptr<int64_t> shid_ {};
   };
 
   } // namespace Models

@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->roleId_ != nullptr
-        && this->roleName_ != nullptr; };
+    virtual bool empty() const override { return this->roleId_ == nullptr
+        && this->roleName_ == nullptr; };
     // roleId Field Functions 
     bool hasRoleId() const { return this->roleId_ != nullptr;};
     void deleteRoleId() { this->roleId_ = nullptr;};
-    inline string roleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, "") };
+    inline string getRoleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, "") };
     inline CreateCustomRoleRequest& setRoleId(string roleId) { DARABONBA_PTR_SET_VALUE(roleId_, roleId) };
 
 
     // roleName Field Functions 
     bool hasRoleName() const { return this->roleName_ != nullptr;};
     void deleteRoleName() { this->roleName_ = nullptr;};
-    inline string roleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
+    inline string getRoleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
     inline CreateCustomRoleRequest& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> roleId_ = nullptr;
+    shared_ptr<string> roleId_ {};
     // This parameter is required.
-    std::shared_ptr<string> roleName_ = nullptr;
+    shared_ptr<string> roleName_ {};
   };
 
   } // namespace Models

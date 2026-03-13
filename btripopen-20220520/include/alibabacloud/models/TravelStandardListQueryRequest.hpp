@@ -35,43 +35,43 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fromGroup_ != nullptr
-        && this->pageNo_ != nullptr && this->pageSize_ != nullptr && this->ruleName_ != nullptr; };
+    virtual bool empty() const override { return this->fromGroup_ == nullptr
+        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->ruleName_ == nullptr; };
     // fromGroup Field Functions 
     bool hasFromGroup() const { return this->fromGroup_ != nullptr;};
     void deleteFromGroup() { this->fromGroup_ = nullptr;};
-    inline bool fromGroup() const { DARABONBA_PTR_GET_DEFAULT(fromGroup_, false) };
+    inline bool getFromGroup() const { DARABONBA_PTR_GET_DEFAULT(fromGroup_, false) };
     inline TravelStandardListQueryRequest& setFromGroup(bool fromGroup) { DARABONBA_PTR_SET_VALUE(fromGroup_, fromGroup) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline TravelStandardListQueryRequest& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline TravelStandardListQueryRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline TravelStandardListQueryRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
   protected:
-    std::shared_ptr<bool> fromGroup_ = nullptr;
+    shared_ptr<bool> fromGroup_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
+    shared_ptr<int32_t> pageNo_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> ruleName_ {};
   };
 
   } // namespace Models

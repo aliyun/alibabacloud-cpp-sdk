@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_TRAVELSTANDARDRELATEADDREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/TravelStandardRelateAddRequestAddList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,36 +34,80 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addList_ != nullptr
-        && this->fromGroup_ != nullptr && this->ruleId_ != nullptr; };
+    class AddList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AddList& obj) { 
+        DARABONBA_PTR_TO_JSON(entity_id, entityId_);
+        DARABONBA_PTR_TO_JSON(entity_type, entityType_);
+      };
+      friend void from_json(const Darabonba::Json& j, AddList& obj) { 
+        DARABONBA_PTR_FROM_JSON(entity_id, entityId_);
+        DARABONBA_PTR_FROM_JSON(entity_type, entityType_);
+      };
+      AddList() = default ;
+      AddList(const AddList &) = default ;
+      AddList(AddList &&) = default ;
+      AddList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AddList() = default ;
+      AddList& operator=(const AddList &) = default ;
+      AddList& operator=(AddList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->entityId_ == nullptr
+        && this->entityType_ == nullptr; };
+      // entityId Field Functions 
+      bool hasEntityId() const { return this->entityId_ != nullptr;};
+      void deleteEntityId() { this->entityId_ = nullptr;};
+      inline string getEntityId() const { DARABONBA_PTR_GET_DEFAULT(entityId_, "") };
+      inline AddList& setEntityId(string entityId) { DARABONBA_PTR_SET_VALUE(entityId_, entityId) };
+
+
+      // entityType Field Functions 
+      bool hasEntityType() const { return this->entityType_ != nullptr;};
+      void deleteEntityType() { this->entityType_ = nullptr;};
+      inline string getEntityType() const { DARABONBA_PTR_GET_DEFAULT(entityType_, "") };
+      inline AddList& setEntityType(string entityType) { DARABONBA_PTR_SET_VALUE(entityType_, entityType) };
+
+
+    protected:
+      // This parameter is required.
+      shared_ptr<string> entityId_ {};
+      // This parameter is required.
+      shared_ptr<string> entityType_ {};
+    };
+
+    virtual bool empty() const override { return this->addList_ == nullptr
+        && this->fromGroup_ == nullptr && this->ruleId_ == nullptr; };
     // addList Field Functions 
     bool hasAddList() const { return this->addList_ != nullptr;};
     void deleteAddList() { this->addList_ = nullptr;};
-    inline const vector<TravelStandardRelateAddRequestAddList> & addList() const { DARABONBA_PTR_GET_CONST(addList_, vector<TravelStandardRelateAddRequestAddList>) };
-    inline vector<TravelStandardRelateAddRequestAddList> addList() { DARABONBA_PTR_GET(addList_, vector<TravelStandardRelateAddRequestAddList>) };
-    inline TravelStandardRelateAddRequest& setAddList(const vector<TravelStandardRelateAddRequestAddList> & addList) { DARABONBA_PTR_SET_VALUE(addList_, addList) };
-    inline TravelStandardRelateAddRequest& setAddList(vector<TravelStandardRelateAddRequestAddList> && addList) { DARABONBA_PTR_SET_RVALUE(addList_, addList) };
+    inline const vector<TravelStandardRelateAddRequest::AddList> & getAddList() const { DARABONBA_PTR_GET_CONST(addList_, vector<TravelStandardRelateAddRequest::AddList>) };
+    inline vector<TravelStandardRelateAddRequest::AddList> getAddList() { DARABONBA_PTR_GET(addList_, vector<TravelStandardRelateAddRequest::AddList>) };
+    inline TravelStandardRelateAddRequest& setAddList(const vector<TravelStandardRelateAddRequest::AddList> & addList) { DARABONBA_PTR_SET_VALUE(addList_, addList) };
+    inline TravelStandardRelateAddRequest& setAddList(vector<TravelStandardRelateAddRequest::AddList> && addList) { DARABONBA_PTR_SET_RVALUE(addList_, addList) };
 
 
     // fromGroup Field Functions 
     bool hasFromGroup() const { return this->fromGroup_ != nullptr;};
     void deleteFromGroup() { this->fromGroup_ = nullptr;};
-    inline bool fromGroup() const { DARABONBA_PTR_GET_DEFAULT(fromGroup_, false) };
+    inline bool getFromGroup() const { DARABONBA_PTR_GET_DEFAULT(fromGroup_, false) };
     inline TravelStandardRelateAddRequest& setFromGroup(bool fromGroup) { DARABONBA_PTR_SET_VALUE(fromGroup_, fromGroup) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline int64_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
+    inline int64_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
     inline TravelStandardRelateAddRequest& setRuleId(int64_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
   protected:
-    std::shared_ptr<vector<TravelStandardRelateAddRequestAddList>> addList_ = nullptr;
-    std::shared_ptr<bool> fromGroup_ = nullptr;
+    shared_ptr<vector<TravelStandardRelateAddRequest::AddList>> addList_ {};
+    shared_ptr<bool> fromGroup_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> ruleId_ = nullptr;
+    shared_ptr<int64_t> ruleId_ {};
   };
 
   } // namespace Models

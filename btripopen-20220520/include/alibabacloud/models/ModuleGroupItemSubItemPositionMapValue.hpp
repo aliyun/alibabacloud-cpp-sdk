@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->journeyIndex_ != nullptr
-        && this->segmentIndex_ != nullptr; };
+    virtual bool empty() const override { return this->journeyIndex_ == nullptr
+        && this->segmentIndex_ == nullptr; };
     // journeyIndex Field Functions 
     bool hasJourneyIndex() const { return this->journeyIndex_ != nullptr;};
     void deleteJourneyIndex() { this->journeyIndex_ = nullptr;};
-    inline int32_t journeyIndex() const { DARABONBA_PTR_GET_DEFAULT(journeyIndex_, 0) };
+    inline int32_t getJourneyIndex() const { DARABONBA_PTR_GET_DEFAULT(journeyIndex_, 0) };
     inline ModuleGroupItemSubItemPositionMapValue& setJourneyIndex(int32_t journeyIndex) { DARABONBA_PTR_SET_VALUE(journeyIndex_, journeyIndex) };
 
 
     // segmentIndex Field Functions 
     bool hasSegmentIndex() const { return this->segmentIndex_ != nullptr;};
     void deleteSegmentIndex() { this->segmentIndex_ = nullptr;};
-    inline int32_t segmentIndex() const { DARABONBA_PTR_GET_DEFAULT(segmentIndex_, 0) };
+    inline int32_t getSegmentIndex() const { DARABONBA_PTR_GET_DEFAULT(segmentIndex_, 0) };
     inline ModuleGroupItemSubItemPositionMapValue& setSegmentIndex(int32_t segmentIndex) { DARABONBA_PTR_SET_VALUE(segmentIndex_, segmentIndex) };
 
 
   protected:
-    std::shared_ptr<int32_t> journeyIndex_ = nullptr;
-    std::shared_ptr<int32_t> segmentIndex_ = nullptr;
+    shared_ptr<int32_t> journeyIndex_ {};
+    shared_ptr<int32_t> segmentIndex_ {};
   };
 
   } // namespace Models

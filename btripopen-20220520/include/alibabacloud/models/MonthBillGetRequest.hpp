@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->billBatch_ != nullptr
-        && this->billMonth_ != nullptr; };
+    virtual bool empty() const override { return this->billBatch_ == nullptr
+        && this->billMonth_ == nullptr; };
     // billBatch Field Functions 
     bool hasBillBatch() const { return this->billBatch_ != nullptr;};
     void deleteBillBatch() { this->billBatch_ = nullptr;};
-    inline string billBatch() const { DARABONBA_PTR_GET_DEFAULT(billBatch_, "") };
+    inline string getBillBatch() const { DARABONBA_PTR_GET_DEFAULT(billBatch_, "") };
     inline MonthBillGetRequest& setBillBatch(string billBatch) { DARABONBA_PTR_SET_VALUE(billBatch_, billBatch) };
 
 
     // billMonth Field Functions 
     bool hasBillMonth() const { return this->billMonth_ != nullptr;};
     void deleteBillMonth() { this->billMonth_ = nullptr;};
-    inline string billMonth() const { DARABONBA_PTR_GET_DEFAULT(billMonth_, "") };
+    inline string getBillMonth() const { DARABONBA_PTR_GET_DEFAULT(billMonth_, "") };
     inline MonthBillGetRequest& setBillMonth(string billMonth) { DARABONBA_PTR_SET_VALUE(billMonth_, billMonth) };
 
 
   protected:
-    std::shared_ptr<string> billBatch_ = nullptr;
-    std::shared_ptr<string> billMonth_ = nullptr;
+    shared_ptr<string> billBatch_ {};
+    shared_ptr<string> billMonth_ {};
   };
 
   } // namespace Models

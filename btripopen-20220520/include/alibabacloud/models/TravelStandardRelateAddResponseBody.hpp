@@ -37,50 +37,50 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->message_ != nullptr
-        && this->requestId_ != nullptr && this->resultCode_ != nullptr && this->success_ != nullptr && this->traceId_ != nullptr; };
+    virtual bool empty() const override { return this->message_ == nullptr
+        && this->requestId_ == nullptr && this->resultCode_ == nullptr && this->success_ == nullptr && this->traceId_ == nullptr; };
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline TravelStandardRelateAddResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline TravelStandardRelateAddResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resultCode Field Functions 
     bool hasResultCode() const { return this->resultCode_ != nullptr;};
     void deleteResultCode() { this->resultCode_ = nullptr;};
-    inline int32_t resultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, 0) };
+    inline int32_t getResultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, 0) };
     inline TravelStandardRelateAddResponseBody& setResultCode(int32_t resultCode) { DARABONBA_PTR_SET_VALUE(resultCode_, resultCode) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline TravelStandardRelateAddResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // traceId Field Functions 
     bool hasTraceId() const { return this->traceId_ != nullptr;};
     void deleteTraceId() { this->traceId_ = nullptr;};
-    inline string traceId() const { DARABONBA_PTR_GET_DEFAULT(traceId_, "") };
+    inline string getTraceId() const { DARABONBA_PTR_GET_DEFAULT(traceId_, "") };
     inline TravelStandardRelateAddResponseBody& setTraceId(string traceId) { DARABONBA_PTR_SET_VALUE(traceId_, traceId) };
 
 
   protected:
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> resultCode_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> resultCode_ {};
+    shared_ptr<bool> success_ {};
     // traceId
-    std::shared_ptr<string> traceId_ = nullptr;
+    shared_ptr<string> traceId_ {};
   };
 
   } // namespace Models

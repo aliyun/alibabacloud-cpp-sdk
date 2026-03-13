@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->roleId_ != nullptr
-        && this->userIdListShrink_ != nullptr; };
+    virtual bool empty() const override { return this->roleId_ == nullptr
+        && this->userIdListShrink_ == nullptr; };
     // roleId Field Functions 
     bool hasRoleId() const { return this->roleId_ != nullptr;};
     void deleteRoleId() { this->roleId_ = nullptr;};
-    inline string roleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, "") };
+    inline string getRoleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, "") };
     inline AddEmployeesToCustomRoleShrinkRequest& setRoleId(string roleId) { DARABONBA_PTR_SET_VALUE(roleId_, roleId) };
 
 
     // userIdListShrink Field Functions 
     bool hasUserIdListShrink() const { return this->userIdListShrink_ != nullptr;};
     void deleteUserIdListShrink() { this->userIdListShrink_ = nullptr;};
-    inline string userIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(userIdListShrink_, "") };
+    inline string getUserIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(userIdListShrink_, "") };
     inline AddEmployeesToCustomRoleShrinkRequest& setUserIdListShrink(string userIdListShrink) { DARABONBA_PTR_SET_VALUE(userIdListShrink_, userIdListShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> roleId_ = nullptr;
+    shared_ptr<string> roleId_ {};
     // This parameter is required.
-    std::shared_ptr<string> userIdListShrink_ = nullptr;
+    shared_ptr<string> userIdListShrink_ {};
   };
 
   } // namespace Models

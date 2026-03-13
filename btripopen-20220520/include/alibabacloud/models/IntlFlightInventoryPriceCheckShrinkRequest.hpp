@@ -39,60 +39,60 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->btripUserId_ != nullptr
-        && this->buyerName_ != nullptr && this->isvName_ != nullptr && this->orderPrice_ != nullptr && this->otaItemId_ != nullptr && this->passengerListShrink_ != nullptr; };
+    virtual bool empty() const override { return this->btripUserId_ == nullptr
+        && this->buyerName_ == nullptr && this->isvName_ == nullptr && this->orderPrice_ == nullptr && this->otaItemId_ == nullptr && this->passengerListShrink_ == nullptr; };
     // btripUserId Field Functions 
     bool hasBtripUserId() const { return this->btripUserId_ != nullptr;};
     void deleteBtripUserId() { this->btripUserId_ = nullptr;};
-    inline string btripUserId() const { DARABONBA_PTR_GET_DEFAULT(btripUserId_, "") };
+    inline string getBtripUserId() const { DARABONBA_PTR_GET_DEFAULT(btripUserId_, "") };
     inline IntlFlightInventoryPriceCheckShrinkRequest& setBtripUserId(string btripUserId) { DARABONBA_PTR_SET_VALUE(btripUserId_, btripUserId) };
 
 
     // buyerName Field Functions 
     bool hasBuyerName() const { return this->buyerName_ != nullptr;};
     void deleteBuyerName() { this->buyerName_ = nullptr;};
-    inline string buyerName() const { DARABONBA_PTR_GET_DEFAULT(buyerName_, "") };
+    inline string getBuyerName() const { DARABONBA_PTR_GET_DEFAULT(buyerName_, "") };
     inline IntlFlightInventoryPriceCheckShrinkRequest& setBuyerName(string buyerName) { DARABONBA_PTR_SET_VALUE(buyerName_, buyerName) };
 
 
     // isvName Field Functions 
     bool hasIsvName() const { return this->isvName_ != nullptr;};
     void deleteIsvName() { this->isvName_ = nullptr;};
-    inline string isvName() const { DARABONBA_PTR_GET_DEFAULT(isvName_, "") };
+    inline string getIsvName() const { DARABONBA_PTR_GET_DEFAULT(isvName_, "") };
     inline IntlFlightInventoryPriceCheckShrinkRequest& setIsvName(string isvName) { DARABONBA_PTR_SET_VALUE(isvName_, isvName) };
 
 
     // orderPrice Field Functions 
     bool hasOrderPrice() const { return this->orderPrice_ != nullptr;};
     void deleteOrderPrice() { this->orderPrice_ = nullptr;};
-    inline int64_t orderPrice() const { DARABONBA_PTR_GET_DEFAULT(orderPrice_, 0L) };
+    inline int64_t getOrderPrice() const { DARABONBA_PTR_GET_DEFAULT(orderPrice_, 0L) };
     inline IntlFlightInventoryPriceCheckShrinkRequest& setOrderPrice(int64_t orderPrice) { DARABONBA_PTR_SET_VALUE(orderPrice_, orderPrice) };
 
 
     // otaItemId Field Functions 
     bool hasOtaItemId() const { return this->otaItemId_ != nullptr;};
     void deleteOtaItemId() { this->otaItemId_ = nullptr;};
-    inline string otaItemId() const { DARABONBA_PTR_GET_DEFAULT(otaItemId_, "") };
+    inline string getOtaItemId() const { DARABONBA_PTR_GET_DEFAULT(otaItemId_, "") };
     inline IntlFlightInventoryPriceCheckShrinkRequest& setOtaItemId(string otaItemId) { DARABONBA_PTR_SET_VALUE(otaItemId_, otaItemId) };
 
 
     // passengerListShrink Field Functions 
     bool hasPassengerListShrink() const { return this->passengerListShrink_ != nullptr;};
     void deletePassengerListShrink() { this->passengerListShrink_ = nullptr;};
-    inline string passengerListShrink() const { DARABONBA_PTR_GET_DEFAULT(passengerListShrink_, "") };
+    inline string getPassengerListShrink() const { DARABONBA_PTR_GET_DEFAULT(passengerListShrink_, "") };
     inline IntlFlightInventoryPriceCheckShrinkRequest& setPassengerListShrink(string passengerListShrink) { DARABONBA_PTR_SET_VALUE(passengerListShrink_, passengerListShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> btripUserId_ = nullptr;
-    std::shared_ptr<string> buyerName_ = nullptr;
-    std::shared_ptr<string> isvName_ = nullptr;
-    std::shared_ptr<int64_t> orderPrice_ = nullptr;
+    shared_ptr<string> btripUserId_ {};
+    shared_ptr<string> buyerName_ {};
+    shared_ptr<string> isvName_ {};
+    shared_ptr<int64_t> orderPrice_ {};
     // This parameter is required.
-    std::shared_ptr<string> otaItemId_ = nullptr;
+    shared_ptr<string> otaItemId_ {};
     // This parameter is required.
-    std::shared_ptr<string> passengerListShrink_ = nullptr;
+    shared_ptr<string> passengerListShrink_ {};
   };
 
   } // namespace Models

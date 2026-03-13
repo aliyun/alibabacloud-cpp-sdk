@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applyId_ != nullptr
-        && this->businessInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->applyId_ == nullptr
+        && this->businessInstanceId_ == nullptr; };
     // applyId Field Functions 
     bool hasApplyId() const { return this->applyId_ != nullptr;};
     void deleteApplyId() { this->applyId_ = nullptr;};
-    inline int64_t applyId() const { DARABONBA_PTR_GET_DEFAULT(applyId_, 0L) };
+    inline int64_t getApplyId() const { DARABONBA_PTR_GET_DEFAULT(applyId_, 0L) };
     inline FlightExceedApplyQueryRequest& setApplyId(int64_t applyId) { DARABONBA_PTR_SET_VALUE(applyId_, applyId) };
 
 
     // businessInstanceId Field Functions 
     bool hasBusinessInstanceId() const { return this->businessInstanceId_ != nullptr;};
     void deleteBusinessInstanceId() { this->businessInstanceId_ = nullptr;};
-    inline string businessInstanceId() const { DARABONBA_PTR_GET_DEFAULT(businessInstanceId_, "") };
+    inline string getBusinessInstanceId() const { DARABONBA_PTR_GET_DEFAULT(businessInstanceId_, "") };
     inline FlightExceedApplyQueryRequest& setBusinessInstanceId(string businessInstanceId) { DARABONBA_PTR_SET_VALUE(businessInstanceId_, businessInstanceId) };
 
 
   protected:
-    std::shared_ptr<int64_t> applyId_ = nullptr;
-    std::shared_ptr<string> businessInstanceId_ = nullptr;
+    shared_ptr<int64_t> applyId_ {};
+    shared_ptr<string> businessInstanceId_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_TRAINORDERCREATERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_TRAINORDERCREATERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/TrainOrderCreateResponseBodyModule.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,61 +39,123 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->message_ != nullptr && this->module_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr && this->traceId_ != nullptr; };
+    class Module : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Module& obj) { 
+        DARABONBA_PTR_TO_JSON(order_id, orderId_);
+        DARABONBA_PTR_TO_JSON(out_order_id, outOrderId_);
+        DARABONBA_PTR_TO_JSON(pay_status, payStatus_);
+        DARABONBA_PTR_TO_JSON(service_fee, serviceFee_);
+      };
+      friend void from_json(const Darabonba::Json& j, Module& obj) { 
+        DARABONBA_PTR_FROM_JSON(order_id, orderId_);
+        DARABONBA_PTR_FROM_JSON(out_order_id, outOrderId_);
+        DARABONBA_PTR_FROM_JSON(pay_status, payStatus_);
+        DARABONBA_PTR_FROM_JSON(service_fee, serviceFee_);
+      };
+      Module() = default ;
+      Module(const Module &) = default ;
+      Module(Module &&) = default ;
+      Module(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Module() = default ;
+      Module& operator=(const Module &) = default ;
+      Module& operator=(Module &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->orderId_ == nullptr
+        && this->outOrderId_ == nullptr && this->payStatus_ == nullptr && this->serviceFee_ == nullptr; };
+      // orderId Field Functions 
+      bool hasOrderId() const { return this->orderId_ != nullptr;};
+      void deleteOrderId() { this->orderId_ = nullptr;};
+      inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+      inline Module& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
+
+
+      // outOrderId Field Functions 
+      bool hasOutOrderId() const { return this->outOrderId_ != nullptr;};
+      void deleteOutOrderId() { this->outOrderId_ = nullptr;};
+      inline string getOutOrderId() const { DARABONBA_PTR_GET_DEFAULT(outOrderId_, "") };
+      inline Module& setOutOrderId(string outOrderId) { DARABONBA_PTR_SET_VALUE(outOrderId_, outOrderId) };
+
+
+      // payStatus Field Functions 
+      bool hasPayStatus() const { return this->payStatus_ != nullptr;};
+      void deletePayStatus() { this->payStatus_ = nullptr;};
+      inline string getPayStatus() const { DARABONBA_PTR_GET_DEFAULT(payStatus_, "") };
+      inline Module& setPayStatus(string payStatus) { DARABONBA_PTR_SET_VALUE(payStatus_, payStatus) };
+
+
+      // serviceFee Field Functions 
+      bool hasServiceFee() const { return this->serviceFee_ != nullptr;};
+      void deleteServiceFee() { this->serviceFee_ = nullptr;};
+      inline int64_t getServiceFee() const { DARABONBA_PTR_GET_DEFAULT(serviceFee_, 0L) };
+      inline Module& setServiceFee(int64_t serviceFee) { DARABONBA_PTR_SET_VALUE(serviceFee_, serviceFee) };
+
+
+    protected:
+      shared_ptr<string> orderId_ {};
+      shared_ptr<string> outOrderId_ {};
+      shared_ptr<string> payStatus_ {};
+      shared_ptr<int64_t> serviceFee_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->message_ == nullptr && this->module_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr && this->traceId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline TrainOrderCreateResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline TrainOrderCreateResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // module Field Functions 
     bool hasModule() const { return this->module_ != nullptr;};
     void deleteModule() { this->module_ = nullptr;};
-    inline const TrainOrderCreateResponseBodyModule & module() const { DARABONBA_PTR_GET_CONST(module_, TrainOrderCreateResponseBodyModule) };
-    inline TrainOrderCreateResponseBodyModule module() { DARABONBA_PTR_GET(module_, TrainOrderCreateResponseBodyModule) };
-    inline TrainOrderCreateResponseBody& setModule(const TrainOrderCreateResponseBodyModule & module) { DARABONBA_PTR_SET_VALUE(module_, module) };
-    inline TrainOrderCreateResponseBody& setModule(TrainOrderCreateResponseBodyModule && module) { DARABONBA_PTR_SET_RVALUE(module_, module) };
+    inline const TrainOrderCreateResponseBody::Module & getModule() const { DARABONBA_PTR_GET_CONST(module_, TrainOrderCreateResponseBody::Module) };
+    inline TrainOrderCreateResponseBody::Module getModule() { DARABONBA_PTR_GET(module_, TrainOrderCreateResponseBody::Module) };
+    inline TrainOrderCreateResponseBody& setModule(const TrainOrderCreateResponseBody::Module & module) { DARABONBA_PTR_SET_VALUE(module_, module) };
+    inline TrainOrderCreateResponseBody& setModule(TrainOrderCreateResponseBody::Module && module) { DARABONBA_PTR_SET_RVALUE(module_, module) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline TrainOrderCreateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline TrainOrderCreateResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // traceId Field Functions 
     bool hasTraceId() const { return this->traceId_ != nullptr;};
     void deleteTraceId() { this->traceId_ = nullptr;};
-    inline string traceId() const { DARABONBA_PTR_GET_DEFAULT(traceId_, "") };
+    inline string getTraceId() const { DARABONBA_PTR_GET_DEFAULT(traceId_, "") };
     inline TrainOrderCreateResponseBody& setTraceId(string traceId) { DARABONBA_PTR_SET_VALUE(traceId_, traceId) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<string> message_ {};
     // module
-    std::shared_ptr<TrainOrderCreateResponseBodyModule> module_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<TrainOrderCreateResponseBody::Module> module_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
     // traceId
-    std::shared_ptr<string> traceId_ = nullptr;
+    shared_ptr<string> traceId_ {};
   };
 
   } // namespace Models

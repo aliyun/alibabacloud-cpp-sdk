@@ -33,33 +33,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->thirdPartId_ != nullptr
-        && this->title_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->thirdPartId_ == nullptr
+        && this->title_ == nullptr && this->userId_ == nullptr; };
     // thirdPartId Field Functions 
     bool hasThirdPartId() const { return this->thirdPartId_ != nullptr;};
     void deleteThirdPartId() { this->thirdPartId_ = nullptr;};
-    inline string thirdPartId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartId_, "") };
+    inline string getThirdPartId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartId_, "") };
     inline InvoiceSearchRequest& setThirdPartId(string thirdPartId) { DARABONBA_PTR_SET_VALUE(thirdPartId_, thirdPartId) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline InvoiceSearchRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline InvoiceSearchRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<string> thirdPartId_ = nullptr;
-    std::shared_ptr<string> title_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> thirdPartId_ {};
+    shared_ptr<string> title_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

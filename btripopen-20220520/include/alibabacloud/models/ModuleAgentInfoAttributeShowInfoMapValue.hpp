@@ -33,33 +33,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->name_ != nullptr && this->text_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->name_ == nullptr && this->text_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ModuleAgentInfoAttributeShowInfoMapValue& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ModuleAgentInfoAttributeShowInfoMapValue& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // text Field Functions 
     bool hasText() const { return this->text_ != nullptr;};
     void deleteText() { this->text_ = nullptr;};
-    inline string text() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+    inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
     inline ModuleAgentInfoAttributeShowInfoMapValue& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> text_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> text_ {};
   };
 
   } // namespace Models

@@ -29,16 +29,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->countryCode_ != nullptr; };
+    virtual bool empty() const override { return this->countryCode_ == nullptr; };
     // countryCode Field Functions 
     bool hasCountryCode() const { return this->countryCode_ != nullptr;};
     void deleteCountryCode() { this->countryCode_ = nullptr;};
-    inline string countryCode() const { DARABONBA_PTR_GET_DEFAULT(countryCode_, "") };
+    inline string getCountryCode() const { DARABONBA_PTR_GET_DEFAULT(countryCode_, "") };
     inline HotelCityCodeListRequest& setCountryCode(string countryCode) { DARABONBA_PTR_SET_VALUE(countryCode_, countryCode) };
 
 
   protected:
-    std::shared_ptr<string> countryCode_ = nullptr;
+    shared_ptr<string> countryCode_ {};
   };
 
   } // namespace Models

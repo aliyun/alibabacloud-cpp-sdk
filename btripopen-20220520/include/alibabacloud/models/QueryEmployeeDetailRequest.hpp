@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->outEmployeeId_ != nullptr; };
+    virtual bool empty() const override { return this->outEmployeeId_ == nullptr; };
     // outEmployeeId Field Functions 
     bool hasOutEmployeeId() const { return this->outEmployeeId_ != nullptr;};
     void deleteOutEmployeeId() { this->outEmployeeId_ = nullptr;};
-    inline string outEmployeeId() const { DARABONBA_PTR_GET_DEFAULT(outEmployeeId_, "") };
+    inline string getOutEmployeeId() const { DARABONBA_PTR_GET_DEFAULT(outEmployeeId_, "") };
     inline QueryEmployeeDetailRequest& setOutEmployeeId(string outEmployeeId) { DARABONBA_PTR_SET_VALUE(outEmployeeId_, outEmployeeId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> outEmployeeId_ = nullptr;
+    shared_ptr<string> outEmployeeId_ {};
   };
 
   } // namespace Models

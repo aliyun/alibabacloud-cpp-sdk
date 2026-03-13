@@ -35,45 +35,45 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->orderId_ != nullptr
-        && this->outOrderId_ != nullptr && this->outRefundId_ != nullptr && this->refundTrainInfosShrink_ != nullptr; };
+    virtual bool empty() const override { return this->orderId_ == nullptr
+        && this->outOrderId_ == nullptr && this->outRefundId_ == nullptr && this->refundTrainInfosShrink_ == nullptr; };
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline string orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+    inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
     inline TrainApplyRefundShrinkRequest& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // outOrderId Field Functions 
     bool hasOutOrderId() const { return this->outOrderId_ != nullptr;};
     void deleteOutOrderId() { this->outOrderId_ = nullptr;};
-    inline string outOrderId() const { DARABONBA_PTR_GET_DEFAULT(outOrderId_, "") };
+    inline string getOutOrderId() const { DARABONBA_PTR_GET_DEFAULT(outOrderId_, "") };
     inline TrainApplyRefundShrinkRequest& setOutOrderId(string outOrderId) { DARABONBA_PTR_SET_VALUE(outOrderId_, outOrderId) };
 
 
     // outRefundId Field Functions 
     bool hasOutRefundId() const { return this->outRefundId_ != nullptr;};
     void deleteOutRefundId() { this->outRefundId_ = nullptr;};
-    inline string outRefundId() const { DARABONBA_PTR_GET_DEFAULT(outRefundId_, "") };
+    inline string getOutRefundId() const { DARABONBA_PTR_GET_DEFAULT(outRefundId_, "") };
     inline TrainApplyRefundShrinkRequest& setOutRefundId(string outRefundId) { DARABONBA_PTR_SET_VALUE(outRefundId_, outRefundId) };
 
 
     // refundTrainInfosShrink Field Functions 
     bool hasRefundTrainInfosShrink() const { return this->refundTrainInfosShrink_ != nullptr;};
     void deleteRefundTrainInfosShrink() { this->refundTrainInfosShrink_ = nullptr;};
-    inline string refundTrainInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(refundTrainInfosShrink_, "") };
+    inline string getRefundTrainInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(refundTrainInfosShrink_, "") };
     inline TrainApplyRefundShrinkRequest& setRefundTrainInfosShrink(string refundTrainInfosShrink) { DARABONBA_PTR_SET_VALUE(refundTrainInfosShrink_, refundTrainInfosShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> orderId_ = nullptr;
+    shared_ptr<string> orderId_ {};
     // This parameter is required.
-    std::shared_ptr<string> outOrderId_ = nullptr;
+    shared_ptr<string> outOrderId_ {};
     // This parameter is required.
-    std::shared_ptr<string> outRefundId_ = nullptr;
+    shared_ptr<string> outRefundId_ {};
     // This parameter is required.
-    std::shared_ptr<string> refundTrainInfosShrink_ = nullptr;
+    shared_ptr<string> refundTrainInfosShrink_ {};
   };
 
   } // namespace Models

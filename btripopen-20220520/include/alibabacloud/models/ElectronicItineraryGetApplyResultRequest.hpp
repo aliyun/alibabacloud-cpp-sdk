@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchApplyNo_ != nullptr; };
+    virtual bool empty() const override { return this->batchApplyNo_ == nullptr; };
     // batchApplyNo Field Functions 
     bool hasBatchApplyNo() const { return this->batchApplyNo_ != nullptr;};
     void deleteBatchApplyNo() { this->batchApplyNo_ = nullptr;};
-    inline string batchApplyNo() const { DARABONBA_PTR_GET_DEFAULT(batchApplyNo_, "") };
+    inline string getBatchApplyNo() const { DARABONBA_PTR_GET_DEFAULT(batchApplyNo_, "") };
     inline ElectronicItineraryGetApplyResultRequest& setBatchApplyNo(string batchApplyNo) { DARABONBA_PTR_SET_VALUE(batchApplyNo_, batchApplyNo) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> batchApplyNo_ = nullptr;
+    shared_ptr<string> batchApplyNo_ {};
   };
 
   } // namespace Models

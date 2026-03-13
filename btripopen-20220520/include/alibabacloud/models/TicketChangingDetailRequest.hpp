@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->disOrderId_ != nullptr
-        && this->disSubOrderId_ != nullptr; };
+    virtual bool empty() const override { return this->disOrderId_ == nullptr
+        && this->disSubOrderId_ == nullptr; };
     // disOrderId Field Functions 
     bool hasDisOrderId() const { return this->disOrderId_ != nullptr;};
     void deleteDisOrderId() { this->disOrderId_ = nullptr;};
-    inline string disOrderId() const { DARABONBA_PTR_GET_DEFAULT(disOrderId_, "") };
+    inline string getDisOrderId() const { DARABONBA_PTR_GET_DEFAULT(disOrderId_, "") };
     inline TicketChangingDetailRequest& setDisOrderId(string disOrderId) { DARABONBA_PTR_SET_VALUE(disOrderId_, disOrderId) };
 
 
     // disSubOrderId Field Functions 
     bool hasDisSubOrderId() const { return this->disSubOrderId_ != nullptr;};
     void deleteDisSubOrderId() { this->disSubOrderId_ = nullptr;};
-    inline string disSubOrderId() const { DARABONBA_PTR_GET_DEFAULT(disSubOrderId_, "") };
+    inline string getDisSubOrderId() const { DARABONBA_PTR_GET_DEFAULT(disSubOrderId_, "") };
     inline TicketChangingDetailRequest& setDisSubOrderId(string disSubOrderId) { DARABONBA_PTR_SET_VALUE(disSubOrderId_, disSubOrderId) };
 
 
   protected:
-    std::shared_ptr<string> disOrderId_ = nullptr;
-    std::shared_ptr<string> disSubOrderId_ = nullptr;
+    shared_ptr<string> disOrderId_ {};
+    shared_ptr<string> disSubOrderId_ {};
   };
 
   } // namespace Models

@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->billDate_ != nullptr; };
+    virtual bool empty() const override { return this->billDate_ == nullptr; };
     // billDate Field Functions 
     bool hasBillDate() const { return this->billDate_ != nullptr;};
     void deleteBillDate() { this->billDate_ = nullptr;};
-    inline string billDate() const { DARABONBA_PTR_GET_DEFAULT(billDate_, "") };
+    inline string getBillDate() const { DARABONBA_PTR_GET_DEFAULT(billDate_, "") };
     inline WaitApplyInvoiceTaskDetailQueryRequest& setBillDate(string billDate) { DARABONBA_PTR_SET_VALUE(billDate_, billDate) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> billDate_ = nullptr;
+    shared_ptr<string> billDate_ {};
   };
 
   } // namespace Models

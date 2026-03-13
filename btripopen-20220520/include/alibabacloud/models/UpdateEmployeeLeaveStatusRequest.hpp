@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isLeave_ != nullptr
-        && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->isLeave_ == nullptr
+        && this->userId_ == nullptr; };
     // isLeave Field Functions 
     bool hasIsLeave() const { return this->isLeave_ != nullptr;};
     void deleteIsLeave() { this->isLeave_ = nullptr;};
-    inline bool isLeave() const { DARABONBA_PTR_GET_DEFAULT(isLeave_, false) };
+    inline bool getIsLeave() const { DARABONBA_PTR_GET_DEFAULT(isLeave_, false) };
     inline UpdateEmployeeLeaveStatusRequest& setIsLeave(bool isLeave) { DARABONBA_PTR_SET_VALUE(isLeave_, isLeave) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline UpdateEmployeeLeaveStatusRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<bool> isLeave_ = nullptr;
+    shared_ptr<bool> isLeave_ {};
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

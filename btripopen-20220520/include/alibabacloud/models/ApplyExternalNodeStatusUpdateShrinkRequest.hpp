@@ -33,35 +33,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->nodeId_ != nullptr
-        && this->operationRecordsShrink_ != nullptr && this->processActionResult_ != nullptr; };
+    virtual bool empty() const override { return this->nodeId_ == nullptr
+        && this->operationRecordsShrink_ == nullptr && this->processActionResult_ == nullptr; };
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline ApplyExternalNodeStatusUpdateShrinkRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // operationRecordsShrink Field Functions 
     bool hasOperationRecordsShrink() const { return this->operationRecordsShrink_ != nullptr;};
     void deleteOperationRecordsShrink() { this->operationRecordsShrink_ = nullptr;};
-    inline string operationRecordsShrink() const { DARABONBA_PTR_GET_DEFAULT(operationRecordsShrink_, "") };
+    inline string getOperationRecordsShrink() const { DARABONBA_PTR_GET_DEFAULT(operationRecordsShrink_, "") };
     inline ApplyExternalNodeStatusUpdateShrinkRequest& setOperationRecordsShrink(string operationRecordsShrink) { DARABONBA_PTR_SET_VALUE(operationRecordsShrink_, operationRecordsShrink) };
 
 
     // processActionResult Field Functions 
     bool hasProcessActionResult() const { return this->processActionResult_ != nullptr;};
     void deleteProcessActionResult() { this->processActionResult_ = nullptr;};
-    inline string processActionResult() const { DARABONBA_PTR_GET_DEFAULT(processActionResult_, "") };
+    inline string getProcessActionResult() const { DARABONBA_PTR_GET_DEFAULT(processActionResult_, "") };
     inline ApplyExternalNodeStatusUpdateShrinkRequest& setProcessActionResult(string processActionResult) { DARABONBA_PTR_SET_VALUE(processActionResult_, processActionResult) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> nodeId_ = nullptr;
-    std::shared_ptr<string> operationRecordsShrink_ = nullptr;
+    shared_ptr<string> nodeId_ {};
+    shared_ptr<string> operationRecordsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> processActionResult_ = nullptr;
+    shared_ptr<string> processActionResult_ {};
   };
 
   } // namespace Models

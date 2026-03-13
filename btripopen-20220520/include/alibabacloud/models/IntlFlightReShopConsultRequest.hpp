@@ -31,26 +31,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->orderId_ != nullptr
-        && this->outOrderId_ != nullptr; };
+    virtual bool empty() const override { return this->orderId_ == nullptr
+        && this->outOrderId_ == nullptr; };
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline string orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+    inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
     inline IntlFlightReShopConsultRequest& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // outOrderId Field Functions 
     bool hasOutOrderId() const { return this->outOrderId_ != nullptr;};
     void deleteOutOrderId() { this->outOrderId_ = nullptr;};
-    inline string outOrderId() const { DARABONBA_PTR_GET_DEFAULT(outOrderId_, "") };
+    inline string getOutOrderId() const { DARABONBA_PTR_GET_DEFAULT(outOrderId_, "") };
     inline IntlFlightReShopConsultRequest& setOutOrderId(string outOrderId) { DARABONBA_PTR_SET_VALUE(outOrderId_, outOrderId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> orderId_ = nullptr;
-    std::shared_ptr<string> outOrderId_ = nullptr;
+    shared_ptr<string> orderId_ {};
+    shared_ptr<string> outOrderId_ {};
   };
 
   } // namespace Models

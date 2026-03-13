@@ -35,43 +35,43 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deptName_ != nullptr
-        && this->managerEmployeeIdListShrink_ != nullptr && this->outDeptId_ != nullptr && this->outDeptPid_ != nullptr; };
+    virtual bool empty() const override { return this->deptName_ == nullptr
+        && this->managerEmployeeIdListShrink_ == nullptr && this->outDeptId_ == nullptr && this->outDeptPid_ == nullptr; };
     // deptName Field Functions 
     bool hasDeptName() const { return this->deptName_ != nullptr;};
     void deleteDeptName() { this->deptName_ = nullptr;};
-    inline string deptName() const { DARABONBA_PTR_GET_DEFAULT(deptName_, "") };
+    inline string getDeptName() const { DARABONBA_PTR_GET_DEFAULT(deptName_, "") };
     inline AddDepartmentShrinkRequest& setDeptName(string deptName) { DARABONBA_PTR_SET_VALUE(deptName_, deptName) };
 
 
     // managerEmployeeIdListShrink Field Functions 
     bool hasManagerEmployeeIdListShrink() const { return this->managerEmployeeIdListShrink_ != nullptr;};
     void deleteManagerEmployeeIdListShrink() { this->managerEmployeeIdListShrink_ = nullptr;};
-    inline string managerEmployeeIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(managerEmployeeIdListShrink_, "") };
+    inline string getManagerEmployeeIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(managerEmployeeIdListShrink_, "") };
     inline AddDepartmentShrinkRequest& setManagerEmployeeIdListShrink(string managerEmployeeIdListShrink) { DARABONBA_PTR_SET_VALUE(managerEmployeeIdListShrink_, managerEmployeeIdListShrink) };
 
 
     // outDeptId Field Functions 
     bool hasOutDeptId() const { return this->outDeptId_ != nullptr;};
     void deleteOutDeptId() { this->outDeptId_ = nullptr;};
-    inline string outDeptId() const { DARABONBA_PTR_GET_DEFAULT(outDeptId_, "") };
+    inline string getOutDeptId() const { DARABONBA_PTR_GET_DEFAULT(outDeptId_, "") };
     inline AddDepartmentShrinkRequest& setOutDeptId(string outDeptId) { DARABONBA_PTR_SET_VALUE(outDeptId_, outDeptId) };
 
 
     // outDeptPid Field Functions 
     bool hasOutDeptPid() const { return this->outDeptPid_ != nullptr;};
     void deleteOutDeptPid() { this->outDeptPid_ = nullptr;};
-    inline string outDeptPid() const { DARABONBA_PTR_GET_DEFAULT(outDeptPid_, "") };
+    inline string getOutDeptPid() const { DARABONBA_PTR_GET_DEFAULT(outDeptPid_, "") };
     inline AddDepartmentShrinkRequest& setOutDeptPid(string outDeptPid) { DARABONBA_PTR_SET_VALUE(outDeptPid_, outDeptPid) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> deptName_ = nullptr;
-    std::shared_ptr<string> managerEmployeeIdListShrink_ = nullptr;
+    shared_ptr<string> deptName_ {};
+    shared_ptr<string> managerEmployeeIdListShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> outDeptId_ = nullptr;
-    std::shared_ptr<string> outDeptPid_ = nullptr;
+    shared_ptr<string> outDeptId_ {};
+    shared_ptr<string> outDeptPid_ {};
   };
 
   } // namespace Models

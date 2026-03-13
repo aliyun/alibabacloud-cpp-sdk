@@ -33,36 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appSecret_ != nullptr
-        && this->corpId_ != nullptr && this->subCorpId_ != nullptr; };
+    virtual bool empty() const override { return this->appSecret_ == nullptr
+        && this->corpId_ == nullptr && this->subCorpId_ == nullptr; };
     // appSecret Field Functions 
     bool hasAppSecret() const { return this->appSecret_ != nullptr;};
     void deleteAppSecret() { this->appSecret_ = nullptr;};
-    inline string appSecret() const { DARABONBA_PTR_GET_DEFAULT(appSecret_, "") };
+    inline string getAppSecret() const { DARABONBA_PTR_GET_DEFAULT(appSecret_, "") };
     inline GroupCorpTokenRequest& setAppSecret(string appSecret) { DARABONBA_PTR_SET_VALUE(appSecret_, appSecret) };
 
 
     // corpId Field Functions 
     bool hasCorpId() const { return this->corpId_ != nullptr;};
     void deleteCorpId() { this->corpId_ = nullptr;};
-    inline string corpId() const { DARABONBA_PTR_GET_DEFAULT(corpId_, "") };
+    inline string getCorpId() const { DARABONBA_PTR_GET_DEFAULT(corpId_, "") };
     inline GroupCorpTokenRequest& setCorpId(string corpId) { DARABONBA_PTR_SET_VALUE(corpId_, corpId) };
 
 
     // subCorpId Field Functions 
     bool hasSubCorpId() const { return this->subCorpId_ != nullptr;};
     void deleteSubCorpId() { this->subCorpId_ = nullptr;};
-    inline string subCorpId() const { DARABONBA_PTR_GET_DEFAULT(subCorpId_, "") };
+    inline string getSubCorpId() const { DARABONBA_PTR_GET_DEFAULT(subCorpId_, "") };
     inline GroupCorpTokenRequest& setSubCorpId(string subCorpId) { DARABONBA_PTR_SET_VALUE(subCorpId_, subCorpId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appSecret_ = nullptr;
+    shared_ptr<string> appSecret_ {};
     // This parameter is required.
-    std::shared_ptr<string> corpId_ = nullptr;
+    shared_ptr<string> corpId_ {};
     // This parameter is required.
-    std::shared_ptr<string> subCorpId_ = nullptr;
+    shared_ptr<string> subCorpId_ {};
   };
 
   } // namespace Models

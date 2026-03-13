@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->billDate_ != nullptr
-        && this->invoiceTaskListShrink_ != nullptr; };
+    virtual bool empty() const override { return this->billDate_ == nullptr
+        && this->invoiceTaskListShrink_ == nullptr; };
     // billDate Field Functions 
     bool hasBillDate() const { return this->billDate_ != nullptr;};
     void deleteBillDate() { this->billDate_ = nullptr;};
-    inline string billDate() const { DARABONBA_PTR_GET_DEFAULT(billDate_, "") };
+    inline string getBillDate() const { DARABONBA_PTR_GET_DEFAULT(billDate_, "") };
     inline ApplyInvoiceTaskShrinkRequest& setBillDate(string billDate) { DARABONBA_PTR_SET_VALUE(billDate_, billDate) };
 
 
     // invoiceTaskListShrink Field Functions 
     bool hasInvoiceTaskListShrink() const { return this->invoiceTaskListShrink_ != nullptr;};
     void deleteInvoiceTaskListShrink() { this->invoiceTaskListShrink_ = nullptr;};
-    inline string invoiceTaskListShrink() const { DARABONBA_PTR_GET_DEFAULT(invoiceTaskListShrink_, "") };
+    inline string getInvoiceTaskListShrink() const { DARABONBA_PTR_GET_DEFAULT(invoiceTaskListShrink_, "") };
     inline ApplyInvoiceTaskShrinkRequest& setInvoiceTaskListShrink(string invoiceTaskListShrink) { DARABONBA_PTR_SET_VALUE(invoiceTaskListShrink_, invoiceTaskListShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> billDate_ = nullptr;
+    shared_ptr<string> billDate_ {};
     // This parameter is required.
-    std::shared_ptr<string> invoiceTaskListShrink_ = nullptr;
+    shared_ptr<string> invoiceTaskListShrink_ {};
   };
 
   } // namespace Models

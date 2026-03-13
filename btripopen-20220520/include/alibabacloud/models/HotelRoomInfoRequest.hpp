@@ -30,19 +30,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->roomIds_ != nullptr; };
+    virtual bool empty() const override { return this->roomIds_ == nullptr; };
     // roomIds Field Functions 
     bool hasRoomIds() const { return this->roomIds_ != nullptr;};
     void deleteRoomIds() { this->roomIds_ = nullptr;};
-    inline const vector<int64_t> & roomIds() const { DARABONBA_PTR_GET_CONST(roomIds_, vector<int64_t>) };
-    inline vector<int64_t> roomIds() { DARABONBA_PTR_GET(roomIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getRoomIds() const { DARABONBA_PTR_GET_CONST(roomIds_, vector<int64_t>) };
+    inline vector<int64_t> getRoomIds() { DARABONBA_PTR_GET(roomIds_, vector<int64_t>) };
     inline HotelRoomInfoRequest& setRoomIds(const vector<int64_t> & roomIds) { DARABONBA_PTR_SET_VALUE(roomIds_, roomIds) };
     inline HotelRoomInfoRequest& setRoomIds(vector<int64_t> && roomIds) { DARABONBA_PTR_SET_RVALUE(roomIds_, roomIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> roomIds_ = nullptr;
+    shared_ptr<vector<int64_t>> roomIds_ {};
   };
 
   } // namespace Models

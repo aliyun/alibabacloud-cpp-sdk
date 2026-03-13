@@ -33,36 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->distributeOrderId_ != nullptr
-        && this->orderId_ != nullptr && this->refundTrainInfosShrink_ != nullptr; };
+    virtual bool empty() const override { return this->distributeOrderId_ == nullptr
+        && this->orderId_ == nullptr && this->refundTrainInfosShrink_ == nullptr; };
     // distributeOrderId Field Functions 
     bool hasDistributeOrderId() const { return this->distributeOrderId_ != nullptr;};
     void deleteDistributeOrderId() { this->distributeOrderId_ = nullptr;};
-    inline string distributeOrderId() const { DARABONBA_PTR_GET_DEFAULT(distributeOrderId_, "") };
+    inline string getDistributeOrderId() const { DARABONBA_PTR_GET_DEFAULT(distributeOrderId_, "") };
     inline TrainFeeCalculateRefundShrinkRequest& setDistributeOrderId(string distributeOrderId) { DARABONBA_PTR_SET_VALUE(distributeOrderId_, distributeOrderId) };
 
 
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline string orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+    inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
     inline TrainFeeCalculateRefundShrinkRequest& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // refundTrainInfosShrink Field Functions 
     bool hasRefundTrainInfosShrink() const { return this->refundTrainInfosShrink_ != nullptr;};
     void deleteRefundTrainInfosShrink() { this->refundTrainInfosShrink_ = nullptr;};
-    inline string refundTrainInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(refundTrainInfosShrink_, "") };
+    inline string getRefundTrainInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(refundTrainInfosShrink_, "") };
     inline TrainFeeCalculateRefundShrinkRequest& setRefundTrainInfosShrink(string refundTrainInfosShrink) { DARABONBA_PTR_SET_VALUE(refundTrainInfosShrink_, refundTrainInfosShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> distributeOrderId_ = nullptr;
+    shared_ptr<string> distributeOrderId_ {};
     // This parameter is required.
-    std::shared_ptr<string> orderId_ = nullptr;
+    shared_ptr<string> orderId_ {};
     // This parameter is required.
-    std::shared_ptr<string> refundTrainInfosShrink_ = nullptr;
+    shared_ptr<string> refundTrainInfosShrink_ {};
   };
 
   } // namespace Models

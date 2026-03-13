@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->refundChangeRuleDesc_ != nullptr
-        && this->baggageDesc_ != nullptr; };
+    virtual bool empty() const override { return this->refundChangeRuleDesc_ == nullptr
+        && this->baggageDesc_ == nullptr; };
     // refundChangeRuleDesc Field Functions 
     bool hasRefundChangeRuleDesc() const { return this->refundChangeRuleDesc_ != nullptr;};
     void deleteRefundChangeRuleDesc() { this->refundChangeRuleDesc_ = nullptr;};
-    inline string refundChangeRuleDesc() const { DARABONBA_PTR_GET_DEFAULT(refundChangeRuleDesc_, "") };
+    inline string getRefundChangeRuleDesc() const { DARABONBA_PTR_GET_DEFAULT(refundChangeRuleDesc_, "") };
     inline ModuleItemListFlightRuleInfosValue& setRefundChangeRuleDesc(string refundChangeRuleDesc) { DARABONBA_PTR_SET_VALUE(refundChangeRuleDesc_, refundChangeRuleDesc) };
 
 
     // baggageDesc Field Functions 
     bool hasBaggageDesc() const { return this->baggageDesc_ != nullptr;};
     void deleteBaggageDesc() { this->baggageDesc_ = nullptr;};
-    inline string baggageDesc() const { DARABONBA_PTR_GET_DEFAULT(baggageDesc_, "") };
+    inline string getBaggageDesc() const { DARABONBA_PTR_GET_DEFAULT(baggageDesc_, "") };
     inline ModuleItemListFlightRuleInfosValue& setBaggageDesc(string baggageDesc) { DARABONBA_PTR_SET_VALUE(baggageDesc_, baggageDesc) };
 
 
   protected:
-    std::shared_ptr<string> refundChangeRuleDesc_ = nullptr;
-    std::shared_ptr<string> baggageDesc_ = nullptr;
+    shared_ptr<string> refundChangeRuleDesc_ {};
+    shared_ptr<string> baggageDesc_ {};
   };
 
   } // namespace Models

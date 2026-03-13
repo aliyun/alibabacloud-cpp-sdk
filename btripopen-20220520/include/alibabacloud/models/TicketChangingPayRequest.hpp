@@ -40,34 +40,34 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->corpPayPrice_ != nullptr
-        && this->disOrderId_ != nullptr && this->disSubOrderId_ != nullptr && this->extra_ != nullptr && this->personalPayPrice_ != nullptr && this->totalPayPrice_ != nullptr; };
+    virtual bool empty() const override { return this->corpPayPrice_ == nullptr
+        && this->disOrderId_ == nullptr && this->disSubOrderId_ == nullptr && this->extra_ == nullptr && this->personalPayPrice_ == nullptr && this->totalPayPrice_ == nullptr; };
     // corpPayPrice Field Functions 
     bool hasCorpPayPrice() const { return this->corpPayPrice_ != nullptr;};
     void deleteCorpPayPrice() { this->corpPayPrice_ = nullptr;};
-    inline int64_t corpPayPrice() const { DARABONBA_PTR_GET_DEFAULT(corpPayPrice_, 0L) };
+    inline int64_t getCorpPayPrice() const { DARABONBA_PTR_GET_DEFAULT(corpPayPrice_, 0L) };
     inline TicketChangingPayRequest& setCorpPayPrice(int64_t corpPayPrice) { DARABONBA_PTR_SET_VALUE(corpPayPrice_, corpPayPrice) };
 
 
     // disOrderId Field Functions 
     bool hasDisOrderId() const { return this->disOrderId_ != nullptr;};
     void deleteDisOrderId() { this->disOrderId_ = nullptr;};
-    inline string disOrderId() const { DARABONBA_PTR_GET_DEFAULT(disOrderId_, "") };
+    inline string getDisOrderId() const { DARABONBA_PTR_GET_DEFAULT(disOrderId_, "") };
     inline TicketChangingPayRequest& setDisOrderId(string disOrderId) { DARABONBA_PTR_SET_VALUE(disOrderId_, disOrderId) };
 
 
     // disSubOrderId Field Functions 
     bool hasDisSubOrderId() const { return this->disSubOrderId_ != nullptr;};
     void deleteDisSubOrderId() { this->disSubOrderId_ = nullptr;};
-    inline string disSubOrderId() const { DARABONBA_PTR_GET_DEFAULT(disSubOrderId_, "") };
+    inline string getDisSubOrderId() const { DARABONBA_PTR_GET_DEFAULT(disSubOrderId_, "") };
     inline TicketChangingPayRequest& setDisSubOrderId(string disSubOrderId) { DARABONBA_PTR_SET_VALUE(disSubOrderId_, disSubOrderId) };
 
 
     // extra Field Functions 
     bool hasExtra() const { return this->extra_ != nullptr;};
     void deleteExtra() { this->extra_ = nullptr;};
-    inline const map<string, string> & extra() const { DARABONBA_PTR_GET_CONST(extra_, map<string, string>) };
-    inline map<string, string> extra() { DARABONBA_PTR_GET(extra_, map<string, string>) };
+    inline const map<string, string> & getExtra() const { DARABONBA_PTR_GET_CONST(extra_, map<string, string>) };
+    inline map<string, string> getExtra() { DARABONBA_PTR_GET(extra_, map<string, string>) };
     inline TicketChangingPayRequest& setExtra(const map<string, string> & extra) { DARABONBA_PTR_SET_VALUE(extra_, extra) };
     inline TicketChangingPayRequest& setExtra(map<string, string> && extra) { DARABONBA_PTR_SET_RVALUE(extra_, extra) };
 
@@ -75,27 +75,27 @@ namespace Models
     // personalPayPrice Field Functions 
     bool hasPersonalPayPrice() const { return this->personalPayPrice_ != nullptr;};
     void deletePersonalPayPrice() { this->personalPayPrice_ = nullptr;};
-    inline int64_t personalPayPrice() const { DARABONBA_PTR_GET_DEFAULT(personalPayPrice_, 0L) };
+    inline int64_t getPersonalPayPrice() const { DARABONBA_PTR_GET_DEFAULT(personalPayPrice_, 0L) };
     inline TicketChangingPayRequest& setPersonalPayPrice(int64_t personalPayPrice) { DARABONBA_PTR_SET_VALUE(personalPayPrice_, personalPayPrice) };
 
 
     // totalPayPrice Field Functions 
     bool hasTotalPayPrice() const { return this->totalPayPrice_ != nullptr;};
     void deleteTotalPayPrice() { this->totalPayPrice_ = nullptr;};
-    inline int64_t totalPayPrice() const { DARABONBA_PTR_GET_DEFAULT(totalPayPrice_, 0L) };
+    inline int64_t getTotalPayPrice() const { DARABONBA_PTR_GET_DEFAULT(totalPayPrice_, 0L) };
     inline TicketChangingPayRequest& setTotalPayPrice(int64_t totalPayPrice) { DARABONBA_PTR_SET_VALUE(totalPayPrice_, totalPayPrice) };
 
 
   protected:
-    std::shared_ptr<int64_t> corpPayPrice_ = nullptr;
+    shared_ptr<int64_t> corpPayPrice_ {};
     // This parameter is required.
-    std::shared_ptr<string> disOrderId_ = nullptr;
+    shared_ptr<string> disOrderId_ {};
     // This parameter is required.
-    std::shared_ptr<string> disSubOrderId_ = nullptr;
-    std::shared_ptr<map<string, string>> extra_ = nullptr;
-    std::shared_ptr<int64_t> personalPayPrice_ = nullptr;
+    shared_ptr<string> disSubOrderId_ {};
+    shared_ptr<map<string, string>> extra_ {};
+    shared_ptr<int64_t> personalPayPrice_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> totalPayPrice_ = nullptr;
+    shared_ptr<int64_t> totalPayPrice_ {};
   };
 
   } // namespace Models

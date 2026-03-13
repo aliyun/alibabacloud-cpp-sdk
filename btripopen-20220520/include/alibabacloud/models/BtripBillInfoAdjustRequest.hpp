@@ -39,58 +39,58 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->primaryId_ != nullptr
-        && this->thirdPartCostCenterId_ != nullptr && this->thirdPartDepartmentId_ != nullptr && this->thirdPartInvoiceId_ != nullptr && this->thirdPartProjectId_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->primaryId_ == nullptr
+        && this->thirdPartCostCenterId_ == nullptr && this->thirdPartDepartmentId_ == nullptr && this->thirdPartInvoiceId_ == nullptr && this->thirdPartProjectId_ == nullptr && this->userId_ == nullptr; };
     // primaryId Field Functions 
     bool hasPrimaryId() const { return this->primaryId_ != nullptr;};
     void deletePrimaryId() { this->primaryId_ = nullptr;};
-    inline int64_t primaryId() const { DARABONBA_PTR_GET_DEFAULT(primaryId_, 0L) };
+    inline int64_t getPrimaryId() const { DARABONBA_PTR_GET_DEFAULT(primaryId_, 0L) };
     inline BtripBillInfoAdjustRequest& setPrimaryId(int64_t primaryId) { DARABONBA_PTR_SET_VALUE(primaryId_, primaryId) };
 
 
     // thirdPartCostCenterId Field Functions 
     bool hasThirdPartCostCenterId() const { return this->thirdPartCostCenterId_ != nullptr;};
     void deleteThirdPartCostCenterId() { this->thirdPartCostCenterId_ = nullptr;};
-    inline string thirdPartCostCenterId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartCostCenterId_, "") };
+    inline string getThirdPartCostCenterId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartCostCenterId_, "") };
     inline BtripBillInfoAdjustRequest& setThirdPartCostCenterId(string thirdPartCostCenterId) { DARABONBA_PTR_SET_VALUE(thirdPartCostCenterId_, thirdPartCostCenterId) };
 
 
     // thirdPartDepartmentId Field Functions 
     bool hasThirdPartDepartmentId() const { return this->thirdPartDepartmentId_ != nullptr;};
     void deleteThirdPartDepartmentId() { this->thirdPartDepartmentId_ = nullptr;};
-    inline string thirdPartDepartmentId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartDepartmentId_, "") };
+    inline string getThirdPartDepartmentId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartDepartmentId_, "") };
     inline BtripBillInfoAdjustRequest& setThirdPartDepartmentId(string thirdPartDepartmentId) { DARABONBA_PTR_SET_VALUE(thirdPartDepartmentId_, thirdPartDepartmentId) };
 
 
     // thirdPartInvoiceId Field Functions 
     bool hasThirdPartInvoiceId() const { return this->thirdPartInvoiceId_ != nullptr;};
     void deleteThirdPartInvoiceId() { this->thirdPartInvoiceId_ = nullptr;};
-    inline string thirdPartInvoiceId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartInvoiceId_, "") };
+    inline string getThirdPartInvoiceId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartInvoiceId_, "") };
     inline BtripBillInfoAdjustRequest& setThirdPartInvoiceId(string thirdPartInvoiceId) { DARABONBA_PTR_SET_VALUE(thirdPartInvoiceId_, thirdPartInvoiceId) };
 
 
     // thirdPartProjectId Field Functions 
     bool hasThirdPartProjectId() const { return this->thirdPartProjectId_ != nullptr;};
     void deleteThirdPartProjectId() { this->thirdPartProjectId_ = nullptr;};
-    inline string thirdPartProjectId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartProjectId_, "") };
+    inline string getThirdPartProjectId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartProjectId_, "") };
     inline BtripBillInfoAdjustRequest& setThirdPartProjectId(string thirdPartProjectId) { DARABONBA_PTR_SET_VALUE(thirdPartProjectId_, thirdPartProjectId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline BtripBillInfoAdjustRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> primaryId_ = nullptr;
-    std::shared_ptr<string> thirdPartCostCenterId_ = nullptr;
-    std::shared_ptr<string> thirdPartDepartmentId_ = nullptr;
-    std::shared_ptr<string> thirdPartInvoiceId_ = nullptr;
-    std::shared_ptr<string> thirdPartProjectId_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<int64_t> primaryId_ {};
+    shared_ptr<string> thirdPartCostCenterId_ {};
+    shared_ptr<string> thirdPartDepartmentId_ {};
+    shared_ptr<string> thirdPartInvoiceId_ {};
+    shared_ptr<string> thirdPartProjectId_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

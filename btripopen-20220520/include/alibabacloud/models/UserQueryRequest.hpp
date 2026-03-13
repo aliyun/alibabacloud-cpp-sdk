@@ -35,41 +35,41 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->modifiedTimeGreaterOrEqualThan_ != nullptr
-        && this->pageSize_ != nullptr && this->pageToken_ != nullptr && this->thirdPartJobNo_ != nullptr; };
+    virtual bool empty() const override { return this->modifiedTimeGreaterOrEqualThan_ == nullptr
+        && this->pageSize_ == nullptr && this->pageToken_ == nullptr && this->thirdPartJobNo_ == nullptr; };
     // modifiedTimeGreaterOrEqualThan Field Functions 
     bool hasModifiedTimeGreaterOrEqualThan() const { return this->modifiedTimeGreaterOrEqualThan_ != nullptr;};
     void deleteModifiedTimeGreaterOrEqualThan() { this->modifiedTimeGreaterOrEqualThan_ = nullptr;};
-    inline string modifiedTimeGreaterOrEqualThan() const { DARABONBA_PTR_GET_DEFAULT(modifiedTimeGreaterOrEqualThan_, "") };
+    inline string getModifiedTimeGreaterOrEqualThan() const { DARABONBA_PTR_GET_DEFAULT(modifiedTimeGreaterOrEqualThan_, "") };
     inline UserQueryRequest& setModifiedTimeGreaterOrEqualThan(string modifiedTimeGreaterOrEqualThan) { DARABONBA_PTR_SET_VALUE(modifiedTimeGreaterOrEqualThan_, modifiedTimeGreaterOrEqualThan) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline UserQueryRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // pageToken Field Functions 
     bool hasPageToken() const { return this->pageToken_ != nullptr;};
     void deletePageToken() { this->pageToken_ = nullptr;};
-    inline string pageToken() const { DARABONBA_PTR_GET_DEFAULT(pageToken_, "") };
+    inline string getPageToken() const { DARABONBA_PTR_GET_DEFAULT(pageToken_, "") };
     inline UserQueryRequest& setPageToken(string pageToken) { DARABONBA_PTR_SET_VALUE(pageToken_, pageToken) };
 
 
     // thirdPartJobNo Field Functions 
     bool hasThirdPartJobNo() const { return this->thirdPartJobNo_ != nullptr;};
     void deleteThirdPartJobNo() { this->thirdPartJobNo_ = nullptr;};
-    inline string thirdPartJobNo() const { DARABONBA_PTR_GET_DEFAULT(thirdPartJobNo_, "") };
+    inline string getThirdPartJobNo() const { DARABONBA_PTR_GET_DEFAULT(thirdPartJobNo_, "") };
     inline UserQueryRequest& setThirdPartJobNo(string thirdPartJobNo) { DARABONBA_PTR_SET_VALUE(thirdPartJobNo_, thirdPartJobNo) };
 
 
   protected:
-    std::shared_ptr<string> modifiedTimeGreaterOrEqualThan_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> pageToken_ = nullptr;
-    std::shared_ptr<string> thirdPartJobNo_ = nullptr;
+    shared_ptr<string> modifiedTimeGreaterOrEqualThan_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> pageToken_ {};
+    shared_ptr<string> thirdPartJobNo_ {};
   };
 
   } // namespace Models

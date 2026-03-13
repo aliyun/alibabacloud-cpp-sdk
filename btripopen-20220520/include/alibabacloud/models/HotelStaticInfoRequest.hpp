@@ -30,19 +30,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->hotelIds_ != nullptr; };
+    virtual bool empty() const override { return this->hotelIds_ == nullptr; };
     // hotelIds Field Functions 
     bool hasHotelIds() const { return this->hotelIds_ != nullptr;};
     void deleteHotelIds() { this->hotelIds_ = nullptr;};
-    inline const vector<string> & hotelIds() const { DARABONBA_PTR_GET_CONST(hotelIds_, vector<string>) };
-    inline vector<string> hotelIds() { DARABONBA_PTR_GET(hotelIds_, vector<string>) };
+    inline const vector<string> & getHotelIds() const { DARABONBA_PTR_GET_CONST(hotelIds_, vector<string>) };
+    inline vector<string> getHotelIds() { DARABONBA_PTR_GET(hotelIds_, vector<string>) };
     inline HotelStaticInfoRequest& setHotelIds(const vector<string> & hotelIds) { DARABONBA_PTR_SET_VALUE(hotelIds_, hotelIds) };
     inline HotelStaticInfoRequest& setHotelIds(vector<string> && hotelIds) { DARABONBA_PTR_SET_RVALUE(hotelIds_, hotelIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> hotelIds_ = nullptr;
+    shared_ptr<vector<string>> hotelIds_ {};
   };
 
   } // namespace Models

@@ -39,57 +39,57 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createdEndAt_ != nullptr
-        && this->createdStartAt_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->thirdPartApplyId_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->createdEndAt_ == nullptr
+        && this->createdStartAt_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->thirdPartApplyId_ == nullptr && this->userId_ == nullptr; };
     // createdEndAt Field Functions 
     bool hasCreatedEndAt() const { return this->createdEndAt_ != nullptr;};
     void deleteCreatedEndAt() { this->createdEndAt_ = nullptr;};
-    inline string createdEndAt() const { DARABONBA_PTR_GET_DEFAULT(createdEndAt_, "") };
+    inline string getCreatedEndAt() const { DARABONBA_PTR_GET_DEFAULT(createdEndAt_, "") };
     inline CarApplyQueryRequest& setCreatedEndAt(string createdEndAt) { DARABONBA_PTR_SET_VALUE(createdEndAt_, createdEndAt) };
 
 
     // createdStartAt Field Functions 
     bool hasCreatedStartAt() const { return this->createdStartAt_ != nullptr;};
     void deleteCreatedStartAt() { this->createdStartAt_ = nullptr;};
-    inline string createdStartAt() const { DARABONBA_PTR_GET_DEFAULT(createdStartAt_, "") };
+    inline string getCreatedStartAt() const { DARABONBA_PTR_GET_DEFAULT(createdStartAt_, "") };
     inline CarApplyQueryRequest& setCreatedStartAt(string createdStartAt) { DARABONBA_PTR_SET_VALUE(createdStartAt_, createdStartAt) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline CarApplyQueryRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline CarApplyQueryRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // thirdPartApplyId Field Functions 
     bool hasThirdPartApplyId() const { return this->thirdPartApplyId_ != nullptr;};
     void deleteThirdPartApplyId() { this->thirdPartApplyId_ = nullptr;};
-    inline string thirdPartApplyId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartApplyId_, "") };
+    inline string getThirdPartApplyId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartApplyId_, "") };
     inline CarApplyQueryRequest& setThirdPartApplyId(string thirdPartApplyId) { DARABONBA_PTR_SET_VALUE(thirdPartApplyId_, thirdPartApplyId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline CarApplyQueryRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<string> createdEndAt_ = nullptr;
-    std::shared_ptr<string> createdStartAt_ = nullptr;
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> thirdPartApplyId_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> createdEndAt_ {};
+    shared_ptr<string> createdStartAt_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> thirdPartApplyId_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

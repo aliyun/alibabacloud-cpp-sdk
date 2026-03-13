@@ -36,27 +36,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->billBatch_ != nullptr
-        && this->billMonth_ != nullptr && this->billSplitKeyList_ != nullptr && this->billSplitMode_ != nullptr; };
+    virtual bool empty() const override { return this->billBatch_ == nullptr
+        && this->billMonth_ == nullptr && this->billSplitKeyList_ == nullptr && this->billSplitMode_ == nullptr; };
     // billBatch Field Functions 
     bool hasBillBatch() const { return this->billBatch_ != nullptr;};
     void deleteBillBatch() { this->billBatch_ = nullptr;};
-    inline string billBatch() const { DARABONBA_PTR_GET_DEFAULT(billBatch_, "") };
+    inline string getBillBatch() const { DARABONBA_PTR_GET_DEFAULT(billBatch_, "") };
     inline MonthBillSplitGetRequest& setBillBatch(string billBatch) { DARABONBA_PTR_SET_VALUE(billBatch_, billBatch) };
 
 
     // billMonth Field Functions 
     bool hasBillMonth() const { return this->billMonth_ != nullptr;};
     void deleteBillMonth() { this->billMonth_ = nullptr;};
-    inline string billMonth() const { DARABONBA_PTR_GET_DEFAULT(billMonth_, "") };
+    inline string getBillMonth() const { DARABONBA_PTR_GET_DEFAULT(billMonth_, "") };
     inline MonthBillSplitGetRequest& setBillMonth(string billMonth) { DARABONBA_PTR_SET_VALUE(billMonth_, billMonth) };
 
 
     // billSplitKeyList Field Functions 
     bool hasBillSplitKeyList() const { return this->billSplitKeyList_ != nullptr;};
     void deleteBillSplitKeyList() { this->billSplitKeyList_ = nullptr;};
-    inline const vector<string> & billSplitKeyList() const { DARABONBA_PTR_GET_CONST(billSplitKeyList_, vector<string>) };
-    inline vector<string> billSplitKeyList() { DARABONBA_PTR_GET(billSplitKeyList_, vector<string>) };
+    inline const vector<string> & getBillSplitKeyList() const { DARABONBA_PTR_GET_CONST(billSplitKeyList_, vector<string>) };
+    inline vector<string> getBillSplitKeyList() { DARABONBA_PTR_GET(billSplitKeyList_, vector<string>) };
     inline MonthBillSplitGetRequest& setBillSplitKeyList(const vector<string> & billSplitKeyList) { DARABONBA_PTR_SET_VALUE(billSplitKeyList_, billSplitKeyList) };
     inline MonthBillSplitGetRequest& setBillSplitKeyList(vector<string> && billSplitKeyList) { DARABONBA_PTR_SET_RVALUE(billSplitKeyList_, billSplitKeyList) };
 
@@ -64,16 +64,16 @@ namespace Models
     // billSplitMode Field Functions 
     bool hasBillSplitMode() const { return this->billSplitMode_ != nullptr;};
     void deleteBillSplitMode() { this->billSplitMode_ = nullptr;};
-    inline string billSplitMode() const { DARABONBA_PTR_GET_DEFAULT(billSplitMode_, "") };
+    inline string getBillSplitMode() const { DARABONBA_PTR_GET_DEFAULT(billSplitMode_, "") };
     inline MonthBillSplitGetRequest& setBillSplitMode(string billSplitMode) { DARABONBA_PTR_SET_VALUE(billSplitMode_, billSplitMode) };
 
 
   protected:
-    std::shared_ptr<string> billBatch_ = nullptr;
-    std::shared_ptr<string> billMonth_ = nullptr;
-    std::shared_ptr<vector<string>> billSplitKeyList_ = nullptr;
+    shared_ptr<string> billBatch_ {};
+    shared_ptr<string> billMonth_ {};
+    shared_ptr<vector<string>> billSplitKeyList_ {};
     // This parameter is required.
-    std::shared_ptr<string> billSplitMode_ = nullptr;
+    shared_ptr<string> billSplitMode_ {};
   };
 
   } // namespace Models

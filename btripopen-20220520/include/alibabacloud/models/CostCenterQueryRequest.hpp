@@ -37,49 +37,49 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->disable_ != nullptr
-        && this->needOrgEntity_ != nullptr && this->thirdpartId_ != nullptr && this->title_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->disable_ == nullptr
+        && this->needOrgEntity_ == nullptr && this->thirdpartId_ == nullptr && this->title_ == nullptr && this->userId_ == nullptr; };
     // disable Field Functions 
     bool hasDisable() const { return this->disable_ != nullptr;};
     void deleteDisable() { this->disable_ = nullptr;};
-    inline int64_t disable() const { DARABONBA_PTR_GET_DEFAULT(disable_, 0L) };
+    inline int64_t getDisable() const { DARABONBA_PTR_GET_DEFAULT(disable_, 0L) };
     inline CostCenterQueryRequest& setDisable(int64_t disable) { DARABONBA_PTR_SET_VALUE(disable_, disable) };
 
 
     // needOrgEntity Field Functions 
     bool hasNeedOrgEntity() const { return this->needOrgEntity_ != nullptr;};
     void deleteNeedOrgEntity() { this->needOrgEntity_ = nullptr;};
-    inline bool needOrgEntity() const { DARABONBA_PTR_GET_DEFAULT(needOrgEntity_, false) };
+    inline bool getNeedOrgEntity() const { DARABONBA_PTR_GET_DEFAULT(needOrgEntity_, false) };
     inline CostCenterQueryRequest& setNeedOrgEntity(bool needOrgEntity) { DARABONBA_PTR_SET_VALUE(needOrgEntity_, needOrgEntity) };
 
 
     // thirdpartId Field Functions 
     bool hasThirdpartId() const { return this->thirdpartId_ != nullptr;};
     void deleteThirdpartId() { this->thirdpartId_ = nullptr;};
-    inline string thirdpartId() const { DARABONBA_PTR_GET_DEFAULT(thirdpartId_, "") };
+    inline string getThirdpartId() const { DARABONBA_PTR_GET_DEFAULT(thirdpartId_, "") };
     inline CostCenterQueryRequest& setThirdpartId(string thirdpartId) { DARABONBA_PTR_SET_VALUE(thirdpartId_, thirdpartId) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline CostCenterQueryRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline CostCenterQueryRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<int64_t> disable_ = nullptr;
-    std::shared_ptr<bool> needOrgEntity_ = nullptr;
-    std::shared_ptr<string> thirdpartId_ = nullptr;
-    std::shared_ptr<string> title_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<int64_t> disable_ {};
+    shared_ptr<bool> needOrgEntity_ {};
+    shared_ptr<string> thirdpartId_ {};
+    shared_ptr<string> title_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

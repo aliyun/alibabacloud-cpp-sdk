@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_CREATESUBCORPRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_CREATESUBCORPRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/CreateSubCorpResponseBodyModule.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,59 +39,90 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->message_ != nullptr && this->module_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr && this->traceId_ != nullptr; };
+    class Module : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Module& obj) { 
+        DARABONBA_PTR_TO_JSON(sub_corp_id, subCorpId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Module& obj) { 
+        DARABONBA_PTR_FROM_JSON(sub_corp_id, subCorpId_);
+      };
+      Module() = default ;
+      Module(const Module &) = default ;
+      Module(Module &&) = default ;
+      Module(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Module() = default ;
+      Module& operator=(const Module &) = default ;
+      Module& operator=(Module &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->subCorpId_ == nullptr; };
+      // subCorpId Field Functions 
+      bool hasSubCorpId() const { return this->subCorpId_ != nullptr;};
+      void deleteSubCorpId() { this->subCorpId_ = nullptr;};
+      inline string getSubCorpId() const { DARABONBA_PTR_GET_DEFAULT(subCorpId_, "") };
+      inline Module& setSubCorpId(string subCorpId) { DARABONBA_PTR_SET_VALUE(subCorpId_, subCorpId) };
+
+
+    protected:
+      shared_ptr<string> subCorpId_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->message_ == nullptr && this->module_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr && this->traceId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline CreateSubCorpResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline CreateSubCorpResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // module Field Functions 
     bool hasModule() const { return this->module_ != nullptr;};
     void deleteModule() { this->module_ = nullptr;};
-    inline const CreateSubCorpResponseBodyModule & module() const { DARABONBA_PTR_GET_CONST(module_, CreateSubCorpResponseBodyModule) };
-    inline CreateSubCorpResponseBodyModule module() { DARABONBA_PTR_GET(module_, CreateSubCorpResponseBodyModule) };
-    inline CreateSubCorpResponseBody& setModule(const CreateSubCorpResponseBodyModule & module) { DARABONBA_PTR_SET_VALUE(module_, module) };
-    inline CreateSubCorpResponseBody& setModule(CreateSubCorpResponseBodyModule && module) { DARABONBA_PTR_SET_RVALUE(module_, module) };
+    inline const CreateSubCorpResponseBody::Module & getModule() const { DARABONBA_PTR_GET_CONST(module_, CreateSubCorpResponseBody::Module) };
+    inline CreateSubCorpResponseBody::Module getModule() { DARABONBA_PTR_GET(module_, CreateSubCorpResponseBody::Module) };
+    inline CreateSubCorpResponseBody& setModule(const CreateSubCorpResponseBody::Module & module) { DARABONBA_PTR_SET_VALUE(module_, module) };
+    inline CreateSubCorpResponseBody& setModule(CreateSubCorpResponseBody::Module && module) { DARABONBA_PTR_SET_RVALUE(module_, module) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateSubCorpResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline CreateSubCorpResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // traceId Field Functions 
     bool hasTraceId() const { return this->traceId_ != nullptr;};
     void deleteTraceId() { this->traceId_ = nullptr;};
-    inline string traceId() const { DARABONBA_PTR_GET_DEFAULT(traceId_, "") };
+    inline string getTraceId() const { DARABONBA_PTR_GET_DEFAULT(traceId_, "") };
     inline CreateSubCorpResponseBody& setTraceId(string traceId) { DARABONBA_PTR_SET_VALUE(traceId_, traceId) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<CreateSubCorpResponseBodyModule> module_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
-    std::shared_ptr<string> traceId_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<CreateSubCorpResponseBody::Module> module_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
+    shared_ptr<string> traceId_ {};
   };
 
   } // namespace Models

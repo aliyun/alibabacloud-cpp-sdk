@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appSecret_ != nullptr; };
+    virtual bool empty() const override { return this->appSecret_ == nullptr; };
     // appSecret Field Functions 
     bool hasAppSecret() const { return this->appSecret_ != nullptr;};
     void deleteAppSecret() { this->appSecret_ = nullptr;};
-    inline string appSecret() const { DARABONBA_PTR_GET_DEFAULT(appSecret_, "") };
+    inline string getAppSecret() const { DARABONBA_PTR_GET_DEFAULT(appSecret_, "") };
     inline AccessTokenRequest& setAppSecret(string appSecret) { DARABONBA_PTR_SET_VALUE(appSecret_, appSecret) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appSecret_ = nullptr;
+    shared_ptr<string> appSecret_ {};
   };
 
   } // namespace Models

@@ -33,36 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->orderId_ != nullptr
-        && this->outOrderId_ != nullptr && this->payAmount_ != nullptr; };
+    virtual bool empty() const override { return this->orderId_ == nullptr
+        && this->outOrderId_ == nullptr && this->payAmount_ == nullptr; };
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline string orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+    inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
     inline TrainOrderPayRequest& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // outOrderId Field Functions 
     bool hasOutOrderId() const { return this->outOrderId_ != nullptr;};
     void deleteOutOrderId() { this->outOrderId_ = nullptr;};
-    inline string outOrderId() const { DARABONBA_PTR_GET_DEFAULT(outOrderId_, "") };
+    inline string getOutOrderId() const { DARABONBA_PTR_GET_DEFAULT(outOrderId_, "") };
     inline TrainOrderPayRequest& setOutOrderId(string outOrderId) { DARABONBA_PTR_SET_VALUE(outOrderId_, outOrderId) };
 
 
     // payAmount Field Functions 
     bool hasPayAmount() const { return this->payAmount_ != nullptr;};
     void deletePayAmount() { this->payAmount_ = nullptr;};
-    inline int64_t payAmount() const { DARABONBA_PTR_GET_DEFAULT(payAmount_, 0L) };
+    inline int64_t getPayAmount() const { DARABONBA_PTR_GET_DEFAULT(payAmount_, 0L) };
     inline TrainOrderPayRequest& setPayAmount(int64_t payAmount) { DARABONBA_PTR_SET_VALUE(payAmount_, payAmount) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> orderId_ = nullptr;
+    shared_ptr<string> orderId_ {};
     // This parameter is required.
-    std::shared_ptr<string> outOrderId_ = nullptr;
+    shared_ptr<string> outOrderId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> payAmount_ = nullptr;
+    shared_ptr<int64_t> payAmount_ {};
   };
 
   } // namespace Models

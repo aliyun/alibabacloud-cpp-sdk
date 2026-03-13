@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(address, address_);
       DARABONBA_PTR_TO_JSON(bank_name, bankName_);
       DARABONBA_PTR_TO_JSON(bank_no, bankNo_);
+      DARABONBA_PTR_TO_JSON(mail_third_part_id, mailThirdPartId_);
       DARABONBA_PTR_TO_JSON(tax_no, taxNo_);
       DARABONBA_PTR_TO_JSON(tel, tel_);
       DARABONBA_PTR_TO_JSON(third_part_id, thirdPartId_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(address, address_);
       DARABONBA_PTR_FROM_JSON(bank_name, bankName_);
       DARABONBA_PTR_FROM_JSON(bank_no, bankNo_);
+      DARABONBA_PTR_FROM_JSON(mail_third_part_id, mailThirdPartId_);
       DARABONBA_PTR_FROM_JSON(tax_no, taxNo_);
       DARABONBA_PTR_FROM_JSON(tel, tel_);
       DARABONBA_PTR_FROM_JSON(third_part_id, thirdPartId_);
@@ -45,85 +47,93 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->address_ != nullptr
-        && this->bankName_ != nullptr && this->bankNo_ != nullptr && this->taxNo_ != nullptr && this->tel_ != nullptr && this->thirdPartId_ != nullptr
-        && this->title_ != nullptr && this->type_ != nullptr && this->unitType_ != nullptr; };
+    virtual bool empty() const override { return this->address_ == nullptr
+        && this->bankName_ == nullptr && this->bankNo_ == nullptr && this->mailThirdPartId_ == nullptr && this->taxNo_ == nullptr && this->tel_ == nullptr
+        && this->thirdPartId_ == nullptr && this->title_ == nullptr && this->type_ == nullptr && this->unitType_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
-    inline string address() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
+    inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
     inline InvoiceAddRequest& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
 
 
     // bankName Field Functions 
     bool hasBankName() const { return this->bankName_ != nullptr;};
     void deleteBankName() { this->bankName_ = nullptr;};
-    inline string bankName() const { DARABONBA_PTR_GET_DEFAULT(bankName_, "") };
+    inline string getBankName() const { DARABONBA_PTR_GET_DEFAULT(bankName_, "") };
     inline InvoiceAddRequest& setBankName(string bankName) { DARABONBA_PTR_SET_VALUE(bankName_, bankName) };
 
 
     // bankNo Field Functions 
     bool hasBankNo() const { return this->bankNo_ != nullptr;};
     void deleteBankNo() { this->bankNo_ = nullptr;};
-    inline string bankNo() const { DARABONBA_PTR_GET_DEFAULT(bankNo_, "") };
+    inline string getBankNo() const { DARABONBA_PTR_GET_DEFAULT(bankNo_, "") };
     inline InvoiceAddRequest& setBankNo(string bankNo) { DARABONBA_PTR_SET_VALUE(bankNo_, bankNo) };
+
+
+    // mailThirdPartId Field Functions 
+    bool hasMailThirdPartId() const { return this->mailThirdPartId_ != nullptr;};
+    void deleteMailThirdPartId() { this->mailThirdPartId_ = nullptr;};
+    inline string getMailThirdPartId() const { DARABONBA_PTR_GET_DEFAULT(mailThirdPartId_, "") };
+    inline InvoiceAddRequest& setMailThirdPartId(string mailThirdPartId) { DARABONBA_PTR_SET_VALUE(mailThirdPartId_, mailThirdPartId) };
 
 
     // taxNo Field Functions 
     bool hasTaxNo() const { return this->taxNo_ != nullptr;};
     void deleteTaxNo() { this->taxNo_ = nullptr;};
-    inline string taxNo() const { DARABONBA_PTR_GET_DEFAULT(taxNo_, "") };
+    inline string getTaxNo() const { DARABONBA_PTR_GET_DEFAULT(taxNo_, "") };
     inline InvoiceAddRequest& setTaxNo(string taxNo) { DARABONBA_PTR_SET_VALUE(taxNo_, taxNo) };
 
 
     // tel Field Functions 
     bool hasTel() const { return this->tel_ != nullptr;};
     void deleteTel() { this->tel_ = nullptr;};
-    inline string tel() const { DARABONBA_PTR_GET_DEFAULT(tel_, "") };
+    inline string getTel() const { DARABONBA_PTR_GET_DEFAULT(tel_, "") };
     inline InvoiceAddRequest& setTel(string tel) { DARABONBA_PTR_SET_VALUE(tel_, tel) };
 
 
     // thirdPartId Field Functions 
     bool hasThirdPartId() const { return this->thirdPartId_ != nullptr;};
     void deleteThirdPartId() { this->thirdPartId_ = nullptr;};
-    inline string thirdPartId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartId_, "") };
+    inline string getThirdPartId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartId_, "") };
     inline InvoiceAddRequest& setThirdPartId(string thirdPartId) { DARABONBA_PTR_SET_VALUE(thirdPartId_, thirdPartId) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline InvoiceAddRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline int32_t type() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
+    inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
     inline InvoiceAddRequest& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // unitType Field Functions 
     bool hasUnitType() const { return this->unitType_ != nullptr;};
     void deleteUnitType() { this->unitType_ = nullptr;};
-    inline int32_t unitType() const { DARABONBA_PTR_GET_DEFAULT(unitType_, 0) };
+    inline int32_t getUnitType() const { DARABONBA_PTR_GET_DEFAULT(unitType_, 0) };
     inline InvoiceAddRequest& setUnitType(int32_t unitType) { DARABONBA_PTR_SET_VALUE(unitType_, unitType) };
 
 
   protected:
-    std::shared_ptr<string> address_ = nullptr;
-    std::shared_ptr<string> bankName_ = nullptr;
-    std::shared_ptr<string> bankNo_ = nullptr;
-    std::shared_ptr<string> taxNo_ = nullptr;
-    std::shared_ptr<string> tel_ = nullptr;
+    shared_ptr<string> address_ {};
+    shared_ptr<string> bankName_ {};
+    shared_ptr<string> bankNo_ {};
+    shared_ptr<string> mailThirdPartId_ {};
+    shared_ptr<string> taxNo_ {};
+    shared_ptr<string> tel_ {};
     // This parameter is required.
-    std::shared_ptr<string> thirdPartId_ = nullptr;
+    shared_ptr<string> thirdPartId_ {};
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> type_ = nullptr;
-    std::shared_ptr<int32_t> unitType_ = nullptr;
+    shared_ptr<int32_t> type_ {};
+    shared_ptr<int32_t> unitType_ {};
   };
 
   } // namespace Models

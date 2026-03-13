@@ -2061,7 +2061,7 @@ namespace BtripOpen20220520
       Models::HotelSuggestV2Response hotelSuggestV2(const Models::HotelSuggestV2Request &request);
 
       /**
-       * @summary 国际机票订单详情
+       * @summary International Flight Order Details
        *
        * @param request IFlightOrderDetailQueryRequest
        * @param headers IFlightOrderDetailQueryHeaders
@@ -2071,7 +2071,7 @@ namespace BtripOpen20220520
       Models::IFlightOrderDetailQueryResponse iFlightOrderDetailQueryWithOptions(const Models::IFlightOrderDetailQueryRequest &request, const Models::IFlightOrderDetailQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 国际机票订单详情
+       * @summary International Flight Order Details
        *
        * @param request IFlightOrderDetailQueryRequest
        * @return IFlightOrderDetailQueryResponse
@@ -2095,6 +2095,24 @@ namespace BtripOpen20220520
        * @return IFlightOrderListQueryResponse
        */
       Models::IFlightOrderListQueryResponse iFlightOrderListQuery(const Models::IFlightOrderListQueryRequest &request);
+
+      /**
+       * @summary 查询国际/中国港澳台用车记账数据
+       *
+       * @param request IeCarBillSettlementQueryRequest
+       * @param headers IeCarBillSettlementQueryHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return IeCarBillSettlementQueryResponse
+       */
+      Models::IeCarBillSettlementQueryResponse ieCarBillSettlementQueryWithOptions(const Models::IeCarBillSettlementQueryRequest &request, const Models::IeCarBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询国际/中国港澳台用车记账数据
+       *
+       * @param request IeCarBillSettlementQueryRequest
+       * @return IeCarBillSettlementQueryResponse
+       */
+      Models::IeCarBillSettlementQueryResponse ieCarBillSettlementQuery(const Models::IeCarBillSettlementQueryRequest &request);
 
       /**
        * @summary 查询国际机票记账数据
@@ -3011,6 +3029,24 @@ namespace BtripOpen20220520
        * @return ProjectModifyResponse
        */
       Models::ProjectModifyResponse projectModify(const Models::ProjectModifyRequest &request);
+
+      /**
+       * @summary 查询赔付信息
+       *
+       * @param request QueryCompenInfosForOpRequest
+       * @param headers QueryCompenInfosForOpHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryCompenInfosForOpResponse
+       */
+      Models::QueryCompenInfosForOpResponse queryCompenInfosForOpWithOptions(const Models::QueryCompenInfosForOpRequest &request, const Models::QueryCompenInfosForOpHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询赔付信息
+       *
+       * @param request QueryCompenInfosForOpRequest
+       * @return QueryCompenInfosForOpResponse
+       */
+      Models::QueryCompenInfosForOpResponse queryCompenInfosForOp(const Models::QueryCompenInfosForOpRequest &request);
 
       /**
        * @summary 查询企业信息详情

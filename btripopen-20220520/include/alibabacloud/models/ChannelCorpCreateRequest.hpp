@@ -43,78 +43,78 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->administratorName_ != nullptr
-        && this->administratorPhone_ != nullptr && this->city_ != nullptr && this->corpName_ != nullptr && this->province_ != nullptr && this->scope_ != nullptr
-        && this->thirdCorpId_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->administratorName_ == nullptr
+        && this->administratorPhone_ == nullptr && this->city_ == nullptr && this->corpName_ == nullptr && this->province_ == nullptr && this->scope_ == nullptr
+        && this->thirdCorpId_ == nullptr && this->userId_ == nullptr; };
     // administratorName Field Functions 
     bool hasAdministratorName() const { return this->administratorName_ != nullptr;};
     void deleteAdministratorName() { this->administratorName_ = nullptr;};
-    inline string administratorName() const { DARABONBA_PTR_GET_DEFAULT(administratorName_, "") };
+    inline string getAdministratorName() const { DARABONBA_PTR_GET_DEFAULT(administratorName_, "") };
     inline ChannelCorpCreateRequest& setAdministratorName(string administratorName) { DARABONBA_PTR_SET_VALUE(administratorName_, administratorName) };
 
 
     // administratorPhone Field Functions 
     bool hasAdministratorPhone() const { return this->administratorPhone_ != nullptr;};
     void deleteAdministratorPhone() { this->administratorPhone_ = nullptr;};
-    inline string administratorPhone() const { DARABONBA_PTR_GET_DEFAULT(administratorPhone_, "") };
+    inline string getAdministratorPhone() const { DARABONBA_PTR_GET_DEFAULT(administratorPhone_, "") };
     inline ChannelCorpCreateRequest& setAdministratorPhone(string administratorPhone) { DARABONBA_PTR_SET_VALUE(administratorPhone_, administratorPhone) };
 
 
     // city Field Functions 
     bool hasCity() const { return this->city_ != nullptr;};
     void deleteCity() { this->city_ = nullptr;};
-    inline string city() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
+    inline string getCity() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
     inline ChannelCorpCreateRequest& setCity(string city) { DARABONBA_PTR_SET_VALUE(city_, city) };
 
 
     // corpName Field Functions 
     bool hasCorpName() const { return this->corpName_ != nullptr;};
     void deleteCorpName() { this->corpName_ = nullptr;};
-    inline string corpName() const { DARABONBA_PTR_GET_DEFAULT(corpName_, "") };
+    inline string getCorpName() const { DARABONBA_PTR_GET_DEFAULT(corpName_, "") };
     inline ChannelCorpCreateRequest& setCorpName(string corpName) { DARABONBA_PTR_SET_VALUE(corpName_, corpName) };
 
 
     // province Field Functions 
     bool hasProvince() const { return this->province_ != nullptr;};
     void deleteProvince() { this->province_ = nullptr;};
-    inline string province() const { DARABONBA_PTR_GET_DEFAULT(province_, "") };
+    inline string getProvince() const { DARABONBA_PTR_GET_DEFAULT(province_, "") };
     inline ChannelCorpCreateRequest& setProvince(string province) { DARABONBA_PTR_SET_VALUE(province_, province) };
 
 
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline int32_t scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, 0) };
+    inline int32_t getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, 0) };
     inline ChannelCorpCreateRequest& setScope(int32_t scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
     // thirdCorpId Field Functions 
     bool hasThirdCorpId() const { return this->thirdCorpId_ != nullptr;};
     void deleteThirdCorpId() { this->thirdCorpId_ = nullptr;};
-    inline string thirdCorpId() const { DARABONBA_PTR_GET_DEFAULT(thirdCorpId_, "") };
+    inline string getThirdCorpId() const { DARABONBA_PTR_GET_DEFAULT(thirdCorpId_, "") };
     inline ChannelCorpCreateRequest& setThirdCorpId(string thirdCorpId) { DARABONBA_PTR_SET_VALUE(thirdCorpId_, thirdCorpId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline ChannelCorpCreateRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> administratorName_ = nullptr;
+    shared_ptr<string> administratorName_ {};
     // This parameter is required.
-    std::shared_ptr<string> administratorPhone_ = nullptr;
-    std::shared_ptr<string> city_ = nullptr;
+    shared_ptr<string> administratorPhone_ {};
+    shared_ptr<string> city_ {};
     // This parameter is required.
-    std::shared_ptr<string> corpName_ = nullptr;
-    std::shared_ptr<string> province_ = nullptr;
-    std::shared_ptr<int32_t> scope_ = nullptr;
+    shared_ptr<string> corpName_ {};
+    shared_ptr<string> province_ {};
+    shared_ptr<int32_t> scope_ {};
     // This parameter is required.
-    std::shared_ptr<string> thirdCorpId_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> thirdCorpId_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

@@ -5,7 +5,7 @@
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/Convert.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -49,7 +49,7 @@ AccessTokenResponse Client::accessTokenWithOptions(const AccessTokenRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAppSecret()) {
-    query["app_secret"] = request.appSecret();
+    query["app_secret"] = request.getAppSecret();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -95,33 +95,33 @@ AddDepartmentResponse Client::addDepartmentWithOptions(const AddDepartmentReques
   AddDepartmentShrinkRequest request = AddDepartmentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasManagerEmployeeIdList()) {
-    request.setManagerEmployeeIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.managerEmployeeIdList(), "manager_employee_id_list", "json"));
+    request.setManagerEmployeeIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getManagerEmployeeIdList(), "manager_employee_id_list", "json"));
   }
 
   json body = {};
   if (!!request.hasDeptName()) {
-    body["dept_name"] = request.deptName();
+    body["dept_name"] = request.getDeptName();
   }
 
   if (!!request.hasManagerEmployeeIdListShrink()) {
-    body["manager_employee_id_list"] = request.managerEmployeeIdListShrink();
+    body["manager_employee_id_list"] = request.getManagerEmployeeIdListShrink();
   }
 
   if (!!request.hasOutDeptId()) {
-    body["out_dept_id"] = request.outDeptId();
+    body["out_dept_id"] = request.getOutDeptId();
   }
 
   if (!!request.hasOutDeptPid()) {
-    body["out_dept_pid"] = request.outDeptPid();
+    body["out_dept_pid"] = request.getOutDeptPid();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -167,129 +167,129 @@ AddEmployeeResponse Client::addEmployeeWithOptions(const AddEmployeeRequest &tmp
   AddEmployeeShrinkRequest request = AddEmployeeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBaseCityCodeList()) {
-    request.setBaseCityCodeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.baseCityCodeList(), "base_city_code_list", "json"));
+    request.setBaseCityCodeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBaseCityCodeList(), "base_city_code_list", "json"));
   }
 
   if (!!tmpReq.hasBaseLocationList()) {
-    request.setBaseLocationListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.baseLocationList(), "base_location_list", "json"));
+    request.setBaseLocationListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBaseLocationList(), "base_location_list", "json"));
   }
 
   if (!!tmpReq.hasCertList()) {
-    request.setCertListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.certList(), "cert_list", "json"));
+    request.setCertListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCertList(), "cert_list", "json"));
   }
 
   if (!!tmpReq.hasCustomRoleCodeList()) {
-    request.setCustomRoleCodeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.customRoleCodeList(), "custom_role_code_list", "json"));
+    request.setCustomRoleCodeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomRoleCodeList(), "custom_role_code_list", "json"));
   }
 
   if (!!tmpReq.hasOutDeptIdList()) {
-    request.setOutDeptIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.outDeptIdList(), "out_dept_id_list", "json"));
+    request.setOutDeptIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOutDeptIdList(), "out_dept_id_list", "json"));
   }
 
   json body = {};
   if (!!request.hasAccountEmail()) {
-    body["account_email"] = request.accountEmail();
+    body["account_email"] = request.getAccountEmail();
   }
 
   if (!!request.hasAccountPhone()) {
-    body["account_phone"] = request.accountPhone();
+    body["account_phone"] = request.getAccountPhone();
   }
 
   if (!!request.hasAttribute()) {
-    body["attribute"] = request.attribute();
+    body["attribute"] = request.getAttribute();
   }
 
   if (!!request.hasAvatar()) {
-    body["avatar"] = request.avatar();
+    body["avatar"] = request.getAvatar();
   }
 
   if (!!request.hasBaseCityCodeListShrink()) {
-    body["base_city_code_list"] = request.baseCityCodeListShrink();
+    body["base_city_code_list"] = request.getBaseCityCodeListShrink();
   }
 
   if (!!request.hasBaseLocationListShrink()) {
-    body["base_location_list"] = request.baseLocationListShrink();
+    body["base_location_list"] = request.getBaseLocationListShrink();
   }
 
   if (!!request.hasBirthday()) {
-    body["birthday"] = request.birthday();
+    body["birthday"] = request.getBirthday();
   }
 
   if (!!request.hasCertListShrink()) {
-    body["cert_list"] = request.certListShrink();
+    body["cert_list"] = request.getCertListShrink();
   }
 
   if (!!request.hasCustomRoleCodeListShrink()) {
-    body["custom_role_code_list"] = request.customRoleCodeListShrink();
+    body["custom_role_code_list"] = request.getCustomRoleCodeListShrink();
   }
 
   if (!!request.hasEmail()) {
-    body["email"] = request.email();
+    body["email"] = request.getEmail();
   }
 
   if (!!request.hasGender()) {
-    body["gender"] = request.gender();
+    body["gender"] = request.getGender();
   }
 
   if (!!request.hasIsAdmin()) {
-    body["is_admin"] = request.isAdmin();
+    body["is_admin"] = request.getIsAdmin();
   }
 
   if (!!request.hasIsBoss()) {
-    body["is_boss"] = request.isBoss();
+    body["is_boss"] = request.getIsBoss();
   }
 
   if (!!request.hasIsDeptLeader()) {
-    body["is_dept_leader"] = request.isDeptLeader();
+    body["is_dept_leader"] = request.getIsDeptLeader();
   }
 
   if (!!request.hasJobNo()) {
-    body["job_no"] = request.jobNo();
+    body["job_no"] = request.getJobNo();
   }
 
   if (!!request.hasManagerUserId()) {
-    body["manager_user_id"] = request.managerUserId();
+    body["manager_user_id"] = request.getManagerUserId();
   }
 
   if (!!request.hasOutDeptIdListShrink()) {
-    body["out_dept_id_list"] = request.outDeptIdListShrink();
+    body["out_dept_id_list"] = request.getOutDeptIdListShrink();
   }
 
   if (!!request.hasPhone()) {
-    body["phone"] = request.phone();
+    body["phone"] = request.getPhone();
   }
 
   if (!!request.hasPositionLevel()) {
-    body["position_level"] = request.positionLevel();
+    body["position_level"] = request.getPositionLevel();
   }
 
   if (!!request.hasRealName()) {
-    body["real_name"] = request.realName();
+    body["real_name"] = request.getRealName();
   }
 
   if (!!request.hasRealNameEn()) {
-    body["real_name_en"] = request.realNameEn();
+    body["real_name_en"] = request.getRealNameEn();
   }
 
   if (!!request.hasUnionId()) {
-    body["union_id"] = request.unionId();
+    body["union_id"] = request.getUnionId();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   if (!!request.hasUserNick()) {
-    body["user_nick"] = request.userNick();
+    body["user_nick"] = request.getUserNick();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -335,25 +335,25 @@ AddEmployeesToCustomRoleResponse Client::addEmployeesToCustomRoleWithOptions(con
   AddEmployeesToCustomRoleShrinkRequest request = AddEmployeesToCustomRoleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUserIdList()) {
-    request.setUserIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userIdList(), "user_id_list", "json"));
+    request.setUserIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserIdList(), "user_id_list", "json"));
   }
 
   json body = {};
   if (!!request.hasRoleId()) {
-    body["role_id"] = request.roleId();
+    body["role_id"] = request.getRoleId();
   }
 
   if (!!request.hasUserIdListShrink()) {
-    body["user_id_list"] = request.userIdListShrink();
+    body["user_id_list"] = request.getUserIdListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -399,25 +399,25 @@ AddInvoiceEntityResponse Client::addInvoiceEntityWithOptions(const AddInvoiceEnt
   AddInvoiceEntityShrinkRequest request = AddInvoiceEntityShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEntities()) {
-    request.setEntitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.entities(), "entities", "json"));
+    request.setEntitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntities(), "entities", "json"));
   }
 
   json body = {};
   if (!!request.hasEntitiesShrink()) {
-    body["entities"] = request.entitiesShrink();
+    body["entities"] = request.getEntitiesShrink();
   }
 
   if (!!request.hasThirdPartId()) {
-    body["third_part_id"] = request.thirdPartId();
+    body["third_part_id"] = request.getThirdPartId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -462,88 +462,88 @@ AddressGetResponse Client::addressGetWithOptions(const AddressGetRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasActionType()) {
-    query["action_type"] = request.actionType();
+    query["action_type"] = request.getActionType();
   }
 
   if (!!request.hasArrCityCode()) {
-    query["arr_city_code"] = request.arrCityCode();
+    query["arr_city_code"] = request.getArrCityCode();
   }
 
   if (!!request.hasArrCityName()) {
-    query["arr_city_name"] = request.arrCityName();
+    query["arr_city_name"] = request.getArrCityName();
   }
 
   if (!!request.hasCarScenesCode()) {
-    query["car_scenes_code"] = request.carScenesCode();
+    query["car_scenes_code"] = request.getCarScenesCode();
   }
 
   if (!!request.hasDepCityCode()) {
-    query["dep_city_code"] = request.depCityCode();
+    query["dep_city_code"] = request.getDepCityCode();
   }
 
   if (!!request.hasDepCityName()) {
-    query["dep_city_name"] = request.depCityName();
+    query["dep_city_name"] = request.getDepCityName();
   }
 
   if (!!request.hasDepDate()) {
-    query["dep_date"] = request.depDate();
+    query["dep_date"] = request.getDepDate();
   }
 
   if (!!request.hasItineraryId()) {
-    query["itinerary_id"] = request.itineraryId();
+    query["itinerary_id"] = request.getItineraryId();
   }
 
   if (!!request.hasMiddlePage()) {
-    query["middle_page"] = request.middlePage();
+    query["middle_page"] = request.getMiddlePage();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_Id"] = request.orderId();
+    query["order_Id"] = request.getOrderId();
   }
 
   if (!!request.hasPhone()) {
-    query["phone"] = request.phone();
+    query["phone"] = request.getPhone();
   }
 
   if (!!request.hasSessionParameters()) {
-    query["session_parameters"] = request.sessionParameters();
+    query["session_parameters"] = request.getSessionParameters();
   }
 
   if (!!request.hasSubCorpId()) {
-    query["sub_corp_id"] = request.subCorpId();
+    query["sub_corp_id"] = request.getSubCorpId();
   }
 
   if (!!request.hasTaobaoCallbackUrl()) {
-    query["taobao_callback_url"] = request.taobaoCallbackUrl();
+    query["taobao_callback_url"] = request.getTaobaoCallbackUrl();
   }
 
   if (!!request.hasThirdpartApplyId()) {
-    query["thirdpart_apply_id"] = request.thirdpartApplyId();
+    query["thirdpart_apply_id"] = request.getThirdpartApplyId();
   }
 
   if (!!request.hasTravelerId()) {
-    query["traveler_id"] = request.travelerId();
+    query["traveler_id"] = request.getTravelerId();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   if (!!request.hasUseBookingProxy()) {
-    query["use_booking_proxy"] = request.useBookingProxy();
+    query["use_booking_proxy"] = request.getUseBookingProxy();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -588,20 +588,20 @@ AirportSearchResponse Client::airportSearchWithOptions(const AirportSearchReques
   request.validate();
   json query = {};
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -644,11 +644,11 @@ AirportSearchResponse Client::airportSearch(const AirportSearchRequest &request)
 AllBaseCityInfoQueryResponse Client::allBaseCityInfoQueryWithOptions(const AllBaseCityInfoQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripAccessToken()) {
-    realHeaders["x-acs-btrip-access-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripAccessToken());
+    realHeaders["x-acs-btrip-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripAccessToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -692,209 +692,209 @@ ApplyAddResponse Client::applyAddWithOptions(const ApplyAddRequest &tmpReq, cons
   ApplyAddShrinkRequest request = ApplyAddShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCarRule()) {
-    request.setCarRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.carRule(), "car_rule", "json"));
+    request.setCarRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCarRule(), "car_rule", "json"));
   }
 
   if (!!tmpReq.hasDefaultStandard()) {
-    request.setDefaultStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.defaultStandard(), "default_standard", "json"));
+    request.setDefaultStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDefaultStandard(), "default_standard", "json"));
   }
 
   if (!!tmpReq.hasExternalTravelerList()) {
-    request.setExternalTravelerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.externalTravelerList(), "external_traveler_list", "json"));
+    request.setExternalTravelerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExternalTravelerList(), "external_traveler_list", "json"));
   }
 
   if (!!tmpReq.hasExternalTravelerStandard()) {
-    request.setExternalTravelerStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.externalTravelerStandard(), "external_traveler_standard", "json"));
+    request.setExternalTravelerStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExternalTravelerStandard(), "external_traveler_standard", "json"));
   }
 
   if (!!tmpReq.hasHotelShare()) {
-    request.setHotelShareShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.hotelShare(), "hotel_share", "json"));
+    request.setHotelShareShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHotelShare(), "hotel_share", "json"));
   }
 
   if (!!tmpReq.hasItineraryList()) {
-    request.setItineraryListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.itineraryList(), "itinerary_list", "json"));
+    request.setItineraryListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItineraryList(), "itinerary_list", "json"));
   }
 
   if (!!tmpReq.hasItinerarySetList()) {
-    request.setItinerarySetListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.itinerarySetList(), "itinerary_set_list", "json"));
+    request.setItinerarySetListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItinerarySetList(), "itinerary_set_list", "json"));
   }
 
   if (!!tmpReq.hasTravelerList()) {
-    request.setTravelerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.travelerList(), "traveler_list", "json"));
+    request.setTravelerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTravelerList(), "traveler_list", "json"));
   }
 
   if (!!tmpReq.hasTravelerStandard()) {
-    request.setTravelerStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.travelerStandard(), "traveler_standard", "json"));
+    request.setTravelerStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTravelerStandard(), "traveler_standard", "json"));
   }
 
   json body = {};
   if (!!request.hasBudget()) {
-    body["budget"] = request.budget();
+    body["budget"] = request.getBudget();
   }
 
   if (!!request.hasBudgetMerge()) {
-    body["budget_merge"] = request.budgetMerge();
+    body["budget_merge"] = request.getBudgetMerge();
   }
 
   if (!!request.hasCarRuleShrink()) {
-    body["car_rule"] = request.carRuleShrink();
+    body["car_rule"] = request.getCarRuleShrink();
   }
 
   if (!!request.hasCorpName()) {
-    body["corp_name"] = request.corpName();
+    body["corp_name"] = request.getCorpName();
   }
 
   if (!!request.hasDefaultStandardShrink()) {
-    body["default_standard"] = request.defaultStandardShrink();
+    body["default_standard"] = request.getDefaultStandardShrink();
   }
 
   if (!!request.hasDepartId()) {
-    body["depart_id"] = request.departId();
+    body["depart_id"] = request.getDepartId();
   }
 
   if (!!request.hasDepartName()) {
-    body["depart_name"] = request.departName();
+    body["depart_name"] = request.getDepartName();
   }
 
   if (!!request.hasExtendField()) {
-    body["extend_field"] = request.extendField();
+    body["extend_field"] = request.getExtendField();
   }
 
   if (!!request.hasExternalTravelerListShrink()) {
-    body["external_traveler_list"] = request.externalTravelerListShrink();
+    body["external_traveler_list"] = request.getExternalTravelerListShrink();
   }
 
   if (!!request.hasExternalTravelerStandardShrink()) {
-    body["external_traveler_standard"] = request.externalTravelerStandardShrink();
+    body["external_traveler_standard"] = request.getExternalTravelerStandardShrink();
   }
 
   if (!!request.hasFlightBudget()) {
-    body["flight_budget"] = request.flightBudget();
+    body["flight_budget"] = request.getFlightBudget();
   }
 
   if (!!request.hasHotelBudget()) {
-    body["hotel_budget"] = request.hotelBudget();
+    body["hotel_budget"] = request.getHotelBudget();
   }
 
   if (!!request.hasHotelShareShrink()) {
-    body["hotel_share"] = request.hotelShareShrink();
+    body["hotel_share"] = request.getHotelShareShrink();
   }
 
   if (!!request.hasInternationalFlightCabins()) {
-    body["international_flight_cabins"] = request.internationalFlightCabins();
+    body["international_flight_cabins"] = request.getInternationalFlightCabins();
   }
 
   if (!!request.hasIntlFlightBudget()) {
-    body["intl_flight_budget"] = request.intlFlightBudget();
+    body["intl_flight_budget"] = request.getIntlFlightBudget();
   }
 
   if (!!request.hasIntlHotelBudget()) {
-    body["intl_hotel_budget"] = request.intlHotelBudget();
+    body["intl_hotel_budget"] = request.getIntlHotelBudget();
   }
 
   if (!!request.hasItineraryListShrink()) {
-    body["itinerary_list"] = request.itineraryListShrink();
+    body["itinerary_list"] = request.getItineraryListShrink();
   }
 
   if (!!request.hasItineraryRule()) {
-    body["itinerary_rule"] = request.itineraryRule();
+    body["itinerary_rule"] = request.getItineraryRule();
   }
 
   if (!!request.hasItinerarySetListShrink()) {
-    body["itinerary_set_list"] = request.itinerarySetListShrink();
+    body["itinerary_set_list"] = request.getItinerarySetListShrink();
   }
 
   if (!!request.hasLimitTraveler()) {
-    body["limit_traveler"] = request.limitTraveler();
+    body["limit_traveler"] = request.getLimitTraveler();
   }
 
   if (!!request.hasMealBudget()) {
-    body["meal_budget"] = request.mealBudget();
+    body["meal_budget"] = request.getMealBudget();
   }
 
   if (!!request.hasPaymentDepartmentId()) {
-    body["payment_department_id"] = request.paymentDepartmentId();
+    body["payment_department_id"] = request.getPaymentDepartmentId();
   }
 
   if (!!request.hasPaymentDepartmentName()) {
-    body["payment_department_name"] = request.paymentDepartmentName();
+    body["payment_department_name"] = request.getPaymentDepartmentName();
   }
 
   if (!!request.hasStatus()) {
-    body["status"] = request.status();
+    body["status"] = request.getStatus();
   }
 
   if (!!request.hasSubCorpId()) {
-    body["sub_corp_id"] = request.subCorpId();
+    body["sub_corp_id"] = request.getSubCorpId();
   }
 
   if (!!request.hasThirdpartApplyId()) {
-    body["thirdpart_apply_id"] = request.thirdpartApplyId();
+    body["thirdpart_apply_id"] = request.getThirdpartApplyId();
   }
 
   if (!!request.hasThirdpartBusinessId()) {
-    body["thirdpart_business_id"] = request.thirdpartBusinessId();
+    body["thirdpart_business_id"] = request.getThirdpartBusinessId();
   }
 
   if (!!request.hasThirdpartDepartId()) {
-    body["thirdpart_depart_id"] = request.thirdpartDepartId();
+    body["thirdpart_depart_id"] = request.getThirdpartDepartId();
   }
 
   if (!!request.hasTogetherBookRule()) {
-    body["together_book_rule"] = request.togetherBookRule();
+    body["together_book_rule"] = request.getTogetherBookRule();
   }
 
   if (!!request.hasTrainBudget()) {
-    body["train_budget"] = request.trainBudget();
+    body["train_budget"] = request.getTrainBudget();
   }
 
   if (!!request.hasTravelerListShrink()) {
-    body["traveler_list"] = request.travelerListShrink();
+    body["traveler_list"] = request.getTravelerListShrink();
   }
 
   if (!!request.hasTravelerStandardShrink()) {
-    body["traveler_standard"] = request.travelerStandardShrink();
+    body["traveler_standard"] = request.getTravelerStandardShrink();
   }
 
   if (!!request.hasTripCause()) {
-    body["trip_cause"] = request.tripCause();
+    body["trip_cause"] = request.getTripCause();
   }
 
   if (!!request.hasTripDay()) {
-    body["trip_day"] = request.tripDay();
+    body["trip_day"] = request.getTripDay();
   }
 
   if (!!request.hasTripTitle()) {
-    body["trip_title"] = request.tripTitle();
+    body["trip_title"] = request.getTripTitle();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   if (!!request.hasUnionNo()) {
-    body["union_no"] = request.unionNo();
+    body["union_no"] = request.getUnionNo();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   if (!!request.hasUserName()) {
-    body["user_name"] = request.userName();
+    body["user_name"] = request.getUserName();
   }
 
   if (!!request.hasVehicleBudget()) {
-    body["vehicle_budget"] = request.vehicleBudget();
+    body["vehicle_budget"] = request.getVehicleBudget();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -939,40 +939,40 @@ ApplyApproveResponse Client::applyApproveWithOptions(const ApplyApproveRequest &
   request.validate();
   json body = {};
   if (!!request.hasApplyId()) {
-    body["apply_id"] = request.applyId();
+    body["apply_id"] = request.getApplyId();
   }
 
   if (!!request.hasNote()) {
-    body["note"] = request.note();
+    body["note"] = request.getNote();
   }
 
   if (!!request.hasOperateTime()) {
-    body["operate_time"] = request.operateTime();
+    body["operate_time"] = request.getOperateTime();
   }
 
   if (!!request.hasStatus()) {
-    body["status"] = request.status();
+    body["status"] = request.getStatus();
   }
 
   if (!!request.hasSubCorpId()) {
-    body["sub_corp_id"] = request.subCorpId();
+    body["sub_corp_id"] = request.getSubCorpId();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   if (!!request.hasUserName()) {
-    body["user_name"] = request.userName();
+    body["user_name"] = request.getUserName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1018,29 +1018,29 @@ ApplyExternalNodeStatusUpdateResponse Client::applyExternalNodeStatusUpdateWithO
   ApplyExternalNodeStatusUpdateShrinkRequest request = ApplyExternalNodeStatusUpdateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasOperationRecords()) {
-    request.setOperationRecordsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.operationRecords(), "operation_records", "json"));
+    request.setOperationRecordsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOperationRecords(), "operation_records", "json"));
   }
 
   json body = {};
   if (!!request.hasNodeId()) {
-    body["node_id"] = request.nodeId();
+    body["node_id"] = request.getNodeId();
   }
 
   if (!!request.hasOperationRecordsShrink()) {
-    body["operation_records"] = request.operationRecordsShrink();
+    body["operation_records"] = request.getOperationRecordsShrink();
   }
 
   if (!!request.hasProcessActionResult()) {
-    body["process_action_result"] = request.processActionResult();
+    body["process_action_result"] = request.getProcessActionResult();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1086,25 +1086,25 @@ ApplyInvoiceTaskResponse Client::applyInvoiceTaskWithOptions(const ApplyInvoiceT
   ApplyInvoiceTaskShrinkRequest request = ApplyInvoiceTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasInvoiceTaskList()) {
-    request.setInvoiceTaskListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.invoiceTaskList(), "invoice_task_list", "json"));
+    request.setInvoiceTaskListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInvoiceTaskList(), "invoice_task_list", "json"));
   }
 
   json body = {};
   if (!!request.hasBillDate()) {
-    body["bill_date"] = request.billDate();
+    body["bill_date"] = request.getBillDate();
   }
 
   if (!!request.hasInvoiceTaskListShrink()) {
-    body["invoice_task_list"] = request.invoiceTaskListShrink();
+    body["invoice_task_list"] = request.getInvoiceTaskListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1149,60 +1149,60 @@ ApplyListQueryResponse Client::applyListQueryWithOptions(const ApplyListQueryReq
   request.validate();
   json query = {};
   if (!!request.hasAllApply()) {
-    query["all_apply"] = request.allApply();
+    query["all_apply"] = request.getAllApply();
   }
 
   if (!!request.hasDepartId()) {
-    query["depart_id"] = request.departId();
+    query["depart_id"] = request.getDepartId();
   }
 
   if (!!request.hasEndTime()) {
-    query["end_time"] = request.endTime();
+    query["end_time"] = request.getEndTime();
   }
 
   if (!!request.hasGmtModified()) {
-    query["gmt_modified"] = request.gmtModified();
+    query["gmt_modified"] = request.getGmtModified();
   }
 
   if (!!request.hasOnlyShangLvApply()) {
-    query["only_shang_lv_apply"] = request.onlyShangLvApply();
+    query["only_shang_lv_apply"] = request.getOnlyShangLvApply();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["start_time"] = request.startTime();
+    query["start_time"] = request.getStartTime();
   }
 
   if (!!request.hasSubCorpId()) {
-    query["sub_corp_id"] = request.subCorpId();
+    query["sub_corp_id"] = request.getSubCorpId();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   if (!!request.hasUnionNo()) {
-    query["union_no"] = request.unionNo();
+    query["union_no"] = request.getUnionNo();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1248,201 +1248,201 @@ ApplyModifyResponse Client::applyModifyWithOptions(const ApplyModifyRequest &tmp
   ApplyModifyShrinkRequest request = ApplyModifyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCarRule()) {
-    request.setCarRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.carRule(), "car_rule", "json"));
+    request.setCarRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCarRule(), "car_rule", "json"));
   }
 
   if (!!tmpReq.hasDefaultStandard()) {
-    request.setDefaultStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.defaultStandard(), "default_standard", "json"));
+    request.setDefaultStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDefaultStandard(), "default_standard", "json"));
   }
 
   if (!!tmpReq.hasExternalTravelerList()) {
-    request.setExternalTravelerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.externalTravelerList(), "external_traveler_list", "json"));
+    request.setExternalTravelerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExternalTravelerList(), "external_traveler_list", "json"));
   }
 
   if (!!tmpReq.hasExternalTravelerStandard()) {
-    request.setExternalTravelerStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.externalTravelerStandard(), "external_traveler_standard", "json"));
+    request.setExternalTravelerStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExternalTravelerStandard(), "external_traveler_standard", "json"));
   }
 
   if (!!tmpReq.hasHotelShare()) {
-    request.setHotelShareShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.hotelShare(), "hotel_share", "json"));
+    request.setHotelShareShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHotelShare(), "hotel_share", "json"));
   }
 
   if (!!tmpReq.hasItineraryList()) {
-    request.setItineraryListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.itineraryList(), "itinerary_list", "json"));
+    request.setItineraryListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItineraryList(), "itinerary_list", "json"));
   }
 
   if (!!tmpReq.hasItinerarySetList()) {
-    request.setItinerarySetListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.itinerarySetList(), "itinerary_set_list", "json"));
+    request.setItinerarySetListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItinerarySetList(), "itinerary_set_list", "json"));
   }
 
   if (!!tmpReq.hasTravelerList()) {
-    request.setTravelerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.travelerList(), "traveler_list", "json"));
+    request.setTravelerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTravelerList(), "traveler_list", "json"));
   }
 
   if (!!tmpReq.hasTravelerStandard()) {
-    request.setTravelerStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.travelerStandard(), "traveler_standard", "json"));
+    request.setTravelerStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTravelerStandard(), "traveler_standard", "json"));
   }
 
   json body = {};
   if (!!request.hasBudget()) {
-    body["budget"] = request.budget();
+    body["budget"] = request.getBudget();
   }
 
   if (!!request.hasBudgetMerge()) {
-    body["budget_merge"] = request.budgetMerge();
+    body["budget_merge"] = request.getBudgetMerge();
   }
 
   if (!!request.hasCarRuleShrink()) {
-    body["car_rule"] = request.carRuleShrink();
+    body["car_rule"] = request.getCarRuleShrink();
   }
 
   if (!!request.hasCorpName()) {
-    body["corp_name"] = request.corpName();
+    body["corp_name"] = request.getCorpName();
   }
 
   if (!!request.hasDefaultStandardShrink()) {
-    body["default_standard"] = request.defaultStandardShrink();
+    body["default_standard"] = request.getDefaultStandardShrink();
   }
 
   if (!!request.hasDepartId()) {
-    body["depart_id"] = request.departId();
+    body["depart_id"] = request.getDepartId();
   }
 
   if (!!request.hasDepartName()) {
-    body["depart_name"] = request.departName();
+    body["depart_name"] = request.getDepartName();
   }
 
   if (!!request.hasExtendField()) {
-    body["extend_field"] = request.extendField();
+    body["extend_field"] = request.getExtendField();
   }
 
   if (!!request.hasExternalTravelerListShrink()) {
-    body["external_traveler_list"] = request.externalTravelerListShrink();
+    body["external_traveler_list"] = request.getExternalTravelerListShrink();
   }
 
   if (!!request.hasExternalTravelerStandardShrink()) {
-    body["external_traveler_standard"] = request.externalTravelerStandardShrink();
+    body["external_traveler_standard"] = request.getExternalTravelerStandardShrink();
   }
 
   if (!!request.hasFlightBudget()) {
-    body["flight_budget"] = request.flightBudget();
+    body["flight_budget"] = request.getFlightBudget();
   }
 
   if (!!request.hasHotelBudget()) {
-    body["hotel_budget"] = request.hotelBudget();
+    body["hotel_budget"] = request.getHotelBudget();
   }
 
   if (!!request.hasHotelShareShrink()) {
-    body["hotel_share"] = request.hotelShareShrink();
+    body["hotel_share"] = request.getHotelShareShrink();
   }
 
   if (!!request.hasIntlFlightBudget()) {
-    body["intl_flight_budget"] = request.intlFlightBudget();
+    body["intl_flight_budget"] = request.getIntlFlightBudget();
   }
 
   if (!!request.hasIntlHotelBudget()) {
-    body["intl_hotel_budget"] = request.intlHotelBudget();
+    body["intl_hotel_budget"] = request.getIntlHotelBudget();
   }
 
   if (!!request.hasItineraryListShrink()) {
-    body["itinerary_list"] = request.itineraryListShrink();
+    body["itinerary_list"] = request.getItineraryListShrink();
   }
 
   if (!!request.hasItineraryRule()) {
-    body["itinerary_rule"] = request.itineraryRule();
+    body["itinerary_rule"] = request.getItineraryRule();
   }
 
   if (!!request.hasItinerarySetListShrink()) {
-    body["itinerary_set_list"] = request.itinerarySetListShrink();
+    body["itinerary_set_list"] = request.getItinerarySetListShrink();
   }
 
   if (!!request.hasLimitTraveler()) {
-    body["limit_traveler"] = request.limitTraveler();
+    body["limit_traveler"] = request.getLimitTraveler();
   }
 
   if (!!request.hasMealBudget()) {
-    body["meal_budget"] = request.mealBudget();
+    body["meal_budget"] = request.getMealBudget();
   }
 
   if (!!request.hasPaymentDepartmentId()) {
-    body["payment_department_id"] = request.paymentDepartmentId();
+    body["payment_department_id"] = request.getPaymentDepartmentId();
   }
 
   if (!!request.hasPaymentDepartmentName()) {
-    body["payment_department_name"] = request.paymentDepartmentName();
+    body["payment_department_name"] = request.getPaymentDepartmentName();
   }
 
   if (!!request.hasStatus()) {
-    body["status"] = request.status();
+    body["status"] = request.getStatus();
   }
 
   if (!!request.hasSubCorpId()) {
-    body["sub_corp_id"] = request.subCorpId();
+    body["sub_corp_id"] = request.getSubCorpId();
   }
 
   if (!!request.hasThirdpartApplyId()) {
-    body["thirdpart_apply_id"] = request.thirdpartApplyId();
+    body["thirdpart_apply_id"] = request.getThirdpartApplyId();
   }
 
   if (!!request.hasThirdpartBusinessId()) {
-    body["thirdpart_business_id"] = request.thirdpartBusinessId();
+    body["thirdpart_business_id"] = request.getThirdpartBusinessId();
   }
 
   if (!!request.hasThirdpartDepartId()) {
-    body["thirdpart_depart_id"] = request.thirdpartDepartId();
+    body["thirdpart_depart_id"] = request.getThirdpartDepartId();
   }
 
   if (!!request.hasTogetherBookRule()) {
-    body["together_book_rule"] = request.togetherBookRule();
+    body["together_book_rule"] = request.getTogetherBookRule();
   }
 
   if (!!request.hasTrainBudget()) {
-    body["train_budget"] = request.trainBudget();
+    body["train_budget"] = request.getTrainBudget();
   }
 
   if (!!request.hasTravelerListShrink()) {
-    body["traveler_list"] = request.travelerListShrink();
+    body["traveler_list"] = request.getTravelerListShrink();
   }
 
   if (!!request.hasTravelerStandardShrink()) {
-    body["traveler_standard"] = request.travelerStandardShrink();
+    body["traveler_standard"] = request.getTravelerStandardShrink();
   }
 
   if (!!request.hasTripCause()) {
-    body["trip_cause"] = request.tripCause();
+    body["trip_cause"] = request.getTripCause();
   }
 
   if (!!request.hasTripDay()) {
-    body["trip_day"] = request.tripDay();
+    body["trip_day"] = request.getTripDay();
   }
 
   if (!!request.hasTripTitle()) {
-    body["trip_title"] = request.tripTitle();
+    body["trip_title"] = request.getTripTitle();
   }
 
   if (!!request.hasUnionNo()) {
-    body["union_no"] = request.unionNo();
+    body["union_no"] = request.getUnionNo();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   if (!!request.hasUserName()) {
-    body["user_name"] = request.userName();
+    body["user_name"] = request.getUserName();
   }
 
   if (!!request.hasVehicleBudget()) {
-    body["vehicle_budget"] = request.vehicleBudget();
+    body["vehicle_budget"] = request.getVehicleBudget();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1487,32 +1487,32 @@ ApplyQueryResponse Client::applyQueryWithOptions(const ApplyQueryRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasApplyId()) {
-    query["apply_id"] = request.applyId();
+    query["apply_id"] = request.getApplyId();
   }
 
   if (!!request.hasApplyShowId()) {
-    query["apply_show_id"] = request.applyShowId();
+    query["apply_show_id"] = request.getApplyShowId();
   }
 
   if (!!request.hasSubCorpId()) {
-    query["sub_corp_id"] = request.subCorpId();
+    query["sub_corp_id"] = request.getSubCorpId();
   }
 
   if (!!request.hasThirdpartApplyId()) {
-    query["thirdpart_apply_id"] = request.thirdpartApplyId();
+    query["thirdpart_apply_id"] = request.getThirdpartApplyId();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1557,36 +1557,36 @@ ApplyTripTaskExecuteResponse Client::applyTripTaskExecuteWithOptions(const Apply
   request.validate();
   json body = {};
   if (!!request.hasActionFrom()) {
-    body["action_from"] = request.actionFrom();
+    body["action_from"] = request.getActionFrom();
   }
 
   if (!!request.hasComment()) {
-    body["comment"] = request.comment();
+    body["comment"] = request.getComment();
   }
 
   if (!!request.hasTaskAction()) {
-    body["task_action"] = request.taskAction();
+    body["task_action"] = request.getTaskAction();
   }
 
   if (!!request.hasTaskId()) {
-    body["task_id"] = request.taskId();
+    body["task_id"] = request.getTaskId();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   if (!!request.hasUserName()) {
-    body["user_name"] = request.userName();
+    body["user_name"] = request.getUserName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1631,20 +1631,20 @@ BaseCityInfoSearchResponse Client::baseCityInfoSearchWithOptions(const BaseCityI
   request.validate();
   json query = {};
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripAccessToken()) {
-    realHeaders["x-acs-btrip-access-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripAccessToken());
+    realHeaders["x-acs-btrip-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripAccessToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1689,36 +1689,36 @@ BtripBillInfoAdjustResponse Client::btripBillInfoAdjustWithOptions(const BtripBi
   request.validate();
   json body = {};
   if (!!request.hasPrimaryId()) {
-    body["primary_id"] = request.primaryId();
+    body["primary_id"] = request.getPrimaryId();
   }
 
   if (!!request.hasThirdPartCostCenterId()) {
-    body["third_part_cost_center_id"] = request.thirdPartCostCenterId();
+    body["third_part_cost_center_id"] = request.getThirdPartCostCenterId();
   }
 
   if (!!request.hasThirdPartDepartmentId()) {
-    body["third_part_department_id"] = request.thirdPartDepartmentId();
+    body["third_part_department_id"] = request.getThirdPartDepartmentId();
   }
 
   if (!!request.hasThirdPartInvoiceId()) {
-    body["third_part_invoice_id"] = request.thirdPartInvoiceId();
+    body["third_part_invoice_id"] = request.getThirdPartInvoiceId();
   }
 
   if (!!request.hasThirdPartProjectId()) {
-    body["third_part_project_id"] = request.thirdPartProjectId();
+    body["third_part_project_id"] = request.getThirdPartProjectId();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1764,85 +1764,85 @@ CarApplyAddResponse Client::carApplyAddWithOptions(const CarApplyAddRequest &tmp
   CarApplyAddShrinkRequest request = CarApplyAddShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTravelerStandard()) {
-    request.setTravelerStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.travelerStandard(), "traveler_standard", "json"));
+    request.setTravelerStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTravelerStandard(), "traveler_standard", "json"));
   }
 
   json body = {};
   if (!!request.hasCause()) {
-    body["cause"] = request.cause();
+    body["cause"] = request.getCause();
   }
 
   if (!!request.hasCity()) {
-    body["city"] = request.city();
+    body["city"] = request.getCity();
   }
 
   if (!!request.hasCityCodeSet()) {
-    body["city_code_set"] = request.cityCodeSet();
+    body["city_code_set"] = request.getCityCodeSet();
   }
 
   if (!!request.hasDate()) {
-    body["date"] = request.date();
+    body["date"] = request.getDate();
   }
 
   if (!!request.hasFinishedDate()) {
-    body["finished_date"] = request.finishedDate();
+    body["finished_date"] = request.getFinishedDate();
   }
 
   if (!!request.hasProjectCode()) {
-    body["project_code"] = request.projectCode();
+    body["project_code"] = request.getProjectCode();
   }
 
   if (!!request.hasProjectName()) {
-    body["project_name"] = request.projectName();
+    body["project_name"] = request.getProjectName();
   }
 
   if (!!request.hasStatus()) {
-    body["status"] = request.status();
+    body["status"] = request.getStatus();
   }
 
   if (!!request.hasThirdPartApplyId()) {
-    body["third_part_apply_id"] = request.thirdPartApplyId();
+    body["third_part_apply_id"] = request.getThirdPartApplyId();
   }
 
   if (!!request.hasThirdPartCostCenterId()) {
-    body["third_part_cost_center_id"] = request.thirdPartCostCenterId();
+    body["third_part_cost_center_id"] = request.getThirdPartCostCenterId();
   }
 
   if (!!request.hasThirdPartInvoiceId()) {
-    body["third_part_invoice_id"] = request.thirdPartInvoiceId();
+    body["third_part_invoice_id"] = request.getThirdPartInvoiceId();
   }
 
   if (!!request.hasTimesTotal()) {
-    body["times_total"] = request.timesTotal();
+    body["times_total"] = request.getTimesTotal();
   }
 
   if (!!request.hasTimesType()) {
-    body["times_type"] = request.timesType();
+    body["times_type"] = request.getTimesType();
   }
 
   if (!!request.hasTimesUsed()) {
-    body["times_used"] = request.timesUsed();
+    body["times_used"] = request.getTimesUsed();
   }
 
   if (!!request.hasTitle()) {
-    body["title"] = request.title();
+    body["title"] = request.getTitle();
   }
 
   if (!!request.hasTravelerStandardShrink()) {
-    body["traveler_standard"] = request.travelerStandardShrink();
+    body["traveler_standard"] = request.getTravelerStandardShrink();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1887,32 +1887,32 @@ CarApplyModifyResponse Client::carApplyModifyWithOptions(const CarApplyModifyReq
   request.validate();
   json body = {};
   if (!!request.hasOperateTime()) {
-    body["operate_time"] = request.operateTime();
+    body["operate_time"] = request.getOperateTime();
   }
 
   if (!!request.hasRemark()) {
-    body["remark"] = request.remark();
+    body["remark"] = request.getRemark();
   }
 
   if (!!request.hasStatus()) {
-    body["status"] = request.status();
+    body["status"] = request.getStatus();
   }
 
   if (!!request.hasThirdPartApplyId()) {
-    body["third_part_apply_id"] = request.thirdPartApplyId();
+    body["third_part_apply_id"] = request.getThirdPartApplyId();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1957,36 +1957,36 @@ CarApplyQueryResponse Client::carApplyQueryWithOptions(const CarApplyQueryReques
   request.validate();
   json query = {};
   if (!!request.hasCreatedEndAt()) {
-    query["created_end_at"] = request.createdEndAt();
+    query["created_end_at"] = request.getCreatedEndAt();
   }
 
   if (!!request.hasCreatedStartAt()) {
-    query["created_start_at"] = request.createdStartAt();
+    query["created_start_at"] = request.getCreatedStartAt();
   }
 
   if (!!request.hasPageNumber()) {
-    query["page_number"] = request.pageNumber();
+    query["page_number"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasThirdPartApplyId()) {
-    query["third_part_apply_id"] = request.thirdPartApplyId();
+    query["third_part_apply_id"] = request.getThirdPartApplyId();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2031,44 +2031,52 @@ CarBillSettlementQueryResponse Client::carBillSettlementQueryWithOptions(const C
   request.validate();
   json query = {};
   if (!!request.hasBillBatch()) {
-    query["bill_batch"] = request.billBatch();
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasBillRecordTimeEnd()) {
+    query["bill_record_time_end"] = request.getBillRecordTimeEnd();
+  }
+
+  if (!!request.hasBillRecordTimeStart()) {
+    query["bill_record_time_start"] = request.getBillRecordTimeStart();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPeriodEnd()) {
-    query["period_end"] = request.periodEnd();
+    query["period_end"] = request.getPeriodEnd();
   }
 
   if (!!request.hasPeriodStart()) {
-    query["period_start"] = request.periodStart();
+    query["period_start"] = request.getPeriodStart();
   }
 
   if (!!request.hasScrollId()) {
-    query["scroll_id"] = request.scrollId();
+    query["scroll_id"] = request.getScrollId();
   }
 
   if (!!request.hasScrollMod()) {
-    query["scroll_mod"] = request.scrollMod();
+    query["scroll_mod"] = request.getScrollMod();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2113,56 +2121,56 @@ CarOrderListQueryResponse Client::carOrderListQueryWithOptions(const CarOrderLis
   request.validate();
   json query = {};
   if (!!request.hasAllApply()) {
-    query["all_apply"] = request.allApply();
+    query["all_apply"] = request.getAllApply();
   }
 
   if (!!request.hasApplyId()) {
-    query["apply_id"] = request.applyId();
+    query["apply_id"] = request.getApplyId();
   }
 
   if (!!request.hasDepartId()) {
-    query["depart_id"] = request.departId();
+    query["depart_id"] = request.getDepartId();
   }
 
   if (!!request.hasEndTime()) {
-    query["end_time"] = request.endTime();
+    query["end_time"] = request.getEndTime();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["start_time"] = request.startTime();
+    query["start_time"] = request.getStartTime();
   }
 
   if (!!request.hasThirdpartApplyId()) {
-    query["thirdpart_apply_id"] = request.thirdpartApplyId();
+    query["thirdpart_apply_id"] = request.getThirdpartApplyId();
   }
 
   if (!!request.hasUpdateEndTime()) {
-    query["update_end_time"] = request.updateEndTime();
+    query["update_end_time"] = request.getUpdateEndTime();
   }
 
   if (!!request.hasUpdateStartTime()) {
-    query["update_start_time"] = request.updateStartTime();
+    query["update_start_time"] = request.getUpdateStartTime();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2207,20 +2215,20 @@ CarOrderQueryResponse Client::carOrderQueryWithOptions(const CarOrderQueryReques
   request.validate();
   json query = {};
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasSubOrderId()) {
-    query["sub_order_id"] = request.subOrderId();
+    query["sub_order_id"] = request.getSubOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2263,11 +2271,11 @@ CarOrderQueryResponse Client::carOrderQuery(const CarOrderQueryRequest &request)
 CarSceneQueryResponse Client::carSceneQueryWithOptions(const CarSceneQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2310,44 +2318,44 @@ ChannelCorpCreateResponse Client::channelCorpCreateWithOptions(const ChannelCorp
   request.validate();
   json body = {};
   if (!!request.hasAdministratorName()) {
-    body["administrator_name"] = request.administratorName();
+    body["administrator_name"] = request.getAdministratorName();
   }
 
   if (!!request.hasAdministratorPhone()) {
-    body["administrator_phone"] = request.administratorPhone();
+    body["administrator_phone"] = request.getAdministratorPhone();
   }
 
   if (!!request.hasCity()) {
-    body["city"] = request.city();
+    body["city"] = request.getCity();
   }
 
   if (!!request.hasCorpName()) {
-    body["corp_name"] = request.corpName();
+    body["corp_name"] = request.getCorpName();
   }
 
   if (!!request.hasProvince()) {
-    body["province"] = request.province();
+    body["province"] = request.getProvince();
   }
 
   if (!!request.hasScope()) {
-    body["scope"] = request.scope();
+    body["scope"] = request.getScope();
   }
 
   if (!!request.hasThirdCorpId()) {
-    body["third_corp_id"] = request.thirdCorpId();
+    body["third_corp_id"] = request.getThirdCorpId();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2392,16 +2400,16 @@ CitySearchResponse Client::citySearchWithOptions(const CitySearchRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2446,28 +2454,28 @@ CommonApplyQueryResponse Client::commonApplyQueryWithOptions(const CommonApplyQu
   request.validate();
   json query = {};
   if (!!request.hasApplyId()) {
-    query["apply_id"] = request.applyId();
+    query["apply_id"] = request.getApplyId();
   }
 
   if (!!request.hasBizCategory()) {
-    query["biz_category"] = request.bizCategory();
+    query["biz_category"] = request.getBizCategory();
   }
 
   if (!!request.hasBusinessInstanceId()) {
-    query["business_instance_id"] = request.businessInstanceId();
+    query["business_instance_id"] = request.getBusinessInstanceId();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2512,36 +2520,36 @@ CommonApplySyncResponse Client::commonApplySyncWithOptions(const CommonApplySync
   request.validate();
   json query = {};
   if (!!request.hasApplyId()) {
-    query["apply_id"] = request.applyId();
+    query["apply_id"] = request.getApplyId();
   }
 
   if (!!request.hasBizCategory()) {
-    query["biz_category"] = request.bizCategory();
+    query["biz_category"] = request.getBizCategory();
   }
 
   if (!!request.hasRemark()) {
-    query["remark"] = request.remark();
+    query["remark"] = request.getRemark();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasThirdpartyFlowId()) {
-    query["thirdparty_flow_id"] = request.thirdpartyFlowId();
+    query["thirdparty_flow_id"] = request.getThirdpartyFlowId();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2586,48 +2594,56 @@ CooperatorFlightBillSettlementQueryResponse Client::cooperatorFlightBillSettleme
   request.validate();
   json query = {};
   if (!!request.hasBillBatch()) {
-    query["bill_batch"] = request.billBatch();
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasBillRecordTimeEnd()) {
+    query["bill_record_time_end"] = request.getBillRecordTimeEnd();
+  }
+
+  if (!!request.hasBillRecordTimeStart()) {
+    query["bill_record_time_start"] = request.getBillRecordTimeStart();
   }
 
   if (!!request.hasCooperatorId()) {
-    query["cooperator_id"] = request.cooperatorId();
+    query["cooperator_id"] = request.getCooperatorId();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPeriodEnd()) {
-    query["period_end"] = request.periodEnd();
+    query["period_end"] = request.getPeriodEnd();
   }
 
   if (!!request.hasPeriodStart()) {
-    query["period_start"] = request.periodStart();
+    query["period_start"] = request.getPeriodStart();
   }
 
   if (!!request.hasScrollId()) {
-    query["scroll_id"] = request.scrollId();
+    query["scroll_id"] = request.getScrollId();
   }
 
   if (!!request.hasScrollMod()) {
-    query["scroll_mod"] = request.scrollMod();
+    query["scroll_mod"] = request.getScrollMod();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2672,48 +2688,56 @@ CooperatorHotelBillSettlementQueryResponse Client::cooperatorHotelBillSettlement
   request.validate();
   json query = {};
   if (!!request.hasBillBatch()) {
-    query["bill_batch"] = request.billBatch();
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasBillRecordTimeEnd()) {
+    query["bill_record_time_end"] = request.getBillRecordTimeEnd();
+  }
+
+  if (!!request.hasBillRecordTimeStart()) {
+    query["bill_record_time_start"] = request.getBillRecordTimeStart();
   }
 
   if (!!request.hasCooperatorId()) {
-    query["cooperator_id"] = request.cooperatorId();
+    query["cooperator_id"] = request.getCooperatorId();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPeriodEnd()) {
-    query["period_end"] = request.periodEnd();
+    query["period_end"] = request.getPeriodEnd();
   }
 
   if (!!request.hasPeriodStart()) {
-    query["period_start"] = request.periodStart();
+    query["period_start"] = request.getPeriodStart();
   }
 
   if (!!request.hasScrollId()) {
-    query["scroll_id"] = request.scrollId();
+    query["scroll_id"] = request.getScrollId();
   }
 
   if (!!request.hasScrollMod()) {
-    query["scroll_mod"] = request.scrollMod();
+    query["scroll_mod"] = request.getScrollMod();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2758,40 +2782,40 @@ CooperatorHotelEventPushResponse Client::cooperatorHotelEventPushWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasChangeOrderStatus()) {
-    body["change_order_status"] = request.changeOrderStatus();
+    body["change_order_status"] = request.getChangeOrderStatus();
   }
 
   if (!!request.hasChangeOrderStatusDesc()) {
-    body["change_order_status_desc"] = request.changeOrderStatusDesc();
+    body["change_order_status_desc"] = request.getChangeOrderStatusDesc();
   }
 
   if (!!request.hasCooperatorOrderId()) {
-    body["cooperator_order_id"] = request.cooperatorOrderId();
+    body["cooperator_order_id"] = request.getCooperatorOrderId();
   }
 
   if (!!request.hasEvent()) {
-    body["event"] = request.event();
+    body["event"] = request.getEvent();
   }
 
   if (!!request.hasEventDesc()) {
-    body["event_desc"] = request.eventDesc();
+    body["event_desc"] = request.getEventDesc();
   }
 
   if (!!request.hasEventTime()) {
-    body["event_time"] = request.eventTime();
+    body["event_time"] = request.getEventTime();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2836,32 +2860,32 @@ CooperatorSyncPayStatusResponse Client::cooperatorSyncPayStatusWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasCooperatorOrderId()) {
-    body["cooperator_order_id"] = request.cooperatorOrderId();
+    body["cooperator_order_id"] = request.getCooperatorOrderId();
   }
 
   if (!!request.hasCooperatorPayNo()) {
-    body["cooperator_pay_no"] = request.cooperatorPayNo();
+    body["cooperator_pay_no"] = request.getCooperatorPayNo();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPayStatus()) {
-    body["pay_status"] = request.payStatus();
+    body["pay_status"] = request.getPayStatus();
   }
 
   if (!!request.hasPayTime()) {
-    body["pay_time"] = request.payTime();
+    body["pay_time"] = request.getPayTime();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2942,24 +2966,24 @@ CorpTokenResponse Client::corpTokenWithOptions(const CorpTokenRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasAppSecret()) {
-    query["app_secret"] = request.appSecret();
+    query["app_secret"] = request.getAppSecret();
   }
 
   if (!!request.hasCorpId()) {
-    query["corp_id"] = request.corpId();
+    query["corp_id"] = request.getCorpId();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripAccessToken()) {
-    realHeaders["x-acs-btrip-access-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripAccessToken());
+    realHeaders["x-acs-btrip-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripAccessToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3004,16 +3028,16 @@ CostCenterDeleteResponse Client::costCenterDeleteWithOptions(const CostCenterDel
   request.validate();
   json query = {};
   if (!!request.hasThirdpartId()) {
-    query["thirdpart_id"] = request.thirdpartId();
+    query["thirdpart_id"] = request.getThirdpartId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3058,36 +3082,36 @@ CostCenterModifyResponse Client::costCenterModifyWithOptions(const CostCenterMod
   request.validate();
   json body = {};
   if (!!request.hasAlipayNo()) {
-    body["alipay_no"] = request.alipayNo();
+    body["alipay_no"] = request.getAlipayNo();
   }
 
   if (!!request.hasDisable()) {
-    body["disable"] = request.disable();
+    body["disable"] = request.getDisable();
   }
 
   if (!!request.hasNumber()) {
-    body["number"] = request.number();
+    body["number"] = request.getNumber();
   }
 
   if (!!request.hasScope()) {
-    body["scope"] = request.scope();
+    body["scope"] = request.getScope();
   }
 
   if (!!request.hasThirdpartId()) {
-    body["thirdpart_id"] = request.thirdpartId();
+    body["thirdpart_id"] = request.getThirdpartId();
   }
 
   if (!!request.hasTitle()) {
-    body["title"] = request.title();
+    body["title"] = request.getTitle();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3132,32 +3156,32 @@ CostCenterQueryResponse Client::costCenterQueryWithOptions(const CostCenterQuery
   request.validate();
   json query = {};
   if (!!request.hasDisable()) {
-    query["disable"] = request.disable();
+    query["disable"] = request.getDisable();
   }
 
   if (!!request.hasNeedOrgEntity()) {
-    query["need_org_entity"] = request.needOrgEntity();
+    query["need_org_entity"] = request.getNeedOrgEntity();
   }
 
   if (!!request.hasThirdpartId()) {
-    query["thirdpart_id"] = request.thirdpartId();
+    query["thirdpart_id"] = request.getThirdpartId();
   }
 
   if (!!request.hasTitle()) {
-    query["title"] = request.title();
+    query["title"] = request.getTitle();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3202,36 +3226,36 @@ CostCenterSaveResponse Client::costCenterSaveWithOptions(const CostCenterSaveReq
   request.validate();
   json body = {};
   if (!!request.hasAlipayNo()) {
-    body["alipay_no"] = request.alipayNo();
+    body["alipay_no"] = request.getAlipayNo();
   }
 
   if (!!request.hasDisable()) {
-    body["disable"] = request.disable();
+    body["disable"] = request.getDisable();
   }
 
   if (!!request.hasNumber()) {
-    body["number"] = request.number();
+    body["number"] = request.getNumber();
   }
 
   if (!!request.hasScope()) {
-    body["scope"] = request.scope();
+    body["scope"] = request.getScope();
   }
 
   if (!!request.hasThirdpartId()) {
-    body["thirdpart_id"] = request.thirdpartId();
+    body["thirdpart_id"] = request.getThirdpartId();
   }
 
   if (!!request.hasTitle()) {
-    body["title"] = request.title();
+    body["title"] = request.getTitle();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3276,20 +3300,20 @@ CreateCustomRoleResponse Client::createCustomRoleWithOptions(const CreateCustomR
   request.validate();
   json body = {};
   if (!!request.hasRoleId()) {
-    body["role_id"] = request.roleId();
+    body["role_id"] = request.getRoleId();
   }
 
   if (!!request.hasRoleName()) {
-    body["role_name"] = request.roleName();
+    body["role_name"] = request.getRoleName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3334,24 +3358,24 @@ CreateSubCorpResponse Client::createSubCorpWithOptions(const CreateSubCorpReques
   request.validate();
   json body = {};
   if (!!request.hasOuterCorpId()) {
-    body["outer_corp_id"] = request.outerCorpId();
+    body["outer_corp_id"] = request.getOuterCorpId();
   }
 
   if (!!request.hasOuterCorpName()) {
-    body["outer_corp_name"] = request.outerCorpName();
+    body["outer_corp_name"] = request.getOuterCorpName();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3396,16 +3420,16 @@ DeleteCustomRoleResponse Client::deleteCustomRoleWithOptions(const DeleteCustomR
   request.validate();
   json body = {};
   if (!!request.hasRoleId()) {
-    body["role_id"] = request.roleId();
+    body["role_id"] = request.getRoleId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3450,16 +3474,16 @@ DeleteDepartmentResponse Client::deleteDepartmentWithOptions(const DeleteDepartm
   request.validate();
   json body = {};
   if (!!request.hasOutDeptId()) {
-    body["out_dept_id"] = request.outDeptId();
+    body["out_dept_id"] = request.getOutDeptId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3505,25 +3529,25 @@ DeleteEmployeesFromCustomRoleResponse Client::deleteEmployeesFromCustomRoleWithO
   DeleteEmployeesFromCustomRoleShrinkRequest request = DeleteEmployeesFromCustomRoleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUserIdList()) {
-    request.setUserIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userIdList(), "user_id_list", "json"));
+    request.setUserIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserIdList(), "user_id_list", "json"));
   }
 
   json body = {};
   if (!!request.hasRoleId()) {
-    body["role_id"] = request.roleId();
+    body["role_id"] = request.getRoleId();
   }
 
   if (!!request.hasUserIdListShrink()) {
-    body["user_id_list"] = request.userIdListShrink();
+    body["user_id_list"] = request.getUserIdListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3569,29 +3593,29 @@ DeleteInvoiceEntityResponse Client::deleteInvoiceEntityWithOptions(const DeleteI
   DeleteInvoiceEntityShrinkRequest request = DeleteInvoiceEntityShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEntities()) {
-    request.setEntitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.entities(), "entities", "json"));
+    request.setEntitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntities(), "entities", "json"));
   }
 
   json query = {};
   if (!!request.hasDelAll()) {
-    query["del_all"] = request.delAll();
+    query["del_all"] = request.getDelAll();
   }
 
   if (!!request.hasEntitiesShrink()) {
-    query["entities"] = request.entitiesShrink();
+    query["entities"] = request.getEntitiesShrink();
   }
 
   if (!!request.hasThirdPartId()) {
-    query["third_part_id"] = request.thirdPartId();
+    query["third_part_id"] = request.getThirdPartId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3637,21 +3661,21 @@ DepartmentSaveResponse Client::departmentSaveWithOptions(const DepartmentSaveReq
   DepartmentSaveShrinkRequest request = DepartmentSaveShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDepartList()) {
-    request.setDepartListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.departList(), "depart_list", "json"));
+    request.setDepartListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDepartList(), "depart_list", "json"));
   }
 
   json body = {};
   if (!!request.hasDepartListShrink()) {
-    body["depart_list"] = request.departListShrink();
+    body["depart_list"] = request.getDepartListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3697,25 +3721,25 @@ ElectronicItineraryBatchApplyResponse Client::electronicItineraryBatchApplyWithO
   ElectronicItineraryBatchApplyShrinkRequest request = ElectronicItineraryBatchApplyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasApplyItineraryList()) {
-    request.setApplyItineraryListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.applyItineraryList(), "apply_itinerary_list", "json"));
+    request.setApplyItineraryListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApplyItineraryList(), "apply_itinerary_list", "json"));
   }
 
   json body = {};
   if (!!request.hasApplyItineraryListShrink()) {
-    body["apply_itinerary_list"] = request.applyItineraryListShrink();
+    body["apply_itinerary_list"] = request.getApplyItineraryListShrink();
   }
 
   if (!!request.hasCanReprint()) {
-    body["can_reprint"] = request.canReprint();
+    body["can_reprint"] = request.getCanReprint();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3760,16 +3784,16 @@ ElectronicItineraryGetApplyResultResponse Client::electronicItineraryGetApplyRes
   request.validate();
   json query = {};
   if (!!request.hasBatchApplyNo()) {
-    query["batch_apply_no"] = request.batchApplyNo();
+    query["batch_apply_no"] = request.getBatchApplyNo();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3815,25 +3839,25 @@ EntityAddResponse Client::entityAddWithOptions(const EntityAddRequest &tmpReq, c
   EntityAddShrinkRequest request = EntityAddShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEntityDOList()) {
-    request.setEntityDOListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.entityDOList(), "entity_d_o_list", "json"));
+    request.setEntityDOListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntityDOList(), "entity_d_o_list", "json"));
   }
 
   json body = {};
   if (!!request.hasEntityDOListShrink()) {
-    body["entity_d_o_list"] = request.entityDOListShrink();
+    body["entity_d_o_list"] = request.getEntityDOListShrink();
   }
 
   if (!!request.hasThirdpartId()) {
-    body["thirdpart_id"] = request.thirdpartId();
+    body["thirdpart_id"] = request.getThirdpartId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3879,30 +3903,30 @@ EntityDeleteResponse Client::entityDeleteWithOptions(const EntityDeleteRequest &
   EntityDeleteShrinkRequest request = EntityDeleteShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEntityDOList()) {
-    request.setEntityDOListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.entityDOList(), "entity_d_o_list", "json"));
+    request.setEntityDOListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntityDOList(), "entity_d_o_list", "json"));
   }
 
   json query = {};
   if (!!request.hasDelAll()) {
-    query["del_all"] = request.delAll();
+    query["del_all"] = request.getDelAll();
   }
 
   if (!!request.hasThirdpartId()) {
-    query["thirdpart_id"] = request.thirdpartId();
+    query["thirdpart_id"] = request.getThirdpartId();
   }
 
   json body = {};
   if (!!request.hasEntityDOListShrink()) {
-    body["entity_d_o_list"] = request.entityDOListShrink();
+    body["entity_d_o_list"] = request.getEntityDOListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3949,25 +3973,25 @@ EntitySetResponse Client::entitySetWithOptions(const EntitySetRequest &tmpReq, c
   EntitySetShrinkRequest request = EntitySetShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEntityDOList()) {
-    request.setEntityDOListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.entityDOList(), "entity_d_o_list", "json"));
+    request.setEntityDOListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntityDOList(), "entity_d_o_list", "json"));
   }
 
   json body = {};
   if (!!request.hasEntityDOListShrink()) {
-    body["entity_d_o_list"] = request.entityDOListShrink();
+    body["entity_d_o_list"] = request.getEntityDOListShrink();
   }
 
   if (!!request.hasThirdpartId()) {
-    body["thirdpart_id"] = request.thirdpartId();
+    body["thirdpart_id"] = request.getThirdpartId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4012,44 +4036,44 @@ EstimatedPriceQueryResponse Client::estimatedPriceQueryWithOptions(const Estimat
   request.validate();
   json query = {};
   if (!!request.hasArrCity()) {
-    query["arr_city"] = request.arrCity();
+    query["arr_city"] = request.getArrCity();
   }
 
   if (!!request.hasCategory()) {
-    query["category"] = request.category();
+    query["category"] = request.getCategory();
   }
 
   if (!!request.hasDepCity()) {
-    query["dep_city"] = request.depCity();
+    query["dep_city"] = request.getDepCity();
   }
 
   if (!!request.hasEndTime()) {
-    query["end_time"] = request.endTime();
+    query["end_time"] = request.getEndTime();
   }
 
   if (!!request.hasItineraryId()) {
-    query["itinerary_id"] = request.itineraryId();
+    query["itinerary_id"] = request.getItineraryId();
   }
 
   if (!!request.hasStartTime()) {
-    query["start_time"] = request.startTime();
+    query["start_time"] = request.getStartTime();
   }
 
   if (!!request.hasSubCorpId()) {
-    query["sub_corp_id"] = request.subCorpId();
+    query["sub_corp_id"] = request.getSubCorpId();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4094,36 +4118,36 @@ ExceedApplySyncResponse Client::exceedApplySyncWithOptions(const ExceedApplySync
   request.validate();
   json query = {};
   if (!!request.hasApplyId()) {
-    query["apply_id"] = request.applyId();
+    query["apply_id"] = request.getApplyId();
   }
 
   if (!!request.hasBizCategory()) {
-    query["biz_category"] = request.bizCategory();
+    query["biz_category"] = request.getBizCategory();
   }
 
   if (!!request.hasRemark()) {
-    query["remark"] = request.remark();
+    query["remark"] = request.getRemark();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasThirdpartyFlowId()) {
-    query["thirdparty_flow_id"] = request.thirdpartyFlowId();
+    query["thirdparty_flow_id"] = request.getThirdpartyFlowId();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4169,49 +4193,49 @@ ExternalUserAddResponse Client::externalUserAddWithOptions(const ExternalUserAdd
   ExternalUserAddShrinkRequest request = ExternalUserAddShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCertRequestList()) {
-    request.setCertRequestListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.certRequestList(), "cert_request_list", "json"));
+    request.setCertRequestListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCertRequestList(), "cert_request_list", "json"));
   }
 
   json body = {};
   if (!!request.hasBirthday()) {
-    body["birthday"] = request.birthday();
+    body["birthday"] = request.getBirthday();
   }
 
   if (!!request.hasCertRequestListShrink()) {
-    body["cert_request_list"] = request.certRequestListShrink();
+    body["cert_request_list"] = request.getCertRequestListShrink();
   }
 
   if (!!request.hasEmail()) {
-    body["email"] = request.email();
+    body["email"] = request.getEmail();
   }
 
   if (!!request.hasExternalUserId()) {
-    body["external_user_id"] = request.externalUserId();
+    body["external_user_id"] = request.getExternalUserId();
   }
 
   if (!!request.hasPhone()) {
-    body["phone"] = request.phone();
+    body["phone"] = request.getPhone();
   }
 
   if (!!request.hasRealName()) {
-    body["real_name"] = request.realName();
+    body["real_name"] = request.getRealName();
   }
 
   if (!!request.hasRealNameEn()) {
-    body["real_name_en"] = request.realNameEn();
+    body["real_name_en"] = request.getRealNameEn();
   }
 
   if (!!request.hasUserType()) {
-    body["user_type"] = request.userType();
+    body["user_type"] = request.getUserType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4254,11 +4278,11 @@ ExternalUserAddResponse Client::externalUserAdd(const ExternalUserAddRequest &re
 ExternalUserDeleteResponse Client::externalUserDeleteWithOptions(const string &externalUserId, const ExternalUserDeleteHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4268,7 +4292,7 @@ ExternalUserDeleteResponse Client::externalUserDeleteWithOptions(const string &e
     {"action" , "ExternalUserDelete"},
     {"version" , "2022-05-20"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/user/v1/externalUsers/" , Darabonba::Http::URL::percentEncode(externalUserId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/user/v1/externalUsers/" , Darabonba::Encode::Encoder::percentEncode(externalUserId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4299,11 +4323,11 @@ ExternalUserDeleteResponse Client::externalUserDelete(const string &externalUser
 ExternalUserQueryResponse Client::externalUserQueryWithOptions(const string &externalUserId, const ExternalUserQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4313,7 +4337,7 @@ ExternalUserQueryResponse Client::externalUserQueryWithOptions(const string &ext
     {"action" , "ExternalUserQuery"},
     {"version" , "2022-05-20"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/user/v1/externalUsers/" , Darabonba::Http::URL::percentEncode(externalUserId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/user/v1/externalUsers/" , Darabonba::Encode::Encoder::percentEncode(externalUserId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4347,41 +4371,41 @@ ExternalUserUpdateResponse Client::externalUserUpdateWithOptions(const string &e
   ExternalUserUpdateShrinkRequest request = ExternalUserUpdateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCertRequestList()) {
-    request.setCertRequestListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.certRequestList(), "cert_request_list", "json"));
+    request.setCertRequestListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCertRequestList(), "cert_request_list", "json"));
   }
 
   json body = {};
   if (!!request.hasBirthday()) {
-    body["birthday"] = request.birthday();
+    body["birthday"] = request.getBirthday();
   }
 
   if (!!request.hasCertRequestListShrink()) {
-    body["cert_request_list"] = request.certRequestListShrink();
+    body["cert_request_list"] = request.getCertRequestListShrink();
   }
 
   if (!!request.hasEmail()) {
-    body["email"] = request.email();
+    body["email"] = request.getEmail();
   }
 
   if (!!request.hasPhone()) {
-    body["phone"] = request.phone();
+    body["phone"] = request.getPhone();
   }
 
   if (!!request.hasRealName()) {
-    body["real_name"] = request.realName();
+    body["real_name"] = request.getRealName();
   }
 
   if (!!request.hasRealNameEn()) {
-    body["real_name_en"] = request.realNameEn();
+    body["real_name_en"] = request.getRealNameEn();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4392,7 +4416,7 @@ ExternalUserUpdateResponse Client::externalUserUpdateWithOptions(const string &e
     {"action" , "ExternalUserUpdate"},
     {"version" , "2022-05-20"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/user/v1/externalUsers/" , Darabonba::Http::URL::percentEncode(externalUserId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/user/v1/externalUsers/" , Darabonba::Encode::Encoder::percentEncode(externalUserId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4426,44 +4450,52 @@ FlightBillSettlementQueryResponse Client::flightBillSettlementQueryWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasBillBatch()) {
-    query["bill_batch"] = request.billBatch();
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasBillRecordTimeEnd()) {
+    query["bill_record_time_end"] = request.getBillRecordTimeEnd();
+  }
+
+  if (!!request.hasBillRecordTimeStart()) {
+    query["bill_record_time_start"] = request.getBillRecordTimeStart();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPeriodEnd()) {
-    query["period_end"] = request.periodEnd();
+    query["period_end"] = request.getPeriodEnd();
   }
 
   if (!!request.hasPeriodStart()) {
-    query["period_start"] = request.periodStart();
+    query["period_start"] = request.getPeriodStart();
   }
 
   if (!!request.hasScrollId()) {
-    query["scroll_id"] = request.scrollId();
+    query["scroll_id"] = request.getScrollId();
   }
 
   if (!!request.hasScrollMod()) {
-    query["scroll_mod"] = request.scrollMod();
+    query["scroll_mod"] = request.getScrollMod();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4508,16 +4540,16 @@ FlightCancelOrderResponse Client::flightCancelOrderWithOptions(const FlightCance
   request.validate();
   json query = {};
   if (!!request.hasDisOrderId()) {
-    query["dis_order_id"] = request.disOrderId();
+    query["dis_order_id"] = request.getDisOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4562,24 +4594,24 @@ FlightCancelOrderV2Response Client::flightCancelOrderV2WithOptions(const FlightC
   request.validate();
   json query = {};
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4625,101 +4657,101 @@ FlightCreateOrderResponse Client::flightCreateOrderWithOptions(const FlightCreat
   FlightCreateOrderShrinkRequest request = FlightCreateOrderShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContactInfo()) {
-    request.setContactInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.contactInfo(), "contact_info", "json"));
+    request.setContactInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContactInfo(), "contact_info", "json"));
   }
 
   if (!!tmpReq.hasOrderAttr()) {
-    request.setOrderAttrShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.orderAttr(), "order_attr", "json"));
+    request.setOrderAttrShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOrderAttr(), "order_attr", "json"));
   }
 
   if (!!tmpReq.hasTravelerInfoList()) {
-    request.setTravelerInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.travelerInfoList(), "traveler_info_list", "json"));
+    request.setTravelerInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTravelerInfoList(), "traveler_info_list", "json"));
   }
 
   json body = {};
   if (!!request.hasArrAirportCode()) {
-    body["arr_airport_code"] = request.arrAirportCode();
+    body["arr_airport_code"] = request.getArrAirportCode();
   }
 
   if (!!request.hasArrCityCode()) {
-    body["arr_city_code"] = request.arrCityCode();
+    body["arr_city_code"] = request.getArrCityCode();
   }
 
   if (!!request.hasAutoPay()) {
-    body["auto_pay"] = request.autoPay();
+    body["auto_pay"] = request.getAutoPay();
   }
 
   if (!!request.hasBuyerName()) {
-    body["buyer_name"] = request.buyerName();
+    body["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasBuyerUniqueKey()) {
-    body["buyer_unique_key"] = request.buyerUniqueKey();
+    body["buyer_unique_key"] = request.getBuyerUniqueKey();
   }
 
   if (!!request.hasContactInfoShrink()) {
-    body["contact_info"] = request.contactInfoShrink();
+    body["contact_info"] = request.getContactInfoShrink();
   }
 
   if (!!request.hasDepAirportCode()) {
-    body["dep_airport_code"] = request.depAirportCode();
+    body["dep_airport_code"] = request.getDepAirportCode();
   }
 
   if (!!request.hasDepCityCode()) {
-    body["dep_city_code"] = request.depCityCode();
+    body["dep_city_code"] = request.getDepCityCode();
   }
 
   if (!!request.hasDepDate()) {
-    body["dep_date"] = request.depDate();
+    body["dep_date"] = request.getDepDate();
   }
 
   if (!!request.hasDisOrderId()) {
-    body["dis_order_id"] = request.disOrderId();
+    body["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasOrderAttrShrink()) {
-    body["order_attr"] = request.orderAttrShrink();
+    body["order_attr"] = request.getOrderAttrShrink();
   }
 
   if (!!request.hasOrderParams()) {
-    body["order_params"] = request.orderParams();
+    body["order_params"] = request.getOrderParams();
   }
 
   if (!!request.hasOtaItemId()) {
-    body["ota_item_id"] = request.otaItemId();
+    body["ota_item_id"] = request.getOtaItemId();
   }
 
   if (!!request.hasPrice()) {
-    body["price"] = request.price();
+    body["price"] = request.getPrice();
   }
 
   if (!!request.hasReceiptAddress()) {
-    body["receipt_address"] = request.receiptAddress();
+    body["receipt_address"] = request.getReceiptAddress();
   }
 
   if (!!request.hasReceiptTarget()) {
-    body["receipt_target"] = request.receiptTarget();
+    body["receipt_target"] = request.getReceiptTarget();
   }
 
   if (!!request.hasReceiptTitle()) {
-    body["receipt_title"] = request.receiptTitle();
+    body["receipt_title"] = request.getReceiptTitle();
   }
 
   if (!!request.hasTravelerInfoListShrink()) {
-    body["traveler_info_list"] = request.travelerInfoListShrink();
+    body["traveler_info_list"] = request.getTravelerInfoListShrink();
   }
 
   if (!!request.hasTripType()) {
-    body["trip_type"] = request.tripType();
+    body["trip_type"] = request.getTripType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4765,61 +4797,61 @@ FlightCreateOrderV2Response Client::flightCreateOrderV2WithOptions(const FlightC
   FlightCreateOrderV2ShrinkRequest request = FlightCreateOrderV2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContactInfo()) {
-    request.setContactInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.contactInfo(), "contact_info", "json"));
+    request.setContactInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContactInfo(), "contact_info", "json"));
   }
 
   if (!!tmpReq.hasTravelers()) {
-    request.setTravelersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.travelers(), "travelers", "json"));
+    request.setTravelersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTravelers(), "travelers", "json"));
   }
 
   json body = {};
   if (!!request.hasAsyncCreateOrderKey()) {
-    body["async_create_order_key"] = request.asyncCreateOrderKey();
+    body["async_create_order_key"] = request.getAsyncCreateOrderKey();
   }
 
   if (!!request.hasAsyncCreateOrderMode()) {
-    body["async_create_order_mode"] = request.asyncCreateOrderMode();
+    body["async_create_order_mode"] = request.getAsyncCreateOrderMode();
   }
 
   if (!!request.hasBtripUserId()) {
-    body["btrip_user_id"] = request.btripUserId();
+    body["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    body["buyer_name"] = request.buyerName();
+    body["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasContactInfoShrink()) {
-    body["contact_info"] = request.contactInfoShrink();
+    body["contact_info"] = request.getContactInfoShrink();
   }
 
   if (!!request.hasIsvName()) {
-    body["isv_name"] = request.isvName();
+    body["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOtaItemId()) {
-    body["ota_item_id"] = request.otaItemId();
+    body["ota_item_id"] = request.getOtaItemId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasTotalPriceCent()) {
-    body["total_price_cent"] = request.totalPriceCent();
+    body["total_price_cent"] = request.getTotalPriceCent();
   }
 
   if (!!request.hasTravelersShrink()) {
-    body["travelers"] = request.travelersShrink();
+    body["travelers"] = request.getTravelersShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4864,20 +4896,20 @@ FlightExceedApplyQueryResponse Client::flightExceedApplyQueryWithOptions(const F
   request.validate();
   json query = {};
   if (!!request.hasApplyId()) {
-    query["apply_id"] = request.applyId();
+    query["apply_id"] = request.getApplyId();
   }
 
   if (!!request.hasBusinessInstanceId()) {
-    query["business_instance_id"] = request.businessInstanceId();
+    query["business_instance_id"] = request.getBusinessInstanceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4922,40 +4954,44 @@ FlightItineraryScanQueryResponse Client::flightItineraryScanQueryWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBillDate()) {
-    query["bill_date"] = request.billDate();
+    query["bill_date"] = request.getBillDate();
   }
 
   if (!!request.hasBillId()) {
-    query["bill_id"] = request.billId();
+    query["bill_id"] = request.getBillId();
   }
 
   if (!!request.hasInvoiceSubTaskId()) {
-    query["invoice_sub_task_id"] = request.invoiceSubTaskId();
+    query["invoice_sub_task_id"] = request.getInvoiceSubTaskId();
   }
 
   if (!!request.hasItineraryNum()) {
-    query["itinerary_num"] = request.itineraryNum();
+    query["itinerary_num"] = request.getItineraryNum();
+  }
+
+  if (!!request.hasOrderId()) {
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasTicketNo()) {
-    query["ticket_no"] = request.ticketNo();
+    query["ticket_no"] = request.getTicketNo();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5000,32 +5036,32 @@ FlightListingSearchResponse Client::flightListingSearchWithOptions(const FlightL
   request.validate();
   json query = {};
   if (!!request.hasAirlineCode()) {
-    query["airline_code"] = request.airlineCode();
+    query["airline_code"] = request.getAirlineCode();
   }
 
   if (!!request.hasArrCityCode()) {
-    query["arr_city_code"] = request.arrCityCode();
+    query["arr_city_code"] = request.getArrCityCode();
   }
 
   if (!!request.hasCabinClass()) {
-    query["cabin_class"] = request.cabinClass();
+    query["cabin_class"] = request.getCabinClass();
   }
 
   if (!!request.hasDepCityCode()) {
-    query["dep_city_code"] = request.depCityCode();
+    query["dep_city_code"] = request.getDepCityCode();
   }
 
   if (!!request.hasDepDate()) {
-    query["dep_date"] = request.depDate();
+    query["dep_date"] = request.getDepDate();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5071,65 +5107,65 @@ FlightListingSearchV2Response Client::flightListingSearchV2WithOptions(const Fli
   FlightListingSearchV2ShrinkRequest request = FlightListingSearchV2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCabinTypeList()) {
-    request.setCabinTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.cabinTypeList(), "cabin_type_list", "json"));
+    request.setCabinTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCabinTypeList(), "cabin_type_list", "json"));
   }
 
   if (!!tmpReq.hasSearchJourneys()) {
-    request.setSearchJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchJourneys(), "search_journeys", "json"));
+    request.setSearchJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSearchJourneys(), "search_journeys", "json"));
   }
 
   json query = {};
   if (!!request.hasAirlineCode()) {
-    query["airline_code"] = request.airlineCode();
+    query["airline_code"] = request.getAirlineCode();
   }
 
   if (!!request.hasCabinTypeListShrink()) {
-    query["cabin_type_list"] = request.cabinTypeListShrink();
+    query["cabin_type_list"] = request.getCabinTypeListShrink();
   }
 
   if (!!request.hasDirectOnly()) {
-    query["direct_only"] = request.directOnly();
+    query["direct_only"] = request.getDirectOnly();
   }
 
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasNeedMultiClassPrice()) {
-    query["need_multi_class_price"] = request.needMultiClassPrice();
+    query["need_multi_class_price"] = request.getNeedMultiClassPrice();
   }
 
   if (!!request.hasNeedQueryServiceFee()) {
-    query["need_query_service_fee"] = request.needQueryServiceFee();
+    query["need_query_service_fee"] = request.getNeedQueryServiceFee();
   }
 
   if (!!request.hasNeedShareFlight()) {
-    query["need_share_flight"] = request.needShareFlight();
+    query["need_share_flight"] = request.getNeedShareFlight();
   }
 
   if (!!request.hasNeedYCBestPrice()) {
-    query["need_y_c_best_price"] = request.needYCBestPrice();
+    query["need_y_c_best_price"] = request.getNeedYCBestPrice();
   }
 
   if (!!request.hasSearchJourneysShrink()) {
-    query["search_journeys"] = request.searchJourneysShrink();
+    query["search_journeys"] = request.getSearchJourneysShrink();
   }
 
   if (!!request.hasSearchMode()) {
-    query["search_mode"] = request.searchMode();
+    query["search_mode"] = request.getSearchMode();
   }
 
   if (!!request.hasTripType()) {
-    query["trip_type"] = request.tripType();
+    query["trip_type"] = request.getTripType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5175,61 +5211,61 @@ FlightModifyApplyV2Response Client::flightModifyApplyV2WithOptions(const FlightM
   FlightModifyApplyV2ShrinkRequest request = FlightModifyApplyV2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPassengerSegmentRelations()) {
-    request.setPassengerSegmentRelationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.passengerSegmentRelations(), "passenger_segment_relations", "json"));
+    request.setPassengerSegmentRelationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPassengerSegmentRelations(), "passenger_segment_relations", "json"));
   }
 
   json body = {};
   if (!!request.hasCacheKey()) {
-    body["cache_key"] = request.cacheKey();
+    body["cache_key"] = request.getCacheKey();
   }
 
   if (!!request.hasContactPhone()) {
-    body["contact_phone"] = request.contactPhone();
+    body["contact_phone"] = request.getContactPhone();
   }
 
   if (!!request.hasIsvName()) {
-    body["isv_name"] = request.isvName();
+    body["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasItemId()) {
-    body["item_id"] = request.itemId();
+    body["item_id"] = request.getItemId();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutSubOrderId()) {
-    body["out_sub_order_id"] = request.outSubOrderId();
+    body["out_sub_order_id"] = request.getOutSubOrderId();
   }
 
   if (!!request.hasPassengerSegmentRelationsShrink()) {
-    body["passenger_segment_relations"] = request.passengerSegmentRelationsShrink();
+    body["passenger_segment_relations"] = request.getPassengerSegmentRelationsShrink();
   }
 
   if (!!request.hasReason()) {
-    body["reason"] = request.reason();
+    body["reason"] = request.getReason();
   }
 
   if (!!request.hasSessionId()) {
-    body["session_id"] = request.sessionId();
+    body["session_id"] = request.getSessionId();
   }
 
   if (!!request.hasVoluntary()) {
-    body["voluntary"] = request.voluntary();
+    body["voluntary"] = request.getVoluntary();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5274,32 +5310,32 @@ FlightModifyCancelV2Response Client::flightModifyCancelV2WithOptions(const Fligh
   request.validate();
   json query = {};
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutSubOrderId()) {
-    query["out_sub_order_id"] = request.outSubOrderId();
+    query["out_sub_order_id"] = request.getOutSubOrderId();
   }
 
   if (!!request.hasSubOrderId()) {
-    query["sub_order_id"] = request.subOrderId();
+    query["sub_order_id"] = request.getSubOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5345,77 +5381,77 @@ FlightModifyListingSearchV2Response Client::flightModifyListingSearchV2WithOptio
   FlightModifyListingSearchV2ShrinkRequest request = FlightModifyListingSearchV2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCabinClass()) {
-    request.setCabinClassShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.cabinClass(), "cabin_class", "json"));
+    request.setCabinClassShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCabinClass(), "cabin_class", "json"));
   }
 
   if (!!tmpReq.hasDepDate()) {
-    request.setDepDateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.depDate(), "dep_date", "json"));
+    request.setDepDateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDepDate(), "dep_date", "json"));
   }
 
   if (!!tmpReq.hasPassengerSegmentRelations()) {
-    request.setPassengerSegmentRelationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.passengerSegmentRelations(), "passenger_segment_relations", "json"));
+    request.setPassengerSegmentRelationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPassengerSegmentRelations(), "passenger_segment_relations", "json"));
   }
 
   if (!!tmpReq.hasSelectedSegments()) {
-    request.setSelectedSegmentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.selectedSegments(), "selected_segments", "json"));
+    request.setSelectedSegmentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSelectedSegments(), "selected_segments", "json"));
   }
 
   json query = {};
   if (!!request.hasCabinClassShrink()) {
-    query["cabin_class"] = request.cabinClassShrink();
+    query["cabin_class"] = request.getCabinClassShrink();
   }
 
   if (!!request.hasDepDateShrink()) {
-    query["dep_date"] = request.depDateShrink();
+    query["dep_date"] = request.getDepDateShrink();
   }
 
   if (!!request.hasInterfaceCallerIsSupportRetry()) {
-    query["interface_caller_is_support_retry"] = request.interfaceCallerIsSupportRetry();
+    query["interface_caller_is_support_retry"] = request.getInterfaceCallerIsSupportRetry();
   }
 
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasPassengerSegmentRelationsShrink()) {
-    query["passenger_segment_relations"] = request.passengerSegmentRelationsShrink();
+    query["passenger_segment_relations"] = request.getPassengerSegmentRelationsShrink();
   }
 
   if (!!request.hasSearchMode()) {
-    query["search_mode"] = request.searchMode();
+    query["search_mode"] = request.getSearchMode();
   }
 
   if (!!request.hasSearchRetryToken()) {
-    query["search_retry_token"] = request.searchRetryToken();
+    query["search_retry_token"] = request.getSearchRetryToken();
   }
 
   if (!!request.hasSelectedSegmentsShrink()) {
-    query["selected_segments"] = request.selectedSegmentsShrink();
+    query["selected_segments"] = request.getSelectedSegmentsShrink();
   }
 
   if (!!request.hasSessionId()) {
-    query["session_id"] = request.sessionId();
+    query["session_id"] = request.getSessionId();
   }
 
   if (!!request.hasVoluntary()) {
-    query["voluntary"] = request.voluntary();
+    query["voluntary"] = request.getVoluntary();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5460,36 +5496,36 @@ FlightModifyOrderDetailV2Response Client::flightModifyOrderDetailV2WithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasModifyApplyId()) {
-    query["modify_apply_id"] = request.modifyApplyId();
+    query["modify_apply_id"] = request.getModifyApplyId();
   }
 
   if (!!request.hasNeedQueryServiceFee()) {
-    query["need_query_service_fee"] = request.needQueryServiceFee();
+    query["need_query_service_fee"] = request.getNeedQueryServiceFee();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutModifyApplyId()) {
-    query["out_modify_apply_id"] = request.outModifyApplyId();
+    query["out_modify_apply_id"] = request.getOutModifyApplyId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5535,65 +5571,65 @@ FlightModifyOtaSearchV2Response Client::flightModifyOtaSearchV2WithOptions(const
   FlightModifyOtaSearchV2ShrinkRequest request = FlightModifyOtaSearchV2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCabinClass()) {
-    request.setCabinClassShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.cabinClass(), "cabin_class", "json"));
+    request.setCabinClassShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCabinClass(), "cabin_class", "json"));
   }
 
   if (!!tmpReq.hasDepDate()) {
-    request.setDepDateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.depDate(), "dep_date", "json"));
+    request.setDepDateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDepDate(), "dep_date", "json"));
   }
 
   if (!!tmpReq.hasPassengerSegmentRelations()) {
-    request.setPassengerSegmentRelationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.passengerSegmentRelations(), "passenger_segment_relations", "json"));
+    request.setPassengerSegmentRelationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPassengerSegmentRelations(), "passenger_segment_relations", "json"));
   }
 
   if (!!tmpReq.hasSelectedSegments()) {
-    request.setSelectedSegmentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.selectedSegments(), "selected_segments", "json"));
+    request.setSelectedSegmentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSelectedSegments(), "selected_segments", "json"));
   }
 
   json query = {};
   if (!!request.hasCabinClassShrink()) {
-    query["cabin_class"] = request.cabinClassShrink();
+    query["cabin_class"] = request.getCabinClassShrink();
   }
 
   if (!!request.hasDepDateShrink()) {
-    query["dep_date"] = request.depDateShrink();
+    query["dep_date"] = request.getDepDateShrink();
   }
 
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasPassengerSegmentRelationsShrink()) {
-    query["passenger_segment_relations"] = request.passengerSegmentRelationsShrink();
+    query["passenger_segment_relations"] = request.getPassengerSegmentRelationsShrink();
   }
 
   if (!!request.hasSelectedSegmentsShrink()) {
-    query["selected_segments"] = request.selectedSegmentsShrink();
+    query["selected_segments"] = request.getSelectedSegmentsShrink();
   }
 
   if (!!request.hasSessionId()) {
-    query["session_id"] = request.sessionId();
+    query["session_id"] = request.getSessionId();
   }
 
   if (!!request.hasVoluntary()) {
-    query["voluntary"] = request.voluntary();
+    query["voluntary"] = request.getVoluntary();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5639,45 +5675,45 @@ FlightModifyPayV2Response Client::flightModifyPayV2WithOptions(const FlightModif
   FlightModifyPayV2ShrinkRequest request = FlightModifyPayV2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExtParams()) {
-    request.setExtParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.extParams(), "ext_params", "json"));
+    request.setExtParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtParams(), "ext_params", "json"));
   }
 
   json body = {};
   if (!!request.hasExtParamsShrink()) {
-    body["ext_params"] = request.extParamsShrink();
+    body["ext_params"] = request.getExtParamsShrink();
   }
 
   if (!!request.hasIsvName()) {
-    body["isv_name"] = request.isvName();
+    body["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasModifyPayAmount()) {
-    body["modify_pay_amount"] = request.modifyPayAmount();
+    body["modify_pay_amount"] = request.getModifyPayAmount();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutSubOrderId()) {
-    body["out_sub_order_id"] = request.outSubOrderId();
+    body["out_sub_order_id"] = request.getOutSubOrderId();
   }
 
   if (!!request.hasSubOrderId()) {
-    body["sub_order_id"] = request.subOrderId();
+    body["sub_order_id"] = request.getSubOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5722,16 +5758,16 @@ FlightOrderDetailInfoResponse Client::flightOrderDetailInfoWithOptions(const Fli
   request.validate();
   json query = {};
   if (!!request.hasDisOrderId()) {
-    query["dis_order_id"] = request.disOrderId();
+    query["dis_order_id"] = request.getDisOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5776,24 +5812,24 @@ FlightOrderDetailV2Response Client::flightOrderDetailV2WithOptions(const FlightO
   request.validate();
   json query = {};
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5838,56 +5874,56 @@ FlightOrderListQueryResponse Client::flightOrderListQueryWithOptions(const Fligh
   request.validate();
   json query = {};
   if (!!request.hasAllApply()) {
-    query["all_apply"] = request.allApply();
+    query["all_apply"] = request.getAllApply();
   }
 
   if (!!request.hasApplyId()) {
-    query["apply_id"] = request.applyId();
+    query["apply_id"] = request.getApplyId();
   }
 
   if (!!request.hasDepartId()) {
-    query["depart_id"] = request.departId();
+    query["depart_id"] = request.getDepartId();
   }
 
   if (!!request.hasEndTime()) {
-    query["end_time"] = request.endTime();
+    query["end_time"] = request.getEndTime();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["start_time"] = request.startTime();
+    query["start_time"] = request.getStartTime();
   }
 
   if (!!request.hasThirdpartApplyId()) {
-    query["thirdpart_apply_id"] = request.thirdpartApplyId();
+    query["thirdpart_apply_id"] = request.getThirdpartApplyId();
   }
 
   if (!!request.hasUpdateEndTime()) {
-    query["update_end_time"] = request.updateEndTime();
+    query["update_end_time"] = request.getUpdateEndTime();
   }
 
   if (!!request.hasUpdateStartTime()) {
-    query["update_start_time"] = request.updateStartTime();
+    query["update_start_time"] = request.getUpdateStartTime();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5933,77 +5969,77 @@ FlightOrderListQueryV2Response Client::flightOrderListQueryV2WithOptions(const F
   FlightOrderListQueryV2ShrinkRequest request = FlightOrderListQueryV2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasApproveId()) {
-    request.setApproveIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.approveId(), "approve_id", "json"));
+    request.setApproveIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApproveId(), "approve_id", "json"));
   }
 
   if (!!tmpReq.hasBookerId()) {
-    request.setBookerIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.bookerId(), "booker_id", "json"));
+    request.setBookerIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBookerId(), "booker_id", "json"));
   }
 
   if (!!tmpReq.hasDepartId()) {
-    request.setDepartIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.departId(), "depart_id", "json"));
+    request.setDepartIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDepartId(), "depart_id", "json"));
   }
 
   if (!!tmpReq.hasSupplier()) {
-    request.setSupplierShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.supplier(), "supplier", "json"));
+    request.setSupplierShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSupplier(), "supplier", "json"));
   }
 
   if (!!tmpReq.hasThirdpartApproveId()) {
-    request.setThirdpartApproveIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.thirdpartApproveId(), "thirdpart_approve_id", "json"));
+    request.setThirdpartApproveIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getThirdpartApproveId(), "thirdpart_approve_id", "json"));
   }
 
   json query = {};
   if (!!request.hasApproveIdShrink()) {
-    query["approve_id"] = request.approveIdShrink();
+    query["approve_id"] = request.getApproveIdShrink();
   }
 
   if (!!request.hasBookerIdShrink()) {
-    query["booker_id"] = request.bookerIdShrink();
+    query["booker_id"] = request.getBookerIdShrink();
   }
 
   if (!!request.hasDepartIdShrink()) {
-    query["depart_id"] = request.departIdShrink();
+    query["depart_id"] = request.getDepartIdShrink();
   }
 
   if (!!request.hasEndDate()) {
-    query["end_date"] = request.endDate();
+    query["end_date"] = request.getEndDate();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_Size"] = request.pageSize();
+    query["page_Size"] = request.getPageSize();
   }
 
   if (!!request.hasScrollId()) {
-    query["scroll_id"] = request.scrollId();
+    query["scroll_id"] = request.getScrollId();
   }
 
   if (!!request.hasStartDate()) {
-    query["start_date"] = request.startDate();
+    query["start_date"] = request.getStartDate();
   }
 
   if (!!request.hasSupplierShrink()) {
-    query["supplier"] = request.supplierShrink();
+    query["supplier"] = request.getSupplierShrink();
   }
 
   if (!!request.hasThirdpartApproveIdShrink()) {
-    query["thirdpart_approve_id"] = request.thirdpartApproveIdShrink();
+    query["thirdpart_approve_id"] = request.getThirdpartApproveIdShrink();
   }
 
   if (!!request.hasUpdateEndDate()) {
-    query["update_end_date"] = request.updateEndDate();
+    query["update_end_date"] = request.getUpdateEndDate();
   }
 
   if (!!request.hasUpdateStartDate()) {
-    query["update_start_date"] = request.updateStartDate();
+    query["update_start_date"] = request.getUpdateStartDate();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6048,20 +6084,20 @@ FlightOrderQueryResponse Client::flightOrderQueryWithOptions(const FlightOrderQu
   request.validate();
   json query = {};
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6106,20 +6142,28 @@ FlightOtaItemDetailResponse Client::flightOtaItemDetailWithOptions(const FlightO
   request.validate();
   json query = {};
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
+  }
+
+  if (!!request.hasOrderId()) {
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOtaItemId()) {
-    query["ota_item_id"] = request.otaItemId();
+    query["ota_item_id"] = request.getOtaItemId();
+  }
+
+  if (!!request.hasOutOrderId()) {
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6164,40 +6208,40 @@ FlightOtaSearchResponse Client::flightOtaSearchWithOptions(const FlightOtaSearch
   request.validate();
   json query = {};
   if (!!request.hasAirlineCode()) {
-    query["airline_code"] = request.airlineCode();
+    query["airline_code"] = request.getAirlineCode();
   }
 
   if (!!request.hasArrCityCode()) {
-    query["arr_city_code"] = request.arrCityCode();
+    query["arr_city_code"] = request.getArrCityCode();
   }
 
   if (!!request.hasCabinClass()) {
-    query["cabin_class"] = request.cabinClass();
+    query["cabin_class"] = request.getCabinClass();
   }
 
   if (!!request.hasCarrierFlightNo()) {
-    query["carrier_flight_no"] = request.carrierFlightNo();
+    query["carrier_flight_no"] = request.getCarrierFlightNo();
   }
 
   if (!!request.hasDepCityCode()) {
-    query["dep_city_code"] = request.depCityCode();
+    query["dep_city_code"] = request.getDepCityCode();
   }
 
   if (!!request.hasDepDate()) {
-    query["dep_date"] = request.depDate();
+    query["dep_date"] = request.getDepDate();
   }
 
   if (!!request.hasFlightNo()) {
-    query["flight_no"] = request.flightNo();
+    query["flight_no"] = request.getFlightNo();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6243,49 +6287,49 @@ FlightOtaSearchV2Response Client::flightOtaSearchV2WithOptions(const FlightOtaSe
   FlightOtaSearchV2ShrinkRequest request = FlightOtaSearchV2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCabinTypeList()) {
-    request.setCabinTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.cabinTypeList(), "cabin_type_list", "json"));
+    request.setCabinTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCabinTypeList(), "cabin_type_list", "json"));
   }
 
   if (!!tmpReq.hasSearchJourneys()) {
-    request.setSearchJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchJourneys(), "search_journeys", "json"));
+    request.setSearchJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSearchJourneys(), "search_journeys", "json"));
   }
 
   json query = {};
   if (!!request.hasCabinTypeListShrink()) {
-    query["cabin_type_list"] = request.cabinTypeListShrink();
+    query["cabin_type_list"] = request.getCabinTypeListShrink();
   }
 
   if (!!request.hasDirectOnly()) {
-    query["direct_only"] = request.directOnly();
+    query["direct_only"] = request.getDirectOnly();
   }
 
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasNeedShareFlight()) {
-    query["need_share_flight"] = request.needShareFlight();
+    query["need_share_flight"] = request.getNeedShareFlight();
   }
 
   if (!!request.hasSearchJourneysShrink()) {
-    query["search_journeys"] = request.searchJourneysShrink();
+    query["search_journeys"] = request.getSearchJourneysShrink();
   }
 
   if (!!request.hasSearchMode()) {
-    query["search_mode"] = request.searchMode();
+    query["search_mode"] = request.getSearchMode();
   }
 
   if (!!request.hasTripType()) {
-    query["trip_type"] = request.tripType();
+    query["trip_type"] = request.getTripType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6331,37 +6375,37 @@ FlightPayOrderResponse Client::flightPayOrderWithOptions(const FlightPayOrderReq
   FlightPayOrderShrinkRequest request = FlightPayOrderShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExtra()) {
-    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.extra(), "extra", "json"));
+    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtra(), "extra", "json"));
   }
 
   json body = {};
   if (!!request.hasCorpPayPrice()) {
-    body["corp_pay_price"] = request.corpPayPrice();
+    body["corp_pay_price"] = request.getCorpPayPrice();
   }
 
   if (!!request.hasDisOrderId()) {
-    body["dis_order_id"] = request.disOrderId();
+    body["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasExtraShrink()) {
-    body["extra"] = request.extraShrink();
+    body["extra"] = request.getExtraShrink();
   }
 
   if (!!request.hasPersonalPayPrice()) {
-    body["personal_pay_price"] = request.personalPayPrice();
+    body["personal_pay_price"] = request.getPersonalPayPrice();
   }
 
   if (!!request.hasTotalPayPrice()) {
-    body["total_pay_price"] = request.totalPayPrice();
+    body["total_pay_price"] = request.getTotalPayPrice();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6406,32 +6450,32 @@ FlightPayOrderV2Response Client::flightPayOrderV2WithOptions(const FlightPayOrde
   request.validate();
   json body = {};
   if (!!request.hasIsvName()) {
-    body["isv_name"] = request.isvName();
+    body["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasTotalPrice()) {
-    body["total_price"] = request.totalPrice();
+    body["total_price"] = request.getTotalPrice();
   }
 
   if (!!request.hasTotalServiceFeePrice()) {
-    body["total_service_fee_price"] = request.totalServiceFeePrice();
+    body["total_service_fee_price"] = request.getTotalServiceFeePrice();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6477,81 +6521,81 @@ FlightRefundApplyResponse Client::flightRefundApplyWithOptions(const FlightRefun
   FlightRefundApplyShrinkRequest request = FlightRefundApplyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExtra()) {
-    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.extra(), "extra", "json"));
+    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtra(), "extra", "json"));
   }
 
   if (!!tmpReq.hasPassengerSegmentInfoList()) {
-    request.setPassengerSegmentInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.passengerSegmentInfoList(), "passenger_segment_info_list", "json"));
+    request.setPassengerSegmentInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPassengerSegmentInfoList(), "passenger_segment_info_list", "json"));
   }
 
   if (!!tmpReq.hasRefundVoucherInfo()) {
-    request.setRefundVoucherInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.refundVoucherInfo(), "refund_voucher_info", "json"));
+    request.setRefundVoucherInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRefundVoucherInfo(), "refund_voucher_info", "json"));
   }
 
   json body = {};
   if (!!request.hasCorpRefundPrice()) {
-    body["corp_refund_price"] = request.corpRefundPrice();
+    body["corp_refund_price"] = request.getCorpRefundPrice();
   }
 
   if (!!request.hasDisOrderId()) {
-    body["dis_order_id"] = request.disOrderId();
+    body["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasDisSubOrderId()) {
-    body["dis_sub_order_id"] = request.disSubOrderId();
+    body["dis_sub_order_id"] = request.getDisSubOrderId();
   }
 
   if (!!request.hasDisplayRefundMoney()) {
-    body["display_refund_money"] = request.displayRefundMoney();
+    body["display_refund_money"] = request.getDisplayRefundMoney();
   }
 
   if (!!request.hasExtraShrink()) {
-    body["extra"] = request.extraShrink();
+    body["extra"] = request.getExtraShrink();
   }
 
   if (!!request.hasIsVoluntary()) {
-    body["is_voluntary"] = request.isVoluntary();
+    body["is_voluntary"] = request.getIsVoluntary();
   }
 
   if (!!request.hasItemUnitIds()) {
-    body["item_unit_ids"] = request.itemUnitIds();
+    body["item_unit_ids"] = request.getItemUnitIds();
   }
 
   if (!!request.hasPassengerSegmentInfoListShrink()) {
-    body["passenger_segment_info_list"] = request.passengerSegmentInfoListShrink();
+    body["passenger_segment_info_list"] = request.getPassengerSegmentInfoListShrink();
   }
 
   if (!!request.hasPersonalRefundPrice()) {
-    body["personal_refund_price"] = request.personalRefundPrice();
+    body["personal_refund_price"] = request.getPersonalRefundPrice();
   }
 
   if (!!request.hasReasonDetail()) {
-    body["reason_detail"] = request.reasonDetail();
+    body["reason_detail"] = request.getReasonDetail();
   }
 
   if (!!request.hasReasonType()) {
-    body["reason_type"] = request.reasonType();
+    body["reason_type"] = request.getReasonType();
   }
 
   if (!!request.hasRefundVoucherInfoShrink()) {
-    body["refund_voucher_info"] = request.refundVoucherInfoShrink();
+    body["refund_voucher_info"] = request.getRefundVoucherInfoShrink();
   }
 
   if (!!request.hasSessionId()) {
-    body["session_id"] = request.sessionId();
+    body["session_id"] = request.getSessionId();
   }
 
   if (!!request.hasTotalRefundPrice()) {
-    body["total_refund_price"] = request.totalRefundPrice();
+    body["total_refund_price"] = request.getTotalRefundPrice();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6597,69 +6641,69 @@ FlightRefundApplyV2Response Client::flightRefundApplyV2WithOptions(const FlightR
   FlightRefundApplyV2ShrinkRequest request = FlightRefundApplyV2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPassengerSegmentRelations()) {
-    request.setPassengerSegmentRelationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.passengerSegmentRelations(), "passenger_segment_relations", "json"));
+    request.setPassengerSegmentRelationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPassengerSegmentRelations(), "passenger_segment_relations", "json"));
   }
 
   if (!!tmpReq.hasTicketNos()) {
-    request.setTicketNosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ticketNos(), "ticket_nos", "json"));
+    request.setTicketNosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTicketNos(), "ticket_nos", "json"));
   }
 
   json body = {};
   if (!!request.hasIsvName()) {
-    body["isv_name"] = request.isvName();
+    body["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutSubOrderId()) {
-    body["out_sub_order_id"] = request.outSubOrderId();
+    body["out_sub_order_id"] = request.getOutSubOrderId();
   }
 
   if (!!request.hasPassengerSegmentRelationsShrink()) {
-    body["passenger_segment_relations"] = request.passengerSegmentRelationsShrink();
+    body["passenger_segment_relations"] = request.getPassengerSegmentRelationsShrink();
   }
 
   if (!!request.hasPreCalType()) {
-    body["pre_cal_type"] = request.preCalType();
+    body["pre_cal_type"] = request.getPreCalType();
   }
 
   if (!!request.hasRefundReason()) {
-    body["refund_reason"] = request.refundReason();
+    body["refund_reason"] = request.getRefundReason();
   }
 
   if (!!request.hasRefundReasonType()) {
-    body["refund_reason_type"] = request.refundReasonType();
+    body["refund_reason_type"] = request.getRefundReasonType();
   }
 
   if (!!request.hasTicketNosShrink()) {
-    body["ticket_nos"] = request.ticketNosShrink();
+    body["ticket_nos"] = request.getTicketNosShrink();
   }
 
   if (!!request.hasTotalRefundPrice()) {
-    body["total_refund_price"] = request.totalRefundPrice();
+    body["total_refund_price"] = request.getTotalRefundPrice();
   }
 
   if (!!request.hasUploadPictUrls()) {
-    body["upload_pict_urls"] = request.uploadPictUrls();
+    body["upload_pict_urls"] = request.getUploadPictUrls();
   }
 
   if (!!request.hasVoluntary()) {
-    body["voluntary"] = request.voluntary();
+    body["voluntary"] = request.getVoluntary();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6704,20 +6748,20 @@ FlightRefundDetailResponse Client::flightRefundDetailWithOptions(const FlightRef
   request.validate();
   json query = {};
   if (!!request.hasDisOrderId()) {
-    query["dis_order_id"] = request.disOrderId();
+    query["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasDisSubOrderId()) {
-    query["dis_sub_order_id"] = request.disSubOrderId();
+    query["dis_sub_order_id"] = request.getDisSubOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6762,32 +6806,32 @@ FlightRefundDetailV2Response Client::flightRefundDetailV2WithOptions(const Fligh
   request.validate();
   json query = {};
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutRefundApplyId()) {
-    query["out_refund_apply_id"] = request.outRefundApplyId();
+    query["out_refund_apply_id"] = request.getOutRefundApplyId();
   }
 
   if (!!request.hasRefundApplyId()) {
-    query["refund_apply_id"] = request.refundApplyId();
+    query["refund_apply_id"] = request.getRefundApplyId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6833,29 +6877,29 @@ FlightRefundPreCalResponse Client::flightRefundPreCalWithOptions(const FlightRef
   FlightRefundPreCalShrinkRequest request = FlightRefundPreCalShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPassengerSegmentInfoList()) {
-    request.setPassengerSegmentInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.passengerSegmentInfoList(), "passenger_segment_info_list", "json"));
+    request.setPassengerSegmentInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPassengerSegmentInfoList(), "passenger_segment_info_list", "json"));
   }
 
   json query = {};
   if (!!request.hasDisOrderId()) {
-    query["dis_order_id"] = request.disOrderId();
+    query["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasIsVoluntary()) {
-    query["is_voluntary"] = request.isVoluntary();
+    query["is_voluntary"] = request.getIsVoluntary();
   }
 
   if (!!request.hasPassengerSegmentInfoListShrink()) {
-    query["passenger_segment_info_list"] = request.passengerSegmentInfoListShrink();
+    query["passenger_segment_info_list"] = request.getPassengerSegmentInfoListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6901,49 +6945,49 @@ FlightRefundPreCalV2Response Client::flightRefundPreCalV2WithOptions(const Fligh
   FlightRefundPreCalV2ShrinkRequest request = FlightRefundPreCalV2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPassengerSegmentRelations()) {
-    request.setPassengerSegmentRelationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.passengerSegmentRelations(), "passenger_segment_relations", "json"));
+    request.setPassengerSegmentRelationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPassengerSegmentRelations(), "passenger_segment_relations", "json"));
   }
 
   if (!!tmpReq.hasTicketNos()) {
-    request.setTicketNosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ticketNos(), "ticket_nos", "json"));
+    request.setTicketNosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTicketNos(), "ticket_nos", "json"));
   }
 
   json query = {};
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasPassengerSegmentRelationsShrink()) {
-    query["passenger_segment_relations"] = request.passengerSegmentRelationsShrink();
+    query["passenger_segment_relations"] = request.getPassengerSegmentRelationsShrink();
   }
 
   if (!!request.hasPreCalType()) {
-    query["pre_cal_type"] = request.preCalType();
+    query["pre_cal_type"] = request.getPreCalType();
   }
 
   if (!!request.hasTicketNosShrink()) {
-    query["ticket_nos"] = request.ticketNosShrink();
+    query["ticket_nos"] = request.getTicketNosShrink();
   }
 
   if (!!request.hasVoluntary()) {
-    query["voluntary"] = request.voluntary();
+    query["voluntary"] = request.getVoluntary();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6988,68 +7032,68 @@ FlightSearchListResponse Client::flightSearchListWithOptions(const FlightSearchL
   request.validate();
   json query = {};
   if (!!request.hasAirlineCode()) {
-    query["airline_code"] = request.airlineCode();
+    query["airline_code"] = request.getAirlineCode();
   }
 
   if (!!request.hasArrCityCode()) {
-    query["arr_city_code"] = request.arrCityCode();
+    query["arr_city_code"] = request.getArrCityCode();
   }
 
   if (!!request.hasArrCityName()) {
-    query["arr_city_name"] = request.arrCityName();
+    query["arr_city_name"] = request.getArrCityName();
   }
 
   if (!!request.hasArrDate()) {
-    query["arr_date"] = request.arrDate();
+    query["arr_date"] = request.getArrDate();
   }
 
   if (!!request.hasCabinClass()) {
-    query["cabin_class"] = request.cabinClass();
+    query["cabin_class"] = request.getCabinClass();
   }
 
   if (!!request.hasDepCityCode()) {
-    query["dep_city_code"] = request.depCityCode();
+    query["dep_city_code"] = request.getDepCityCode();
   }
 
   if (!!request.hasDepCityName()) {
-    query["dep_city_name"] = request.depCityName();
+    query["dep_city_name"] = request.getDepCityName();
   }
 
   if (!!request.hasDepDate()) {
-    query["dep_date"] = request.depDate();
+    query["dep_date"] = request.getDepDate();
   }
 
   if (!!request.hasFlightNo()) {
-    query["flight_no"] = request.flightNo();
+    query["flight_no"] = request.getFlightNo();
   }
 
   if (!!request.hasNeedMultiClassPrice()) {
-    query["need_multi_class_price"] = request.needMultiClassPrice();
+    query["need_multi_class_price"] = request.getNeedMultiClassPrice();
   }
 
   if (!!request.hasTransferCityCode()) {
-    query["transfer_city_code"] = request.transferCityCode();
+    query["transfer_city_code"] = request.getTransferCityCode();
   }
 
   if (!!request.hasTransferFlightNo()) {
-    query["transfer_flight_no"] = request.transferFlightNo();
+    query["transfer_flight_no"] = request.getTransferFlightNo();
   }
 
   if (!!request.hasTransferLeaveDate()) {
-    query["transfer_leave_date"] = request.transferLeaveDate();
+    query["transfer_leave_date"] = request.getTransferLeaveDate();
   }
 
   if (!!request.hasTripType()) {
-    query["trip_type"] = request.tripType();
+    query["trip_type"] = request.getTripType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7094,48 +7138,56 @@ FuPointBillSettlementQueryResponse Client::fuPointBillSettlementQueryWithOptions
   request.validate();
   json query = {};
   if (!!request.hasBillBatch()) {
-    query["bill_batch"] = request.billBatch();
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasBillRecordTimeEnd()) {
+    query["bill_record_time_end"] = request.getBillRecordTimeEnd();
+  }
+
+  if (!!request.hasBillRecordTimeStart()) {
+    query["bill_record_time_start"] = request.getBillRecordTimeStart();
   }
 
   if (!!request.hasCooperatorId()) {
-    query["cooperator_id"] = request.cooperatorId();
+    query["cooperator_id"] = request.getCooperatorId();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPeriodEnd()) {
-    query["period_end"] = request.periodEnd();
+    query["period_end"] = request.getPeriodEnd();
   }
 
   if (!!request.hasPeriodStart()) {
-    query["period_start"] = request.periodStart();
+    query["period_start"] = request.getPeriodStart();
   }
 
   if (!!request.hasScrollId()) {
-    query["scroll_id"] = request.scrollId();
+    query["scroll_id"] = request.getScrollId();
   }
 
   if (!!request.hasScrollMod()) {
-    query["scroll_mod"] = request.scrollMod();
+    query["scroll_mod"] = request.getScrollMod();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7180,24 +7232,24 @@ GroupCorpTokenResponse Client::groupCorpTokenWithOptions(const GroupCorpTokenReq
   request.validate();
   json query = {};
   if (!!request.hasAppSecret()) {
-    query["app_secret"] = request.appSecret();
+    query["app_secret"] = request.getAppSecret();
   }
 
   if (!!request.hasCorpId()) {
-    query["corp_id"] = request.corpId();
+    query["corp_id"] = request.getCorpId();
   }
 
   if (!!request.hasSubCorpId()) {
-    query["sub_corp_id"] = request.subCorpId();
+    query["sub_corp_id"] = request.getSubCorpId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripAccessToken()) {
-    realHeaders["x-acs-btrip-access-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripAccessToken());
+    realHeaders["x-acs-btrip-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripAccessToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7243,45 +7295,45 @@ GroupDepartSaveResponse Client::groupDepartSaveWithOptions(const GroupDepartSave
   GroupDepartSaveShrinkRequest request = GroupDepartSaveShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSubCorpIdList()) {
-    request.setSubCorpIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.subCorpIdList(), "sub_corp_id_list", "json"));
+    request.setSubCorpIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubCorpIdList(), "sub_corp_id_list", "json"));
   }
 
   json body = {};
   if (!!request.hasDeptName()) {
-    body["dept_name"] = request.deptName();
+    body["dept_name"] = request.getDeptName();
   }
 
   if (!!request.hasManagerIds()) {
-    body["manager_ids"] = request.managerIds();
+    body["manager_ids"] = request.getManagerIds();
   }
 
   if (!!request.hasOuterDeptId()) {
-    body["outer_dept_id"] = request.outerDeptId();
+    body["outer_dept_id"] = request.getOuterDeptId();
   }
 
   if (!!request.hasOuterDeptPid()) {
-    body["outer_dept_pid"] = request.outerDeptPid();
+    body["outer_dept_pid"] = request.getOuterDeptPid();
   }
 
   if (!!request.hasStatus()) {
-    body["status"] = request.status();
+    body["status"] = request.getStatus();
   }
 
   if (!!request.hasSubCorpIdListShrink()) {
-    body["sub_corp_id_list"] = request.subCorpIdListShrink();
+    body["sub_corp_id_list"] = request.getSubCorpIdListShrink();
   }
 
   if (!!request.hasSyncGroup()) {
-    body["sync_group"] = request.syncGroup();
+    body["sync_group"] = request.getSyncGroup();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7327,61 +7379,61 @@ GroupUserSaveResponse Client::groupUserSaveWithOptions(const GroupUserSaveReques
   GroupUserSaveShrinkRequest request = GroupUserSaveShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCertList()) {
-    request.setCertListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.certList(), "cert_list", "json"));
+    request.setCertListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCertList(), "cert_list", "json"));
   }
 
   if (!!tmpReq.hasSubCorpIdList()) {
-    request.setSubCorpIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.subCorpIdList(), "sub_corp_id_list", "json"));
+    request.setSubCorpIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubCorpIdList(), "sub_corp_id_list", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseCityCode()) {
-    body["base_city_code"] = request.baseCityCode();
+    body["base_city_code"] = request.getBaseCityCode();
   }
 
   if (!!request.hasBirthday()) {
-    body["birthday"] = request.birthday();
+    body["birthday"] = request.getBirthday();
   }
 
   if (!!request.hasCertListShrink()) {
-    body["cert_list"] = request.certListShrink();
+    body["cert_list"] = request.getCertListShrink();
   }
 
   if (!!request.hasGender()) {
-    body["gender"] = request.gender();
+    body["gender"] = request.getGender();
   }
 
   if (!!request.hasJobNo()) {
-    body["job_no"] = request.jobNo();
+    body["job_no"] = request.getJobNo();
   }
 
   if (!!request.hasPhone()) {
-    body["phone"] = request.phone();
+    body["phone"] = request.getPhone();
   }
 
   if (!!request.hasRealNameEn()) {
-    body["real_name_en"] = request.realNameEn();
+    body["real_name_en"] = request.getRealNameEn();
   }
 
   if (!!request.hasSubCorpIdListShrink()) {
-    body["sub_corp_id_list"] = request.subCorpIdListShrink();
+    body["sub_corp_id_list"] = request.getSubCorpIdListShrink();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   if (!!request.hasUserName()) {
-    body["user_name"] = request.userName();
+    body["user_name"] = request.getUserName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7427,65 +7479,65 @@ HotelAskingPriceResponse Client::hotelAskingPriceWithOptions(const HotelAskingPr
   HotelAskingPriceShrinkRequest request = HotelAskingPriceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasShids()) {
-    request.setShidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.shids(), "shids", "json"));
+    request.setShidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getShids(), "shids", "json"));
   }
 
   json query = {};
   if (!!request.hasAdultNum()) {
-    query["adult_num"] = request.adultNum();
+    query["adult_num"] = request.getAdultNum();
   }
 
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasCheckInDate()) {
-    query["check_in_date"] = request.checkInDate();
+    query["check_in_date"] = request.getCheckInDate();
   }
 
   if (!!request.hasCheckOutDate()) {
-    query["check_out_date"] = request.checkOutDate();
+    query["check_out_date"] = request.getCheckOutDate();
   }
 
   if (!!request.hasCityCode()) {
-    query["city_code"] = request.cityCode();
+    query["city_code"] = request.getCityCode();
   }
 
   if (!!request.hasCityName()) {
-    query["city_name"] = request.cityName();
+    query["city_name"] = request.getCityName();
   }
 
   if (!!request.hasDir()) {
-    query["dir"] = request.dir();
+    query["dir"] = request.getDir();
   }
 
   if (!!request.hasHotelStar()) {
-    query["hotel_star"] = request.hotelStar();
+    query["hotel_star"] = request.getHotelStar();
   }
 
   if (!!request.hasIsProtocol()) {
-    query["is_protocol"] = request.isProtocol();
+    query["is_protocol"] = request.getIsProtocol();
   }
 
   if (!!request.hasPaymentType()) {
-    query["payment_type"] = request.paymentType();
+    query["payment_type"] = request.getPaymentType();
   }
 
   if (!!request.hasShidsShrink()) {
-    query["shids"] = request.shidsShrink();
+    query["shids"] = request.getShidsShrink();
   }
 
   if (!!request.hasSortCode()) {
-    query["sort_code"] = request.sortCode();
+    query["sort_code"] = request.getSortCode();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7530,44 +7582,52 @@ HotelBillSettlementQueryResponse Client::hotelBillSettlementQueryWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBillBatch()) {
-    query["bill_batch"] = request.billBatch();
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasBillRecordTimeEnd()) {
+    query["bill_record_time_end"] = request.getBillRecordTimeEnd();
+  }
+
+  if (!!request.hasBillRecordTimeStart()) {
+    query["bill_record_time_start"] = request.getBillRecordTimeStart();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPeriodEnd()) {
-    query["period_end"] = request.periodEnd();
+    query["period_end"] = request.getPeriodEnd();
   }
 
   if (!!request.hasPeriodStart()) {
-    query["period_start"] = request.periodStart();
+    query["period_start"] = request.getPeriodStart();
   }
 
   if (!!request.hasScrollId()) {
-    query["scroll_id"] = request.scrollId();
+    query["scroll_id"] = request.getScrollId();
   }
 
   if (!!request.hasScrollMod()) {
-    query["scroll_mod"] = request.scrollMod();
+    query["scroll_mod"] = request.getScrollMod();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7612,16 +7672,16 @@ HotelCityCodeListResponse Client::hotelCityCodeListWithOptions(const HotelCityCo
   request.validate();
   json query = {};
   if (!!request.hasCountryCode()) {
-    query["country_code"] = request.countryCode();
+    query["country_code"] = request.getCountryCode();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7666,20 +7726,20 @@ HotelExceedApplyQueryResponse Client::hotelExceedApplyQueryWithOptions(const Hot
   request.validate();
   json query = {};
   if (!!request.hasApplyId()) {
-    query["apply_id"] = request.applyId();
+    query["apply_id"] = request.getApplyId();
   }
 
   if (!!request.hasBusinessInstanceId()) {
-    query["business_instance_id"] = request.businessInstanceId();
+    query["business_instance_id"] = request.getBusinessInstanceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7724,60 +7784,60 @@ HotelGoodsQueryResponse Client::hotelGoodsQueryWithOptions(const HotelGoodsQuery
   request.validate();
   json query = {};
   if (!!request.hasAdultNum()) {
-    query["adult_num"] = request.adultNum();
+    query["adult_num"] = request.getAdultNum();
   }
 
   if (!!request.hasAgreementPrice()) {
-    query["agreement_price"] = request.agreementPrice();
+    query["agreement_price"] = request.getAgreementPrice();
   }
 
   if (!!request.hasBeginDate()) {
-    query["begin_date"] = request.beginDate();
+    query["begin_date"] = request.getBeginDate();
   }
 
   if (!!request.hasBreakfastIncluded()) {
-    query["breakfast_included"] = request.breakfastIncluded();
+    query["breakfast_included"] = request.getBreakfastIncluded();
   }
 
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasCityCode()) {
-    query["city_code"] = request.cityCode();
+    query["city_code"] = request.getCityCode();
   }
 
   if (!!request.hasEndDate()) {
-    query["end_date"] = request.endDate();
+    query["end_date"] = request.getEndDate();
   }
 
   if (!!request.hasHotelId()) {
-    query["hotel_id"] = request.hotelId();
+    query["hotel_id"] = request.getHotelId();
   }
 
   if (!!request.hasPayOverType()) {
-    query["pay_over_type"] = request.payOverType();
+    query["pay_over_type"] = request.getPayOverType();
   }
 
   if (!!request.hasPaymentType()) {
-    query["payment_type"] = request.paymentType();
+    query["payment_type"] = request.getPaymentType();
   }
 
   if (!!request.hasSpecialInvoice()) {
-    query["special_invoice"] = request.specialInvoice();
+    query["special_invoice"] = request.getSpecialInvoice();
   }
 
   if (!!request.hasSuperMan()) {
-    query["super_man"] = request.superMan();
+    query["super_man"] = request.getSuperMan();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7822,28 +7882,28 @@ HotelIndexInfoResponse Client::hotelIndexInfoWithOptions(const HotelIndexInfoReq
   request.validate();
   json query = {};
   if (!!request.hasCityCode()) {
-    query["city_code"] = request.cityCode();
+    query["city_code"] = request.getCityCode();
   }
 
   if (!!request.hasHotelStatus()) {
-    query["hotel_status"] = request.hotelStatus();
+    query["hotel_status"] = request.getHotelStatus();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPageToken()) {
-    query["page_token"] = request.pageToken();
+    query["page_token"] = request.getPageToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7888,20 +7948,20 @@ HotelOrderCancelResponse Client::hotelOrderCancelWithOptions(const HotelOrderCan
   request.validate();
   json query = {};
   if (!!request.hasBtripOrderId()) {
-    query["btrip_order_id"] = request.btripOrderId();
+    query["btrip_order_id"] = request.getBtripOrderId();
   }
 
   if (!!request.hasDisOrderId()) {
-    query["dis_order_id"] = request.disOrderId();
+    query["dis_order_id"] = request.getDisOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7947,37 +8007,37 @@ HotelOrderChangeApplyResponse Client::hotelOrderChangeApplyWithOptions(const Hot
   HotelOrderChangeApplyShrinkRequest request = HotelOrderChangeApplyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRoomInfoList()) {
-    request.setRoomInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.roomInfoList(), "room_info_list", "json"));
+    request.setRoomInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoomInfoList(), "room_info_list", "json"));
   }
 
   json body = {};
   if (!!request.hasBtripUserId()) {
-    body["btrip_user_id"] = request.btripUserId();
+    body["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasDisOrderId()) {
-    body["dis_order_id"] = request.disOrderId();
+    body["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasReason()) {
-    body["reason"] = request.reason();
+    body["reason"] = request.getReason();
   }
 
   if (!!request.hasRoomInfoListShrink()) {
-    body["room_info_list"] = request.roomInfoListShrink();
+    body["room_info_list"] = request.getRoomInfoListShrink();
   }
 
   if (!!request.hasSaleOrderId()) {
-    body["sale_order_id"] = request.saleOrderId();
+    body["sale_order_id"] = request.getSaleOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8022,28 +8082,28 @@ HotelOrderChangeDetailResponse Client::hotelOrderChangeDetailWithOptions(const H
   request.validate();
   json body = {};
   if (!!request.hasBtripUserId()) {
-    body["btrip_user_id"] = request.btripUserId();
+    body["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasChangeOrderId()) {
-    body["change_order_id"] = request.changeOrderId();
+    body["change_order_id"] = request.getChangeOrderId();
   }
 
   if (!!request.hasDisOrderId()) {
-    body["dis_order_id"] = request.disOrderId();
+    body["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasSaleOrderId()) {
-    body["sale_order_id"] = request.saleOrderId();
+    body["sale_order_id"] = request.getSaleOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8089,113 +8149,121 @@ HotelOrderCreateResponse Client::hotelOrderCreateWithOptions(const HotelOrderCre
   HotelOrderCreateShrinkRequest request = HotelOrderCreateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasInvoiceInfo()) {
-    request.setInvoiceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.invoiceInfo(), "invoice_info", "json"));
+    request.setInvoiceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInvoiceInfo(), "invoice_info", "json"));
+  }
+
+  if (!!tmpReq.hasMemberInfo()) {
+    request.setMemberInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMemberInfo(), "member_info", "json"));
   }
 
   if (!!tmpReq.hasOccupantInfoList()) {
-    request.setOccupantInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.occupantInfoList(), "occupant_info_list", "json"));
+    request.setOccupantInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOccupantInfoList(), "occupant_info_list", "json"));
   }
 
   if (!!tmpReq.hasPromotionInfo()) {
-    request.setPromotionInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.promotionInfo(), "promotion_info", "json"));
+    request.setPromotionInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPromotionInfo(), "promotion_info", "json"));
   }
 
   json body = {};
   if (!!request.hasBtripUserId()) {
-    body["btrip_user_id"] = request.btripUserId();
+    body["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasCheckIn()) {
-    body["check_in"] = request.checkIn();
+    body["check_in"] = request.getCheckIn();
   }
 
   if (!!request.hasCheckOut()) {
-    body["check_out"] = request.checkOut();
+    body["check_out"] = request.getCheckOut();
   }
 
   if (!!request.hasContractEmail()) {
-    body["contract_email"] = request.contractEmail();
+    body["contract_email"] = request.getContractEmail();
   }
 
   if (!!request.hasContractName()) {
-    body["contract_name"] = request.contractName();
+    body["contract_name"] = request.getContractName();
   }
 
   if (!!request.hasContractPhone()) {
-    body["contract_phone"] = request.contractPhone();
+    body["contract_phone"] = request.getContractPhone();
   }
 
   if (!!request.hasCorpPayPrice()) {
-    body["corp_pay_price"] = request.corpPayPrice();
+    body["corp_pay_price"] = request.getCorpPayPrice();
   }
 
   if (!!request.hasDisOrderId()) {
-    body["dis_order_id"] = request.disOrderId();
+    body["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasExtra()) {
-    body["extra"] = request.extra();
+    body["extra"] = request.getExtra();
   }
 
   if (!!request.hasInvoiceInfoShrink()) {
-    body["invoice_info"] = request.invoiceInfoShrink();
+    body["invoice_info"] = request.getInvoiceInfoShrink();
   }
 
   if (!!request.hasItemId()) {
-    body["item_id"] = request.itemId();
+    body["item_id"] = request.getItemId();
   }
 
   if (!!request.hasItineraryNo()) {
-    body["itinerary_no"] = request.itineraryNo();
+    body["itinerary_no"] = request.getItineraryNo();
+  }
+
+  if (!!request.hasMemberInfoShrink()) {
+    body["member_info"] = request.getMemberInfoShrink();
   }
 
   if (!!request.hasOccupantInfoListShrink()) {
-    body["occupant_info_list"] = request.occupantInfoListShrink();
+    body["occupant_info_list"] = request.getOccupantInfoListShrink();
   }
 
   if (!!request.hasPersonPayPrice()) {
-    body["person_pay_price"] = request.personPayPrice();
+    body["person_pay_price"] = request.getPersonPayPrice();
   }
 
   if (!!request.hasPromotionInfoShrink()) {
-    body["promotion_info"] = request.promotionInfoShrink();
+    body["promotion_info"] = request.getPromotionInfoShrink();
   }
 
   if (!!request.hasRatePlanId()) {
-    body["rate_plan_id"] = request.ratePlanId();
+    body["rate_plan_id"] = request.getRatePlanId();
   }
 
   if (!!request.hasRoomId()) {
-    body["room_id"] = request.roomId();
+    body["room_id"] = request.getRoomId();
   }
 
   if (!!request.hasRoomNum()) {
-    body["room_num"] = request.roomNum();
+    body["room_num"] = request.getRoomNum();
   }
 
   if (!!request.hasSellerId()) {
-    body["seller_id"] = request.sellerId();
+    body["seller_id"] = request.getSellerId();
   }
 
   if (!!request.hasShid()) {
-    body["shid"] = request.shid();
+    body["shid"] = request.getShid();
   }
 
   if (!!request.hasTotalOrderPrice()) {
-    body["total_order_price"] = request.totalOrderPrice();
+    body["total_order_price"] = request.getTotalOrderPrice();
   }
 
   if (!!request.hasValidateResKey()) {
-    body["validate_res_key"] = request.validateResKey();
+    body["validate_res_key"] = request.getValidateResKey();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8240,20 +8308,20 @@ HotelOrderDetailInfoResponse Client::hotelOrderDetailInfoWithOptions(const Hotel
   request.validate();
   json query = {};
   if (!!request.hasBtripOrderId()) {
-    query["btrip_order_id"] = request.btripOrderId();
+    query["btrip_order_id"] = request.getBtripOrderId();
   }
 
   if (!!request.hasDisOrderId()) {
-    query["dis_order_id"] = request.disOrderId();
+    query["dis_order_id"] = request.getDisOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8296,11 +8364,11 @@ HotelOrderDetailInfoResponse Client::hotelOrderDetailInfo(const HotelOrderDetail
 HotelOrderInfoQueryResponse Client::hotelOrderInfoQueryWithOptions(const string &orderId, const HotelOrderInfoQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8310,7 +8378,7 @@ HotelOrderInfoQueryResponse Client::hotelOrderInfoQueryWithOptions(const string 
     {"action" , "HotelOrderInfoQuery"},
     {"version" , "2022-05-20"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/order/v1/hotelOrders/" , Darabonba::Http::URL::percentEncode(orderId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/order/v1/hotelOrders/" , Darabonba::Encode::Encoder::percentEncode(orderId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8343,60 +8411,60 @@ HotelOrderListQueryResponse Client::hotelOrderListQueryWithOptions(const HotelOr
   request.validate();
   json query = {};
   if (!!request.hasAllApply()) {
-    query["all_apply"] = request.allApply();
+    query["all_apply"] = request.getAllApply();
   }
 
   if (!!request.hasApplyId()) {
-    query["apply_id"] = request.applyId();
+    query["apply_id"] = request.getApplyId();
   }
 
   if (!!request.hasCategory()) {
-    query["category"] = request.category();
+    query["category"] = request.getCategory();
   }
 
   if (!!request.hasDepartId()) {
-    query["depart_id"] = request.departId();
+    query["depart_id"] = request.getDepartId();
   }
 
   if (!!request.hasEndTime()) {
-    query["end_time"] = request.endTime();
+    query["end_time"] = request.getEndTime();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["start_time"] = request.startTime();
+    query["start_time"] = request.getStartTime();
   }
 
   if (!!request.hasThirdpartApplyId()) {
-    query["thirdpart_apply_id"] = request.thirdpartApplyId();
+    query["thirdpart_apply_id"] = request.getThirdpartApplyId();
   }
 
   if (!!request.hasUpdateEndTime()) {
-    query["update_end_time"] = request.updateEndTime();
+    query["update_end_time"] = request.getUpdateEndTime();
   }
 
   if (!!request.hasUpdateStartTime()) {
-    query["update_start_time"] = request.updateStartTime();
+    query["update_start_time"] = request.getUpdateStartTime();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8441,40 +8509,40 @@ HotelOrderPayResponse Client::hotelOrderPayWithOptions(const HotelOrderPayReques
   request.validate();
   json body = {};
   if (!!request.hasBtripOrderId()) {
-    body["btrip_order_id"] = request.btripOrderId();
+    body["btrip_order_id"] = request.getBtripOrderId();
   }
 
   if (!!request.hasBtripUserId()) {
-    body["btrip_user_id"] = request.btripUserId();
+    body["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasCompanyPayFee()) {
-    body["company_pay_fee"] = request.companyPayFee();
+    body["company_pay_fee"] = request.getCompanyPayFee();
   }
 
   if (!!request.hasPersonPayFee()) {
-    body["person_pay_fee"] = request.personPayFee();
+    body["person_pay_fee"] = request.getPersonPayFee();
   }
 
   if (!!request.hasThirdPayAccount()) {
-    body["third_pay_account"] = request.thirdPayAccount();
+    body["third_pay_account"] = request.getThirdPayAccount();
   }
 
   if (!!request.hasThirdTradeNo()) {
-    body["third_trade_no"] = request.thirdTradeNo();
+    body["third_trade_no"] = request.getThirdTradeNo();
   }
 
   if (!!request.hasTotalPrice()) {
-    body["total_price"] = request.totalPrice();
+    body["total_price"] = request.getTotalPrice();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8520,73 +8588,77 @@ HotelOrderPreValidateResponse Client::hotelOrderPreValidateWithOptions(const Hot
   HotelOrderPreValidateShrinkRequest request = HotelOrderPreValidateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDailyList()) {
-    request.setDailyListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dailyList(), "daily_list", "json"));
+    request.setDailyListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDailyList(), "daily_list", "json"));
   }
 
   if (!!tmpReq.hasOccupantInfoList()) {
-    request.setOccupantInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.occupantInfoList(), "occupant_info_list", "json"));
+    request.setOccupantInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOccupantInfoList(), "occupant_info_list", "json"));
   }
 
   json query = {};
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasCheckIn()) {
-    query["check_in"] = request.checkIn();
+    query["check_in"] = request.getCheckIn();
   }
 
   if (!!request.hasCheckOut()) {
-    query["check_out"] = request.checkOut();
+    query["check_out"] = request.getCheckOut();
   }
 
   if (!!request.hasDailyListShrink()) {
-    query["daily_list"] = request.dailyListShrink();
+    query["daily_list"] = request.getDailyListShrink();
   }
 
   if (!!request.hasItemId()) {
-    query["item_id"] = request.itemId();
+    query["item_id"] = request.getItemId();
   }
 
   if (!!request.hasNumberOfAdultsPerRoom()) {
-    query["number_of_adults_per_room"] = request.numberOfAdultsPerRoom();
+    query["number_of_adults_per_room"] = request.getNumberOfAdultsPerRoom();
   }
 
   if (!!request.hasOccupantInfoListShrink()) {
-    query["occupant_info_list"] = request.occupantInfoListShrink();
+    query["occupant_info_list"] = request.getOccupantInfoListShrink();
+  }
+
+  if (!!request.hasRateKey()) {
+    query["rate_key"] = request.getRateKey();
   }
 
   if (!!request.hasRatePlanId()) {
-    query["rate_plan_id"] = request.ratePlanId();
+    query["rate_plan_id"] = request.getRatePlanId();
   }
 
   if (!!request.hasRoomId()) {
-    query["room_id"] = request.roomId();
+    query["room_id"] = request.getRoomId();
   }
 
   if (!!request.hasRoomNum()) {
-    query["room_num"] = request.roomNum();
+    query["room_num"] = request.getRoomNum();
   }
 
   if (!!request.hasSearchRoomPrice()) {
-    query["search_room_price"] = request.searchRoomPrice();
+    query["search_room_price"] = request.getSearchRoomPrice();
   }
 
   if (!!request.hasSellerId()) {
-    query["seller_id"] = request.sellerId();
+    query["seller_id"] = request.getSellerId();
   }
 
   if (!!request.hasShid()) {
-    query["shid"] = request.shid();
+    query["shid"] = request.getShid();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8631,16 +8703,16 @@ HotelOrderQueryResponse Client::hotelOrderQueryWithOptions(const HotelOrderQuery
   request.validate();
   json query = {};
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8686,41 +8758,41 @@ HotelPricePullResponse Client::hotelPricePullWithOptions(const HotelPricePullReq
   HotelPricePullShrinkRequest request = HotelPricePullShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasHotelIds()) {
-    request.setHotelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.hotelIds(), "hotel_ids", "json"));
+    request.setHotelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHotelIds(), "hotel_ids", "json"));
   }
 
   json query = {};
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasCheckIn()) {
-    query["check_in"] = request.checkIn();
+    query["check_in"] = request.getCheckIn();
   }
 
   if (!!request.hasCheckOut()) {
-    query["check_out"] = request.checkOut();
+    query["check_out"] = request.getCheckOut();
   }
 
   if (!!request.hasCityCode()) {
-    query["city_code"] = request.cityCode();
+    query["city_code"] = request.getCityCode();
   }
 
   if (!!request.hasHotelIdsShrink()) {
-    query["hotel_ids"] = request.hotelIdsShrink();
+    query["hotel_ids"] = request.getHotelIdsShrink();
   }
 
   if (!!request.hasPaymentType()) {
-    query["payment_type"] = request.paymentType();
+    query["payment_type"] = request.getPaymentType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8766,21 +8838,21 @@ HotelRoomInfoResponse Client::hotelRoomInfoWithOptions(const HotelRoomInfoReques
   HotelRoomInfoShrinkRequest request = HotelRoomInfoShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRoomIds()) {
-    request.setRoomIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.roomIds(), "room_ids", "json"));
+    request.setRoomIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoomIds(), "room_ids", "json"));
   }
 
   json query = {};
   if (!!request.hasRoomIdsShrink()) {
-    query["room_ids"] = request.roomIdsShrink();
+    query["room_ids"] = request.getRoomIdsShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8826,109 +8898,109 @@ HotelSearchResponse Client::hotelSearchWithOptions(const HotelSearchRequest &tmp
   HotelSearchShrinkRequest request = HotelSearchShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBrandCode()) {
-    request.setBrandCodeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.brandCode(), "brand_code", "json"));
+    request.setBrandCodeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBrandCode(), "brand_code", "json"));
   }
 
   if (!!tmpReq.hasShids()) {
-    request.setShidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.shids(), "shids", "json"));
+    request.setShidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getShids(), "shids", "json"));
   }
 
   json query = {};
   if (!!request.hasAdultNum()) {
-    query["adult_num"] = request.adultNum();
+    query["adult_num"] = request.getAdultNum();
   }
 
   if (!!request.hasBrandCodeShrink()) {
-    query["brand_code"] = request.brandCodeShrink();
+    query["brand_code"] = request.getBrandCodeShrink();
   }
 
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasCheckInDate()) {
-    query["check_in_date"] = request.checkInDate();
+    query["check_in_date"] = request.getCheckInDate();
   }
 
   if (!!request.hasCheckOutDate()) {
-    query["check_out_date"] = request.checkOutDate();
+    query["check_out_date"] = request.getCheckOutDate();
   }
 
   if (!!request.hasCityCode()) {
-    query["city_code"] = request.cityCode();
+    query["city_code"] = request.getCityCode();
   }
 
   if (!!request.hasDir()) {
-    query["dir"] = request.dir();
+    query["dir"] = request.getDir();
   }
 
   if (!!request.hasDistance()) {
-    query["distance"] = request.distance();
+    query["distance"] = request.getDistance();
   }
 
   if (!!request.hasDistrictCode()) {
-    query["district_code"] = request.districtCode();
+    query["district_code"] = request.getDistrictCode();
   }
 
   if (!!request.hasHotelStar()) {
-    query["hotel_star"] = request.hotelStar();
+    query["hotel_star"] = request.getHotelStar();
   }
 
   if (!!request.hasIsProtocol()) {
-    query["is_protocol"] = request.isProtocol();
+    query["is_protocol"] = request.getIsProtocol();
   }
 
   if (!!request.hasKeyWords()) {
-    query["key_words"] = request.keyWords();
+    query["key_words"] = request.getKeyWords();
   }
 
   if (!!request.hasLocation()) {
-    query["location"] = request.location();
+    query["location"] = request.getLocation();
   }
 
   if (!!request.hasMaxPrice()) {
-    query["max_price"] = request.maxPrice();
+    query["max_price"] = request.getMaxPrice();
   }
 
   if (!!request.hasMinPrice()) {
-    query["min_price"] = request.minPrice();
+    query["min_price"] = request.getMinPrice();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPayOverType()) {
-    query["pay_over_type"] = request.payOverType();
+    query["pay_over_type"] = request.getPayOverType();
   }
 
   if (!!request.hasPaymentType()) {
-    query["payment_type"] = request.paymentType();
+    query["payment_type"] = request.getPaymentType();
   }
 
   if (!!request.hasShidsShrink()) {
-    query["shids"] = request.shidsShrink();
+    query["shids"] = request.getShidsShrink();
   }
 
   if (!!request.hasSortCode()) {
-    query["sort_code"] = request.sortCode();
+    query["sort_code"] = request.getSortCode();
   }
 
   if (!!request.hasSuperMan()) {
-    query["super_man"] = request.superMan();
+    query["super_man"] = request.getSuperMan();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8974,21 +9046,21 @@ HotelStaticInfoResponse Client::hotelStaticInfoWithOptions(const HotelStaticInfo
   HotelStaticInfoShrinkRequest request = HotelStaticInfoShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasHotelIds()) {
-    request.setHotelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.hotelIds(), "hotel_ids", "json"));
+    request.setHotelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHotelIds(), "hotel_ids", "json"));
   }
 
   json query = {};
   if (!!request.hasHotelIdsShrink()) {
-    query["hotel_ids"] = request.hotelIdsShrink();
+    query["hotel_ids"] = request.getHotelIdsShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9033,36 +9105,36 @@ HotelSuggestV2Response Client::hotelSuggestV2WithOptions(const HotelSuggestV2Req
   request.validate();
   json query = {};
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasCheckIn()) {
-    query["check_in"] = request.checkIn();
+    query["check_in"] = request.getCheckIn();
   }
 
   if (!!request.hasCheckOut()) {
-    query["check_out"] = request.checkOut();
+    query["check_out"] = request.getCheckOut();
   }
 
   if (!!request.hasCityCode()) {
-    query["city_code"] = request.cityCode();
+    query["city_code"] = request.getCityCode();
   }
 
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasSearchType()) {
-    query["search_type"] = request.searchType();
+    query["search_type"] = request.getSearchType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9096,7 +9168,7 @@ HotelSuggestV2Response Client::hotelSuggestV2(const HotelSuggestV2Request &reque
 }
 
 /**
- * @summary 国际机票订单详情
+ * @summary International Flight Order Details
  *
  * @param request IFlightOrderDetailQueryRequest
  * @param headers IFlightOrderDetailQueryHeaders
@@ -9107,16 +9179,16 @@ IFlightOrderDetailQueryResponse Client::iFlightOrderDetailQueryWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9138,7 +9210,7 @@ IFlightOrderDetailQueryResponse Client::iFlightOrderDetailQueryWithOptions(const
 }
 
 /**
- * @summary 国际机票订单详情
+ * @summary International Flight Order Details
  *
  * @param request IFlightOrderDetailQueryRequest
  * @return IFlightOrderDetailQueryResponse
@@ -9162,61 +9234,61 @@ IFlightOrderListQueryResponse Client::iFlightOrderListQueryWithOptions(const IFl
   IFlightOrderListQueryShrinkRequest request = IFlightOrderListQueryShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasApplyIdList()) {
-    request.setApplyIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.applyIdList(), "apply_id_list", "json"));
+    request.setApplyIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApplyIdList(), "apply_id_list", "json"));
   }
 
   if (!!tmpReq.hasBookTypeList()) {
-    request.setBookTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.bookTypeList(), "book_type_list", "json"));
+    request.setBookTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBookTypeList(), "book_type_list", "json"));
   }
 
   if (!!tmpReq.hasBookerId()) {
-    request.setBookerIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.bookerId(), "booker_id", "json"));
+    request.setBookerIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBookerId(), "booker_id", "json"));
   }
 
   if (!!tmpReq.hasThirdPartApplyIdList()) {
-    request.setThirdPartApplyIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.thirdPartApplyIdList(), "third_part_apply_id_list", "json"));
+    request.setThirdPartApplyIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getThirdPartApplyIdList(), "third_part_apply_id_list", "json"));
   }
 
   json query = {};
   if (!!request.hasApplyIdListShrink()) {
-    query["apply_id_list"] = request.applyIdListShrink();
+    query["apply_id_list"] = request.getApplyIdListShrink();
   }
 
   if (!!request.hasBookTypeListShrink()) {
-    query["book_type_list"] = request.bookTypeListShrink();
+    query["book_type_list"] = request.getBookTypeListShrink();
   }
 
   if (!!request.hasBookerIdShrink()) {
-    query["booker_id"] = request.bookerIdShrink();
+    query["booker_id"] = request.getBookerIdShrink();
   }
 
   if (!!request.hasEndDate()) {
-    query["end_date"] = request.endDate();
+    query["end_date"] = request.getEndDate();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasScrollId()) {
-    query["scroll_id"] = request.scrollId();
+    query["scroll_id"] = request.getScrollId();
   }
 
   if (!!request.hasStartDate()) {
-    query["start_date"] = request.startDate();
+    query["start_date"] = request.getStartDate();
   }
 
   if (!!request.hasThirdPartApplyIdListShrink()) {
-    query["third_part_apply_id_list"] = request.thirdPartApplyIdListShrink();
+    query["third_part_apply_id_list"] = request.getThirdPartApplyIdListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9250,6 +9322,96 @@ IFlightOrderListQueryResponse Client::iFlightOrderListQuery(const IFlightOrderLi
 }
 
 /**
+ * @summary 查询国际/中国港澳台用车记账数据
+ *
+ * @param request IeCarBillSettlementQueryRequest
+ * @param headers IeCarBillSettlementQueryHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return IeCarBillSettlementQueryResponse
+ */
+IeCarBillSettlementQueryResponse Client::ieCarBillSettlementQueryWithOptions(const IeCarBillSettlementQueryRequest &request, const IeCarBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBillBatch()) {
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasBillRecordTimeEnd()) {
+    query["bill_record_time_end"] = request.getBillRecordTimeEnd();
+  }
+
+  if (!!request.hasBillRecordTimeStart()) {
+    query["bill_record_time_start"] = request.getBillRecordTimeStart();
+  }
+
+  if (!!request.hasOrderId()) {
+    query["order_id"] = request.getOrderId();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["page_no"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["page_size"] = request.getPageSize();
+  }
+
+  if (!!request.hasPeriodEnd()) {
+    query["period_end"] = request.getPeriodEnd();
+  }
+
+  if (!!request.hasPeriodStart()) {
+    query["period_start"] = request.getPeriodStart();
+  }
+
+  if (!!request.hasScrollId()) {
+    query["scroll_id"] = request.getScrollId();
+  }
+
+  if (!!request.hasScrollMod()) {
+    query["scroll_mod"] = request.getScrollMod();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXAcsBtripSoCorpToken()) {
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "IeCarBillSettlementQuery"},
+    {"version" , "2022-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/open/v1/ieCar-bill-settlement-query")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<IeCarBillSettlementQueryResponse>();
+}
+
+/**
+ * @summary 查询国际/中国港澳台用车记账数据
+ *
+ * @param request IeCarBillSettlementQueryRequest
+ * @return IeCarBillSettlementQueryResponse
+ */
+IeCarBillSettlementQueryResponse Client::ieCarBillSettlementQuery(const IeCarBillSettlementQueryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  IeCarBillSettlementQueryHeaders headers = IeCarBillSettlementQueryHeaders();
+  return ieCarBillSettlementQueryWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询国际机票记账数据
  *
  * @param request IeFlightBillSettlementQueryRequest
@@ -9261,44 +9423,52 @@ IeFlightBillSettlementQueryResponse Client::ieFlightBillSettlementQueryWithOptio
   request.validate();
   json query = {};
   if (!!request.hasBillBatch()) {
-    query["bill_batch"] = request.billBatch();
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasBillRecordTimeEnd()) {
+    query["bill_record_time_end"] = request.getBillRecordTimeEnd();
+  }
+
+  if (!!request.hasBillRecordTimeStart()) {
+    query["bill_record_time_start"] = request.getBillRecordTimeStart();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPeriodEnd()) {
-    query["period_end"] = request.periodEnd();
+    query["period_end"] = request.getPeriodEnd();
   }
 
   if (!!request.hasPeriodStart()) {
-    query["period_start"] = request.periodStart();
+    query["period_start"] = request.getPeriodStart();
   }
 
   if (!!request.hasScrollId()) {
-    query["scroll_id"] = request.scrollId();
+    query["scroll_id"] = request.getScrollId();
   }
 
   if (!!request.hasScrollMod()) {
-    query["scroll_mod"] = request.scrollMod();
+    query["scroll_mod"] = request.getScrollMod();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9343,48 +9513,56 @@ IeHotelBillSettlementQueryResponse Client::ieHotelBillSettlementQueryWithOptions
   request.validate();
   json query = {};
   if (!!request.hasBillBatch()) {
-    query["bill_batch"] = request.billBatch();
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasBillRecordTimeEnd()) {
+    query["bill_record_time_end"] = request.getBillRecordTimeEnd();
+  }
+
+  if (!!request.hasBillRecordTimeStart()) {
+    query["bill_record_time_start"] = request.getBillRecordTimeStart();
   }
 
   if (!!request.hasCategory()) {
-    query["category"] = request.category();
+    query["category"] = request.getCategory();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPeriodEnd()) {
-    query["period_end"] = request.periodEnd();
+    query["period_end"] = request.getPeriodEnd();
   }
 
   if (!!request.hasPeriodStart()) {
-    query["period_start"] = request.periodStart();
+    query["period_start"] = request.getPeriodStart();
   }
 
   if (!!request.hasScrollId()) {
-    query["scroll_id"] = request.scrollId();
+    query["scroll_id"] = request.getScrollId();
   }
 
   if (!!request.hasScrollMod()) {
-    query["scroll_mod"] = request.scrollMod();
+    query["scroll_mod"] = request.getScrollMod();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9429,32 +9607,32 @@ InsInvoiceScanQueryResponse Client::insInvoiceScanQueryWithOptions(const InsInvo
   request.validate();
   json query = {};
   if (!!request.hasBillDate()) {
-    query["bill_date"] = request.billDate();
+    query["bill_date"] = request.getBillDate();
   }
 
   if (!!request.hasBillId()) {
-    query["bill_id"] = request.billId();
+    query["bill_id"] = request.getBillId();
   }
 
   if (!!request.hasInvoiceSubTaskId()) {
-    query["invoice_sub_task_id"] = request.invoiceSubTaskId();
+    query["invoice_sub_task_id"] = request.getInvoiceSubTaskId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9499,40 +9677,40 @@ InsureOrderApplyResponse Client::insureOrderApplyWithOptions(const InsureOrderAp
   request.validate();
   json body = {};
   if (!!request.hasBtripUserId()) {
-    body["btrip_user_id"] = request.btripUserId();
+    body["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    body["buyer_name"] = request.buyerName();
+    body["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasInsOrderId()) {
-    body["ins_order_id"] = request.insOrderId();
+    body["ins_order_id"] = request.getInsOrderId();
   }
 
   if (!!request.hasIsvName()) {
-    body["isv_name"] = request.isvName();
+    body["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutSubOrderId()) {
-    body["out_sub_order_id"] = request.outSubOrderId();
+    body["out_sub_order_id"] = request.getOutSubOrderId();
   }
 
   if (!!request.hasSupplierCode()) {
-    body["supplier_code"] = request.supplierCode();
+    body["supplier_code"] = request.getSupplierCode();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9577,28 +9755,28 @@ InsureOrderCancelResponse Client::insureOrderCancelWithOptions(const string &ins
   request.validate();
   json query = {};
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    query["buyer_name"] = request.buyerName();
+    query["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasSupplierCode()) {
-    query["supplier_code"] = request.supplierCode();
+    query["supplier_code"] = request.getSupplierCode();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9609,7 +9787,7 @@ InsureOrderCancelResponse Client::insureOrderCancelWithOptions(const string &ins
     {"action" , "InsureOrderCancel"},
     {"version" , "2022-05-20"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dtb-flight/v1/insurances/" , Darabonba::Http::URL::percentEncode(insOrderId) , "/action/cancel")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dtb-flight/v1/insurances/" , Darabonba::Encode::Encoder::percentEncode(insOrderId) , "/action/cancel")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9644,57 +9822,57 @@ InsureOrderCreateResponse Client::insureOrderCreateWithOptions(const InsureOrder
   InsureOrderCreateShrinkRequest request = InsureOrderCreateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasApplicant()) {
-    request.setApplicantShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.applicant(), "applicant", "json"));
+    request.setApplicantShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApplicant(), "applicant", "json"));
   }
 
   if (!!tmpReq.hasInsPersonAndSegmentList()) {
-    request.setInsPersonAndSegmentListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.insPersonAndSegmentList(), "ins_person_and_segment_list", "json"));
+    request.setInsPersonAndSegmentListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInsPersonAndSegmentList(), "ins_person_and_segment_list", "json"));
   }
 
   json body = {};
   if (!!request.hasApplicantShrink()) {
-    body["applicant"] = request.applicantShrink();
+    body["applicant"] = request.getApplicantShrink();
   }
 
   if (!!request.hasBtripUserId()) {
-    body["btrip_user_id"] = request.btripUserId();
+    body["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    body["buyer_name"] = request.buyerName();
+    body["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasInsPersonAndSegmentListShrink()) {
-    body["ins_person_and_segment_list"] = request.insPersonAndSegmentListShrink();
+    body["ins_person_and_segment_list"] = request.getInsPersonAndSegmentListShrink();
   }
 
   if (!!request.hasIsvName()) {
-    body["isv_name"] = request.isvName();
+    body["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOutInsOrderId()) {
-    body["out_ins_order_id"] = request.outInsOrderId();
+    body["out_ins_order_id"] = request.getOutInsOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutSubOrderId()) {
-    body["out_sub_order_id"] = request.outSubOrderId();
+    body["out_sub_order_id"] = request.getOutSubOrderId();
   }
 
   if (!!request.hasSupplierCode()) {
-    body["supplier_code"] = request.supplierCode();
+    body["supplier_code"] = request.getSupplierCode();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9739,32 +9917,32 @@ InsureOrderDetailResponse Client::insureOrderDetailWithOptions(const InsureOrder
   request.validate();
   json query = {};
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    query["buyer_name"] = request.buyerName();
+    query["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasInsOrderId()) {
-    query["ins_order_id"] = request.insOrderId();
+    query["ins_order_id"] = request.getInsOrderId();
   }
 
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasSupplierCode()) {
-    query["supplier_code"] = request.supplierCode();
+    query["supplier_code"] = request.getSupplierCode();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9809,40 +9987,40 @@ InsureOrderPayResponse Client::insureOrderPayWithOptions(const string &insOrderI
   request.validate();
   json body = {};
   if (!!request.hasBtripUserId()) {
-    body["btrip_user_id"] = request.btripUserId();
+    body["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    body["buyer_name"] = request.buyerName();
+    body["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasIsvName()) {
-    body["isv_name"] = request.isvName();
+    body["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutSubOrderId()) {
-    body["out_sub_order_id"] = request.outSubOrderId();
+    body["out_sub_order_id"] = request.getOutSubOrderId();
   }
 
   if (!!request.hasPaymentAmount()) {
-    body["payment_amount"] = request.paymentAmount();
+    body["payment_amount"] = request.getPaymentAmount();
   }
 
   if (!!request.hasSupplierCode()) {
-    body["supplier_code"] = request.supplierCode();
+    body["supplier_code"] = request.getSupplierCode();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9853,7 +10031,7 @@ InsureOrderPayResponse Client::insureOrderPayWithOptions(const string &insOrderI
     {"action" , "InsureOrderPay"},
     {"version" , "2022-05-20"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dtb-flight/v1/insurances/" , Darabonba::Http::URL::percentEncode(insOrderId) , "/action/pay")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dtb-flight/v1/insurances/" , Darabonba::Encode::Encoder::percentEncode(insOrderId) , "/action/pay")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9888,49 +10066,49 @@ InsureOrderRefundResponse Client::insureOrderRefundWithOptions(const string &ins
   InsureOrderRefundShrinkRequest request = InsureOrderRefundShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPolicyNoList()) {
-    request.setPolicyNoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.policyNoList(), "policy_no_list", "json"));
+    request.setPolicyNoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPolicyNoList(), "policy_no_list", "json"));
   }
 
   if (!!tmpReq.hasSubInsOrderIds()) {
-    request.setSubInsOrderIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.subInsOrderIds(), "sub_ins_order_ids", "json"));
+    request.setSubInsOrderIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubInsOrderIds(), "sub_ins_order_ids", "json"));
   }
 
   json body = {};
   if (!!request.hasBtripUserId()) {
-    body["btrip_user_id"] = request.btripUserId();
+    body["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    body["buyer_name"] = request.buyerName();
+    body["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasIsvName()) {
-    body["isv_name"] = request.isvName();
+    body["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOutApplyId()) {
-    body["out_apply_id"] = request.outApplyId();
+    body["out_apply_id"] = request.getOutApplyId();
   }
 
   if (!!request.hasPolicyNoListShrink()) {
-    body["policy_no_list"] = request.policyNoListShrink();
+    body["policy_no_list"] = request.getPolicyNoListShrink();
   }
 
   if (!!request.hasSubInsOrderIdsShrink()) {
-    body["sub_ins_order_ids"] = request.subInsOrderIdsShrink();
+    body["sub_ins_order_ids"] = request.getSubInsOrderIdsShrink();
   }
 
   if (!!request.hasSupplierCode()) {
-    body["supplier_code"] = request.supplierCode();
+    body["supplier_code"] = request.getSupplierCode();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9941,7 +10119,7 @@ InsureOrderRefundResponse Client::insureOrderRefundWithOptions(const string &ins
     {"action" , "InsureOrderRefund"},
     {"version" , "2022-05-20"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dtb-flight/v1/insurances/" , Darabonba::Http::URL::percentEncode(insOrderId) , "/action/refund")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dtb-flight/v1/insurances/" , Darabonba::Encode::Encoder::percentEncode(insOrderId) , "/action/refund")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -9973,11 +10151,11 @@ InsureOrderRefundResponse Client::insureOrderRefund(const string &insOrderId, co
 InsureOrderUrlDetailResponse Client::insureOrderUrlDetailWithOptions(const string &insOrderId, const InsureOrderUrlDetailHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9987,7 +10165,7 @@ InsureOrderUrlDetailResponse Client::insureOrderUrlDetailWithOptions(const strin
     {"action" , "InsureOrderUrlDetail"},
     {"version" , "2022-05-20"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dtb-flight/v1/insurances/" , Darabonba::Http::URL::percentEncode(insOrderId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dtb-flight/v1/insurances/" , Darabonba::Encode::Encoder::percentEncode(insOrderId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -10020,40 +10198,40 @@ InsureRefundDetailResponse Client::insureRefundDetailWithOptions(const InsureRef
   request.validate();
   json query = {};
   if (!!request.hasApplyId()) {
-    query["apply_id"] = request.applyId();
+    query["apply_id"] = request.getApplyId();
   }
 
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    query["buyer_name"] = request.buyerName();
+    query["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasInsOrderId()) {
-    query["ins_order_id"] = request.insOrderId();
+    query["ins_order_id"] = request.getInsOrderId();
   }
 
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOutApplyId()) {
-    query["out_apply_id"] = request.outApplyId();
+    query["out_apply_id"] = request.getOutApplyId();
   }
 
   if (!!request.hasSupplierCode()) {
-    query["supplier_code"] = request.supplierCode();
+    query["supplier_code"] = request.getSupplierCode();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10099,73 +10277,73 @@ IntlFlightCreateOrderResponse Client::intlFlightCreateOrderWithOptions(const Int
   IntlFlightCreateOrderShrinkRequest request = IntlFlightCreateOrderShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContactInfo()) {
-    request.setContactInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.contactInfo(), "contact_info", "json"));
+    request.setContactInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContactInfo(), "contact_info", "json"));
   }
 
   if (!!tmpReq.hasExtraInfo()) {
-    request.setExtraInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.extraInfo(), "extra_info", "json"));
+    request.setExtraInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtraInfo(), "extra_info", "json"));
   }
 
   if (!!tmpReq.hasPassengerList()) {
-    request.setPassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.passengerList(), "passenger_list", "json"));
+    request.setPassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPassengerList(), "passenger_list", "json"));
   }
 
   json body = {};
   if (!!request.hasAsyncCreateOrderKey()) {
-    body["async_create_order_key"] = request.asyncCreateOrderKey();
+    body["async_create_order_key"] = request.getAsyncCreateOrderKey();
   }
 
   if (!!request.hasAsyncCreateOrderMode()) {
-    body["async_create_order_mode"] = request.asyncCreateOrderMode();
+    body["async_create_order_mode"] = request.getAsyncCreateOrderMode();
   }
 
   if (!!request.hasBtripUserId()) {
-    body["btrip_user_id"] = request.btripUserId();
+    body["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    body["buyer_name"] = request.buyerName();
+    body["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasContactInfoShrink()) {
-    body["contact_info"] = request.contactInfoShrink();
+    body["contact_info"] = request.getContactInfoShrink();
   }
 
   if (!!request.hasExtraInfoShrink()) {
-    body["extra_info"] = request.extraInfoShrink();
+    body["extra_info"] = request.getExtraInfoShrink();
   }
 
   if (!!request.hasIsvName()) {
-    body["isv_name"] = request.isvName();
+    body["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderPrice()) {
-    body["order_price"] = request.orderPrice();
+    body["order_price"] = request.getOrderPrice();
   }
 
   if (!!request.hasOtaItemId()) {
-    body["ota_item_id"] = request.otaItemId();
+    body["ota_item_id"] = request.getOtaItemId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasPassengerListShrink()) {
-    body["passenger_list"] = request.passengerListShrink();
+    body["passenger_list"] = request.getPassengerListShrink();
   }
 
   if (!!request.hasRenderKey()) {
-    body["render_key"] = request.renderKey();
+    body["render_key"] = request.getRenderKey();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10211,41 +10389,41 @@ IntlFlightInventoryPriceCheckResponse Client::intlFlightInventoryPriceCheckWithO
   IntlFlightInventoryPriceCheckShrinkRequest request = IntlFlightInventoryPriceCheckShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPassengerList()) {
-    request.setPassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.passengerList(), "passenger_list", "json"));
+    request.setPassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPassengerList(), "passenger_list", "json"));
   }
 
   json query = {};
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    query["buyer_name"] = request.buyerName();
+    query["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderPrice()) {
-    query["order_price"] = request.orderPrice();
+    query["order_price"] = request.getOrderPrice();
   }
 
   if (!!request.hasOtaItemId()) {
-    query["ota_item_id"] = request.otaItemId();
+    query["ota_item_id"] = request.getOtaItemId();
   }
 
   if (!!request.hasPassengerListShrink()) {
-    query["passenger_list"] = request.passengerListShrink();
+    query["passenger_list"] = request.getPassengerListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10291,65 +10469,65 @@ IntlFlightListingSearchResponse Client::intlFlightListingSearchWithOptions(const
   IntlFlightListingSearchShrinkRequest request = IntlFlightListingSearchShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSearchJourneys()) {
-    request.setSearchJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchJourneys(), "search_journeys", "json"));
+    request.setSearchJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSearchJourneys(), "search_journeys", "json"));
   }
 
   if (!!tmpReq.hasSearchPassengerList()) {
-    request.setSearchPassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchPassengerList(), "search_passenger_list", "json"));
+    request.setSearchPassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSearchPassengerList(), "search_passenger_list", "json"));
   }
 
   json query = {};
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    query["buyer_name"] = request.buyerName();
+    query["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasCabinType()) {
-    query["cabin_type"] = request.cabinType();
+    query["cabin_type"] = request.getCabinType();
   }
 
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOutWheelSearch()) {
-    query["out_wheel_search"] = request.outWheelSearch();
+    query["out_wheel_search"] = request.getOutWheelSearch();
   }
 
   if (!!request.hasQueryRecordId()) {
-    query["query_record_id"] = request.queryRecordId();
+    query["query_record_id"] = request.getQueryRecordId();
   }
 
   if (!!request.hasSearchJourneysShrink()) {
-    query["search_journeys"] = request.searchJourneysShrink();
+    query["search_journeys"] = request.getSearchJourneysShrink();
   }
 
   if (!!request.hasSearchMode()) {
-    query["search_mode"] = request.searchMode();
+    query["search_mode"] = request.getSearchMode();
   }
 
   if (!!request.hasSearchPassengerListShrink()) {
-    query["search_passenger_list"] = request.searchPassengerListShrink();
+    query["search_passenger_list"] = request.getSearchPassengerListShrink();
   }
 
   if (!!request.hasToken()) {
-    query["token"] = request.token();
+    query["token"] = request.getToken();
   }
 
   if (!!request.hasTripType()) {
-    query["trip_type"] = request.tripType();
+    query["trip_type"] = request.getTripType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10394,32 +10572,32 @@ IntlFlightOrderCancelResponse Client::intlFlightOrderCancelWithOptions(const Int
   request.validate();
   json body = {};
   if (!!request.hasBtripUserId()) {
-    body["btrip_user_id"] = request.btripUserId();
+    body["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    body["buyer_name"] = request.buyerName();
+    body["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasIsvName()) {
-    body["isv_name"] = request.isvName();
+    body["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10464,32 +10642,32 @@ IntlFlightOrderDetailResponse Client::intlFlightOrderDetailWithOptions(const Int
   request.validate();
   json query = {};
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    query["buyer_name"] = request.buyerName();
+    query["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10534,36 +10712,36 @@ IntlFlightOrderPayResponse Client::intlFlightOrderPayWithOptions(const IntlFligh
   request.validate();
   json body = {};
   if (!!request.hasBtripUserId()) {
-    body["btrip_user_id"] = request.btripUserId();
+    body["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    body["buyer_name"] = request.buyerName();
+    body["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasIsvName()) {
-    body["isv_name"] = request.isvName();
+    body["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOrderPrice()) {
-    body["order_price"] = request.orderPrice();
+    body["order_price"] = request.getOrderPrice();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10608,32 +10786,32 @@ IntlFlightOrderPayCheckResponse Client::intlFlightOrderPayCheckWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    query["buyer_name"] = request.buyerName();
+    query["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10678,32 +10856,32 @@ IntlFlightOtaItemDetailResponse Client::intlFlightOtaItemDetailWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    query["buyer_name"] = request.buyerName();
+    query["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasLanguage()) {
-    query["language"] = request.language();
+    query["language"] = request.getLanguage();
   }
 
   if (!!request.hasSupplierCode()) {
-    query["supplier_code"] = request.supplierCode();
+    query["supplier_code"] = request.getSupplierCode();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10714,7 +10892,7 @@ IntlFlightOtaItemDetailResponse Client::intlFlightOtaItemDetailWithOptions(const
     {"action" , "IntlFlightOtaItemDetail"},
     {"version" , "2022-05-20"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/intl-flight/v1/items/" , Darabonba::Http::URL::percentEncode(otaItemId) , "/action/ota-get")},
+    {"pathname" , DARA_STRING_TEMPLATE("/intl-flight/v1/items/" , Darabonba::Encode::Encoder::percentEncode(otaItemId) , "/action/ota-get")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -10749,49 +10927,49 @@ IntlFlightOtaSearchResponse Client::intlFlightOtaSearchWithOptions(const IntlFli
   IntlFlightOtaSearchShrinkRequest request = IntlFlightOtaSearchShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSearchJourneys()) {
-    request.setSearchJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchJourneys(), "search_journeys", "json"));
+    request.setSearchJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSearchJourneys(), "search_journeys", "json"));
   }
 
   if (!!tmpReq.hasSearchPassengerList()) {
-    request.setSearchPassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchPassengerList(), "search_passenger_list", "json"));
+    request.setSearchPassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSearchPassengerList(), "search_passenger_list", "json"));
   }
 
   json query = {};
   if (!!request.hasBtripUserId()) {
-    query["btrip_user_id"] = request.btripUserId();
+    query["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBuyerName()) {
-    query["buyer_name"] = request.buyerName();
+    query["buyer_name"] = request.getBuyerName();
   }
 
   if (!!request.hasCabinType()) {
-    query["cabin_type"] = request.cabinType();
+    query["cabin_type"] = request.getCabinType();
   }
 
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasSearchJourneysShrink()) {
-    query["search_journeys"] = request.searchJourneysShrink();
+    query["search_journeys"] = request.getSearchJourneysShrink();
   }
 
   if (!!request.hasSearchPassengerListShrink()) {
-    query["search_passenger_list"] = request.searchPassengerListShrink();
+    query["search_passenger_list"] = request.getSearchPassengerListShrink();
   }
 
   if (!!request.hasTripType()) {
-    query["trip_type"] = request.tripType();
+    query["trip_type"] = request.getTripType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10837,61 +11015,61 @@ IntlFlightReShopApplyResponse Client::intlFlightReShopApplyWithOptions(const Int
   IntlFlightReShopApplyShrinkRequest request = IntlFlightReShopApplyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSelectedJourneys()) {
-    request.setSelectedJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.selectedJourneys(), "selected_journeys", "json"));
+    request.setSelectedJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSelectedJourneys(), "selected_journeys", "json"));
   }
 
   if (!!tmpReq.hasSelectedPassengers()) {
-    request.setSelectedPassengersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.selectedPassengers(), "selected_passengers", "json"));
+    request.setSelectedPassengersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSelectedPassengers(), "selected_passengers", "json"));
   }
 
   json body = {};
   if (!!request.hasAsyncApplyKey()) {
-    body["async_apply_key"] = request.asyncApplyKey();
+    body["async_apply_key"] = request.getAsyncApplyKey();
   }
 
   if (!!request.hasAsyncApplyMode()) {
-    body["async_apply_mode"] = request.asyncApplyMode();
+    body["async_apply_mode"] = request.getAsyncApplyMode();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutReShopApplyId()) {
-    body["out_re_shop_apply_id"] = request.outReShopApplyId();
+    body["out_re_shop_apply_id"] = request.getOutReShopApplyId();
   }
 
   if (!!request.hasPassengerJourneyGroupKey()) {
-    body["passenger_journey_group_key"] = request.passengerJourneyGroupKey();
+    body["passenger_journey_group_key"] = request.getPassengerJourneyGroupKey();
   }
 
   if (!!request.hasReShopReasonCode()) {
-    body["re_shop_reason_code"] = request.reShopReasonCode();
+    body["re_shop_reason_code"] = request.getReShopReasonCode();
   }
 
   if (!!request.hasSelectedJourneysShrink()) {
-    body["selected_journeys"] = request.selectedJourneysShrink();
+    body["selected_journeys"] = request.getSelectedJourneysShrink();
   }
 
   if (!!request.hasSelectedPassengersShrink()) {
-    body["selected_passengers"] = request.selectedPassengersShrink();
+    body["selected_passengers"] = request.getSelectedPassengersShrink();
   }
 
   if (!!request.hasUserIntentionMemo()) {
-    body["user_intention_memo"] = request.userIntentionMemo();
+    body["user_intention_memo"] = request.getUserIntentionMemo();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10936,28 +11114,28 @@ IntlFlightReShopCancelResponse Client::intlFlightReShopCancelWithOptions(const I
   request.validate();
   json body = {};
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutReShopApplyId()) {
-    body["out_re_shop_apply_id"] = request.outReShopApplyId();
+    body["out_re_shop_apply_id"] = request.getOutReShopApplyId();
   }
 
   if (!!request.hasReShopApplyId()) {
-    body["re_shop_apply_id"] = request.reShopApplyId();
+    body["re_shop_apply_id"] = request.getReShopApplyId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11002,20 +11180,20 @@ IntlFlightReShopConsultResponse Client::intlFlightReShopConsultWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11060,28 +11238,28 @@ IntlFlightReShopDetailResponse Client::intlFlightReShopDetailWithOptions(const I
   request.validate();
   json query = {};
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutReShopApplyId()) {
-    query["out_re_shop_apply_id"] = request.outReShopApplyId();
+    query["out_re_shop_apply_id"] = request.getOutReShopApplyId();
   }
 
   if (!!request.hasReShopApplyId()) {
-    query["re_shop_apply_id"] = request.reShopApplyId();
+    query["re_shop_apply_id"] = request.getReShopApplyId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11126,28 +11304,28 @@ IntlFlightReShopPayResponse Client::intlFlightReShopPayWithOptions(const IntlFli
   request.validate();
   json body = {};
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutReShopApplyId()) {
-    body["out_re_shop_apply_id"] = request.outReShopApplyId();
+    body["out_re_shop_apply_id"] = request.getOutReShopApplyId();
   }
 
   if (!!request.hasReShopApplyId()) {
-    body["re_shop_apply_id"] = request.reShopApplyId();
+    body["re_shop_apply_id"] = request.getReShopApplyId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11193,49 +11371,49 @@ IntlFlightRefundApplyResponse Client::intlFlightRefundApplyWithOptions(const Int
   IntlFlightRefundApplyShrinkRequest request = IntlFlightRefundApplyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRefundSegmentList()) {
-    request.setRefundSegmentListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.refundSegmentList(), "refund_segment_list", "json"));
+    request.setRefundSegmentListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRefundSegmentList(), "refund_segment_list", "json"));
   }
 
   if (!!tmpReq.hasSelectedPassengers()) {
-    request.setSelectedPassengersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.selectedPassengers(), "selected_passengers", "json"));
+    request.setSelectedPassengersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSelectedPassengers(), "selected_passengers", "json"));
   }
 
   json body = {};
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutRefundApplyId()) {
-    body["out_refund_apply_id"] = request.outRefundApplyId();
+    body["out_refund_apply_id"] = request.getOutRefundApplyId();
   }
 
   if (!!request.hasPassengerJourneyGroupKey()) {
-    body["passenger_journey_group_key"] = request.passengerJourneyGroupKey();
+    body["passenger_journey_group_key"] = request.getPassengerJourneyGroupKey();
   }
 
   if (!!request.hasRefundReasonCode()) {
-    body["refund_reason_code"] = request.refundReasonCode();
+    body["refund_reason_code"] = request.getRefundReasonCode();
   }
 
   if (!!request.hasRefundSegmentListShrink()) {
-    body["refund_segment_list"] = request.refundSegmentListShrink();
+    body["refund_segment_list"] = request.getRefundSegmentListShrink();
   }
 
   if (!!request.hasSelectedPassengersShrink()) {
-    body["selected_passengers"] = request.selectedPassengersShrink();
+    body["selected_passengers"] = request.getSelectedPassengersShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11280,20 +11458,20 @@ IntlFlightRefundConsultResponse Client::intlFlightRefundConsultWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11338,28 +11516,28 @@ IntlFlightRefundDetailResponse Client::intlFlightRefundDetailWithOptions(const I
   request.validate();
   json query = {};
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    query["out_order_id"] = request.outOrderId();
+    query["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutRefundApplyId()) {
-    query["out_refund_apply_id"] = request.outRefundApplyId();
+    query["out_refund_apply_id"] = request.getOutRefundApplyId();
   }
 
   if (!!request.hasRefundApplyId()) {
-    query["refund_apply_id"] = request.refundApplyId();
+    query["refund_apply_id"] = request.getRefundApplyId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11404,28 +11582,28 @@ IntlFlightSegmentAvailableCertResponse Client::intlFlightSegmentAvailableCertWit
   request.validate();
   json query = {};
   if (!!request.hasIsvName()) {
-    query["isv_name"] = request.isvName();
+    query["isv_name"] = request.getIsvName();
   }
 
   if (!!request.hasLanguage()) {
-    query["language"] = request.language();
+    query["language"] = request.getLanguage();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   if (!!request.hasUserName()) {
-    query["user_name"] = request.userName();
+    query["user_name"] = request.getUserName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11436,7 +11614,7 @@ IntlFlightSegmentAvailableCertResponse Client::intlFlightSegmentAvailableCertWit
     {"action" , "IntlFlightSegmentAvailableCert"},
     {"version" , "2022-05-20"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/intl-flight/v1/items/" , Darabonba::Http::URL::percentEncode(otaItemId) , "/action/segment-available-cert")},
+    {"pathname" , DARA_STRING_TEMPLATE("/intl-flight/v1/items/" , Darabonba::Encode::Encoder::percentEncode(otaItemId) , "/action/segment-available-cert")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -11470,48 +11648,52 @@ InvoiceAddResponse Client::invoiceAddWithOptions(const InvoiceAddRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasAddress()) {
-    body["address"] = request.address();
+    body["address"] = request.getAddress();
   }
 
   if (!!request.hasBankName()) {
-    body["bank_name"] = request.bankName();
+    body["bank_name"] = request.getBankName();
   }
 
   if (!!request.hasBankNo()) {
-    body["bank_no"] = request.bankNo();
+    body["bank_no"] = request.getBankNo();
+  }
+
+  if (!!request.hasMailThirdPartId()) {
+    body["mail_third_part_id"] = request.getMailThirdPartId();
   }
 
   if (!!request.hasTaxNo()) {
-    body["tax_no"] = request.taxNo();
+    body["tax_no"] = request.getTaxNo();
   }
 
   if (!!request.hasTel()) {
-    body["tel"] = request.tel();
+    body["tel"] = request.getTel();
   }
 
   if (!!request.hasThirdPartId()) {
-    body["third_part_id"] = request.thirdPartId();
+    body["third_part_id"] = request.getThirdPartId();
   }
 
   if (!!request.hasTitle()) {
-    body["title"] = request.title();
+    body["title"] = request.getTitle();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   if (!!request.hasUnitType()) {
-    body["unit_type"] = request.unitType();
+    body["unit_type"] = request.getUnitType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11556,16 +11738,16 @@ InvoiceDeleteResponse Client::invoiceDeleteWithOptions(const InvoiceDeleteReques
   request.validate();
   json query = {};
   if (!!request.hasThirdPartId()) {
-    query["third_part_id"] = request.thirdPartId();
+    query["third_part_id"] = request.getThirdPartId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11610,48 +11792,52 @@ InvoiceModifyResponse Client::invoiceModifyWithOptions(const InvoiceModifyReques
   request.validate();
   json body = {};
   if (!!request.hasAddress()) {
-    body["address"] = request.address();
+    body["address"] = request.getAddress();
   }
 
   if (!!request.hasBankName()) {
-    body["bank_name"] = request.bankName();
+    body["bank_name"] = request.getBankName();
   }
 
   if (!!request.hasBankNo()) {
-    body["bank_no"] = request.bankNo();
+    body["bank_no"] = request.getBankNo();
+  }
+
+  if (!!request.hasMailThirdPartId()) {
+    body["mail_third_part_id"] = request.getMailThirdPartId();
   }
 
   if (!!request.hasTaxNo()) {
-    body["tax_no"] = request.taxNo();
+    body["tax_no"] = request.getTaxNo();
   }
 
   if (!!request.hasTel()) {
-    body["tel"] = request.tel();
+    body["tel"] = request.getTel();
   }
 
   if (!!request.hasThirdPartId()) {
-    body["third_part_id"] = request.thirdPartId();
+    body["third_part_id"] = request.getThirdPartId();
   }
 
   if (!!request.hasTitle()) {
-    body["title"] = request.title();
+    body["title"] = request.getTitle();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   if (!!request.hasUnitType()) {
-    body["unit_type"] = request.unitType();
+    body["unit_type"] = request.getUnitType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11697,25 +11883,25 @@ InvoiceRuleAddResponse Client::invoiceRuleAddWithOptions(const InvoiceRuleAddReq
   InvoiceRuleAddShrinkRequest request = InvoiceRuleAddShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEntities()) {
-    request.setEntitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.entities(), "entities", "json"));
+    request.setEntitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntities(), "entities", "json"));
   }
 
   json body = {};
   if (!!request.hasEntitiesShrink()) {
-    body["entities"] = request.entitiesShrink();
+    body["entities"] = request.getEntitiesShrink();
   }
 
   if (!!request.hasThirdPartId()) {
-    body["third_part_id"] = request.thirdPartId();
+    body["third_part_id"] = request.getThirdPartId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11761,29 +11947,29 @@ InvoiceRuleDeleteResponse Client::invoiceRuleDeleteWithOptions(const InvoiceRule
   InvoiceRuleDeleteShrinkRequest request = InvoiceRuleDeleteShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEntities()) {
-    request.setEntitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.entities(), "entities", "json"));
+    request.setEntitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntities(), "entities", "json"));
   }
 
   json query = {};
   if (!!request.hasDelAll()) {
-    query["del_all"] = request.delAll();
+    query["del_all"] = request.getDelAll();
   }
 
   if (!!request.hasEntitiesShrink()) {
-    query["entities"] = request.entitiesShrink();
+    query["entities"] = request.getEntitiesShrink();
   }
 
   if (!!request.hasThirdPartId()) {
-    query["third_part_id"] = request.thirdPartId();
+    query["third_part_id"] = request.getThirdPartId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11829,33 +12015,33 @@ InvoiceRuleSaveResponse Client::invoiceRuleSaveWithOptions(const InvoiceRuleSave
   InvoiceRuleSaveShrinkRequest request = InvoiceRuleSaveShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEntities()) {
-    request.setEntitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.entities(), "entities", "json"));
+    request.setEntitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntities(), "entities", "json"));
   }
 
   json body = {};
   if (!!request.hasAllEmploye()) {
-    body["all_employe"] = request.allEmploye();
+    body["all_employe"] = request.getAllEmploye();
   }
 
   if (!!request.hasEntitiesShrink()) {
-    body["entities"] = request.entitiesShrink();
+    body["entities"] = request.getEntitiesShrink();
   }
 
   if (!!request.hasScope()) {
-    body["scope"] = request.scope();
+    body["scope"] = request.getScope();
   }
 
   if (!!request.hasThirdPartId()) {
-    body["third_part_id"] = request.thirdPartId();
+    body["third_part_id"] = request.getThirdPartId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11900,24 +12086,24 @@ InvoiceSearchResponse Client::invoiceSearchWithOptions(const InvoiceSearchReques
   request.validate();
   json query = {};
   if (!!request.hasThirdPartId()) {
-    query["third_part_id"] = request.thirdPartId();
+    query["third_part_id"] = request.getThirdPartId();
   }
 
   if (!!request.hasTitle()) {
-    query["title"] = request.title();
+    query["title"] = request.getTitle();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11963,41 +12149,41 @@ IsvRuleSaveResponse Client::isvRuleSaveWithOptions(const IsvRuleSaveRequest &tmp
   IsvRuleSaveShrinkRequest request = IsvRuleSaveShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBookuserList()) {
-    request.setBookuserListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.bookuserList(), "bookuser_list", "json"));
+    request.setBookuserListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBookuserList(), "bookuser_list", "json"));
   }
 
   json body = {};
   if (!!request.hasApplyNeed()) {
-    body["apply_need"] = request.applyNeed();
+    body["apply_need"] = request.getApplyNeed();
   }
 
   if (!!request.hasBookType()) {
-    body["book_type"] = request.bookType();
+    body["book_type"] = request.getBookType();
   }
 
   if (!!request.hasBookuserListShrink()) {
-    body["bookuser_list"] = request.bookuserListShrink();
+    body["bookuser_list"] = request.getBookuserListShrink();
   }
 
   if (!!request.hasRuleNeed()) {
-    body["rule_need"] = request.ruleNeed();
+    body["rule_need"] = request.getRuleNeed();
   }
 
   if (!!request.hasStatus()) {
-    body["status"] = request.status();
+    body["status"] = request.getStatus();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12043,21 +12229,21 @@ IsvUserSaveResponse Client::isvUserSaveWithOptions(const IsvUserSaveRequest &tmp
   IsvUserSaveShrinkRequest request = IsvUserSaveShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUserList()) {
-    request.setUserListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userList(), "user_list", "json"));
+    request.setUserListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserList(), "user_list", "json"));
   }
 
   json body = {};
   if (!!request.hasUserListShrink()) {
-    body["user_list"] = request.userListShrink();
+    body["user_list"] = request.getUserListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12103,69 +12289,73 @@ MealApplyAddResponse Client::mealApplyAddWithOptions(const MealApplyAddRequest &
   MealApplyAddShrinkRequest request = MealApplyAddShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasApplyUser()) {
-    request.setApplyUserShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.applyUser(), "apply_user", "json"));
+    request.setApplyUserShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApplyUser(), "apply_user", "json"));
   }
 
   if (!!tmpReq.hasItineraryList()) {
-    request.setItineraryListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.itineraryList(), "itinerary_list", "json"));
+    request.setItineraryListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItineraryList(), "itinerary_list", "json"));
   }
 
   json body = {};
   if (!!request.hasApplyUserShrink()) {
-    body["apply_user"] = request.applyUserShrink();
+    body["apply_user"] = request.getApplyUserShrink();
   }
 
   if (!!request.hasCostCenterId()) {
-    body["cost_center_id"] = request.costCenterId();
+    body["cost_center_id"] = request.getCostCenterId();
+  }
+
+  if (!!request.hasExtendField()) {
+    body["extend_field"] = request.getExtendField();
   }
 
   if (!!request.hasInvoiceId()) {
-    body["invoice_id"] = request.invoiceId();
+    body["invoice_id"] = request.getInvoiceId();
   }
 
   if (!!request.hasItineraryListShrink()) {
-    body["itinerary_list"] = request.itineraryListShrink();
+    body["itinerary_list"] = request.getItineraryListShrink();
   }
 
   if (!!request.hasMealAmount()) {
-    body["meal_amount"] = request.mealAmount();
+    body["meal_amount"] = request.getMealAmount();
   }
 
   if (!!request.hasMealCause()) {
-    body["meal_cause"] = request.mealCause();
+    body["meal_cause"] = request.getMealCause();
   }
 
   if (!!request.hasProjectCode()) {
-    body["project_code"] = request.projectCode();
+    body["project_code"] = request.getProjectCode();
   }
 
   if (!!request.hasProjectTitle()) {
-    body["project_title"] = request.projectTitle();
+    body["project_title"] = request.getProjectTitle();
   }
 
   if (!!request.hasStatus()) {
-    body["status"] = request.status();
+    body["status"] = request.getStatus();
   }
 
   if (!!request.hasThirdPartApplyId()) {
-    body["third_part_apply_id"] = request.thirdPartApplyId();
+    body["third_part_apply_id"] = request.getThirdPartApplyId();
   }
 
   if (!!request.hasThirdPartCostCenterId()) {
-    body["third_part_cost_center_id"] = request.thirdPartCostCenterId();
+    body["third_part_cost_center_id"] = request.getThirdPartCostCenterId();
   }
 
   if (!!request.hasThirdPartInvoiceId()) {
-    body["third_part_invoice_id"] = request.thirdPartInvoiceId();
+    body["third_part_invoice_id"] = request.getThirdPartInvoiceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12210,32 +12400,32 @@ MealApplyApproveResponse Client::mealApplyApproveWithOptions(const MealApplyAppr
   request.validate();
   json body = {};
   if (!!request.hasOperateTime()) {
-    body["operate_time"] = request.operateTime();
+    body["operate_time"] = request.getOperateTime();
   }
 
   if (!!request.hasRemark()) {
-    body["remark"] = request.remark();
+    body["remark"] = request.getRemark();
   }
 
   if (!!request.hasStatus()) {
-    body["status"] = request.status();
+    body["status"] = request.getStatus();
   }
 
   if (!!request.hasThirdPartApplyId()) {
-    body["third_part_apply_id"] = request.thirdPartApplyId();
+    body["third_part_apply_id"] = request.getThirdPartApplyId();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12280,16 +12470,16 @@ MealApplyQueryResponse Client::mealApplyQueryWithOptions(const MealApplyQueryReq
   request.validate();
   json query = {};
   if (!!request.hasThirdPartApplyId()) {
-    query["third_part_apply_id"] = request.thirdPartApplyId();
+    query["third_part_apply_id"] = request.getThirdPartApplyId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12334,44 +12524,52 @@ MealBillSettlementQueryResponse Client::mealBillSettlementQueryWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasBillBatch()) {
-    query["bill_batch"] = request.billBatch();
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasBillRecordTimeEnd()) {
+    query["bill_record_time_end"] = request.getBillRecordTimeEnd();
+  }
+
+  if (!!request.hasBillRecordTimeStart()) {
+    query["bill_record_time_start"] = request.getBillRecordTimeStart();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPeriodEnd()) {
-    query["period_end"] = request.periodEnd();
+    query["period_end"] = request.getPeriodEnd();
   }
 
   if (!!request.hasPeriodStart()) {
-    query["period_start"] = request.periodStart();
+    query["period_start"] = request.getPeriodStart();
   }
 
   if (!!request.hasScrollId()) {
-    query["scroll_id"] = request.scrollId();
+    query["scroll_id"] = request.getScrollId();
   }
 
   if (!!request.hasScrollMod()) {
-    query["scroll_mod"] = request.scrollMod();
+    query["scroll_mod"] = request.getScrollMod();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12416,16 +12614,16 @@ MealOrderDetailQueryResponse Client::mealOrderDetailQueryWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12436,7 +12634,7 @@ MealOrderDetailQueryResponse Client::mealOrderDetailQueryWithOptions(const strin
     {"action" , "MealOrderDetailQuery"},
     {"version" , "2022-05-20"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/meal/v1/orders/" , Darabonba::Http::URL::percentEncode(orderId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/meal/v1/orders/" , Darabonba::Encode::Encoder::percentEncode(orderId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -12470,16 +12668,16 @@ MealOrderListQueryResponse Client::mealOrderListQueryWithOptions(const MealOrder
   request.validate();
   json query = {};
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12524,20 +12722,20 @@ MonthBillConfirmResponse Client::monthBillConfirmWithOptions(const MonthBillConf
   request.validate();
   json body = {};
   if (!!request.hasMailBillDate()) {
-    body["mail_bill_date"] = request.mailBillDate();
+    body["mail_bill_date"] = request.getMailBillDate();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12582,20 +12780,20 @@ MonthBillGetResponse Client::monthBillGetWithOptions(const MonthBillGetRequest &
   request.validate();
   json query = {};
   if (!!request.hasBillBatch()) {
-    query["bill_batch"] = request.billBatch();
+    query["bill_batch"] = request.getBillBatch();
   }
 
   if (!!request.hasBillMonth()) {
-    query["bill_month"] = request.billMonth();
+    query["bill_month"] = request.getBillMonth();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12641,33 +12839,33 @@ MonthBillSplitGetResponse Client::monthBillSplitGetWithOptions(const MonthBillSp
   MonthBillSplitGetShrinkRequest request = MonthBillSplitGetShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBillSplitKeyList()) {
-    request.setBillSplitKeyListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.billSplitKeyList(), "bill_split_key_list", "json"));
+    request.setBillSplitKeyListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBillSplitKeyList(), "bill_split_key_list", "json"));
   }
 
   json query = {};
   if (!!request.hasBillBatch()) {
-    query["bill_batch"] = request.billBatch();
+    query["bill_batch"] = request.getBillBatch();
   }
 
   if (!!request.hasBillMonth()) {
-    query["bill_month"] = request.billMonth();
+    query["bill_month"] = request.getBillMonth();
   }
 
   if (!!request.hasBillSplitKeyListShrink()) {
-    query["bill_split_key_list"] = request.billSplitKeyListShrink();
+    query["bill_split_key_list"] = request.getBillSplitKeyListShrink();
   }
 
   if (!!request.hasBillSplitMode()) {
-    query["bill_split_mode"] = request.billSplitMode();
+    query["bill_split_mode"] = request.getBillSplitMode();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12712,20 +12910,20 @@ OrderRefundDetailQueryResponse Client::orderRefundDetailQueryWithOptions(const O
   request.validate();
   json body = {};
   if (!!request.hasCooperatorOrderId()) {
-    body["cooperator_order_id"] = request.cooperatorOrderId();
+    body["cooperator_order_id"] = request.getCooperatorOrderId();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12770,32 +12968,32 @@ ProjectAddResponse Client::projectAddWithOptions(const ProjectAddRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasProjectName()) {
-    body["project_name"] = request.projectName();
+    body["project_name"] = request.getProjectName();
   }
 
   if (!!request.hasThirdPartCostCenterId()) {
-    body["third_part_cost_center_id"] = request.thirdPartCostCenterId();
+    body["third_part_cost_center_id"] = request.getThirdPartCostCenterId();
   }
 
   if (!!request.hasThirdPartId()) {
-    body["third_part_id"] = request.thirdPartId();
+    body["third_part_id"] = request.getThirdPartId();
   }
 
   if (!!request.hasThirdPartInvoiceId()) {
-    body["third_part_invoice_id"] = request.thirdPartInvoiceId();
+    body["third_part_invoice_id"] = request.getThirdPartInvoiceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12840,16 +13038,16 @@ ProjectDeleteResponse Client::projectDeleteWithOptions(const ProjectDeleteReques
   request.validate();
   json query = {};
   if (!!request.hasThirdPartId()) {
-    query["third_part_id"] = request.thirdPartId();
+    query["third_part_id"] = request.getThirdPartId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12894,32 +13092,32 @@ ProjectModifyResponse Client::projectModifyWithOptions(const ProjectModifyReques
   request.validate();
   json body = {};
   if (!!request.hasCode()) {
-    body["code"] = request.code();
+    body["code"] = request.getCode();
   }
 
   if (!!request.hasProjectName()) {
-    body["project_name"] = request.projectName();
+    body["project_name"] = request.getProjectName();
   }
 
   if (!!request.hasThirdPartCostCenterId()) {
-    body["third_part_cost_center_id"] = request.thirdPartCostCenterId();
+    body["third_part_cost_center_id"] = request.getThirdPartCostCenterId();
   }
 
   if (!!request.hasThirdPartId()) {
-    body["third_part_id"] = request.thirdPartId();
+    body["third_part_id"] = request.getThirdPartId();
   }
 
   if (!!request.hasThirdPartInvoiceId()) {
-    body["third_part_invoice_id"] = request.thirdPartInvoiceId();
+    body["third_part_invoice_id"] = request.getThirdPartInvoiceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12953,6 +13151,68 @@ ProjectModifyResponse Client::projectModify(const ProjectModifyRequest &request)
 }
 
 /**
+ * @summary 查询赔付信息
+ *
+ * @param request QueryCompenInfosForOpRequest
+ * @param headers QueryCompenInfosForOpHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryCompenInfosForOpResponse
+ */
+QueryCompenInfosForOpResponse Client::queryCompenInfosForOpWithOptions(const QueryCompenInfosForOpRequest &request, const QueryCompenInfosForOpHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategory()) {
+    query["category"] = request.getCategory();
+  }
+
+  if (!!request.hasCompenId()) {
+    query["compen_id"] = request.getCompenId();
+  }
+
+  if (!!request.hasOrderId()) {
+    query["order_id"] = request.getOrderId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXAcsBtripSoCorpToken()) {
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryCompenInfosForOp"},
+    {"version" , "2022-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/compen/v1/queryCompenInfosForOp")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryCompenInfosForOpResponse>();
+}
+
+/**
+ * @summary 查询赔付信息
+ *
+ * @param request QueryCompenInfosForOpRequest
+ * @return QueryCompenInfosForOpResponse
+ */
+QueryCompenInfosForOpResponse Client::queryCompenInfosForOp(const QueryCompenInfosForOpRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  QueryCompenInfosForOpHeaders headers = QueryCompenInfosForOpHeaders();
+  return queryCompenInfosForOpWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询企业信息详情
  *
  * @param request QueryCorpDetailInfoRequest
@@ -12964,24 +13224,24 @@ QueryCorpDetailInfoResponse Client::queryCorpDetailInfoWithOptions(const QueryCo
   request.validate();
   json query = {};
   if (!!request.hasAccountId()) {
-    query["account_id"] = request.accountId();
+    query["account_id"] = request.getAccountId();
   }
 
   if (!!request.hasTargetCorpId()) {
-    query["target_corp_id"] = request.targetCorpId();
+    query["target_corp_id"] = request.getTargetCorpId();
   }
 
   if (!!request.hasTargetThirdCorpId()) {
-    query["target_third_corp_id"] = request.targetThirdCorpId();
+    query["target_third_corp_id"] = request.getTargetThirdCorpId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13026,16 +13286,16 @@ QueryEmployeeDetailResponse Client::queryEmployeeDetailWithOptions(const QueryEm
   request.validate();
   json query = {};
   if (!!request.hasOutEmployeeId()) {
-    query["out_employee_id"] = request.outEmployeeId();
+    query["out_employee_id"] = request.getOutEmployeeId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13080,16 +13340,16 @@ QueryGroupCorpListResponse Client::queryGroupCorpListWithOptions(const QueryGrou
   request.validate();
   json body = {};
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13134,20 +13394,20 @@ QueryReimbursementOrderResponse Client::queryReimbursementOrderWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasReimbOrderNo()) {
-    query["reimb_order_no"] = request.reimbOrderNo();
+    query["reimb_order_no"] = request.getReimbOrderNo();
   }
 
   if (!!request.hasSubCorpId()) {
-    query["sub_corp_id"] = request.subCorpId();
+    query["sub_corp_id"] = request.getSubCorpId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13193,61 +13453,61 @@ SyncSingleUserResponse Client::syncSingleUserWithOptions(const SyncSingleUserReq
   SyncSingleUserShrinkRequest request = SyncSingleUserShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasThirdDepartIdList()) {
-    request.setThirdDepartIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.thirdDepartIdList(), "third_depart_id_list", "json"));
+    request.setThirdDepartIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getThirdDepartIdList(), "third_depart_id_list", "json"));
   }
 
   json body = {};
   if (!!request.hasEmail()) {
-    body["email"] = request.email();
+    body["email"] = request.getEmail();
   }
 
   if (!!request.hasJobNo()) {
-    body["job_no"] = request.jobNo();
+    body["job_no"] = request.getJobNo();
   }
 
   if (!!request.hasLeaveStatus()) {
-    body["leave_status"] = request.leaveStatus();
+    body["leave_status"] = request.getLeaveStatus();
   }
 
   if (!!request.hasManagerUserId()) {
-    body["manager_user_id"] = request.managerUserId();
+    body["manager_user_id"] = request.getManagerUserId();
   }
 
   if (!!request.hasPhone()) {
-    body["phone"] = request.phone();
+    body["phone"] = request.getPhone();
   }
 
   if (!!request.hasPosition()) {
-    body["position"] = request.position();
+    body["position"] = request.getPosition();
   }
 
   if (!!request.hasPositionLevel()) {
-    body["position_level"] = request.positionLevel();
+    body["position_level"] = request.getPositionLevel();
   }
 
   if (!!request.hasRealNameEn()) {
-    body["real_name_en"] = request.realNameEn();
+    body["real_name_en"] = request.getRealNameEn();
   }
 
   if (!!request.hasThirdDepartIdListShrink()) {
-    body["third_depart_id_list"] = request.thirdDepartIdListShrink();
+    body["third_depart_id_list"] = request.getThirdDepartIdListShrink();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   if (!!request.hasUserName()) {
-    body["user_name"] = request.userName();
+    body["user_name"] = request.getUserName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13292,28 +13552,28 @@ SyncThirdUserMappingResponse Client::syncThirdUserMappingWithOptions(const SyncT
   request.validate();
   json body = {};
   if (!!request.hasStatus()) {
-    body["status"] = request.status();
+    body["status"] = request.getStatus();
   }
 
   if (!!request.hasThirdChannelType()) {
-    body["third_channel_type"] = request.thirdChannelType();
+    body["third_channel_type"] = request.getThirdChannelType();
   }
 
   if (!!request.hasThirdUserId()) {
-    body["third_user_id"] = request.thirdUserId();
+    body["third_user_id"] = request.getThirdUserId();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13356,11 +13616,11 @@ SyncThirdUserMappingResponse Client::syncThirdUserMapping(const SyncThirdUserMap
 TBAccountInfoQueryResponse Client::tBAccountInfoQueryWithOptions(const string &userId, const TBAccountInfoQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13370,7 +13630,7 @@ TBAccountInfoQueryResponse Client::tBAccountInfoQueryWithOptions(const string &u
     {"action" , "TBAccountInfoQuery"},
     {"version" , "2022-05-20"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/account/v1/tb-accounts/" , Darabonba::Http::URL::percentEncode(userId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/account/v1/tb-accounts/" , Darabonba::Encode::Encoder::percentEncode(userId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -13401,11 +13661,11 @@ TBAccountInfoQueryResponse Client::tBAccountInfoQuery(const string &userId) {
 TBAccountUnbindResponse Client::tBAccountUnbindWithOptions(const string &userId, const TBAccountUnbindHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13415,7 +13675,7 @@ TBAccountUnbindResponse Client::tBAccountUnbindWithOptions(const string &userId,
     {"action" , "TBAccountUnbind"},
     {"version" , "2022-05-20"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/account/v1/tb-accounts/" , Darabonba::Http::URL::percentEncode(userId) , "/action/unbind")},
+    {"pathname" , DARA_STRING_TEMPLATE("/account/v1/tb-accounts/" , Darabonba::Encode::Encoder::percentEncode(userId) , "/action/unbind")},
     {"method" , "PATCH"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -13449,49 +13709,49 @@ TicketChangingApplyResponse Client::ticketChangingApplyWithOptions(const TicketC
   TicketChangingApplyShrinkRequest request = TicketChangingApplyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasModifyFlightInfoList()) {
-    request.setModifyFlightInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.modifyFlightInfoList(), "modify_flight_info_list", "json"));
+    request.setModifyFlightInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getModifyFlightInfoList(), "modify_flight_info_list", "json"));
   }
 
   json body = {};
   if (!!request.hasDisOrderId()) {
-    body["dis_order_id"] = request.disOrderId();
+    body["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasDisSubOrderId()) {
-    body["dis_sub_order_id"] = request.disSubOrderId();
+    body["dis_sub_order_id"] = request.getDisSubOrderId();
   }
 
   if (!!request.hasIsVoluntary()) {
-    body["is_voluntary"] = request.isVoluntary();
+    body["is_voluntary"] = request.getIsVoluntary();
   }
 
   if (!!request.hasModifyFlightInfoListShrink()) {
-    body["modify_flight_info_list"] = request.modifyFlightInfoListShrink();
+    body["modify_flight_info_list"] = request.getModifyFlightInfoListShrink();
   }
 
   if (!!request.hasOtaItemId()) {
-    body["ota_item_id"] = request.otaItemId();
+    body["ota_item_id"] = request.getOtaItemId();
   }
 
   if (!!request.hasReason()) {
-    body["reason"] = request.reason();
+    body["reason"] = request.getReason();
   }
 
   if (!!request.hasSessionId()) {
-    body["session_id"] = request.sessionId();
+    body["session_id"] = request.getSessionId();
   }
 
   if (!!request.hasWhetherRetry()) {
-    body["whether_retry"] = request.whetherRetry();
+    body["whether_retry"] = request.getWhetherRetry();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13536,20 +13796,20 @@ TicketChangingCancelResponse Client::ticketChangingCancelWithOptions(const Ticke
   request.validate();
   json query = {};
   if (!!request.hasDisOrderId()) {
-    query["dis_order_id"] = request.disOrderId();
+    query["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasDisSubOrderId()) {
-    query["dis_sub_order_id"] = request.disSubOrderId();
+    query["dis_sub_order_id"] = request.getDisSubOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13594,20 +13854,20 @@ TicketChangingDetailResponse Client::ticketChangingDetailWithOptions(const Ticke
   request.validate();
   json query = {};
   if (!!request.hasDisOrderId()) {
-    query["dis_order_id"] = request.disOrderId();
+    query["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasDisSubOrderId()) {
-    query["dis_sub_order_id"] = request.disSubOrderId();
+    query["dis_sub_order_id"] = request.getDisSubOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13652,40 +13912,40 @@ TicketChangingEnquiryResponse Client::ticketChangingEnquiryWithOptions(const Tic
   request.validate();
   json query = {};
   if (!!request.hasArrCity()) {
-    query["arr_city"] = request.arrCity();
+    query["arr_city"] = request.getArrCity();
   }
 
   if (!!request.hasDepCity()) {
-    query["dep_city"] = request.depCity();
+    query["dep_city"] = request.getDepCity();
   }
 
   if (!!request.hasDisOrderId()) {
-    query["dis_order_id"] = request.disOrderId();
+    query["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasIsVoluntary()) {
-    query["is_voluntary"] = request.isVoluntary();
+    query["is_voluntary"] = request.getIsVoluntary();
   }
 
   if (!!request.hasModifyDepartDate()) {
-    query["modify_depart_date"] = request.modifyDepartDate();
+    query["modify_depart_date"] = request.getModifyDepartDate();
   }
 
   if (!!request.hasModifyFlightNo()) {
-    query["modify_flight_no"] = request.modifyFlightNo();
+    query["modify_flight_no"] = request.getModifyFlightNo();
   }
 
   if (!!request.hasSessionId()) {
-    query["session_id"] = request.sessionId();
+    query["session_id"] = request.getSessionId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13731,41 +13991,41 @@ TicketChangingFlightListResponse Client::ticketChangingFlightListWithOptions(con
   TicketChangingFlightListShrinkRequest request = TicketChangingFlightListShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTravelerInfoList()) {
-    request.setTravelerInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.travelerInfoList(), "traveler_info_list", "json"));
+    request.setTravelerInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTravelerInfoList(), "traveler_info_list", "json"));
   }
 
   json query = {};
   if (!!request.hasArrCity()) {
-    query["arr_city"] = request.arrCity();
+    query["arr_city"] = request.getArrCity();
   }
 
   if (!!request.hasDepCity()) {
-    query["dep_city"] = request.depCity();
+    query["dep_city"] = request.getDepCity();
   }
 
   if (!!request.hasDepDate()) {
-    query["dep_date"] = request.depDate();
+    query["dep_date"] = request.getDepDate();
   }
 
   if (!!request.hasDisOrderId()) {
-    query["dis_order_id"] = request.disOrderId();
+    query["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasIsVoluntary()) {
-    query["is_voluntary"] = request.isVoluntary();
+    query["is_voluntary"] = request.getIsVoluntary();
   }
 
   if (!!request.hasTravelerInfoListShrink()) {
-    query["traveler_info_list"] = request.travelerInfoListShrink();
+    query["traveler_info_list"] = request.getTravelerInfoListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13811,41 +14071,41 @@ TicketChangingPayResponse Client::ticketChangingPayWithOptions(const TicketChang
   TicketChangingPayShrinkRequest request = TicketChangingPayShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExtra()) {
-    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.extra(), "extra", "json"));
+    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtra(), "extra", "json"));
   }
 
   json body = {};
   if (!!request.hasCorpPayPrice()) {
-    body["corp_pay_price"] = request.corpPayPrice();
+    body["corp_pay_price"] = request.getCorpPayPrice();
   }
 
   if (!!request.hasDisOrderId()) {
-    body["dis_order_id"] = request.disOrderId();
+    body["dis_order_id"] = request.getDisOrderId();
   }
 
   if (!!request.hasDisSubOrderId()) {
-    body["dis_sub_order_id"] = request.disSubOrderId();
+    body["dis_sub_order_id"] = request.getDisSubOrderId();
   }
 
   if (!!request.hasExtraShrink()) {
-    body["extra"] = request.extraShrink();
+    body["extra"] = request.getExtraShrink();
   }
 
   if (!!request.hasPersonalPayPrice()) {
-    body["personal_pay_price"] = request.personalPayPrice();
+    body["personal_pay_price"] = request.getPersonalPayPrice();
   }
 
   if (!!request.hasTotalPayPrice()) {
-    body["total_pay_price"] = request.totalPayPrice();
+    body["total_pay_price"] = request.getTotalPayPrice();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13891,46 +14151,46 @@ TrainApplyChangeResponse Client::trainApplyChangeWithOptions(const TrainApplyCha
   TrainApplyChangeShrinkRequest request = TrainApplyChangeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasChangeTrainInfoS()) {
-    request.setChangeTrainInfoSShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.changeTrainInfoS(), "change_train_info_s", "json"));
+    request.setChangeTrainInfoSShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChangeTrainInfoS(), "change_train_info_s", "json"));
   }
 
   json query = {};
   if (!!request.hasChangeTrainInfoSShrink()) {
-    query["change_train_info_s"] = request.changeTrainInfoSShrink();
+    query["change_train_info_s"] = request.getChangeTrainInfoSShrink();
   }
 
   json body = {};
   if (!!request.hasAcceptNoSeat()) {
-    body["accept_no_seat"] = request.acceptNoSeat();
+    body["accept_no_seat"] = request.getAcceptNoSeat();
   }
 
   if (!!request.hasForceMatch()) {
-    body["force_match"] = request.forceMatch();
+    body["force_match"] = request.getForceMatch();
   }
 
   if (!!request.hasIsPayNow()) {
-    body["is_pay_now"] = request.isPayNow();
+    body["is_pay_now"] = request.getIsPayNow();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutChangeApplyId()) {
-    body["out_change_apply_id"] = request.outChangeApplyId();
+    body["out_change_apply_id"] = request.getOutChangeApplyId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13977,33 +14237,33 @@ TrainApplyRefundResponse Client::trainApplyRefundWithOptions(const TrainApplyRef
   TrainApplyRefundShrinkRequest request = TrainApplyRefundShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRefundTrainInfos()) {
-    request.setRefundTrainInfosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.refundTrainInfos(), "refund_train_infos", "json"));
+    request.setRefundTrainInfosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRefundTrainInfos(), "refund_train_infos", "json"));
   }
 
   json body = {};
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasOutRefundId()) {
-    body["out_refund_id"] = request.outRefundId();
+    body["out_refund_id"] = request.getOutRefundId();
   }
 
   if (!!request.hasRefundTrainInfosShrink()) {
-    body["refund_train_infos"] = request.refundTrainInfosShrink();
+    body["refund_train_infos"] = request.getRefundTrainInfosShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14048,44 +14308,52 @@ TrainBillSettlementQueryResponse Client::trainBillSettlementQueryWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBillBatch()) {
-    query["bill_batch"] = request.billBatch();
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasBillRecordTimeEnd()) {
+    query["bill_record_time_end"] = request.getBillRecordTimeEnd();
+  }
+
+  if (!!request.hasBillRecordTimeStart()) {
+    query["bill_record_time_start"] = request.getBillRecordTimeStart();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPeriodEnd()) {
-    query["period_end"] = request.periodEnd();
+    query["period_end"] = request.getPeriodEnd();
   }
 
   if (!!request.hasPeriodStart()) {
-    query["period_start"] = request.periodStart();
+    query["period_start"] = request.getPeriodStart();
   }
 
   if (!!request.hasScrollId()) {
-    query["scroll_id"] = request.scrollId();
+    query["scroll_id"] = request.getScrollId();
   }
 
   if (!!request.hasScrollMod()) {
-    query["scroll_mod"] = request.scrollMod();
+    query["scroll_mod"] = request.getScrollMod();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14130,20 +14398,20 @@ TrainExceedApplyQueryResponse Client::trainExceedApplyQueryWithOptions(const Tra
   request.validate();
   json query = {};
   if (!!request.hasApplyId()) {
-    query["apply_id"] = request.applyId();
+    query["apply_id"] = request.getApplyId();
   }
 
   if (!!request.hasBusinessInstanceId()) {
-    query["business_instance_id"] = request.businessInstanceId();
+    query["business_instance_id"] = request.getBusinessInstanceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14189,29 +14457,29 @@ TrainFeeCalculateChangeResponse Client::trainFeeCalculateChangeWithOptions(const
   TrainFeeCalculateChangeShrinkRequest request = TrainFeeCalculateChangeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasChangeTrainDetails()) {
-    request.setChangeTrainDetailsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.changeTrainDetails(), "change_train_details", "json"));
+    request.setChangeTrainDetailsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChangeTrainDetails(), "change_train_details", "json"));
   }
 
   json body = {};
   if (!!request.hasChangeTrainDetailsShrink()) {
-    body["change_train_details"] = request.changeTrainDetailsShrink();
+    body["change_train_details"] = request.getChangeTrainDetailsShrink();
   }
 
   if (!!request.hasDistributeOrderId()) {
-    body["distribute_order_id"] = request.distributeOrderId();
+    body["distribute_order_id"] = request.getDistributeOrderId();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14257,29 +14525,29 @@ TrainFeeCalculateRefundResponse Client::trainFeeCalculateRefundWithOptions(const
   TrainFeeCalculateRefundShrinkRequest request = TrainFeeCalculateRefundShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRefundTrainInfos()) {
-    request.setRefundTrainInfosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.refundTrainInfos(), "refund_train_infos", "json"));
+    request.setRefundTrainInfosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRefundTrainInfos(), "refund_train_infos", "json"));
   }
 
   json body = {};
   if (!!request.hasDistributeOrderId()) {
-    body["distribute_order_id"] = request.distributeOrderId();
+    body["distribute_order_id"] = request.getDistributeOrderId();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasRefundTrainInfosShrink()) {
-    body["refund_train_infos"] = request.refundTrainInfosShrink();
+    body["refund_train_infos"] = request.getRefundTrainInfosShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14324,44 +14592,44 @@ TrainNoInfoSearchResponse Client::trainNoInfoSearchWithOptions(const TrainNoInfo
   request.validate();
   json body = {};
   if (!!request.hasArrLocation()) {
-    body["arr_location"] = request.arrLocation();
+    body["arr_location"] = request.getArrLocation();
   }
 
   if (!!request.hasDepDate()) {
-    body["dep_date"] = request.depDate();
+    body["dep_date"] = request.getDepDate();
   }
 
   if (!!request.hasDepLocation()) {
-    body["dep_location"] = request.depLocation();
+    body["dep_location"] = request.getDepLocation();
   }
 
   if (!!request.hasLineKey()) {
-    body["line_key"] = request.lineKey();
+    body["line_key"] = request.getLineKey();
   }
 
   if (!!request.hasMiddleDate()) {
-    body["middle_date"] = request.middleDate();
+    body["middle_date"] = request.getMiddleDate();
   }
 
   if (!!request.hasMiddleStation()) {
-    body["middle_station"] = request.middleStation();
+    body["middle_station"] = request.getMiddleStation();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasTrainNo()) {
-    body["train_no"] = request.trainNo();
+    body["train_no"] = request.getTrainNo();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14407,37 +14675,37 @@ TrainNoListSearchResponse Client::trainNoListSearchWithOptions(const TrainNoList
   TrainNoListSearchShrinkRequest request = TrainNoListSearchShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "option", "json"));
   }
 
   json body = {};
   if (!!request.hasArrLocation()) {
-    body["arr_location"] = request.arrLocation();
+    body["arr_location"] = request.getArrLocation();
   }
 
   if (!!request.hasDepDate()) {
-    body["dep_date"] = request.depDate();
+    body["dep_date"] = request.getDepDate();
   }
 
   if (!!request.hasDepLocation()) {
-    body["dep_location"] = request.depLocation();
+    body["dep_location"] = request.getDepLocation();
   }
 
   if (!!request.hasOptionShrink()) {
-    body["option"] = request.optionShrink();
+    body["option"] = request.getOptionShrink();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14482,28 +14750,28 @@ TrainOrderCancelResponse Client::trainOrderCancelWithOptions(const TrainOrderCan
   request.validate();
   json body = {};
   if (!!request.hasChangeOrderId()) {
-    body["change_order_id"] = request.changeOrderId();
+    body["change_order_id"] = request.getChangeOrderId();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutChangeOrderId()) {
-    body["out_change_order_id"] = request.outChangeOrderId();
+    body["out_change_order_id"] = request.getOutChangeOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14548,32 +14816,32 @@ TrainOrderChangeConfirmResponse Client::trainOrderChangeConfirmWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasChangeApplyId()) {
-    body["change_apply_id"] = request.changeApplyId();
+    body["change_apply_id"] = request.getChangeApplyId();
   }
 
   if (!!request.hasChangeSettleAmount()) {
-    body["change_settle_amount"] = request.changeSettleAmount();
+    body["change_settle_amount"] = request.getChangeSettleAmount();
   }
 
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutChangeApplyId()) {
-    body["out_change_apply_id"] = request.outChangeApplyId();
+    body["out_change_apply_id"] = request.getOutChangeApplyId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14619,69 +14887,69 @@ TrainOrderCreateResponse Client::trainOrderCreateWithOptions(const TrainOrderCre
   TrainOrderCreateShrinkRequest request = TrainOrderCreateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBookTrainInfos()) {
-    request.setBookTrainInfosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.bookTrainInfos(), "book_train_infos", "json"));
+    request.setBookTrainInfosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBookTrainInfos(), "book_train_infos", "json"));
   }
 
   if (!!tmpReq.hasBusinessInfo()) {
-    request.setBusinessInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.businessInfo(), "business_info", "json"));
+    request.setBusinessInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBusinessInfo(), "business_info", "json"));
   }
 
   if (!!tmpReq.hasContactInfo()) {
-    request.setContactInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.contactInfo(), "contact_info", "json"));
+    request.setContactInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContactInfo(), "contact_info", "json"));
   }
 
   if (!!tmpReq.hasPassengerOpenInfoS()) {
-    request.setPassengerOpenInfoSShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.passengerOpenInfoS(), "passenger_open_info_s", "json"));
+    request.setPassengerOpenInfoSShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPassengerOpenInfoS(), "passenger_open_info_s", "json"));
   }
 
   json body = {};
   if (!!request.hasAcceptNoSeat()) {
-    body["accept_no_seat"] = request.acceptNoSeat();
+    body["accept_no_seat"] = request.getAcceptNoSeat();
   }
 
   if (!!request.hasBookTrainInfosShrink()) {
-    body["book_train_infos"] = request.bookTrainInfosShrink();
+    body["book_train_infos"] = request.getBookTrainInfosShrink();
   }
 
   if (!!request.hasBtripUserId()) {
-    body["btrip_user_id"] = request.btripUserId();
+    body["btrip_user_id"] = request.getBtripUserId();
   }
 
   if (!!request.hasBtripUserName()) {
-    body["btrip_user_name"] = request.btripUserName();
+    body["btrip_user_name"] = request.getBtripUserName();
   }
 
   if (!!request.hasBusinessInfoShrink()) {
-    body["business_info"] = request.businessInfoShrink();
+    body["business_info"] = request.getBusinessInfoShrink();
   }
 
   if (!!request.hasContactInfoShrink()) {
-    body["contact_info"] = request.contactInfoShrink();
+    body["contact_info"] = request.getContactInfoShrink();
   }
 
   if (!!request.hasForceMatch()) {
-    body["force_match"] = request.forceMatch();
+    body["force_match"] = request.getForceMatch();
   }
 
   if (!!request.hasIsPayNow()) {
-    body["is_pay_now"] = request.isPayNow();
+    body["is_pay_now"] = request.getIsPayNow();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasPassengerOpenInfoSShrink()) {
-    body["passenger_open_info_s"] = request.passengerOpenInfoSShrink();
+    body["passenger_open_info_s"] = request.getPassengerOpenInfoSShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14726,20 +14994,20 @@ TrainOrderDetailQueryResponse Client::trainOrderDetailQueryWithOptions(const Tra
   request.validate();
   json body = {};
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14784,56 +15052,56 @@ TrainOrderListQueryResponse Client::trainOrderListQueryWithOptions(const TrainOr
   request.validate();
   json query = {};
   if (!!request.hasAllApply()) {
-    query["all_apply"] = request.allApply();
+    query["all_apply"] = request.getAllApply();
   }
 
   if (!!request.hasApplyId()) {
-    query["apply_id"] = request.applyId();
+    query["apply_id"] = request.getApplyId();
   }
 
   if (!!request.hasDepartId()) {
-    query["depart_id"] = request.departId();
+    query["depart_id"] = request.getDepartId();
   }
 
   if (!!request.hasEndTime()) {
-    query["end_time"] = request.endTime();
+    query["end_time"] = request.getEndTime();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["start_time"] = request.startTime();
+    query["start_time"] = request.getStartTime();
   }
 
   if (!!request.hasThirdpartApplyId()) {
-    query["thirdpart_apply_id"] = request.thirdpartApplyId();
+    query["thirdpart_apply_id"] = request.getThirdpartApplyId();
   }
 
   if (!!request.hasUpdateEndTime()) {
-    query["update_end_time"] = request.updateEndTime();
+    query["update_end_time"] = request.getUpdateEndTime();
   }
 
   if (!!request.hasUpdateStartTime()) {
-    query["update_start_time"] = request.updateStartTime();
+    query["update_start_time"] = request.getUpdateStartTime();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14878,24 +15146,24 @@ TrainOrderPayResponse Client::trainOrderPayWithOptions(const TrainOrderPayReques
   request.validate();
   json body = {};
   if (!!request.hasOrderId()) {
-    body["order_id"] = request.orderId();
+    body["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasOutOrderId()) {
-    body["out_order_id"] = request.outOrderId();
+    body["out_order_id"] = request.getOutOrderId();
   }
 
   if (!!request.hasPayAmount()) {
-    body["pay_amount"] = request.payAmount();
+    body["pay_amount"] = request.getPayAmount();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14940,20 +15208,20 @@ TrainOrderQueryResponse Client::trainOrderQueryWithOptions(const TrainOrderQuery
   request.validate();
   json query = {};
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14998,20 +15266,20 @@ TrainOrderQueryV2Response Client::trainOrderQueryV2WithOptions(const TrainOrderQ
   request.validate();
   json query = {};
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15056,16 +15324,16 @@ TrainStationSearchResponse Client::trainStationSearchWithOptions(const TrainStat
   request.validate();
   json query = {};
   if (!!request.hasKeyword()) {
-    query["keyword"] = request.keyword();
+    query["keyword"] = request.getKeyword();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15110,28 +15378,28 @@ TrainStopoverSearchResponse Client::trainStopoverSearchWithOptions(const TrainSt
   request.validate();
   json body = {};
   if (!!request.hasArrStation()) {
-    body["arr_station"] = request.arrStation();
+    body["arr_station"] = request.getArrStation();
   }
 
   if (!!request.hasDepStation()) {
-    body["dep_station"] = request.depStation();
+    body["dep_station"] = request.getDepStation();
   }
 
   if (!!request.hasTrainDate()) {
-    body["train_date"] = request.trainDate();
+    body["train_date"] = request.getTrainDate();
   }
 
   if (!!request.hasTrainNo()) {
-    body["train_no"] = request.trainNo();
+    body["train_no"] = request.getTrainNo();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15176,40 +15444,52 @@ TrainTicketScanQueryResponse Client::trainTicketScanQueryWithOptions(const Train
   request.validate();
   json query = {};
   if (!!request.hasBillDate()) {
-    query["bill_date"] = request.billDate();
+    query["bill_date"] = request.getBillDate();
   }
 
   if (!!request.hasBillId()) {
-    query["bill_id"] = request.billId();
+    query["bill_id"] = request.getBillId();
+  }
+
+  if (!!request.hasInvoiceDateEnd()) {
+    query["invoice_date_end"] = request.getInvoiceDateEnd();
+  }
+
+  if (!!request.hasInvoiceDateStart()) {
+    query["invoice_date_start"] = request.getInvoiceDateStart();
   }
 
   if (!!request.hasInvoiceSubTaskId()) {
-    query["invoice_sub_task_id"] = request.invoiceSubTaskId();
+    query["invoice_sub_task_id"] = request.getInvoiceSubTaskId();
+  }
+
+  if (!!request.hasOrderId()) {
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasSerialNumber()) {
-    query["serial_number"] = request.serialNumber();
+    query["serial_number"] = request.getSerialNumber();
   }
 
   if (!!request.hasTicketNo()) {
-    query["ticket_no"] = request.ticketNo();
+    query["ticket_no"] = request.getTicketNo();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15254,28 +15534,28 @@ TravelStandardListQueryResponse Client::travelStandardListQueryWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasFromGroup()) {
-    query["from_group"] = request.fromGroup();
+    query["from_group"] = request.getFromGroup();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasRuleName()) {
-    query["rule_name"] = request.ruleName();
+    query["rule_name"] = request.getRuleName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15321,29 +15601,29 @@ TravelStandardQueryResponse Client::travelStandardQueryWithOptions(const TravelS
   TravelStandardQueryShrinkRequest request = TravelStandardQueryShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasServiceTypeList()) {
-    request.setServiceTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.serviceTypeList(), "service_type_list", "json"));
+    request.setServiceTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getServiceTypeList(), "service_type_list", "json"));
   }
 
   json query = {};
   if (!!request.hasFromGroup()) {
-    query["from_group"] = request.fromGroup();
+    query["from_group"] = request.getFromGroup();
   }
 
   if (!!request.hasRuleCode()) {
-    query["rule_code"] = request.ruleCode();
+    query["rule_code"] = request.getRuleCode();
   }
 
   if (!!request.hasServiceTypeListShrink()) {
-    query["service_type_list"] = request.serviceTypeListShrink();
+    query["service_type_list"] = request.getServiceTypeListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15389,29 +15669,29 @@ TravelStandardRelateAddResponse Client::travelStandardRelateAddWithOptions(const
   TravelStandardRelateAddShrinkRequest request = TravelStandardRelateAddShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAddList()) {
-    request.setAddListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addList(), "add_list", "json"));
+    request.setAddListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddList(), "add_list", "json"));
   }
 
   json body = {};
   if (!!request.hasAddListShrink()) {
-    body["add_list"] = request.addListShrink();
+    body["add_list"] = request.getAddListShrink();
   }
 
   if (!!request.hasFromGroup()) {
-    body["from_group"] = request.fromGroup();
+    body["from_group"] = request.getFromGroup();
   }
 
   if (!!request.hasRuleId()) {
-    body["rule_id"] = request.ruleId();
+    body["rule_id"] = request.getRuleId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15457,29 +15737,29 @@ TravelStandardRelateDeleteResponse Client::travelStandardRelateDeleteWithOptions
   TravelStandardRelateDeleteShrinkRequest request = TravelStandardRelateDeleteShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRemoveList()) {
-    request.setRemoveListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.removeList(), "remove_list", "json"));
+    request.setRemoveListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRemoveList(), "remove_list", "json"));
   }
 
   json body = {};
   if (!!request.hasFromGroup()) {
-    body["from_group"] = request.fromGroup();
+    body["from_group"] = request.getFromGroup();
   }
 
   if (!!request.hasRemoveListShrink()) {
-    body["remove_list"] = request.removeListShrink();
+    body["remove_list"] = request.getRemoveListShrink();
   }
 
   if (!!request.hasRuleId()) {
-    body["rule_id"] = request.ruleId();
+    body["rule_id"] = request.getRuleId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15524,20 +15804,20 @@ TravelStandardRelateQueryResponse Client::travelStandardRelateQueryWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasFromGroup()) {
-    query["from_group"] = request.fromGroup();
+    query["from_group"] = request.getFromGroup();
   }
 
   if (!!request.hasRuleId()) {
-    query["rule_id"] = request.ruleId();
+    query["rule_id"] = request.getRuleId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15582,24 +15862,24 @@ TravelStandardScopeSaveResponse Client::travelStandardScopeSaveWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasFromGroup()) {
-    query["from_group"] = request.fromGroup();
+    query["from_group"] = request.getFromGroup();
   }
 
   if (!!request.hasRuleId()) {
-    query["rule_id"] = request.ruleId();
+    query["rule_id"] = request.getRuleId();
   }
 
   if (!!request.hasScope()) {
-    query["scope"] = request.scope();
+    query["scope"] = request.getScope();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15644,28 +15924,28 @@ TripBusinessInstanceQueryResponse Client::tripBusinessInstanceQueryWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasBusinessInstanceId()) {
-    query["business_instance_id"] = request.businessInstanceId();
+    query["business_instance_id"] = request.getBusinessInstanceId();
   }
 
   if (!!request.hasThirdBusinessId()) {
-    query["third_business_id"] = request.thirdBusinessId();
+    query["third_business_id"] = request.getThirdBusinessId();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   if (!!request.hasUserName()) {
-    query["user_name"] = request.userName();
+    query["user_name"] = request.getUserName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15710,24 +15990,24 @@ TripCCInfoQueryResponse Client::tripCCInfoQueryWithOptions(const TripCCInfoQuery
   request.validate();
   json query = {};
   if (!!request.hasBusinessInstanceId()) {
-    query["business_instance_id"] = request.businessInstanceId();
+    query["business_instance_id"] = request.getBusinessInstanceId();
   }
 
   if (!!request.hasNodeId()) {
-    query["node_id"] = request.nodeId();
+    query["node_id"] = request.getNodeId();
   }
 
   if (!!request.hasThirdBusinessId()) {
-    query["third_business_id"] = request.thirdBusinessId();
+    query["third_business_id"] = request.getThirdBusinessId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15772,28 +16052,28 @@ TripTaskQueryResponse Client::tripTaskQueryWithOptions(const TripTaskQueryReques
   request.validate();
   json query = {};
   if (!!request.hasBusinessInstanceId()) {
-    query["business_instance_id"] = request.businessInstanceId();
+    query["business_instance_id"] = request.getBusinessInstanceId();
   }
 
   if (!!request.hasThirdBusinessId()) {
-    query["third_business_id"] = request.thirdBusinessId();
+    query["third_business_id"] = request.getThirdBusinessId();
   }
 
   if (!!request.hasUserId()) {
-    query["user_id"] = request.userId();
+    query["user_id"] = request.getUserId();
   }
 
   if (!!request.hasUserName()) {
-    query["user_name"] = request.userName();
+    query["user_name"] = request.getUserName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15838,20 +16118,20 @@ UpdateCustomRoleResponse Client::updateCustomRoleWithOptions(const UpdateCustomR
   request.validate();
   json body = {};
   if (!!request.hasRoleId()) {
-    body["role_id"] = request.roleId();
+    body["role_id"] = request.getRoleId();
   }
 
   if (!!request.hasRoleName()) {
-    body["role_name"] = request.roleName();
+    body["role_name"] = request.getRoleName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15897,33 +16177,33 @@ UpdateDepartmentResponse Client::updateDepartmentWithOptions(const UpdateDepartm
   UpdateDepartmentShrinkRequest request = UpdateDepartmentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasManagerEmployeeIdList()) {
-    request.setManagerEmployeeIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.managerEmployeeIdList(), "manager_employee_id_list", "json"));
+    request.setManagerEmployeeIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getManagerEmployeeIdList(), "manager_employee_id_list", "json"));
   }
 
   json body = {};
   if (!!request.hasDeptName()) {
-    body["dept_name"] = request.deptName();
+    body["dept_name"] = request.getDeptName();
   }
 
   if (!!request.hasManagerEmployeeIdListShrink()) {
-    body["manager_employee_id_list"] = request.managerEmployeeIdListShrink();
+    body["manager_employee_id_list"] = request.getManagerEmployeeIdListShrink();
   }
 
   if (!!request.hasOutDeptId()) {
-    body["out_dept_id"] = request.outDeptId();
+    body["out_dept_id"] = request.getOutDeptId();
   }
 
   if (!!request.hasOutDeptPid()) {
-    body["out_dept_pid"] = request.outDeptPid();
+    body["out_dept_pid"] = request.getOutDeptPid();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15969,125 +16249,125 @@ UpdateEmployeeResponse Client::updateEmployeeWithOptions(const UpdateEmployeeReq
   UpdateEmployeeShrinkRequest request = UpdateEmployeeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBaseCityCodeList()) {
-    request.setBaseCityCodeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.baseCityCodeList(), "base_city_code_list", "json"));
+    request.setBaseCityCodeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBaseCityCodeList(), "base_city_code_list", "json"));
   }
 
   if (!!tmpReq.hasBaseLocationList()) {
-    request.setBaseLocationListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.baseLocationList(), "base_location_list", "json"));
+    request.setBaseLocationListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBaseLocationList(), "base_location_list", "json"));
   }
 
   if (!!tmpReq.hasCertList()) {
-    request.setCertListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.certList(), "cert_list", "json"));
+    request.setCertListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCertList(), "cert_list", "json"));
   }
 
   if (!!tmpReq.hasCustomRoleCodeList()) {
-    request.setCustomRoleCodeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.customRoleCodeList(), "custom_role_code_list", "json"));
+    request.setCustomRoleCodeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomRoleCodeList(), "custom_role_code_list", "json"));
   }
 
   if (!!tmpReq.hasOutDeptIdList()) {
-    request.setOutDeptIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.outDeptIdList(), "out_dept_id_list", "json"));
+    request.setOutDeptIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOutDeptIdList(), "out_dept_id_list", "json"));
   }
 
   json body = {};
   if (!!request.hasAccountEmail()) {
-    body["account_email"] = request.accountEmail();
+    body["account_email"] = request.getAccountEmail();
   }
 
   if (!!request.hasAccountPhone()) {
-    body["account_phone"] = request.accountPhone();
+    body["account_phone"] = request.getAccountPhone();
   }
 
   if (!!request.hasAttribute()) {
-    body["attribute"] = request.attribute();
+    body["attribute"] = request.getAttribute();
   }
 
   if (!!request.hasAvatar()) {
-    body["avatar"] = request.avatar();
+    body["avatar"] = request.getAvatar();
   }
 
   if (!!request.hasBaseCityCodeListShrink()) {
-    body["base_city_code_list"] = request.baseCityCodeListShrink();
+    body["base_city_code_list"] = request.getBaseCityCodeListShrink();
   }
 
   if (!!request.hasBaseLocationListShrink()) {
-    body["base_location_list"] = request.baseLocationListShrink();
+    body["base_location_list"] = request.getBaseLocationListShrink();
   }
 
   if (!!request.hasBirthday()) {
-    body["birthday"] = request.birthday();
+    body["birthday"] = request.getBirthday();
   }
 
   if (!!request.hasCertListShrink()) {
-    body["cert_list"] = request.certListShrink();
+    body["cert_list"] = request.getCertListShrink();
   }
 
   if (!!request.hasCustomRoleCodeListShrink()) {
-    body["custom_role_code_list"] = request.customRoleCodeListShrink();
+    body["custom_role_code_list"] = request.getCustomRoleCodeListShrink();
   }
 
   if (!!request.hasEmail()) {
-    body["email"] = request.email();
+    body["email"] = request.getEmail();
   }
 
   if (!!request.hasGender()) {
-    body["gender"] = request.gender();
+    body["gender"] = request.getGender();
   }
 
   if (!!request.hasIsAdmin()) {
-    body["is_admin"] = request.isAdmin();
+    body["is_admin"] = request.getIsAdmin();
   }
 
   if (!!request.hasIsBoss()) {
-    body["is_boss"] = request.isBoss();
+    body["is_boss"] = request.getIsBoss();
   }
 
   if (!!request.hasIsDeptLeader()) {
-    body["is_dept_leader"] = request.isDeptLeader();
+    body["is_dept_leader"] = request.getIsDeptLeader();
   }
 
   if (!!request.hasJobNo()) {
-    body["job_no"] = request.jobNo();
+    body["job_no"] = request.getJobNo();
   }
 
   if (!!request.hasManagerUserId()) {
-    body["manager_user_id"] = request.managerUserId();
+    body["manager_user_id"] = request.getManagerUserId();
   }
 
   if (!!request.hasOutDeptIdListShrink()) {
-    body["out_dept_id_list"] = request.outDeptIdListShrink();
+    body["out_dept_id_list"] = request.getOutDeptIdListShrink();
   }
 
   if (!!request.hasPhone()) {
-    body["phone"] = request.phone();
+    body["phone"] = request.getPhone();
   }
 
   if (!!request.hasPositionLevel()) {
-    body["position_level"] = request.positionLevel();
+    body["position_level"] = request.getPositionLevel();
   }
 
   if (!!request.hasRealName()) {
-    body["real_name"] = request.realName();
+    body["real_name"] = request.getRealName();
   }
 
   if (!!request.hasRealNameEn()) {
-    body["real_name_en"] = request.realNameEn();
+    body["real_name_en"] = request.getRealNameEn();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   if (!!request.hasUserNick()) {
-    body["user_nick"] = request.userNick();
+    body["user_nick"] = request.getUserNick();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16132,20 +16412,20 @@ UpdateEmployeeLeaveStatusResponse Client::updateEmployeeLeaveStatusWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasIsLeave()) {
-    body["is_leave"] = request.isLeave();
+    body["is_leave"] = request.getIsLeave();
   }
 
   if (!!request.hasUserId()) {
-    body["user_id"] = request.userId();
+    body["user_id"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16190,28 +16470,28 @@ UserQueryResponse Client::userQueryWithOptions(const UserQueryRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasModifiedTimeGreaterOrEqualThan()) {
-    query["modified_time_greater_or_equal_than"] = request.modifiedTimeGreaterOrEqualThan();
+    query["modified_time_greater_or_equal_than"] = request.getModifiedTimeGreaterOrEqualThan();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPageToken()) {
-    query["page_token"] = request.pageToken();
+    query["page_token"] = request.getPageToken();
   }
 
   if (!!request.hasThirdPartJobNo()) {
-    query["third_part_job_no"] = request.thirdPartJobNo();
+    query["third_part_job_no"] = request.getThirdPartJobNo();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16256,48 +16536,56 @@ VasBillSettlementQueryResponse Client::vasBillSettlementQueryWithOptions(const V
   request.validate();
   json query = {};
   if (!!request.hasBillBatch()) {
-    query["bill_batch"] = request.billBatch();
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasBillRecordTimeEnd()) {
+    query["bill_record_time_end"] = request.getBillRecordTimeEnd();
+  }
+
+  if (!!request.hasBillRecordTimeStart()) {
+    query["bill_record_time_start"] = request.getBillRecordTimeStart();
   }
 
   if (!!request.hasCooperatorId()) {
-    query["cooperator_id"] = request.cooperatorId();
+    query["cooperator_id"] = request.getCooperatorId();
   }
 
   if (!!request.hasOrderId()) {
-    query["order_id"] = request.orderId();
+    query["order_id"] = request.getOrderId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasPeriodEnd()) {
-    query["period_end"] = request.periodEnd();
+    query["period_end"] = request.getPeriodEnd();
   }
 
   if (!!request.hasPeriodStart()) {
-    query["period_start"] = request.periodStart();
+    query["period_start"] = request.getPeriodStart();
   }
 
   if (!!request.hasScrollId()) {
-    query["scroll_id"] = request.scrollId();
+    query["scroll_id"] = request.getScrollId();
   }
 
   if (!!request.hasScrollMod()) {
-    query["scroll_mod"] = request.scrollMod();
+    query["scroll_mod"] = request.getScrollMod();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripCorpToken()) {
-    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripCorpToken());
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16342,32 +16630,32 @@ VatInvoiceScanQueryResponse Client::vatInvoiceScanQueryWithOptions(const VatInvo
   request.validate();
   json query = {};
   if (!!request.hasBillDate()) {
-    query["bill_date"] = request.billDate();
+    query["bill_date"] = request.getBillDate();
   }
 
   if (!!request.hasBillId()) {
-    query["bill_id"] = request.billId();
+    query["bill_id"] = request.getBillId();
   }
 
   if (!!request.hasInvoiceSubTaskId()) {
-    query["invoice_sub_task_id"] = request.invoiceSubTaskId();
+    query["invoice_sub_task_id"] = request.getInvoiceSubTaskId();
   }
 
   if (!!request.hasPageNo()) {
-    query["page_no"] = request.pageNo();
+    query["page_no"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16412,16 +16700,16 @@ WaitApplyInvoiceTaskDetailQueryResponse Client::waitApplyInvoiceTaskDetailQueryW
   request.validate();
   json query = {};
   if (!!request.hasBillDate()) {
-    query["bill_date"] = request.billDate();
+    query["bill_date"] = request.getBillDate();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsBtripSoCorpToken()) {
-    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.xAcsBtripSoCorpToken());
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
   }
 
   OpenApiRequest req = OpenApiRequest(json({

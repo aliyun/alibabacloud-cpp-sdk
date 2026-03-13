@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->btripOrderId_ != nullptr
-        && this->disOrderId_ != nullptr; };
+    virtual bool empty() const override { return this->btripOrderId_ == nullptr
+        && this->disOrderId_ == nullptr; };
     // btripOrderId Field Functions 
     bool hasBtripOrderId() const { return this->btripOrderId_ != nullptr;};
     void deleteBtripOrderId() { this->btripOrderId_ = nullptr;};
-    inline string btripOrderId() const { DARABONBA_PTR_GET_DEFAULT(btripOrderId_, "") };
+    inline string getBtripOrderId() const { DARABONBA_PTR_GET_DEFAULT(btripOrderId_, "") };
     inline HotelOrderCancelRequest& setBtripOrderId(string btripOrderId) { DARABONBA_PTR_SET_VALUE(btripOrderId_, btripOrderId) };
 
 
     // disOrderId Field Functions 
     bool hasDisOrderId() const { return this->disOrderId_ != nullptr;};
     void deleteDisOrderId() { this->disOrderId_ = nullptr;};
-    inline string disOrderId() const { DARABONBA_PTR_GET_DEFAULT(disOrderId_, "") };
+    inline string getDisOrderId() const { DARABONBA_PTR_GET_DEFAULT(disOrderId_, "") };
     inline HotelOrderCancelRequest& setDisOrderId(string disOrderId) { DARABONBA_PTR_SET_VALUE(disOrderId_, disOrderId) };
 
 
   protected:
-    std::shared_ptr<string> btripOrderId_ = nullptr;
-    std::shared_ptr<string> disOrderId_ = nullptr;
+    shared_ptr<string> btripOrderId_ {};
+    shared_ptr<string> disOrderId_ {};
   };
 
   } // namespace Models

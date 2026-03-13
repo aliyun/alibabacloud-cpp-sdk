@@ -35,43 +35,43 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->orderId_ != nullptr
-        && this->outOrderId_ != nullptr && this->outRefundApplyId_ != nullptr && this->refundApplyId_ != nullptr; };
+    virtual bool empty() const override { return this->orderId_ == nullptr
+        && this->outOrderId_ == nullptr && this->outRefundApplyId_ == nullptr && this->refundApplyId_ == nullptr; };
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline string orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+    inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
     inline IntlFlightRefundDetailRequest& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // outOrderId Field Functions 
     bool hasOutOrderId() const { return this->outOrderId_ != nullptr;};
     void deleteOutOrderId() { this->outOrderId_ = nullptr;};
-    inline string outOrderId() const { DARABONBA_PTR_GET_DEFAULT(outOrderId_, "") };
+    inline string getOutOrderId() const { DARABONBA_PTR_GET_DEFAULT(outOrderId_, "") };
     inline IntlFlightRefundDetailRequest& setOutOrderId(string outOrderId) { DARABONBA_PTR_SET_VALUE(outOrderId_, outOrderId) };
 
 
     // outRefundApplyId Field Functions 
     bool hasOutRefundApplyId() const { return this->outRefundApplyId_ != nullptr;};
     void deleteOutRefundApplyId() { this->outRefundApplyId_ = nullptr;};
-    inline string outRefundApplyId() const { DARABONBA_PTR_GET_DEFAULT(outRefundApplyId_, "") };
+    inline string getOutRefundApplyId() const { DARABONBA_PTR_GET_DEFAULT(outRefundApplyId_, "") };
     inline IntlFlightRefundDetailRequest& setOutRefundApplyId(string outRefundApplyId) { DARABONBA_PTR_SET_VALUE(outRefundApplyId_, outRefundApplyId) };
 
 
     // refundApplyId Field Functions 
     bool hasRefundApplyId() const { return this->refundApplyId_ != nullptr;};
     void deleteRefundApplyId() { this->refundApplyId_ = nullptr;};
-    inline string refundApplyId() const { DARABONBA_PTR_GET_DEFAULT(refundApplyId_, "") };
+    inline string getRefundApplyId() const { DARABONBA_PTR_GET_DEFAULT(refundApplyId_, "") };
     inline IntlFlightRefundDetailRequest& setRefundApplyId(string refundApplyId) { DARABONBA_PTR_SET_VALUE(refundApplyId_, refundApplyId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> orderId_ = nullptr;
-    std::shared_ptr<string> outOrderId_ = nullptr;
-    std::shared_ptr<string> outRefundApplyId_ = nullptr;
+    shared_ptr<string> orderId_ {};
+    shared_ptr<string> outOrderId_ {};
+    shared_ptr<string> outRefundApplyId_ {};
     // This parameter is required.
-    std::shared_ptr<string> refundApplyId_ = nullptr;
+    shared_ptr<string> refundApplyId_ {};
   };
 
   } // namespace Models

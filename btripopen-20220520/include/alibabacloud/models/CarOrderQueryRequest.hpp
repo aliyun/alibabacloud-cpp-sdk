@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->orderId_ != nullptr
-        && this->subOrderId_ != nullptr; };
+    virtual bool empty() const override { return this->orderId_ == nullptr
+        && this->subOrderId_ == nullptr; };
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline int64_t orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, 0L) };
+    inline int64_t getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, 0L) };
     inline CarOrderQueryRequest& setOrderId(int64_t orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // subOrderId Field Functions 
     bool hasSubOrderId() const { return this->subOrderId_ != nullptr;};
     void deleteSubOrderId() { this->subOrderId_ = nullptr;};
-    inline int64_t subOrderId() const { DARABONBA_PTR_GET_DEFAULT(subOrderId_, 0L) };
+    inline int64_t getSubOrderId() const { DARABONBA_PTR_GET_DEFAULT(subOrderId_, 0L) };
     inline CarOrderQueryRequest& setSubOrderId(int64_t subOrderId) { DARABONBA_PTR_SET_VALUE(subOrderId_, subOrderId) };
 
 
   protected:
-    std::shared_ptr<int64_t> orderId_ = nullptr;
-    std::shared_ptr<int64_t> subOrderId_ = nullptr;
+    shared_ptr<int64_t> orderId_ {};
+    shared_ptr<int64_t> subOrderId_ {};
   };
 
   } // namespace Models

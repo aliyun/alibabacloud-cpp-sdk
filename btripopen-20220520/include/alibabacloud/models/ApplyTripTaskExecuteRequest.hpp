@@ -39,61 +39,61 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionFrom_ != nullptr
-        && this->comment_ != nullptr && this->taskAction_ != nullptr && this->taskId_ != nullptr && this->userId_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->actionFrom_ == nullptr
+        && this->comment_ == nullptr && this->taskAction_ == nullptr && this->taskId_ == nullptr && this->userId_ == nullptr && this->userName_ == nullptr; };
     // actionFrom Field Functions 
     bool hasActionFrom() const { return this->actionFrom_ != nullptr;};
     void deleteActionFrom() { this->actionFrom_ = nullptr;};
-    inline string actionFrom() const { DARABONBA_PTR_GET_DEFAULT(actionFrom_, "") };
+    inline string getActionFrom() const { DARABONBA_PTR_GET_DEFAULT(actionFrom_, "") };
     inline ApplyTripTaskExecuteRequest& setActionFrom(string actionFrom) { DARABONBA_PTR_SET_VALUE(actionFrom_, actionFrom) };
 
 
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline ApplyTripTaskExecuteRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // taskAction Field Functions 
     bool hasTaskAction() const { return this->taskAction_ != nullptr;};
     void deleteTaskAction() { this->taskAction_ = nullptr;};
-    inline string taskAction() const { DARABONBA_PTR_GET_DEFAULT(taskAction_, "") };
+    inline string getTaskAction() const { DARABONBA_PTR_GET_DEFAULT(taskAction_, "") };
     inline ApplyTripTaskExecuteRequest& setTaskAction(string taskAction) { DARABONBA_PTR_SET_VALUE(taskAction_, taskAction) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline ApplyTripTaskExecuteRequest& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline ApplyTripTaskExecuteRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline ApplyTripTaskExecuteRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> actionFrom_ = nullptr;
-    std::shared_ptr<string> comment_ = nullptr;
+    shared_ptr<string> actionFrom_ {};
+    shared_ptr<string> comment_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskAction_ = nullptr;
+    shared_ptr<string> taskAction_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> userId_ {};
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

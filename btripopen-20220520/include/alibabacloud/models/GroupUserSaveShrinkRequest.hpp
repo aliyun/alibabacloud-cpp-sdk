@@ -47,93 +47,93 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baseCityCode_ != nullptr
-        && this->birthday_ != nullptr && this->certListShrink_ != nullptr && this->gender_ != nullptr && this->jobNo_ != nullptr && this->phone_ != nullptr
-        && this->realNameEn_ != nullptr && this->subCorpIdListShrink_ != nullptr && this->userId_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->baseCityCode_ == nullptr
+        && this->birthday_ == nullptr && this->certListShrink_ == nullptr && this->gender_ == nullptr && this->jobNo_ == nullptr && this->phone_ == nullptr
+        && this->realNameEn_ == nullptr && this->subCorpIdListShrink_ == nullptr && this->userId_ == nullptr && this->userName_ == nullptr; };
     // baseCityCode Field Functions 
     bool hasBaseCityCode() const { return this->baseCityCode_ != nullptr;};
     void deleteBaseCityCode() { this->baseCityCode_ = nullptr;};
-    inline string baseCityCode() const { DARABONBA_PTR_GET_DEFAULT(baseCityCode_, "") };
+    inline string getBaseCityCode() const { DARABONBA_PTR_GET_DEFAULT(baseCityCode_, "") };
     inline GroupUserSaveShrinkRequest& setBaseCityCode(string baseCityCode) { DARABONBA_PTR_SET_VALUE(baseCityCode_, baseCityCode) };
 
 
     // birthday Field Functions 
     bool hasBirthday() const { return this->birthday_ != nullptr;};
     void deleteBirthday() { this->birthday_ = nullptr;};
-    inline string birthday() const { DARABONBA_PTR_GET_DEFAULT(birthday_, "") };
+    inline string getBirthday() const { DARABONBA_PTR_GET_DEFAULT(birthday_, "") };
     inline GroupUserSaveShrinkRequest& setBirthday(string birthday) { DARABONBA_PTR_SET_VALUE(birthday_, birthday) };
 
 
     // certListShrink Field Functions 
     bool hasCertListShrink() const { return this->certListShrink_ != nullptr;};
     void deleteCertListShrink() { this->certListShrink_ = nullptr;};
-    inline string certListShrink() const { DARABONBA_PTR_GET_DEFAULT(certListShrink_, "") };
+    inline string getCertListShrink() const { DARABONBA_PTR_GET_DEFAULT(certListShrink_, "") };
     inline GroupUserSaveShrinkRequest& setCertListShrink(string certListShrink) { DARABONBA_PTR_SET_VALUE(certListShrink_, certListShrink) };
 
 
     // gender Field Functions 
     bool hasGender() const { return this->gender_ != nullptr;};
     void deleteGender() { this->gender_ = nullptr;};
-    inline string gender() const { DARABONBA_PTR_GET_DEFAULT(gender_, "") };
+    inline string getGender() const { DARABONBA_PTR_GET_DEFAULT(gender_, "") };
     inline GroupUserSaveShrinkRequest& setGender(string gender) { DARABONBA_PTR_SET_VALUE(gender_, gender) };
 
 
     // jobNo Field Functions 
     bool hasJobNo() const { return this->jobNo_ != nullptr;};
     void deleteJobNo() { this->jobNo_ = nullptr;};
-    inline string jobNo() const { DARABONBA_PTR_GET_DEFAULT(jobNo_, "") };
+    inline string getJobNo() const { DARABONBA_PTR_GET_DEFAULT(jobNo_, "") };
     inline GroupUserSaveShrinkRequest& setJobNo(string jobNo) { DARABONBA_PTR_SET_VALUE(jobNo_, jobNo) };
 
 
     // phone Field Functions 
     bool hasPhone() const { return this->phone_ != nullptr;};
     void deletePhone() { this->phone_ = nullptr;};
-    inline string phone() const { DARABONBA_PTR_GET_DEFAULT(phone_, "") };
+    inline string getPhone() const { DARABONBA_PTR_GET_DEFAULT(phone_, "") };
     inline GroupUserSaveShrinkRequest& setPhone(string phone) { DARABONBA_PTR_SET_VALUE(phone_, phone) };
 
 
     // realNameEn Field Functions 
     bool hasRealNameEn() const { return this->realNameEn_ != nullptr;};
     void deleteRealNameEn() { this->realNameEn_ = nullptr;};
-    inline string realNameEn() const { DARABONBA_PTR_GET_DEFAULT(realNameEn_, "") };
+    inline string getRealNameEn() const { DARABONBA_PTR_GET_DEFAULT(realNameEn_, "") };
     inline GroupUserSaveShrinkRequest& setRealNameEn(string realNameEn) { DARABONBA_PTR_SET_VALUE(realNameEn_, realNameEn) };
 
 
     // subCorpIdListShrink Field Functions 
     bool hasSubCorpIdListShrink() const { return this->subCorpIdListShrink_ != nullptr;};
     void deleteSubCorpIdListShrink() { this->subCorpIdListShrink_ = nullptr;};
-    inline string subCorpIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(subCorpIdListShrink_, "") };
+    inline string getSubCorpIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(subCorpIdListShrink_, "") };
     inline GroupUserSaveShrinkRequest& setSubCorpIdListShrink(string subCorpIdListShrink) { DARABONBA_PTR_SET_VALUE(subCorpIdListShrink_, subCorpIdListShrink) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline GroupUserSaveShrinkRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline GroupUserSaveShrinkRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
   protected:
-    std::shared_ptr<string> baseCityCode_ = nullptr;
-    std::shared_ptr<string> birthday_ = nullptr;
-    std::shared_ptr<string> certListShrink_ = nullptr;
-    std::shared_ptr<string> gender_ = nullptr;
-    std::shared_ptr<string> jobNo_ = nullptr;
-    std::shared_ptr<string> phone_ = nullptr;
-    std::shared_ptr<string> realNameEn_ = nullptr;
+    shared_ptr<string> baseCityCode_ {};
+    shared_ptr<string> birthday_ {};
+    shared_ptr<string> certListShrink_ {};
+    shared_ptr<string> gender_ {};
+    shared_ptr<string> jobNo_ {};
+    shared_ptr<string> phone_ {};
+    shared_ptr<string> realNameEn_ {};
     // This parameter is required.
-    std::shared_ptr<string> subCorpIdListShrink_ = nullptr;
+    shared_ptr<string> subCorpIdListShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
     // This parameter is required.
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

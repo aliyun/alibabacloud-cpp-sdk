@@ -33,33 +33,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountId_ != nullptr
-        && this->targetCorpId_ != nullptr && this->targetThirdCorpId_ != nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && this->targetCorpId_ == nullptr && this->targetThirdCorpId_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline QueryCorpDetailInfoRequest& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
     // targetCorpId Field Functions 
     bool hasTargetCorpId() const { return this->targetCorpId_ != nullptr;};
     void deleteTargetCorpId() { this->targetCorpId_ = nullptr;};
-    inline string targetCorpId() const { DARABONBA_PTR_GET_DEFAULT(targetCorpId_, "") };
+    inline string getTargetCorpId() const { DARABONBA_PTR_GET_DEFAULT(targetCorpId_, "") };
     inline QueryCorpDetailInfoRequest& setTargetCorpId(string targetCorpId) { DARABONBA_PTR_SET_VALUE(targetCorpId_, targetCorpId) };
 
 
     // targetThirdCorpId Field Functions 
     bool hasTargetThirdCorpId() const { return this->targetThirdCorpId_ != nullptr;};
     void deleteTargetThirdCorpId() { this->targetThirdCorpId_ = nullptr;};
-    inline string targetThirdCorpId() const { DARABONBA_PTR_GET_DEFAULT(targetThirdCorpId_, "") };
+    inline string getTargetThirdCorpId() const { DARABONBA_PTR_GET_DEFAULT(targetThirdCorpId_, "") };
     inline QueryCorpDetailInfoRequest& setTargetThirdCorpId(string targetThirdCorpId) { DARABONBA_PTR_SET_VALUE(targetThirdCorpId_, targetThirdCorpId) };
 
 
   protected:
-    std::shared_ptr<string> accountId_ = nullptr;
-    std::shared_ptr<string> targetCorpId_ = nullptr;
-    std::shared_ptr<string> targetThirdCorpId_ = nullptr;
+    shared_ptr<string> accountId_ {};
+    shared_ptr<string> targetCorpId_ {};
+    shared_ptr<string> targetThirdCorpId_ {};
   };
 
   } // namespace Models

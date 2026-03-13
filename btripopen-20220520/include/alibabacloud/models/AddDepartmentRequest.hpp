@@ -36,20 +36,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deptName_ != nullptr
-        && this->managerEmployeeIdList_ != nullptr && this->outDeptId_ != nullptr && this->outDeptPid_ != nullptr; };
+    virtual bool empty() const override { return this->deptName_ == nullptr
+        && this->managerEmployeeIdList_ == nullptr && this->outDeptId_ == nullptr && this->outDeptPid_ == nullptr; };
     // deptName Field Functions 
     bool hasDeptName() const { return this->deptName_ != nullptr;};
     void deleteDeptName() { this->deptName_ = nullptr;};
-    inline string deptName() const { DARABONBA_PTR_GET_DEFAULT(deptName_, "") };
+    inline string getDeptName() const { DARABONBA_PTR_GET_DEFAULT(deptName_, "") };
     inline AddDepartmentRequest& setDeptName(string deptName) { DARABONBA_PTR_SET_VALUE(deptName_, deptName) };
 
 
     // managerEmployeeIdList Field Functions 
     bool hasManagerEmployeeIdList() const { return this->managerEmployeeIdList_ != nullptr;};
     void deleteManagerEmployeeIdList() { this->managerEmployeeIdList_ = nullptr;};
-    inline const vector<string> & managerEmployeeIdList() const { DARABONBA_PTR_GET_CONST(managerEmployeeIdList_, vector<string>) };
-    inline vector<string> managerEmployeeIdList() { DARABONBA_PTR_GET(managerEmployeeIdList_, vector<string>) };
+    inline const vector<string> & getManagerEmployeeIdList() const { DARABONBA_PTR_GET_CONST(managerEmployeeIdList_, vector<string>) };
+    inline vector<string> getManagerEmployeeIdList() { DARABONBA_PTR_GET(managerEmployeeIdList_, vector<string>) };
     inline AddDepartmentRequest& setManagerEmployeeIdList(const vector<string> & managerEmployeeIdList) { DARABONBA_PTR_SET_VALUE(managerEmployeeIdList_, managerEmployeeIdList) };
     inline AddDepartmentRequest& setManagerEmployeeIdList(vector<string> && managerEmployeeIdList) { DARABONBA_PTR_SET_RVALUE(managerEmployeeIdList_, managerEmployeeIdList) };
 
@@ -57,24 +57,24 @@ namespace Models
     // outDeptId Field Functions 
     bool hasOutDeptId() const { return this->outDeptId_ != nullptr;};
     void deleteOutDeptId() { this->outDeptId_ = nullptr;};
-    inline string outDeptId() const { DARABONBA_PTR_GET_DEFAULT(outDeptId_, "") };
+    inline string getOutDeptId() const { DARABONBA_PTR_GET_DEFAULT(outDeptId_, "") };
     inline AddDepartmentRequest& setOutDeptId(string outDeptId) { DARABONBA_PTR_SET_VALUE(outDeptId_, outDeptId) };
 
 
     // outDeptPid Field Functions 
     bool hasOutDeptPid() const { return this->outDeptPid_ != nullptr;};
     void deleteOutDeptPid() { this->outDeptPid_ = nullptr;};
-    inline string outDeptPid() const { DARABONBA_PTR_GET_DEFAULT(outDeptPid_, "") };
+    inline string getOutDeptPid() const { DARABONBA_PTR_GET_DEFAULT(outDeptPid_, "") };
     inline AddDepartmentRequest& setOutDeptPid(string outDeptPid) { DARABONBA_PTR_SET_VALUE(outDeptPid_, outDeptPid) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> deptName_ = nullptr;
-    std::shared_ptr<vector<string>> managerEmployeeIdList_ = nullptr;
+    shared_ptr<string> deptName_ {};
+    shared_ptr<vector<string>> managerEmployeeIdList_ {};
     // This parameter is required.
-    std::shared_ptr<string> outDeptId_ = nullptr;
-    std::shared_ptr<string> outDeptPid_ = nullptr;
+    shared_ptr<string> outDeptId_ {};
+    shared_ptr<string> outDeptPid_ {};
   };
 
   } // namespace Models

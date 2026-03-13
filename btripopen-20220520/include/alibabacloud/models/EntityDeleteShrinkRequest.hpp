@@ -33,35 +33,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->delAll_ != nullptr
-        && this->entityDOListShrink_ != nullptr && this->thirdpartId_ != nullptr; };
+    virtual bool empty() const override { return this->delAll_ == nullptr
+        && this->entityDOListShrink_ == nullptr && this->thirdpartId_ == nullptr; };
     // delAll Field Functions 
     bool hasDelAll() const { return this->delAll_ != nullptr;};
     void deleteDelAll() { this->delAll_ = nullptr;};
-    inline bool delAll() const { DARABONBA_PTR_GET_DEFAULT(delAll_, false) };
+    inline bool getDelAll() const { DARABONBA_PTR_GET_DEFAULT(delAll_, false) };
     inline EntityDeleteShrinkRequest& setDelAll(bool delAll) { DARABONBA_PTR_SET_VALUE(delAll_, delAll) };
 
 
     // entityDOListShrink Field Functions 
     bool hasEntityDOListShrink() const { return this->entityDOListShrink_ != nullptr;};
     void deleteEntityDOListShrink() { this->entityDOListShrink_ = nullptr;};
-    inline string entityDOListShrink() const { DARABONBA_PTR_GET_DEFAULT(entityDOListShrink_, "") };
+    inline string getEntityDOListShrink() const { DARABONBA_PTR_GET_DEFAULT(entityDOListShrink_, "") };
     inline EntityDeleteShrinkRequest& setEntityDOListShrink(string entityDOListShrink) { DARABONBA_PTR_SET_VALUE(entityDOListShrink_, entityDOListShrink) };
 
 
     // thirdpartId Field Functions 
     bool hasThirdpartId() const { return this->thirdpartId_ != nullptr;};
     void deleteThirdpartId() { this->thirdpartId_ = nullptr;};
-    inline string thirdpartId() const { DARABONBA_PTR_GET_DEFAULT(thirdpartId_, "") };
+    inline string getThirdpartId() const { DARABONBA_PTR_GET_DEFAULT(thirdpartId_, "") };
     inline EntityDeleteShrinkRequest& setThirdpartId(string thirdpartId) { DARABONBA_PTR_SET_VALUE(thirdpartId_, thirdpartId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<bool> delAll_ = nullptr;
-    std::shared_ptr<string> entityDOListShrink_ = nullptr;
+    shared_ptr<bool> delAll_ {};
+    shared_ptr<string> entityDOListShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> thirdpartId_ = nullptr;
+    shared_ptr<string> thirdpartId_ {};
   };
 
   } // namespace Models

@@ -41,66 +41,66 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->btripUserId_ != nullptr
-        && this->buyerName_ != nullptr && this->isvName_ != nullptr && this->outApplyId_ != nullptr && this->policyNoListShrink_ != nullptr && this->subInsOrderIdsShrink_ != nullptr
-        && this->supplierCode_ != nullptr; };
+    virtual bool empty() const override { return this->btripUserId_ == nullptr
+        && this->buyerName_ == nullptr && this->isvName_ == nullptr && this->outApplyId_ == nullptr && this->policyNoListShrink_ == nullptr && this->subInsOrderIdsShrink_ == nullptr
+        && this->supplierCode_ == nullptr; };
     // btripUserId Field Functions 
     bool hasBtripUserId() const { return this->btripUserId_ != nullptr;};
     void deleteBtripUserId() { this->btripUserId_ = nullptr;};
-    inline string btripUserId() const { DARABONBA_PTR_GET_DEFAULT(btripUserId_, "") };
+    inline string getBtripUserId() const { DARABONBA_PTR_GET_DEFAULT(btripUserId_, "") };
     inline InsureOrderRefundShrinkRequest& setBtripUserId(string btripUserId) { DARABONBA_PTR_SET_VALUE(btripUserId_, btripUserId) };
 
 
     // buyerName Field Functions 
     bool hasBuyerName() const { return this->buyerName_ != nullptr;};
     void deleteBuyerName() { this->buyerName_ = nullptr;};
-    inline string buyerName() const { DARABONBA_PTR_GET_DEFAULT(buyerName_, "") };
+    inline string getBuyerName() const { DARABONBA_PTR_GET_DEFAULT(buyerName_, "") };
     inline InsureOrderRefundShrinkRequest& setBuyerName(string buyerName) { DARABONBA_PTR_SET_VALUE(buyerName_, buyerName) };
 
 
     // isvName Field Functions 
     bool hasIsvName() const { return this->isvName_ != nullptr;};
     void deleteIsvName() { this->isvName_ = nullptr;};
-    inline string isvName() const { DARABONBA_PTR_GET_DEFAULT(isvName_, "") };
+    inline string getIsvName() const { DARABONBA_PTR_GET_DEFAULT(isvName_, "") };
     inline InsureOrderRefundShrinkRequest& setIsvName(string isvName) { DARABONBA_PTR_SET_VALUE(isvName_, isvName) };
 
 
     // outApplyId Field Functions 
     bool hasOutApplyId() const { return this->outApplyId_ != nullptr;};
     void deleteOutApplyId() { this->outApplyId_ = nullptr;};
-    inline string outApplyId() const { DARABONBA_PTR_GET_DEFAULT(outApplyId_, "") };
+    inline string getOutApplyId() const { DARABONBA_PTR_GET_DEFAULT(outApplyId_, "") };
     inline InsureOrderRefundShrinkRequest& setOutApplyId(string outApplyId) { DARABONBA_PTR_SET_VALUE(outApplyId_, outApplyId) };
 
 
     // policyNoListShrink Field Functions 
     bool hasPolicyNoListShrink() const { return this->policyNoListShrink_ != nullptr;};
     void deletePolicyNoListShrink() { this->policyNoListShrink_ = nullptr;};
-    inline string policyNoListShrink() const { DARABONBA_PTR_GET_DEFAULT(policyNoListShrink_, "") };
+    inline string getPolicyNoListShrink() const { DARABONBA_PTR_GET_DEFAULT(policyNoListShrink_, "") };
     inline InsureOrderRefundShrinkRequest& setPolicyNoListShrink(string policyNoListShrink) { DARABONBA_PTR_SET_VALUE(policyNoListShrink_, policyNoListShrink) };
 
 
     // subInsOrderIdsShrink Field Functions 
     bool hasSubInsOrderIdsShrink() const { return this->subInsOrderIdsShrink_ != nullptr;};
     void deleteSubInsOrderIdsShrink() { this->subInsOrderIdsShrink_ = nullptr;};
-    inline string subInsOrderIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(subInsOrderIdsShrink_, "") };
+    inline string getSubInsOrderIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(subInsOrderIdsShrink_, "") };
     inline InsureOrderRefundShrinkRequest& setSubInsOrderIdsShrink(string subInsOrderIdsShrink) { DARABONBA_PTR_SET_VALUE(subInsOrderIdsShrink_, subInsOrderIdsShrink) };
 
 
     // supplierCode Field Functions 
     bool hasSupplierCode() const { return this->supplierCode_ != nullptr;};
     void deleteSupplierCode() { this->supplierCode_ = nullptr;};
-    inline string supplierCode() const { DARABONBA_PTR_GET_DEFAULT(supplierCode_, "") };
+    inline string getSupplierCode() const { DARABONBA_PTR_GET_DEFAULT(supplierCode_, "") };
     inline InsureOrderRefundShrinkRequest& setSupplierCode(string supplierCode) { DARABONBA_PTR_SET_VALUE(supplierCode_, supplierCode) };
 
 
   protected:
-    std::shared_ptr<string> btripUserId_ = nullptr;
-    std::shared_ptr<string> buyerName_ = nullptr;
-    std::shared_ptr<string> isvName_ = nullptr;
-    std::shared_ptr<string> outApplyId_ = nullptr;
-    std::shared_ptr<string> policyNoListShrink_ = nullptr;
-    std::shared_ptr<string> subInsOrderIdsShrink_ = nullptr;
-    std::shared_ptr<string> supplierCode_ = nullptr;
+    shared_ptr<string> btripUserId_ {};
+    shared_ptr<string> buyerName_ {};
+    shared_ptr<string> isvName_ {};
+    shared_ptr<string> outApplyId_ {};
+    shared_ptr<string> policyNoListShrink_ {};
+    shared_ptr<string> subInsOrderIdsShrink_ {};
+    shared_ptr<string> supplierCode_ {};
   };
 
   } // namespace Models

@@ -33,34 +33,34 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->delAll_ != nullptr
-        && this->entitiesShrink_ != nullptr && this->thirdPartId_ != nullptr; };
+    virtual bool empty() const override { return this->delAll_ == nullptr
+        && this->entitiesShrink_ == nullptr && this->thirdPartId_ == nullptr; };
     // delAll Field Functions 
     bool hasDelAll() const { return this->delAll_ != nullptr;};
     void deleteDelAll() { this->delAll_ = nullptr;};
-    inline bool delAll() const { DARABONBA_PTR_GET_DEFAULT(delAll_, false) };
+    inline bool getDelAll() const { DARABONBA_PTR_GET_DEFAULT(delAll_, false) };
     inline DeleteInvoiceEntityShrinkRequest& setDelAll(bool delAll) { DARABONBA_PTR_SET_VALUE(delAll_, delAll) };
 
 
     // entitiesShrink Field Functions 
     bool hasEntitiesShrink() const { return this->entitiesShrink_ != nullptr;};
     void deleteEntitiesShrink() { this->entitiesShrink_ = nullptr;};
-    inline string entitiesShrink() const { DARABONBA_PTR_GET_DEFAULT(entitiesShrink_, "") };
+    inline string getEntitiesShrink() const { DARABONBA_PTR_GET_DEFAULT(entitiesShrink_, "") };
     inline DeleteInvoiceEntityShrinkRequest& setEntitiesShrink(string entitiesShrink) { DARABONBA_PTR_SET_VALUE(entitiesShrink_, entitiesShrink) };
 
 
     // thirdPartId Field Functions 
     bool hasThirdPartId() const { return this->thirdPartId_ != nullptr;};
     void deleteThirdPartId() { this->thirdPartId_ = nullptr;};
-    inline string thirdPartId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartId_, "") };
+    inline string getThirdPartId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartId_, "") };
     inline DeleteInvoiceEntityShrinkRequest& setThirdPartId(string thirdPartId) { DARABONBA_PTR_SET_VALUE(thirdPartId_, thirdPartId) };
 
 
   protected:
-    std::shared_ptr<bool> delAll_ = nullptr;
-    std::shared_ptr<string> entitiesShrink_ = nullptr;
+    shared_ptr<bool> delAll_ {};
+    shared_ptr<string> entitiesShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> thirdPartId_ = nullptr;
+    shared_ptr<string> thirdPartId_ {};
   };
 
   } // namespace Models

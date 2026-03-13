@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->thirdpartId_ != nullptr; };
+    virtual bool empty() const override { return this->thirdpartId_ == nullptr; };
     // thirdpartId Field Functions 
     bool hasThirdpartId() const { return this->thirdpartId_ != nullptr;};
     void deleteThirdpartId() { this->thirdpartId_ = nullptr;};
-    inline string thirdpartId() const { DARABONBA_PTR_GET_DEFAULT(thirdpartId_, "") };
+    inline string getThirdpartId() const { DARABONBA_PTR_GET_DEFAULT(thirdpartId_, "") };
     inline CostCenterDeleteRequest& setThirdpartId(string thirdpartId) { DARABONBA_PTR_SET_VALUE(thirdpartId_, thirdpartId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> thirdpartId_ = nullptr;
+    shared_ptr<string> thirdpartId_ {};
   };
 
   } // namespace Models
