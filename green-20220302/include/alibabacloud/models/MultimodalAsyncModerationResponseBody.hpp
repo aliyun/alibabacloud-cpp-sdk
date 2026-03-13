@@ -113,6 +113,7 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     shared_ptr<MultimodalAsyncModerationResponseBody::Data> data_ {};
     shared_ptr<string> msg_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

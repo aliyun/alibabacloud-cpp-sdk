@@ -61,7 +61,7 @@ namespace Green20220302
       Models::DescribeImageModerationResultResponse describeImageModerationResult(const Models::DescribeImageModerationResultRequest &request);
 
       /**
-       * @summary 查询检测结果辅助信息
+       * @summary Obtains more auxiliary information that is identified by calling the Image Moderation 2.0 API. The auxiliary information includes the moderation results of images and text and the hit information of custom image libraries.
        *
        * @param request DescribeImageResultExtRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -70,7 +70,7 @@ namespace Green20220302
       Models::DescribeImageResultExtResponse describeImageResultExtWithOptions(const Models::DescribeImageResultExtRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询检测结果辅助信息
+       * @summary Obtains more auxiliary information that is identified by calling the Image Moderation 2.0 API. The auxiliary information includes the moderation results of images and text and the hit information of custom image libraries.
        *
        * @param request DescribeImageResultExtRequest
        * @return DescribeImageResultExtResponse
@@ -95,7 +95,7 @@ namespace Green20220302
       Models::DescribeMultimodalModerationResultResponse describeMultimodalModerationResult(const Models::DescribeMultimodalModerationResultRequest &request);
 
       /**
-       * @summary 查询上传token
+       * @summary Queries the token for uploading files.
        *
        * @param request DescribeUploadTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -104,7 +104,7 @@ namespace Green20220302
       Models::DescribeUploadTokenResponse describeUploadTokenWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询上传token
+       * @summary Queries the token for uploading files.
        *
        * @return DescribeUploadTokenResponse
        */
@@ -136,7 +136,7 @@ namespace Green20220302
       Models::DescribeUrlModerationResultResponse describeUrlModerationResult(const Models::DescribeUrlModerationResultRequest &request);
 
       /**
-       * @summary 文档审核
+       * @summary Moderates files.
        *
        * @param request FileModerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -145,7 +145,7 @@ namespace Green20220302
       Models::FileModerationResponse fileModerationWithOptions(const Models::FileModerationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档审核
+       * @summary Moderates files.
        *
        * @param request FileModerationRequest
        * @return FileModerationResponse
@@ -153,7 +153,7 @@ namespace Green20220302
       Models::FileModerationResponse fileModeration(const Models::FileModerationRequest &request);
 
       /**
-       * @summary 图片异步检测
+       * @summary Moderates images in asynchronous mode. An asynchronous image moderation task does not return the moderation results in real time. To obtain moderation results, you can poll the moderation results periodically or enable callback notification. The moderation results are retained for a maximum of 3 days.
        *
        * @param request ImageAsyncModerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -162,7 +162,7 @@ namespace Green20220302
       Models::ImageAsyncModerationResponse imageAsyncModerationWithOptions(const Models::ImageAsyncModerationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 图片异步检测
+       * @summary Moderates images in asynchronous mode. An asynchronous image moderation task does not return the moderation results in real time. To obtain moderation results, you can poll the moderation results periodically or enable callback notification. The moderation results are retained for a maximum of 3 days.
        *
        * @param request ImageAsyncModerationRequest
        * @return ImageAsyncModerationResponse
@@ -386,7 +386,7 @@ namespace Green20220302
       Models::TextModerationPlusResponse textModerationPlus(const Models::TextModerationPlusRequest &request);
 
       /**
-       * @summary url异步检测
+       * @summary Identifies whether URL links contain risks such as fraud, pornographic, and gambling content, to protect the platform content ecosystem.
        *
        * @param request UrlAsyncModerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -395,7 +395,7 @@ namespace Green20220302
       Models::UrlAsyncModerationResponse urlAsyncModerationWithOptions(const Models::UrlAsyncModerationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary url异步检测
+       * @summary Identifies whether URL links contain risks such as fraud, pornographic, and gambling content, to protect the platform content ecosystem.
        *
        * @param request UrlAsyncModerationRequest
        * @return UrlAsyncModerationResponse
@@ -403,7 +403,7 @@ namespace Green20220302
       Models::UrlAsyncModerationResponse urlAsyncModeration(const Models::UrlAsyncModerationRequest &request);
 
       /**
-       * @summary 视频检测任务提交
+       * @summary Identifies risky or illegal content in video files. You can call this operation to submit a moderation task.
        *
        * @param request VideoModerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -412,7 +412,7 @@ namespace Green20220302
       Models::VideoModerationResponse videoModerationWithOptions(const Models::VideoModerationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 视频检测任务提交
+       * @summary Identifies risky or illegal content in video files. You can call this operation to submit a moderation task.
        *
        * @param request VideoModerationRequest
        * @return VideoModerationResponse
@@ -420,7 +420,7 @@ namespace Green20220302
       Models::VideoModerationResponse videoModeration(const Models::VideoModerationRequest &request);
 
       /**
-       * @summary 取消视频直播流检测
+       * @summary Cancels a live stream moderation task.
        *
        * @param request VideoModerationCancelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -429,7 +429,7 @@ namespace Green20220302
       Models::VideoModerationCancelResponse videoModerationCancelWithOptions(const Models::VideoModerationCancelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消视频直播流检测
+       * @summary Cancels a live stream moderation task.
        *
        * @param request VideoModerationCancelRequest
        * @return VideoModerationCancelResponse
@@ -458,7 +458,7 @@ namespace Green20220302
       Models::VideoModerationResultResponse videoModerationResult(const Models::VideoModerationResultRequest &request);
 
       /**
-       * @summary 语音审核
+       * @summary Submits a Voice Moderation 2.0 task.
        *
        * @param request VoiceModerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -467,7 +467,7 @@ namespace Green20220302
       Models::VoiceModerationResponse voiceModerationWithOptions(const Models::VoiceModerationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 语音审核
+       * @summary Submits a Voice Moderation 2.0 task.
        *
        * @param request VoiceModerationRequest
        * @return VoiceModerationResponse
@@ -475,7 +475,7 @@ namespace Green20220302
       Models::VoiceModerationResponse voiceModeration(const Models::VoiceModerationRequest &request);
 
       /**
-       * @summary 取消检测
+       * @summary Cancels a Voice Moderation 2.0 task.
        *
        * @param request VoiceModerationCancelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -484,7 +484,7 @@ namespace Green20220302
       Models::VoiceModerationCancelResponse voiceModerationCancelWithOptions(const Models::VoiceModerationCancelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消检测
+       * @summary Cancels a Voice Moderation 2.0 task.
        *
        * @param request VoiceModerationCancelRequest
        * @return VoiceModerationCancelResponse

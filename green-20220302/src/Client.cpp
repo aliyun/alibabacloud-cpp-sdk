@@ -150,7 +150,7 @@ DescribeImageModerationResultResponse Client::describeImageModerationResult(cons
 }
 
 /**
- * @summary 查询检测结果辅助信息
+ * @summary Obtains more auxiliary information that is identified by calling the Image Moderation 2.0 API. The auxiliary information includes the moderation results of images and text and the hit information of custom image libraries.
  *
  * @param request DescribeImageResultExtRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -185,7 +185,7 @@ DescribeImageResultExtResponse Client::describeImageResultExtWithOptions(const D
 }
 
 /**
- * @summary 查询检测结果辅助信息
+ * @summary Obtains more auxiliary information that is identified by calling the Image Moderation 2.0 API. The auxiliary information includes the moderation results of images and text and the hit information of custom image libraries.
  *
  * @param request DescribeImageResultExtRequest
  * @return DescribeImageResultExtResponse
@@ -238,7 +238,7 @@ DescribeMultimodalModerationResultResponse Client::describeMultimodalModerationR
 }
 
 /**
- * @summary 查询上传token
+ * @summary Queries the token for uploading files.
  *
  * @param request DescribeUploadTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -261,7 +261,7 @@ DescribeUploadTokenResponse Client::describeUploadTokenWithOptions(const Darabon
 }
 
 /**
- * @summary 查询上传token
+ * @summary Queries the token for uploading files.
  *
  * @return DescribeUploadTokenResponse
  */
@@ -321,7 +321,7 @@ DescribeUrlModerationResultResponse Client::describeUrlModerationResult(const De
 }
 
 /**
- * @summary 文档审核
+ * @summary Moderates files.
  *
  * @param request FileModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -356,7 +356,7 @@ FileModerationResponse Client::fileModerationWithOptions(const FileModerationReq
 }
 
 /**
- * @summary 文档审核
+ * @summary Moderates files.
  *
  * @param request FileModerationRequest
  * @return FileModerationResponse
@@ -367,7 +367,7 @@ FileModerationResponse Client::fileModeration(const FileModerationRequest &reque
 }
 
 /**
- * @summary 图片异步检测
+ * @summary Moderates images in asynchronous mode. An asynchronous image moderation task does not return the moderation results in real time. To obtain moderation results, you can poll the moderation results periodically or enable callback notification. The moderation results are retained for a maximum of 3 days.
  *
  * @param request ImageAsyncModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -402,7 +402,7 @@ ImageAsyncModerationResponse Client::imageAsyncModerationWithOptions(const Image
 }
 
 /**
- * @summary 图片异步检测
+ * @summary Moderates images in asynchronous mode. An asynchronous image moderation task does not return the moderation results in real time. To obtain moderation results, you can poll the moderation results periodically or enable callback notification. The moderation results are retained for a maximum of 3 days.
  *
  * @param request ImageAsyncModerationRequest
  * @return ImageAsyncModerationResponse
@@ -995,7 +995,7 @@ TextModerationPlusResponse Client::textModerationPlus(const TextModerationPlusRe
 }
 
 /**
- * @summary url异步检测
+ * @summary Identifies whether URL links contain risks such as fraud, pornographic, and gambling content, to protect the platform content ecosystem.
  *
  * @param request UrlAsyncModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1030,7 +1030,7 @@ UrlAsyncModerationResponse Client::urlAsyncModerationWithOptions(const UrlAsyncM
 }
 
 /**
- * @summary url异步检测
+ * @summary Identifies whether URL links contain risks such as fraud, pornographic, and gambling content, to protect the platform content ecosystem.
  *
  * @param request UrlAsyncModerationRequest
  * @return UrlAsyncModerationResponse
@@ -1041,7 +1041,7 @@ UrlAsyncModerationResponse Client::urlAsyncModeration(const UrlAsyncModerationRe
 }
 
 /**
- * @summary 视频检测任务提交
+ * @summary Identifies risky or illegal content in video files. You can call this operation to submit a moderation task.
  *
  * @param request VideoModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1076,7 +1076,7 @@ VideoModerationResponse Client::videoModerationWithOptions(const VideoModeration
 }
 
 /**
- * @summary 视频检测任务提交
+ * @summary Identifies risky or illegal content in video files. You can call this operation to submit a moderation task.
  *
  * @param request VideoModerationRequest
  * @return VideoModerationResponse
@@ -1087,7 +1087,7 @@ VideoModerationResponse Client::videoModeration(const VideoModerationRequest &re
 }
 
 /**
- * @summary 取消视频直播流检测
+ * @summary Cancels a live stream moderation task.
  *
  * @param request VideoModerationCancelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1122,7 +1122,7 @@ VideoModerationCancelResponse Client::videoModerationCancelWithOptions(const Vid
 }
 
 /**
- * @summary 取消视频直播流检测
+ * @summary Cancels a live stream moderation task.
  *
  * @param request VideoModerationCancelRequest
  * @return VideoModerationCancelResponse
@@ -1183,7 +1183,7 @@ VideoModerationResultResponse Client::videoModerationResult(const VideoModeratio
 }
 
 /**
- * @summary 语音审核
+ * @summary Submits a Voice Moderation 2.0 task.
  *
  * @param request VoiceModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1218,7 +1218,7 @@ VoiceModerationResponse Client::voiceModerationWithOptions(const VoiceModeration
 }
 
 /**
- * @summary 语音审核
+ * @summary Submits a Voice Moderation 2.0 task.
  *
  * @param request VoiceModerationRequest
  * @return VoiceModerationResponse
@@ -1229,7 +1229,7 @@ VoiceModerationResponse Client::voiceModeration(const VoiceModerationRequest &re
 }
 
 /**
- * @summary 取消检测
+ * @summary Cancels a Voice Moderation 2.0 task.
  *
  * @param request VoiceModerationCancelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1264,7 +1264,7 @@ VoiceModerationCancelResponse Client::voiceModerationCancelWithOptions(const Voi
 }
 
 /**
- * @summary 取消检测
+ * @summary Cancels a Voice Moderation 2.0 task.
  *
  * @param request VoiceModerationCancelRequest
  * @return VoiceModerationCancelResponse

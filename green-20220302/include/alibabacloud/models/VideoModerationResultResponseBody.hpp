@@ -41,6 +41,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AudioResult, audioResult_);
         DARABONBA_PTR_TO_JSON(DataId, dataId_);
+        DARABONBA_PTR_TO_JSON(Ext, ext_);
         DARABONBA_PTR_TO_JSON(FrameResult, frameResult_);
         DARABONBA_PTR_TO_JSON(LiveId, liveId_);
         DARABONBA_PTR_TO_JSON(ManualTaskId, manualTaskId_);
@@ -50,6 +51,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AudioResult, audioResult_);
         DARABONBA_PTR_FROM_JSON(DataId, dataId_);
+        DARABONBA_PTR_FROM_JSON(Ext, ext_);
         DARABONBA_PTR_FROM_JSON(FrameResult, frameResult_);
         DARABONBA_PTR_FROM_JSON(LiveId, liveId_);
         DARABONBA_PTR_FROM_JSON(ManualTaskId, manualTaskId_);
@@ -754,6 +756,176 @@ namespace Models
         shared_ptr<string> riskLevel_ {};
       };
 
+      class Ext : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Ext& obj) { 
+          DARABONBA_PTR_TO_JSON(AigcData, aigcData_);
+        };
+        friend void from_json(const Darabonba::Json& j, Ext& obj) { 
+          DARABONBA_PTR_FROM_JSON(AigcData, aigcData_);
+        };
+        Ext() = default ;
+        Ext(const Ext &) = default ;
+        Ext(Ext &&) = default ;
+        Ext(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Ext() = default ;
+        Ext& operator=(const Ext &) = default ;
+        Ext& operator=(Ext &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class AigcData : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const AigcData& obj) { 
+            DARABONBA_PTR_TO_JSON(AIGC, AIGC_);
+            DARABONBA_PTR_TO_JSON(Result, result_);
+          };
+          friend void from_json(const Darabonba::Json& j, AigcData& obj) { 
+            DARABONBA_PTR_FROM_JSON(AIGC, AIGC_);
+            DARABONBA_PTR_FROM_JSON(Result, result_);
+          };
+          AigcData() = default ;
+          AigcData(const AigcData &) = default ;
+          AigcData(AigcData &&) = default ;
+          AigcData(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~AigcData() = default ;
+          AigcData& operator=(const AigcData &) = default ;
+          AigcData& operator=(AigcData &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class AIGC : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const AIGC& obj) { 
+              DARABONBA_PTR_TO_JSON(ContentProducer, contentProducer_);
+              DARABONBA_PTR_TO_JSON(ContentPropagator, contentPropagator_);
+              DARABONBA_PTR_TO_JSON(Label, label_);
+              DARABONBA_PTR_TO_JSON(ProduceID, produceID_);
+              DARABONBA_PTR_TO_JSON(PropagateID, propagateID_);
+              DARABONBA_PTR_TO_JSON(ReservedCode1, reservedCode1_);
+              DARABONBA_PTR_TO_JSON(ReservedCode2, reservedCode2_);
+            };
+            friend void from_json(const Darabonba::Json& j, AIGC& obj) { 
+              DARABONBA_PTR_FROM_JSON(ContentProducer, contentProducer_);
+              DARABONBA_PTR_FROM_JSON(ContentPropagator, contentPropagator_);
+              DARABONBA_PTR_FROM_JSON(Label, label_);
+              DARABONBA_PTR_FROM_JSON(ProduceID, produceID_);
+              DARABONBA_PTR_FROM_JSON(PropagateID, propagateID_);
+              DARABONBA_PTR_FROM_JSON(ReservedCode1, reservedCode1_);
+              DARABONBA_PTR_FROM_JSON(ReservedCode2, reservedCode2_);
+            };
+            AIGC() = default ;
+            AIGC(const AIGC &) = default ;
+            AIGC(AIGC &&) = default ;
+            AIGC(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~AIGC() = default ;
+            AIGC& operator=(const AIGC &) = default ;
+            AIGC& operator=(AIGC &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->contentProducer_ == nullptr
+        && this->contentPropagator_ == nullptr && this->label_ == nullptr && this->produceID_ == nullptr && this->propagateID_ == nullptr && this->reservedCode1_ == nullptr
+        && this->reservedCode2_ == nullptr; };
+            // contentProducer Field Functions 
+            bool hasContentProducer() const { return this->contentProducer_ != nullptr;};
+            void deleteContentProducer() { this->contentProducer_ = nullptr;};
+            inline string getContentProducer() const { DARABONBA_PTR_GET_DEFAULT(contentProducer_, "") };
+            inline AIGC& setContentProducer(string contentProducer) { DARABONBA_PTR_SET_VALUE(contentProducer_, contentProducer) };
+
+
+            // contentPropagator Field Functions 
+            bool hasContentPropagator() const { return this->contentPropagator_ != nullptr;};
+            void deleteContentPropagator() { this->contentPropagator_ = nullptr;};
+            inline string getContentPropagator() const { DARABONBA_PTR_GET_DEFAULT(contentPropagator_, "") };
+            inline AIGC& setContentPropagator(string contentPropagator) { DARABONBA_PTR_SET_VALUE(contentPropagator_, contentPropagator) };
+
+
+            // label Field Functions 
+            bool hasLabel() const { return this->label_ != nullptr;};
+            void deleteLabel() { this->label_ = nullptr;};
+            inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+            inline AIGC& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
+            // produceID Field Functions 
+            bool hasProduceID() const { return this->produceID_ != nullptr;};
+            void deleteProduceID() { this->produceID_ = nullptr;};
+            inline string getProduceID() const { DARABONBA_PTR_GET_DEFAULT(produceID_, "") };
+            inline AIGC& setProduceID(string produceID) { DARABONBA_PTR_SET_VALUE(produceID_, produceID) };
+
+
+            // propagateID Field Functions 
+            bool hasPropagateID() const { return this->propagateID_ != nullptr;};
+            void deletePropagateID() { this->propagateID_ = nullptr;};
+            inline string getPropagateID() const { DARABONBA_PTR_GET_DEFAULT(propagateID_, "") };
+            inline AIGC& setPropagateID(string propagateID) { DARABONBA_PTR_SET_VALUE(propagateID_, propagateID) };
+
+
+            // reservedCode1 Field Functions 
+            bool hasReservedCode1() const { return this->reservedCode1_ != nullptr;};
+            void deleteReservedCode1() { this->reservedCode1_ = nullptr;};
+            inline string getReservedCode1() const { DARABONBA_PTR_GET_DEFAULT(reservedCode1_, "") };
+            inline AIGC& setReservedCode1(string reservedCode1) { DARABONBA_PTR_SET_VALUE(reservedCode1_, reservedCode1) };
+
+
+            // reservedCode2 Field Functions 
+            bool hasReservedCode2() const { return this->reservedCode2_ != nullptr;};
+            void deleteReservedCode2() { this->reservedCode2_ = nullptr;};
+            inline string getReservedCode2() const { DARABONBA_PTR_GET_DEFAULT(reservedCode2_, "") };
+            inline AIGC& setReservedCode2(string reservedCode2) { DARABONBA_PTR_SET_VALUE(reservedCode2_, reservedCode2) };
+
+
+          protected:
+            shared_ptr<string> contentProducer_ {};
+            shared_ptr<string> contentPropagator_ {};
+            shared_ptr<string> label_ {};
+            shared_ptr<string> produceID_ {};
+            shared_ptr<string> propagateID_ {};
+            shared_ptr<string> reservedCode1_ {};
+            shared_ptr<string> reservedCode2_ {};
+          };
+
+          virtual bool empty() const override { return this->AIGC_ == nullptr
+        && this->result_ == nullptr; };
+          // AIGC Field Functions 
+          bool hasAIGC() const { return this->AIGC_ != nullptr;};
+          void deleteAIGC() { this->AIGC_ = nullptr;};
+          inline const AigcData::AIGC & getAIGC() const { DARABONBA_PTR_GET_CONST(AIGC_, AigcData::AIGC) };
+          inline AigcData::AIGC getAIGC() { DARABONBA_PTR_GET(AIGC_, AigcData::AIGC) };
+          inline AigcData& setAIGC(const AigcData::AIGC & aIGC) { DARABONBA_PTR_SET_VALUE(AIGC_, aIGC) };
+          inline AigcData& setAIGC(AigcData::AIGC && aIGC) { DARABONBA_PTR_SET_RVALUE(AIGC_, aIGC) };
+
+
+          // result Field Functions 
+          bool hasResult() const { return this->result_ != nullptr;};
+          void deleteResult() { this->result_ = nullptr;};
+          inline string getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
+          inline AigcData& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+
+
+        protected:
+          shared_ptr<AigcData::AIGC> AIGC_ {};
+          shared_ptr<string> result_ {};
+        };
+
+        virtual bool empty() const override { return this->aigcData_ == nullptr; };
+        // aigcData Field Functions 
+        bool hasAigcData() const { return this->aigcData_ != nullptr;};
+        void deleteAigcData() { this->aigcData_ = nullptr;};
+        inline const Ext::AigcData & getAigcData() const { DARABONBA_PTR_GET_CONST(aigcData_, Ext::AigcData) };
+        inline Ext::AigcData getAigcData() { DARABONBA_PTR_GET(aigcData_, Ext::AigcData) };
+        inline Ext& setAigcData(const Ext::AigcData & aigcData) { DARABONBA_PTR_SET_VALUE(aigcData_, aigcData) };
+        inline Ext& setAigcData(Ext::AigcData && aigcData) { DARABONBA_PTR_SET_RVALUE(aigcData_, aigcData) };
+
+
+      protected:
+        shared_ptr<Ext::AigcData> aigcData_ {};
+      };
+
       class AudioResult : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const AudioResult& obj) { 
@@ -1036,8 +1208,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->audioResult_ == nullptr
-        && this->dataId_ == nullptr && this->frameResult_ == nullptr && this->liveId_ == nullptr && this->manualTaskId_ == nullptr && this->riskLevel_ == nullptr
-        && this->taskId_ == nullptr; };
+        && this->dataId_ == nullptr && this->ext_ == nullptr && this->frameResult_ == nullptr && this->liveId_ == nullptr && this->manualTaskId_ == nullptr
+        && this->riskLevel_ == nullptr && this->taskId_ == nullptr; };
       // audioResult Field Functions 
       bool hasAudioResult() const { return this->audioResult_ != nullptr;};
       void deleteAudioResult() { this->audioResult_ = nullptr;};
@@ -1052,6 +1224,15 @@ namespace Models
       void deleteDataId() { this->dataId_ = nullptr;};
       inline string getDataId() const { DARABONBA_PTR_GET_DEFAULT(dataId_, "") };
       inline Data& setDataId(string dataId) { DARABONBA_PTR_SET_VALUE(dataId_, dataId) };
+
+
+      // ext Field Functions 
+      bool hasExt() const { return this->ext_ != nullptr;};
+      void deleteExt() { this->ext_ = nullptr;};
+      inline const Data::Ext & getExt() const { DARABONBA_PTR_GET_CONST(ext_, Data::Ext) };
+      inline Data::Ext getExt() { DARABONBA_PTR_GET(ext_, Data::Ext) };
+      inline Data& setExt(const Data::Ext & ext) { DARABONBA_PTR_SET_VALUE(ext_, ext) };
+      inline Data& setExt(Data::Ext && ext) { DARABONBA_PTR_SET_RVALUE(ext_, ext) };
 
 
       // frameResult Field Functions 
@@ -1096,6 +1277,7 @@ namespace Models
       shared_ptr<Data::AudioResult> audioResult_ {};
       // The value of dataId that is specified in the API request. If this parameter is not specified in the API request, the dataId field is not available in the response.
       shared_ptr<string> dataId_ {};
+      shared_ptr<Data::Ext> ext_ {};
       // The image moderation results. If the call is successful, the HTTP status code 200 and moderation results are returned. The moderation results contain a structure.
       shared_ptr<Data::FrameResult> frameResult_ {};
       // The unique ID of the live stream.
