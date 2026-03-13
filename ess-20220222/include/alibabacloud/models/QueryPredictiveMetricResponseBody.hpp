@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // Predicted monitoring value.
         shared_ptr<string> metricValue_ {};
-        // The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time must be in UTC.
         shared_ptr<string> time_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // Predicted monitoring metrics.
     shared_ptr<QueryPredictiveMetricResponseBody::PredictiveMetrics> predictiveMetrics_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The value of the metric.
         shared_ptr<string> metricValue_ {};
-        // The point in time of the monitoring metric. The value must be in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format.
         shared_ptr<string> time_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The monitoring metrics of the prediction rule.
     shared_ptr<QueryHistoricalMetricResponseBody::HistoricalMetrics> historicalMetrics_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

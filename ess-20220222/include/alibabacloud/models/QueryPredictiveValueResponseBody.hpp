@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The point in time, in the ISO 8601 standard, in the yyyy-MM-ddTHH:mmZ format.
         shared_ptr<string> time_ {};
-        // The number of instances.
         shared_ptr<int32_t> value_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The number of predicted instances in the scaling group.
     shared_ptr<QueryPredictiveValueResponseBody::PredictiveValues> predictiveValues_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

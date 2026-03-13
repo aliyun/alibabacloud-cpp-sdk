@@ -109,13 +109,9 @@ namespace Models
 
 
       protected:
-        // The number of failed scaling activities.
         shared_ptr<int32_t> failedActivityCount_ {};
-        // The number of successful scaling activities.
         shared_ptr<int32_t> successActivityCount_ {};
-        // The time when the statistics are generated. The time is in UTC. Format: yyyyMMddHH.
         shared_ptr<string> time_ {};
-        // The number of partially executed scaling activities.
         shared_ptr<int32_t> warningActivityCount_ {};
       };
 
@@ -199,11 +195,8 @@ namespace Models
 
 
       protected:
-        // The number of failed scaling activities.
         shared_ptr<int32_t> count_ {};
-        // Scaling Activity Error Codes
         shared_ptr<string> errorCode_ {};
-        // The time when the statistics are generated. The time is in UTC. Format: yyyyMMddHH.
         shared_ptr<string> time_ {};
       };
 
@@ -251,9 +244,7 @@ namespace Models
   protected:
     // Request ID.
     shared_ptr<string> requestId_ {};
-    // The error message statistics of the scaling activity.
     shared_ptr<DescribeScalingActivityStatisticsResponseBody::ScalingActivityErrorCodeStatistics> scalingActivityErrorCodeStatistics_ {};
-    // The statistical metrics of the scaling activity status.
     shared_ptr<DescribeScalingActivityStatisticsResponseBody::ScalingActivityStatusStatistics> scalingActivityStatusStatistics_ {};
   };
 

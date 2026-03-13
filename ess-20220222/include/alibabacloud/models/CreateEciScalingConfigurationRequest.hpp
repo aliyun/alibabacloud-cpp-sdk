@@ -265,8 +265,16 @@ namespace Models
 
 
       protected:
+        // The path to the NFS volume.
         shared_ptr<string> path_ {};
+        // Specifies whether the permissions on the NFS volume are read-only. Valid values:
+        // 
+        // *   true
+        // *   false
+        // 
+        // Default value: false.
         shared_ptr<bool> readOnly_ {};
+        // The endpoint of the NFS server.
         shared_ptr<string> server_ {};
       };
 
@@ -308,7 +316,9 @@ namespace Models
 
 
       protected:
+        // The absolute path on the host.
         shared_ptr<string> path_ {};
+        // The type of host directory. For example: File, Directory, Socket, etc.
         shared_ptr<string> type_ {};
       };
 
@@ -359,8 +369,13 @@ namespace Models
 
 
       protected:
+        // The name of the FlexVolume driver.
         shared_ptr<string> driver_ {};
+        // The type of the file system that you want to mount. The default value is determined by the script of FlexVolume.
         shared_ptr<string> fsType_ {};
+        // The options of the FlexVolume object. Each option is a key-value pair in a JSON string.
+        // 
+        // For example, if you use FlexVolume to mount a disk, specify the value in the `{"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"} format`.
         shared_ptr<string> options_ {};
       };
 
@@ -402,7 +417,9 @@ namespace Models
 
 
       protected:
+        // The storage medium of the emptyDir volume. By default, this parameter is left empty. In this case, the emptyDir volume uses the file system of the node as the storage medium. A value of memory specifies that the emptyDir volume uses the memory as the storage medium.
         shared_ptr<string> medium_ {};
+        // The size of the emptyDir volume. The value contains a unit. We recommend that you use Gi or Mi as the unit.
         shared_ptr<string> sizeLimit_ {};
       };
 
@@ -453,8 +470,11 @@ namespace Models
 
 
       protected:
+        // The ID of the disk volume.
         shared_ptr<string> diskId_ {};
+        // The size of the volume. Unit: GiB.
         shared_ptr<int32_t> diskSize_ {};
+        // The type of the disk volume. We recommend that you specify `FlexVolume.FsType` instead of DiskVolume.FsType.
         shared_ptr<string> fsType_ {};
       };
 
@@ -925,6 +945,9 @@ namespace Models
 
 
         protected:
+          // The permissions that you want to grant to the processes in the init container. Valid values: NET_ADMIN and NET_RAW.
+          // 
+          // >  To use NET_RAW, submit a ticket.
           shared_ptr<vector<string>> adds_ {};
         };
 
@@ -955,7 +978,9 @@ namespace Models
 
       protected:
         shared_ptr<SecurityContext::Capability> capability_ {};
+        // Specifies whether the root file system on which the init container runs is read-only. Valid value: true.
         shared_ptr<bool> readOnlyRootFilesystem_ {};
+        // The ID of the user that runs the init container.
         shared_ptr<int64_t> runAsUser_ {};
       };
 
@@ -1565,6 +1590,9 @@ namespace Models
 
 
         protected:
+          // The permissions that you want to grant to the processes in the container. Valid values: NET_ADMIN and NET_RAW.
+          // 
+          // >  To use NET_RAW, you must submit a ticket.
           shared_ptr<vector<string>> add_ {};
         };
 
@@ -1595,7 +1623,9 @@ namespace Models
 
       protected:
         shared_ptr<SecurityContext::Capability> capability_ {};
+        // Specifies whether the root file system on which the container runs is read-only.
         shared_ptr<bool> readOnlyRootFilesystem_ {};
+        // The ID of the user that runs the container.
         shared_ptr<int64_t> runAsUser_ {};
       };
 
@@ -1660,6 +1690,7 @@ namespace Models
 
 
         protected:
+          // The port detected by TCP sockets for readiness probing.
           shared_ptr<int32_t> port_ {};
         };
 
@@ -1710,8 +1741,14 @@ namespace Models
 
 
         protected:
+          // The path to which you want to send HTTP GET requests for readiness probing.
           shared_ptr<string> path_ {};
+          // The port over which you want to send HTTP GET requests for readiness probing.
           shared_ptr<int32_t> port_ {};
+          // The protocol type of HTTP GET requests for readiness probing. Valid values:
+          // 
+          // *   HTTP
+          // *   HTTPS
           shared_ptr<string> scheme_ {};
         };
 
@@ -1745,6 +1782,7 @@ namespace Models
 
 
         protected:
+          // The commands executed in the container when using the command line to perform the health check.
           shared_ptr<vector<string>> commands_ {};
         };
 
@@ -1815,12 +1853,17 @@ namespace Models
 
       protected:
         shared_ptr<ReadinessProbe::Exec> exec_ {};
+        // The minimum count of consecutive failures that must occur for a readiness probe to be classified as failed. Default value: 3.
         shared_ptr<int32_t> failureThreshold_ {};
         shared_ptr<ReadinessProbe::HttpGet> httpGet_ {};
+        // The number of seconds that elapse from the startup of the container to the start time of a readiness probe. Unit: seconds.
         shared_ptr<int32_t> initialDelaySeconds_ {};
+        // The interval at which readiness probes are performed. Unit: seconds. Default value: 10. Minimum value: 1.
         shared_ptr<int32_t> periodSeconds_ {};
+        // The minimum count of consecutive successes that must occur for a readiness probe to be classified as successful. Default value: 1. Set the value to 1.
         shared_ptr<int32_t> successThreshold_ {};
         shared_ptr<ReadinessProbe::TcpSocket> tcpSocket_ {};
+        // The timeout limit for a readiness probe to be complete. Unit: seconds. Default value: 1. Minimum value: 1.
         shared_ptr<int32_t> timeoutSeconds_ {};
       };
 
@@ -1885,6 +1928,7 @@ namespace Models
 
 
         protected:
+          // The port detected by TCP sockets for liveness probing.
           shared_ptr<int32_t> port_ {};
         };
 
@@ -1935,8 +1979,14 @@ namespace Models
 
 
         protected:
+          // The path to which you want to send HTTP GET requests for liveness probing.
           shared_ptr<string> path_ {};
+          // The port over which you want to send HTTP GET requests for liveness probing.
           shared_ptr<int32_t> port_ {};
+          // The protocol type of HTTP GET requests for liveness probing. Valid values:
+          // 
+          // *   HTTP
+          // *   HTTPS
           shared_ptr<string> scheme_ {};
         };
 
@@ -1970,6 +2020,7 @@ namespace Models
 
 
         protected:
+          // The commands executed in the container when using the command line to perform the health check.
           shared_ptr<vector<string>> commands_ {};
         };
 
@@ -2040,12 +2091,19 @@ namespace Models
 
       protected:
         shared_ptr<LivenessProbe::Exec> exec_ {};
+        // The minimum count of consecutive failures that must occur for a liveness probe to be classified as failed.
+        // 
+        // Default value: 3.
         shared_ptr<int32_t> failureThreshold_ {};
         shared_ptr<LivenessProbe::HttpGet> httpGet_ {};
+        // The number of seconds that elapse from the startup of the container to the start time of a liveness probe. Unit: seconds.
         shared_ptr<int32_t> initialDelaySeconds_ {};
+        // The interval at which liveness probes are performed. Unit: seconds. Default value: 10. Minimum value: 1.
         shared_ptr<int32_t> periodSeconds_ {};
+        // The minimum count of consecutive successes that must occur for a liveness probe to be classified as successful. Default value: 1. Set the value to 1.
         shared_ptr<int32_t> successThreshold_ {};
         shared_ptr<LivenessProbe::TcpSocket> tcpSocket_ {};
+        // The timeout limit for a liveness probe to be complete. Unit: seconds. Default value: 1. Minimum value: 1.
         shared_ptr<int32_t> timeoutSeconds_ {};
       };
 

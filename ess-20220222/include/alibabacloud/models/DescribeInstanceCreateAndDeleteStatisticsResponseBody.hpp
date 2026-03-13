@@ -116,15 +116,10 @@ namespace Models
 
 
       protected:
-        // The number of new instances.
         shared_ptr<int32_t> createdVmCount_ {};
-        // The number of released instances.
         shared_ptr<int32_t> destroyedVmCount_ {};
-        // The number of instances that are started from economical mode.
         shared_ptr<int32_t> startedVmCount_ {};
-        // The number of instances that are stopped in economical mode.
         shared_ptr<int32_t> stoppedVmCount_ {};
-        // The time when the statistics are generated. The time is in UTC. Format: yyyyMMddHH.
         shared_ptr<string> time_ {};
       };
 
@@ -161,7 +156,6 @@ namespace Models
 
 
   protected:
-    // Metrics for instance creation and deletion.
     shared_ptr<DescribeInstanceCreateAndDeleteStatisticsResponseBody::InstanceCreateAndDeleteStatistics> instanceCreateAndDeleteStatistics_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

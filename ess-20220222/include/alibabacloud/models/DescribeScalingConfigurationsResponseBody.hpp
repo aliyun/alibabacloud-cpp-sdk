@@ -65,6 +65,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_TO_JSON(InstancePatternInfos, instancePatternInfos_);
         DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
+        DARABONBA_PTR_TO_JSON(InstanceTypeCandidateOptions, instanceTypeCandidateOptions_);
         DARABONBA_PTR_TO_JSON(InstanceTypes, instanceTypes_);
         DARABONBA_PTR_TO_JSON(InternetChargeType, internetChargeType_);
         DARABONBA_PTR_TO_JSON(InternetMaxBandwidthIn, internetMaxBandwidthIn_);
@@ -140,6 +141,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_FROM_JSON(InstancePatternInfos, instancePatternInfos_);
         DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
+        DARABONBA_PTR_FROM_JSON(InstanceTypeCandidateOptions, instanceTypeCandidateOptions_);
         DARABONBA_PTR_FROM_JSON(InstanceTypes, instanceTypes_);
         DARABONBA_PTR_FROM_JSON(InternetChargeType, internetChargeType_);
         DARABONBA_PTR_FROM_JSON(InternetMaxBandwidthIn, internetMaxBandwidthIn_);
@@ -488,6 +490,80 @@ namespace Models
         shared_ptr<int32_t> secondaryPrivateIpAddressCount_ {};
         // The IDs of the security groups to which the ENIs belong.
         shared_ptr<vector<string>> securityGroupIds_ {};
+      };
+
+      class InstanceTypeCandidateOptions : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const InstanceTypeCandidateOptions& obj) { 
+          DARABONBA_PTR_TO_JSON(AllowCidrBlocks, allowCidrBlocks_);
+          DARABONBA_PTR_TO_JSON(AllowCrossAz, allowCrossAz_);
+          DARABONBA_PTR_TO_JSON(AllowDifferentGeneration, allowDifferentGeneration_);
+          DARABONBA_PTR_TO_JSON(Enabled, enabled_);
+          DARABONBA_PTR_TO_JSON(MaxPrice, maxPrice_);
+        };
+        friend void from_json(const Darabonba::Json& j, InstanceTypeCandidateOptions& obj) { 
+          DARABONBA_PTR_FROM_JSON(AllowCidrBlocks, allowCidrBlocks_);
+          DARABONBA_PTR_FROM_JSON(AllowCrossAz, allowCrossAz_);
+          DARABONBA_PTR_FROM_JSON(AllowDifferentGeneration, allowDifferentGeneration_);
+          DARABONBA_PTR_FROM_JSON(Enabled, enabled_);
+          DARABONBA_PTR_FROM_JSON(MaxPrice, maxPrice_);
+        };
+        InstanceTypeCandidateOptions() = default ;
+        InstanceTypeCandidateOptions(const InstanceTypeCandidateOptions &) = default ;
+        InstanceTypeCandidateOptions(InstanceTypeCandidateOptions &&) = default ;
+        InstanceTypeCandidateOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~InstanceTypeCandidateOptions() = default ;
+        InstanceTypeCandidateOptions& operator=(const InstanceTypeCandidateOptions &) = default ;
+        InstanceTypeCandidateOptions& operator=(InstanceTypeCandidateOptions &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->allowCidrBlocks_ == nullptr
+        && this->allowCrossAz_ == nullptr && this->allowDifferentGeneration_ == nullptr && this->enabled_ == nullptr && this->maxPrice_ == nullptr; };
+        // allowCidrBlocks Field Functions 
+        bool hasAllowCidrBlocks() const { return this->allowCidrBlocks_ != nullptr;};
+        void deleteAllowCidrBlocks() { this->allowCidrBlocks_ = nullptr;};
+        inline const vector<string> & getAllowCidrBlocks() const { DARABONBA_PTR_GET_CONST(allowCidrBlocks_, vector<string>) };
+        inline vector<string> getAllowCidrBlocks() { DARABONBA_PTR_GET(allowCidrBlocks_, vector<string>) };
+        inline InstanceTypeCandidateOptions& setAllowCidrBlocks(const vector<string> & allowCidrBlocks) { DARABONBA_PTR_SET_VALUE(allowCidrBlocks_, allowCidrBlocks) };
+        inline InstanceTypeCandidateOptions& setAllowCidrBlocks(vector<string> && allowCidrBlocks) { DARABONBA_PTR_SET_RVALUE(allowCidrBlocks_, allowCidrBlocks) };
+
+
+        // allowCrossAz Field Functions 
+        bool hasAllowCrossAz() const { return this->allowCrossAz_ != nullptr;};
+        void deleteAllowCrossAz() { this->allowCrossAz_ = nullptr;};
+        inline bool getAllowCrossAz() const { DARABONBA_PTR_GET_DEFAULT(allowCrossAz_, false) };
+        inline InstanceTypeCandidateOptions& setAllowCrossAz(bool allowCrossAz) { DARABONBA_PTR_SET_VALUE(allowCrossAz_, allowCrossAz) };
+
+
+        // allowDifferentGeneration Field Functions 
+        bool hasAllowDifferentGeneration() const { return this->allowDifferentGeneration_ != nullptr;};
+        void deleteAllowDifferentGeneration() { this->allowDifferentGeneration_ = nullptr;};
+        inline bool getAllowDifferentGeneration() const { DARABONBA_PTR_GET_DEFAULT(allowDifferentGeneration_, false) };
+        inline InstanceTypeCandidateOptions& setAllowDifferentGeneration(bool allowDifferentGeneration) { DARABONBA_PTR_SET_VALUE(allowDifferentGeneration_, allowDifferentGeneration) };
+
+
+        // enabled Field Functions 
+        bool hasEnabled() const { return this->enabled_ != nullptr;};
+        void deleteEnabled() { this->enabled_ = nullptr;};
+        inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+        inline InstanceTypeCandidateOptions& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+        // maxPrice Field Functions 
+        bool hasMaxPrice() const { return this->maxPrice_ != nullptr;};
+        void deleteMaxPrice() { this->maxPrice_ = nullptr;};
+        inline float getMaxPrice() const { DARABONBA_PTR_GET_DEFAULT(maxPrice_, 0.0) };
+        inline InstanceTypeCandidateOptions& setMaxPrice(float maxPrice) { DARABONBA_PTR_SET_VALUE(maxPrice_, maxPrice) };
+
+
+      protected:
+        shared_ptr<vector<string>> allowCidrBlocks_ {};
+        shared_ptr<bool> allowCrossAz_ {};
+        shared_ptr<bool> allowDifferentGeneration_ {};
+        shared_ptr<bool> enabled_ {};
+        shared_ptr<float> maxPrice_ {};
       };
 
       class InstancePatternInfos : public Darabonba::Model {
@@ -1086,17 +1162,17 @@ namespace Models
         && this->dedicatedHostClusterId_ == nullptr && this->dedicatedHostId_ == nullptr && this->deletionProtection_ == nullptr && this->deploymentSetId_ == nullptr && this->hostName_ == nullptr
         && this->hpcClusterId_ == nullptr && this->httpEndpoint_ == nullptr && this->httpTokens_ == nullptr && this->imageFamily_ == nullptr && this->imageId_ == nullptr
         && this->imageName_ == nullptr && this->imageOptionsLoginAsNonRoot_ == nullptr && this->imageOwnerAlias_ == nullptr && this->instanceDescription_ == nullptr && this->instanceGeneration_ == nullptr
-        && this->instanceName_ == nullptr && this->instancePatternInfos_ == nullptr && this->instanceType_ == nullptr && this->instanceTypes_ == nullptr && this->internetChargeType_ == nullptr
-        && this->internetMaxBandwidthIn_ == nullptr && this->internetMaxBandwidthOut_ == nullptr && this->ioOptimized_ == nullptr && this->ipv6AddressCount_ == nullptr && this->keyPairName_ == nullptr
-        && this->lifecycleState_ == nullptr && this->loadBalancerWeight_ == nullptr && this->memory_ == nullptr && this->networkInterfaces_ == nullptr && this->passwordInherit_ == nullptr
-        && this->passwordSetted_ == nullptr && this->privatePoolOptions_id_ == nullptr && this->privatePoolOptions_matchCriteria_ == nullptr && this->ramRoleName_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->resourcePoolOptions_ == nullptr && this->scalingConfigurationId_ == nullptr && this->scalingConfigurationName_ == nullptr && this->scalingGroupId_ == nullptr && this->schedulerOptions_ == nullptr
-        && this->securityEnhancementStrategy_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr && this->securityOptions_ == nullptr && this->spotDuration_ == nullptr
-        && this->spotInterruptionBehavior_ == nullptr && this->spotPriceLimits_ == nullptr && this->spotStrategy_ == nullptr && this->storageSetId_ == nullptr && this->storageSetPartitionNumber_ == nullptr
-        && this->systemDiskAutoSnapshotPolicyId_ == nullptr && this->systemDiskBurstingEnabled_ == nullptr && this->systemDiskCategories_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskDescription_ == nullptr
-        && this->systemDiskEncryptAlgorithm_ == nullptr && this->systemDiskEncrypted_ == nullptr && this->systemDiskKMSKeyId_ == nullptr && this->systemDiskName_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr
-        && this->systemDiskProvisionedIops_ == nullptr && this->systemDiskSize_ == nullptr && this->tags_ == nullptr && this->tenancy_ == nullptr && this->userData_ == nullptr
-        && this->weightedCapacities_ == nullptr && this->zoneId_ == nullptr; };
+        && this->instanceName_ == nullptr && this->instancePatternInfos_ == nullptr && this->instanceType_ == nullptr && this->instanceTypeCandidateOptions_ == nullptr && this->instanceTypes_ == nullptr
+        && this->internetChargeType_ == nullptr && this->internetMaxBandwidthIn_ == nullptr && this->internetMaxBandwidthOut_ == nullptr && this->ioOptimized_ == nullptr && this->ipv6AddressCount_ == nullptr
+        && this->keyPairName_ == nullptr && this->lifecycleState_ == nullptr && this->loadBalancerWeight_ == nullptr && this->memory_ == nullptr && this->networkInterfaces_ == nullptr
+        && this->passwordInherit_ == nullptr && this->passwordSetted_ == nullptr && this->privatePoolOptions_id_ == nullptr && this->privatePoolOptions_matchCriteria_ == nullptr && this->ramRoleName_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourcePoolOptions_ == nullptr && this->scalingConfigurationId_ == nullptr && this->scalingConfigurationName_ == nullptr && this->scalingGroupId_ == nullptr
+        && this->schedulerOptions_ == nullptr && this->securityEnhancementStrategy_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr && this->securityOptions_ == nullptr
+        && this->spotDuration_ == nullptr && this->spotInterruptionBehavior_ == nullptr && this->spotPriceLimits_ == nullptr && this->spotStrategy_ == nullptr && this->storageSetId_ == nullptr
+        && this->storageSetPartitionNumber_ == nullptr && this->systemDiskAutoSnapshotPolicyId_ == nullptr && this->systemDiskBurstingEnabled_ == nullptr && this->systemDiskCategories_ == nullptr && this->systemDiskCategory_ == nullptr
+        && this->systemDiskDescription_ == nullptr && this->systemDiskEncryptAlgorithm_ == nullptr && this->systemDiskEncrypted_ == nullptr && this->systemDiskKMSKeyId_ == nullptr && this->systemDiskName_ == nullptr
+        && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskProvisionedIops_ == nullptr && this->systemDiskSize_ == nullptr && this->tags_ == nullptr && this->tenancy_ == nullptr
+        && this->userData_ == nullptr && this->weightedCapacities_ == nullptr && this->zoneId_ == nullptr; };
       // affinity Field Functions 
       bool hasAffinity() const { return this->affinity_ != nullptr;};
       void deleteAffinity() { this->affinity_ = nullptr;};
@@ -1269,6 +1345,15 @@ namespace Models
       void deleteInstanceType() { this->instanceType_ = nullptr;};
       inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
       inline ScalingConfigurations& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
+
+
+      // instanceTypeCandidateOptions Field Functions 
+      bool hasInstanceTypeCandidateOptions() const { return this->instanceTypeCandidateOptions_ != nullptr;};
+      void deleteInstanceTypeCandidateOptions() { this->instanceTypeCandidateOptions_ = nullptr;};
+      inline const ScalingConfigurations::InstanceTypeCandidateOptions & getInstanceTypeCandidateOptions() const { DARABONBA_PTR_GET_CONST(instanceTypeCandidateOptions_, ScalingConfigurations::InstanceTypeCandidateOptions) };
+      inline ScalingConfigurations::InstanceTypeCandidateOptions getInstanceTypeCandidateOptions() { DARABONBA_PTR_GET(instanceTypeCandidateOptions_, ScalingConfigurations::InstanceTypeCandidateOptions) };
+      inline ScalingConfigurations& setInstanceTypeCandidateOptions(const ScalingConfigurations::InstanceTypeCandidateOptions & instanceTypeCandidateOptions) { DARABONBA_PTR_SET_VALUE(instanceTypeCandidateOptions_, instanceTypeCandidateOptions) };
+      inline ScalingConfigurations& setInstanceTypeCandidateOptions(ScalingConfigurations::InstanceTypeCandidateOptions && instanceTypeCandidateOptions) { DARABONBA_PTR_SET_RVALUE(instanceTypeCandidateOptions_, instanceTypeCandidateOptions) };
 
 
       // instanceTypes Field Functions 
@@ -1722,6 +1807,7 @@ namespace Models
       shared_ptr<vector<ScalingConfigurations::InstancePatternInfos>> instancePatternInfos_ {};
       // The instance types of the ECS instances.
       shared_ptr<string> instanceType_ {};
+      shared_ptr<ScalingConfigurations::InstanceTypeCandidateOptions> instanceTypeCandidateOptions_ {};
       // The ECS instance types.
       shared_ptr<vector<string>> instanceTypes_ {};
       // The billing method for network usage. Valid values:
@@ -1761,7 +1847,13 @@ namespace Models
       shared_ptr<bool> passwordInherit_ {};
       // Indicates whether a password is configured for the instance.
       shared_ptr<bool> passwordSetted_ {};
+      // The ID of the private pool, which is the same as the ID of the elasticity assurance or capacity reservation for which the private pool is generated.
       shared_ptr<string> privatePoolOptions_id_ {};
+      // The type of the private pool. A private pool is generated when an elasticity assurance or a capacity reservation takes effect. You can specify a private pool for Auto Scaling to start instances. Valid values:
+      // 
+      // *   Open: open private pool. Auto Scaling selects a matching open private pool to start instances. If no matching open private pools exist, Auto Scaling uses the resources in the public pool to start instances.
+      // *   Target: specified private pool. Auto Scaling uses the resources in the specified private pool to start instances. If the resources in the specified private pool are insufficient, instances cannot be started.
+      // *   None: no private pool. Auto Scaling does not use the resources in private pools to start instances.
       shared_ptr<string> privatePoolOptions_matchCriteria_ {};
       // The name of the Resource Access Management (RAM) role assumed by the ECS instances. This name is provided and maintained by RAM. You can call the ListRoles operation to query the available RAM roles.
       shared_ptr<string> ramRoleName_ {};
