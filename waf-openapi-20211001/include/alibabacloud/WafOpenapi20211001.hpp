@@ -1113,6 +1113,23 @@ namespace WafOpenapi20211001
       Models::DescribeApisecUserOperationsResponse describeApisecUserOperations(const Models::DescribeApisecUserOperationsRequest &request);
 
       /**
+       * @summary 分页查询基础防护规则集变化记录
+       *
+       * @param request DescribeBaseRuleChangeLogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBaseRuleChangeLogResponse
+       */
+      Models::DescribeBaseRuleChangeLogResponse describeBaseRuleChangeLogWithOptions(const Models::DescribeBaseRuleChangeLogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询基础防护规则集变化记录
+       *
+       * @param request DescribeBaseRuleChangeLogRequest
+       * @return DescribeBaseRuleChangeLogResponse
+       */
+      Models::DescribeBaseRuleChangeLogResponse describeBaseRuleChangeLog(const Models::DescribeBaseRuleChangeLogRequest &request);
+
+      /**
        * @summary 查询基础防护系统规则集
        *
        * @param request DescribeBaseSystemRulesRequest
@@ -1742,6 +1759,23 @@ namespace WafOpenapi20211001
       Models::DescribeDomainsResponse describeDomains(const Models::DescribeDomainsRequest &request);
 
       /**
+       * @summary Queries the daily billing information of a pay-as-you-go Web Application Firewall (WAF) instance. This allows you to check the daily security capacity unit (SeCU) usage. You can query only data in the previous seven days.
+       *
+       * @param request DescribeElasticBillsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeElasticBillsResponse
+       */
+      Models::DescribeElasticBillsResponse describeElasticBillsWithOptions(const Models::DescribeElasticBillsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the daily billing information of a pay-as-you-go Web Application Firewall (WAF) instance. This allows you to check the daily security capacity unit (SeCU) usage. You can query only data in the previous seven days.
+       *
+       * @param request DescribeElasticBillsRequest
+       * @return DescribeElasticBillsResponse
+       */
+      Models::DescribeElasticBillsResponse describeElasticBills(const Models::DescribeElasticBillsRequest &request);
+
+      /**
        * @summary Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
        *
        * @param request DescribeFlowChartRequest
@@ -2318,6 +2352,23 @@ namespace WafOpenapi20211001
        * @return DescribePocFunctionsResponse
        */
       Models::DescribePocFunctionsResponse describePocFunctions(const Models::DescribePocFunctionsRequest &request);
+
+      /**
+       * @summary Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
+       *
+       * @param request DescribePrepayDailyBillsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePrepayDailyBillsResponse
+       */
+      Models::DescribePrepayDailyBillsResponse describePrepayDailyBillsWithOptions(const Models::DescribePrepayDailyBillsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
+       *
+       * @param request DescribePrepayDailyBillsRequest
+       * @return DescribePrepayDailyBillsResponse
+       */
+      Models::DescribePrepayDailyBillsResponse describePrepayDailyBills(const Models::DescribePrepayDailyBillsRequest &request);
 
       /**
        * @summary Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.

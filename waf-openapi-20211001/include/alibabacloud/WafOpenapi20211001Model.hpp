@@ -197,6 +197,9 @@
 #include <alibabacloud/models/DescribeApisecUserOperationsRequest.hpp>
 #include <alibabacloud/models/DescribeApisecUserOperationsResponseBody.hpp>
 #include <alibabacloud/models/DescribeApisecUserOperationsResponse.hpp>
+#include <alibabacloud/models/DescribeBaseRuleChangeLogRequest.hpp>
+#include <alibabacloud/models/DescribeBaseRuleChangeLogResponseBody.hpp>
+#include <alibabacloud/models/DescribeBaseRuleChangeLogResponse.hpp>
 #include <alibabacloud/models/DescribeBaseSystemRulesRequest.hpp>
 #include <alibabacloud/models/DescribeBaseSystemRulesResponseBody.hpp>
 #include <alibabacloud/models/DescribeBaseSystemRulesResponse.hpp>
@@ -309,6 +312,9 @@
 #include <alibabacloud/models/DescribeDomainsRequest.hpp>
 #include <alibabacloud/models/DescribeDomainsResponseBody.hpp>
 #include <alibabacloud/models/DescribeDomainsResponse.hpp>
+#include <alibabacloud/models/DescribeElasticBillsRequest.hpp>
+#include <alibabacloud/models/DescribeElasticBillsResponseBody.hpp>
+#include <alibabacloud/models/DescribeElasticBillsResponse.hpp>
 #include <alibabacloud/models/DescribeFlowChartRequest.hpp>
 #include <alibabacloud/models/DescribeFlowChartResponseBody.hpp>
 #include <alibabacloud/models/DescribeFlowChartResponse.hpp>
@@ -413,6 +419,9 @@
 #include <alibabacloud/models/DescribePocFunctionsRequest.hpp>
 #include <alibabacloud/models/DescribePocFunctionsResponseBody.hpp>
 #include <alibabacloud/models/DescribePocFunctionsResponse.hpp>
+#include <alibabacloud/models/DescribePrepayDailyBillsRequest.hpp>
+#include <alibabacloud/models/DescribePrepayDailyBillsResponseBody.hpp>
+#include <alibabacloud/models/DescribePrepayDailyBillsResponse.hpp>
 #include <alibabacloud/models/DescribeProductInstancesRequest.hpp>
 #include <alibabacloud/models/DescribeProductInstancesResponseBody.hpp>
 #include <alibabacloud/models/DescribeProductInstancesResponse.hpp>

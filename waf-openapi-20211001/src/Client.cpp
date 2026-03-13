@@ -4306,6 +4306,68 @@ DescribeApisecUserOperationsResponse Client::describeApisecUserOperations(const 
 }
 
 /**
+ * @summary 分页查询基础防护规则集变化记录
+ *
+ * @param request DescribeBaseRuleChangeLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBaseRuleChangeLogResponse
+ */
+DescribeBaseRuleChangeLogResponse Client::describeBaseRuleChangeLogWithOptions(const DescribeBaseRuleChangeLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.getResourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBaseRuleChangeLog"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBaseRuleChangeLogResponse>();
+}
+
+/**
+ * @summary 分页查询基础防护规则集变化记录
+ *
+ * @param request DescribeBaseRuleChangeLogRequest
+ * @return DescribeBaseRuleChangeLogResponse
+ */
+DescribeBaseRuleChangeLogResponse Client::describeBaseRuleChangeLog(const DescribeBaseRuleChangeLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBaseRuleChangeLogWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询基础防护系统规则集
  *
  * @param request DescribeBaseSystemRulesRequest
@@ -6646,6 +6708,64 @@ DescribeDomainsResponse Client::describeDomains(const DescribeDomainsRequest &re
 }
 
 /**
+ * @summary Queries the daily billing information of a pay-as-you-go Web Application Firewall (WAF) instance. This allows you to check the daily security capacity unit (SeCU) usage. You can query only data in the previous seven days.
+ *
+ * @param request DescribeElasticBillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeElasticBillsResponse
+ */
+DescribeElasticBillsResponse Client::describeElasticBillsWithOptions(const DescribeElasticBillsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.getResourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeElasticBills"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeElasticBillsResponse>();
+}
+
+/**
+ * @summary Queries the daily billing information of a pay-as-you-go Web Application Firewall (WAF) instance. This allows you to check the daily security capacity unit (SeCU) usage. You can query only data in the previous seven days.
+ *
+ * @param request DescribeElasticBillsRequest
+ * @return DescribeElasticBillsResponse
+ */
+DescribeElasticBillsResponse Client::describeElasticBills(const DescribeElasticBillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeElasticBillsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
  *
  * @param request DescribeFlowChartRequest
@@ -8655,6 +8775,64 @@ DescribePocFunctionsResponse Client::describePocFunctionsWithOptions(const Descr
 DescribePocFunctionsResponse Client::describePocFunctions(const DescribePocFunctionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePocFunctionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
+ *
+ * @param request DescribePrepayDailyBillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePrepayDailyBillsResponse
+ */
+DescribePrepayDailyBillsResponse Client::describePrepayDailyBillsWithOptions(const DescribePrepayDailyBillsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.getResourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePrepayDailyBills"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePrepayDailyBillsResponse>();
+}
+
+/**
+ * @summary Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
+ *
+ * @param request DescribePrepayDailyBillsRequest
+ * @return DescribePrepayDailyBillsResponse
+ */
+DescribePrepayDailyBillsResponse Client::describePrepayDailyBills(const DescribePrepayDailyBillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePrepayDailyBillsWithOptions(request, runtime);
 }
 
 /**
