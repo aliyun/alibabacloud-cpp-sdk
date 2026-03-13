@@ -1,0 +1,78 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATELOADBALANCERRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CREATELOADBALANCERRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Slb20130221
+{
+namespace Models
+{
+  class CreateLoadBalancerResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateLoadBalancerResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Address, address_);
+      DARABONBA_PTR_TO_JSON(LoadBalancerId, loadBalancerId_);
+      DARABONBA_PTR_TO_JSON(LoadBalancerName, loadBalancerName_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateLoadBalancerResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Address, address_);
+      DARABONBA_PTR_FROM_JSON(LoadBalancerId, loadBalancerId_);
+      DARABONBA_PTR_FROM_JSON(LoadBalancerName, loadBalancerName_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+    };
+    CreateLoadBalancerResponseBody() = default ;
+    CreateLoadBalancerResponseBody(const CreateLoadBalancerResponseBody &) = default ;
+    CreateLoadBalancerResponseBody(CreateLoadBalancerResponseBody &&) = default ;
+    CreateLoadBalancerResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateLoadBalancerResponseBody() = default ;
+    CreateLoadBalancerResponseBody& operator=(const CreateLoadBalancerResponseBody &) = default ;
+    CreateLoadBalancerResponseBody& operator=(CreateLoadBalancerResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->address_ == nullptr
+        && this->loadBalancerId_ == nullptr && this->loadBalancerName_ == nullptr && this->requestId_ == nullptr; };
+    // address Field Functions 
+    bool hasAddress() const { return this->address_ != nullptr;};
+    void deleteAddress() { this->address_ = nullptr;};
+    inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
+    inline CreateLoadBalancerResponseBody& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
+
+
+    // loadBalancerId Field Functions 
+    bool hasLoadBalancerId() const { return this->loadBalancerId_ != nullptr;};
+    void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
+    inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
+    inline CreateLoadBalancerResponseBody& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
+
+
+    // loadBalancerName Field Functions 
+    bool hasLoadBalancerName() const { return this->loadBalancerName_ != nullptr;};
+    void deleteLoadBalancerName() { this->loadBalancerName_ = nullptr;};
+    inline string getLoadBalancerName() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerName_, "") };
+    inline CreateLoadBalancerResponseBody& setLoadBalancerName(string loadBalancerName) { DARABONBA_PTR_SET_VALUE(loadBalancerName_, loadBalancerName) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline CreateLoadBalancerResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+  protected:
+    shared_ptr<string> address_ {};
+    shared_ptr<string> loadBalancerId_ {};
+    shared_ptr<string> loadBalancerName_ {};
+    shared_ptr<string> requestId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Slb20130221
+#endif
