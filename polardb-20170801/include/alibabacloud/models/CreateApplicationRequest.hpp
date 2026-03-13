@@ -79,18 +79,24 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DbPassword, dbPassword_);
         DARABONBA_PTR_TO_JSON(DbUser, dbUser_);
         DARABONBA_PTR_TO_JSON(EmbedderModel, embedderModel_);
+        DARABONBA_PTR_TO_JSON(EmbedderModelDimension, embedderModelDimension_);
+        DARABONBA_PTR_TO_JSON(GraphLlmModel, graphLlmModel_);
         DARABONBA_PTR_TO_JSON(LlmModel, llmModel_);
         DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
         DARABONBA_PTR_TO_JSON(RerankerModel, rerankerModel_);
+        DARABONBA_PTR_TO_JSON(Shard, shard_);
       };
       friend void from_json(const Darabonba::Json& j, MemApplicationSpec& obj) { 
         DARABONBA_PTR_FROM_JSON(DbName, dbName_);
         DARABONBA_PTR_FROM_JSON(DbPassword, dbPassword_);
         DARABONBA_PTR_FROM_JSON(DbUser, dbUser_);
         DARABONBA_PTR_FROM_JSON(EmbedderModel, embedderModel_);
+        DARABONBA_PTR_FROM_JSON(EmbedderModelDimension, embedderModelDimension_);
+        DARABONBA_PTR_FROM_JSON(GraphLlmModel, graphLlmModel_);
         DARABONBA_PTR_FROM_JSON(LlmModel, llmModel_);
         DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
         DARABONBA_PTR_FROM_JSON(RerankerModel, rerankerModel_);
+        DARABONBA_PTR_FROM_JSON(Shard, shard_);
       };
       MemApplicationSpec() = default ;
       MemApplicationSpec(const MemApplicationSpec &) = default ;
@@ -104,8 +110,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->dbName_ == nullptr
-        && this->dbPassword_ == nullptr && this->dbUser_ == nullptr && this->embedderModel_ == nullptr && this->llmModel_ == nullptr && this->projectName_ == nullptr
-        && this->rerankerModel_ == nullptr; };
+        && this->dbPassword_ == nullptr && this->dbUser_ == nullptr && this->embedderModel_ == nullptr && this->embedderModelDimension_ == nullptr && this->graphLlmModel_ == nullptr
+        && this->llmModel_ == nullptr && this->projectName_ == nullptr && this->rerankerModel_ == nullptr && this->shard_ == nullptr; };
       // dbName Field Functions 
       bool hasDbName() const { return this->dbName_ != nullptr;};
       void deleteDbName() { this->dbName_ = nullptr;};
@@ -134,6 +140,20 @@ namespace Models
       inline MemApplicationSpec& setEmbedderModel(string embedderModel) { DARABONBA_PTR_SET_VALUE(embedderModel_, embedderModel) };
 
 
+      // embedderModelDimension Field Functions 
+      bool hasEmbedderModelDimension() const { return this->embedderModelDimension_ != nullptr;};
+      void deleteEmbedderModelDimension() { this->embedderModelDimension_ = nullptr;};
+      inline int32_t getEmbedderModelDimension() const { DARABONBA_PTR_GET_DEFAULT(embedderModelDimension_, 0) };
+      inline MemApplicationSpec& setEmbedderModelDimension(int32_t embedderModelDimension) { DARABONBA_PTR_SET_VALUE(embedderModelDimension_, embedderModelDimension) };
+
+
+      // graphLlmModel Field Functions 
+      bool hasGraphLlmModel() const { return this->graphLlmModel_ != nullptr;};
+      void deleteGraphLlmModel() { this->graphLlmModel_ = nullptr;};
+      inline string getGraphLlmModel() const { DARABONBA_PTR_GET_DEFAULT(graphLlmModel_, "") };
+      inline MemApplicationSpec& setGraphLlmModel(string graphLlmModel) { DARABONBA_PTR_SET_VALUE(graphLlmModel_, graphLlmModel) };
+
+
       // llmModel Field Functions 
       bool hasLlmModel() const { return this->llmModel_ != nullptr;};
       void deleteLlmModel() { this->llmModel_ = nullptr;};
@@ -155,14 +175,24 @@ namespace Models
       inline MemApplicationSpec& setRerankerModel(string rerankerModel) { DARABONBA_PTR_SET_VALUE(rerankerModel_, rerankerModel) };
 
 
+      // shard Field Functions 
+      bool hasShard() const { return this->shard_ != nullptr;};
+      void deleteShard() { this->shard_ = nullptr;};
+      inline int32_t getShard() const { DARABONBA_PTR_GET_DEFAULT(shard_, 0) };
+      inline MemApplicationSpec& setShard(int32_t shard) { DARABONBA_PTR_SET_VALUE(shard_, shard) };
+
+
     protected:
       shared_ptr<string> dbName_ {};
       shared_ptr<string> dbPassword_ {};
       shared_ptr<string> dbUser_ {};
       shared_ptr<string> embedderModel_ {};
+      shared_ptr<int32_t> embedderModelDimension_ {};
+      shared_ptr<string> graphLlmModel_ {};
       shared_ptr<string> llmModel_ {};
       shared_ptr<string> projectName_ {};
       shared_ptr<string> rerankerModel_ {};
+      shared_ptr<int32_t> shard_ {};
     };
 
     class Endpoints : public Darabonba::Model {
