@@ -101,6 +101,23 @@ namespace Governance20210120
       Models::EnrollAccountResponse enrollAccount(const Models::EnrollAccountRequest &request);
 
       /**
+       * @summary 生成治理检测报告
+       *
+       * @param tmpReq GenerateEvaluationReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateEvaluationReportResponse
+       */
+      Models::GenerateEvaluationReportResponse generateEvaluationReportWithOptions(const Models::GenerateEvaluationReportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生成治理检测报告
+       *
+       * @param request GenerateEvaluationReportRequest
+       * @return GenerateEvaluationReportResponse
+       */
+      Models::GenerateEvaluationReportResponse generateEvaluationReport(const Models::GenerateEvaluationReportRequest &request);
+
+      /**
        * @summary Obtains the details of an account factory baseline.
        *
        * @param request GetAccountFactoryBaselineRequest

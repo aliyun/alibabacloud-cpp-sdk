@@ -41,19 +41,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->names_ == nullptr && return this->nextToken_ == nullptr && return this->regionId_ == nullptr && return this->type_ == nullptr && return this->versions_ == nullptr; };
+        && this->names_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr && this->type_ == nullptr && this->versions_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListAccountFactoryBaselineItemsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // names Field Functions 
     bool hasNames() const { return this->names_ != nullptr;};
     void deleteNames() { this->names_ = nullptr;};
-    inline const vector<string> & names() const { DARABONBA_PTR_GET_CONST(names_, vector<string>) };
-    inline vector<string> names() { DARABONBA_PTR_GET(names_, vector<string>) };
+    inline const vector<string> & getNames() const { DARABONBA_PTR_GET_CONST(names_, vector<string>) };
+    inline vector<string> getNames() { DARABONBA_PTR_GET(names_, vector<string>) };
     inline ListAccountFactoryBaselineItemsRequest& setNames(const vector<string> & names) { DARABONBA_PTR_SET_VALUE(names_, names) };
     inline ListAccountFactoryBaselineItemsRequest& setNames(vector<string> && names) { DARABONBA_PTR_SET_RVALUE(names_, names) };
 
@@ -61,29 +61,29 @@ namespace Models
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListAccountFactoryBaselineItemsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListAccountFactoryBaselineItemsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListAccountFactoryBaselineItemsRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // versions Field Functions 
     bool hasVersions() const { return this->versions_ != nullptr;};
     void deleteVersions() { this->versions_ = nullptr;};
-    inline const vector<string> & versions() const { DARABONBA_PTR_GET_CONST(versions_, vector<string>) };
-    inline vector<string> versions() { DARABONBA_PTR_GET(versions_, vector<string>) };
+    inline const vector<string> & getVersions() const { DARABONBA_PTR_GET_CONST(versions_, vector<string>) };
+    inline vector<string> getVersions() { DARABONBA_PTR_GET(versions_, vector<string>) };
     inline ListAccountFactoryBaselineItemsRequest& setVersions(const vector<string> & versions) { DARABONBA_PTR_SET_VALUE(versions_, versions) };
     inline ListAccountFactoryBaselineItemsRequest& setVersions(vector<string> && versions) { DARABONBA_PTR_SET_RVALUE(versions_, versions) };
 
@@ -92,17 +92,17 @@ namespace Models
     // The maximum number of entries per page.
     // 
     // Valid values: 1 to 100. Default value: 10.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The names of the baseline items.
-    std::shared_ptr<vector<string>> names_ = nullptr;
+    shared_ptr<vector<string>> names_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The type of the baseline items.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // The versions of the baseline items.
-    std::shared_ptr<vector<string>> versions_ = nullptr;
+    shared_ptr<vector<string>> versions_ {};
   };
 
   } // namespace Models
