@@ -18,6 +18,7 @@ namespace IaCService20210806
     public:
 
       Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
+
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
@@ -1367,6 +1368,26 @@ namespace IaCService20210806
        * @return UpdateTaskAttributeResponse
        */
       Models::UpdateTaskAttributeResponse updateTaskAttribute(const string &taskId, const Models::UpdateTaskAttributeRequest &request);
+
+      /**
+       * @summary 模版上传
+       *
+       * @param request UploadModuleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UploadModuleResponse
+       */
+      Models::UploadModuleResponse uploadModuleWithOptions(const string &resourceType, const Models::UploadModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 模版上传
+       *
+       * @param request UploadModuleRequest
+       * @return UploadModuleResponse
+       */
+      Models::UploadModuleResponse uploadModule(const string &resourceType, const Models::UploadModuleRequest &request);
+
+      Models::UploadModuleResponse uploadModuleAdvance(const string &resourceType, const Models::UploadModuleAdvanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 模版预检

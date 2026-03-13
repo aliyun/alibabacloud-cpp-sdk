@@ -5,11 +5,17 @@
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
+#include <alibabacloud/credentials/Client.hpp>
+#include <darabonba/http/FileField.hpp>
+#include <darabonba/Convert.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace Darabonba::Http;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
+using namespace AlibabaCloud::OpenApi::Exceptions;
+using namespace AlibabaCloud::Credentials::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::IaCService20210806::Models;
@@ -18,11 +24,12 @@ namespace AlibabaCloud
 namespace IaCService20210806
 {
 
-AlibabaCloud::IaCService20210806::Client::Client(Config &config): OpenApiClient(config){
+AlibabaCloud::IaCService20210806::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
   this->_endpointRule = "";
   checkConfig(config);
   this->_endpoint = getEndpoint("iacservice", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
+
 
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
@@ -4325,6 +4332,155 @@ UpdateTaskAttributeResponse Client::updateTaskAttribute(const string &taskId, co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateTaskAttributeWithOptions(taskId, request, headers, runtime);
+}
+
+/**
+ * @summary 模版上传
+ *
+ * @param request UploadModuleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UploadModuleResponse
+ */
+UploadModuleResponse Client::uploadModuleWithOptions(const string &resourceType, const UploadModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasModuleId()) {
+    query["moduleId"] = request.getModuleId();
+  }
+
+  if (!!request.hasModuleName()) {
+    query["moduleName"] = request.getModuleName();
+  }
+
+  if (!!request.hasNamespaceName()) {
+    query["namespaceName"] = request.getNamespaceName();
+  }
+
+  if (!!request.hasUrl()) {
+    query["url"] = request.getUrl();
+  }
+
+  json body = {};
+  if (!!request.hasCode()) {
+    body["code"] = request.getCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UploadModule"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/modules/upload/" , Darabonba::Encode::Encoder::percentEncode(resourceType))},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UploadModuleResponse>();
+}
+
+/**
+ * @summary 模版上传
+ *
+ * @param request UploadModuleRequest
+ * @return UploadModuleResponse
+ */
+UploadModuleResponse Client::uploadModule(const string &resourceType, const UploadModuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return uploadModuleWithOptions(resourceType, request, headers, runtime);
+}
+
+UploadModuleResponse Client::uploadModuleAdvance(const string &resourceType, const UploadModuleAdvanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "IaCService"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  UploadModuleRequest uploadModuleReq = UploadModuleRequest();
+  Utils::Utils::convert(request, uploadModuleReq);
+  if (!!request.hasUrlObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.getUrlObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    uploadModuleReq.setUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  UploadModuleResponse uploadModuleResp = uploadModuleWithOptions(resourceType, uploadModuleReq, headers, runtime);
+  return uploadModuleResp;
 }
 
 /**

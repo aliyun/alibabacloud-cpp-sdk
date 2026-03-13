@@ -222,6 +222,10 @@
 #include <alibabacloud/models/UpdateTaskAttributeRequest.hpp>
 #include <alibabacloud/models/UpdateTaskAttributeResponseBody.hpp>
 #include <alibabacloud/models/UpdateTaskAttributeResponse.hpp>
+#include <alibabacloud/models/UploadModuleRequest.hpp>
+#include <alibabacloud/models/UploadModuleAdvanceRequest.hpp>
+#include <alibabacloud/models/UploadModuleResponseBody.hpp>
+#include <alibabacloud/models/UploadModuleResponse.hpp>
 #include <alibabacloud/models/ValidateModuleRequest.hpp>
 #include <alibabacloud/models/ValidateModuleResponseBody.hpp>
 #include <alibabacloud/models/ValidateModuleResponse.hpp>
