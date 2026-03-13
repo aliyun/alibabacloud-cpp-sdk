@@ -14,11 +14,13 @@ namespace Models
   class DescribeAssetStatisticResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeAssetStatisticResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoResourceEnable, autoResourceEnable_);
       DARABONBA_PTR_TO_JSON(GeneralInstanceSpecStatistic, generalInstanceSpecStatistic_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResourceSpecStatistic, resourceSpecStatistic_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAssetStatisticResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoResourceEnable, autoResourceEnable_);
       DARABONBA_PTR_FROM_JSON(GeneralInstanceSpecStatistic, generalInstanceSpecStatistic_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResourceSpecStatistic, resourceSpecStatistic_);
@@ -295,8 +297,15 @@ namespace Models
       shared_ptr<int32_t> totalVfwGeneralInstanceUsedCnt_ {};
     };
 
-    virtual bool empty() const override { return this->generalInstanceSpecStatistic_ == nullptr
-        && this->requestId_ == nullptr && this->resourceSpecStatistic_ == nullptr; };
+    virtual bool empty() const override { return this->autoResourceEnable_ == nullptr
+        && this->generalInstanceSpecStatistic_ == nullptr && this->requestId_ == nullptr && this->resourceSpecStatistic_ == nullptr; };
+    // autoResourceEnable Field Functions 
+    bool hasAutoResourceEnable() const { return this->autoResourceEnable_ != nullptr;};
+    void deleteAutoResourceEnable() { this->autoResourceEnable_ = nullptr;};
+    inline bool getAutoResourceEnable() const { DARABONBA_PTR_GET_DEFAULT(autoResourceEnable_, false) };
+    inline DescribeAssetStatisticResponseBody& setAutoResourceEnable(bool autoResourceEnable) { DARABONBA_PTR_SET_VALUE(autoResourceEnable_, autoResourceEnable) };
+
+
     // generalInstanceSpecStatistic Field Functions 
     bool hasGeneralInstanceSpecStatistic() const { return this->generalInstanceSpecStatistic_ != nullptr;};
     void deleteGeneralInstanceSpecStatistic() { this->generalInstanceSpecStatistic_ = nullptr;};
@@ -323,6 +332,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> autoResourceEnable_ {};
     shared_ptr<DescribeAssetStatisticResponseBody::GeneralInstanceSpecStatistic> generalInstanceSpecStatistic_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

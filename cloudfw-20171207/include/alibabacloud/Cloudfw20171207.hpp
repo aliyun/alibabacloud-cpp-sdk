@@ -2318,7 +2318,7 @@ namespace Cloudfw20171207
       Models::DescribeNatFirewallTimeTopResponse describeNatFirewallTimeTop(const Models::DescribeNatFirewallTimeTopRequest &request);
 
       /**
-       * @summary 概览页-NAT流量趋势
+       * @summary Queries the traffic trend of NAT gateways.
        *
        * @param request DescribeNatFirewallTrafficTrendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2327,7 +2327,7 @@ namespace Cloudfw20171207
       Models::DescribeNatFirewallTrafficTrendResponse describeNatFirewallTrafficTrendWithOptions(const Models::DescribeNatFirewallTrafficTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 概览页-NAT流量趋势
+       * @summary Queries the traffic trend of NAT gateways.
        *
        * @param request DescribeNatFirewallTrafficTrendRequest
        * @return DescribeNatFirewallTrafficTrendResponse
@@ -3142,7 +3142,7 @@ namespace Cloudfw20171207
       /**
        * @deprecated OpenAPI DescribeSecurityProxy is deprecated, please use Cloudfw::2017-12-07::DescribeNatFirewallList instead.
        *
-       * @summary 获取正向代理
+       * @summary Queries information about NAT firewalls.
        *
        * @param request DescribeSecurityProxyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3153,7 +3153,7 @@ namespace Cloudfw20171207
       /**
        * @deprecated OpenAPI DescribeSecurityProxy is deprecated, please use Cloudfw::2017-12-07::DescribeNatFirewallList instead.
        *
-       * @summary 获取正向代理
+       * @summary Queries information about NAT firewalls.
        *
        * @param request DescribeSecurityProxyRequest
        * @return DescribeSecurityProxyResponse

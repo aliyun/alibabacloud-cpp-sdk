@@ -7517,7 +7517,7 @@ DescribeNatFirewallTimeTopResponse Client::describeNatFirewallTimeTop(const Desc
 }
 
 /**
- * @summary 概览页-NAT流量趋势
+ * @summary Queries the traffic trend of NAT gateways.
  *
  * @param request DescribeNatFirewallTrafficTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7544,7 +7544,7 @@ DescribeNatFirewallTrafficTrendResponse Client::describeNatFirewallTrafficTrendW
 }
 
 /**
- * @summary 概览页-NAT流量趋势
+ * @summary Queries the traffic trend of NAT gateways.
  *
  * @param request DescribeNatFirewallTrafficTrendRequest
  * @return DescribeNatFirewallTrafficTrendResponse
@@ -10491,7 +10491,7 @@ DescribeSecurityModeResponse Client::describeSecurityMode(const DescribeSecurity
 /**
  * @deprecated OpenAPI DescribeSecurityProxy is deprecated, please use Cloudfw::2017-12-07::DescribeNatFirewallList instead.
  *
- * @summary 获取正向代理
+ * @summary Queries information about NAT firewalls.
  *
  * @param request DescribeSecurityProxyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10564,7 +10564,7 @@ DescribeSecurityProxyResponse Client::describeSecurityProxyWithOptions(const Des
 /**
  * @deprecated OpenAPI DescribeSecurityProxy is deprecated, please use Cloudfw::2017-12-07::DescribeNatFirewallList instead.
  *
- * @summary 获取正向代理
+ * @summary Queries information about NAT firewalls.
  *
  * @param request DescribeSecurityProxyRequest
  * @return DescribeSecurityProxyResponse
