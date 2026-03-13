@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_RUNBOOKINTRODUCTIONRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_RUNBOOKINTRODUCTIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -109,10 +110,12 @@ namespace Models
       class Output : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Output& obj) { 
+          DARABONBA_PTR_TO_JSON(Introductions, introductions_);
           DARABONBA_PTR_TO_JSON(KeyPoint, keyPoint_);
           DARABONBA_PTR_TO_JSON(Summary, summary_);
         };
         friend void from_json(const Darabonba::Json& j, Output& obj) { 
+          DARABONBA_PTR_FROM_JSON(Introductions, introductions_);
           DARABONBA_PTR_FROM_JSON(KeyPoint, keyPoint_);
           DARABONBA_PTR_FROM_JSON(Summary, summary_);
         };
@@ -127,8 +130,59 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->keyPoint_ == nullptr
-        && this->summary_ == nullptr; };
+        class Introductions : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Introductions& obj) { 
+            DARABONBA_PTR_TO_JSON(Summary, summary_);
+            DARABONBA_PTR_TO_JSON(Title, title_);
+          };
+          friend void from_json(const Darabonba::Json& j, Introductions& obj) { 
+            DARABONBA_PTR_FROM_JSON(Summary, summary_);
+            DARABONBA_PTR_FROM_JSON(Title, title_);
+          };
+          Introductions() = default ;
+          Introductions(const Introductions &) = default ;
+          Introductions(Introductions &&) = default ;
+          Introductions(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Introductions() = default ;
+          Introductions& operator=(const Introductions &) = default ;
+          Introductions& operator=(Introductions &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->summary_ == nullptr
+        && this->title_ == nullptr; };
+          // summary Field Functions 
+          bool hasSummary() const { return this->summary_ != nullptr;};
+          void deleteSummary() { this->summary_ = nullptr;};
+          inline string getSummary() const { DARABONBA_PTR_GET_DEFAULT(summary_, "") };
+          inline Introductions& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
+
+
+          // title Field Functions 
+          bool hasTitle() const { return this->title_ != nullptr;};
+          void deleteTitle() { this->title_ = nullptr;};
+          inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+          inline Introductions& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
+
+
+        protected:
+          shared_ptr<string> summary_ {};
+          shared_ptr<string> title_ {};
+        };
+
+        virtual bool empty() const override { return this->introductions_ == nullptr
+        && this->keyPoint_ == nullptr && this->summary_ == nullptr; };
+        // introductions Field Functions 
+        bool hasIntroductions() const { return this->introductions_ != nullptr;};
+        void deleteIntroductions() { this->introductions_ = nullptr;};
+        inline const vector<Output::Introductions> & getIntroductions() const { DARABONBA_PTR_GET_CONST(introductions_, vector<Output::Introductions>) };
+        inline vector<Output::Introductions> getIntroductions() { DARABONBA_PTR_GET(introductions_, vector<Output::Introductions>) };
+        inline Output& setIntroductions(const vector<Output::Introductions> & introductions) { DARABONBA_PTR_SET_VALUE(introductions_, introductions) };
+        inline Output& setIntroductions(vector<Output::Introductions> && introductions) { DARABONBA_PTR_SET_RVALUE(introductions_, introductions) };
+
+
         // keyPoint Field Functions 
         bool hasKeyPoint() const { return this->keyPoint_ != nullptr;};
         void deleteKeyPoint() { this->keyPoint_ = nullptr;};
@@ -144,6 +198,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<vector<Output::Introductions>> introductions_ {};
         shared_ptr<string> keyPoint_ {};
         shared_ptr<string> summary_ {};
       };

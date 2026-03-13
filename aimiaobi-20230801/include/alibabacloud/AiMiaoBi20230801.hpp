@@ -74,11 +74,11 @@ namespace AiMiaoBi20230801
       /**
        * @summary 智能剪辑timeline
        *
-       * @param request AsyncCreateClipsTimeLineRequest
+       * @param tmpReq AsyncCreateClipsTimeLineRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AsyncCreateClipsTimeLineResponse
        */
-      Models::AsyncCreateClipsTimeLineResponse asyncCreateClipsTimeLineWithOptions(const Models::AsyncCreateClipsTimeLineRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::AsyncCreateClipsTimeLineResponse asyncCreateClipsTimeLineWithOptions(const Models::AsyncCreateClipsTimeLineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 智能剪辑timeline

@@ -311,12 +311,18 @@ AsyncCreateClipsTaskResponse Client::asyncCreateClipsTask(const AsyncCreateClips
 /**
  * @summary 智能剪辑timeline
  *
- * @param request AsyncCreateClipsTimeLineRequest
+ * @param tmpReq AsyncCreateClipsTimeLineRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AsyncCreateClipsTimeLineResponse
  */
-AsyncCreateClipsTimeLineResponse Client::asyncCreateClipsTimeLineWithOptions(const AsyncCreateClipsTimeLineRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+AsyncCreateClipsTimeLineResponse Client::asyncCreateClipsTimeLineWithOptions(const AsyncCreateClipsTimeLineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AsyncCreateClipsTimeLineShrinkRequest request = AsyncCreateClipsTimeLineShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasHighLightConfig()) {
+    request.setHighLightConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHighLightConfig(), "HighLightConfig", "json"));
+  }
+
   json body = {};
   if (!!request.hasAdditionalContent()) {
     body["AdditionalContent"] = request.getAdditionalContent();
@@ -324,6 +330,10 @@ AsyncCreateClipsTimeLineResponse Client::asyncCreateClipsTimeLineWithOptions(con
 
   if (!!request.hasCustomContent()) {
     body["CustomContent"] = request.getCustomContent();
+  }
+
+  if (!!request.hasHighLightConfigShrink()) {
+    body["HighLightConfig"] = request.getHighLightConfigShrink();
   }
 
   if (!!request.hasNoRefVideo()) {
@@ -334,8 +344,16 @@ AsyncCreateClipsTimeLineResponse Client::asyncCreateClipsTimeLineWithOptions(con
     body["ProcessPrompt"] = request.getProcessPrompt();
   }
 
+  if (!!request.hasRecommendAudio()) {
+    body["RecommendAudio"] = request.getRecommendAudio();
+  }
+
   if (!!request.hasTaskId()) {
     body["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasTimelineScene()) {
+    body["TimelineScene"] = request.getTimelineScene();
   }
 
   if (!!request.hasWorkspaceId()) {

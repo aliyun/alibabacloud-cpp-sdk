@@ -23,6 +23,7 @@
 #include <alibabacloud/models/AsyncCreateClipsTaskResponseBody.hpp>
 #include <alibabacloud/models/AsyncCreateClipsTaskResponse.hpp>
 #include <alibabacloud/models/AsyncCreateClipsTimeLineRequest.hpp>
+#include <alibabacloud/models/AsyncCreateClipsTimeLineShrinkRequest.hpp>
 #include <alibabacloud/models/AsyncCreateClipsTimeLineResponseBody.hpp>
 #include <alibabacloud/models/AsyncCreateClipsTimeLineResponse.hpp>
 #include <alibabacloud/models/AsyncEditTimelineRequest.hpp>
