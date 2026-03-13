@@ -86,7 +86,7 @@ ApproveProvisionedProductPlanResponse Client::approveProvisionedProductPlan(cons
 }
 
 /**
- * @summary 将产品组合授权给某个RAM实体
+ * @summary Grants a Resource Access Management (RAM) user or RAM role that belongs to the current Alibaba Cloud account the permissions to access a product portfolio.
  *
  * @param request AssociatePrincipalWithPortfolioRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -129,7 +129,7 @@ AssociatePrincipalWithPortfolioResponse Client::associatePrincipalWithPortfolioW
 }
 
 /**
- * @summary 将产品组合授权给某个RAM实体
+ * @summary Grants a Resource Access Management (RAM) user or RAM role that belongs to the current Alibaba Cloud account the permissions to access a product portfolio.
  *
  * @param request AssociatePrincipalWithPortfolioRequest
  * @return AssociatePrincipalWithPortfolioResponse
@@ -1720,7 +1720,7 @@ ListLaunchOptionsResponse Client::listLaunchOptions(const ListLaunchOptionsReque
 }
 
 /**
- * @summary The number of entries returned per page.
+ * @summary Queries product portfolios.
  *
  * @param request ListPortfoliosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1775,7 +1775,7 @@ ListPortfoliosResponse Client::listPortfoliosWithOptions(const ListPortfoliosReq
 }
 
 /**
- * @summary The number of entries returned per page.
+ * @summary Queries product portfolios.
  *
  * @param request ListPortfoliosRequest
  * @return ListPortfoliosResponse
@@ -2283,7 +2283,7 @@ ListTagOptionsResponse Client::listTagOptions(const ListTagOptionsRequest &reque
 }
 
 /**
- * @summary The page number of the returned page.
+ * @summary Queries tasks.
  *
  * @param request ListTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2330,7 +2330,7 @@ ListTasksResponse Client::listTasksWithOptions(const ListTasksRequest &request, 
 }
 
 /**
- * @summary The page number of the returned page.
+ * @summary Queries tasks.
  *
  * @param request ListTasksRequest
  * @return ListTasksResponse
@@ -2437,7 +2437,7 @@ UpdateConstraintResponse Client::updateConstraint(const UpdateConstraintRequest 
 }
 
 /**
- * @summary The ID of the product portfolio.
+ * @summary Updates the information about a product portfolio.
  *
  * @param request UpdatePortfolioRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2480,7 +2480,7 @@ UpdatePortfolioResponse Client::updatePortfolioWithOptions(const UpdatePortfolio
 }
 
 /**
- * @summary The ID of the product portfolio.
+ * @summary Updates the information about a product portfolio.
  *
  * @param request UpdatePortfolioRequest
  * @return UpdatePortfolioResponse
@@ -2491,7 +2491,7 @@ UpdatePortfolioResponse Client::updatePortfolio(const UpdatePortfolioRequest &re
 }
 
 /**
- * @summary The ID of the product.
+ * @summary Updates the information about a product.
  *
  * @param request UpdateProductRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2534,7 +2534,7 @@ UpdateProductResponse Client::updateProductWithOptions(const UpdateProductReques
 }
 
 /**
- * @summary The ID of the product.
+ * @summary Updates the information about a product.
  *
  * @param request UpdateProductRequest
  * @return UpdateProductResponse

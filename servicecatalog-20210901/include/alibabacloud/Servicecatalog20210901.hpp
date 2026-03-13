@@ -38,7 +38,7 @@ namespace Servicecatalog20210901
       Models::ApproveProvisionedProductPlanResponse approveProvisionedProductPlan(const Models::ApproveProvisionedProductPlanRequest &request);
 
       /**
-       * @summary 将产品组合授权给某个RAM实体
+       * @summary Grants a Resource Access Management (RAM) user or RAM role that belongs to the current Alibaba Cloud account the permissions to access a product portfolio.
        *
        * @param request AssociatePrincipalWithPortfolioRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Servicecatalog20210901
       Models::AssociatePrincipalWithPortfolioResponse associatePrincipalWithPortfolioWithOptions(const Models::AssociatePrincipalWithPortfolioRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将产品组合授权给某个RAM实体
+       * @summary Grants a Resource Access Management (RAM) user or RAM role that belongs to the current Alibaba Cloud account the permissions to access a product portfolio.
        *
        * @param request AssociatePrincipalWithPortfolioRequest
        * @return AssociatePrincipalWithPortfolioResponse
@@ -628,7 +628,7 @@ namespace Servicecatalog20210901
       Models::ListLaunchOptionsResponse listLaunchOptions(const Models::ListLaunchOptionsRequest &request);
 
       /**
-       * @summary The number of entries returned per page.
+       * @summary Queries product portfolios.
        *
        * @param request ListPortfoliosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -637,7 +637,7 @@ namespace Servicecatalog20210901
       Models::ListPortfoliosResponse listPortfoliosWithOptions(const Models::ListPortfoliosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The number of entries returned per page.
+       * @summary Queries product portfolios.
        *
        * @param request ListPortfoliosRequest
        * @return ListPortfoliosResponse
@@ -818,7 +818,7 @@ namespace Servicecatalog20210901
       Models::ListTagOptionsResponse listTagOptions(const Models::ListTagOptionsRequest &request);
 
       /**
-       * @summary The page number of the returned page.
+       * @summary Queries tasks.
        *
        * @param request ListTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -827,7 +827,7 @@ namespace Servicecatalog20210901
       Models::ListTasksResponse listTasksWithOptions(const Models::ListTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The page number of the returned page.
+       * @summary Queries tasks.
        *
        * @param request ListTasksRequest
        * @return ListTasksResponse
@@ -873,7 +873,7 @@ namespace Servicecatalog20210901
       Models::UpdateConstraintResponse updateConstraint(const Models::UpdateConstraintRequest &request);
 
       /**
-       * @summary The ID of the product portfolio.
+       * @summary Updates the information about a product portfolio.
        *
        * @param request UpdatePortfolioRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -882,7 +882,7 @@ namespace Servicecatalog20210901
       Models::UpdatePortfolioResponse updatePortfolioWithOptions(const Models::UpdatePortfolioRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The ID of the product portfolio.
+       * @summary Updates the information about a product portfolio.
        *
        * @param request UpdatePortfolioRequest
        * @return UpdatePortfolioResponse
@@ -890,7 +890,7 @@ namespace Servicecatalog20210901
       Models::UpdatePortfolioResponse updatePortfolio(const Models::UpdatePortfolioRequest &request);
 
       /**
-       * @summary The ID of the product.
+       * @summary Updates the information about a product.
        *
        * @param request UpdateProductRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -899,7 +899,7 @@ namespace Servicecatalog20210901
       Models::UpdateProductResponse updateProductWithOptions(const Models::UpdateProductRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The ID of the product.
+       * @summary Updates the information about a product.
        *
        * @param request UpdateProductRequest
        * @return UpdateProductResponse
