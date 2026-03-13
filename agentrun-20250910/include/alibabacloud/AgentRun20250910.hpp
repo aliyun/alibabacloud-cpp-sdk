@@ -1073,6 +1073,28 @@ namespace AgentRun20250910
       Models::ListTemplatesResponse listTemplates(const Models::ListTemplatesRequest &request);
 
       /**
+       * @summary 获取工作空间列表
+       *
+       * @description 获取工作空间列表
+       *
+       * @param request ListWorkspacesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkspacesResponse
+       */
+      Models::ListWorkspacesResponse listWorkspacesWithOptions(const Models::ListWorkspacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作空间列表
+       *
+       * @description 获取工作空间列表
+       *
+       * @param request ListWorkspacesRequest
+       * @return ListWorkspacesResponse
+       */
+      Models::ListWorkspacesResponse listWorkspaces(const Models::ListWorkspacesRequest &request);
+
+      /**
        * @summary 发布运行时版本
        *
        * @description 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。

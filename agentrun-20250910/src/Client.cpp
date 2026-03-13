@@ -2606,6 +2606,67 @@ ListTemplatesResponse Client::listTemplates(const ListTemplatesRequest &request)
 }
 
 /**
+ * @summary 获取工作空间列表
+ *
+ * @description 获取工作空间列表
+ *
+ * @param request ListWorkspacesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkspacesResponse
+ */
+ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWorkspaces"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/workspaces")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkspacesResponse>();
+}
+
+/**
+ * @summary 获取工作空间列表
+ *
+ * @description 获取工作空间列表
+ *
+ * @param request ListWorkspacesRequest
+ * @return ListWorkspacesResponse
+ */
+ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listWorkspacesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 发布运行时版本
  *
  * @description 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。

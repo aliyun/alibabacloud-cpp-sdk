@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(authConfig, authConfig_);
       DARABONBA_PTR_TO_JSON(authType, authType_);
       DARABONBA_PTR_TO_JSON(headerKey, headerKey_);
+      DARABONBA_PTR_TO_JSON(jwks, jwks_);
+      DARABONBA_PTR_TO_JSON(prefix, prefix_);
       DARABONBA_PTR_TO_JSON(provider, provider_);
       DARABONBA_PTR_TO_JSON(remoteConfig, remoteConfig_);
       DARABONBA_PTR_TO_JSON(users, users_);
@@ -26,6 +28,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(authConfig, authConfig_);
       DARABONBA_PTR_FROM_JSON(authType, authType_);
       DARABONBA_PTR_FROM_JSON(headerKey, headerKey_);
+      DARABONBA_PTR_FROM_JSON(jwks, jwks_);
+      DARABONBA_PTR_FROM_JSON(prefix, prefix_);
       DARABONBA_PTR_FROM_JSON(provider, provider_);
       DARABONBA_PTR_FROM_JSON(remoteConfig, remoteConfig_);
       DARABONBA_PTR_FROM_JSON(users, users_);
@@ -136,7 +140,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->authConfig_ == nullptr
-        && this->authType_ == nullptr && this->headerKey_ == nullptr && this->provider_ == nullptr && this->remoteConfig_ == nullptr && this->users_ == nullptr; };
+        && this->authType_ == nullptr && this->headerKey_ == nullptr && this->jwks_ == nullptr && this->prefix_ == nullptr && this->provider_ == nullptr
+        && this->remoteConfig_ == nullptr && this->users_ == nullptr; };
     // authConfig Field Functions 
     bool hasAuthConfig() const { return this->authConfig_ != nullptr;};
     void deleteAuthConfig() { this->authConfig_ = nullptr;};
@@ -158,6 +163,20 @@ namespace Models
     void deleteHeaderKey() { this->headerKey_ = nullptr;};
     inline string getHeaderKey() const { DARABONBA_PTR_GET_DEFAULT(headerKey_, "") };
     inline CredentialPublicConfig& setHeaderKey(string headerKey) { DARABONBA_PTR_SET_VALUE(headerKey_, headerKey) };
+
+
+    // jwks Field Functions 
+    bool hasJwks() const { return this->jwks_ != nullptr;};
+    void deleteJwks() { this->jwks_ = nullptr;};
+    inline string getJwks() const { DARABONBA_PTR_GET_DEFAULT(jwks_, "") };
+    inline CredentialPublicConfig& setJwks(string jwks) { DARABONBA_PTR_SET_VALUE(jwks_, jwks) };
+
+
+    // prefix Field Functions 
+    bool hasPrefix() const { return this->prefix_ != nullptr;};
+    void deletePrefix() { this->prefix_ = nullptr;};
+    inline string getPrefix() const { DARABONBA_PTR_GET_DEFAULT(prefix_, "") };
+    inline CredentialPublicConfig& setPrefix(string prefix) { DARABONBA_PTR_SET_VALUE(prefix_, prefix) };
 
 
     // provider Field Functions 
@@ -189,6 +208,8 @@ namespace Models
     shared_ptr<map<string, string>> authConfig_ {};
     shared_ptr<string> authType_ {};
     shared_ptr<string> headerKey_ {};
+    shared_ptr<string> jwks_ {};
+    shared_ptr<string> prefix_ {};
     shared_ptr<string> provider_ {};
     shared_ptr<CredentialPublicConfig::RemoteConfig> remoteConfig_ {};
     shared_ptr<vector<CredentialPublicConfig::Users>> users_ {};

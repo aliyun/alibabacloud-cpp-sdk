@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(credentialId, credentialId_);
       DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(credentialSourceType, credentialSourceType_);
+      DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(enabled, enabled_);
       DARABONBA_PTR_TO_JSON(relatedResourceCount, relatedResourceCount_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(credentialId, credentialId_);
       DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(credentialSourceType, credentialSourceType_);
+      DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(enabled, enabled_);
       DARABONBA_PTR_FROM_JSON(relatedResourceCount, relatedResourceCount_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->credentialAuthType_ == nullptr && this->credentialId_ == nullptr && this->credentialName_ == nullptr && this->credentialSourceType_ == nullptr && this->enabled_ == nullptr
-        && this->relatedResourceCount_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->credentialAuthType_ == nullptr && this->credentialId_ == nullptr && this->credentialName_ == nullptr && this->credentialSourceType_ == nullptr && this->description_ == nullptr
+        && this->enabled_ == nullptr && this->relatedResourceCount_ == nullptr && this->updatedAt_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -81,6 +83,13 @@ namespace Models
     inline CredentialListItem& setCredentialSourceType(string credentialSourceType) { DARABONBA_PTR_SET_VALUE(credentialSourceType_, credentialSourceType) };
 
 
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline CredentialListItem& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
@@ -108,6 +117,7 @@ namespace Models
     shared_ptr<string> credentialId_ {};
     shared_ptr<string> credentialName_ {};
     shared_ptr<string> credentialSourceType_ {};
+    shared_ptr<string> description_ {};
     shared_ptr<bool> enabled_ {};
     shared_ptr<int32_t> relatedResourceCount_ {};
     shared_ptr<string> updatedAt_ {};

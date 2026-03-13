@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREDENTIAL_HPP_
 #define ALIBABACLOUD_MODELS_CREDENTIAL_HPP_
 #include <darabonba/Core.hpp>
-#include <map>
+#include <alibabacloud/models/CredentialPublicConfig.hpp>
 #include <vector>
 #include <alibabacloud/models/RelatedResource.hpp>
 using namespace std;
@@ -86,10 +86,10 @@ namespace Models
     // credentialPublicConfig Field Functions 
     bool hasCredentialPublicConfig() const { return this->credentialPublicConfig_ != nullptr;};
     void deleteCredentialPublicConfig() { this->credentialPublicConfig_ = nullptr;};
-    inline const map<string, string> & getCredentialPublicConfig() const { DARABONBA_PTR_GET_CONST(credentialPublicConfig_, map<string, string>) };
-    inline map<string, string> getCredentialPublicConfig() { DARABONBA_PTR_GET(credentialPublicConfig_, map<string, string>) };
-    inline Credential& setCredentialPublicConfig(const map<string, string> & credentialPublicConfig) { DARABONBA_PTR_SET_VALUE(credentialPublicConfig_, credentialPublicConfig) };
-    inline Credential& setCredentialPublicConfig(map<string, string> && credentialPublicConfig) { DARABONBA_PTR_SET_RVALUE(credentialPublicConfig_, credentialPublicConfig) };
+    inline const CredentialPublicConfig & getCredentialPublicConfig() const { DARABONBA_PTR_GET_CONST(credentialPublicConfig_, CredentialPublicConfig) };
+    inline CredentialPublicConfig getCredentialPublicConfig() { DARABONBA_PTR_GET(credentialPublicConfig_, CredentialPublicConfig) };
+    inline Credential& setCredentialPublicConfig(const CredentialPublicConfig & credentialPublicConfig) { DARABONBA_PTR_SET_VALUE(credentialPublicConfig_, credentialPublicConfig) };
+    inline Credential& setCredentialPublicConfig(CredentialPublicConfig && credentialPublicConfig) { DARABONBA_PTR_SET_RVALUE(credentialPublicConfig_, credentialPublicConfig) };
 
 
     // credentialSecret Field Functions 
@@ -141,7 +141,7 @@ namespace Models
     shared_ptr<string> credentialAuthType_ {};
     shared_ptr<string> credentialId_ {};
     shared_ptr<string> credentialName_ {};
-    shared_ptr<map<string, string>> credentialPublicConfig_ {};
+    shared_ptr<CredentialPublicConfig> credentialPublicConfig_ {};
     shared_ptr<string> credentialSecret_ {};
     shared_ptr<string> credentialSourceType_ {};
     shared_ptr<string> description_ {};

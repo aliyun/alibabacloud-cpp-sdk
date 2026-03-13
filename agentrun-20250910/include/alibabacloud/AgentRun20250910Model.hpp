@@ -313,6 +313,8 @@
 #include <alibabacloud/models/ListSandboxesResponse.hpp>
 #include <alibabacloud/models/ListTemplatesRequest.hpp>
 #include <alibabacloud/models/ListTemplatesResponse.hpp>
+#include <alibabacloud/models/ListWorkspacesRequest.hpp>
+#include <alibabacloud/models/ListWorkspacesResponse.hpp>
 #include <alibabacloud/models/PublishRuntimeVersionRequest.hpp>
 #include <alibabacloud/models/PublishRuntimeVersionResponse.hpp>
 #include <alibabacloud/models/StopSandboxResponse.hpp>
