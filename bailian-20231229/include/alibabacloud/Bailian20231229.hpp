@@ -99,7 +99,7 @@ namespace Bailian20231229
       Models::AddFilesFromAuthorizedOssResponse addFilesFromAuthorizedOss(const string &WorkspaceId, const Models::AddFilesFromAuthorizedOssRequest &request);
 
       /**
-       * @summary Applies for a document upload lease to upload a document.
+       * @summary Applies for a document upload lease to upload a document. You cannot use the API to upload structured documents. Use the console instead.
        *
        * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
        * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
@@ -114,7 +114,7 @@ namespace Bailian20231229
       Models::ApplyFileUploadLeaseResponse applyFileUploadLeaseWithOptions(const string &CategoryId, const string &WorkspaceId, const Models::ApplyFileUploadLeaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Applies for a document upload lease to upload a document.
+       * @summary Applies for a document upload lease to upload a document. You cannot use the API to upload structured documents. Use the console instead.
        *
        * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
        * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
@@ -291,7 +291,7 @@ namespace Bailian20231229
       Models::DeleteAgentResponse deleteAgent(const string &workspaceId, const string &appCode);
 
       /**
-       * @summary 删除类目
+       * @summary Deletes a specified category permanently.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -300,7 +300,7 @@ namespace Bailian20231229
       Models::DeleteCategoryResponse deleteCategoryWithOptions(const string &CategoryId, const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除类目
+       * @summary Deletes a specified category permanently.
        *
        * @return DeleteCategoryResponse
        */
@@ -345,7 +345,7 @@ namespace Bailian20231229
       Models::DeleteChunkResponse deleteChunk(const string &WorkspaceId, const Models::DeleteChunkRequest &request);
 
       /**
-       * @summary 删除文档
+       * @summary Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -354,7 +354,7 @@ namespace Bailian20231229
       Models::DeleteFileResponse deleteFileWithOptions(const string &FileId, const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除文档
+       * @summary Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
        *
        * @return DeleteFileResponse
        */
@@ -391,7 +391,7 @@ namespace Bailian20231229
       Models::DeleteIndexResponse deleteIndex(const string &WorkspaceId, const Models::DeleteIndexRequest &request);
 
       /**
-       * @summary Deletes one or more documents from a specified unstructured knowledge base permanently.
+       * @summary Deletes one or more documents from a specified unstructured knowledge base permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
        *
        * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
        * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
@@ -407,7 +407,7 @@ namespace Bailian20231229
       Models::DeleteIndexDocumentResponse deleteIndexDocumentWithOptions(const string &WorkspaceId, const Models::DeleteIndexDocumentRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes one or more documents from a specified unstructured knowledge base permanently.
+       * @summary Deletes one or more documents from a specified unstructured knowledge base permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
        *
        * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
        * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
@@ -469,7 +469,7 @@ namespace Bailian20231229
       Models::DeletePromptTemplateResponse deletePromptTemplate(const string &workspaceId, const string &promptTemplateId);
 
       /**
-       * @summary Queries the details of an unstructured document.
+       * @summary Obtains the basic information of a document, including the document name, type, and status.
        *
        * @description Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
        * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
@@ -483,7 +483,7 @@ namespace Bailian20231229
       Models::DescribeFileResponse describeFileWithOptions(const string &WorkspaceId, const string &FileId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an unstructured document.
+       * @summary Obtains the basic information of a document, including the document name, type, and status.
        *
        * @description Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
        * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
@@ -575,7 +575,7 @@ namespace Bailian20231229
       Models::GetIndexJobStatusResponse getIndexJobStatus(const string &WorkspaceId, const Models::GetIndexJobStatusRequest &request);
 
       /**
-       * @summary 获取索引监控情况
+       * @summary \\<props="intl">Currently, this API is not supported.\\
        *
        * @param request GetIndexMonitorRequest
        * @param headers map
@@ -585,7 +585,7 @@ namespace Bailian20231229
       Models::GetIndexMonitorResponse getIndexMonitorWithOptions(const string &WorkspaceId, const Models::GetIndexMonitorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取索引监控情况
+       * @summary \\<props="intl">Currently, this API is not supported.\\
        *
        * @param request GetIndexMonitorRequest
        * @return GetIndexMonitorResponse
@@ -693,7 +693,7 @@ namespace Bailian20231229
       Models::HighCodeDeployResponse highCodeDeploy(const string &workspaceId, const Models::HighCodeDeployRequest &request);
 
       /**
-       * @summary ListCategory
+       * @summary Lists the details about the next or multiple categories in a specified workspace.
        *
        * @param request ListCategoryRequest
        * @param headers map
@@ -703,7 +703,7 @@ namespace Bailian20231229
       Models::ListCategoryResponse listCategoryWithOptions(const string &WorkspaceId, const Models::ListCategoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListCategory
+       * @summary Lists the details about the next or multiple categories in a specified workspace.
        *
        * @param request ListCategoryRequest
        * @return ListCategoryResponse
@@ -805,7 +805,7 @@ namespace Bailian20231229
       Models::ListIndexFileDetailsResponse listIndexFileDetails(const string &WorkspaceId, const Models::ListIndexFileDetailsRequest &request);
 
       /**
-       * @summary Lists knowledge bases in a specified workspace.
+       * @summary Lists the details about the next or multiple knowledge bases in a specified workspace.
        *
        * @description This interface is idempotent.
        *
@@ -817,7 +817,7 @@ namespace Bailian20231229
       Models::ListIndicesResponse listIndicesWithOptions(const string &WorkspaceId, const Models::ListIndicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists knowledge bases in a specified workspace.
+       * @summary Lists the details about the next or multiple knowledge bases in a specified workspace.
        *
        * @description This interface is idempotent.
        *
@@ -925,7 +925,7 @@ namespace Bailian20231229
       Models::RetrieveResponse retrieve(const string &WorkspaceId, const Models::RetrieveRequest &request);
 
       /**
-       * @summary Adds parsed documents to an unstructured knowledge base.
+       * @summary Adds parsed documents to an unstructured knowledge base. You cannot use the API to add knowledge to structured knowledge bases, see the Usage notes section of this topic.
        *
        * @description *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
        * *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
@@ -940,7 +940,7 @@ namespace Bailian20231229
       Models::SubmitIndexAddDocumentsJobResponse submitIndexAddDocumentsJobWithOptions(const string &WorkspaceId, const Models::SubmitIndexAddDocumentsJobRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds parsed documents to an unstructured knowledge base.
+       * @summary Adds parsed documents to an unstructured knowledge base. You cannot use the API to add knowledge to structured knowledge bases, see the Usage notes section of this topic.
        *
        * @description *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
        * *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
@@ -1053,7 +1053,7 @@ namespace Bailian20231229
       Models::UpdateChunkResponse updateChunk(const string &WorkspaceId, const Models::UpdateChunkRequest &request);
 
       /**
-       * @summary 更新文档Tag
+       * @summary Updates the tags of a specified document.
        *
        * @param tmpReq UpdateFileTagRequest
        * @param headers map
@@ -1063,7 +1063,7 @@ namespace Bailian20231229
       Models::UpdateFileTagResponse updateFileTagWithOptions(const string &WorkspaceId, const string &FileId, const Models::UpdateFileTagRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新文档Tag
+       * @summary Updates the tags of a specified document.
        *
        * @param request UpdateFileTagRequest
        * @return UpdateFileTagResponse
@@ -1071,7 +1071,7 @@ namespace Bailian20231229
       Models::UpdateFileTagResponse updateFileTag(const string &WorkspaceId, const string &FileId, const Models::UpdateFileTagRequest &request);
 
       /**
-       * @summary 更新索引任务
+       * @summary \\<props="intl">Currently, this API is not supported.\\
        *
        * @param request UpdateIndexRequest
        * @param headers map
@@ -1081,7 +1081,7 @@ namespace Bailian20231229
       Models::UpdateIndexResponse updateIndexWithOptions(const string &WorkspaceId, const Models::UpdateIndexRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新索引任务
+       * @summary \\<props="intl">Currently, this API is not supported.\\
        *
        * @param request UpdateIndexRequest
        * @return UpdateIndexResponse

@@ -264,7 +264,7 @@ AddFilesFromAuthorizedOssResponse Client::addFilesFromAuthorizedOss(const string
 }
 
 /**
- * @summary Applies for a document upload lease to upload a document.
+ * @summary Applies for a document upload lease to upload a document. You cannot use the API to upload structured documents. Use the console instead.
  *
  * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
  * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
@@ -318,7 +318,7 @@ ApplyFileUploadLeaseResponse Client::applyFileUploadLeaseWithOptions(const strin
 }
 
 /**
- * @summary Applies for a document upload lease to upload a document.
+ * @summary Applies for a document upload lease to upload a document. You cannot use the API to upload structured documents. Use the console instead.
  *
  * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
  * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
@@ -647,6 +647,10 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
     query["TableIds"] = request.getTableIdsShrink();
   }
 
+  if (!!request.hasChannelType()) {
+    query["channelType"] = request.getChannelType();
+  }
+
   if (!!request.hasChunkMode()) {
     query["chunkMode"] = request.getChunkMode();
   }
@@ -906,7 +910,7 @@ DeleteAgentResponse Client::deleteAgent(const string &workspaceId, const string 
 }
 
 /**
- * @summary 删除类目
+ * @summary Deletes a specified category permanently.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -931,7 +935,7 @@ DeleteCategoryResponse Client::deleteCategoryWithOptions(const string &CategoryI
 }
 
 /**
- * @summary 删除类目
+ * @summary Deletes a specified category permanently.
  *
  * @return DeleteCategoryResponse
  */
@@ -1017,7 +1021,7 @@ DeleteChunkResponse Client::deleteChunk(const string &WorkspaceId, const DeleteC
 }
 
 /**
- * @summary 删除文档
+ * @summary Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1042,7 +1046,7 @@ DeleteFileResponse Client::deleteFileWithOptions(const string &FileId, const str
 }
 
 /**
- * @summary 删除文档
+ * @summary Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
  *
  * @return DeleteFileResponse
  */
@@ -1110,7 +1114,7 @@ DeleteIndexResponse Client::deleteIndex(const string &WorkspaceId, const DeleteI
 }
 
 /**
- * @summary Deletes one or more documents from a specified unstructured knowledge base permanently.
+ * @summary Deletes one or more documents from a specified unstructured knowledge base permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
  *
  * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
  * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
@@ -1159,7 +1163,7 @@ DeleteIndexDocumentResponse Client::deleteIndexDocumentWithOptions(const string 
 }
 
 /**
- * @summary Deletes one or more documents from a specified unstructured knowledge base permanently.
+ * @summary Deletes one or more documents from a specified unstructured knowledge base permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
  *
  * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
  * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
@@ -1285,7 +1289,7 @@ DeletePromptTemplateResponse Client::deletePromptTemplate(const string &workspac
 }
 
 /**
- * @summary Queries the details of an unstructured document.
+ * @summary Obtains the basic information of a document, including the document name, type, and status.
  *
  * @description Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
  * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
@@ -1315,7 +1319,7 @@ DescribeFileResponse Client::describeFileWithOptions(const string &WorkspaceId, 
 }
 
 /**
- * @summary Queries the details of an unstructured document.
+ * @summary Obtains the basic information of a document, including the document name, type, and status.
  *
  * @description Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
  * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
@@ -1539,7 +1543,7 @@ GetIndexJobStatusResponse Client::getIndexJobStatus(const string &WorkspaceId, c
 }
 
 /**
- * @summary 获取索引监控情况
+ * @summary \\<props="intl">Currently, this API is not supported.\\
  *
  * @param request GetIndexMonitorRequest
  * @param headers map
@@ -1580,7 +1584,7 @@ GetIndexMonitorResponse Client::getIndexMonitorWithOptions(const string &Workspa
 }
 
 /**
- * @summary 获取索引监控情况
+ * @summary \\<props="intl">Currently, this API is not supported.\\
  *
  * @param request GetIndexMonitorRequest
  * @return GetIndexMonitorResponse
@@ -1846,7 +1850,7 @@ HighCodeDeployResponse Client::highCodeDeploy(const string &workspaceId, const H
 }
 
 /**
- * @summary ListCategory
+ * @summary Lists the details about the next or multiple categories in a specified workspace.
  *
  * @param request ListCategoryRequest
  * @param headers map
@@ -1895,7 +1899,7 @@ ListCategoryResponse Client::listCategoryWithOptions(const string &WorkspaceId, 
 }
 
 /**
- * @summary ListCategory
+ * @summary Lists the details about the next or multiple categories in a specified workspace.
  *
  * @param request ListCategoryRequest
  * @return ListCategoryResponse
@@ -2181,7 +2185,7 @@ ListIndexFileDetailsResponse Client::listIndexFileDetails(const string &Workspac
 }
 
 /**
- * @summary Lists knowledge bases in a specified workspace.
+ * @summary Lists the details about the next or multiple knowledge bases in a specified workspace.
  *
  * @description This interface is idempotent.
  *
@@ -2224,7 +2228,7 @@ ListIndicesResponse Client::listIndicesWithOptions(const string &WorkspaceId, co
 }
 
 /**
- * @summary Lists knowledge bases in a specified workspace.
+ * @summary Lists the details about the next or multiple knowledge bases in a specified workspace.
  *
  * @description This interface is idempotent.
  *
@@ -2569,7 +2573,7 @@ RetrieveResponse Client::retrieve(const string &WorkspaceId, const RetrieveReque
 }
 
 /**
- * @summary Adds parsed documents to an unstructured knowledge base.
+ * @summary Adds parsed documents to an unstructured knowledge base. You cannot use the API to add knowledge to structured knowledge bases, see the Usage notes section of this topic.
  *
  * @description *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
  * *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
@@ -2649,7 +2653,7 @@ SubmitIndexAddDocumentsJobResponse Client::submitIndexAddDocumentsJobWithOptions
 }
 
 /**
- * @summary Adds parsed documents to an unstructured knowledge base.
+ * @summary Adds parsed documents to an unstructured knowledge base. You cannot use the API to add knowledge to structured knowledge bases, see the Usage notes section of this topic.
  *
  * @description *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
  * *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
@@ -2946,7 +2950,7 @@ UpdateChunkResponse Client::updateChunk(const string &WorkspaceId, const UpdateC
 }
 
 /**
- * @summary 更新文档Tag
+ * @summary Updates the tags of a specified document.
  *
  * @param tmpReq UpdateFileTagRequest
  * @param headers map
@@ -2985,7 +2989,7 @@ UpdateFileTagResponse Client::updateFileTagWithOptions(const string &WorkspaceId
 }
 
 /**
- * @summary 更新文档Tag
+ * @summary Updates the tags of a specified document.
  *
  * @param request UpdateFileTagRequest
  * @return UpdateFileTagResponse
@@ -2997,7 +3001,7 @@ UpdateFileTagResponse Client::updateFileTag(const string &WorkspaceId, const str
 }
 
 /**
- * @summary 更新索引任务
+ * @summary \\<props="intl">Currently, this API is not supported.\\
  *
  * @param request UpdateIndexRequest
  * @param headers map
@@ -3058,7 +3062,7 @@ UpdateIndexResponse Client::updateIndexWithOptions(const string &WorkspaceId, co
 }
 
 /**
- * @summary 更新索引任务
+ * @summary \\<props="intl">Currently, this API is not supported.\\
  *
  * @param request UpdateIndexRequest
  * @return UpdateIndexResponse

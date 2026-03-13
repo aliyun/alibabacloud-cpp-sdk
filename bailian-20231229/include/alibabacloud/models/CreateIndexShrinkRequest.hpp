@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(StructureType, structureType_);
       DARABONBA_PTR_TO_JSON(TableIds, tableIdsShrink_);
+      DARABONBA_PTR_TO_JSON(channelType, channelType_);
       DARABONBA_PTR_TO_JSON(chunkMode, chunkMode_);
       DARABONBA_PTR_TO_JSON(connectId, connectId_);
       DARABONBA_PTR_TO_JSON(database, database_);
@@ -66,6 +67,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(StructureType, structureType_);
       DARABONBA_PTR_FROM_JSON(TableIds, tableIdsShrink_);
+      DARABONBA_PTR_FROM_JSON(channelType, channelType_);
       DARABONBA_PTR_FROM_JSON(chunkMode, chunkMode_);
       DARABONBA_PTR_FROM_JSON(connectId, connectId_);
       DARABONBA_PTR_FROM_JSON(database, database_);
@@ -93,9 +95,10 @@ namespace Models
         && this->chunkSize_ == nullptr && this->columnsShrink_ == nullptr && this->createIndexType_ == nullptr && this->dataSourceShrink_ == nullptr && this->description_ == nullptr
         && this->documentIdsShrink_ == nullptr && this->embeddingModelName_ == nullptr && this->enableRewrite_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr
         && this->rerankMinScore_ == nullptr && this->rerankModelName_ == nullptr && this->separator_ == nullptr && this->sinkInstanceId_ == nullptr && this->sinkRegion_ == nullptr
-        && this->sinkType_ == nullptr && this->sourceType_ == nullptr && this->structureType_ == nullptr && this->tableIdsShrink_ == nullptr && this->chunkMode_ == nullptr
-        && this->connectId_ == nullptr && this->database_ == nullptr && this->datasourceCode_ == nullptr && this->enableHeaders_ == nullptr && this->knowledgeScene_ == nullptr
-        && this->metaExtractColumnsShrink_ == nullptr && this->pipelineCommercialCu_ == nullptr && this->pipelineCommercialType_ == nullptr && this->pipelineRetrieveRateLimitStrategy_ == nullptr && this->table_ == nullptr; };
+        && this->sinkType_ == nullptr && this->sourceType_ == nullptr && this->structureType_ == nullptr && this->tableIdsShrink_ == nullptr && this->channelType_ == nullptr
+        && this->chunkMode_ == nullptr && this->connectId_ == nullptr && this->database_ == nullptr && this->datasourceCode_ == nullptr && this->enableHeaders_ == nullptr
+        && this->knowledgeScene_ == nullptr && this->metaExtractColumnsShrink_ == nullptr && this->pipelineCommercialCu_ == nullptr && this->pipelineCommercialType_ == nullptr && this->pipelineRetrieveRateLimitStrategy_ == nullptr
+        && this->table_ == nullptr; };
     // categoryIdsShrink Field Functions 
     bool hasCategoryIdsShrink() const { return this->categoryIdsShrink_ != nullptr;};
     void deleteCategoryIdsShrink() { this->categoryIdsShrink_ = nullptr;};
@@ -236,6 +239,13 @@ namespace Models
     inline CreateIndexShrinkRequest& setTableIdsShrink(string tableIdsShrink) { DARABONBA_PTR_SET_VALUE(tableIdsShrink_, tableIdsShrink) };
 
 
+    // channelType Field Functions 
+    bool hasChannelType() const { return this->channelType_ != nullptr;};
+    void deleteChannelType() { this->channelType_ = nullptr;};
+    inline string getChannelType() const { DARABONBA_PTR_GET_DEFAULT(channelType_, "") };
+    inline CreateIndexShrinkRequest& setChannelType(string channelType) { DARABONBA_PTR_SET_VALUE(channelType_, channelType) };
+
+
     // chunkMode Field Functions 
     bool hasChunkMode() const { return this->chunkMode_ != nullptr;};
     void deleteChunkMode() { this->chunkMode_ = nullptr;};
@@ -322,6 +332,7 @@ namespace Models
     // 
     // > If `ChunkSize` is set to a value less than 100, `OverlapSize` is required. Or, if you do not pass these two parameters, the system uses the default values of the two.
     shared_ptr<int32_t> chunkSize_ {};
+    // > This parameter is not available. Do not specify this parameter.
     shared_ptr<string> columnsShrink_ {};
     // > This parameter is not available. Do not specify this parameter.
     shared_ptr<string> createIndexType_ {};
@@ -403,6 +414,7 @@ namespace Models
     shared_ptr<string> structureType_ {};
     // > This parameter is not available. Do not specify this parameter.
     shared_ptr<string> tableIdsShrink_ {};
+    shared_ptr<string> channelType_ {};
     // > This parameter is not available. Do not specify this parameter.
     shared_ptr<string> chunkMode_ {};
     shared_ptr<string> connectId_ {};
