@@ -6972,6 +6972,56 @@ GenerateUploadAuthResponse Client::generateUploadAuth(const GenerateUploadAuthRe
 }
 
 /**
+ * @summary 生成WebAuthn认证器注册URL
+ *
+ * @param request GenerateWebAuthnAuthenticatorRegistrationUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateWebAuthnAuthenticatorRegistrationUrlResponse
+ */
+GenerateWebAuthnAuthenticatorRegistrationUrlResponse Client::generateWebAuthnAuthenticatorRegistrationUrlWithOptions(const GenerateWebAuthnAuthenticatorRegistrationUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainId()) {
+    query["DomainId"] = request.getDomainId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateWebAuthnAuthenticatorRegistrationUrl"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateWebAuthnAuthenticatorRegistrationUrlResponse>();
+}
+
+/**
+ * @summary 生成WebAuthn认证器注册URL
+ *
+ * @param request GenerateWebAuthnAuthenticatorRegistrationUrlRequest
+ * @return GenerateWebAuthnAuthenticatorRegistrationUrlResponse
+ */
+GenerateWebAuthnAuthenticatorRegistrationUrlResponse Client::generateWebAuthnAuthenticatorRegistrationUrl(const GenerateWebAuthnAuthenticatorRegistrationUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateWebAuthnAuthenticatorRegistrationUrlWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of an Employee Identity and Access Management (EIAM) application.
  *
  * @param request GetApplicationRequest
@@ -10877,6 +10927,10 @@ ListCredentialsResponse Client::listCredentialsWithOptions(const ListCredentials
   json query = {};
   if (!!request.hasCredentialIds()) {
     query["CredentialIds"] = request.getCredentialIds();
+  }
+
+  if (!!request.hasCredentialTypes()) {
+    query["CredentialTypes"] = request.getCredentialTypes();
   }
 
   if (!!request.hasFilter()) {

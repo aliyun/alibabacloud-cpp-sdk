@@ -2314,6 +2314,23 @@ namespace Eiam20211201
       Models::GenerateUploadAuthResponse generateUploadAuth(const Models::GenerateUploadAuthRequest &request);
 
       /**
+       * @summary 生成WebAuthn认证器注册URL
+       *
+       * @param request GenerateWebAuthnAuthenticatorRegistrationUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateWebAuthnAuthenticatorRegistrationUrlResponse
+       */
+      Models::GenerateWebAuthnAuthenticatorRegistrationUrlResponse generateWebAuthnAuthenticatorRegistrationUrlWithOptions(const Models::GenerateWebAuthnAuthenticatorRegistrationUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生成WebAuthn认证器注册URL
+       *
+       * @param request GenerateWebAuthnAuthenticatorRegistrationUrlRequest
+       * @return GenerateWebAuthnAuthenticatorRegistrationUrlResponse
+       */
+      Models::GenerateWebAuthnAuthenticatorRegistrationUrlResponse generateWebAuthnAuthenticatorRegistrationUrl(const Models::GenerateWebAuthnAuthenticatorRegistrationUrlRequest &request);
+
+      /**
        * @summary Queries the details of an Employee Identity and Access Management (EIAM) application.
        *
        * @param request GetApplicationRequest

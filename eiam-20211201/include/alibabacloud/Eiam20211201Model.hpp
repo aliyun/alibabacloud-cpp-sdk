@@ -401,6 +401,9 @@
 #include <alibabacloud/models/GenerateUploadAuthRequest.hpp>
 #include <alibabacloud/models/GenerateUploadAuthResponseBody.hpp>
 #include <alibabacloud/models/GenerateUploadAuthResponse.hpp>
+#include <alibabacloud/models/GenerateWebAuthnAuthenticatorRegistrationUrlRequest.hpp>
+#include <alibabacloud/models/GenerateWebAuthnAuthenticatorRegistrationUrlResponseBody.hpp>
+#include <alibabacloud/models/GenerateWebAuthnAuthenticatorRegistrationUrlResponse.hpp>
 #include <alibabacloud/models/GetApplicationRequest.hpp>
 #include <alibabacloud/models/GetApplicationResponseBody.hpp>
 #include <alibabacloud/models/GetApplicationResponse.hpp>

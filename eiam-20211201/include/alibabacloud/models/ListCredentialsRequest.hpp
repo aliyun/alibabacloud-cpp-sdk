@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListCredentialsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CredentialIds, credentialIds_);
+      DARABONBA_PTR_TO_JSON(CredentialTypes, credentialTypes_);
       DARABONBA_PTR_TO_JSON(Filter, filter_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListCredentialsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CredentialIds, credentialIds_);
+      DARABONBA_PTR_FROM_JSON(CredentialTypes, credentialTypes_);
       DARABONBA_PTR_FROM_JSON(Filter, filter_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
@@ -85,7 +87,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->credentialIds_ == nullptr
-        && this->filter_ == nullptr && this->instanceId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->statuses_ == nullptr; };
+        && this->credentialTypes_ == nullptr && this->filter_ == nullptr && this->instanceId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
+        && this->statuses_ == nullptr; };
     // credentialIds Field Functions 
     bool hasCredentialIds() const { return this->credentialIds_ != nullptr;};
     void deleteCredentialIds() { this->credentialIds_ = nullptr;};
@@ -93,6 +96,15 @@ namespace Models
     inline vector<string> getCredentialIds() { DARABONBA_PTR_GET(credentialIds_, vector<string>) };
     inline ListCredentialsRequest& setCredentialIds(const vector<string> & credentialIds) { DARABONBA_PTR_SET_VALUE(credentialIds_, credentialIds) };
     inline ListCredentialsRequest& setCredentialIds(vector<string> && credentialIds) { DARABONBA_PTR_SET_RVALUE(credentialIds_, credentialIds) };
+
+
+    // credentialTypes Field Functions 
+    bool hasCredentialTypes() const { return this->credentialTypes_ != nullptr;};
+    void deleteCredentialTypes() { this->credentialTypes_ = nullptr;};
+    inline const vector<string> & getCredentialTypes() const { DARABONBA_PTR_GET_CONST(credentialTypes_, vector<string>) };
+    inline vector<string> getCredentialTypes() { DARABONBA_PTR_GET(credentialTypes_, vector<string>) };
+    inline ListCredentialsRequest& setCredentialTypes(const vector<string> & credentialTypes) { DARABONBA_PTR_SET_VALUE(credentialTypes_, credentialTypes) };
+    inline ListCredentialsRequest& setCredentialTypes(vector<string> && credentialTypes) { DARABONBA_PTR_SET_RVALUE(credentialTypes_, credentialTypes) };
 
 
     // filter Field Functions 
@@ -136,6 +148,7 @@ namespace Models
 
   protected:
     shared_ptr<vector<string>> credentialIds_ {};
+    shared_ptr<vector<string>> credentialTypes_ {};
     shared_ptr<vector<ListCredentialsRequest::Filter>> filter_ {};
     // IDaaS EIAM实例的ID。
     // 
