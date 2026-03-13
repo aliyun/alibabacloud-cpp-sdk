@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->components_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // components Field Functions 
     bool hasComponents() const { return this->components_ != nullptr;};
     void deleteComponents() { this->components_ = nullptr;};
-    inline string components() const { DARABONBA_PTR_GET_DEFAULT(components_, "") };
+    inline string getComponents() const { DARABONBA_PTR_GET_DEFAULT(components_, "") };
     inline DescribeComponentListResponseBody& setComponents(string components) { DARABONBA_PTR_SET_VALUE(components_, components) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeComponentListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The information about the components. The value is a JSON array.
-    std::shared_ptr<string> components_ = nullptr;
+    shared_ptr<string> components_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->componentName_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // componentName Field Functions 
     bool hasComponentName() const { return this->componentName_ != nullptr;};
     void deleteComponentName() { this->componentName_ = nullptr;};
-    inline string componentName() const { DARABONBA_PTR_GET_DEFAULT(componentName_, "") };
+    inline string getComponentName() const { DARABONBA_PTR_GET_DEFAULT(componentName_, "") };
     inline DescribeComponentAssetFormRequest& setComponentName(string componentName) { DARABONBA_PTR_SET_VALUE(componentName_, componentName) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeComponentAssetFormRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
@@ -51,12 +51,12 @@ namespace Models
     // The component name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> componentName_ = nullptr;
+    shared_ptr<string> componentName_ {};
     // The language of the content within the response. Valid values:
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

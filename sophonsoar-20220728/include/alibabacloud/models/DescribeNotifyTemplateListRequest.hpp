@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->roleFor_ == nullptr && return this->roleType_ == nullptr; };
+        && this->roleFor_ == nullptr && this->roleType_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeNotifyTemplateListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // roleFor Field Functions 
     bool hasRoleFor() const { return this->roleFor_ != nullptr;};
     void deleteRoleFor() { this->roleFor_ = nullptr;};
-    inline int64_t roleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
+    inline int64_t getRoleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
     inline DescribeNotifyTemplateListRequest& setRoleFor(int64_t roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
     // roleType Field Functions 
     bool hasRoleType() const { return this->roleType_ != nullptr;};
     void deleteRoleType() { this->roleType_ = nullptr;};
-    inline string roleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, "") };
+    inline string getRoleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, "") };
     inline DescribeNotifyTemplateListRequest& setRoleType(string roleType) { DARABONBA_PTR_SET_VALUE(roleType_, roleType) };
 
 
@@ -61,14 +61,14 @@ namespace Models
     // 
     // *   **zh** (default): Chinese.
     // *   **en**: English.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the user who switches from the current view to the destination view by using the management account.
-    std::shared_ptr<int64_t> roleFor_ = nullptr;
+    shared_ptr<int64_t> roleFor_ {};
     // The type of the view. Default value: 0. Valid values:
     // 
     // *   0: the view of the current Alibaba Cloud account.
     // *   1: the view of all accounts for the enterprise.
-    std::shared_ptr<string> roleType_ = nullptr;
+    shared_ptr<string> roleType_ {};
   };
 
   } // namespace Models

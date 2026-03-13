@@ -40,69 +40,69 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiName_ == nullptr
-        && return this->keyWord_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->productCode_ == nullptr && return this->vendorCode_ == nullptr; };
+        && this->keyWord_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->productCode_ == nullptr && this->vendorCode_ == nullptr; };
     // apiName Field Functions 
     bool hasApiName() const { return this->apiName_ != nullptr;};
     void deleteApiName() { this->apiName_ = nullptr;};
-    inline string apiName() const { DARABONBA_PTR_GET_DEFAULT(apiName_, "") };
+    inline string getApiName() const { DARABONBA_PTR_GET_DEFAULT(apiName_, "") };
     inline DescribeVendorApiListRequest& setApiName(string apiName) { DARABONBA_PTR_SET_VALUE(apiName_, apiName) };
 
 
     // keyWord Field Functions 
     bool hasKeyWord() const { return this->keyWord_ != nullptr;};
     void deleteKeyWord() { this->keyWord_ = nullptr;};
-    inline string keyWord() const { DARABONBA_PTR_GET_DEFAULT(keyWord_, "") };
+    inline string getKeyWord() const { DARABONBA_PTR_GET_DEFAULT(keyWord_, "") };
     inline DescribeVendorApiListRequest& setKeyWord(string keyWord) { DARABONBA_PTR_SET_VALUE(keyWord_, keyWord) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeVendorApiListRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline DescribeVendorApiListRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline DescribeVendorApiListRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // vendorCode Field Functions 
     bool hasVendorCode() const { return this->vendorCode_ != nullptr;};
     void deleteVendorCode() { this->vendorCode_ = nullptr;};
-    inline string vendorCode() const { DARABONBA_PTR_GET_DEFAULT(vendorCode_, "") };
+    inline string getVendorCode() const { DARABONBA_PTR_GET_DEFAULT(vendorCode_, "") };
     inline DescribeVendorApiListRequest& setVendorCode(string vendorCode) { DARABONBA_PTR_SET_VALUE(vendorCode_, vendorCode) };
 
 
   protected:
     // The name of the Alibaba Cloud product interface, supporting fuzzy search.
-    std::shared_ptr<string> apiName_ = nullptr;
+    shared_ptr<string> apiName_ {};
     // Keyword.
-    std::shared_ptr<string> keyWord_ = nullptr;
+    shared_ptr<string> keyWord_ {};
     // The current page number for pagination. The default value is 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of items per page when displaying paginated results. The default is 10.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // Vendor\\"s product identifier:
     // - **waf**: Web Application Firewall.
     // - **cfw**: Cloud Firewall.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // Vendor code:
     // - **Tencent**: Tencent.
     // - **HUAWEICLOUD**: Huawei.
     // - **Azure**: Microsoft Azure.
     // - **AWS**: Amazon Web Services.
     // - **Chaitin**: Chaitin.
-    std::shared_ptr<string> vendorCode_ = nullptr;
+    shared_ptr<string> vendorCode_ {};
   };
 
   } // namespace Models

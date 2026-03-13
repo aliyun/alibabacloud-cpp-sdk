@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->playbookUuid_ == nullptr
-        && return this->taskFlow_ == nullptr; };
+        && this->taskFlow_ == nullptr; };
     // playbookUuid Field Functions 
     bool hasPlaybookUuid() const { return this->playbookUuid_ != nullptr;};
     void deletePlaybookUuid() { this->playbookUuid_ = nullptr;};
-    inline string playbookUuid() const { DARABONBA_PTR_GET_DEFAULT(playbookUuid_, "") };
+    inline string getPlaybookUuid() const { DARABONBA_PTR_GET_DEFAULT(playbookUuid_, "") };
     inline VerifyPlaybookRequest& setPlaybookUuid(string playbookUuid) { DARABONBA_PTR_SET_VALUE(playbookUuid_, playbookUuid) };
 
 
     // taskFlow Field Functions 
     bool hasTaskFlow() const { return this->taskFlow_ != nullptr;};
     void deleteTaskFlow() { this->taskFlow_ = nullptr;};
-    inline string taskFlow() const { DARABONBA_PTR_GET_DEFAULT(taskFlow_, "") };
+    inline string getTaskFlow() const { DARABONBA_PTR_GET_DEFAULT(taskFlow_, "") };
     inline VerifyPlaybookRequest& setTaskFlow(string taskFlow) { DARABONBA_PTR_SET_VALUE(taskFlow_, taskFlow) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The playbook UUID.
     // 
     // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
-    std::shared_ptr<string> playbookUuid_ = nullptr;
+    shared_ptr<string> playbookUuid_ {};
     // The XML configuration of the playbook.
-    std::shared_ptr<string> taskFlow_ = nullptr;
+    shared_ptr<string> taskFlow_ {};
   };
 
   } // namespace Models

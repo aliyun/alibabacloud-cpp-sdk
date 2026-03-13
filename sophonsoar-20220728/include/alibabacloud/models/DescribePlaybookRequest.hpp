@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->debugFlag_ == nullptr
-        && return this->lang_ == nullptr && return this->playbookUuid_ == nullptr && return this->taskflowMd5_ == nullptr; };
+        && this->lang_ == nullptr && this->playbookUuid_ == nullptr && this->taskflowMd5_ == nullptr; };
     // debugFlag Field Functions 
     bool hasDebugFlag() const { return this->debugFlag_ != nullptr;};
     void deleteDebugFlag() { this->debugFlag_ = nullptr;};
-    inline int32_t debugFlag() const { DARABONBA_PTR_GET_DEFAULT(debugFlag_, 0) };
+    inline int32_t getDebugFlag() const { DARABONBA_PTR_GET_DEFAULT(debugFlag_, 0) };
     inline DescribePlaybookRequest& setDebugFlag(int32_t debugFlag) { DARABONBA_PTR_SET_VALUE(debugFlag_, debugFlag) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribePlaybookRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // playbookUuid Field Functions 
     bool hasPlaybookUuid() const { return this->playbookUuid_ != nullptr;};
     void deletePlaybookUuid() { this->playbookUuid_ = nullptr;};
-    inline string playbookUuid() const { DARABONBA_PTR_GET_DEFAULT(playbookUuid_, "") };
+    inline string getPlaybookUuid() const { DARABONBA_PTR_GET_DEFAULT(playbookUuid_, "") };
     inline DescribePlaybookRequest& setPlaybookUuid(string playbookUuid) { DARABONBA_PTR_SET_VALUE(playbookUuid_, playbookUuid) };
 
 
     // taskflowMd5 Field Functions 
     bool hasTaskflowMd5() const { return this->taskflowMd5_ != nullptr;};
     void deleteTaskflowMd5() { this->taskflowMd5_ = nullptr;};
-    inline string taskflowMd5() const { DARABONBA_PTR_GET_DEFAULT(taskflowMd5_, "") };
+    inline string getTaskflowMd5() const { DARABONBA_PTR_GET_DEFAULT(taskflowMd5_, "") };
     inline DescribePlaybookRequest& setTaskflowMd5(string taskflowMd5) { DARABONBA_PTR_SET_VALUE(taskflowMd5_, taskflowMd5) };
 
 
@@ -70,20 +70,20 @@ namespace Models
     // 
     // *   **1**: playbook of the debugging version
     // *   **0**: playbook of the published version
-    std::shared_ptr<int32_t> debugFlag_ = nullptr;
+    shared_ptr<int32_t> debugFlag_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The UUID of the playbook.
     // 
     // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
     // 
     // This parameter is required.
-    std::shared_ptr<string> playbookUuid_ = nullptr;
+    shared_ptr<string> playbookUuid_ {};
     // The MD5 hash value of the playbook.
-    std::shared_ptr<string> taskflowMd5_ = nullptr;
+    shared_ptr<string> taskflowMd5_ {};
   };
 
   } // namespace Models

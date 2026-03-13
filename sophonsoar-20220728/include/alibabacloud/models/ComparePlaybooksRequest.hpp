@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->newPlaybookReleaseId_ == nullptr && return this->oldPlaybookReleaseId_ == nullptr && return this->playbookUuid_ == nullptr; };
+        && this->newPlaybookReleaseId_ == nullptr && this->oldPlaybookReleaseId_ == nullptr && this->playbookUuid_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ComparePlaybooksRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // newPlaybookReleaseId Field Functions 
     bool hasNewPlaybookReleaseId() const { return this->newPlaybookReleaseId_ != nullptr;};
     void deleteNewPlaybookReleaseId() { this->newPlaybookReleaseId_ = nullptr;};
-    inline int32_t newPlaybookReleaseId() const { DARABONBA_PTR_GET_DEFAULT(newPlaybookReleaseId_, 0) };
+    inline int32_t getNewPlaybookReleaseId() const { DARABONBA_PTR_GET_DEFAULT(newPlaybookReleaseId_, 0) };
     inline ComparePlaybooksRequest& setNewPlaybookReleaseId(int32_t newPlaybookReleaseId) { DARABONBA_PTR_SET_VALUE(newPlaybookReleaseId_, newPlaybookReleaseId) };
 
 
     // oldPlaybookReleaseId Field Functions 
     bool hasOldPlaybookReleaseId() const { return this->oldPlaybookReleaseId_ != nullptr;};
     void deleteOldPlaybookReleaseId() { this->oldPlaybookReleaseId_ = nullptr;};
-    inline int32_t oldPlaybookReleaseId() const { DARABONBA_PTR_GET_DEFAULT(oldPlaybookReleaseId_, 0) };
+    inline int32_t getOldPlaybookReleaseId() const { DARABONBA_PTR_GET_DEFAULT(oldPlaybookReleaseId_, 0) };
     inline ComparePlaybooksRequest& setOldPlaybookReleaseId(int32_t oldPlaybookReleaseId) { DARABONBA_PTR_SET_VALUE(oldPlaybookReleaseId_, oldPlaybookReleaseId) };
 
 
     // playbookUuid Field Functions 
     bool hasPlaybookUuid() const { return this->playbookUuid_ != nullptr;};
     void deletePlaybookUuid() { this->playbookUuid_ = nullptr;};
-    inline string playbookUuid() const { DARABONBA_PTR_GET_DEFAULT(playbookUuid_, "") };
+    inline string getPlaybookUuid() const { DARABONBA_PTR_GET_DEFAULT(playbookUuid_, "") };
     inline ComparePlaybooksRequest& setPlaybookUuid(string playbookUuid) { DARABONBA_PTR_SET_VALUE(playbookUuid_, playbookUuid) };
 
 
@@ -70,25 +70,25 @@ namespace Models
     // 
     // *   **zh** (default): Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the second version.
     // 
     // >  You can call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation to query the IDs of versions. The system automatically generates IDs for new versions.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> newPlaybookReleaseId_ = nullptr;
+    shared_ptr<int32_t> newPlaybookReleaseId_ {};
     // The ID of the first version.
     // 
     // >  You can call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation to query the IDs of versions. The system automatically generates IDs for new versions.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> oldPlaybookReleaseId_ = nullptr;
+    shared_ptr<int32_t> oldPlaybookReleaseId_ {};
     // The UUID of the playbook.
     // 
     // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
     // 
     // This parameter is required.
-    std::shared_ptr<string> playbookUuid_ = nullptr;
+    shared_ptr<string> playbookUuid_ {};
   };
 
   } // namespace Models

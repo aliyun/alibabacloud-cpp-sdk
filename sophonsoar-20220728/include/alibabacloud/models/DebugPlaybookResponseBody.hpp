@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->requestUuid_ == nullptr; };
+        && this->requestUuid_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DebugPlaybookResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // requestUuid Field Functions 
     bool hasRequestUuid() const { return this->requestUuid_ != nullptr;};
     void deleteRequestUuid() { this->requestUuid_ = nullptr;};
-    inline string requestUuid() const { DARABONBA_PTR_GET_DEFAULT(requestUuid_, "") };
+    inline string getRequestUuid() const { DARABONBA_PTR_GET_DEFAULT(requestUuid_, "") };
     inline DebugPlaybookResponseBody& setRequestUuid(string requestUuid) { DARABONBA_PTR_SET_VALUE(requestUuid_, requestUuid) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The UUID of the debugging task. You can use the UUID to query the result and other details of the debugging task.
-    std::shared_ptr<string> requestUuid_ = nullptr;
+    shared_ptr<string> requestUuid_ {};
   };
 
   } // namespace Models

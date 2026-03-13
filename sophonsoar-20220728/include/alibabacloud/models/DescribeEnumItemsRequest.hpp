@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enumType_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // enumType Field Functions 
     bool hasEnumType() const { return this->enumType_ != nullptr;};
     void deleteEnumType() { this->enumType_ = nullptr;};
-    inline string enumType() const { DARABONBA_PTR_GET_DEFAULT(enumType_, "") };
+    inline string getEnumType() const { DARABONBA_PTR_GET_DEFAULT(enumType_, "") };
     inline DescribeEnumItemsRequest& setEnumType(string enumType) { DARABONBA_PTR_SET_VALUE(enumType_, enumType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeEnumItemsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
@@ -53,12 +53,12 @@ namespace Models
     // *   **process**: scenarios
     // 
     // This parameter is required.
-    std::shared_ptr<string> enumType_ = nullptr;
+    shared_ptr<string> enumType_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh_cn**: Simplified Chinese (default)
     // *   **en_us**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

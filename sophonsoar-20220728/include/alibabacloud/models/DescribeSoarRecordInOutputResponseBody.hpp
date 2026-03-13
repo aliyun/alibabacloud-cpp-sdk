@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->inOutputInfo_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // inOutputInfo Field Functions 
     bool hasInOutputInfo() const { return this->inOutputInfo_ != nullptr;};
     void deleteInOutputInfo() { this->inOutputInfo_ = nullptr;};
-    inline string inOutputInfo() const { DARABONBA_PTR_GET_DEFAULT(inOutputInfo_, "") };
+    inline string getInOutputInfo() const { DARABONBA_PTR_GET_DEFAULT(inOutputInfo_, "") };
     inline DescribeSoarRecordInOutputResponseBody& setInOutputInfo(string inOutputInfo) { DARABONBA_PTR_SET_VALUE(inOutputInfo_, inOutputInfo) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSoarRecordInOutputResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The execution result of the component action.
-    std::shared_ptr<string> inOutputInfo_ = nullptr;
+    shared_ptr<string> inOutputInfo_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

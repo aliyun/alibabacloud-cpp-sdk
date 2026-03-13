@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->triggerUuid_ == nullptr; };
+        && this->triggerUuid_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline TriggerPlaybookResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // triggerUuid Field Functions 
     bool hasTriggerUuid() const { return this->triggerUuid_ != nullptr;};
     void deleteTriggerUuid() { this->triggerUuid_ = nullptr;};
-    inline string triggerUuid() const { DARABONBA_PTR_GET_DEFAULT(triggerUuid_, "") };
+    inline string getTriggerUuid() const { DARABONBA_PTR_GET_DEFAULT(triggerUuid_, "") };
     inline TriggerPlaybookResponseBody& setTriggerUuid(string triggerUuid) { DARABONBA_PTR_SET_VALUE(triggerUuid_, triggerUuid) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The running UUID of the playbook. This parameter is used to query the running result of the playbook.
-    std::shared_ptr<string> triggerUuid_ = nullptr;
+    shared_ptr<string> triggerUuid_ {};
   };
 
   } // namespace Models

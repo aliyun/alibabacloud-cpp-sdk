@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->entityUuidList_ == nullptr
-        && return this->lang_ == nullptr && return this->roleFor_ == nullptr && return this->roleType_ == nullptr; };
+        && this->lang_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr; };
     // entityUuidList Field Functions 
     bool hasEntityUuidList() const { return this->entityUuidList_ != nullptr;};
     void deleteEntityUuidList() { this->entityUuidList_ = nullptr;};
-    inline const vector<string> & entityUuidList() const { DARABONBA_PTR_GET_CONST(entityUuidList_, vector<string>) };
-    inline vector<string> entityUuidList() { DARABONBA_PTR_GET(entityUuidList_, vector<string>) };
+    inline const vector<string> & getEntityUuidList() const { DARABONBA_PTR_GET_CONST(entityUuidList_, vector<string>) };
+    inline vector<string> getEntityUuidList() { DARABONBA_PTR_GET(entityUuidList_, vector<string>) };
     inline DescribeProcessTaskCountRequest& setEntityUuidList(const vector<string> & entityUuidList) { DARABONBA_PTR_SET_VALUE(entityUuidList_, entityUuidList) };
     inline DescribeProcessTaskCountRequest& setEntityUuidList(vector<string> && entityUuidList) { DARABONBA_PTR_SET_RVALUE(entityUuidList_, entityUuidList) };
 
@@ -50,21 +50,21 @@ namespace Models
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeProcessTaskCountRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // roleFor Field Functions 
     bool hasRoleFor() const { return this->roleFor_ != nullptr;};
     void deleteRoleFor() { this->roleFor_ = nullptr;};
-    inline int64_t roleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
+    inline int64_t getRoleFor() const { DARABONBA_PTR_GET_DEFAULT(roleFor_, 0L) };
     inline DescribeProcessTaskCountRequest& setRoleFor(int64_t roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
     // roleType Field Functions 
     bool hasRoleType() const { return this->roleType_ != nullptr;};
     void deleteRoleType() { this->roleType_ = nullptr;};
-    inline string roleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, "") };
+    inline string getRoleType() const { DARABONBA_PTR_GET_DEFAULT(roleType_, "") };
     inline DescribeProcessTaskCountRequest& setRoleType(string roleType) { DARABONBA_PTR_SET_VALUE(roleType_, roleType) };
 
 
@@ -72,20 +72,20 @@ namespace Models
     // Collection of entity UUIDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> entityUuidList_ = nullptr;
+    shared_ptr<vector<string>> entityUuidList_ {};
     // Language type for request and response messages. Values:
     // 
     // - **zh** (default): Chinese.
     // 
     // - **en**: English.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // User ID for administrators to switch to other member\\"s perspective.
-    std::shared_ptr<int64_t> roleFor_ = nullptr;
+    shared_ptr<int64_t> roleFor_ {};
     // View type.
     // 
     // - **0**: Current Alibaba Cloud account view.
     // - **1**: View for all accounts under the enterprise.
-    std::shared_ptr<string> roleType_ = nullptr;
+    shared_ptr<string> roleType_ {};
   };
 
   } // namespace Models

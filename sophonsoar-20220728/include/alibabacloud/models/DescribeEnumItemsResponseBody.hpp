@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEENUMITEMSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeEnumItemsResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,29 +32,73 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Data& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Data& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The key of the enumeration item.
+      shared_ptr<string> key_ {};
+      // The value of the enumeration item.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<DescribeEnumItemsResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<DescribeEnumItemsResponseBodyData>) };
-    inline vector<DescribeEnumItemsResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<DescribeEnumItemsResponseBodyData>) };
-    inline DescribeEnumItemsResponseBody& setData(const vector<DescribeEnumItemsResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline DescribeEnumItemsResponseBody& setData(vector<DescribeEnumItemsResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<DescribeEnumItemsResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<DescribeEnumItemsResponseBody::Data>) };
+    inline vector<DescribeEnumItemsResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<DescribeEnumItemsResponseBody::Data>) };
+    inline DescribeEnumItemsResponseBody& setData(const vector<DescribeEnumItemsResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline DescribeEnumItemsResponseBody& setData(vector<DescribeEnumItemsResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeEnumItemsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The information about the enumeration item.
-    std::shared_ptr<vector<DescribeEnumItemsResponseBodyData>> data_ = nullptr;
+    shared_ptr<vector<DescribeEnumItemsResponseBody::Data>> data_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

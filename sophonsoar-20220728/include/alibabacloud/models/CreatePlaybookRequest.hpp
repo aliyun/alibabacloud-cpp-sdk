@@ -40,67 +40,67 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->displayName_ == nullptr && return this->inputParams_ == nullptr && return this->lang_ == nullptr && return this->outputParams_ == nullptr && return this->taskflowType_ == nullptr; };
+        && this->displayName_ == nullptr && this->inputParams_ == nullptr && this->lang_ == nullptr && this->outputParams_ == nullptr && this->taskflowType_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreatePlaybookRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
-    inline string displayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+    inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline CreatePlaybookRequest& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
     // inputParams Field Functions 
     bool hasInputParams() const { return this->inputParams_ != nullptr;};
     void deleteInputParams() { this->inputParams_ = nullptr;};
-    inline string inputParams() const { DARABONBA_PTR_GET_DEFAULT(inputParams_, "") };
+    inline string getInputParams() const { DARABONBA_PTR_GET_DEFAULT(inputParams_, "") };
     inline CreatePlaybookRequest& setInputParams(string inputParams) { DARABONBA_PTR_SET_VALUE(inputParams_, inputParams) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CreatePlaybookRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // outputParams Field Functions 
     bool hasOutputParams() const { return this->outputParams_ != nullptr;};
     void deleteOutputParams() { this->outputParams_ = nullptr;};
-    inline string outputParams() const { DARABONBA_PTR_GET_DEFAULT(outputParams_, "") };
+    inline string getOutputParams() const { DARABONBA_PTR_GET_DEFAULT(outputParams_, "") };
     inline CreatePlaybookRequest& setOutputParams(string outputParams) { DARABONBA_PTR_SET_VALUE(outputParams_, outputParams) };
 
 
     // taskflowType Field Functions 
     bool hasTaskflowType() const { return this->taskflowType_ != nullptr;};
     void deleteTaskflowType() { this->taskflowType_ = nullptr;};
-    inline string taskflowType() const { DARABONBA_PTR_GET_DEFAULT(taskflowType_, "") };
+    inline string getTaskflowType() const { DARABONBA_PTR_GET_DEFAULT(taskflowType_, "") };
     inline CreatePlaybookRequest& setTaskflowType(string taskflowType) { DARABONBA_PTR_SET_VALUE(taskflowType_, taskflowType) };
 
 
   protected:
     // Description of the playbook.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Name of the playbook.
     // 
     // This parameter is required.
-    std::shared_ptr<string> displayName_ = nullptr;
-    std::shared_ptr<string> inputParams_ = nullptr;
+    shared_ptr<string> displayName_ {};
+    shared_ptr<string> inputParams_ {};
     // Language type for receiving messages. Values:
     // 
     // - **zh** (default): Chinese
     // - **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> outputParams_ = nullptr;
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> outputParams_ {};
     // Playbook TaskFlow type.
     // - **x6** : x6
     // - **bpmn**: bpmn
-    std::shared_ptr<string> taskflowType_ = nullptr;
+    shared_ptr<string> taskflowType_ {};
   };
 
   } // namespace Models

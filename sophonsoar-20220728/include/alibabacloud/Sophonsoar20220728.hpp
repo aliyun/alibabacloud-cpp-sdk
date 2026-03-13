@@ -703,7 +703,7 @@ namespace Sophonsoar20220728
       Models::DescribeSophonCommandsResponse describeSophonCommands(const Models::DescribeSophonCommandsRequest &request);
 
       /**
-       * @summary Query OpenApi List of Cloud Vendors.
+       * @summary Queries the API operations of a cloud service provider.
        *
        * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., threat analysis and response log access traffic) before using this interface.
        *
@@ -714,7 +714,7 @@ namespace Sophonsoar20220728
       Models::DescribeVendorApiListResponse describeVendorApiListWithOptions(const Models::DescribeVendorApiListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query OpenApi List of Cloud Vendors.
+       * @summary Queries the API operations of a cloud service provider.
        *
        * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., threat analysis and response log access traffic) before using this interface.
        *

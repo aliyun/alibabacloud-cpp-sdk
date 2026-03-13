@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->requestUuid_ == nullptr; };
+        && this->requestUuid_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescriberPython3ScriptLogsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // requestUuid Field Functions 
     bool hasRequestUuid() const { return this->requestUuid_ != nullptr;};
     void deleteRequestUuid() { this->requestUuid_ = nullptr;};
-    inline string requestUuid() const { DARABONBA_PTR_GET_DEFAULT(requestUuid_, "") };
+    inline string getRequestUuid() const { DARABONBA_PTR_GET_DEFAULT(requestUuid_, "") };
     inline DescriberPython3ScriptLogsRequest& setRequestUuid(string requestUuid) { DARABONBA_PTR_SET_VALUE(requestUuid_, requestUuid) };
 
 
@@ -52,13 +52,13 @@ namespace Models
     // 
     // *   **zh** (default): Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The UUID that is returned when the Python3 script is run.
     // 
     // >  You can call the [RunPython3Script](~~RunPython3Script~~) operation to query the UUID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> requestUuid_ = nullptr;
+    shared_ptr<string> requestUuid_ {};
   };
 
   } // namespace Models

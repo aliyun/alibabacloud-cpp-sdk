@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assetConfig_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // assetConfig Field Functions 
     bool hasAssetConfig() const { return this->assetConfig_ != nullptr;};
     void deleteAssetConfig() { this->assetConfig_ = nullptr;};
-    inline string assetConfig() const { DARABONBA_PTR_GET_DEFAULT(assetConfig_, "") };
+    inline string getAssetConfig() const { DARABONBA_PTR_GET_DEFAULT(assetConfig_, "") };
     inline ModifyComponentAssetRequest& setAssetConfig(string assetConfig) { DARABONBA_PTR_SET_VALUE(assetConfig_, assetConfig) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyComponentAssetRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
@@ -51,12 +51,12 @@ namespace Models
     // The configuration of the asset. The value is a JSON object.
     // 
     // This parameter is required.
-    std::shared_ptr<string> assetConfig_ = nullptr;
+    shared_ptr<string> assetConfig_ {};
     // The language of the content within the request and response.
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

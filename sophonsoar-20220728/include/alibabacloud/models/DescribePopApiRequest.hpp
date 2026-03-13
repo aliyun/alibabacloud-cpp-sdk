@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiName_ == nullptr
-        && return this->apiVersion_ == nullptr && return this->popCode_ == nullptr; };
+        && this->apiVersion_ == nullptr && this->popCode_ == nullptr; };
     // apiName Field Functions 
     bool hasApiName() const { return this->apiName_ != nullptr;};
     void deleteApiName() { this->apiName_ = nullptr;};
-    inline string apiName() const { DARABONBA_PTR_GET_DEFAULT(apiName_, "") };
+    inline string getApiName() const { DARABONBA_PTR_GET_DEFAULT(apiName_, "") };
     inline DescribePopApiRequest& setApiName(string apiName) { DARABONBA_PTR_SET_VALUE(apiName_, apiName) };
 
 
     // apiVersion Field Functions 
     bool hasApiVersion() const { return this->apiVersion_ != nullptr;};
     void deleteApiVersion() { this->apiVersion_ = nullptr;};
-    inline string apiVersion() const { DARABONBA_PTR_GET_DEFAULT(apiVersion_, "") };
+    inline string getApiVersion() const { DARABONBA_PTR_GET_DEFAULT(apiVersion_, "") };
     inline DescribePopApiRequest& setApiVersion(string apiVersion) { DARABONBA_PTR_SET_VALUE(apiVersion_, apiVersion) };
 
 
     // popCode Field Functions 
     bool hasPopCode() const { return this->popCode_ != nullptr;};
     void deletePopCode() { this->popCode_ = nullptr;};
-    inline string popCode() const { DARABONBA_PTR_GET_DEFAULT(popCode_, "") };
+    inline string getPopCode() const { DARABONBA_PTR_GET_DEFAULT(popCode_, "") };
     inline DescribePopApiRequest& setPopCode(string popCode) { DARABONBA_PTR_SET_VALUE(popCode_, popCode) };
 
 
@@ -60,19 +60,19 @@ namespace Models
     // The operation name of the Alibaba Cloud service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiName_ = nullptr;
+    shared_ptr<string> apiName_ {};
     // The version number of the API.
     // 
     // >  You can call the [DescribePopApiVersionList](~~DescribePopApiVersionList~~) operation to query the version number.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiVersion_ = nullptr;
+    shared_ptr<string> apiVersion_ {};
     // The POP code of the Alibaba Cloud service.
     // 
     // >  You can call the [DescribeApiList](~~DescribeApiList~~) operation to query the POP code.
     // 
     // This parameter is required.
-    std::shared_ptr<string> popCode_ = nullptr;
+    shared_ptr<string> popCode_ {};
   };
 
   } // namespace Models

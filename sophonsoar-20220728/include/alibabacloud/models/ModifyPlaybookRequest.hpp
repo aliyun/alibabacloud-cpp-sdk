@@ -38,62 +38,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->displayName_ == nullptr && return this->lang_ == nullptr && return this->playbookUuid_ == nullptr && return this->taskflow_ == nullptr; };
+        && this->displayName_ == nullptr && this->lang_ == nullptr && this->playbookUuid_ == nullptr && this->taskflow_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyPlaybookRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
-    inline string displayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+    inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline ModifyPlaybookRequest& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyPlaybookRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // playbookUuid Field Functions 
     bool hasPlaybookUuid() const { return this->playbookUuid_ != nullptr;};
     void deletePlaybookUuid() { this->playbookUuid_ = nullptr;};
-    inline string playbookUuid() const { DARABONBA_PTR_GET_DEFAULT(playbookUuid_, "") };
+    inline string getPlaybookUuid() const { DARABONBA_PTR_GET_DEFAULT(playbookUuid_, "") };
     inline ModifyPlaybookRequest& setPlaybookUuid(string playbookUuid) { DARABONBA_PTR_SET_VALUE(playbookUuid_, playbookUuid) };
 
 
     // taskflow Field Functions 
     bool hasTaskflow() const { return this->taskflow_ != nullptr;};
     void deleteTaskflow() { this->taskflow_ = nullptr;};
-    inline string taskflow() const { DARABONBA_PTR_GET_DEFAULT(taskflow_, "") };
+    inline string getTaskflow() const { DARABONBA_PTR_GET_DEFAULT(taskflow_, "") };
     inline ModifyPlaybookRequest& setTaskflow(string taskflow) { DARABONBA_PTR_SET_VALUE(taskflow_, taskflow) };
 
 
   protected:
     // The description of the playbook.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The display name of the playbook.
     // 
     // This parameter is required.
-    std::shared_ptr<string> displayName_ = nullptr;
+    shared_ptr<string> displayName_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh** (default): Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The UUID of the playbook.
     // 
     // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
     // 
     // This parameter is required.
-    std::shared_ptr<string> playbookUuid_ = nullptr;
+    shared_ptr<string> playbookUuid_ {};
     // The XML configuration of the playbook.
-    std::shared_ptr<string> taskflow_ = nullptr;
+    shared_ptr<string> taskflow_ {};
   };
 
   } // namespace Models

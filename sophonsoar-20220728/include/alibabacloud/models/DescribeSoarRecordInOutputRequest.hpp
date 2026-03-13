@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionUuid_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // actionUuid Field Functions 
     bool hasActionUuid() const { return this->actionUuid_ != nullptr;};
     void deleteActionUuid() { this->actionUuid_ = nullptr;};
-    inline string actionUuid() const { DARABONBA_PTR_GET_DEFAULT(actionUuid_, "") };
+    inline string getActionUuid() const { DARABONBA_PTR_GET_DEFAULT(actionUuid_, "") };
     inline DescribeSoarRecordInOutputRequest& setActionUuid(string actionUuid) { DARABONBA_PTR_SET_VALUE(actionUuid_, actionUuid) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeSoarRecordInOutputRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
@@ -53,12 +53,12 @@ namespace Models
     // >  You can call the [DescribeSoarTaskAndActions](~~DescribeSoarTaskAndActions~~) operation to query the UUIDs of component actions.
     // 
     // This parameter is required.
-    std::shared_ptr<string> actionUuid_ = nullptr;
+    shared_ptr<string> actionUuid_ {};
     // The language of the content within the request and the response. Valid values:
     // 
     // *   **zh** (default): Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

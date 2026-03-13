@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionType_ == nullptr
-        && return this->taskId_ == nullptr; };
+        && this->taskId_ == nullptr; };
     // actionType Field Functions 
     bool hasActionType() const { return this->actionType_ != nullptr;};
     void deleteActionType() { this->actionType_ = nullptr;};
-    inline string actionType() const { DARABONBA_PTR_GET_DEFAULT(actionType_, "") };
+    inline string getActionType() const { DARABONBA_PTR_GET_DEFAULT(actionType_, "") };
     inline TriggerProcessTaskRequest& setActionType(string actionType) { DARABONBA_PTR_SET_VALUE(actionType_, actionType) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline TriggerProcessTaskRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
@@ -54,13 +54,13 @@ namespace Models
     // *   **retry**: submits the task again.
     // 
     // This parameter is required.
-    std::shared_ptr<string> actionType_ = nullptr;
+    shared_ptr<string> actionType_ {};
     // The ID of the handling task.
     // 
     // >  You can call the [DescribeProcessTasks](~~DescribeProcessTasks~~) operation to query the IDs of handling tasks.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

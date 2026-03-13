@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->inputParam_ == nullptr
-        && return this->playbookUuid_ == nullptr; };
+        && this->playbookUuid_ == nullptr; };
     // inputParam Field Functions 
     bool hasInputParam() const { return this->inputParam_ != nullptr;};
     void deleteInputParam() { this->inputParam_ = nullptr;};
-    inline string inputParam() const { DARABONBA_PTR_GET_DEFAULT(inputParam_, "") };
+    inline string getInputParam() const { DARABONBA_PTR_GET_DEFAULT(inputParam_, "") };
     inline TriggerPlaybookRequest& setInputParam(string inputParam) { DARABONBA_PTR_SET_VALUE(inputParam_, inputParam) };
 
 
     // playbookUuid Field Functions 
     bool hasPlaybookUuid() const { return this->playbookUuid_ != nullptr;};
     void deletePlaybookUuid() { this->playbookUuid_ = nullptr;};
-    inline string playbookUuid() const { DARABONBA_PTR_GET_DEFAULT(playbookUuid_, "") };
+    inline string getPlaybookUuid() const { DARABONBA_PTR_GET_DEFAULT(playbookUuid_, "") };
     inline TriggerPlaybookRequest& setPlaybookUuid(string playbookUuid) { DARABONBA_PTR_SET_VALUE(playbookUuid_, playbookUuid) };
 
 
@@ -51,13 +51,13 @@ namespace Models
     // The input parameters of the playbook.
     // 
     // This parameter is required.
-    std::shared_ptr<string> inputParam_ = nullptr;
+    shared_ptr<string> inputParam_ {};
     // The playbook UUID.
     // 
     // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> playbookUuid_ = nullptr;
+    shared_ptr<string> playbookUuid_ {};
   };
 
   } // namespace Models

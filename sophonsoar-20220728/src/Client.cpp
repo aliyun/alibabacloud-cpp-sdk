@@ -46,19 +46,19 @@ ComparePlaybooksResponse Client::comparePlaybooksWithOptions(const ComparePlaybo
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasNewPlaybookReleaseId()) {
-    query["NewPlaybookReleaseId"] = request.newPlaybookReleaseId();
+    query["NewPlaybookReleaseId"] = request.getNewPlaybookReleaseId();
   }
 
   if (!!request.hasOldPlaybookReleaseId()) {
-    query["OldPlaybookReleaseId"] = request.oldPlaybookReleaseId();
+    query["OldPlaybookReleaseId"] = request.getOldPlaybookReleaseId();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    query["PlaybookUuid"] = request.playbookUuid();
+    query["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -102,20 +102,20 @@ ConvertPlaybookResponse Client::convertPlaybookWithOptions(const ConvertPlaybook
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasRoleFor()) {
-    query["RoleFor"] = request.roleFor();
+    query["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    query["RoleType"] = request.roleType();
+    query["RoleType"] = request.getRoleType();
   }
 
   json body = {};
   if (!!request.hasTaskflow()) {
-    body["Taskflow"] = request.taskflow();
+    body["Taskflow"] = request.getTaskflow();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -162,32 +162,32 @@ CopyPlaybookResponse Client::copyPlaybookWithOptions(const CopyPlaybookRequest &
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasRoleFor()) {
-    query["RoleFor"] = request.roleFor();
+    query["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    query["RoleType"] = request.roleType();
+    query["RoleType"] = request.getRoleType();
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDisplayName()) {
-    body["DisplayName"] = request.displayName();
+    body["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasReleaseVersion()) {
-    body["ReleaseVersion"] = request.releaseVersion();
+    body["ReleaseVersion"] = request.getReleaseVersion();
   }
 
   if (!!request.hasSourcePlaybookUuid()) {
-    body["SourcePlaybookUuid"] = request.sourcePlaybookUuid();
+    body["SourcePlaybookUuid"] = request.getSourcePlaybookUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -234,27 +234,27 @@ CreatePlaybookResponse Client::createPlaybookWithOptions(const CreatePlaybookReq
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDisplayName()) {
-    body["DisplayName"] = request.displayName();
+    body["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasInputParams()) {
-    body["InputParams"] = request.inputParams();
+    body["InputParams"] = request.getInputParams();
   }
 
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasOutputParams()) {
-    body["OutputParams"] = request.outputParams();
+    body["OutputParams"] = request.getOutputParams();
   }
 
   if (!!request.hasTaskflowType()) {
-    body["TaskflowType"] = request.taskflowType();
+    body["TaskflowType"] = request.getTaskflowType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -298,19 +298,19 @@ DebugPlaybookResponse Client::debugPlaybookWithOptions(const DebugPlaybookReques
   request.validate();
   json body = {};
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   if (!!request.hasRecord()) {
-    body["Record"] = request.record();
+    body["Record"] = request.getRecord();
   }
 
   if (!!request.hasTaskflow()) {
-    body["Taskflow"] = request.taskflow();
+    body["Taskflow"] = request.getTaskflow();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -352,11 +352,11 @@ DeleteComponentAssetResponse Client::deleteComponentAssetWithOptions(const Delet
   request.validate();
   json query = {};
   if (!!request.hasAssetId()) {
-    query["AssetId"] = request.assetId();
+    query["AssetId"] = request.getAssetId();
   }
 
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -398,11 +398,11 @@ DeletePlaybookResponse Client::deletePlaybookWithOptions(const DeletePlaybookReq
   request.validate();
   json body = {};
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1294,7 +1294,19 @@ DescribePlaybooksResponse Client::describePlaybooks(const DescribePlaybooksReque
  */
 DescribePopApiResponse Client::describePopApiWithOptions(const DescribePopApiRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasApiName()) {
+    query["ApiName"] = request.getApiName();
+  }
+
+  if (!!request.hasApiVersion()) {
+    query["ApiVersion"] = request.getApiVersion();
+  }
+
+  if (!!request.hasPopCode()) {
+    query["PopCode"] = request.getPopCode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1303,7 +1315,7 @@ DescribePopApiResponse Client::describePopApiWithOptions(const DescribePopApiReq
     {"version" , "2022-07-28"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -1416,91 +1428,91 @@ DescribeProcessTasksResponse Client::describeProcessTasksWithOptions(const Descr
   request.validate();
   json query = {};
   if (!!request.hasDirection()) {
-    query["Direction"] = request.direction();
+    query["Direction"] = request.getDirection();
   }
 
   if (!!request.hasEntityName()) {
-    query["EntityName"] = request.entityName();
+    query["EntityName"] = request.getEntityName();
   }
 
   if (!!request.hasEntityType()) {
-    query["EntityType"] = request.entityType();
+    query["EntityType"] = request.getEntityType();
   }
 
   if (!!request.hasEntityUuid()) {
-    query["EntityUuid"] = request.entityUuid();
+    query["EntityUuid"] = request.getEntityUuid();
   }
 
   if (!!request.hasEventUuid()) {
-    query["EventUuid"] = request.eventUuid();
+    query["EventUuid"] = request.getEventUuid();
   }
 
   if (!!request.hasOrderField()) {
-    query["OrderField"] = request.orderField();
+    query["OrderField"] = request.getOrderField();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasParamContent()) {
-    query["ParamContent"] = request.paramContent();
+    query["ParamContent"] = request.getParamContent();
   }
 
   if (!!request.hasProcessActionEnd()) {
-    query["ProcessActionEnd"] = request.processActionEnd();
+    query["ProcessActionEnd"] = request.getProcessActionEnd();
   }
 
   if (!!request.hasProcessActionStart()) {
-    query["ProcessActionStart"] = request.processActionStart();
+    query["ProcessActionStart"] = request.getProcessActionStart();
   }
 
   if (!!request.hasProcessRemoveEnd()) {
-    query["ProcessRemoveEnd"] = request.processRemoveEnd();
+    query["ProcessRemoveEnd"] = request.getProcessRemoveEnd();
   }
 
   if (!!request.hasProcessRemoveStart()) {
-    query["ProcessRemoveStart"] = request.processRemoveStart();
+    query["ProcessRemoveStart"] = request.getProcessRemoveStart();
   }
 
   if (!!request.hasProcessStrategyUuid()) {
-    query["ProcessStrategyUuid"] = request.processStrategyUuid();
+    query["ProcessStrategyUuid"] = request.getProcessStrategyUuid();
   }
 
   if (!!request.hasReqUuid()) {
-    query["ReqUuid"] = request.reqUuid();
+    query["ReqUuid"] = request.getReqUuid();
   }
 
   if (!!request.hasSceneCode()) {
-    query["SceneCode"] = request.sceneCode();
+    query["SceneCode"] = request.getSceneCode();
   }
 
   if (!!request.hasScope()) {
-    query["Scope"] = request.scope();
+    query["Scope"] = request.getScope();
   }
 
   if (!!request.hasSource()) {
-    query["Source"] = request.source();
+    query["Source"] = request.getSource();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTaskStatus()) {
-    query["TaskStatus"] = request.taskStatus();
+    query["TaskStatus"] = request.getTaskStatus();
   }
 
   if (!!request.hasTriggerSource()) {
-    query["TriggerSource"] = request.triggerSource();
+    query["TriggerSource"] = request.getTriggerSource();
   }
 
   if (!!request.hasYunCode()) {
-    query["YunCode"] = request.yunCode();
+    query["YunCode"] = request.getYunCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1696,7 +1708,7 @@ DescribeSophonCommandsResponse Client::describeSophonCommandsWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1728,7 +1740,7 @@ DescribeSophonCommandsResponse Client::describeSophonCommands(const DescribeSoph
 }
 
 /**
- * @summary Query OpenApi List of Cloud Vendors.
+ * @summary Queries the API operations of a cloud service provider.
  *
  * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., threat analysis and response log access traffic) before using this interface.
  *
@@ -1740,27 +1752,27 @@ DescribeVendorApiListResponse Client::describeVendorApiListWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasApiName()) {
-    query["ApiName"] = request.apiName();
+    query["ApiName"] = request.getApiName();
   }
 
   if (!!request.hasKeyWord()) {
-    query["KeyWord"] = request.keyWord();
+    query["KeyWord"] = request.getKeyWord();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasVendorCode()) {
-    query["VendorCode"] = request.vendorCode();
+    query["VendorCode"] = request.getVendorCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1781,7 +1793,7 @@ DescribeVendorApiListResponse Client::describeVendorApiListWithOptions(const Des
 }
 
 /**
- * @summary Query OpenApi List of Cloud Vendors.
+ * @summary Queries the API operations of a cloud service provider.
  *
  * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., threat analysis and response log access traffic) before using this interface.
  *
@@ -1842,11 +1854,11 @@ ModifyComponentAssetResponse Client::modifyComponentAssetWithOptions(const Modif
   request.validate();
   json query = {};
   if (!!request.hasAssetConfig()) {
-    query["AssetConfig"] = request.assetConfig();
+    query["AssetConfig"] = request.getAssetConfig();
   }
 
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1888,23 +1900,23 @@ ModifyPlaybookResponse Client::modifyPlaybookWithOptions(const ModifyPlaybookReq
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDisplayName()) {
-    body["DisplayName"] = request.displayName();
+    body["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   if (!!request.hasTaskflow()) {
-    body["Taskflow"] = request.taskflow();
+    body["Taskflow"] = request.getTaskflow();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1946,27 +1958,27 @@ ModifyPlaybookInputOutputResponse Client::modifyPlaybookInputOutputWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasExeConfig()) {
-    body["ExeConfig"] = request.exeConfig();
+    body["ExeConfig"] = request.getExeConfig();
   }
 
   if (!!request.hasInputParams()) {
-    body["InputParams"] = request.inputParams();
+    body["InputParams"] = request.getInputParams();
   }
 
   if (!!request.hasLang()) {
-    body["Lang"] = request.lang();
+    body["Lang"] = request.getLang();
   }
 
   if (!!request.hasOutputParams()) {
-    body["OutputParams"] = request.outputParams();
+    body["OutputParams"] = request.getOutputParams();
   }
 
   if (!!request.hasParamType()) {
-    body["ParamType"] = request.paramType();
+    body["ParamType"] = request.getParamType();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2008,11 +2020,11 @@ PublishPlaybookResponse Client::publishPlaybookWithOptions(const PublishPlaybook
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2092,15 +2104,15 @@ RevertPlaybookReleaseResponse Client::revertPlaybookReleaseWithOptions(const Rev
   request.validate();
   json body = {};
   if (!!request.hasIsPublish()) {
-    body["IsPublish"] = request.isPublish();
+    body["IsPublish"] = request.getIsPublish();
   }
 
   if (!!request.hasPlayReleaseId()) {
-    body["PlayReleaseId"] = request.playReleaseId();
+    body["PlayReleaseId"] = request.getPlayReleaseId();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2144,47 +2156,47 @@ RunNotifyComponentWithEmailResponse Client::runNotifyComponentWithEmailWithOptio
   request.validate();
   json query = {};
   if (!!request.hasActionName()) {
-    query["ActionName"] = request.actionName();
+    query["ActionName"] = request.getActionName();
   }
 
   if (!!request.hasAssetId()) {
-    query["AssetId"] = request.assetId();
+    query["AssetId"] = request.getAssetId();
   }
 
   if (!!request.hasComponentName()) {
-    query["ComponentName"] = request.componentName();
+    query["ComponentName"] = request.getComponentName();
   }
 
   if (!!request.hasContent()) {
-    query["Content"] = request.content();
+    query["Content"] = request.getContent();
   }
 
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasNodeName()) {
-    query["NodeName"] = request.nodeName();
+    query["NodeName"] = request.getNodeName();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    query["PlaybookUuid"] = request.playbookUuid();
+    query["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   if (!!request.hasReceivers()) {
-    query["Receivers"] = request.receivers();
+    query["Receivers"] = request.getReceivers();
   }
 
   if (!!request.hasRoleFor()) {
-    query["RoleFor"] = request.roleFor();
+    query["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    query["RoleType"] = request.roleType();
+    query["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasSubject()) {
-    query["Subject"] = request.subject();
+    query["Subject"] = request.getSubject();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2230,51 +2242,51 @@ RunNotifyComponentWithMessageCenterResponse Client::runNotifyComponentWithMessag
   request.validate();
   json query = {};
   if (!!request.hasActionName()) {
-    query["ActionName"] = request.actionName();
+    query["ActionName"] = request.getActionName();
   }
 
   if (!!request.hasAliuid()) {
-    query["Aliuid"] = request.aliuid();
+    query["Aliuid"] = request.getAliuid();
   }
 
   if (!!request.hasAssetId()) {
-    query["AssetId"] = request.assetId();
+    query["AssetId"] = request.getAssetId();
   }
 
   if (!!request.hasChannelTypeList()) {
-    query["ChannelTypeList"] = request.channelTypeList();
+    query["ChannelTypeList"] = request.getChannelTypeList();
   }
 
   if (!!request.hasComponentName()) {
-    query["ComponentName"] = request.componentName();
+    query["ComponentName"] = request.getComponentName();
   }
 
   if (!!request.hasEventId()) {
-    query["EventId"] = request.eventId();
+    query["EventId"] = request.getEventId();
   }
 
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasNodeName()) {
-    query["NodeName"] = request.nodeName();
+    query["NodeName"] = request.getNodeName();
   }
 
   if (!!request.hasParams()) {
-    query["Params"] = request.params();
+    query["Params"] = request.getParams();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    query["PlaybookUuid"] = request.playbookUuid();
+    query["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   if (!!request.hasRoleFor()) {
-    query["RoleFor"] = request.roleFor();
+    query["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    query["RoleType"] = request.roleType();
+    query["RoleType"] = request.getRoleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2320,51 +2332,51 @@ RunNotifyComponentWithWebhookResponse Client::runNotifyComponentWithWebhookWithO
   request.validate();
   json query = {};
   if (!!request.hasActionName()) {
-    query["ActionName"] = request.actionName();
+    query["ActionName"] = request.getActionName();
   }
 
   if (!!request.hasAssetId()) {
-    query["AssetId"] = request.assetId();
+    query["AssetId"] = request.getAssetId();
   }
 
   if (!!request.hasComponentName()) {
-    query["ComponentName"] = request.componentName();
+    query["ComponentName"] = request.getComponentName();
   }
 
   if (!!request.hasContent()) {
-    query["Content"] = request.content();
+    query["Content"] = request.getContent();
   }
 
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasMsgType()) {
-    query["MsgType"] = request.msgType();
+    query["MsgType"] = request.getMsgType();
   }
 
   if (!!request.hasNodeName()) {
-    query["NodeName"] = request.nodeName();
+    query["NodeName"] = request.getNodeName();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    query["PlaybookUuid"] = request.playbookUuid();
+    query["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   if (!!request.hasRoleFor()) {
-    query["RoleFor"] = request.roleFor();
+    query["RoleFor"] = request.getRoleFor();
   }
 
   if (!!request.hasRoleType()) {
-    query["RoleType"] = request.roleType();
+    query["RoleType"] = request.getRoleType();
   }
 
   if (!!request.hasSecret()) {
-    query["Secret"] = request.secret();
+    query["Secret"] = request.getSecret();
   }
 
   if (!!request.hasWebhook()) {
-    query["Webhook"] = request.webhook();
+    query["Webhook"] = request.getWebhook();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2410,24 +2422,24 @@ RunPython3ScriptResponse Client::runPython3ScriptWithOptions(const RunPython3Scr
   request.validate();
   json query = {};
   if (!!request.hasPythonVersion()) {
-    query["PythonVersion"] = request.pythonVersion();
+    query["PythonVersion"] = request.getPythonVersion();
   }
 
   json body = {};
   if (!!request.hasNodeName()) {
-    body["NodeName"] = request.nodeName();
+    body["NodeName"] = request.getNodeName();
   }
 
   if (!!request.hasParams()) {
-    body["Params"] = request.params();
+    body["Params"] = request.getParams();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   if (!!request.hasPythonScript()) {
-    body["PythonScript"] = request.pythonScript();
+    body["PythonScript"] = request.getPythonScript();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2474,11 +2486,11 @@ TriggerPlaybookResponse Client::triggerPlaybookWithOptions(const TriggerPlaybook
   request.validate();
   json body = {};
   if (!!request.hasInputParam()) {
-    body["InputParam"] = request.inputParam();
+    body["InputParam"] = request.getInputParam();
   }
 
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2522,12 +2534,12 @@ TriggerProcessTaskResponse Client::triggerProcessTaskWithOptions(const TriggerPr
   request.validate();
   json query = {};
   if (!!request.hasActionType()) {
-    query["ActionType"] = request.actionType();
+    query["ActionType"] = request.getActionType();
   }
 
   json body = {};
   if (!!request.hasTaskId()) {
-    body["TaskId"] = request.taskId();
+    body["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2572,23 +2584,23 @@ TriggerSophonPlaybookResponse Client::triggerSophonPlaybookWithOptions(const Tri
   request.validate();
   json query = {};
   if (!!request.hasCommandName()) {
-    query["CommandName"] = request.commandName();
+    query["CommandName"] = request.getCommandName();
   }
 
   if (!!request.hasInputParams()) {
-    query["InputParams"] = request.inputParams();
+    query["InputParams"] = request.getInputParams();
   }
 
   if (!!request.hasSophonTaskId()) {
-    query["SophonTaskId"] = request.sophonTaskId();
+    query["SophonTaskId"] = request.getSophonTaskId();
   }
 
   if (!!request.hasTriggerType()) {
-    query["TriggerType"] = request.triggerType();
+    query["TriggerType"] = request.getTriggerType();
   }
 
   if (!!request.hasUuid()) {
-    query["Uuid"] = request.uuid();
+    query["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2632,11 +2644,11 @@ VerifyPlaybookResponse Client::verifyPlaybookWithOptions(const VerifyPlaybookReq
   request.validate();
   json body = {};
   if (!!request.hasPlaybookUuid()) {
-    body["PlaybookUuid"] = request.playbookUuid();
+    body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
   if (!!request.hasTaskFlow()) {
-    body["TaskFlow"] = request.taskFlow();
+    body["TaskFlow"] = request.getTaskFlow();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2678,7 +2690,7 @@ VerifyPythonFileResponse Client::verifyPythonFileWithOptions(const VerifyPythonF
   request.validate();
   json body = {};
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
