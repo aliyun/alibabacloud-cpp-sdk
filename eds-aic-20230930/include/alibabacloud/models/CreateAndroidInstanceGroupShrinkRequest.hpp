@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
       DARABONBA_PTR_TO_JSON(NumberOfInstances, numberOfInstances_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
+      DARABONBA_PTR_TO_JSON(PaidCallBackUrl, paidCallBackUrl_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
@@ -61,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
       DARABONBA_PTR_FROM_JSON(NumberOfInstances, numberOfInstances_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
+      DARABONBA_PTR_FROM_JSON(PaidCallBackUrl, paidCallBackUrl_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
@@ -128,8 +130,9 @@ namespace Models
         && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->bandwidthPackageId_ == nullptr && this->bandwidthPackageType_ == nullptr && this->bizRegionId_ == nullptr
         && this->chargeType_ == nullptr && this->clientToken_ == nullptr && this->enableIpv6_ == nullptr && this->gpuAcceleration_ == nullptr && this->imageId_ == nullptr
         && this->instanceGroupName_ == nullptr && this->instanceGroupSpec_ == nullptr && this->ipv6Bandwidth_ == nullptr && this->keyPairId_ == nullptr && this->networkInfoShrink_ == nullptr
-        && this->networkType_ == nullptr && this->numberOfInstances_ == nullptr && this->officeSiteId_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr
-        && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr && this->streamMode_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->networkType_ == nullptr && this->numberOfInstances_ == nullptr && this->officeSiteId_ == nullptr && this->paidCallBackUrl_ == nullptr && this->period_ == nullptr
+        && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr && this->streamMode_ == nullptr && this->tag_ == nullptr
+        && this->vSwitchId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -261,6 +264,13 @@ namespace Models
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
     inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline CreateAndroidInstanceGroupShrinkRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
+
+
+    // paidCallBackUrl Field Functions 
+    bool hasPaidCallBackUrl() const { return this->paidCallBackUrl_ != nullptr;};
+    void deletePaidCallBackUrl() { this->paidCallBackUrl_ = nullptr;};
+    inline string getPaidCallBackUrl() const { DARABONBA_PTR_GET_DEFAULT(paidCallBackUrl_, "") };
+    inline CreateAndroidInstanceGroupShrinkRequest& setPaidCallBackUrl(string paidCallBackUrl) { DARABONBA_PTR_SET_VALUE(paidCallBackUrl_, paidCallBackUrl) };
 
 
     // period Field Functions 
@@ -397,6 +407,7 @@ namespace Models
     // *   This parameter is required if you assign a shared network to cloud phones. You can go to the [Network](https://wya.wuying.aliyun.com/network) page of the Cloud Phone console to retrieve the ID of a **shared network**. If no shared network is available in the Cloud Phone console, you can leave this parameter empty. The system automatically creates one when you create an instance group.
     // *   This parameter is required if you assign a virtual private cloud (VPC) to cloud phones. You can go to the [Network](https://wya.wuying.aliyun.com/network) page of the Cloud Phone console to retrieve the ID of a **VPC**. If no VPC is available in the Cloud Phone console, you must first create one.
     shared_ptr<string> officeSiteId_ {};
+    shared_ptr<string> paidCallBackUrl_ {};
     // The subscription duration. The unit is specified by PeriodUnit.
     shared_ptr<int32_t> period_ {};
     // The unit of the subscription duration.

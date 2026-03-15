@@ -375,6 +375,10 @@ BatchGetAcpConnectionTicketResponse Client::batchGetAcpConnectionTicketWithOptio
     query["InstanceTasks"] = request.getInstanceTasks();
   }
 
+  if (!!request.hasPorts()) {
+    query["Ports"] = request.getPorts();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -637,6 +641,10 @@ CreateAndroidInstanceGroupResponse Client::createAndroidInstanceGroupWithOptions
 
   if (!!request.hasOfficeSiteId()) {
     query["OfficeSiteId"] = request.getOfficeSiteId();
+  }
+
+  if (!!request.hasPaidCallBackUrl()) {
+    query["PaidCallBackUrl"] = request.getPaidCallBackUrl();
   }
 
   if (!!request.hasPeriod()) {
@@ -2117,6 +2125,10 @@ DescribeCloudPhoneNodesResponse Client::describeCloudPhoneNodesWithOptions(const
 
   if (!!request.hasStatus()) {
     query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

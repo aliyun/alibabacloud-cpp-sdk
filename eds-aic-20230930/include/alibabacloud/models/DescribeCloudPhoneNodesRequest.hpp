@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NodeNameList, nodeNameList_);
       DARABONBA_PTR_TO_JSON(ServerType, serverType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCloudPhoneNodesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BandwidthPackageId, bandwidthPackageId_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NodeNameList, nodeNameList_);
       DARABONBA_PTR_FROM_JSON(ServerType, serverType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
     };
     DescribeCloudPhoneNodesRequest() = default ;
     DescribeCloudPhoneNodesRequest(const DescribeCloudPhoneNodesRequest &) = default ;
@@ -48,9 +50,51 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->bandwidthPackageId_ == nullptr
         && this->bizRegionId_ == nullptr && this->chargeType_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->nodeIds_ == nullptr
-        && this->nodeName_ == nullptr && this->nodeNameList_ == nullptr && this->serverType_ == nullptr && this->status_ == nullptr; };
+        && this->nodeName_ == nullptr && this->nodeNameList_ == nullptr && this->serverType_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
     // bandwidthPackageId Field Functions 
     bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
     void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
@@ -125,6 +169,15 @@ namespace Models
     inline DescribeCloudPhoneNodesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<DescribeCloudPhoneNodesRequest::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<DescribeCloudPhoneNodesRequest::Tags>) };
+    inline vector<DescribeCloudPhoneNodesRequest::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<DescribeCloudPhoneNodesRequest::Tags>) };
+    inline DescribeCloudPhoneNodesRequest& setTags(const vector<DescribeCloudPhoneNodesRequest::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline DescribeCloudPhoneNodesRequest& setTags(vector<DescribeCloudPhoneNodesRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
   protected:
     shared_ptr<string> bandwidthPackageId_ {};
     // The region ID.
@@ -157,6 +210,7 @@ namespace Models
     // *   DELETED: The matrix is deleted.
     // *   CREATING: The matrix is being created.
     shared_ptr<string> status_ {};
+    shared_ptr<vector<DescribeCloudPhoneNodesRequest::Tags>> tags_ {};
   };
 
   } // namespace Models

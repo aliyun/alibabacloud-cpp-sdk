@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceGroupId, instanceGroupId_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(InstanceTasks, instanceTasks_);
+      DARABONBA_PTR_TO_JSON(Ports, ports_);
     };
     friend void from_json(const Darabonba::Json& j, BatchGetAcpConnectionTicketRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ConnectionMode, connectionMode_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceGroupId, instanceGroupId_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(InstanceTasks, instanceTasks_);
+      DARABONBA_PTR_FROM_JSON(Ports, ports_);
     };
     BatchGetAcpConnectionTicketRequest() = default ;
     BatchGetAcpConnectionTicketRequest(const BatchGetAcpConnectionTicketRequest &) = default ;
@@ -83,7 +85,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->connectionMode_ == nullptr
-        && this->endUserId_ == nullptr && this->instanceGroupId_ == nullptr && this->instanceIds_ == nullptr && this->instanceTasks_ == nullptr; };
+        && this->endUserId_ == nullptr && this->instanceGroupId_ == nullptr && this->instanceIds_ == nullptr && this->instanceTasks_ == nullptr && this->ports_ == nullptr; };
     // connectionMode Field Functions 
     bool hasConnectionMode() const { return this->connectionMode_ != nullptr;};
     void deleteConnectionMode() { this->connectionMode_ = nullptr;};
@@ -123,6 +125,15 @@ namespace Models
     inline BatchGetAcpConnectionTicketRequest& setInstanceTasks(vector<BatchGetAcpConnectionTicketRequest::InstanceTasks> && instanceTasks) { DARABONBA_PTR_SET_RVALUE(instanceTasks_, instanceTasks) };
 
 
+    // ports Field Functions 
+    bool hasPorts() const { return this->ports_ != nullptr;};
+    void deletePorts() { this->ports_ = nullptr;};
+    inline const vector<string> & getPorts() const { DARABONBA_PTR_GET_CONST(ports_, vector<string>) };
+    inline vector<string> getPorts() { DARABONBA_PTR_GET(ports_, vector<string>) };
+    inline BatchGetAcpConnectionTicketRequest& setPorts(const vector<string> & ports) { DARABONBA_PTR_SET_VALUE(ports_, ports) };
+    inline BatchGetAcpConnectionTicketRequest& setPorts(vector<string> && ports) { DARABONBA_PTR_SET_RVALUE(ports_, ports) };
+
+
   protected:
     shared_ptr<string> connectionMode_ {};
     // The ID of the user to whom the cloud phone instance is assigned.
@@ -133,6 +144,7 @@ namespace Models
     shared_ptr<vector<string>> instanceIds_ {};
     // The instance connection tasks.
     shared_ptr<vector<BatchGetAcpConnectionTicketRequest::InstanceTasks>> instanceTasks_ {};
+    shared_ptr<vector<string>> ports_ {};
   };
 
   } // namespace Models

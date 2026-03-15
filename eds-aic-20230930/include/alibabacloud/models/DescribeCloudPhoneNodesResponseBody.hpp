@@ -66,6 +66,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ShareDataVolume, shareDataVolume_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(SwapSize, swapSize_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       };
       friend void from_json(const Darabonba::Json& j, NodeModel& obj) { 
@@ -94,6 +95,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ShareDataVolume, shareDataVolume_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(SwapSize, swapSize_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       };
       NodeModel() = default ;
@@ -107,6 +109,48 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<string> key_ {};
+        shared_ptr<string> value_ {};
+      };
+
       class PhoneDataInfo : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const PhoneDataInfo& obj) { 
@@ -268,7 +312,8 @@ namespace Models
         && this->gmtCreate_ == nullptr && this->gmtExpired_ == nullptr && this->gmtModified_ == nullptr && this->instanceType_ == nullptr && this->memory_ == nullptr
         && this->networkId_ == nullptr && this->networkInfos_ == nullptr && this->networkType_ == nullptr && this->nodeId_ == nullptr && this->nodeName_ == nullptr
         && this->phoneCount_ == nullptr && this->phoneDataInfo_ == nullptr && this->regionId_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionWidth_ == nullptr
-        && this->serverType_ == nullptr && this->shareDataVolume_ == nullptr && this->status_ == nullptr && this->swapSize_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->serverType_ == nullptr && this->shareDataVolume_ == nullptr && this->status_ == nullptr && this->swapSize_ == nullptr && this->tags_ == nullptr
+        && this->vSwitchId_ == nullptr; };
       // bandwidthPackageId Field Functions 
       bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
       void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
@@ -450,6 +495,15 @@ namespace Models
       inline NodeModel& setSwapSize(int32_t swapSize) { DARABONBA_PTR_SET_VALUE(swapSize_, swapSize) };
 
 
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<NodeModel::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<NodeModel::Tags>) };
+      inline vector<NodeModel::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<NodeModel::Tags>) };
+      inline NodeModel& setTags(const vector<NodeModel::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline NodeModel& setTags(vector<NodeModel::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
       // vSwitchId Field Functions 
       bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
       void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
@@ -499,6 +553,7 @@ namespace Models
       // The matrix status.
       shared_ptr<string> status_ {};
       shared_ptr<int32_t> swapSize_ {};
+      shared_ptr<vector<NodeModel::Tags>> tags_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
     };
