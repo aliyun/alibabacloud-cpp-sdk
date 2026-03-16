@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const QuickAddTaskShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentGroupId, agentGroupId_);
       DARABONBA_PTR_TO_JSON(CallTimeList, callTimeListShrink_);
+      DARABONBA_PTR_TO_JSON(CallTimeStrList, callTimeStrListShrink_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ReferenceTaskId, referenceTaskId_);
@@ -28,6 +29,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, QuickAddTaskShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentGroupId, agentGroupId_);
       DARABONBA_PTR_FROM_JSON(CallTimeList, callTimeListShrink_);
+      DARABONBA_PTR_FROM_JSON(CallTimeStrList, callTimeStrListShrink_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ReferenceTaskId, referenceTaskId_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentGroupId_ == nullptr
-        && this->callTimeListShrink_ == nullptr && this->name_ == nullptr && this->ownerId_ == nullptr && this->referenceTaskId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->smsTemplateId_ == nullptr && this->startTime_ == nullptr && this->templateId_ == nullptr && this->templateType_ == nullptr; };
+        && this->callTimeListShrink_ == nullptr && this->callTimeStrListShrink_ == nullptr && this->name_ == nullptr && this->ownerId_ == nullptr && this->referenceTaskId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->smsTemplateId_ == nullptr && this->startTime_ == nullptr && this->templateId_ == nullptr
+        && this->templateType_ == nullptr; };
     // agentGroupId Field Functions 
     bool hasAgentGroupId() const { return this->agentGroupId_ != nullptr;};
     void deleteAgentGroupId() { this->agentGroupId_ = nullptr;};
@@ -64,6 +67,13 @@ namespace Models
     void deleteCallTimeListShrink() { this->callTimeListShrink_ = nullptr;};
     inline string getCallTimeListShrink() const { DARABONBA_PTR_GET_DEFAULT(callTimeListShrink_, "") };
     inline QuickAddTaskShrinkRequest& setCallTimeListShrink(string callTimeListShrink) { DARABONBA_PTR_SET_VALUE(callTimeListShrink_, callTimeListShrink) };
+
+
+    // callTimeStrListShrink Field Functions 
+    bool hasCallTimeStrListShrink() const { return this->callTimeStrListShrink_ != nullptr;};
+    void deleteCallTimeStrListShrink() { this->callTimeStrListShrink_ = nullptr;};
+    inline string getCallTimeStrListShrink() const { DARABONBA_PTR_GET_DEFAULT(callTimeStrListShrink_, "") };
+    inline QuickAddTaskShrinkRequest& setCallTimeStrListShrink(string callTimeStrListShrink) { DARABONBA_PTR_SET_VALUE(callTimeStrListShrink_, callTimeStrListShrink) };
 
 
     // name Field Functions 
@@ -134,6 +144,8 @@ namespace Models
     shared_ptr<int64_t> agentGroupId_ {};
     // 外呼时间
     shared_ptr<string> callTimeListShrink_ {};
+    // 外呼时间:精确到分钟.如果两个字段都存在值，以该字段为准。建议用该字段，精确到分钟, 08:31-12:05 13:33-19:00 则传[["08:31","12:05"]["13:33","19:00"]]；默认为[["08:00","20:00"]]
+    shared_ptr<string> callTimeStrListShrink_ {};
     // 任务名称
     // 
     // This parameter is required.

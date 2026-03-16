@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AddTaskRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CallTimeList, callTimeList_);
+      DARABONBA_PTR_TO_JSON(CallTimeStrList, callTimeStrList_);
       DARABONBA_PTR_TO_JSON(CallbackUrl, callbackUrl_);
       DARABONBA_PTR_TO_JSON(FlashSmsTemplateId, flashSmsTemplateId_);
       DARABONBA_PTR_TO_JSON(FlashSmsType, flashSmsType_);
@@ -39,6 +40,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, AddTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CallTimeList, callTimeList_);
+      DARABONBA_PTR_FROM_JSON(CallTimeStrList, callTimeStrList_);
       DARABONBA_PTR_FROM_JSON(CallbackUrl, callbackUrl_);
       DARABONBA_PTR_FROM_JSON(FlashSmsTemplateId, flashSmsTemplateId_);
       DARABONBA_PTR_FROM_JSON(FlashSmsType, flashSmsType_);
@@ -118,6 +120,39 @@ namespace Models
       shared_ptr<int64_t> smsTemplateId_ {};
     };
 
+    class CallTimeStrList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CallTimeStrList& obj) { 
+        DARABONBA_PTR_TO_JSON(CallTime, callTime_);
+      };
+      friend void from_json(const Darabonba::Json& j, CallTimeStrList& obj) { 
+        DARABONBA_PTR_FROM_JSON(CallTime, callTime_);
+      };
+      CallTimeStrList() = default ;
+      CallTimeStrList(const CallTimeStrList &) = default ;
+      CallTimeStrList(CallTimeStrList &&) = default ;
+      CallTimeStrList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CallTimeStrList() = default ;
+      CallTimeStrList& operator=(const CallTimeStrList &) = default ;
+      CallTimeStrList& operator=(CallTimeStrList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->callTime_ == nullptr; };
+      // callTime Field Functions 
+      bool hasCallTime() const { return this->callTime_ != nullptr;};
+      void deleteCallTime() { this->callTime_ = nullptr;};
+      inline const vector<string> & getCallTime() const { DARABONBA_PTR_GET_CONST(callTime_, vector<string>) };
+      inline vector<string> getCallTime() { DARABONBA_PTR_GET(callTime_, vector<string>) };
+      inline CallTimeStrList& setCallTime(const vector<string> & callTime) { DARABONBA_PTR_SET_VALUE(callTime_, callTime) };
+      inline CallTimeStrList& setCallTime(vector<string> && callTime) { DARABONBA_PTR_SET_RVALUE(callTime_, callTime) };
+
+
+    protected:
+      shared_ptr<vector<string>> callTime_ {};
+    };
+
     class CallTimeList : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const CallTimeList& obj) { 
@@ -152,11 +187,11 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->callTimeList_ == nullptr
-        && this->callbackUrl_ == nullptr && this->flashSmsTemplateId_ == nullptr && this->flashSmsType_ == nullptr && this->maxConcurrency_ == nullptr && this->name_ == nullptr
-        && this->ownerId_ == nullptr && this->playSleepVal_ == nullptr && this->playTimes_ == nullptr && this->recallType_ == nullptr && this->recordPath_ == nullptr
-        && this->repeatCount_ == nullptr && this->repeatInterval_ == nullptr && this->repeatReason_ == nullptr && this->repeatTimes_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->sendSmsPlan_ == nullptr && this->startTime_ == nullptr && this->taskType_ == nullptr && this->templateId_ == nullptr
-        && this->templateType_ == nullptr; };
+        && this->callTimeStrList_ == nullptr && this->callbackUrl_ == nullptr && this->flashSmsTemplateId_ == nullptr && this->flashSmsType_ == nullptr && this->maxConcurrency_ == nullptr
+        && this->name_ == nullptr && this->ownerId_ == nullptr && this->playSleepVal_ == nullptr && this->playTimes_ == nullptr && this->recallType_ == nullptr
+        && this->recordPath_ == nullptr && this->repeatCount_ == nullptr && this->repeatInterval_ == nullptr && this->repeatReason_ == nullptr && this->repeatTimes_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->sendSmsPlan_ == nullptr && this->startTime_ == nullptr && this->taskType_ == nullptr
+        && this->templateId_ == nullptr && this->templateType_ == nullptr; };
     // callTimeList Field Functions 
     bool hasCallTimeList() const { return this->callTimeList_ != nullptr;};
     void deleteCallTimeList() { this->callTimeList_ = nullptr;};
@@ -164,6 +199,15 @@ namespace Models
     inline vector<AddTaskRequest::CallTimeList> getCallTimeList() { DARABONBA_PTR_GET(callTimeList_, vector<AddTaskRequest::CallTimeList>) };
     inline AddTaskRequest& setCallTimeList(const vector<AddTaskRequest::CallTimeList> & callTimeList) { DARABONBA_PTR_SET_VALUE(callTimeList_, callTimeList) };
     inline AddTaskRequest& setCallTimeList(vector<AddTaskRequest::CallTimeList> && callTimeList) { DARABONBA_PTR_SET_RVALUE(callTimeList_, callTimeList) };
+
+
+    // callTimeStrList Field Functions 
+    bool hasCallTimeStrList() const { return this->callTimeStrList_ != nullptr;};
+    void deleteCallTimeStrList() { this->callTimeStrList_ = nullptr;};
+    inline const vector<AddTaskRequest::CallTimeStrList> & getCallTimeStrList() const { DARABONBA_PTR_GET_CONST(callTimeStrList_, vector<AddTaskRequest::CallTimeStrList>) };
+    inline vector<AddTaskRequest::CallTimeStrList> getCallTimeStrList() { DARABONBA_PTR_GET(callTimeStrList_, vector<AddTaskRequest::CallTimeStrList>) };
+    inline AddTaskRequest& setCallTimeStrList(const vector<AddTaskRequest::CallTimeStrList> & callTimeStrList) { DARABONBA_PTR_SET_VALUE(callTimeStrList_, callTimeStrList) };
+    inline AddTaskRequest& setCallTimeStrList(vector<AddTaskRequest::CallTimeStrList> && callTimeStrList) { DARABONBA_PTR_SET_RVALUE(callTimeStrList_, callTimeStrList) };
 
 
     // callbackUrl Field Functions 
@@ -322,6 +366,8 @@ namespace Models
   protected:
     // 外呼时间
     shared_ptr<vector<AddTaskRequest::CallTimeList>> callTimeList_ {};
+    // 外呼时间:精确到分钟.如果两个字段都存在值，以该字段为准。建议用该字段，精确到分钟, 08:31-12:05 13:33-19:00 则传[["08:31","12:05"]["13:33","19:00"]]；默认为[["08:00","20:00"]]
+    shared_ptr<vector<AddTaskRequest::CallTimeStrList>> callTimeStrList_ {};
     // 回调地址
     shared_ptr<string> callbackUrl_ {};
     // 当发送闪信配置为1时，闪信模板ID必填

@@ -242,6 +242,10 @@ AddTaskResponse Client::addTaskWithOptions(const AddTaskRequest &tmpReq, const D
     request.setCallTimeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCallTimeList(), "CallTimeList", "json"));
   }
 
+  if (!!tmpReq.hasCallTimeStrList()) {
+    request.setCallTimeStrListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCallTimeStrList(), "CallTimeStrList", "json"));
+  }
+
   if (!!tmpReq.hasRepeatReason()) {
     request.setRepeatReasonShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRepeatReason(), "RepeatReason", "json"));
   }
@@ -257,6 +261,10 @@ AddTaskResponse Client::addTaskWithOptions(const AddTaskRequest &tmpReq, const D
   json query = {};
   if (!!request.hasCallTimeListShrink()) {
     query["CallTimeList"] = request.getCallTimeListShrink();
+  }
+
+  if (!!request.hasCallTimeStrListShrink()) {
+    query["CallTimeStrList"] = request.getCallTimeStrListShrink();
   }
 
   if (!!request.hasCallbackUrl()) {
@@ -996,6 +1004,10 @@ EditTaskResponse Client::editTaskWithOptions(const EditTaskRequest &tmpReq, cons
     request.setCallTimeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCallTimeList(), "CallTimeList", "json"));
   }
 
+  if (!!tmpReq.hasCallTimeStrList()) {
+    request.setCallTimeStrListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCallTimeStrList(), "CallTimeStrList", "json"));
+  }
+
   if (!!tmpReq.hasRepeatReason()) {
     request.setRepeatReasonShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRepeatReason(), "RepeatReason", "json"));
   }
@@ -1011,6 +1023,10 @@ EditTaskResponse Client::editTaskWithOptions(const EditTaskRequest &tmpReq, cons
   json query = {};
   if (!!request.hasCallTimeListShrink()) {
     query["CallTimeList"] = request.getCallTimeListShrink();
+  }
+
+  if (!!request.hasCallTimeStrListShrink()) {
+    query["CallTimeStrList"] = request.getCallTimeStrListShrink();
   }
 
   if (!!request.hasCallbackUrl()) {
@@ -1476,6 +1492,10 @@ QuickAddTaskResponse Client::quickAddTaskWithOptions(const QuickAddTaskRequest &
     request.setCallTimeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCallTimeList(), "CallTimeList", "json"));
   }
 
+  if (!!tmpReq.hasCallTimeStrList()) {
+    request.setCallTimeStrListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCallTimeStrList(), "CallTimeStrList", "json"));
+  }
+
   json query = {};
   if (!!request.hasAgentGroupId()) {
     query["AgentGroupId"] = request.getAgentGroupId();
@@ -1483,6 +1503,10 @@ QuickAddTaskResponse Client::quickAddTaskWithOptions(const QuickAddTaskRequest &
 
   if (!!request.hasCallTimeListShrink()) {
     query["CallTimeList"] = request.getCallTimeListShrink();
+  }
+
+  if (!!request.hasCallTimeStrListShrink()) {
+    query["CallTimeStrList"] = request.getCallTimeStrListShrink();
   }
 
   if (!!request.hasName()) {

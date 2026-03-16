@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const EditTaskShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CallTimeList, callTimeListShrink_);
+      DARABONBA_PTR_TO_JSON(CallTimeStrList, callTimeStrListShrink_);
       DARABONBA_PTR_TO_JSON(CallbackUrl, callbackUrl_);
       DARABONBA_PTR_TO_JSON(FlashSmsTemplateId, flashSmsTemplateId_);
       DARABONBA_PTR_TO_JSON(FlashSmsType, flashSmsType_);
@@ -38,6 +39,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, EditTaskShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CallTimeList, callTimeListShrink_);
+      DARABONBA_PTR_FROM_JSON(CallTimeStrList, callTimeStrListShrink_);
       DARABONBA_PTR_FROM_JSON(CallbackUrl, callbackUrl_);
       DARABONBA_PTR_FROM_JSON(FlashSmsTemplateId, flashSmsTemplateId_);
       DARABONBA_PTR_FROM_JSON(FlashSmsType, flashSmsType_);
@@ -72,16 +74,23 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callTimeListShrink_ == nullptr
-        && this->callbackUrl_ == nullptr && this->flashSmsTemplateId_ == nullptr && this->flashSmsType_ == nullptr && this->maxConcurrency_ == nullptr && this->name_ == nullptr
-        && this->ownerId_ == nullptr && this->playSleepVal_ == nullptr && this->playTimes_ == nullptr && this->recallType_ == nullptr && this->recordPath_ == nullptr
-        && this->repeatCount_ == nullptr && this->repeatInterval_ == nullptr && this->repeatReasonShrink_ == nullptr && this->repeatTimesShrink_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->sendSmsPlanShrink_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->templateId_ == nullptr
-        && this->templateType_ == nullptr; };
+        && this->callTimeStrListShrink_ == nullptr && this->callbackUrl_ == nullptr && this->flashSmsTemplateId_ == nullptr && this->flashSmsType_ == nullptr && this->maxConcurrency_ == nullptr
+        && this->name_ == nullptr && this->ownerId_ == nullptr && this->playSleepVal_ == nullptr && this->playTimes_ == nullptr && this->recallType_ == nullptr
+        && this->recordPath_ == nullptr && this->repeatCount_ == nullptr && this->repeatInterval_ == nullptr && this->repeatReasonShrink_ == nullptr && this->repeatTimesShrink_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->sendSmsPlanShrink_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr
+        && this->templateId_ == nullptr && this->templateType_ == nullptr; };
     // callTimeListShrink Field Functions 
     bool hasCallTimeListShrink() const { return this->callTimeListShrink_ != nullptr;};
     void deleteCallTimeListShrink() { this->callTimeListShrink_ = nullptr;};
     inline string getCallTimeListShrink() const { DARABONBA_PTR_GET_DEFAULT(callTimeListShrink_, "") };
     inline EditTaskShrinkRequest& setCallTimeListShrink(string callTimeListShrink) { DARABONBA_PTR_SET_VALUE(callTimeListShrink_, callTimeListShrink) };
+
+
+    // callTimeStrListShrink Field Functions 
+    bool hasCallTimeStrListShrink() const { return this->callTimeStrListShrink_ != nullptr;};
+    void deleteCallTimeStrListShrink() { this->callTimeStrListShrink_ = nullptr;};
+    inline string getCallTimeStrListShrink() const { DARABONBA_PTR_GET_DEFAULT(callTimeStrListShrink_, "") };
+    inline EditTaskShrinkRequest& setCallTimeStrListShrink(string callTimeStrListShrink) { DARABONBA_PTR_SET_VALUE(callTimeStrListShrink_, callTimeStrListShrink) };
 
 
     // callbackUrl Field Functions 
@@ -234,6 +243,8 @@ namespace Models
   protected:
     // 外呼时间
     shared_ptr<string> callTimeListShrink_ {};
+    // 外呼时间:精确到分钟.如果两个字段都存在值，以该字段为准。建议用该字段，精确到分钟, 08:31-12:05 13:33-19:00 则传[["08:31","12:05"]["13:33","19:00"]]；默认为[["08:00","20:00"]]
+    shared_ptr<string> callTimeStrListShrink_ {};
     // 回调地址
     shared_ptr<string> callbackUrl_ {};
     // 当发送闪信配置为1时，闪信模板ID必填
