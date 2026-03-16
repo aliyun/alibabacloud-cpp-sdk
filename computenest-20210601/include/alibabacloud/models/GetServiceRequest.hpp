@@ -41,64 +41,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->serviceId_ == nullptr && return this->serviceInstanceId_ == nullptr && return this->serviceName_ == nullptr && return this->serviceVersion_ == nullptr && return this->showDetails_ == nullptr; };
+        && this->serviceId_ == nullptr && this->serviceInstanceId_ == nullptr && this->serviceName_ == nullptr && this->serviceVersion_ == nullptr && this->showDetails_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetServiceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline GetServiceRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // serviceInstanceId Field Functions 
     bool hasServiceInstanceId() const { return this->serviceInstanceId_ != nullptr;};
     void deleteServiceInstanceId() { this->serviceInstanceId_ = nullptr;};
-    inline string serviceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
+    inline string getServiceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
     inline GetServiceRequest& setServiceInstanceId(string serviceInstanceId) { DARABONBA_PTR_SET_VALUE(serviceInstanceId_, serviceInstanceId) };
 
 
     // serviceName Field Functions 
     bool hasServiceName() const { return this->serviceName_ != nullptr;};
     void deleteServiceName() { this->serviceName_ = nullptr;};
-    inline string serviceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+    inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
     inline GetServiceRequest& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
     // serviceVersion Field Functions 
     bool hasServiceVersion() const { return this->serviceVersion_ != nullptr;};
     void deleteServiceVersion() { this->serviceVersion_ = nullptr;};
-    inline string serviceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
+    inline string getServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
     inline GetServiceRequest& setServiceVersion(string serviceVersion) { DARABONBA_PTR_SET_VALUE(serviceVersion_, serviceVersion) };
 
 
     // showDetails Field Functions 
     bool hasShowDetails() const { return this->showDetails_ != nullptr;};
     void deleteShowDetails() { this->showDetails_ = nullptr;};
-    inline const vector<string> & showDetails() const { DARABONBA_PTR_GET_CONST(showDetails_, vector<string>) };
-    inline vector<string> showDetails() { DARABONBA_PTR_GET(showDetails_, vector<string>) };
+    inline const vector<string> & getShowDetails() const { DARABONBA_PTR_GET_CONST(showDetails_, vector<string>) };
+    inline vector<string> getShowDetails() { DARABONBA_PTR_GET(showDetails_, vector<string>) };
     inline GetServiceRequest& setShowDetails(const vector<string> & showDetails) { DARABONBA_PTR_SET_VALUE(showDetails_, showDetails) };
     inline GetServiceRequest& setShowDetails(vector<string> && showDetails) { DARABONBA_PTR_SET_RVALUE(showDetails_, showDetails) };
 
 
   protected:
     // Region Id.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The service ID.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // The service instance id.
-    std::shared_ptr<string> serviceInstanceId_ = nullptr;
+    shared_ptr<string> serviceInstanceId_ {};
     // The service name.
-    std::shared_ptr<string> serviceName_ = nullptr;
+    shared_ptr<string> serviceName_ {};
     // The service version.
-    std::shared_ptr<string> serviceVersion_ = nullptr;
+    shared_ptr<string> serviceVersion_ {};
     // Whether to disclose service details.
-    std::shared_ptr<vector<string>> showDetails_ = nullptr;
+    shared_ptr<vector<string>> showDetails_ {};
   };
 
   } // namespace Models

@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->upgradeRequiredParameters_ == nullptr; };
+        && this->upgradeRequiredParameters_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UpgradeServiceInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // upgradeRequiredParameters Field Functions 
     bool hasUpgradeRequiredParameters() const { return this->upgradeRequiredParameters_ != nullptr;};
     void deleteUpgradeRequiredParameters() { this->upgradeRequiredParameters_ = nullptr;};
-    inline const vector<string> & upgradeRequiredParameters() const { DARABONBA_PTR_GET_CONST(upgradeRequiredParameters_, vector<string>) };
-    inline vector<string> upgradeRequiredParameters() { DARABONBA_PTR_GET(upgradeRequiredParameters_, vector<string>) };
+    inline const vector<string> & getUpgradeRequiredParameters() const { DARABONBA_PTR_GET_CONST(upgradeRequiredParameters_, vector<string>) };
+    inline vector<string> getUpgradeRequiredParameters() { DARABONBA_PTR_GET(upgradeRequiredParameters_, vector<string>) };
     inline UpgradeServiceInstanceResponseBody& setUpgradeRequiredParameters(const vector<string> & upgradeRequiredParameters) { DARABONBA_PTR_SET_VALUE(upgradeRequiredParameters_, upgradeRequiredParameters) };
     inline UpgradeServiceInstanceResponseBody& setUpgradeRequiredParameters(vector<string> && upgradeRequiredParameters) { DARABONBA_PTR_SET_RVALUE(upgradeRequiredParameters_, upgradeRequiredParameters) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The parameters required for the upgrade. This parameter is returned only if DryRun is set to true in the request. You can specify the required parameters based on the returned value when you perform an actual request.
-    std::shared_ptr<vector<string>> upgradeRequiredParameters_ = nullptr;
+    shared_ptr<vector<string>> upgradeRequiredParameters_ {};
   };
 
   } // namespace Models

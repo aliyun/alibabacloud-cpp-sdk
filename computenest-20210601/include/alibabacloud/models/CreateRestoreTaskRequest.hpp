@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupId_ == nullptr
-        && return this->serviceInstanceId_ == nullptr; };
+        && this->serviceInstanceId_ == nullptr; };
     // backupId Field Functions 
     bool hasBackupId() const { return this->backupId_ != nullptr;};
     void deleteBackupId() { this->backupId_ = nullptr;};
-    inline string backupId() const { DARABONBA_PTR_GET_DEFAULT(backupId_, "") };
+    inline string getBackupId() const { DARABONBA_PTR_GET_DEFAULT(backupId_, "") };
     inline CreateRestoreTaskRequest& setBackupId(string backupId) { DARABONBA_PTR_SET_VALUE(backupId_, backupId) };
 
 
     // serviceInstanceId Field Functions 
     bool hasServiceInstanceId() const { return this->serviceInstanceId_ != nullptr;};
     void deleteServiceInstanceId() { this->serviceInstanceId_ = nullptr;};
-    inline string serviceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
+    inline string getServiceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
     inline CreateRestoreTaskRequest& setServiceInstanceId(string serviceInstanceId) { DARABONBA_PTR_SET_VALUE(serviceInstanceId_, serviceInstanceId) };
 
 
@@ -51,13 +51,13 @@ namespace Models
     // The backup ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> backupId_ = nullptr;
+    shared_ptr<string> backupId_ {};
     // The ID of the service instance.
     // 
     // You can call [ListServiceInstances](https://help.aliyun.com/document_detail/396200.html) to obtain the ID of the service instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceInstanceId_ = nullptr;
+    shared_ptr<string> serviceInstanceId_ {};
   };
 
   } // namespace Models

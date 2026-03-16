@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETSERVICEESTIMATECOSTREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_GETSERVICEESTIMATECOSTREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetServiceEstimateCostRequestCommodity.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -50,118 +49,188 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Commodity : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Commodity& obj) { 
+        DARABONBA_PTR_TO_JSON(CouponId, couponId_);
+        DARABONBA_PTR_TO_JSON(PayPeriod, payPeriod_);
+        DARABONBA_PTR_TO_JSON(PayPeriodUnit, payPeriodUnit_);
+        DARABONBA_PTR_TO_JSON(QuotationId, quotationId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Commodity& obj) { 
+        DARABONBA_PTR_FROM_JSON(CouponId, couponId_);
+        DARABONBA_PTR_FROM_JSON(PayPeriod, payPeriod_);
+        DARABONBA_PTR_FROM_JSON(PayPeriodUnit, payPeriodUnit_);
+        DARABONBA_PTR_FROM_JSON(QuotationId, quotationId_);
+      };
+      Commodity() = default ;
+      Commodity(const Commodity &) = default ;
+      Commodity(Commodity &&) = default ;
+      Commodity(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Commodity() = default ;
+      Commodity& operator=(const Commodity &) = default ;
+      Commodity& operator=(Commodity &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->couponId_ == nullptr
+        && this->payPeriod_ == nullptr && this->payPeriodUnit_ == nullptr && this->quotationId_ == nullptr; };
+      // couponId Field Functions 
+      bool hasCouponId() const { return this->couponId_ != nullptr;};
+      void deleteCouponId() { this->couponId_ = nullptr;};
+      inline string getCouponId() const { DARABONBA_PTR_GET_DEFAULT(couponId_, "") };
+      inline Commodity& setCouponId(string couponId) { DARABONBA_PTR_SET_VALUE(couponId_, couponId) };
+
+
+      // payPeriod Field Functions 
+      bool hasPayPeriod() const { return this->payPeriod_ != nullptr;};
+      void deletePayPeriod() { this->payPeriod_ = nullptr;};
+      inline int32_t getPayPeriod() const { DARABONBA_PTR_GET_DEFAULT(payPeriod_, 0) };
+      inline Commodity& setPayPeriod(int32_t payPeriod) { DARABONBA_PTR_SET_VALUE(payPeriod_, payPeriod) };
+
+
+      // payPeriodUnit Field Functions 
+      bool hasPayPeriodUnit() const { return this->payPeriodUnit_ != nullptr;};
+      void deletePayPeriodUnit() { this->payPeriodUnit_ = nullptr;};
+      inline string getPayPeriodUnit() const { DARABONBA_PTR_GET_DEFAULT(payPeriodUnit_, "") };
+      inline Commodity& setPayPeriodUnit(string payPeriodUnit) { DARABONBA_PTR_SET_VALUE(payPeriodUnit_, payPeriodUnit) };
+
+
+      // quotationId Field Functions 
+      bool hasQuotationId() const { return this->quotationId_ != nullptr;};
+      void deleteQuotationId() { this->quotationId_ = nullptr;};
+      inline string getQuotationId() const { DARABONBA_PTR_GET_DEFAULT(quotationId_, "") };
+      inline Commodity& setQuotationId(string quotationId) { DARABONBA_PTR_SET_VALUE(quotationId_, quotationId) };
+
+
+    protected:
+      // The coupon ID.
+      shared_ptr<string> couponId_ {};
+      // The subscription duration of the instance.
+      shared_ptr<int32_t> payPeriod_ {};
+      // The unit of the subscription duration. Valid values:
+      // 
+      // *   Year.
+      // *   Month.
+      // *   Day.
+      shared_ptr<string> payPeriodUnit_ {};
+      // The PrivateOffer ID of the Alibaba Cloud Marketplace.
+      shared_ptr<string> quotationId_ {};
+    };
+
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->commodity_ == nullptr && return this->operationName_ == nullptr && return this->parameters_ == nullptr && return this->regionId_ == nullptr && return this->serviceId_ == nullptr
-        && return this->serviceInstanceId_ == nullptr && return this->serviceVersion_ == nullptr && return this->specificationName_ == nullptr && return this->templateName_ == nullptr && return this->trialType_ == nullptr; };
+        && this->commodity_ == nullptr && this->operationName_ == nullptr && this->parameters_ == nullptr && this->regionId_ == nullptr && this->serviceId_ == nullptr
+        && this->serviceInstanceId_ == nullptr && this->serviceVersion_ == nullptr && this->specificationName_ == nullptr && this->templateName_ == nullptr && this->trialType_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline GetServiceEstimateCostRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // commodity Field Functions 
     bool hasCommodity() const { return this->commodity_ != nullptr;};
     void deleteCommodity() { this->commodity_ = nullptr;};
-    inline const GetServiceEstimateCostRequestCommodity & commodity() const { DARABONBA_PTR_GET_CONST(commodity_, GetServiceEstimateCostRequestCommodity) };
-    inline GetServiceEstimateCostRequestCommodity commodity() { DARABONBA_PTR_GET(commodity_, GetServiceEstimateCostRequestCommodity) };
-    inline GetServiceEstimateCostRequest& setCommodity(const GetServiceEstimateCostRequestCommodity & commodity) { DARABONBA_PTR_SET_VALUE(commodity_, commodity) };
-    inline GetServiceEstimateCostRequest& setCommodity(GetServiceEstimateCostRequestCommodity && commodity) { DARABONBA_PTR_SET_RVALUE(commodity_, commodity) };
+    inline const GetServiceEstimateCostRequest::Commodity & getCommodity() const { DARABONBA_PTR_GET_CONST(commodity_, GetServiceEstimateCostRequest::Commodity) };
+    inline GetServiceEstimateCostRequest::Commodity getCommodity() { DARABONBA_PTR_GET(commodity_, GetServiceEstimateCostRequest::Commodity) };
+    inline GetServiceEstimateCostRequest& setCommodity(const GetServiceEstimateCostRequest::Commodity & commodity) { DARABONBA_PTR_SET_VALUE(commodity_, commodity) };
+    inline GetServiceEstimateCostRequest& setCommodity(GetServiceEstimateCostRequest::Commodity && commodity) { DARABONBA_PTR_SET_RVALUE(commodity_, commodity) };
 
 
     // operationName Field Functions 
     bool hasOperationName() const { return this->operationName_ != nullptr;};
     void deleteOperationName() { this->operationName_ = nullptr;};
-    inline string operationName() const { DARABONBA_PTR_GET_DEFAULT(operationName_, "") };
+    inline string getOperationName() const { DARABONBA_PTR_GET_DEFAULT(operationName_, "") };
     inline GetServiceEstimateCostRequest& setOperationName(string operationName) { DARABONBA_PTR_SET_VALUE(operationName_, operationName) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline     const Darabonba::Json & parameters() const { DARABONBA_GET(parameters_) };
-    Darabonba::Json & parameters() { DARABONBA_GET(parameters_) };
+    inline     const Darabonba::Json & getParameters() const { DARABONBA_GET(parameters_) };
+    Darabonba::Json & getParameters() { DARABONBA_GET(parameters_) };
     inline GetServiceEstimateCostRequest& setParameters(const Darabonba::Json & parameters) { DARABONBA_SET_VALUE(parameters_, parameters) };
-    inline GetServiceEstimateCostRequest& setParameters(Darabonba::Json & parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
+    inline GetServiceEstimateCostRequest& setParameters(Darabonba::Json && parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetServiceEstimateCostRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline GetServiceEstimateCostRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // serviceInstanceId Field Functions 
     bool hasServiceInstanceId() const { return this->serviceInstanceId_ != nullptr;};
     void deleteServiceInstanceId() { this->serviceInstanceId_ = nullptr;};
-    inline string serviceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
+    inline string getServiceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
     inline GetServiceEstimateCostRequest& setServiceInstanceId(string serviceInstanceId) { DARABONBA_PTR_SET_VALUE(serviceInstanceId_, serviceInstanceId) };
 
 
     // serviceVersion Field Functions 
     bool hasServiceVersion() const { return this->serviceVersion_ != nullptr;};
     void deleteServiceVersion() { this->serviceVersion_ = nullptr;};
-    inline string serviceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
+    inline string getServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
     inline GetServiceEstimateCostRequest& setServiceVersion(string serviceVersion) { DARABONBA_PTR_SET_VALUE(serviceVersion_, serviceVersion) };
 
 
     // specificationName Field Functions 
     bool hasSpecificationName() const { return this->specificationName_ != nullptr;};
     void deleteSpecificationName() { this->specificationName_ = nullptr;};
-    inline string specificationName() const { DARABONBA_PTR_GET_DEFAULT(specificationName_, "") };
+    inline string getSpecificationName() const { DARABONBA_PTR_GET_DEFAULT(specificationName_, "") };
     inline GetServiceEstimateCostRequest& setSpecificationName(string specificationName) { DARABONBA_PTR_SET_VALUE(specificationName_, specificationName) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline GetServiceEstimateCostRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
     // trialType Field Functions 
     bool hasTrialType() const { return this->trialType_ != nullptr;};
     void deleteTrialType() { this->trialType_ = nullptr;};
-    inline string trialType() const { DARABONBA_PTR_GET_DEFAULT(trialType_, "") };
+    inline string getTrialType() const { DARABONBA_PTR_GET_DEFAULT(trialType_, "") };
     inline GetServiceEstimateCostRequest& setTrialType(string trialType) { DARABONBA_PTR_SET_VALUE(trialType_, trialType) };
 
 
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The information about the subscription duration.
-    std::shared_ptr<GetServiceEstimateCostRequestCommodity> commodity_ = nullptr;
+    shared_ptr<GetServiceEstimateCostRequest::Commodity> commodity_ {};
     // The name of the configuration change operation.
-    std::shared_ptr<string> operationName_ = nullptr;
+    shared_ptr<string> operationName_ {};
     // The parameters that are specified to deploy the service instance.
-    Darabonba::Json parameters_ = nullptr;
+    Darabonba::Json parameters_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The service ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // The service instance ID.
-    std::shared_ptr<string> serviceInstanceId_ = nullptr;
+    shared_ptr<string> serviceInstanceId_ {};
     // The service version.
-    std::shared_ptr<string> serviceVersion_ = nullptr;
+    shared_ptr<string> serviceVersion_ {};
     // The name of the package specification.
-    std::shared_ptr<string> specificationName_ = nullptr;
+    shared_ptr<string> specificationName_ {};
     // The template name.
-    std::shared_ptr<string> templateName_ = nullptr;
+    shared_ptr<string> templateName_ {};
     // The trial policy. Valid values:
     // 
     // *   Trial: Trials are supported.
     // *   NotTrial: Trials are not supported.
-    std::shared_ptr<string> trialType_ = nullptr;
+    shared_ptr<string> trialType_ {};
   };
 
   } // namespace Models

@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupId_ == nullptr
-        && return this->description_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr; };
+        && this->description_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr; };
     // backupId Field Functions 
     bool hasBackupId() const { return this->backupId_ != nullptr;};
     void deleteBackupId() { this->backupId_ = nullptr;};
-    inline string backupId() const { DARABONBA_PTR_GET_DEFAULT(backupId_, "") };
+    inline string getBackupId() const { DARABONBA_PTR_GET_DEFAULT(backupId_, "") };
     inline CreateBackupResponseBody& setBackupId(string backupId) { DARABONBA_PTR_SET_VALUE(backupId_, backupId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateBackupResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateBackupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline CreateBackupResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // Backup ID
-    std::shared_ptr<string> backupId_ = nullptr;
+    shared_ptr<string> backupId_ {};
     // Description
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Request ID
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Backup status 
     // - Creating: In progress 
     // - Created: Success 
@@ -79,7 +79,7 @@ namespace Models
     // - Deleting: In progress 
     // - Deleted: Success 
     // - DeleteFailed: Failed
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

@@ -40,58 +40,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->isTrial_ == nullptr && return this->serviceId_ == nullptr && return this->serviceInstanceName_ == nullptr && return this->serviceVersion_ == nullptr && return this->templateName_ == nullptr; };
+        && this->isTrial_ == nullptr && this->serviceId_ == nullptr && this->serviceInstanceName_ == nullptr && this->serviceVersion_ == nullptr && this->templateName_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ValidateServiceInstanceNameRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // isTrial Field Functions 
     bool hasIsTrial() const { return this->isTrial_ != nullptr;};
     void deleteIsTrial() { this->isTrial_ = nullptr;};
-    inline bool isTrial() const { DARABONBA_PTR_GET_DEFAULT(isTrial_, false) };
+    inline bool getIsTrial() const { DARABONBA_PTR_GET_DEFAULT(isTrial_, false) };
     inline ValidateServiceInstanceNameRequest& setIsTrial(bool isTrial) { DARABONBA_PTR_SET_VALUE(isTrial_, isTrial) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline ValidateServiceInstanceNameRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // serviceInstanceName Field Functions 
     bool hasServiceInstanceName() const { return this->serviceInstanceName_ != nullptr;};
     void deleteServiceInstanceName() { this->serviceInstanceName_ = nullptr;};
-    inline string serviceInstanceName() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceName_, "") };
+    inline string getServiceInstanceName() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceName_, "") };
     inline ValidateServiceInstanceNameRequest& setServiceInstanceName(string serviceInstanceName) { DARABONBA_PTR_SET_VALUE(serviceInstanceName_, serviceInstanceName) };
 
 
     // serviceVersion Field Functions 
     bool hasServiceVersion() const { return this->serviceVersion_ != nullptr;};
     void deleteServiceVersion() { this->serviceVersion_ = nullptr;};
-    inline string serviceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
+    inline string getServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
     inline ValidateServiceInstanceNameRequest& setServiceVersion(string serviceVersion) { DARABONBA_PTR_SET_VALUE(serviceVersion_, serviceVersion) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline ValidateServiceInstanceNameRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
   protected:
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<bool> isTrial_ = nullptr;
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<bool> isTrial_ {};
     // This parameter is required.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> serviceInstanceName_ = nullptr;
-    std::shared_ptr<string> serviceVersion_ = nullptr;
-    std::shared_ptr<string> templateName_ = nullptr;
+    shared_ptr<string> serviceInstanceName_ {};
+    shared_ptr<string> serviceVersion_ {};
+    shared_ptr<string> templateName_ {};
   };
 
   } // namespace Models

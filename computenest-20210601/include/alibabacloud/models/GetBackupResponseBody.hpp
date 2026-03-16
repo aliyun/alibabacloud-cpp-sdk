@@ -48,95 +48,95 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupId_ == nullptr
-        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->endTime_ == nullptr && return this->modifiedTime_ == nullptr && return this->requestId_ == nullptr
-        && return this->serviceInstanceId_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->statusDetail_ == nullptr; };
+        && this->createTime_ == nullptr && this->description_ == nullptr && this->endTime_ == nullptr && this->modifiedTime_ == nullptr && this->requestId_ == nullptr
+        && this->serviceInstanceId_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->statusDetail_ == nullptr; };
     // backupId Field Functions 
     bool hasBackupId() const { return this->backupId_ != nullptr;};
     void deleteBackupId() { this->backupId_ = nullptr;};
-    inline string backupId() const { DARABONBA_PTR_GET_DEFAULT(backupId_, "") };
+    inline string getBackupId() const { DARABONBA_PTR_GET_DEFAULT(backupId_, "") };
     inline GetBackupResponseBody& setBackupId(string backupId) { DARABONBA_PTR_SET_VALUE(backupId_, backupId) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline GetBackupResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline GetBackupResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetBackupResponseBody& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // modifiedTime Field Functions 
     bool hasModifiedTime() const { return this->modifiedTime_ != nullptr;};
     void deleteModifiedTime() { this->modifiedTime_ = nullptr;};
-    inline string modifiedTime() const { DARABONBA_PTR_GET_DEFAULT(modifiedTime_, "") };
+    inline string getModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(modifiedTime_, "") };
     inline GetBackupResponseBody& setModifiedTime(string modifiedTime) { DARABONBA_PTR_SET_VALUE(modifiedTime_, modifiedTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetBackupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // serviceInstanceId Field Functions 
     bool hasServiceInstanceId() const { return this->serviceInstanceId_ != nullptr;};
     void deleteServiceInstanceId() { this->serviceInstanceId_ = nullptr;};
-    inline string serviceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
+    inline string getServiceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
     inline GetBackupResponseBody& setServiceInstanceId(string serviceInstanceId) { DARABONBA_PTR_SET_VALUE(serviceInstanceId_, serviceInstanceId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetBackupResponseBody& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetBackupResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // statusDetail Field Functions 
     bool hasStatusDetail() const { return this->statusDetail_ != nullptr;};
     void deleteStatusDetail() { this->statusDetail_ = nullptr;};
-    inline string statusDetail() const { DARABONBA_PTR_GET_DEFAULT(statusDetail_, "") };
+    inline string getStatusDetail() const { DARABONBA_PTR_GET_DEFAULT(statusDetail_, "") };
     inline GetBackupResponseBody& setStatusDetail(string statusDetail) { DARABONBA_PTR_SET_VALUE(statusDetail_, statusDetail) };
 
 
   protected:
     // The backup ID.
-    std::shared_ptr<string> backupId_ = nullptr;
+    shared_ptr<string> backupId_ {};
     // The creation time of the backup task.
-    std::shared_ptr<string> createTime_ = nullptr;
+    shared_ptr<string> createTime_ {};
     // The description of the backup task.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The end time of the backup task.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The update time of the backup task.
-    std::shared_ptr<string> modifiedTime_ = nullptr;
+    shared_ptr<string> modifiedTime_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The request ID.
-    std::shared_ptr<string> serviceInstanceId_ = nullptr;
+    shared_ptr<string> serviceInstanceId_ {};
     // The start time of the backup task.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The status of the backup task.
     // 
     // *   Creating
@@ -145,9 +145,9 @@ namespace Models
     // *   Deleting
     // *   Deleted
     // *   DeleteFailed
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The description of the deployment instance status.
-    std::shared_ptr<string> statusDetail_ = nullptr;
+    shared_ptr<string> statusDetail_ {};
   };
 
   } // namespace Models

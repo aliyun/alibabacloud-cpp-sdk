@@ -33,7 +33,7 @@ namespace Models
     // backupId Field Functions 
     bool hasBackupId() const { return this->backupId_ != nullptr;};
     void deleteBackupId() { this->backupId_ = nullptr;};
-    inline string backupId() const { DARABONBA_PTR_GET_DEFAULT(backupId_, "") };
+    inline string getBackupId() const { DARABONBA_PTR_GET_DEFAULT(backupId_, "") };
     inline DeleteBackupRequest& setBackupId(string backupId) { DARABONBA_PTR_SET_VALUE(backupId_, backupId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The backup ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> backupId_ = nullptr;
+    shared_ptr<string> backupId_ {};
   };
 
   } // namespace Models

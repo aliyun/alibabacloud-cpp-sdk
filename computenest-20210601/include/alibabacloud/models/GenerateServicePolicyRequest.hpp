@@ -41,12 +41,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->operationTypes_ == nullptr
-        && return this->regionId_ == nullptr && return this->serviceId_ == nullptr && return this->serviceVersion_ == nullptr && return this->templateName_ == nullptr && return this->trialType_ == nullptr; };
+        && this->regionId_ == nullptr && this->serviceId_ == nullptr && this->serviceVersion_ == nullptr && this->templateName_ == nullptr && this->trialType_ == nullptr; };
     // operationTypes Field Functions 
     bool hasOperationTypes() const { return this->operationTypes_ != nullptr;};
     void deleteOperationTypes() { this->operationTypes_ = nullptr;};
-    inline const vector<string> & operationTypes() const { DARABONBA_PTR_GET_CONST(operationTypes_, vector<string>) };
-    inline vector<string> operationTypes() { DARABONBA_PTR_GET(operationTypes_, vector<string>) };
+    inline const vector<string> & getOperationTypes() const { DARABONBA_PTR_GET_CONST(operationTypes_, vector<string>) };
+    inline vector<string> getOperationTypes() { DARABONBA_PTR_GET(operationTypes_, vector<string>) };
     inline GenerateServicePolicyRequest& setOperationTypes(const vector<string> & operationTypes) { DARABONBA_PTR_SET_VALUE(operationTypes_, operationTypes) };
     inline GenerateServicePolicyRequest& setOperationTypes(vector<string> && operationTypes) { DARABONBA_PTR_SET_RVALUE(operationTypes_, operationTypes) };
 
@@ -54,35 +54,35 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GenerateServicePolicyRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline GenerateServicePolicyRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // serviceVersion Field Functions 
     bool hasServiceVersion() const { return this->serviceVersion_ != nullptr;};
     void deleteServiceVersion() { this->serviceVersion_ = nullptr;};
-    inline string serviceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
+    inline string getServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
     inline GenerateServicePolicyRequest& setServiceVersion(string serviceVersion) { DARABONBA_PTR_SET_VALUE(serviceVersion_, serviceVersion) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline GenerateServicePolicyRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
     // trialType Field Functions 
     bool hasTrialType() const { return this->trialType_ != nullptr;};
     void deleteTrialType() { this->trialType_ = nullptr;};
-    inline string trialType() const { DARABONBA_PTR_GET_DEFAULT(trialType_, "") };
+    inline string getTrialType() const { DARABONBA_PTR_GET_DEFAULT(trialType_, "") };
     inline GenerateServicePolicyRequest& setTrialType(string trialType) { DARABONBA_PTR_SET_VALUE(trialType_, trialType) };
 
 
@@ -96,24 +96,24 @@ namespace Models
     // *   DeleteServiceInstance: deletes a serviceInstance by calling the DeleteServiceInstance operation.
     // 
     // >  The default value is the combination of all valid values.
-    std::shared_ptr<vector<string>> operationTypes_ = nullptr;
+    shared_ptr<vector<string>> operationTypes_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The service ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // The service version.
-    std::shared_ptr<string> serviceVersion_ = nullptr;
+    shared_ptr<string> serviceVersion_ {};
     // The name of the template.
-    std::shared_ptr<string> templateName_ = nullptr;
+    shared_ptr<string> templateName_ {};
     // The trial policy. Valid values:
     // 
     // *   Trial: Trials are supported.
     // *   NotTrial: Trials are not supported.
-    std::shared_ptr<string> trialType_ = nullptr;
+    shared_ptr<string> trialType_ {};
   };
 
   } // namespace Models

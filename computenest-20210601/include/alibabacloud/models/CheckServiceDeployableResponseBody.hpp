@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CHECKSERVICEDEPLOYABLERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CheckServiceDeployableResponseBodyCheckResults.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,29 +32,98 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class CheckResults : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CheckResults& obj) { 
+        DARABONBA_PTR_TO_JSON(Message, message_);
+        DARABONBA_PTR_TO_JSON(Skippable, skippable_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, CheckResults& obj) { 
+        DARABONBA_PTR_FROM_JSON(Message, message_);
+        DARABONBA_PTR_FROM_JSON(Skippable, skippable_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      CheckResults() = default ;
+      CheckResults(const CheckResults &) = default ;
+      CheckResults(CheckResults &&) = default ;
+      CheckResults(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CheckResults() = default ;
+      CheckResults& operator=(const CheckResults &) = default ;
+      CheckResults& operator=(CheckResults &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->message_ == nullptr
+        && this->skippable_ == nullptr && this->type_ == nullptr && this->value_ == nullptr; };
+      // message Field Functions 
+      bool hasMessage() const { return this->message_ != nullptr;};
+      void deleteMessage() { this->message_ = nullptr;};
+      inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+      inline CheckResults& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+      // skippable Field Functions 
+      bool hasSkippable() const { return this->skippable_ != nullptr;};
+      void deleteSkippable() { this->skippable_ = nullptr;};
+      inline bool getSkippable() const { DARABONBA_PTR_GET_DEFAULT(skippable_, false) };
+      inline CheckResults& setSkippable(bool skippable) { DARABONBA_PTR_SET_VALUE(skippable_, skippable) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline CheckResults& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline CheckResults& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // Returns a hint message for the result.
+      shared_ptr<string> message_ {};
+      shared_ptr<bool> skippable_ {};
+      // Check type, invalid values:
+      // 
+      // - Balance ：Account balance.
+      // 
+      // - Quota:  Account quota.
+      shared_ptr<string> type_ {};
+      // Inspection result.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->checkResults_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // checkResults Field Functions 
     bool hasCheckResults() const { return this->checkResults_ != nullptr;};
     void deleteCheckResults() { this->checkResults_ = nullptr;};
-    inline const vector<CheckServiceDeployableResponseBodyCheckResults> & checkResults() const { DARABONBA_PTR_GET_CONST(checkResults_, vector<CheckServiceDeployableResponseBodyCheckResults>) };
-    inline vector<CheckServiceDeployableResponseBodyCheckResults> checkResults() { DARABONBA_PTR_GET(checkResults_, vector<CheckServiceDeployableResponseBodyCheckResults>) };
-    inline CheckServiceDeployableResponseBody& setCheckResults(const vector<CheckServiceDeployableResponseBodyCheckResults> & checkResults) { DARABONBA_PTR_SET_VALUE(checkResults_, checkResults) };
-    inline CheckServiceDeployableResponseBody& setCheckResults(vector<CheckServiceDeployableResponseBodyCheckResults> && checkResults) { DARABONBA_PTR_SET_RVALUE(checkResults_, checkResults) };
+    inline const vector<CheckServiceDeployableResponseBody::CheckResults> & getCheckResults() const { DARABONBA_PTR_GET_CONST(checkResults_, vector<CheckServiceDeployableResponseBody::CheckResults>) };
+    inline vector<CheckServiceDeployableResponseBody::CheckResults> getCheckResults() { DARABONBA_PTR_GET(checkResults_, vector<CheckServiceDeployableResponseBody::CheckResults>) };
+    inline CheckServiceDeployableResponseBody& setCheckResults(const vector<CheckServiceDeployableResponseBody::CheckResults> & checkResults) { DARABONBA_PTR_SET_VALUE(checkResults_, checkResults) };
+    inline CheckServiceDeployableResponseBody& setCheckResults(vector<CheckServiceDeployableResponseBody::CheckResults> && checkResults) { DARABONBA_PTR_SET_RVALUE(checkResults_, checkResults) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckServiceDeployableResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Inspection result.
-    std::shared_ptr<vector<CheckServiceDeployableResponseBodyCheckResults>> checkResults_ = nullptr;
+    shared_ptr<vector<CheckServiceDeployableResponseBody::CheckResults>> checkResults_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

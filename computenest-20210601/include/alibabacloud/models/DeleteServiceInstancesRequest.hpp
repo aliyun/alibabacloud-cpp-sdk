@@ -35,41 +35,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->regionId_ == nullptr && return this->serviceInstanceId_ == nullptr; };
+        && this->regionId_ == nullptr && this->serviceInstanceId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DeleteServiceInstancesRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteServiceInstancesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceInstanceId Field Functions 
     bool hasServiceInstanceId() const { return this->serviceInstanceId_ != nullptr;};
     void deleteServiceInstanceId() { this->serviceInstanceId_ = nullptr;};
-    inline const vector<string> & serviceInstanceId() const { DARABONBA_PTR_GET_CONST(serviceInstanceId_, vector<string>) };
-    inline vector<string> serviceInstanceId() { DARABONBA_PTR_GET(serviceInstanceId_, vector<string>) };
+    inline const vector<string> & getServiceInstanceId() const { DARABONBA_PTR_GET_CONST(serviceInstanceId_, vector<string>) };
+    inline vector<string> getServiceInstanceId() { DARABONBA_PTR_GET(serviceInstanceId_, vector<string>) };
     inline DeleteServiceInstancesRequest& setServiceInstanceId(const vector<string> & serviceInstanceId) { DARABONBA_PTR_SET_VALUE(serviceInstanceId_, serviceInstanceId) };
     inline DeleteServiceInstancesRequest& setServiceInstanceId(vector<string> && serviceInstanceId) { DARABONBA_PTR_SET_RVALUE(serviceInstanceId_, serviceInstanceId) };
 
 
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The IDs of the service instances.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> serviceInstanceId_ = nullptr;
+    shared_ptr<vector<string>> serviceInstanceId_ {};
   };
 
   } // namespace Models

@@ -41,26 +41,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->dryRun_ == nullptr && return this->option_ == nullptr && return this->parameters_ == nullptr && return this->regionId_ == nullptr && return this->serviceInstanceId_ == nullptr; };
+        && this->dryRun_ == nullptr && this->option_ == nullptr && this->parameters_ == nullptr && this->regionId_ == nullptr && this->serviceInstanceId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ContinueDeployServiceInstanceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline ContinueDeployServiceInstanceRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // option Field Functions 
     bool hasOption() const { return this->option_ != nullptr;};
     void deleteOption() { this->option_ = nullptr;};
-    inline const vector<string> & option() const { DARABONBA_PTR_GET_CONST(option_, vector<string>) };
-    inline vector<string> option() { DARABONBA_PTR_GET(option_, vector<string>) };
+    inline const vector<string> & getOption() const { DARABONBA_PTR_GET_CONST(option_, vector<string>) };
+    inline vector<string> getOption() { DARABONBA_PTR_GET(option_, vector<string>) };
     inline ContinueDeployServiceInstanceRequest& setOption(const vector<string> & option) { DARABONBA_PTR_SET_VALUE(option_, option) };
     inline ContinueDeployServiceInstanceRequest& setOption(vector<string> && option) { DARABONBA_PTR_SET_RVALUE(option_, option) };
 
@@ -68,44 +68,44 @@ namespace Models
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline string parameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
+    inline string getParameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
     inline ContinueDeployServiceInstanceRequest& setParameters(string parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ContinueDeployServiceInstanceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceInstanceId Field Functions 
     bool hasServiceInstanceId() const { return this->serviceInstanceId_ != nullptr;};
     void deleteServiceInstanceId() { this->serviceInstanceId_ = nullptr;};
-    inline string serviceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
+    inline string getServiceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
     inline ContinueDeployServiceInstanceRequest& setServiceInstanceId(string serviceInstanceId) { DARABONBA_PTR_SET_VALUE(serviceInstanceId_, serviceInstanceId) };
 
 
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
     // 
     // *   true: performs a dry run for the request, but does not create a service instance.
     // *   false: performs a dry run for the request, and creates a service instance if the request passes the dry run.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The options that the system adopts when the system continues to create the service instance.
-    std::shared_ptr<vector<string>> option_ = nullptr;
+    shared_ptr<vector<string>> option_ {};
     // The parameters configured for the service instance.
-    std::shared_ptr<string> parameters_ = nullptr;
+    shared_ptr<string> parameters_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the service instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceInstanceId_ = nullptr;
+    shared_ptr<string> serviceInstanceId_ {};
   };
 
   } // namespace Models

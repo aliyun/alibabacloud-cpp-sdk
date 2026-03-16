@@ -42,76 +42,76 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->postPaidAmount_ == nullptr
-        && return this->prePaidAmount_ == nullptr && return this->regionId_ == nullptr && return this->serviceId_ == nullptr && return this->serviceVersion_ == nullptr && return this->templateName_ == nullptr
-        && return this->trialType_ == nullptr; };
+        && this->prePaidAmount_ == nullptr && this->regionId_ == nullptr && this->serviceId_ == nullptr && this->serviceVersion_ == nullptr && this->templateName_ == nullptr
+        && this->trialType_ == nullptr; };
     // postPaidAmount Field Functions 
     bool hasPostPaidAmount() const { return this->postPaidAmount_ != nullptr;};
     void deletePostPaidAmount() { this->postPaidAmount_ = nullptr;};
-    inline string postPaidAmount() const { DARABONBA_PTR_GET_DEFAULT(postPaidAmount_, "") };
+    inline string getPostPaidAmount() const { DARABONBA_PTR_GET_DEFAULT(postPaidAmount_, "") };
     inline CheckServiceDeployableRequest& setPostPaidAmount(string postPaidAmount) { DARABONBA_PTR_SET_VALUE(postPaidAmount_, postPaidAmount) };
 
 
     // prePaidAmount Field Functions 
     bool hasPrePaidAmount() const { return this->prePaidAmount_ != nullptr;};
     void deletePrePaidAmount() { this->prePaidAmount_ = nullptr;};
-    inline string prePaidAmount() const { DARABONBA_PTR_GET_DEFAULT(prePaidAmount_, "") };
+    inline string getPrePaidAmount() const { DARABONBA_PTR_GET_DEFAULT(prePaidAmount_, "") };
     inline CheckServiceDeployableRequest& setPrePaidAmount(string prePaidAmount) { DARABONBA_PTR_SET_VALUE(prePaidAmount_, prePaidAmount) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CheckServiceDeployableRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline CheckServiceDeployableRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // serviceVersion Field Functions 
     bool hasServiceVersion() const { return this->serviceVersion_ != nullptr;};
     void deleteServiceVersion() { this->serviceVersion_ = nullptr;};
-    inline string serviceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
+    inline string getServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
     inline CheckServiceDeployableRequest& setServiceVersion(string serviceVersion) { DARABONBA_PTR_SET_VALUE(serviceVersion_, serviceVersion) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline CheckServiceDeployableRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
     // trialType Field Functions 
     bool hasTrialType() const { return this->trialType_ != nullptr;};
     void deleteTrialType() { this->trialType_ = nullptr;};
-    inline string trialType() const { DARABONBA_PTR_GET_DEFAULT(trialType_, "") };
+    inline string getTrialType() const { DARABONBA_PTR_GET_DEFAULT(trialType_, "") };
     inline CheckServiceDeployableRequest& setTrialType(string trialType) { DARABONBA_PTR_SET_VALUE(trialType_, trialType) };
 
 
   protected:
     // Total amount of postpaid.
-    std::shared_ptr<string> postPaidAmount_ = nullptr;
+    shared_ptr<string> postPaidAmount_ {};
     // Total amount of prepayment.
-    std::shared_ptr<string> prePaidAmount_ = nullptr;
+    shared_ptr<string> prePaidAmount_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The service ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // The service version.
-    std::shared_ptr<string> serviceVersion_ = nullptr;
-    std::shared_ptr<string> templateName_ = nullptr;
+    shared_ptr<string> serviceVersion_ {};
+    shared_ptr<string> templateName_ {};
     // The trial type of the service instance. Valid values:
     // 
     // *   **Trial**: Trials are supported.
     // *   **NotTrial**: Trials are not supported.
-    std::shared_ptr<string> trialType_ = nullptr;
+    shared_ptr<string> trialType_ {};
   };
 
   } // namespace Models

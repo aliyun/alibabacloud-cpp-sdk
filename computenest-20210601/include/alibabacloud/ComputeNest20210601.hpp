@@ -38,7 +38,7 @@ namespace ComputeNest20210601
       Models::CancelServiceUsageResponse cancelServiceUsage(const Models::CancelServiceUsageRequest &request);
 
       /**
-       * @summary Changes the resource group to which a cloud resource belongs.
+       * @summary Changes the resource group of a cloud resource based on the resource ID.
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace ComputeNest20210601
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the resource group to which a cloud resource belongs.
+       * @summary Changes the resource group of a cloud resource based on the resource ID.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -55,7 +55,7 @@ namespace ComputeNest20210601
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary 服务实例部署前的预检查
+       * @summary Performs a precheck before deploying a service instance.
        *
        * @param request CheckServiceDeployableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace ComputeNest20210601
       Models::CheckServiceDeployableResponse checkServiceDeployableWithOptions(const Models::CheckServiceDeployableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 服务实例部署前的预检查
+       * @summary Performs a precheck before deploying a service instance.
        *
        * @param request CheckServiceDeployableRequest
        * @return CheckServiceDeployableResponse
@@ -196,7 +196,7 @@ namespace ComputeNest20210601
       Models::DeleteBackupResponse deleteBackup(const Models::DeleteBackupRequest &request);
 
       /**
-       * @summary Delete service instances.
+       * @summary Deletes service instances based on the region ID and service instance IDs.
        *
        * @param request DeleteServiceInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -205,7 +205,7 @@ namespace ComputeNest20210601
       Models::DeleteServiceInstancesResponse deleteServiceInstancesWithOptions(const Models::DeleteServiceInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete service instances.
+       * @summary Deletes service instances based on the region ID and service instance IDs.
        *
        * @param request DeleteServiceInstancesRequest
        * @return DeleteServiceInstancesResponse
@@ -213,7 +213,7 @@ namespace ComputeNest20210601
       Models::DeleteServiceInstancesResponse deleteServiceInstances(const Models::DeleteServiceInstancesRequest &request);
 
       /**
-       * @summary Deploy service instance in Created status.
+       * @summary Deploys the created service instance.
        *
        * @param request DeployServiceInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -222,7 +222,7 @@ namespace ComputeNest20210601
       Models::DeployServiceInstanceResponse deployServiceInstanceWithOptions(const Models::DeployServiceInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deploy service instance in Created status.
+       * @summary Deploys the created service instance.
        *
        * @param request DeployServiceInstanceRequest
        * @return DeployServiceInstanceResponse
@@ -247,7 +247,7 @@ namespace ComputeNest20210601
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary 生成并校验服务创建stack所需要的权限
+       * @summary Queries the missing policies before creating a service instance.
        *
        * @param request GenerateServicePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -256,7 +256,7 @@ namespace ComputeNest20210601
       Models::GenerateServicePolicyResponse generateServicePolicyWithOptions(const Models::GenerateServicePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成并校验服务创建stack所需要的权限
+       * @summary Queries the missing policies before creating a service instance.
        *
        * @param request GenerateServicePolicyRequest
        * @return GenerateServicePolicyResponse
@@ -355,7 +355,7 @@ namespace ComputeNest20210601
       Models::GetServiceInstanceResponse getServiceInstance(const Models::GetServiceInstanceRequest &request);
 
       /**
-       * @summary Query renewal prices for prepaid resources of private deployment service instance. You can query renewal prices for all prepaid resources included in a service instance, or query renewal prices for specified resources. Only one of the two methods can be used.
+       * @summary Inquiries the prices of subscription resources for private service instances. Renewal price inquiry is supported. You can make a unified renewal price inquiry for all subscription resources based on a specific service instance ID or make a renewal price inquiry for a specific resource. You can specify a service instance ID or a resource in a request, but cannot specify both of them.
        *
        * @param request GetServiceInstanceSubscriptionEstimateCostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -364,7 +364,7 @@ namespace ComputeNest20210601
       Models::GetServiceInstanceSubscriptionEstimateCostResponse getServiceInstanceSubscriptionEstimateCostWithOptions(const Models::GetServiceInstanceSubscriptionEstimateCostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query renewal prices for prepaid resources of private deployment service instance. You can query renewal prices for all prepaid resources included in a service instance, or query renewal prices for specified resources. Only one of the two methods can be used.
+       * @summary Inquiries the prices of subscription resources for private service instances. Renewal price inquiry is supported. You can make a unified renewal price inquiry for all subscription resources based on a specific service instance ID or make a renewal price inquiry for a specific resource. You can specify a service instance ID or a resource in a request, but cannot specify both of them.
        *
        * @param request GetServiceInstanceSubscriptionEstimateCostRequest
        * @return GetServiceInstanceSubscriptionEstimateCostResponse
@@ -389,7 +389,7 @@ namespace ComputeNest20210601
       Models::GetServiceProvisionsResponse getServiceProvisions(const Models::GetServiceProvisionsRequest &request);
 
       /**
-       * @summary Queries the constraints on the parameters in an Resource Orchestration Service (ROS) template.
+       * @summary Queries the constraints on the parameters in a Resource Orchestration Service (ROS) template in a region based on the template name and service ID.
        *
        * @param request GetServiceTemplateParameterConstraintsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -398,7 +398,7 @@ namespace ComputeNest20210601
       Models::GetServiceTemplateParameterConstraintsResponse getServiceTemplateParameterConstraintsWithOptions(const Models::GetServiceTemplateParameterConstraintsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the constraints on the parameters in an Resource Orchestration Service (ROS) template.
+       * @summary Queries the constraints on the parameters in a Resource Orchestration Service (ROS) template in a region based on the template name and service ID.
        *
        * @param request GetServiceTemplateParameterConstraintsRequest
        * @return GetServiceTemplateParameterConstraintsResponse
@@ -446,7 +446,7 @@ namespace ComputeNest20210601
       Models::ListBackupsResponse listBackups(const Models::ListBackupsRequest &request);
 
       /**
-       * @summary Query Permission Policy List
+       * @summary Queires the permissions.
        *
        * @param request ListPoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +455,7 @@ namespace ComputeNest20210601
       Models::ListPoliciesResponse listPoliciesWithOptions(const Models::ListPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Permission Policy List
+       * @summary Queires the permissions.
        *
        * @param request ListPoliciesRequest
        * @return ListPoliciesResponse
@@ -486,7 +486,7 @@ namespace ComputeNest20210601
       Models::ListRestoreTasksResponse listRestoreTasks(const Models::ListRestoreTasksRequest &request);
 
       /**
-       * @summary 查询服务类别
+       * @summary Queries service categories.
        *
        * @param request ListServiceCategoriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -495,14 +495,14 @@ namespace ComputeNest20210601
       Models::ListServiceCategoriesResponse listServiceCategoriesWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询服务类别
+       * @summary Queries service categories.
        *
        * @return ListServiceCategoriesResponse
        */
       Models::ListServiceCategoriesResponse listServiceCategories();
 
       /**
-       * @summary 展示服务实例账单
+       * @summary Queries instance bills.
        *
        * @param request ListServiceInstanceBillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -511,7 +511,7 @@ namespace ComputeNest20210601
       Models::ListServiceInstanceBillResponse listServiceInstanceBillWithOptions(const Models::ListServiceInstanceBillRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 展示服务实例账单
+       * @summary Queries instance bills.
        *
        * @param request ListServiceInstanceBillRequest
        * @return ListServiceInstanceBillResponse
@@ -621,7 +621,7 @@ namespace ComputeNest20210601
       Models::ListServicesResponse listServices(const Models::ListServicesRequest &request);
 
       /**
-       * @summary 查询标签键列表
+       * @summary Queries the existing tag keys.
        *
        * @param request ListTagKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -630,7 +630,7 @@ namespace ComputeNest20210601
       Models::ListTagKeysResponse listTagKeysWithOptions(const Models::ListTagKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询标签键列表
+       * @summary Queries the existing tag keys.
        *
        * @param request ListTagKeysRequest
        * @return ListTagKeysResponse
@@ -638,7 +638,7 @@ namespace ComputeNest20210601
       Models::ListTagKeysResponse listTagKeys(const Models::ListTagKeysRequest &request);
 
       /**
-       * @summary 查询标签资源列表
+       * @summary Query tag resource list
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -647,7 +647,7 @@ namespace ComputeNest20210601
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询标签资源列表
+       * @summary Query tag resource list
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -655,7 +655,7 @@ namespace ComputeNest20210601
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary 查询标签值列表
+       * @summary Queries the tag values of a tag key.
        *
        * @param request ListTagValuesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -664,7 +664,7 @@ namespace ComputeNest20210601
       Models::ListTagValuesResponse listTagValuesWithOptions(const Models::ListTagValuesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询标签值列表
+       * @summary Queries the tag values of a tag key.
        *
        * @param request ListTagValuesRequest
        * @return ListTagValuesResponse
@@ -672,7 +672,7 @@ namespace ComputeNest20210601
       Models::ListTagValuesResponse listTagValues(const Models::ListTagValuesRequest &request);
 
       /**
-       * @summary Renew the prepaid resources included in the private deployment service instance. You can renew all prepaid resources under the specified service instance ID, or you can renew the specified resources. Only one of the two renewal methods can be used.
+       * @summary Renews the subscription resources that are included in a private service instance. You can renew all subscription resources included in a private service instance based on the ID of the private service instance. You can also renew specific resources included in a private service instance. You can use only one of the preceding renewal methods.
        *
        * @param request RenewServiceInstanceResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -681,7 +681,7 @@ namespace ComputeNest20210601
       Models::RenewServiceInstanceResourcesResponse renewServiceInstanceResourcesWithOptions(const Models::RenewServiceInstanceResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renew the prepaid resources included in the private deployment service instance. You can renew all prepaid resources under the specified service instance ID, or you can renew the specified resources. Only one of the two renewal methods can be used.
+       * @summary Renews the subscription resources that are included in a private service instance. You can renew all subscription resources included in a private service instance based on the ID of the private service instance. You can also renew specific resources included in a private service instance. You can use only one of the preceding renewal methods.
        *
        * @param request RenewServiceInstanceResourcesRequest
        * @return RenewServiceInstanceResourcesResponse
@@ -689,7 +689,7 @@ namespace ComputeNest20210601
       Models::RenewServiceInstanceResourcesResponse renewServiceInstanceResources(const Models::RenewServiceInstanceResourcesRequest &request);
 
       /**
-       * @summary When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+       * @summary Restarts a service instance that is in the Deployed state.
        *
        * @param request RestartServiceInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -698,7 +698,7 @@ namespace ComputeNest20210601
       Models::RestartServiceInstanceResponse restartServiceInstanceWithOptions(const Models::RestartServiceInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+       * @summary Restarts a service instance that is in the Deployed state.
        *
        * @param request RestartServiceInstanceRequest
        * @return RestartServiceInstanceResponse
@@ -723,7 +723,7 @@ namespace ComputeNest20210601
       Models::RollbackServiceInstanceResponse rollbackServiceInstance(const Models::RollbackServiceInstanceRequest &request);
 
       /**
-       * @summary When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+       * @summary Starts a service instance that is in the Stopped or StartFailed state.
        *
        * @param request StartServiceInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -732,7 +732,7 @@ namespace ComputeNest20210601
       Models::StartServiceInstanceResponse startServiceInstanceWithOptions(const Models::StartServiceInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+       * @summary Starts a service instance that is in the Stopped or StartFailed state.
        *
        * @param request StartServiceInstanceRequest
        * @return StartServiceInstanceResponse
@@ -740,7 +740,7 @@ namespace ComputeNest20210601
       Models::StartServiceInstanceResponse startServiceInstance(const Models::StartServiceInstanceRequest &request);
 
       /**
-       * @summary When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+       * @summary Stops a service instance that is in the Deployed or StopFailed state.
        *
        * @param request StopServiceInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -749,7 +749,7 @@ namespace ComputeNest20210601
       Models::StopServiceInstanceResponse stopServiceInstanceWithOptions(const Models::StopServiceInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+       * @summary Stops a service instance that is in the Deployed or StopFailed state.
        *
        * @param request StopServiceInstanceRequest
        * @return StopServiceInstanceResponse
@@ -757,7 +757,7 @@ namespace ComputeNest20210601
       Models::StopServiceInstanceResponse stopServiceInstance(const Models::StopServiceInstanceRequest &request);
 
       /**
-       * @summary 给资源打标签
+       * @summary Creates and adds tags to a specified resource list.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -766,7 +766,7 @@ namespace ComputeNest20210601
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 给资源打标签
+       * @summary Creates and adds tags to a specified resource list.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -774,7 +774,7 @@ namespace ComputeNest20210601
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary 给资源解除标签
+       * @summary Removes tags from resources.
        *
        * @param request UnTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -783,7 +783,7 @@ namespace ComputeNest20210601
       Models::UnTagResourcesResponse unTagResourcesWithOptions(const Models::UnTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 给资源解除标签
+       * @summary Removes tags from resources.
        *
        * @param request UnTagResourcesRequest
        * @return UnTagResourcesResponse
