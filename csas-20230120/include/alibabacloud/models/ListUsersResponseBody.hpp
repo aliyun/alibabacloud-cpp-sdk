@@ -39,6 +39,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Users& obj) { 
         DARABONBA_PTR_TO_JSON(Department, department_);
         DARABONBA_PTR_TO_JSON(Email, email_);
+        DARABONBA_PTR_TO_JSON(FullDepartment, fullDepartment_);
         DARABONBA_PTR_TO_JSON(IdpName, idpName_);
         DARABONBA_PTR_TO_JSON(Phone, phone_);
         DARABONBA_PTR_TO_JSON(SaseUserId, saseUserId_);
@@ -48,6 +49,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Users& obj) { 
         DARABONBA_PTR_FROM_JSON(Department, department_);
         DARABONBA_PTR_FROM_JSON(Email, email_);
+        DARABONBA_PTR_FROM_JSON(FullDepartment, fullDepartment_);
         DARABONBA_PTR_FROM_JSON(IdpName, idpName_);
         DARABONBA_PTR_FROM_JSON(Phone, phone_);
         DARABONBA_PTR_FROM_JSON(SaseUserId, saseUserId_);
@@ -66,8 +68,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->department_ == nullptr
-        && this->email_ == nullptr && this->idpName_ == nullptr && this->phone_ == nullptr && this->saseUserId_ == nullptr && this->status_ == nullptr
-        && this->username_ == nullptr; };
+        && this->email_ == nullptr && this->fullDepartment_ == nullptr && this->idpName_ == nullptr && this->phone_ == nullptr && this->saseUserId_ == nullptr
+        && this->status_ == nullptr && this->username_ == nullptr; };
       // department Field Functions 
       bool hasDepartment() const { return this->department_ != nullptr;};
       void deleteDepartment() { this->department_ = nullptr;};
@@ -80,6 +82,15 @@ namespace Models
       void deleteEmail() { this->email_ = nullptr;};
       inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
       inline Users& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
+
+
+      // fullDepartment Field Functions 
+      bool hasFullDepartment() const { return this->fullDepartment_ != nullptr;};
+      void deleteFullDepartment() { this->fullDepartment_ = nullptr;};
+      inline const vector<string> & getFullDepartment() const { DARABONBA_PTR_GET_CONST(fullDepartment_, vector<string>) };
+      inline vector<string> getFullDepartment() { DARABONBA_PTR_GET(fullDepartment_, vector<string>) };
+      inline Users& setFullDepartment(const vector<string> & fullDepartment) { DARABONBA_PTR_SET_VALUE(fullDepartment_, fullDepartment) };
+      inline Users& setFullDepartment(vector<string> && fullDepartment) { DARABONBA_PTR_SET_RVALUE(fullDepartment_, fullDepartment) };
 
 
       // idpName Field Functions 
@@ -120,6 +131,7 @@ namespace Models
     protected:
       shared_ptr<string> department_ {};
       shared_ptr<string> email_ {};
+      shared_ptr<vector<string>> fullDepartment_ {};
       shared_ptr<string> idpName_ {};
       shared_ptr<string> phone_ {};
       shared_ptr<string> saseUserId_ {};

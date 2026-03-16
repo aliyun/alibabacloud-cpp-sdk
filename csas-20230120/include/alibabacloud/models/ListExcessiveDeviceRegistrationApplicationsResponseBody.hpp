@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(DeviceTag, deviceTag_);
         DARABONBA_PTR_TO_JSON(DeviceType, deviceType_);
+        DARABONBA_PTR_TO_JSON(FullDepartment, fullDepartment_);
         DARABONBA_PTR_TO_JSON(Hostname, hostname_);
         DARABONBA_PTR_TO_JSON(IsUsed, isUsed_);
         DARABONBA_PTR_TO_JSON(Mac, mac_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(DeviceTag, deviceTag_);
         DARABONBA_PTR_FROM_JSON(DeviceType, deviceType_);
+        DARABONBA_PTR_FROM_JSON(FullDepartment, fullDepartment_);
         DARABONBA_PTR_FROM_JSON(Hostname, hostname_);
         DARABONBA_PTR_FROM_JSON(IsUsed, isUsed_);
         DARABONBA_PTR_FROM_JSON(Mac, mac_);
@@ -77,8 +79,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->applicationId_ == nullptr
         && this->createTime_ == nullptr && this->department_ == nullptr && this->description_ == nullptr && this->deviceTag_ == nullptr && this->deviceType_ == nullptr
-        && this->hostname_ == nullptr && this->isUsed_ == nullptr && this->mac_ == nullptr && this->saseUserId_ == nullptr && this->status_ == nullptr
-        && this->username_ == nullptr; };
+        && this->fullDepartment_ == nullptr && this->hostname_ == nullptr && this->isUsed_ == nullptr && this->mac_ == nullptr && this->saseUserId_ == nullptr
+        && this->status_ == nullptr && this->username_ == nullptr; };
       // applicationId Field Functions 
       bool hasApplicationId() const { return this->applicationId_ != nullptr;};
       void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -119,6 +121,15 @@ namespace Models
       void deleteDeviceType() { this->deviceType_ = nullptr;};
       inline string getDeviceType() const { DARABONBA_PTR_GET_DEFAULT(deviceType_, "") };
       inline Applications& setDeviceType(string deviceType) { DARABONBA_PTR_SET_VALUE(deviceType_, deviceType) };
+
+
+      // fullDepartment Field Functions 
+      bool hasFullDepartment() const { return this->fullDepartment_ != nullptr;};
+      void deleteFullDepartment() { this->fullDepartment_ = nullptr;};
+      inline const vector<string> & getFullDepartment() const { DARABONBA_PTR_GET_CONST(fullDepartment_, vector<string>) };
+      inline vector<string> getFullDepartment() { DARABONBA_PTR_GET(fullDepartment_, vector<string>) };
+      inline Applications& setFullDepartment(const vector<string> & fullDepartment) { DARABONBA_PTR_SET_VALUE(fullDepartment_, fullDepartment) };
+      inline Applications& setFullDepartment(vector<string> && fullDepartment) { DARABONBA_PTR_SET_RVALUE(fullDepartment_, fullDepartment) };
 
 
       // hostname Field Functions 
@@ -170,6 +181,7 @@ namespace Models
       shared_ptr<string> description_ {};
       shared_ptr<string> deviceTag_ {};
       shared_ptr<string> deviceType_ {};
+      shared_ptr<vector<string>> fullDepartment_ {};
       shared_ptr<string> hostname_ {};
       shared_ptr<bool> isUsed_ {};
       shared_ptr<string> mac_ {};

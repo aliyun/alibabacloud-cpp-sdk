@@ -38,7 +38,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AppStatus, appStatus_);
         DARABONBA_PTR_TO_JSON(AppVersion, appVersion_);
         DARABONBA_PTR_TO_JSON(AutoLoginStatus, autoLoginStatus_);
+        DARABONBA_PTR_TO_JSON(BatteryHealthPercentage, batteryHealthPercentage_);
+        DARABONBA_PTR_TO_JSON(BatteryRemainingPercentage, batteryRemainingPercentage_);
         DARABONBA_PTR_TO_JSON(CPU, CPU_);
+        DARABONBA_PTR_TO_JSON(City, city_);
+        DARABONBA_PTR_TO_JSON(Continent, continent_);
+        DARABONBA_PTR_TO_JSON(Country, country_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Department, department_);
         DARABONBA_PTR_TO_JSON(DeviceBelong, deviceBelong_);
@@ -48,18 +53,23 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DeviceType, deviceType_);
         DARABONBA_PTR_TO_JSON(DeviceVersion, deviceVersion_);
         DARABONBA_PTR_TO_JSON(Disk, disk_);
+        DARABONBA_PTR_TO_JSON(DiskAvailable, diskAvailable_);
+        DARABONBA_PTR_TO_JSON(DiskUsed, diskUsed_);
         DARABONBA_PTR_TO_JSON(DlpStatus, dlpStatus_);
         DARABONBA_PTR_TO_JSON(EdrStatus, edrStatus_);
         DARABONBA_PTR_TO_JSON(HistoryUsers, historyUsers_);
         DARABONBA_PTR_TO_JSON(Hostname, hostname_);
         DARABONBA_PTR_TO_JSON(IaStatus, iaStatus_);
         DARABONBA_PTR_TO_JSON(InnerIP, innerIP_);
+        DARABONBA_PTR_TO_JSON(JoinAdDomain, joinAdDomain_);
         DARABONBA_PTR_TO_JSON(Mac, mac_);
         DARABONBA_PTR_TO_JSON(MatchDeviceGroupIds, matchDeviceGroupIds_);
         DARABONBA_PTR_TO_JSON(Memory, memory_);
         DARABONBA_PTR_TO_JSON(NacStatus, nacStatus_);
         DARABONBA_PTR_TO_JSON(NetInterfaceInfo, netInterfaceInfo_);
         DARABONBA_PTR_TO_JSON(PaStatus, paStatus_);
+        DARABONBA_PTR_TO_JSON(Processes, processes_);
+        DARABONBA_PTR_TO_JSON(Province, province_);
         DARABONBA_PTR_TO_JSON(SaseUserId, saseUserId_);
         DARABONBA_PTR_TO_JSON(SharingStatus, sharingStatus_);
         DARABONBA_PTR_TO_JSON(SnBaseBoard, snBaseBoard_);
@@ -68,6 +78,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SnProcessor, snProcessor_);
         DARABONBA_PTR_TO_JSON(SnSystem, snSystem_);
         DARABONBA_PTR_TO_JSON(SrcIP, srcIP_);
+        DARABONBA_PTR_TO_JSON(TerminalInfoCollectTime, terminalInfoCollectTime_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
         DARABONBA_PTR_TO_JSON(Username, username_);
         DARABONBA_PTR_TO_JSON(Workshop, workshop_);
@@ -76,7 +87,12 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AppStatus, appStatus_);
         DARABONBA_PTR_FROM_JSON(AppVersion, appVersion_);
         DARABONBA_PTR_FROM_JSON(AutoLoginStatus, autoLoginStatus_);
+        DARABONBA_PTR_FROM_JSON(BatteryHealthPercentage, batteryHealthPercentage_);
+        DARABONBA_PTR_FROM_JSON(BatteryRemainingPercentage, batteryRemainingPercentage_);
         DARABONBA_PTR_FROM_JSON(CPU, CPU_);
+        DARABONBA_PTR_FROM_JSON(City, city_);
+        DARABONBA_PTR_FROM_JSON(Continent, continent_);
+        DARABONBA_PTR_FROM_JSON(Country, country_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Department, department_);
         DARABONBA_PTR_FROM_JSON(DeviceBelong, deviceBelong_);
@@ -86,18 +102,23 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DeviceType, deviceType_);
         DARABONBA_PTR_FROM_JSON(DeviceVersion, deviceVersion_);
         DARABONBA_PTR_FROM_JSON(Disk, disk_);
+        DARABONBA_PTR_FROM_JSON(DiskAvailable, diskAvailable_);
+        DARABONBA_PTR_FROM_JSON(DiskUsed, diskUsed_);
         DARABONBA_PTR_FROM_JSON(DlpStatus, dlpStatus_);
         DARABONBA_PTR_FROM_JSON(EdrStatus, edrStatus_);
         DARABONBA_PTR_FROM_JSON(HistoryUsers, historyUsers_);
         DARABONBA_PTR_FROM_JSON(Hostname, hostname_);
         DARABONBA_PTR_FROM_JSON(IaStatus, iaStatus_);
         DARABONBA_PTR_FROM_JSON(InnerIP, innerIP_);
+        DARABONBA_PTR_FROM_JSON(JoinAdDomain, joinAdDomain_);
         DARABONBA_PTR_FROM_JSON(Mac, mac_);
         DARABONBA_PTR_FROM_JSON(MatchDeviceGroupIds, matchDeviceGroupIds_);
         DARABONBA_PTR_FROM_JSON(Memory, memory_);
         DARABONBA_PTR_FROM_JSON(NacStatus, nacStatus_);
         DARABONBA_PTR_FROM_JSON(NetInterfaceInfo, netInterfaceInfo_);
         DARABONBA_PTR_FROM_JSON(PaStatus, paStatus_);
+        DARABONBA_PTR_FROM_JSON(Processes, processes_);
+        DARABONBA_PTR_FROM_JSON(Province, province_);
         DARABONBA_PTR_FROM_JSON(SaseUserId, saseUserId_);
         DARABONBA_PTR_FROM_JSON(SharingStatus, sharingStatus_);
         DARABONBA_PTR_FROM_JSON(SnBaseBoard, snBaseBoard_);
@@ -106,6 +127,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SnProcessor, snProcessor_);
         DARABONBA_PTR_FROM_JSON(SnSystem, snSystem_);
         DARABONBA_PTR_FROM_JSON(SrcIP, srcIP_);
+        DARABONBA_PTR_FROM_JSON(TerminalInfoCollectTime, terminalInfoCollectTime_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
         DARABONBA_PTR_FROM_JSON(Username, username_);
         DARABONBA_PTR_FROM_JSON(Workshop, workshop_);
@@ -121,6 +143,68 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Processes : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Processes& obj) { 
+          DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+          DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(Memory, memory_);
+          DARABONBA_PTR_TO_JSON(Name, name_);
+        };
+        friend void from_json(const Darabonba::Json& j, Processes& obj) { 
+          DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(Memory, memory_);
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+        };
+        Processes() = default ;
+        Processes(const Processes &) = default ;
+        Processes(Processes &&) = default ;
+        Processes(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Processes() = default ;
+        Processes& operator=(const Processes &) = default ;
+        Processes& operator=(Processes &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->cpu_ == nullptr
+        && this->description_ == nullptr && this->memory_ == nullptr && this->name_ == nullptr; };
+        // cpu Field Functions 
+        bool hasCpu() const { return this->cpu_ != nullptr;};
+        void deleteCpu() { this->cpu_ = nullptr;};
+        inline double getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0.0) };
+        inline Processes& setCpu(double cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline Processes& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // memory Field Functions 
+        bool hasMemory() const { return this->memory_ != nullptr;};
+        void deleteMemory() { this->memory_ = nullptr;};
+        inline int32_t getMemory() const { DARABONBA_PTR_GET_DEFAULT(memory_, 0) };
+        inline Processes& setMemory(int32_t memory) { DARABONBA_PTR_SET_VALUE(memory_, memory) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline Processes& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      protected:
+        shared_ptr<double> cpu_ {};
+        shared_ptr<string> description_ {};
+        shared_ptr<int32_t> memory_ {};
+        shared_ptr<string> name_ {};
+      };
+
       class NetInterfaceInfo : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const NetInterfaceInfo& obj) { 
@@ -206,13 +290,16 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->appStatus_ == nullptr
-        && this->appVersion_ == nullptr && this->autoLoginStatus_ == nullptr && this->CPU_ == nullptr && this->createTime_ == nullptr && this->department_ == nullptr
+        && this->appVersion_ == nullptr && this->autoLoginStatus_ == nullptr && this->batteryHealthPercentage_ == nullptr && this->batteryRemainingPercentage_ == nullptr && this->CPU_ == nullptr
+        && this->city_ == nullptr && this->continent_ == nullptr && this->country_ == nullptr && this->createTime_ == nullptr && this->department_ == nullptr
         && this->deviceBelong_ == nullptr && this->deviceModel_ == nullptr && this->deviceStatus_ == nullptr && this->deviceTag_ == nullptr && this->deviceType_ == nullptr
-        && this->deviceVersion_ == nullptr && this->disk_ == nullptr && this->dlpStatus_ == nullptr && this->edrStatus_ == nullptr && this->historyUsers_ == nullptr
-        && this->hostname_ == nullptr && this->iaStatus_ == nullptr && this->innerIP_ == nullptr && this->mac_ == nullptr && this->matchDeviceGroupIds_ == nullptr
-        && this->memory_ == nullptr && this->nacStatus_ == nullptr && this->netInterfaceInfo_ == nullptr && this->paStatus_ == nullptr && this->saseUserId_ == nullptr
+        && this->deviceVersion_ == nullptr && this->disk_ == nullptr && this->diskAvailable_ == nullptr && this->diskUsed_ == nullptr && this->dlpStatus_ == nullptr
+        && this->edrStatus_ == nullptr && this->historyUsers_ == nullptr && this->hostname_ == nullptr && this->iaStatus_ == nullptr && this->innerIP_ == nullptr
+        && this->joinAdDomain_ == nullptr && this->mac_ == nullptr && this->matchDeviceGroupIds_ == nullptr && this->memory_ == nullptr && this->nacStatus_ == nullptr
+        && this->netInterfaceInfo_ == nullptr && this->paStatus_ == nullptr && this->processes_ == nullptr && this->province_ == nullptr && this->saseUserId_ == nullptr
         && this->sharingStatus_ == nullptr && this->snBaseBoard_ == nullptr && this->snBios_ == nullptr && this->snDiskDrive_ == nullptr && this->snProcessor_ == nullptr
-        && this->snSystem_ == nullptr && this->srcIP_ == nullptr && this->updateTime_ == nullptr && this->username_ == nullptr && this->workshop_ == nullptr; };
+        && this->snSystem_ == nullptr && this->srcIP_ == nullptr && this->terminalInfoCollectTime_ == nullptr && this->updateTime_ == nullptr && this->username_ == nullptr
+        && this->workshop_ == nullptr; };
       // appStatus Field Functions 
       bool hasAppStatus() const { return this->appStatus_ != nullptr;};
       void deleteAppStatus() { this->appStatus_ = nullptr;};
@@ -234,11 +321,46 @@ namespace Models
       inline Device& setAutoLoginStatus(string autoLoginStatus) { DARABONBA_PTR_SET_VALUE(autoLoginStatus_, autoLoginStatus) };
 
 
+      // batteryHealthPercentage Field Functions 
+      bool hasBatteryHealthPercentage() const { return this->batteryHealthPercentage_ != nullptr;};
+      void deleteBatteryHealthPercentage() { this->batteryHealthPercentage_ = nullptr;};
+      inline int32_t getBatteryHealthPercentage() const { DARABONBA_PTR_GET_DEFAULT(batteryHealthPercentage_, 0) };
+      inline Device& setBatteryHealthPercentage(int32_t batteryHealthPercentage) { DARABONBA_PTR_SET_VALUE(batteryHealthPercentage_, batteryHealthPercentage) };
+
+
+      // batteryRemainingPercentage Field Functions 
+      bool hasBatteryRemainingPercentage() const { return this->batteryRemainingPercentage_ != nullptr;};
+      void deleteBatteryRemainingPercentage() { this->batteryRemainingPercentage_ = nullptr;};
+      inline int32_t getBatteryRemainingPercentage() const { DARABONBA_PTR_GET_DEFAULT(batteryRemainingPercentage_, 0) };
+      inline Device& setBatteryRemainingPercentage(int32_t batteryRemainingPercentage) { DARABONBA_PTR_SET_VALUE(batteryRemainingPercentage_, batteryRemainingPercentage) };
+
+
       // CPU Field Functions 
       bool hasCPU() const { return this->CPU_ != nullptr;};
       void deleteCPU() { this->CPU_ = nullptr;};
       inline string getCPU() const { DARABONBA_PTR_GET_DEFAULT(CPU_, "") };
       inline Device& setCPU(string CPU) { DARABONBA_PTR_SET_VALUE(CPU_, CPU) };
+
+
+      // city Field Functions 
+      bool hasCity() const { return this->city_ != nullptr;};
+      void deleteCity() { this->city_ = nullptr;};
+      inline string getCity() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
+      inline Device& setCity(string city) { DARABONBA_PTR_SET_VALUE(city_, city) };
+
+
+      // continent Field Functions 
+      bool hasContinent() const { return this->continent_ != nullptr;};
+      void deleteContinent() { this->continent_ = nullptr;};
+      inline string getContinent() const { DARABONBA_PTR_GET_DEFAULT(continent_, "") };
+      inline Device& setContinent(string continent) { DARABONBA_PTR_SET_VALUE(continent_, continent) };
+
+
+      // country Field Functions 
+      bool hasCountry() const { return this->country_ != nullptr;};
+      void deleteCountry() { this->country_ = nullptr;};
+      inline string getCountry() const { DARABONBA_PTR_GET_DEFAULT(country_, "") };
+      inline Device& setCountry(string country) { DARABONBA_PTR_SET_VALUE(country_, country) };
 
 
       // createTime Field Functions 
@@ -304,6 +426,20 @@ namespace Models
       inline Device& setDisk(string disk) { DARABONBA_PTR_SET_VALUE(disk_, disk) };
 
 
+      // diskAvailable Field Functions 
+      bool hasDiskAvailable() const { return this->diskAvailable_ != nullptr;};
+      void deleteDiskAvailable() { this->diskAvailable_ = nullptr;};
+      inline int32_t getDiskAvailable() const { DARABONBA_PTR_GET_DEFAULT(diskAvailable_, 0) };
+      inline Device& setDiskAvailable(int32_t diskAvailable) { DARABONBA_PTR_SET_VALUE(diskAvailable_, diskAvailable) };
+
+
+      // diskUsed Field Functions 
+      bool hasDiskUsed() const { return this->diskUsed_ != nullptr;};
+      void deleteDiskUsed() { this->diskUsed_ = nullptr;};
+      inline int32_t getDiskUsed() const { DARABONBA_PTR_GET_DEFAULT(diskUsed_, 0) };
+      inline Device& setDiskUsed(int32_t diskUsed) { DARABONBA_PTR_SET_VALUE(diskUsed_, diskUsed) };
+
+
       // dlpStatus Field Functions 
       bool hasDlpStatus() const { return this->dlpStatus_ != nullptr;};
       void deleteDlpStatus() { this->dlpStatus_ = nullptr;};
@@ -346,6 +482,13 @@ namespace Models
       void deleteInnerIP() { this->innerIP_ = nullptr;};
       inline string getInnerIP() const { DARABONBA_PTR_GET_DEFAULT(innerIP_, "") };
       inline Device& setInnerIP(string innerIP) { DARABONBA_PTR_SET_VALUE(innerIP_, innerIP) };
+
+
+      // joinAdDomain Field Functions 
+      bool hasJoinAdDomain() const { return this->joinAdDomain_ != nullptr;};
+      void deleteJoinAdDomain() { this->joinAdDomain_ = nullptr;};
+      inline bool getJoinAdDomain() const { DARABONBA_PTR_GET_DEFAULT(joinAdDomain_, false) };
+      inline Device& setJoinAdDomain(bool joinAdDomain) { DARABONBA_PTR_SET_VALUE(joinAdDomain_, joinAdDomain) };
 
 
       // mac Field Functions 
@@ -392,6 +535,22 @@ namespace Models
       void deletePaStatus() { this->paStatus_ = nullptr;};
       inline string getPaStatus() const { DARABONBA_PTR_GET_DEFAULT(paStatus_, "") };
       inline Device& setPaStatus(string paStatus) { DARABONBA_PTR_SET_VALUE(paStatus_, paStatus) };
+
+
+      // processes Field Functions 
+      bool hasProcesses() const { return this->processes_ != nullptr;};
+      void deleteProcesses() { this->processes_ = nullptr;};
+      inline const vector<Device::Processes> & getProcesses() const { DARABONBA_PTR_GET_CONST(processes_, vector<Device::Processes>) };
+      inline vector<Device::Processes> getProcesses() { DARABONBA_PTR_GET(processes_, vector<Device::Processes>) };
+      inline Device& setProcesses(const vector<Device::Processes> & processes) { DARABONBA_PTR_SET_VALUE(processes_, processes) };
+      inline Device& setProcesses(vector<Device::Processes> && processes) { DARABONBA_PTR_SET_RVALUE(processes_, processes) };
+
+
+      // province Field Functions 
+      bool hasProvince() const { return this->province_ != nullptr;};
+      void deleteProvince() { this->province_ = nullptr;};
+      inline string getProvince() const { DARABONBA_PTR_GET_DEFAULT(province_, "") };
+      inline Device& setProvince(string province) { DARABONBA_PTR_SET_VALUE(province_, province) };
 
 
       // saseUserId Field Functions 
@@ -450,6 +609,13 @@ namespace Models
       inline Device& setSrcIP(string srcIP) { DARABONBA_PTR_SET_VALUE(srcIP_, srcIP) };
 
 
+      // terminalInfoCollectTime Field Functions 
+      bool hasTerminalInfoCollectTime() const { return this->terminalInfoCollectTime_ != nullptr;};
+      void deleteTerminalInfoCollectTime() { this->terminalInfoCollectTime_ = nullptr;};
+      inline int64_t getTerminalInfoCollectTime() const { DARABONBA_PTR_GET_DEFAULT(terminalInfoCollectTime_, 0L) };
+      inline Device& setTerminalInfoCollectTime(int64_t terminalInfoCollectTime) { DARABONBA_PTR_SET_VALUE(terminalInfoCollectTime_, terminalInfoCollectTime) };
+
+
       // updateTime Field Functions 
       bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
       void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -475,7 +641,12 @@ namespace Models
       shared_ptr<string> appStatus_ {};
       shared_ptr<string> appVersion_ {};
       shared_ptr<string> autoLoginStatus_ {};
+      shared_ptr<int32_t> batteryHealthPercentage_ {};
+      shared_ptr<int32_t> batteryRemainingPercentage_ {};
       shared_ptr<string> CPU_ {};
+      shared_ptr<string> city_ {};
+      shared_ptr<string> continent_ {};
+      shared_ptr<string> country_ {};
       shared_ptr<string> createTime_ {};
       shared_ptr<string> department_ {};
       shared_ptr<string> deviceBelong_ {};
@@ -485,18 +656,23 @@ namespace Models
       shared_ptr<string> deviceType_ {};
       shared_ptr<string> deviceVersion_ {};
       shared_ptr<string> disk_ {};
+      shared_ptr<int32_t> diskAvailable_ {};
+      shared_ptr<int32_t> diskUsed_ {};
       shared_ptr<string> dlpStatus_ {};
       shared_ptr<string> edrStatus_ {};
       shared_ptr<vector<Device::HistoryUsers>> historyUsers_ {};
       shared_ptr<string> hostname_ {};
       shared_ptr<string> iaStatus_ {};
       shared_ptr<string> innerIP_ {};
+      shared_ptr<bool> joinAdDomain_ {};
       shared_ptr<string> mac_ {};
       shared_ptr<vector<string>> matchDeviceGroupIds_ {};
       shared_ptr<string> memory_ {};
       shared_ptr<string> nacStatus_ {};
       shared_ptr<vector<Device::NetInterfaceInfo>> netInterfaceInfo_ {};
       shared_ptr<string> paStatus_ {};
+      shared_ptr<vector<Device::Processes>> processes_ {};
+      shared_ptr<string> province_ {};
       shared_ptr<string> saseUserId_ {};
       shared_ptr<bool> sharingStatus_ {};
       shared_ptr<string> snBaseBoard_ {};
@@ -505,6 +681,7 @@ namespace Models
       shared_ptr<string> snProcessor_ {};
       shared_ptr<string> snSystem_ {};
       shared_ptr<string> srcIP_ {};
+      shared_ptr<int64_t> terminalInfoCollectTime_ {};
       shared_ptr<string> updateTime_ {};
       shared_ptr<string> username_ {};
       shared_ptr<string> workshop_ {};

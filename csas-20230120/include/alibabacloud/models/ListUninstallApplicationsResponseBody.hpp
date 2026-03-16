@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Department, department_);
         DARABONBA_PTR_TO_JSON(DevTag, devTag_);
         DARABONBA_PTR_TO_JSON(DevType, devType_);
+        DARABONBA_PTR_TO_JSON(FullDepartment, fullDepartment_);
         DARABONBA_PTR_TO_JSON(Hostname, hostname_);
         DARABONBA_PTR_TO_JSON(IdpName, idpName_);
         DARABONBA_PTR_TO_JSON(IsUninstall, isUninstall_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Department, department_);
         DARABONBA_PTR_FROM_JSON(DevTag, devTag_);
         DARABONBA_PTR_FROM_JSON(DevType, devType_);
+        DARABONBA_PTR_FROM_JSON(FullDepartment, fullDepartment_);
         DARABONBA_PTR_FROM_JSON(Hostname, hostname_);
         DARABONBA_PTR_FROM_JSON(IdpName, idpName_);
         DARABONBA_PTR_FROM_JSON(IsUninstall, isUninstall_);
@@ -78,9 +80,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->createTime_ == nullptr && this->department_ == nullptr && this->devTag_ == nullptr && this->devType_ == nullptr && this->hostname_ == nullptr
-        && this->idpName_ == nullptr && this->isUninstall_ == nullptr && this->mac_ == nullptr && this->reason_ == nullptr && this->saseUserId_ == nullptr
-        && this->status_ == nullptr && this->username_ == nullptr; };
+        && this->createTime_ == nullptr && this->department_ == nullptr && this->devTag_ == nullptr && this->devType_ == nullptr && this->fullDepartment_ == nullptr
+        && this->hostname_ == nullptr && this->idpName_ == nullptr && this->isUninstall_ == nullptr && this->mac_ == nullptr && this->reason_ == nullptr
+        && this->saseUserId_ == nullptr && this->status_ == nullptr && this->username_ == nullptr; };
       // applicationId Field Functions 
       bool hasApplicationId() const { return this->applicationId_ != nullptr;};
       void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -114,6 +116,15 @@ namespace Models
       void deleteDevType() { this->devType_ = nullptr;};
       inline string getDevType() const { DARABONBA_PTR_GET_DEFAULT(devType_, "") };
       inline Applications& setDevType(string devType) { DARABONBA_PTR_SET_VALUE(devType_, devType) };
+
+
+      // fullDepartment Field Functions 
+      bool hasFullDepartment() const { return this->fullDepartment_ != nullptr;};
+      void deleteFullDepartment() { this->fullDepartment_ = nullptr;};
+      inline const vector<string> & getFullDepartment() const { DARABONBA_PTR_GET_CONST(fullDepartment_, vector<string>) };
+      inline vector<string> getFullDepartment() { DARABONBA_PTR_GET(fullDepartment_, vector<string>) };
+      inline Applications& setFullDepartment(const vector<string> & fullDepartment) { DARABONBA_PTR_SET_VALUE(fullDepartment_, fullDepartment) };
+      inline Applications& setFullDepartment(vector<string> && fullDepartment) { DARABONBA_PTR_SET_RVALUE(fullDepartment_, fullDepartment) };
 
 
       // hostname Field Functions 
@@ -178,6 +189,7 @@ namespace Models
       shared_ptr<string> department_ {};
       shared_ptr<string> devTag_ {};
       shared_ptr<string> devType_ {};
+      shared_ptr<vector<string>> fullDepartment_ {};
       shared_ptr<string> hostname_ {};
       shared_ptr<string> idpName_ {};
       shared_ptr<bool> isUninstall_ {};
