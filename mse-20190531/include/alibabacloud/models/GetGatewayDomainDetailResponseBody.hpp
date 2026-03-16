@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AfterDate, afterDate_);
         DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
         DARABONBA_PTR_TO_JSON(BeforeDate, beforeDate_);
+        DARABONBA_PTR_TO_JSON(CaCertIdentifier, caCertIdentifier_);
         DARABONBA_PTR_TO_JSON(CertIdentifier, certIdentifier_);
         DARABONBA_PTR_TO_JSON(CertName, certName_);
         DARABONBA_PTR_TO_JSON(CommonName, commonName_);
@@ -59,6 +60,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(IsManaged, isManaged_);
         DARABONBA_PTR_TO_JSON(Issuer, issuer_);
+        DARABONBA_PTR_TO_JSON(MtlsEnabled, mtlsEnabled_);
         DARABONBA_PTR_TO_JSON(MustHttps, mustHttps_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Protocol, protocol_);
@@ -71,6 +73,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AfterDate, afterDate_);
         DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
         DARABONBA_PTR_FROM_JSON(BeforeDate, beforeDate_);
+        DARABONBA_PTR_FROM_JSON(CaCertIdentifier, caCertIdentifier_);
         DARABONBA_PTR_FROM_JSON(CertIdentifier, certIdentifier_);
         DARABONBA_PTR_FROM_JSON(CertName, certName_);
         DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
@@ -84,6 +87,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(IsManaged, isManaged_);
         DARABONBA_PTR_FROM_JSON(Issuer, issuer_);
+        DARABONBA_PTR_FROM_JSON(MtlsEnabled, mtlsEnabled_);
         DARABONBA_PTR_FROM_JSON(MustHttps, mustHttps_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
@@ -148,11 +152,11 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->afterDate_ == nullptr
-        && this->algorithm_ == nullptr && this->beforeDate_ == nullptr && this->certIdentifier_ == nullptr && this->certName_ == nullptr && this->commonName_ == nullptr
-        && this->gatewayId_ == nullptr && this->gatewayUniqueId_ == nullptr && this->gmtAfter_ == nullptr && this->gmtBefore_ == nullptr && this->gmtCreate_ == nullptr
-        && this->gmtModified_ == nullptr && this->http2_ == nullptr && this->id_ == nullptr && this->isManaged_ == nullptr && this->issuer_ == nullptr
-        && this->mustHttps_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr && this->sans_ == nullptr && this->tlsCipherSuitesConfig_ == nullptr
-        && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr; };
+        && this->algorithm_ == nullptr && this->beforeDate_ == nullptr && this->caCertIdentifier_ == nullptr && this->certIdentifier_ == nullptr && this->certName_ == nullptr
+        && this->commonName_ == nullptr && this->gatewayId_ == nullptr && this->gatewayUniqueId_ == nullptr && this->gmtAfter_ == nullptr && this->gmtBefore_ == nullptr
+        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->http2_ == nullptr && this->id_ == nullptr && this->isManaged_ == nullptr
+        && this->issuer_ == nullptr && this->mtlsEnabled_ == nullptr && this->mustHttps_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr
+        && this->sans_ == nullptr && this->tlsCipherSuitesConfig_ == nullptr && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr; };
       // afterDate Field Functions 
       bool hasAfterDate() const { return this->afterDate_ != nullptr;};
       void deleteAfterDate() { this->afterDate_ = nullptr;};
@@ -172,6 +176,13 @@ namespace Models
       void deleteBeforeDate() { this->beforeDate_ = nullptr;};
       inline int64_t getBeforeDate() const { DARABONBA_PTR_GET_DEFAULT(beforeDate_, 0L) };
       inline Data& setBeforeDate(int64_t beforeDate) { DARABONBA_PTR_SET_VALUE(beforeDate_, beforeDate) };
+
+
+      // caCertIdentifier Field Functions 
+      bool hasCaCertIdentifier() const { return this->caCertIdentifier_ != nullptr;};
+      void deleteCaCertIdentifier() { this->caCertIdentifier_ = nullptr;};
+      inline string getCaCertIdentifier() const { DARABONBA_PTR_GET_DEFAULT(caCertIdentifier_, "") };
+      inline Data& setCaCertIdentifier(string caCertIdentifier) { DARABONBA_PTR_SET_VALUE(caCertIdentifier_, caCertIdentifier) };
 
 
       // certIdentifier Field Functions 
@@ -265,6 +276,13 @@ namespace Models
       inline Data& setIssuer(string issuer) { DARABONBA_PTR_SET_VALUE(issuer_, issuer) };
 
 
+      // mtlsEnabled Field Functions 
+      bool hasMtlsEnabled() const { return this->mtlsEnabled_ != nullptr;};
+      void deleteMtlsEnabled() { this->mtlsEnabled_ = nullptr;};
+      inline bool getMtlsEnabled() const { DARABONBA_PTR_GET_DEFAULT(mtlsEnabled_, false) };
+      inline Data& setMtlsEnabled(bool mtlsEnabled) { DARABONBA_PTR_SET_VALUE(mtlsEnabled_, mtlsEnabled) };
+
+
       // mustHttps Field Functions 
       bool hasMustHttps() const { return this->mustHttps_ != nullptr;};
       void deleteMustHttps() { this->mustHttps_ = nullptr;};
@@ -323,6 +341,7 @@ namespace Models
       shared_ptr<string> algorithm_ {};
       // The expiration time.
       shared_ptr<int64_t> beforeDate_ {};
+      shared_ptr<string> caCertIdentifier_ {};
       // The ID of the certificate.
       shared_ptr<string> certIdentifier_ {};
       // The name of the certificate.
@@ -352,6 +371,7 @@ namespace Models
       shared_ptr<bool> isManaged_ {};
       // The issuer.
       shared_ptr<string> issuer_ {};
+      shared_ptr<bool> mtlsEnabled_ {};
       // Indicates whether HTTPS is forcibly used.
       shared_ptr<bool> mustHttps_ {};
       // The domain name.

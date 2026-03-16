@@ -158,6 +158,7 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The list of IP addresses where the beta release of the configuration is performed.
     shared_ptr<string> betaIps_ {};
+    // The content of the configuration.
     shared_ptr<string> content_ {};
     // The ID of the configuration.
     // 

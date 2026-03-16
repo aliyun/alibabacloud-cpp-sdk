@@ -102,11 +102,35 @@ namespace Models
 
 
     protected:
+      // The sampling rate of Tracing Analysis.
       shared_ptr<int64_t> sample_ {};
+      // The ID of the SkyWalking service. This parameter is required if TraceType is set to SKYWALKING.
       shared_ptr<int64_t> serviceId_ {};
+      // The port of the SkyWalking service. This parameter is required if TraceType is set to SKYWALKING.
       shared_ptr<string> servicePort_ {};
+      // Specifies whether to activate Tracing Analysis.
+      // 
+      // Valid value:
+      // 
+      // *   false
+      // 
+      //     <!-- -->
+      // 
+      //     <!-- -->
+      // 
+      //     <!-- -->
+      // 
+      // *   true
+      // 
+      //     <!-- -->
+      // 
+      //     <!-- -->
+      // 
+      //     <!-- -->
+      // 
       // This parameter is required.
       shared_ptr<bool> traceEnabled_ {};
+      // The type of Tracing Analysis. Valid values: XTRACE and SKYWALKING.
       shared_ptr<string> traceType_ {};
     };
 
@@ -157,9 +181,31 @@ namespace Models
 
 
     protected:
+      // Specifies whether to activate Simple Log Service.
+      // 
+      // Valid value:
+      // 
+      // *   true
+      // 
+      //     <!-- -->
+      // 
+      //     <!-- -->
+      // 
+      //     <!-- -->
+      // 
+      // *   false
+      // 
+      //     <!-- -->
+      // 
+      //     <!-- -->
+      // 
+      //     <!-- -->
+      // 
       // This parameter is required.
       shared_ptr<bool> logEnabled_ {};
+      // The name of the Logstore.
       shared_ptr<string> logStoreName_ {};
+      // The name of the destination Simple Log Service project.
       shared_ptr<string> projectName_ {};
     };
 
@@ -205,10 +251,15 @@ namespace Models
 
 
   protected:
+    // Specifies whether to disable the HTTP/2 protocol.
     shared_ptr<bool> disableHttp2Alpn_ {};
+    // Specifies whether to enable hardware acceleration.
     shared_ptr<bool> enableHardwareAcceleration_ {};
+    // Specifies whether to enable Web Application Firewall (WAF).
     shared_ptr<bool> enableWaf_ {};
+    // The description of Simple Log Service.
     shared_ptr<GatewayOption::LogConfigDetails> logConfigDetails_ {};
+    // The data structure.
     shared_ptr<GatewayOption::TraceDetails> traceDetails_ {};
   };
 

@@ -87,9 +87,18 @@ namespace Models
 
 
     protected:
+      // The trusted CA certificate chain. In mTLS, if the backend service certificate is issued by a private certificate authority (CA), you must add its CA certificate to the trusted CA certificate chain.
       shared_ptr<string> caCertContent_ {};
+      // The ID of the certificate that is managed in Alibaba Cloud Security.
       shared_ptr<string> certId_ {};
+      // The server name indication (SNI) that is used to establish TLS links.
       shared_ptr<string> sni_ {};
+      // The Transport Layer Security (TLS) mode that is used to distribute traffic to backend services. Valid values:
+      // 
+      // *   DISABLE: TLS is disabled. Plaintext is used.
+      // *   SIMPLE: TLS is enabled.
+      // *   MUTUAL: Mutual Transport Layer Security (mTLS) is enabled.
+      // 
       // This parameter is required.
       shared_ptr<string> tlsMode_ {};
     };
@@ -187,8 +196,11 @@ namespace Models
 
 
         protected:
+          // The name of the cookie.
           shared_ptr<string> name_ {};
+          // The path of the cookie.
           shared_ptr<string> path_ {};
+          // The lifecycle of the cookie.
           shared_ptr<string> TTL_ {};
         };
 
@@ -218,8 +230,16 @@ namespace Models
 
 
       protected:
+        // The type of the object based on which consistent hashing is performed. Valid values:
+        // 
+        // *   QUERY_PARAMETER: request parameter
+        // *   COOKIE: cookie
+        // *   SOURCE_IP: the source IP address
+        // *   HEADER: request header
         shared_ptr<string> consistentHashLBType_ {};
+        // You must specify this parameter only if ConsistentHashLBType is set to COOKIE.
         shared_ptr<ConsistentHashLBConfig::HttpCookie> httpCookie_ {};
+        // The name of the object based on which consistent hashing is performed. If consistent hashing is performed based on a parameter, set the value to the parameter name. If consistent hashing is performed based on a header, set the value to the header name.
         shared_ptr<string> parameterName_ {};
       };
 
@@ -249,8 +269,16 @@ namespace Models
 
 
     protected:
+      // The data structure.
       shared_ptr<LoadBalancerSettings::ConsistentHashLBConfig> consistentHashLBConfig_ {};
+      // The load balancing type. Valid values:
+      // 
+      // *       ROUND_ROBIN: round robin 
+      // *       LEAST_CONN: least connection load balancing 
+      // *       RANDOM: random load balancing 
+      // *       CONSISTENT_HASH: consistent hashing load balancing
       shared_ptr<string> loadbalancerType_ {};
+      // The prefetch duration. Unit: seconds.
       shared_ptr<int64_t> warmupDuration_ {};
     };
 
@@ -275,7 +303,9 @@ namespace Models
 
 
   protected:
+    // The load balancing settings.
     shared_ptr<TrafficPolicy::LoadBalancerSettings> loadBalancerSettings_ {};
+    // The data structure.
     shared_ptr<TrafficPolicy::TlsSetting> tlsSetting_ {};
   };
 

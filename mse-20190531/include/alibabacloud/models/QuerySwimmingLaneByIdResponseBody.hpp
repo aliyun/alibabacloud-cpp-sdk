@@ -221,15 +221,25 @@ namespace Models
 
 
         protected:
+          // 匹配符
           shared_ptr<string> cond_ {};
+          // 数值
           shared_ptr<string> datum_ {};
+          // 除数
           shared_ptr<int32_t> divisor_ {};
+          // 名称
           shared_ptr<string> name_ {};
+          // 名称列表
           shared_ptr<vector<string>> nameList_ {};
+          // 操作符
           shared_ptr<string> operator_ {};
+          // 百分比
           shared_ptr<int32_t> rate_ {};
+          // 余数
           shared_ptr<int32_t> remainder_ {};
+          // 匹配类型
           shared_ptr<string> type_ {};
+          // 值
           shared_ptr<string> value_ {};
         };
 
@@ -268,9 +278,13 @@ namespace Models
 
 
       protected:
+        // 条件
         shared_ptr<string> condition_ {};
+        // 路径
         shared_ptr<string> path_ {};
+        // 路径列表
         shared_ptr<vector<string>> paths_ {};
+        // Rest匹配规则列表
         shared_ptr<vector<EntryRules::RestItems>> restItems_ {};
       };
 
@@ -380,18 +394,31 @@ namespace Models
 
     protected:
       shared_ptr<bool> pathIndependentPercentageEnable_ {};
+      // 泳道开关
       shared_ptr<bool> enable_ {};
+      // 是否开启规则。
       shared_ptr<bool> enableRules_ {};
+      // 入口应用规则
       shared_ptr<string> entryRule_ {};
+      // 入口应用规则详情
       shared_ptr<vector<Data::EntryRules>> entryRules_ {};
+      // MSE网关路由规则
       shared_ptr<string> gatewaySwimmingLaneRouteJson_ {};
+      // 规则创建时间
       shared_ptr<string> gmtCreate_ {};
+      // 规则修改时间
       shared_ptr<string> gmtModified_ {};
+      // 泳道组Id。
       shared_ptr<int64_t> groupId_ {};
+      // 泳道ID
       shared_ptr<int64_t> id_ {};
+      // 泳道名称
       shared_ptr<string> name_ {};
+      // 区域ID。
       shared_ptr<string> regionId_ {};
+      // 泳道状态
       shared_ptr<int32_t> status_ {};
+      // 泳道对应的标签。
       shared_ptr<string> tag_ {};
     };
 

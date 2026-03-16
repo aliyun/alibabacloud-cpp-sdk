@@ -183,18 +183,28 @@ namespace Models
 
 
     protected:
+      // The application IDs.
       shared_ptr<string> appIds_ {};
       shared_ptr<int32_t> canaryModel_ {};
+      // The type and ID of the ingress application.
       shared_ptr<string> entryApp_ {};
+      // The ID of the lane group.
       shared_ptr<int64_t> id_ {};
+      // The side at which canary release for messaging was enabled.
       shared_ptr<string> messageQueueFilterSide_ {};
+      // Indicates whether canary release for messaging is enabled.
       shared_ptr<bool> messageQueueGrayEnable_ {};
+      // The name of the lane group.
       shared_ptr<string> name_ {};
+      // The MSE namespace to which the lane belongs.
       shared_ptr<string> namespace_ {};
       shared_ptr<string> paths_ {};
+      // Indicates whether the request details (metrics of end-to-end canary release) were recorded.
       shared_ptr<bool> recordCanaryDetail_ {};
+      // The region ID.
       shared_ptr<string> region_ {};
       shared_ptr<int32_t> swimVersion_ {};
+      // The ID of the user to which the lane belongs.
       shared_ptr<string> userId_ {};
     };
 

@@ -15,9 +15,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AddGatewayDomainRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AcceptLanguage, acceptLanguage_);
+      DARABONBA_PTR_TO_JSON(CaCertIdentifier, caCertIdentifier_);
       DARABONBA_PTR_TO_JSON(CertIdentifier, certIdentifier_);
       DARABONBA_PTR_TO_JSON(GatewayUniqueId, gatewayUniqueId_);
       DARABONBA_PTR_TO_JSON(Http2, http2_);
+      DARABONBA_PTR_TO_JSON(MtlsEnabled, mtlsEnabled_);
       DARABONBA_PTR_TO_JSON(MustHttps, mustHttps_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Protocol, protocol_);
@@ -27,9 +29,11 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, AddGatewayDomainRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AcceptLanguage, acceptLanguage_);
+      DARABONBA_PTR_FROM_JSON(CaCertIdentifier, caCertIdentifier_);
       DARABONBA_PTR_FROM_JSON(CertIdentifier, certIdentifier_);
       DARABONBA_PTR_FROM_JSON(GatewayUniqueId, gatewayUniqueId_);
       DARABONBA_PTR_FROM_JSON(Http2, http2_);
+      DARABONBA_PTR_FROM_JSON(MtlsEnabled, mtlsEnabled_);
       DARABONBA_PTR_FROM_JSON(MustHttps, mustHttps_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
@@ -93,13 +97,21 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && this->certIdentifier_ == nullptr && this->gatewayUniqueId_ == nullptr && this->http2_ == nullptr && this->mustHttps_ == nullptr && this->name_ == nullptr
-        && this->protocol_ == nullptr && this->tlsCipherSuitesConfigJSON_ == nullptr && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr; };
+        && this->caCertIdentifier_ == nullptr && this->certIdentifier_ == nullptr && this->gatewayUniqueId_ == nullptr && this->http2_ == nullptr && this->mtlsEnabled_ == nullptr
+        && this->mustHttps_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr && this->tlsCipherSuitesConfigJSON_ == nullptr && this->tlsMax_ == nullptr
+        && this->tlsMin_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
     inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline AddGatewayDomainRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
+
+
+    // caCertIdentifier Field Functions 
+    bool hasCaCertIdentifier() const { return this->caCertIdentifier_ != nullptr;};
+    void deleteCaCertIdentifier() { this->caCertIdentifier_ = nullptr;};
+    inline string getCaCertIdentifier() const { DARABONBA_PTR_GET_DEFAULT(caCertIdentifier_, "") };
+    inline AddGatewayDomainRequest& setCaCertIdentifier(string caCertIdentifier) { DARABONBA_PTR_SET_VALUE(caCertIdentifier_, caCertIdentifier) };
 
 
     // certIdentifier Field Functions 
@@ -121,6 +133,13 @@ namespace Models
     void deleteHttp2() { this->http2_ = nullptr;};
     inline string getHttp2() const { DARABONBA_PTR_GET_DEFAULT(http2_, "") };
     inline AddGatewayDomainRequest& setHttp2(string http2) { DARABONBA_PTR_SET_VALUE(http2_, http2) };
+
+
+    // mtlsEnabled Field Functions 
+    bool hasMtlsEnabled() const { return this->mtlsEnabled_ != nullptr;};
+    void deleteMtlsEnabled() { this->mtlsEnabled_ = nullptr;};
+    inline bool getMtlsEnabled() const { DARABONBA_PTR_GET_DEFAULT(mtlsEnabled_, false) };
+    inline AddGatewayDomainRequest& setMtlsEnabled(bool mtlsEnabled) { DARABONBA_PTR_SET_VALUE(mtlsEnabled_, mtlsEnabled) };
 
 
     // mustHttps Field Functions 
@@ -173,6 +192,7 @@ namespace Models
     // *   zh: Chinese
     // *   en: English
     shared_ptr<string> acceptLanguage_ {};
+    shared_ptr<string> caCertIdentifier_ {};
     // The ID of the certificate.
     shared_ptr<string> certIdentifier_ {};
     // The unique ID of the gateway.
@@ -183,6 +203,7 @@ namespace Models
     // *   `close`: disables `HTTP/2`
     // *   `globalConfig`: uses global configurations
     shared_ptr<string> http2_ {};
+    shared_ptr<bool> mtlsEnabled_ {};
     // Specifies whether to enable HTTPS.
     shared_ptr<bool> mustHttps_ {};
     // The domain name.

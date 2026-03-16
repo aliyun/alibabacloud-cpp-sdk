@@ -235,10 +235,20 @@ namespace Models
 
 
         protected:
+          // 条件：
+          // - PRE：前缀匹配
+          // - EQUAL：精确匹配
+          // - ERGULAR：正则匹配
           shared_ptr<string> cond_ {};
+          // 参数名称
           shared_ptr<string> name_ {};
+          // NameList
           shared_ptr<vector<string>> nameList_ {};
+          // 参数类型：
+          // - header：Header
+          // - param：Parameter
           shared_ptr<string> type_ {};
+          // 参数值
           shared_ptr<string> value_ {};
         };
 
@@ -315,12 +325,22 @@ namespace Models
 
 
       protected:
+        // 全链路灰度模式：
+        // 
+        // - 0: 按请求内容路由
+        // 
+        // - 1: 按比例路由
         shared_ptr<int32_t> canaryModel_ {};
         shared_ptr<string> condition_ {};
+        // 匹配条件列表（按内容路由使用）
         shared_ptr<vector<GatewaySwimmingLaneRoute::Conditions>> conditions_ {};
+        // 网关ID
         shared_ptr<int64_t> gatewayId_ {};
+        // 网关唯一ID
         shared_ptr<string> gatewayUniqueId_ {};
+        // 流量比例（按比例路由使用，取值0-100）
         shared_ptr<int32_t> percentage_ {};
+        // 路由ID列表
         shared_ptr<vector<int64_t>> routeIdList_ {};
         shared_ptr<string> routeIndependentPercentageEnable_ {};
         shared_ptr<vector<GatewaySwimmingLaneRoute::RouteIndependentPercentageList>> routeIndependentPercentageList_ {};
@@ -464,15 +484,25 @@ namespace Models
 
 
         protected:
+          // The matching character.
           shared_ptr<string> cond_ {};
+          // The value.
           shared_ptr<string> datum_ {};
+          // The divisor.
           shared_ptr<int32_t> divisor_ {};
+          // The name of the matching rule.
           shared_ptr<string> name_ {};
+          // The matching list.
           shared_ptr<vector<string>> nameList_ {};
+          // The operator.
           shared_ptr<string> operator_ {};
+          // The percentage.
           shared_ptr<int32_t> rate_ {};
+          // The remainder.
           shared_ptr<int32_t> remainder_ {};
+          // The matching type.
           shared_ptr<string> type_ {};
+          // The value.
           shared_ptr<string> value_ {};
         };
 
@@ -511,9 +541,13 @@ namespace Models
 
 
       protected:
+        // The condition.
         shared_ptr<string> condition_ {};
+        // The path.
         shared_ptr<string> path_ {};
+        // The paths.
         shared_ptr<vector<string>> paths_ {};
+        // The RESTful matching rules.
         shared_ptr<vector<EntryRules::RestItems>> restItems_ {};
       };
 
@@ -653,23 +687,39 @@ namespace Models
 
 
     protected:
+      // 是否开启。
       shared_ptr<string> enable_ {};
+      // The ingress application rules.
       shared_ptr<vector<Data::EntryRules>> entryRules_ {};
+      // 网关路由信息（使用云原生网关为入口时使用）
       shared_ptr<Data::GatewaySwimmingLaneRoute> gatewaySwimmingLaneRoute_ {};
       shared_ptr<string> gatewaySwimmingLaneRouteJson_ {};
+      // The ID of the lane group.
       shared_ptr<string> groupId_ {};
+      // The ID of the lane group.
       shared_ptr<int64_t> id_ {};
+      // The side on which canary release for messaging is implemented.
       shared_ptr<string> messageQueueFilterSide_ {};
+      // Indicates whether canary release for messaging is enabled.
       shared_ptr<bool> messageQueueGrayEnable_ {};
+      // The name of the lane group.
       shared_ptr<string> name_ {};
+      // The Microservices Engine (MSE) namespace to which the lane belongs.
       shared_ptr<string> namespace_ {};
       shared_ptr<bool> pathIndependentPercentageEnable_ {};
+      // Indicates whether request details were recorded (metrics of end-to-end canary release).
       shared_ptr<bool> recordCanaryDetail_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The tag of the lane.
       shared_ptr<string> tag_ {};
+      // The user ID of the lane group.
       shared_ptr<string> userId_ {};
+      // Indicates whether the rule is enabled.
       shared_ptr<bool> enableRules_ {};
+      // The time when the lane was created.
       shared_ptr<string> gmtCreate_ {};
+      // The time when the lane was updated.
       shared_ptr<string> gmtModified_ {};
     };
 

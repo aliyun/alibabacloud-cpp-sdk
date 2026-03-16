@@ -115,13 +115,9 @@ namespace Models
 
 
       protected:
-        // The ID of the resource.
         shared_ptr<string> resourceId_ {};
-        // The type of the resource.
         shared_ptr<string> resourceType_ {};
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -199,7 +195,6 @@ namespace Models
     // *   `true`: The request was successful.
     // *   `false`: The request failed.
     shared_ptr<bool> success_ {};
-    // The list of resources.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

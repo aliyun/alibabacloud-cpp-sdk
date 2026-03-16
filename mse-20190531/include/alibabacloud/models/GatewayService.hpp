@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // The traffic policy of the service.
     shared_ptr<TrafficPolicy> gatewayTrafficPolicy_ {};
+    // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
+    // The name of the group to which the service belongs.
     shared_ptr<string> groupName_ {};
+    // The ID of the service.
     shared_ptr<int64_t> id_ {};
+    // The metadata of the service.
     shared_ptr<string> metaInfo_ {};
+    // The name of the service.
     shared_ptr<string> name_ {};
+    // The namespace to which the service belongs.
     shared_ptr<string> namespace_ {};
+    // The source type of the service.
     shared_ptr<string> sourceType_ {};
   };
 

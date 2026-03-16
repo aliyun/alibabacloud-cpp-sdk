@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 新增服务鉴权规则
+ * @summary Creates a service authentication rule.
  *
  * @param request AddAuthPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -107,7 +107,7 @@ AddAuthPolicyResponse Client::addAuthPolicyWithOptions(const AddAuthPolicyReques
 }
 
 /**
- * @summary 新增服务鉴权规则
+ * @summary Creates a service authentication rule.
  *
  * @param request AddAuthPolicyRequest
  * @return AddAuthPolicyResponse
@@ -118,7 +118,7 @@ AddAuthPolicyResponse Client::addAuthPolicy(const AddAuthPolicyRequest &request)
 }
 
 /**
- * @summary Creates authorization information for a gateway.
+ * @summary Adds authorization information for a gateway.
  *
  * @param tmpReq AddAuthResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ AddAuthResourceResponse Client::addAuthResourceWithOptions(const AddAuthResource
 }
 
 /**
- * @summary Creates authorization information for a gateway.
+ * @summary Adds authorization information for a gateway.
  *
  * @param request AddAuthResourceRequest
  * @return AddAuthResourceResponse
@@ -665,6 +665,10 @@ AddGatewayDomainResponse Client::addGatewayDomainWithOptions(const AddGatewayDom
     query["AcceptLanguage"] = request.getAcceptLanguage();
   }
 
+  if (!!request.hasCaCertIdentifier()) {
+    query["CaCertIdentifier"] = request.getCaCertIdentifier();
+  }
+
   if (!!request.hasCertIdentifier()) {
     query["CertIdentifier"] = request.getCertIdentifier();
   }
@@ -675,6 +679,10 @@ AddGatewayDomainResponse Client::addGatewayDomainWithOptions(const AddGatewayDom
 
   if (!!request.hasHttp2()) {
     query["Http2"] = request.getHttp2();
+  }
+
+  if (!!request.hasMtlsEnabled()) {
+    query["MtlsEnabled"] = request.getMtlsEnabled();
   }
 
   if (!!request.hasMustHttps()) {
@@ -862,7 +870,7 @@ AddGatewayRouteResponse Client::addGatewayRoute(const AddGatewayRouteRequest &re
 }
 
 /**
- * @summary Adds a service version.
+ * @summary Adds a service version for a gateway.
  *
  * @param request AddGatewayServiceVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -905,7 +913,7 @@ AddGatewayServiceVersionResponse Client::addGatewayServiceVersionWithOptions(con
 }
 
 /**
- * @summary Adds a service version.
+ * @summary Adds a service version for a gateway.
  *
  * @param request AddGatewayServiceVersionRequest
  * @return AddGatewayServiceVersionResponse
@@ -1082,7 +1090,7 @@ AddMigrationTaskResponse Client::addMigrationTask(const AddMigrationTaskRequest 
 }
 
 /**
- * @summary Creates a mock rule.
+ * @summary Creates a service mocking rule.
  *
  * @param request AddMockRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1157,7 +1165,7 @@ AddMockRuleResponse Client::addMockRuleWithOptions(const AddMockRuleRequest &req
 }
 
 /**
- * @summary Creates a mock rule.
+ * @summary Creates a service mocking rule.
  *
  * @param request AddMockRuleRequest
  * @return AddMockRuleResponse
@@ -2218,7 +2226,7 @@ CreateFlowRuleResponse Client::createFlowRule(const CreateFlowRuleRequest &reque
 }
 
 /**
- * @summary 创建网关路由熔断规则
+ * @summary Creates a gateway circuit breaking rule.
  *
  * @param request CreateGatewayCircuitBreakerRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2313,7 +2321,7 @@ CreateGatewayCircuitBreakerRuleResponse Client::createGatewayCircuitBreakerRuleW
 }
 
 /**
- * @summary 创建网关路由熔断规则
+ * @summary Creates a gateway circuit breaking rule.
  *
  * @param request CreateGatewayCircuitBreakerRuleRequest
  * @return CreateGatewayCircuitBreakerRuleResponse
@@ -2410,7 +2418,7 @@ CreateGatewayFlowRuleResponse Client::createGatewayFlowRule(const CreateGatewayF
 }
 
 /**
- * @summary 创建网关路由隔离规则
+ * @summary Creates a concurrency rule for a gateway.
  *
  * @param request CreateGatewayIsolationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2485,7 +2493,7 @@ CreateGatewayIsolationRuleResponse Client::createGatewayIsolationRuleWithOptions
 }
 
 /**
- * @summary 创建网关路由隔离规则
+ * @summary Creates a concurrency rule for a gateway.
  *
  * @param request CreateGatewayIsolationRuleRequest
  * @return CreateGatewayIsolationRuleResponse
@@ -2496,7 +2504,7 @@ CreateGatewayIsolationRuleResponse Client::createGatewayIsolationRule(const Crea
 }
 
 /**
- * @summary 创建隔离规则
+ * @summary Creates an isolation rule.
  *
  * @param request CreateIsolationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2559,7 +2567,7 @@ CreateIsolationRuleResponse Client::createIsolationRuleWithOptions(const CreateI
 }
 
 /**
- * @summary 创建隔离规则
+ * @summary Creates an isolation rule.
  *
  * @param request CreateIsolationRuleRequest
  * @return CreateIsolationRuleResponse
@@ -2978,7 +2986,7 @@ CreateNacosServiceResponse Client::createNacosService(const CreateNacosServiceRe
 }
 
 /**
- * @summary CreateNamespace
+ * @summary Creates a namespace for Microservices Governance.
  *
  * @param tmpReq CreateNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3027,7 +3035,7 @@ CreateNamespaceResponse Client::createNamespaceWithOptions(const CreateNamespace
 }
 
 /**
- * @summary CreateNamespace
+ * @summary Creates a namespace for Microservices Governance.
  *
  * @param request CreateNamespaceRequest
  * @return CreateNamespaceResponse
@@ -3404,7 +3412,7 @@ CreateSentinelBlockFallbackDefinitionResponse Client::createSentinelBlockFallbac
 }
 
 /**
- * @summary 创建热点参数防护规则（HTTP 请求）
+ * @summary Creates a hot parameter protection rule for HTTP requests.
  *
  * @param request CreateWebFlowRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3495,7 +3503,7 @@ CreateWebFlowRuleResponse Client::createWebFlowRuleWithOptions(const CreateWebFl
 }
 
 /**
- * @summary 创建热点参数防护规则（HTTP 请求）
+ * @summary Creates a hot parameter protection rule for HTTP requests.
  *
  * @param request CreateWebFlowRuleRequest
  * @return CreateWebFlowRuleResponse
@@ -4088,7 +4096,7 @@ DeleteGatewayAuthConsumerResourceResponse Client::deleteGatewayAuthConsumerResou
 }
 
 /**
- * @summary 删除网关路由熔断规则
+ * @summary Deletes a gateway circuit breaking rule.
  *
  * @param request DeleteGatewayCircuitBreakerRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4131,7 +4139,7 @@ DeleteGatewayCircuitBreakerRuleResponse Client::deleteGatewayCircuitBreakerRuleW
 }
 
 /**
- * @summary 删除网关路由熔断规则
+ * @summary Deletes a gateway circuit breaking rule.
  *
  * @param request DeleteGatewayCircuitBreakerRuleRequest
  * @return DeleteGatewayCircuitBreakerRuleResponse
@@ -4142,7 +4150,7 @@ DeleteGatewayCircuitBreakerRuleResponse Client::deleteGatewayCircuitBreakerRule(
 }
 
 /**
- * @summary Disassociates a domain name from a gateway.
+ * @summary Deletes a domain name that is associated with a gateway.
  *
  * @param request DeleteGatewayDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4181,7 +4189,7 @@ DeleteGatewayDomainResponse Client::deleteGatewayDomainWithOptions(const DeleteG
 }
 
 /**
- * @summary Disassociates a domain name from a gateway.
+ * @summary Deletes a domain name that is associated with a gateway.
  *
  * @param request DeleteGatewayDomainRequest
  * @return DeleteGatewayDomainResponse
@@ -4192,7 +4200,7 @@ DeleteGatewayDomainResponse Client::deleteGatewayDomain(const DeleteGatewayDomai
 }
 
 /**
- * @summary 删除网关路由流控规则
+ * @summary Deletes a throttling rule for a gateway.
  *
  * @param request DeleteGatewayFlowRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4235,7 +4243,7 @@ DeleteGatewayFlowRuleResponse Client::deleteGatewayFlowRuleWithOptions(const Del
 }
 
 /**
- * @summary 删除网关路由流控规则
+ * @summary Deletes a throttling rule for a gateway.
  *
  * @param request DeleteGatewayFlowRuleRequest
  * @return DeleteGatewayFlowRuleResponse
@@ -4246,7 +4254,7 @@ DeleteGatewayFlowRuleResponse Client::deleteGatewayFlowRule(const DeleteGatewayF
 }
 
 /**
- * @summary 删除网关路由隔离规则
+ * @summary Deletes the gateway concurrency rule.
  *
  * @param request DeleteGatewayIsolationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4289,7 +4297,7 @@ DeleteGatewayIsolationRuleResponse Client::deleteGatewayIsolationRuleWithOptions
 }
 
 /**
- * @summary 删除网关路由隔离规则
+ * @summary Deletes the gateway concurrency rule.
  *
  * @param request DeleteGatewayIsolationRuleRequest
  * @return DeleteGatewayIsolationRuleResponse
@@ -4350,7 +4358,7 @@ DeleteGatewayRouteResponse Client::deleteGatewayRoute(const DeleteGatewayRouteRe
 }
 
 /**
- * @summary Deletes a service from a gateway.
+ * @summary Deletes a service from a gateway
  *
  * @param request DeleteGatewayServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4393,7 +4401,7 @@ DeleteGatewayServiceResponse Client::deleteGatewayServiceWithOptions(const Delet
 }
 
 /**
- * @summary Deletes a service from a gateway.
+ * @summary Deletes a service from a gateway
  *
  * @param request DeleteGatewayServiceRequest
  * @return DeleteGatewayServiceResponse
@@ -4516,7 +4524,7 @@ DeleteGatewaySlbResponse Client::deleteGatewaySlb(const DeleteGatewaySlbRequest 
 }
 
 /**
- * @summary 删除隔离规则
+ * @summary Deletes isolation rules.
  *
  * @param tmpReq DeleteIsolationRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4565,7 +4573,7 @@ DeleteIsolationRulesResponse Client::deleteIsolationRulesWithOptions(const Delet
 }
 
 /**
- * @summary 删除隔离规则
+ * @summary Deletes isolation rules.
  *
  * @param request DeleteIsolationRulesRequest
  * @return DeleteIsolationRulesResponse
@@ -5252,7 +5260,7 @@ DeleteSwimmingLaneGroupResponse Client::deleteSwimmingLaneGroup(const DeleteSwim
 }
 
 /**
- * @summary 删除热点参数防护规则（HTTP 请求）
+ * @summary Deletes a hot parameter protection rule for HTTP requests.
  *
  * @param request DeleteWebFlowRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5295,7 +5303,7 @@ DeleteWebFlowRulesResponse Client::deleteWebFlowRulesWithOptions(const DeleteWeb
 }
 
 /**
- * @summary 删除热点参数防护规则（HTTP 请求）
+ * @summary Deletes a hot parameter protection rule for HTTP requests.
  *
  * @param request DeleteWebFlowRulesRequest
  * @return DeleteWebFlowRulesResponse
@@ -6166,7 +6174,7 @@ GetGatewayAuthConsumerDetailResponse Client::getGatewayAuthConsumerDetail(const 
 }
 
 /**
- * @summary 查询网关认证详情
+ * @summary Obtains the authentication details of a gateway.
  *
  * @param request GetGatewayAuthDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6209,7 +6217,7 @@ GetGatewayAuthDetailResponse Client::getGatewayAuthDetailWithOptions(const GetGa
 }
 
 /**
- * @summary 查询网关认证详情
+ * @summary Obtains the authentication details of a gateway.
  *
  * @param request GetGatewayAuthDetailRequest
  * @return GetGatewayAuthDetailResponse
@@ -6220,7 +6228,7 @@ GetGatewayAuthDetailResponse Client::getGatewayAuthDetail(const GetGatewayAuthDe
 }
 
 /**
- * @summary 获取网关全局配置
+ * @summary Obtains the parameter configurations of a gateway.
  *
  * @param request GetGatewayConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6255,7 +6263,7 @@ GetGatewayConfigResponse Client::getGatewayConfigWithOptions(const GetGatewayCon
 }
 
 /**
- * @summary 获取网关全局配置
+ * @summary Obtains the parameter configurations of a gateway.
  *
  * @param request GetGatewayConfigRequest
  * @return GetGatewayConfigResponse
@@ -6674,7 +6682,7 @@ GetKubernetesSourceResponse Client::getKubernetesSource(const GetKubernetesSourc
 }
 
 /**
- * @summary 获取同AZ路由规则
+ * @summary Obtains the Intra-zone Provider First rules.
  *
  * @param request GetLocalityRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6725,7 +6733,7 @@ GetLocalityRuleResponse Client::getLocalityRuleWithOptions(const GetLocalityRule
 }
 
 /**
- * @summary 获取同AZ路由规则
+ * @summary Obtains the Intra-zone Provider First rules.
  *
  * @param request GetLocalityRuleRequest
  * @return GetLocalityRuleResponse
@@ -7088,7 +7096,7 @@ GetNacosMcpServerResponse Client::getNacosMcpServer(const GetNacosMcpServerReque
 }
 
 /**
- * @summary Queries information about service governance.
+ * @summary Queries overview information about Microservices Governance.
  *
  * @description You can call this operation to query overview information about service governance.
  *
@@ -7129,7 +7137,7 @@ GetOverviewResponse Client::getOverviewWithOptions(const GetOverviewRequest &req
 }
 
 /**
- * @summary Queries information about service governance.
+ * @summary Queries overview information about Microservices Governance.
  *
  * @description You can call this operation to query overview information about service governance.
  *
@@ -7476,7 +7484,7 @@ GetServiceListenersResponse Client::getServiceListeners(const GetServiceListener
 }
 
 /**
- * @summary 获取服务接口列表
+ * @summary Queries a list of service interfaces.
  *
  * @param request GetServiceMethodPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7563,7 +7571,7 @@ GetServiceMethodPageResponse Client::getServiceMethodPageWithOptions(const GetSe
 }
 
 /**
- * @summary 获取服务接口列表
+ * @summary Queries a list of service interfaces.
  *
  * @param request GetServiceMethodPageRequest
  * @return GetServiceMethodPageResponse
@@ -7882,7 +7890,7 @@ ImportZookeeperDataResponse Client::importZookeeperData(const ImportZookeeperDat
 }
 
 /**
- * @summary 用户授权mseSLR
+ * @summary Creates a Microservices Engine (MSE) service-linked role.
  *
  * @param request InitializeServiceLinkRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7921,7 +7929,7 @@ InitializeServiceLinkRoleResponse Client::initializeServiceLinkRoleWithOptions(c
 }
 
 /**
- * @summary 用户授权mseSLR
+ * @summary Creates a Microservices Engine (MSE) service-linked role.
  *
  * @param request InitializeServiceLinkRoleRequest
  * @return InitializeServiceLinkRoleResponse
@@ -9368,7 +9376,7 @@ ListGatewayAuthConsumerResourceResponse Client::listGatewayAuthConsumerResource(
 }
 
 /**
- * @summary 查看网关路由熔断规则
+ * @summary Queries a gateway circuit breaking rule.
  *
  * @param request ListGatewayCircuitBreakerRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9403,7 +9411,7 @@ ListGatewayCircuitBreakerRuleResponse Client::listGatewayCircuitBreakerRuleWithO
 }
 
 /**
- * @summary 查看网关路由熔断规则
+ * @summary Queries a gateway circuit breaking rule.
  *
  * @param request ListGatewayCircuitBreakerRuleRequest
  * @return ListGatewayCircuitBreakerRuleResponse
@@ -9468,7 +9476,7 @@ ListGatewayDomainResponse Client::listGatewayDomain(const ListGatewayDomainReque
 }
 
 /**
- * @summary 查看网关路由流控规则
+ * @summary Queries throttling rules of a gateway.
  *
  * @param request ListGatewayFlowRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9503,7 +9511,7 @@ ListGatewayFlowRuleResponse Client::listGatewayFlowRuleWithOptions(const ListGat
 }
 
 /**
- * @summary 查看网关路由流控规则
+ * @summary Queries throttling rules of a gateway.
  *
  * @param request ListGatewayFlowRuleRequest
  * @return ListGatewayFlowRuleResponse
@@ -9514,7 +9522,7 @@ ListGatewayFlowRuleResponse Client::listGatewayFlowRule(const ListGatewayFlowRul
 }
 
 /**
- * @summary 查看网关路由隔离规则
+ * @summary Queries the concurrency rule of a gateway.
  *
  * @param request ListGatewayIsolationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9549,7 +9557,7 @@ ListGatewayIsolationRuleResponse Client::listGatewayIsolationRuleWithOptions(con
 }
 
 /**
- * @summary 查看网关路由隔离规则
+ * @summary Queries the concurrency rule of a gateway.
  *
  * @param request ListGatewayIsolationRuleRequest
  * @return ListGatewayIsolationRuleResponse
@@ -9678,7 +9686,7 @@ ListGatewayRouteOnAuthResponse Client::listGatewayRouteOnAuth(const ListGatewayR
 }
 
 /**
- * @summary Queries a list of services that are subscribed with a gateway.
+ * @summary Queries a list of services that are subscribed to by a gateway.
  *
  * @param tmpReq ListGatewayServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9735,7 +9743,7 @@ ListGatewayServiceResponse Client::listGatewayServiceWithOptions(const ListGatew
 }
 
 /**
- * @summary Queries a list of services that are subscribed with a gateway.
+ * @summary Queries a list of services that are subscribed to by a gateway.
  *
  * @param request ListGatewayServiceRequest
  * @return ListGatewayServiceResponse
@@ -9892,7 +9900,7 @@ ListInstanceCountResponse Client::listInstanceCount(const ListInstanceCountReque
 }
 
 /**
- * @summary 查询隔离规则
+ * @summary Queries isolation rules.
  *
  * @param request ListIsolationRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9951,7 +9959,7 @@ ListIsolationRulesResponse Client::listIsolationRulesWithOptions(const ListIsola
 }
 
 /**
- * @summary 查询隔离规则
+ * @summary Queries isolation rules.
  *
  * @param request ListIsolationRulesRequest
  * @return ListIsolationRulesResponse
@@ -10388,7 +10396,7 @@ ListNacosMcpServersResponse Client::listNacosMcpServers(const ListNacosMcpServer
 }
 
 /**
- * @summary 展示命名空间列表
+ * @summary Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
  *
  * @param tmpReq ListNamespacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10445,7 +10453,7 @@ ListNamespacesResponse Client::listNamespacesWithOptions(const ListNamespacesReq
 }
 
 /**
- * @summary 展示命名空间列表
+ * @summary Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
  *
  * @param request ListNamespacesRequest
  * @return ListNamespacesResponse
@@ -10808,7 +10816,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary 查询热点参数防护规则（HTTP 请求）
+ * @summary Queries hot parameter protection rules for HTTP requests.
  *
  * @param request ListWebFlowRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10867,7 +10875,7 @@ ListWebFlowRulesResponse Client::listWebFlowRulesWithOptions(const ListWebFlowRu
 }
 
 /**
- * @summary 查询热点参数防护规则（HTTP 请求）
+ * @summary Queries hot parameter protection rules for HTTP requests.
  *
  * @param request ListWebFlowRulesRequest
  * @return ListWebFlowRulesResponse
@@ -11158,7 +11166,7 @@ ModifyLosslessRuleResponse Client::modifyLosslessRule(const ModifyLosslessRuleRe
 }
 
 /**
- * @summary Unpublishes a route for a gateway.
+ * @summary Disables a route for a gateway.
  *
  * @param request OfflineGatewayRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11197,7 +11205,7 @@ OfflineGatewayRouteResponse Client::offlineGatewayRouteWithOptions(const Offline
 }
 
 /**
- * @summary Unpublishes a route for a gateway.
+ * @summary Disables a route for a gateway.
  *
  * @param request OfflineGatewayRouteRequest
  * @return OfflineGatewayRouteResponse
@@ -12110,7 +12118,7 @@ QueryMonitorResponse Client::queryMonitor(const QueryMonitorRequest &request) {
 }
 
 /**
- * @summary 查询nacos灰度配置
+ * @summary Queries canary configurations of a Nacos instance.
  *
  * @param request QueryNacosGrayConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12169,7 +12177,7 @@ QueryNacosGrayConfigResponse Client::queryNacosGrayConfigWithOptions(const Query
 }
 
 /**
- * @summary 查询nacos灰度配置
+ * @summary Queries canary configurations of a Nacos instance.
  *
  * @param request QueryNacosGrayConfigRequest
  * @return QueryNacosGrayConfigResponse
@@ -12376,7 +12384,7 @@ QueryZnodeDetailResponse Client::queryZnodeDetail(const QueryZnodeDetailRequest 
 }
 
 /**
- * @summary 删除单个应用
+ * @summary Deletes a single application.
  *
  * @param request RemoveApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12423,7 +12431,7 @@ RemoveApplicationResponse Client::removeApplicationWithOptions(const RemoveAppli
 }
 
 /**
- * @summary 删除单个应用
+ * @summary Deletes a single application.
  *
  * @param request RemoveApplicationRequest
  * @return RemoveApplicationResponse
@@ -12434,6 +12442,8 @@ RemoveApplicationResponse Client::removeApplication(const RemoveApplicationReque
 }
 
 /**
+ * @summary Deletes a service authentication rule.
+ *
  * @param request RemoveAuthPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemoveAuthPolicyResponse
@@ -12467,6 +12477,8 @@ RemoveAuthPolicyResponse Client::removeAuthPolicyWithOptions(const RemoveAuthPol
 }
 
 /**
+ * @summary Deletes a service authentication rule.
+ *
  * @param request RemoveAuthPolicyRequest
  * @return RemoveAuthPolicyResponse
  */
@@ -13912,7 +13924,7 @@ UpdateGatewayAuthConsumerStatusResponse Client::updateGatewayAuthConsumerStatus(
 }
 
 /**
- * @summary 更新网关路由熔断规则
+ * @summary Updates a gateway circuit breaking rule.
  *
  * @param request UpdateGatewayCircuitBreakerRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14011,7 +14023,7 @@ UpdateGatewayCircuitBreakerRuleResponse Client::updateGatewayCircuitBreakerRuleW
 }
 
 /**
- * @summary 更新网关路由熔断规则
+ * @summary Updates a gateway circuit breaking rule.
  *
  * @param request UpdateGatewayCircuitBreakerRuleRequest
  * @return UpdateGatewayCircuitBreakerRuleResponse
@@ -14022,7 +14034,7 @@ UpdateGatewayCircuitBreakerRuleResponse Client::updateGatewayCircuitBreakerRule(
 }
 
 /**
- * @summary 更新网关配置
+ * @summary Updates gateway configurations.
  *
  * @param request UpdateGatewayConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14065,7 +14077,7 @@ UpdateGatewayConfigResponse Client::updateGatewayConfigWithOptions(const UpdateG
 }
 
 /**
- * @summary 更新网关配置
+ * @summary Updates gateway configurations.
  *
  * @param request UpdateGatewayConfigRequest
  * @return UpdateGatewayConfigResponse
@@ -14095,6 +14107,10 @@ UpdateGatewayDomainResponse Client::updateGatewayDomainWithOptions(const UpdateG
     query["AcceptLanguage"] = request.getAcceptLanguage();
   }
 
+  if (!!request.hasCaCertIdentifier()) {
+    query["CaCertIdentifier"] = request.getCaCertIdentifier();
+  }
+
   if (!!request.hasCertIdentifier()) {
     query["CertIdentifier"] = request.getCertIdentifier();
   }
@@ -14109,6 +14125,10 @@ UpdateGatewayDomainResponse Client::updateGatewayDomainWithOptions(const UpdateG
 
   if (!!request.hasId()) {
     query["Id"] = request.getId();
+  }
+
+  if (!!request.hasMtlsEnabled()) {
+    query["MtlsEnabled"] = request.getMtlsEnabled();
   }
 
   if (!!request.hasMustHttps()) {
@@ -14160,7 +14180,7 @@ UpdateGatewayDomainResponse Client::updateGatewayDomain(const UpdateGatewayDomai
 }
 
 /**
- * @summary 更新网关路由流控规则
+ * @summary Queries throttling rules of a gateway.
  *
  * @param request UpdateGatewayFlowRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14239,7 +14259,7 @@ UpdateGatewayFlowRuleResponse Client::updateGatewayFlowRuleWithOptions(const Upd
 }
 
 /**
- * @summary 更新网关路由流控规则
+ * @summary Queries throttling rules of a gateway.
  *
  * @param request UpdateGatewayFlowRuleRequest
  * @return UpdateGatewayFlowRuleResponse
@@ -14250,7 +14270,7 @@ UpdateGatewayFlowRuleResponse Client::updateGatewayFlowRule(const UpdateGatewayF
 }
 
 /**
- * @summary 更新网关路由隔离规则
+ * @summary Updates the concurrency rule of a gateway.
  *
  * @param request UpdateGatewayIsolationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14329,7 +14349,7 @@ UpdateGatewayIsolationRuleResponse Client::updateGatewayIsolationRuleWithOptions
 }
 
 /**
- * @summary 更新网关路由隔离规则
+ * @summary Updates the concurrency rule of a gateway.
  *
  * @param request UpdateGatewayIsolationRuleRequest
  * @return UpdateGatewayIsolationRuleResponse
@@ -14340,7 +14360,7 @@ UpdateGatewayIsolationRuleResponse Client::updateGatewayIsolationRule(const Upda
 }
 
 /**
- * @summary Renames a gateway.
+ * @summary Updates the name of a gateway.
  *
  * @param request UpdateGatewayNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14379,7 +14399,7 @@ UpdateGatewayNameResponse Client::updateGatewayNameWithOptions(const UpdateGatew
 }
 
 /**
- * @summary Renames a gateway.
+ * @summary Updates the name of a gateway.
  *
  * @param request UpdateGatewayNameRequest
  * @return UpdateGatewayNameResponse
@@ -15000,7 +15020,7 @@ UpdateGatewayRouteWafStatusResponse Client::updateGatewayRouteWafStatus(const Up
 }
 
 /**
- * @summary 更新服务
+ * @summary Updates gateways for fixed address services or DNS services.
  *
  * @param tmpReq UpdateGatewayServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15077,7 +15097,7 @@ UpdateGatewayServiceResponse Client::updateGatewayServiceWithOptions(const Updat
 }
 
 /**
- * @summary 更新服务
+ * @summary Updates gateways for fixed address services or DNS services.
  *
  * @param request UpdateGatewayServiceRequest
  * @return UpdateGatewayServiceResponse
@@ -15244,7 +15264,7 @@ UpdateGatewayServiceTrafficPolicyResponse Client::updateGatewayServiceTrafficPol
 }
 
 /**
- * @summary Modifies the version of a service.
+ * @summary Updates the service version of a gateway.
  *
  * @param request UpdateGatewayServiceVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15287,7 +15307,7 @@ UpdateGatewayServiceVersionResponse Client::updateGatewayServiceVersionWithOptio
 }
 
 /**
- * @summary Modifies the version of a service.
+ * @summary Updates the service version of a gateway.
  *
  * @param request UpdateGatewayServiceVersionRequest
  * @return UpdateGatewayServiceVersionResponse
@@ -15406,7 +15426,7 @@ UpdateImageResponse Client::updateImage(const UpdateImageRequest &request) {
 }
 
 /**
- * @summary 更新隔离规则
+ * @summary Updates an isolation rule.
  *
  * @param request UpdateIsolationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15465,7 +15485,7 @@ UpdateIsolationRuleResponse Client::updateIsolationRuleWithOptions(const UpdateI
 }
 
 /**
- * @summary 更新隔离规则
+ * @summary Updates an isolation rule.
  *
  * @param request UpdateIsolationRuleRequest
  * @return UpdateIsolationRuleResponse
@@ -15476,7 +15496,7 @@ UpdateIsolationRuleResponse Client::updateIsolationRule(const UpdateIsolationRul
 }
 
 /**
- * @summary 更新同AZ路由规则
+ * @summary Updates the Intra-zone Provider First rules.
  *
  * @param request UpdateLocalityRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15539,7 +15559,7 @@ UpdateLocalityRuleResponse Client::updateLocalityRuleWithOptions(const UpdateLoc
 }
 
 /**
- * @summary 更新同AZ路由规则
+ * @summary Updates the Intra-zone Provider First rules.
  *
  * @param request UpdateLocalityRuleRequest
  * @return UpdateLocalityRuleResponse
@@ -15890,7 +15910,7 @@ UpdateNacosConfigResponse Client::updateNacosConfig(const UpdateNacosConfigReque
 }
 
 /**
- * @summary 更新nacos灰度配置
+ * @summary Updates the canary release settings, which include beta release and tag-based canary release.
  *
  * @param request UpdateNacosGrayConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15977,7 +15997,7 @@ UpdateNacosGrayConfigResponse Client::updateNacosGrayConfigWithOptions(const Upd
 }
 
 /**
- * @summary 更新nacos灰度配置
+ * @summary Updates the canary release settings, which include beta release and tag-based canary release.
  *
  * @param request UpdateNacosGrayConfigRequest
  * @return UpdateNacosGrayConfigResponse
@@ -16150,7 +16170,7 @@ UpdateNacosServiceResponse Client::updateNacosService(const UpdateNacosServiceRe
 }
 
 /**
- * @summary Updates the configuration of a plug-in.
+ * @summary Updates plug-in configurations.
  *
  * @param tmpReq UpdatePluginConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16229,7 +16249,7 @@ UpdatePluginConfigResponse Client::updatePluginConfigWithOptions(const UpdatePlu
 }
 
 /**
- * @summary Updates the configuration of a plug-in.
+ * @summary Updates plug-in configurations.
  *
  * @param request UpdatePluginConfigRequest
  * @return UpdatePluginConfigResponse
@@ -16382,7 +16402,7 @@ UpdateServiceSourceResponse Client::updateServiceSource(const UpdateServiceSourc
 }
 
 /**
- * @summary 更新热点参数防护规则（HTTP 请求）
+ * @summary Updates a hot parameter protection rule for HTTP requests.
  *
  * @param request UpdateWebFlowRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16469,7 +16489,7 @@ UpdateWebFlowRuleResponse Client::updateWebFlowRuleWithOptions(const UpdateWebFl
 }
 
 /**
- * @summary 更新热点参数防护规则（HTTP 请求）
+ * @summary Updates a hot parameter protection rule for HTTP requests.
  *
  * @param request UpdateWebFlowRuleRequest
  * @return UpdateWebFlowRuleResponse

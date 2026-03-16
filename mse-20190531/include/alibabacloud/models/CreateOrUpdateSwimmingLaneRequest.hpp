@@ -430,15 +430,25 @@ namespace Models
 
 
       protected:
+        // The matching character.
         shared_ptr<string> cond_ {};
+        // The value.
         shared_ptr<string> datum_ {};
+        // The divisor.
         shared_ptr<int32_t> divisor_ {};
+        // The name.
         shared_ptr<string> name_ {};
+        // The matching list.
         shared_ptr<vector<string>> nameList_ {};
+        // The operator.
         shared_ptr<string> operator_ {};
+        // The percentage.
         shared_ptr<int32_t> rate_ {};
+        // The remainder.
         shared_ptr<int32_t> remainder_ {};
+        // The matching type.
         shared_ptr<string> type_ {};
+        // The value.
         shared_ptr<string> value_ {};
       };
 
@@ -477,9 +487,13 @@ namespace Models
 
 
     protected:
+      // Specifies how RESTful items are combined into the final condition.
       shared_ptr<string> condition_ {};
+      // The paths.
       shared_ptr<vector<string>> paths_ {};
+      // The priority.
       shared_ptr<int32_t> priority_ {};
+      // The matching list.
       shared_ptr<vector<EntryRules::RestItems>> restItems_ {};
     };
 
@@ -591,6 +605,7 @@ namespace Models
     shared_ptr<bool> enableRules_ {};
     // The JSON string.
     shared_ptr<string> entryRule_ {};
+    // The lane.
     shared_ptr<vector<CreateOrUpdateSwimmingLaneRequest::EntryRules>> entryRules_ {};
     // The information about the routing rule for the gateway. This parameter is required when a cloud-native gateway is used as the ingress.
     shared_ptr<CreateOrUpdateSwimmingLaneRequest::GatewaySwimmingLaneRouteJson> gatewaySwimmingLaneRouteJson_ {};

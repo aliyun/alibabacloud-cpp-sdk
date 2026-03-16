@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The ID of the certificate in use.
     shared_ptr<string> certIdentifier_ {};
+    // The gateway ID.
     shared_ptr<int64_t> gatewayId_ {};
+    // The name of the gateway.
     shared_ptr<string> gatewayName_ {};
+    // The unique ID of the gateway.
     shared_ptr<string> gatewayUniqueId_ {};
+    // The time when the gateway was created.
     shared_ptr<string> gmtCreate_ {};
+    // The time when the gateway was modified.
     shared_ptr<string> gmtModified_ {};
+    // The domain ID.
     shared_ptr<int64_t> id_ {};
+    // Indicates whether HTTPS is forcibly used.
     shared_ptr<string> mustHttps_ {};
+    // The domain name.
     shared_ptr<string> name_ {};
+    // The domain protocol.
     shared_ptr<string> protocol_ {};
   };
 

@@ -217,15 +217,25 @@ namespace Models
 
 
         protected:
+          // The operator. A value of rawvalue indicates direct comparison. A value of mode indicates the modulo operation. A value of list indicates using a whitelist.
           shared_ptr<string> operator_ {};
+          // The list of names.
           shared_ptr<vector<string>> nameList_ {};
+          // The value on which operators such as rawvalue are performed.
           shared_ptr<string> datum_ {};
+          // The comparison operator. Valid values: >=, <=, >, <, and ==.
           shared_ptr<string> cond_ {};
+          // The divisor that is required by the mod operator.
           shared_ptr<int32_t> divisor_ {};
+          // The remainder.
           shared_ptr<int32_t> remainder_ {};
+          // The rate. A value of 20 indicates that 20% of the traffic is routed to the tagged node.
           shared_ptr<int32_t> rate_ {};
+          // The position of the parameter, which starts from 0.
           shared_ptr<int32_t> index_ {};
+          // The expression.
           shared_ptr<string> expr_ {};
+          // The value that is used for comparison. The value obtained by the expression is compared with this value. If the list operator is used, data of the value parameter is separated by commas (,). For example, 1,2,3.
           Darabonba::Json value_ {};
         };
 
@@ -309,15 +319,25 @@ namespace Models
 
 
       protected:
+        // The ID of the application.
         shared_ptr<string> appId_ {};
+        // The tags.
         shared_ptr<vector<string>> tags_ {};
+        // The policy type.
         shared_ptr<string> triggerPolicy_ {};
+        // The service name (interface).
         shared_ptr<string> serviceName_ {};
+        // The group of the Dubbo application.
         shared_ptr<string> group_ {};
+        // The version of the Dubbo application.
         shared_ptr<string> version_ {};
+        // The method name of the Dubbo application.
         shared_ptr<string> methodName_ {};
+        // The list of parameter data types.
         shared_ptr<vector<string>> paramTypes_ {};
+        // The logical operation relationships. Valid values: AND and OR.
         shared_ptr<string> condition_ {};
+        // The list of parameter contents.
         shared_ptr<vector<Dubbo::ArgumentItems>> argumentItems_ {};
       };
 
@@ -471,15 +491,25 @@ namespace Models
 
 
         protected:
+          // The value on which operators such as rawvalue are performed.
           shared_ptr<string> datum_ {};
+          // The operator. A value of rawvalue indicates direct comparison. A value of mode indicates the modulo operation. A value of list indicates using a whitelist.
           shared_ptr<string> operator_ {};
+          // Information about the fields that are required by the list operator.
           shared_ptr<vector<string>> nameList_ {};
+          // The comparison operator. Valid values: >=, <=, >, <, and ==.
           shared_ptr<string> cond_ {};
+          // The divisor that is required by the mod operator.
           shared_ptr<int32_t> divisor_ {};
+          // The remainder.
           shared_ptr<int32_t> remainder_ {};
+          // The rate. A value of 20 indicates that 20% of the traffic is routed to the tagged node.
           shared_ptr<int32_t> rate_ {};
+          // The type.
           shared_ptr<string> type_ {};
+          // The name.
           shared_ptr<string> name_ {};
+          // The value.
           Darabonba::Json value_ {};
         };
 
@@ -556,14 +586,40 @@ namespace Models
 
 
       protected:
+        // The logical operation relationships. Valid values: AND and OR.
         shared_ptr<string> condition_ {};
         shared_ptr<vector<Springcloud::RestItems>> restItems_ {};
+        // The policy type.
+        // 
+        // Valid values:
+        // 
+        // *   PERCENT
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
+        // 
+        // *   CONTENT
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
         shared_ptr<string> triggerPolicy_ {};
+        // Specifies whether to enable the routing rule.
         shared_ptr<bool> enable_ {};
+        // The ID of the application.
         shared_ptr<string> appId_ {};
+        // The priority.
         shared_ptr<int32_t> priority_ {};
+        // The tags.
         shared_ptr<vector<string>> tags_ {};
+        // The list of paths.
         shared_ptr<vector<string>> paths_ {};
+        // The path.
         shared_ptr<string> path_ {};
       };
 
@@ -588,7 +644,9 @@ namespace Models
 
 
     protected:
+      // The rule of the Spring Cloud application.
       shared_ptr<vector<Rules::Springcloud>> springcloud_ {};
+      // The rules of the Dubbo application.
       shared_ptr<vector<Rules::Dubbo>> dubbo_ {};
     };
 
@@ -654,13 +712,65 @@ namespace Models
 
 
   protected:
+    // The status.
+    // 
+    // Valid values:
+    // 
+    // *   0
+    // 
+    //     <!-- -->
+    // 
+    //     :
+    // 
+    //     <!-- -->
+    // 
+    //     The routing rule does not take effect
+    // 
+    //     <!-- -->
+    // 
+    //     .
+    // 
+    // *   1
+    // 
+    //     <!-- -->
+    // 
+    //     :
+    // 
+    //     <!-- -->
+    // 
+    //     The routing rule takes effect
+    // 
+    //     <!-- -->
+    // 
+    //     .
+    // 
+    // *   2
+    // 
+    //     <!-- -->
+    // 
+    //     :
+    // 
+    //     <!-- -->
+    // 
+    //     The routing rule is invalid
+    // 
+    //     <!-- -->
+    // 
+    //     .
     shared_ptr<int32_t> status_ {};
+    // The percentage.
     shared_ptr<int32_t> rate_ {};
+    // Specifies whether to enable the routing rule.
     shared_ptr<bool> enable_ {};
+    // The environment of the routing rule.
     shared_ptr<string> tag_ {};
+    // The name of the routing rule.
     shared_ptr<string> name_ {};
+    // The ID of the routing rule.
     shared_ptr<int64_t> id_ {};
+    // The number of instances.
     shared_ptr<int32_t> instanceNum_ {};
+    // The details of the routing rule.
     shared_ptr<RulesValue::Rules> rules_ {};
   };
 

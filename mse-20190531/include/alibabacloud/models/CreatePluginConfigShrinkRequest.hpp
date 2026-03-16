@@ -96,6 +96,7 @@ namespace Models
   protected:
     // The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
     shared_ptr<string> acceptLanguage_ {};
+    // The plug-in configuration. The configuration content of the WebAssembly (Wasm) plug-in is in the YAML format. The configuration content of the Lua plug-in is Lua code.
     shared_ptr<string> config_ {};
     // The application scope of the plug-in. Valid values:
     // 

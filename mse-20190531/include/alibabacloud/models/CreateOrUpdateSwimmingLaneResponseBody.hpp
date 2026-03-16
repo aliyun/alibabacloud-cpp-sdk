@@ -225,15 +225,25 @@ namespace Models
 
 
         protected:
+          // The matching character.
           shared_ptr<string> cond_ {};
+          // The value.
           shared_ptr<string> datum_ {};
+          // The divisor.
           shared_ptr<int32_t> divisor_ {};
+          // The name.
           shared_ptr<string> name_ {};
+          // The names.
           shared_ptr<vector<string>> nameList_ {};
+          // The operator.
           shared_ptr<string> operator_ {};
+          // The percentage.
           shared_ptr<int32_t> rate_ {};
+          // The remainder.
           shared_ptr<int32_t> remainder_ {};
+          // The matching type.
           shared_ptr<string> type_ {};
+          // The value.
           shared_ptr<string> value_ {};
         };
 
@@ -272,9 +282,13 @@ namespace Models
 
 
       protected:
+        // The condition.
         shared_ptr<string> condition_ {};
+        // The path of the code group.
         shared_ptr<string> path_ {};
+        // The paths.
         shared_ptr<vector<string>> paths_ {};
+        // The conditions to be met.
         shared_ptr<vector<EntryRules::RestItems>> restItems_ {};
       };
 
@@ -383,19 +397,32 @@ namespace Models
 
 
     protected:
+      // Indicates whether the lane was enabled.
       shared_ptr<bool> enable_ {};
+      // Indicates whether the rule is enabled.
       shared_ptr<bool> enableRules_ {};
+      // The rule for the ingress application.
       shared_ptr<string> entryRule_ {};
+      // The name.
       shared_ptr<vector<Data::EntryRules>> entryRules_ {};
+      // The routing rule for the MSE gateway.
       shared_ptr<string> gatewaySwimmingLaneRouteJson_ {};
+      // The time when the lane was created.
       shared_ptr<string> gmtCreate_ {};
+      // The time when the lane was updated.
       shared_ptr<string> gmtModified_ {};
+      // The ID of the lane group.
       shared_ptr<int64_t> groupId_ {};
+      // The ID of the lane.
       shared_ptr<int64_t> id_ {};
+      // The name of the lane.
       shared_ptr<string> name_ {};
       shared_ptr<bool> pathIndependentPercentageEnable_ {};
+      // The ID of the region where the application is deployed.
       shared_ptr<string> regionId_ {};
+      // The status of the lane.
       shared_ptr<int32_t> status_ {};
+      // The tag of the lane.
       shared_ptr<string> tag_ {};
     };
 

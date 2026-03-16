@@ -134,6 +134,7 @@ namespace Models
     // 
     // zh: Chinese en: English
     shared_ptr<string> acceptLanguage_ {};
+    // The plug-in configuration. Configurations of WebAssembly plug-ins are in the YAML format, and configurations of Lua plug-ins are in the Lua code.
     shared_ptr<string> config_ {};
     // The application scope of the plug-in.
     // 

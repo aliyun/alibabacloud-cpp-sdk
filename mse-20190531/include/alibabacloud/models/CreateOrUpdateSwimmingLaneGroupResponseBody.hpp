@@ -176,18 +176,27 @@ namespace Models
 
 
     protected:
+      // The list of application IDs that are separated by commas (,).
       shared_ptr<string> appIds_ {};
       shared_ptr<int32_t> canaryModel_ {};
       shared_ptr<string> dbGrayEnable_ {};
+      // The ingress application.
       shared_ptr<string> entryApp_ {};
+      // The ID of the lane group.
       shared_ptr<int64_t> id_ {};
+      // The side for message filtering when the canary release for messaging feature is enabled.
       shared_ptr<string> messageQueueFilterSide_ {};
+      // Specifies whether to enable canary release for messaging.
       shared_ptr<bool> messageQueueGrayEnable_ {};
       shared_ptr<string> name_ {};
+      // The name of the MSE namespace.
       shared_ptr<string> namespace_ {};
       shared_ptr<string> paths_ {};
+      // Specifies whether to record request details.
       shared_ptr<bool> recordCanaryDetail_ {};
+      // The region where the application resides.
       shared_ptr<string> region_ {};
+      // The ID of the user to which the application belongs.
       shared_ptr<string> userId_ {};
     };
 

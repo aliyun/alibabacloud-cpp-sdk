@@ -21,7 +21,7 @@ namespace Mse20190531
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 新增服务鉴权规则
+       * @summary Creates a service authentication rule.
        *
        * @param request AddAuthPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Mse20190531
       Models::AddAuthPolicyResponse addAuthPolicyWithOptions(const Models::AddAuthPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增服务鉴权规则
+       * @summary Creates a service authentication rule.
        *
        * @param request AddAuthPolicyRequest
        * @return AddAuthPolicyResponse
@@ -38,7 +38,7 @@ namespace Mse20190531
       Models::AddAuthPolicyResponse addAuthPolicy(const Models::AddAuthPolicyRequest &request);
 
       /**
-       * @summary Creates authorization information for a gateway.
+       * @summary Adds authorization information for a gateway.
        *
        * @param tmpReq AddAuthResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Mse20190531
       Models::AddAuthResourceResponse addAuthResourceWithOptions(const Models::AddAuthResourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates authorization information for a gateway.
+       * @summary Adds authorization information for a gateway.
        *
        * @param request AddAuthResourceRequest
        * @return AddAuthResourceResponse
@@ -157,7 +157,7 @@ namespace Mse20190531
       Models::AddGatewayRouteResponse addGatewayRoute(const Models::AddGatewayRouteRequest &request);
 
       /**
-       * @summary Adds a service version.
+       * @summary Adds a service version for a gateway.
        *
        * @param request AddGatewayServiceVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace Mse20190531
       Models::AddGatewayServiceVersionResponse addGatewayServiceVersionWithOptions(const Models::AddGatewayServiceVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a service version.
+       * @summary Adds a service version for a gateway.
        *
        * @param request AddGatewayServiceVersionRequest
        * @return AddGatewayServiceVersionResponse
@@ -208,7 +208,7 @@ namespace Mse20190531
       Models::AddMigrationTaskResponse addMigrationTask(const Models::AddMigrationTaskRequest &request);
 
       /**
-       * @summary Creates a mock rule.
+       * @summary Creates a service mocking rule.
        *
        * @param request AddMockRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +217,7 @@ namespace Mse20190531
       Models::AddMockRuleResponse addMockRuleWithOptions(const Models::AddMockRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a mock rule.
+       * @summary Creates a service mocking rule.
        *
        * @param request AddMockRuleRequest
        * @return AddMockRuleResponse
@@ -471,7 +471,7 @@ namespace Mse20190531
       Models::CreateFlowRuleResponse createFlowRule(const Models::CreateFlowRuleRequest &request);
 
       /**
-       * @summary 创建网关路由熔断规则
+       * @summary Creates a gateway circuit breaking rule.
        *
        * @param request CreateGatewayCircuitBreakerRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -480,7 +480,7 @@ namespace Mse20190531
       Models::CreateGatewayCircuitBreakerRuleResponse createGatewayCircuitBreakerRuleWithOptions(const Models::CreateGatewayCircuitBreakerRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建网关路由熔断规则
+       * @summary Creates a gateway circuit breaking rule.
        *
        * @param request CreateGatewayCircuitBreakerRuleRequest
        * @return CreateGatewayCircuitBreakerRuleResponse
@@ -505,7 +505,7 @@ namespace Mse20190531
       Models::CreateGatewayFlowRuleResponse createGatewayFlowRule(const Models::CreateGatewayFlowRuleRequest &request);
 
       /**
-       * @summary 创建网关路由隔离规则
+       * @summary Creates a concurrency rule for a gateway.
        *
        * @param request CreateGatewayIsolationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -514,7 +514,7 @@ namespace Mse20190531
       Models::CreateGatewayIsolationRuleResponse createGatewayIsolationRuleWithOptions(const Models::CreateGatewayIsolationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建网关路由隔离规则
+       * @summary Creates a concurrency rule for a gateway.
        *
        * @param request CreateGatewayIsolationRuleRequest
        * @return CreateGatewayIsolationRuleResponse
@@ -522,7 +522,7 @@ namespace Mse20190531
       Models::CreateGatewayIsolationRuleResponse createGatewayIsolationRule(const Models::CreateGatewayIsolationRuleRequest &request);
 
       /**
-       * @summary 创建隔离规则
+       * @summary Creates an isolation rule.
        *
        * @param request CreateIsolationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -531,7 +531,7 @@ namespace Mse20190531
       Models::CreateIsolationRuleResponse createIsolationRuleWithOptions(const Models::CreateIsolationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建隔离规则
+       * @summary Creates an isolation rule.
        *
        * @param request CreateIsolationRuleRequest
        * @return CreateIsolationRuleResponse
@@ -640,7 +640,7 @@ namespace Mse20190531
       Models::CreateNacosServiceResponse createNacosService(const Models::CreateNacosServiceRequest &request);
 
       /**
-       * @summary CreateNamespace
+       * @summary Creates a namespace for Microservices Governance.
        *
        * @param tmpReq CreateNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -649,7 +649,7 @@ namespace Mse20190531
       Models::CreateNamespaceResponse createNamespaceWithOptions(const Models::CreateNamespaceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateNamespace
+       * @summary Creates a namespace for Microservices Governance.
        *
        * @param request CreateNamespaceRequest
        * @return CreateNamespaceResponse
@@ -725,7 +725,7 @@ namespace Mse20190531
       Models::CreateSentinelBlockFallbackDefinitionResponse createSentinelBlockFallbackDefinition(const Models::CreateSentinelBlockFallbackDefinitionRequest &request);
 
       /**
-       * @summary 创建热点参数防护规则（HTTP 请求）
+       * @summary Creates a hot parameter protection rule for HTTP requests.
        *
        * @param request CreateWebFlowRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -734,7 +734,7 @@ namespace Mse20190531
       Models::CreateWebFlowRuleResponse createWebFlowRuleWithOptions(const Models::CreateWebFlowRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建热点参数防护规则（HTTP 请求）
+       * @summary Creates a hot parameter protection rule for HTTP requests.
        *
        * @param request CreateWebFlowRuleRequest
        * @return CreateWebFlowRuleResponse
@@ -929,7 +929,7 @@ namespace Mse20190531
       Models::DeleteGatewayAuthConsumerResourceResponse deleteGatewayAuthConsumerResource(const Models::DeleteGatewayAuthConsumerResourceRequest &request);
 
       /**
-       * @summary 删除网关路由熔断规则
+       * @summary Deletes a gateway circuit breaking rule.
        *
        * @param request DeleteGatewayCircuitBreakerRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -938,7 +938,7 @@ namespace Mse20190531
       Models::DeleteGatewayCircuitBreakerRuleResponse deleteGatewayCircuitBreakerRuleWithOptions(const Models::DeleteGatewayCircuitBreakerRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除网关路由熔断规则
+       * @summary Deletes a gateway circuit breaking rule.
        *
        * @param request DeleteGatewayCircuitBreakerRuleRequest
        * @return DeleteGatewayCircuitBreakerRuleResponse
@@ -946,7 +946,7 @@ namespace Mse20190531
       Models::DeleteGatewayCircuitBreakerRuleResponse deleteGatewayCircuitBreakerRule(const Models::DeleteGatewayCircuitBreakerRuleRequest &request);
 
       /**
-       * @summary Disassociates a domain name from a gateway.
+       * @summary Deletes a domain name that is associated with a gateway.
        *
        * @param request DeleteGatewayDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -955,7 +955,7 @@ namespace Mse20190531
       Models::DeleteGatewayDomainResponse deleteGatewayDomainWithOptions(const Models::DeleteGatewayDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disassociates a domain name from a gateway.
+       * @summary Deletes a domain name that is associated with a gateway.
        *
        * @param request DeleteGatewayDomainRequest
        * @return DeleteGatewayDomainResponse
@@ -963,7 +963,7 @@ namespace Mse20190531
       Models::DeleteGatewayDomainResponse deleteGatewayDomain(const Models::DeleteGatewayDomainRequest &request);
 
       /**
-       * @summary 删除网关路由流控规则
+       * @summary Deletes a throttling rule for a gateway.
        *
        * @param request DeleteGatewayFlowRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -972,7 +972,7 @@ namespace Mse20190531
       Models::DeleteGatewayFlowRuleResponse deleteGatewayFlowRuleWithOptions(const Models::DeleteGatewayFlowRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除网关路由流控规则
+       * @summary Deletes a throttling rule for a gateway.
        *
        * @param request DeleteGatewayFlowRuleRequest
        * @return DeleteGatewayFlowRuleResponse
@@ -980,7 +980,7 @@ namespace Mse20190531
       Models::DeleteGatewayFlowRuleResponse deleteGatewayFlowRule(const Models::DeleteGatewayFlowRuleRequest &request);
 
       /**
-       * @summary 删除网关路由隔离规则
+       * @summary Deletes the gateway concurrency rule.
        *
        * @param request DeleteGatewayIsolationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -989,7 +989,7 @@ namespace Mse20190531
       Models::DeleteGatewayIsolationRuleResponse deleteGatewayIsolationRuleWithOptions(const Models::DeleteGatewayIsolationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除网关路由隔离规则
+       * @summary Deletes the gateway concurrency rule.
        *
        * @param request DeleteGatewayIsolationRuleRequest
        * @return DeleteGatewayIsolationRuleResponse
@@ -1014,7 +1014,7 @@ namespace Mse20190531
       Models::DeleteGatewayRouteResponse deleteGatewayRoute(const Models::DeleteGatewayRouteRequest &request);
 
       /**
-       * @summary Deletes a service from a gateway.
+       * @summary Deletes a service from a gateway
        *
        * @param request DeleteGatewayServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1023,7 +1023,7 @@ namespace Mse20190531
       Models::DeleteGatewayServiceResponse deleteGatewayServiceWithOptions(const Models::DeleteGatewayServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a service from a gateway.
+       * @summary Deletes a service from a gateway
        *
        * @param request DeleteGatewayServiceRequest
        * @return DeleteGatewayServiceResponse
@@ -1065,7 +1065,7 @@ namespace Mse20190531
       Models::DeleteGatewaySlbResponse deleteGatewaySlb(const Models::DeleteGatewaySlbRequest &request);
 
       /**
-       * @summary 删除隔离规则
+       * @summary Deletes isolation rules.
        *
        * @param tmpReq DeleteIsolationRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1074,7 +1074,7 @@ namespace Mse20190531
       Models::DeleteIsolationRulesResponse deleteIsolationRulesWithOptions(const Models::DeleteIsolationRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除隔离规则
+       * @summary Deletes isolation rules.
        *
        * @param request DeleteIsolationRulesRequest
        * @return DeleteIsolationRulesResponse
@@ -1302,7 +1302,7 @@ namespace Mse20190531
       Models::DeleteSwimmingLaneGroupResponse deleteSwimmingLaneGroup(const Models::DeleteSwimmingLaneGroupRequest &request);
 
       /**
-       * @summary 删除热点参数防护规则（HTTP 请求）
+       * @summary Deletes a hot parameter protection rule for HTTP requests.
        *
        * @param request DeleteWebFlowRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1311,7 +1311,7 @@ namespace Mse20190531
       Models::DeleteWebFlowRulesResponse deleteWebFlowRulesWithOptions(const Models::DeleteWebFlowRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除热点参数防护规则（HTTP 请求）
+       * @summary Deletes a hot parameter protection rule for HTTP requests.
        *
        * @param request DeleteWebFlowRulesRequest
        * @return DeleteWebFlowRulesResponse
@@ -1573,7 +1573,7 @@ namespace Mse20190531
       Models::GetGatewayAuthConsumerDetailResponse getGatewayAuthConsumerDetail(const Models::GetGatewayAuthConsumerDetailRequest &request);
 
       /**
-       * @summary 查询网关认证详情
+       * @summary Obtains the authentication details of a gateway.
        *
        * @param request GetGatewayAuthDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1582,7 +1582,7 @@ namespace Mse20190531
       Models::GetGatewayAuthDetailResponse getGatewayAuthDetailWithOptions(const Models::GetGatewayAuthDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询网关认证详情
+       * @summary Obtains the authentication details of a gateway.
        *
        * @param request GetGatewayAuthDetailRequest
        * @return GetGatewayAuthDetailResponse
@@ -1590,7 +1590,7 @@ namespace Mse20190531
       Models::GetGatewayAuthDetailResponse getGatewayAuthDetail(const Models::GetGatewayAuthDetailRequest &request);
 
       /**
-       * @summary 获取网关全局配置
+       * @summary Obtains the parameter configurations of a gateway.
        *
        * @param request GetGatewayConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1599,7 +1599,7 @@ namespace Mse20190531
       Models::GetGatewayConfigResponse getGatewayConfigWithOptions(const Models::GetGatewayConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取网关全局配置
+       * @summary Obtains the parameter configurations of a gateway.
        *
        * @param request GetGatewayConfigRequest
        * @return GetGatewayConfigResponse
@@ -1747,7 +1747,7 @@ namespace Mse20190531
       Models::GetKubernetesSourceResponse getKubernetesSource(const Models::GetKubernetesSourceRequest &request);
 
       /**
-       * @summary 获取同AZ路由规则
+       * @summary Obtains the Intra-zone Provider First rules.
        *
        * @param request GetLocalityRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1756,7 +1756,7 @@ namespace Mse20190531
       Models::GetLocalityRuleResponse getLocalityRuleWithOptions(const Models::GetLocalityRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取同AZ路由规则
+       * @summary Obtains the Intra-zone Provider First rules.
        *
        * @param request GetLocalityRuleRequest
        * @return GetLocalityRuleResponse
@@ -1882,7 +1882,7 @@ namespace Mse20190531
       Models::GetNacosMcpServerResponse getNacosMcpServer(const Models::GetNacosMcpServerRequest &request);
 
       /**
-       * @summary Queries information about service governance.
+       * @summary Queries overview information about Microservices Governance.
        *
        * @description You can call this operation to query overview information about service governance.
        *
@@ -1893,7 +1893,7 @@ namespace Mse20190531
       Models::GetOverviewResponse getOverviewWithOptions(const Models::GetOverviewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about service governance.
+       * @summary Queries overview information about Microservices Governance.
        *
        * @description You can call this operation to query overview information about service governance.
        *
@@ -1988,7 +1988,7 @@ namespace Mse20190531
       Models::GetServiceListenersResponse getServiceListeners(const Models::GetServiceListenersRequest &request);
 
       /**
-       * @summary 获取服务接口列表
+       * @summary Queries a list of service interfaces.
        *
        * @param request GetServiceMethodPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1997,7 +1997,7 @@ namespace Mse20190531
       Models::GetServiceMethodPageResponse getServiceMethodPageWithOptions(const Models::GetServiceMethodPageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取服务接口列表
+       * @summary Queries a list of service interfaces.
        *
        * @param request GetServiceMethodPageRequest
        * @return GetServiceMethodPageResponse
@@ -2098,7 +2098,7 @@ namespace Mse20190531
       Models::ImportZookeeperDataResponse importZookeeperData(const Models::ImportZookeeperDataRequest &request);
 
       /**
-       * @summary 用户授权mseSLR
+       * @summary Creates a Microservices Engine (MSE) service-linked role.
        *
        * @param request InitializeServiceLinkRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2107,7 +2107,7 @@ namespace Mse20190531
       Models::InitializeServiceLinkRoleResponse initializeServiceLinkRoleWithOptions(const Models::InitializeServiceLinkRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用户授权mseSLR
+       * @summary Creates a Microservices Engine (MSE) service-linked role.
        *
        * @param request InitializeServiceLinkRoleRequest
        * @return InitializeServiceLinkRoleResponse
@@ -2522,7 +2522,7 @@ namespace Mse20190531
       Models::ListGatewayAuthConsumerResourceResponse listGatewayAuthConsumerResource(const Models::ListGatewayAuthConsumerResourceRequest &request);
 
       /**
-       * @summary 查看网关路由熔断规则
+       * @summary Queries a gateway circuit breaking rule.
        *
        * @param request ListGatewayCircuitBreakerRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2531,7 +2531,7 @@ namespace Mse20190531
       Models::ListGatewayCircuitBreakerRuleResponse listGatewayCircuitBreakerRuleWithOptions(const Models::ListGatewayCircuitBreakerRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看网关路由熔断规则
+       * @summary Queries a gateway circuit breaking rule.
        *
        * @param request ListGatewayCircuitBreakerRuleRequest
        * @return ListGatewayCircuitBreakerRuleResponse
@@ -2556,7 +2556,7 @@ namespace Mse20190531
       Models::ListGatewayDomainResponse listGatewayDomain(const Models::ListGatewayDomainRequest &request);
 
       /**
-       * @summary 查看网关路由流控规则
+       * @summary Queries throttling rules of a gateway.
        *
        * @param request ListGatewayFlowRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2565,7 +2565,7 @@ namespace Mse20190531
       Models::ListGatewayFlowRuleResponse listGatewayFlowRuleWithOptions(const Models::ListGatewayFlowRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看网关路由流控规则
+       * @summary Queries throttling rules of a gateway.
        *
        * @param request ListGatewayFlowRuleRequest
        * @return ListGatewayFlowRuleResponse
@@ -2573,7 +2573,7 @@ namespace Mse20190531
       Models::ListGatewayFlowRuleResponse listGatewayFlowRule(const Models::ListGatewayFlowRuleRequest &request);
 
       /**
-       * @summary 查看网关路由隔离规则
+       * @summary Queries the concurrency rule of a gateway.
        *
        * @param request ListGatewayIsolationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2582,7 +2582,7 @@ namespace Mse20190531
       Models::ListGatewayIsolationRuleResponse listGatewayIsolationRuleWithOptions(const Models::ListGatewayIsolationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看网关路由隔离规则
+       * @summary Queries the concurrency rule of a gateway.
        *
        * @param request ListGatewayIsolationRuleRequest
        * @return ListGatewayIsolationRuleResponse
@@ -2624,7 +2624,7 @@ namespace Mse20190531
       Models::ListGatewayRouteOnAuthResponse listGatewayRouteOnAuth(const Models::ListGatewayRouteOnAuthRequest &request);
 
       /**
-       * @summary Queries a list of services that are subscribed with a gateway.
+       * @summary Queries a list of services that are subscribed to by a gateway.
        *
        * @param tmpReq ListGatewayServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2633,7 +2633,7 @@ namespace Mse20190531
       Models::ListGatewayServiceResponse listGatewayServiceWithOptions(const Models::ListGatewayServiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of services that are subscribed with a gateway.
+       * @summary Queries a list of services that are subscribed to by a gateway.
        *
        * @param request ListGatewayServiceRequest
        * @return ListGatewayServiceResponse
@@ -2692,7 +2692,7 @@ namespace Mse20190531
       Models::ListInstanceCountResponse listInstanceCount(const Models::ListInstanceCountRequest &request);
 
       /**
-       * @summary 查询隔离规则
+       * @summary Queries isolation rules.
        *
        * @param request ListIsolationRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2701,7 +2701,7 @@ namespace Mse20190531
       Models::ListIsolationRulesResponse listIsolationRulesWithOptions(const Models::ListIsolationRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询隔离规则
+       * @summary Queries isolation rules.
        *
        * @param request ListIsolationRulesRequest
        * @return ListIsolationRulesResponse
@@ -2827,7 +2827,7 @@ namespace Mse20190531
       Models::ListNacosMcpServersResponse listNacosMcpServers(const Models::ListNacosMcpServersRequest &request);
 
       /**
-       * @summary 展示命名空间列表
+       * @summary Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
        *
        * @param tmpReq ListNamespacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2836,7 +2836,7 @@ namespace Mse20190531
       Models::ListNamespacesResponse listNamespacesWithOptions(const Models::ListNamespacesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 展示命名空间列表
+       * @summary Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
        *
        * @param request ListNamespacesRequest
        * @return ListNamespacesResponse
@@ -2963,7 +2963,7 @@ namespace Mse20190531
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary 查询热点参数防护规则（HTTP 请求）
+       * @summary Queries hot parameter protection rules for HTTP requests.
        *
        * @param request ListWebFlowRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2972,7 +2972,7 @@ namespace Mse20190531
       Models::ListWebFlowRulesResponse listWebFlowRulesWithOptions(const Models::ListWebFlowRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询热点参数防护规则（HTTP 请求）
+       * @summary Queries hot parameter protection rules for HTTP requests.
        *
        * @param request ListWebFlowRulesRequest
        * @return ListWebFlowRulesResponse
@@ -3048,7 +3048,7 @@ namespace Mse20190531
       Models::ModifyLosslessRuleResponse modifyLosslessRule(const Models::ModifyLosslessRuleRequest &request);
 
       /**
-       * @summary Unpublishes a route for a gateway.
+       * @summary Disables a route for a gateway.
        *
        * @param request OfflineGatewayRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3057,7 +3057,7 @@ namespace Mse20190531
       Models::OfflineGatewayRouteResponse offlineGatewayRouteWithOptions(const Models::OfflineGatewayRouteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unpublishes a route for a gateway.
+       * @summary Disables a route for a gateway.
        *
        * @param request OfflineGatewayRouteRequest
        * @return OfflineGatewayRouteResponse
@@ -3354,7 +3354,7 @@ namespace Mse20190531
       Models::QueryMonitorResponse queryMonitor(const Models::QueryMonitorRequest &request);
 
       /**
-       * @summary 查询nacos灰度配置
+       * @summary Queries canary configurations of a Nacos instance.
        *
        * @param request QueryNacosGrayConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3363,7 +3363,7 @@ namespace Mse20190531
       Models::QueryNacosGrayConfigResponse queryNacosGrayConfigWithOptions(const Models::QueryNacosGrayConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询nacos灰度配置
+       * @summary Queries canary configurations of a Nacos instance.
        *
        * @param request QueryNacosGrayConfigRequest
        * @return QueryNacosGrayConfigResponse
@@ -3439,7 +3439,7 @@ namespace Mse20190531
       Models::QueryZnodeDetailResponse queryZnodeDetail(const Models::QueryZnodeDetailRequest &request);
 
       /**
-       * @summary 删除单个应用
+       * @summary Deletes a single application.
        *
        * @param request RemoveApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3448,7 +3448,7 @@ namespace Mse20190531
       Models::RemoveApplicationResponse removeApplicationWithOptions(const Models::RemoveApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除单个应用
+       * @summary Deletes a single application.
        *
        * @param request RemoveApplicationRequest
        * @return RemoveApplicationResponse
@@ -3456,6 +3456,8 @@ namespace Mse20190531
       Models::RemoveApplicationResponse removeApplication(const Models::RemoveApplicationRequest &request);
 
       /**
+       * @summary Deletes a service authentication rule.
+       *
        * @param request RemoveAuthPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RemoveAuthPolicyResponse
@@ -3463,6 +3465,8 @@ namespace Mse20190531
       Models::RemoveAuthPolicyResponse removeAuthPolicyWithOptions(const Models::RemoveAuthPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a service authentication rule.
+       *
        * @param request RemoveAuthPolicyRequest
        * @return RemoveAuthPolicyResponse
        */
@@ -3796,7 +3800,7 @@ namespace Mse20190531
       Models::UpdateGatewayAuthConsumerStatusResponse updateGatewayAuthConsumerStatus(const Models::UpdateGatewayAuthConsumerStatusRequest &request);
 
       /**
-       * @summary 更新网关路由熔断规则
+       * @summary Updates a gateway circuit breaking rule.
        *
        * @param request UpdateGatewayCircuitBreakerRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3805,7 +3809,7 @@ namespace Mse20190531
       Models::UpdateGatewayCircuitBreakerRuleResponse updateGatewayCircuitBreakerRuleWithOptions(const Models::UpdateGatewayCircuitBreakerRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新网关路由熔断规则
+       * @summary Updates a gateway circuit breaking rule.
        *
        * @param request UpdateGatewayCircuitBreakerRuleRequest
        * @return UpdateGatewayCircuitBreakerRuleResponse
@@ -3813,7 +3817,7 @@ namespace Mse20190531
       Models::UpdateGatewayCircuitBreakerRuleResponse updateGatewayCircuitBreakerRule(const Models::UpdateGatewayCircuitBreakerRuleRequest &request);
 
       /**
-       * @summary 更新网关配置
+       * @summary Updates gateway configurations.
        *
        * @param request UpdateGatewayConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3822,7 +3826,7 @@ namespace Mse20190531
       Models::UpdateGatewayConfigResponse updateGatewayConfigWithOptions(const Models::UpdateGatewayConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新网关配置
+       * @summary Updates gateway configurations.
        *
        * @param request UpdateGatewayConfigRequest
        * @return UpdateGatewayConfigResponse
@@ -3847,7 +3851,7 @@ namespace Mse20190531
       Models::UpdateGatewayDomainResponse updateGatewayDomain(const Models::UpdateGatewayDomainRequest &request);
 
       /**
-       * @summary 更新网关路由流控规则
+       * @summary Queries throttling rules of a gateway.
        *
        * @param request UpdateGatewayFlowRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3856,7 +3860,7 @@ namespace Mse20190531
       Models::UpdateGatewayFlowRuleResponse updateGatewayFlowRuleWithOptions(const Models::UpdateGatewayFlowRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新网关路由流控规则
+       * @summary Queries throttling rules of a gateway.
        *
        * @param request UpdateGatewayFlowRuleRequest
        * @return UpdateGatewayFlowRuleResponse
@@ -3864,7 +3868,7 @@ namespace Mse20190531
       Models::UpdateGatewayFlowRuleResponse updateGatewayFlowRule(const Models::UpdateGatewayFlowRuleRequest &request);
 
       /**
-       * @summary 更新网关路由隔离规则
+       * @summary Updates the concurrency rule of a gateway.
        *
        * @param request UpdateGatewayIsolationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3873,7 +3877,7 @@ namespace Mse20190531
       Models::UpdateGatewayIsolationRuleResponse updateGatewayIsolationRuleWithOptions(const Models::UpdateGatewayIsolationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新网关路由隔离规则
+       * @summary Updates the concurrency rule of a gateway.
        *
        * @param request UpdateGatewayIsolationRuleRequest
        * @return UpdateGatewayIsolationRuleResponse
@@ -3881,7 +3885,7 @@ namespace Mse20190531
       Models::UpdateGatewayIsolationRuleResponse updateGatewayIsolationRule(const Models::UpdateGatewayIsolationRuleRequest &request);
 
       /**
-       * @summary Renames a gateway.
+       * @summary Updates the name of a gateway.
        *
        * @param request UpdateGatewayNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3890,7 +3894,7 @@ namespace Mse20190531
       Models::UpdateGatewayNameResponse updateGatewayNameWithOptions(const Models::UpdateGatewayNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renames a gateway.
+       * @summary Updates the name of a gateway.
        *
        * @param request UpdateGatewayNameRequest
        * @return UpdateGatewayNameResponse
@@ -4051,7 +4055,7 @@ namespace Mse20190531
       Models::UpdateGatewayRouteWafStatusResponse updateGatewayRouteWafStatus(const Models::UpdateGatewayRouteWafStatusRequest &request);
 
       /**
-       * @summary 更新服务
+       * @summary Updates gateways for fixed address services or DNS services.
        *
        * @param tmpReq UpdateGatewayServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4060,7 +4064,7 @@ namespace Mse20190531
       Models::UpdateGatewayServiceResponse updateGatewayServiceWithOptions(const Models::UpdateGatewayServiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新服务
+       * @summary Updates gateways for fixed address services or DNS services.
        *
        * @param request UpdateGatewayServiceRequest
        * @return UpdateGatewayServiceResponse
@@ -4102,7 +4106,7 @@ namespace Mse20190531
       Models::UpdateGatewayServiceTrafficPolicyResponse updateGatewayServiceTrafficPolicy(const Models::UpdateGatewayServiceTrafficPolicyRequest &request);
 
       /**
-       * @summary Modifies the version of a service.
+       * @summary Updates the service version of a gateway.
        *
        * @param request UpdateGatewayServiceVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4111,7 +4115,7 @@ namespace Mse20190531
       Models::UpdateGatewayServiceVersionResponse updateGatewayServiceVersionWithOptions(const Models::UpdateGatewayServiceVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the version of a service.
+       * @summary Updates the service version of a gateway.
        *
        * @param request UpdateGatewayServiceVersionRequest
        * @return UpdateGatewayServiceVersionResponse
@@ -4157,7 +4161,7 @@ namespace Mse20190531
       Models::UpdateImageResponse updateImage(const Models::UpdateImageRequest &request);
 
       /**
-       * @summary 更新隔离规则
+       * @summary Updates an isolation rule.
        *
        * @param request UpdateIsolationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4166,7 +4170,7 @@ namespace Mse20190531
       Models::UpdateIsolationRuleResponse updateIsolationRuleWithOptions(const Models::UpdateIsolationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新隔离规则
+       * @summary Updates an isolation rule.
        *
        * @param request UpdateIsolationRuleRequest
        * @return UpdateIsolationRuleResponse
@@ -4174,7 +4178,7 @@ namespace Mse20190531
       Models::UpdateIsolationRuleResponse updateIsolationRule(const Models::UpdateIsolationRuleRequest &request);
 
       /**
-       * @summary 更新同AZ路由规则
+       * @summary Updates the Intra-zone Provider First rules.
        *
        * @param request UpdateLocalityRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4183,7 +4187,7 @@ namespace Mse20190531
       Models::UpdateLocalityRuleResponse updateLocalityRuleWithOptions(const Models::UpdateLocalityRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新同AZ路由规则
+       * @summary Updates the Intra-zone Provider First rules.
        *
        * @param request UpdateLocalityRuleRequest
        * @return UpdateLocalityRuleResponse
@@ -4263,7 +4267,7 @@ namespace Mse20190531
       Models::UpdateNacosConfigResponse updateNacosConfig(const Models::UpdateNacosConfigRequest &request);
 
       /**
-       * @summary 更新nacos灰度配置
+       * @summary Updates the canary release settings, which include beta release and tag-based canary release.
        *
        * @param request UpdateNacosGrayConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4272,7 +4276,7 @@ namespace Mse20190531
       Models::UpdateNacosGrayConfigResponse updateNacosGrayConfigWithOptions(const Models::UpdateNacosGrayConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新nacos灰度配置
+       * @summary Updates the canary release settings, which include beta release and tag-based canary release.
        *
        * @param request UpdateNacosGrayConfigRequest
        * @return UpdateNacosGrayConfigResponse
@@ -4322,7 +4326,7 @@ namespace Mse20190531
       Models::UpdateNacosServiceResponse updateNacosService(const Models::UpdateNacosServiceRequest &request);
 
       /**
-       * @summary Updates the configuration of a plug-in.
+       * @summary Updates plug-in configurations.
        *
        * @param tmpReq UpdatePluginConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4331,7 +4335,7 @@ namespace Mse20190531
       Models::UpdatePluginConfigResponse updatePluginConfigWithOptions(const Models::UpdatePluginConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configuration of a plug-in.
+       * @summary Updates plug-in configurations.
        *
        * @param request UpdatePluginConfigRequest
        * @return UpdatePluginConfigResponse
@@ -4373,7 +4377,7 @@ namespace Mse20190531
       Models::UpdateServiceSourceResponse updateServiceSource(const Models::UpdateServiceSourceRequest &request);
 
       /**
-       * @summary 更新热点参数防护规则（HTTP 请求）
+       * @summary Updates a hot parameter protection rule for HTTP requests.
        *
        * @param request UpdateWebFlowRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4382,7 +4386,7 @@ namespace Mse20190531
       Models::UpdateWebFlowRuleResponse updateWebFlowRuleWithOptions(const Models::UpdateWebFlowRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新热点参数防护规则（HTTP 请求）
+       * @summary Updates a hot parameter protection rule for HTTP requests.
        *
        * @param request UpdateWebFlowRuleRequest
        * @return UpdateWebFlowRuleResponse
