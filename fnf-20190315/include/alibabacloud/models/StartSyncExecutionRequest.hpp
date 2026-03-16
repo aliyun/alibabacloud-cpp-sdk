@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->executionName_ == nullptr
-        && return this->flowName_ == nullptr && return this->input_ == nullptr && return this->qualifier_ == nullptr; };
+        && this->flowName_ == nullptr && this->input_ == nullptr && this->qualifier_ == nullptr; };
     // executionName Field Functions 
     bool hasExecutionName() const { return this->executionName_ != nullptr;};
     void deleteExecutionName() { this->executionName_ = nullptr;};
-    inline string executionName() const { DARABONBA_PTR_GET_DEFAULT(executionName_, "") };
+    inline string getExecutionName() const { DARABONBA_PTR_GET_DEFAULT(executionName_, "") };
     inline StartSyncExecutionRequest& setExecutionName(string executionName) { DARABONBA_PTR_SET_VALUE(executionName_, executionName) };
 
 
     // flowName Field Functions 
     bool hasFlowName() const { return this->flowName_ != nullptr;};
     void deleteFlowName() { this->flowName_ = nullptr;};
-    inline string flowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
+    inline string getFlowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
     inline StartSyncExecutionRequest& setFlowName(string flowName) { DARABONBA_PTR_SET_VALUE(flowName_, flowName) };
 
 
     // input Field Functions 
     bool hasInput() const { return this->input_ != nullptr;};
     void deleteInput() { this->input_ = nullptr;};
-    inline string input() const { DARABONBA_PTR_GET_DEFAULT(input_, "") };
+    inline string getInput() const { DARABONBA_PTR_GET_DEFAULT(input_, "") };
     inline StartSyncExecutionRequest& setInput(string input) { DARABONBA_PTR_SET_VALUE(input_, input) };
 
 
     // qualifier Field Functions 
     bool hasQualifier() const { return this->qualifier_ != nullptr;};
     void deleteQualifier() { this->qualifier_ = nullptr;};
-    inline string qualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
+    inline string getQualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
     inline StartSyncExecutionRequest& setQualifier(string qualifier) { DARABONBA_PTR_SET_VALUE(qualifier_, qualifier) };
 
 
@@ -74,14 +74,14 @@ namespace Models
     // *   The name must be 1 to 128 characters in length.
     // 
     // Different from the StartExecution operation, in the synchronous execution mode, the execution name is no longer required to be unique within a flow. You can choose to provide an execution name to identify the current execution. In this case, the system adds a UUID to the current execution name. The used format is {ExecutionName}:{UUID}. If you do not specify the execution name, the system automatically generates an execution name.
-    std::shared_ptr<string> executionName_ = nullptr;
+    shared_ptr<string> executionName_ {};
     // The name of the workflow to be executed.
     // 
     // This parameter is required.
-    std::shared_ptr<string> flowName_ = nullptr;
+    shared_ptr<string> flowName_ {};
     // The input of the execution, which is in the JSON format.
-    std::shared_ptr<string> input_ = nullptr;
-    std::shared_ptr<string> qualifier_ = nullptr;
+    shared_ptr<string> input_ {};
+    shared_ptr<string> qualifier_ {};
   };
 
   } // namespace Models

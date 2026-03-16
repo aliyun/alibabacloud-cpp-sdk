@@ -38,59 +38,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callbackFnFTaskToken_ == nullptr
-        && return this->executionName_ == nullptr && return this->flowName_ == nullptr && return this->input_ == nullptr && return this->qualifier_ == nullptr; };
+        && this->executionName_ == nullptr && this->flowName_ == nullptr && this->input_ == nullptr && this->qualifier_ == nullptr; };
     // callbackFnFTaskToken Field Functions 
     bool hasCallbackFnFTaskToken() const { return this->callbackFnFTaskToken_ != nullptr;};
     void deleteCallbackFnFTaskToken() { this->callbackFnFTaskToken_ = nullptr;};
-    inline string callbackFnFTaskToken() const { DARABONBA_PTR_GET_DEFAULT(callbackFnFTaskToken_, "") };
+    inline string getCallbackFnFTaskToken() const { DARABONBA_PTR_GET_DEFAULT(callbackFnFTaskToken_, "") };
     inline StartExecutionRequest& setCallbackFnFTaskToken(string callbackFnFTaskToken) { DARABONBA_PTR_SET_VALUE(callbackFnFTaskToken_, callbackFnFTaskToken) };
 
 
     // executionName Field Functions 
     bool hasExecutionName() const { return this->executionName_ != nullptr;};
     void deleteExecutionName() { this->executionName_ = nullptr;};
-    inline string executionName() const { DARABONBA_PTR_GET_DEFAULT(executionName_, "") };
+    inline string getExecutionName() const { DARABONBA_PTR_GET_DEFAULT(executionName_, "") };
     inline StartExecutionRequest& setExecutionName(string executionName) { DARABONBA_PTR_SET_VALUE(executionName_, executionName) };
 
 
     // flowName Field Functions 
     bool hasFlowName() const { return this->flowName_ != nullptr;};
     void deleteFlowName() { this->flowName_ = nullptr;};
-    inline string flowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
+    inline string getFlowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
     inline StartExecutionRequest& setFlowName(string flowName) { DARABONBA_PTR_SET_VALUE(flowName_, flowName) };
 
 
     // input Field Functions 
     bool hasInput() const { return this->input_ != nullptr;};
     void deleteInput() { this->input_ = nullptr;};
-    inline string input() const { DARABONBA_PTR_GET_DEFAULT(input_, "") };
+    inline string getInput() const { DARABONBA_PTR_GET_DEFAULT(input_, "") };
     inline StartExecutionRequest& setInput(string input) { DARABONBA_PTR_SET_VALUE(input_, input) };
 
 
     // qualifier Field Functions 
     bool hasQualifier() const { return this->qualifier_ != nullptr;};
     void deleteQualifier() { this->qualifier_ = nullptr;};
-    inline string qualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
+    inline string getQualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
     inline StartExecutionRequest& setQualifier(string qualifier) { DARABONBA_PTR_SET_VALUE(qualifier_, qualifier) };
 
 
   protected:
     // Specifies that the **TaskToken**-related tasks are called back after the execution in the flow ends.
-    std::shared_ptr<string> callbackFnFTaskToken_ = nullptr;
+    shared_ptr<string> callbackFnFTaskToken_ {};
     // The name of the execution. The execution name is unique within a workflow. Configure this parameter based on the following rules:
     // 
     // *   The name must start with a letter or an underscore (_).
     // *   The name can contain letters, digits, underscores (_), and hyphens (-).
     // *   The name is case-sensitive.
     // *   The name must be 1 to 128 characters in length.
-    std::shared_ptr<string> executionName_ = nullptr;
+    shared_ptr<string> executionName_ {};
     // The name of the workflow to be executed.
     // 
     // This parameter is required.
-    std::shared_ptr<string> flowName_ = nullptr;
+    shared_ptr<string> flowName_ {};
     // The input of the execution, which is in the JSON format.
-    std::shared_ptr<string> input_ = nullptr;
-    std::shared_ptr<string> qualifier_ = nullptr;
+    shared_ptr<string> input_ {};
+    shared_ptr<string> qualifier_ {};
   };
 
   } // namespace Models

@@ -58,40 +58,44 @@ CreateFlowResponse Client::createFlowWithOptions(const CreateFlowRequest &tmpReq
   CreateFlowShrinkRequest request = CreateFlowShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEnvironment()) {
-    request.setEnvironmentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.environment(), "Environment", "json"));
+    request.setEnvironmentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEnvironment(), "Environment", "json"));
   }
 
   json body = {};
   if (!!request.hasDefinition()) {
-    body["Definition"] = request.definition();
+    body["Definition"] = request.getDefinition();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnvironmentShrink()) {
-    body["Environment"] = request.environmentShrink();
+    body["Environment"] = request.getEnvironmentShrink();
   }
 
   if (!!request.hasExecutionMode()) {
-    body["ExecutionMode"] = request.executionMode();
+    body["ExecutionMode"] = request.getExecutionMode();
   }
 
   if (!!request.hasExternalStorageLocation()) {
-    body["ExternalStorageLocation"] = request.externalStorageLocation();
+    body["ExternalStorageLocation"] = request.getExternalStorageLocation();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasRoleArn()) {
-    body["RoleArn"] = request.roleArn();
+    body["RoleArn"] = request.getRoleArn();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -138,24 +142,24 @@ CreateFlowAliasResponse Client::createFlowAliasWithOptions(const CreateFlowAlias
   CreateFlowAliasShrinkRequest request = CreateFlowAliasShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRoutingConfigurations()) {
-    request.setRoutingConfigurationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.routingConfigurations(), "RoutingConfigurations", "json"));
+    request.setRoutingConfigurationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoutingConfigurations(), "RoutingConfigurations", "json"));
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasFlowName()) {
-    body["FlowName"] = request.flowName();
+    body["FlowName"] = request.getFlowName();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasRoutingConfigurationsShrink()) {
-    body["RoutingConfigurations"] = request.routingConfigurationsShrink();
+    body["RoutingConfigurations"] = request.getRoutingConfigurationsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -197,32 +201,32 @@ CreateScheduleResponse Client::createScheduleWithOptions(const CreateScheduleReq
   request.validate();
   json query = {};
   if (!!request.hasSignatureVersion()) {
-    query["SignatureVersion"] = request.signatureVersion();
+    query["SignatureVersion"] = request.getSignatureVersion();
   }
 
   json body = {};
   if (!!request.hasCronExpression()) {
-    body["CronExpression"] = request.cronExpression();
+    body["CronExpression"] = request.getCronExpression();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnable()) {
-    body["Enable"] = request.enable();
+    body["Enable"] = request.getEnable();
   }
 
   if (!!request.hasFlowName()) {
-    body["FlowName"] = request.flowName();
+    body["FlowName"] = request.getFlowName();
   }
 
   if (!!request.hasPayload()) {
-    body["Payload"] = request.payload();
+    body["Payload"] = request.getPayload();
   }
 
   if (!!request.hasScheduleName()) {
-    body["ScheduleName"] = request.scheduleName();
+    body["ScheduleName"] = request.getScheduleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -268,7 +272,7 @@ DeleteFlowResponse Client::deleteFlowWithOptions(const DeleteFlowRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -313,11 +317,11 @@ DeleteFlowAliasResponse Client::deleteFlowAliasWithOptions(const DeleteFlowAlias
   request.validate();
   json body = {};
   if (!!request.hasFlowName()) {
-    body["FlowName"] = request.flowName();
+    body["FlowName"] = request.getFlowName();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -359,11 +363,11 @@ DeleteFlowVersionResponse Client::deleteFlowVersionWithOptions(const DeleteFlowV
   request.validate();
   json body = {};
   if (!!request.hasFlowName()) {
-    body["FlowName"] = request.flowName();
+    body["FlowName"] = request.getFlowName();
   }
 
   if (!!request.hasFlowVersion()) {
-    body["FlowVersion"] = request.flowVersion();
+    body["FlowVersion"] = request.getFlowVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -405,11 +409,11 @@ DeleteScheduleResponse Client::deleteScheduleWithOptions(const DeleteScheduleReq
   request.validate();
   json body = {};
   if (!!request.hasFlowName()) {
-    body["FlowName"] = request.flowName();
+    body["FlowName"] = request.getFlowName();
   }
 
   if (!!request.hasScheduleName()) {
-    body["ScheduleName"] = request.scheduleName();
+    body["ScheduleName"] = request.getScheduleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -593,7 +597,7 @@ DescribeMapRunResponse Client::describeMapRun(const DescribeMapRunRequest &reque
 }
 
 /**
- * @summary 查询地域信息列表
+ * @summary Queries the regions where CloudFlow is available.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -603,7 +607,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
   request.validate();
   json body = {};
   if (!!request.hasAcceptLanguage()) {
-    body["AcceptLanguage"] = request.acceptLanguage();
+    body["AcceptLanguage"] = request.getAcceptLanguage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -624,7 +628,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary 查询地域信息列表
+ * @summary Queries the regions where CloudFlow is available.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -917,11 +921,11 @@ PublishFlowVersionResponse Client::publishFlowVersionWithOptions(const PublishFl
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasFlowName()) {
-    body["FlowName"] = request.flowName();
+    body["FlowName"] = request.getFlowName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -967,16 +971,16 @@ ReportTaskFailedResponse Client::reportTaskFailedWithOptions(const ReportTaskFai
   request.validate();
   json query = {};
   if (!!request.hasTaskToken()) {
-    query["TaskToken"] = request.taskToken();
+    query["TaskToken"] = request.getTaskToken();
   }
 
   json body = {};
   if (!!request.hasCause()) {
-    body["Cause"] = request.cause();
+    body["Cause"] = request.getCause();
   }
 
   if (!!request.hasError()) {
-    body["Error"] = request.error();
+    body["Error"] = request.getError();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1027,12 +1031,12 @@ ReportTaskSucceededResponse Client::reportTaskSucceededWithOptions(const ReportT
   request.validate();
   json query = {};
   if (!!request.hasTaskToken()) {
-    query["TaskToken"] = request.taskToken();
+    query["TaskToken"] = request.getTaskToken();
   }
 
   json body = {};
   if (!!request.hasOutput()) {
-    body["Output"] = request.output();
+    body["Output"] = request.getOutput();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1086,23 +1090,23 @@ StartExecutionResponse Client::startExecutionWithOptions(const StartExecutionReq
   request.validate();
   json body = {};
   if (!!request.hasCallbackFnFTaskToken()) {
-    body["CallbackFnFTaskToken"] = request.callbackFnFTaskToken();
+    body["CallbackFnFTaskToken"] = request.getCallbackFnFTaskToken();
   }
 
   if (!!request.hasExecutionName()) {
-    body["ExecutionName"] = request.executionName();
+    body["ExecutionName"] = request.getExecutionName();
   }
 
   if (!!request.hasFlowName()) {
-    body["FlowName"] = request.flowName();
+    body["FlowName"] = request.getFlowName();
   }
 
   if (!!request.hasInput()) {
-    body["Input"] = request.input();
+    body["Input"] = request.getInput();
   }
 
   if (!!request.hasQualifier()) {
-    body["Qualifier"] = request.qualifier();
+    body["Qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1153,19 +1157,19 @@ StartSyncExecutionResponse Client::startSyncExecutionWithOptions(const StartSync
   request.validate();
   json body = {};
   if (!!request.hasExecutionName()) {
-    body["ExecutionName"] = request.executionName();
+    body["ExecutionName"] = request.getExecutionName();
   }
 
   if (!!request.hasFlowName()) {
-    body["FlowName"] = request.flowName();
+    body["FlowName"] = request.getFlowName();
   }
 
   if (!!request.hasInput()) {
-    body["Input"] = request.input();
+    body["Input"] = request.getInput();
   }
 
   if (!!request.hasQualifier()) {
-    body["Qualifier"] = request.qualifier();
+    body["Qualifier"] = request.getQualifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1212,19 +1216,19 @@ StopExecutionResponse Client::stopExecutionWithOptions(const StopExecutionReques
   request.validate();
   json body = {};
   if (!!request.hasCause()) {
-    body["Cause"] = request.cause();
+    body["Cause"] = request.getCause();
   }
 
   if (!!request.hasError()) {
-    body["Error"] = request.error();
+    body["Error"] = request.getError();
   }
 
   if (!!request.hasExecutionName()) {
-    body["ExecutionName"] = request.executionName();
+    body["ExecutionName"] = request.getExecutionName();
   }
 
   if (!!request.hasFlowName()) {
-    body["FlowName"] = request.flowName();
+    body["FlowName"] = request.getFlowName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1270,32 +1274,32 @@ UpdateFlowResponse Client::updateFlowWithOptions(const UpdateFlowRequest &tmpReq
   UpdateFlowShrinkRequest request = UpdateFlowShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEnvironment()) {
-    request.setEnvironmentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.environment(), "Environment", "json"));
+    request.setEnvironmentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEnvironment(), "Environment", "json"));
   }
 
   json body = {};
   if (!!request.hasDefinition()) {
-    body["Definition"] = request.definition();
+    body["Definition"] = request.getDefinition();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnvironmentShrink()) {
-    body["Environment"] = request.environmentShrink();
+    body["Environment"] = request.getEnvironmentShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasRoleArn()) {
-    body["RoleArn"] = request.roleArn();
+    body["RoleArn"] = request.getRoleArn();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1338,24 +1342,24 @@ UpdateFlowAliasResponse Client::updateFlowAliasWithOptions(const UpdateFlowAlias
   UpdateFlowAliasShrinkRequest request = UpdateFlowAliasShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRoutingConfigurations()) {
-    request.setRoutingConfigurationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.routingConfigurations(), "RoutingConfigurations", "json"));
+    request.setRoutingConfigurationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoutingConfigurations(), "RoutingConfigurations", "json"));
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasFlowName()) {
-    body["FlowName"] = request.flowName();
+    body["FlowName"] = request.getFlowName();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasRoutingConfigurationsShrink()) {
-    body["RoutingConfigurations"] = request.routingConfigurationsShrink();
+    body["RoutingConfigurations"] = request.getRoutingConfigurationsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1435,27 +1439,27 @@ UpdateScheduleResponse Client::updateScheduleWithOptions(const UpdateScheduleReq
   request.validate();
   json body = {};
   if (!!request.hasCronExpression()) {
-    body["CronExpression"] = request.cronExpression();
+    body["CronExpression"] = request.getCronExpression();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnable()) {
-    body["Enable"] = request.enable();
+    body["Enable"] = request.getEnable();
   }
 
   if (!!request.hasFlowName()) {
-    body["FlowName"] = request.flowName();
+    body["FlowName"] = request.getFlowName();
   }
 
   if (!!request.hasPayload()) {
-    body["Payload"] = request.payload();
+    body["Payload"] = request.getPayload();
   }
 
   if (!!request.hasScheduleName()) {
-    body["ScheduleName"] = request.scheduleName();
+    body["ScheduleName"] = request.getScheduleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

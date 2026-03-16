@@ -33,13 +33,15 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DeleteFlowRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
+    // The name of the workflow that you want to delete.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

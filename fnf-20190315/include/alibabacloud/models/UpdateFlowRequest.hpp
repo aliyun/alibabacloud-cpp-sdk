@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEFLOWREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEFLOWREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/UpdateFlowRequestEnvironment.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,49 +40,134 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Environment : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Environment& obj) { 
+        DARABONBA_PTR_TO_JSON(Variables, variables_);
+      };
+      friend void from_json(const Darabonba::Json& j, Environment& obj) { 
+        DARABONBA_PTR_FROM_JSON(Variables, variables_);
+      };
+      Environment() = default ;
+      Environment(const Environment &) = default ;
+      Environment(Environment &&) = default ;
+      Environment(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Environment() = default ;
+      Environment& operator=(const Environment &) = default ;
+      Environment& operator=(Environment &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Variables : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Variables& obj) { 
+          DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(Name, name_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Variables& obj) { 
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        Variables() = default ;
+        Variables(const Variables &) = default ;
+        Variables(Variables &&) = default ;
+        Variables(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Variables() = default ;
+        Variables& operator=(const Variables &) = default ;
+        Variables& operator=(Variables &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->description_ == nullptr
+        && this->name_ == nullptr && this->value_ == nullptr; };
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline Variables& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline Variables& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Variables& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<string> description_ {};
+        shared_ptr<string> name_ {};
+        shared_ptr<string> value_ {};
+      };
+
+      virtual bool empty() const override { return this->variables_ == nullptr; };
+      // variables Field Functions 
+      bool hasVariables() const { return this->variables_ != nullptr;};
+      void deleteVariables() { this->variables_ = nullptr;};
+      inline const vector<Environment::Variables> & getVariables() const { DARABONBA_PTR_GET_CONST(variables_, vector<Environment::Variables>) };
+      inline vector<Environment::Variables> getVariables() { DARABONBA_PTR_GET(variables_, vector<Environment::Variables>) };
+      inline Environment& setVariables(const vector<Environment::Variables> & variables) { DARABONBA_PTR_SET_VALUE(variables_, variables) };
+      inline Environment& setVariables(vector<Environment::Variables> && variables) { DARABONBA_PTR_SET_RVALUE(variables_, variables) };
+
+
+    protected:
+      shared_ptr<vector<Environment::Variables>> variables_ {};
+    };
+
     virtual bool empty() const override { return this->definition_ == nullptr
-        && return this->description_ == nullptr && return this->environment_ == nullptr && return this->name_ == nullptr && return this->roleArn_ == nullptr && return this->type_ == nullptr; };
+        && this->description_ == nullptr && this->environment_ == nullptr && this->name_ == nullptr && this->roleArn_ == nullptr && this->type_ == nullptr; };
     // definition Field Functions 
     bool hasDefinition() const { return this->definition_ != nullptr;};
     void deleteDefinition() { this->definition_ = nullptr;};
-    inline string definition() const { DARABONBA_PTR_GET_DEFAULT(definition_, "") };
+    inline string getDefinition() const { DARABONBA_PTR_GET_DEFAULT(definition_, "") };
     inline UpdateFlowRequest& setDefinition(string definition) { DARABONBA_PTR_SET_VALUE(definition_, definition) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateFlowRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // environment Field Functions 
     bool hasEnvironment() const { return this->environment_ != nullptr;};
     void deleteEnvironment() { this->environment_ = nullptr;};
-    inline const UpdateFlowRequestEnvironment & environment() const { DARABONBA_PTR_GET_CONST(environment_, UpdateFlowRequestEnvironment) };
-    inline UpdateFlowRequestEnvironment environment() { DARABONBA_PTR_GET(environment_, UpdateFlowRequestEnvironment) };
-    inline UpdateFlowRequest& setEnvironment(const UpdateFlowRequestEnvironment & environment) { DARABONBA_PTR_SET_VALUE(environment_, environment) };
-    inline UpdateFlowRequest& setEnvironment(UpdateFlowRequestEnvironment && environment) { DARABONBA_PTR_SET_RVALUE(environment_, environment) };
+    inline const UpdateFlowRequest::Environment & getEnvironment() const { DARABONBA_PTR_GET_CONST(environment_, UpdateFlowRequest::Environment) };
+    inline UpdateFlowRequest::Environment getEnvironment() { DARABONBA_PTR_GET(environment_, UpdateFlowRequest::Environment) };
+    inline UpdateFlowRequest& setEnvironment(const UpdateFlowRequest::Environment & environment) { DARABONBA_PTR_SET_VALUE(environment_, environment) };
+    inline UpdateFlowRequest& setEnvironment(UpdateFlowRequest::Environment && environment) { DARABONBA_PTR_SET_RVALUE(environment_, environment) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateFlowRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // roleArn Field Functions 
     bool hasRoleArn() const { return this->roleArn_ != nullptr;};
     void deleteRoleArn() { this->roleArn_ = nullptr;};
-    inline string roleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
+    inline string getRoleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
     inline UpdateFlowRequest& setRoleArn(string roleArn) { DARABONBA_PTR_SET_VALUE(roleArn_, roleArn) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline UpdateFlowRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -90,18 +175,18 @@ namespace Models
     // The definition of the workflow. The definition must comply with the flow definition language (FDL) syntax. Considering compatibility, the system supports the two workflow definition specifications.
     // 
     // >  In the preceding workflow definition example, Name:my_flow_name is the workflow name, which must be consistent with the input parameter Name
-    std::shared_ptr<string> definition_ = nullptr;
+    shared_ptr<string> definition_ {};
     // The description of the flow.
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<UpdateFlowRequestEnvironment> environment_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<UpdateFlowRequest::Environment> environment_ {};
     // The name of the workflow.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The Alibaba Cloud resource name (ARN) of the authorized role on which the execution of the flow relies. During the execution of the flow, the flow execution engine assumes the role to call API operations of relevant services.
-    std::shared_ptr<string> roleArn_ = nullptr;
+    shared_ptr<string> roleArn_ {};
     // The type of the flow. Valid value: **FDL**.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

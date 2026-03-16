@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->output_ == nullptr
-        && return this->taskToken_ == nullptr; };
+        && this->taskToken_ == nullptr; };
     // output Field Functions 
     bool hasOutput() const { return this->output_ != nullptr;};
     void deleteOutput() { this->output_ = nullptr;};
-    inline string output() const { DARABONBA_PTR_GET_DEFAULT(output_, "") };
+    inline string getOutput() const { DARABONBA_PTR_GET_DEFAULT(output_, "") };
     inline ReportTaskSucceededRequest& setOutput(string output) { DARABONBA_PTR_SET_VALUE(output_, output) };
 
 
     // taskToken Field Functions 
     bool hasTaskToken() const { return this->taskToken_ != nullptr;};
     void deleteTaskToken() { this->taskToken_ = nullptr;};
-    inline string taskToken() const { DARABONBA_PTR_GET_DEFAULT(taskToken_, "") };
+    inline string getTaskToken() const { DARABONBA_PTR_GET_DEFAULT(taskToken_, "") };
     inline ReportTaskSucceededRequest& setTaskToken(string taskToken) { DARABONBA_PTR_SET_VALUE(taskToken_, taskToken) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The output information of the task whose execution success you want to report.
     // 
     // This parameter is required.
-    std::shared_ptr<string> output_ = nullptr;
+    shared_ptr<string> output_ {};
     // The token of the task whose execution you want to report. The task token is passed to the called service, such as Message Service (MNS) or Function Compute. For MNS, the value of this parameter can be obtained from a message. For Function Compute, the value of this parameter can be obtained from an event. For more information, see [Service integration modes](https://help.aliyun.com/document_detail/2592915.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskToken_ = nullptr;
+    shared_ptr<string> taskToken_ {};
   };
 
   } // namespace Models

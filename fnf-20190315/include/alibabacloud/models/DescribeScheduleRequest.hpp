@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->flowName_ == nullptr
-        && return this->scheduleName_ == nullptr; };
+        && this->scheduleName_ == nullptr; };
     // flowName Field Functions 
     bool hasFlowName() const { return this->flowName_ != nullptr;};
     void deleteFlowName() { this->flowName_ = nullptr;};
-    inline string flowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
+    inline string getFlowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
     inline DescribeScheduleRequest& setFlowName(string flowName) { DARABONBA_PTR_SET_VALUE(flowName_, flowName) };
 
 
     // scheduleName Field Functions 
     bool hasScheduleName() const { return this->scheduleName_ != nullptr;};
     void deleteScheduleName() { this->scheduleName_ = nullptr;};
-    inline string scheduleName() const { DARABONBA_PTR_GET_DEFAULT(scheduleName_, "") };
+    inline string getScheduleName() const { DARABONBA_PTR_GET_DEFAULT(scheduleName_, "") };
     inline DescribeScheduleRequest& setScheduleName(string scheduleName) { DARABONBA_PTR_SET_VALUE(scheduleName_, scheduleName) };
 
 
@@ -56,7 +56,7 @@ namespace Models
     // *   The name must be 1 to 128 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> flowName_ = nullptr;
+    shared_ptr<string> flowName_ {};
     // The name of the time-based schedule. The name must meet the following conventions:
     // 
     // *   The name can contain letters, digits, underscores (_), and hyphens (-).
@@ -65,7 +65,7 @@ namespace Models
     // *   The name must be 1 to 128 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> scheduleName_ = nullptr;
+    shared_ptr<string> scheduleName_ {};
   };
 
   } // namespace Models

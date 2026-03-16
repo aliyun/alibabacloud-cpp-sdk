@@ -32,27 +32,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->flowVersion_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->name_ == nullptr; };
     // flowVersion Field Functions 
     bool hasFlowVersion() const { return this->flowVersion_ != nullptr;};
     void deleteFlowVersion() { this->flowVersion_ = nullptr;};
-    inline string flowVersion() const { DARABONBA_PTR_GET_DEFAULT(flowVersion_, "") };
+    inline string getFlowVersion() const { DARABONBA_PTR_GET_DEFAULT(flowVersion_, "") };
     inline DescribeFlowRequest& setFlowVersion(string flowVersion) { DARABONBA_PTR_SET_VALUE(flowVersion_, flowVersion) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeFlowRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<string> flowVersion_ = nullptr;
+    shared_ptr<string> flowVersion_ {};
     // The name of the flow.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

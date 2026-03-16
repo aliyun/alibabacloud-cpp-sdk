@@ -222,7 +222,7 @@ namespace Fnf20190315
       Models::DescribeMapRunResponse describeMapRun(const Models::DescribeMapRunRequest &request);
 
       /**
-       * @summary 查询地域信息列表
+       * @summary Queries the regions where CloudFlow is available.
        *
        * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -231,7 +231,7 @@ namespace Fnf20190315
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询地域信息列表
+       * @summary Queries the regions where CloudFlow is available.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse

@@ -32,26 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->flowName_ == nullptr
-        && return this->scheduleName_ == nullptr; };
+        && this->scheduleName_ == nullptr; };
     // flowName Field Functions 
     bool hasFlowName() const { return this->flowName_ != nullptr;};
     void deleteFlowName() { this->flowName_ = nullptr;};
-    inline string flowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
+    inline string getFlowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
     inline DeleteScheduleRequest& setFlowName(string flowName) { DARABONBA_PTR_SET_VALUE(flowName_, flowName) };
 
 
     // scheduleName Field Functions 
     bool hasScheduleName() const { return this->scheduleName_ != nullptr;};
     void deleteScheduleName() { this->scheduleName_ = nullptr;};
-    inline string scheduleName() const { DARABONBA_PTR_GET_DEFAULT(scheduleName_, "") };
+    inline string getScheduleName() const { DARABONBA_PTR_GET_DEFAULT(scheduleName_, "") };
     inline DeleteScheduleRequest& setScheduleName(string scheduleName) { DARABONBA_PTR_SET_VALUE(scheduleName_, scheduleName) };
 
 
   protected:
+    // The name of the workflow with which the scheduling task that you want to delete is associated.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> flowName_ = nullptr;
+    shared_ptr<string> flowName_ {};
+    // The name of the scheduling task that you want to delete.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> scheduleName_ = nullptr;
+    shared_ptr<string> scheduleName_ {};
   };
 
   } // namespace Models

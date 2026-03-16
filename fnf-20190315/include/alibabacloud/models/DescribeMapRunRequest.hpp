@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->executionName_ == nullptr
-        && return this->flowName_ == nullptr && return this->mapRunName_ == nullptr && return this->requestId_ == nullptr; };
+        && this->flowName_ == nullptr && this->mapRunName_ == nullptr && this->requestId_ == nullptr; };
     // executionName Field Functions 
     bool hasExecutionName() const { return this->executionName_ != nullptr;};
     void deleteExecutionName() { this->executionName_ = nullptr;};
-    inline string executionName() const { DARABONBA_PTR_GET_DEFAULT(executionName_, "") };
+    inline string getExecutionName() const { DARABONBA_PTR_GET_DEFAULT(executionName_, "") };
     inline DescribeMapRunRequest& setExecutionName(string executionName) { DARABONBA_PTR_SET_VALUE(executionName_, executionName) };
 
 
     // flowName Field Functions 
     bool hasFlowName() const { return this->flowName_ != nullptr;};
     void deleteFlowName() { this->flowName_ = nullptr;};
-    inline string flowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
+    inline string getFlowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
     inline DescribeMapRunRequest& setFlowName(string flowName) { DARABONBA_PTR_SET_VALUE(flowName_, flowName) };
 
 
     // mapRunName Field Functions 
     bool hasMapRunName() const { return this->mapRunName_ != nullptr;};
     void deleteMapRunName() { this->mapRunName_ = nullptr;};
-    inline string mapRunName() const { DARABONBA_PTR_GET_DEFAULT(mapRunName_, "") };
+    inline string getMapRunName() const { DARABONBA_PTR_GET_DEFAULT(mapRunName_, "") };
     inline DescribeMapRunRequest& setMapRunName(string mapRunName) { DARABONBA_PTR_SET_VALUE(mapRunName_, mapRunName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeMapRunRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> executionName_ = nullptr;
+    shared_ptr<string> executionName_ {};
     // This parameter is required.
-    std::shared_ptr<string> flowName_ = nullptr;
+    shared_ptr<string> flowName_ {};
     // This parameter is required.
-    std::shared_ptr<string> mapRunName_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> mapRunName_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

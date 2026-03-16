@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->flowName_ == nullptr && return this->name_ == nullptr && return this->routingConfigurationsShrink_ == nullptr; };
+        && this->flowName_ == nullptr && this->name_ == nullptr && this->routingConfigurationsShrink_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateFlowAliasShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // flowName Field Functions 
     bool hasFlowName() const { return this->flowName_ != nullptr;};
     void deleteFlowName() { this->flowName_ = nullptr;};
-    inline string flowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
+    inline string getFlowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
     inline UpdateFlowAliasShrinkRequest& setFlowName(string flowName) { DARABONBA_PTR_SET_VALUE(flowName_, flowName) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateFlowAliasShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // routingConfigurationsShrink Field Functions 
     bool hasRoutingConfigurationsShrink() const { return this->routingConfigurationsShrink_ != nullptr;};
     void deleteRoutingConfigurationsShrink() { this->routingConfigurationsShrink_ = nullptr;};
-    inline string routingConfigurationsShrink() const { DARABONBA_PTR_GET_DEFAULT(routingConfigurationsShrink_, "") };
+    inline string getRoutingConfigurationsShrink() const { DARABONBA_PTR_GET_DEFAULT(routingConfigurationsShrink_, "") };
     inline UpdateFlowAliasShrinkRequest& setRoutingConfigurationsShrink(string routingConfigurationsShrink) { DARABONBA_PTR_SET_VALUE(routingConfigurationsShrink_, routingConfigurationsShrink) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> flowName_ = nullptr;
+    shared_ptr<string> flowName_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> routingConfigurationsShrink_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> routingConfigurationsShrink_ {};
   };
 
   } // namespace Models

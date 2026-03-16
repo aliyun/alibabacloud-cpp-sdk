@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->executionName_ == nullptr
-        && return this->flowName_ == nullptr && return this->limit_ == nullptr && return this->nextToken_ == nullptr; };
+        && this->flowName_ == nullptr && this->limit_ == nullptr && this->nextToken_ == nullptr; };
     // executionName Field Functions 
     bool hasExecutionName() const { return this->executionName_ != nullptr;};
     void deleteExecutionName() { this->executionName_ = nullptr;};
-    inline string executionName() const { DARABONBA_PTR_GET_DEFAULT(executionName_, "") };
+    inline string getExecutionName() const { DARABONBA_PTR_GET_DEFAULT(executionName_, "") };
     inline GetExecutionHistoryRequest& setExecutionName(string executionName) { DARABONBA_PTR_SET_VALUE(executionName_, executionName) };
 
 
     // flowName Field Functions 
     bool hasFlowName() const { return this->flowName_ != nullptr;};
     void deleteFlowName() { this->flowName_ = nullptr;};
-    inline string flowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
+    inline string getFlowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
     inline GetExecutionHistoryRequest& setFlowName(string flowName) { DARABONBA_PTR_SET_VALUE(flowName_, flowName) };
 
 
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int32_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
+    inline int32_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
     inline GetExecutionHistoryRequest& setLimit(int32_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline GetExecutionHistoryRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
@@ -69,15 +69,15 @@ namespace Models
     // The name of the execution.
     // 
     // This parameter is required.
-    std::shared_ptr<string> executionName_ = nullptr;
+    shared_ptr<string> executionName_ {};
     // The name of the workflow.
     // 
     // This parameter is required.
-    std::shared_ptr<string> flowName_ = nullptr;
+    shared_ptr<string> flowName_ {};
     // The number of workflows that you want to query. Valid values: 1-999. Default value: 60.
-    std::shared_ptr<int32_t> limit_ = nullptr;
+    shared_ptr<int32_t> limit_ {};
     // The name of the event to start the query. You can obtain the value from the response data.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models
