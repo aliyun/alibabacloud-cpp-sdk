@@ -10,15 +10,15 @@
 #include <map>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
-#include <alibabacloud/credential/Credential.hpp>
+#include <alibabacloud/credentials/Client.hpp>
 #include <darabonba/http/FileField.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace Darabonba::Http;
 using namespace AlibabaCloud::OpenApi;
-using namespace AlibabaCloud::Credential::Models;
 using namespace AlibabaCloud::OpenApi::Exceptions;
+using namespace AlibabaCloud::Credentials::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::ImageSearch20201214::Models;
@@ -52,9 +52,7 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     {"tlsMinVersion", _tlsMinVersion}
     }));
 
-  shared_ptr<Darabonba::Http::Request> _lastRequest = nullptr;
-  shared_ptr<Darabonba::Http::MCurlResponse> _lastResponse = nullptr;
-  Darabonba::Exception _lastException;
+  std::exception_ptr _lastExceptionPtr;
   int _retriesAttempted = 0;
   Darabonba::Policy::RetryPolicyContext _context = json({
     {"retriesAttempted" , _retriesAttempted}
@@ -74,29 +72,27 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
       request_.setMethod("POST");
       request_.setPathname(DARA_STRING_TEMPLATE("/"));
       request_.setHeaders(json({
-        {"host" , Darabonba::Convert::stringVal(form["host"])},
+        {"host" , Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()))},
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
       request_.getHeaders()["content-type"] = DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary);
       request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
-      _lastRequest = make_shared<Darabonba::Http::Request>(request_);
       auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
       shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
-      _lastResponse  = response_;
 
       json respMap = nullptr;
       string bodyStr = Darabonba::Stream::readAsString(response_->getBody());
       if ((response_->getStatusCode() >= 400) && (response_->getStatusCode() < 600)) {
         respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-        json err = json(respMap["Error"]);
+        json err = json(respMap.value("Error", Darabonba::Json()));
         throw ClientException(json({
-          {"code" , Darabonba::Convert::stringVal(err["Code"])},
-          {"message" , Darabonba::Convert::stringVal(err["Message"])},
+          {"code" , Darabonba::Convert::stringVal(err.value("Code", Darabonba::Json()))},
+          {"message" , Darabonba::Convert::stringVal(err.value("Message", Darabonba::Json()))},
           {"data" , json({
             {"httpCode" , response_->getStatusCode()},
-            {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
-            {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
+            {"requestId" , Darabonba::Convert::stringVal(err.value("RequestId", Darabonba::Json()))},
+            {"hostId" , Darabonba::Convert::stringVal(err.value("HostId", Darabonba::Json()))}
           })}
         }));
       }
@@ -104,18 +100,17 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
       respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
       return Darabonba::Core::merge(respMap
       );
-    } catch (const Darabonba::Exception& ex) {
+    } catch (const Darabonba::DaraException& ex) {
+      _lastExceptionPtr = std::current_exception();
       _context = Darabonba::Policy::RetryPolicyContext(json({
         {"retriesAttempted" , _retriesAttempted},
-        {"lastRequest" , _lastRequest},
-        {"lastResponse" , _lastResponse},
         {"exception" , ex},
       }));
       continue;
     }
   }
 
-  throw *_context.getException();
+  std::rethrow_exception(_lastExceptionPtr);
 }
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
@@ -326,6 +321,56 @@ AddImageResponse Client::addImageAdvance(const AddImageAdvanceRequest &request, 
 
   AddImageResponse addImageResp = addImageWithOptions(addImageReq, runtime);
   return addImageResp;
+}
+
+/**
+ * @summary CheckImageExists
+ *
+ * @param request CheckImageExistsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckImageExistsResponse
+ */
+CheckImageExistsResponse Client::checkImageExistsWithOptions(const CheckImageExistsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceName()) {
+    body["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasPicName()) {
+    body["PicName"] = request.getPicName();
+  }
+
+  if (!!request.hasProductId()) {
+    body["ProductId"] = request.getProductId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CheckImageExists"},
+    {"version" , "2020-12-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckImageExistsResponse>();
+}
+
+/**
+ * @summary CheckImageExists
+ *
+ * @param request CheckImageExistsRequest
+ * @return CheckImageExistsResponse
+ */
+CheckImageExistsResponse Client::checkImageExists(const CheckImageExistsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkImageExistsWithOptions(request, runtime);
 }
 
 /**

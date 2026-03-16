@@ -6,6 +6,9 @@
 #include <alibabacloud/models/AddImageAdvanceRequest.hpp>
 #include <alibabacloud/models/AddImageResponseBody.hpp>
 #include <alibabacloud/models/AddImageResponse.hpp>
+#include <alibabacloud/models/CheckImageExistsRequest.hpp>
+#include <alibabacloud/models/CheckImageExistsResponseBody.hpp>
+#include <alibabacloud/models/CheckImageExistsResponse.hpp>
 #include <alibabacloud/models/CompareSimilarByImageRequest.hpp>
 #include <alibabacloud/models/CompareSimilarByImageAdvanceRequest.hpp>
 #include <alibabacloud/models/CompareSimilarByImageResponseBody.hpp>

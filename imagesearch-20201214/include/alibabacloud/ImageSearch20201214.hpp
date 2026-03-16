@@ -52,6 +52,23 @@ namespace ImageSearch20201214
       Models::AddImageResponse addImageAdvance(const Models::AddImageAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary CheckImageExists
+       *
+       * @param request CheckImageExistsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckImageExistsResponse
+       */
+      Models::CheckImageExistsResponse checkImageExistsWithOptions(const Models::CheckImageExistsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CheckImageExists
+       *
+       * @param request CheckImageExistsRequest
+       * @return CheckImageExistsResponse
+       */
+      Models::CheckImageExistsResponse checkImageExists(const Models::CheckImageExistsRequest &request);
+
+      /**
        * @summary 对比图片相似值
        *
        * @param request CompareSimilarByImageRequest

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_ADDIMAGERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_ADDIMAGERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,11 +41,15 @@ namespace Models
     class PicInfo : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const PicInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(AllCategories, allCategories_);
         DARABONBA_PTR_TO_JSON(CategoryId, categoryId_);
+        DARABONBA_PTR_TO_JSON(MultiRegion, multiRegion_);
         DARABONBA_PTR_TO_JSON(Region, region_);
       };
       friend void from_json(const Darabonba::Json& j, PicInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(AllCategories, allCategories_);
         DARABONBA_PTR_FROM_JSON(CategoryId, categoryId_);
+        DARABONBA_PTR_FROM_JSON(MultiRegion, multiRegion_);
         DARABONBA_PTR_FROM_JSON(Region, region_);
       };
       PicInfo() = default ;
@@ -58,13 +63,104 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->categoryId_ == nullptr
-        && this->region_ == nullptr; };
+      class MultiRegion : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const MultiRegion& obj) { 
+          DARABONBA_PTR_TO_JSON(Region, region_);
+        };
+        friend void from_json(const Darabonba::Json& j, MultiRegion& obj) { 
+          DARABONBA_PTR_FROM_JSON(Region, region_);
+        };
+        MultiRegion() = default ;
+        MultiRegion(const MultiRegion &) = default ;
+        MultiRegion(MultiRegion &&) = default ;
+        MultiRegion(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~MultiRegion() = default ;
+        MultiRegion& operator=(const MultiRegion &) = default ;
+        MultiRegion& operator=(MultiRegion &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->region_ == nullptr; };
+        // region Field Functions 
+        bool hasRegion() const { return this->region_ != nullptr;};
+        void deleteRegion() { this->region_ = nullptr;};
+        inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+        inline MultiRegion& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
+
+
+      protected:
+        shared_ptr<string> region_ {};
+      };
+
+      class AllCategories : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AllCategories& obj) { 
+          DARABONBA_PTR_TO_JSON(Id, id_);
+          DARABONBA_PTR_TO_JSON(Name, name_);
+        };
+        friend void from_json(const Darabonba::Json& j, AllCategories& obj) { 
+          DARABONBA_PTR_FROM_JSON(Id, id_);
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+        };
+        AllCategories() = default ;
+        AllCategories(const AllCategories &) = default ;
+        AllCategories(AllCategories &&) = default ;
+        AllCategories(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AllCategories() = default ;
+        AllCategories& operator=(const AllCategories &) = default ;
+        AllCategories& operator=(AllCategories &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->id_ == nullptr
+        && this->name_ == nullptr; };
+        // id Field Functions 
+        bool hasId() const { return this->id_ != nullptr;};
+        void deleteId() { this->id_ = nullptr;};
+        inline int32_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0) };
+        inline AllCategories& setId(int32_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline AllCategories& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      protected:
+        shared_ptr<int32_t> id_ {};
+        shared_ptr<string> name_ {};
+      };
+
+      virtual bool empty() const override { return this->allCategories_ == nullptr
+        && this->categoryId_ == nullptr && this->multiRegion_ == nullptr && this->region_ == nullptr; };
+      // allCategories Field Functions 
+      bool hasAllCategories() const { return this->allCategories_ != nullptr;};
+      void deleteAllCategories() { this->allCategories_ = nullptr;};
+      inline const vector<PicInfo::AllCategories> & getAllCategories() const { DARABONBA_PTR_GET_CONST(allCategories_, vector<PicInfo::AllCategories>) };
+      inline vector<PicInfo::AllCategories> getAllCategories() { DARABONBA_PTR_GET(allCategories_, vector<PicInfo::AllCategories>) };
+      inline PicInfo& setAllCategories(const vector<PicInfo::AllCategories> & allCategories) { DARABONBA_PTR_SET_VALUE(allCategories_, allCategories) };
+      inline PicInfo& setAllCategories(vector<PicInfo::AllCategories> && allCategories) { DARABONBA_PTR_SET_RVALUE(allCategories_, allCategories) };
+
+
       // categoryId Field Functions 
       bool hasCategoryId() const { return this->categoryId_ != nullptr;};
       void deleteCategoryId() { this->categoryId_ = nullptr;};
       inline int32_t getCategoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, 0) };
       inline PicInfo& setCategoryId(int32_t categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
+
+
+      // multiRegion Field Functions 
+      bool hasMultiRegion() const { return this->multiRegion_ != nullptr;};
+      void deleteMultiRegion() { this->multiRegion_ = nullptr;};
+      inline const vector<PicInfo::MultiRegion> & getMultiRegion() const { DARABONBA_PTR_GET_CONST(multiRegion_, vector<PicInfo::MultiRegion>) };
+      inline vector<PicInfo::MultiRegion> getMultiRegion() { DARABONBA_PTR_GET(multiRegion_, vector<PicInfo::MultiRegion>) };
+      inline PicInfo& setMultiRegion(const vector<PicInfo::MultiRegion> & multiRegion) { DARABONBA_PTR_SET_VALUE(multiRegion_, multiRegion) };
+      inline PicInfo& setMultiRegion(vector<PicInfo::MultiRegion> && multiRegion) { DARABONBA_PTR_SET_RVALUE(multiRegion_, multiRegion) };
 
 
       // region Field Functions 
@@ -75,8 +171,10 @@ namespace Models
 
 
     protected:
+      shared_ptr<vector<PicInfo::AllCategories>> allCategories_ {};
       // The result of category prediction. If a category is specified in the request, the specified category prevails.
       shared_ptr<int32_t> categoryId_ {};
+      shared_ptr<vector<PicInfo::MultiRegion>> multiRegion_ {};
       // The result of subject identification. The subject area of the image is in the format of `x1,x2,y1,y2`. `x1 and y1` represent the position in the upper-left corner, in pixels. `x2 and y2` represent the position in the lower-right corner, in pixels. If a subject area is specified in the request, the specified subject area prevails.
       shared_ptr<string> region_ {};
     };

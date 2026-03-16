@@ -187,32 +187,15 @@ namespace Models
 
 
         protected:
-          // The name of the Object Storage Service (OSS) bucket.
           shared_ptr<string> bucketName_ {};
-          // The callback address.
           shared_ptr<string> callbackAddress_ {};
-          // The error code returned.
-          // 
-          // *   A value of 0 indicates that the operation is successful.
-          // *   Values other than 0 indicate errors.
           shared_ptr<string> code_ {};
-          // The address where you can download the result. The address is valid for 2 hours.
           shared_ptr<string> errorUrl_ {};
-          // The ID of the task.
           shared_ptr<int64_t> id_ {};
-          // The error message returned.
           shared_ptr<string> msg_ {};
-          // The absolute path to the increment.meta file in the bucket. The path must start with a forward slash (/) and cannot end with a forward slash (/).
           shared_ptr<string> path_ {};
-          // The status of the batch task.
-          // 
-          // *   PROCESSING: in progress
-          // *   FAIL: failed
-          // *   SUCCESS: successful
           shared_ptr<string> status_ {};
-          // The time when the task was created. Unit: milliseconds.
           shared_ptr<string> utcCreate_ {};
-          // The time when the task was updated. Unit: milliseconds.
           shared_ptr<int64_t> utcModified_ {};
         };
 
@@ -263,7 +246,6 @@ namespace Models
 
 
     protected:
-      // A list of batch tasks.
       shared_ptr<Data::Increments> increments_ {};
       // The number of the page to return.
       shared_ptr<int32_t> pageNumber_ {};
