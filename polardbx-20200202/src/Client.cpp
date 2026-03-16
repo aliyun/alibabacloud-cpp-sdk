@@ -6819,8 +6819,28 @@ SwitchGdnMemberRoleResponse Client::switchGdnMemberRoleWithOptions(const SwitchG
     query["DBInstanceName"] = request.getDBInstanceName();
   }
 
+  if (!!request.hasDstMainConnectString()) {
+    query["DstMainConnectString"] = request.getDstMainConnectString();
+  }
+
+  if (!!request.hasDstMainPort()) {
+    query["DstMainPort"] = request.getDstMainPort();
+  }
+
+  if (!!request.hasIsModifyEndpoint()) {
+    query["IsModifyEndpoint"] = request.getIsModifyEndpoint();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSrcMainConnectString()) {
+    query["SrcMainConnectString"] = request.getSrcMainConnectString();
+  }
+
+  if (!!request.hasSrcMainPort()) {
+    query["SrcMainPort"] = request.getSrcMainPort();
   }
 
   if (!!request.hasSwitchMode()) {
