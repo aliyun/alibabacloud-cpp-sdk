@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -48,24 +48,24 @@ CreateTaskResponse Client::createTaskWithOptions(const CreateTaskRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasOperation()) {
-    query["operation"] = request.operation();
+    query["operation"] = request.getOperation();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   json body = {};
   if (!!request.hasAppKey()) {
-    body["AppKey"] = request.appKey();
+    body["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasInput()) {
-    body["Input"] = request.input();
+    body["Input"] = request.getInput();
   }
 
   if (!!request.hasParameters()) {
-    body["Parameters"] = request.parameters();
+    body["Parameters"] = request.getParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -111,15 +111,15 @@ CreateTranscriptionPhrasesResponse Client::createTranscriptionPhrasesWithOptions
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasWordWeights()) {
-    body["WordWeights"] = request.wordWeights();
+    body["WordWeights"] = request.getWordWeights();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -167,7 +167,7 @@ DeleteTranscriptionPhrasesResponse Client::deleteTranscriptionPhrasesWithOptions
     {"action" , "DeleteTranscriptionPhrases"},
     {"version" , "2023-09-30"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/tingwu/v2/resources/phrases/" , Darabonba::Http::URL::percentEncode(PhraseId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/tingwu/v2/resources/phrases/" , Darabonba::Encode::Encoder::percentEncode(PhraseId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -203,7 +203,7 @@ GetTaskInfoResponse Client::getTaskInfoWithOptions(const string &TaskId, const m
     {"action" , "GetTaskInfo"},
     {"version" , "2023-09-30"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/tingwu/v2/tasks/" , Darabonba::Http::URL::percentEncode(TaskId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/tingwu/v2/tasks/" , Darabonba::Encode::Encoder::percentEncode(TaskId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -239,7 +239,7 @@ GetTranscriptionPhrasesResponse Client::getTranscriptionPhrasesWithOptions(const
     {"action" , "GetTranscriptionPhrases"},
     {"version" , "2023-09-30"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/tingwu/v2/resources/phrases/" , Darabonba::Http::URL::percentEncode(PhraseId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/tingwu/v2/resources/phrases/" , Darabonba::Encode::Encoder::percentEncode(PhraseId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -308,15 +308,15 @@ UpdateTranscriptionPhrasesResponse Client::updateTranscriptionPhrasesWithOptions
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasWordWeights()) {
-    body["WordWeights"] = request.wordWeights();
+    body["WordWeights"] = request.getWordWeights();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -327,7 +327,7 @@ UpdateTranscriptionPhrasesResponse Client::updateTranscriptionPhrasesWithOptions
     {"action" , "UpdateTranscriptionPhrases"},
     {"version" , "2023-09-30"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/tingwu/v2/resources/phrases/" , Darabonba::Http::URL::percentEncode(PhraseId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/tingwu/v2/resources/phrases/" , Darabonba::Encode::Encoder::percentEncode(PhraseId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},

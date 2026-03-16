@@ -19,33 +19,5 @@
 #include <alibabacloud/models/UpdateTranscriptionPhrasesRequest.hpp>
 #include <alibabacloud/models/UpdateTranscriptionPhrasesResponseBody.hpp>
 #include <alibabacloud/models/UpdateTranscriptionPhrasesResponse.hpp>
-#include <alibabacloud/models/CreateTaskRequestInput.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersAutoChapters.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersContentExtractionExtractionContents.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersContentExtraction.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersCustomPromptContents.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersCustomPrompt.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersExtraParams.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersIdentityRecognitionIdentityContents.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersIdentityRecognition.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersMeetingAssistance.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersServiceInspectionInspectionContents.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersServiceInspection.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersSummarization.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersTranscoding.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersTranscriptionDiarization.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersTranscription.hpp>
-#include <alibabacloud/models/CreateTaskRequestParametersTranslation.hpp>
-#include <alibabacloud/models/CreateTaskRequestParameters.hpp>
-#include <alibabacloud/models/CreateTaskResponseBodyData.hpp>
-#include <alibabacloud/models/CreateTranscriptionPhrasesResponseBodyData.hpp>
-#include <alibabacloud/models/DeleteTranscriptionPhrasesResponseBodyData.hpp>
-#include <alibabacloud/models/GetTaskInfoResponseBodyDataResult.hpp>
-#include <alibabacloud/models/GetTaskInfoResponseBodyData.hpp>
-#include <alibabacloud/models/GetTranscriptionPhrasesResponseBodyDataPhrases.hpp>
-#include <alibabacloud/models/GetTranscriptionPhrasesResponseBodyData.hpp>
-#include <alibabacloud/models/ListTranscriptionPhrasesResponseBodyDataPhrases.hpp>
-#include <alibabacloud/models/ListTranscriptionPhrasesResponseBodyData.hpp>
-#include <alibabacloud/models/UpdateTranscriptionPhrasesResponseBodyData.hpp>
 
 #endif
