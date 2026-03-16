@@ -16,11 +16,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SecurityIPList, securityIPList_);
+      DARABONBA_PTR_TO_JSON(UpdateDb, updateDb_);
+      DARABONBA_PTR_TO_JSON(UpdateWeb, updateWeb_);
     };
     friend void from_json(const Darabonba::Json& j, ModifySupabaseProjectSecurityIpsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SecurityIPList, securityIPList_);
+      DARABONBA_PTR_FROM_JSON(UpdateDb, updateDb_);
+      DARABONBA_PTR_FROM_JSON(UpdateWeb, updateWeb_);
     };
     ModifySupabaseProjectSecurityIpsRequest() = default ;
     ModifySupabaseProjectSecurityIpsRequest(const ModifySupabaseProjectSecurityIpsRequest &) = default ;
@@ -34,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->projectId_ == nullptr
-        && this->regionId_ == nullptr && this->securityIPList_ == nullptr; };
+        && this->regionId_ == nullptr && this->securityIPList_ == nullptr && this->updateDb_ == nullptr && this->updateWeb_ == nullptr; };
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
@@ -56,6 +60,20 @@ namespace Models
     inline ModifySupabaseProjectSecurityIpsRequest& setSecurityIPList(string securityIPList) { DARABONBA_PTR_SET_VALUE(securityIPList_, securityIPList) };
 
 
+    // updateDb Field Functions 
+    bool hasUpdateDb() const { return this->updateDb_ != nullptr;};
+    void deleteUpdateDb() { this->updateDb_ = nullptr;};
+    inline bool getUpdateDb() const { DARABONBA_PTR_GET_DEFAULT(updateDb_, false) };
+    inline ModifySupabaseProjectSecurityIpsRequest& setUpdateDb(bool updateDb) { DARABONBA_PTR_SET_VALUE(updateDb_, updateDb) };
+
+
+    // updateWeb Field Functions 
+    bool hasUpdateWeb() const { return this->updateWeb_ != nullptr;};
+    void deleteUpdateWeb() { this->updateWeb_ = nullptr;};
+    inline bool getUpdateWeb() const { DARABONBA_PTR_GET_DEFAULT(updateWeb_, false) };
+    inline ModifySupabaseProjectSecurityIpsRequest& setUpdateWeb(bool updateWeb) { DARABONBA_PTR_SET_VALUE(updateWeb_, updateWeb) };
+
+
   protected:
     // The Supabase project ID.
     // 
@@ -72,6 +90,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> securityIPList_ {};
+    shared_ptr<bool> updateDb_ {};
+    shared_ptr<bool> updateWeb_ {};
   };
 
   } // namespace Models

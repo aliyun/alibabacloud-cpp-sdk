@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <alibabacloud/credential/Credential.hpp>
+#include <alibabacloud/credentials/Client.hpp>
 #include <darabonba/http/FileField.hpp>
 #include <darabonba/Convert.hpp>
 using namespace std;
@@ -13,8 +13,8 @@ using json = nlohmann::json;
 using namespace Darabonba::Http;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
-using namespace AlibabaCloud::Credential::Models;
 using namespace AlibabaCloud::OpenApi::Exceptions;
+using namespace AlibabaCloud::Credentials::Models;
 using namespace AlibabaCloud::Gpdb20160503::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -13311,6 +13311,14 @@ ModifySupabaseProjectSecurityIpsResponse Client::modifySupabaseProjectSecurityIp
 
   if (!!request.hasSecurityIPList()) {
     query["SecurityIPList"] = request.getSecurityIPList();
+  }
+
+  if (!!request.hasUpdateDb()) {
+    query["UpdateDb"] = request.getUpdateDb();
+  }
+
+  if (!!request.hasUpdateWeb()) {
+    query["UpdateWeb"] = request.getUpdateWeb();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
