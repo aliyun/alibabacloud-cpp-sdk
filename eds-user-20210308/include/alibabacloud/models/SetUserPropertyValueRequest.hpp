@@ -13,12 +13,14 @@ namespace Models
   class SetUserPropertyValueRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SetUserPropertyValueRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(PropertyId, propertyId_);
       DARABONBA_PTR_TO_JSON(PropertyValueId, propertyValueId_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
       DARABONBA_PTR_TO_JSON(UserName, userName_);
     };
     friend void from_json(const Darabonba::Json& j, SetUserPropertyValueRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(PropertyId, propertyId_);
       DARABONBA_PTR_FROM_JSON(PropertyValueId, propertyValueId_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
@@ -35,53 +37,61 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->propertyId_ == nullptr
-        && return this->propertyValueId_ == nullptr && return this->userId_ == nullptr && return this->userName_ == nullptr; };
+    virtual bool empty() const override { return this->businessChannel_ == nullptr
+        && this->propertyId_ == nullptr && this->propertyValueId_ == nullptr && this->userId_ == nullptr && this->userName_ == nullptr; };
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline SetUserPropertyValueRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
     // propertyId Field Functions 
     bool hasPropertyId() const { return this->propertyId_ != nullptr;};
     void deletePropertyId() { this->propertyId_ = nullptr;};
-    inline int64_t propertyId() const { DARABONBA_PTR_GET_DEFAULT(propertyId_, 0L) };
+    inline int64_t getPropertyId() const { DARABONBA_PTR_GET_DEFAULT(propertyId_, 0L) };
     inline SetUserPropertyValueRequest& setPropertyId(int64_t propertyId) { DARABONBA_PTR_SET_VALUE(propertyId_, propertyId) };
 
 
     // propertyValueId Field Functions 
     bool hasPropertyValueId() const { return this->propertyValueId_ != nullptr;};
     void deletePropertyValueId() { this->propertyValueId_ = nullptr;};
-    inline int64_t propertyValueId() const { DARABONBA_PTR_GET_DEFAULT(propertyValueId_, 0L) };
+    inline int64_t getPropertyValueId() const { DARABONBA_PTR_GET_DEFAULT(propertyValueId_, 0L) };
     inline SetUserPropertyValueRequest& setPropertyValueId(int64_t propertyValueId) { DARABONBA_PTR_SET_VALUE(propertyValueId_, propertyValueId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline int64_t userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, 0L) };
+    inline int64_t getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, 0L) };
     inline SetUserPropertyValueRequest& setUserId(int64_t userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline SetUserPropertyValueRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
   protected:
+    shared_ptr<string> businessChannel_ {};
     // The property ID. You can call the [ListProperty](~~ListProperty~~) operation to query the property ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> propertyId_ = nullptr;
+    shared_ptr<int64_t> propertyId_ {};
     // The ID of the property value. You can call the [ListProperty](~~ListProperty~~) operation to query the ID of the property value.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> propertyValueId_ = nullptr;
+    shared_ptr<int64_t> propertyValueId_ {};
     // The ID of the convenience user. You can call the [DescribeUsers](~~DescribeUsers~~) operation to query the user ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> userId_ = nullptr;
+    shared_ptr<int64_t> userId_ {};
     // The username of the convenience user.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

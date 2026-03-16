@@ -13,9 +13,11 @@ namespace Models
   class CheckUsedPropertyRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CheckUsedPropertyRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(PropertyId, propertyId_);
     };
     friend void from_json(const Darabonba::Json& j, CheckUsedPropertyRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(PropertyId, propertyId_);
     };
     CheckUsedPropertyRequest() = default ;
@@ -29,19 +31,28 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->propertyId_ == nullptr; };
+    virtual bool empty() const override { return this->businessChannel_ == nullptr
+        && this->propertyId_ == nullptr; };
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline CheckUsedPropertyRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
     // propertyId Field Functions 
     bool hasPropertyId() const { return this->propertyId_ != nullptr;};
     void deletePropertyId() { this->propertyId_ = nullptr;};
-    inline int64_t propertyId() const { DARABONBA_PTR_GET_DEFAULT(propertyId_, 0L) };
+    inline int64_t getPropertyId() const { DARABONBA_PTR_GET_DEFAULT(propertyId_, 0L) };
     inline CheckUsedPropertyRequest& setPropertyId(int64_t propertyId) { DARABONBA_PTR_SET_VALUE(propertyId_, propertyId) };
 
 
   protected:
+    shared_ptr<string> businessChannel_ {};
     // The ID of the property. You can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the property ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> propertyId_ = nullptr;
+    shared_ptr<int64_t> propertyId_ {};
   };
 
   } // namespace Models

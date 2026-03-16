@@ -14,10 +14,12 @@ namespace Models
   class BatchSetDesktopManagerRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const BatchSetDesktopManagerRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(IsDesktopManager, isDesktopManager_);
       DARABONBA_PTR_TO_JSON(Users, users_);
     };
     friend void from_json(const Darabonba::Json& j, BatchSetDesktopManagerRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(IsDesktopManager, isDesktopManager_);
       DARABONBA_PTR_FROM_JSON(Users, users_);
     };
@@ -32,36 +34,44 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->isDesktopManager_ == nullptr
-        && return this->users_ == nullptr; };
+    virtual bool empty() const override { return this->businessChannel_ == nullptr
+        && this->isDesktopManager_ == nullptr && this->users_ == nullptr; };
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline BatchSetDesktopManagerRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
     // isDesktopManager Field Functions 
     bool hasIsDesktopManager() const { return this->isDesktopManager_ != nullptr;};
     void deleteIsDesktopManager() { this->isDesktopManager_ = nullptr;};
-    inline string isDesktopManager() const { DARABONBA_PTR_GET_DEFAULT(isDesktopManager_, "") };
+    inline string getIsDesktopManager() const { DARABONBA_PTR_GET_DEFAULT(isDesktopManager_, "") };
     inline BatchSetDesktopManagerRequest& setIsDesktopManager(string isDesktopManager) { DARABONBA_PTR_SET_VALUE(isDesktopManager_, isDesktopManager) };
 
 
     // users Field Functions 
     bool hasUsers() const { return this->users_ != nullptr;};
     void deleteUsers() { this->users_ = nullptr;};
-    inline const vector<string> & users() const { DARABONBA_PTR_GET_CONST(users_, vector<string>) };
-    inline vector<string> users() { DARABONBA_PTR_GET(users_, vector<string>) };
+    inline const vector<string> & getUsers() const { DARABONBA_PTR_GET_CONST(users_, vector<string>) };
+    inline vector<string> getUsers() { DARABONBA_PTR_GET(users_, vector<string>) };
     inline BatchSetDesktopManagerRequest& setUsers(const vector<string> & users) { DARABONBA_PTR_SET_VALUE(users_, users) };
     inline BatchSetDesktopManagerRequest& setUsers(vector<string> && users) { DARABONBA_PTR_SET_RVALUE(users_, users) };
 
 
   protected:
+    shared_ptr<string> businessChannel_ {};
     // Whether the convenience account has the local administrator permissions on cloud computers.
     // 
     // Valid values:
     // 
     // *   0: no
     // *   1 (default): yes
-    std::shared_ptr<string> isDesktopManager_ = nullptr;
+    shared_ptr<string> isDesktopManager_ {};
     // The convenience accounts.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> users_ = nullptr;
+    shared_ptr<vector<string>> users_ {};
   };
 
   } // namespace Models

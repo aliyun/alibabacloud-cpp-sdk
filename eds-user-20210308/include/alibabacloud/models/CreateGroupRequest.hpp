@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateGroupRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(GroupName, groupName_);
       DARABONBA_PTR_TO_JSON(ParentGroupId, parentGroupId_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
       DARABONBA_PTR_FROM_JSON(ParentGroupId, parentGroupId_);
@@ -38,51 +40,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && return this->description_ == nullptr && return this->groupName_ == nullptr && return this->parentGroupId_ == nullptr && return this->solutionId_ == nullptr; };
+        && this->businessChannel_ == nullptr && this->description_ == nullptr && this->groupName_ == nullptr && this->parentGroupId_ == nullptr && this->solutionId_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline CreateGroupRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
+
+
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline CreateGroupRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateGroupRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline CreateGroupRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // parentGroupId Field Functions 
     bool hasParentGroupId() const { return this->parentGroupId_ != nullptr;};
     void deleteParentGroupId() { this->parentGroupId_ = nullptr;};
-    inline string parentGroupId() const { DARABONBA_PTR_GET_DEFAULT(parentGroupId_, "") };
+    inline string getParentGroupId() const { DARABONBA_PTR_GET_DEFAULT(parentGroupId_, "") };
     inline CreateGroupRequest& setParentGroupId(string parentGroupId) { DARABONBA_PTR_SET_VALUE(parentGroupId_, parentGroupId) };
 
 
     // solutionId Field Functions 
     bool hasSolutionId() const { return this->solutionId_ != nullptr;};
     void deleteSolutionId() { this->solutionId_ = nullptr;};
-    inline string solutionId() const { DARABONBA_PTR_GET_DEFAULT(solutionId_, "") };
+    inline string getSolutionId() const { DARABONBA_PTR_GET_DEFAULT(solutionId_, "") };
     inline CreateGroupRequest& setSolutionId(string solutionId) { DARABONBA_PTR_SET_VALUE(solutionId_, solutionId) };
 
 
   protected:
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
+    shared_ptr<string> businessChannel_ {};
     // The description of the user group.
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<string> groupName_ {};
     // > This parameter is not publicly available.
-    std::shared_ptr<string> parentGroupId_ = nullptr;
+    shared_ptr<string> parentGroupId_ {};
     // > This parameter is not publicly available.
-    std::shared_ptr<string> solutionId_ = nullptr;
+    shared_ptr<string> solutionId_ {};
   };
 
   } // namespace Models

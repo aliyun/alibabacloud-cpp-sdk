@@ -13,10 +13,12 @@ namespace Models
   class ChangeUserPasswordRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ChangeUserPasswordRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_TO_JSON(NewPassword, newPassword_);
     };
     friend void from_json(const Darabonba::Json& j, ChangeUserPasswordRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_FROM_JSON(NewPassword, newPassword_);
     };
@@ -31,25 +33,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->endUserId_ == nullptr
-        && return this->newPassword_ == nullptr; };
+    virtual bool empty() const override { return this->businessChannel_ == nullptr
+        && this->endUserId_ == nullptr && this->newPassword_ == nullptr; };
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline ChangeUserPasswordRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
+    inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline ChangeUserPasswordRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
     // newPassword Field Functions 
     bool hasNewPassword() const { return this->newPassword_ != nullptr;};
     void deleteNewPassword() { this->newPassword_ = nullptr;};
-    inline string newPassword() const { DARABONBA_PTR_GET_DEFAULT(newPassword_, "") };
+    inline string getNewPassword() const { DARABONBA_PTR_GET_DEFAULT(newPassword_, "") };
     inline ChangeUserPasswordRequest& setNewPassword(string newPassword) { DARABONBA_PTR_SET_VALUE(newPassword_, newPassword) };
 
 
   protected:
-    std::shared_ptr<string> endUserId_ = nullptr;
-    std::shared_ptr<string> newPassword_ = nullptr;
+    shared_ptr<string> businessChannel_ {};
+    shared_ptr<string> endUserId_ {};
+    shared_ptr<string> newPassword_ {};
   };
 
   } // namespace Models

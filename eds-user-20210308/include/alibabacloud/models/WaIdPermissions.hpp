@@ -40,33 +40,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->isBasicChild_ == nullptr && return this->name_ == nullptr && return this->subPermissions_ == nullptr && return this->type_ == nullptr; };
+        && this->isBasicChild_ == nullptr && this->name_ == nullptr && this->subPermissions_ == nullptr && this->type_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline WaIdPermissions& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // isBasicChild Field Functions 
     bool hasIsBasicChild() const { return this->isBasicChild_ != nullptr;};
     void deleteIsBasicChild() { this->isBasicChild_ = nullptr;};
-    inline bool isBasicChild() const { DARABONBA_PTR_GET_DEFAULT(isBasicChild_, false) };
+    inline bool getIsBasicChild() const { DARABONBA_PTR_GET_DEFAULT(isBasicChild_, false) };
     inline WaIdPermissions& setIsBasicChild(bool isBasicChild) { DARABONBA_PTR_SET_VALUE(isBasicChild_, isBasicChild) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline WaIdPermissions& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // subPermissions Field Functions 
     bool hasSubPermissions() const { return this->subPermissions_ != nullptr;};
     void deleteSubPermissions() { this->subPermissions_ = nullptr;};
-    inline const vector<WaIdPermissions> & subPermissions() const { DARABONBA_PTR_GET_CONST(subPermissions_, vector<WaIdPermissions>) };
-    inline vector<WaIdPermissions> subPermissions() { DARABONBA_PTR_GET(subPermissions_, vector<WaIdPermissions>) };
+    inline const vector<WaIdPermissions> & getSubPermissions() const { DARABONBA_PTR_GET_CONST(subPermissions_, vector<WaIdPermissions>) };
+    inline vector<WaIdPermissions> getSubPermissions() { DARABONBA_PTR_GET(subPermissions_, vector<WaIdPermissions>) };
     inline WaIdPermissions& setSubPermissions(const vector<WaIdPermissions> & subPermissions) { DARABONBA_PTR_SET_VALUE(subPermissions_, subPermissions) };
     inline WaIdPermissions& setSubPermissions(vector<WaIdPermissions> && subPermissions) { DARABONBA_PTR_SET_RVALUE(subPermissions_, subPermissions) };
 
@@ -74,16 +74,16 @@ namespace Models
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline WaIdPermissions& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<bool> isBasicChild_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<vector<WaIdPermissions>> subPermissions_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<bool> isBasicChild_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<vector<WaIdPermissions>> subPermissions_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

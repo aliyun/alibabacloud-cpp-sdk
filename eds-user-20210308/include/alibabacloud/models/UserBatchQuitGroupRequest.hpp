@@ -14,10 +14,12 @@ namespace Models
   class UserBatchQuitGroupRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UserBatchQuitGroupRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(EndUserIds, endUserIds_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
     };
     friend void from_json(const Darabonba::Json& j, UserBatchQuitGroupRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(EndUserIds, endUserIds_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
     };
@@ -32,13 +34,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->endUserIds_ == nullptr
-        && return this->groupId_ == nullptr; };
+    virtual bool empty() const override { return this->businessChannel_ == nullptr
+        && this->endUserIds_ == nullptr && this->groupId_ == nullptr; };
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline UserBatchQuitGroupRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
     // endUserIds Field Functions 
     bool hasEndUserIds() const { return this->endUserIds_ != nullptr;};
     void deleteEndUserIds() { this->endUserIds_ = nullptr;};
-    inline const vector<string> & endUserIds() const { DARABONBA_PTR_GET_CONST(endUserIds_, vector<string>) };
-    inline vector<string> endUserIds() { DARABONBA_PTR_GET(endUserIds_, vector<string>) };
+    inline const vector<string> & getEndUserIds() const { DARABONBA_PTR_GET_CONST(endUserIds_, vector<string>) };
+    inline vector<string> getEndUserIds() { DARABONBA_PTR_GET(endUserIds_, vector<string>) };
     inline UserBatchQuitGroupRequest& setEndUserIds(const vector<string> & endUserIds) { DARABONBA_PTR_SET_VALUE(endUserIds_, endUserIds) };
     inline UserBatchQuitGroupRequest& setEndUserIds(vector<string> && endUserIds) { DARABONBA_PTR_SET_RVALUE(endUserIds_, endUserIds) };
 
@@ -46,15 +55,16 @@ namespace Models
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline UserBatchQuitGroupRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
   protected:
+    shared_ptr<string> businessChannel_ {};
     // The user IDs.
-    std::shared_ptr<vector<string>> endUserIds_ = nullptr;
+    shared_ptr<vector<string>> endUserIds_ {};
     // The ID of the user group.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
   };
 
   } // namespace Models

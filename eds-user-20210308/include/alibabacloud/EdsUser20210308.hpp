@@ -42,7 +42,7 @@ namespace EdsUser20210308
       Models::BatchSetDesktopManagerResponse batchSetDesktopManager(const Models::BatchSetDesktopManagerRequest &request);
 
       /**
-       * @summary 管理员修改用户密码
+       * @summary If the user is in administrator-activated mode, you can change the user logon password through this operation.
        *
        * @param request ChangeUserPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -51,7 +51,7 @@ namespace EdsUser20210308
       Models::ChangeUserPasswordResponse changeUserPasswordWithOptions(const Models::ChangeUserPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 管理员修改用户密码
+       * @summary If the user is in administrator-activated mode, you can change the user logon password through this operation.
        *
        * @param request ChangeUserPasswordRequest
        * @return ChangeUserPasswordResponse
@@ -387,14 +387,15 @@ namespace EdsUser20210308
        * @param runtime runtime options for this request RuntimeOptions
        * @return InitTenantAliasResponse
        */
-      Models::InitTenantAliasResponse initTenantAliasWithOptions(const Darabonba::RuntimeOptions &runtime);
+      Models::InitTenantAliasResponse initTenantAliasWithOptions(const Models::InitTenantAliasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Initializes an organization ID.
        *
+       * @param request InitTenantAliasRequest
        * @return InitTenantAliasResponse
        */
-      Models::InitTenantAliasResponse initTenantAlias();
+      Models::InitTenantAliasResponse initTenantAlias(const Models::InitTenantAliasRequest &request);
 
       /**
        * @summary Queries all user properties within an Alibaba Cloud account.
@@ -403,14 +404,15 @@ namespace EdsUser20210308
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListPropertyResponse
        */
-      Models::ListPropertyResponse listPropertyWithOptions(const Darabonba::RuntimeOptions &runtime);
+      Models::ListPropertyResponse listPropertyWithOptions(const Models::ListPropertyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries all user properties within an Alibaba Cloud account.
        *
+       * @param request ListPropertyRequest
        * @return ListPropertyResponse
        */
-      Models::ListPropertyResponse listProperty();
+      Models::ListPropertyResponse listProperty(const Models::ListPropertyRequest &request);
 
       /**
        * @summary Queries property values of a user property.
@@ -502,7 +504,7 @@ namespace EdsUser20210308
       Models::ModifyOrgResponse modifyOrg(const Models::ModifyOrgRequest &request);
 
       /**
-       * @summary Modifies user information.
+       * @summary Updates the contact information of a convenience account.
        *
        * @param request ModifyUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -511,7 +513,7 @@ namespace EdsUser20210308
       Models::ModifyUserResponse modifyUserWithOptions(const Models::ModifyUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies user information.
+       * @summary Updates the contact information of a convenience account.
        *
        * @param request ModifyUserRequest
        * @return ModifyUserResponse
@@ -553,20 +555,21 @@ namespace EdsUser20210308
       Models::MoveUserOrgResponse moveUserOrg(const Models::MoveUserOrgRequest &request);
 
       /**
-       * @summary 查询edu同步信息
+       * @summary Queries user synchronization status.
        *
        * @param request QuerySyncStatusByAliUidRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QuerySyncStatusByAliUidResponse
        */
-      Models::QuerySyncStatusByAliUidResponse querySyncStatusByAliUidWithOptions(const Darabonba::RuntimeOptions &runtime);
+      Models::QuerySyncStatusByAliUidResponse querySyncStatusByAliUidWithOptions(const Models::QuerySyncStatusByAliUidRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询edu同步信息
+       * @summary Queries user synchronization status.
        *
+       * @param request QuerySyncStatusByAliUidRequest
        * @return QuerySyncStatusByAliUidResponse
        */
-      Models::QuerySyncStatusByAliUidResponse querySyncStatusByAliUid();
+      Models::QuerySyncStatusByAliUidResponse querySyncStatusByAliUid(const Models::QuerySyncStatusByAliUidRequest &request);
 
       /**
        * @summary Deletes a single user group or multiple user groups at a time.
@@ -692,7 +695,7 @@ namespace EdsUser20210308
       Models::SetUserPropertyValueResponse setUserPropertyValue(const Models::SetUserPropertyValueRequest &request);
 
       /**
-       * @summary 从钉钉手动同步老师学生信息
+       * @summary Synchronizes all education information.
        *
        * @param request SyncAllEduInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -701,7 +704,7 @@ namespace EdsUser20210308
       Models::SyncAllEduInfoResponse syncAllEduInfoWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 从钉钉手动同步老师学生信息
+       * @summary Synchronizes all education information.
        *
        * @return SyncAllEduInfoResponse
        */

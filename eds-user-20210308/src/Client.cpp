@@ -47,12 +47,16 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 BatchSetDesktopManagerResponse Client::batchSetDesktopManagerWithOptions(const BatchSetDesktopManagerRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasIsDesktopManager()) {
-    body["IsDesktopManager"] = request.isDesktopManager();
+    body["IsDesktopManager"] = request.getIsDesktopManager();
   }
 
   if (!!request.hasUsers()) {
-    body["Users"] = request.users();
+    body["Users"] = request.getUsers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -86,7 +90,7 @@ BatchSetDesktopManagerResponse Client::batchSetDesktopManager(const BatchSetDesk
 }
 
 /**
- * @summary 管理员修改用户密码
+ * @summary If the user is in administrator-activated mode, you can change the user logon password through this operation.
  *
  * @param request ChangeUserPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -95,12 +99,16 @@ BatchSetDesktopManagerResponse Client::batchSetDesktopManager(const BatchSetDesk
 ChangeUserPasswordResponse Client::changeUserPasswordWithOptions(const ChangeUserPasswordRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasEndUserId()) {
-    body["EndUserId"] = request.endUserId();
+    body["EndUserId"] = request.getEndUserId();
   }
 
   if (!!request.hasNewPassword()) {
-    body["NewPassword"] = request.newPassword();
+    body["NewPassword"] = request.getNewPassword();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -121,7 +129,7 @@ ChangeUserPasswordResponse Client::changeUserPasswordWithOptions(const ChangeUse
 }
 
 /**
- * @summary 管理员修改用户密码
+ * @summary If the user is in administrator-activated mode, you can change the user logon password through this operation.
  *
  * @param request ChangeUserPasswordRequest
  * @return ChangeUserPasswordResponse
@@ -141,8 +149,12 @@ ChangeUserPasswordResponse Client::changeUserPassword(const ChangeUserPasswordRe
 CheckUsedPropertyResponse Client::checkUsedPropertyWithOptions(const CheckUsedPropertyRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasPropertyId()) {
-    query["PropertyId"] = request.propertyId();
+    query["PropertyId"] = request.getPropertyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -185,12 +197,16 @@ CheckUsedPropertyResponse Client::checkUsedProperty(const CheckUsedPropertyReque
 CheckUsedPropertyValueResponse Client::checkUsedPropertyValueWithOptions(const CheckUsedPropertyValueRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasPropertyId()) {
-    query["PropertyId"] = request.propertyId();
+    query["PropertyId"] = request.getPropertyId();
   }
 
   if (!!request.hasPropertyValueId()) {
-    query["PropertyValueId"] = request.propertyValueId();
+    query["PropertyValueId"] = request.getPropertyValueId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -234,23 +250,27 @@ CreateGroupResponse Client::createGroupWithOptions(const CreateGroupRequest &req
   request.validate();
   json query = {};
   if (!!request.hasBizType()) {
-    query["BizType"] = request.bizType();
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasGroupName()) {
-    query["GroupName"] = request.groupName();
+    query["GroupName"] = request.getGroupName();
   }
 
   if (!!request.hasParentGroupId()) {
-    query["ParentGroupId"] = request.parentGroupId();
+    query["ParentGroupId"] = request.getParentGroupId();
   }
 
   if (!!request.hasSolutionId()) {
-    query["SolutionId"] = request.solutionId();
+    query["SolutionId"] = request.getSolutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -291,12 +311,16 @@ CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
 CreateOrgResponse Client::createOrgWithOptions(const CreateOrgRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasOrgName()) {
-    query["OrgName"] = request.orgName();
+    query["OrgName"] = request.getOrgName();
   }
 
   if (!!request.hasParentOrgId()) {
-    query["ParentOrgId"] = request.parentOrgId();
+    query["ParentOrgId"] = request.getParentOrgId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -337,12 +361,16 @@ CreateOrgResponse Client::createOrg(const CreateOrgRequest &request) {
 CreatePropertyResponse Client::createPropertyWithOptions(const CreatePropertyRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasPropertyKey()) {
-    body["PropertyKey"] = request.propertyKey();
+    body["PropertyKey"] = request.getPropertyKey();
   }
 
   if (!!request.hasPropertyValues()) {
-    body["PropertyValues"] = request.propertyValues();
+    body["PropertyValues"] = request.getPropertyValues();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -383,16 +411,20 @@ CreatePropertyResponse Client::createProperty(const CreatePropertyRequest &reque
 CreateResourceGroupResponse Client::createResourceGroupWithOptions(const CreateResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasIsResourceGroupWithOfficeSite()) {
-    query["IsResourceGroupWithOfficeSite"] = request.isResourceGroupWithOfficeSite();
+    query["IsResourceGroupWithOfficeSite"] = request.getIsResourceGroupWithOfficeSite();
   }
 
   if (!!request.hasPlatform()) {
-    query["Platform"] = request.platform();
+    query["Platform"] = request.getPlatform();
   }
 
   if (!!request.hasResourceGroupName()) {
-    query["ResourceGroupName"] = request.resourceGroupName();
+    query["ResourceGroupName"] = request.getResourceGroupName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -436,24 +468,28 @@ CreateUsersResponse Client::createUsersWithOptions(const CreateUsersRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAutoLockTime()) {
-    query["AutoLockTime"] = request.autoLockTime();
+    query["AutoLockTime"] = request.getAutoLockTime();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
   }
 
   if (!!request.hasIsLocalAdmin()) {
-    query["IsLocalAdmin"] = request.isLocalAdmin();
+    query["IsLocalAdmin"] = request.getIsLocalAdmin();
   }
 
   if (!!request.hasPasswordExpireDays()) {
-    query["PasswordExpireDays"] = request.passwordExpireDays();
+    query["PasswordExpireDays"] = request.getPasswordExpireDays();
   }
 
   json body = {};
   if (!!request.hasPassword()) {
-    body["Password"] = request.password();
+    body["Password"] = request.getPassword();
   }
 
   if (!!request.hasUsers()) {
-    body["Users"] = request.users();
+    body["Users"] = request.getUsers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -497,12 +533,16 @@ CreateUsersResponse Client::createUsers(const CreateUsersRequest &request) {
 DeleteResourceGroupResponse Client::deleteResourceGroupWithOptions(const DeleteResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceGroupIds()) {
-    query["ResourceGroupIds"] = request.resourceGroupIds();
+    query["ResourceGroupIds"] = request.getResourceGroupIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -545,16 +585,20 @@ DeleteResourceGroupResponse Client::deleteResourceGroup(const DeleteResourceGrou
 DeleteUserPropertyValueResponse Client::deleteUserPropertyValueWithOptions(const DeleteUserPropertyValueRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasPropertyId()) {
-    body["PropertyId"] = request.propertyId();
+    body["PropertyId"] = request.getPropertyId();
   }
 
   if (!!request.hasPropertyValueId()) {
-    body["PropertyValueId"] = request.propertyValueId();
+    body["PropertyValueId"] = request.getPropertyValueId();
   }
 
   if (!!request.hasUserId()) {
-    body["UserId"] = request.userId();
+    body["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -598,27 +642,31 @@ DescribeGroupUserResponse Client::describeGroupUserWithOptions(const DescribeGro
   request.validate();
   json query = {};
   if (!!request.hasBizType()) {
-    query["BizType"] = request.bizType();
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
   }
 
   if (!!request.hasFilter()) {
-    query["Filter"] = request.filter();
+    query["Filter"] = request.getFilter();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasSolutionId()) {
-    query["SolutionId"] = request.solutionId();
+    query["SolutionId"] = request.getSolutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -660,43 +708,47 @@ DescribeGroupsResponse Client::describeGroupsWithOptions(const DescribeGroupsReq
   request.validate();
   json query = {};
   if (!!request.hasBizType()) {
-    query["BizType"] = request.bizType();
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
   }
 
   if (!!request.hasExcludeAttachedLoginPolicyGroups()) {
-    query["ExcludeAttachedLoginPolicyGroups"] = request.excludeAttachedLoginPolicyGroups();
+    query["ExcludeAttachedLoginPolicyGroups"] = request.getExcludeAttachedLoginPolicyGroups();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasGroupName()) {
-    query["GroupName"] = request.groupName();
+    query["GroupName"] = request.getGroupName();
   }
 
   if (!!request.hasIdpId()) {
-    query["IdpId"] = request.idpId();
+    query["IdpId"] = request.getIdpId();
   }
 
   if (!!request.hasLoginPolicyId()) {
-    query["LoginPolicyId"] = request.loginPolicyId();
+    query["LoginPolicyId"] = request.getLoginPolicyId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSolutionId()) {
-    query["SolutionId"] = request.solutionId();
+    query["SolutionId"] = request.getSolutionId();
   }
 
   if (!!request.hasTransferFileNeedApproval()) {
-    query["TransferFileNeedApproval"] = request.transferFileNeedApproval();
+    query["TransferFileNeedApproval"] = request.getTransferFileNeedApproval();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -738,27 +790,31 @@ DescribeMfaDevicesResponse Client::describeMfaDevicesWithOptions(const DescribeM
   request.validate();
   json query = {};
   if (!!request.hasAdDomain()) {
-    query["AdDomain"] = request.adDomain();
+    query["AdDomain"] = request.getAdDomain();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
   }
 
   if (!!request.hasEndUserIds()) {
-    query["EndUserIds"] = request.endUserIds();
+    query["EndUserIds"] = request.getEndUserIds();
   }
 
   if (!!request.hasFilter()) {
-    query["Filter"] = request.filter();
+    query["Filter"] = request.getFilter();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasSerialNumbers()) {
-    query["SerialNumbers"] = request.serialNumbers();
+    query["SerialNumbers"] = request.getSerialNumbers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -799,12 +855,16 @@ DescribeMfaDevicesResponse Client::describeMfaDevices(const DescribeMfaDevicesRe
 DescribeOrgByLayerResponse Client::describeOrgByLayerWithOptions(const DescribeOrgByLayerRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasOrgName()) {
-    body["OrgName"] = request.orgName();
+    body["OrgName"] = request.getOrgName();
   }
 
   if (!!request.hasParentOrgId()) {
-    body["ParentOrgId"] = request.parentOrgId();
+    body["ParentOrgId"] = request.getParentOrgId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -849,28 +909,32 @@ DescribeOrgsResponse Client::describeOrgsWithOptions(const DescribeOrgsRequest &
   DescribeOrgsShrinkRequest request = DescribeOrgsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasShowExtras()) {
-    request.setShowExtrasShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.showExtras(), "ShowExtras", "json"));
+    request.setShowExtrasShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getShowExtras(), "ShowExtras", "json"));
   }
 
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrgName()) {
-    query["OrgName"] = request.orgName();
+    query["OrgName"] = request.getOrgName();
   }
 
   if (!!request.hasParentOrgId()) {
-    query["ParentOrgId"] = request.parentOrgId();
+    query["ParentOrgId"] = request.getParentOrgId();
   }
 
   if (!!request.hasShowExtrasShrink()) {
-    query["ShowExtras"] = request.showExtrasShrink();
+    query["ShowExtras"] = request.getShowExtrasShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -913,28 +977,36 @@ DescribeOrgsResponse Client::describeOrgs(const DescribeOrgsRequest &request) {
 DescribeResourceGroupsResponse Client::describeResourceGroupsWithOptions(const DescribeResourceGroupsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAliyunResourceGroupIds()) {
+    query["AliyunResourceGroupIds"] = request.getAliyunResourceGroupIds();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasNeedContainResourceGroupWithOfficeSite()) {
-    query["NeedContainResourceGroupWithOfficeSite"] = request.needContainResourceGroupWithOfficeSite();
+    query["NeedContainResourceGroupWithOfficeSite"] = request.getNeedContainResourceGroupWithOfficeSite();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPlatform()) {
-    query["Platform"] = request.platform();
+    query["Platform"] = request.getPlatform();
   }
 
   if (!!request.hasResourceGroupIds()) {
-    query["ResourceGroupIds"] = request.resourceGroupIds();
+    query["ResourceGroupIds"] = request.getResourceGroupIds();
   }
 
   if (!!request.hasResourceGroupName()) {
-    query["ResourceGroupName"] = request.resourceGroupName();
+    query["ResourceGroupName"] = request.getResourceGroupName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -976,78 +1048,90 @@ DescribeUsersResponse Client::describeUsersWithOptions(const DescribeUsersReques
   tmpReq.validate();
   DescribeUsersShrinkRequest request = DescribeUsersShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilterMap()) {
+    request.setFilterMapShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilterMap(), "FilterMap", "json"));
+  }
+
   if (!!tmpReq.hasFilterWithAssignedResource()) {
-    request.setFilterWithAssignedResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filterWithAssignedResource(), "FilterWithAssignedResource", "json"));
+    request.setFilterWithAssignedResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilterWithAssignedResource(), "FilterWithAssignedResource", "json"));
   }
 
   if (!!tmpReq.hasFilterWithAssignedResources()) {
-    request.setFilterWithAssignedResourcesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filterWithAssignedResources(), "FilterWithAssignedResources", "json"));
+    request.setFilterWithAssignedResourcesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilterWithAssignedResources(), "FilterWithAssignedResources", "json"));
   }
 
   if (!!tmpReq.hasShowExtras()) {
-    request.setShowExtrasShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.showExtras(), "ShowExtras", "json"));
+    request.setShowExtrasShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getShowExtras(), "ShowExtras", "json"));
   }
 
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasFilter()) {
-    query["Filter"] = request.filter();
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasFilterMapShrink()) {
+    query["FilterMap"] = request.getFilterMapShrink();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   json body = {};
   if (!!request.hasBizType()) {
-    body["BizType"] = request.bizType();
+    body["BizType"] = request.getBizType();
   }
 
   if (!!request.hasEndUserIds()) {
-    body["EndUserIds"] = request.endUserIds();
+    body["EndUserIds"] = request.getEndUserIds();
   }
 
   if (!!request.hasExcludeEndUserIds()) {
-    body["ExcludeEndUserIds"] = request.excludeEndUserIds();
+    body["ExcludeEndUserIds"] = request.getExcludeEndUserIds();
   }
 
   if (!!request.hasExcludeGroupId()) {
-    body["ExcludeGroupId"] = request.excludeGroupId();
+    body["ExcludeGroupId"] = request.getExcludeGroupId();
   }
 
   if (!!request.hasFilterWithAssignedResourceShrink()) {
-    body["FilterWithAssignedResource"] = request.filterWithAssignedResourceShrink();
+    body["FilterWithAssignedResource"] = request.getFilterWithAssignedResourceShrink();
   }
 
   if (!!request.hasFilterWithAssignedResourcesShrink()) {
-    body["FilterWithAssignedResources"] = request.filterWithAssignedResourcesShrink();
+    body["FilterWithAssignedResources"] = request.getFilterWithAssignedResourcesShrink();
   }
 
   if (!!request.hasGroupId()) {
-    body["GroupId"] = request.groupId();
+    body["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasIsQueryAllSubOrgs()) {
-    body["IsQueryAllSubOrgs"] = request.isQueryAllSubOrgs();
+    body["IsQueryAllSubOrgs"] = request.getIsQueryAllSubOrgs();
   }
 
   if (!!request.hasOrgId()) {
-    body["OrgId"] = request.orgId();
+    body["OrgId"] = request.getOrgId();
   }
 
   if (!!request.hasShowExtrasShrink()) {
-    body["ShowExtras"] = request.showExtrasShrink();
+    body["ShowExtras"] = request.getShowExtrasShrink();
   }
 
   if (!!request.hasSolutionId()) {
-    body["SolutionId"] = request.solutionId();
+    body["SolutionId"] = request.getSolutionId();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1090,69 +1174,85 @@ FilterUsersResponse Client::filterUsersWithOptions(const FilterUsersRequest &tmp
   tmpReq.validate();
   FilterUsersShrinkRequest request = FilterUsersShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilterMap()) {
+    request.setFilterMapShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilterMap(), "FilterMap", "json"));
+  }
+
   if (!!tmpReq.hasOrderParam()) {
-    request.setOrderParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.orderParam(), "OrderParam", "json"));
+    request.setOrderParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOrderParam(), "OrderParam", "json"));
   }
 
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasExcludeEndUserIds()) {
-    query["ExcludeEndUserIds"] = request.excludeEndUserIds();
+    query["ExcludeEndUserIds"] = request.getExcludeEndUserIds();
   }
 
   if (!!request.hasFilter()) {
-    query["Filter"] = request.filter();
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasFilterMapShrink()) {
+    query["FilterMap"] = request.getFilterMapShrink();
   }
 
   if (!!request.hasIncludeDesktopCount()) {
-    query["IncludeDesktopCount"] = request.includeDesktopCount();
+    query["IncludeDesktopCount"] = request.getIncludeDesktopCount();
   }
 
   if (!!request.hasIncludeDesktopGroupCount()) {
-    query["IncludeDesktopGroupCount"] = request.includeDesktopGroupCount();
+    query["IncludeDesktopGroupCount"] = request.getIncludeDesktopGroupCount();
+  }
+
+  if (!!request.hasIncludeEndUserIds()) {
+    query["IncludeEndUserIds"] = request.getIncludeEndUserIds();
   }
 
   if (!!request.hasIncludeOrgInfo()) {
-    query["IncludeOrgInfo"] = request.includeOrgInfo();
+    query["IncludeOrgInfo"] = request.getIncludeOrgInfo();
   }
 
   if (!!request.hasIncludeSupportIdps()) {
-    query["IncludeSupportIdps"] = request.includeSupportIdps();
+    query["IncludeSupportIdps"] = request.getIncludeSupportIdps();
   }
 
   if (!!request.hasIsQueryAllSubOrgs()) {
-    query["IsQueryAllSubOrgs"] = request.isQueryAllSubOrgs();
+    query["IsQueryAllSubOrgs"] = request.getIsQueryAllSubOrgs();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrderParamShrink()) {
-    query["OrderParam"] = request.orderParamShrink();
+    query["OrderParam"] = request.getOrderParamShrink();
   }
 
   if (!!request.hasOrgId()) {
-    query["OrgId"] = request.orgId();
+    query["OrgId"] = request.getOrgId();
   }
 
   if (!!request.hasOwnerType()) {
-    query["OwnerType"] = request.ownerType();
+    query["OwnerType"] = request.getOwnerType();
   }
 
   if (!!request.hasPropertyFilterParam()) {
-    query["PropertyFilterParam"] = request.propertyFilterParam();
+    query["PropertyFilterParam"] = request.getPropertyFilterParam();
   }
 
   if (!!request.hasPropertyKeyValueFilterParam()) {
-    query["PropertyKeyValueFilterParam"] = request.propertyKeyValueFilterParam();
+    query["PropertyKeyValueFilterParam"] = request.getPropertyKeyValueFilterParam();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1194,7 +1294,7 @@ GetManagerInfoByAuthCodeResponse Client::getManagerInfoByAuthCodeWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAuthCode()) {
-    query["AuthCode"] = request.authCode();
+    query["AuthCode"] = request.getAuthCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1232,8 +1332,16 @@ GetManagerInfoByAuthCodeResponse Client::getManagerInfoByAuthCode(const GetManag
  * @param runtime runtime options for this request RuntimeOptions
  * @return InitTenantAliasResponse
  */
-InitTenantAliasResponse Client::initTenantAliasWithOptions(const Darabonba::RuntimeOptions &runtime) {
-  OpenApiRequest req = OpenApiRequest();
+InitTenantAliasResponse Client::initTenantAliasWithOptions(const InitTenantAliasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "InitTenantAlias"},
     {"version" , "2021-03-08"},
@@ -1251,11 +1359,12 @@ InitTenantAliasResponse Client::initTenantAliasWithOptions(const Darabonba::Runt
 /**
  * @summary Initializes an organization ID.
  *
+ * @param request InitTenantAliasRequest
  * @return InitTenantAliasResponse
  */
-InitTenantAliasResponse Client::initTenantAlias() {
+InitTenantAliasResponse Client::initTenantAlias(const InitTenantAliasRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return initTenantAliasWithOptions(runtime);
+  return initTenantAliasWithOptions(request, runtime);
 }
 
 /**
@@ -1265,8 +1374,16 @@ InitTenantAliasResponse Client::initTenantAlias() {
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListPropertyResponse
  */
-ListPropertyResponse Client::listPropertyWithOptions(const Darabonba::RuntimeOptions &runtime) {
-  OpenApiRequest req = OpenApiRequest();
+ListPropertyResponse Client::listPropertyWithOptions(const ListPropertyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListProperty"},
     {"version" , "2021-03-08"},
@@ -1284,11 +1401,12 @@ ListPropertyResponse Client::listPropertyWithOptions(const Darabonba::RuntimeOpt
 /**
  * @summary Queries all user properties within an Alibaba Cloud account.
  *
+ * @param request ListPropertyRequest
  * @return ListPropertyResponse
  */
-ListPropertyResponse Client::listProperty() {
+ListPropertyResponse Client::listProperty(const ListPropertyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return listPropertyWithOptions(runtime);
+  return listPropertyWithOptions(request, runtime);
 }
 
 /**
@@ -1301,8 +1419,12 @@ ListPropertyResponse Client::listProperty() {
 ListPropertyValueResponse Client::listPropertyValueWithOptions(const ListPropertyValueRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasPropertyId()) {
-    query["PropertyId"] = request.propertyId();
+    query["PropertyId"] = request.getPropertyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1346,11 +1468,15 @@ LockMfaDeviceResponse Client::lockMfaDeviceWithOptions(const LockMfaDeviceReques
   request.validate();
   json query = {};
   if (!!request.hasAdDomain()) {
-    query["AdDomain"] = request.adDomain();
+    query["AdDomain"] = request.getAdDomain();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
   }
 
   if (!!request.hasSerialNumber()) {
-    query["SerialNumber"] = request.serialNumber();
+    query["SerialNumber"] = request.getSerialNumber();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1393,13 +1519,17 @@ LockMfaDeviceResponse Client::lockMfaDevice(const LockMfaDeviceRequest &request)
 LockUsersResponse Client::lockUsersWithOptions(const LockUsersRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasLogoutSession()) {
-    query["LogoutSession"] = request.logoutSession();
+    query["LogoutSession"] = request.getLogoutSession();
   }
 
   json body = {};
   if (!!request.hasUsers()) {
-    body["Users"] = request.users();
+    body["Users"] = request.getUsers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1441,16 +1571,20 @@ LockUsersResponse Client::lockUsers(const LockUsersRequest &request) {
 ModifyGroupResponse Client::modifyGroupWithOptions(const ModifyGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasNewGroupName()) {
-    query["NewGroupName"] = request.newGroupName();
+    query["NewGroupName"] = request.getNewGroupName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1491,12 +1625,16 @@ ModifyGroupResponse Client::modifyGroup(const ModifyGroupRequest &request) {
 ModifyOrgResponse Client::modifyOrgWithOptions(const ModifyOrgRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasOrgId()) {
-    query["OrgId"] = request.orgId();
+    query["OrgId"] = request.getOrgId();
   }
 
   if (!!request.hasOrgName()) {
-    query["OrgName"] = request.orgName();
+    query["OrgName"] = request.getOrgName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1528,7 +1666,7 @@ ModifyOrgResponse Client::modifyOrg(const ModifyOrgRequest &request) {
 }
 
 /**
- * @summary Modifies user information.
+ * @summary Updates the contact information of a convenience account.
  *
  * @param request ModifyUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1537,16 +1675,20 @@ ModifyOrgResponse Client::modifyOrg(const ModifyOrgRequest &request) {
 ModifyUserResponse Client::modifyUserWithOptions(const ModifyUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasEmail()) {
-    query["Email"] = request.email();
+    query["Email"] = request.getEmail();
   }
 
   if (!!request.hasEndUserId()) {
-    query["EndUserId"] = request.endUserId();
+    query["EndUserId"] = request.getEndUserId();
   }
 
   if (!!request.hasPhone()) {
-    query["Phone"] = request.phone();
+    query["Phone"] = request.getPhone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1567,7 +1709,7 @@ ModifyUserResponse Client::modifyUserWithOptions(const ModifyUserRequest &reques
 }
 
 /**
- * @summary Modifies user information.
+ * @summary Updates the contact information of a convenience account.
  *
  * @param request ModifyUserRequest
  * @return ModifyUserResponse
@@ -1587,12 +1729,16 @@ ModifyUserResponse Client::modifyUser(const ModifyUserRequest &request) {
 MoveOrgResponse Client::moveOrgWithOptions(const MoveOrgRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasNewParentOrgId()) {
-    body["NewParentOrgId"] = request.newParentOrgId();
+    body["NewParentOrgId"] = request.getNewParentOrgId();
   }
 
   if (!!request.hasOrgId()) {
-    body["OrgId"] = request.orgId();
+    body["OrgId"] = request.getOrgId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1633,12 +1779,16 @@ MoveOrgResponse Client::moveOrg(const MoveOrgRequest &request) {
 MoveUserOrgResponse Client::moveUserOrgWithOptions(const MoveUserOrgRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasEndUserIds()) {
-    body["EndUserIds"] = request.endUserIds();
+    body["EndUserIds"] = request.getEndUserIds();
   }
 
   if (!!request.hasOrgId()) {
-    body["OrgId"] = request.orgId();
+    body["OrgId"] = request.getOrgId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1670,14 +1820,22 @@ MoveUserOrgResponse Client::moveUserOrg(const MoveUserOrgRequest &request) {
 }
 
 /**
- * @summary 查询edu同步信息
+ * @summary Queries user synchronization status.
  *
  * @param request QuerySyncStatusByAliUidRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QuerySyncStatusByAliUidResponse
  */
-QuerySyncStatusByAliUidResponse Client::querySyncStatusByAliUidWithOptions(const Darabonba::RuntimeOptions &runtime) {
-  OpenApiRequest req = OpenApiRequest();
+QuerySyncStatusByAliUidResponse Client::querySyncStatusByAliUidWithOptions(const QuerySyncStatusByAliUidRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QuerySyncStatusByAliUid"},
     {"version" , "2021-03-08"},
@@ -1693,13 +1851,14 @@ QuerySyncStatusByAliUidResponse Client::querySyncStatusByAliUidWithOptions(const
 }
 
 /**
- * @summary 查询edu同步信息
+ * @summary Queries user synchronization status.
  *
+ * @param request QuerySyncStatusByAliUidRequest
  * @return QuerySyncStatusByAliUidResponse
  */
-QuerySyncStatusByAliUidResponse Client::querySyncStatusByAliUid() {
+QuerySyncStatusByAliUidResponse Client::querySyncStatusByAliUid(const QuerySyncStatusByAliUidRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return querySyncStatusByAliUidWithOptions(runtime);
+  return querySyncStatusByAliUidWithOptions(request, runtime);
 }
 
 /**
@@ -1712,12 +1871,16 @@ QuerySyncStatusByAliUidResponse Client::querySyncStatusByAliUid() {
 RemoveGroupResponse Client::removeGroupWithOptions(const RemoveGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasGroupIds()) {
-    query["GroupIds"] = request.groupIds();
+    query["GroupIds"] = request.getGroupIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1761,11 +1924,15 @@ RemoveMfaDeviceResponse Client::removeMfaDeviceWithOptions(const RemoveMfaDevice
   request.validate();
   json query = {};
   if (!!request.hasAdDomain()) {
-    query["AdDomain"] = request.adDomain();
+    query["AdDomain"] = request.getAdDomain();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
   }
 
   if (!!request.hasSerialNumber()) {
-    query["SerialNumber"] = request.serialNumber();
+    query["SerialNumber"] = request.getSerialNumber();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1808,8 +1975,12 @@ RemoveMfaDeviceResponse Client::removeMfaDevice(const RemoveMfaDeviceRequest &re
 RemoveOrgResponse Client::removeOrgWithOptions(const RemoveOrgRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasOrgId()) {
-    body["OrgId"] = request.orgId();
+    body["OrgId"] = request.getOrgId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1849,14 +2020,20 @@ RemoveOrgResponse Client::removeOrg(const RemoveOrgRequest &request) {
  */
 RemovePropertyResponse Client::removePropertyWithOptions(const RemovePropertyRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   json body = {};
   if (!!request.hasPropertyId()) {
-    body["PropertyId"] = request.propertyId();
+    body["PropertyId"] = request.getPropertyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "RemoveProperty"},
     {"version" , "2021-03-08"},
@@ -1892,8 +2069,12 @@ RemovePropertyResponse Client::removeProperty(const RemovePropertyRequest &reque
 RemoveUsersResponse Client::removeUsersWithOptions(const RemoveUsersRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasUsers()) {
-    body["Users"] = request.users();
+    body["Users"] = request.getUsers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1934,12 +2115,16 @@ RemoveUsersResponse Client::removeUsers(const RemoveUsersRequest &request) {
 ResetUserPasswordResponse Client::resetUserPasswordWithOptions(const ResetUserPasswordRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasNotifyType()) {
-    body["NotifyType"] = request.notifyType();
+    body["NotifyType"] = request.getNotifyType();
   }
 
   if (!!request.hasUsers()) {
-    body["Users"] = request.users();
+    body["Users"] = request.getUsers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1980,20 +2165,24 @@ ResetUserPasswordResponse Client::resetUserPassword(const ResetUserPasswordReque
 SetUserPropertyValueResponse Client::setUserPropertyValueWithOptions(const SetUserPropertyValueRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasPropertyId()) {
-    body["PropertyId"] = request.propertyId();
+    body["PropertyId"] = request.getPropertyId();
   }
 
   if (!!request.hasPropertyValueId()) {
-    body["PropertyValueId"] = request.propertyValueId();
+    body["PropertyValueId"] = request.getPropertyValueId();
   }
 
   if (!!request.hasUserId()) {
-    body["UserId"] = request.userId();
+    body["UserId"] = request.getUserId();
   }
 
   if (!!request.hasUserName()) {
-    body["UserName"] = request.userName();
+    body["UserName"] = request.getUserName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2025,7 +2214,7 @@ SetUserPropertyValueResponse Client::setUserPropertyValue(const SetUserPropertyV
 }
 
 /**
- * @summary 从钉钉手动同步老师学生信息
+ * @summary Synchronizes all education information.
  *
  * @param request SyncAllEduInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2048,7 +2237,7 @@ SyncAllEduInfoResponse Client::syncAllEduInfoWithOptions(const Darabonba::Runtim
 }
 
 /**
- * @summary 从钉钉手动同步老师学生信息
+ * @summary Synchronizes all education information.
  *
  * @return SyncAllEduInfoResponse
  */
@@ -2068,11 +2257,15 @@ UnlockMfaDeviceResponse Client::unlockMfaDeviceWithOptions(const UnlockMfaDevice
   request.validate();
   json query = {};
   if (!!request.hasAdDomain()) {
-    query["AdDomain"] = request.adDomain();
+    query["AdDomain"] = request.getAdDomain();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
   }
 
   if (!!request.hasSerialNumber()) {
-    query["SerialNumber"] = request.serialNumber();
+    query["SerialNumber"] = request.getSerialNumber();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2114,12 +2307,16 @@ UnlockUsersResponse Client::unlockUsersWithOptions(const UnlockUsersRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAutoLockTime()) {
-    query["AutoLockTime"] = request.autoLockTime();
+    query["AutoLockTime"] = request.getAutoLockTime();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
   }
 
   json body = {};
   if (!!request.hasUsers()) {
-    body["Users"] = request.users();
+    body["Users"] = request.getUsers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2160,22 +2357,28 @@ UnlockUsersResponse Client::unlockUsers(const UnlockUsersRequest &request) {
  */
 UpdatePropertyResponse Client::updatePropertyWithOptions(const UpdatePropertyRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   json body = {};
   if (!!request.hasPropertyId()) {
-    body["PropertyId"] = request.propertyId();
+    body["PropertyId"] = request.getPropertyId();
   }
 
   if (!!request.hasPropertyKey()) {
-    body["PropertyKey"] = request.propertyKey();
+    body["PropertyKey"] = request.getPropertyKey();
   }
 
   if (!!request.hasPropertyValues()) {
-    body["PropertyValues"] = request.propertyValues();
+    body["PropertyValues"] = request.getPropertyValues();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "UpdateProperty"},
     {"version" , "2021-03-08"},
@@ -2211,12 +2414,16 @@ UpdatePropertyResponse Client::updateProperty(const UpdatePropertyRequest &reque
 UserBatchJoinGroupResponse Client::userBatchJoinGroupWithOptions(const UserBatchJoinGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasEndUserIds()) {
-    body["EndUserIds"] = request.endUserIds();
+    body["EndUserIds"] = request.getEndUserIds();
   }
 
   if (!!request.hasGroupId()) {
-    body["GroupId"] = request.groupId();
+    body["GroupId"] = request.getGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2257,12 +2464,16 @@ UserBatchJoinGroupResponse Client::userBatchJoinGroup(const UserBatchJoinGroupRe
 UserBatchQuitGroupResponse Client::userBatchQuitGroupWithOptions(const UserBatchQuitGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasEndUserIds()) {
-    body["EndUserIds"] = request.endUserIds();
+    body["EndUserIds"] = request.getEndUserIds();
   }
 
   if (!!request.hasGroupId()) {
-    body["GroupId"] = request.groupId();
+    body["GroupId"] = request.getGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

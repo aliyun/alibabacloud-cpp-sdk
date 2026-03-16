@@ -33,7 +33,7 @@ namespace Models
     // authCode Field Functions 
     bool hasAuthCode() const { return this->authCode_ != nullptr;};
     void deleteAuthCode() { this->authCode_ = nullptr;};
-    inline string authCode() const { DARABONBA_PTR_GET_DEFAULT(authCode_, "") };
+    inline string getAuthCode() const { DARABONBA_PTR_GET_DEFAULT(authCode_, "") };
     inline GetManagerInfoByAuthCodeRequest& setAuthCode(string authCode) { DARABONBA_PTR_SET_VALUE(authCode_, authCode) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The authorization code.
     // 
     // This parameter is required.
-    std::shared_ptr<string> authCode_ = nullptr;
+    shared_ptr<string> authCode_ {};
   };
 
   } // namespace Models

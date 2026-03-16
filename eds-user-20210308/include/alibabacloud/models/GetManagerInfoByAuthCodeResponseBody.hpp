@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->orgId_ == nullptr
-        && return this->phone_ == nullptr && return this->requestId_ == nullptr && return this->teamName_ == nullptr && return this->userName_ == nullptr && return this->waId_ == nullptr; };
+        && this->phone_ == nullptr && this->requestId_ == nullptr && this->teamName_ == nullptr && this->userName_ == nullptr && this->waId_ == nullptr; };
     // orgId Field Functions 
     bool hasOrgId() const { return this->orgId_ != nullptr;};
     void deleteOrgId() { this->orgId_ = nullptr;};
-    inline string orgId() const { DARABONBA_PTR_GET_DEFAULT(orgId_, "") };
+    inline string getOrgId() const { DARABONBA_PTR_GET_DEFAULT(orgId_, "") };
     inline GetManagerInfoByAuthCodeResponseBody& setOrgId(string orgId) { DARABONBA_PTR_SET_VALUE(orgId_, orgId) };
 
 
     // phone Field Functions 
     bool hasPhone() const { return this->phone_ != nullptr;};
     void deletePhone() { this->phone_ = nullptr;};
-    inline string phone() const { DARABONBA_PTR_GET_DEFAULT(phone_, "") };
+    inline string getPhone() const { DARABONBA_PTR_GET_DEFAULT(phone_, "") };
     inline GetManagerInfoByAuthCodeResponseBody& setPhone(string phone) { DARABONBA_PTR_SET_VALUE(phone_, phone) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetManagerInfoByAuthCodeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // teamName Field Functions 
     bool hasTeamName() const { return this->teamName_ != nullptr;};
     void deleteTeamName() { this->teamName_ = nullptr;};
-    inline string teamName() const { DARABONBA_PTR_GET_DEFAULT(teamName_, "") };
+    inline string getTeamName() const { DARABONBA_PTR_GET_DEFAULT(teamName_, "") };
     inline GetManagerInfoByAuthCodeResponseBody& setTeamName(string teamName) { DARABONBA_PTR_SET_VALUE(teamName_, teamName) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline GetManagerInfoByAuthCodeResponseBody& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
     // waId Field Functions 
     bool hasWaId() const { return this->waId_ != nullptr;};
     void deleteWaId() { this->waId_ = nullptr;};
-    inline int64_t waId() const { DARABONBA_PTR_GET_DEFAULT(waId_, 0L) };
+    inline int64_t getWaId() const { DARABONBA_PTR_GET_DEFAULT(waId_, 0L) };
     inline GetManagerInfoByAuthCodeResponseBody& setWaId(int64_t waId) { DARABONBA_PTR_SET_VALUE(waId_, waId) };
 
 
   protected:
     // The organization ID.
-    std::shared_ptr<string> orgId_ = nullptr;
+    shared_ptr<string> orgId_ {};
     // The mobile number.
-    std::shared_ptr<string> phone_ = nullptr;
+    shared_ptr<string> phone_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The team name.
-    std::shared_ptr<string> teamName_ = nullptr;
+    shared_ptr<string> teamName_ {};
     // The tenant name.
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> userName_ {};
     // The ID of the Elastic Desktop Service account.
-    std::shared_ptr<int64_t> waId_ = nullptr;
+    shared_ptr<int64_t> waId_ {};
   };
 
   } // namespace Models

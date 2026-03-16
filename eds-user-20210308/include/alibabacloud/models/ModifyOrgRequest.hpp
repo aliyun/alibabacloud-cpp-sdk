@@ -13,10 +13,12 @@ namespace Models
   class ModifyOrgRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyOrgRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(OrgId, orgId_);
       DARABONBA_PTR_TO_JSON(OrgName, orgName_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyOrgRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(OrgId, orgId_);
       DARABONBA_PTR_FROM_JSON(OrgName, orgName_);
     };
@@ -31,31 +33,39 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->orgId_ == nullptr
-        && return this->orgName_ == nullptr; };
+    virtual bool empty() const override { return this->businessChannel_ == nullptr
+        && this->orgId_ == nullptr && this->orgName_ == nullptr; };
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline ModifyOrgRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
     // orgId Field Functions 
     bool hasOrgId() const { return this->orgId_ != nullptr;};
     void deleteOrgId() { this->orgId_ = nullptr;};
-    inline string orgId() const { DARABONBA_PTR_GET_DEFAULT(orgId_, "") };
+    inline string getOrgId() const { DARABONBA_PTR_GET_DEFAULT(orgId_, "") };
     inline ModifyOrgRequest& setOrgId(string orgId) { DARABONBA_PTR_SET_VALUE(orgId_, orgId) };
 
 
     // orgName Field Functions 
     bool hasOrgName() const { return this->orgName_ != nullptr;};
     void deleteOrgName() { this->orgName_ = nullptr;};
-    inline string orgName() const { DARABONBA_PTR_GET_DEFAULT(orgName_, "") };
+    inline string getOrgName() const { DARABONBA_PTR_GET_DEFAULT(orgName_, "") };
     inline ModifyOrgRequest& setOrgName(string orgName) { DARABONBA_PTR_SET_VALUE(orgName_, orgName) };
 
 
   protected:
+    shared_ptr<string> businessChannel_ {};
     // The ID of the organization.
     // 
     // This parameter is required.
-    std::shared_ptr<string> orgId_ = nullptr;
+    shared_ptr<string> orgId_ {};
     // The name of the organization.
     // 
     // This parameter is required.
-    std::shared_ptr<string> orgName_ = nullptr;
+    shared_ptr<string> orgName_ {};
   };
 
   } // namespace Models
