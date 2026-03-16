@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(agentRuntimeEndpointName, agentRuntimeEndpointName_);
       DARABONBA_PTR_TO_JSON(agentRuntimeId, agentRuntimeId_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(disablePublicNetworkAccess, disablePublicNetworkAccess_);
       DARABONBA_PTR_TO_JSON(endpointPublicUrl, endpointPublicUrl_);
       DARABONBA_PTR_TO_JSON(routingConfiguration, routingConfiguration_);
       DARABONBA_PTR_TO_JSON(status, status_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(agentRuntimeEndpointName, agentRuntimeEndpointName_);
       DARABONBA_PTR_FROM_JSON(agentRuntimeId, agentRuntimeId_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(disablePublicNetworkAccess, disablePublicNetworkAccess_);
       DARABONBA_PTR_FROM_JSON(endpointPublicUrl, endpointPublicUrl_);
       DARABONBA_PTR_FROM_JSON(routingConfiguration, routingConfiguration_);
       DARABONBA_PTR_FROM_JSON(status, status_);
@@ -49,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeEndpointArn_ == nullptr
-        && this->agentRuntimeEndpointId_ == nullptr && this->agentRuntimeEndpointName_ == nullptr && this->agentRuntimeId_ == nullptr && this->description_ == nullptr && this->endpointPublicUrl_ == nullptr
-        && this->routingConfiguration_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr && this->targetVersion_ == nullptr; };
+        && this->agentRuntimeEndpointId_ == nullptr && this->agentRuntimeEndpointName_ == nullptr && this->agentRuntimeId_ == nullptr && this->description_ == nullptr && this->disablePublicNetworkAccess_ == nullptr
+        && this->endpointPublicUrl_ == nullptr && this->routingConfiguration_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr && this->targetVersion_ == nullptr; };
     // agentRuntimeEndpointArn Field Functions 
     bool hasAgentRuntimeEndpointArn() const { return this->agentRuntimeEndpointArn_ != nullptr;};
     void deleteAgentRuntimeEndpointArn() { this->agentRuntimeEndpointArn_ = nullptr;};
@@ -84,6 +86,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline AgentRuntimeEndpoint& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // disablePublicNetworkAccess Field Functions 
+    bool hasDisablePublicNetworkAccess() const { return this->disablePublicNetworkAccess_ != nullptr;};
+    void deleteDisablePublicNetworkAccess() { this->disablePublicNetworkAccess_ = nullptr;};
+    inline bool getDisablePublicNetworkAccess() const { DARABONBA_PTR_GET_DEFAULT(disablePublicNetworkAccess_, false) };
+    inline AgentRuntimeEndpoint& setDisablePublicNetworkAccess(bool disablePublicNetworkAccess) { DARABONBA_PTR_SET_VALUE(disablePublicNetworkAccess_, disablePublicNetworkAccess) };
 
 
     // endpointPublicUrl Field Functions 
@@ -129,6 +138,8 @@ namespace Models
     shared_ptr<string> agentRuntimeEndpointName_ {};
     shared_ptr<string> agentRuntimeId_ {};
     shared_ptr<string> description_ {};
+    // 是否禁用该端点的公网访问
+    shared_ptr<bool> disablePublicNetworkAccess_ {};
     // 智能体运行时端点的公网访问地址
     shared_ptr<string> endpointPublicUrl_ {};
     // 智能体运行时端点的路由配置，支持多版本权重分配

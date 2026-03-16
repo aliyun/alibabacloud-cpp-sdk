@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AgentEndpointConfig& obj) { 
       DARABONBA_PTR_TO_JSON(agentName, agentName_);
       DARABONBA_PTR_TO_JSON(customDomainUrl, customDomainUrl_);
+      DARABONBA_PTR_TO_JSON(endpointName, endpointName_);
       DARABONBA_PTR_TO_JSON(endpointUrl, endpointUrl_);
     };
     friend void from_json(const Darabonba::Json& j, AgentEndpointConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(agentName, agentName_);
       DARABONBA_PTR_FROM_JSON(customDomainUrl, customDomainUrl_);
+      DARABONBA_PTR_FROM_JSON(endpointName, endpointName_);
       DARABONBA_PTR_FROM_JSON(endpointUrl, endpointUrl_);
     };
     AgentEndpointConfig() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentName_ == nullptr
-        && this->customDomainUrl_ == nullptr && this->endpointUrl_ == nullptr; };
+        && this->customDomainUrl_ == nullptr && this->endpointName_ == nullptr && this->endpointUrl_ == nullptr; };
     // agentName Field Functions 
     bool hasAgentName() const { return this->agentName_ != nullptr;};
     void deleteAgentName() { this->agentName_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline AgentEndpointConfig& setCustomDomainUrl(string customDomainUrl) { DARABONBA_PTR_SET_VALUE(customDomainUrl_, customDomainUrl) };
 
 
+    // endpointName Field Functions 
+    bool hasEndpointName() const { return this->endpointName_ != nullptr;};
+    void deleteEndpointName() { this->endpointName_ = nullptr;};
+    inline string getEndpointName() const { DARABONBA_PTR_GET_DEFAULT(endpointName_, "") };
+    inline AgentEndpointConfig& setEndpointName(string endpointName) { DARABONBA_PTR_SET_VALUE(endpointName_, endpointName) };
+
+
     // endpointUrl Field Functions 
     bool hasEndpointUrl() const { return this->endpointUrl_ != nullptr;};
     void deleteEndpointUrl() { this->endpointUrl_ = nullptr;};
@@ -59,6 +68,8 @@ namespace Models
   protected:
     shared_ptr<string> agentName_ {};
     shared_ptr<string> customDomainUrl_ {};
+    // 端点名称
+    shared_ptr<string> endpointName_ {};
     shared_ptr<string> endpointUrl_ {};
   };
 

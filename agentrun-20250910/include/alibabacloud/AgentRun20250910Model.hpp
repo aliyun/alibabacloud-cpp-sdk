@@ -94,6 +94,8 @@
 #include <alibabacloud/models/CreateSandboxInput.hpp>
 #include <alibabacloud/models/CredentialConfiguration.hpp>
 #include <alibabacloud/models/OssConfiguration.hpp>
+#include <alibabacloud/models/ScheduledPolicy.hpp>
+#include <alibabacloud/models/ScalingConfig.hpp>
 #include <alibabacloud/models/CreateTemplateInput.hpp>
 #include <alibabacloud/models/CreateToolData.hpp>
 #include <alibabacloud/models/CreateToolInput.hpp>
@@ -117,6 +119,7 @@
 #include <alibabacloud/models/DeleteModelServiceResult.hpp>
 #include <alibabacloud/models/Sandbox.hpp>
 #include <alibabacloud/models/DeleteSandboxResult.hpp>
+#include <alibabacloud/models/ScalingStatus.hpp>
 #include <alibabacloud/models/Template.hpp>
 #include <alibabacloud/models/DeleteTemplateResult.hpp>
 #include <alibabacloud/models/DeregisterServiceInput.hpp>

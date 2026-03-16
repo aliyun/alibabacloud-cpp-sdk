@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(A2AAgentCard, a2AAgentCard_);
       DARABONBA_PTR_TO_JSON(a2aAgentCard, a2aAgentCard_);
       DARABONBA_PTR_TO_JSON(a2aAgentCardUrl, a2aAgentCardUrl_);
+      DARABONBA_PTR_TO_JSON(config, config_);
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(inputBodyJsonSchema, inputBodyJsonSchema_);
       DARABONBA_PTR_TO_JSON(method, method_);
@@ -25,11 +26,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pathPrefix, pathPrefix_);
       DARABONBA_PTR_TO_JSON(requestContentType, requestContentType_);
       DARABONBA_PTR_TO_JSON(responseContentType, responseContentType_);
+      DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, ProtocolSettings& obj) { 
       DARABONBA_PTR_FROM_JSON(A2AAgentCard, a2AAgentCard_);
       DARABONBA_PTR_FROM_JSON(a2aAgentCard, a2aAgentCard_);
       DARABONBA_PTR_FROM_JSON(a2aAgentCardUrl, a2aAgentCardUrl_);
+      DARABONBA_PTR_FROM_JSON(config, config_);
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(inputBodyJsonSchema, inputBodyJsonSchema_);
       DARABONBA_PTR_FROM_JSON(method, method_);
@@ -39,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(pathPrefix, pathPrefix_);
       DARABONBA_PTR_FROM_JSON(requestContentType, requestContentType_);
       DARABONBA_PTR_FROM_JSON(responseContentType, responseContentType_);
+      DARABONBA_PTR_FROM_JSON(type, type_);
     };
     ProtocolSettings() = default ;
     ProtocolSettings(const ProtocolSettings &) = default ;
@@ -52,9 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->a2AAgentCard_ == nullptr
-        && this->a2aAgentCard_ == nullptr && this->a2aAgentCardUrl_ == nullptr && this->headers_ == nullptr && this->inputBodyJsonSchema_ == nullptr && this->method_ == nullptr
-        && this->name_ == nullptr && this->outputBodyJsonSchema_ == nullptr && this->path_ == nullptr && this->pathPrefix_ == nullptr && this->requestContentType_ == nullptr
-        && this->responseContentType_ == nullptr; };
+        && this->a2aAgentCard_ == nullptr && this->a2aAgentCardUrl_ == nullptr && this->config_ == nullptr && this->headers_ == nullptr && this->inputBodyJsonSchema_ == nullptr
+        && this->method_ == nullptr && this->name_ == nullptr && this->outputBodyJsonSchema_ == nullptr && this->path_ == nullptr && this->pathPrefix_ == nullptr
+        && this->requestContentType_ == nullptr && this->responseContentType_ == nullptr && this->type_ == nullptr; };
     // a2AAgentCard Field Functions 
     bool hasA2AAgentCard() const { return this->a2AAgentCard_ != nullptr;};
     void deleteA2AAgentCard() { this->a2AAgentCard_ = nullptr;};
@@ -74,6 +78,13 @@ namespace Models
     void deleteA2aAgentCardUrl() { this->a2aAgentCardUrl_ = nullptr;};
     inline string getA2aAgentCardUrl() const { DARABONBA_PTR_GET_DEFAULT(a2aAgentCardUrl_, "") };
     inline ProtocolSettings& setA2aAgentCardUrl(string a2aAgentCardUrl) { DARABONBA_PTR_SET_VALUE(a2aAgentCardUrl_, a2aAgentCardUrl) };
+
+
+    // config Field Functions 
+    bool hasConfig() const { return this->config_ != nullptr;};
+    void deleteConfig() { this->config_ = nullptr;};
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline ProtocolSettings& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // headers Field Functions 
@@ -139,29 +150,39 @@ namespace Models
     inline ProtocolSettings& setResponseContentType(string responseContentType) { DARABONBA_PTR_SET_VALUE(responseContentType_, responseContentType) };
 
 
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline ProtocolSettings& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
   protected:
-    // A2A Agent Card
     shared_ptr<string> a2AAgentCard_ {};
     shared_ptr<string> a2aAgentCard_ {};
     shared_ptr<string> a2aAgentCardUrl_ {};
+    // 协议配置的 JSON 字符串
+    shared_ptr<string> config_ {};
     // 请求头
     shared_ptr<string> headers_ {};
     // 请求体JSON模式
     shared_ptr<string> inputBodyJsonSchema_ {};
     // HTTP方法
     shared_ptr<string> method_ {};
-    // 协议名称
+    // 可选展示名/别名，不再作为协议类型标识
     shared_ptr<string> name_ {};
     // 响应体JSON模式
     shared_ptr<string> outputBodyJsonSchema_ {};
     // 协议路径
     shared_ptr<string> path_ {};
-    // 协议路径前缀
+    // 协议路径前缀，建议使用 config
     shared_ptr<string> pathPrefix_ {};
     // 请求内容类型
     shared_ptr<string> requestContentType_ {};
     // 响应内容类型
     shared_ptr<string> responseContentType_ {};
+    // 协议类型标识，用于校验与去重；合法取值由后端校验
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

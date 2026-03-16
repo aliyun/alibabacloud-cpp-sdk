@@ -10,6 +10,7 @@
 #include <alibabacloud/models/NASConfig.hpp>
 #include <alibabacloud/models/NetworkConfiguration.hpp>
 #include <alibabacloud/models/OssConfiguration.hpp>
+#include <alibabacloud/models/ScalingStatus.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resourceName, resourceName_);
       DARABONBA_PTR_TO_JSON(sandboxIdleTimeoutInSeconds, sandboxIdleTimeoutInSeconds_);
       DARABONBA_PTR_TO_JSON(sandboxTTLInSeconds, sandboxTTLInSeconds_);
+      DARABONBA_PTR_TO_JSON(scalingStatus, scalingStatus_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(statusReason, statusReason_);
       DARABONBA_PTR_TO_JSON(templateArn, templateArn_);
@@ -74,6 +76,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(resourceName, resourceName_);
       DARABONBA_PTR_FROM_JSON(sandboxIdleTimeoutInSeconds, sandboxIdleTimeoutInSeconds_);
       DARABONBA_PTR_FROM_JSON(sandboxTTLInSeconds, sandboxTTLInSeconds_);
+      DARABONBA_PTR_FROM_JSON(scalingStatus, scalingStatus_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(statusReason, statusReason_);
       DARABONBA_PTR_FROM_JSON(templateArn, templateArn_);
@@ -196,8 +199,8 @@ namespace Models
         && this->diskSize_ == nullptr && this->enableAgent_ == nullptr && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->lastUpdatedAt_ == nullptr
         && this->logConfiguration_ == nullptr && this->mcpOptions_ == nullptr && this->mcpState_ == nullptr && this->memory_ == nullptr && this->nasConfig_ == nullptr
         && this->networkConfiguration_ == nullptr && this->ossConfiguration_ == nullptr && this->resourceName_ == nullptr && this->sandboxIdleTimeoutInSeconds_ == nullptr && this->sandboxTTLInSeconds_ == nullptr
-        && this->status_ == nullptr && this->statusReason_ == nullptr && this->templateArn_ == nullptr && this->templateConfiguration_ == nullptr && this->templateId_ == nullptr
-        && this->templateName_ == nullptr && this->templateType_ == nullptr && this->templateVersion_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->scalingStatus_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr && this->templateArn_ == nullptr && this->templateConfiguration_ == nullptr
+        && this->templateId_ == nullptr && this->templateName_ == nullptr && this->templateType_ == nullptr && this->templateVersion_ == nullptr && this->workspaceId_ == nullptr; };
     // allowAnonymousManage Field Functions 
     bool hasAllowAnonymousManage() const { return this->allowAnonymousManage_ != nullptr;};
     void deleteAllowAnonymousManage() { this->allowAnonymousManage_ = nullptr;};
@@ -363,6 +366,15 @@ namespace Models
     inline Template& setSandboxTTLInSeconds(string sandboxTTLInSeconds) { DARABONBA_PTR_SET_VALUE(sandboxTTLInSeconds_, sandboxTTLInSeconds) };
 
 
+    // scalingStatus Field Functions 
+    bool hasScalingStatus() const { return this->scalingStatus_ != nullptr;};
+    void deleteScalingStatus() { this->scalingStatus_ = nullptr;};
+    inline const ScalingStatus & getScalingStatus() const { DARABONBA_PTR_GET_CONST(scalingStatus_, ScalingStatus) };
+    inline ScalingStatus getScalingStatus() { DARABONBA_PTR_GET(scalingStatus_, ScalingStatus) };
+    inline Template& setScalingStatus(const ScalingStatus & scalingStatus) { DARABONBA_PTR_SET_VALUE(scalingStatus_, scalingStatus) };
+    inline Template& setScalingStatus(ScalingStatus && scalingStatus) { DARABONBA_PTR_SET_RVALUE(scalingStatus_, scalingStatus) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -452,6 +464,7 @@ namespace Models
     shared_ptr<string> resourceName_ {};
     shared_ptr<string> sandboxIdleTimeoutInSeconds_ {};
     shared_ptr<string> sandboxTTLInSeconds_ {};
+    shared_ptr<ScalingStatus> scalingStatus_ {};
     shared_ptr<string> status_ {};
     shared_ptr<string> statusReason_ {};
     shared_ptr<string> templateArn_ {};

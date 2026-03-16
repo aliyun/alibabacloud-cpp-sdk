@@ -16,11 +16,15 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DiscoveryEndpoint& obj) { 
       DARABONBA_PTR_TO_JSON(agentEndpointConfigs, agentEndpointConfigs_);
+      DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(returnAgentCredentialContent, returnAgentCredentialContent_);
     };
     friend void from_json(const Darabonba::Json& j, DiscoveryEndpoint& obj) { 
       DARABONBA_PTR_FROM_JSON(agentEndpointConfigs, agentEndpointConfigs_);
+      DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(returnAgentCredentialContent, returnAgentCredentialContent_);
     };
     DiscoveryEndpoint() = default ;
     DiscoveryEndpoint(const DiscoveryEndpoint &) = default ;
@@ -34,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentEndpointConfigs_ == nullptr
-        && this->name_ == nullptr; };
+        && this->credentialName_ == nullptr && this->name_ == nullptr && this->returnAgentCredentialContent_ == nullptr; };
     // agentEndpointConfigs Field Functions 
     bool hasAgentEndpointConfigs() const { return this->agentEndpointConfigs_ != nullptr;};
     void deleteAgentEndpointConfigs() { this->agentEndpointConfigs_ = nullptr;};
@@ -44,6 +48,13 @@ namespace Models
     inline DiscoveryEndpoint& setAgentEndpointConfigs(vector<AgentEndpointConfig> && agentEndpointConfigs) { DARABONBA_PTR_SET_RVALUE(agentEndpointConfigs_, agentEndpointConfigs) };
 
 
+    // credentialName Field Functions 
+    bool hasCredentialName() const { return this->credentialName_ != nullptr;};
+    void deleteCredentialName() { this->credentialName_ = nullptr;};
+    inline string getCredentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
+    inline DiscoveryEndpoint& setCredentialName(string credentialName) { DARABONBA_PTR_SET_VALUE(credentialName_, credentialName) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -51,9 +62,20 @@ namespace Models
     inline DiscoveryEndpoint& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // returnAgentCredentialContent Field Functions 
+    bool hasReturnAgentCredentialContent() const { return this->returnAgentCredentialContent_ != nullptr;};
+    void deleteReturnAgentCredentialContent() { this->returnAgentCredentialContent_ = nullptr;};
+    inline bool getReturnAgentCredentialContent() const { DARABONBA_PTR_GET_DEFAULT(returnAgentCredentialContent_, false) };
+    inline DiscoveryEndpoint& setReturnAgentCredentialContent(bool returnAgentCredentialContent) { DARABONBA_PTR_SET_VALUE(returnAgentCredentialContent_, returnAgentCredentialContent) };
+
+
   protected:
     shared_ptr<vector<AgentEndpointConfig>> agentEndpointConfigs_ {};
+    // 该发现端点使用的凭证名称
+    shared_ptr<string> credentialName_ {};
     shared_ptr<string> name_ {};
+    // 是否在发现结果中返回 agent 的凭证内容
+    shared_ptr<bool> returnAgentCredentialContent_ {};
   };
 
   } // namespace Models

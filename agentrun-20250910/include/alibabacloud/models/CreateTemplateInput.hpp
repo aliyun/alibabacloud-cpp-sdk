@@ -11,6 +11,7 @@
 #include <alibabacloud/models/NetworkConfiguration.hpp>
 #include <vector>
 #include <alibabacloud/models/OssConfiguration.hpp>
+#include <alibabacloud/models/ScalingConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ossConfiguration, ossConfiguration_);
       DARABONBA_PTR_TO_JSON(sandboxIdleTimeoutInSeconds, sandboxIdleTimeoutInSeconds_);
       DARABONBA_PTR_TO_JSON(sandboxTTLInSeconds, sandboxTTLInSeconds_);
+      DARABONBA_PTR_TO_JSON(scalingConfig, scalingConfig_);
       DARABONBA_ANY_TO_JSON(templateConfiguration, templateConfiguration_);
       DARABONBA_PTR_TO_JSON(templateName, templateName_);
       DARABONBA_PTR_TO_JSON(templateType, templateType_);
@@ -62,6 +64,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ossConfiguration, ossConfiguration_);
       DARABONBA_PTR_FROM_JSON(sandboxIdleTimeoutInSeconds, sandboxIdleTimeoutInSeconds_);
       DARABONBA_PTR_FROM_JSON(sandboxTTLInSeconds, sandboxTTLInSeconds_);
+      DARABONBA_PTR_FROM_JSON(scalingConfig, scalingConfig_);
       DARABONBA_ANY_FROM_JSON(templateConfiguration, templateConfiguration_);
       DARABONBA_PTR_FROM_JSON(templateName, templateName_);
       DARABONBA_PTR_FROM_JSON(templateType, templateType_);
@@ -82,7 +85,8 @@ namespace Models
         && this->armsConfiguration_ == nullptr && this->containerConfiguration_ == nullptr && this->cpu_ == nullptr && this->credentialConfiguration_ == nullptr && this->description_ == nullptr
         && this->diskSize_ == nullptr && this->enableAgent_ == nullptr && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->logConfiguration_ == nullptr
         && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossConfiguration_ == nullptr && this->sandboxIdleTimeoutInSeconds_ == nullptr
-        && this->sandboxTTLInSeconds_ == nullptr && this->templateConfiguration_ == nullptr && this->templateName_ == nullptr && this->templateType_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->sandboxTTLInSeconds_ == nullptr && this->scalingConfig_ == nullptr && this->templateConfiguration_ == nullptr && this->templateName_ == nullptr && this->templateType_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // allowAnonymousManage Field Functions 
     bool hasAllowAnonymousManage() const { return this->allowAnonymousManage_ != nullptr;};
     void deleteAllowAnonymousManage() { this->allowAnonymousManage_ = nullptr;};
@@ -218,6 +222,15 @@ namespace Models
     inline CreateTemplateInput& setSandboxTTLInSeconds(int32_t sandboxTTLInSeconds) { DARABONBA_PTR_SET_VALUE(sandboxTTLInSeconds_, sandboxTTLInSeconds) };
 
 
+    // scalingConfig Field Functions 
+    bool hasScalingConfig() const { return this->scalingConfig_ != nullptr;};
+    void deleteScalingConfig() { this->scalingConfig_ = nullptr;};
+    inline const ScalingConfig & getScalingConfig() const { DARABONBA_PTR_GET_CONST(scalingConfig_, ScalingConfig) };
+    inline ScalingConfig getScalingConfig() { DARABONBA_PTR_GET(scalingConfig_, ScalingConfig) };
+    inline CreateTemplateInput& setScalingConfig(const ScalingConfig & scalingConfig) { DARABONBA_PTR_SET_VALUE(scalingConfig_, scalingConfig) };
+    inline CreateTemplateInput& setScalingConfig(ScalingConfig && scalingConfig) { DARABONBA_PTR_SET_RVALUE(scalingConfig_, scalingConfig) };
+
+
     // templateConfiguration Field Functions 
     bool hasTemplateConfiguration() const { return this->templateConfiguration_ != nullptr;};
     void deleteTemplateConfiguration() { this->templateConfiguration_ = nullptr;};
@@ -276,6 +289,7 @@ namespace Models
     shared_ptr<int32_t> sandboxIdleTimeoutInSeconds_ {};
     // 沙箱存活时间（秒）
     shared_ptr<int32_t> sandboxTTLInSeconds_ {};
+    shared_ptr<ScalingConfig> scalingConfig_ {};
     // 模板配置（灵活的对象结构，根据 templateType 不同而不同）
     Darabonba::Json templateConfiguration_ {};
     // 模板名称（要求账号唯一的）

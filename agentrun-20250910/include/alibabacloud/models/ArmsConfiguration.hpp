@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ArmsConfiguration& obj) { 
       DARABONBA_PTR_TO_JSON(armsLicenseKey, armsLicenseKey_);
+      DARABONBA_PTR_TO_JSON(cmsWorkspace, cmsWorkspace_);
       DARABONBA_PTR_TO_JSON(enableArms, enableArms_);
     };
     friend void from_json(const Darabonba::Json& j, ArmsConfiguration& obj) { 
       DARABONBA_PTR_FROM_JSON(armsLicenseKey, armsLicenseKey_);
+      DARABONBA_PTR_FROM_JSON(cmsWorkspace, cmsWorkspace_);
       DARABONBA_PTR_FROM_JSON(enableArms, enableArms_);
     };
     ArmsConfiguration() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->armsLicenseKey_ == nullptr
-        && this->enableArms_ == nullptr; };
+        && this->cmsWorkspace_ == nullptr && this->enableArms_ == nullptr; };
     // armsLicenseKey Field Functions 
     bool hasArmsLicenseKey() const { return this->armsLicenseKey_ != nullptr;};
     void deleteArmsLicenseKey() { this->armsLicenseKey_ = nullptr;};
     inline string getArmsLicenseKey() const { DARABONBA_PTR_GET_DEFAULT(armsLicenseKey_, "") };
     inline ArmsConfiguration& setArmsLicenseKey(string armsLicenseKey) { DARABONBA_PTR_SET_VALUE(armsLicenseKey_, armsLicenseKey) };
+
+
+    // cmsWorkspace Field Functions 
+    bool hasCmsWorkspace() const { return this->cmsWorkspace_ != nullptr;};
+    void deleteCmsWorkspace() { this->cmsWorkspace_ = nullptr;};
+    inline string getCmsWorkspace() const { DARABONBA_PTR_GET_DEFAULT(cmsWorkspace_, "") };
+    inline ArmsConfiguration& setCmsWorkspace(string cmsWorkspace) { DARABONBA_PTR_SET_VALUE(cmsWorkspace_, cmsWorkspace) };
 
 
     // enableArms Field Functions 
@@ -50,6 +59,7 @@ namespace Models
   protected:
     // 应用实时监控服务（ARMS）的许可证密钥
     shared_ptr<string> armsLicenseKey_ {};
+    shared_ptr<string> cmsWorkspace_ {};
     // 是否启用应用实时监控服务（ARMS）
     shared_ptr<bool> enableArms_ {};
   };
