@@ -239,58 +239,22 @@ namespace Models
 
 
       protected:
-        // The alert settings. Valid value: INHERITED, which indicates that the Cloud Backup client sends alert notifications by using the same method configured for the backup vault.
         shared_ptr<string> alertSetting_ {};
-        // The ID of the Cloud Backup client.
         shared_ptr<string> clientId_ {};
-        // The client name.
         shared_ptr<string> clientName_ {};
-        // The type of the Cloud Backup client. Valid value: **ECS_AGENT**, which indicates an SAP HANA backup client.
         shared_ptr<string> clientType_ {};
-        // The version number of the Cloud Backup client.
         shared_ptr<string> clientVersion_ {};
-        // The ID of the SAP HANA instance.
         shared_ptr<string> clusterId_ {};
-        // The time when the Cloud Backup client was created.
         shared_ptr<int64_t> createdTime_ {};
-        // The latest heartbeat time of the Cloud Backup client. This value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> heartBeatTime_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The name of the ECS instance.
         shared_ptr<string> instanceName_ {};
-        // The maximum version number of the Cloud Backup client.
         shared_ptr<string> maxVersion_ {};
-        // The network type. Valid values:
-        // 
-        // *   **CLASSIC**: the classic network
-        // *   **VPC**: the virtual private cloud (VPC)
         shared_ptr<string> networkType_ {};
-        // The status of the Cloud Backup client. Valid values:
-        // 
-        // *   **REGISTERED**: The backup client is registered.
-        // *   **ACTIVATED**: The backup client is activated.
-        // *   **DEACTIVATED**: The backup client fails to be activated.
-        // *   **INSTALLING**: The backup client is being installed.
-        // *   **INSTALL_FAILED**: The backup client fails to be installed.
-        // *   **NOT_INSTALLED**: The backup client is not installed.
-        // *   **UPGRADING**: The backup client is being upgraded.
-        // *   **UPGRADE_FAILED**: The backup client fails to be upgraded.
-        // *   **UNINSTALLING**: The backup client is being uninstalled.
-        // *   **UNINSTALL_FAILED**: The backup client fails to be uninstalled.
-        // *   **STOPPED**: The backup client is out of service.
-        // *   **UNKNOWN**: The backup client is disconnected.
         shared_ptr<string> status_ {};
-        // The status information.
         shared_ptr<string> statusMessage_ {};
-        // The time when the Cloud Backup client was updated. This value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> updatedTime_ {};
-        // Indicates whether data is transmitted over HTTPS. Valid values:
-        // 
-        // *   true: Data is transmitted over HTTPS.
-        // *   false: Data is transmitted over HTTP.
         shared_ptr<bool> useHttps_ {};
-        // The ID of the backup vault.
         shared_ptr<string> vaultId_ {};
       };
 
@@ -370,7 +334,6 @@ namespace Models
 
 
   protected:
-    // The Cloud Backup clients.
     shared_ptr<DescribeClientsResponseBody::Clients> clients_ {};
     // The response code. The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};

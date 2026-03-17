@@ -97,12 +97,7 @@ namespace Models
 
 
       protected:
-        // The ID of the ECS instance.
         shared_ptr<string> instanceId_ {};
-        // Indicates whether an HBR client can be installed on the ECS instance. Valid values:
-        // 
-        // *   true: An HBR client can be installed on the ECS instance.
-        // *   false: An HBR client cannot be installed on the ECS instance.
         shared_ptr<bool> validInstance_ {};
       };
 
@@ -169,7 +164,6 @@ namespace Models
   protected:
     // The HTTP status code. The status code 200 indicates that the call is successful.
     shared_ptr<string> code_ {};
-    // The status of the ECS instance. If you specify more than one instance IDs in the request and the status of an ECS instance does not meet the requirements to install an HBR client, an error message is returned based on the value of this parameter.
     shared_ptr<CreateClientsResponseBody::InstanceStatuses> instanceStatuses_ {};
     // The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
     shared_ptr<string> message_ {};

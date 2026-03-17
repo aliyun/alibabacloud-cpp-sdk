@@ -85,6 +85,9 @@
 #include <alibabacloud/models/DeleteClientRequest.hpp>
 #include <alibabacloud/models/DeleteClientResponseBody.hpp>
 #include <alibabacloud/models/DeleteClientResponse.hpp>
+#include <alibabacloud/models/DeleteContainerClusterRequest.hpp>
+#include <alibabacloud/models/DeleteContainerClusterResponseBody.hpp>
+#include <alibabacloud/models/DeleteContainerClusterResponse.hpp>
 #include <alibabacloud/models/DeleteCrossAccountRequest.hpp>
 #include <alibabacloud/models/DeleteCrossAccountResponseBody.hpp>
 #include <alibabacloud/models/DeleteCrossAccountResponse.hpp>
@@ -132,6 +135,9 @@
 #include <alibabacloud/models/DescribeContainerClusterRequest.hpp>
 #include <alibabacloud/models/DescribeContainerClusterResponseBody.hpp>
 #include <alibabacloud/models/DescribeContainerClusterResponse.hpp>
+#include <alibabacloud/models/DescribeContainerResourceRequest.hpp>
+#include <alibabacloud/models/DescribeContainerResourceResponseBody.hpp>
+#include <alibabacloud/models/DescribeContainerResourceResponse.hpp>
 #include <alibabacloud/models/DescribeCrossAccountsRequest.hpp>
 #include <alibabacloud/models/DescribeCrossAccountsResponseBody.hpp>
 #include <alibabacloud/models/DescribeCrossAccountsResponse.hpp>

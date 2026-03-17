@@ -1903,6 +1903,48 @@ DeleteClientResponse Client::deleteClient(const DeleteClientRequest &request) {
 }
 
 /**
+ * @param request DeleteContainerClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContainerClusterResponse
+ */
+DeleteContainerClusterResponse Client::deleteContainerClusterWithOptions(const DeleteContainerClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasForce()) {
+    query["Force"] = request.getForce();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContainerCluster"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContainerClusterResponse>();
+}
+
+/**
+ * @param request DeleteContainerClusterRequest
+ * @return DeleteContainerClusterResponse
+ */
+DeleteContainerClusterResponse Client::deleteContainerCluster(const DeleteContainerClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteContainerClusterWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除跨账号信息
  *
  * @param request DeleteCrossAccountRequest
@@ -2768,6 +2810,60 @@ DescribeContainerClusterResponse Client::describeContainerClusterWithOptions(con
 DescribeContainerClusterResponse Client::describeContainerCluster(const DescribeContainerClusterRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeContainerClusterWithOptions(request, runtime);
+}
+
+/**
+ * @param request DescribeContainerResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeContainerResourceResponse
+ */
+DescribeContainerResourceResponse Client::describeContainerResourceWithOptions(const DescribeContainerResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeContainerResource"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeContainerResourceResponse>();
+}
+
+/**
+ * @param request DescribeContainerResourceRequest
+ * @return DescribeContainerResourceResponse
+ */
+DescribeContainerResourceResponse Client::describeContainerResource(const DescribeContainerResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeContainerResourceWithOptions(request, runtime);
 }
 
 /**

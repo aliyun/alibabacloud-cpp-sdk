@@ -115,7 +115,6 @@ namespace Models
     shared_ptr<string> code_ {};
     // The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
     shared_ptr<string> message_ {};
-    // The regions that support cross-region replication.
     shared_ptr<DescribeVaultReplicationRegionsResponseBody::Regions> regions_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

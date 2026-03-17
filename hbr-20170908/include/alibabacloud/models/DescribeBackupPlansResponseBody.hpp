@@ -224,13 +224,9 @@ namespace Models
 
 
         protected:
-          // Indicates whether you are billed based on the pay-as-you-go method after the free trial ends.
           shared_ptr<bool> keepAfterTrialExpiration_ {};
-          // The expiration time of the free trial.
           shared_ptr<int64_t> trialExpireTime_ {};
-          // The start time of the free trial.
           shared_ptr<int64_t> trialStartTime_ {};
-          // The time when the free-trial backup vault is released.
           shared_ptr<int64_t> trialVaultReleaseTime_ {};
         };
 
@@ -355,26 +351,14 @@ namespace Models
 
 
           protected:
-            // The backup type. Valid value: **COMPLETE**, which indicates full backup.
             shared_ptr<string> backupType_ {};
-            // The ID of the region in which the remote backup vault resides.
             shared_ptr<string> destinationRegionId_ {};
-            // The retention period of the backup data in remote backup mode. Unit: days.
             shared_ptr<int64_t> destinationRetention_ {};
-            // Indicates whether the policy is disabled.
             shared_ptr<bool> disabled_ {};
-            // Indicates whether the snapshot data is backed up to the backup vault.
             shared_ptr<bool> doCopy_ {};
-            // The retention period of the backup data. Unit: days.
             shared_ptr<int64_t> retention_ {};
-            // The policy ID.
             shared_ptr<string> ruleId_ {};
-            // The policy name.
             shared_ptr<string> ruleName_ {};
-            // The backup policy. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified by `{startTime}` and the subsequent backup jobs at an interval that is specified by `{interval}`. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
-            // 
-            // *   `startTime`: the time at which the system starts to run a backup job. The time follows the UNIX time format. Unit: seconds.
-            // *   `interval`: the interval at which the system runs a backup job. The interval follows the ISO 8601 standard. For example, PT1H indicates an interval of 1 hour. P1D indicates an interval of one day.
             shared_ptr<string> schedule_ {};
           };
 
@@ -458,11 +442,8 @@ namespace Models
 
 
           protected:
-            // Additional information about the data source.
             shared_ptr<string> extra_ {};
-            // The ID of the data source.
             shared_ptr<string> resourceId_ {};
-            // The type of the data source. Valid value: **UDM_DISK**.
             shared_ptr<string> sourceType_ {};
           };
 
@@ -576,7 +557,6 @@ namespace Models
 
 
         protected:
-          // The names of the tables in the Tablestore instance.
           shared_ptr<OtsDetail::TableNames> tableNames_ {};
         };
 
@@ -646,14 +626,8 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag-based matching rule. Valid values:
-            // 
-            // *   **EQUAL**: Both the tag key and tag value are matched.
-            // *   **NOT**: The tag key is matched and the tag value is not matched.
             shared_ptr<string> operator_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -1002,114 +976,49 @@ namespace Models
 
 
       protected:
-        // The ID of the data source group.
         shared_ptr<string> backupSourceGroupId_ {};
-        // The backup type. Valid value: **COMPLETE**, which indicates full backup.
         shared_ptr<string> backupType_ {};
-        // This parameter is valid only when **SourceType** is set to **OSS**. This parameter indicates the name of the OSS bucket.
         shared_ptr<string> bucket_ {};
         shared_ptr<string> businessStatus_ {};
-        // The configurations of the incremental file synchronization. This parameter is returned only for data synchronization.
         shared_ptr<string> changeListPath_ {};
-        // The ID of the backup client.
         shared_ptr<string> clientId_ {};
-        // The ID of the client group.
         shared_ptr<string> clusterId_ {};
-        // This parameter is valid only when **SourceType** is set to **NAS**. This parameter indicates the time when the file system was created. This value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> createTime_ {};
-        // Indicates whether a backup plan is automatically created based on tags.
         shared_ptr<bool> createdByTag_ {};
-        // The time when the backup plan was created. This value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> createdTime_ {};
-        // The name of the Resource Access Management (RAM) role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
         shared_ptr<string> crossAccountRoleName_ {};
-        // Indicates whether data is backed up within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
-        // 
-        // *   SELF_ACCOUNT
-        // *   CROSS_ACCOUNT
         shared_ptr<string> crossAccountType_ {};
-        // The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
         shared_ptr<int64_t> crossAccountUserId_ {};
-        // The ID of the data source.
         shared_ptr<string> dataSourceId_ {};
-        // The data source details at the destination. This parameter is returned only for data synchronization.
         shared_ptr<string> destDataSourceDetail_ {};
-        // The data source ID at the destination. This parameter is returned only for data synchronization.
         shared_ptr<string> destDataSourceId_ {};
-        // The data source type at the destination. This parameter is returned only for data synchronization.
         shared_ptr<string> destSourceType_ {};
-        // The details about ECS instance backup.
         shared_ptr<string> detail_ {};
-        // Indicates whether the backup plan is disabled. Valid values:
-        // 
-        // *   true: The backup plan is disabled.
-        // *   false: The backup plan is enabled.
         shared_ptr<bool> disabled_ {};
-        // This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates the paths to the files that are excluded from the backup job.
         shared_ptr<string> exclude_ {};
-        // This parameter is valid only when **SourceType** is set to **NAS**. This parameter indicates the ID of the NAS file system.
         shared_ptr<string> fileSystemId_ {};
-        // The matched tag rules.
         shared_ptr<BackupPlan::HitTags> hitTags_ {};
-        // This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates the paths to the files that are backed up.
         shared_ptr<string> include_ {};
-        // The ID of the instance group.
         shared_ptr<string> instanceGroupId_ {};
-        // This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates the ID of the ECS instance.
         shared_ptr<string> instanceId_ {};
-        // The name of the Tablestore instance.
         shared_ptr<string> instanceName_ {};
-        // Indicates whether the feature of keeping at least one backup version is enabled. Valid values:
-        // 
-        // *   0: The feature is disabled.
-        // *   1: The feature is enabled.
         shared_ptr<int64_t> keepLatestSnapshots_ {};
-        // The latest execution job id of plan.
         shared_ptr<string> latestExecuteJobId_ {};
         shared_ptr<string> latestFinishJobId_ {};
-        // This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates whether Windows Volume Shadow Copy Service (VSS) is used to define a source path.
         shared_ptr<string> options_ {};
-        // The details about the Tablestore instance.
         shared_ptr<BackupPlan::OtsDetail> otsDetail_ {};
-        // The source paths. This parameter is valid only when **SourceType** is set to **ECS_FILE**.
         shared_ptr<BackupPlan::Paths> paths_ {};
-        // The ID of the backup plan.
         shared_ptr<string> planId_ {};
-        // The name of the backup plan.
         shared_ptr<string> planName_ {};
-        // This parameter is valid only when **SourceType** is set to **OSS**. This parameter indicates the prefix of the objects that are backed up.
         shared_ptr<string> prefix_ {};
-        // The backup resources. This parameter is valid only for disk backup.
         shared_ptr<BackupPlan::Resources> resources_ {};
-        // The retention period of the backup data. Unit: days.
         shared_ptr<int64_t> retention_ {};
-        // The backup policies. This parameter is valid only for disk backup.
         shared_ptr<BackupPlan::Rules> rules_ {};
-        // The backup policy. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified by `{startTime}` and the subsequent backup jobs at an interval that is specified by `{interval}`. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
-        // 
-        // *   **startTime**: the time at which the system starts to run a backup job. The time follows the UNIX time format. Unit: seconds.
-        // *   **interval**: the interval at which the system runs a backup job. The interval follows the ISO 8601 standard. For example, PT1H indicates an interval of 1 hour. P1D indicates an interval of one day.
         shared_ptr<string> schedule_ {};
-        // The type of the data source. Valid values:
-        // 
-        // *   **ECS_FILE**: ECS files
-        // *   **OSS**: OSS buckets
-        // *   **NAS**: NAS file systems
-        // *   **OTS**: Tablestore instances
-        // *   **UDM_ECS**: ECS instances
-        // *   **SYNC**: data synchronization
         shared_ptr<string> sourceType_ {};
-        // This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates the throttling rules. Format: `{start}|{end}|{bandwidth}`. Multiple throttling rules are separated with vertical bars (`|`). A time range cannot overlap with another one.
-        // 
-        // *   start: the start hour.
-        // *   end: the end hour.
-        // *   bandwidth: the bandwidth. Unit: KB.
         shared_ptr<string> speedLimit_ {};
-        // The free trial information.
         shared_ptr<BackupPlan::TrialInfo> trialInfo_ {};
-        // The time when the backup plan was updated. This value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> updatedTime_ {};
-        // The ID of the backup vault.
         shared_ptr<string> vaultId_ {};
       };
 
@@ -1189,7 +1098,6 @@ namespace Models
 
 
   protected:
-    // The queried backup plans.
     shared_ptr<DescribeBackupPlansResponseBody::BackupPlans> backupPlans_ {};
     // The HTTP status code. The status code 200 indicates that the call is successful.
     shared_ptr<string> code_ {};

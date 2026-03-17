@@ -349,81 +349,34 @@ namespace Models
 
 
       protected:
-        // The backup ID.
         shared_ptr<int64_t> backupID_ {};
-        // The backup prefix.
         shared_ptr<string> backupPrefix_ {};
-        // Indicates whether the differential backup and log backup are validated. Valid values:
-        // 
-        // *   true: Cloud Backup checks whether the required differential backup and log backup are available before the restore job starts. If the differential backup or log backup is unavailable, Cloud Backup does not start the restore job.
-        // *   false: Cloud Backup does not check whether the required differential backup and log backup are available before the restore job starts.
         shared_ptr<bool> checkAccess_ {};
-        // Indicates whether all log entries are deleted from the log area after the log entries are restored. Valid values: true and false. If the return value is false, all log entries are deleted from the log area after the log entries are restored.
         shared_ptr<bool> clearLog_ {};
-        // The ID of the SAP HANA instance that is restored.
         shared_ptr<string> clusterId_ {};
-        // The current recovery phase. This value is obtained from SAP HANA.
         shared_ptr<int32_t> currentPhase_ {};
-        // The current progress. This value is obtained from SAP HANA.
         shared_ptr<int64_t> currentProgress_ {};
-        // The database name.
         shared_ptr<string> databaseName_ {};
-        // The ID of the database recovery.
         shared_ptr<int64_t> databaseRestoreId_ {};
-        // The time when the restore job ends. This value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> endTime_ {};
-        // The log position to which the database is restored. This parameter is returned only if the value of the Mode parameter is **RECOVERY_TO_LOG_POSITION**.
         shared_ptr<int64_t> logPosition_ {};
-        // The maximum recovery phase. This value is obtained from SAP HANA.
         shared_ptr<int32_t> maxPhase_ {};
-        // The maximum progress. This value is obtained from SAP HANA.
         shared_ptr<int64_t> maxProgress_ {};
-        // The details of the recovery phase.
         shared_ptr<string> message_ {};
-        // The recovery mode. Valid values:
-        // 
-        // *   **RECOVERY_TO_MOST_RECENT**: The database is restored to the recently available state to which the database has been backed up.
-        // *   **RECOVERY_TO_POINT_IN_TIME**: The database is restored to a specified point in time.
-        // *   **RECOVERY_TO_SPECIFIC_BACKUP**: The database is restored to a specified backup.
-        // *   **RECOVERY_TO_LOG_POSITION**: The database is restored to a specified log position.
         shared_ptr<string> mode_ {};
-        // The recovery phase.
         shared_ptr<string> phase_ {};
-        // The point in time at which the database is restored.
         shared_ptr<int64_t> reachedTime_ {};
-        // The point in time to which the database is restored. This parameter is returned only if the value of the Mode parameter is **RECOVERY_TO_POINT_IN_TIME**. Cloud Backup restores the database to a state closest to the specified point in time.
         shared_ptr<int64_t> recoveryPointInTime_ {};
-        // The ID of the restore job.
         shared_ptr<string> restoreId_ {};
-        // The name of the source system. This parameter indicates the name of the source database that is restored. Format: `<Source database name>@SID`.
         shared_ptr<string> source_ {};
-        // The ID of the source SAP HANA instance.
         shared_ptr<string> sourceClusterId_ {};
-        // The time when the restore job starts. This value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> startTime_ {};
-        // The recovery status. This value is obtained from SAP HANA.
         shared_ptr<string> state_ {};
-        // The status of the restore job. Valid values:
-        // 
-        // *   **RUNNING**: The job is running.
-        // *   **COMPLETE**: The job is completed.
-        // *   **PARTIAL_COMPLETE**: The job is partially completed.
-        // *   **FAILED**: The job failed.
-        // *   **CANCELED**: The job is canceled.
-        // *   **EXPIRED**: The job timed out.
         shared_ptr<string> status_ {};
-        // Indicates whether the database is restored to a different instance. Valid values:
-        // 
-        // *   true: The database is restored to a different instance.
-        // *   false: The database is restored within the same instance.
         shared_ptr<bool> systemCopy_ {};
-        // Indicates whether a catalog backup is used to restore the database. This parameter is returned only if the value of the Mode parameter is **RECOVERY_TO_SPECIFIC_BACKUP**. If the return value is false, Cloud Backup finds the backup file based on the specified prefix and then restores the backup file.
         shared_ptr<bool> useCatalog_ {};
-        // Indicates whether a differential backup or an incremental backup is used to restore the database. Valid values: true and false. If the return value is true, Cloud Backup uses a differential backup or an incremental backup to restore the database. If the return value is false, Cloud Backup uses a log backup to restore the database.
         shared_ptr<bool> useDelta_ {};
-        // The ID of the backup vault.
         shared_ptr<string> vaultId_ {};
-        // The ID of the volume that is restored. This parameter is returned only if the value of the Mode parameter is **RECOVERY_TO_LOG_POSITION**.
         shared_ptr<int32_t> volumeId_ {};
       };
 
@@ -505,7 +458,6 @@ namespace Models
   protected:
     // The response code. The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The information about restore jobs.
     shared_ptr<DescribeHanaRestoresResponseBody::HanaRestore> hanaRestore_ {};
     // The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
     shared_ptr<string> message_ {};

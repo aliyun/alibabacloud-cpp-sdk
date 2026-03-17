@@ -137,20 +137,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether the database is started. Valid values:
-        // 
-        // *   **YES**: The database is started.
-        // *   **NO**: The database is not started.
         shared_ptr<string> activeStatus_ {};
-        // The database name.
         shared_ptr<string> databaseName_ {};
-        // The detailed information.
         shared_ptr<string> detail_ {};
-        // The hostname.
         shared_ptr<string> host_ {};
-        // The service name.
         shared_ptr<string> serviceName_ {};
-        // The port number.
         shared_ptr<int32_t> sqlPort_ {};
       };
 
@@ -232,7 +223,6 @@ namespace Models
   protected:
     // The response code. The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The information about SAP HANA databases.
     shared_ptr<DescribeHanaDatabasesResponseBody::HanaDatabases> hanaDatabases_ {};
     // The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
     shared_ptr<string> message_ {};

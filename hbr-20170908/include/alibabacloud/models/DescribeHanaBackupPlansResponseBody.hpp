@@ -174,34 +174,15 @@ namespace Models
 
 
       protected:
-        // The backup prefix.
         shared_ptr<string> backupPrefix_ {};
-        // The backup type. Valid values:
-        // 
-        // *   COMPLETE: full backup
-        // *   INCREMENTAL: incremental backup
-        // *   DIFFERENTIAL: differential backup
         shared_ptr<string> backupType_ {};
         shared_ptr<string> businessStatus_ {};
-        // The ID of the SAP HANA instance.
         shared_ptr<string> clusterId_ {};
-        // The database name.
         shared_ptr<string> databaseName_ {};
-        // Indicates whether the backup plan is disabled. Valid values:
-        // 
-        // *   true: The backup plan is disabled.
-        // *   false: The backup plan is enabled.
         shared_ptr<bool> disabled_ {};
-        // The ID of the backup plan.
         shared_ptr<string> planId_ {};
-        // The name of the backup plan.
         shared_ptr<string> planName_ {};
-        // The backup policy. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
-        // 
-        // *   startTime: the time at which the system starts to run a backup job. The time follows the UNIX time format. Unit: seconds.
-        // *   interval: the interval at which the system runs a backup job. The interval follows the ISO 8601 standard. For example, PT1H indicates an interval of 1 hour. P1D indicates an interval of one day.
         shared_ptr<string> schedule_ {};
-        // The ID of the backup vault.
         shared_ptr<string> vaultId_ {};
       };
 
@@ -283,7 +264,6 @@ namespace Models
   protected:
     // The response code. The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The details of the backup plan.
     shared_ptr<DescribeHanaBackupPlansResponseBody::HanaBackupPlans> hanaBackupPlans_ {};
     // The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
     shared_ptr<string> message_ {};

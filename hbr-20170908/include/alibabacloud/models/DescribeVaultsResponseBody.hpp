@@ -230,13 +230,9 @@ namespace Models
 
 
         protected:
-          // Indicates whether you are billed based on the pay-as-you-go method after the free trial ends.
           shared_ptr<bool> keepAfterTrialExpiration_ {};
-          // The expiration time of the free trial.
           shared_ptr<int64_t> trialExpireTime_ {};
-          // The start time of the free trial.
           shared_ptr<int64_t> trialStartTime_ {};
-          // The time when the free-trial backup vault is released.
           shared_ptr<int64_t> trialVaultReleaseTime_ {};
         };
 
@@ -297,17 +293,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the backup vault. Valid values of N: 1 to 20.
-            // 
-            // *   The tag key cannot start with `aliyun` or `acs:`.
-            // *   The tag key cannot contain `http://` or `https://`.
-            // *   The tag key cannot be an empty string.
             shared_ptr<string> key_ {};
-            // The tag value of the backup vault. Valid values of N: 1 to 20.
-            // 
-            // *   The tag value cannot start with `aliyun` or `acs:`.
-            // *   The tag value cannot contain `http://` or `https://`.
-            // *   The tag value cannot be an empty string.
             shared_ptr<string> value_ {};
           };
 
@@ -429,9 +415,7 @@ namespace Models
 
 
         protected:
-          // The progress of historical data synchronization from the backup vault to the mirror vault. Valid values: 0 to 100.
           shared_ptr<int32_t> historicalReplicationProgress_ {};
-          // The latest synchronization time of incremental data in the mirror vault.
           shared_ptr<int64_t> newReplicationProgress_ {};
         };
 
@@ -592,35 +576,20 @@ namespace Models
 
 
         protected:
-          // The number of archive plans.
           shared_ptr<int32_t> archive_ {};
-          // The number of Cloud Parallel File Storage (CPFS) backup plans.
           shared_ptr<int32_t> commonFileSystem_ {};
-          // The number of backup plans for General-purpose NAS file systems.
           shared_ptr<int32_t> commonNas_ {};
-          // The number of backup plans for Cloud Storage Gateway (CSG) gateways.
           shared_ptr<int32_t> csg_ {};
-          // The number of backup plans for ECS files.
           shared_ptr<int32_t> ecsFile_ {};
-          // The number of backup plans for SAP HANA instances.
           shared_ptr<int32_t> ecsHana_ {};
-          // The number of backup plans for Isilon storage systems.
           shared_ptr<int32_t> isilon_ {};
-          // The number of backup plans for on-premises servers.
           shared_ptr<int32_t> localFile_ {};
-          // The number of backup plans for on-premises virtual machines (VMs).
           shared_ptr<int32_t> localVm_ {};
-          // The number of backup plans for MySQL databases.
           shared_ptr<int32_t> mySql_ {};
-          // The number of backup plans for NAS file systems.
           shared_ptr<int32_t> nas_ {};
-          // The number of backup plans for Oracle databases.
           shared_ptr<int32_t> oracle_ {};
-          // The number of backup plans for OSS buckets.
           shared_ptr<int32_t> oss_ {};
-          // The number of backup plans for Tablestore instances.
           shared_ptr<int32_t> ots_ {};
-          // The number of backup plans for SQL Server databases.
           shared_ptr<int32_t> sqlServer_ {};
         };
 
@@ -977,122 +946,52 @@ namespace Models
 
 
       protected:
-        // Archival tier backup data volume. Unit: bytes.
         shared_ptr<int64_t> archiveBytesDone_ {};
-        // The billable storage usage of the Archive tier. Unit: bytes.
         shared_ptr<int64_t> archiveStorageSize_ {};
-        // The statistics of backup plans that use the backup vault.
         shared_ptr<Vault::BackupPlanStatistics> backupPlanStatistics_ {};
-        // The name of the OSS bucket used by the backup vault.
         shared_ptr<string> bucketName_ {};
-        // The amount of data that is backed up. Unit: bytes.
         shared_ptr<int64_t> bytesDone_ {};
-        // The billing method of the backup vault.
         shared_ptr<string> chargeType_ {};
-        // The billable storage usage of the archive vault. Unit: bytes.
         shared_ptr<int64_t> chargedStorageSize_ {};
-        // The encryption algorithm used to compress the backup vault. Valid values:
-        // 
-        // *   DISABLED: The backup vault is not compressed.
-        // *   SNAPPY: The backup vault is compressed by using the SNAPPY encryption algorithm.
-        // *   ZSTD: The backup vault is compressed by using Zstandard, a fast lossless compression algorithm.
         shared_ptr<string> compressionAlgorithm_ {};
-        // The time when the backup vault was created. The value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> createdTime_ {};
-        // Indicates whether the deduplication feature is enabled.
         shared_ptr<bool> dedup_ {};
-        // The description of the backup vault.
         shared_ptr<string> description_ {};
-        // The encryption type of the backup vault. Valid values:
-        // 
-        // *   NONE: The backup vault is not encrypted.
-        // *   HBR_PRIVATE (default): The backup vault is encrypted by using a key provided by Cloud Backup.
-        // *   KMS: The backup vault is encrypted by using a custom master key (CMK) created in Key Management Service (KMS).
         shared_ptr<string> encryptType_ {};
-        // Indicates whether indexes are available. Indexes are available when they are not being updated.
         shared_ptr<bool> indexAvailable_ {};
-        // The index level.
-        // 
-        // *   OFF: No indexes are created.
-        // *   META: Metadata indexes are created.
-        // *   ALL: Full-text indexes are created.
         shared_ptr<string> indexLevel_ {};
-        // The time when the index was updated.
         shared_ptr<int64_t> indexUpdateTime_ {};
-        // The ID or alias of the CMK created in KMS. This parameter is returned only when EncryptType is set to KMS.
         shared_ptr<string> kmsKeyId_ {};
-        // The time when the last remote backup was synchronized. The value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> latestReplicationTime_ {};
-        // The data redundancy type of the backup vault. Valid values:
-        // 
-        // *   LRS: Locally redundant storage (LRS) is enabled for the backup vault. Cloud Backup stores the copies of each object on multiple devices of different facilities in the same zone. This way, Cloud Backup ensures data durability and availability even if hardware failures occur.
-        // *   ZRS: Zone-redundant storage (ZRS) is enabled for the backup vault. Cloud Backup uses the multi-zone mechanism to distribute data across three zones within the same region. If a zone fails, the data that is stored in the other two zones is still accessible.
         shared_ptr<string> redundancyType_ {};
-        // Indicates whether the backup vault is a remote backup vault. Valid values:
-        // 
-        // *   true: The backup vault is a remote backup vault.
-        // *   false: The backup vault is a local backup vault.
         shared_ptr<bool> replication_ {};
-        // The progress of data synchronization from the backup vault to the mirror vault.
         shared_ptr<Vault::ReplicationProgress> replicationProgress_ {};
         shared_ptr<int64_t> replicationSourceOwnerId_ {};
-        // The ID of the region in which the source vault resides. This parameter is valid only for remote backup vaults.
         shared_ptr<string> replicationSourceRegionId_ {};
-        // Indicate whether the backup vault is the source vault that corresponds to the remote backup vault. Valid values:
-        // 
-        // *   true
-        // *   false
         shared_ptr<bool> replicationSourceVault_ {};
-        // The ID of the source vault that corresponds to the remote backup vault.
         shared_ptr<string> replicationSourceVaultId_ {};
         shared_ptr<string> replicationStatus_ {};
         shared_ptr<int64_t> replicationTargetOwnerId_ {};
-        // Target region for remote backup repository.
         shared_ptr<string> replicationTargetRegionId_ {};
         shared_ptr<string> replicationTargetVaultId_ {};
-        // The ID of the resource group.
         shared_ptr<string> resourceGroupId_ {};
-        // The retention period of the backup vault. Unit: days.
         shared_ptr<int64_t> retention_ {};
         shared_ptr<Vault::RsTargetAccountIds> rsTargetAccountIds_ {};
-        // Indicates whether the backup search feature is enabled.
         shared_ptr<bool> searchEnabled_ {};
-        // The number of snapshots in the backup vault.
         shared_ptr<int64_t> snapshotCount_ {};
-        // The data source types of the backup vault.
         shared_ptr<Vault::SourceTypes> sourceTypes_ {};
-        // The status of the backup vault. Valid values:
-        // 
-        // *   **UNKNOWN**: The backup vault is in an unknown state.
-        // *   **INITIALIZING**: The backup vault is being initialized.
-        // *   **CREATED**: The backup vault is created.
-        // *   **ERROR**: An error occurs on the backup vault.
         shared_ptr<string> status_ {};
-        // The usage of the backup vault. Unit: bytes.
         shared_ptr<int64_t> storageSize_ {};
-        // The tags of the backup vault.
         shared_ptr<Vault::Tags> tags_ {};
-        // The free trial information.
         shared_ptr<Vault::TrialInfo> trialInfo_ {};
-        // The time when the backup vault was updated. The value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> updatedTime_ {};
-        // The ID of the backup vault.
         shared_ptr<string> vaultId_ {};
-        // The name of the backup vault.
         shared_ptr<string> vaultName_ {};
         shared_ptr<int64_t> vaultOwnerId_ {};
-        // The ID of the region in which the backup vault resides.
         shared_ptr<string> vaultRegionId_ {};
-        // The status message that is returned when the backup vault is in the ERROR state. This parameter is valid only for remote backup vaults. Valid values:
-        // 
-        // *   **UNKNOWN_ERROR**: An unknown error occurs.
-        // *   **SOURCE_VAULT_ALREADY_HAS_REPLICATION**: A mirror vault is configured for the source vault.
         shared_ptr<string> vaultStatusMessage_ {};
-        // The storage class of the backup vault. Valid value: **STANDARD**, which indicates standard storage.
         shared_ptr<string> vaultStorageClass_ {};
-        // The type of the backup vault. Valid value: **STANDARD**, which indicates a standard backup vault.
         shared_ptr<string> vaultType_ {};
-        // Indicates whether the immutable backup feature is enabled.
         shared_ptr<bool> wormEnabled_ {};
       };
 
@@ -1187,7 +1086,6 @@ namespace Models
     shared_ptr<bool> success_ {};
     // Returns the total number of backup repositories.
     shared_ptr<int32_t> totalCount_ {};
-    // The backup vaults.
     shared_ptr<DescribeVaultsResponseBody::Vaults> vaults_ {};
   };
 

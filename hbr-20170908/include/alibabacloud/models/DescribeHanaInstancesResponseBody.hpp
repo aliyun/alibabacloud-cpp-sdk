@@ -169,9 +169,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -308,48 +306,21 @@ namespace Models
 
 
       protected:
-        // The alert settings. Valid value: INHERITED, which indicates that the Cloud Backup client sends alert notifications by using the same method configured for the backup vault.
         shared_ptr<string> alertSetting_ {};
-        // The ID of the SAP HANA instance.
         shared_ptr<string> clusterId_ {};
-        // The name of the Resource Access Management (RAM) role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
         shared_ptr<string> crossAccountRoleName_ {};
-        // Specifies whether data is backed up within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
-        // 
-        // *   **SELF_ACCOUNT**: Data is backed up within the same Alibaba Cloud account.
-        // *   **CROSS_ACCOUNT**: Data is backed up across Alibaba Cloud accounts.
         shared_ptr<string> crossAccountType_ {};
-        // The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
         shared_ptr<int64_t> crossAccountUserId_ {};
-        // The name of the SAP HANA instance.
         shared_ptr<string> hanaName_ {};
-        // The private or internal IP address of the host where the primary node of the SAP HANA instance resides.
         shared_ptr<string> host_ {};
-        // The instance number of the SAP HANA system.
         shared_ptr<int32_t> instanceNumber_ {};
-        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // The status of the SAP HANA instance. Valid values:
-        // 
-        // *   INITIALIZING: The instance is being initialized.
-        // *   INITIALIZED: The instance is registered.
-        // *   INVALID_HANA_NODE: The instance is invalid.
-        // *   INITIALIZE_FAILED: The client fails to be installed on the instance.
         shared_ptr<int64_t> status_ {};
-        // The status information.
         shared_ptr<string> statusMessage_ {};
-        // The tags of the SAP HANA instance.
         shared_ptr<Hana::Tags> tags_ {};
-        // Indicates whether the SAP HANA instance is connected over Secure Sockets Layer (SSL). Valid values:
-        // 
-        // *   true: The SAP HANA instance is connected over SSL.
-        // *   false: The SAP HANA instance is not connected over SSL.
         shared_ptr<bool> useSsl_ {};
-        // The username of the SYSTEMDB database.
         shared_ptr<string> userName_ {};
-        // Indicates whether the SSL certificate of the SAP HANA instance is verified.
         shared_ptr<bool> validateCertificate_ {};
-        // The ID of the backup vault.
         shared_ptr<string> vaultId_ {};
       };
 
@@ -431,7 +402,6 @@ namespace Models
   protected:
     // The response code. The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The information about the SAP HANA instances.
     shared_ptr<DescribeHanaInstancesResponseBody::Hanas> hanas_ {};
     // The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
     shared_ptr<string> message_ {};

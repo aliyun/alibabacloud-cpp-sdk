@@ -535,6 +535,19 @@ namespace Hbr20170908
       Models::DeleteClientResponse deleteClient(const Models::DeleteClientRequest &request);
 
       /**
+       * @param request DeleteContainerClusterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteContainerClusterResponse
+       */
+      Models::DeleteContainerClusterResponse deleteContainerClusterWithOptions(const Models::DeleteContainerClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DeleteContainerClusterRequest
+       * @return DeleteContainerClusterResponse
+       */
+      Models::DeleteContainerClusterResponse deleteContainerCluster(const Models::DeleteContainerClusterRequest &request);
+
+      /**
        * @summary 删除跨账号信息
        *
        * @param request DeleteCrossAccountRequest
@@ -810,6 +823,19 @@ namespace Hbr20170908
        * @return DescribeContainerClusterResponse
        */
       Models::DescribeContainerClusterResponse describeContainerCluster(const Models::DescribeContainerClusterRequest &request);
+
+      /**
+       * @param request DescribeContainerResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeContainerResourceResponse
+       */
+      Models::DescribeContainerResourceResponse describeContainerResourceWithOptions(const Models::DescribeContainerResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeContainerResourceRequest
+       * @return DescribeContainerResourceResponse
+       */
+      Models::DescribeContainerResourceResponse describeContainerResource(const Models::DescribeContainerResourceRequest &request);
 
       /**
        * @summary Queries the information about the accounts used in cross-account backup.

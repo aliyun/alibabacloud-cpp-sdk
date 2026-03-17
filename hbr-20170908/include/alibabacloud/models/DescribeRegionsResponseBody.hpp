@@ -95,9 +95,7 @@ namespace Models
 
 
       protected:
-        // The region name.
         shared_ptr<string> localName_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -159,7 +157,6 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
     shared_ptr<string> message_ {};
-    // The regions returned.
     shared_ptr<DescribeRegionsResponseBody::Regions> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

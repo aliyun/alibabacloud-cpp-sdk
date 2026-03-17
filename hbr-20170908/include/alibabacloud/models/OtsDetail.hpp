@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // public
     shared_ptr<vector<string>> tableNames_ {};
   };
 

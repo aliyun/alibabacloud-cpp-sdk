@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The report path of failed files.
     shared_ptr<string> failedFiles_ {};
+    // The report path of skipped files.
     shared_ptr<string> skippedFiles_ {};
+    // The report path of success files.
     shared_ptr<string> successFiles_ {};
+    // The report path of total files.
     shared_ptr<string> totalFiles_ {};
   };
 

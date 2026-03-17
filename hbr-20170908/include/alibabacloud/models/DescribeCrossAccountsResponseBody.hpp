@@ -156,20 +156,13 @@ namespace Models
 
 
       protected:
-        // The account alias. The value can be up to 32 bits in length.
         shared_ptr<string> alias_ {};
-        // The time when the account was created. This value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> createdTime_ {};
-        // The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
         shared_ptr<string> crossAccountRoleName_ {};
         shared_ptr<string> crossAccountType_ {};
-        // The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
         shared_ptr<int64_t> crossAccountUserId_ {};
-        // The ID of the backup type.
         shared_ptr<int64_t> id_ {};
-        // The ID of the current account.
         shared_ptr<int64_t> ownerId_ {};
-        // The time when the account information was updated. The value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> updatedTime_ {};
       };
 
@@ -251,7 +244,6 @@ namespace Models
   protected:
     // The HTTP status code. The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The information about the accounts used in cross-account backup.
     shared_ptr<DescribeCrossAccountsResponseBody::CrossAccounts> crossAccounts_ {};
     // The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
     shared_ptr<string> message_ {};

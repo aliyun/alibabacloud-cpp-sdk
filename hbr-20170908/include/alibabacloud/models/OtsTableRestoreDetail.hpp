@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The number of concurrent processes for each restore job.
     shared_ptr<int32_t> batchChannelCount_ {};
+    // The name prefixes of the indexes that you want to restore.
     shared_ptr<string> indexNameSuffix_ {};
+    // Specifies whether to overwrite existing tables.
     shared_ptr<bool> overwriteExisting_ {};
+    // Specifies whether to regenerate auto-increment primary keys.
     shared_ptr<bool> reGenerateAutoIncrementPK_ {};
+    // Specifies whether to restore indexes.
     shared_ptr<bool> restoreIndex_ {};
+    // Specifies whether to restore search indexes.
     shared_ptr<bool> restoreSearchIndex_ {};
+    // The name prefixes of the search indexes that you want to restore.
     shared_ptr<string> searchIndexNameSuffix_ {};
   };
 

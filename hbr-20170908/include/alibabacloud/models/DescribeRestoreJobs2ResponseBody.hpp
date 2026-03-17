@@ -243,15 +243,10 @@ namespace Models
 
 
         protected:
-          // The files that failed to be executed.
           shared_ptr<string> failedFiles_ {};
-          // The status of the report generation.
           shared_ptr<string> reportTaskStatus_ {};
-          // The skipped files.
           shared_ptr<string> skippedFiles_ {};
-          // The files that are successfully executed.
           shared_ptr<string> successFiles_ {};
-          // The full files that are restored based on the file list.
           shared_ptr<string> totalFiles_ {};
         };
 
@@ -293,9 +288,7 @@ namespace Models
 
 
         protected:
-          // The number of channels processed by each Tablestore restore job.
           shared_ptr<int32_t> batchChannelCount_ {};
-          // Indicates whether the existing Tablestore restore job was overwritten.
           shared_ptr<bool> overwriteExisting_ {};
         };
 
@@ -658,122 +651,54 @@ namespace Models
 
 
       protected:
-        // The actual amount of data that is restored after duplicates are removed. Unit: bytes.
         shared_ptr<int64_t> actualBytes_ {};
-        // This parameter is valid only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the actual number of objects that are restored by the restore job.
         shared_ptr<int64_t> actualItems_ {};
-        // The amount of data that was restored. Unit: bytes.
         shared_ptr<int64_t> bytesDone_ {};
-        // The total amount of data that was backed up from the data source. Unit: bytes.
         shared_ptr<int64_t> bytesTotal_ {};
-        // The ID of the client group used for restoration.
         shared_ptr<string> clusterId_ {};
-        // The time when the restore job was completed. This value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> completeTime_ {};
-        // The time when the restore job was created. This value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> createdTime_ {};
-        // The name of the Resource Access Management (RAM) role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
         shared_ptr<string> crossAccountRoleName_ {};
-        // Indicates whether data is backed up within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
-        // 
-        // *   SELF_ACCOUNT: Data is backed up within the same Alibaba Cloud account.
-        // *   CROSS_ACCOUNT: Data is backed up across Alibaba Cloud accounts.
         shared_ptr<string> crossAccountType_ {};
-        // The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
         shared_ptr<int64_t> crossAccountUserId_ {};
-        // The files that failed to be restored.
         shared_ptr<string> errorFile_ {};
-        // The error message that is returned for the restore job.
         shared_ptr<string> errorMessage_ {};
-        // This parameter is valid only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the paths to the files that are excluded from the restore job. The value can be up to 255 characters in length.
         shared_ptr<string> exclude_ {};
-        // The time when the restore job expires.
         shared_ptr<int64_t> expireTime_ {};
-        // The details about the VMware failback task.
         shared_ptr<string> failbackDetail_ {};
-        // The paths to the files that are included in the restore job.
         shared_ptr<string> include_ {};
-        // This parameter is valid only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the number of restored objects.
         shared_ptr<int64_t> itemsDone_ {};
-        // This parameter is valid only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the total number of objects in the data source.
         shared_ptr<int64_t> itemsTotal_ {};
-        // The amount of data that was restored. Unit: bytes. This parameter is valid only if the StorageClass parameter is set to ARCHIVE. The minimum billable size of the data stored at the Archive tier is 1 MB.
         shared_ptr<int64_t> meteringBytesDone_ {};
-        // The total amount of data that was backed up from the data source. Unit: bytes. This parameter is valid only if the StorageClass parameter is set to ARCHIVE. The minimum billable size of the data stored at the Archive tier is 1 MB.
         shared_ptr<int64_t> meteringBytesTotal_ {};
-        // This parameter is valid only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates whether Windows Volume Shadow Copy Service (VSS) is used to define a restoration path.
-        // 
-        // *   This parameter is available only for Windows ECS instances.
-        // *   If data changes occur in the backup source, the source data must be the same as the data to be backed up before you can set this parameter to `["UseVSS":true]`.
-        // *   If you use VSS, you cannot restore data from multiple directories.
         shared_ptr<string> options_ {};
-        // The details about the Tablestore instance.
         shared_ptr<RestoreJob::OtsDetail> otsDetail_ {};
-        // The ID of the parent job.
         shared_ptr<string> parentId_ {};
-        // The progress of the restore job. Valid values: [0,10000]. For example, 10000 indicates that the progress is 100%.
         shared_ptr<int32_t> progress_ {};
-        // The report of the restore job.
         shared_ptr<RestoreJob::Report> report_ {};
-        // The ID of the restore job.
         shared_ptr<string> restoreId_ {};
-        // The type of the restore job.
         shared_ptr<string> restoreType_ {};
-        // The hash value of the backup snapshot.
         shared_ptr<string> snapshotHash_ {};
-        // The ID of the snapshot used for restoration.
         shared_ptr<string> snapshotId_ {};
         shared_ptr<string> sourceInstanceId_ {};
-        // The type of the data source. Valid values:
-        // 
-        // *   **ECS_FILE**: ECS files
-        // *   **OSS**: Object Storage Service (OSS) buckets
-        // *   **NAS**: Apsara File Storage NAS (NAS) file systems
-        // *   **OTS_TABLE**: Tablestore instances
-        // *   **UDM_ECS**: ECS instances
         shared_ptr<string> sourceType_ {};
-        // The average speed at which data is backed up. Unit: KB/s.
         shared_ptr<int64_t> speed_ {};
-        // The time when the restore job started. This value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> startTime_ {};
-        // The status of the restore job. Valid values:
-        // 
-        // *   **COMPLETE**: The job is completed.
-        // *   **PARTIAL_COMPLETE**: The job is partially completed.
-        // *   **FAILED**: The job failed.
         shared_ptr<string> status_ {};
-        // The storage class of the backup data. Valid values:
-        // 
-        // *   **STANDARD**
-        // *   **ARCHIVE**
         shared_ptr<string> storageClass_ {};
-        // The name of the destination OSS bucket. This parameter is returned only for OSS buckets.
         shared_ptr<string> targetBucket_ {};
-        // The ID of the destination client.
         shared_ptr<string> targetClientId_ {};
-        // The time when the file system was created. This parameter is returned only for NAS file systems.
         shared_ptr<int64_t> targetCreateTime_ {};
-        // The ID of the destination data source.
         shared_ptr<string> targetDataSourceId_ {};
-        // The ID of the destination NAS file system. This parameter is returned only for NAS file systems.
         shared_ptr<string> targetFileSystemId_ {};
-        // The ID of the destination instance for the restore job.
         shared_ptr<string> targetInstanceId_ {};
-        // The name of the destination Tablestore instance.
         shared_ptr<string> targetInstanceName_ {};
-        // The destination file path of the restore job.
         shared_ptr<string> targetPath_ {};
-        // The prefix of the objects that are restored. This parameter is returned only for OSS buckets.
         shared_ptr<string> targetPrefix_ {};
-        // The name of the destination table in the Tablestore instance.
         shared_ptr<string> targetTableName_ {};
-        // The time when the Tablestore instance was backed up. This value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> targetTime_ {};
-        // The details about Elastic Compute Service (ECS) instance backup.
         shared_ptr<string> udmDetail_ {};
-        // The time when the restore job was updated. This value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> updatedTime_ {};
-        // The ID of the backup vault.
         shared_ptr<string> vaultId_ {};
       };
 
@@ -863,7 +788,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried restore jobs.
     shared_ptr<DescribeRestoreJobs2ResponseBody::RestoreJobs> restoreJobs_ {};
     // Indicates whether the request was successful. Valid values:
     // 
