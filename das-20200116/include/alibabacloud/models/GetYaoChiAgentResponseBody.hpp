@@ -16,21 +16,25 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetYaoChiAgentResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Content, content_);
       DARABONBA_PTR_TO_JSON(FunctionCall, functionCall_);
+      DARABONBA_PTR_TO_JSON(ParentId, parentId_);
       DARABONBA_PTR_TO_JSON(Product, product_);
       DARABONBA_PTR_TO_JSON(QueryId, queryId_);
       DARABONBA_PTR_TO_JSON(ReasoningContent, reasoningContent_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
+      DARABONBA_PTR_TO_JSON(SubAgentCall, subAgentCall_);
       DARABONBA_PTR_TO_JSON(UiFunctionCall, uiFunctionCall_);
     };
     friend void from_json(const Darabonba::Json& j, GetYaoChiAgentResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(FunctionCall, functionCall_);
+      DARABONBA_PTR_FROM_JSON(ParentId, parentId_);
       DARABONBA_PTR_FROM_JSON(Product, product_);
       DARABONBA_PTR_FROM_JSON(QueryId, queryId_);
       DARABONBA_PTR_FROM_JSON(ReasoningContent, reasoningContent_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
+      DARABONBA_PTR_FROM_JSON(SubAgentCall, subAgentCall_);
       DARABONBA_PTR_FROM_JSON(UiFunctionCall, uiFunctionCall_);
     };
     GetYaoChiAgentResponseBody() = default ;
@@ -84,6 +88,58 @@ namespace Models
     protected:
       shared_ptr<string> argsText_ {};
       shared_ptr<string> toolName_ {};
+    };
+
+    class SubAgentCall : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SubAgentCall& obj) { 
+        DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(SubAgentId, subAgentId_);
+        DARABONBA_PTR_TO_JSON(SubAgentName, subAgentName_);
+      };
+      friend void from_json(const Darabonba::Json& j, SubAgentCall& obj) { 
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(SubAgentId, subAgentId_);
+        DARABONBA_PTR_FROM_JSON(SubAgentName, subAgentName_);
+      };
+      SubAgentCall() = default ;
+      SubAgentCall(const SubAgentCall &) = default ;
+      SubAgentCall(SubAgentCall &&) = default ;
+      SubAgentCall(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SubAgentCall() = default ;
+      SubAgentCall& operator=(const SubAgentCall &) = default ;
+      SubAgentCall& operator=(SubAgentCall &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->status_ == nullptr
+        && this->subAgentId_ == nullptr && this->subAgentName_ == nullptr; };
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline SubAgentCall& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // subAgentId Field Functions 
+      bool hasSubAgentId() const { return this->subAgentId_ != nullptr;};
+      void deleteSubAgentId() { this->subAgentId_ = nullptr;};
+      inline string getSubAgentId() const { DARABONBA_PTR_GET_DEFAULT(subAgentId_, "") };
+      inline SubAgentCall& setSubAgentId(string subAgentId) { DARABONBA_PTR_SET_VALUE(subAgentId_, subAgentId) };
+
+
+      // subAgentName Field Functions 
+      bool hasSubAgentName() const { return this->subAgentName_ != nullptr;};
+      void deleteSubAgentName() { this->subAgentName_ = nullptr;};
+      inline string getSubAgentName() const { DARABONBA_PTR_GET_DEFAULT(subAgentName_, "") };
+      inline SubAgentCall& setSubAgentName(string subAgentName) { DARABONBA_PTR_SET_VALUE(subAgentName_, subAgentName) };
+
+
+    protected:
+      shared_ptr<string> status_ {};
+      shared_ptr<string> subAgentId_ {};
+      shared_ptr<string> subAgentName_ {};
     };
 
     class FunctionCall : public Darabonba::Model {
@@ -149,8 +205,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->content_ == nullptr
-        && this->functionCall_ == nullptr && this->product_ == nullptr && this->queryId_ == nullptr && this->reasoningContent_ == nullptr && this->requestId_ == nullptr
-        && this->sessionId_ == nullptr && this->uiFunctionCall_ == nullptr; };
+        && this->functionCall_ == nullptr && this->parentId_ == nullptr && this->product_ == nullptr && this->queryId_ == nullptr && this->reasoningContent_ == nullptr
+        && this->requestId_ == nullptr && this->sessionId_ == nullptr && this->subAgentCall_ == nullptr && this->uiFunctionCall_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -165,6 +221,13 @@ namespace Models
     inline vector<GetYaoChiAgentResponseBody::FunctionCall> getFunctionCall() { DARABONBA_PTR_GET(functionCall_, vector<GetYaoChiAgentResponseBody::FunctionCall>) };
     inline GetYaoChiAgentResponseBody& setFunctionCall(const vector<GetYaoChiAgentResponseBody::FunctionCall> & functionCall) { DARABONBA_PTR_SET_VALUE(functionCall_, functionCall) };
     inline GetYaoChiAgentResponseBody& setFunctionCall(vector<GetYaoChiAgentResponseBody::FunctionCall> && functionCall) { DARABONBA_PTR_SET_RVALUE(functionCall_, functionCall) };
+
+
+    // parentId Field Functions 
+    bool hasParentId() const { return this->parentId_ != nullptr;};
+    void deleteParentId() { this->parentId_ = nullptr;};
+    inline string getParentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
+    inline GetYaoChiAgentResponseBody& setParentId(string parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
 
 
     // product Field Functions 
@@ -202,6 +265,15 @@ namespace Models
     inline GetYaoChiAgentResponseBody& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
+    // subAgentCall Field Functions 
+    bool hasSubAgentCall() const { return this->subAgentCall_ != nullptr;};
+    void deleteSubAgentCall() { this->subAgentCall_ = nullptr;};
+    inline const vector<GetYaoChiAgentResponseBody::SubAgentCall> & getSubAgentCall() const { DARABONBA_PTR_GET_CONST(subAgentCall_, vector<GetYaoChiAgentResponseBody::SubAgentCall>) };
+    inline vector<GetYaoChiAgentResponseBody::SubAgentCall> getSubAgentCall() { DARABONBA_PTR_GET(subAgentCall_, vector<GetYaoChiAgentResponseBody::SubAgentCall>) };
+    inline GetYaoChiAgentResponseBody& setSubAgentCall(const vector<GetYaoChiAgentResponseBody::SubAgentCall> & subAgentCall) { DARABONBA_PTR_SET_VALUE(subAgentCall_, subAgentCall) };
+    inline GetYaoChiAgentResponseBody& setSubAgentCall(vector<GetYaoChiAgentResponseBody::SubAgentCall> && subAgentCall) { DARABONBA_PTR_SET_RVALUE(subAgentCall_, subAgentCall) };
+
+
     // uiFunctionCall Field Functions 
     bool hasUiFunctionCall() const { return this->uiFunctionCall_ != nullptr;};
     void deleteUiFunctionCall() { this->uiFunctionCall_ = nullptr;};
@@ -214,11 +286,13 @@ namespace Models
   protected:
     shared_ptr<string> content_ {};
     shared_ptr<vector<GetYaoChiAgentResponseBody::FunctionCall>> functionCall_ {};
+    shared_ptr<string> parentId_ {};
     shared_ptr<string> product_ {};
     shared_ptr<string> queryId_ {};
     shared_ptr<string> reasoningContent_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<string> sessionId_ {};
+    shared_ptr<vector<GetYaoChiAgentResponseBody::SubAgentCall>> subAgentCall_ {};
     shared_ptr<vector<GetYaoChiAgentResponseBody::UiFunctionCall>> uiFunctionCall_ {};
   };
 
