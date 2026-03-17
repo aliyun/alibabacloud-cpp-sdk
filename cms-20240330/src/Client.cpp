@@ -1305,6 +1305,10 @@ CreateServiceObservabilityResponse Client::createServiceObservability(const stri
 CreateThreadResponse Client::createThreadWithOptions(const string &name, const CreateThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAttributes()) {
+    body["attributes"] = request.getAttributes();
+  }
+
   if (!!request.hasTitle()) {
     body["title"] = request.getTitle();
   }
@@ -6476,6 +6480,10 @@ UpdateSubscriptionResponse Client::updateSubscription(const string &subscription
 UpdateThreadResponse Client::updateThreadWithOptions(const string &name, const string &threadId, const UpdateThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAttributes()) {
+    body["attributes"] = request.getAttributes();
+  }
+
   if (!!request.hasStatus()) {
     body["status"] = request.getStatus();
   }

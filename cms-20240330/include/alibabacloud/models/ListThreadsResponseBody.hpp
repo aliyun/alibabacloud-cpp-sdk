@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTTHREADSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTTHREADSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -43,6 +44,7 @@ namespace Models
     class Threads : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Threads& obj) { 
+        DARABONBA_PTR_TO_JSON(attributes, attributes_);
         DARABONBA_PTR_TO_JSON(createTime, createTime_);
         DARABONBA_PTR_TO_JSON(digitalEmployeeName, digitalEmployeeName_);
         DARABONBA_PTR_TO_JSON(status, status_);
@@ -53,6 +55,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(version, version_);
       };
       friend void from_json(const Darabonba::Json& j, Threads& obj) { 
+        DARABONBA_PTR_FROM_JSON(attributes, attributes_);
         DARABONBA_PTR_FROM_JSON(createTime, createTime_);
         DARABONBA_PTR_FROM_JSON(digitalEmployeeName, digitalEmployeeName_);
         DARABONBA_PTR_FROM_JSON(status, status_);
@@ -116,9 +119,18 @@ namespace Models
         shared_ptr<string> workspace_ {};
       };
 
-      virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->digitalEmployeeName_ == nullptr && this->status_ == nullptr && this->threadId_ == nullptr && this->title_ == nullptr && this->updateTime_ == nullptr
-        && this->variables_ == nullptr && this->version_ == nullptr; };
+      virtual bool empty() const override { return this->attributes_ == nullptr
+        && this->createTime_ == nullptr && this->digitalEmployeeName_ == nullptr && this->status_ == nullptr && this->threadId_ == nullptr && this->title_ == nullptr
+        && this->updateTime_ == nullptr && this->variables_ == nullptr && this->version_ == nullptr; };
+      // attributes Field Functions 
+      bool hasAttributes() const { return this->attributes_ != nullptr;};
+      void deleteAttributes() { this->attributes_ = nullptr;};
+      inline const map<string, string> & getAttributes() const { DARABONBA_PTR_GET_CONST(attributes_, map<string, string>) };
+      inline map<string, string> getAttributes() { DARABONBA_PTR_GET(attributes_, map<string, string>) };
+      inline Threads& setAttributes(const map<string, string> & attributes) { DARABONBA_PTR_SET_VALUE(attributes_, attributes) };
+      inline Threads& setAttributes(map<string, string> && attributes) { DARABONBA_PTR_SET_RVALUE(attributes_, attributes) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -178,6 +190,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<map<string, string>> attributes_ {};
       shared_ptr<string> createTime_ {};
       shared_ptr<string> digitalEmployeeName_ {};
       shared_ptr<string> status_ {};

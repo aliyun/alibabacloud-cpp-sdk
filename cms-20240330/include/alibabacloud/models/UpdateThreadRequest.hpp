@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATETHREADREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATETHREADREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,10 +14,12 @@ namespace Models
   class UpdateThreadRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateThreadRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(attributes, attributes_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(title, title_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateThreadRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(attributes, attributes_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(title, title_);
     };
@@ -31,8 +34,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->status_ == nullptr
-        && this->title_ == nullptr; };
+    virtual bool empty() const override { return this->attributes_ == nullptr
+        && this->status_ == nullptr && this->title_ == nullptr; };
+    // attributes Field Functions 
+    bool hasAttributes() const { return this->attributes_ != nullptr;};
+    void deleteAttributes() { this->attributes_ = nullptr;};
+    inline const map<string, string> & getAttributes() const { DARABONBA_PTR_GET_CONST(attributes_, map<string, string>) };
+    inline map<string, string> getAttributes() { DARABONBA_PTR_GET(attributes_, map<string, string>) };
+    inline UpdateThreadRequest& setAttributes(const map<string, string> & attributes) { DARABONBA_PTR_SET_VALUE(attributes_, attributes) };
+    inline UpdateThreadRequest& setAttributes(map<string, string> && attributes) { DARABONBA_PTR_SET_RVALUE(attributes_, attributes) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -48,6 +60,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<map<string, string>> attributes_ {};
     shared_ptr<string> status_ {};
     shared_ptr<string> title_ {};
   };
