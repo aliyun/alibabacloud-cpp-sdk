@@ -3384,6 +3384,23 @@ namespace AiMiaoBi20230801
       Models::SaveMaterialDocumentResponse saveMaterialDocument(const Models::SaveMaterialDocumentRequest &request);
 
       /**
+       * @summary 配置oss访问参数
+       *
+       * @param request SaveOrUpdateOssConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SaveOrUpdateOssConfigResponse
+       */
+      Models::SaveOrUpdateOssConfigResponse saveOrUpdateOssConfigWithOptions(const Models::SaveOrUpdateOssConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置oss访问参数
+       *
+       * @param request SaveOrUpdateOssConfigRequest
+       * @return SaveOrUpdateOssConfigResponse
+       */
+      Models::SaveOrUpdateOssConfigResponse saveOrUpdateOssConfig(const Models::SaveOrUpdateOssConfigRequest &request);
+
+      /**
        * @summary 保存自定义文体
        *
        * @param tmpReq SaveStyleLearningResultRequest

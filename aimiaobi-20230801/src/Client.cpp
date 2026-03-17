@@ -5908,6 +5908,10 @@ ListDatasetDocumentsResponse Client::listDatasetDocumentsWithOptions(const ListD
     body["IncludeFields"] = request.getIncludeFieldsShrink();
   }
 
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
   if (!!request.hasPageNumber()) {
     body["PageNumber"] = request.getPageNumber();
   }
@@ -13225,6 +13229,56 @@ SaveMaterialDocumentResponse Client::saveMaterialDocumentWithOptions(const SaveM
 SaveMaterialDocumentResponse Client::saveMaterialDocument(const SaveMaterialDocumentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return saveMaterialDocumentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 配置oss访问参数
+ *
+ * @param request SaveOrUpdateOssConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SaveOrUpdateOssConfigResponse
+ */
+SaveOrUpdateOssConfigResponse Client::saveOrUpdateOssConfigWithOptions(const SaveOrUpdateOssConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBucketName()) {
+    body["BucketName"] = request.getBucketName();
+  }
+
+  if (!!request.hasEndPoint()) {
+    body["EndPoint"] = request.getEndPoint();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SaveOrUpdateOssConfig"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SaveOrUpdateOssConfigResponse>();
+}
+
+/**
+ * @summary 配置oss访问参数
+ *
+ * @param request SaveOrUpdateOssConfigRequest
+ * @return SaveOrUpdateOssConfigResponse
+ */
+SaveOrUpdateOssConfigResponse Client::saveOrUpdateOssConfig(const SaveOrUpdateOssConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return saveOrUpdateOssConfigWithOptions(request, runtime);
 }
 
 /**

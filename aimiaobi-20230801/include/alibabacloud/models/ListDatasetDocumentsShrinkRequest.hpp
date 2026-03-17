@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Extend2, extend2_);
       DARABONBA_PTR_TO_JSON(Extend3, extend3_);
       DARABONBA_PTR_TO_JSON(IncludeFields, includeFieldsShrink_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Query, query_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Extend2, extend2_);
       DARABONBA_PTR_FROM_JSON(Extend3, extend3_);
       DARABONBA_PTR_FROM_JSON(IncludeFields, includeFieldsShrink_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Query, query_);
@@ -76,9 +78,9 @@ namespace Models
     virtual bool empty() const override { return this->categoryUuidsShrink_ == nullptr
         && this->createTimeEnd_ == nullptr && this->createTimeStart_ == nullptr && this->datasetDescription_ == nullptr && this->datasetId_ == nullptr && this->datasetName_ == nullptr
         && this->docIdsShrink_ == nullptr && this->docType_ == nullptr && this->docUuidsShrink_ == nullptr && this->endTime_ == nullptr && this->excludeFieldsShrink_ == nullptr
-        && this->extend1_ == nullptr && this->extend2_ == nullptr && this->extend3_ == nullptr && this->includeFieldsShrink_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->query_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->tagsShrink_ == nullptr
-        && this->title_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->extend1_ == nullptr && this->extend2_ == nullptr && this->extend3_ == nullptr && this->includeFieldsShrink_ == nullptr && this->nextToken_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->query_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr
+        && this->tagsShrink_ == nullptr && this->title_ == nullptr && this->workspaceId_ == nullptr; };
     // categoryUuidsShrink Field Functions 
     bool hasCategoryUuidsShrink() const { return this->categoryUuidsShrink_ != nullptr;};
     void deleteCategoryUuidsShrink() { this->categoryUuidsShrink_ = nullptr;};
@@ -184,6 +186,13 @@ namespace Models
     inline ListDatasetDocumentsShrinkRequest& setIncludeFieldsShrink(string includeFieldsShrink) { DARABONBA_PTR_SET_VALUE(includeFieldsShrink_, includeFieldsShrink) };
 
 
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListDatasetDocumentsShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -256,6 +265,7 @@ namespace Models
     shared_ptr<string> extend2_ {};
     shared_ptr<string> extend3_ {};
     shared_ptr<string> includeFieldsShrink_ {};
+    shared_ptr<string> nextToken_ {};
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> query_ {};

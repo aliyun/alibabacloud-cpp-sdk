@@ -594,6 +594,9 @@
 #include <alibabacloud/models/SaveMaterialDocumentShrinkRequest.hpp>
 #include <alibabacloud/models/SaveMaterialDocumentResponseBody.hpp>
 #include <alibabacloud/models/SaveMaterialDocumentResponse.hpp>
+#include <alibabacloud/models/SaveOrUpdateOssConfigRequest.hpp>
+#include <alibabacloud/models/SaveOrUpdateOssConfigResponseBody.hpp>
+#include <alibabacloud/models/SaveOrUpdateOssConfigResponse.hpp>
 #include <alibabacloud/models/SaveStyleLearningResultRequest.hpp>
 #include <alibabacloud/models/SaveStyleLearningResultShrinkRequest.hpp>
 #include <alibabacloud/models/SaveStyleLearningResultResponseBody.hpp>
