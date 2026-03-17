@@ -4112,6 +4112,23 @@ namespace Gpdb20160503
       Models::PauseInstanceResponse pauseInstance(const Models::PauseInstanceRequest &request);
 
       /**
+       * @summary 暂停Supabase实例
+       *
+       * @param request PauseSupabaseProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PauseSupabaseProjectResponse
+       */
+      Models::PauseSupabaseProjectResponse pauseSupabaseProjectWithOptions(const Models::PauseSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 暂停Supabase实例
+       *
+       * @param request PauseSupabaseProjectRequest
+       * @return PauseSupabaseProjectResponse
+       */
+      Models::PauseSupabaseProjectResponse pauseSupabaseProject(const Models::PauseSupabaseProjectRequest &request);
+
+      /**
        * @summary Query Vector Data
        *
        * @param tmpReq QueryCollectionDataRequest
@@ -4340,6 +4357,23 @@ namespace Gpdb20160503
        * @return ResumeInstanceResponse
        */
       Models::ResumeInstanceResponse resumeInstance(const Models::ResumeInstanceRequest &request);
+
+      /**
+       * @summary 恢复Supabase实例
+       *
+       * @param request ResumeSupabaseProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResumeSupabaseProjectResponse
+       */
+      Models::ResumeSupabaseProjectResponse resumeSupabaseProjectWithOptions(const Models::ResumeSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 恢复Supabase实例
+       *
+       * @param request ResumeSupabaseProjectRequest
+       * @return ResumeSupabaseProjectResponse
+       */
+      Models::ResumeSupabaseProjectResponse resumeSupabaseProject(const Models::ResumeSupabaseProjectRequest &request);
 
       /**
        * @summary Enables or disables a plan for an AnalyticDB for PostgreSQL instance.

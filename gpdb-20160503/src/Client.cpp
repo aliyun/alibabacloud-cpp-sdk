@@ -13506,6 +13506,52 @@ PauseInstanceResponse Client::pauseInstance(const PauseInstanceRequest &request)
 }
 
 /**
+ * @summary 暂停Supabase实例
+ *
+ * @param request PauseSupabaseProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PauseSupabaseProjectResponse
+ */
+PauseSupabaseProjectResponse Client::pauseSupabaseProjectWithOptions(const PauseSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PauseSupabaseProject"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PauseSupabaseProjectResponse>();
+}
+
+/**
+ * @summary 暂停Supabase实例
+ *
+ * @param request PauseSupabaseProjectRequest
+ * @return PauseSupabaseProjectResponse
+ */
+PauseSupabaseProjectResponse Client::pauseSupabaseProject(const PauseSupabaseProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return pauseSupabaseProjectWithOptions(request, runtime);
+}
+
+/**
  * @summary Query Vector Data
  *
  * @param tmpReq QueryCollectionDataRequest
@@ -14455,6 +14501,52 @@ ResumeInstanceResponse Client::resumeInstanceWithOptions(const ResumeInstanceReq
 ResumeInstanceResponse Client::resumeInstance(const ResumeInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return resumeInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 恢复Supabase实例
+ *
+ * @param request ResumeSupabaseProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResumeSupabaseProjectResponse
+ */
+ResumeSupabaseProjectResponse Client::resumeSupabaseProjectWithOptions(const ResumeSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResumeSupabaseProject"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResumeSupabaseProjectResponse>();
+}
+
+/**
+ * @summary 恢复Supabase实例
+ *
+ * @param request ResumeSupabaseProjectRequest
+ * @return ResumeSupabaseProjectResponse
+ */
+ResumeSupabaseProjectResponse Client::resumeSupabaseProject(const ResumeSupabaseProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resumeSupabaseProjectWithOptions(request, runtime);
 }
 
 /**
