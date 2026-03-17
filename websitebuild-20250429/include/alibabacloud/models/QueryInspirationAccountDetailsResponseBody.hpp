@@ -188,6 +188,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(InitQuota, initQuota_);
           DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
           DARABONBA_PTR_TO_JSON(SourceTypeName, sourceTypeName_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
         };
         friend void from_json(const Darabonba::Json& j, Data& obj) { 
           DARABONBA_PTR_FROM_JSON(AcquisitionTime, acquisitionTime_);
@@ -197,6 +198,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(InitQuota, initQuota_);
           DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
           DARABONBA_PTR_FROM_JSON(SourceTypeName, sourceTypeName_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
         };
         Data() = default ;
         Data(const Data &) = default ;
@@ -211,7 +213,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->acquisitionTime_ == nullptr
         && this->balance_ == nullptr && this->endDate_ == nullptr && this->expired_ == nullptr && this->initQuota_ == nullptr && this->sourceType_ == nullptr
-        && this->sourceTypeName_ == nullptr; };
+        && this->sourceTypeName_ == nullptr && this->status_ == nullptr; };
         // acquisitionTime Field Functions 
         bool hasAcquisitionTime() const { return this->acquisitionTime_ != nullptr;};
         void deleteAcquisitionTime() { this->acquisitionTime_ = nullptr;};
@@ -261,6 +263,13 @@ namespace Models
         inline Data& setSourceTypeName(string sourceTypeName) { DARABONBA_PTR_SET_VALUE(sourceTypeName_, sourceTypeName) };
 
 
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
       protected:
         shared_ptr<string> acquisitionTime_ {};
         shared_ptr<int64_t> balance_ {};
@@ -269,6 +278,7 @@ namespace Models
         shared_ptr<int64_t> initQuota_ {};
         shared_ptr<string> sourceType_ {};
         shared_ptr<string> sourceTypeName_ {};
+        shared_ptr<string> status_ {};
       };
 
       virtual bool empty() const override { return this->currentPageNum_ == nullptr
