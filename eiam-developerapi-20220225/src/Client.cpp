@@ -735,6 +735,111 @@ GenerateTokenResponse Client::generateToken(const string &instanceId, const stri
 }
 
 /**
+ * @summary 实例级授权服务器 Token 端点
+ *
+ * @param request GenerateTokenByAuthorizationServerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateTokenByAuthorizationServerResponse
+ */
+GenerateTokenByAuthorizationServerResponse Client::generateTokenByAuthorizationServerWithOptions(const string &instanceId, const string &authorizationServerId, const GenerateTokenByAuthorizationServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationFederatedCredentialName()) {
+    query["application_federated_credential_name"] = request.getApplicationFederatedCredentialName();
+  }
+
+  if (!!request.hasClientAssertion()) {
+    query["client_assertion"] = request.getClientAssertion();
+  }
+
+  if (!!request.hasClientAssertionType()) {
+    query["client_assertion_type"] = request.getClientAssertionType();
+  }
+
+  if (!!request.hasClientId()) {
+    query["client_id"] = request.getClientId();
+  }
+
+  if (!!request.hasClientSecret()) {
+    query["client_secret"] = request.getClientSecret();
+  }
+
+  if (!!request.hasClientX509()) {
+    query["client_x509"] = request.getClientX509();
+  }
+
+  if (!!request.hasClientX509Chain()) {
+    query["client_x509_chain"] = request.getClientX509Chain();
+  }
+
+  if (!!request.hasCode()) {
+    query["code"] = request.getCode();
+  }
+
+  if (!!request.hasCodeVerifier()) {
+    query["code_verifier"] = request.getCodeVerifier();
+  }
+
+  if (!!request.hasDeviceCode()) {
+    query["device_code"] = request.getDeviceCode();
+  }
+
+  if (!!request.hasGrantType()) {
+    query["grant_type"] = request.getGrantType();
+  }
+
+  if (!!request.hasPassword()) {
+    query["password"] = request.getPassword();
+  }
+
+  if (!!request.hasRedirectUri()) {
+    query["redirect_uri"] = request.getRedirectUri();
+  }
+
+  if (!!request.hasRefreshToken()) {
+    query["refresh_token"] = request.getRefreshToken();
+  }
+
+  if (!!request.hasScope()) {
+    query["scope"] = request.getScope();
+  }
+
+  if (!!request.hasUsername()) {
+    query["username"] = request.getUsername();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateTokenByAuthorizationServer"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/authorizationServer/" , Darabonba::Encode::Encoder::percentEncode(authorizationServerId) , "/oauth2/token")},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GenerateTokenByAuthorizationServerResponse>();
+}
+
+/**
+ * @summary 实例级授权服务器 Token 端点
+ *
+ * @param request GenerateTokenByAuthorizationServerRequest
+ * @return GenerateTokenByAuthorizationServerResponse
+ */
+GenerateTokenByAuthorizationServerResponse Client::generateTokenByAuthorizationServer(const string &instanceId, const string &authorizationServerId, const GenerateTokenByAuthorizationServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return generateTokenByAuthorizationServerWithOptions(instanceId, authorizationServerId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the synchronization scope of an application in an instance.
  *
  * @description > 

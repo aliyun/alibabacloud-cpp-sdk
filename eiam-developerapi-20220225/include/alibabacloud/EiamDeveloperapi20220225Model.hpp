@@ -36,6 +36,9 @@
 #include <alibabacloud/models/GenerateTokenRequest.hpp>
 #include <alibabacloud/models/GenerateTokenResponseBody.hpp>
 #include <alibabacloud/models/GenerateTokenResponse.hpp>
+#include <alibabacloud/models/GenerateTokenByAuthorizationServerRequest.hpp>
+#include <alibabacloud/models/GenerateTokenByAuthorizationServerResponseBody.hpp>
+#include <alibabacloud/models/GenerateTokenByAuthorizationServerResponse.hpp>
 #include <alibabacloud/models/GetApplicationProvisioningScopeHeaders.hpp>
 #include <alibabacloud/models/GetApplicationProvisioningScopeResponseBody.hpp>
 #include <alibabacloud/models/GetApplicationProvisioningScopeResponse.hpp>

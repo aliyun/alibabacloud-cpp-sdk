@@ -231,6 +231,24 @@ namespace EiamDeveloperapi20220225
       Models::GenerateTokenResponse generateToken(const string &instanceId, const string &applicationId, const Models::GenerateTokenRequest &request);
 
       /**
+       * @summary 实例级授权服务器 Token 端点
+       *
+       * @param request GenerateTokenByAuthorizationServerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateTokenByAuthorizationServerResponse
+       */
+      Models::GenerateTokenByAuthorizationServerResponse generateTokenByAuthorizationServerWithOptions(const string &instanceId, const string &authorizationServerId, const Models::GenerateTokenByAuthorizationServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 实例级授权服务器 Token 端点
+       *
+       * @param request GenerateTokenByAuthorizationServerRequest
+       * @return GenerateTokenByAuthorizationServerResponse
+       */
+      Models::GenerateTokenByAuthorizationServerResponse generateTokenByAuthorizationServer(const string &instanceId, const string &authorizationServerId, const Models::GenerateTokenByAuthorizationServerRequest &request);
+
+      /**
        * @summary Queries the synchronization scope of an application in an instance.
        *
        * @description > 
