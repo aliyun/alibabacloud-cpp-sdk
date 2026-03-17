@@ -13,6 +13,7 @@ namespace Models
   class CreateCustomAgentShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateCustomAgentShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CallbackConfig, callbackConfigShrink_);
       DARABONBA_PTR_TO_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_TO_JSON(DataJson, dataJson_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCustomAgentShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CallbackConfig, callbackConfigShrink_);
       DARABONBA_PTR_FROM_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_FROM_JSON(DataJson, dataJson_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -51,10 +53,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DMSUnit_ == nullptr
-        && this->dataJson_ == nullptr && this->description_ == nullptr && this->executionConfigShrink_ == nullptr && this->instruction_ == nullptr && this->knowledge_ == nullptr
-        && this->knowledgeConfigListShrink_ == nullptr && this->name_ == nullptr && this->scheduleTaskConfigShrink_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr
-        && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->callbackConfigShrink_ == nullptr
+        && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr && this->executionConfigShrink_ == nullptr && this->instruction_ == nullptr
+        && this->knowledge_ == nullptr && this->knowledgeConfigListShrink_ == nullptr && this->name_ == nullptr && this->scheduleTaskConfigShrink_ == nullptr && this->textReportConfig_ == nullptr
+        && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
+    // callbackConfigShrink Field Functions 
+    bool hasCallbackConfigShrink() const { return this->callbackConfigShrink_ != nullptr;};
+    void deleteCallbackConfigShrink() { this->callbackConfigShrink_ = nullptr;};
+    inline string getCallbackConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(callbackConfigShrink_, "") };
+    inline CreateCustomAgentShrinkRequest& setCallbackConfigShrink(string callbackConfigShrink) { DARABONBA_PTR_SET_VALUE(callbackConfigShrink_, callbackConfigShrink) };
+
+
     // DMSUnit Field Functions 
     bool hasDMSUnit() const { return this->DMSUnit_ != nullptr;};
     void deleteDMSUnit() { this->DMSUnit_ = nullptr;};
@@ -140,6 +149,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> callbackConfigShrink_ {};
     shared_ptr<string> DMSUnit_ {};
     shared_ptr<string> dataJson_ {};
     shared_ptr<string> description_ {};

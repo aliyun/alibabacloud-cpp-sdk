@@ -25,6 +25,7 @@
 #include <alibabacloud/models/OneMetaTableColumnEngineMeta.hpp>
 #include <alibabacloud/models/OneMetaTableColumn.hpp>
 #include <alibabacloud/models/OneMetaTableIndex.hpp>
+#include <alibabacloud/models/OpenClawInstanceVO.hpp>
 #include <alibabacloud/models/PartitionError.hpp>
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceResponseBody.hpp>

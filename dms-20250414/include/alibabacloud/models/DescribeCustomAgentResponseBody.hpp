@@ -43,6 +43,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AliyunParentUid, aliyunParentUid_);
         DARABONBA_PTR_TO_JSON(AliyunUid, aliyunUid_);
+        DARABONBA_PTR_TO_JSON(CallbackConfig, callbackConfig_);
         DARABONBA_PTR_TO_JSON(CreatorUserName, creatorUserName_);
         DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
         DARABONBA_PTR_TO_JSON(DMSUnit, DMSUnit_);
@@ -73,6 +74,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AliyunParentUid, aliyunParentUid_);
         DARABONBA_PTR_FROM_JSON(AliyunUid, aliyunUid_);
+        DARABONBA_PTR_FROM_JSON(CallbackConfig, callbackConfig_);
         DARABONBA_PTR_FROM_JSON(CreatorUserName, creatorUserName_);
         DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
         DARABONBA_PTR_FROM_JSON(DMSUnit, DMSUnit_);
@@ -267,13 +269,85 @@ namespace Models
         shared_ptr<bool> skipWebReportConfirm_ {};
       };
 
+      class CallbackConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CallbackConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(CallbackArgs, callbackArgs_);
+          DARABONBA_PTR_TO_JSON(CallbackPrompt, callbackPrompt_);
+          DARABONBA_PTR_TO_JSON(CallbackTime, callbackTime_);
+          DARABONBA_PTR_TO_JSON(ToolId, toolId_);
+          DARABONBA_PTR_TO_JSON(Type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, CallbackConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(CallbackArgs, callbackArgs_);
+          DARABONBA_PTR_FROM_JSON(CallbackPrompt, callbackPrompt_);
+          DARABONBA_PTR_FROM_JSON(CallbackTime, callbackTime_);
+          DARABONBA_PTR_FROM_JSON(ToolId, toolId_);
+          DARABONBA_PTR_FROM_JSON(Type, type_);
+        };
+        CallbackConfig() = default ;
+        CallbackConfig(const CallbackConfig &) = default ;
+        CallbackConfig(CallbackConfig &&) = default ;
+        CallbackConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CallbackConfig() = default ;
+        CallbackConfig& operator=(const CallbackConfig &) = default ;
+        CallbackConfig& operator=(CallbackConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->callbackArgs_ == nullptr
+        && this->callbackPrompt_ == nullptr && this->callbackTime_ == nullptr && this->toolId_ == nullptr && this->type_ == nullptr; };
+        // callbackArgs Field Functions 
+        bool hasCallbackArgs() const { return this->callbackArgs_ != nullptr;};
+        void deleteCallbackArgs() { this->callbackArgs_ = nullptr;};
+        inline string getCallbackArgs() const { DARABONBA_PTR_GET_DEFAULT(callbackArgs_, "") };
+        inline CallbackConfig& setCallbackArgs(string callbackArgs) { DARABONBA_PTR_SET_VALUE(callbackArgs_, callbackArgs) };
+
+
+        // callbackPrompt Field Functions 
+        bool hasCallbackPrompt() const { return this->callbackPrompt_ != nullptr;};
+        void deleteCallbackPrompt() { this->callbackPrompt_ = nullptr;};
+        inline string getCallbackPrompt() const { DARABONBA_PTR_GET_DEFAULT(callbackPrompt_, "") };
+        inline CallbackConfig& setCallbackPrompt(string callbackPrompt) { DARABONBA_PTR_SET_VALUE(callbackPrompt_, callbackPrompt) };
+
+
+        // callbackTime Field Functions 
+        bool hasCallbackTime() const { return this->callbackTime_ != nullptr;};
+        void deleteCallbackTime() { this->callbackTime_ = nullptr;};
+        inline int32_t getCallbackTime() const { DARABONBA_PTR_GET_DEFAULT(callbackTime_, 0) };
+        inline CallbackConfig& setCallbackTime(int32_t callbackTime) { DARABONBA_PTR_SET_VALUE(callbackTime_, callbackTime) };
+
+
+        // toolId Field Functions 
+        bool hasToolId() const { return this->toolId_ != nullptr;};
+        void deleteToolId() { this->toolId_ = nullptr;};
+        inline string getToolId() const { DARABONBA_PTR_GET_DEFAULT(toolId_, "") };
+        inline CallbackConfig& setToolId(string toolId) { DARABONBA_PTR_SET_VALUE(toolId_, toolId) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline CallbackConfig& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        shared_ptr<string> callbackArgs_ {};
+        shared_ptr<string> callbackPrompt_ {};
+        shared_ptr<int32_t> callbackTime_ {};
+        shared_ptr<string> toolId_ {};
+        shared_ptr<string> type_ {};
+      };
+
       virtual bool empty() const override { return this->aliyunParentUid_ == nullptr
-        && this->aliyunUid_ == nullptr && this->creatorUserName_ == nullptr && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr
-        && this->defaultAgent_ == nullptr && this->description_ == nullptr && this->dmsUnit_ == nullptr && this->executionConfig_ == nullptr && this->gmtCreated_ == nullptr
-        && this->gmtModified_ == nullptr && this->instruction_ == nullptr && this->isScheduleTask_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr
-        && this->modifier_ == nullptr && this->modifierUserName_ == nullptr && this->name_ == nullptr && this->nextRuntime_ == nullptr && this->offlineTime_ == nullptr
-        && this->region_ == nullptr && this->releaseTime_ == nullptr && this->scheduleTaskConfig_ == nullptr && this->status_ == nullptr && this->textReportConfig_ == nullptr
-        && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->aliyunUid_ == nullptr && this->callbackConfig_ == nullptr && this->creatorUserName_ == nullptr && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr
+        && this->dataJson_ == nullptr && this->defaultAgent_ == nullptr && this->description_ == nullptr && this->dmsUnit_ == nullptr && this->executionConfig_ == nullptr
+        && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->instruction_ == nullptr && this->isScheduleTask_ == nullptr && this->knowledge_ == nullptr
+        && this->knowledgeConfigList_ == nullptr && this->modifier_ == nullptr && this->modifierUserName_ == nullptr && this->name_ == nullptr && this->nextRuntime_ == nullptr
+        && this->offlineTime_ == nullptr && this->region_ == nullptr && this->releaseTime_ == nullptr && this->scheduleTaskConfig_ == nullptr && this->status_ == nullptr
+        && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
       // aliyunParentUid Field Functions 
       bool hasAliyunParentUid() const { return this->aliyunParentUid_ != nullptr;};
       void deleteAliyunParentUid() { this->aliyunParentUid_ = nullptr;};
@@ -286,6 +360,15 @@ namespace Models
       void deleteAliyunUid() { this->aliyunUid_ = nullptr;};
       inline string getAliyunUid() const { DARABONBA_PTR_GET_DEFAULT(aliyunUid_, "") };
       inline Data& setAliyunUid(string aliyunUid) { DARABONBA_PTR_SET_VALUE(aliyunUid_, aliyunUid) };
+
+
+      // callbackConfig Field Functions 
+      bool hasCallbackConfig() const { return this->callbackConfig_ != nullptr;};
+      void deleteCallbackConfig() { this->callbackConfig_ = nullptr;};
+      inline const Data::CallbackConfig & getCallbackConfig() const { DARABONBA_PTR_GET_CONST(callbackConfig_, Data::CallbackConfig) };
+      inline Data::CallbackConfig getCallbackConfig() { DARABONBA_PTR_GET(callbackConfig_, Data::CallbackConfig) };
+      inline Data& setCallbackConfig(const Data::CallbackConfig & callbackConfig) { DARABONBA_PTR_SET_VALUE(callbackConfig_, callbackConfig) };
+      inline Data& setCallbackConfig(Data::CallbackConfig && callbackConfig) { DARABONBA_PTR_SET_RVALUE(callbackConfig_, callbackConfig) };
 
 
       // creatorUserName Field Functions 
@@ -479,6 +562,7 @@ namespace Models
     protected:
       shared_ptr<string> aliyunParentUid_ {};
       shared_ptr<string> aliyunUid_ {};
+      shared_ptr<Data::CallbackConfig> callbackConfig_ {};
       shared_ptr<string> creatorUserName_ {};
       shared_ptr<string> customAgentId_ {};
       shared_ptr<string> DMSUnit_ {};

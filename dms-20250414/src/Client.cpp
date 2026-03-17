@@ -459,6 +459,10 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
   tmpReq.validate();
   CreateCustomAgentShrinkRequest request = CreateCustomAgentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCallbackConfig()) {
+    request.setCallbackConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCallbackConfig(), "CallbackConfig", "json"));
+  }
+
   if (!!tmpReq.hasExecutionConfig()) {
     request.setExecutionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecutionConfig(), "ExecutionConfig", "json"));
   }
@@ -472,6 +476,10 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
   }
 
   json query = {};
+  if (!!request.hasCallbackConfigShrink()) {
+    query["CallbackConfig"] = request.getCallbackConfigShrink();
+  }
+
   if (!!request.hasDMSUnit()) {
     query["DMSUnit"] = request.getDMSUnit();
   }
@@ -3454,6 +3462,10 @@ ModifyCustomAgentResponse Client::modifyCustomAgentWithOptions(const ModifyCusto
   tmpReq.validate();
   ModifyCustomAgentShrinkRequest request = ModifyCustomAgentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCallbackConfig()) {
+    request.setCallbackConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCallbackConfig(), "CallbackConfig", "json"));
+  }
+
   if (!!tmpReq.hasExecutionConfig()) {
     request.setExecutionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecutionConfig(), "ExecutionConfig", "json"));
   }
@@ -3467,6 +3479,10 @@ ModifyCustomAgentResponse Client::modifyCustomAgentWithOptions(const ModifyCusto
   }
 
   json query = {};
+  if (!!request.hasCallbackConfigShrink()) {
+    query["CallbackConfig"] = request.getCallbackConfigShrink();
+  }
+
   if (!!request.hasCustomAgentId()) {
     query["CustomAgentId"] = request.getCustomAgentId();
   }
