@@ -110,6 +110,23 @@ namespace RdsAi20250507
       Models::CreateCustomAgentResponse createCustomAgent(const Models::CreateCustomAgentRequest &request);
 
       /**
+       * @summary 创建边缘函数
+       *
+       * @param tmpReq CreateEdgeFunctionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateEdgeFunctionResponse
+       */
+      Models::CreateEdgeFunctionResponse createEdgeFunctionWithOptions(const Models::CreateEdgeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建边缘函数
+       *
+       * @param request CreateEdgeFunctionRequest
+       * @return CreateEdgeFunctionResponse
+       */
+      Models::CreateEdgeFunctionResponse createEdgeFunction(const Models::CreateEdgeFunctionRequest &request);
+
+      /**
        * @summary Creates an inspection task for multiple instances.
        *
        * @param request CreateInspectionTaskRequest
@@ -209,6 +226,23 @@ namespace RdsAi20250507
       Models::DeleteCustomAgentResponse deleteCustomAgent(const Models::DeleteCustomAgentRequest &request);
 
       /**
+       * @summary 删除边缘函数
+       *
+       * @param request DeleteEdgeFunctionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteEdgeFunctionResponse
+       */
+      Models::DeleteEdgeFunctionResponse deleteEdgeFunctionWithOptions(const Models::DeleteEdgeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除边缘函数
+       *
+       * @param request DeleteEdgeFunctionRequest
+       * @return DeleteEdgeFunctionResponse
+       */
+      Models::DeleteEdgeFunctionResponse deleteEdgeFunction(const Models::DeleteEdgeFunctionRequest &request);
+
+      /**
        * @summary Deletes a specified inspection configuration.
        *
        * @param request DeleteScheduledTaskRequest
@@ -295,6 +329,23 @@ namespace RdsAi20250507
        * @return DescribeAppInstancesResponse
        */
       Models::DescribeAppInstancesResponse describeAppInstances(const Models::DescribeAppInstancesRequest &request);
+
+      /**
+       * @summary 查询边缘函数列表
+       *
+       * @param request DescribeEdgeFunctionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeEdgeFunctionsResponse
+       */
+      Models::DescribeEdgeFunctionsResponse describeEdgeFunctionsWithOptions(const Models::DescribeEdgeFunctionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询边缘函数列表
+       *
+       * @param request DescribeEdgeFunctionsRequest
+       * @return DescribeEdgeFunctionsResponse
+       */
+      Models::DescribeEdgeFunctionsResponse describeEdgeFunctions(const Models::DescribeEdgeFunctionsRequest &request);
 
       /**
        * @summary Queries the events.
@@ -1001,6 +1052,23 @@ namespace RdsAi20250507
        * @return UpdateCustomAgentResponse
        */
       Models::UpdateCustomAgentResponse updateCustomAgent(const Models::UpdateCustomAgentRequest &request);
+
+      /**
+       * @summary 更新边缘函数
+       *
+       * @param tmpReq UpdateEdgeFunctionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateEdgeFunctionResponse
+       */
+      Models::UpdateEdgeFunctionResponse updateEdgeFunctionWithOptions(const Models::UpdateEdgeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新边缘函数
+       *
+       * @param request UpdateEdgeFunctionRequest
+       * @return UpdateEdgeFunctionResponse
+       */
+      Models::UpdateEdgeFunctionResponse updateEdgeFunction(const Models::UpdateEdgeFunctionRequest &request);
 
       /**
        * @summary Updates the information about a specified skill.

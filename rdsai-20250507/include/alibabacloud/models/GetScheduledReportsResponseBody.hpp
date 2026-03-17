@@ -47,7 +47,9 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Reports& obj) { 
         DARABONBA_PTR_TO_JSON(CreatedTime, createdTime_);
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+        DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(ReportLanguage, reportLanguage_);
+        DARABONBA_PTR_TO_JSON(ReportType, reportType_);
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
@@ -55,7 +57,9 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Reports& obj) { 
         DARABONBA_PTR_FROM_JSON(CreatedTime, createdTime_);
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+        DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(ReportLanguage, reportLanguage_);
+        DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -72,7 +76,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createdTime_ == nullptr
-        && this->endTime_ == nullptr && this->reportLanguage_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
+        && this->endTime_ == nullptr && this->regionId_ == nullptr && this->reportLanguage_ == nullptr && this->reportType_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr && this->taskId_ == nullptr; };
       // createdTime Field Functions 
       bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
       void deleteCreatedTime() { this->createdTime_ = nullptr;};
@@ -87,11 +92,25 @@ namespace Models
       inline Reports& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
+      // regionId Field Functions 
+      bool hasRegionId() const { return this->regionId_ != nullptr;};
+      void deleteRegionId() { this->regionId_ = nullptr;};
+      inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+      inline Reports& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
       // reportLanguage Field Functions 
       bool hasReportLanguage() const { return this->reportLanguage_ != nullptr;};
       void deleteReportLanguage() { this->reportLanguage_ = nullptr;};
       inline string getReportLanguage() const { DARABONBA_PTR_GET_DEFAULT(reportLanguage_, "") };
       inline Reports& setReportLanguage(string reportLanguage) { DARABONBA_PTR_SET_VALUE(reportLanguage_, reportLanguage) };
+
+
+      // reportType Field Functions 
+      bool hasReportType() const { return this->reportType_ != nullptr;};
+      void deleteReportType() { this->reportType_ = nullptr;};
+      inline string getReportType() const { DARABONBA_PTR_GET_DEFAULT(reportType_, "") };
+      inline Reports& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
 
 
       // startTime Field Functions 
@@ -120,7 +139,9 @@ namespace Models
       shared_ptr<string> createdTime_ {};
       // The end time of the inspection task. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> endTime_ {};
+      shared_ptr<string> regionId_ {};
       shared_ptr<string> reportLanguage_ {};
+      shared_ptr<string> reportType_ {};
       // The start time of the inspection task. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> startTime_ {};
       // The status of the task.

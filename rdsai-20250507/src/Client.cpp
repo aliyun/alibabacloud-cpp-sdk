@@ -394,6 +394,86 @@ CreateCustomAgentResponse Client::createCustomAgent(const CreateCustomAgentReque
 }
 
 /**
+ * @summary 创建边缘函数
+ *
+ * @param tmpReq CreateEdgeFunctionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateEdgeFunctionResponse
+ */
+CreateEdgeFunctionResponse Client::createEdgeFunctionWithOptions(const CreateEdgeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateEdgeFunctionShrinkRequest request = CreateEdgeFunctionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCode()) {
+    request.setCodeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCode(), "Code", "json"));
+  }
+
+  if (!!tmpReq.hasCustomConfig()) {
+    request.setCustomConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomConfig(), "CustomConfig", "json"));
+  }
+
+  if (!!tmpReq.hasEnvs()) {
+    request.setEnvsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEnvs(), "Envs", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCodeShrink()) {
+    query["Code"] = request.getCodeShrink();
+  }
+
+  if (!!request.hasCustomConfigShrink()) {
+    query["CustomConfig"] = request.getCustomConfigShrink();
+  }
+
+  if (!!request.hasEdgeFunctionName()) {
+    query["EdgeFunctionName"] = request.getEdgeFunctionName();
+  }
+
+  if (!!request.hasEnvsShrink()) {
+    query["Envs"] = request.getEnvsShrink();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateEdgeFunction"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateEdgeFunctionResponse>();
+}
+
+/**
+ * @summary 创建边缘函数
+ *
+ * @param request CreateEdgeFunctionRequest
+ * @return CreateEdgeFunctionResponse
+ */
+CreateEdgeFunctionResponse Client::createEdgeFunction(const CreateEdgeFunctionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createEdgeFunctionWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an inspection task for multiple instances.
  *
  * @param request CreateInspectionTaskRequest
@@ -415,8 +495,16 @@ CreateInspectionTaskResponse Client::createInspectionTaskWithOptions(const Creat
     query["InstanceIds"] = request.getInstanceIds();
   }
 
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
   if (!!request.hasReportLanguage()) {
     query["ReportLanguage"] = request.getReportLanguage();
+  }
+
+  if (!!request.hasReportType()) {
+    query["ReportType"] = request.getReportType();
   }
 
   if (!!request.hasStartTime()) {
@@ -477,8 +565,16 @@ CreateScheduledTaskResponse Client::createScheduledTaskWithOptions(const CreateS
     query["Name"] = request.getName();
   }
 
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
   if (!!request.hasReportLanguage()) {
     query["ReportLanguage"] = request.getReportLanguage();
+  }
+
+  if (!!request.hasReportType()) {
+    query["ReportType"] = request.getReportType();
   }
 
   if (!!request.hasStartTime()) {
@@ -688,6 +784,60 @@ DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentReque
 }
 
 /**
+ * @summary 删除边缘函数
+ *
+ * @param request DeleteEdgeFunctionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteEdgeFunctionResponse
+ */
+DeleteEdgeFunctionResponse Client::deleteEdgeFunctionWithOptions(const DeleteEdgeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasEdgeFunctionName()) {
+    query["EdgeFunctionName"] = request.getEdgeFunctionName();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteEdgeFunction"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteEdgeFunctionResponse>();
+}
+
+/**
+ * @summary 删除边缘函数
+ *
+ * @param request DeleteEdgeFunctionRequest
+ * @return DeleteEdgeFunctionResponse
+ */
+DeleteEdgeFunctionResponse Client::deleteEdgeFunction(const DeleteEdgeFunctionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteEdgeFunctionWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a specified inspection configuration.
  *
  * @param request DeleteScheduledTaskRequest
@@ -893,6 +1043,60 @@ DescribeAppInstancesResponse Client::describeAppInstancesWithOptions(const Descr
 DescribeAppInstancesResponse Client::describeAppInstances(const DescribeAppInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeAppInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询边缘函数列表
+ *
+ * @param request DescribeEdgeFunctionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeEdgeFunctionsResponse
+ */
+DescribeEdgeFunctionsResponse Client::describeEdgeFunctionsWithOptions(const DescribeEdgeFunctionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasEdgeFunctionName()) {
+    query["EdgeFunctionName"] = request.getEdgeFunctionName();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeEdgeFunctions"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeEdgeFunctionsResponse>();
+}
+
+/**
+ * @summary 查询边缘函数列表
+ *
+ * @param request DescribeEdgeFunctionsRequest
+ * @return DescribeEdgeFunctionsResponse
+ */
+DescribeEdgeFunctionsResponse Client::describeEdgeFunctions(const DescribeEdgeFunctionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeEdgeFunctionsWithOptions(request, runtime);
 }
 
 /**
@@ -1399,6 +1603,10 @@ GetInspectionReportResponse Client::getInspectionReportWithOptions(const GetInsp
     query["InstanceId"] = request.getInstanceId();
   }
 
+  if (!!request.hasReportType()) {
+    query["ReportType"] = request.getReportType();
+  }
+
   if (!!request.hasTaskId()) {
     query["TaskId"] = request.getTaskId();
   }
@@ -1659,6 +1867,10 @@ GetStandAloneReportsResponse Client::getStandAloneReportsWithOptions(const GetSt
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasReportType()) {
+    query["ReportType"] = request.getReportType();
   }
 
   if (!!request.hasStartTime()) {
@@ -2778,6 +2990,86 @@ UpdateCustomAgentResponse Client::updateCustomAgentWithOptions(const UpdateCusto
 UpdateCustomAgentResponse Client::updateCustomAgent(const UpdateCustomAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateCustomAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新边缘函数
+ *
+ * @param tmpReq UpdateEdgeFunctionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateEdgeFunctionResponse
+ */
+UpdateEdgeFunctionResponse Client::updateEdgeFunctionWithOptions(const UpdateEdgeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateEdgeFunctionShrinkRequest request = UpdateEdgeFunctionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCode()) {
+    request.setCodeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCode(), "Code", "json"));
+  }
+
+  if (!!tmpReq.hasCustomConfig()) {
+    request.setCustomConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomConfig(), "CustomConfig", "json"));
+  }
+
+  if (!!tmpReq.hasEnvs()) {
+    request.setEnvsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEnvs(), "Envs", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCodeShrink()) {
+    query["Code"] = request.getCodeShrink();
+  }
+
+  if (!!request.hasCustomConfigShrink()) {
+    query["CustomConfig"] = request.getCustomConfigShrink();
+  }
+
+  if (!!request.hasEdgeFunctionName()) {
+    query["EdgeFunctionName"] = request.getEdgeFunctionName();
+  }
+
+  if (!!request.hasEnvsShrink()) {
+    query["Envs"] = request.getEnvsShrink();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateEdgeFunction"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateEdgeFunctionResponse>();
+}
+
+/**
+ * @summary 更新边缘函数
+ *
+ * @param request UpdateEdgeFunctionRequest
+ * @return UpdateEdgeFunctionResponse
+ */
+UpdateEdgeFunctionResponse Client::updateEdgeFunction(const UpdateEdgeFunctionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateEdgeFunctionWithOptions(request, runtime);
 }
 
 /**

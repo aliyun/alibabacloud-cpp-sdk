@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ReportType, reportType_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, GetStandAloneReportsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
     };
     GetStandAloneReportsRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->reportType_ == nullptr && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline GetStandAloneReportsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // reportType Field Functions 
+    bool hasReportType() const { return this->reportType_ != nullptr;};
+    void deleteReportType() { this->reportType_ = nullptr;};
+    inline string getReportType() const { DARABONBA_PTR_GET_DEFAULT(reportType_, "") };
+    inline GetStandAloneReportsRequest& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
@@ -72,6 +81,7 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The number of records on each page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> reportType_ {};
     // The task start time based on which the reports are filtered. If you do not specify this parameter, all reports are returned.
     shared_ptr<string> startTime_ {};
   };

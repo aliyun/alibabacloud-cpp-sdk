@@ -17,7 +17,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Frequency, frequency_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ReportLanguage, reportLanguage_);
+      DARABONBA_PTR_TO_JSON(ReportType, reportType_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(TimeRange, timeRange_);
     };
@@ -26,7 +28,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Frequency, frequency_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ReportLanguage, reportLanguage_);
+      DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(TimeRange, timeRange_);
     };
@@ -42,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->frequency_ == nullptr && this->instanceIds_ == nullptr && this->name_ == nullptr && this->reportLanguage_ == nullptr && this->startTime_ == nullptr
-        && this->timeRange_ == nullptr; };
+        && this->frequency_ == nullptr && this->instanceIds_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->reportLanguage_ == nullptr
+        && this->reportType_ == nullptr && this->startTime_ == nullptr && this->timeRange_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -72,11 +76,25 @@ namespace Models
     inline CreateScheduledTaskRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline CreateScheduledTaskRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
     // reportLanguage Field Functions 
     bool hasReportLanguage() const { return this->reportLanguage_ != nullptr;};
     void deleteReportLanguage() { this->reportLanguage_ = nullptr;};
     inline string getReportLanguage() const { DARABONBA_PTR_GET_DEFAULT(reportLanguage_, "") };
     inline CreateScheduledTaskRequest& setReportLanguage(string reportLanguage) { DARABONBA_PTR_SET_VALUE(reportLanguage_, reportLanguage) };
+
+
+    // reportType Field Functions 
+    bool hasReportType() const { return this->reportType_ != nullptr;};
+    void deleteReportType() { this->reportType_ = nullptr;};
+    inline string getReportType() const { DARABONBA_PTR_GET_DEFAULT(reportType_, "") };
+    inline CreateScheduledTaskRequest& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
 
 
     // startTime Field Functions 
@@ -109,14 +127,14 @@ namespace Models
     // ### [](#daily--dailymonday--daily-)Note: DAILY takes precedence over other values. For example, if you enter DAILY,Monday, the backend uses DAILY as the inspection frequency.
     shared_ptr<string> frequency_ {};
     // The IDs of the related instances. Separate multiple IDs with commas (,).
-    // 
-    // This parameter is required.
     shared_ptr<string> instanceIds_ {};
     // The name of the scheduled inspection task. The name cannot exceed 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    shared_ptr<string> regionId_ {};
     shared_ptr<string> reportLanguage_ {};
+    shared_ptr<string> reportType_ {};
     // The time when the inspection task is executed. Specify the time in the ISO 8601 standard in the HH:mm:ssZ format. The time must be in UTC. Default value: 02:00 AM.
     shared_ptr<string> startTime_ {};
     // The inspection time range. The default value is the latest 24 hours. Valid values: 1 to 168. The maximum value is 7 days.

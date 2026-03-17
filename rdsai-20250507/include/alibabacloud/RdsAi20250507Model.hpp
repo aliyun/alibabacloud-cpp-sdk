@@ -17,6 +17,10 @@
 #include <alibabacloud/models/CreateCustomAgentShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/CreateCustomAgentResponse.hpp>
+#include <alibabacloud/models/CreateEdgeFunctionRequest.hpp>
+#include <alibabacloud/models/CreateEdgeFunctionShrinkRequest.hpp>
+#include <alibabacloud/models/CreateEdgeFunctionResponseBody.hpp>
+#include <alibabacloud/models/CreateEdgeFunctionResponse.hpp>
 #include <alibabacloud/models/CreateInspectionTaskRequest.hpp>
 #include <alibabacloud/models/CreateInspectionTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateInspectionTaskResponse.hpp>
@@ -33,6 +37,9 @@
 #include <alibabacloud/models/DeleteCustomAgentRequest.hpp>
 #include <alibabacloud/models/DeleteCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/DeleteCustomAgentResponse.hpp>
+#include <alibabacloud/models/DeleteEdgeFunctionRequest.hpp>
+#include <alibabacloud/models/DeleteEdgeFunctionResponseBody.hpp>
+#include <alibabacloud/models/DeleteEdgeFunctionResponse.hpp>
 #include <alibabacloud/models/DeleteScheduledTaskRequest.hpp>
 #include <alibabacloud/models/DeleteScheduledTaskResponseBody.hpp>
 #include <alibabacloud/models/DeleteScheduledTaskResponse.hpp>
@@ -45,6 +52,9 @@
 #include <alibabacloud/models/DescribeAppInstancesRequest.hpp>
 #include <alibabacloud/models/DescribeAppInstancesResponseBody.hpp>
 #include <alibabacloud/models/DescribeAppInstancesResponse.hpp>
+#include <alibabacloud/models/DescribeEdgeFunctionsRequest.hpp>
+#include <alibabacloud/models/DescribeEdgeFunctionsResponseBody.hpp>
+#include <alibabacloud/models/DescribeEdgeFunctionsResponse.hpp>
 #include <alibabacloud/models/DescribeEventsListRequest.hpp>
 #include <alibabacloud/models/DescribeEventsListResponseBody.hpp>
 #include <alibabacloud/models/DescribeEventsListResponse.hpp>
@@ -148,6 +158,10 @@
 #include <alibabacloud/models/UpdateCustomAgentShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/UpdateCustomAgentResponse.hpp>
+#include <alibabacloud/models/UpdateEdgeFunctionRequest.hpp>
+#include <alibabacloud/models/UpdateEdgeFunctionShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateEdgeFunctionResponseBody.hpp>
+#include <alibabacloud/models/UpdateEdgeFunctionResponse.hpp>
 #include <alibabacloud/models/UpdateSkillRequest.hpp>
 #include <alibabacloud/models/UpdateSkillShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateSkillResponseBody.hpp>
