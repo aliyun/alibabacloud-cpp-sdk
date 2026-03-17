@@ -48,44 +48,44 @@ BatchTranslateResponse Client::batchTranslateWithOptions(const BatchTranslateReq
   BatchTranslateShrinkRequest request = BatchTranslateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExt()) {
-    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "ext", "json"));
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "ext", "json"));
   }
 
   if (!!tmpReq.hasText()) {
-    request.setTextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.text(), "text", "json"));
+    request.setTextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getText(), "text", "json"));
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["appName"] = request.appName();
+    body["appName"] = request.getAppName();
   }
 
   if (!!request.hasExtShrink()) {
-    body["ext"] = request.extShrink();
+    body["ext"] = request.getExtShrink();
   }
 
   if (!!request.hasFormat()) {
-    body["format"] = request.format();
+    body["format"] = request.getFormat();
   }
 
   if (!!request.hasScene()) {
-    body["scene"] = request.scene();
+    body["scene"] = request.getScene();
   }
 
   if (!!request.hasSourceLanguage()) {
-    body["sourceLanguage"] = request.sourceLanguage();
+    body["sourceLanguage"] = request.getSourceLanguage();
   }
 
   if (!!request.hasTargetLanguage()) {
-    body["targetLanguage"] = request.targetLanguage();
+    body["targetLanguage"] = request.getTargetLanguage();
   }
 
   if (!!request.hasTextShrink()) {
-    body["text"] = request.textShrink();
+    body["text"] = request.getTextShrink();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -131,44 +131,44 @@ BatchTranslateForHtmlResponse Client::batchTranslateForHtmlWithOptions(const Bat
   BatchTranslateForHtmlShrinkRequest request = BatchTranslateForHtmlShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExt()) {
-    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "ext", "json"));
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "ext", "json"));
   }
 
   if (!!tmpReq.hasText()) {
-    request.setTextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.text(), "text", "json"));
+    request.setTextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getText(), "text", "json"));
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["appName"] = request.appName();
+    body["appName"] = request.getAppName();
   }
 
   if (!!request.hasExtShrink()) {
-    body["ext"] = request.extShrink();
+    body["ext"] = request.getExtShrink();
   }
 
   if (!!request.hasFormat()) {
-    body["format"] = request.format();
+    body["format"] = request.getFormat();
   }
 
   if (!!request.hasScene()) {
-    body["scene"] = request.scene();
+    body["scene"] = request.getScene();
   }
 
   if (!!request.hasSourceLanguage()) {
-    body["sourceLanguage"] = request.sourceLanguage();
+    body["sourceLanguage"] = request.getSourceLanguage();
   }
 
   if (!!request.hasTargetLanguage()) {
-    body["targetLanguage"] = request.targetLanguage();
+    body["targetLanguage"] = request.getTargetLanguage();
   }
 
   if (!!request.hasTextShrink()) {
-    body["text"] = request.textShrink();
+    body["text"] = request.getTextShrink();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -213,11 +213,11 @@ GetDocTranslateTaskResponse Client::getDocTranslateTaskWithOptions(const GetDocT
   request.validate();
   json body = {};
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -262,11 +262,11 @@ GetHtmlTranslateTaskResponse Client::getHtmlTranslateTaskWithOptions(const GetHt
   request.validate();
   json body = {};
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -311,11 +311,11 @@ GetImageTranslateTaskResponse Client::getImageTranslateTaskWithOptions(const Get
   request.validate();
   json body = {};
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -360,11 +360,11 @@ GetLongTextTranslateTaskResponse Client::getLongTextTranslateTaskWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -410,36 +410,36 @@ SubmitDocTranslateTaskResponse Client::submitDocTranslateTaskWithOptions(const S
   SubmitDocTranslateTaskShrinkRequest request = SubmitDocTranslateTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExt()) {
-    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "ext", "json"));
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "ext", "json"));
   }
 
   json body = {};
   if (!!request.hasExtShrink()) {
-    body["ext"] = request.extShrink();
+    body["ext"] = request.getExtShrink();
   }
 
   if (!!request.hasFormat()) {
-    body["format"] = request.format();
+    body["format"] = request.getFormat();
   }
 
   if (!!request.hasScene()) {
-    body["scene"] = request.scene();
+    body["scene"] = request.getScene();
   }
 
   if (!!request.hasSourceLanguage()) {
-    body["sourceLanguage"] = request.sourceLanguage();
+    body["sourceLanguage"] = request.getSourceLanguage();
   }
 
   if (!!request.hasTargetLanguage()) {
-    body["targetLanguage"] = request.targetLanguage();
+    body["targetLanguage"] = request.getTargetLanguage();
   }
 
   if (!!request.hasText()) {
-    body["text"] = request.text();
+    body["text"] = request.getText();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -485,36 +485,36 @@ SubmitHtmlTranslateTaskResponse Client::submitHtmlTranslateTaskWithOptions(const
   SubmitHtmlTranslateTaskShrinkRequest request = SubmitHtmlTranslateTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExt()) {
-    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "ext", "json"));
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "ext", "json"));
   }
 
   json body = {};
   if (!!request.hasExtShrink()) {
-    body["ext"] = request.extShrink();
+    body["ext"] = request.getExtShrink();
   }
 
   if (!!request.hasFormat()) {
-    body["format"] = request.format();
+    body["format"] = request.getFormat();
   }
 
   if (!!request.hasScene()) {
-    body["scene"] = request.scene();
+    body["scene"] = request.getScene();
   }
 
   if (!!request.hasSourceLanguage()) {
-    body["sourceLanguage"] = request.sourceLanguage();
+    body["sourceLanguage"] = request.getSourceLanguage();
   }
 
   if (!!request.hasTargetLanguage()) {
-    body["targetLanguage"] = request.targetLanguage();
+    body["targetLanguage"] = request.getTargetLanguage();
   }
 
   if (!!request.hasText()) {
-    body["text"] = request.text();
+    body["text"] = request.getText();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -560,40 +560,40 @@ SubmitImageTranslateTaskResponse Client::submitImageTranslateTaskWithOptions(con
   SubmitImageTranslateTaskShrinkRequest request = SubmitImageTranslateTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExt()) {
-    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "ext", "json"));
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "ext", "json"));
   }
 
   if (!!tmpReq.hasTargetLanguage()) {
-    request.setTargetLanguageShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.targetLanguage(), "targetLanguage", "json"));
+    request.setTargetLanguageShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTargetLanguage(), "targetLanguage", "json"));
   }
 
   json body = {};
   if (!!request.hasExtShrink()) {
-    body["ext"] = request.extShrink();
+    body["ext"] = request.getExtShrink();
   }
 
   if (!!request.hasFormat()) {
-    body["format"] = request.format();
+    body["format"] = request.getFormat();
   }
 
   if (!!request.hasScene()) {
-    body["scene"] = request.scene();
+    body["scene"] = request.getScene();
   }
 
   if (!!request.hasSourceLanguage()) {
-    body["sourceLanguage"] = request.sourceLanguage();
+    body["sourceLanguage"] = request.getSourceLanguage();
   }
 
   if (!!request.hasTargetLanguageShrink()) {
-    body["targetLanguage"] = request.targetLanguageShrink();
+    body["targetLanguage"] = request.getTargetLanguageShrink();
   }
 
   if (!!request.hasText()) {
-    body["text"] = request.text();
+    body["text"] = request.getText();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -639,36 +639,36 @@ SubmitLongTextTranslateTaskResponse Client::submitLongTextTranslateTaskWithOptio
   SubmitLongTextTranslateTaskShrinkRequest request = SubmitLongTextTranslateTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExt()) {
-    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "ext", "json"));
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "ext", "json"));
   }
 
   json body = {};
   if (!!request.hasExtShrink()) {
-    body["ext"] = request.extShrink();
+    body["ext"] = request.getExtShrink();
   }
 
   if (!!request.hasFormat()) {
-    body["format"] = request.format();
+    body["format"] = request.getFormat();
   }
 
   if (!!request.hasScene()) {
-    body["scene"] = request.scene();
+    body["scene"] = request.getScene();
   }
 
   if (!!request.hasSourceLanguage()) {
-    body["sourceLanguage"] = request.sourceLanguage();
+    body["sourceLanguage"] = request.getSourceLanguage();
   }
 
   if (!!request.hasTargetLanguage()) {
-    body["targetLanguage"] = request.targetLanguage();
+    body["targetLanguage"] = request.getTargetLanguage();
   }
 
   if (!!request.hasText()) {
-    body["text"] = request.text();
+    body["text"] = request.getText();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -714,32 +714,32 @@ TermEditResponse Client::termEditWithOptions(const TermEditRequest &tmpReq, cons
   TermEditShrinkRequest request = TermEditShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExt()) {
-    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "ext", "json"));
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "ext", "json"));
   }
 
   json body = {};
   if (!!request.hasAction()) {
-    body["action"] = request.action();
+    body["action"] = request.getAction();
   }
 
   if (!!request.hasExtShrink()) {
-    body["ext"] = request.extShrink();
+    body["ext"] = request.getExtShrink();
   }
 
   if (!!request.hasScene()) {
-    body["scene"] = request.scene();
+    body["scene"] = request.getScene();
   }
 
   if (!!request.hasSourceLanguage()) {
-    body["sourceLanguage"] = request.sourceLanguage();
+    body["sourceLanguage"] = request.getSourceLanguage();
   }
 
   if (!!request.hasTargetLanguage()) {
-    body["targetLanguage"] = request.targetLanguage();
+    body["targetLanguage"] = request.getTargetLanguage();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -785,32 +785,32 @@ TermQueryResponse Client::termQueryWithOptions(const TermQueryRequest &tmpReq, c
   TermQueryShrinkRequest request = TermQueryShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExt()) {
-    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "ext", "json"));
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "ext", "json"));
   }
 
   json body = {};
   if (!!request.hasExtShrink()) {
-    body["ext"] = request.extShrink();
+    body["ext"] = request.getExtShrink();
   }
 
   if (!!request.hasScene()) {
-    body["scene"] = request.scene();
+    body["scene"] = request.getScene();
   }
 
   if (!!request.hasSourceLanguage()) {
-    body["sourceLanguage"] = request.sourceLanguage();
+    body["sourceLanguage"] = request.getSourceLanguage();
   }
 
   if (!!request.hasTargetLanguage()) {
-    body["targetLanguage"] = request.targetLanguage();
+    body["targetLanguage"] = request.getTargetLanguage();
   }
 
   if (!!request.hasText()) {
-    body["text"] = request.text();
+    body["text"] = request.getText();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -856,36 +856,36 @@ TextTranslateResponse Client::textTranslateWithOptions(const TextTranslateReques
   TextTranslateShrinkRequest request = TextTranslateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExt()) {
-    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "ext", "json"));
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "ext", "json"));
   }
 
   json body = {};
   if (!!request.hasExtShrink()) {
-    body["ext"] = request.extShrink();
+    body["ext"] = request.getExtShrink();
   }
 
   if (!!request.hasFormat()) {
-    body["format"] = request.format();
+    body["format"] = request.getFormat();
   }
 
   if (!!request.hasScene()) {
-    body["scene"] = request.scene();
+    body["scene"] = request.getScene();
   }
 
   if (!!request.hasSourceLanguage()) {
-    body["sourceLanguage"] = request.sourceLanguage();
+    body["sourceLanguage"] = request.getSourceLanguage();
   }
 
   if (!!request.hasTargetLanguage()) {
-    body["targetLanguage"] = request.targetLanguage();
+    body["targetLanguage"] = request.getTargetLanguage();
   }
 
   if (!!request.hasText()) {
-    body["text"] = request.text();
+    body["text"] = request.getText();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["workspaceId"] = request.workspaceId();
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

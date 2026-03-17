@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETDOCTRANSLATETASKRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETDOCTRANSLATETASKRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetDocTranslateTaskResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,59 +39,131 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(charactersCount, charactersCount_);
+        DARABONBA_PTR_TO_JSON(pageCount, pageCount_);
+        DARABONBA_PTR_TO_JSON(status, status_);
+        DARABONBA_PTR_TO_JSON(taskId, taskId_);
+        DARABONBA_PTR_TO_JSON(translateFileUrl, translateFileUrl_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(charactersCount, charactersCount_);
+        DARABONBA_PTR_FROM_JSON(pageCount, pageCount_);
+        DARABONBA_PTR_FROM_JSON(status, status_);
+        DARABONBA_PTR_FROM_JSON(taskId, taskId_);
+        DARABONBA_PTR_FROM_JSON(translateFileUrl, translateFileUrl_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->charactersCount_ == nullptr
+        && this->pageCount_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->translateFileUrl_ == nullptr; };
+      // charactersCount Field Functions 
+      bool hasCharactersCount() const { return this->charactersCount_ != nullptr;};
+      void deleteCharactersCount() { this->charactersCount_ = nullptr;};
+      inline int32_t getCharactersCount() const { DARABONBA_PTR_GET_DEFAULT(charactersCount_, 0) };
+      inline Data& setCharactersCount(int32_t charactersCount) { DARABONBA_PTR_SET_VALUE(charactersCount_, charactersCount) };
+
+
+      // pageCount Field Functions 
+      bool hasPageCount() const { return this->pageCount_ != nullptr;};
+      void deletePageCount() { this->pageCount_ = nullptr;};
+      inline int32_t getPageCount() const { DARABONBA_PTR_GET_DEFAULT(pageCount_, 0) };
+      inline Data& setPageCount(int32_t pageCount) { DARABONBA_PTR_SET_VALUE(pageCount_, pageCount) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // taskId Field Functions 
+      bool hasTaskId() const { return this->taskId_ != nullptr;};
+      void deleteTaskId() { this->taskId_ = nullptr;};
+      inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+      inline Data& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+      // translateFileUrl Field Functions 
+      bool hasTranslateFileUrl() const { return this->translateFileUrl_ != nullptr;};
+      void deleteTranslateFileUrl() { this->translateFileUrl_ = nullptr;};
+      inline string getTranslateFileUrl() const { DARABONBA_PTR_GET_DEFAULT(translateFileUrl_, "") };
+      inline Data& setTranslateFileUrl(string translateFileUrl) { DARABONBA_PTR_SET_VALUE(translateFileUrl_, translateFileUrl) };
+
+
+    protected:
+      shared_ptr<int32_t> charactersCount_ {};
+      shared_ptr<int32_t> pageCount_ {};
+      shared_ptr<string> status_ {};
+      shared_ptr<string> taskId_ {};
+      shared_ptr<string> translateFileUrl_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetDocTranslateTaskResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetDocTranslateTaskResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetDocTranslateTaskResponseBodyData) };
-    inline GetDocTranslateTaskResponseBodyData data() { DARABONBA_PTR_GET(data_, GetDocTranslateTaskResponseBodyData) };
-    inline GetDocTranslateTaskResponseBody& setData(const GetDocTranslateTaskResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetDocTranslateTaskResponseBody& setData(GetDocTranslateTaskResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetDocTranslateTaskResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetDocTranslateTaskResponseBody::Data) };
+    inline GetDocTranslateTaskResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetDocTranslateTaskResponseBody::Data) };
+    inline GetDocTranslateTaskResponseBody& setData(const GetDocTranslateTaskResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetDocTranslateTaskResponseBody& setData(GetDocTranslateTaskResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline string httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, "") };
+    inline string getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, "") };
     inline GetDocTranslateTaskResponseBody& setHttpStatusCode(string httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetDocTranslateTaskResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetDocTranslateTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetDocTranslateTaskResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<GetDocTranslateTaskResponseBodyData> data_ = nullptr;
-    std::shared_ptr<string> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<GetDocTranslateTaskResponseBody::Data> data_ {};
+    shared_ptr<string> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

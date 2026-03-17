@@ -42,66 +42,66 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->extShrink_ == nullptr
-        && return this->format_ == nullptr && return this->scene_ == nullptr && return this->sourceLanguage_ == nullptr && return this->targetLanguage_ == nullptr && return this->text_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->format_ == nullptr && this->scene_ == nullptr && this->sourceLanguage_ == nullptr && this->targetLanguage_ == nullptr && this->text_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // extShrink Field Functions 
     bool hasExtShrink() const { return this->extShrink_ != nullptr;};
     void deleteExtShrink() { this->extShrink_ = nullptr;};
-    inline string extShrink() const { DARABONBA_PTR_GET_DEFAULT(extShrink_, "") };
+    inline string getExtShrink() const { DARABONBA_PTR_GET_DEFAULT(extShrink_, "") };
     inline SubmitLongTextTranslateTaskShrinkRequest& setExtShrink(string extShrink) { DARABONBA_PTR_SET_VALUE(extShrink_, extShrink) };
 
 
     // format Field Functions 
     bool hasFormat() const { return this->format_ != nullptr;};
     void deleteFormat() { this->format_ = nullptr;};
-    inline string format() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
+    inline string getFormat() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
     inline SubmitLongTextTranslateTaskShrinkRequest& setFormat(string format) { DARABONBA_PTR_SET_VALUE(format_, format) };
 
 
     // scene Field Functions 
     bool hasScene() const { return this->scene_ != nullptr;};
     void deleteScene() { this->scene_ = nullptr;};
-    inline string scene() const { DARABONBA_PTR_GET_DEFAULT(scene_, "") };
+    inline string getScene() const { DARABONBA_PTR_GET_DEFAULT(scene_, "") };
     inline SubmitLongTextTranslateTaskShrinkRequest& setScene(string scene) { DARABONBA_PTR_SET_VALUE(scene_, scene) };
 
 
     // sourceLanguage Field Functions 
     bool hasSourceLanguage() const { return this->sourceLanguage_ != nullptr;};
     void deleteSourceLanguage() { this->sourceLanguage_ = nullptr;};
-    inline string sourceLanguage() const { DARABONBA_PTR_GET_DEFAULT(sourceLanguage_, "") };
+    inline string getSourceLanguage() const { DARABONBA_PTR_GET_DEFAULT(sourceLanguage_, "") };
     inline SubmitLongTextTranslateTaskShrinkRequest& setSourceLanguage(string sourceLanguage) { DARABONBA_PTR_SET_VALUE(sourceLanguage_, sourceLanguage) };
 
 
     // targetLanguage Field Functions 
     bool hasTargetLanguage() const { return this->targetLanguage_ != nullptr;};
     void deleteTargetLanguage() { this->targetLanguage_ = nullptr;};
-    inline string targetLanguage() const { DARABONBA_PTR_GET_DEFAULT(targetLanguage_, "") };
+    inline string getTargetLanguage() const { DARABONBA_PTR_GET_DEFAULT(targetLanguage_, "") };
     inline SubmitLongTextTranslateTaskShrinkRequest& setTargetLanguage(string targetLanguage) { DARABONBA_PTR_SET_VALUE(targetLanguage_, targetLanguage) };
 
 
     // text Field Functions 
     bool hasText() const { return this->text_ != nullptr;};
     void deleteText() { this->text_ = nullptr;};
-    inline string text() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+    inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
     inline SubmitLongTextTranslateTaskShrinkRequest& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline SubmitLongTextTranslateTaskShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> extShrink_ = nullptr;
-    std::shared_ptr<string> format_ = nullptr;
-    std::shared_ptr<string> scene_ = nullptr;
-    std::shared_ptr<string> sourceLanguage_ = nullptr;
-    std::shared_ptr<string> targetLanguage_ = nullptr;
-    std::shared_ptr<string> text_ = nullptr;
+    shared_ptr<string> extShrink_ {};
+    shared_ptr<string> format_ {};
+    shared_ptr<string> scene_ {};
+    shared_ptr<string> sourceLanguage_ {};
+    shared_ptr<string> targetLanguage_ {};
+    shared_ptr<string> text_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

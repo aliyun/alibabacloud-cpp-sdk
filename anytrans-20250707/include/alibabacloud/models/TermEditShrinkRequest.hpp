@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->action_ == nullptr
-        && return this->extShrink_ == nullptr && return this->scene_ == nullptr && return this->sourceLanguage_ == nullptr && return this->targetLanguage_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->extShrink_ == nullptr && this->scene_ == nullptr && this->sourceLanguage_ == nullptr && this->targetLanguage_ == nullptr && this->workspaceId_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
-    inline string action() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+    inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
     inline TermEditShrinkRequest& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
 
 
     // extShrink Field Functions 
     bool hasExtShrink() const { return this->extShrink_ != nullptr;};
     void deleteExtShrink() { this->extShrink_ = nullptr;};
-    inline string extShrink() const { DARABONBA_PTR_GET_DEFAULT(extShrink_, "") };
+    inline string getExtShrink() const { DARABONBA_PTR_GET_DEFAULT(extShrink_, "") };
     inline TermEditShrinkRequest& setExtShrink(string extShrink) { DARABONBA_PTR_SET_VALUE(extShrink_, extShrink) };
 
 
     // scene Field Functions 
     bool hasScene() const { return this->scene_ != nullptr;};
     void deleteScene() { this->scene_ = nullptr;};
-    inline string scene() const { DARABONBA_PTR_GET_DEFAULT(scene_, "") };
+    inline string getScene() const { DARABONBA_PTR_GET_DEFAULT(scene_, "") };
     inline TermEditShrinkRequest& setScene(string scene) { DARABONBA_PTR_SET_VALUE(scene_, scene) };
 
 
     // sourceLanguage Field Functions 
     bool hasSourceLanguage() const { return this->sourceLanguage_ != nullptr;};
     void deleteSourceLanguage() { this->sourceLanguage_ = nullptr;};
-    inline string sourceLanguage() const { DARABONBA_PTR_GET_DEFAULT(sourceLanguage_, "") };
+    inline string getSourceLanguage() const { DARABONBA_PTR_GET_DEFAULT(sourceLanguage_, "") };
     inline TermEditShrinkRequest& setSourceLanguage(string sourceLanguage) { DARABONBA_PTR_SET_VALUE(sourceLanguage_, sourceLanguage) };
 
 
     // targetLanguage Field Functions 
     bool hasTargetLanguage() const { return this->targetLanguage_ != nullptr;};
     void deleteTargetLanguage() { this->targetLanguage_ = nullptr;};
-    inline string targetLanguage() const { DARABONBA_PTR_GET_DEFAULT(targetLanguage_, "") };
+    inline string getTargetLanguage() const { DARABONBA_PTR_GET_DEFAULT(targetLanguage_, "") };
     inline TermEditShrinkRequest& setTargetLanguage(string targetLanguage) { DARABONBA_PTR_SET_VALUE(targetLanguage_, targetLanguage) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline TermEditShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> action_ = nullptr;
+    shared_ptr<string> action_ {};
     // This parameter is required.
-    std::shared_ptr<string> extShrink_ = nullptr;
+    shared_ptr<string> extShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> scene_ = nullptr;
+    shared_ptr<string> scene_ {};
     // This parameter is required.
-    std::shared_ptr<string> sourceLanguage_ = nullptr;
+    shared_ptr<string> sourceLanguage_ {};
     // This parameter is required.
-    std::shared_ptr<string> targetLanguage_ = nullptr;
+    shared_ptr<string> targetLanguage_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

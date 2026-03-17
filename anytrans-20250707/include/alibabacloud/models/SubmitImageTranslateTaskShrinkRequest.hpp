@@ -42,70 +42,70 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->extShrink_ == nullptr
-        && return this->format_ == nullptr && return this->scene_ == nullptr && return this->sourceLanguage_ == nullptr && return this->targetLanguageShrink_ == nullptr && return this->text_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->format_ == nullptr && this->scene_ == nullptr && this->sourceLanguage_ == nullptr && this->targetLanguageShrink_ == nullptr && this->text_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // extShrink Field Functions 
     bool hasExtShrink() const { return this->extShrink_ != nullptr;};
     void deleteExtShrink() { this->extShrink_ = nullptr;};
-    inline string extShrink() const { DARABONBA_PTR_GET_DEFAULT(extShrink_, "") };
+    inline string getExtShrink() const { DARABONBA_PTR_GET_DEFAULT(extShrink_, "") };
     inline SubmitImageTranslateTaskShrinkRequest& setExtShrink(string extShrink) { DARABONBA_PTR_SET_VALUE(extShrink_, extShrink) };
 
 
     // format Field Functions 
     bool hasFormat() const { return this->format_ != nullptr;};
     void deleteFormat() { this->format_ = nullptr;};
-    inline string format() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
+    inline string getFormat() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
     inline SubmitImageTranslateTaskShrinkRequest& setFormat(string format) { DARABONBA_PTR_SET_VALUE(format_, format) };
 
 
     // scene Field Functions 
     bool hasScene() const { return this->scene_ != nullptr;};
     void deleteScene() { this->scene_ = nullptr;};
-    inline string scene() const { DARABONBA_PTR_GET_DEFAULT(scene_, "") };
+    inline string getScene() const { DARABONBA_PTR_GET_DEFAULT(scene_, "") };
     inline SubmitImageTranslateTaskShrinkRequest& setScene(string scene) { DARABONBA_PTR_SET_VALUE(scene_, scene) };
 
 
     // sourceLanguage Field Functions 
     bool hasSourceLanguage() const { return this->sourceLanguage_ != nullptr;};
     void deleteSourceLanguage() { this->sourceLanguage_ = nullptr;};
-    inline string sourceLanguage() const { DARABONBA_PTR_GET_DEFAULT(sourceLanguage_, "") };
+    inline string getSourceLanguage() const { DARABONBA_PTR_GET_DEFAULT(sourceLanguage_, "") };
     inline SubmitImageTranslateTaskShrinkRequest& setSourceLanguage(string sourceLanguage) { DARABONBA_PTR_SET_VALUE(sourceLanguage_, sourceLanguage) };
 
 
     // targetLanguageShrink Field Functions 
     bool hasTargetLanguageShrink() const { return this->targetLanguageShrink_ != nullptr;};
     void deleteTargetLanguageShrink() { this->targetLanguageShrink_ = nullptr;};
-    inline string targetLanguageShrink() const { DARABONBA_PTR_GET_DEFAULT(targetLanguageShrink_, "") };
+    inline string getTargetLanguageShrink() const { DARABONBA_PTR_GET_DEFAULT(targetLanguageShrink_, "") };
     inline SubmitImageTranslateTaskShrinkRequest& setTargetLanguageShrink(string targetLanguageShrink) { DARABONBA_PTR_SET_VALUE(targetLanguageShrink_, targetLanguageShrink) };
 
 
     // text Field Functions 
     bool hasText() const { return this->text_ != nullptr;};
     void deleteText() { this->text_ = nullptr;};
-    inline string text() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+    inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
     inline SubmitImageTranslateTaskShrinkRequest& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline SubmitImageTranslateTaskShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> extShrink_ = nullptr;
-    std::shared_ptr<string> format_ = nullptr;
+    shared_ptr<string> extShrink_ {};
+    shared_ptr<string> format_ {};
     // This parameter is required.
-    std::shared_ptr<string> scene_ = nullptr;
+    shared_ptr<string> scene_ {};
     // This parameter is required.
-    std::shared_ptr<string> sourceLanguage_ = nullptr;
+    shared_ptr<string> sourceLanguage_ {};
     // This parameter is required.
-    std::shared_ptr<string> targetLanguageShrink_ = nullptr;
+    shared_ptr<string> targetLanguageShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> text_ = nullptr;
+    shared_ptr<string> text_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models
