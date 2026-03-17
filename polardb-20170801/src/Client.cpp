@@ -1711,6 +1711,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
   }
 
   json query = {};
+  if (!!request.hasAIDBClusterId()) {
+    query["AIDBClusterId"] = request.getAIDBClusterId();
+  }
+
   if (!!request.hasApplicationType()) {
     query["ApplicationType"] = request.getApplicationType();
   }
@@ -1753,6 +1757,26 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 
   if (!!request.hasMemApplicationSpecShrink()) {
     query["MemApplicationSpec"] = request.getMemApplicationSpecShrink();
+  }
+
+  if (!!request.hasModelApi()) {
+    query["ModelApi"] = request.getModelApi();
+  }
+
+  if (!!request.hasModelApiKey()) {
+    query["ModelApiKey"] = request.getModelApiKey();
+  }
+
+  if (!!request.hasModelBaseUrl()) {
+    query["ModelBaseUrl"] = request.getModelBaseUrl();
+  }
+
+  if (!!request.hasModelFrom()) {
+    query["ModelFrom"] = request.getModelFrom();
+  }
+
+  if (!!request.hasModelName()) {
+    query["ModelName"] = request.getModelName();
   }
 
   if (!!request.hasPayType()) {

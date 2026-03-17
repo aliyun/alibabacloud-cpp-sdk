@@ -14,6 +14,7 @@ namespace Models
   class CreateApplicationRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateApplicationRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AIDBClusterId, AIDBClusterId_);
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(Architecture, architecture_);
       DARABONBA_PTR_TO_JSON(AutoCreatePolarFs, autoCreatePolarFs_);
@@ -25,6 +26,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_TO_JSON(MemApplicationSpec, memApplicationSpec_);
+      DARABONBA_PTR_TO_JSON(ModelApi, modelApi_);
+      DARABONBA_PTR_TO_JSON(ModelApiKey, modelApiKey_);
+      DARABONBA_PTR_TO_JSON(ModelBaseUrl, modelBaseUrl_);
+      DARABONBA_PTR_TO_JSON(ModelFrom, modelFrom_);
+      DARABONBA_PTR_TO_JSON(ModelName, modelName_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
@@ -38,6 +44,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateApplicationRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AIDBClusterId, AIDBClusterId_);
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(Architecture, architecture_);
       DARABONBA_PTR_FROM_JSON(AutoCreatePolarFs, autoCreatePolarFs_);
@@ -49,6 +56,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_FROM_JSON(MemApplicationSpec, memApplicationSpec_);
+      DARABONBA_PTR_FROM_JSON(ModelApi, modelApi_);
+      DARABONBA_PTR_FROM_JSON(ModelApiKey, modelApiKey_);
+      DARABONBA_PTR_FROM_JSON(ModelBaseUrl, modelBaseUrl_);
+      DARABONBA_PTR_FROM_JSON(ModelFrom, modelFrom_);
+      DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
@@ -360,12 +372,20 @@ namespace Models
       shared_ptr<string> securityIPType_ {};
     };
 
-    virtual bool empty() const override { return this->applicationType_ == nullptr
-        && this->architecture_ == nullptr && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->components_ == nullptr
-        && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpoints_ == nullptr && this->memApplicationSpec_ == nullptr
-        && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
-        && this->zoneId_ == nullptr; };
+    virtual bool empty() const override { return this->AIDBClusterId_ == nullptr
+        && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr
+        && this->components_ == nullptr && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpoints_ == nullptr
+        && this->memApplicationSpec_ == nullptr && this->modelApi_ == nullptr && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr
+        && this->modelName_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+    // AIDBClusterId Field Functions 
+    bool hasAIDBClusterId() const { return this->AIDBClusterId_ != nullptr;};
+    void deleteAIDBClusterId() { this->AIDBClusterId_ = nullptr;};
+    inline string getAIDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(AIDBClusterId_, "") };
+    inline CreateApplicationRequest& setAIDBClusterId(string AIDBClusterId) { DARABONBA_PTR_SET_VALUE(AIDBClusterId_, AIDBClusterId) };
+
+
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -449,6 +469,41 @@ namespace Models
     inline CreateApplicationRequest& setMemApplicationSpec(CreateApplicationRequest::MemApplicationSpec && memApplicationSpec) { DARABONBA_PTR_SET_RVALUE(memApplicationSpec_, memApplicationSpec) };
 
 
+    // modelApi Field Functions 
+    bool hasModelApi() const { return this->modelApi_ != nullptr;};
+    void deleteModelApi() { this->modelApi_ = nullptr;};
+    inline string getModelApi() const { DARABONBA_PTR_GET_DEFAULT(modelApi_, "") };
+    inline CreateApplicationRequest& setModelApi(string modelApi) { DARABONBA_PTR_SET_VALUE(modelApi_, modelApi) };
+
+
+    // modelApiKey Field Functions 
+    bool hasModelApiKey() const { return this->modelApiKey_ != nullptr;};
+    void deleteModelApiKey() { this->modelApiKey_ = nullptr;};
+    inline string getModelApiKey() const { DARABONBA_PTR_GET_DEFAULT(modelApiKey_, "") };
+    inline CreateApplicationRequest& setModelApiKey(string modelApiKey) { DARABONBA_PTR_SET_VALUE(modelApiKey_, modelApiKey) };
+
+
+    // modelBaseUrl Field Functions 
+    bool hasModelBaseUrl() const { return this->modelBaseUrl_ != nullptr;};
+    void deleteModelBaseUrl() { this->modelBaseUrl_ = nullptr;};
+    inline string getModelBaseUrl() const { DARABONBA_PTR_GET_DEFAULT(modelBaseUrl_, "") };
+    inline CreateApplicationRequest& setModelBaseUrl(string modelBaseUrl) { DARABONBA_PTR_SET_VALUE(modelBaseUrl_, modelBaseUrl) };
+
+
+    // modelFrom Field Functions 
+    bool hasModelFrom() const { return this->modelFrom_ != nullptr;};
+    void deleteModelFrom() { this->modelFrom_ = nullptr;};
+    inline string getModelFrom() const { DARABONBA_PTR_GET_DEFAULT(modelFrom_, "") };
+    inline CreateApplicationRequest& setModelFrom(string modelFrom) { DARABONBA_PTR_SET_VALUE(modelFrom_, modelFrom) };
+
+
+    // modelName Field Functions 
+    bool hasModelName() const { return this->modelName_ != nullptr;};
+    void deleteModelName() { this->modelName_ = nullptr;};
+    inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+    inline CreateApplicationRequest& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
+
+
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
@@ -527,6 +582,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> AIDBClusterId_ {};
     // This parameter is required.
     shared_ptr<string> applicationType_ {};
     // This parameter is required.
@@ -540,6 +596,11 @@ namespace Models
     shared_ptr<bool> dryRun_ {};
     shared_ptr<vector<CreateApplicationRequest::Endpoints>> endpoints_ {};
     shared_ptr<CreateApplicationRequest::MemApplicationSpec> memApplicationSpec_ {};
+    shared_ptr<string> modelApi_ {};
+    shared_ptr<string> modelApiKey_ {};
+    shared_ptr<string> modelBaseUrl_ {};
+    shared_ptr<string> modelFrom_ {};
+    shared_ptr<string> modelName_ {};
     shared_ptr<string> payType_ {};
     shared_ptr<string> period_ {};
     shared_ptr<string> polarFSInstanceId_ {};
