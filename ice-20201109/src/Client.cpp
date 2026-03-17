@@ -434,6 +434,10 @@ AddMediaConnectFlowInputResponse Client::addMediaConnectFlowInputWithOptions(con
     query["SrtPbkeyLen"] = request.getSrtPbkeyLen();
   }
 
+  if (!!request.hasWithInternalVip()) {
+    query["WithInternalVip"] = request.getWithInternalVip();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3507,6 +3511,10 @@ CreateYikeAssetUploadResponse Client::createYikeAssetUploadWithOptions(const Cre
   json query = {};
   if (!!request.hasFileExt()) {
     query["FileExt"] = request.getFileExt();
+  }
+
+  if (!!request.hasFileType()) {
+    query["FileType"] = request.getFileType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8306,6 +8314,10 @@ GetMediaConnectFlowInputResponse Client::getMediaConnectFlowInputWithOptions(con
     query["FlowId"] = request.getFlowId();
   }
 
+  if (!!request.hasWithInternalVip()) {
+    query["WithInternalVip"] = request.getWithInternalVip();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -9980,6 +9992,48 @@ GetYikeAssetMediaInfoResponse Client::getYikeAssetMediaInfoWithOptions(const Get
 GetYikeAssetMediaInfoResponse Client::getYikeAssetMediaInfo(const GetYikeAssetMediaInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getYikeAssetMediaInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取一刻AI应用任务
+ *
+ * @param request GetYikeStoryboardJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikeStoryboardJobResponse
+ */
+GetYikeStoryboardJobResponse Client::getYikeStoryboardJobWithOptions(const GetYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetYikeStoryboardJob"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikeStoryboardJobResponse>();
+}
+
+/**
+ * @summary 获取一刻AI应用任务
+ *
+ * @param request GetYikeStoryboardJobRequest
+ * @return GetYikeStoryboardJobResponse
+ */
+GetYikeStoryboardJobResponse Client::getYikeStoryboardJob(const GetYikeStoryboardJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikeStoryboardJobWithOptions(request, runtime);
 }
 
 /**
@@ -20120,6 +20174,94 @@ SubmitYikeAIAppJobResponse Client::submitYikeAIAppJobWithOptions(const SubmitYik
 SubmitYikeAIAppJobResponse Client::submitYikeAIAppJob(const SubmitYikeAIAppJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitYikeAIAppJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交一刻AI应用任务
+ *
+ * @param request SubmitYikeStoryboardJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitYikeStoryboardJobResponse
+ */
+SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJobWithOptions(const SubmitYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAspectRatio()) {
+    query["AspectRatio"] = request.getAspectRatio();
+  }
+
+  if (!!request.hasModelParams()) {
+    query["ModelParams"] = request.getModelParams();
+  }
+
+  if (!!request.hasNarrationVoiceId()) {
+    query["NarrationVoiceId"] = request.getNarrationVoiceId();
+  }
+
+  if (!!request.hasResolution()) {
+    query["Resolution"] = request.getResolution();
+  }
+
+  if (!!request.hasShotPromptMode()) {
+    query["ShotPromptMode"] = request.getShotPromptMode();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.getUserData();
+  }
+
+  if (!!request.hasVideoModel()) {
+    query["VideoModel"] = request.getVideoModel();
+  }
+
+  json body = {};
+  if (!!request.hasFileURL()) {
+    body["FileURL"] = request.getFileURL();
+  }
+
+  if (!!request.hasShotSplitMode()) {
+    body["ShotSplitMode"] = request.getShotSplitMode();
+  }
+
+  if (!!request.hasSourceType()) {
+    body["SourceType"] = request.getSourceType();
+  }
+
+  if (!!request.hasStyleId()) {
+    body["StyleId"] = request.getStyleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitYikeStoryboardJob"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitYikeStoryboardJobResponse>();
+}
+
+/**
+ * @summary 提交一刻AI应用任务
+ *
+ * @param request SubmitYikeStoryboardJobRequest
+ * @return SubmitYikeStoryboardJobResponse
+ */
+SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJob(const SubmitYikeStoryboardJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitYikeStoryboardJobWithOptions(request, runtime);
 }
 
 /**

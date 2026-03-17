@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetMediaConnectFlowInputRequest& obj) { 
       DARABONBA_PTR_TO_JSON(FlowId, flowId_);
+      DARABONBA_PTR_TO_JSON(WithInternalVip, withInternalVip_);
     };
     friend void from_json(const Darabonba::Json& j, GetMediaConnectFlowInputRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(FlowId, flowId_);
+      DARABONBA_PTR_FROM_JSON(WithInternalVip, withInternalVip_);
     };
     GetMediaConnectFlowInputRequest() = default ;
     GetMediaConnectFlowInputRequest(const GetMediaConnectFlowInputRequest &) = default ;
@@ -29,7 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->flowId_ == nullptr; };
+    virtual bool empty() const override { return this->flowId_ == nullptr
+        && this->withInternalVip_ == nullptr; };
     // flowId Field Functions 
     bool hasFlowId() const { return this->flowId_ != nullptr;};
     void deleteFlowId() { this->flowId_ = nullptr;};
@@ -37,11 +40,19 @@ namespace Models
     inline GetMediaConnectFlowInputRequest& setFlowId(string flowId) { DARABONBA_PTR_SET_VALUE(flowId_, flowId) };
 
 
+    // withInternalVip Field Functions 
+    bool hasWithInternalVip() const { return this->withInternalVip_ != nullptr;};
+    void deleteWithInternalVip() { this->withInternalVip_ = nullptr;};
+    inline string getWithInternalVip() const { DARABONBA_PTR_GET_DEFAULT(withInternalVip_, "") };
+    inline GetMediaConnectFlowInputRequest& setWithInternalVip(string withInternalVip) { DARABONBA_PTR_SET_VALUE(withInternalVip_, withInternalVip) };
+
+
   protected:
     // The flow ID.
     // 
     // This parameter is required.
     shared_ptr<string> flowId_ {};
+    shared_ptr<string> withInternalVip_ {};
   };
 
   } // namespace Models

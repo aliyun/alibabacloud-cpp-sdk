@@ -38,9 +38,11 @@ namespace Models
     class Content : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Content& obj) { 
+        DARABONBA_PTR_TO_JSON(InnerInputUrl, innerInputUrl_);
         DARABONBA_PTR_TO_JSON(InputUrl, inputUrl_);
       };
       friend void from_json(const Darabonba::Json& j, Content& obj) { 
+        DARABONBA_PTR_FROM_JSON(InnerInputUrl, innerInputUrl_);
         DARABONBA_PTR_FROM_JSON(InputUrl, inputUrl_);
       };
       Content() = default ;
@@ -54,7 +56,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->inputUrl_ == nullptr; };
+      virtual bool empty() const override { return this->innerInputUrl_ == nullptr
+        && this->inputUrl_ == nullptr; };
+      // innerInputUrl Field Functions 
+      bool hasInnerInputUrl() const { return this->innerInputUrl_ != nullptr;};
+      void deleteInnerInputUrl() { this->innerInputUrl_ = nullptr;};
+      inline string getInnerInputUrl() const { DARABONBA_PTR_GET_DEFAULT(innerInputUrl_, "") };
+      inline Content& setInnerInputUrl(string innerInputUrl) { DARABONBA_PTR_SET_VALUE(innerInputUrl_, innerInputUrl) };
+
+
       // inputUrl Field Functions 
       bool hasInputUrl() const { return this->inputUrl_ != nullptr;};
       void deleteInputUrl() { this->inputUrl_ = nullptr;};
@@ -63,6 +73,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> innerInputUrl_ {};
       // The source URL.
       shared_ptr<string> inputUrl_ {};
     };

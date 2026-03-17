@@ -630,6 +630,9 @@
 #include <alibabacloud/models/GetYikeAssetMediaInfoRequest.hpp>
 #include <alibabacloud/models/GetYikeAssetMediaInfoResponseBody.hpp>
 #include <alibabacloud/models/GetYikeAssetMediaInfoResponse.hpp>
+#include <alibabacloud/models/GetYikeStoryboardJobRequest.hpp>
+#include <alibabacloud/models/GetYikeStoryboardJobResponseBody.hpp>
+#include <alibabacloud/models/GetYikeStoryboardJobResponse.hpp>
 #include <alibabacloud/models/InsertMediaToSearchLibRequest.hpp>
 #include <alibabacloud/models/InsertMediaToSearchLibResponseBody.hpp>
 #include <alibabacloud/models/InsertMediaToSearchLibResponse.hpp>
@@ -1138,6 +1141,9 @@
 #include <alibabacloud/models/SubmitYikeAIAppJobRequest.hpp>
 #include <alibabacloud/models/SubmitYikeAIAppJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitYikeAIAppJobResponse.hpp>
+#include <alibabacloud/models/SubmitYikeStoryboardJobRequest.hpp>
+#include <alibabacloud/models/SubmitYikeStoryboardJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitYikeStoryboardJobResponse.hpp>
 #include <alibabacloud/models/TakeoverAIAgentCallRequest.hpp>
 #include <alibabacloud/models/TakeoverAIAgentCallResponseBody.hpp>
 #include <alibabacloud/models/TakeoverAIAgentCallResponse.hpp>

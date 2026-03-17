@@ -40,6 +40,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Content& obj) { 
         DARABONBA_PTR_TO_JSON(BackupCidrs, backupCidrs_);
         DARABONBA_PTR_TO_JSON(BackupCreateTime, backupCreateTime_);
+        DARABONBA_PTR_TO_JSON(BackupInnerInputUrl, backupInnerInputUrl_);
         DARABONBA_PTR_TO_JSON(BackupInputName, backupInputName_);
         DARABONBA_PTR_TO_JSON(BackupInputStatus, backupInputStatus_);
         DARABONBA_PTR_TO_JSON(BackupInputUrl, backupInputUrl_);
@@ -49,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BackupSrtPbkeyLen, backupSrtPbkeyLen_);
         DARABONBA_PTR_TO_JSON(Cidrs, cidrs_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(InnerInputUrl, innerInputUrl_);
         DARABONBA_PTR_TO_JSON(InputName, inputName_);
         DARABONBA_PTR_TO_JSON(InputProtocol, inputProtocol_);
         DARABONBA_PTR_TO_JSON(InputStatus, inputStatus_);
@@ -63,6 +65,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Content& obj) { 
         DARABONBA_PTR_FROM_JSON(BackupCidrs, backupCidrs_);
         DARABONBA_PTR_FROM_JSON(BackupCreateTime, backupCreateTime_);
+        DARABONBA_PTR_FROM_JSON(BackupInnerInputUrl, backupInnerInputUrl_);
         DARABONBA_PTR_FROM_JSON(BackupInputName, backupInputName_);
         DARABONBA_PTR_FROM_JSON(BackupInputStatus, backupInputStatus_);
         DARABONBA_PTR_FROM_JSON(BackupInputUrl, backupInputUrl_);
@@ -72,6 +75,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BackupSrtPbkeyLen, backupSrtPbkeyLen_);
         DARABONBA_PTR_FROM_JSON(Cidrs, cidrs_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(InnerInputUrl, innerInputUrl_);
         DARABONBA_PTR_FROM_JSON(InputName, inputName_);
         DARABONBA_PTR_FROM_JSON(InputProtocol, inputProtocol_);
         DARABONBA_PTR_FROM_JSON(InputStatus, inputStatus_);
@@ -95,10 +99,11 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->backupCidrs_ == nullptr
-        && this->backupCreateTime_ == nullptr && this->backupInputName_ == nullptr && this->backupInputStatus_ == nullptr && this->backupInputUrl_ == nullptr && this->backupMaxBitrate_ == nullptr
-        && this->backupSrtLatency_ == nullptr && this->backupSrtPassphrase_ == nullptr && this->backupSrtPbkeyLen_ == nullptr && this->cidrs_ == nullptr && this->createTime_ == nullptr
-        && this->inputName_ == nullptr && this->inputProtocol_ == nullptr && this->inputStatus_ == nullptr && this->inputUrl_ == nullptr && this->maxBitrate_ == nullptr
-        && this->pairFlowId_ == nullptr && this->pairOutputName_ == nullptr && this->srtLatency_ == nullptr && this->srtPassphrase_ == nullptr && this->srtPbkeyLen_ == nullptr; };
+        && this->backupCreateTime_ == nullptr && this->backupInnerInputUrl_ == nullptr && this->backupInputName_ == nullptr && this->backupInputStatus_ == nullptr && this->backupInputUrl_ == nullptr
+        && this->backupMaxBitrate_ == nullptr && this->backupSrtLatency_ == nullptr && this->backupSrtPassphrase_ == nullptr && this->backupSrtPbkeyLen_ == nullptr && this->cidrs_ == nullptr
+        && this->createTime_ == nullptr && this->innerInputUrl_ == nullptr && this->inputName_ == nullptr && this->inputProtocol_ == nullptr && this->inputStatus_ == nullptr
+        && this->inputUrl_ == nullptr && this->maxBitrate_ == nullptr && this->pairFlowId_ == nullptr && this->pairOutputName_ == nullptr && this->srtLatency_ == nullptr
+        && this->srtPassphrase_ == nullptr && this->srtPbkeyLen_ == nullptr; };
       // backupCidrs Field Functions 
       bool hasBackupCidrs() const { return this->backupCidrs_ != nullptr;};
       void deleteBackupCidrs() { this->backupCidrs_ = nullptr;};
@@ -111,6 +116,13 @@ namespace Models
       void deleteBackupCreateTime() { this->backupCreateTime_ = nullptr;};
       inline string getBackupCreateTime() const { DARABONBA_PTR_GET_DEFAULT(backupCreateTime_, "") };
       inline Content& setBackupCreateTime(string backupCreateTime) { DARABONBA_PTR_SET_VALUE(backupCreateTime_, backupCreateTime) };
+
+
+      // backupInnerInputUrl Field Functions 
+      bool hasBackupInnerInputUrl() const { return this->backupInnerInputUrl_ != nullptr;};
+      void deleteBackupInnerInputUrl() { this->backupInnerInputUrl_ = nullptr;};
+      inline string getBackupInnerInputUrl() const { DARABONBA_PTR_GET_DEFAULT(backupInnerInputUrl_, "") };
+      inline Content& setBackupInnerInputUrl(string backupInnerInputUrl) { DARABONBA_PTR_SET_VALUE(backupInnerInputUrl_, backupInnerInputUrl) };
 
 
       // backupInputName Field Functions 
@@ -174,6 +186,13 @@ namespace Models
       void deleteCreateTime() { this->createTime_ = nullptr;};
       inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
       inline Content& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // innerInputUrl Field Functions 
+      bool hasInnerInputUrl() const { return this->innerInputUrl_ != nullptr;};
+      void deleteInnerInputUrl() { this->innerInputUrl_ = nullptr;};
+      inline string getInnerInputUrl() const { DARABONBA_PTR_GET_DEFAULT(innerInputUrl_, "") };
+      inline Content& setInnerInputUrl(string innerInputUrl) { DARABONBA_PTR_SET_VALUE(innerInputUrl_, innerInputUrl) };
 
 
       // inputName Field Functions 
@@ -249,6 +268,7 @@ namespace Models
     protected:
       shared_ptr<string> backupCidrs_ {};
       shared_ptr<string> backupCreateTime_ {};
+      shared_ptr<string> backupInnerInputUrl_ {};
       shared_ptr<string> backupInputName_ {};
       shared_ptr<string> backupInputStatus_ {};
       shared_ptr<string> backupInputUrl_ {};
@@ -260,6 +280,7 @@ namespace Models
       shared_ptr<string> cidrs_ {};
       // The time when the flow was created.
       shared_ptr<string> createTime_ {};
+      shared_ptr<string> innerInputUrl_ {};
       // The source name.
       shared_ptr<string> inputName_ {};
       // The source type.

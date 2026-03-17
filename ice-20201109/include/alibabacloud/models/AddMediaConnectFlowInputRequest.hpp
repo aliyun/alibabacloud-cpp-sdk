@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SrtLatency, srtLatency_);
       DARABONBA_PTR_TO_JSON(SrtPassphrase, srtPassphrase_);
       DARABONBA_PTR_TO_JSON(SrtPbkeyLen, srtPbkeyLen_);
+      DARABONBA_PTR_TO_JSON(WithInternalVip, withInternalVip_);
     };
     friend void from_json(const Darabonba::Json& j, AddMediaConnectFlowInputRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Cidrs, cidrs_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SrtLatency, srtLatency_);
       DARABONBA_PTR_FROM_JSON(SrtPassphrase, srtPassphrase_);
       DARABONBA_PTR_FROM_JSON(SrtPbkeyLen, srtPbkeyLen_);
+      DARABONBA_PTR_FROM_JSON(WithInternalVip, withInternalVip_);
     };
     AddMediaConnectFlowInputRequest() = default ;
     AddMediaConnectFlowInputRequest(const AddMediaConnectFlowInputRequest &) = default ;
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cidrs_ == nullptr
         && this->flowId_ == nullptr && this->inputFromUrl_ == nullptr && this->inputName_ == nullptr && this->inputProtocol_ == nullptr && this->maxBitrate_ == nullptr
-        && this->pairFlowId_ == nullptr && this->pairOutputName_ == nullptr && this->srtLatency_ == nullptr && this->srtPassphrase_ == nullptr && this->srtPbkeyLen_ == nullptr; };
+        && this->pairFlowId_ == nullptr && this->pairOutputName_ == nullptr && this->srtLatency_ == nullptr && this->srtPassphrase_ == nullptr && this->srtPbkeyLen_ == nullptr
+        && this->withInternalVip_ == nullptr; };
     // cidrs Field Functions 
     bool hasCidrs() const { return this->cidrs_ != nullptr;};
     void deleteCidrs() { this->cidrs_ = nullptr;};
@@ -129,6 +132,13 @@ namespace Models
     inline AddMediaConnectFlowInputRequest& setSrtPbkeyLen(string srtPbkeyLen) { DARABONBA_PTR_SET_VALUE(srtPbkeyLen_, srtPbkeyLen) };
 
 
+    // withInternalVip Field Functions 
+    bool hasWithInternalVip() const { return this->withInternalVip_ != nullptr;};
+    void deleteWithInternalVip() { this->withInternalVip_ = nullptr;};
+    inline string getWithInternalVip() const { DARABONBA_PTR_GET_DEFAULT(withInternalVip_, "") };
+    inline AddMediaConnectFlowInputRequest& setWithInternalVip(string withInternalVip) { DARABONBA_PTR_SET_VALUE(withInternalVip_, withInternalVip) };
+
+
   protected:
     // The IP address whitelist in CIDR format. Separate multiple CIDR blocks with commas (,).
     shared_ptr<string> cidrs_ {};
@@ -173,6 +183,7 @@ namespace Models
     // *   24
     // *   32
     shared_ptr<string> srtPbkeyLen_ {};
+    shared_ptr<string> withInternalVip_ {};
   };
 
   } // namespace Models

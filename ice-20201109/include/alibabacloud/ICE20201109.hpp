@@ -3722,6 +3722,23 @@ namespace ICE20201109
       Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfo(const Models::GetYikeAssetMediaInfoRequest &request);
 
       /**
+       * @summary 获取一刻AI应用任务
+       *
+       * @param request GetYikeStoryboardJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeStoryboardJobResponse
+       */
+      Models::GetYikeStoryboardJobResponse getYikeStoryboardJobWithOptions(const Models::GetYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一刻AI应用任务
+       *
+       * @param request GetYikeStoryboardJobRequest
+       * @return GetYikeStoryboardJobResponse
+       */
+      Models::GetYikeStoryboardJobResponse getYikeStoryboardJob(const Models::GetYikeStoryboardJobRequest &request);
+
+      /**
        * @summary Adds a media asset in a search library. Before you call this operation, you must create a search library.
        *
        * @param request InsertMediaToSearchLibRequest
@@ -6899,6 +6916,23 @@ namespace ICE20201109
        * @return SubmitYikeAIAppJobResponse
        */
       Models::SubmitYikeAIAppJobResponse submitYikeAIAppJob(const Models::SubmitYikeAIAppJobRequest &request);
+
+      /**
+       * @summary 提交一刻AI应用任务
+       *
+       * @param request SubmitYikeStoryboardJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitYikeStoryboardJobResponse
+       */
+      Models::SubmitYikeStoryboardJobResponse submitYikeStoryboardJobWithOptions(const Models::SubmitYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交一刻AI应用任务
+       *
+       * @param request SubmitYikeStoryboardJobRequest
+       * @return SubmitYikeStoryboardJobResponse
+       */
+      Models::SubmitYikeStoryboardJobResponse submitYikeStoryboardJob(const Models::SubmitYikeStoryboardJobRequest &request);
 
       /**
        * @summary Hands off a conversation to a human agent.

@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateYikeAssetUploadRequest& obj) { 
       DARABONBA_PTR_TO_JSON(FileExt, fileExt_);
+      DARABONBA_PTR_TO_JSON(FileType, fileType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateYikeAssetUploadRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(FileExt, fileExt_);
+      DARABONBA_PTR_FROM_JSON(FileType, fileType_);
     };
     CreateYikeAssetUploadRequest() = default ;
     CreateYikeAssetUploadRequest(const CreateYikeAssetUploadRequest &) = default ;
@@ -29,7 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->fileExt_ == nullptr; };
+    virtual bool empty() const override { return this->fileExt_ == nullptr
+        && this->fileType_ == nullptr; };
     // fileExt Field Functions 
     bool hasFileExt() const { return this->fileExt_ != nullptr;};
     void deleteFileExt() { this->fileExt_ = nullptr;};
@@ -37,9 +40,17 @@ namespace Models
     inline CreateYikeAssetUploadRequest& setFileExt(string fileExt) { DARABONBA_PTR_SET_VALUE(fileExt_, fileExt) };
 
 
+    // fileType Field Functions 
+    bool hasFileType() const { return this->fileType_ != nullptr;};
+    void deleteFileType() { this->fileType_ = nullptr;};
+    inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
+    inline CreateYikeAssetUploadRequest& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> fileExt_ {};
+    shared_ptr<string> fileType_ {};
   };
 
   } // namespace Models
