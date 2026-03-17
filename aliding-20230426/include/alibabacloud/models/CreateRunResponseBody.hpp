@@ -270,6 +270,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(append, append_);
             DARABONBA_PTR_TO_JSON(dataPart, dataPart_);
             DARABONBA_PTR_TO_JSON(finish, finish_);
+            DARABONBA_PTR_TO_JSON(infoPart, infoPart_);
             DARABONBA_PTR_TO_JSON(partDesc, partDesc_);
             DARABONBA_PTR_TO_JSON(partId, partId_);
             DARABONBA_PTR_TO_JSON(reasonPart, reasonPart_);
@@ -282,6 +283,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(append, append_);
             DARABONBA_PTR_FROM_JSON(dataPart, dataPart_);
             DARABONBA_PTR_FROM_JSON(finish, finish_);
+            DARABONBA_PTR_FROM_JSON(infoPart, infoPart_);
             DARABONBA_PTR_FROM_JSON(partDesc, partDesc_);
             DARABONBA_PTR_FROM_JSON(partId, partId_);
             DARABONBA_PTR_FROM_JSON(reasonPart, reasonPart_);
@@ -574,6 +576,60 @@ namespace Models
             shared_ptr<string> reason_ {};
           };
 
+          class InfoPart : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const InfoPart& obj) { 
+              DARABONBA_PTR_TO_JSON(cateIdList, cateIdList_);
+              DARABONBA_PTR_TO_JSON(needFeedback, needFeedback_);
+              DARABONBA_PTR_TO_JSON(origin, origin_);
+            };
+            friend void from_json(const Darabonba::Json& j, InfoPart& obj) { 
+              DARABONBA_PTR_FROM_JSON(cateIdList, cateIdList_);
+              DARABONBA_PTR_FROM_JSON(needFeedback, needFeedback_);
+              DARABONBA_PTR_FROM_JSON(origin, origin_);
+            };
+            InfoPart() = default ;
+            InfoPart(const InfoPart &) = default ;
+            InfoPart(InfoPart &&) = default ;
+            InfoPart(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~InfoPart() = default ;
+            InfoPart& operator=(const InfoPart &) = default ;
+            InfoPart& operator=(InfoPart &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->cateIdList_ == nullptr
+        && this->needFeedback_ == nullptr && this->origin_ == nullptr; };
+            // cateIdList Field Functions 
+            bool hasCateIdList() const { return this->cateIdList_ != nullptr;};
+            void deleteCateIdList() { this->cateIdList_ = nullptr;};
+            inline const vector<string> & getCateIdList() const { DARABONBA_PTR_GET_CONST(cateIdList_, vector<string>) };
+            inline vector<string> getCateIdList() { DARABONBA_PTR_GET(cateIdList_, vector<string>) };
+            inline InfoPart& setCateIdList(const vector<string> & cateIdList) { DARABONBA_PTR_SET_VALUE(cateIdList_, cateIdList) };
+            inline InfoPart& setCateIdList(vector<string> && cateIdList) { DARABONBA_PTR_SET_RVALUE(cateIdList_, cateIdList) };
+
+
+            // needFeedback Field Functions 
+            bool hasNeedFeedback() const { return this->needFeedback_ != nullptr;};
+            void deleteNeedFeedback() { this->needFeedback_ = nullptr;};
+            inline bool getNeedFeedback() const { DARABONBA_PTR_GET_DEFAULT(needFeedback_, false) };
+            inline InfoPart& setNeedFeedback(bool needFeedback) { DARABONBA_PTR_SET_VALUE(needFeedback_, needFeedback) };
+
+
+            // origin Field Functions 
+            bool hasOrigin() const { return this->origin_ != nullptr;};
+            void deleteOrigin() { this->origin_ = nullptr;};
+            inline string getOrigin() const { DARABONBA_PTR_GET_DEFAULT(origin_, "") };
+            inline InfoPart& setOrigin(string origin) { DARABONBA_PTR_SET_VALUE(origin_, origin) };
+
+
+          protected:
+            shared_ptr<vector<string>> cateIdList_ {};
+            shared_ptr<bool> needFeedback_ {};
+            shared_ptr<string> origin_ {};
+          };
+
           class DataPart : public Darabonba::Model {
           public:
             friend void to_json(Darabonba::Json& j, const DataPart& obj) { 
@@ -608,8 +664,8 @@ namespace Models
           };
 
           virtual bool empty() const override { return this->append_ == nullptr
-        && this->dataPart_ == nullptr && this->finish_ == nullptr && this->partDesc_ == nullptr && this->partId_ == nullptr && this->reasonPart_ == nullptr
-        && this->recommendPart_ == nullptr && this->referencePart_ == nullptr && this->textPart_ == nullptr && this->type_ == nullptr; };
+        && this->dataPart_ == nullptr && this->finish_ == nullptr && this->infoPart_ == nullptr && this->partDesc_ == nullptr && this->partId_ == nullptr
+        && this->reasonPart_ == nullptr && this->recommendPart_ == nullptr && this->referencePart_ == nullptr && this->textPart_ == nullptr && this->type_ == nullptr; };
           // append Field Functions 
           bool hasAppend() const { return this->append_ != nullptr;};
           void deleteAppend() { this->append_ = nullptr;};
@@ -631,6 +687,15 @@ namespace Models
           void deleteFinish() { this->finish_ = nullptr;};
           inline bool getFinish() const { DARABONBA_PTR_GET_DEFAULT(finish_, false) };
           inline Parts& setFinish(bool finish) { DARABONBA_PTR_SET_VALUE(finish_, finish) };
+
+
+          // infoPart Field Functions 
+          bool hasInfoPart() const { return this->infoPart_ != nullptr;};
+          void deleteInfoPart() { this->infoPart_ = nullptr;};
+          inline const Parts::InfoPart & getInfoPart() const { DARABONBA_PTR_GET_CONST(infoPart_, Parts::InfoPart) };
+          inline Parts::InfoPart getInfoPart() { DARABONBA_PTR_GET(infoPart_, Parts::InfoPart) };
+          inline Parts& setInfoPart(const Parts::InfoPart & infoPart) { DARABONBA_PTR_SET_VALUE(infoPart_, infoPart) };
+          inline Parts& setInfoPart(Parts::InfoPart && infoPart) { DARABONBA_PTR_SET_RVALUE(infoPart_, infoPart) };
 
 
           // partDesc Field Functions 
@@ -694,6 +759,7 @@ namespace Models
           shared_ptr<bool> append_ {};
           shared_ptr<Parts::DataPart> dataPart_ {};
           shared_ptr<bool> finish_ {};
+          shared_ptr<Parts::InfoPart> infoPart_ {};
           shared_ptr<string> partDesc_ {};
           shared_ptr<string> partId_ {};
           shared_ptr<Parts::ReasonPart> reasonPart_ {};

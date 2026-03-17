@@ -44,13 +44,17 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Messages& obj) { 
         DARABONBA_PTR_TO_JSON(content, content_);
         DARABONBA_PTR_TO_JSON(contentDesc, contentDesc_);
+        DARABONBA_PTR_TO_JSON(contentStruct, contentStruct_);
         DARABONBA_PTR_TO_JSON(createAt, createAt_);
+        DARABONBA_PTR_TO_JSON(id, id_);
         DARABONBA_PTR_TO_JSON(role, role_);
       };
       friend void from_json(const Darabonba::Json& j, Messages& obj) { 
         DARABONBA_PTR_FROM_JSON(content, content_);
         DARABONBA_PTR_FROM_JSON(contentDesc, contentDesc_);
+        DARABONBA_PTR_FROM_JSON(contentStruct, contentStruct_);
         DARABONBA_PTR_FROM_JSON(createAt, createAt_);
+        DARABONBA_PTR_FROM_JSON(id, id_);
         DARABONBA_PTR_FROM_JSON(role, role_);
       };
       Messages() = default ;
@@ -64,6 +68,545 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ContentStruct : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ContentStruct& obj) { 
+          DARABONBA_PTR_TO_JSON(parts, parts_);
+        };
+        friend void from_json(const Darabonba::Json& j, ContentStruct& obj) { 
+          DARABONBA_PTR_FROM_JSON(parts, parts_);
+        };
+        ContentStruct() = default ;
+        ContentStruct(const ContentStruct &) = default ;
+        ContentStruct(ContentStruct &&) = default ;
+        ContentStruct(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ContentStruct() = default ;
+        ContentStruct& operator=(const ContentStruct &) = default ;
+        ContentStruct& operator=(ContentStruct &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Parts : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Parts& obj) { 
+            DARABONBA_PTR_TO_JSON(append, append_);
+            DARABONBA_PTR_TO_JSON(dataPart, dataPart_);
+            DARABONBA_PTR_TO_JSON(finish, finish_);
+            DARABONBA_PTR_TO_JSON(infoPart, infoPart_);
+            DARABONBA_PTR_TO_JSON(partDesc, partDesc_);
+            DARABONBA_PTR_TO_JSON(partId, partId_);
+            DARABONBA_PTR_TO_JSON(reasonPart, reasonPart_);
+            DARABONBA_PTR_TO_JSON(recommendPart, recommendPart_);
+            DARABONBA_PTR_TO_JSON(referencePart, referencePart_);
+            DARABONBA_PTR_TO_JSON(textPart, textPart_);
+            DARABONBA_PTR_TO_JSON(type, type_);
+          };
+          friend void from_json(const Darabonba::Json& j, Parts& obj) { 
+            DARABONBA_PTR_FROM_JSON(append, append_);
+            DARABONBA_PTR_FROM_JSON(dataPart, dataPart_);
+            DARABONBA_PTR_FROM_JSON(finish, finish_);
+            DARABONBA_PTR_FROM_JSON(infoPart, infoPart_);
+            DARABONBA_PTR_FROM_JSON(partDesc, partDesc_);
+            DARABONBA_PTR_FROM_JSON(partId, partId_);
+            DARABONBA_PTR_FROM_JSON(reasonPart, reasonPart_);
+            DARABONBA_PTR_FROM_JSON(recommendPart, recommendPart_);
+            DARABONBA_PTR_FROM_JSON(referencePart, referencePart_);
+            DARABONBA_PTR_FROM_JSON(textPart, textPart_);
+            DARABONBA_PTR_FROM_JSON(type, type_);
+          };
+          Parts() = default ;
+          Parts(const Parts &) = default ;
+          Parts(Parts &&) = default ;
+          Parts(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Parts() = default ;
+          Parts& operator=(const Parts &) = default ;
+          Parts& operator=(Parts &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class TextPart : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const TextPart& obj) { 
+              DARABONBA_PTR_TO_JSON(text, text_);
+            };
+            friend void from_json(const Darabonba::Json& j, TextPart& obj) { 
+              DARABONBA_PTR_FROM_JSON(text, text_);
+            };
+            TextPart() = default ;
+            TextPart(const TextPart &) = default ;
+            TextPart(TextPart &&) = default ;
+            TextPart(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~TextPart() = default ;
+            TextPart& operator=(const TextPart &) = default ;
+            TextPart& operator=(TextPart &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->text_ == nullptr; };
+            // text Field Functions 
+            bool hasText() const { return this->text_ != nullptr;};
+            void deleteText() { this->text_ = nullptr;};
+            inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+            inline TextPart& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
+
+
+          protected:
+            shared_ptr<string> text_ {};
+          };
+
+          class ReferencePart : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const ReferencePart& obj) { 
+              DARABONBA_PTR_TO_JSON(references, references_);
+            };
+            friend void from_json(const Darabonba::Json& j, ReferencePart& obj) { 
+              DARABONBA_PTR_FROM_JSON(references, references_);
+            };
+            ReferencePart() = default ;
+            ReferencePart(const ReferencePart &) = default ;
+            ReferencePart(ReferencePart &&) = default ;
+            ReferencePart(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~ReferencePart() = default ;
+            ReferencePart& operator=(const ReferencePart &) = default ;
+            ReferencePart& operator=(ReferencePart &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class References : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const References& obj) { 
+                DARABONBA_PTR_TO_JSON(index, index_);
+                DARABONBA_PTR_TO_JSON(name, name_);
+                DARABONBA_PTR_TO_JSON(sourceCode, sourceCode_);
+                DARABONBA_PTR_TO_JSON(sourceIcon, sourceIcon_);
+                DARABONBA_PTR_TO_JSON(summary, summary_);
+                DARABONBA_PTR_TO_JSON(title, title_);
+                DARABONBA_PTR_TO_JSON(url, url_);
+              };
+              friend void from_json(const Darabonba::Json& j, References& obj) { 
+                DARABONBA_PTR_FROM_JSON(index, index_);
+                DARABONBA_PTR_FROM_JSON(name, name_);
+                DARABONBA_PTR_FROM_JSON(sourceCode, sourceCode_);
+                DARABONBA_PTR_FROM_JSON(sourceIcon, sourceIcon_);
+                DARABONBA_PTR_FROM_JSON(summary, summary_);
+                DARABONBA_PTR_FROM_JSON(title, title_);
+                DARABONBA_PTR_FROM_JSON(url, url_);
+              };
+              References() = default ;
+              References(const References &) = default ;
+              References(References &&) = default ;
+              References(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~References() = default ;
+              References& operator=(const References &) = default ;
+              References& operator=(References &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->index_ == nullptr
+        && this->name_ == nullptr && this->sourceCode_ == nullptr && this->sourceIcon_ == nullptr && this->summary_ == nullptr && this->title_ == nullptr
+        && this->url_ == nullptr; };
+              // index Field Functions 
+              bool hasIndex() const { return this->index_ != nullptr;};
+              void deleteIndex() { this->index_ = nullptr;};
+              inline string getIndex() const { DARABONBA_PTR_GET_DEFAULT(index_, "") };
+              inline References& setIndex(string index) { DARABONBA_PTR_SET_VALUE(index_, index) };
+
+
+              // name Field Functions 
+              bool hasName() const { return this->name_ != nullptr;};
+              void deleteName() { this->name_ = nullptr;};
+              inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+              inline References& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+              // sourceCode Field Functions 
+              bool hasSourceCode() const { return this->sourceCode_ != nullptr;};
+              void deleteSourceCode() { this->sourceCode_ = nullptr;};
+              inline string getSourceCode() const { DARABONBA_PTR_GET_DEFAULT(sourceCode_, "") };
+              inline References& setSourceCode(string sourceCode) { DARABONBA_PTR_SET_VALUE(sourceCode_, sourceCode) };
+
+
+              // sourceIcon Field Functions 
+              bool hasSourceIcon() const { return this->sourceIcon_ != nullptr;};
+              void deleteSourceIcon() { this->sourceIcon_ = nullptr;};
+              inline string getSourceIcon() const { DARABONBA_PTR_GET_DEFAULT(sourceIcon_, "") };
+              inline References& setSourceIcon(string sourceIcon) { DARABONBA_PTR_SET_VALUE(sourceIcon_, sourceIcon) };
+
+
+              // summary Field Functions 
+              bool hasSummary() const { return this->summary_ != nullptr;};
+              void deleteSummary() { this->summary_ = nullptr;};
+              inline string getSummary() const { DARABONBA_PTR_GET_DEFAULT(summary_, "") };
+              inline References& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
+
+
+              // title Field Functions 
+              bool hasTitle() const { return this->title_ != nullptr;};
+              void deleteTitle() { this->title_ = nullptr;};
+              inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+              inline References& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
+
+
+              // url Field Functions 
+              bool hasUrl() const { return this->url_ != nullptr;};
+              void deleteUrl() { this->url_ = nullptr;};
+              inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+              inline References& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
+
+
+            protected:
+              shared_ptr<string> index_ {};
+              shared_ptr<string> name_ {};
+              shared_ptr<string> sourceCode_ {};
+              shared_ptr<string> sourceIcon_ {};
+              shared_ptr<string> summary_ {};
+              shared_ptr<string> title_ {};
+              shared_ptr<string> url_ {};
+            };
+
+            virtual bool empty() const override { return this->references_ == nullptr; };
+            // references Field Functions 
+            bool hasReferences() const { return this->references_ != nullptr;};
+            void deleteReferences() { this->references_ = nullptr;};
+            inline const vector<ReferencePart::References> & getReferences() const { DARABONBA_PTR_GET_CONST(references_, vector<ReferencePart::References>) };
+            inline vector<ReferencePart::References> getReferences() { DARABONBA_PTR_GET(references_, vector<ReferencePart::References>) };
+            inline ReferencePart& setReferences(const vector<ReferencePart::References> & references) { DARABONBA_PTR_SET_VALUE(references_, references) };
+            inline ReferencePart& setReferences(vector<ReferencePart::References> && references) { DARABONBA_PTR_SET_RVALUE(references_, references) };
+
+
+          protected:
+            shared_ptr<vector<ReferencePart::References>> references_ {};
+          };
+
+          class RecommendPart : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const RecommendPart& obj) { 
+              DARABONBA_PTR_TO_JSON(recommends, recommends_);
+            };
+            friend void from_json(const Darabonba::Json& j, RecommendPart& obj) { 
+              DARABONBA_PTR_FROM_JSON(recommends, recommends_);
+            };
+            RecommendPart() = default ;
+            RecommendPart(const RecommendPart &) = default ;
+            RecommendPart(RecommendPart &&) = default ;
+            RecommendPart(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~RecommendPart() = default ;
+            RecommendPart& operator=(const RecommendPart &) = default ;
+            RecommendPart& operator=(RecommendPart &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class Recommends : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const Recommends& obj) { 
+                DARABONBA_PTR_TO_JSON(mobileUrl, mobileUrl_);
+                DARABONBA_PTR_TO_JSON(text, text_);
+                DARABONBA_PTR_TO_JSON(url, url_);
+              };
+              friend void from_json(const Darabonba::Json& j, Recommends& obj) { 
+                DARABONBA_PTR_FROM_JSON(mobileUrl, mobileUrl_);
+                DARABONBA_PTR_FROM_JSON(text, text_);
+                DARABONBA_PTR_FROM_JSON(url, url_);
+              };
+              Recommends() = default ;
+              Recommends(const Recommends &) = default ;
+              Recommends(Recommends &&) = default ;
+              Recommends(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~Recommends() = default ;
+              Recommends& operator=(const Recommends &) = default ;
+              Recommends& operator=(Recommends &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->mobileUrl_ == nullptr
+        && this->text_ == nullptr && this->url_ == nullptr; };
+              // mobileUrl Field Functions 
+              bool hasMobileUrl() const { return this->mobileUrl_ != nullptr;};
+              void deleteMobileUrl() { this->mobileUrl_ = nullptr;};
+              inline string getMobileUrl() const { DARABONBA_PTR_GET_DEFAULT(mobileUrl_, "") };
+              inline Recommends& setMobileUrl(string mobileUrl) { DARABONBA_PTR_SET_VALUE(mobileUrl_, mobileUrl) };
+
+
+              // text Field Functions 
+              bool hasText() const { return this->text_ != nullptr;};
+              void deleteText() { this->text_ = nullptr;};
+              inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+              inline Recommends& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
+
+
+              // url Field Functions 
+              bool hasUrl() const { return this->url_ != nullptr;};
+              void deleteUrl() { this->url_ = nullptr;};
+              inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+              inline Recommends& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
+
+
+            protected:
+              shared_ptr<string> mobileUrl_ {};
+              shared_ptr<string> text_ {};
+              shared_ptr<string> url_ {};
+            };
+
+            virtual bool empty() const override { return this->recommends_ == nullptr; };
+            // recommends Field Functions 
+            bool hasRecommends() const { return this->recommends_ != nullptr;};
+            void deleteRecommends() { this->recommends_ = nullptr;};
+            inline const vector<RecommendPart::Recommends> & getRecommends() const { DARABONBA_PTR_GET_CONST(recommends_, vector<RecommendPart::Recommends>) };
+            inline vector<RecommendPart::Recommends> getRecommends() { DARABONBA_PTR_GET(recommends_, vector<RecommendPart::Recommends>) };
+            inline RecommendPart& setRecommends(const vector<RecommendPart::Recommends> & recommends) { DARABONBA_PTR_SET_VALUE(recommends_, recommends) };
+            inline RecommendPart& setRecommends(vector<RecommendPart::Recommends> && recommends) { DARABONBA_PTR_SET_RVALUE(recommends_, recommends) };
+
+
+          protected:
+            shared_ptr<vector<RecommendPart::Recommends>> recommends_ {};
+          };
+
+          class ReasonPart : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const ReasonPart& obj) { 
+              DARABONBA_PTR_TO_JSON(reason, reason_);
+            };
+            friend void from_json(const Darabonba::Json& j, ReasonPart& obj) { 
+              DARABONBA_PTR_FROM_JSON(reason, reason_);
+            };
+            ReasonPart() = default ;
+            ReasonPart(const ReasonPart &) = default ;
+            ReasonPart(ReasonPart &&) = default ;
+            ReasonPart(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~ReasonPart() = default ;
+            ReasonPart& operator=(const ReasonPart &) = default ;
+            ReasonPart& operator=(ReasonPart &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->reason_ == nullptr; };
+            // reason Field Functions 
+            bool hasReason() const { return this->reason_ != nullptr;};
+            void deleteReason() { this->reason_ = nullptr;};
+            inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+            inline ReasonPart& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
+
+
+          protected:
+            shared_ptr<string> reason_ {};
+          };
+
+          class InfoPart : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const InfoPart& obj) { 
+              DARABONBA_PTR_TO_JSON(cateIdList, cateIdList_);
+              DARABONBA_PTR_TO_JSON(needFeedback, needFeedback_);
+              DARABONBA_PTR_TO_JSON(origin, origin_);
+            };
+            friend void from_json(const Darabonba::Json& j, InfoPart& obj) { 
+              DARABONBA_PTR_FROM_JSON(cateIdList, cateIdList_);
+              DARABONBA_PTR_FROM_JSON(needFeedback, needFeedback_);
+              DARABONBA_PTR_FROM_JSON(origin, origin_);
+            };
+            InfoPart() = default ;
+            InfoPart(const InfoPart &) = default ;
+            InfoPart(InfoPart &&) = default ;
+            InfoPart(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~InfoPart() = default ;
+            InfoPart& operator=(const InfoPart &) = default ;
+            InfoPart& operator=(InfoPart &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->cateIdList_ == nullptr
+        && this->needFeedback_ == nullptr && this->origin_ == nullptr; };
+            // cateIdList Field Functions 
+            bool hasCateIdList() const { return this->cateIdList_ != nullptr;};
+            void deleteCateIdList() { this->cateIdList_ = nullptr;};
+            inline const vector<string> & getCateIdList() const { DARABONBA_PTR_GET_CONST(cateIdList_, vector<string>) };
+            inline vector<string> getCateIdList() { DARABONBA_PTR_GET(cateIdList_, vector<string>) };
+            inline InfoPart& setCateIdList(const vector<string> & cateIdList) { DARABONBA_PTR_SET_VALUE(cateIdList_, cateIdList) };
+            inline InfoPart& setCateIdList(vector<string> && cateIdList) { DARABONBA_PTR_SET_RVALUE(cateIdList_, cateIdList) };
+
+
+            // needFeedback Field Functions 
+            bool hasNeedFeedback() const { return this->needFeedback_ != nullptr;};
+            void deleteNeedFeedback() { this->needFeedback_ = nullptr;};
+            inline bool getNeedFeedback() const { DARABONBA_PTR_GET_DEFAULT(needFeedback_, false) };
+            inline InfoPart& setNeedFeedback(bool needFeedback) { DARABONBA_PTR_SET_VALUE(needFeedback_, needFeedback) };
+
+
+            // origin Field Functions 
+            bool hasOrigin() const { return this->origin_ != nullptr;};
+            void deleteOrigin() { this->origin_ = nullptr;};
+            inline string getOrigin() const { DARABONBA_PTR_GET_DEFAULT(origin_, "") };
+            inline InfoPart& setOrigin(string origin) { DARABONBA_PTR_SET_VALUE(origin_, origin) };
+
+
+          protected:
+            shared_ptr<vector<string>> cateIdList_ {};
+            shared_ptr<bool> needFeedback_ {};
+            shared_ptr<string> origin_ {};
+          };
+
+          class DataPart : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const DataPart& obj) { 
+              DARABONBA_ANY_TO_JSON(data, data_);
+            };
+            friend void from_json(const Darabonba::Json& j, DataPart& obj) { 
+              DARABONBA_ANY_FROM_JSON(data, data_);
+            };
+            DataPart() = default ;
+            DataPart(const DataPart &) = default ;
+            DataPart(DataPart &&) = default ;
+            DataPart(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~DataPart() = default ;
+            DataPart& operator=(const DataPart &) = default ;
+            DataPart& operator=(DataPart &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->data_ == nullptr; };
+            // data Field Functions 
+            bool hasData() const { return this->data_ != nullptr;};
+            void deleteData() { this->data_ = nullptr;};
+            inline             const Darabonba::Json & getData() const { DARABONBA_GET(data_) };
+            Darabonba::Json & getData() { DARABONBA_GET(data_) };
+            inline DataPart& setData(const Darabonba::Json & data) { DARABONBA_SET_VALUE(data_, data) };
+            inline DataPart& setData(Darabonba::Json && data) { DARABONBA_SET_RVALUE(data_, data) };
+
+
+          protected:
+            Darabonba::Json data_ {};
+          };
+
+          virtual bool empty() const override { return this->append_ == nullptr
+        && this->dataPart_ == nullptr && this->finish_ == nullptr && this->infoPart_ == nullptr && this->partDesc_ == nullptr && this->partId_ == nullptr
+        && this->reasonPart_ == nullptr && this->recommendPart_ == nullptr && this->referencePart_ == nullptr && this->textPart_ == nullptr && this->type_ == nullptr; };
+          // append Field Functions 
+          bool hasAppend() const { return this->append_ != nullptr;};
+          void deleteAppend() { this->append_ = nullptr;};
+          inline bool getAppend() const { DARABONBA_PTR_GET_DEFAULT(append_, false) };
+          inline Parts& setAppend(bool append) { DARABONBA_PTR_SET_VALUE(append_, append) };
+
+
+          // dataPart Field Functions 
+          bool hasDataPart() const { return this->dataPart_ != nullptr;};
+          void deleteDataPart() { this->dataPart_ = nullptr;};
+          inline const Parts::DataPart & getDataPart() const { DARABONBA_PTR_GET_CONST(dataPart_, Parts::DataPart) };
+          inline Parts::DataPart getDataPart() { DARABONBA_PTR_GET(dataPart_, Parts::DataPart) };
+          inline Parts& setDataPart(const Parts::DataPart & dataPart) { DARABONBA_PTR_SET_VALUE(dataPart_, dataPart) };
+          inline Parts& setDataPart(Parts::DataPart && dataPart) { DARABONBA_PTR_SET_RVALUE(dataPart_, dataPart) };
+
+
+          // finish Field Functions 
+          bool hasFinish() const { return this->finish_ != nullptr;};
+          void deleteFinish() { this->finish_ = nullptr;};
+          inline bool getFinish() const { DARABONBA_PTR_GET_DEFAULT(finish_, false) };
+          inline Parts& setFinish(bool finish) { DARABONBA_PTR_SET_VALUE(finish_, finish) };
+
+
+          // infoPart Field Functions 
+          bool hasInfoPart() const { return this->infoPart_ != nullptr;};
+          void deleteInfoPart() { this->infoPart_ = nullptr;};
+          inline const Parts::InfoPart & getInfoPart() const { DARABONBA_PTR_GET_CONST(infoPart_, Parts::InfoPart) };
+          inline Parts::InfoPart getInfoPart() { DARABONBA_PTR_GET(infoPart_, Parts::InfoPart) };
+          inline Parts& setInfoPart(const Parts::InfoPart & infoPart) { DARABONBA_PTR_SET_VALUE(infoPart_, infoPart) };
+          inline Parts& setInfoPart(Parts::InfoPart && infoPart) { DARABONBA_PTR_SET_RVALUE(infoPart_, infoPart) };
+
+
+          // partDesc Field Functions 
+          bool hasPartDesc() const { return this->partDesc_ != nullptr;};
+          void deletePartDesc() { this->partDesc_ = nullptr;};
+          inline string getPartDesc() const { DARABONBA_PTR_GET_DEFAULT(partDesc_, "") };
+          inline Parts& setPartDesc(string partDesc) { DARABONBA_PTR_SET_VALUE(partDesc_, partDesc) };
+
+
+          // partId Field Functions 
+          bool hasPartId() const { return this->partId_ != nullptr;};
+          void deletePartId() { this->partId_ = nullptr;};
+          inline string getPartId() const { DARABONBA_PTR_GET_DEFAULT(partId_, "") };
+          inline Parts& setPartId(string partId) { DARABONBA_PTR_SET_VALUE(partId_, partId) };
+
+
+          // reasonPart Field Functions 
+          bool hasReasonPart() const { return this->reasonPart_ != nullptr;};
+          void deleteReasonPart() { this->reasonPart_ = nullptr;};
+          inline const Parts::ReasonPart & getReasonPart() const { DARABONBA_PTR_GET_CONST(reasonPart_, Parts::ReasonPart) };
+          inline Parts::ReasonPart getReasonPart() { DARABONBA_PTR_GET(reasonPart_, Parts::ReasonPart) };
+          inline Parts& setReasonPart(const Parts::ReasonPart & reasonPart) { DARABONBA_PTR_SET_VALUE(reasonPart_, reasonPart) };
+          inline Parts& setReasonPart(Parts::ReasonPart && reasonPart) { DARABONBA_PTR_SET_RVALUE(reasonPart_, reasonPart) };
+
+
+          // recommendPart Field Functions 
+          bool hasRecommendPart() const { return this->recommendPart_ != nullptr;};
+          void deleteRecommendPart() { this->recommendPart_ = nullptr;};
+          inline const Parts::RecommendPart & getRecommendPart() const { DARABONBA_PTR_GET_CONST(recommendPart_, Parts::RecommendPart) };
+          inline Parts::RecommendPart getRecommendPart() { DARABONBA_PTR_GET(recommendPart_, Parts::RecommendPart) };
+          inline Parts& setRecommendPart(const Parts::RecommendPart & recommendPart) { DARABONBA_PTR_SET_VALUE(recommendPart_, recommendPart) };
+          inline Parts& setRecommendPart(Parts::RecommendPart && recommendPart) { DARABONBA_PTR_SET_RVALUE(recommendPart_, recommendPart) };
+
+
+          // referencePart Field Functions 
+          bool hasReferencePart() const { return this->referencePart_ != nullptr;};
+          void deleteReferencePart() { this->referencePart_ = nullptr;};
+          inline const Parts::ReferencePart & getReferencePart() const { DARABONBA_PTR_GET_CONST(referencePart_, Parts::ReferencePart) };
+          inline Parts::ReferencePart getReferencePart() { DARABONBA_PTR_GET(referencePart_, Parts::ReferencePart) };
+          inline Parts& setReferencePart(const Parts::ReferencePart & referencePart) { DARABONBA_PTR_SET_VALUE(referencePart_, referencePart) };
+          inline Parts& setReferencePart(Parts::ReferencePart && referencePart) { DARABONBA_PTR_SET_RVALUE(referencePart_, referencePart) };
+
+
+          // textPart Field Functions 
+          bool hasTextPart() const { return this->textPart_ != nullptr;};
+          void deleteTextPart() { this->textPart_ = nullptr;};
+          inline const Parts::TextPart & getTextPart() const { DARABONBA_PTR_GET_CONST(textPart_, Parts::TextPart) };
+          inline Parts::TextPart getTextPart() { DARABONBA_PTR_GET(textPart_, Parts::TextPart) };
+          inline Parts& setTextPart(const Parts::TextPart & textPart) { DARABONBA_PTR_SET_VALUE(textPart_, textPart) };
+          inline Parts& setTextPart(Parts::TextPart && textPart) { DARABONBA_PTR_SET_RVALUE(textPart_, textPart) };
+
+
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline Parts& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+        protected:
+          shared_ptr<bool> append_ {};
+          shared_ptr<Parts::DataPart> dataPart_ {};
+          shared_ptr<bool> finish_ {};
+          shared_ptr<Parts::InfoPart> infoPart_ {};
+          shared_ptr<string> partDesc_ {};
+          shared_ptr<string> partId_ {};
+          shared_ptr<Parts::ReasonPart> reasonPart_ {};
+          shared_ptr<Parts::RecommendPart> recommendPart_ {};
+          shared_ptr<Parts::ReferencePart> referencePart_ {};
+          shared_ptr<Parts::TextPart> textPart_ {};
+          // This parameter is required.
+          shared_ptr<string> type_ {};
+        };
+
+        virtual bool empty() const override { return this->parts_ == nullptr; };
+        // parts Field Functions 
+        bool hasParts() const { return this->parts_ != nullptr;};
+        void deleteParts() { this->parts_ = nullptr;};
+        inline const vector<ContentStruct::Parts> & getParts() const { DARABONBA_PTR_GET_CONST(parts_, vector<ContentStruct::Parts>) };
+        inline vector<ContentStruct::Parts> getParts() { DARABONBA_PTR_GET(parts_, vector<ContentStruct::Parts>) };
+        inline ContentStruct& setParts(const vector<ContentStruct::Parts> & parts) { DARABONBA_PTR_SET_VALUE(parts_, parts) };
+        inline ContentStruct& setParts(vector<ContentStruct::Parts> && parts) { DARABONBA_PTR_SET_RVALUE(parts_, parts) };
+
+
+      protected:
+        shared_ptr<vector<ContentStruct::Parts>> parts_ {};
+      };
+
       class Content : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Content& obj) { 
@@ -1074,7 +1617,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->content_ == nullptr
-        && this->contentDesc_ == nullptr && this->createAt_ == nullptr && this->role_ == nullptr; };
+        && this->contentDesc_ == nullptr && this->contentStruct_ == nullptr && this->createAt_ == nullptr && this->id_ == nullptr && this->role_ == nullptr; };
       // content Field Functions 
       bool hasContent() const { return this->content_ != nullptr;};
       void deleteContent() { this->content_ = nullptr;};
@@ -1091,11 +1634,27 @@ namespace Models
       inline Messages& setContentDesc(string contentDesc) { DARABONBA_PTR_SET_VALUE(contentDesc_, contentDesc) };
 
 
+      // contentStruct Field Functions 
+      bool hasContentStruct() const { return this->contentStruct_ != nullptr;};
+      void deleteContentStruct() { this->contentStruct_ = nullptr;};
+      inline const Messages::ContentStruct & getContentStruct() const { DARABONBA_PTR_GET_CONST(contentStruct_, Messages::ContentStruct) };
+      inline Messages::ContentStruct getContentStruct() { DARABONBA_PTR_GET(contentStruct_, Messages::ContentStruct) };
+      inline Messages& setContentStruct(const Messages::ContentStruct & contentStruct) { DARABONBA_PTR_SET_VALUE(contentStruct_, contentStruct) };
+      inline Messages& setContentStruct(Messages::ContentStruct && contentStruct) { DARABONBA_PTR_SET_RVALUE(contentStruct_, contentStruct) };
+
+
       // createAt Field Functions 
       bool hasCreateAt() const { return this->createAt_ != nullptr;};
       void deleteCreateAt() { this->createAt_ = nullptr;};
       inline int64_t getCreateAt() const { DARABONBA_PTR_GET_DEFAULT(createAt_, 0L) };
       inline Messages& setCreateAt(int64_t createAt) { DARABONBA_PTR_SET_VALUE(createAt_, createAt) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline Messages& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
       // role Field Functions 
@@ -1108,7 +1667,9 @@ namespace Models
     protected:
       shared_ptr<Messages::Content> content_ {};
       shared_ptr<string> contentDesc_ {};
+      shared_ptr<Messages::ContentStruct> contentStruct_ {};
       shared_ptr<int64_t> createAt_ {};
+      shared_ptr<string> id_ {};
       shared_ptr<string> role_ {};
     };
 

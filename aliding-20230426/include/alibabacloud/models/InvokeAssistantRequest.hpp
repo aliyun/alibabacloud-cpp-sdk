@@ -15,24 +15,30 @@ namespace Models
   class InvokeAssistantRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const InvokeAssistantRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(allowStructViewContent, allowStructViewContent_);
       DARABONBA_PTR_TO_JSON(assistantId, assistantId_);
       DARABONBA_PTR_TO_JSON(clientEnum, clientEnum_);
       DARABONBA_PTR_TO_JSON(extLoginUser, extLoginUser_);
       DARABONBA_PTR_TO_JSON(messages, messages_);
       DARABONBA_PTR_TO_JSON(originalAssistantId, originalAssistantId_);
       DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
+      DARABONBA_PTR_TO_JSON(sourceIdOfAssistantId, sourceIdOfAssistantId_);
       DARABONBA_PTR_TO_JSON(sourceIdOfOriginalAssistantId, sourceIdOfOriginalAssistantId_);
+      DARABONBA_PTR_TO_JSON(sourceTypeOfAssistantId, sourceTypeOfAssistantId_);
       DARABONBA_PTR_TO_JSON(sourceTypeOfOriginalAssistantId, sourceTypeOfOriginalAssistantId_);
       DARABONBA_PTR_TO_JSON(stream, stream_);
     };
     friend void from_json(const Darabonba::Json& j, InvokeAssistantRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(allowStructViewContent, allowStructViewContent_);
       DARABONBA_PTR_FROM_JSON(assistantId, assistantId_);
       DARABONBA_PTR_FROM_JSON(clientEnum, clientEnum_);
       DARABONBA_PTR_FROM_JSON(extLoginUser, extLoginUser_);
       DARABONBA_PTR_FROM_JSON(messages, messages_);
       DARABONBA_PTR_FROM_JSON(originalAssistantId, originalAssistantId_);
       DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
+      DARABONBA_PTR_FROM_JSON(sourceIdOfAssistantId, sourceIdOfAssistantId_);
       DARABONBA_PTR_FROM_JSON(sourceIdOfOriginalAssistantId, sourceIdOfOriginalAssistantId_);
+      DARABONBA_PTR_FROM_JSON(sourceTypeOfAssistantId, sourceTypeOfAssistantId_);
       DARABONBA_PTR_FROM_JSON(sourceTypeOfOriginalAssistantId, sourceTypeOfOriginalAssistantId_);
       DARABONBA_PTR_FROM_JSON(stream, stream_);
     };
@@ -1174,9 +1180,17 @@ namespace Models
       shared_ptr<string> extLoginUserName_ {};
     };
 
-    virtual bool empty() const override { return this->assistantId_ == nullptr
-        && this->clientEnum_ == nullptr && this->extLoginUser_ == nullptr && this->messages_ == nullptr && this->originalAssistantId_ == nullptr && this->sessionId_ == nullptr
-        && this->sourceIdOfOriginalAssistantId_ == nullptr && this->sourceTypeOfOriginalAssistantId_ == nullptr && this->stream_ == nullptr; };
+    virtual bool empty() const override { return this->allowStructViewContent_ == nullptr
+        && this->assistantId_ == nullptr && this->clientEnum_ == nullptr && this->extLoginUser_ == nullptr && this->messages_ == nullptr && this->originalAssistantId_ == nullptr
+        && this->sessionId_ == nullptr && this->sourceIdOfAssistantId_ == nullptr && this->sourceIdOfOriginalAssistantId_ == nullptr && this->sourceTypeOfAssistantId_ == nullptr && this->sourceTypeOfOriginalAssistantId_ == nullptr
+        && this->stream_ == nullptr; };
+    // allowStructViewContent Field Functions 
+    bool hasAllowStructViewContent() const { return this->allowStructViewContent_ != nullptr;};
+    void deleteAllowStructViewContent() { this->allowStructViewContent_ = nullptr;};
+    inline bool getAllowStructViewContent() const { DARABONBA_PTR_GET_DEFAULT(allowStructViewContent_, false) };
+    inline InvokeAssistantRequest& setAllowStructViewContent(bool allowStructViewContent) { DARABONBA_PTR_SET_VALUE(allowStructViewContent_, allowStructViewContent) };
+
+
     // assistantId Field Functions 
     bool hasAssistantId() const { return this->assistantId_ != nullptr;};
     void deleteAssistantId() { this->assistantId_ = nullptr;};
@@ -1223,6 +1237,13 @@ namespace Models
     inline InvokeAssistantRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
+    // sourceIdOfAssistantId Field Functions 
+    bool hasSourceIdOfAssistantId() const { return this->sourceIdOfAssistantId_ != nullptr;};
+    void deleteSourceIdOfAssistantId() { this->sourceIdOfAssistantId_ = nullptr;};
+    inline string getSourceIdOfAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceIdOfAssistantId_, "") };
+    inline InvokeAssistantRequest& setSourceIdOfAssistantId(string sourceIdOfAssistantId) { DARABONBA_PTR_SET_VALUE(sourceIdOfAssistantId_, sourceIdOfAssistantId) };
+
+
     // sourceIdOfOriginalAssistantId Field Functions 
     bool hasSourceIdOfOriginalAssistantId() const { return this->sourceIdOfOriginalAssistantId_ != nullptr;};
     void deleteSourceIdOfOriginalAssistantId() { this->sourceIdOfOriginalAssistantId_ = nullptr;};
@@ -1230,11 +1251,18 @@ namespace Models
     inline InvokeAssistantRequest& setSourceIdOfOriginalAssistantId(string sourceIdOfOriginalAssistantId) { DARABONBA_PTR_SET_VALUE(sourceIdOfOriginalAssistantId_, sourceIdOfOriginalAssistantId) };
 
 
+    // sourceTypeOfAssistantId Field Functions 
+    bool hasSourceTypeOfAssistantId() const { return this->sourceTypeOfAssistantId_ != nullptr;};
+    void deleteSourceTypeOfAssistantId() { this->sourceTypeOfAssistantId_ = nullptr;};
+    inline int32_t getSourceTypeOfAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceTypeOfAssistantId_, 0) };
+    inline InvokeAssistantRequest& setSourceTypeOfAssistantId(int32_t sourceTypeOfAssistantId) { DARABONBA_PTR_SET_VALUE(sourceTypeOfAssistantId_, sourceTypeOfAssistantId) };
+
+
     // sourceTypeOfOriginalAssistantId Field Functions 
     bool hasSourceTypeOfOriginalAssistantId() const { return this->sourceTypeOfOriginalAssistantId_ != nullptr;};
     void deleteSourceTypeOfOriginalAssistantId() { this->sourceTypeOfOriginalAssistantId_ = nullptr;};
-    inline string getSourceTypeOfOriginalAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceTypeOfOriginalAssistantId_, "") };
-    inline InvokeAssistantRequest& setSourceTypeOfOriginalAssistantId(string sourceTypeOfOriginalAssistantId) { DARABONBA_PTR_SET_VALUE(sourceTypeOfOriginalAssistantId_, sourceTypeOfOriginalAssistantId) };
+    inline int32_t getSourceTypeOfOriginalAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceTypeOfOriginalAssistantId_, 0) };
+    inline InvokeAssistantRequest& setSourceTypeOfOriginalAssistantId(int32_t sourceTypeOfOriginalAssistantId) { DARABONBA_PTR_SET_VALUE(sourceTypeOfOriginalAssistantId_, sourceTypeOfOriginalAssistantId) };
 
 
     // stream Field Functions 
@@ -1245,7 +1273,7 @@ namespace Models
 
 
   protected:
-    // This parameter is required.
+    shared_ptr<bool> allowStructViewContent_ {};
     shared_ptr<string> assistantId_ {};
     shared_ptr<string> clientEnum_ {};
     shared_ptr<InvokeAssistantRequest::ExtLoginUser> extLoginUser_ {};
@@ -1253,8 +1281,10 @@ namespace Models
     shared_ptr<vector<InvokeAssistantRequest::Messages>> messages_ {};
     shared_ptr<string> originalAssistantId_ {};
     shared_ptr<string> sessionId_ {};
+    shared_ptr<string> sourceIdOfAssistantId_ {};
     shared_ptr<string> sourceIdOfOriginalAssistantId_ {};
-    shared_ptr<string> sourceTypeOfOriginalAssistantId_ {};
+    shared_ptr<int32_t> sourceTypeOfAssistantId_ {};
+    shared_ptr<int32_t> sourceTypeOfOriginalAssistantId_ {};
     shared_ptr<bool> stream_ {};
   };
 

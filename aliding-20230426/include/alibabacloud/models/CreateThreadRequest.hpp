@@ -17,7 +17,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(clientEnum, clientEnum_);
       DARABONBA_PTR_TO_JSON(extLoginUser, extLoginUser_);
       DARABONBA_PTR_TO_JSON(originalAssistantId, originalAssistantId_);
+      DARABONBA_PTR_TO_JSON(sourceIdOfAssistantId, sourceIdOfAssistantId_);
       DARABONBA_PTR_TO_JSON(sourceIdOfOriginalAssistantId, sourceIdOfOriginalAssistantId_);
+      DARABONBA_PTR_TO_JSON(sourceTypeOfAssistantId, sourceTypeOfAssistantId_);
       DARABONBA_PTR_TO_JSON(sourceTypeOfOriginalAssistantId, sourceTypeOfOriginalAssistantId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateThreadRequest& obj) { 
@@ -25,7 +27,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(clientEnum, clientEnum_);
       DARABONBA_PTR_FROM_JSON(extLoginUser, extLoginUser_);
       DARABONBA_PTR_FROM_JSON(originalAssistantId, originalAssistantId_);
+      DARABONBA_PTR_FROM_JSON(sourceIdOfAssistantId, sourceIdOfAssistantId_);
       DARABONBA_PTR_FROM_JSON(sourceIdOfOriginalAssistantId, sourceIdOfOriginalAssistantId_);
+      DARABONBA_PTR_FROM_JSON(sourceTypeOfAssistantId, sourceTypeOfAssistantId_);
       DARABONBA_PTR_FROM_JSON(sourceTypeOfOriginalAssistantId, sourceTypeOfOriginalAssistantId_);
     };
     CreateThreadRequest() = default ;
@@ -92,7 +96,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->assistantId_ == nullptr
-        && this->clientEnum_ == nullptr && this->extLoginUser_ == nullptr && this->originalAssistantId_ == nullptr && this->sourceIdOfOriginalAssistantId_ == nullptr && this->sourceTypeOfOriginalAssistantId_ == nullptr; };
+        && this->clientEnum_ == nullptr && this->extLoginUser_ == nullptr && this->originalAssistantId_ == nullptr && this->sourceIdOfAssistantId_ == nullptr && this->sourceIdOfOriginalAssistantId_ == nullptr
+        && this->sourceTypeOfAssistantId_ == nullptr && this->sourceTypeOfOriginalAssistantId_ == nullptr; };
     // assistantId Field Functions 
     bool hasAssistantId() const { return this->assistantId_ != nullptr;};
     void deleteAssistantId() { this->assistantId_ = nullptr;};
@@ -123,11 +128,25 @@ namespace Models
     inline CreateThreadRequest& setOriginalAssistantId(string originalAssistantId) { DARABONBA_PTR_SET_VALUE(originalAssistantId_, originalAssistantId) };
 
 
+    // sourceIdOfAssistantId Field Functions 
+    bool hasSourceIdOfAssistantId() const { return this->sourceIdOfAssistantId_ != nullptr;};
+    void deleteSourceIdOfAssistantId() { this->sourceIdOfAssistantId_ = nullptr;};
+    inline string getSourceIdOfAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceIdOfAssistantId_, "") };
+    inline CreateThreadRequest& setSourceIdOfAssistantId(string sourceIdOfAssistantId) { DARABONBA_PTR_SET_VALUE(sourceIdOfAssistantId_, sourceIdOfAssistantId) };
+
+
     // sourceIdOfOriginalAssistantId Field Functions 
     bool hasSourceIdOfOriginalAssistantId() const { return this->sourceIdOfOriginalAssistantId_ != nullptr;};
     void deleteSourceIdOfOriginalAssistantId() { this->sourceIdOfOriginalAssistantId_ = nullptr;};
     inline string getSourceIdOfOriginalAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceIdOfOriginalAssistantId_, "") };
     inline CreateThreadRequest& setSourceIdOfOriginalAssistantId(string sourceIdOfOriginalAssistantId) { DARABONBA_PTR_SET_VALUE(sourceIdOfOriginalAssistantId_, sourceIdOfOriginalAssistantId) };
+
+
+    // sourceTypeOfAssistantId Field Functions 
+    bool hasSourceTypeOfAssistantId() const { return this->sourceTypeOfAssistantId_ != nullptr;};
+    void deleteSourceTypeOfAssistantId() { this->sourceTypeOfAssistantId_ = nullptr;};
+    inline int32_t getSourceTypeOfAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceTypeOfAssistantId_, 0) };
+    inline CreateThreadRequest& setSourceTypeOfAssistantId(int32_t sourceTypeOfAssistantId) { DARABONBA_PTR_SET_VALUE(sourceTypeOfAssistantId_, sourceTypeOfAssistantId) };
 
 
     // sourceTypeOfOriginalAssistantId Field Functions 
@@ -138,12 +157,13 @@ namespace Models
 
 
   protected:
-    // This parameter is required.
     shared_ptr<string> assistantId_ {};
     shared_ptr<string> clientEnum_ {};
     shared_ptr<CreateThreadRequest::ExtLoginUser> extLoginUser_ {};
     shared_ptr<string> originalAssistantId_ {};
+    shared_ptr<string> sourceIdOfAssistantId_ {};
     shared_ptr<string> sourceIdOfOriginalAssistantId_ {};
+    shared_ptr<int32_t> sourceTypeOfAssistantId_ {};
     shared_ptr<int32_t> sourceTypeOfOriginalAssistantId_ {};
   };
 

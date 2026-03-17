@@ -17,7 +17,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(assistantId, assistantId_);
       DARABONBA_PTR_TO_JSON(extLoginUser, extLoginUser_);
       DARABONBA_PTR_TO_JSON(originalAssistantId, originalAssistantId_);
+      DARABONBA_PTR_TO_JSON(sourceIdOfAssistantId, sourceIdOfAssistantId_);
       DARABONBA_PTR_TO_JSON(sourceIdOfOriginalAssistantId, sourceIdOfOriginalAssistantId_);
+      DARABONBA_PTR_TO_JSON(sourceTypeOfAssistantId, sourceTypeOfAssistantId_);
       DARABONBA_PTR_TO_JSON(sourceTypeOfOriginalAssistantId, sourceTypeOfOriginalAssistantId_);
       DARABONBA_PTR_TO_JSON(stream, stream_);
       DARABONBA_PTR_TO_JSON(threadId, threadId_);
@@ -27,7 +29,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(assistantId, assistantId_);
       DARABONBA_PTR_FROM_JSON(extLoginUser, extLoginUser_);
       DARABONBA_PTR_FROM_JSON(originalAssistantId, originalAssistantId_);
+      DARABONBA_PTR_FROM_JSON(sourceIdOfAssistantId, sourceIdOfAssistantId_);
       DARABONBA_PTR_FROM_JSON(sourceIdOfOriginalAssistantId, sourceIdOfOriginalAssistantId_);
+      DARABONBA_PTR_FROM_JSON(sourceTypeOfAssistantId, sourceTypeOfAssistantId_);
       DARABONBA_PTR_FROM_JSON(sourceTypeOfOriginalAssistantId, sourceTypeOfOriginalAssistantId_);
       DARABONBA_PTR_FROM_JSON(stream, stream_);
       DARABONBA_PTR_FROM_JSON(threadId, threadId_);
@@ -96,8 +100,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->allowStructViewContent_ == nullptr
-        && this->assistantId_ == nullptr && this->extLoginUser_ == nullptr && this->originalAssistantId_ == nullptr && this->sourceIdOfOriginalAssistantId_ == nullptr && this->sourceTypeOfOriginalAssistantId_ == nullptr
-        && this->stream_ == nullptr && this->threadId_ == nullptr; };
+        && this->assistantId_ == nullptr && this->extLoginUser_ == nullptr && this->originalAssistantId_ == nullptr && this->sourceIdOfAssistantId_ == nullptr && this->sourceIdOfOriginalAssistantId_ == nullptr
+        && this->sourceTypeOfAssistantId_ == nullptr && this->sourceTypeOfOriginalAssistantId_ == nullptr && this->stream_ == nullptr && this->threadId_ == nullptr; };
     // allowStructViewContent Field Functions 
     bool hasAllowStructViewContent() const { return this->allowStructViewContent_ != nullptr;};
     void deleteAllowStructViewContent() { this->allowStructViewContent_ = nullptr;};
@@ -128,6 +132,13 @@ namespace Models
     inline CreateRunRequest& setOriginalAssistantId(string originalAssistantId) { DARABONBA_PTR_SET_VALUE(originalAssistantId_, originalAssistantId) };
 
 
+    // sourceIdOfAssistantId Field Functions 
+    bool hasSourceIdOfAssistantId() const { return this->sourceIdOfAssistantId_ != nullptr;};
+    void deleteSourceIdOfAssistantId() { this->sourceIdOfAssistantId_ = nullptr;};
+    inline string getSourceIdOfAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceIdOfAssistantId_, "") };
+    inline CreateRunRequest& setSourceIdOfAssistantId(string sourceIdOfAssistantId) { DARABONBA_PTR_SET_VALUE(sourceIdOfAssistantId_, sourceIdOfAssistantId) };
+
+
     // sourceIdOfOriginalAssistantId Field Functions 
     bool hasSourceIdOfOriginalAssistantId() const { return this->sourceIdOfOriginalAssistantId_ != nullptr;};
     void deleteSourceIdOfOriginalAssistantId() { this->sourceIdOfOriginalAssistantId_ = nullptr;};
@@ -135,11 +146,18 @@ namespace Models
     inline CreateRunRequest& setSourceIdOfOriginalAssistantId(string sourceIdOfOriginalAssistantId) { DARABONBA_PTR_SET_VALUE(sourceIdOfOriginalAssistantId_, sourceIdOfOriginalAssistantId) };
 
 
+    // sourceTypeOfAssistantId Field Functions 
+    bool hasSourceTypeOfAssistantId() const { return this->sourceTypeOfAssistantId_ != nullptr;};
+    void deleteSourceTypeOfAssistantId() { this->sourceTypeOfAssistantId_ = nullptr;};
+    inline int32_t getSourceTypeOfAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceTypeOfAssistantId_, 0) };
+    inline CreateRunRequest& setSourceTypeOfAssistantId(int32_t sourceTypeOfAssistantId) { DARABONBA_PTR_SET_VALUE(sourceTypeOfAssistantId_, sourceTypeOfAssistantId) };
+
+
     // sourceTypeOfOriginalAssistantId Field Functions 
     bool hasSourceTypeOfOriginalAssistantId() const { return this->sourceTypeOfOriginalAssistantId_ != nullptr;};
     void deleteSourceTypeOfOriginalAssistantId() { this->sourceTypeOfOriginalAssistantId_ = nullptr;};
-    inline string getSourceTypeOfOriginalAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceTypeOfOriginalAssistantId_, "") };
-    inline CreateRunRequest& setSourceTypeOfOriginalAssistantId(string sourceTypeOfOriginalAssistantId) { DARABONBA_PTR_SET_VALUE(sourceTypeOfOriginalAssistantId_, sourceTypeOfOriginalAssistantId) };
+    inline int32_t getSourceTypeOfOriginalAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceTypeOfOriginalAssistantId_, 0) };
+    inline CreateRunRequest& setSourceTypeOfOriginalAssistantId(int32_t sourceTypeOfOriginalAssistantId) { DARABONBA_PTR_SET_VALUE(sourceTypeOfOriginalAssistantId_, sourceTypeOfOriginalAssistantId) };
 
 
     // stream Field Functions 
@@ -158,12 +176,13 @@ namespace Models
 
   protected:
     shared_ptr<bool> allowStructViewContent_ {};
-    // This parameter is required.
     shared_ptr<string> assistantId_ {};
     shared_ptr<CreateRunRequest::ExtLoginUser> extLoginUser_ {};
     shared_ptr<string> originalAssistantId_ {};
+    shared_ptr<string> sourceIdOfAssistantId_ {};
     shared_ptr<string> sourceIdOfOriginalAssistantId_ {};
-    shared_ptr<string> sourceTypeOfOriginalAssistantId_ {};
+    shared_ptr<int32_t> sourceTypeOfAssistantId_ {};
+    shared_ptr<int32_t> sourceTypeOfOriginalAssistantId_ {};
     shared_ptr<bool> stream_ {};
     // This parameter is required.
     shared_ptr<string> threadId_ {};

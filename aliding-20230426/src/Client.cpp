@@ -3222,8 +3222,16 @@ CreateMessageResponse Client::createMessageWithOptions(const CreateMessageReques
     body["originalAssistantId"] = request.getOriginalAssistantId();
   }
 
+  if (!!request.hasSourceIdOfAssistantId()) {
+    body["sourceIdOfAssistantId"] = request.getSourceIdOfAssistantId();
+  }
+
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
     body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
+  }
+
+  if (!!request.hasSourceTypeOfAssistantId()) {
+    body["sourceTypeOfAssistantId"] = request.getSourceTypeOfAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
@@ -3776,8 +3784,16 @@ FutureGenerator<CreateRunResponse> Client::createRunWithSSE(const CreateRunReque
     body["originalAssistantId"] = request.getOriginalAssistantId();
   }
 
+  if (!!request.hasSourceIdOfAssistantId()) {
+    body["sourceIdOfAssistantId"] = request.getSourceIdOfAssistantId();
+  }
+
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
     body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
+  }
+
+  if (!!request.hasSourceTypeOfAssistantId()) {
+    body["sourceTypeOfAssistantId"] = request.getSourceTypeOfAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
@@ -3860,8 +3876,16 @@ CreateRunResponse Client::createRunWithOptions(const CreateRunRequest &request, 
     body["originalAssistantId"] = request.getOriginalAssistantId();
   }
 
+  if (!!request.hasSourceIdOfAssistantId()) {
+    body["sourceIdOfAssistantId"] = request.getSourceIdOfAssistantId();
+  }
+
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
     body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
+  }
+
+  if (!!request.hasSourceTypeOfAssistantId()) {
+    body["sourceTypeOfAssistantId"] = request.getSourceTypeOfAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
@@ -4500,8 +4524,16 @@ CreateThreadResponse Client::createThreadWithOptions(const CreateThreadRequest &
     body["originalAssistantId"] = request.getOriginalAssistantId();
   }
 
+  if (!!request.hasSourceIdOfAssistantId()) {
+    body["sourceIdOfAssistantId"] = request.getSourceIdOfAssistantId();
+  }
+
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
     body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
+  }
+
+  if (!!request.hasSourceTypeOfAssistantId()) {
+    body["sourceTypeOfAssistantId"] = request.getSourceTypeOfAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
@@ -7527,6 +7559,10 @@ GetAssistantCapabilityResponse Client::getAssistantCapabilityWithOptions(const G
 
   if (!!headers.hasAccountId()) {
     realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
+  }
+
+  if (!!headers.hasAiLogContextJson()) {
+    realHeaders["aiLogContextJson"] = Darabonba::Convert::stringVal(headers.getAiLogContextJson());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13626,6 +13662,10 @@ InviteUsersResponse Client::inviteUsers(const InviteUsersRequest &request) {
 FutureGenerator<InvokeAssistantResponse> Client::invokeAssistantWithSSE(const InvokeAssistantRequest &request, const InvokeAssistantHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAllowStructViewContent()) {
+    body["allowStructViewContent"] = request.getAllowStructViewContent();
+  }
+
   if (!!request.hasAssistantId()) {
     body["assistantId"] = request.getAssistantId();
   }
@@ -13650,8 +13690,16 @@ FutureGenerator<InvokeAssistantResponse> Client::invokeAssistantWithSSE(const In
     body["sessionId"] = request.getSessionId();
   }
 
+  if (!!request.hasSourceIdOfAssistantId()) {
+    body["sourceIdOfAssistantId"] = request.getSourceIdOfAssistantId();
+  }
+
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
     body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
+  }
+
+  if (!!request.hasSourceTypeOfAssistantId()) {
+    body["sourceTypeOfAssistantId"] = request.getSourceTypeOfAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
@@ -13669,6 +13717,10 @@ FutureGenerator<InvokeAssistantResponse> Client::invokeAssistantWithSSE(const In
 
   if (!!headers.hasAccountId()) {
     realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
+  }
+
+  if (!!headers.hasAiLogContextJson()) {
+    realHeaders["aiLogContextJson"] = Darabonba::Convert::stringVal(headers.getAiLogContextJson());
   }
 
   if (!!headers.hasAlidingSsoTicket()) {
@@ -13718,6 +13770,10 @@ return Darabonba::FutureGenerator<json>(__retrun);
 InvokeAssistantResponse Client::invokeAssistantWithOptions(const InvokeAssistantRequest &request, const InvokeAssistantHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAllowStructViewContent()) {
+    body["allowStructViewContent"] = request.getAllowStructViewContent();
+  }
+
   if (!!request.hasAssistantId()) {
     body["assistantId"] = request.getAssistantId();
   }
@@ -13742,8 +13798,16 @@ InvokeAssistantResponse Client::invokeAssistantWithOptions(const InvokeAssistant
     body["sessionId"] = request.getSessionId();
   }
 
+  if (!!request.hasSourceIdOfAssistantId()) {
+    body["sourceIdOfAssistantId"] = request.getSourceIdOfAssistantId();
+  }
+
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
     body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
+  }
+
+  if (!!request.hasSourceTypeOfAssistantId()) {
+    body["sourceTypeOfAssistantId"] = request.getSourceTypeOfAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
@@ -13761,6 +13825,10 @@ InvokeAssistantResponse Client::invokeAssistantWithOptions(const InvokeAssistant
 
   if (!!headers.hasAccountId()) {
     realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
+  }
+
+  if (!!headers.hasAiLogContextJson()) {
+    realHeaders["aiLogContextJson"] = Darabonba::Convert::stringVal(headers.getAiLogContextJson());
   }
 
   if (!!headers.hasAlidingSsoTicket()) {

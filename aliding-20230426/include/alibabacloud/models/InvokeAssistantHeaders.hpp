@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const InvokeAssistantHeaders& obj) { 
       DARABONBA_PTR_TO_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_TO_JSON(accountId, accountId_);
+      DARABONBA_PTR_TO_JSON(aiLogContextJson, aiLogContextJson_);
       DARABONBA_PTR_TO_JSON(alidingSsoTicket, alidingSsoTicket_);
     };
     friend void from_json(const Darabonba::Json& j, InvokeAssistantHeaders& obj) { 
       DARABONBA_PTR_FROM_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_FROM_JSON(accountId, accountId_);
+      DARABONBA_PTR_FROM_JSON(aiLogContextJson, aiLogContextJson_);
       DARABONBA_PTR_FROM_JSON(alidingSsoTicket, alidingSsoTicket_);
     };
     InvokeAssistantHeaders() = default ;
@@ -35,7 +37,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commonHeaders_ == nullptr
-        && this->accountId_ == nullptr && this->alidingSsoTicket_ == nullptr; };
+        && this->accountId_ == nullptr && this->aiLogContextJson_ == nullptr && this->alidingSsoTicket_ == nullptr; };
     // commonHeaders Field Functions 
     bool hasCommonHeaders() const { return this->commonHeaders_ != nullptr;};
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};
@@ -52,6 +54,13 @@ namespace Models
     inline InvokeAssistantHeaders& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
+    // aiLogContextJson Field Functions 
+    bool hasAiLogContextJson() const { return this->aiLogContextJson_ != nullptr;};
+    void deleteAiLogContextJson() { this->aiLogContextJson_ = nullptr;};
+    inline string getAiLogContextJson() const { DARABONBA_PTR_GET_DEFAULT(aiLogContextJson_, "") };
+    inline InvokeAssistantHeaders& setAiLogContextJson(string aiLogContextJson) { DARABONBA_PTR_SET_VALUE(aiLogContextJson_, aiLogContextJson) };
+
+
     // alidingSsoTicket Field Functions 
     bool hasAlidingSsoTicket() const { return this->alidingSsoTicket_ != nullptr;};
     void deleteAlidingSsoTicket() { this->alidingSsoTicket_ = nullptr;};
@@ -62,6 +71,7 @@ namespace Models
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
     shared_ptr<string> accountId_ {};
+    shared_ptr<string> aiLogContextJson_ {};
     shared_ptr<string> alidingSsoTicket_ {};
   };
 

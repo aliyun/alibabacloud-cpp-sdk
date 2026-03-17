@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(canHandle, canHandle_);
       DARABONBA_PTR_TO_JSON(capabilityAssessment, capabilityAssessment_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(thread, thread_);
     };
     friend void from_json(const Darabonba::Json& j, GetAssistantCapabilityResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(assistantDescription, assistantDescription_);
       DARABONBA_PTR_FROM_JSON(canHandle, canHandle_);
       DARABONBA_PTR_FROM_JSON(capabilityAssessment, capabilityAssessment_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(thread, thread_);
     };
     GetAssistantCapabilityResponseBody() = default ;
     GetAssistantCapabilityResponseBody(const GetAssistantCapabilityResponseBody &) = default ;
@@ -36,6 +38,58 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Thread : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Thread& obj) { 
+        DARABONBA_PTR_TO_JSON(createAt, createAt_);
+        DARABONBA_PTR_TO_JSON(id, id_);
+        DARABONBA_PTR_TO_JSON(status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, Thread& obj) { 
+        DARABONBA_PTR_FROM_JSON(createAt, createAt_);
+        DARABONBA_PTR_FROM_JSON(id, id_);
+        DARABONBA_PTR_FROM_JSON(status, status_);
+      };
+      Thread() = default ;
+      Thread(const Thread &) = default ;
+      Thread(Thread &&) = default ;
+      Thread(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Thread() = default ;
+      Thread& operator=(const Thread &) = default ;
+      Thread& operator=(Thread &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->createAt_ == nullptr
+        && this->id_ == nullptr && this->status_ == nullptr; };
+      // createAt Field Functions 
+      bool hasCreateAt() const { return this->createAt_ != nullptr;};
+      void deleteCreateAt() { this->createAt_ = nullptr;};
+      inline int64_t getCreateAt() const { DARABONBA_PTR_GET_DEFAULT(createAt_, 0L) };
+      inline Thread& setCreateAt(int64_t createAt) { DARABONBA_PTR_SET_VALUE(createAt_, createAt) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline Thread& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Thread& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      shared_ptr<int64_t> createAt_ {};
+      shared_ptr<string> id_ {};
+      shared_ptr<string> status_ {};
+    };
+
     class CapabilityAssessment : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const CapabilityAssessment& obj) { 
@@ -133,7 +187,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->assistantDescription_ == nullptr
-        && this->canHandle_ == nullptr && this->capabilityAssessment_ == nullptr && this->requestId_ == nullptr; };
+        && this->canHandle_ == nullptr && this->capabilityAssessment_ == nullptr && this->requestId_ == nullptr && this->thread_ == nullptr; };
     // assistantDescription Field Functions 
     bool hasAssistantDescription() const { return this->assistantDescription_ != nullptr;};
     void deleteAssistantDescription() { this->assistantDescription_ = nullptr;};
@@ -164,11 +218,21 @@ namespace Models
     inline GetAssistantCapabilityResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // thread Field Functions 
+    bool hasThread() const { return this->thread_ != nullptr;};
+    void deleteThread() { this->thread_ = nullptr;};
+    inline const GetAssistantCapabilityResponseBody::Thread & getThread() const { DARABONBA_PTR_GET_CONST(thread_, GetAssistantCapabilityResponseBody::Thread) };
+    inline GetAssistantCapabilityResponseBody::Thread getThread() { DARABONBA_PTR_GET(thread_, GetAssistantCapabilityResponseBody::Thread) };
+    inline GetAssistantCapabilityResponseBody& setThread(const GetAssistantCapabilityResponseBody::Thread & thread) { DARABONBA_PTR_SET_VALUE(thread_, thread) };
+    inline GetAssistantCapabilityResponseBody& setThread(GetAssistantCapabilityResponseBody::Thread && thread) { DARABONBA_PTR_SET_RVALUE(thread_, thread) };
+
+
   protected:
     shared_ptr<string> assistantDescription_ {};
     shared_ptr<bool> canHandle_ {};
     shared_ptr<GetAssistantCapabilityResponseBody::CapabilityAssessment> capabilityAssessment_ {};
     shared_ptr<string> requestId_ {};
+    shared_ptr<GetAssistantCapabilityResponseBody::Thread> thread_ {};
   };
 
   } // namespace Models
