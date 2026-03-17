@@ -86,9 +86,18 @@ namespace Models
   protected:
     shared_ptr<string> intlVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The permission.
+    // 
+    // Valid values:
+    // 
+    // *   whatsapp_business_messaging: sending permission on WhatsApp messages
+    // *   ads_management: management permission on advertisements
+    // *   catalog_management: management permission on catalogs
     shared_ptr<string> permissions_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The type of the app. Valid value: WHATSAPP.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

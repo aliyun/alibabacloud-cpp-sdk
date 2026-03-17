@@ -103,14 +103,23 @@ namespace Models
 
 
   protected:
+    // SpaceId/instance ID of ISV sub customer.
     shared_ptr<string> custSpaceId_ {};
+    // Produce QR code image format.
+    // 
     // This parameter is required.
     shared_ptr<string> generateQrImage_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Number, enter the country/region code+number.
+    // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
+    // Message content.
+    // 
     // This parameter is required.
     shared_ptr<string> prefilledMessage_ {};
+    // QR code encoding.
+    // 
     // This parameter is required.
     shared_ptr<string> qrdlCode_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

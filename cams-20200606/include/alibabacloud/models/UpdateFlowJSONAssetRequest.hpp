@@ -84,9 +84,14 @@ namespace Models
 
 
   protected:
+    // SpaceId/instance ID of ISV sub customer.
     shared_ptr<string> custSpaceId_ {};
+    // JSON file generated according to Facebook flow rules.
+    // 
     // This parameter is required.
     shared_ptr<string> filePath_ {};
+    // The Flow ID.
+    // 
     // This parameter is required.
     shared_ptr<string> flowId_ {};
     shared_ptr<int64_t> ownerId_ {};

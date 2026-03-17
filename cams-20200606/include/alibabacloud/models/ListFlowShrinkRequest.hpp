@@ -84,9 +84,12 @@ namespace Models
 
 
   protected:
+    // The space ID of the RAM user within the independent software vendor (ISV) account.
     shared_ptr<string> custSpaceId_ {};
+    // The name of the Flow that you want to query. If FlowName is left empty, the information about all Flows is queried.
     shared_ptr<string> flowName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The returned pages.
     shared_ptr<string> pageShrink_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

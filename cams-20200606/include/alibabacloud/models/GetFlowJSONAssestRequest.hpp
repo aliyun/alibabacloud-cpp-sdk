@@ -75,7 +75,9 @@ namespace Models
 
 
   protected:
+    // The space ID of the user within the independent software vendor (ISV) account.
     shared_ptr<string> custSpaceId_ {};
+    // The Flow ID.
     shared_ptr<string> flowId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

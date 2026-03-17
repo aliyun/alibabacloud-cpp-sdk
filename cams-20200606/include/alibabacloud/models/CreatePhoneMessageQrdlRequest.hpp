@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The space ID of the RAM user within the independent software vendor (ISV) account.
     shared_ptr<string> custSpaceId_ {};
+    // Produce QR code image format.
+    // 
     // This parameter is required.
     shared_ptr<string> generateQrImage_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The phone number. Add the country code before the phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
+    // Message content.
+    // 
     // This parameter is required.
     shared_ptr<string> prefilledMessage_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

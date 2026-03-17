@@ -84,10 +84,15 @@ namespace Models
 
 
   protected:
+    // The space ID of the RAM user within the independent software vendor (ISV) account.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The phone number. Add the country code before the phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
+    // QR code encoding.
+    // 
     // This parameter is required.
     shared_ptr<string> qrdlCode_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

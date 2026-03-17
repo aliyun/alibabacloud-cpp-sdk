@@ -16,6 +16,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SendChatappMessageRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AdAccountId, adAccountId_);
+      DARABONBA_PTR_TO_JSON(Category, category_);
       DARABONBA_PTR_TO_JSON(ChannelType, channelType_);
       DARABONBA_PTR_TO_JSON(Content, content_);
       DARABONBA_PTR_TO_JSON(ContextMessageId, contextMessageId_);
@@ -51,6 +52,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, SendChatappMessageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AdAccountId, adAccountId_);
+      DARABONBA_PTR_FROM_JSON(Category, category_);
       DARABONBA_PTR_FROM_JSON(ChannelType, channelType_);
       DARABONBA_PTR_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(ContextMessageId, contextMessageId_);
@@ -165,6 +167,7 @@ namespace Models
 
 
         protected:
+          // The retailer ID of the product.
           shared_ptr<string> productRetailerId_ {};
         };
 
@@ -187,7 +190,9 @@ namespace Models
 
 
       protected:
+        // The products.
         shared_ptr<vector<Sections::ProductItems>> productItems_ {};
+        // The name of the category.
         shared_ptr<string> title_ {};
       };
 
@@ -210,7 +215,9 @@ namespace Models
 
 
     protected:
+      // The products. Up to 30 products and 10 categories can be added.
       shared_ptr<vector<ProductAction::Sections>> sections_ {};
+      // The retailer ID of the product.
       shared_ptr<string> thumbnailProductRetailerId_ {};
     };
 
@@ -254,23 +261,32 @@ namespace Models
 
 
     protected:
+      // The default parameter of the Flow.
       Darabonba::Json flowActionData_ {};
+      // The Flow token.
       shared_ptr<string> flowToken_ {};
     };
 
     virtual bool empty() const override { return this->adAccountId_ == nullptr
-        && this->channelType_ == nullptr && this->content_ == nullptr && this->contextMessageId_ == nullptr && this->custSpaceId_ == nullptr && this->custWabaId_ == nullptr
-        && this->fallBackContent_ == nullptr && this->fallBackDuration_ == nullptr && this->fallBackId_ == nullptr && this->fallBackRule_ == nullptr && this->flowAction_ == nullptr
-        && this->from_ == nullptr && this->isvCode_ == nullptr && this->label_ == nullptr && this->language_ == nullptr && this->messageCampaignId_ == nullptr
-        && this->messageType_ == nullptr && this->ownerId_ == nullptr && this->payload_ == nullptr && this->productAction_ == nullptr && this->recipientType_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->tag_ == nullptr && this->taskId_ == nullptr && this->templateCode_ == nullptr
-        && this->templateName_ == nullptr && this->templateParams_ == nullptr && this->to_ == nullptr && this->tokenType_ == nullptr && this->trackingData_ == nullptr
-        && this->ttl_ == nullptr && this->type_ == nullptr; };
+        && this->category_ == nullptr && this->channelType_ == nullptr && this->content_ == nullptr && this->contextMessageId_ == nullptr && this->custSpaceId_ == nullptr
+        && this->custWabaId_ == nullptr && this->fallBackContent_ == nullptr && this->fallBackDuration_ == nullptr && this->fallBackId_ == nullptr && this->fallBackRule_ == nullptr
+        && this->flowAction_ == nullptr && this->from_ == nullptr && this->isvCode_ == nullptr && this->label_ == nullptr && this->language_ == nullptr
+        && this->messageCampaignId_ == nullptr && this->messageType_ == nullptr && this->ownerId_ == nullptr && this->payload_ == nullptr && this->productAction_ == nullptr
+        && this->recipientType_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->tag_ == nullptr && this->taskId_ == nullptr
+        && this->templateCode_ == nullptr && this->templateName_ == nullptr && this->templateParams_ == nullptr && this->to_ == nullptr && this->tokenType_ == nullptr
+        && this->trackingData_ == nullptr && this->ttl_ == nullptr && this->type_ == nullptr; };
     // adAccountId Field Functions 
     bool hasAdAccountId() const { return this->adAccountId_ != nullptr;};
     void deleteAdAccountId() { this->adAccountId_ = nullptr;};
     inline string getAdAccountId() const { DARABONBA_PTR_GET_DEFAULT(adAccountId_, "") };
     inline SendChatappMessageRequest& setAdAccountId(string adAccountId) { DARABONBA_PTR_SET_VALUE(adAccountId_, adAccountId) };
+
+
+    // category Field Functions 
+    bool hasCategory() const { return this->category_ != nullptr;};
+    void deleteCategory() { this->category_ = nullptr;};
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline SendChatappMessageRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // channelType Field Functions 
@@ -507,6 +523,13 @@ namespace Models
 
   protected:
     shared_ptr<string> adAccountId_ {};
+    shared_ptr<string> category_ {};
+    // The channel type. Valid values:
+    // 
+    // *   **whatsapp**
+    // *   **viber**
+    // *   **line** (under development)
+    // 
     // This parameter is required.
     shared_ptr<string> channelType_ {};
     // The message content.
@@ -535,38 +558,104 @@ namespace Models
     // *   If you set **messageType** to **text_video**, you must specify **text**, **link**, **thumbnail**, **fileSize**, and **duration**.
     // *   If you set **messageType** to **text_video_button**, you must specify **text**, **link**, **thumbnail**, **fileSize**, **duration**, and **caption**. In addition, you must not specify **action**.
     shared_ptr<string> content_ {};
+    // The ID of the reply message.
     shared_ptr<string> contextMessageId_ {};
+    // The space ID of the user.
     shared_ptr<string> custSpaceId_ {};
+    // The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
+    // 
+    // >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
     shared_ptr<string> custWabaId_ {};
+    // The content of the fallback message.
     shared_ptr<string> fallBackContent_ {};
+    // Specifies the period of time after which the fallback message is sent if the message receipt that indicates the message is delivered to clients is not received. If this parameter is left empty, the fallback message is sent only when the **message fails to be sent** or **the message receipt that indicates the message is not delivered to clients** is received. Unit: seconds. Valid values: 60 to 43200.
     shared_ptr<int32_t> fallBackDuration_ {};
+    // The ID of the fallback policy. You can create a fallback policy and view the information in the Chat App Message Service console.
     shared_ptr<string> fallBackId_ {};
+    // The fallback rule. Valid values:
+    // 
+    // *   **undelivered**: A fallback is triggered if the message is not delivered to clients. When the message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
+    // *   **sentFailed**: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
     shared_ptr<string> fallBackRule_ {};
+    // The Flow action.
     shared_ptr<SendChatappMessageRequest::FlowAction> flowAction_ {};
+    // The mobile phone number of the message sender.
+    // 
+    // >  You can specify a mobile phone number that is registered for a WhatsApp account and is approved in the Chat App Message Service console.
+    // 
     // This parameter is required.
     shared_ptr<string> from_ {};
+    // The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
     shared_ptr<string> isvCode_ {};
+    // The type of the Viber message. This parameter is required if ChannelType is set to viber. Valid values:
+    // 
+    // *   **promotion**
+    // *   **transaction**
     shared_ptr<string> label_ {};
+    // The language that is used in the message template. This parameter is required only if you set the Type parameter to **template**. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
     shared_ptr<string> language_ {};
     shared_ptr<string> messageCampaignId_ {};
+    // The specific type of the message. This parameter is required only if you set the Type parameter to **message**.
+    // 
+    // **Valid values of MessageType when you set the ChannelType parameter to whatsapp:**
+    // 
+    // *   **text**: a text message.
+    // *   **image**: an image message.
+    // *   **video**: a video message.
+    // *   **audio**: an audio message.
+    // *   **document**: a document message.
+    // *   **interactive**: an interactive message.
+    // *   **contacts**: a contact message.
+    // *   **location**: a location message.
+    // *   **sticker**: a sticker message.
+    // *   **reaction**: a reaction message.
+    // 
+    // **Valid values of MessageType when you set the ChannelType parameter to viber:**
+    // 
+    // *   **text**: a text message.
+    // *   **image**: an image message.
+    // *   **video**: a video message.
+    // *   **document**: a document message.
+    // *   **text_button**: a message that contains the text and button media objects.
+    // *   **text_image_button**: a message that contains multiple media objects, including the text, image, and button.
+    // *   **text_video**: a message that contains the text and video media objects.
+    // *   **text_video_button**: a message that contains multiple media objects, including text, video, and button.
+    // *   **text_image**: a message that contains the text and image media objects.
+    // 
+    // > For more information, see [Parameters of a message template](https://help.aliyun.com/document_detail/454530.html).
     shared_ptr<string> messageType_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The payload of the button.
     shared_ptr<vector<string>> payload_ {};
+    // The information about the products included in the WhatsApp catalog message or multi-product message (MPM).
     shared_ptr<SendChatappMessageRequest::ProductAction> productAction_ {};
     shared_ptr<string> recipientType_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The tag information of the Viber message.
     shared_ptr<string> tag_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // The code of the message template. This parameter is required only if you set the Type parameter to **template**.
     shared_ptr<string> templateCode_ {};
+    // The name of the message template.
     shared_ptr<string> templateName_ {};
+    // The variables of the message template.
     shared_ptr<map<string, string>> templateParams_ {};
+    // The mobile phone number of the message receiver.
+    // 
     // This parameter is required.
     shared_ptr<string> to_ {};
     shared_ptr<string> tokenType_ {};
+    // The tracking data of the Viber message.
     shared_ptr<string> trackingData_ {};
+    // The timeout period for sending the Viber message. Valid values: 30 to 1209600. Unit: seconds.
     shared_ptr<int32_t> ttl_ {};
+    // The message type. Valid values:
+    // 
+    // *   **template**: the template message. A template message is sent based on a template that is created and approved in the Chat App Message Service console. You can send template messages based on your business requirements.
+    // *   **message**: the custom message. You can send a custom WhatsApp message to a user only within 24 hours after you receive the last message from the user. This limit does not apply to custom Viber messages.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

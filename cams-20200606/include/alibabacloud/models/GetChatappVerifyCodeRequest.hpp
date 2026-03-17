@@ -94,13 +94,26 @@ namespace Models
 
 
   protected:
+    // The space ID of the RAM user within the ISV account.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
+    // The language. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+    // 
     // This parameter is required.
     shared_ptr<string> locale_ {};
+    // The verification method.
+    // 
+    // Valid values:
+    // 
+    // *   Voice: sends the verification code via phone call.
+    // *   sms: sends the verification code via SMS.
+    // 
     // This parameter is required.
     shared_ptr<string> method_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

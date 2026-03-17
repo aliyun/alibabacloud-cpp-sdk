@@ -7108,7 +7108,7 @@ ListFlowResponse Client::listFlow(const ListFlowRequest &request) {
 }
 
 /**
- * @summary ListFlowNodeGroup
+ * @summary 列举流程组件分组
  *
  * @param request ListFlowNodeGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7155,7 +7155,7 @@ ListFlowNodeGroupResponse Client::listFlowNodeGroupWithOptions(const ListFlowNod
 }
 
 /**
- * @summary ListFlowNodeGroup
+ * @summary 列举流程组件分组
  *
  * @param request ListFlowNodeGroupRequest
  * @return ListFlowNodeGroupResponse
@@ -9679,6 +9679,10 @@ SendChatappMessageResponse Client::sendChatappMessageWithOptions(const SendChata
   json query = {};
   if (!!request.hasAdAccountId()) {
     query["AdAccountId"] = request.getAdAccountId();
+  }
+
+  if (!!request.hasCategory()) {
+    query["Category"] = request.getCategory();
   }
 
   if (!!request.hasChannelType()) {

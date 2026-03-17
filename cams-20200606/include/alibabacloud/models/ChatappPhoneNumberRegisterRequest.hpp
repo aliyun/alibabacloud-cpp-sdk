@@ -75,9 +75,13 @@ namespace Models
 
 
   protected:
+    // The space ID of the user under the independent software vendor (ISV) account.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

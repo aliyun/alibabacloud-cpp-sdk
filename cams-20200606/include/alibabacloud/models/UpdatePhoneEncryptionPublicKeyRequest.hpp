@@ -84,10 +84,15 @@ namespace Models
 
 
   protected:
+    // SpaceId/instanceId of ISV sub clients.
     shared_ptr<string> custSpaceId_ {};
+    // Encrypt the public key.
+    // 
     // This parameter is required.
     shared_ptr<string> encryptionPublicKey_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

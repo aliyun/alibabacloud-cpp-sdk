@@ -103,11 +103,17 @@ namespace Models
 
 
   protected:
+    // The information about the categories of the Flow.
+    // 
     // This parameter is required.
     shared_ptr<string> categoriesShrink_ {};
+    // The space ID of the user within the independent software vendor (ISV) account.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<string> endpointUri_ {};
+    // The Flow ID.
     shared_ptr<string> flowId_ {};
+    // The name of the Flow.
+    // 
     // This parameter is required.
     shared_ptr<string> flowName_ {};
     shared_ptr<int64_t> ownerId_ {};

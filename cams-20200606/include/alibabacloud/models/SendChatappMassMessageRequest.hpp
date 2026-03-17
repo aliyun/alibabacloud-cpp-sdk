@@ -166,6 +166,7 @@ namespace Models
 
 
           protected:
+            // The retailer ID of the product.
             shared_ptr<string> productRetailerId_ {};
           };
 
@@ -188,7 +189,9 @@ namespace Models
 
 
         protected:
+          // The products.
           shared_ptr<vector<Sections::ProductItems>> productItems_ {};
+          // The name of the category.
           shared_ptr<string> title_ {};
         };
 
@@ -211,7 +214,9 @@ namespace Models
 
 
       protected:
+        // The products. Up to 30 products and 10 categories can be added.
         shared_ptr<vector<ProductAction::Sections>> sections_ {};
+        // The retailer ID of the product.
         shared_ptr<string> thumbnailProductRetailerId_ {};
       };
 
@@ -255,7 +260,9 @@ namespace Models
 
 
       protected:
+        // The default parameter of the Flow.
         Darabonba::Json flowActionData_ {};
+        // The information about the Flow token.
         shared_ptr<string> flowToken_ {};
       };
 
@@ -305,10 +312,15 @@ namespace Models
 
 
     protected:
+      // The Flow action.
       shared_ptr<SenderList::FlowAction> flowAction_ {};
+      // The payload of the button.
       shared_ptr<vector<string>> payload_ {};
+      // The information about the product.
       shared_ptr<SenderList::ProductAction> productAction_ {};
+      // The parameters of the template.
       shared_ptr<map<string, string>> templateParams_ {};
+      // The mobile phone number of the message receiver.
       shared_ptr<string> to_ {};
     };
 
@@ -460,28 +472,60 @@ namespace Models
 
 
   protected:
+    // The type of the channel. Valid values:
+    // 
+    // *   **whatsapp**
+    // *   **viber**
+    // *   **line** (under development)
+    // 
     // This parameter is required.
     shared_ptr<string> channelType_ {};
+    // The space ID of the user.
     shared_ptr<string> custSpaceId_ {};
+    // The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
+    // 
+    // >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
     shared_ptr<string> custWabaId_ {};
+    // The content of the fallback message.
     shared_ptr<string> fallBackContent_ {};
+    // Specifies the period of time after which the fallback message is sent if the message receipt that indicates the message is delivered to clients is not received. If this parameter is left empty, the fallback message is sent only when the message fails to be sent or the message receipt that indicates the message is not delivered to clients is received. Unit: seconds. Valid values: 60 to 43200.
     shared_ptr<int32_t> fallBackDuration_ {};
+    // The ID of the fallback policy.
     shared_ptr<string> fallBackId_ {};
+    // The fallback rule. Valid values:
+    // 
+    // *   **undelivered**: A fallback is triggered if the message is not delivered to clients. When the message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
+    // *   **sentFailed**: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
     shared_ptr<string> fallBackRule_ {};
+    // The mobile phone number of the message sender.
+    // 
     // This parameter is required.
     shared_ptr<string> from_ {};
+    // The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
     shared_ptr<string> isvCode_ {};
+    // The type of the Viber message. Valid values:
+    // 
+    // *   **promotion**
+    // *   **transaction**
     shared_ptr<string> label_ {};
+    // The language. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+    // 
     // This parameter is required.
     shared_ptr<string> language_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The mobile phone numbers of the message receivers.
     shared_ptr<vector<SendChatappMassMessageRequest::SenderList>> senderList_ {};
+    // The tag information when the ChannelType parameter is set to viber.
     shared_ptr<string> tag_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // The template code.
     shared_ptr<string> templateCode_ {};
+    // The name of the message template.
     shared_ptr<string> templateName_ {};
+    // The timeout period for sending messages when the ChannelType parameter is set to viber. Valid values: 30 to 1209600. Unit: seconds.
     shared_ptr<int64_t> ttl_ {};
   };
 

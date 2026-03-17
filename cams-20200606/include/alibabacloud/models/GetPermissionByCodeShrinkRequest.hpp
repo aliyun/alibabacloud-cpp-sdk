@@ -84,10 +84,14 @@ namespace Models
 
 
   protected:
+    // Authorize code information.
+    // 
     // This parameter is required.
     shared_ptr<string> code_ {};
+    // The space ID of the RAM user within the independent software vendor (ISV) account.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The permissions.
     shared_ptr<string> permissionsShrink_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

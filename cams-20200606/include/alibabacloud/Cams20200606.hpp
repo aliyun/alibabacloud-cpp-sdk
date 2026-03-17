@@ -1920,7 +1920,7 @@ namespace Cams20200606
       Models::ListFlowResponse listFlow(const Models::ListFlowRequest &request);
 
       /**
-       * @summary ListFlowNodeGroup
+       * @summary 列举流程组件分组
        *
        * @param request ListFlowNodeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1929,7 +1929,7 @@ namespace Cams20200606
       Models::ListFlowNodeGroupResponse listFlowNodeGroupWithOptions(const Models::ListFlowNodeGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListFlowNodeGroup
+       * @summary 列举流程组件分组
        *
        * @param request ListFlowNodeGroupRequest
        * @return ListFlowNodeGroupResponse

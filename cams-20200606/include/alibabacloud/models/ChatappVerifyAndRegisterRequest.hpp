@@ -84,13 +84,19 @@ namespace Models
 
 
   protected:
+    // The space ID of the RAM user within the ISV account.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The verification code.
+    // 
     // This parameter is required.
     shared_ptr<string> verifyCode_ {};
   };
