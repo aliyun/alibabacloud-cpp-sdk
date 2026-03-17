@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(filterTags, filterTagsShrink_);
       DARABONBA_PTR_TO_JSON(modelId, modelId_);
       DARABONBA_PTR_TO_JSON(outputFormat, outputFormat_);
+      DARABONBA_PTR_TO_JSON(positiveFilter, positiveFilter_);
       DARABONBA_PTR_TO_JSON(sourceTrace, sourceTrace_);
       DARABONBA_PTR_TO_JSON(tags, tagsShrink_);
       DARABONBA_PTR_TO_JSON(taskDescription, taskDescription_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(filterTags, filterTagsShrink_);
       DARABONBA_PTR_FROM_JSON(modelId, modelId_);
       DARABONBA_PTR_FROM_JSON(outputFormat, outputFormat_);
+      DARABONBA_PTR_FROM_JSON(positiveFilter, positiveFilter_);
       DARABONBA_PTR_FROM_JSON(sourceTrace, sourceTrace_);
       DARABONBA_PTR_FROM_JSON(tags, tagsShrink_);
       DARABONBA_PTR_FROM_JSON(taskDescription, taskDescription_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->akProxy_ == nullptr
         && this->apiKey_ == nullptr && this->content_ == nullptr && this->extraInfo_ == nullptr && this->filterTagsShrink_ == nullptr && this->modelId_ == nullptr
-        && this->outputFormat_ == nullptr && this->sourceTrace_ == nullptr && this->tagsShrink_ == nullptr && this->taskDescription_ == nullptr; };
+        && this->outputFormat_ == nullptr && this->positiveFilter_ == nullptr && this->sourceTrace_ == nullptr && this->tagsShrink_ == nullptr && this->taskDescription_ == nullptr; };
     // akProxy Field Functions 
     bool hasAkProxy() const { return this->akProxy_ != nullptr;};
     void deleteAkProxy() { this->akProxy_ = nullptr;};
@@ -99,6 +101,13 @@ namespace Models
     inline RunEnterpriseVocAnalysisShrinkRequest& setOutputFormat(string outputFormat) { DARABONBA_PTR_SET_VALUE(outputFormat_, outputFormat) };
 
 
+    // positiveFilter Field Functions 
+    bool hasPositiveFilter() const { return this->positiveFilter_ != nullptr;};
+    void deletePositiveFilter() { this->positiveFilter_ = nullptr;};
+    inline bool getPositiveFilter() const { DARABONBA_PTR_GET_DEFAULT(positiveFilter_, false) };
+    inline RunEnterpriseVocAnalysisShrinkRequest& setPositiveFilter(bool positiveFilter) { DARABONBA_PTR_SET_VALUE(positiveFilter_, positiveFilter) };
+
+
     // sourceTrace Field Functions 
     bool hasSourceTrace() const { return this->sourceTrace_ != nullptr;};
     void deleteSourceTrace() { this->sourceTrace_ = nullptr;};
@@ -131,6 +140,7 @@ namespace Models
     shared_ptr<string> modelId_ {};
     // 指定返回结果的格式，支持json或text
     shared_ptr<string> outputFormat_ {};
+    shared_ptr<bool> positiveFilter_ {};
     shared_ptr<bool> sourceTrace_ {};
     // 业务标签体系，用于对文本内容进行分类和分析。
     shared_ptr<string> tagsShrink_ {};

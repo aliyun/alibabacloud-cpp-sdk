@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SubmitEnterpriseVocAnalysisTaskShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(apiKey, apiKey_);
+      DARABONBA_PTR_TO_JSON(batchTask, batchTask_);
       DARABONBA_PTR_TO_JSON(contents, contentsShrink_);
       DARABONBA_PTR_TO_JSON(extraInfo, extraInfo_);
       DARABONBA_PTR_TO_JSON(fileKey, fileKey_);
       DARABONBA_PTR_TO_JSON(filterTags, filterTagsShrink_);
       DARABONBA_PTR_TO_JSON(modelId, modelId_);
       DARABONBA_PTR_TO_JSON(outputFormat, outputFormat_);
+      DARABONBA_PTR_TO_JSON(positiveFilter, positiveFilter_);
       DARABONBA_PTR_TO_JSON(sourceTrace, sourceTrace_);
       DARABONBA_PTR_TO_JSON(tags, tagsShrink_);
       DARABONBA_PTR_TO_JSON(taskDescription, taskDescription_);
@@ -27,12 +29,14 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, SubmitEnterpriseVocAnalysisTaskShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(apiKey, apiKey_);
+      DARABONBA_PTR_FROM_JSON(batchTask, batchTask_);
       DARABONBA_PTR_FROM_JSON(contents, contentsShrink_);
       DARABONBA_PTR_FROM_JSON(extraInfo, extraInfo_);
       DARABONBA_PTR_FROM_JSON(fileKey, fileKey_);
       DARABONBA_PTR_FROM_JSON(filterTags, filterTagsShrink_);
       DARABONBA_PTR_FROM_JSON(modelId, modelId_);
       DARABONBA_PTR_FROM_JSON(outputFormat, outputFormat_);
+      DARABONBA_PTR_FROM_JSON(positiveFilter, positiveFilter_);
       DARABONBA_PTR_FROM_JSON(sourceTrace, sourceTrace_);
       DARABONBA_PTR_FROM_JSON(tags, tagsShrink_);
       DARABONBA_PTR_FROM_JSON(taskDescription, taskDescription_);
@@ -50,13 +54,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->contentsShrink_ == nullptr && this->extraInfo_ == nullptr && this->fileKey_ == nullptr && this->filterTagsShrink_ == nullptr && this->modelId_ == nullptr
-        && this->outputFormat_ == nullptr && this->sourceTrace_ == nullptr && this->tagsShrink_ == nullptr && this->taskDescription_ == nullptr && this->url_ == nullptr; };
+        && this->batchTask_ == nullptr && this->contentsShrink_ == nullptr && this->extraInfo_ == nullptr && this->fileKey_ == nullptr && this->filterTagsShrink_ == nullptr
+        && this->modelId_ == nullptr && this->outputFormat_ == nullptr && this->positiveFilter_ == nullptr && this->sourceTrace_ == nullptr && this->tagsShrink_ == nullptr
+        && this->taskDescription_ == nullptr && this->url_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
     inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
     inline SubmitEnterpriseVocAnalysisTaskShrinkRequest& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
+
+
+    // batchTask Field Functions 
+    bool hasBatchTask() const { return this->batchTask_ != nullptr;};
+    void deleteBatchTask() { this->batchTask_ = nullptr;};
+    inline bool getBatchTask() const { DARABONBA_PTR_GET_DEFAULT(batchTask_, false) };
+    inline SubmitEnterpriseVocAnalysisTaskShrinkRequest& setBatchTask(bool batchTask) { DARABONBA_PTR_SET_VALUE(batchTask_, batchTask) };
 
 
     // contentsShrink Field Functions 
@@ -101,6 +113,13 @@ namespace Models
     inline SubmitEnterpriseVocAnalysisTaskShrinkRequest& setOutputFormat(string outputFormat) { DARABONBA_PTR_SET_VALUE(outputFormat_, outputFormat) };
 
 
+    // positiveFilter Field Functions 
+    bool hasPositiveFilter() const { return this->positiveFilter_ != nullptr;};
+    void deletePositiveFilter() { this->positiveFilter_ = nullptr;};
+    inline bool getPositiveFilter() const { DARABONBA_PTR_GET_DEFAULT(positiveFilter_, false) };
+    inline SubmitEnterpriseVocAnalysisTaskShrinkRequest& setPositiveFilter(bool positiveFilter) { DARABONBA_PTR_SET_VALUE(positiveFilter_, positiveFilter) };
+
+
     // sourceTrace Field Functions 
     bool hasSourceTrace() const { return this->sourceTrace_ != nullptr;};
     void deleteSourceTrace() { this->sourceTrace_ = nullptr;};
@@ -131,12 +150,14 @@ namespace Models
 
   protected:
     shared_ptr<string> apiKey_ {};
+    shared_ptr<bool> batchTask_ {};
     shared_ptr<string> contentsShrink_ {};
     shared_ptr<string> extraInfo_ {};
     shared_ptr<string> fileKey_ {};
     shared_ptr<string> filterTagsShrink_ {};
     shared_ptr<string> modelId_ {};
     shared_ptr<string> outputFormat_ {};
+    shared_ptr<bool> positiveFilter_ {};
     shared_ptr<bool> sourceTrace_ {};
     shared_ptr<string> tagsShrink_ {};
     shared_ptr<string> taskDescription_ {};

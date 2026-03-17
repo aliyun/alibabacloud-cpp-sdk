@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SubmitTagMiningAnalysisTaskShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(apiKey, apiKey_);
+      DARABONBA_PTR_TO_JSON(batchTask, batchTask_);
       DARABONBA_PTR_TO_JSON(businessType, businessType_);
       DARABONBA_PTR_TO_JSON(contents, contentsShrink_);
       DARABONBA_PTR_TO_JSON(extraInfo, extraInfo_);
@@ -25,6 +26,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, SubmitTagMiningAnalysisTaskShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(apiKey, apiKey_);
+      DARABONBA_PTR_FROM_JSON(batchTask, batchTask_);
       DARABONBA_PTR_FROM_JSON(businessType, businessType_);
       DARABONBA_PTR_FROM_JSON(contents, contentsShrink_);
       DARABONBA_PTR_FROM_JSON(extraInfo, extraInfo_);
@@ -46,13 +48,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->businessType_ == nullptr && this->contentsShrink_ == nullptr && this->extraInfo_ == nullptr && this->modelId_ == nullptr && this->outputFormat_ == nullptr
-        && this->tagsShrink_ == nullptr && this->taskDescription_ == nullptr && this->url_ == nullptr; };
+        && this->batchTask_ == nullptr && this->businessType_ == nullptr && this->contentsShrink_ == nullptr && this->extraInfo_ == nullptr && this->modelId_ == nullptr
+        && this->outputFormat_ == nullptr && this->tagsShrink_ == nullptr && this->taskDescription_ == nullptr && this->url_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
     inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
     inline SubmitTagMiningAnalysisTaskShrinkRequest& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
+
+
+    // batchTask Field Functions 
+    bool hasBatchTask() const { return this->batchTask_ != nullptr;};
+    void deleteBatchTask() { this->batchTask_ = nullptr;};
+    inline bool getBatchTask() const { DARABONBA_PTR_GET_DEFAULT(batchTask_, false) };
+    inline SubmitTagMiningAnalysisTaskShrinkRequest& setBatchTask(bool batchTask) { DARABONBA_PTR_SET_VALUE(batchTask_, batchTask) };
 
 
     // businessType Field Functions 
@@ -113,6 +122,7 @@ namespace Models
 
   protected:
     shared_ptr<string> apiKey_ {};
+    shared_ptr<bool> batchTask_ {};
     shared_ptr<string> businessType_ {};
     shared_ptr<string> contentsShrink_ {};
     shared_ptr<string> extraInfo_ {};
