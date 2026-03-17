@@ -414,7 +414,7 @@ namespace Models
 
 
     protected:
-      // 云产品资产的类型。
+      // Type of cloud product assets
       shared_ptr<string> assetType_ {};
       // The edition of Security Center that is authorized to protect the asset. Valid values:
       // 

@@ -57,10 +57,12 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const SupportedModules& obj) { 
           DARABONBA_PTR_TO_JSON(Module, module_);
+          DARABONBA_PTR_TO_JSON(ModuleAuth, moduleAuth_);
           DARABONBA_PTR_TO_JSON(ModuleDisp, moduleDisp_);
         };
         friend void from_json(const Darabonba::Json& j, SupportedModules& obj) { 
           DARABONBA_PTR_FROM_JSON(Module, module_);
+          DARABONBA_PTR_FROM_JSON(ModuleAuth, moduleAuth_);
           DARABONBA_PTR_FROM_JSON(ModuleDisp, moduleDisp_);
         };
         SupportedModules() = default ;
@@ -75,12 +77,19 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->module_ == nullptr
-        && this->moduleDisp_ == nullptr; };
+        && this->moduleAuth_ == nullptr && this->moduleDisp_ == nullptr; };
         // module Field Functions 
         bool hasModule() const { return this->module_ != nullptr;};
         void deleteModule() { this->module_ = nullptr;};
         inline string getModule() const { DARABONBA_PTR_GET_DEFAULT(module_, "") };
         inline SupportedModules& setModule(string module) { DARABONBA_PTR_SET_VALUE(module_, module) };
+
+
+        // moduleAuth Field Functions 
+        bool hasModuleAuth() const { return this->moduleAuth_ != nullptr;};
+        void deleteModuleAuth() { this->moduleAuth_ = nullptr;};
+        inline bool getModuleAuth() const { DARABONBA_PTR_GET_DEFAULT(moduleAuth_, false) };
+        inline SupportedModules& setModuleAuth(bool moduleAuth) { DARABONBA_PTR_SET_VALUE(moduleAuth_, moduleAuth) };
 
 
         // moduleDisp Field Functions 
@@ -98,6 +107,7 @@ namespace Models
         // *   **SIEM**: CloudSiem
         // *   **TRIAL**: log audit
         shared_ptr<string> module_ {};
+        shared_ptr<bool> moduleAuth_ {};
         // The display name of the module.
         shared_ptr<string> moduleDisp_ {};
       };

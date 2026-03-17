@@ -519,7 +519,7 @@ namespace Models
     // *   N: no
     // *   Y: Yes
     shared_ptr<string> strictMode_ {};
-    // 告警支持的操作类型列表。
+    // List of supported alarm operation types
     shared_ptr<vector<string>> supportOperateCodeList_ {};
     // The tactic ID of ATT\\&CK.
     shared_ptr<string> tacticId_ {};

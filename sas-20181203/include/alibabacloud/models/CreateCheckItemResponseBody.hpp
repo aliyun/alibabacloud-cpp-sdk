@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // 创建成功返回的检查项ID。
+      // The ID of the inspection item returned upon successful creation.
       shared_ptr<int64_t> checkId_ {};
     };
 

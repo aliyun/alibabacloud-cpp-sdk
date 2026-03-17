@@ -2867,7 +2867,7 @@ namespace Sas20181203
       Models::DescribeAllRegionsStatisticsResponse describeAllRegionsStatistics(const Models::DescribeAllRegionsStatisticsRequest &request);
 
       /**
-       * @summary Queries created defense rules against brute-force attacks.
+       * @summary Query the list of anti-brute force rules
        *
        * @param request DescribeAntiBruteForceRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2876,7 +2876,7 @@ namespace Sas20181203
       Models::DescribeAntiBruteForceRulesResponse describeAntiBruteForceRulesWithOptions(const Models::DescribeAntiBruteForceRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries created defense rules against brute-force attacks.
+       * @summary Query the list of anti-brute force rules
        *
        * @param request DescribeAntiBruteForceRulesRequest
        * @return DescribeAntiBruteForceRulesResponse
@@ -6293,7 +6293,7 @@ namespace Sas20181203
        *
        * @summary Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
        *
-       * @description 该接口已下线，使用升级接口ListCheckInstanceResult替换。
+       * @description This interface has been deprecated. Use the upgraded interface ListCheckInstanceResult instead.
        *
        * @param request DescribeRiskCheckItemResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6306,7 +6306,7 @@ namespace Sas20181203
        *
        * @summary Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
        *
-       * @description 该接口已下线，使用升级接口ListCheckInstanceResult替换。
+       * @description This interface has been deprecated. Use the upgraded interface ListCheckInstanceResult instead.
        *
        * @param request DescribeRiskCheckItemResultRequest
        * @return DescribeRiskCheckItemResultResponse
@@ -9091,7 +9091,7 @@ namespace Sas20181203
       Models::GetCloudAssetDetailResponse getCloudAssetDetail(const Models::GetCloudAssetDetailRequest &request);
 
       /**
-       * @summary 获取云资产概要
+       * @summary Get Cloud Asset Summary
        *
        * @param request GetCloudAssetSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9100,7 +9100,7 @@ namespace Sas20181203
       Models::GetCloudAssetSummaryResponse getCloudAssetSummaryWithOptions(const Models::GetCloudAssetSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取云资产概要
+       * @summary Get Cloud Asset Summary
        *
        * @param request GetCloudAssetSummaryRequest
        * @return GetCloudAssetSummaryResponse
@@ -9497,7 +9497,7 @@ namespace Sas20181203
       Models::GetHoneyPotUploadPolicyInfoResponse getHoneyPotUploadPolicyInfo(const Models::GetHoneyPotUploadPolicyInfoRequest &request);
 
       /**
-       * @summary 获取蜜罐攻击事件的统计数据。
+       * @summary Get honeypot attack statistics
        *
        * @param request GetHoneypotAttackStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9506,7 +9506,7 @@ namespace Sas20181203
       Models::GetHoneypotAttackStatisticsResponse getHoneypotAttackStatisticsWithOptions(const Models::GetHoneypotAttackStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取蜜罐攻击事件的统计数据。
+       * @summary Get honeypot attack statistics
        *
        * @param request GetHoneypotAttackStatisticsRequest
        * @return GetHoneypotAttackStatisticsResponse
@@ -11343,7 +11343,7 @@ namespace Sas20181203
       Models::ListCloudAssetMatchOperatorsResponse listCloudAssetMatchOperators(const Models::ListCloudAssetMatchOperatorsRequest &request);
 
       /**
-       * @summary 获取云产品资产结构列表
+       * @summary Get the list of cloud product asset structure
        *
        * @param request ListCloudAssetSchemasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11352,7 +11352,7 @@ namespace Sas20181203
       Models::ListCloudAssetSchemasResponse listCloudAssetSchemasWithOptions(const Models::ListCloudAssetSchemasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取云产品资产结构列表
+       * @summary Get the list of cloud product asset structure
        *
        * @param request ListCloudAssetSchemasRequest
        * @return ListCloudAssetSchemasResponse

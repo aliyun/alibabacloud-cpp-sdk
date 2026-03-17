@@ -9010,7 +9010,7 @@ DescribeAllRegionsStatisticsResponse Client::describeAllRegionsStatistics(const 
 }
 
 /**
- * @summary Queries created defense rules against brute-force attacks.
+ * @summary Query the list of anti-brute force rules
  *
  * @param request DescribeAntiBruteForceRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9061,7 +9061,7 @@ DescribeAntiBruteForceRulesResponse Client::describeAntiBruteForceRulesWithOptio
 }
 
 /**
- * @summary Queries created defense rules against brute-force attacks.
+ * @summary Query the list of anti-brute force rules
  *
  * @param request DescribeAntiBruteForceRulesRequest
  * @return DescribeAntiBruteForceRulesResponse
@@ -20005,7 +20005,7 @@ DescribeRestorePlansResponse Client::describeRestorePlans(const DescribeRestoreP
  *
  * @summary Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
  *
- * @description 该接口已下线，使用升级接口ListCheckInstanceResult替换。
+ * @description This interface has been deprecated. Use the upgraded interface ListCheckInstanceResult instead.
  *
  * @param request DescribeRiskCheckItemResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20060,7 +20060,7 @@ DescribeRiskCheckItemResultResponse Client::describeRiskCheckItemResultWithOptio
  *
  * @summary Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
  *
- * @description 该接口已下线，使用升级接口ListCheckInstanceResult替换。
+ * @description This interface has been deprecated. Use the upgraded interface ListCheckInstanceResult instead.
  *
  * @param request DescribeRiskCheckItemResultRequest
  * @return DescribeRiskCheckItemResultResponse
@@ -28386,7 +28386,7 @@ GetCloudAssetDetailResponse Client::getCloudAssetDetail(const GetCloudAssetDetai
 }
 
 /**
- * @summary 获取云资产概要
+ * @summary Get Cloud Asset Summary
  *
  * @param request GetCloudAssetSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28421,7 +28421,7 @@ GetCloudAssetSummaryResponse Client::getCloudAssetSummaryWithOptions(const GetCl
 }
 
 /**
- * @summary 获取云资产概要
+ * @summary Get Cloud Asset Summary
  *
  * @param request GetCloudAssetSummaryRequest
  * @return GetCloudAssetSummaryResponse
@@ -29400,7 +29400,7 @@ GetHoneyPotUploadPolicyInfoResponse Client::getHoneyPotUploadPolicyInfo(const Ge
 }
 
 /**
- * @summary 获取蜜罐攻击事件的统计数据。
+ * @summary Get honeypot attack statistics
  *
  * @param request GetHoneypotAttackStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29459,7 +29459,7 @@ GetHoneypotAttackStatisticsResponse Client::getHoneypotAttackStatisticsWithOptio
 }
 
 /**
- * @summary 获取蜜罐攻击事件的统计数据。
+ * @summary Get honeypot attack statistics
  *
  * @param request GetHoneypotAttackStatisticsRequest
  * @return GetHoneypotAttackStatisticsResponse
@@ -34894,7 +34894,7 @@ ListCloudAssetMatchOperatorsResponse Client::listCloudAssetMatchOperators(const 
 }
 
 /**
- * @summary 获取云产品资产结构列表
+ * @summary Get the list of cloud product asset structure
  *
  * @param request ListCloudAssetSchemasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34945,7 +34945,7 @@ ListCloudAssetSchemasResponse Client::listCloudAssetSchemasWithOptions(const Lis
 }
 
 /**
- * @summary 获取云产品资产结构列表
+ * @summary Get the list of cloud product asset structure
  *
  * @param request ListCloudAssetSchemasRequest
  * @return ListCloudAssetSchemasResponse

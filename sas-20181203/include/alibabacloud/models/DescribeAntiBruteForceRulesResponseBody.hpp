@@ -120,17 +120,17 @@ namespace Models
 
 
       protected:
-        // RDP interception method, values: 
-        // - **on**: enable 
-        // - **off**: disable
+        // RDP interception method, with values:
+        //   - **on**: Enabled
+        //   - **off**: Disabled
         shared_ptr<string> rdp_ {};
-        // SqlServer interception mode, with values: 
-        // - **on**: enable 
-        // - **off**: disable
+        // SQL Server interception method, with values:
+        //   - **on**: Enabled
+        //   - **off**: Disabled
         shared_ptr<string> sqlServer_ {};
-        // SSH interception method, with values: 
-        // - **on**: enabled 
-        // - **off**: disabled
+        // SSH interception method, with values:
+        //   - **on**: Enabled
+        //   - **off**: Disabled
         shared_ptr<string> ssh_ {};
       };
 
@@ -219,32 +219,31 @@ namespace Models
 
 
     protected:
-      // 防暴力破解规则创建时间戳。单位：毫秒。
+      // The timestamp when the anti-brute force rule was created. Unit: milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
-      // Indicates whether the defense rule is the default rule. Valid values:
+      // Whether the current rule is the default rule. Values:
+      // - **true**: It is the default rule.
+      // - **false**: It is not the default rule.
       // 
-      // *   **true**: yes
-      // *   **false**: no
-      // 
-      // >  The default rule takes effect on all servers that are not protected by defense rules against brute-force attacks.
+      // > A default anti-brute force rule will apply to all servers that do not have a defense rule added.
       shared_ptr<bool> defaultRule_ {};
-      // This parameter is deprecated.
+      // This parameter is deprecated and does not need to be considered.
       shared_ptr<bool> enableSmartRule_ {};
-      // The threshold of logon failures that you specify.
+      // The threshold for the number of failed login attempts before the brute force defense rule takes effect.
       shared_ptr<int32_t> failCount_ {};
-      // The period of time during which logons from an account are not allowed. Unit: minutes.
+      // The duration (in minutes) for which the attacker\\"s IP is disabled after the brute force defense rule takes effect.
       shared_ptr<int32_t> forbiddenTime_ {};
-      // The ID of the defense rule.
+      // The ID of the anti-brute force rule.
       shared_ptr<int64_t> id_ {};
-      // The number of servers to which the defense rule is applied.
+      // The number of servers configured with this brute force defense rule.
       shared_ptr<int32_t> machineCount_ {};
-      // The name of the defense rule.
+      // Name of the brute force attack defense rule.
       shared_ptr<string> name_ {};
-      // The types of protocols that the brute force cracking rule supports to intercept.
+      // The types of protocols supported by the anti-brute force rule for interception.
       shared_ptr<Rules::ProtocolType> protocolType_ {};
-      // The period of time during which logon failures from an account are measured. Unit: minutes. If **Span** is set to 10, the defense rule takes effect when the logon failures measured within 10 minutes reaches the specified threshold. The IP address of attackers cannot be used to log on to the server in the specified period of time.
+      // The time threshold (in minutes) for the brute force defense rule to take effect. For example, if **span** is 10, it means that if the number of failed login attempts exceeds the set threshold within 10 minutes, the anti-brute force rule will take effect and block logins for a specified period.
       shared_ptr<int32_t> span_ {};
-      // An array consisting of the UUIDs of servers to which the defense rule is applied.
+      // A list of UUIDs for the servers that have this anti-brute force rule configured.
       shared_ptr<vector<string>> uuidList_ {};
     };
 
@@ -304,13 +303,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of data entries displayed on the current page during a paginated query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page during a paginated query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of data entries displayed per page during a paginated query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of created anti-brute force rules.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -342,11 +341,11 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // Pagination information of the query result.
     shared_ptr<DescribeAntiBruteForceRulesResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of this call request, which is a unique identifier generated by Alibaba Cloud for this request and can be used for troubleshooting and problem localization.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the defense rules returned.
+    // List of details of the anti-brute force rules.
     shared_ptr<vector<DescribeAntiBruteForceRulesResponseBody::Rules>> rules_ {};
   };
 

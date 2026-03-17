@@ -106,31 +106,29 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // Set the page number from which to start displaying the query results. The starting value is **1**. The default value is **1**, indicating that the display starts from the **1st** page.
     shared_ptr<int32_t> currentPage_ {};
-    // The end time. The value is a UNIX timestamp.
+    // End time, in timestamp format.
     shared_ptr<int64_t> endTimeStamp_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // Sets the language type for requests and received messages, default is **zh**. Values:
+    // - **zh**: Chinese 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page. We recommend that you do not leave this parameter empty.
+    // Specifies the maximum number of data entries displayed per page for paginated queries. The default number of entries displayed per page is 20. If the pagesize parameter is empty, 20 entries will be returned by default. It is recommended that the pagesize value should not be empty.
     shared_ptr<int32_t> pageSize_ {};
-    // The risk levels.
+    // List of risk levels
     shared_ptr<vector<string>> riskLevelList_ {};
-    // The source IP address of the attack.
+    // Attacker\\"s IP
     // 
     // This parameter is required.
     shared_ptr<string> srcIp_ {};
-    // The start time. The value is a UNIX timestamp.
+    // Start time, in timestamp format.
     shared_ptr<int64_t> startTimeStamp_ {};
-    // The type of the attack source statistics. Valid values:
-    // 
-    // *   **TOP_ATTACKED_AGENT**: the top 5 probes that are attacked the most frequently
-    // *   **TOP_ATTACKED_IP**: the top 5 IP addresses that are attacked the most frequently
-    // *   **ATTACK_EVENT_TYPE**: the type of the intrusion event
-    // *   **ATTACK_HONEYPOT_TYPE**: the type of the attacked honeypot
+    // The type of attack source statistics. Values:
+    // - **TOP_ATTACKED_AGENT**: Top 5 most attacked probes. 
+    // - **TOP_ATTACKED_IP**: Top 5 most attacked IP addresses.
+    //  - **ATTACK_EVENT_TYPE**: Type of intrusion event. 
+    // - **ATTACK_HONEYPOT_TYPE**: Type of compromised honeypot.
     // 
     // This parameter is required.
     shared_ptr<string> statisticsType_ {};

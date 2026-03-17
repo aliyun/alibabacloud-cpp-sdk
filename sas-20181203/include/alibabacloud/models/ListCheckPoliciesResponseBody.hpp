@@ -125,12 +125,12 @@ namespace Models
       // - **REQUIREMENT**: Requirement policy type
       // - **SECTION**: Section policy type
       shared_ptr<string> policyType_ {};
-      // 关联的策略大类的名称（PolicyType取值为STANDARD时为必填）：
-      // - **AISPM**：AI配置管理（AI-SPM）
-      // - **KISPM**：Kubernetes配置管理(KSPM)
-      // - **IDENTITY_PERMISSION**：身份权限管理(CIEM)
-      // - **RISK**：安全风险
-      // - **COMPLIANCE**：合规风险
+      // Name of the associated major policy category (required when PolicyType is STANDARD): 
+      // - **AISPM**: AI Configuration Management (AI-SPM) 
+      // - **KISPM**: Kubernetes Configuration Management (KSPM) 
+      // - **IDENTITY_PERMISSION**: Identity and Permission Management (CIEM)
+      //  - **RISK**: Security Risk
+      //  - **COMPLIANCE**: Compliance Risk
       shared_ptr<string> type_ {};
     };
 
@@ -190,7 +190,7 @@ namespace Models
 
 
     protected:
-      // 分页查询时，当前页显示的数据条数。
+      // The number of data entries displayed on the current page when performing a paginated query.
       shared_ptr<string> count_ {};
       // The current page number displayed in the result.
       shared_ptr<int32_t> currentPage_ {};

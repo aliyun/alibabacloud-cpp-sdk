@@ -60,9 +60,9 @@ namespace Models
     // Event ID.
     // > You can call [ListAttackPathEvent](~~ListAttackPathEvent~~) to query the event ID.
     shared_ptr<int64_t> eventId_ {};
-    // 数据来源。默认值为**default**。取值：
-    // - **caasm**：攻击面
-    // - **default**：攻击路径
+    // Data source. The default value is **default**. Values:
+    //  - **caasm**: Attack surface
+    //  - **default**: Attack path
     shared_ptr<string> eventSource_ {};
     // The language type for request and response, default is **zh**. Values:
     // - **zh**: Chinese

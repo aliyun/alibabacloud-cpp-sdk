@@ -502,6 +502,7 @@ namespace Models
       // *   **CHECKING**: being checked
       // *   **NOT_CHECK**: not checked
       // *   **WHITELIST**: added to the whitelist
+      // *   **FAILED**: failed
       shared_ptr<string> status_ {};
       // The message returned if the status of the check item is abnormal.
       shared_ptr<string> statusMessage_ {};

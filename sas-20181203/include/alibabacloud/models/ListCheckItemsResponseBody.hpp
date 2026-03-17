@@ -329,7 +329,7 @@ namespace Models
         shared_ptr<int64_t> sectionId_ {};
         // The display name of the section for the check item.
         shared_ptr<string> sectionShowName_ {};
-        // 检查项的标准ID。
+        // Standard ID of the inspection item.
         shared_ptr<int64_t> standardId_ {};
         // The display name of the standard for the check item.
         shared_ptr<string> standardShowName_ {};
@@ -505,7 +505,7 @@ namespace Models
       shared_ptr<int64_t> checkId_ {};
       // A list of standard, regulation, and section information associated with the check result.
       shared_ptr<vector<CheckItems::CheckPolicies>> checkPolicies_ {};
-      // 自定义检查项定义规则。
+      // Define rules for custom inspection items.
       shared_ptr<string> checkRule_ {};
       // The name of the check item.
       shared_ptr<string> checkShowName_ {};

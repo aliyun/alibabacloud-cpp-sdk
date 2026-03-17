@@ -203,7 +203,7 @@ namespace Models
 
 
         protected:
-          // 已分配已购授权台数。
+          // Number of purchased licenses allocated.
           shared_ptr<int64_t> assigned_ {};
           // Number of ECS authorizations allocated.
           shared_ptr<int64_t> count_ {};

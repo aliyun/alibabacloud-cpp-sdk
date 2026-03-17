@@ -259,9 +259,9 @@ namespace Models
 
 
       protected:
-        // AI资产标识。取值：
-        // - **0**：非AI资产。
-        // - **1**：AI资产。
+        // AI asset identifier. Values: 
+        // - **0**: Not an AI asset. 
+        // - **1**: AI asset.
         shared_ptr<int32_t> aiAssetFlag_ {};
         // Node element type.
         shared_ptr<string> elementType_ {};
