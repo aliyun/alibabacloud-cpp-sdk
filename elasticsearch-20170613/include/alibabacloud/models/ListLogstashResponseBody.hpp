@@ -40,6 +40,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
         DARABONBA_PTR_TO_JSON(description, description_);
+        DARABONBA_PTR_TO_JSON(endTime, endTime_);
         DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(networkConfig, networkConfig_);
         DARABONBA_PTR_TO_JSON(nodeAmount, nodeAmount_);
@@ -54,6 +55,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(description, description_);
+        DARABONBA_PTR_FROM_JSON(endTime, endTime_);
         DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(networkConfig, networkConfig_);
         DARABONBA_PTR_FROM_JSON(nodeAmount, nodeAmount_);
@@ -249,9 +251,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->tags_ == nullptr
-        && this->createdAt_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr && this->networkConfig_ == nullptr && this->nodeAmount_ == nullptr
-        && this->nodeSpec_ == nullptr && this->paymentType_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr
-        && this->version_ == nullptr; };
+        && this->createdAt_ == nullptr && this->description_ == nullptr && this->endTime_ == nullptr && this->instanceId_ == nullptr && this->networkConfig_ == nullptr
+        && this->nodeAmount_ == nullptr && this->nodeSpec_ == nullptr && this->paymentType_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr
+        && this->updatedAt_ == nullptr && this->version_ == nullptr; };
       // tags Field Functions 
       bool hasTags() const { return this->tags_ != nullptr;};
       void deleteTags() { this->tags_ = nullptr;};
@@ -273,6 +275,13 @@ namespace Models
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline Result& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // endTime Field Functions 
+      bool hasEndTime() const { return this->endTime_ != nullptr;};
+      void deleteEndTime() { this->endTime_ = nullptr;};
+      inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+      inline Result& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
       // instanceId Field Functions 
@@ -349,6 +358,7 @@ namespace Models
       shared_ptr<string> createdAt_ {};
       // The time when the instance was last updated.
       shared_ptr<string> description_ {};
+      shared_ptr<int64_t> endTime_ {};
       // The tag value of the cloud disk.
       shared_ptr<string> instanceId_ {};
       // The network type. Currently, only Virtual Private Cloud (VPC) is supported.
