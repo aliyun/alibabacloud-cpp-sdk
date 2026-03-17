@@ -79,8 +79,11 @@ namespace Models
 
 
     protected:
+      // The main program of Spark.
       shared_ptr<string> entryPoint_ {};
+      // The parameters related to the main program of Spark.
       shared_ptr<vector<string>> entryPointArguments_ {};
+      // The command-line parameter of SparkSubmit.
       shared_ptr<string> sparkSubmitParameters_ {};
     };
 
@@ -95,6 +98,7 @@ namespace Models
 
 
   protected:
+    // The configurations of SparkSubmit.
     shared_ptr<JobDriver::SparkSubmit> sparkSubmit_ {};
   };
 

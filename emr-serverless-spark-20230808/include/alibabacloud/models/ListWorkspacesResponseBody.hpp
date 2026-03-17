@@ -56,6 +56,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(prePaidQuota, prePaidQuota_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(releaseType, releaseType_);
+        DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(resourceSpec, resourceSpec_);
         DARABONBA_PTR_TO_JSON(stateChangeReason, stateChangeReason_);
         DARABONBA_PTR_TO_JSON(storage, storage_);
@@ -80,6 +81,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(prePaidQuota, prePaidQuota_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(releaseType, releaseType_);
+        DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(resourceSpec, resourceSpec_);
         DARABONBA_PTR_FROM_JSON(stateChangeReason, stateChangeReason_);
         DARABONBA_PTR_FROM_JSON(storage, storage_);
@@ -316,9 +318,9 @@ namespace Models
       virtual bool empty() const override { return this->autoRenew_ == nullptr
         && this->autoRenewPeriod_ == nullptr && this->autoRenewPeriodUnit_ == nullptr && this->createTime_ == nullptr && this->dlfCatalogId_ == nullptr && this->dlfType_ == nullptr
         && this->duration_ == nullptr && this->endTime_ == nullptr && this->failReason_ == nullptr && this->paymentDurationUnit_ == nullptr && this->paymentStatus_ == nullptr
-        && this->paymentType_ == nullptr && this->prePaidQuota_ == nullptr && this->regionId_ == nullptr && this->releaseType_ == nullptr && this->resourceSpec_ == nullptr
-        && this->stateChangeReason_ == nullptr && this->storage_ == nullptr && this->tags_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr
-        && this->workspaceStatus_ == nullptr; };
+        && this->paymentType_ == nullptr && this->prePaidQuota_ == nullptr && this->regionId_ == nullptr && this->releaseType_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceSpec_ == nullptr && this->stateChangeReason_ == nullptr && this->storage_ == nullptr && this->tags_ == nullptr && this->workspaceId_ == nullptr
+        && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
       // autoRenew Field Functions 
       bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
       void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -426,6 +428,13 @@ namespace Models
       inline Workspaces& setReleaseType(string releaseType) { DARABONBA_PTR_SET_VALUE(releaseType_, releaseType) };
 
 
+      // resourceGroupId Field Functions 
+      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+      inline Workspaces& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
       // resourceSpec Field Functions 
       bool hasResourceSpec() const { return this->resourceSpec_ != nullptr;};
       void deleteResourceSpec() { this->resourceSpec_ = nullptr;};
@@ -513,6 +522,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The reason why the workspace is released.
       shared_ptr<string> releaseType_ {};
+      shared_ptr<string> resourceGroupId_ {};
       // The resource specifications.
       shared_ptr<string> resourceSpec_ {};
       // The reason of the job status change.

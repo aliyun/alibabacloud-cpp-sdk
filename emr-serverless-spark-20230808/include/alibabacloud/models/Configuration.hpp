@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The name of the configuration file.
     shared_ptr<string> configFileName_ {};
+    // The name of the configuration item.
     shared_ptr<string> configItemKey_ {};
+    // The value of the configuration item.
     shared_ptr<string> configItemValue_ {};
   };
 

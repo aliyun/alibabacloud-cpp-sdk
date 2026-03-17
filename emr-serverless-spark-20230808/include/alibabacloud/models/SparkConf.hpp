@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The key of the SparkConf object.
+    // 
     // This parameter is required.
     shared_ptr<string> key_ {};
+    // The value of the SparkConf object.
+    // 
     // This parameter is required.
     shared_ptr<string> value_ {};
   };

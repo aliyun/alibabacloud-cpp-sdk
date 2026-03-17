@@ -200,33 +200,59 @@ namespace Models
 
   protected:
     shared_ptr<string> bizId_ {};
+    // The user ID of the job creator.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> creator_ {};
+    // The displayed version of the Spark engine.
     shared_ptr<string> displaySparkVersion_ {};
+    // Indicates whether Fusion engine is enabled for acceleration.
     shared_ptr<bool> fusion_ {};
+    // The creation time.
+    // 
     // This parameter is required.
     shared_ptr<string> gmtCreated_ {};
+    // The time when the job was last modified.
+    // 
     // This parameter is required.
     shared_ptr<string> gmtModified_ {};
     shared_ptr<bool> isDefault_ {};
+    // The ID of the user who last modified the job.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> modifier_ {};
     shared_ptr<string> name_ {};
+    // The SparkConf objects.
     shared_ptr<vector<SparkConf>> sparkConf_ {};
+    // The number of driver cores of the Spark job.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> sparkDriverCores_ {};
+    // The size of driver memory of the Spark job.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> sparkDriverMemory_ {};
+    // The number of executor cores of the Spark job.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> sparkExecutorCores_ {};
+    // The size of executor memory of the Spark job.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> sparkExecutorMemory_ {};
+    // The level of the Spark log.
+    // 
     // This parameter is required.
     shared_ptr<string> sparkLogLevel_ {};
+    // The path where the operational logs of the Spark job are stored.
+    // 
     // This parameter is required.
     shared_ptr<string> sparkLogPath_ {};
+    // The engine version of Spark.
+    // 
     // This parameter is required.
     shared_ptr<string> sparkVersion_ {};
+    // The template type.
     shared_ptr<string> templateType_ {};
   };
 

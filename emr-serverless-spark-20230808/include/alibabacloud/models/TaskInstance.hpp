@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // The ID of the folder.
     shared_ptr<string> bizId_ {};
+    // The ID of the user who creates the job.
     shared_ptr<int64_t> creator_ {};
+    // The job run ID.
     shared_ptr<string> fenixRunId_ {};
+    // The time when the job was created.
     shared_ptr<string> gmtCreated_ {};
+    // The ID of the data development job.
     shared_ptr<string> taskBizId_ {};
+    // The details of the job.
     shared_ptr<Task> taskInfo_ {};
+    // The job run ID.
     shared_ptr<string> taskStatus_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceBizId_ {};
   };
 

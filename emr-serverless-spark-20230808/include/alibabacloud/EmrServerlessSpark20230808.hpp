@@ -643,7 +643,7 @@ namespace EmrServerlessSpark20230808
       Models::ListJobRunsResponse listJobRuns(const string &workspaceId, const Models::ListJobRunsRequest &request);
 
       /**
-       * @summary ListKyuubiServices
+       * @summary Gets the list of KyuubiServers
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -652,7 +652,7 @@ namespace EmrServerlessSpark20230808
       Models::ListKyuubiServicesResponse listKyuubiServicesWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListKyuubiServices
+       * @summary Gets the list of KyuubiServers
        *
        * @return ListKyuubiServicesResponse
        */
@@ -695,7 +695,7 @@ namespace EmrServerlessSpark20230808
       Models::ListKyuubiTokenResponse listKyuubiToken(const string &workspaceId, const string &kyuubiServiceId, const Models::ListKyuubiTokenRequest &request);
 
       /**
-       * @summary 列出livy compute
+       * @summary List the Livy Gateway.
        *
        * @param request ListLivyComputeRequest
        * @param headers map
@@ -705,7 +705,7 @@ namespace EmrServerlessSpark20230808
       Models::ListLivyComputeResponse listLivyComputeWithOptions(const string &workspaceBizId, const Models::ListLivyComputeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出livy compute
+       * @summary List the Livy Gateway.
        *
        * @param request ListLivyComputeRequest
        * @return ListLivyComputeResponse

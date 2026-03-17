@@ -921,6 +921,10 @@ CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspace
     body["releaseType"] = request.getReleaseType();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    body["resourceGroupId"] = request.getResourceGroupId();
+  }
+
   if (!!request.hasResourceSpec()) {
     body["resourceSpec"] = request.getResourceSpec();
   }
@@ -2118,7 +2122,7 @@ ListJobRunsResponse Client::listJobRuns(const string &workspaceId, const ListJob
 }
 
 /**
- * @summary ListKyuubiServices
+ * @summary Gets the list of KyuubiServers
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2143,7 +2147,7 @@ ListKyuubiServicesResponse Client::listKyuubiServicesWithOptions(const string &w
 }
 
 /**
- * @summary ListKyuubiServices
+ * @summary Gets the list of KyuubiServers
  *
  * @return ListKyuubiServicesResponse
  */
@@ -2286,7 +2290,7 @@ ListKyuubiTokenResponse Client::listKyuubiToken(const string &workspaceId, const
 }
 
 /**
- * @summary 列出livy compute
+ * @summary List the Livy Gateway.
  *
  * @param request ListLivyComputeRequest
  * @param headers map
@@ -2323,7 +2327,7 @@ ListLivyComputeResponse Client::listLivyComputeWithOptions(const string &workspa
 }
 
 /**
- * @summary 列出livy compute
+ * @summary List the Livy Gateway.
  *
  * @param request ListLivyComputeRequest
  * @return ListLivyComputeResponse
@@ -2899,6 +2903,10 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
 
   if (!!request.hasRegionId()) {
     query["regionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasState()) {

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 时间范围结束时间。
+    // The end time of the time range.
     shared_ptr<int64_t> endTime_ {};
-    // 时间范围开始时间。
+    // The start time of the time range.
     shared_ptr<int64_t> startTime_ {};
   };
 
