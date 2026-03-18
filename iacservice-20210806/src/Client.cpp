@@ -2182,6 +2182,42 @@ GetResourceTypeResponse Client::getResourceType(const string &resourceType, cons
 }
 
 /**
+ * @summary 获取资源栈部署结果
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetStackExecutionResultResponse
+ */
+GetStackExecutionResultResponse Client::getStackExecutionResultWithOptions(const string &triggerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetStackExecutionResult"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/stacks/trigger/" , Darabonba::Encode::Encoder::percentEncode(triggerId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetStackExecutionResultResponse>();
+}
+
+/**
+ * @summary 获取资源栈部署结果
+ *
+ * @return GetStackExecutionResultResponse
+ */
+GetStackExecutionResultResponse Client::getStackExecutionResult(const string &triggerId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getStackExecutionResultWithOptions(triggerId, headers, runtime);
+}
+
+/**
  * @summary 查询任务详情
  *
  * @param headers map
@@ -3719,6 +3755,67 @@ RemoveSharedAccountsResponse Client::removeSharedAccounts(const RemoveSharedAcco
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return removeSharedAccountsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 触发资源栈部署
+ *
+ * @param request TriggerStackExecutionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TriggerStackExecutionResponse
+ */
+TriggerStackExecutionResponse Client::triggerStackExecutionWithOptions(const TriggerStackExecutionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAction()) {
+    body["action"] = request.getAction();
+  }
+
+  if (!!request.hasChangedFolders()) {
+    body["changedFolders"] = request.getChangedFolders();
+  }
+
+  if (!!request.hasClientToken()) {
+    body["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCodePackagePath()) {
+    body["codePackagePath"] = request.getCodePackagePath();
+  }
+
+  if (!!request.hasCodeVersionId()) {
+    body["codeVersionId"] = request.getCodeVersionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TriggerStackExecution"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/stacks/trigger")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TriggerStackExecutionResponse>();
+}
+
+/**
+ * @summary 触发资源栈部署
+ *
+ * @param request TriggerStackExecutionRequest
+ * @return TriggerStackExecutionResponse
+ */
+TriggerStackExecutionResponse Client::triggerStackExecution(const TriggerStackExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return triggerStackExecutionWithOptions(request, headers, runtime);
 }
 
 /**

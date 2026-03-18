@@ -115,6 +115,8 @@
 #include <alibabacloud/models/GetResourceTypeRequest.hpp>
 #include <alibabacloud/models/GetResourceTypeResponseBody.hpp>
 #include <alibabacloud/models/GetResourceTypeResponse.hpp>
+#include <alibabacloud/models/GetStackExecutionResultResponseBody.hpp>
+#include <alibabacloud/models/GetStackExecutionResultResponse.hpp>
 #include <alibabacloud/models/GetTaskResponseBody.hpp>
 #include <alibabacloud/models/GetTaskResponse.hpp>
 #include <alibabacloud/models/ListExplorerRegistryModuleExamplesRequest.hpp>
@@ -195,6 +197,9 @@
 #include <alibabacloud/models/RemoveSharedAccountsShrinkRequest.hpp>
 #include <alibabacloud/models/RemoveSharedAccountsResponseBody.hpp>
 #include <alibabacloud/models/RemoveSharedAccountsResponse.hpp>
+#include <alibabacloud/models/TriggerStackExecutionRequest.hpp>
+#include <alibabacloud/models/TriggerStackExecutionResponseBody.hpp>
+#include <alibabacloud/models/TriggerStackExecutionResponse.hpp>
 #include <alibabacloud/models/UpdateExplorerModuleAttributeRequest.hpp>
 #include <alibabacloud/models/UpdateExplorerModuleAttributeResponseBody.hpp>
 #include <alibabacloud/models/UpdateExplorerModuleAttributeResponse.hpp>

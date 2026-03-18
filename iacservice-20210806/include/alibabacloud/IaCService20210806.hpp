@@ -760,6 +760,22 @@ namespace IaCService20210806
       Models::GetResourceTypeResponse getResourceType(const string &resourceType, const Models::GetResourceTypeRequest &request);
 
       /**
+       * @summary 获取资源栈部署结果
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStackExecutionResultResponse
+       */
+      Models::GetStackExecutionResultResponse getStackExecutionResultWithOptions(const string &triggerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取资源栈部署结果
+       *
+       * @return GetStackExecutionResultResponse
+       */
+      Models::GetStackExecutionResultResponse getStackExecutionResult(const string &triggerId);
+
+      /**
        * @summary 查询任务详情
        *
        * @param headers map
@@ -1206,6 +1222,24 @@ namespace IaCService20210806
        * @return RemoveSharedAccountsResponse
        */
       Models::RemoveSharedAccountsResponse removeSharedAccounts(const Models::RemoveSharedAccountsRequest &request);
+
+      /**
+       * @summary 触发资源栈部署
+       *
+       * @param request TriggerStackExecutionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TriggerStackExecutionResponse
+       */
+      Models::TriggerStackExecutionResponse triggerStackExecutionWithOptions(const Models::TriggerStackExecutionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 触发资源栈部署
+       *
+       * @param request TriggerStackExecutionRequest
+       * @return TriggerStackExecutionResponse
+       */
+      Models::TriggerStackExecutionResponse triggerStackExecution(const Models::TriggerStackExecutionRequest &request);
 
       /**
        * @summary 修改ExplorerModule
