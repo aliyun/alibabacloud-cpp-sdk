@@ -32,24 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->withConfig_ == nullptr; };
+        && this->withConfig_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline GetMmsDataSourceRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // withConfig Field Functions 
     bool hasWithConfig() const { return this->withConfig_ != nullptr;};
     void deleteWithConfig() { this->withConfig_ = nullptr;};
-    inline bool withConfig() const { DARABONBA_PTR_GET_DEFAULT(withConfig_, false) };
+    inline bool getWithConfig() const { DARABONBA_PTR_GET_DEFAULT(withConfig_, false) };
     inline GetMmsDataSourceRequest& setWithConfig(bool withConfig) { DARABONBA_PTR_SET_VALUE(withConfig_, withConfig) };
 
 
   protected:
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<bool> withConfig_ = nullptr;
+    // The language of the description for the configuration items.
+    shared_ptr<string> lang_ {};
+    // Specifies whether to obtain the specific configuration items of the data source.
+    shared_ptr<bool> withConfig_ {};
   };
 
   } // namespace Models

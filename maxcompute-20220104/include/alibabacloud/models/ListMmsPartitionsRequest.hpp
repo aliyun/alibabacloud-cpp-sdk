@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_LISTMMSPARTITIONSREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTMMSPARTITIONSREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListMmsPartitionsRequestSorter.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -53,66 +52,121 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Sorter : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Sorter& obj) { 
+        DARABONBA_PTR_TO_JSON(lastDdlTime, lastDdlTime_);
+        DARABONBA_PTR_TO_JSON(numRows, numRows_);
+        DARABONBA_PTR_TO_JSON(size, size_);
+      };
+      friend void from_json(const Darabonba::Json& j, Sorter& obj) { 
+        DARABONBA_PTR_FROM_JSON(lastDdlTime, lastDdlTime_);
+        DARABONBA_PTR_FROM_JSON(numRows, numRows_);
+        DARABONBA_PTR_FROM_JSON(size, size_);
+      };
+      Sorter() = default ;
+      Sorter(const Sorter &) = default ;
+      Sorter(Sorter &&) = default ;
+      Sorter(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Sorter() = default ;
+      Sorter& operator=(const Sorter &) = default ;
+      Sorter& operator=(Sorter &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->lastDdlTime_ == nullptr
+        && this->numRows_ == nullptr && this->size_ == nullptr; };
+      // lastDdlTime Field Functions 
+      bool hasLastDdlTime() const { return this->lastDdlTime_ != nullptr;};
+      void deleteLastDdlTime() { this->lastDdlTime_ = nullptr;};
+      inline string getLastDdlTime() const { DARABONBA_PTR_GET_DEFAULT(lastDdlTime_, "") };
+      inline Sorter& setLastDdlTime(string lastDdlTime) { DARABONBA_PTR_SET_VALUE(lastDdlTime_, lastDdlTime) };
+
+
+      // numRows Field Functions 
+      bool hasNumRows() const { return this->numRows_ != nullptr;};
+      void deleteNumRows() { this->numRows_ = nullptr;};
+      inline string getNumRows() const { DARABONBA_PTR_GET_DEFAULT(numRows_, "") };
+      inline Sorter& setNumRows(string numRows) { DARABONBA_PTR_SET_VALUE(numRows_, numRows) };
+
+
+      // size Field Functions 
+      bool hasSize() const { return this->size_ != nullptr;};
+      void deleteSize() { this->size_ = nullptr;};
+      inline string getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, "") };
+      inline Sorter& setSize(string size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+
+
+    protected:
+      // Sorts by lastDdlTime.
+      shared_ptr<string> lastDdlTime_ {};
+      // Sorts by number of rows.
+      shared_ptr<string> numRows_ {};
+      // Sorts by data size.
+      shared_ptr<string> size_ {};
+    };
+
     virtual bool empty() const override { return this->sorter_ == nullptr
-        && return this->dbId_ == nullptr && return this->dbName_ == nullptr && return this->lastDdlTimeEnd_ == nullptr && return this->lastDdlTimeStart_ == nullptr && return this->pageNum_ == nullptr
-        && return this->pageSize_ == nullptr && return this->status_ == nullptr && return this->tableId_ == nullptr && return this->tableName_ == nullptr && return this->updated_ == nullptr
-        && return this->value_ == nullptr; };
+        && this->dbId_ == nullptr && this->dbName_ == nullptr && this->lastDdlTimeEnd_ == nullptr && this->lastDdlTimeStart_ == nullptr && this->pageNum_ == nullptr
+        && this->pageSize_ == nullptr && this->status_ == nullptr && this->tableId_ == nullptr && this->tableName_ == nullptr && this->updated_ == nullptr
+        && this->value_ == nullptr; };
     // sorter Field Functions 
     bool hasSorter() const { return this->sorter_ != nullptr;};
     void deleteSorter() { this->sorter_ = nullptr;};
-    inline const ListMmsPartitionsRequestSorter & sorter() const { DARABONBA_PTR_GET_CONST(sorter_, ListMmsPartitionsRequestSorter) };
-    inline ListMmsPartitionsRequestSorter sorter() { DARABONBA_PTR_GET(sorter_, ListMmsPartitionsRequestSorter) };
-    inline ListMmsPartitionsRequest& setSorter(const ListMmsPartitionsRequestSorter & sorter) { DARABONBA_PTR_SET_VALUE(sorter_, sorter) };
-    inline ListMmsPartitionsRequest& setSorter(ListMmsPartitionsRequestSorter && sorter) { DARABONBA_PTR_SET_RVALUE(sorter_, sorter) };
+    inline const ListMmsPartitionsRequest::Sorter & getSorter() const { DARABONBA_PTR_GET_CONST(sorter_, ListMmsPartitionsRequest::Sorter) };
+    inline ListMmsPartitionsRequest::Sorter getSorter() { DARABONBA_PTR_GET(sorter_, ListMmsPartitionsRequest::Sorter) };
+    inline ListMmsPartitionsRequest& setSorter(const ListMmsPartitionsRequest::Sorter & sorter) { DARABONBA_PTR_SET_VALUE(sorter_, sorter) };
+    inline ListMmsPartitionsRequest& setSorter(ListMmsPartitionsRequest::Sorter && sorter) { DARABONBA_PTR_SET_RVALUE(sorter_, sorter) };
 
 
     // dbId Field Functions 
     bool hasDbId() const { return this->dbId_ != nullptr;};
     void deleteDbId() { this->dbId_ = nullptr;};
-    inline int64_t dbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, 0L) };
+    inline int64_t getDbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, 0L) };
     inline ListMmsPartitionsRequest& setDbId(int64_t dbId) { DARABONBA_PTR_SET_VALUE(dbId_, dbId) };
 
 
     // dbName Field Functions 
     bool hasDbName() const { return this->dbName_ != nullptr;};
     void deleteDbName() { this->dbName_ = nullptr;};
-    inline string dbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
+    inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
     inline ListMmsPartitionsRequest& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
 
 
     // lastDdlTimeEnd Field Functions 
     bool hasLastDdlTimeEnd() const { return this->lastDdlTimeEnd_ != nullptr;};
     void deleteLastDdlTimeEnd() { this->lastDdlTimeEnd_ = nullptr;};
-    inline string lastDdlTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(lastDdlTimeEnd_, "") };
+    inline string getLastDdlTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(lastDdlTimeEnd_, "") };
     inline ListMmsPartitionsRequest& setLastDdlTimeEnd(string lastDdlTimeEnd) { DARABONBA_PTR_SET_VALUE(lastDdlTimeEnd_, lastDdlTimeEnd) };
 
 
     // lastDdlTimeStart Field Functions 
     bool hasLastDdlTimeStart() const { return this->lastDdlTimeStart_ != nullptr;};
     void deleteLastDdlTimeStart() { this->lastDdlTimeStart_ = nullptr;};
-    inline string lastDdlTimeStart() const { DARABONBA_PTR_GET_DEFAULT(lastDdlTimeStart_, "") };
+    inline string getLastDdlTimeStart() const { DARABONBA_PTR_GET_DEFAULT(lastDdlTimeStart_, "") };
     inline ListMmsPartitionsRequest& setLastDdlTimeStart(string lastDdlTimeStart) { DARABONBA_PTR_SET_VALUE(lastDdlTimeStart_, lastDdlTimeStart) };
 
 
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
-    inline int32_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+    inline int32_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
     inline ListMmsPartitionsRequest& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListMmsPartitionsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline const vector<string> & status() const { DARABONBA_PTR_GET_CONST(status_, vector<string>) };
-    inline vector<string> status() { DARABONBA_PTR_GET(status_, vector<string>) };
+    inline const vector<string> & getStatus() const { DARABONBA_PTR_GET_CONST(status_, vector<string>) };
+    inline vector<string> getStatus() { DARABONBA_PTR_GET(status_, vector<string>) };
     inline ListMmsPartitionsRequest& setStatus(const vector<string> & status) { DARABONBA_PTR_SET_VALUE(status_, status) };
     inline ListMmsPartitionsRequest& setStatus(vector<string> && status) { DARABONBA_PTR_SET_RVALUE(status_, status) };
 
@@ -120,44 +174,55 @@ namespace Models
     // tableId Field Functions 
     bool hasTableId() const { return this->tableId_ != nullptr;};
     void deleteTableId() { this->tableId_ = nullptr;};
-    inline int64_t tableId() const { DARABONBA_PTR_GET_DEFAULT(tableId_, 0L) };
+    inline int64_t getTableId() const { DARABONBA_PTR_GET_DEFAULT(tableId_, 0L) };
     inline ListMmsPartitionsRequest& setTableId(int64_t tableId) { DARABONBA_PTR_SET_VALUE(tableId_, tableId) };
 
 
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline ListMmsPartitionsRequest& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
     // updated Field Functions 
     bool hasUpdated() const { return this->updated_ != nullptr;};
     void deleteUpdated() { this->updated_ = nullptr;};
-    inline bool updated() const { DARABONBA_PTR_GET_DEFAULT(updated_, false) };
+    inline bool getUpdated() const { DARABONBA_PTR_GET_DEFAULT(updated_, false) };
     inline ListMmsPartitionsRequest& setUpdated(bool updated) { DARABONBA_PTR_SET_VALUE(updated_, updated) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline ListMmsPartitionsRequest& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:
-    std::shared_ptr<ListMmsPartitionsRequestSorter> sorter_ = nullptr;
-    std::shared_ptr<int64_t> dbId_ = nullptr;
-    std::shared_ptr<string> dbName_ = nullptr;
-    std::shared_ptr<string> lastDdlTimeEnd_ = nullptr;
-    std::shared_ptr<string> lastDdlTimeStart_ = nullptr;
-    std::shared_ptr<int32_t> pageNum_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<vector<string>> status_ = nullptr;
-    std::shared_ptr<int64_t> tableId_ = nullptr;
-    std::shared_ptr<string> tableName_ = nullptr;
-    std::shared_ptr<bool> updated_ = nullptr;
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<ListMmsPartitionsRequest::Sorter> sorter_ {};
+    // The database ID.
+    shared_ptr<int64_t> dbId_ {};
+    // The database name.
+    shared_ptr<string> dbName_ {};
+    // The maximum lastDdlTime value.
+    shared_ptr<string> lastDdlTimeEnd_ {};
+    // The minimum lastDdlTime value.
+    shared_ptr<string> lastDdlTimeStart_ {};
+    // The page number to return.
+    shared_ptr<int32_t> pageNum_ {};
+    // The number of entries to return per page.
+    shared_ptr<int32_t> pageSize_ {};
+    // The migration status.
+    shared_ptr<vector<string>> status_ {};
+    // The ID of the table that contains the partition.
+    shared_ptr<int64_t> tableId_ {};
+    // The table name.
+    shared_ptr<string> tableName_ {};
+    // Filters partitions whose metadata has been updated.
+    shared_ptr<bool> updated_ {};
+    // The partition value.
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

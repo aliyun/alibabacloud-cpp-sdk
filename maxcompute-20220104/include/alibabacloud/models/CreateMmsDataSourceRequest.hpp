@@ -36,42 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->name_ == nullptr && return this->networklink_ == nullptr && return this->type_ == nullptr; };
+        && this->name_ == nullptr && this->networklink_ == nullptr && this->type_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline     const Darabonba::Json & config() const { DARABONBA_GET(config_) };
-    Darabonba::Json & config() { DARABONBA_GET(config_) };
+    inline     const Darabonba::Json & getConfig() const { DARABONBA_GET(config_) };
+    Darabonba::Json & getConfig() { DARABONBA_GET(config_) };
     inline CreateMmsDataSourceRequest& setConfig(const Darabonba::Json & config) { DARABONBA_SET_VALUE(config_, config) };
-    inline CreateMmsDataSourceRequest& setConfig(Darabonba::Json & config) { DARABONBA_SET_RVALUE(config_, config) };
+    inline CreateMmsDataSourceRequest& setConfig(Darabonba::Json && config) { DARABONBA_SET_RVALUE(config_, config) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateMmsDataSourceRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // networklink Field Functions 
     bool hasNetworklink() const { return this->networklink_ != nullptr;};
     void deleteNetworklink() { this->networklink_ = nullptr;};
-    inline string networklink() const { DARABONBA_PTR_GET_DEFAULT(networklink_, "") };
+    inline string getNetworklink() const { DARABONBA_PTR_GET_DEFAULT(networklink_, "") };
     inline CreateMmsDataSourceRequest& setNetworklink(string networklink) { DARABONBA_PTR_SET_VALUE(networklink_, networklink) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateMmsDataSourceRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    Darabonba::Json config_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> networklink_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    // The configurations of the data source.
+    Darabonba::Json config_ {};
+    // The name of the data source.
+    shared_ptr<string> name_ {};
+    // The ID of the MaxCompute network connectivity.
+    shared_ptr<string> networklink_ {};
+    // The type of the data source.
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

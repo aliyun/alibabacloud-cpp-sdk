@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->add_ == nullptr
-        && return this->remove_ == nullptr; };
+        && this->remove_ == nullptr; };
     // add Field Functions 
     bool hasAdd() const { return this->add_ != nullptr;};
     void deleteAdd() { this->add_ = nullptr;};
-    inline const vector<string> & add() const { DARABONBA_PTR_GET_CONST(add_, vector<string>) };
-    inline vector<string> add() { DARABONBA_PTR_GET(add_, vector<string>) };
+    inline const vector<string> & getAdd() const { DARABONBA_PTR_GET_CONST(add_, vector<string>) };
+    inline vector<string> getAdd() { DARABONBA_PTR_GET(add_, vector<string>) };
     inline UpdateUsersToRoleRequest& setAdd(const vector<string> & add) { DARABONBA_PTR_SET_VALUE(add_, add) };
     inline UpdateUsersToRoleRequest& setAdd(vector<string> && add) { DARABONBA_PTR_SET_RVALUE(add_, add) };
 
@@ -46,17 +46,17 @@ namespace Models
     // remove Field Functions 
     bool hasRemove() const { return this->remove_ != nullptr;};
     void deleteRemove() { this->remove_ = nullptr;};
-    inline const vector<string> & remove() const { DARABONBA_PTR_GET_CONST(remove_, vector<string>) };
-    inline vector<string> remove() { DARABONBA_PTR_GET(remove_, vector<string>) };
+    inline const vector<string> & getRemove() const { DARABONBA_PTR_GET_CONST(remove_, vector<string>) };
+    inline vector<string> getRemove() { DARABONBA_PTR_GET(remove_, vector<string>) };
     inline UpdateUsersToRoleRequest& setRemove(const vector<string> & remove) { DARABONBA_PTR_SET_VALUE(remove_, remove) };
     inline UpdateUsersToRoleRequest& setRemove(vector<string> && remove) { DARABONBA_PTR_SET_RVALUE(remove_, remove) };
 
 
   protected:
-    // The accounts.
-    std::shared_ptr<vector<string>> add_ = nullptr;
-    // The accounts.
-    std::shared_ptr<vector<string>> remove_ = nullptr;
+    // The action to add users to the project role.
+    shared_ptr<vector<string>> add_ {};
+    // The action to remove users from the project role.
+    shared_ptr<vector<string>> remove_ {};
   };
 
   } // namespace Models

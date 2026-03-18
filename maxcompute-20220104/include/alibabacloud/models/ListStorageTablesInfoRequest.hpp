@@ -51,112 +51,100 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ascOrder_ == nullptr
-        && return this->date_ == nullptr && return this->orderColumn_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->recentDays_ == nullptr
-        && return this->region_ == nullptr && return this->schema_ == nullptr && return this->tablePrefix_ == nullptr && return this->tenantId_ == nullptr && return this->types_ == nullptr; };
+        && this->date_ == nullptr && this->orderColumn_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->recentDays_ == nullptr
+        && this->region_ == nullptr && this->schema_ == nullptr && this->tablePrefix_ == nullptr && this->tenantId_ == nullptr && this->types_ == nullptr; };
     // ascOrder Field Functions 
     bool hasAscOrder() const { return this->ascOrder_ != nullptr;};
     void deleteAscOrder() { this->ascOrder_ = nullptr;};
-    inline bool ascOrder() const { DARABONBA_PTR_GET_DEFAULT(ascOrder_, false) };
+    inline bool getAscOrder() const { DARABONBA_PTR_GET_DEFAULT(ascOrder_, false) };
     inline ListStorageTablesInfoRequest& setAscOrder(bool ascOrder) { DARABONBA_PTR_SET_VALUE(ascOrder_, ascOrder) };
 
 
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};
-    inline string date() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+    inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
     inline ListStorageTablesInfoRequest& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
     // orderColumn Field Functions 
     bool hasOrderColumn() const { return this->orderColumn_ != nullptr;};
     void deleteOrderColumn() { this->orderColumn_ = nullptr;};
-    inline string orderColumn() const { DARABONBA_PTR_GET_DEFAULT(orderColumn_, "") };
+    inline string getOrderColumn() const { DARABONBA_PTR_GET_DEFAULT(orderColumn_, "") };
     inline ListStorageTablesInfoRequest& setOrderColumn(string orderColumn) { DARABONBA_PTR_SET_VALUE(orderColumn_, orderColumn) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline ListStorageTablesInfoRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListStorageTablesInfoRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // recentDays Field Functions 
     bool hasRecentDays() const { return this->recentDays_ != nullptr;};
     void deleteRecentDays() { this->recentDays_ = nullptr;};
-    inline int32_t recentDays() const { DARABONBA_PTR_GET_DEFAULT(recentDays_, 0) };
+    inline int32_t getRecentDays() const { DARABONBA_PTR_GET_DEFAULT(recentDays_, 0) };
     inline ListStorageTablesInfoRequest& setRecentDays(int32_t recentDays) { DARABONBA_PTR_SET_VALUE(recentDays_, recentDays) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline ListStorageTablesInfoRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // schema Field Functions 
     bool hasSchema() const { return this->schema_ != nullptr;};
     void deleteSchema() { this->schema_ = nullptr;};
-    inline string schema() const { DARABONBA_PTR_GET_DEFAULT(schema_, "") };
+    inline string getSchema() const { DARABONBA_PTR_GET_DEFAULT(schema_, "") };
     inline ListStorageTablesInfoRequest& setSchema(string schema) { DARABONBA_PTR_SET_VALUE(schema_, schema) };
 
 
     // tablePrefix Field Functions 
     bool hasTablePrefix() const { return this->tablePrefix_ != nullptr;};
     void deleteTablePrefix() { this->tablePrefix_ = nullptr;};
-    inline string tablePrefix() const { DARABONBA_PTR_GET_DEFAULT(tablePrefix_, "") };
+    inline string getTablePrefix() const { DARABONBA_PTR_GET_DEFAULT(tablePrefix_, "") };
     inline ListStorageTablesInfoRequest& setTablePrefix(string tablePrefix) { DARABONBA_PTR_SET_VALUE(tablePrefix_, tablePrefix) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline ListStorageTablesInfoRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // types Field Functions 
     bool hasTypes() const { return this->types_ != nullptr;};
     void deleteTypes() { this->types_ = nullptr;};
-    inline const vector<string> & types() const { DARABONBA_PTR_GET_CONST(types_, vector<string>) };
-    inline vector<string> types() { DARABONBA_PTR_GET(types_, vector<string>) };
+    inline const vector<string> & getTypes() const { DARABONBA_PTR_GET_CONST(types_, vector<string>) };
+    inline vector<string> getTypes() { DARABONBA_PTR_GET(types_, vector<string>) };
     inline ListStorageTablesInfoRequest& setTypes(const vector<string> & types) { DARABONBA_PTR_SET_VALUE(types_, types) };
     inline ListStorageTablesInfoRequest& setTypes(vector<string> && types) { DARABONBA_PTR_SET_RVALUE(types_, types) };
 
 
   protected:
-    // Specifies whether to sort data in ascending order.
-    std::shared_ptr<bool> ascOrder_ = nullptr;
-    // The date on which the statistics are collected, in days. Set this parameter to a value in the `YYYYMMdd` format.
-    // 
+    shared_ptr<bool> ascOrder_ {};
     // This parameter is required.
-    std::shared_ptr<string> date_ = nullptr;
-    // The sorting column.
-    std::shared_ptr<string> orderColumn_ = nullptr;
-    // The page number.
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
-    // The number of entries per page. Default value: 10.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    // The number of recent days for comparison.
-    std::shared_ptr<int32_t> recentDays_ = nullptr;
-    // The region ID.
-    std::shared_ptr<string> region_ = nullptr;
-    // The name of the schema.
-    std::shared_ptr<string> schema_ = nullptr;
-    // The name of the table that you want to use for fuzzy match.
-    std::shared_ptr<string> tablePrefix_ = nullptr;
-    // The ID of the tenant. You can log on to the MaxCompute console, and choose **Tenants** > **Tenant Property** from the left-side navigation pane to view the tenant ID.
-    std::shared_ptr<string> tenantId_ = nullptr;
-    // The storage types.
-    std::shared_ptr<vector<string>> types_ = nullptr;
+    shared_ptr<string> date_ {};
+    shared_ptr<string> orderColumn_ {};
+    shared_ptr<int64_t> pageNumber_ {};
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<int32_t> recentDays_ {};
+    shared_ptr<string> region_ {};
+    shared_ptr<string> schema_ {};
+    shared_ptr<string> tablePrefix_ {};
+    shared_ptr<string> tenantId_ {};
+    shared_ptr<vector<string>> types_ {};
   };
 
   } // namespace Models

@@ -32,31 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->schemaName_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->type_ == nullptr; };
     // schemaName Field Functions 
     bool hasSchemaName() const { return this->schemaName_ != nullptr;};
     void deleteSchemaName() { this->schemaName_ = nullptr;};
-    inline string schemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
+    inline string getSchemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
     inline GetTableInfoRequest& setSchemaName(string schemaName) { DARABONBA_PTR_SET_VALUE(schemaName_, schemaName) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline GetTableInfoRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    // The name of the schema to which the table or view belongs.
-    std::shared_ptr<string> schemaName_ = nullptr;
-    // The type of the table or view that you want to view. Valid values:
-    // 
-    // *   **internal**: internal table
-    // *   **external**: external table
-    // *   **view**: view
-    // *   **materializedView**: [materialize view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations)
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> schemaName_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

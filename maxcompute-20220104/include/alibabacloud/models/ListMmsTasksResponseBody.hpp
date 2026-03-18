@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTMMSTASKSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTMMSTASKSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListMmsTasksResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,27 +32,353 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(objectList, objectList_);
+        DARABONBA_PTR_TO_JSON(pageNum, pageNum_);
+        DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+        DARABONBA_PTR_TO_JSON(total, total_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(objectList, objectList_);
+        DARABONBA_PTR_FROM_JSON(pageNum, pageNum_);
+        DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+        DARABONBA_PTR_FROM_JSON(total, total_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ObjectList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ObjectList& obj) { 
+          DARABONBA_PTR_TO_JSON(createTime, createTime_);
+          DARABONBA_PTR_TO_JSON(dbId, dbId_);
+          DARABONBA_PTR_TO_JSON(dstDbName, dstDbName_);
+          DARABONBA_PTR_TO_JSON(dstSchemaName, dstSchemaName_);
+          DARABONBA_PTR_TO_JSON(dstTableName, dstTableName_);
+          DARABONBA_PTR_TO_JSON(endTime, endTime_);
+          DARABONBA_PTR_TO_JSON(id, id_);
+          DARABONBA_PTR_TO_JSON(jobId, jobId_);
+          DARABONBA_PTR_TO_JSON(jobName, jobName_);
+          DARABONBA_PTR_TO_JSON(retriedTimes, retriedTimes_);
+          DARABONBA_PTR_TO_JSON(running, running_);
+          DARABONBA_PTR_TO_JSON(sourceId, sourceId_);
+          DARABONBA_PTR_TO_JSON(sourceName, sourceName_);
+          DARABONBA_PTR_TO_JSON(srcDbName, srcDbName_);
+          DARABONBA_PTR_TO_JSON(srcSchemaName, srcSchemaName_);
+          DARABONBA_PTR_TO_JSON(srcTableName, srcTableName_);
+          DARABONBA_PTR_TO_JSON(startTime, startTime_);
+          DARABONBA_PTR_TO_JSON(status, status_);
+          DARABONBA_PTR_TO_JSON(stopped, stopped_);
+          DARABONBA_PTR_TO_JSON(tableId, tableId_);
+          DARABONBA_PTR_TO_JSON(type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, ObjectList& obj) { 
+          DARABONBA_PTR_FROM_JSON(createTime, createTime_);
+          DARABONBA_PTR_FROM_JSON(dbId, dbId_);
+          DARABONBA_PTR_FROM_JSON(dstDbName, dstDbName_);
+          DARABONBA_PTR_FROM_JSON(dstSchemaName, dstSchemaName_);
+          DARABONBA_PTR_FROM_JSON(dstTableName, dstTableName_);
+          DARABONBA_PTR_FROM_JSON(endTime, endTime_);
+          DARABONBA_PTR_FROM_JSON(id, id_);
+          DARABONBA_PTR_FROM_JSON(jobId, jobId_);
+          DARABONBA_PTR_FROM_JSON(jobName, jobName_);
+          DARABONBA_PTR_FROM_JSON(retriedTimes, retriedTimes_);
+          DARABONBA_PTR_FROM_JSON(running, running_);
+          DARABONBA_PTR_FROM_JSON(sourceId, sourceId_);
+          DARABONBA_PTR_FROM_JSON(sourceName, sourceName_);
+          DARABONBA_PTR_FROM_JSON(srcDbName, srcDbName_);
+          DARABONBA_PTR_FROM_JSON(srcSchemaName, srcSchemaName_);
+          DARABONBA_PTR_FROM_JSON(srcTableName, srcTableName_);
+          DARABONBA_PTR_FROM_JSON(startTime, startTime_);
+          DARABONBA_PTR_FROM_JSON(status, status_);
+          DARABONBA_PTR_FROM_JSON(stopped, stopped_);
+          DARABONBA_PTR_FROM_JSON(tableId, tableId_);
+          DARABONBA_PTR_FROM_JSON(type, type_);
+        };
+        ObjectList() = default ;
+        ObjectList(const ObjectList &) = default ;
+        ObjectList(ObjectList &&) = default ;
+        ObjectList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ObjectList() = default ;
+        ObjectList& operator=(const ObjectList &) = default ;
+        ObjectList& operator=(ObjectList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->createTime_ == nullptr
+        && this->dbId_ == nullptr && this->dstDbName_ == nullptr && this->dstSchemaName_ == nullptr && this->dstTableName_ == nullptr && this->endTime_ == nullptr
+        && this->id_ == nullptr && this->jobId_ == nullptr && this->jobName_ == nullptr && this->retriedTimes_ == nullptr && this->running_ == nullptr
+        && this->sourceId_ == nullptr && this->sourceName_ == nullptr && this->srcDbName_ == nullptr && this->srcSchemaName_ == nullptr && this->srcTableName_ == nullptr
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->stopped_ == nullptr && this->tableId_ == nullptr && this->type_ == nullptr; };
+        // createTime Field Functions 
+        bool hasCreateTime() const { return this->createTime_ != nullptr;};
+        void deleteCreateTime() { this->createTime_ = nullptr;};
+        inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+        inline ObjectList& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+        // dbId Field Functions 
+        bool hasDbId() const { return this->dbId_ != nullptr;};
+        void deleteDbId() { this->dbId_ = nullptr;};
+        inline int64_t getDbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, 0L) };
+        inline ObjectList& setDbId(int64_t dbId) { DARABONBA_PTR_SET_VALUE(dbId_, dbId) };
+
+
+        // dstDbName Field Functions 
+        bool hasDstDbName() const { return this->dstDbName_ != nullptr;};
+        void deleteDstDbName() { this->dstDbName_ = nullptr;};
+        inline string getDstDbName() const { DARABONBA_PTR_GET_DEFAULT(dstDbName_, "") };
+        inline ObjectList& setDstDbName(string dstDbName) { DARABONBA_PTR_SET_VALUE(dstDbName_, dstDbName) };
+
+
+        // dstSchemaName Field Functions 
+        bool hasDstSchemaName() const { return this->dstSchemaName_ != nullptr;};
+        void deleteDstSchemaName() { this->dstSchemaName_ = nullptr;};
+        inline string getDstSchemaName() const { DARABONBA_PTR_GET_DEFAULT(dstSchemaName_, "") };
+        inline ObjectList& setDstSchemaName(string dstSchemaName) { DARABONBA_PTR_SET_VALUE(dstSchemaName_, dstSchemaName) };
+
+
+        // dstTableName Field Functions 
+        bool hasDstTableName() const { return this->dstTableName_ != nullptr;};
+        void deleteDstTableName() { this->dstTableName_ = nullptr;};
+        inline string getDstTableName() const { DARABONBA_PTR_GET_DEFAULT(dstTableName_, "") };
+        inline ObjectList& setDstTableName(string dstTableName) { DARABONBA_PTR_SET_VALUE(dstTableName_, dstTableName) };
+
+
+        // endTime Field Functions 
+        bool hasEndTime() const { return this->endTime_ != nullptr;};
+        void deleteEndTime() { this->endTime_ = nullptr;};
+        inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+        inline ObjectList& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+        // id Field Functions 
+        bool hasId() const { return this->id_ != nullptr;};
+        void deleteId() { this->id_ = nullptr;};
+        inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+        inline ObjectList& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+        // jobId Field Functions 
+        bool hasJobId() const { return this->jobId_ != nullptr;};
+        void deleteJobId() { this->jobId_ = nullptr;};
+        inline int64_t getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
+        inline ObjectList& setJobId(int64_t jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
+
+
+        // jobName Field Functions 
+        bool hasJobName() const { return this->jobName_ != nullptr;};
+        void deleteJobName() { this->jobName_ = nullptr;};
+        inline string getJobName() const { DARABONBA_PTR_GET_DEFAULT(jobName_, "") };
+        inline ObjectList& setJobName(string jobName) { DARABONBA_PTR_SET_VALUE(jobName_, jobName) };
+
+
+        // retriedTimes Field Functions 
+        bool hasRetriedTimes() const { return this->retriedTimes_ != nullptr;};
+        void deleteRetriedTimes() { this->retriedTimes_ = nullptr;};
+        inline int32_t getRetriedTimes() const { DARABONBA_PTR_GET_DEFAULT(retriedTimes_, 0) };
+        inline ObjectList& setRetriedTimes(int32_t retriedTimes) { DARABONBA_PTR_SET_VALUE(retriedTimes_, retriedTimes) };
+
+
+        // running Field Functions 
+        bool hasRunning() const { return this->running_ != nullptr;};
+        void deleteRunning() { this->running_ = nullptr;};
+        inline bool getRunning() const { DARABONBA_PTR_GET_DEFAULT(running_, false) };
+        inline ObjectList& setRunning(bool running) { DARABONBA_PTR_SET_VALUE(running_, running) };
+
+
+        // sourceId Field Functions 
+        bool hasSourceId() const { return this->sourceId_ != nullptr;};
+        void deleteSourceId() { this->sourceId_ = nullptr;};
+        inline int64_t getSourceId() const { DARABONBA_PTR_GET_DEFAULT(sourceId_, 0L) };
+        inline ObjectList& setSourceId(int64_t sourceId) { DARABONBA_PTR_SET_VALUE(sourceId_, sourceId) };
+
+
+        // sourceName Field Functions 
+        bool hasSourceName() const { return this->sourceName_ != nullptr;};
+        void deleteSourceName() { this->sourceName_ = nullptr;};
+        inline string getSourceName() const { DARABONBA_PTR_GET_DEFAULT(sourceName_, "") };
+        inline ObjectList& setSourceName(string sourceName) { DARABONBA_PTR_SET_VALUE(sourceName_, sourceName) };
+
+
+        // srcDbName Field Functions 
+        bool hasSrcDbName() const { return this->srcDbName_ != nullptr;};
+        void deleteSrcDbName() { this->srcDbName_ = nullptr;};
+        inline string getSrcDbName() const { DARABONBA_PTR_GET_DEFAULT(srcDbName_, "") };
+        inline ObjectList& setSrcDbName(string srcDbName) { DARABONBA_PTR_SET_VALUE(srcDbName_, srcDbName) };
+
+
+        // srcSchemaName Field Functions 
+        bool hasSrcSchemaName() const { return this->srcSchemaName_ != nullptr;};
+        void deleteSrcSchemaName() { this->srcSchemaName_ = nullptr;};
+        inline string getSrcSchemaName() const { DARABONBA_PTR_GET_DEFAULT(srcSchemaName_, "") };
+        inline ObjectList& setSrcSchemaName(string srcSchemaName) { DARABONBA_PTR_SET_VALUE(srcSchemaName_, srcSchemaName) };
+
+
+        // srcTableName Field Functions 
+        bool hasSrcTableName() const { return this->srcTableName_ != nullptr;};
+        void deleteSrcTableName() { this->srcTableName_ = nullptr;};
+        inline string getSrcTableName() const { DARABONBA_PTR_GET_DEFAULT(srcTableName_, "") };
+        inline ObjectList& setSrcTableName(string srcTableName) { DARABONBA_PTR_SET_VALUE(srcTableName_, srcTableName) };
+
+
+        // startTime Field Functions 
+        bool hasStartTime() const { return this->startTime_ != nullptr;};
+        void deleteStartTime() { this->startTime_ = nullptr;};
+        inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+        inline ObjectList& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline ObjectList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+        // stopped Field Functions 
+        bool hasStopped() const { return this->stopped_ != nullptr;};
+        void deleteStopped() { this->stopped_ = nullptr;};
+        inline bool getStopped() const { DARABONBA_PTR_GET_DEFAULT(stopped_, false) };
+        inline ObjectList& setStopped(bool stopped) { DARABONBA_PTR_SET_VALUE(stopped_, stopped) };
+
+
+        // tableId Field Functions 
+        bool hasTableId() const { return this->tableId_ != nullptr;};
+        void deleteTableId() { this->tableId_ = nullptr;};
+        inline int64_t getTableId() const { DARABONBA_PTR_GET_DEFAULT(tableId_, 0L) };
+        inline ObjectList& setTableId(int64_t tableId) { DARABONBA_PTR_SET_VALUE(tableId_, tableId) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline ObjectList& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        // The time when the task was created.
+        shared_ptr<string> createTime_ {};
+        // The ID of the source database.
+        shared_ptr<int64_t> dbId_ {};
+        // The destination MaxCompute project.
+        shared_ptr<string> dstDbName_ {};
+        // The destination MaxCompute schema.
+        shared_ptr<string> dstSchemaName_ {};
+        // The destination MaxCompute table.
+        shared_ptr<string> dstTableName_ {};
+        // The end time of the task.
+        shared_ptr<string> endTime_ {};
+        // The ID of the migration task.
+        shared_ptr<int64_t> id_ {};
+        // The ID of the migration job.
+        shared_ptr<int64_t> jobId_ {};
+        // The name of the migration job.
+        shared_ptr<string> jobName_ {};
+        // The number of retries.
+        shared_ptr<int32_t> retriedTimes_ {};
+        // Indicates whether the task is running.
+        shared_ptr<bool> running_ {};
+        // The ID of the data source.
+        shared_ptr<int64_t> sourceId_ {};
+        // The name of the data source.
+        shared_ptr<string> sourceName_ {};
+        // The name of the source database.
+        shared_ptr<string> srcDbName_ {};
+        // The name of the source schema. This parameter specifies the schema in a Layer 3 namespace.
+        shared_ptr<string> srcSchemaName_ {};
+        // The name of the source table.
+        shared_ptr<string> srcTableName_ {};
+        // The start time of the task.
+        shared_ptr<string> startTime_ {};
+        // The status of the migration task.
+        shared_ptr<string> status_ {};
+        // Indicates whether the task is stopped.
+        shared_ptr<bool> stopped_ {};
+        // The ID of the source table.
+        shared_ptr<int64_t> tableId_ {};
+        // The task type.
+        shared_ptr<string> type_ {};
+      };
+
+      virtual bool empty() const override { return this->objectList_ == nullptr
+        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->total_ == nullptr; };
+      // objectList Field Functions 
+      bool hasObjectList() const { return this->objectList_ != nullptr;};
+      void deleteObjectList() { this->objectList_ = nullptr;};
+      inline const vector<Data::ObjectList> & getObjectList() const { DARABONBA_PTR_GET_CONST(objectList_, vector<Data::ObjectList>) };
+      inline vector<Data::ObjectList> getObjectList() { DARABONBA_PTR_GET(objectList_, vector<Data::ObjectList>) };
+      inline Data& setObjectList(const vector<Data::ObjectList> & objectList) { DARABONBA_PTR_SET_VALUE(objectList_, objectList) };
+      inline Data& setObjectList(vector<Data::ObjectList> && objectList) { DARABONBA_PTR_SET_RVALUE(objectList_, objectList) };
+
+
+      // pageNum Field Functions 
+      bool hasPageNum() const { return this->pageNum_ != nullptr;};
+      void deletePageNum() { this->pageNum_ = nullptr;};
+      inline int32_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+      inline Data& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
+
+
+      // pageSize Field Functions 
+      bool hasPageSize() const { return this->pageSize_ != nullptr;};
+      void deletePageSize() { this->pageSize_ = nullptr;};
+      inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+      inline Data& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+      // total Field Functions 
+      bool hasTotal() const { return this->total_ != nullptr;};
+      void deleteTotal() { this->total_ = nullptr;};
+      inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+      inline Data& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+
+
+    protected:
+      // The list of migration tasks.
+      shared_ptr<vector<Data::ObjectList>> objectList_ {};
+      // The page number.
+      shared_ptr<int32_t> pageNum_ {};
+      // The number of entries per page.
+      shared_ptr<int32_t> pageSize_ {};
+      // The total number of records.
+      shared_ptr<int32_t> total_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ListMmsTasksResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, ListMmsTasksResponseBodyData) };
-    inline ListMmsTasksResponseBodyData data() { DARABONBA_PTR_GET(data_, ListMmsTasksResponseBodyData) };
-    inline ListMmsTasksResponseBody& setData(const ListMmsTasksResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ListMmsTasksResponseBody& setData(ListMmsTasksResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const ListMmsTasksResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ListMmsTasksResponseBody::Data) };
+    inline ListMmsTasksResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ListMmsTasksResponseBody::Data) };
+    inline ListMmsTasksResponseBody& setData(const ListMmsTasksResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListMmsTasksResponseBody& setData(ListMmsTasksResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListMmsTasksResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<ListMmsTasksResponseBodyData> data_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    // The returned data.
+    shared_ptr<ListMmsTasksResponseBody::Data> data_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

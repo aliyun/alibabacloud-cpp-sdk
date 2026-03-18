@@ -33,13 +33,12 @@ namespace Models
     // sourceProject Field Functions 
     bool hasSourceProject() const { return this->sourceProject_ != nullptr;};
     void deleteSourceProject() { this->sourceProject_ = nullptr;};
-    inline string sourceProject() const { DARABONBA_PTR_GET_DEFAULT(sourceProject_, "") };
+    inline string getSourceProject() const { DARABONBA_PTR_GET_DEFAULT(sourceProject_, "") };
     inline GetPackageRequest& setSourceProject(string sourceProject) { DARABONBA_PTR_SET_VALUE(sourceProject_, sourceProject) };
 
 
   protected:
-    // The project to which the package belongs. This parameter is required if the package is installed in the MaxCompute project.
-    std::shared_ptr<string> sourceProject_ = nullptr;
+    shared_ptr<string> sourceProject_ {};
   };
 
   } // namespace Models

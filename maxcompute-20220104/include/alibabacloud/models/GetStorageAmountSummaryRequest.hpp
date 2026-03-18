@@ -34,32 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->date_ == nullptr
-        && return this->region_ == nullptr && return this->tenantId_ == nullptr; };
+        && this->region_ == nullptr && this->tenantId_ == nullptr; };
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};
-    inline string date() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+    inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
     inline GetStorageAmountSummaryRequest& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline GetStorageAmountSummaryRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline GetStorageAmountSummaryRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
   protected:
-    std::shared_ptr<string> date_ = nullptr;
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<string> tenantId_ = nullptr;
+    // The date for which the statistics are collected. The statistics are collected on a daily basis. Specify the date in the YYYYMMDD format.
+    shared_ptr<string> date_ {};
+    // The region ID.
+    shared_ptr<string> region_ {};
+    // The tenant ID. You can log on to the MaxCompute console and choose **Tenant Management** > **Tenant Properties** in the navigation pane on the left to view the tenant ID.
+    shared_ptr<string> tenantId_ {};
   };
 
   } // namespace Models

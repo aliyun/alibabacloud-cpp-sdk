@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETQUOTASCHEDULERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetQuotaScheduleResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,57 +38,177 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(condition, condition_);
+        DARABONBA_PTR_TO_JSON(id, id_);
+        DARABONBA_PTR_TO_JSON(operator, operator_);
+        DARABONBA_PTR_TO_JSON(plan, plan_);
+        DARABONBA_PTR_TO_JSON(timezone, timezone_);
+        DARABONBA_PTR_TO_JSON(type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(condition, condition_);
+        DARABONBA_PTR_FROM_JSON(id, id_);
+        DARABONBA_PTR_FROM_JSON(operator, operator_);
+        DARABONBA_PTR_FROM_JSON(plan, plan_);
+        DARABONBA_PTR_FROM_JSON(timezone, timezone_);
+        DARABONBA_PTR_FROM_JSON(type, type_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Condition : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Condition& obj) { 
+          DARABONBA_PTR_TO_JSON(after, after_);
+          DARABONBA_PTR_TO_JSON(at, at_);
+        };
+        friend void from_json(const Darabonba::Json& j, Condition& obj) { 
+          DARABONBA_PTR_FROM_JSON(after, after_);
+          DARABONBA_PTR_FROM_JSON(at, at_);
+        };
+        Condition() = default ;
+        Condition(const Condition &) = default ;
+        Condition(Condition &&) = default ;
+        Condition(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Condition() = default ;
+        Condition& operator=(const Condition &) = default ;
+        Condition& operator=(Condition &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->after_ == nullptr
+        && this->at_ == nullptr; };
+        // after Field Functions 
+        bool hasAfter() const { return this->after_ != nullptr;};
+        void deleteAfter() { this->after_ = nullptr;};
+        inline string getAfter() const { DARABONBA_PTR_GET_DEFAULT(after_, "") };
+        inline Condition& setAfter(string after) { DARABONBA_PTR_SET_VALUE(after_, after) };
+
+
+        // at Field Functions 
+        bool hasAt() const { return this->at_ != nullptr;};
+        void deleteAt() { this->at_ = nullptr;};
+        inline string getAt() const { DARABONBA_PTR_GET_DEFAULT(at_, "") };
+        inline Condition& setAt(string at) { DARABONBA_PTR_SET_VALUE(at_, at) };
+
+
+      protected:
+        shared_ptr<string> after_ {};
+        shared_ptr<string> at_ {};
+      };
+
+      virtual bool empty() const override { return this->condition_ == nullptr
+        && this->id_ == nullptr && this->operator_ == nullptr && this->plan_ == nullptr && this->timezone_ == nullptr && this->type_ == nullptr; };
+      // condition Field Functions 
+      bool hasCondition() const { return this->condition_ != nullptr;};
+      void deleteCondition() { this->condition_ = nullptr;};
+      inline const Data::Condition & getCondition() const { DARABONBA_PTR_GET_CONST(condition_, Data::Condition) };
+      inline Data::Condition getCondition() { DARABONBA_PTR_GET(condition_, Data::Condition) };
+      inline Data& setCondition(const Data::Condition & condition) { DARABONBA_PTR_SET_VALUE(condition_, condition) };
+      inline Data& setCondition(Data::Condition && condition) { DARABONBA_PTR_SET_RVALUE(condition_, condition) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline Data& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // operator Field Functions 
+      bool hasOperator() const { return this->operator_ != nullptr;};
+      void deleteOperator() { this->operator_ = nullptr;};
+      inline string getOperator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
+      inline Data& setOperator(string _operator) { DARABONBA_PTR_SET_VALUE(operator_, _operator) };
+
+
+      // plan Field Functions 
+      bool hasPlan() const { return this->plan_ != nullptr;};
+      void deletePlan() { this->plan_ = nullptr;};
+      inline string getPlan() const { DARABONBA_PTR_GET_DEFAULT(plan_, "") };
+      inline Data& setPlan(string plan) { DARABONBA_PTR_SET_VALUE(plan_, plan) };
+
+
+      // timezone Field Functions 
+      bool hasTimezone() const { return this->timezone_ != nullptr;};
+      void deleteTimezone() { this->timezone_ = nullptr;};
+      inline string getTimezone() const { DARABONBA_PTR_GET_DEFAULT(timezone_, "") };
+      inline Data& setTimezone(string timezone) { DARABONBA_PTR_SET_VALUE(timezone_, timezone) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Data& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      shared_ptr<Data::Condition> condition_ {};
+      shared_ptr<string> id_ {};
+      shared_ptr<string> operator_ {};
+      shared_ptr<string> plan_ {};
+      shared_ptr<string> timezone_ {};
+      shared_ptr<string> type_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->errorCode_ == nullptr && return this->errorMsg_ == nullptr && return this->httpCode_ == nullptr && return this->requestId_ == nullptr; };
+        && this->errorCode_ == nullptr && this->errorMsg_ == nullptr && this->httpCode_ == nullptr && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<GetQuotaScheduleResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<GetQuotaScheduleResponseBodyData>) };
-    inline vector<GetQuotaScheduleResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<GetQuotaScheduleResponseBodyData>) };
-    inline GetQuotaScheduleResponseBody& setData(const vector<GetQuotaScheduleResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetQuotaScheduleResponseBody& setData(vector<GetQuotaScheduleResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<GetQuotaScheduleResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<GetQuotaScheduleResponseBody::Data>) };
+    inline vector<GetQuotaScheduleResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<GetQuotaScheduleResponseBody::Data>) };
+    inline GetQuotaScheduleResponseBody& setData(const vector<GetQuotaScheduleResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetQuotaScheduleResponseBody& setData(vector<GetQuotaScheduleResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline GetQuotaScheduleResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorMsg Field Functions 
     bool hasErrorMsg() const { return this->errorMsg_ != nullptr;};
     void deleteErrorMsg() { this->errorMsg_ = nullptr;};
-    inline string errorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
+    inline string getErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
     inline GetQuotaScheduleResponseBody& setErrorMsg(string errorMsg) { DARABONBA_PTR_SET_VALUE(errorMsg_, errorMsg) };
 
 
     // httpCode Field Functions 
     bool hasHttpCode() const { return this->httpCode_ != nullptr;};
     void deleteHttpCode() { this->httpCode_ = nullptr;};
-    inline int32_t httpCode() const { DARABONBA_PTR_GET_DEFAULT(httpCode_, 0) };
+    inline int32_t getHttpCode() const { DARABONBA_PTR_GET_DEFAULT(httpCode_, 0) };
     inline GetQuotaScheduleResponseBody& setHttpCode(int32_t httpCode) { DARABONBA_PTR_SET_VALUE(httpCode_, httpCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetQuotaScheduleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The returned data.
-    std::shared_ptr<vector<GetQuotaScheduleResponseBodyData>> data_ = nullptr;
-    // *   If the value of success was false, an error code was returned.
-    // *   If the value of success was true, a null value was returned.
-    std::shared_ptr<string> errorCode_ = nullptr;
-    // The error message.
-    std::shared_ptr<string> errorMsg_ = nullptr;
-    // Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
-    std::shared_ptr<int32_t> httpCode_ = nullptr;
-    // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<GetQuotaScheduleResponseBody::Data>> data_ {};
+    shared_ptr<string> errorCode_ {};
+    shared_ptr<string> errorMsg_ {};
+    shared_ptr<int32_t> httpCode_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

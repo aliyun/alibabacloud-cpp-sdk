@@ -41,19 +41,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endDate_ == nullptr
-        && return this->projectNames_ == nullptr && return this->region_ == nullptr && return this->startDate_ == nullptr && return this->statsType_ == nullptr && return this->userId_ == nullptr; };
+        && this->projectNames_ == nullptr && this->region_ == nullptr && this->startDate_ == nullptr && this->statsType_ == nullptr && this->userId_ == nullptr; };
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline int64_t endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, 0L) };
+    inline int64_t getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, 0L) };
     inline SumStorageMetricsByDateRequest& setEndDate(int64_t endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // projectNames Field Functions 
     bool hasProjectNames() const { return this->projectNames_ != nullptr;};
     void deleteProjectNames() { this->projectNames_ = nullptr;};
-    inline const vector<string> & projectNames() const { DARABONBA_PTR_GET_CONST(projectNames_, vector<string>) };
-    inline vector<string> projectNames() { DARABONBA_PTR_GET(projectNames_, vector<string>) };
+    inline const vector<string> & getProjectNames() const { DARABONBA_PTR_GET_CONST(projectNames_, vector<string>) };
+    inline vector<string> getProjectNames() { DARABONBA_PTR_GET(projectNames_, vector<string>) };
     inline SumStorageMetricsByDateRequest& setProjectNames(const vector<string> & projectNames) { DARABONBA_PTR_SET_VALUE(projectNames_, projectNames) };
     inline SumStorageMetricsByDateRequest& setProjectNames(vector<string> && projectNames) { DARABONBA_PTR_SET_RVALUE(projectNames_, projectNames) };
 
@@ -61,38 +61,47 @@ namespace Models
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline SumStorageMetricsByDateRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline int64_t startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, 0L) };
+    inline int64_t getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, 0L) };
     inline SumStorageMetricsByDateRequest& setStartDate(int64_t startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
     // statsType Field Functions 
     bool hasStatsType() const { return this->statsType_ != nullptr;};
     void deleteStatsType() { this->statsType_ = nullptr;};
-    inline string statsType() const { DARABONBA_PTR_GET_DEFAULT(statsType_, "") };
+    inline string getStatsType() const { DARABONBA_PTR_GET_DEFAULT(statsType_, "") };
     inline SumStorageMetricsByDateRequest& setStatsType(string statsType) { DARABONBA_PTR_SET_VALUE(statsType_, statsType) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline SumStorageMetricsByDateRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<int64_t> endDate_ = nullptr;
-    std::shared_ptr<vector<string>> projectNames_ = nullptr;
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<int64_t> startDate_ = nullptr;
-    std::shared_ptr<string> statsType_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    // The end date. The value is a millisecond-level timestamp. This parameter is required.
+    shared_ptr<int64_t> endDate_ {};
+    // The project names.
+    shared_ptr<vector<string>> projectNames_ {};
+    // The region ID.
+    shared_ptr<string> region_ {};
+    // The start date. The value is a millisecond-level timestamp. This parameter is required.
+    shared_ptr<int64_t> startDate_ {};
+    // The type of storage usage statistics. This parameter is required. Valid values:
+    // 
+    // - PROJECT
+    // - STORAGE_TYPE
+    shared_ptr<string> statsType_ {};
+    // The user UID.
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

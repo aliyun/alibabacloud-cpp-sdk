@@ -36,42 +36,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->action_ == nullptr
-        && return this->config_ == nullptr && return this->name_ == nullptr && return this->test_ == nullptr; };
+        && this->config_ == nullptr && this->name_ == nullptr && this->test_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
-    inline string action() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+    inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
     inline UpdateMmsDataSourceRequest& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
 
 
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline     const Darabonba::Json & config() const { DARABONBA_GET(config_) };
-    Darabonba::Json & config() { DARABONBA_GET(config_) };
+    inline     const Darabonba::Json & getConfig() const { DARABONBA_GET(config_) };
+    Darabonba::Json & getConfig() { DARABONBA_GET(config_) };
     inline UpdateMmsDataSourceRequest& setConfig(const Darabonba::Json & config) { DARABONBA_SET_VALUE(config_, config) };
-    inline UpdateMmsDataSourceRequest& setConfig(Darabonba::Json & config) { DARABONBA_SET_RVALUE(config_, config) };
+    inline UpdateMmsDataSourceRequest& setConfig(Darabonba::Json && config) { DARABONBA_SET_RVALUE(config_, config) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateMmsDataSourceRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // test Field Functions 
     bool hasTest() const { return this->test_ != nullptr;};
     void deleteTest() { this->test_ = nullptr;};
-    inline bool test() const { DARABONBA_PTR_GET_DEFAULT(test_, false) };
+    inline bool getTest() const { DARABONBA_PTR_GET_DEFAULT(test_, false) };
     inline UpdateMmsDataSourceRequest& setTest(bool test) { DARABONBA_PTR_SET_VALUE(test_, test) };
 
 
   protected:
-    std::shared_ptr<string> action_ = nullptr;
-    Darabonba::Json config_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<bool> test_ = nullptr;
+    // The type of the update operation:
+    // 
+    // 1. UPDATE_CONFIG: updates the data source configuration.
+    // 2. START: starts the data source instance.
+    // 3. STOP: shuts down the data source instance.
+    // 4. RENAME: renames the data source.
+    shared_ptr<string> action_ {};
+    // The data source configuration. The configuration items vary based on the data source.
+    Darabonba::Json config_ {};
+    // The new name of the data source.
+    shared_ptr<string> name_ {};
+    // Tests the data source configuration.
+    shared_ptr<bool> test_ {};
   };
 
   } // namespace Models

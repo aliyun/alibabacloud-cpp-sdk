@@ -32,30 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->objectName_ == nullptr
-        && return this->objectType_ == nullptr; };
+        && this->objectType_ == nullptr; };
     // objectName Field Functions 
     bool hasObjectName() const { return this->objectName_ != nullptr;};
     void deleteObjectName() { this->objectName_ = nullptr;};
-    inline string objectName() const { DARABONBA_PTR_GET_DEFAULT(objectName_, "") };
+    inline string getObjectName() const { DARABONBA_PTR_GET_DEFAULT(objectName_, "") };
     inline GetRoleAclOnObjectRequest& setObjectName(string objectName) { DARABONBA_PTR_SET_VALUE(objectName_, objectName) };
 
 
     // objectType Field Functions 
     bool hasObjectType() const { return this->objectType_ != nullptr;};
     void deleteObjectType() { this->objectType_ = nullptr;};
-    inline string objectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
+    inline string getObjectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
     inline GetRoleAclOnObjectRequest& setObjectType(string objectType) { DARABONBA_PTR_SET_VALUE(objectType_, objectType) };
 
 
   protected:
-    // The name of the object.
-    // 
     // This parameter is required.
-    std::shared_ptr<string> objectName_ = nullptr;
-    // The type of the object.
-    // 
+    shared_ptr<string> objectName_ {};
     // This parameter is required.
-    std::shared_ptr<string> objectType_ = nullptr;
+    shared_ptr<string> objectType_ {};
   };
 
   } // namespace Models

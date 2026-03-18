@@ -36,44 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->marker_ == nullptr
-        && return this->maxItem_ == nullptr && return this->name_ == nullptr && return this->schemaName_ == nullptr; };
+        && this->maxItem_ == nullptr && this->name_ == nullptr && this->schemaName_ == nullptr; };
     // marker Field Functions 
     bool hasMarker() const { return this->marker_ != nullptr;};
     void deleteMarker() { this->marker_ = nullptr;};
-    inline string marker() const { DARABONBA_PTR_GET_DEFAULT(marker_, "") };
+    inline string getMarker() const { DARABONBA_PTR_GET_DEFAULT(marker_, "") };
     inline ListResourcesRequest& setMarker(string marker) { DARABONBA_PTR_SET_VALUE(marker_, marker) };
 
 
     // maxItem Field Functions 
     bool hasMaxItem() const { return this->maxItem_ != nullptr;};
     void deleteMaxItem() { this->maxItem_ = nullptr;};
-    inline int32_t maxItem() const { DARABONBA_PTR_GET_DEFAULT(maxItem_, 0) };
+    inline int32_t getMaxItem() const { DARABONBA_PTR_GET_DEFAULT(maxItem_, 0) };
     inline ListResourcesRequest& setMaxItem(int32_t maxItem) { DARABONBA_PTR_SET_VALUE(maxItem_, maxItem) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListResourcesRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // schemaName Field Functions 
     bool hasSchemaName() const { return this->schemaName_ != nullptr;};
     void deleteSchemaName() { this->schemaName_ = nullptr;};
-    inline string schemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
+    inline string getSchemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
     inline ListResourcesRequest& setSchemaName(string schemaName) { DARABONBA_PTR_SET_VALUE(schemaName_, schemaName) };
 
 
   protected:
-    // Specifies the marker after which the returned list begins.
-    std::shared_ptr<string> marker_ = nullptr;
-    // The maximum number of entries to return on each page.
-    std::shared_ptr<int32_t> maxItem_ = nullptr;
-    // The name of the resource.
-    std::shared_ptr<string> name_ = nullptr;
-    // The name of the schema.
-    std::shared_ptr<string> schemaName_ = nullptr;
+    shared_ptr<string> marker_ {};
+    shared_ptr<int32_t> maxItem_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> schemaName_ {};
   };
 
   } // namespace Models

@@ -93,11 +93,6 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Activate a Quota Plan Immediately.
- *
- * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
- * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
- *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ApplyComputeQuotaPlanResponse
@@ -121,11 +116,6 @@ ApplyComputeQuotaPlanResponse Client::applyComputeQuotaPlanWithOptions(const str
 }
 
 /**
- * @summary Activate a Quota Plan Immediately.
- *
- * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
- * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
- *
  * @return ApplyComputeQuotaPlanResponse
  */
 ApplyComputeQuotaPlanResponse Client::applyComputeQuotaPlan(const string &nickname, const string &planName) {
@@ -135,11 +125,6 @@ ApplyComputeQuotaPlanResponse Client::applyComputeQuotaPlan(const string &nickna
 }
 
 /**
- * @summary Create MaxCompute ComputeQuotaPlan.
- *
- * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
- * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
- *
  * @param request CreateComputeQuotaPlanRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -149,11 +134,11 @@ CreateComputeQuotaPlanResponse Client::createComputeQuotaPlanWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasQuota()) {
-    body["quota"] = request.quota();
+    body["quota"] = request.getQuota();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -175,11 +160,6 @@ CreateComputeQuotaPlanResponse Client::createComputeQuotaPlanWithOptions(const s
 }
 
 /**
- * @summary Create MaxCompute ComputeQuotaPlan.
- *
- * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
- * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
- *
  * @param request CreateComputeQuotaPlanRequest
  * @return CreateComputeQuotaPlanResponse
  */
@@ -190,7 +170,7 @@ CreateComputeQuotaPlanResponse Client::createComputeQuotaPlan(const string &nick
 }
 
 /**
- * @summary CreateMmsDataSource
+ * @summary Creates a data source to migrate data to MaxCompute using MaxCompute Migration Assist (MMA).
  *
  * @param request CreateMmsDataSourceRequest
  * @param headers map
@@ -201,19 +181,19 @@ CreateMmsDataSourceResponse Client::createMmsDataSourceWithOptions(const CreateM
   request.validate();
   json body = {};
   if (!!request.hasConfig()) {
-    body["config"] = request.config();
+    body["config"] = request.getConfig();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasNetworklink()) {
-    body["networklink"] = request.networklink();
+    body["networklink"] = request.getNetworklink();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -235,7 +215,7 @@ CreateMmsDataSourceResponse Client::createMmsDataSourceWithOptions(const CreateM
 }
 
 /**
- * @summary CreateMmsDataSource
+ * @summary Creates a data source to migrate data to MaxCompute using MaxCompute Migration Assist (MMA).
  *
  * @param request CreateMmsDataSourceRequest
  * @return CreateMmsDataSourceResponse
@@ -247,16 +227,28 @@ CreateMmsDataSourceResponse Client::createMmsDataSource(const CreateMmsDataSourc
 }
 
 /**
- * @summary 创建数据源的更新元数据操作
+ * @summary Creates a job to pull metadata from a data source.
  *
+ * @param request CreateMmsFetchMetadataJobRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateMmsFetchMetadataJobResponse
  */
-CreateMmsFetchMetadataJobResponse Client::createMmsFetchMetadataJobWithOptions(const string &sourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+CreateMmsFetchMetadataJobResponse Client::createMmsFetchMetadataJobWithOptions(const string &sourceId, const CreateMmsFetchMetadataJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDbName()) {
+    body["dbName"] = request.getDbName();
+  }
+
+  if (!!request.hasTableNames()) {
+    body["tableNames"] = request.getTableNames();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
-  }).get<map<string, map<string, string>>>());
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "CreateMmsFetchMetadataJob"},
     {"version" , "2022-01-04"},
@@ -272,18 +264,19 @@ CreateMmsFetchMetadataJobResponse Client::createMmsFetchMetadataJobWithOptions(c
 }
 
 /**
- * @summary 创建数据源的更新元数据操作
+ * @summary Creates a job to pull metadata from a data source.
  *
+ * @param request CreateMmsFetchMetadataJobRequest
  * @return CreateMmsFetchMetadataJobResponse
  */
-CreateMmsFetchMetadataJobResponse Client::createMmsFetchMetadataJob(const string &sourceId) {
+CreateMmsFetchMetadataJobResponse Client::createMmsFetchMetadataJob(const string &sourceId, const CreateMmsFetchMetadataJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return createMmsFetchMetadataJobWithOptions(sourceId, headers, runtime);
+  return createMmsFetchMetadataJobWithOptions(sourceId, request, headers, runtime);
 }
 
 /**
- * @summary 创建迁移任务
+ * @summary Creates a data migration task.
  *
  * @param request CreateMmsJobRequest
  * @param headers map
@@ -294,91 +287,91 @@ CreateMmsJobResponse Client::createMmsJobWithOptions(const string &sourceId, con
   request.validate();
   json body = {};
   if (!!request.hasColumnMapping()) {
-    body["columnMapping"] = request.columnMapping();
+    body["columnMapping"] = request.getColumnMapping();
   }
 
   if (!!request.hasDstDbName()) {
-    body["dstDbName"] = request.dstDbName();
+    body["dstDbName"] = request.getDstDbName();
   }
 
   if (!!request.hasDstSchemaName()) {
-    body["dstSchemaName"] = request.dstSchemaName();
+    body["dstSchemaName"] = request.getDstSchemaName();
   }
 
   if (!!request.hasEnableDataMigration()) {
-    body["enableDataMigration"] = request.enableDataMigration();
+    body["enableDataMigration"] = request.getEnableDataMigration();
   }
 
   if (!!request.hasEnableSchemaMigration()) {
-    body["enableSchemaMigration"] = request.enableSchemaMigration();
+    body["enableSchemaMigration"] = request.getEnableSchemaMigration();
   }
 
   if (!!request.hasEnableVerification()) {
-    body["enableVerification"] = request.enableVerification();
+    body["enableVerification"] = request.getEnableVerification();
   }
 
   if (!!request.hasEta()) {
-    body["eta"] = request.eta();
+    body["eta"] = request.getEta();
   }
 
   if (!!request.hasIncrement()) {
-    body["increment"] = request.increment();
+    body["increment"] = request.getIncrement();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasOthers()) {
-    body["others"] = request.others();
+    body["others"] = request.getOthers();
   }
 
   if (!!request.hasPartitionFilters()) {
-    body["partitionFilters"] = request.partitionFilters();
+    body["partitionFilters"] = request.getPartitionFilters();
   }
 
   if (!!request.hasPartitions()) {
-    body["partitions"] = request.partitions();
+    body["partitions"] = request.getPartitions();
   }
 
   if (!!request.hasSchemaOnly()) {
-    body["schemaOnly"] = request.schemaOnly();
+    body["schemaOnly"] = request.getSchemaOnly();
   }
 
   if (!!request.hasSourceId()) {
-    body["sourceId"] = request.sourceId();
+    body["sourceId"] = request.getSourceId();
   }
 
   if (!!request.hasSourceName()) {
-    body["sourceName"] = request.sourceName();
+    body["sourceName"] = request.getSourceName();
   }
 
   if (!!request.hasSrcDbName()) {
-    body["srcDbName"] = request.srcDbName();
+    body["srcDbName"] = request.getSrcDbName();
   }
 
   if (!!request.hasSrcSchemaName()) {
-    body["srcSchemaName"] = request.srcSchemaName();
+    body["srcSchemaName"] = request.getSrcSchemaName();
   }
 
   if (!!request.hasTableBlackList()) {
-    body["tableBlackList"] = request.tableBlackList();
+    body["tableBlackList"] = request.getTableBlackList();
   }
 
   if (!!request.hasTableMapping()) {
-    body["tableMapping"] = request.tableMapping();
+    body["tableMapping"] = request.getTableMapping();
   }
 
   if (!!request.hasTableWhiteList()) {
-    body["tableWhiteList"] = request.tableWhiteList();
+    body["tableWhiteList"] = request.getTableWhiteList();
   }
 
   if (!!request.hasTables()) {
-    body["tables"] = request.tables();
+    body["tables"] = request.getTables();
   }
 
   if (!!request.hasTaskType()) {
-    body["taskType"] = request.taskType();
+    body["taskType"] = request.getTaskType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -400,7 +393,7 @@ CreateMmsJobResponse Client::createMmsJobWithOptions(const string &sourceId, con
 }
 
 /**
- * @summary 创建迁移任务
+ * @summary Creates a data migration task.
  *
  * @param request CreateMmsJobRequest
  * @return CreateMmsJobResponse
@@ -412,8 +405,6 @@ CreateMmsJobResponse Client::createMmsJob(const string &sourceId, const CreateMm
 }
 
 /**
- * @summary Creates a package.
- *
  * @param request CreatePackageRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -423,13 +414,13 @@ CreatePackageResponse Client::createPackageWithOptions(const string &projectName
   request.validate();
   json query = {};
   if (!!request.hasIsInstall()) {
-    query["isInstall"] = request.isInstall();
+    query["isInstall"] = request.getIsInstall();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "CreatePackage"},
@@ -446,8 +437,6 @@ CreatePackageResponse Client::createPackageWithOptions(const string &projectName
 }
 
 /**
- * @summary Creates a package.
- *
  * @param request CreatePackageRequest
  * @return CreatePackageResponse
  */
@@ -458,7 +447,7 @@ CreatePackageResponse Client::createPackage(const string &projectName, const Cre
 }
 
 /**
- * @summary Creates a MaxCompute project.
+ * @summary 创建项目
  *
  * @param request CreateProjectRequest
  * @param headers map
@@ -469,7 +458,7 @@ CreateProjectResponse Client::createProjectWithOptions(const CreateProjectReques
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "CreateProject"},
@@ -486,7 +475,7 @@ CreateProjectResponse Client::createProjectWithOptions(const CreateProjectReques
 }
 
 /**
- * @summary Creates a MaxCompute project.
+ * @summary 创建项目
  *
  * @param request CreateProjectRequest
  * @return CreateProjectResponse
@@ -498,8 +487,67 @@ CreateProjectResponse Client::createProject(const CreateProjectRequest &request)
 }
 
 /**
- * @summary Creates a quota plan.
+ * @summary Creates a quota. When you enable MaxCompute for the first time, a pay-as-you-go quota must be created. If you create a subscription quota, your Alibaba Cloud account is automatically charged.
  *
+ * @description **Before using this operation, review the MaxCompute billing model and [pricing](https://www.aliyun.com/product/maxcompute/pricing?spm=5176.30275541.J_ZGek9Blx07Hclc3Ddt9dg.2.19502f3dPPfezu\\&scm=20140722.S_card@@%E4%BA%A7%E5%93%81@@143540.S_new~UND~card.ID_card@@%E4%BA%A7%E5%93%81@@143540-RL_MaxCompute-LOC_2024SPSearchCard-OR_ser-PAR1_213c994b17738148516424527d0d07-V_4-RE_new9-P0_0-P1_0).**
+ *
+ * @param request CreateQuotaRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateQuotaResponse
+ */
+CreateQuotaResponse Client::createQuotaWithOptions(const CreateQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChargeType()) {
+    query["chargeType"] = request.getChargeType();
+  }
+
+  if (!!request.hasCommodityCode()) {
+    query["commodityCode"] = request.getCommodityCode();
+  }
+
+  if (!!request.hasCommodityData()) {
+    query["commodityData"] = request.getCommodityData();
+  }
+
+  if (!!request.hasPartNickName()) {
+    query["partNickName"] = request.getPartNickName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateQuota"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateQuotaResponse>();
+}
+
+/**
+ * @summary Creates a quota. When you enable MaxCompute for the first time, a pay-as-you-go quota must be created. If you create a subscription quota, your Alibaba Cloud account is automatically charged.
+ *
+ * @description **Before using this operation, review the MaxCompute billing model and [pricing](https://www.aliyun.com/product/maxcompute/pricing?spm=5176.30275541.J_ZGek9Blx07Hclc3Ddt9dg.2.19502f3dPPfezu\\&scm=20140722.S_card@@%E4%BA%A7%E5%93%81@@143540.S_new~UND~card.ID_card@@%E4%BA%A7%E5%93%81@@143540-RL_MaxCompute-LOC_2024SPSearchCard-OR_ser-PAR1_213c994b17738148516424527d0d07-V_4-RE_new9-P0_0-P1_0).**
+ *
+ * @param request CreateQuotaRequest
+ * @return CreateQuotaResponse
+ */
+CreateQuotaResponse Client::createQuota(const CreateQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createQuotaWithOptions(request, headers, runtime);
+}
+
+/**
  * @param request CreateQuotaPlanRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -509,17 +557,17 @@ CreateQuotaPlanResponse Client::createQuotaPlanWithOptions(const string &nicknam
   request.validate();
   json query = {};
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "CreateQuotaPlan"},
@@ -536,8 +584,6 @@ CreateQuotaPlanResponse Client::createQuotaPlanWithOptions(const string &nicknam
 }
 
 /**
- * @summary Creates a quota plan.
- *
  * @param request CreateQuotaPlanRequest
  * @return CreateQuotaPlanResponse
  */
@@ -548,8 +594,6 @@ CreateQuotaPlanResponse Client::createQuotaPlan(const string &nickname, const Cr
 }
 
 /**
- * @summary Creates a role at the MaxCompute project level.
- *
  * @param request CreateRoleRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -559,7 +603,7 @@ CreateRoleResponse Client::createRoleWithOptions(const string &projectName, cons
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "CreateRole"},
@@ -576,8 +620,6 @@ CreateRoleResponse Client::createRoleWithOptions(const string &projectName, cons
 }
 
 /**
- * @summary Creates a role at the MaxCompute project level.
- *
  * @param request CreateRoleRequest
  * @return CreateRoleResponse
  */
@@ -588,8 +630,6 @@ CreateRoleResponse Client::createRole(const string &projectName, const CreateRol
 }
 
 /**
- * @summary Delete MaxCompute compute quota plan.
- *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteComputeQuotaPlanResponse
@@ -613,8 +653,6 @@ DeleteComputeQuotaPlanResponse Client::deleteComputeQuotaPlanWithOptions(const s
 }
 
 /**
- * @summary Delete MaxCompute compute quota plan.
- *
  * @return DeleteComputeQuotaPlanResponse
  */
 DeleteComputeQuotaPlanResponse Client::deleteComputeQuotaPlan(const string &nickname, const string &planName) {
@@ -624,7 +662,7 @@ DeleteComputeQuotaPlanResponse Client::deleteComputeQuotaPlan(const string &nick
 }
 
 /**
- * @summary 删除数据源
+ * @summary Deletes a MaxCompute Migration Assist (MMA) data source and its associated migration plans and metadata.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -649,7 +687,7 @@ DeleteMmsDataSourceResponse Client::deleteMmsDataSourceWithOptions(const string 
 }
 
 /**
- * @summary 删除数据源
+ * @summary Deletes a MaxCompute Migration Assist (MMA) data source and its associated migration plans and metadata.
  *
  * @return DeleteMmsDataSourceResponse
  */
@@ -660,7 +698,7 @@ DeleteMmsDataSourceResponse Client::deleteMmsDataSource(const string &sourceId) 
 }
 
 /**
- * @summary 删除迁移计划
+ * @summary Deletes a MaxCompute Migration Assist (MMA) data migration plan.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -685,7 +723,7 @@ DeleteMmsJobResponse Client::deleteMmsJobWithOptions(const string &sourceId, con
 }
 
 /**
- * @summary 删除迁移计划
+ * @summary Deletes a MaxCompute Migration Assist (MMA) data migration plan.
  *
  * @return DeleteMmsJobResponse
  */
@@ -696,7 +734,7 @@ DeleteMmsJobResponse Client::deleteMmsJob(const string &sourceId, const string &
 }
 
 /**
- * @summary Deletes a MaxCompute project.
+ * @summary Deletes a MaxCompute project. This operation is irreversible. Use this API with caution.
  *
  * @param request DeleteProjectRequest
  * @param headers map
@@ -707,7 +745,7 @@ DeleteProjectResponse Client::deleteProjectWithOptions(const string &projectName
   request.validate();
   json query = {};
   if (!!request.hasIsLogical()) {
-    query["isLogical"] = request.isLogical();
+    query["isLogical"] = request.getIsLogical();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -729,7 +767,7 @@ DeleteProjectResponse Client::deleteProjectWithOptions(const string &projectName
 }
 
 /**
- * @summary Deletes a MaxCompute project.
+ * @summary Deletes a MaxCompute project. This operation is irreversible. Use this API with caution.
  *
  * @param request DeleteProjectRequest
  * @return DeleteProjectResponse
@@ -741,8 +779,6 @@ DeleteProjectResponse Client::deleteProject(const string &projectName, const Del
 }
 
 /**
- * @summary Deletes a quota plan.
- *
  * @param request DeleteQuotaPlanRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -752,11 +788,11 @@ DeleteQuotaPlanResponse Client::deleteQuotaPlanWithOptions(const string &nicknam
   request.validate();
   json query = {};
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -778,8 +814,6 @@ DeleteQuotaPlanResponse Client::deleteQuotaPlanWithOptions(const string &nicknam
 }
 
 /**
- * @summary Deletes a quota plan.
- *
  * @param request DeleteQuotaPlanRequest
  * @return DeleteQuotaPlanResponse
  */
@@ -790,8 +824,6 @@ DeleteQuotaPlanResponse Client::deleteQuotaPlan(const string &nickname, const st
 }
 
 /**
- * @summary GetComputeEffectivePlan.
- *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetComputeEffectivePlanResponse
@@ -815,8 +847,6 @@ GetComputeEffectivePlanResponse Client::getComputeEffectivePlanWithOptions(const
 }
 
 /**
- * @summary GetComputeEffectivePlan.
- *
  * @return GetComputeEffectivePlanResponse
  */
 GetComputeEffectivePlanResponse Client::getComputeEffectivePlan(const string &nickname) {
@@ -826,8 +856,6 @@ GetComputeEffectivePlanResponse Client::getComputeEffectivePlan(const string &ni
 }
 
 /**
- * @summary Get detailed information of a single compute quota plan.
- *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetComputeQuotaPlanResponse
@@ -851,8 +879,6 @@ GetComputeQuotaPlanResponse Client::getComputeQuotaPlanWithOptions(const string 
 }
 
 /**
- * @summary Get detailed information of a single compute quota plan.
- *
  * @return GetComputeQuotaPlanResponse
  */
 GetComputeQuotaPlanResponse Client::getComputeQuotaPlan(const string &nickname, const string &planName) {
@@ -862,8 +888,6 @@ GetComputeQuotaPlanResponse Client::getComputeQuotaPlan(const string &nickname, 
 }
 
 /**
- * @summary Displays the time-specific configuration of compute quota.
- *
  * @param request GetComputeQuotaScheduleRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -873,7 +897,7 @@ GetComputeQuotaScheduleResponse Client::getComputeQuotaScheduleWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasDisplayTimezone()) {
-    query["displayTimezone"] = request.displayTimezone();
+    query["displayTimezone"] = request.getDisplayTimezone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -895,8 +919,6 @@ GetComputeQuotaScheduleResponse Client::getComputeQuotaScheduleWithOptions(const
 }
 
 /**
- * @summary Displays the time-specific configuration of compute quota.
- *
  * @param request GetComputeQuotaScheduleRequest
  * @return GetComputeQuotaScheduleResponse
  */
@@ -907,8 +929,6 @@ GetComputeQuotaScheduleResponse Client::getComputeQuotaSchedule(const string &ni
 }
 
 /**
- * @summary Queries the basic information about a job.
- *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetJobInfoResponse
@@ -932,8 +952,6 @@ GetJobInfoResponse Client::getJobInfoWithOptions(const string &instanceId, const
 }
 
 /**
- * @summary Queries the basic information about a job.
- *
  * @return GetJobInfoResponse
  */
 GetJobInfoResponse Client::getJobInfo(const string &instanceId) {
@@ -943,8 +961,6 @@ GetJobInfoResponse Client::getJobInfo(const string &instanceId) {
 }
 
 /**
- * @summary Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
- *
  * @param tmpReq GetJobResourceUsageRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -955,32 +971,32 @@ GetJobResourceUsageResponse Client::getJobResourceUsageWithOptions(const GetJobR
   GetJobResourceUsageShrinkRequest request = GetJobResourceUsageShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasJobOwnerList()) {
-    request.setJobOwnerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.jobOwnerList(), "jobOwnerList", "simple"));
+    request.setJobOwnerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobOwnerList(), "jobOwnerList", "simple"));
   }
 
   if (!!tmpReq.hasQuotaNicknameList()) {
-    request.setQuotaNicknameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.quotaNicknameList(), "quotaNicknameList", "simple"));
+    request.setQuotaNicknameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQuotaNicknameList(), "quotaNicknameList", "simple"));
   }
 
   json query = {};
   if (!!request.hasDate()) {
-    query["date"] = request.date();
+    query["date"] = request.getDate();
   }
 
   if (!!request.hasJobOwnerListShrink()) {
-    query["jobOwnerList"] = request.jobOwnerListShrink();
+    query["jobOwnerList"] = request.getJobOwnerListShrink();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQuotaNicknameListShrink()) {
-    query["quotaNicknameList"] = request.quotaNicknameListShrink();
+    query["quotaNicknameList"] = request.getQuotaNicknameListShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1002,8 +1018,6 @@ GetJobResourceUsageResponse Client::getJobResourceUsageWithOptions(const GetJobR
 }
 
 /**
- * @summary Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
- *
  * @param request GetJobResourceUsageRequest
  * @return GetJobResourceUsageResponse
  */
@@ -1014,7 +1028,7 @@ GetJobResourceUsageResponse Client::getJobResourceUsage(const GetJobResourceUsag
 }
 
 /**
- * @summary GetMmsAsyncTask
+ * @summary Retrieves a single asynchronous task from MaxCompute Migration Assist (MMA).
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1039,7 +1053,7 @@ GetMmsAsyncTaskResponse Client::getMmsAsyncTaskWithOptions(const string &sourceI
 }
 
 /**
- * @summary GetMmsAsyncTask
+ * @summary Retrieves a single asynchronous task from MaxCompute Migration Assist (MMA).
  *
  * @return GetMmsAsyncTaskResponse
  */
@@ -1050,7 +1064,7 @@ GetMmsAsyncTaskResponse Client::getMmsAsyncTask(const string &sourceId, const st
 }
 
 /**
- * @summary 获取数据源
+ * @summary Retrieves the details of a single MaxCompute Migration Assist (MMA) data source.
  *
  * @param request GetMmsDataSourceRequest
  * @param headers map
@@ -1061,11 +1075,11 @@ GetMmsDataSourceResponse Client::getMmsDataSourceWithOptions(const string &sourc
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["lang"] = request.lang();
+    query["lang"] = request.getLang();
   }
 
   if (!!request.hasWithConfig()) {
-    query["withConfig"] = request.withConfig();
+    query["withConfig"] = request.getWithConfig();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1087,7 +1101,7 @@ GetMmsDataSourceResponse Client::getMmsDataSourceWithOptions(const string &sourc
 }
 
 /**
- * @summary 获取数据源
+ * @summary Retrieves the details of a single MaxCompute Migration Assist (MMA) data source.
  *
  * @param request GetMmsDataSourceRequest
  * @return GetMmsDataSourceResponse
@@ -1099,7 +1113,7 @@ GetMmsDataSourceResponse Client::getMmsDataSource(const string &sourceId, const 
 }
 
 /**
- * @summary GetMmsDb
+ * @summary Retrieves a database from a MaxCompute Migration Assist (MMA) data source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1124,7 +1138,7 @@ GetMmsDbResponse Client::getMmsDbWithOptions(const string &sourceId, const strin
 }
 
 /**
- * @summary GetMmsDb
+ * @summary Retrieves a database from a MaxCompute Migration Assist (MMA) data source.
  *
  * @return GetMmsDbResponse
  */
@@ -1135,7 +1149,7 @@ GetMmsDbResponse Client::getMmsDb(const string &sourceId, const string &dbId) {
 }
 
 /**
- * @summary GetMmsFetchMetadataJob
+ * @summary Retrieves the details of a MaxCompute Migration Assist (MMA) job that fetches metadata.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1160,7 +1174,7 @@ GetMmsFetchMetadataJobResponse Client::getMmsFetchMetadataJobWithOptions(const s
 }
 
 /**
- * @summary GetMmsFetchMetadataJob
+ * @summary Retrieves the details of a MaxCompute Migration Assist (MMA) job that fetches metadata.
  *
  * @return GetMmsFetchMetadataJobResponse
  */
@@ -1171,7 +1185,7 @@ GetMmsFetchMetadataJobResponse Client::getMmsFetchMetadataJob(const string &sour
 }
 
 /**
- * @summary 获取迁移计划
+ * @summary Retrieves the details of a single MaxCompute Migration Assist (MMA) migration plan.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1196,7 +1210,7 @@ GetMmsJobResponse Client::getMmsJobWithOptions(const string &sourceId, const str
 }
 
 /**
- * @summary 获取迁移计划
+ * @summary Retrieves the details of a single MaxCompute Migration Assist (MMA) migration plan.
  *
  * @return GetMmsJobResponse
  */
@@ -1207,7 +1221,7 @@ GetMmsJobResponse Client::getMmsJob(const string &sourceId, const string &jobId)
 }
 
 /**
- * @summary GetMmsPartition
+ * @summary Retrieves a partition from a MaxCompute Migration Assist (MMA) data source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1232,7 +1246,7 @@ GetMmsPartitionResponse Client::getMmsPartitionWithOptions(const string &sourceI
 }
 
 /**
- * @summary GetMmsPartition
+ * @summary Retrieves a partition from a MaxCompute Migration Assist (MMA) data source.
  *
  * @return GetMmsPartitionResponse
  */
@@ -1243,7 +1257,7 @@ GetMmsPartitionResponse Client::getMmsPartition(const string &sourceId, const st
 }
 
 /**
- * @summary GetMmsTable
+ * @summary Retrieves a table from a MaxCompute Migration Assist (MMA) data source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1268,7 +1282,7 @@ GetMmsTableResponse Client::getMmsTableWithOptions(const string &sourceId, const
 }
 
 /**
- * @summary GetMmsTable
+ * @summary Retrieves a table from a MaxCompute Migration Assist (MMA) data source.
  *
  * @return GetMmsTableResponse
  */
@@ -1279,7 +1293,7 @@ GetMmsTableResponse Client::getMmsTable(const string &sourceId, const string &ta
 }
 
 /**
- * @summary GetMmsTask
+ * @summary Retrieves the details of a specific migration task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1304,7 +1318,7 @@ GetMmsTaskResponse Client::getMmsTaskWithOptions(const string &sourceId, const s
 }
 
 /**
- * @summary GetMmsTask
+ * @summary Retrieves the details of a specific migration task.
  *
  * @return GetMmsTaskResponse
  */
@@ -1315,8 +1329,6 @@ GetMmsTaskResponse Client::getMmsTask(const string &sourceId, const string &task
 }
 
 /**
- * @summary Obtains the information about a package.
- *
  * @param request GetPackageRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1326,7 +1338,7 @@ GetPackageResponse Client::getPackageWithOptions(const string &projectName, cons
   request.validate();
   json query = {};
   if (!!request.hasSourceProject()) {
-    query["sourceProject"] = request.sourceProject();
+    query["sourceProject"] = request.getSourceProject();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1348,8 +1360,6 @@ GetPackageResponse Client::getPackageWithOptions(const string &projectName, cons
 }
 
 /**
- * @summary Obtains the information about a package.
- *
  * @param request GetPackageRequest
  * @return GetPackageResponse
  */
@@ -1360,7 +1370,7 @@ GetPackageResponse Client::getPackage(const string &projectName, const string &p
 }
 
 /**
- * @summary Queries the information about a MaxCompute project.
+ * @summary Queries the basic information about a MaxCompute project.
  *
  * @param request GetProjectRequest
  * @param headers map
@@ -1371,15 +1381,15 @@ GetProjectResponse Client::getProjectWithOptions(const string &projectName, cons
   request.validate();
   json query = {};
   if (!!request.hasVerbose()) {
-    query["verbose"] = request.verbose();
+    query["verbose"] = request.getVerbose();
   }
 
   if (!!request.hasWithQuotaProductType()) {
-    query["withQuotaProductType"] = request.withQuotaProductType();
+    query["withQuotaProductType"] = request.getWithQuotaProductType();
   }
 
   if (!!request.hasWithStorageTierInfo()) {
-    query["withStorageTierInfo"] = request.withStorageTierInfo();
+    query["withStorageTierInfo"] = request.getWithStorageTierInfo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1401,7 +1411,7 @@ GetProjectResponse Client::getProjectWithOptions(const string &projectName, cons
 }
 
 /**
- * @summary Queries the information about a MaxCompute project.
+ * @summary Queries the basic information about a MaxCompute project.
  *
  * @param request GetProjectRequest
  * @return GetProjectResponse
@@ -1413,7 +1423,7 @@ GetProjectResponse Client::getProject(const string &projectName, const GetProjec
 }
 
 /**
- * @summary Obtains the information about a specified level-1 quota.
+ * @summary Retrieve information for the specified level-1 quota group. Warning: This operation will be decommissioned on July 31, 2024. It will be replaced by the `QueryQuota` operation. The request parameters, response parameters, and features of the two operations are the same.
  *
  * @param request GetQuotaRequest
  * @param headers map
@@ -1424,19 +1434,19 @@ GetQuotaResponse Client::getQuotaWithOptions(const string &nickname, const GetQu
   request.validate();
   json query = {};
   if (!!request.hasAkProven()) {
-    query["AkProven"] = request.akProven();
+    query["AkProven"] = request.getAkProven();
   }
 
   if (!!request.hasMock()) {
-    query["mock"] = request.mock();
+    query["mock"] = request.getMock();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1458,7 +1468,7 @@ GetQuotaResponse Client::getQuotaWithOptions(const string &nickname, const GetQu
 }
 
 /**
- * @summary Obtains the information about a specified level-1 quota.
+ * @summary Retrieve information for the specified level-1 quota group. Warning: This operation will be decommissioned on July 31, 2024. It will be replaced by the `QueryQuota` operation. The request parameters, response parameters, and features of the two operations are the same.
  *
  * @param request GetQuotaRequest
  * @return GetQuotaResponse
@@ -1470,8 +1480,6 @@ GetQuotaResponse Client::getQuota(const string &nickname, const GetQuotaRequest 
 }
 
 /**
- * @summary Obtains the information of a quota plan.
- *
  * @param request GetQuotaPlanRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1481,11 +1489,11 @@ GetQuotaPlanResponse Client::getQuotaPlanWithOptions(const string &nickname, con
   request.validate();
   json query = {};
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1507,8 +1515,6 @@ GetQuotaPlanResponse Client::getQuotaPlanWithOptions(const string &nickname, con
 }
 
 /**
- * @summary Obtains the information of a quota plan.
- *
  * @param request GetQuotaPlanRequest
  * @return GetQuotaPlanResponse
  */
@@ -1519,8 +1525,6 @@ GetQuotaPlanResponse Client::getQuotaPlan(const string &nickname, const string &
 }
 
 /**
- * @summary Obtains the scheduling plan for a quota plan.
- *
  * @param request GetQuotaScheduleRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1530,15 +1534,15 @@ GetQuotaScheduleResponse Client::getQuotaScheduleWithOptions(const string &nickn
   request.validate();
   json query = {};
   if (!!request.hasDisplayTimezone()) {
-    query["displayTimezone"] = request.displayTimezone();
+    query["displayTimezone"] = request.getDisplayTimezone();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1560,8 +1564,6 @@ GetQuotaScheduleResponse Client::getQuotaScheduleWithOptions(const string &nickn
 }
 
 /**
- * @summary Obtains the scheduling plan for a quota plan.
- *
  * @param request GetQuotaScheduleRequest
  * @return GetQuotaScheduleResponse
  */
@@ -1572,8 +1574,6 @@ GetQuotaScheduleResponse Client::getQuotaSchedule(const string &nickname, const 
 }
 
 /**
- * @summary Queries quota resource consumption information.
- *
  * @param tmpReq GetQuotaUsageRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1584,48 +1584,48 @@ GetQuotaUsageResponse Client::getQuotaUsageWithOptions(const string &nickname, c
   GetQuotaUsageShrinkRequest request = GetQuotaUsageShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPlotTypes()) {
-    request.setPlotTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.plotTypes(), "plotTypes", "simple"));
+    request.setPlotTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPlotTypes(), "plotTypes", "simple"));
   }
 
   if (!!tmpReq.hasYAxisTypes()) {
-    request.setYAxisTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.yAxisTypes(), "yAxisTypes", "simple"));
+    request.setYAxisTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getYAxisTypes(), "yAxisTypes", "simple"));
   }
 
   json query = {};
   if (!!request.hasAggMethod()) {
-    query["aggMethod"] = request.aggMethod();
+    query["aggMethod"] = request.getAggMethod();
   }
 
   if (!!request.hasFrom()) {
-    query["from"] = request.from();
+    query["from"] = request.getFrom();
   }
 
   if (!!request.hasPlotTypesShrink()) {
-    query["plotTypes"] = request.plotTypesShrink();
+    query["plotTypes"] = request.getPlotTypesShrink();
   }
 
   if (!!request.hasProductId()) {
-    query["productId"] = request.productId();
+    query["productId"] = request.getProductId();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasSubQuotaNickname()) {
-    query["subQuotaNickname"] = request.subQuotaNickname();
+    query["subQuotaNickname"] = request.getSubQuotaNickname();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   if (!!request.hasTo()) {
-    query["to"] = request.to();
+    query["to"] = request.getTo();
   }
 
   if (!!request.hasYAxisTypesShrink()) {
-    query["yAxisTypes"] = request.yAxisTypesShrink();
+    query["yAxisTypes"] = request.getYAxisTypesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1647,8 +1647,6 @@ GetQuotaUsageResponse Client::getQuotaUsageWithOptions(const string &nickname, c
 }
 
 /**
- * @summary Queries quota resource consumption information.
- *
  * @param request GetQuotaUsageRequest
  * @return GetQuotaUsageResponse
  */
@@ -1659,8 +1657,6 @@ GetQuotaUsageResponse Client::getQuotaUsage(const string &nickname, const GetQuo
 }
 
 /**
- * @summary Obtains the ACL-based permissions that is granted to a project-level role.
- *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRoleAclResponse
@@ -1684,8 +1680,6 @@ GetRoleAclResponse Client::getRoleAclWithOptions(const string &projectName, cons
 }
 
 /**
- * @summary Obtains the ACL-based permissions that is granted to a project-level role.
- *
  * @return GetRoleAclResponse
  */
 GetRoleAclResponse Client::getRoleAcl(const string &projectName, const string &roleName) {
@@ -1695,8 +1689,6 @@ GetRoleAclResponse Client::getRoleAcl(const string &projectName, const string &r
 }
 
 /**
- * @summary Obtains ACL-based permissions on an object that are granted to a project-level role.
- *
  * @param request GetRoleAclOnObjectRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1706,11 +1698,11 @@ GetRoleAclOnObjectResponse Client::getRoleAclOnObjectWithOptions(const string &p
   request.validate();
   json query = {};
   if (!!request.hasObjectName()) {
-    query["objectName"] = request.objectName();
+    query["objectName"] = request.getObjectName();
   }
 
   if (!!request.hasObjectType()) {
-    query["objectType"] = request.objectType();
+    query["objectType"] = request.getObjectType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1732,8 +1724,6 @@ GetRoleAclOnObjectResponse Client::getRoleAclOnObjectWithOptions(const string &p
 }
 
 /**
- * @summary Obtains ACL-based permissions on an object that are granted to a project-level role.
- *
  * @param request GetRoleAclOnObjectRequest
  * @return GetRoleAclOnObjectResponse
  */
@@ -1744,8 +1734,6 @@ GetRoleAclOnObjectResponse Client::getRoleAclOnObject(const string &projectName,
 }
 
 /**
- * @summary Obtains the policy that is attached to a project-level role.
- *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRolePolicyResponse
@@ -1769,8 +1757,6 @@ GetRolePolicyResponse Client::getRolePolicyWithOptions(const string &projectName
 }
 
 /**
- * @summary Obtains the policy that is attached to a project-level role.
- *
  * @return GetRolePolicyResponse
  */
 GetRolePolicyResponse Client::getRolePolicy(const string &projectName, const string &roleName) {
@@ -1780,8 +1766,6 @@ GetRolePolicyResponse Client::getRolePolicy(const string &projectName, const str
 }
 
 /**
- * @summary Obtains the running state data of jobs that are in the running state in a specified period of time.
- *
  * @param tmpReq GetRunningJobsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1792,36 +1776,36 @@ GetRunningJobsResponse Client::getRunningJobsWithOptions(const GetRunningJobsReq
   GetRunningJobsShrinkRequest request = GetRunningJobsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasJobOwnerList()) {
-    request.setJobOwnerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.jobOwnerList(), "jobOwnerList", "simple"));
+    request.setJobOwnerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobOwnerList(), "jobOwnerList", "simple"));
   }
 
   if (!!tmpReq.hasQuotaNicknameList()) {
-    request.setQuotaNicknameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.quotaNicknameList(), "quotaNicknameList", "simple"));
+    request.setQuotaNicknameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQuotaNicknameList(), "quotaNicknameList", "simple"));
   }
 
   json query = {};
   if (!!request.hasFrom()) {
-    query["from"] = request.from();
+    query["from"] = request.getFrom();
   }
 
   if (!!request.hasJobOwnerListShrink()) {
-    query["jobOwnerList"] = request.jobOwnerListShrink();
+    query["jobOwnerList"] = request.getJobOwnerListShrink();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQuotaNicknameListShrink()) {
-    query["quotaNicknameList"] = request.quotaNicknameListShrink();
+    query["quotaNicknameList"] = request.getQuotaNicknameListShrink();
   }
 
   if (!!request.hasTo()) {
-    query["to"] = request.to();
+    query["to"] = request.getTo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1843,8 +1827,6 @@ GetRunningJobsResponse Client::getRunningJobsWithOptions(const GetRunningJobsReq
 }
 
 /**
- * @summary Obtains the running state data of jobs that are in the running state in a specified period of time.
- *
  * @param request GetRunningJobsRequest
  * @return GetRunningJobsResponse
  */
@@ -1855,6 +1837,8 @@ GetRunningJobsResponse Client::getRunningJobs(const GetRunningJobsRequest &reque
 }
 
 /**
+ * @summary Retrieves a summary of the total storage amount.
+ *
  * @param request GetStorageAmountSummaryRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1864,15 +1848,15 @@ GetStorageAmountSummaryResponse Client::getStorageAmountSummaryWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasDate()) {
-    query["date"] = request.date();
+    query["date"] = request.getDate();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1894,6 +1878,8 @@ GetStorageAmountSummaryResponse Client::getStorageAmountSummaryWithOptions(const
 }
 
 /**
+ * @summary Retrieves a summary of the total storage amount.
+ *
  * @param request GetStorageAmountSummaryRequest
  * @return GetStorageAmountSummaryResponse
  */
@@ -1904,6 +1890,8 @@ GetStorageAmountSummaryResponse Client::getStorageAmountSummary(const GetStorage
 }
 
 /**
+ * @summary Retrieves a summary of storage usage.
+ *
  * @param request GetStorageSizeSummaryRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1913,15 +1901,15 @@ GetStorageSizeSummaryResponse Client::getStorageSizeSummaryWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasDate()) {
-    query["date"] = request.date();
+    query["date"] = request.getDate();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1943,6 +1931,8 @@ GetStorageSizeSummaryResponse Client::getStorageSizeSummaryWithOptions(const Get
 }
 
 /**
+ * @summary Retrieves a summary of storage usage.
+ *
  * @param request GetStorageSizeSummaryRequest
  * @return GetStorageSizeSummaryResponse
  */
@@ -1953,6 +1943,8 @@ GetStorageSizeSummaryResponse Client::getStorageSizeSummary(const GetStorageSize
 }
 
 /**
+ * @summary Retrieves the year-on-year (YoY) change in storage usage.
+ *
  * @param tmpReq GetStorageSummaryComparedRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1963,28 +1955,28 @@ GetStorageSummaryComparedResponse Client::getStorageSummaryComparedWithOptions(c
   GetStorageSummaryComparedShrinkRequest request = GetStorageSummaryComparedShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasProjects()) {
-    request.setProjectsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.projects(), "projects", "simple"));
+    request.setProjectsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProjects(), "projects", "simple"));
   }
 
   json query = {};
   if (!!request.hasBeginDate()) {
-    query["beginDate"] = request.beginDate();
+    query["beginDate"] = request.getBeginDate();
   }
 
   if (!!request.hasEndDate()) {
-    query["endDate"] = request.endDate();
+    query["endDate"] = request.getEndDate();
   }
 
   if (!!request.hasProjectsShrink()) {
-    query["projects"] = request.projectsShrink();
+    query["projects"] = request.getProjectsShrink();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2006,6 +1998,8 @@ GetStorageSummaryComparedResponse Client::getStorageSummaryComparedWithOptions(c
 }
 
 /**
+ * @summary Retrieves the year-on-year (YoY) change in storage usage.
+ *
  * @param request GetStorageSummaryComparedRequest
  * @return GetStorageSummaryComparedResponse
  */
@@ -2016,8 +2010,6 @@ GetStorageSummaryComparedResponse Client::getStorageSummaryCompared(const string
 }
 
 /**
- * @summary Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
- *
  * @param request GetTableInfoRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2027,11 +2019,11 @@ GetTableInfoResponse Client::getTableInfoWithOptions(const string &projectName, 
   request.validate();
   json query = {};
   if (!!request.hasSchemaName()) {
-    query["schemaName"] = request.schemaName();
+    query["schemaName"] = request.getSchemaName();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2053,8 +2045,6 @@ GetTableInfoResponse Client::getTableInfoWithOptions(const string &projectName, 
 }
 
 /**
- * @summary Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
- *
  * @param request GetTableInfoRequest
  * @return GetTableInfoResponse
  */
@@ -2065,8 +2055,6 @@ GetTableInfoResponse Client::getTableInfo(const string &projectName, const strin
 }
 
 /**
- * @summary Obtains the trusted projects of the current project.
- *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetTrustedProjectsResponse
@@ -2090,8 +2078,6 @@ GetTrustedProjectsResponse Client::getTrustedProjectsWithOptions(const string &p
 }
 
 /**
- * @summary Obtains the trusted projects of the current project.
- *
  * @return GetTrustedProjectsResponse
  */
 GetTrustedProjectsResponse Client::getTrustedProjects(const string &projectName) {
@@ -2101,8 +2087,6 @@ GetTrustedProjectsResponse Client::getTrustedProjects(const string &projectName)
 }
 
 /**
- * @summary Terminates a running job.
- *
  * @param request KillJobsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2112,17 +2096,17 @@ KillJobsResponse Client::killJobsWithOptions(const KillJobsRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "KillJobs"},
@@ -2139,8 +2123,6 @@ KillJobsResponse Client::killJobsWithOptions(const KillJobsRequest &request, con
 }
 
 /**
- * @summary Terminates a running job.
- *
  * @param request KillJobsRequest
  * @return KillJobsResponse
  */
@@ -2151,8 +2133,6 @@ KillJobsResponse Client::killJobs(const KillJobsRequest &request) {
 }
 
 /**
- * @summary Get compute usage of pay-as-you-go jobs.
- *
  * @param request ListComputeMetricsByInstanceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2162,47 +2142,47 @@ ListComputeMetricsByInstanceResponse Client::listComputeMetricsByInstanceWithOpt
   request.validate();
   json body = {};
   if (!!request.hasEndDate()) {
-    body["endDate"] = request.endDate();
+    body["endDate"] = request.getEndDate();
   }
 
   if (!!request.hasInstanceId()) {
-    body["instanceId"] = request.instanceId();
+    body["instanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasJobOwner()) {
-    body["jobOwner"] = request.jobOwner();
+    body["jobOwner"] = request.getJobOwner();
   }
 
   if (!!request.hasPageNumber()) {
-    body["pageNumber"] = request.pageNumber();
+    body["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["pageSize"] = request.pageSize();
+    body["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectNames()) {
-    body["projectNames"] = request.projectNames();
+    body["projectNames"] = request.getProjectNames();
   }
 
   if (!!request.hasRegion()) {
-    body["region"] = request.region();
+    body["region"] = request.getRegion();
   }
 
   if (!!request.hasSignature()) {
-    body["signature"] = request.signature();
+    body["signature"] = request.getSignature();
   }
 
   if (!!request.hasSpecCodes()) {
-    body["specCodes"] = request.specCodes();
+    body["specCodes"] = request.getSpecCodes();
   }
 
   if (!!request.hasStartDate()) {
-    body["startDate"] = request.startDate();
+    body["startDate"] = request.getStartDate();
   }
 
   if (!!request.hasTypes()) {
-    body["types"] = request.types();
+    body["types"] = request.getTypes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2224,8 +2204,6 @@ ListComputeMetricsByInstanceResponse Client::listComputeMetricsByInstanceWithOpt
 }
 
 /**
- * @summary Get compute usage of pay-as-you-go jobs.
- *
  * @param request ListComputeMetricsByInstanceRequest
  * @return ListComputeMetricsByInstanceResponse
  */
@@ -2236,7 +2214,7 @@ ListComputeMetricsByInstanceResponse Client::listComputeMetricsByInstance(const 
 }
 
 /**
- * @summary Get computeQuotaPlan list.
+ * @summary Lists compute quota plans.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2261,7 +2239,7 @@ ListComputeQuotaPlanResponse Client::listComputeQuotaPlanWithOptions(const strin
 }
 
 /**
- * @summary Get computeQuotaPlan list.
+ * @summary Lists compute quota plans.
  *
  * @return ListComputeQuotaPlanResponse
  */
@@ -2272,8 +2250,6 @@ ListComputeQuotaPlanResponse Client::listComputeQuotaPlan(const string &nickname
 }
 
 /**
- * @summary Obtains functions in a MaxCompute project.
- *
  * @param request ListFunctionsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2283,19 +2259,19 @@ ListFunctionsResponse Client::listFunctionsWithOptions(const string &projectName
   request.validate();
   json query = {};
   if (!!request.hasMarker()) {
-    query["marker"] = request.marker();
+    query["marker"] = request.getMarker();
   }
 
   if (!!request.hasMaxItem()) {
-    query["maxItem"] = request.maxItem();
+    query["maxItem"] = request.getMaxItem();
   }
 
   if (!!request.hasPrefix()) {
-    query["prefix"] = request.prefix();
+    query["prefix"] = request.getPrefix();
   }
 
   if (!!request.hasSchemaName()) {
-    query["schemaName"] = request.schemaName();
+    query["schemaName"] = request.getSchemaName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2317,8 +2293,6 @@ ListFunctionsResponse Client::listFunctionsWithOptions(const string &projectName
 }
 
 /**
- * @summary Obtains functions in a MaxCompute project.
- *
  * @param request ListFunctionsRequest
  * @return ListFunctionsResponse
  */
@@ -2329,7 +2303,7 @@ ListFunctionsResponse Client::listFunctions(const string &projectName, const Lis
 }
 
 /**
- * @summary Views a list of jobs.
+ * @summary Retrieves a list of jobs.
  *
  * @param request ListJobInfosRequest
  * @param headers map
@@ -2340,92 +2314,92 @@ ListJobInfosResponse Client::listJobInfosWithOptions(const ListJobInfosRequest &
   request.validate();
   json query = {};
   if (!!request.hasAscOrder()) {
-    query["ascOrder"] = request.ascOrder();
+    query["ascOrder"] = request.getAscOrder();
   }
 
   if (!!request.hasOrderColumn()) {
-    query["orderColumn"] = request.orderColumn();
+    query["orderColumn"] = request.getOrderColumn();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   json body = {};
   if (!!request.hasExtNodeIdList()) {
-    body["extNodeIdList"] = request.extNodeIdList();
+    body["extNodeIdList"] = request.getExtNodeIdList();
   }
 
   if (!!request.hasExtNodeNameList()) {
-    body["extNodeNameList"] = request.extNodeNameList();
+    body["extNodeNameList"] = request.getExtNodeNameList();
   }
 
   if (!!request.hasFrom()) {
-    body["from"] = request.from();
+    body["from"] = request.getFrom();
   }
 
   if (!!request.hasInstanceIdList()) {
-    body["instanceIdList"] = request.instanceIdList();
+    body["instanceIdList"] = request.getInstanceIdList();
   }
 
   if (!!request.hasJobOwnerList()) {
-    body["jobOwnerList"] = request.jobOwnerList();
+    body["jobOwnerList"] = request.getJobOwnerList();
   }
 
   if (!!request.hasPriorityList()) {
-    body["priorityList"] = request.priorityList();
+    body["priorityList"] = request.getPriorityList();
   }
 
   if (!!request.hasProjectList()) {
-    body["projectList"] = request.projectList();
+    body["projectList"] = request.getProjectList();
   }
 
   if (!!request.hasQuotaNickname()) {
-    body["quotaNickname"] = request.quotaNickname();
+    body["quotaNickname"] = request.getQuotaNickname();
   }
 
   if (!!request.hasSceneTagList()) {
-    body["sceneTagList"] = request.sceneTagList();
+    body["sceneTagList"] = request.getSceneTagList();
   }
 
   if (!!request.hasSignatureList()) {
-    body["signatureList"] = request.signatureList();
+    body["signatureList"] = request.getSignatureList();
   }
 
   if (!!request.hasSortByList()) {
-    body["sortByList"] = request.sortByList();
+    body["sortByList"] = request.getSortByList();
   }
 
   if (!!request.hasSortOrderList()) {
-    body["sortOrderList"] = request.sortOrderList();
+    body["sortOrderList"] = request.getSortOrderList();
   }
 
   if (!!request.hasStatusList()) {
-    body["statusList"] = request.statusList();
+    body["statusList"] = request.getStatusList();
   }
 
   if (!!request.hasTaskNameList()) {
-    body["taskNameList"] = request.taskNameList();
+    body["taskNameList"] = request.getTaskNameList();
   }
 
   if (!!request.hasTo()) {
-    body["to"] = request.to();
+    body["to"] = request.getTo();
   }
 
   if (!!request.hasTypeList()) {
-    body["typeList"] = request.typeList();
+    body["typeList"] = request.getTypeList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2448,7 +2422,7 @@ ListJobInfosResponse Client::listJobInfosWithOptions(const ListJobInfosRequest &
 }
 
 /**
- * @summary Views a list of jobs.
+ * @summary Retrieves a list of jobs.
  *
  * @param request ListJobInfosRequest
  * @return ListJobInfosResponse
@@ -2460,8 +2434,6 @@ ListJobInfosResponse Client::listJobInfos(const ListJobInfosRequest &request) {
 }
 
 /**
- * @summary Retrieve performance metrics for completed jobs.
- *
  * @param request ListJobMetricRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2471,36 +2443,36 @@ ListJobMetricResponse Client::listJobMetricWithOptions(const ListJobMetricReques
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["endTime"] = request.endTime();
+    query["endTime"] = request.getEndTime();
   }
 
   if (!!request.hasStartTime()) {
-    query["startTime"] = request.startTime();
+    query["startTime"] = request.getStartTime();
   }
 
   json body = {};
   if (!!request.hasGroup()) {
-    body["group"] = request.group();
+    body["group"] = request.getGroup();
   }
 
   if (!!request.hasMetric()) {
-    body["metric"] = request.metric();
+    body["metric"] = request.getMetric();
   }
 
   if (!!request.hasPeriod()) {
-    body["period"] = request.period();
+    body["period"] = request.getPeriod();
   }
 
   if (!!request.hasProject()) {
-    body["project"] = request.project();
+    body["project"] = request.getProject();
   }
 
   if (!!request.hasQuota()) {
-    body["quota"] = request.quota();
+    body["quota"] = request.getQuota();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2523,8 +2495,6 @@ ListJobMetricResponse Client::listJobMetricWithOptions(const ListJobMetricReques
 }
 
 /**
- * @summary Retrieve performance metrics for completed jobs.
- *
  * @param request ListJobMetricRequest
  * @return ListJobMetricResponse
  */
@@ -2535,7 +2505,7 @@ ListJobMetricResponse Client::listJobMetric(const ListJobMetricRequest &request)
 }
 
 /**
- * @summary Views a list of job snapshot data at a specific point in time.
+ * @summary Retrieves job snapshot data at a specific point in time.
  *
  * @param request ListJobSnapshotInfosRequest
  * @param headers map
@@ -2546,80 +2516,80 @@ ListJobSnapshotInfosResponse Client::listJobSnapshotInfosWithOptions(const ListJ
   request.validate();
   json query = {};
   if (!!request.hasAscOrder()) {
-    query["ascOrder"] = request.ascOrder();
+    query["ascOrder"] = request.getAscOrder();
   }
 
   if (!!request.hasOrderColumn()) {
-    query["orderColumn"] = request.orderColumn();
+    query["orderColumn"] = request.getOrderColumn();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   json body = {};
   if (!!request.hasExtNodeIdList()) {
-    body["extNodeIdList"] = request.extNodeIdList();
+    body["extNodeIdList"] = request.getExtNodeIdList();
   }
 
   if (!!request.hasFrom()) {
-    body["from"] = request.from();
+    body["from"] = request.getFrom();
   }
 
   if (!!request.hasInstanceIdList()) {
-    body["instanceIdList"] = request.instanceIdList();
+    body["instanceIdList"] = request.getInstanceIdList();
   }
 
   if (!!request.hasJobOwnerList()) {
-    body["jobOwnerList"] = request.jobOwnerList();
+    body["jobOwnerList"] = request.getJobOwnerList();
   }
 
   if (!!request.hasPriorityList()) {
-    body["priorityList"] = request.priorityList();
+    body["priorityList"] = request.getPriorityList();
   }
 
   if (!!request.hasProjectList()) {
-    body["projectList"] = request.projectList();
+    body["projectList"] = request.getProjectList();
   }
 
   if (!!request.hasQuotaNickname()) {
-    body["quotaNickname"] = request.quotaNickname();
+    body["quotaNickname"] = request.getQuotaNickname();
   }
 
   if (!!request.hasSignatureList()) {
-    body["signatureList"] = request.signatureList();
+    body["signatureList"] = request.getSignatureList();
   }
 
   if (!!request.hasSortByList()) {
-    body["sortByList"] = request.sortByList();
+    body["sortByList"] = request.getSortByList();
   }
 
   if (!!request.hasSortOrderList()) {
-    body["sortOrderList"] = request.sortOrderList();
+    body["sortOrderList"] = request.getSortOrderList();
   }
 
   if (!!request.hasStatusList()) {
-    body["statusList"] = request.statusList();
+    body["statusList"] = request.getStatusList();
   }
 
   if (!!request.hasTo()) {
-    body["to"] = request.to();
+    body["to"] = request.getTo();
   }
 
   if (!!request.hasTypeList()) {
-    body["typeList"] = request.typeList();
+    body["typeList"] = request.getTypeList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2642,7 +2612,7 @@ ListJobSnapshotInfosResponse Client::listJobSnapshotInfosWithOptions(const ListJ
 }
 
 /**
- * @summary Views a list of job snapshot data at a specific point in time.
+ * @summary Retrieves job snapshot data at a specific point in time.
  *
  * @param request ListJobSnapshotInfosRequest
  * @return ListJobSnapshotInfosResponse
@@ -2654,7 +2624,7 @@ ListJobSnapshotInfosResponse Client::listJobSnapshotInfos(const ListJobSnapshotI
 }
 
 /**
- * @summary ListMmsDataSources
+ * @summary Lists the MaxCompute Migration Assist (MMA) data sources.
  *
  * @param request ListMmsDataSourcesRequest
  * @param headers map
@@ -2665,23 +2635,23 @@ ListMmsDataSourcesResponse Client::listMmsDataSourcesWithOptions(const ListMmsDa
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   if (!!request.hasPageNum()) {
-    query["pageNum"] = request.pageNum();
+    query["pageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2703,7 +2673,7 @@ ListMmsDataSourcesResponse Client::listMmsDataSourcesWithOptions(const ListMmsDa
 }
 
 /**
- * @summary ListMmsDataSources
+ * @summary Lists the MaxCompute Migration Assist (MMA) data sources.
  *
  * @param request ListMmsDataSourcesRequest
  * @return ListMmsDataSourcesResponse
@@ -2715,7 +2685,7 @@ ListMmsDataSourcesResponse Client::listMmsDataSources(const ListMmsDataSourcesRe
 }
 
 /**
- * @summary 获取一个数据源内“库”列表
+ * @summary List databases in the MMA data source.
  *
  * @param tmpReq ListMmsDbsRequest
  * @param headers map
@@ -2727,28 +2697,28 @@ ListMmsDbsResponse Client::listMmsDbsWithOptions(const string &sourceId, const L
   ListMmsDbsShrinkRequest request = ListMmsDbsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSorter()) {
-    request.setSorterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sorter(), "sorter", "json"));
+    request.setSorterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSorter(), "sorter", "json"));
   }
 
   json query = {};
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   if (!!request.hasPageNum()) {
-    query["pageNum"] = request.pageNum();
+    query["pageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSorterShrink()) {
-    query["sorter"] = request.sorterShrink();
+    query["sorter"] = request.getSorterShrink();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2770,7 +2740,7 @@ ListMmsDbsResponse Client::listMmsDbsWithOptions(const string &sourceId, const L
 }
 
 /**
- * @summary 获取一个数据源内“库”列表
+ * @summary List databases in the MMA data source.
  *
  * @param request ListMmsDbsRequest
  * @return ListMmsDbsResponse
@@ -2782,7 +2752,7 @@ ListMmsDbsResponse Client::listMmsDbs(const string &sourceId, const ListMmsDbsRe
 }
 
 /**
- * @summary ListMmsJobs
+ * @summary Lists migration jobs.
  *
  * @param request ListMmsJobsRequest
  * @param headers map
@@ -2793,47 +2763,47 @@ ListMmsJobsResponse Client::listMmsJobsWithOptions(const string &sourceId, const
   request.validate();
   json query = {};
   if (!!request.hasDstDbName()) {
-    query["dstDbName"] = request.dstDbName();
+    query["dstDbName"] = request.getDstDbName();
   }
 
   if (!!request.hasDstTableName()) {
-    query["dstTableName"] = request.dstTableName();
+    query["dstTableName"] = request.getDstTableName();
   }
 
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   if (!!request.hasPageNum()) {
-    query["pageNum"] = request.pageNum();
+    query["pageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSrcDbName()) {
-    query["srcDbName"] = request.srcDbName();
+    query["srcDbName"] = request.getSrcDbName();
   }
 
   if (!!request.hasSrcTableName()) {
-    query["srcTableName"] = request.srcTableName();
+    query["srcTableName"] = request.getSrcTableName();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasStopped()) {
-    query["stopped"] = request.stopped();
+    query["stopped"] = request.getStopped();
   }
 
   if (!!request.hasTimerId()) {
-    query["timerId"] = request.timerId();
+    query["timerId"] = request.getTimerId();
   }
 
   if (!!request.hasSorter()) {
-    query["sorter"] = request.sorter();
+    query["sorter"] = request.getSorter();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2855,7 +2825,7 @@ ListMmsJobsResponse Client::listMmsJobsWithOptions(const string &sourceId, const
 }
 
 /**
- * @summary ListMmsJobs
+ * @summary Lists migration jobs.
  *
  * @param request ListMmsJobsRequest
  * @return ListMmsJobsResponse
@@ -2867,7 +2837,7 @@ ListMmsJobsResponse Client::listMmsJobs(const string &sourceId, const ListMmsJob
 }
 
 /**
- * @summary 获取元数据-分区
+ * @summary Lists the partitions in a MaxCompute Migration Assist (MMA) data source.
  *
  * @param tmpReq ListMmsPartitionsRequest
  * @param headers map
@@ -2879,56 +2849,56 @@ ListMmsPartitionsResponse Client::listMmsPartitionsWithOptions(const string &sou
   ListMmsPartitionsShrinkRequest request = ListMmsPartitionsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasStatus()) {
-    request.setStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.status(), "status", "json"));
+    request.setStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatus(), "status", "json"));
   }
 
   json query = {};
   if (!!request.hasDbId()) {
-    query["dbId"] = request.dbId();
+    query["dbId"] = request.getDbId();
   }
 
   if (!!request.hasDbName()) {
-    query["dbName"] = request.dbName();
+    query["dbName"] = request.getDbName();
   }
 
   if (!!request.hasLastDdlTimeEnd()) {
-    query["lastDdlTimeEnd"] = request.lastDdlTimeEnd();
+    query["lastDdlTimeEnd"] = request.getLastDdlTimeEnd();
   }
 
   if (!!request.hasLastDdlTimeStart()) {
-    query["lastDdlTimeStart"] = request.lastDdlTimeStart();
+    query["lastDdlTimeStart"] = request.getLastDdlTimeStart();
   }
 
   if (!!request.hasPageNum()) {
-    query["pageNum"] = request.pageNum();
+    query["pageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatusShrink()) {
-    query["status"] = request.statusShrink();
+    query["status"] = request.getStatusShrink();
   }
 
   if (!!request.hasTableId()) {
-    query["tableId"] = request.tableId();
+    query["tableId"] = request.getTableId();
   }
 
   if (!!request.hasTableName()) {
-    query["tableName"] = request.tableName();
+    query["tableName"] = request.getTableName();
   }
 
   if (!!request.hasUpdated()) {
-    query["updated"] = request.updated();
+    query["updated"] = request.getUpdated();
   }
 
   if (!!request.hasValue()) {
-    query["value"] = request.value();
+    query["value"] = request.getValue();
   }
 
   if (!!request.hasSorter()) {
-    query["sorter"] = request.sorter();
+    query["sorter"] = request.getSorter();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2950,7 +2920,7 @@ ListMmsPartitionsResponse Client::listMmsPartitionsWithOptions(const string &sou
 }
 
 /**
- * @summary 获取元数据-分区
+ * @summary Lists the partitions in a MaxCompute Migration Assist (MMA) data source.
  *
  * @param request ListMmsPartitionsRequest
  * @return ListMmsPartitionsResponse
@@ -2962,7 +2932,7 @@ ListMmsPartitionsResponse Client::listMmsPartitions(const string &sourceId, cons
 }
 
 /**
- * @summary ListMmsTables
+ * @summary Lists the tables in a MaxCompute Migration Assist (MMA) data source.
  *
  * @param tmpReq ListMmsTablesRequest
  * @param headers map
@@ -2974,68 +2944,68 @@ ListMmsTablesResponse Client::listMmsTablesWithOptions(const string &sourceId, c
   ListMmsTablesShrinkRequest request = ListMmsTablesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasStatus()) {
-    request.setStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.status(), "status", "json"));
+    request.setStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatus(), "status", "json"));
   }
 
   json query = {};
   if (!!request.hasDbId()) {
-    query["dbId"] = request.dbId();
+    query["dbId"] = request.getDbId();
   }
 
   if (!!request.hasDbName()) {
-    query["dbName"] = request.dbName();
+    query["dbName"] = request.getDbName();
   }
 
   if (!!request.hasDstName()) {
-    query["dstName"] = request.dstName();
+    query["dstName"] = request.getDstName();
   }
 
   if (!!request.hasDstProjectName()) {
-    query["dstProjectName"] = request.dstProjectName();
+    query["dstProjectName"] = request.getDstProjectName();
   }
 
   if (!!request.hasDstSchemaName()) {
-    query["dstSchemaName"] = request.dstSchemaName();
+    query["dstSchemaName"] = request.getDstSchemaName();
   }
 
   if (!!request.hasHasPartitions()) {
-    query["hasPartitions"] = request.hasPartitions();
+    query["hasPartitions"] = request.getHasPartitions();
   }
 
   if (!!request.hasLastDdlTimeEnd()) {
-    query["lastDdlTimeEnd"] = request.lastDdlTimeEnd();
+    query["lastDdlTimeEnd"] = request.getLastDdlTimeEnd();
   }
 
   if (!!request.hasLastDdlTimeStart()) {
-    query["lastDdlTimeStart"] = request.lastDdlTimeStart();
+    query["lastDdlTimeStart"] = request.getLastDdlTimeStart();
   }
 
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   if (!!request.hasOnlyName()) {
-    query["onlyName"] = request.onlyName();
+    query["onlyName"] = request.getOnlyName();
   }
 
   if (!!request.hasPageNum()) {
-    query["pageNum"] = request.pageNum();
+    query["pageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatusShrink()) {
-    query["status"] = request.statusShrink();
+    query["status"] = request.getStatusShrink();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   if (!!request.hasSorter()) {
-    query["sorter"] = request.sorter();
+    query["sorter"] = request.getSorter();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3057,7 +3027,7 @@ ListMmsTablesResponse Client::listMmsTablesWithOptions(const string &sourceId, c
 }
 
 /**
- * @summary ListMmsTables
+ * @summary Lists the tables in a MaxCompute Migration Assist (MMA) data source.
  *
  * @param request ListMmsTablesRequest
  * @return ListMmsTablesResponse
@@ -3069,7 +3039,7 @@ ListMmsTablesResponse Client::listMmsTables(const string &sourceId, const ListMm
 }
 
 /**
- * @summary ListMmsTaskLogs
+ * @summary Lists the execution logs for a specific migration task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3094,7 +3064,7 @@ ListMmsTaskLogsResponse Client::listMmsTaskLogsWithOptions(const string &sourceI
 }
 
 /**
- * @summary ListMmsTaskLogs
+ * @summary Lists the execution logs for a specific migration task.
  *
  * @return ListMmsTaskLogsResponse
  */
@@ -3105,7 +3075,7 @@ ListMmsTaskLogsResponse Client::listMmsTaskLogs(const string &sourceId, const st
 }
 
 /**
- * @summary ListMmsTasks
+ * @summary Retrieves a list of migration tasks.
  *
  * @param request ListMmsTasksRequest
  * @param headers map
@@ -3116,47 +3086,47 @@ ListMmsTasksResponse Client::listMmsTasksWithOptions(const string &sourceId, con
   request.validate();
   json query = {};
   if (!!request.hasDstDbName()) {
-    query["dstDbName"] = request.dstDbName();
+    query["dstDbName"] = request.getDstDbName();
   }
 
   if (!!request.hasDstTableName()) {
-    query["dstTableName"] = request.dstTableName();
+    query["dstTableName"] = request.getDstTableName();
   }
 
   if (!!request.hasJobId()) {
-    query["jobId"] = request.jobId();
+    query["jobId"] = request.getJobId();
   }
 
   if (!!request.hasJobName()) {
-    query["jobName"] = request.jobName();
+    query["jobName"] = request.getJobName();
   }
 
   if (!!request.hasPageNum()) {
-    query["pageNum"] = request.pageNum();
+    query["pageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPartition()) {
-    query["partition"] = request.partition();
+    query["partition"] = request.getPartition();
   }
 
   if (!!request.hasSrcDbName()) {
-    query["srcDbName"] = request.srcDbName();
+    query["srcDbName"] = request.getSrcDbName();
   }
 
   if (!!request.hasSrcTableName()) {
-    query["srcTableName"] = request.srcTableName();
+    query["srcTableName"] = request.getSrcTableName();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasSorter()) {
-    query["sorter"] = request.sorter();
+    query["sorter"] = request.getSorter();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3178,7 +3148,7 @@ ListMmsTasksResponse Client::listMmsTasksWithOptions(const string &sourceId, con
 }
 
 /**
- * @summary ListMmsTasks
+ * @summary Retrieves a list of migration tasks.
  *
  * @param request ListMmsTasksRequest
  * @return ListMmsTasksResponse
@@ -3190,8 +3160,6 @@ ListMmsTasksResponse Client::listMmsTasks(const string &sourceId, const ListMmsT
 }
 
 /**
- * @summary Queries the packages in a MaxCompute project.
- *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListPackagesResponse
@@ -3215,8 +3183,6 @@ ListPackagesResponse Client::listPackagesWithOptions(const string &projectName, 
 }
 
 /**
- * @summary Queries the packages in a MaxCompute project.
- *
  * @return ListPackagesResponse
  */
 ListPackagesResponse Client::listPackages(const string &projectName) {
@@ -3226,7 +3192,7 @@ ListPackagesResponse Client::listPackages(const string &projectName) {
 }
 
 /**
- * @summary Queries a list of users in a project.
+ * @summary ListProjectUsers
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3251,7 +3217,7 @@ ListProjectUsersResponse Client::listProjectUsersWithOptions(const string &proje
 }
 
 /**
- * @summary Queries a list of users in a project.
+ * @summary ListProjectUsers
  *
  * @return ListProjectUsersResponse
  */
@@ -3262,8 +3228,6 @@ ListProjectUsersResponse Client::listProjectUsers(const string &projectName) {
 }
 
 /**
- * @summary Queries a list of MaxCompute projects.
- *
  * @param request ListProjectsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3273,43 +3237,43 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
   request.validate();
   json query = {};
   if (!!request.hasListSystemCatalog()) {
-    query["listSystemCatalog"] = request.listSystemCatalog();
+    query["listSystemCatalog"] = request.getListSystemCatalog();
   }
 
   if (!!request.hasMarker()) {
-    query["marker"] = request.marker();
+    query["marker"] = request.getMarker();
   }
 
   if (!!request.hasMaxItem()) {
-    query["maxItem"] = request.maxItem();
+    query["maxItem"] = request.getMaxItem();
   }
 
   if (!!request.hasPrefix()) {
-    query["prefix"] = request.prefix();
+    query["prefix"] = request.getPrefix();
   }
 
   if (!!request.hasQuotaName()) {
-    query["quotaName"] = request.quotaName();
+    query["quotaName"] = request.getQuotaName();
   }
 
   if (!!request.hasQuotaNickName()) {
-    query["quotaNickName"] = request.quotaNickName();
+    query["quotaNickName"] = request.getQuotaNickName();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasSaleTags()) {
-    query["saleTags"] = request.saleTags();
+    query["saleTags"] = request.getSaleTags();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3331,8 +3295,6 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
 }
 
 /**
- * @summary Queries a list of MaxCompute projects.
- *
  * @param request ListProjectsRequest
  * @return ListProjectsResponse
  */
@@ -3343,7 +3305,7 @@ ListProjectsResponse Client::listProjects(const ListProjectsRequest &request) {
 }
 
 /**
- * @summary Queries quotas.
+ * @summary Retrieves a list of quotas.
  *
  * @param request ListQuotasRequest
  * @param headers map
@@ -3354,31 +3316,31 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasBillingType()) {
-    query["billingType"] = request.billingType();
+    query["billingType"] = request.getBillingType();
   }
 
   if (!!request.hasMarker()) {
-    query["marker"] = request.marker();
+    query["marker"] = request.getMarker();
   }
 
   if (!!request.hasMaxItem()) {
-    query["maxItem"] = request.maxItem();
+    query["maxItem"] = request.getMaxItem();
   }
 
   if (!!request.hasProductId()) {
-    query["productId"] = request.productId();
+    query["productId"] = request.getProductId();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasSaleTags()) {
-    query["saleTags"] = request.saleTags();
+    query["saleTags"] = request.getSaleTags();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3400,7 +3362,7 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
 }
 
 /**
- * @summary Queries quotas.
+ * @summary Retrieves a list of quotas.
  *
  * @param request ListQuotasRequest
  * @return ListQuotasResponse
@@ -3412,8 +3374,6 @@ ListQuotasResponse Client::listQuotas(const ListQuotasRequest &request) {
 }
 
 /**
- * @summary Obtains quota plans.
- *
  * @param request ListQuotasPlansRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3423,11 +3383,11 @@ ListQuotasPlansResponse Client::listQuotasPlansWithOptions(const string &nicknam
   request.validate();
   json query = {};
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3449,8 +3409,6 @@ ListQuotasPlansResponse Client::listQuotasPlansWithOptions(const string &nicknam
 }
 
 /**
- * @summary Obtains quota plans.
- *
  * @param request ListQuotasPlansRequest
  * @return ListQuotasPlansResponse
  */
@@ -3461,8 +3419,6 @@ ListQuotasPlansResponse Client::listQuotasPlans(const string &nickname, const Li
 }
 
 /**
- * @summary Obtains resources in a MaxCompute project.
- *
  * @param request ListResourcesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3472,19 +3428,19 @@ ListResourcesResponse Client::listResourcesWithOptions(const string &projectName
   request.validate();
   json query = {};
   if (!!request.hasMarker()) {
-    query["marker"] = request.marker();
+    query["marker"] = request.getMarker();
   }
 
   if (!!request.hasMaxItem()) {
-    query["maxItem"] = request.maxItem();
+    query["maxItem"] = request.getMaxItem();
   }
 
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   if (!!request.hasSchemaName()) {
-    query["schemaName"] = request.schemaName();
+    query["schemaName"] = request.getSchemaName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3506,8 +3462,6 @@ ListResourcesResponse Client::listResourcesWithOptions(const string &projectName
 }
 
 /**
- * @summary Obtains resources in a MaxCompute project.
- *
  * @param request ListResourcesRequest
  * @return ListResourcesResponse
  */
@@ -3518,8 +3472,6 @@ ListResourcesResponse Client::listResources(const string &projectName, const Lis
 }
 
 /**
- * @summary Obtains MaxCompute project-level roles.
- *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRolesResponse
@@ -3543,8 +3495,6 @@ ListRolesResponse Client::listRolesWithOptions(const string &projectName, const 
 }
 
 /**
- * @summary Obtains MaxCompute project-level roles.
- *
  * @return ListRolesResponse
  */
 ListRolesResponse Client::listRoles(const string &projectName) {
@@ -3554,8 +3504,6 @@ ListRolesResponse Client::listRoles(const string &projectName) {
 }
 
 /**
- * @summary Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
- *
  * @param tmpReq ListStoragePartitionsInfoRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3566,48 +3514,48 @@ ListStoragePartitionsInfoResponse Client::listStoragePartitionsInfoWithOptions(c
   ListStoragePartitionsInfoShrinkRequest request = ListStoragePartitionsInfoShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTypes()) {
-    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.types(), "types", "json"));
+    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypes(), "types", "json"));
   }
 
   json query = {};
   if (!!request.hasAscOrder()) {
-    query["ascOrder"] = request.ascOrder();
+    query["ascOrder"] = request.getAscOrder();
   }
 
   if (!!request.hasDate()) {
-    query["date"] = request.date();
+    query["date"] = request.getDate();
   }
 
   if (!!request.hasOrderColumn()) {
-    query["orderColumn"] = request.orderColumn();
+    query["orderColumn"] = request.getOrderColumn();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPartitionPrefix()) {
-    query["partitionPrefix"] = request.partitionPrefix();
+    query["partitionPrefix"] = request.getPartitionPrefix();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasSchema()) {
-    query["schema"] = request.schema();
+    query["schema"] = request.getSchema();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   if (!!request.hasTypesShrink()) {
-    query["types"] = request.typesShrink();
+    query["types"] = request.getTypesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3629,8 +3577,6 @@ ListStoragePartitionsInfoResponse Client::listStoragePartitionsInfoWithOptions(c
 }
 
 /**
- * @summary Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
- *
  * @param request ListStoragePartitionsInfoRequest
  * @return ListStoragePartitionsInfoResponse
  */
@@ -3641,6 +3587,8 @@ ListStoragePartitionsInfoResponse Client::listStoragePartitionsInfo(const string
 }
 
 /**
+ * @summary Retrieves the storage details of projects.
+ *
  * @param request ListStorageProjectsInfoRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3650,39 +3598,39 @@ ListStorageProjectsInfoResponse Client::listStorageProjectsInfoWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAscOrder()) {
-    query["ascOrder"] = request.ascOrder();
+    query["ascOrder"] = request.getAscOrder();
   }
 
   if (!!request.hasDate()) {
-    query["date"] = request.date();
+    query["date"] = request.getDate();
   }
 
   if (!!request.hasOrderColumn()) {
-    query["orderColumn"] = request.orderColumn();
+    query["orderColumn"] = request.getOrderColumn();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectPrefix()) {
-    query["projectPrefix"] = request.projectPrefix();
+    query["projectPrefix"] = request.getProjectPrefix();
   }
 
   if (!!request.hasRecentDays()) {
-    query["recentDays"] = request.recentDays();
+    query["recentDays"] = request.getRecentDays();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3704,6 +3652,8 @@ ListStorageProjectsInfoResponse Client::listStorageProjectsInfoWithOptions(const
 }
 
 /**
+ * @summary Retrieves the storage details of projects.
+ *
  * @param request ListStorageProjectsInfoRequest
  * @return ListStorageProjectsInfoResponse
  */
@@ -3714,8 +3664,6 @@ ListStorageProjectsInfoResponse Client::listStorageProjectsInfo(const ListStorag
 }
 
 /**
- * @summary Queries the table storage details of a MaxCompute project.
- *
  * @param tmpReq ListStorageTablesInfoRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3726,52 +3674,52 @@ ListStorageTablesInfoResponse Client::listStorageTablesInfoWithOptions(const str
   ListStorageTablesInfoShrinkRequest request = ListStorageTablesInfoShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTypes()) {
-    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.types(), "types", "simple"));
+    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypes(), "types", "simple"));
   }
 
   json query = {};
   if (!!request.hasAscOrder()) {
-    query["ascOrder"] = request.ascOrder();
+    query["ascOrder"] = request.getAscOrder();
   }
 
   if (!!request.hasDate()) {
-    query["date"] = request.date();
+    query["date"] = request.getDate();
   }
 
   if (!!request.hasOrderColumn()) {
-    query["orderColumn"] = request.orderColumn();
+    query["orderColumn"] = request.getOrderColumn();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRecentDays()) {
-    query["recentDays"] = request.recentDays();
+    query["recentDays"] = request.getRecentDays();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasSchema()) {
-    query["schema"] = request.schema();
+    query["schema"] = request.getSchema();
   }
 
   if (!!request.hasTablePrefix()) {
-    query["tablePrefix"] = request.tablePrefix();
+    query["tablePrefix"] = request.getTablePrefix();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   if (!!request.hasTypesShrink()) {
-    query["types"] = request.typesShrink();
+    query["types"] = request.getTypesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3793,8 +3741,6 @@ ListStorageTablesInfoResponse Client::listStorageTablesInfoWithOptions(const str
 }
 
 /**
- * @summary Queries the table storage details of a MaxCompute project.
- *
  * @param request ListStorageTablesInfoRequest
  * @return ListStorageTablesInfoResponse
  */
@@ -3805,8 +3751,6 @@ ListStorageTablesInfoResponse Client::listStorageTablesInfo(const string &projec
 }
 
 /**
- * @summary Obtains tables in a MaxCompute project.
- *
  * @param request ListTablesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3816,23 +3760,23 @@ ListTablesResponse Client::listTablesWithOptions(const string &projectName, cons
   request.validate();
   json query = {};
   if (!!request.hasMarker()) {
-    query["marker"] = request.marker();
+    query["marker"] = request.getMarker();
   }
 
   if (!!request.hasMaxItem()) {
-    query["maxItem"] = request.maxItem();
+    query["maxItem"] = request.getMaxItem();
   }
 
   if (!!request.hasPrefix()) {
-    query["prefix"] = request.prefix();
+    query["prefix"] = request.getPrefix();
   }
 
   if (!!request.hasSchemaName()) {
-    query["schemaName"] = request.schemaName();
+    query["schemaName"] = request.getSchemaName();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3854,8 +3798,6 @@ ListTablesResponse Client::listTablesWithOptions(const string &projectName, cons
 }
 
 /**
- * @summary Obtains tables in a MaxCompute project.
- *
  * @param request ListTablesRequest
  * @return ListTablesResponse
  */
@@ -3866,8 +3808,6 @@ ListTablesResponse Client::listTables(const string &projectName, const ListTable
 }
 
 /**
- * @summary Displays the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
- *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListTunnelQuotaTimerResponse
@@ -3891,8 +3831,6 @@ ListTunnelQuotaTimerResponse Client::listTunnelQuotaTimerWithOptions(const strin
 }
 
 /**
- * @summary Displays the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
- *
  * @return ListTunnelQuotaTimerResponse
  */
 ListTunnelQuotaTimerResponse Client::listTunnelQuotaTimer(const string &nickname) {
@@ -3902,8 +3840,6 @@ ListTunnelQuotaTimerResponse Client::listTunnelQuotaTimer(const string &nickname
 }
 
 /**
- * @summary Queries a list of all users under a tenant.
- *
  * @param request ListUsersRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3913,11 +3849,11 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3939,8 +3875,6 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
 }
 
 /**
- * @summary Queries a list of all users under a tenant.
- *
  * @param request ListUsersRequest
  * @return ListUsersResponse
  */
@@ -3951,8 +3885,6 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
- * @summary Obtains information about the users who are assigned a project-level role.
- *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListUsersByRoleResponse
@@ -3976,8 +3908,6 @@ ListUsersByRoleResponse Client::listUsersByRoleWithOptions(const string &project
 }
 
 /**
- * @summary Obtains information about the users who are assigned a project-level role.
- *
  * @return ListUsersByRoleResponse
  */
 ListUsersByRoleResponse Client::listUsersByRole(const string &projectName, const string &roleName) {
@@ -3987,8 +3917,6 @@ ListUsersByRoleResponse Client::listUsersByRole(const string &projectName, const
 }
 
 /**
- * @summary Queries the information about a specified level-1 quota group.
- *
  * @param request QueryQuotaRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3998,19 +3926,19 @@ QueryQuotaResponse Client::queryQuotaWithOptions(const string &nickname, const Q
   request.validate();
   json query = {};
   if (!!request.hasAkProven()) {
-    query["AkProven"] = request.akProven();
+    query["AkProven"] = request.getAkProven();
   }
 
   if (!!request.hasMock()) {
-    query["mock"] = request.mock();
+    query["mock"] = request.getMock();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4032,8 +3960,6 @@ QueryQuotaResponse Client::queryQuotaWithOptions(const string &nickname, const Q
 }
 
 /**
- * @summary Queries the information about a specified level-1 quota group.
- *
  * @param request QueryQuotaRequest
  * @return QueryQuotaResponse
  */
@@ -4044,7 +3970,7 @@ QueryQuotaResponse Client::queryQuota(const string &nickname, const QueryQuotaRe
 }
 
 /**
- * @summary 查询quota的资源使用信息
+ * @summary Queries the time series data of resource consumption for a quota.
  *
  * @param request QueryQuotaMetricRequest
  * @param headers map
@@ -4055,28 +3981,32 @@ QueryQuotaMetricResponse Client::queryQuotaMetricWithOptions(const string &metri
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["endTime"] = request.endTime();
+    query["endTime"] = request.getEndTime();
   }
 
   if (!!request.hasStartTime()) {
-    query["startTime"] = request.startTime();
+    query["startTime"] = request.getStartTime();
   }
 
   if (!!request.hasStrategy()) {
-    query["strategy"] = request.strategy();
+    query["strategy"] = request.getStrategy();
   }
 
   json body = {};
   if (!!request.hasInterval()) {
-    body["interval"] = request.interval();
+    body["interval"] = request.getInterval();
   }
 
   if (!!request.hasNickname()) {
-    body["nickname"] = request.nickname();
+    body["nickname"] = request.getNickname();
+  }
+
+  if (!!request.hasSubMetric()) {
+    body["subMetric"] = request.getSubMetric();
   }
 
   if (!!request.hasSubQuotaNickname()) {
-    body["subQuotaNickname"] = request.subQuotaNickname();
+    body["subQuotaNickname"] = request.getSubQuotaNickname();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4099,7 +4029,7 @@ QueryQuotaMetricResponse Client::queryQuotaMetricWithOptions(const string &metri
 }
 
 /**
- * @summary 查询quota的资源使用信息
+ * @summary Queries the time series data of resource consumption for a quota.
  *
  * @param request QueryQuotaMetricRequest
  * @return QueryQuotaMetricResponse
@@ -4111,7 +4041,7 @@ QueryQuotaMetricResponse Client::queryQuotaMetric(const string &metric, const Qu
 }
 
 /**
- * @summary 查看存储数据的时序指标
+ * @summary Queries time-series metrics of data storage.
  *
  * @param request QueryStorageMetricRequest
  * @param headers map
@@ -4122,20 +4052,20 @@ QueryStorageMetricResponse Client::queryStorageMetricWithOptions(const string &m
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["endTime"] = request.endTime();
+    query["endTime"] = request.getEndTime();
   }
 
   if (!!request.hasStartTime()) {
-    query["startTime"] = request.startTime();
+    query["startTime"] = request.getStartTime();
   }
 
   json body = {};
   if (!!request.hasProjectList()) {
-    body["projectList"] = request.projectList();
+    body["projectList"] = request.getProjectList();
   }
 
   if (!!request.hasTypeList()) {
-    body["typeList"] = request.typeList();
+    body["typeList"] = request.getTypeList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4158,7 +4088,7 @@ QueryStorageMetricResponse Client::queryStorageMetricWithOptions(const string &m
 }
 
 /**
- * @summary 查看存储数据的时序指标
+ * @summary Queries time-series metrics of data storage.
  *
  * @param request QueryStorageMetricRequest
  * @return QueryStorageMetricResponse
@@ -4170,7 +4100,15 @@ QueryStorageMetricResponse Client::queryStorageMetric(const string &metric, cons
 }
 
 /**
- * @summary 查询tunnel资源使用信息
+ * @summary Queries metric data for the Tunnel Data Transmission Service within a specified time range.
+ *
+ * @description - You can use this API to query various Tunnel metrics, such as slot usage (`slot_usage`), slot usage limit (`slot_max`), throughput (`throughput`), throughput rate (`throughput_speed`), and number of requests (`request`).
+ * - The `startTime` and `endTime` parameters are required. They specify the start and end of the time range for the query. The values are UNIX timestamps in seconds.
+ * - The `metric` parameter is also required. It specifies the type of metric to query.
+ * - Depending on the value of `metric`, you may need to specify additional parameters for filtering to refine your query. These parameters include `quotaNickname`, `project`, `tableList`, `operationList`, `codeList`, `groupList`, and `topN`.
+ * - For some `metric` values, you must specify other parameters. For example, if `groupList` contains `table` or `ip`, you must specify the `project` parameter and other required parameters. In this case, the system returns only the top N results.
+ * - The `strategy` parameter defines the data aggregation logic. This logic is used when the automatic step size exceeds 60 seconds over a long time range. The default value is `max`.
+ * - Ensure all parameters meet the requirements in this document to prevent request failures.
  *
  * @param request QueryTunnelMetricRequest
  * @param headers map
@@ -4181,44 +4119,44 @@ QueryTunnelMetricResponse Client::queryTunnelMetricWithOptions(const string &met
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["endTime"] = request.endTime();
+    query["endTime"] = request.getEndTime();
   }
 
   if (!!request.hasStartTime()) {
-    query["startTime"] = request.startTime();
+    query["startTime"] = request.getStartTime();
   }
 
   if (!!request.hasStrategy()) {
-    query["strategy"] = request.strategy();
+    query["strategy"] = request.getStrategy();
   }
 
   json body = {};
   if (!!request.hasCodeList()) {
-    body["codeList"] = request.codeList();
+    body["codeList"] = request.getCodeList();
   }
 
   if (!!request.hasGroupList()) {
-    body["groupList"] = request.groupList();
+    body["groupList"] = request.getGroupList();
   }
 
   if (!!request.hasOperationList()) {
-    body["operationList"] = request.operationList();
+    body["operationList"] = request.getOperationList();
   }
 
   if (!!request.hasProject()) {
-    body["project"] = request.project();
+    body["project"] = request.getProject();
   }
 
   if (!!request.hasQuotaNickname()) {
-    body["quotaNickname"] = request.quotaNickname();
+    body["quotaNickname"] = request.getQuotaNickname();
   }
 
   if (!!request.hasTableList()) {
-    body["tableList"] = request.tableList();
+    body["tableList"] = request.getTableList();
   }
 
   if (!!request.hasTopN()) {
-    body["topN"] = request.topN();
+    body["topN"] = request.getTopN();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4241,7 +4179,15 @@ QueryTunnelMetricResponse Client::queryTunnelMetricWithOptions(const string &met
 }
 
 /**
- * @summary 查询tunnel资源使用信息
+ * @summary Queries metric data for the Tunnel Data Transmission Service within a specified time range.
+ *
+ * @description - You can use this API to query various Tunnel metrics, such as slot usage (`slot_usage`), slot usage limit (`slot_max`), throughput (`throughput`), throughput rate (`throughput_speed`), and number of requests (`request`).
+ * - The `startTime` and `endTime` parameters are required. They specify the start and end of the time range for the query. The values are UNIX timestamps in seconds.
+ * - The `metric` parameter is also required. It specifies the type of metric to query.
+ * - Depending on the value of `metric`, you may need to specify additional parameters for filtering to refine your query. These parameters include `quotaNickname`, `project`, `tableList`, `operationList`, `codeList`, `groupList`, and `topN`.
+ * - For some `metric` values, you must specify other parameters. For example, if `groupList` contains `table` or `ip`, you must specify the `project` parameter and other required parameters. In this case, the system returns only the top N results.
+ * - The `strategy` parameter defines the data aggregation logic. This logic is used when the automatic step size exceeds 60 seconds over a long time range. The default value is `max`.
+ * - Ensure all parameters meet the requirements in this document to prevent request failures.
  *
  * @param request QueryTunnelMetricRequest
  * @return QueryTunnelMetricResponse
@@ -4253,7 +4199,14 @@ QueryTunnelMetricResponse Client::queryTunnelMetric(const string &metric, const 
 }
 
 /**
- * @summary 查询tunnel资源使用详情
+ * @summary Queries detailed data for the Tunnel Data Transmission Service within a specified time range.
+ *
+ * @description - This operation queries various Tunnel metrics, such as slot usage details (`slot_usage_detail`), throughput details (`throughput_detail`), and a throughput summary (`throughput_summary`).
+ * - The `quotaNickname` and `project` parameters cannot both be empty.
+ * - If the groupList parameter contains `table` or `ip`, you must specify the `project` parameter. If the `groupList` parameter contains `ip`, you must also specify the `tableList` parameter.
+ * - The orderColumn parameter can be set to `maxValue`, `minValue`, `avgValue`, or `sumValue`. The `sumValue` option is valid only for `throughput_summary`. By default, this parameter is empty, which means that no sorting is performed.
+ * - The default value of the `ascOrder` parameter is `false`, which indicates that the results are sorted in descending order.
+ * - The `limit` parameter specifies the maximum number of entries to return. The default value is 10, and the maximum value is 100.
  *
  * @param request QueryTunnelMetricDetailRequest
  * @param headers map
@@ -4264,44 +4217,44 @@ QueryTunnelMetricDetailResponse Client::queryTunnelMetricDetailWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["endTime"] = request.endTime();
+    query["endTime"] = request.getEndTime();
   }
 
   if (!!request.hasStartTime()) {
-    query["startTime"] = request.startTime();
+    query["startTime"] = request.getStartTime();
   }
 
   json body = {};
   if (!!request.hasAscOrder()) {
-    body["ascOrder"] = request.ascOrder();
+    body["ascOrder"] = request.getAscOrder();
   }
 
   if (!!request.hasGroupList()) {
-    body["groupList"] = request.groupList();
+    body["groupList"] = request.getGroupList();
   }
 
   if (!!request.hasLimit()) {
-    body["limit"] = request.limit();
+    body["limit"] = request.getLimit();
   }
 
   if (!!request.hasOperationList()) {
-    body["operationList"] = request.operationList();
+    body["operationList"] = request.getOperationList();
   }
 
   if (!!request.hasOrderColumn()) {
-    body["orderColumn"] = request.orderColumn();
+    body["orderColumn"] = request.getOrderColumn();
   }
 
   if (!!request.hasProject()) {
-    body["project"] = request.project();
+    body["project"] = request.getProject();
   }
 
   if (!!request.hasQuotaNickname()) {
-    body["quotaNickname"] = request.quotaNickname();
+    body["quotaNickname"] = request.getQuotaNickname();
   }
 
   if (!!request.hasTableList()) {
-    body["tableList"] = request.tableList();
+    body["tableList"] = request.getTableList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4324,7 +4277,14 @@ QueryTunnelMetricDetailResponse Client::queryTunnelMetricDetailWithOptions(const
 }
 
 /**
- * @summary 查询tunnel资源使用详情
+ * @summary Queries detailed data for the Tunnel Data Transmission Service within a specified time range.
+ *
+ * @description - This operation queries various Tunnel metrics, such as slot usage details (`slot_usage_detail`), throughput details (`throughput_detail`), and a throughput summary (`throughput_summary`).
+ * - The `quotaNickname` and `project` parameters cannot both be empty.
+ * - If the groupList parameter contains `table` or `ip`, you must specify the `project` parameter. If the `groupList` parameter contains `ip`, you must also specify the `tableList` parameter.
+ * - The orderColumn parameter can be set to `maxValue`, `minValue`, `avgValue`, or `sumValue`. The `sumValue` option is valid only for `throughput_summary`. By default, this parameter is empty, which means that no sorting is performed.
+ * - The default value of the `ascOrder` parameter is `false`, which indicates that the results are sorted in descending order.
+ * - The `limit` parameter specifies the maximum number of entries to return. The default value is 10, and the maximum value is 100.
  *
  * @param request QueryTunnelMetricDetailRequest
  * @return QueryTunnelMetricDetailResponse
@@ -4336,7 +4296,7 @@ QueryTunnelMetricDetailResponse Client::queryTunnelMetricDetail(const string &me
 }
 
 /**
- * @summary RetryMmsJob
+ * @summary Retries a data migration job.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4361,7 +4321,7 @@ RetryMmsJobResponse Client::retryMmsJobWithOptions(const string &sourceId, const
 }
 
 /**
- * @summary RetryMmsJob
+ * @summary Retries a data migration job.
  *
  * @return RetryMmsJobResponse
  */
@@ -4372,7 +4332,7 @@ RetryMmsJobResponse Client::retryMmsJob(const string &sourceId, const string &jo
 }
 
 /**
- * @summary StartMmsJob
+ * @summary Starts a data migration job.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4397,7 +4357,7 @@ StartMmsJobResponse Client::startMmsJobWithOptions(const string &sourceId, const
 }
 
 /**
- * @summary StartMmsJob
+ * @summary Starts a data migration job.
  *
  * @return StartMmsJobResponse
  */
@@ -4408,7 +4368,7 @@ StartMmsJobResponse Client::startMmsJob(const string &sourceId, const string &jo
 }
 
 /**
- * @summary StopMmsJob
+ * @summary Stops a data migration job.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4433,7 +4393,7 @@ StopMmsJobResponse Client::stopMmsJobWithOptions(const string &sourceId, const s
 }
 
 /**
- * @summary StopMmsJob
+ * @summary Stops a data migration job.
  *
  * @return StopMmsJobResponse
  */
@@ -4444,6 +4404,8 @@ StopMmsJobResponse Client::stopMmsJob(const string &sourceId, const string &jobI
 }
 
 /**
+ * @summary Retrieves the storage information for each category or project on a specified date.
+ *
  * @param request SumStorageMetricsByDateRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4453,27 +4415,27 @@ SumStorageMetricsByDateResponse Client::sumStorageMetricsByDateWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasEndDate()) {
-    body["endDate"] = request.endDate();
+    body["endDate"] = request.getEndDate();
   }
 
   if (!!request.hasProjectNames()) {
-    body["projectNames"] = request.projectNames();
+    body["projectNames"] = request.getProjectNames();
   }
 
   if (!!request.hasRegion()) {
-    body["region"] = request.region();
+    body["region"] = request.getRegion();
   }
 
   if (!!request.hasStartDate()) {
-    body["startDate"] = request.startDate();
+    body["startDate"] = request.getStartDate();
   }
 
   if (!!request.hasStatsType()) {
-    body["statsType"] = request.statsType();
+    body["statsType"] = request.getStatsType();
   }
 
   if (!!request.hasUserId()) {
-    body["userId"] = request.userId();
+    body["userId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4495,6 +4457,8 @@ SumStorageMetricsByDateResponse Client::sumStorageMetricsByDateWithOptions(const
 }
 
 /**
+ * @summary Retrieves the storage information for each category or project on a specified date.
+ *
  * @param request SumStorageMetricsByDateRequest
  * @return SumStorageMetricsByDateResponse
  */
@@ -4505,11 +4469,6 @@ SumStorageMetricsByDateResponse Client::sumStorageMetricsByDate(const SumStorage
 }
 
 /**
- * @summary Update the ComputeQuotaPlan.
- *
- * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
- * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
- *
  * @param request UpdateComputeQuotaPlanRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4519,11 +4478,11 @@ UpdateComputeQuotaPlanResponse Client::updateComputeQuotaPlanWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasQuota()) {
-    body["quota"] = request.quota();
+    body["quota"] = request.getQuota();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4545,11 +4504,6 @@ UpdateComputeQuotaPlanResponse Client::updateComputeQuotaPlanWithOptions(const s
 }
 
 /**
- * @summary Update the ComputeQuotaPlan.
- *
- * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
- * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
- *
  * @param request UpdateComputeQuotaPlanRequest
  * @return UpdateComputeQuotaPlanResponse
  */
@@ -4560,10 +4514,9 @@ UpdateComputeQuotaPlanResponse Client::updateComputeQuotaPlan(const string &nick
 }
 
 /**
- * @summary Update the time-based plan for computing quota.
+ * @summary Updates the time-based schedule for a computing quota.
  *
- * @description Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
- * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+ * @description Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of reserved compute units (CUs) in MaxCompute.
  *
  * @param request UpdateComputeQuotaScheduleRequest
  * @param headers map
@@ -4574,13 +4527,13 @@ UpdateComputeQuotaScheduleResponse Client::updateComputeQuotaScheduleWithOptions
   request.validate();
   json query = {};
   if (!!request.hasScheduleTimezone()) {
-    query["scheduleTimezone"] = request.scheduleTimezone();
+    query["scheduleTimezone"] = request.getScheduleTimezone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::toArray(request.body())}
+    {"body" , Utils::Utils::toArray(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateComputeQuotaSchedule"},
@@ -4597,10 +4550,9 @@ UpdateComputeQuotaScheduleResponse Client::updateComputeQuotaScheduleWithOptions
 }
 
 /**
- * @summary Update the time-based plan for computing quota.
+ * @summary Updates the time-based schedule for a computing quota.
  *
- * @description Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
- * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+ * @description Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of reserved compute units (CUs) in MaxCompute.
  *
  * @param request UpdateComputeQuotaScheduleRequest
  * @return UpdateComputeQuotaScheduleResponse
@@ -4612,8 +4564,6 @@ UpdateComputeQuotaScheduleResponse Client::updateComputeQuotaSchedule(const stri
 }
 
 /**
- * @summary Update the basic configuration of the calculation quota, including adding or deleting the sub quota, modifying the basic properties of the secondary quota, and the CU configuration of the effective quota plan.
- *
  * @param request UpdateComputeSubQuotaRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4623,7 +4573,7 @@ UpdateComputeSubQuotaResponse Client::updateComputeSubQuotaWithOptions(const str
   request.validate();
   json body = {};
   if (!!request.hasSubQuotaInfoList()) {
-    body["subQuotaInfoList"] = request.subQuotaInfoList();
+    body["subQuotaInfoList"] = request.getSubQuotaInfoList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4645,8 +4595,6 @@ UpdateComputeSubQuotaResponse Client::updateComputeSubQuotaWithOptions(const str
 }
 
 /**
- * @summary Update the basic configuration of the calculation quota, including adding or deleting the sub quota, modifying the basic properties of the secondary quota, and the CU configuration of the effective quota plan.
- *
  * @param request UpdateComputeSubQuotaRequest
  * @return UpdateComputeSubQuotaResponse
  */
@@ -4657,7 +4605,7 @@ UpdateComputeSubQuotaResponse Client::updateComputeSubQuota(const string &nickna
 }
 
 /**
- * @summary 更新数据源配置、名称，启/停数据源实例
+ * @summary Refreshes the metadata of a MaxCompute Migration Assist (MMA) data source.
  *
  * @param request UpdateMmsDataSourceRequest
  * @param headers map
@@ -4668,19 +4616,19 @@ UpdateMmsDataSourceResponse Client::updateMmsDataSourceWithOptions(const string 
   request.validate();
   json body = {};
   if (!!request.hasAction()) {
-    body["action"] = request.action();
+    body["action"] = request.getAction();
   }
 
   if (!!request.hasConfig()) {
-    body["config"] = request.config();
+    body["config"] = request.getConfig();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasTest()) {
-    body["test"] = request.test();
+    body["test"] = request.getTest();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4702,7 +4650,7 @@ UpdateMmsDataSourceResponse Client::updateMmsDataSourceWithOptions(const string 
 }
 
 /**
- * @summary 更新数据源配置、名称，启/停数据源实例
+ * @summary Refreshes the metadata of a MaxCompute Migration Assist (MMA) data source.
  *
  * @param request UpdateMmsDataSourceRequest
  * @return UpdateMmsDataSourceResponse
@@ -4714,8 +4662,6 @@ UpdateMmsDataSourceResponse Client::updateMmsDataSource(const string &sourceId, 
 }
 
 /**
- * @summary Updates the objects in a package and projects in which the package can be installed.
- *
  * @param request UpdatePackageRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4725,7 +4671,7 @@ UpdatePackageResponse Client::updatePackageWithOptions(const string &projectName
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdatePackage"},
@@ -4742,8 +4688,6 @@ UpdatePackageResponse Client::updatePackageWithOptions(const string &projectName
 }
 
 /**
- * @summary Updates the objects in a package and projects in which the package can be installed.
- *
  * @param request UpdatePackageRequest
  * @return UpdatePackageResponse
  */
@@ -4754,7 +4698,7 @@ UpdatePackageResponse Client::updatePackage(const string &projectName, const str
 }
 
 /**
- * @summary Update Project Basic Information
+ * @summary Modifies the basic information of a project.
  *
  * @param request UpdateProjectBasicMetaRequest
  * @param headers map
@@ -4765,11 +4709,11 @@ UpdateProjectBasicMetaResponse Client::updateProjectBasicMetaWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasComment()) {
-    body["comment"] = request.comment();
+    body["comment"] = request.getComment();
   }
 
   if (!!request.hasProperties()) {
-    body["properties"] = request.properties();
+    body["properties"] = request.getProperties();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4791,7 +4735,7 @@ UpdateProjectBasicMetaResponse Client::updateProjectBasicMetaWithOptions(const s
 }
 
 /**
- * @summary Update Project Basic Information
+ * @summary Modifies the basic information of a project.
  *
  * @param request UpdateProjectBasicMetaRequest
  * @return UpdateProjectBasicMetaResponse
@@ -4803,8 +4747,6 @@ UpdateProjectBasicMetaResponse Client::updateProjectBasicMeta(const string &proj
 }
 
 /**
- * @summary Modify Default Project Compute Quota
- *
  * @param request UpdateProjectDefaultQuotaRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4814,7 +4756,7 @@ UpdateProjectDefaultQuotaResponse Client::updateProjectDefaultQuotaWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasQuota()) {
-    body["quota"] = request.quota();
+    body["quota"] = request.getQuota();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4836,8 +4778,6 @@ UpdateProjectDefaultQuotaResponse Client::updateProjectDefaultQuotaWithOptions(c
 }
 
 /**
- * @summary Modify Default Project Compute Quota
- *
  * @param request UpdateProjectDefaultQuotaRequest
  * @return UpdateProjectDefaultQuotaResponse
  */
@@ -4848,8 +4788,6 @@ UpdateProjectDefaultQuotaResponse Client::updateProjectDefaultQuota(const string
 }
 
 /**
- * @summary Modifies the IP address whitelist of a MaxCompute project.
- *
  * @param request UpdateProjectIpWhiteListRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4859,7 +4797,7 @@ UpdateProjectIpWhiteListResponse Client::updateProjectIpWhiteListWithOptions(con
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateProjectIpWhiteList"},
@@ -4876,8 +4814,6 @@ UpdateProjectIpWhiteListResponse Client::updateProjectIpWhiteListWithOptions(con
 }
 
 /**
- * @summary Modifies the IP address whitelist of a MaxCompute project.
- *
  * @param request UpdateProjectIpWhiteListRequest
  * @return UpdateProjectIpWhiteListResponse
  */
@@ -4888,7 +4824,7 @@ UpdateProjectIpWhiteListResponse Client::updateProjectIpWhiteList(const string &
 }
 
 /**
- * @summary 将project的二层模型升级为三层模型
+ * @summary Upgrades a project\\"s Layer 2 model to a Layer 3 model.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4913,7 +4849,7 @@ UpdateProjectModelTierResponse Client::updateProjectModelTierWithOptions(const s
 }
 
 /**
- * @summary 将project的二层模型升级为三层模型
+ * @summary Upgrades a project\\"s Layer 2 model to a Layer 3 model.
  *
  * @return UpdateProjectModelTierResponse
  */
@@ -4924,8 +4860,6 @@ UpdateProjectModelTierResponse Client::updateProjectModelTier(const string &proj
 }
 
 /**
- * @summary Updates a quota plan.
- *
  * @param request UpdateQuotaPlanRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4935,17 +4869,17 @@ UpdateQuotaPlanResponse Client::updateQuotaPlanWithOptions(const string &nicknam
   request.validate();
   json query = {};
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateQuotaPlan"},
@@ -4962,8 +4896,6 @@ UpdateQuotaPlanResponse Client::updateQuotaPlanWithOptions(const string &nicknam
 }
 
 /**
- * @summary Updates a quota plan.
- *
  * @param request UpdateQuotaPlanRequest
  * @return UpdateQuotaPlanResponse
  */
@@ -4974,8 +4906,6 @@ UpdateQuotaPlanResponse Client::updateQuotaPlan(const string &nickname, const st
 }
 
 /**
- * @summary Updates the scheduling plan for a quota plan.
- *
  * @param request UpdateQuotaScheduleRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4985,17 +4915,17 @@ UpdateQuotaScheduleResponse Client::updateQuotaScheduleWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasTenantId()) {
-    query["tenantId"] = request.tenantId();
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "UpdateQuotaSchedule"},
@@ -5012,8 +4942,6 @@ UpdateQuotaScheduleResponse Client::updateQuotaScheduleWithOptions(const string 
 }
 
 /**
- * @summary Updates the scheduling plan for a quota plan.
- *
  * @param request UpdateQuotaScheduleRequest
  * @return UpdateQuotaScheduleResponse
  */
@@ -5024,9 +4952,9 @@ UpdateQuotaScheduleResponse Client::updateQuotaSchedule(const string &nickname, 
 }
 
 /**
- * @summary Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+ * @summary Updates the time-based auto-scaling configuration for an exclusive resource group for Data Transmission Service (Tunnel Quota).
  *
- * @description Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
+ * @description Before you call this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive Data Transmission Service resource groups and elastic reserved computing resources.
  *
  * @param request UpdateTunnelQuotaTimerRequest
  * @param headers map
@@ -5037,13 +4965,13 @@ UpdateTunnelQuotaTimerResponse Client::updateTunnelQuotaTimerWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasTimezone()) {
-    query["timezone"] = request.timezone();
+    query["timezone"] = request.getTimezone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::toArray(request.body())}
+    {"body" , Utils::Utils::toArray(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateTunnelQuotaTimer"},
@@ -5060,9 +4988,9 @@ UpdateTunnelQuotaTimerResponse Client::updateTunnelQuotaTimerWithOptions(const s
 }
 
 /**
- * @summary Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+ * @summary Updates the time-based auto-scaling configuration for an exclusive resource group for Data Transmission Service (Tunnel Quota).
  *
- * @description Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
+ * @description Before you call this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive Data Transmission Service resource groups and elastic reserved computing resources.
  *
  * @param request UpdateTunnelQuotaTimerRequest
  * @return UpdateTunnelQuotaTimerResponse
@@ -5074,7 +5002,7 @@ UpdateTunnelQuotaTimerResponse Client::updateTunnelQuotaTimer(const string &nick
 }
 
 /**
- * @summary Add or remove users from a project role.
+ * @summary Adds or removes users from a project role.
  *
  * @param request UpdateUsersToRoleRequest
  * @param headers map
@@ -5085,11 +5013,11 @@ UpdateUsersToRoleResponse Client::updateUsersToRoleWithOptions(const string &pro
   request.validate();
   json body = {};
   if (!!request.hasAdd()) {
-    body["add"] = request.add();
+    body["add"] = request.getAdd();
   }
 
   if (!!request.hasRemove()) {
-    body["remove"] = request.remove();
+    body["remove"] = request.getRemove();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5111,7 +5039,7 @@ UpdateUsersToRoleResponse Client::updateUsersToRoleWithOptions(const string &pro
 }
 
 /**
- * @summary Add or remove users from a project role.
+ * @summary Adds or removes users from a project role.
  *
  * @param request UpdateUsersToRoleRequest
  * @return UpdateUsersToRoleResponse

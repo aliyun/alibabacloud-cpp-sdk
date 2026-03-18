@@ -33,13 +33,12 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline string body() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
+    inline string getBody() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
     inline CreateRoleRequest& setBody(string body) { DARABONBA_PTR_SET_VALUE(body_, body) };
 
 
   protected:
-    // The request body parameters. For valid values, see [MaxCompute permissions](https://help.aliyun.com/document_detail/27935.html).
-    std::shared_ptr<string> body_ = nullptr;
+    shared_ptr<string> body_ {};
   };
 
   } // namespace Models

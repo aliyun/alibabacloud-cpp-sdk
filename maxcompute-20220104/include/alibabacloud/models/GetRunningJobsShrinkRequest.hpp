@@ -40,72 +40,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && return this->jobOwnerListShrink_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->quotaNicknameListShrink_ == nullptr && return this->to_ == nullptr; };
+        && this->jobOwnerListShrink_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->quotaNicknameListShrink_ == nullptr && this->to_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
-    inline int64_t from() const { DARABONBA_PTR_GET_DEFAULT(from_, 0L) };
+    inline int64_t getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, 0L) };
     inline GetRunningJobsShrinkRequest& setFrom(int64_t from) { DARABONBA_PTR_SET_VALUE(from_, from) };
 
 
     // jobOwnerListShrink Field Functions 
     bool hasJobOwnerListShrink() const { return this->jobOwnerListShrink_ != nullptr;};
     void deleteJobOwnerListShrink() { this->jobOwnerListShrink_ = nullptr;};
-    inline string jobOwnerListShrink() const { DARABONBA_PTR_GET_DEFAULT(jobOwnerListShrink_, "") };
+    inline string getJobOwnerListShrink() const { DARABONBA_PTR_GET_DEFAULT(jobOwnerListShrink_, "") };
     inline GetRunningJobsShrinkRequest& setJobOwnerListShrink(string jobOwnerListShrink) { DARABONBA_PTR_SET_VALUE(jobOwnerListShrink_, jobOwnerListShrink) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline GetRunningJobsShrinkRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline GetRunningJobsShrinkRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // quotaNicknameListShrink Field Functions 
     bool hasQuotaNicknameListShrink() const { return this->quotaNicknameListShrink_ != nullptr;};
     void deleteQuotaNicknameListShrink() { this->quotaNicknameListShrink_ = nullptr;};
-    inline string quotaNicknameListShrink() const { DARABONBA_PTR_GET_DEFAULT(quotaNicknameListShrink_, "") };
+    inline string getQuotaNicknameListShrink() const { DARABONBA_PTR_GET_DEFAULT(quotaNicknameListShrink_, "") };
     inline GetRunningJobsShrinkRequest& setQuotaNicknameListShrink(string quotaNicknameListShrink) { DARABONBA_PTR_SET_VALUE(quotaNicknameListShrink_, quotaNicknameListShrink) };
 
 
     // to Field Functions 
     bool hasTo() const { return this->to_ != nullptr;};
     void deleteTo() { this->to_ = nullptr;};
-    inline int64_t to() const { DARABONBA_PTR_GET_DEFAULT(to_, 0L) };
+    inline int64_t getTo() const { DARABONBA_PTR_GET_DEFAULT(to_, 0L) };
     inline GetRunningJobsShrinkRequest& setTo(int64_t to) { DARABONBA_PTR_SET_VALUE(to_, to) };
 
 
   protected:
-    // The time when the query starts. This parameter specifies the time when a job is submitted.
-    // 
-    // *   The time range that is specified by the **from** and **to** request parameters is a closed interval. The start time and end time are included in the range. If the value of **from** is the same as the value of **to**, the time range is invalid, and a null value is returned.
-    // *   The value is a UNIX timestamp that represents the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> from_ = nullptr;
-    // The list of job executors.
-    std::shared_ptr<string> jobOwnerListShrink_ = nullptr;
-    // The page number.
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
-    // The number of entries per page. Default value: 10. Maximum value: 20.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    // The list of nicknames of quotas that are used by jobs.
-    std::shared_ptr<string> quotaNicknameListShrink_ = nullptr;
-    // The time when the query ends. This parameter specifies the time when a job is submitted.
-    // 
-    // *   The time interval that is specified by the **from** and **to** request parameters is a closed interval. The start time and end time are included in the interval. If the value of **from** is the same as the value of **to**, the interval is invalid, and a null value is returned.
-    // *   The value is a UNIX timestamp that represents the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-    // 
+    shared_ptr<int64_t> from_ {};
+    shared_ptr<string> jobOwnerListShrink_ {};
+    shared_ptr<int64_t> pageNumber_ {};
+    shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> quotaNicknameListShrink_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> to_ = nullptr;
+    shared_ptr<int64_t> to_ {};
   };
 
   } // namespace Models

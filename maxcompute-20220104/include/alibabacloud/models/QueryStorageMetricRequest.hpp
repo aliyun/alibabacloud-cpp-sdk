@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->projectList_ == nullptr
-        && return this->typeList_ == nullptr && return this->endTime_ == nullptr && return this->startTime_ == nullptr; };
+        && this->typeList_ == nullptr && this->endTime_ == nullptr && this->startTime_ == nullptr; };
     // projectList Field Functions 
     bool hasProjectList() const { return this->projectList_ != nullptr;};
     void deleteProjectList() { this->projectList_ = nullptr;};
-    inline const vector<string> & projectList() const { DARABONBA_PTR_GET_CONST(projectList_, vector<string>) };
-    inline vector<string> projectList() { DARABONBA_PTR_GET(projectList_, vector<string>) };
+    inline const vector<string> & getProjectList() const { DARABONBA_PTR_GET_CONST(projectList_, vector<string>) };
+    inline vector<string> getProjectList() { DARABONBA_PTR_GET(projectList_, vector<string>) };
     inline QueryStorageMetricRequest& setProjectList(const vector<string> & projectList) { DARABONBA_PTR_SET_VALUE(projectList_, projectList) };
     inline QueryStorageMetricRequest& setProjectList(vector<string> && projectList) { DARABONBA_PTR_SET_RVALUE(projectList_, projectList) };
 
@@ -50,8 +50,8 @@ namespace Models
     // typeList Field Functions 
     bool hasTypeList() const { return this->typeList_ != nullptr;};
     void deleteTypeList() { this->typeList_ = nullptr;};
-    inline const vector<string> & typeList() const { DARABONBA_PTR_GET_CONST(typeList_, vector<string>) };
-    inline vector<string> typeList() { DARABONBA_PTR_GET(typeList_, vector<string>) };
+    inline const vector<string> & getTypeList() const { DARABONBA_PTR_GET_CONST(typeList_, vector<string>) };
+    inline vector<string> getTypeList() { DARABONBA_PTR_GET(typeList_, vector<string>) };
     inline QueryStorageMetricRequest& setTypeList(const vector<string> & typeList) { DARABONBA_PTR_SET_VALUE(typeList_, typeList) };
     inline QueryStorageMetricRequest& setTypeList(vector<string> && typeList) { DARABONBA_PTR_SET_RVALUE(typeList_, typeList) };
 
@@ -59,24 +59,40 @@ namespace Models
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline QueryStorageMetricRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline QueryStorageMetricRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
-    std::shared_ptr<vector<string>> projectList_ = nullptr;
-    std::shared_ptr<vector<string>> typeList_ = nullptr;
+    // The names of the projects.
+    shared_ptr<vector<string>> projectList_ {};
+    // The storage class. Valid values include the following:
+    // 
+    // - totalStorage
+    // 
+    // - longTermStorage
+    // 
+    // - lowFreqStorage
+    // 
+    // - standardStorage
+    // 
+    // - recycleBinStorage
+    shared_ptr<vector<string>> typeList_ {};
+    // The end of the time range to query.
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
+    // The start of the time range to query.
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
   };
 
   } // namespace Models

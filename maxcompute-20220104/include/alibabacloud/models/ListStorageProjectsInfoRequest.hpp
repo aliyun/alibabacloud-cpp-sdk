@@ -46,82 +46,102 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ascOrder_ == nullptr
-        && return this->date_ == nullptr && return this->orderColumn_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->projectPrefix_ == nullptr
-        && return this->recentDays_ == nullptr && return this->region_ == nullptr && return this->tenantId_ == nullptr; };
+        && this->date_ == nullptr && this->orderColumn_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectPrefix_ == nullptr
+        && this->recentDays_ == nullptr && this->region_ == nullptr && this->tenantId_ == nullptr; };
     // ascOrder Field Functions 
     bool hasAscOrder() const { return this->ascOrder_ != nullptr;};
     void deleteAscOrder() { this->ascOrder_ = nullptr;};
-    inline bool ascOrder() const { DARABONBA_PTR_GET_DEFAULT(ascOrder_, false) };
+    inline bool getAscOrder() const { DARABONBA_PTR_GET_DEFAULT(ascOrder_, false) };
     inline ListStorageProjectsInfoRequest& setAscOrder(bool ascOrder) { DARABONBA_PTR_SET_VALUE(ascOrder_, ascOrder) };
 
 
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};
-    inline string date() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+    inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
     inline ListStorageProjectsInfoRequest& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
     // orderColumn Field Functions 
     bool hasOrderColumn() const { return this->orderColumn_ != nullptr;};
     void deleteOrderColumn() { this->orderColumn_ = nullptr;};
-    inline string orderColumn() const { DARABONBA_PTR_GET_DEFAULT(orderColumn_, "") };
+    inline string getOrderColumn() const { DARABONBA_PTR_GET_DEFAULT(orderColumn_, "") };
     inline ListStorageProjectsInfoRequest& setOrderColumn(string orderColumn) { DARABONBA_PTR_SET_VALUE(orderColumn_, orderColumn) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline ListStorageProjectsInfoRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListStorageProjectsInfoRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // projectPrefix Field Functions 
     bool hasProjectPrefix() const { return this->projectPrefix_ != nullptr;};
     void deleteProjectPrefix() { this->projectPrefix_ = nullptr;};
-    inline string projectPrefix() const { DARABONBA_PTR_GET_DEFAULT(projectPrefix_, "") };
+    inline string getProjectPrefix() const { DARABONBA_PTR_GET_DEFAULT(projectPrefix_, "") };
     inline ListStorageProjectsInfoRequest& setProjectPrefix(string projectPrefix) { DARABONBA_PTR_SET_VALUE(projectPrefix_, projectPrefix) };
 
 
     // recentDays Field Functions 
     bool hasRecentDays() const { return this->recentDays_ != nullptr;};
     void deleteRecentDays() { this->recentDays_ = nullptr;};
-    inline int32_t recentDays() const { DARABONBA_PTR_GET_DEFAULT(recentDays_, 0) };
+    inline int32_t getRecentDays() const { DARABONBA_PTR_GET_DEFAULT(recentDays_, 0) };
     inline ListStorageProjectsInfoRequest& setRecentDays(int32_t recentDays) { DARABONBA_PTR_SET_VALUE(recentDays_, recentDays) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline ListStorageProjectsInfoRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline ListStorageProjectsInfoRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
   protected:
-    std::shared_ptr<bool> ascOrder_ = nullptr;
+    // Specifies whether to sort the results in ascending order.
+    shared_ptr<bool> ascOrder_ {};
+    // The statistics collection date. The date is accurate to the day. The date must be in the `YYYYMMdd` format.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> date_ = nullptr;
-    std::shared_ptr<string> orderColumn_ = nullptr;
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
-    std::shared_ptr<string> projectPrefix_ = nullptr;
-    std::shared_ptr<int32_t> recentDays_ = nullptr;
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<string> tenantId_ = nullptr;
+    shared_ptr<string> date_ {};
+    // The column to sort by. Valid values:
+    // 
+    // - totalStorage
+    // 
+    // - longTermStorage
+    // 
+    // - lowFreqStorage
+    // 
+    // - standardStorage
+    // 
+    // - recycleBinStorage
+    shared_ptr<string> orderColumn_ {};
+    // The page number.
+    shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries to return on each page.
+    shared_ptr<int64_t> pageSize_ {};
+    // The prefix of the MaxCompute project name.
+    shared_ptr<string> projectPrefix_ {};
+    // The number of days for year-over-year comparison.
+    shared_ptr<int32_t> recentDays_ {};
+    // The region ID.
+    shared_ptr<string> region_ {};
+    // The tenant ID. You can log on to the MaxCompute console and choose **Tenant Property** in the navigation pane on the left to view the tenant ID.
+    shared_ptr<string> tenantId_ {};
   };
 
   } // namespace Models

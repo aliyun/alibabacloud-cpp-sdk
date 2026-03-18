@@ -49,13 +49,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->codeList_ == nullptr
-        && return this->groupList_ == nullptr && return this->operationList_ == nullptr && return this->project_ == nullptr && return this->quotaNickname_ == nullptr && return this->tableList_ == nullptr
-        && return this->topN_ == nullptr && return this->endTime_ == nullptr && return this->startTime_ == nullptr && return this->strategy_ == nullptr; };
+        && this->groupList_ == nullptr && this->operationList_ == nullptr && this->project_ == nullptr && this->quotaNickname_ == nullptr && this->tableList_ == nullptr
+        && this->topN_ == nullptr && this->endTime_ == nullptr && this->startTime_ == nullptr && this->strategy_ == nullptr; };
     // codeList Field Functions 
     bool hasCodeList() const { return this->codeList_ != nullptr;};
     void deleteCodeList() { this->codeList_ = nullptr;};
-    inline const vector<int32_t> & codeList() const { DARABONBA_PTR_GET_CONST(codeList_, vector<int32_t>) };
-    inline vector<int32_t> codeList() { DARABONBA_PTR_GET(codeList_, vector<int32_t>) };
+    inline const vector<int32_t> & getCodeList() const { DARABONBA_PTR_GET_CONST(codeList_, vector<int32_t>) };
+    inline vector<int32_t> getCodeList() { DARABONBA_PTR_GET(codeList_, vector<int32_t>) };
     inline QueryTunnelMetricRequest& setCodeList(const vector<int32_t> & codeList) { DARABONBA_PTR_SET_VALUE(codeList_, codeList) };
     inline QueryTunnelMetricRequest& setCodeList(vector<int32_t> && codeList) { DARABONBA_PTR_SET_RVALUE(codeList_, codeList) };
 
@@ -63,8 +63,8 @@ namespace Models
     // groupList Field Functions 
     bool hasGroupList() const { return this->groupList_ != nullptr;};
     void deleteGroupList() { this->groupList_ = nullptr;};
-    inline const vector<string> & groupList() const { DARABONBA_PTR_GET_CONST(groupList_, vector<string>) };
-    inline vector<string> groupList() { DARABONBA_PTR_GET(groupList_, vector<string>) };
+    inline const vector<string> & getGroupList() const { DARABONBA_PTR_GET_CONST(groupList_, vector<string>) };
+    inline vector<string> getGroupList() { DARABONBA_PTR_GET(groupList_, vector<string>) };
     inline QueryTunnelMetricRequest& setGroupList(const vector<string> & groupList) { DARABONBA_PTR_SET_VALUE(groupList_, groupList) };
     inline QueryTunnelMetricRequest& setGroupList(vector<string> && groupList) { DARABONBA_PTR_SET_RVALUE(groupList_, groupList) };
 
@@ -72,8 +72,8 @@ namespace Models
     // operationList Field Functions 
     bool hasOperationList() const { return this->operationList_ != nullptr;};
     void deleteOperationList() { this->operationList_ = nullptr;};
-    inline const vector<string> & operationList() const { DARABONBA_PTR_GET_CONST(operationList_, vector<string>) };
-    inline vector<string> operationList() { DARABONBA_PTR_GET(operationList_, vector<string>) };
+    inline const vector<string> & getOperationList() const { DARABONBA_PTR_GET_CONST(operationList_, vector<string>) };
+    inline vector<string> getOperationList() { DARABONBA_PTR_GET(operationList_, vector<string>) };
     inline QueryTunnelMetricRequest& setOperationList(const vector<string> & operationList) { DARABONBA_PTR_SET_VALUE(operationList_, operationList) };
     inline QueryTunnelMetricRequest& setOperationList(vector<string> && operationList) { DARABONBA_PTR_SET_RVALUE(operationList_, operationList) };
 
@@ -81,22 +81,22 @@ namespace Models
     // project Field Functions 
     bool hasProject() const { return this->project_ != nullptr;};
     void deleteProject() { this->project_ = nullptr;};
-    inline string project() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
+    inline string getProject() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
     inline QueryTunnelMetricRequest& setProject(string project) { DARABONBA_PTR_SET_VALUE(project_, project) };
 
 
     // quotaNickname Field Functions 
     bool hasQuotaNickname() const { return this->quotaNickname_ != nullptr;};
     void deleteQuotaNickname() { this->quotaNickname_ = nullptr;};
-    inline string quotaNickname() const { DARABONBA_PTR_GET_DEFAULT(quotaNickname_, "") };
+    inline string getQuotaNickname() const { DARABONBA_PTR_GET_DEFAULT(quotaNickname_, "") };
     inline QueryTunnelMetricRequest& setQuotaNickname(string quotaNickname) { DARABONBA_PTR_SET_VALUE(quotaNickname_, quotaNickname) };
 
 
     // tableList Field Functions 
     bool hasTableList() const { return this->tableList_ != nullptr;};
     void deleteTableList() { this->tableList_ = nullptr;};
-    inline const vector<string> & tableList() const { DARABONBA_PTR_GET_CONST(tableList_, vector<string>) };
-    inline vector<string> tableList() { DARABONBA_PTR_GET(tableList_, vector<string>) };
+    inline const vector<string> & getTableList() const { DARABONBA_PTR_GET_CONST(tableList_, vector<string>) };
+    inline vector<string> getTableList() { DARABONBA_PTR_GET(tableList_, vector<string>) };
     inline QueryTunnelMetricRequest& setTableList(const vector<string> & tableList) { DARABONBA_PTR_SET_VALUE(tableList_, tableList) };
     inline QueryTunnelMetricRequest& setTableList(vector<string> && tableList) { DARABONBA_PTR_SET_RVALUE(tableList_, tableList) };
 
@@ -104,44 +104,68 @@ namespace Models
     // topN Field Functions 
     bool hasTopN() const { return this->topN_ != nullptr;};
     void deleteTopN() { this->topN_ = nullptr;};
-    inline int32_t topN() const { DARABONBA_PTR_GET_DEFAULT(topN_, 0) };
+    inline int32_t getTopN() const { DARABONBA_PTR_GET_DEFAULT(topN_, 0) };
     inline QueryTunnelMetricRequest& setTopN(int32_t topN) { DARABONBA_PTR_SET_VALUE(topN_, topN) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline QueryTunnelMetricRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline QueryTunnelMetricRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // strategy Field Functions 
     bool hasStrategy() const { return this->strategy_ != nullptr;};
     void deleteStrategy() { this->strategy_ = nullptr;};
-    inline string strategy() const { DARABONBA_PTR_GET_DEFAULT(strategy_, "") };
+    inline string getStrategy() const { DARABONBA_PTR_GET_DEFAULT(strategy_, "") };
     inline QueryTunnelMetricRequest& setStrategy(string strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
 
 
   protected:
-    std::shared_ptr<vector<int32_t>> codeList_ = nullptr;
-    std::shared_ptr<vector<string>> groupList_ = nullptr;
-    std::shared_ptr<vector<string>> operationList_ = nullptr;
-    std::shared_ptr<string> project_ = nullptr;
-    std::shared_ptr<string> quotaNickname_ = nullptr;
-    std::shared_ptr<vector<string>> tableList_ = nullptr;
-    std::shared_ptr<int32_t> topN_ = nullptr;
+    // A list of HTTP status codes for requests.
+    shared_ptr<vector<int32_t>> codeList_ {};
+    // A list of grouping criteria.
+    shared_ptr<vector<string>> groupList_ {};
+    // A list of operation types.
+    shared_ptr<vector<string>> operationList_ {};
+    // The name of the project.
+    shared_ptr<string> project_ {};
+    // The nickname of the level-2 Tunnel quota.
+    // 
+    // The nickname of a shared quota is `default`.
+    // 
+    // The format of a dedicated quota nickname is `quotaNickname#subQuotaNickname`.
+    shared_ptr<string> quotaNickname_ {};
+    // A list of table names.
+    // 
+    // The tables belong to a project. Therefore, if `tableList` is not empty, `project` cannot be empty.
+    shared_ptr<vector<string>> tableList_ {};
+    // The maximum number of data entries to return.
+    // 
+    // This parameter takes effect when the grouping criterion includes `table` or `ip`.
+    // 
+    // The default value is 10. The maximum value is 100.
+    shared_ptr<int32_t> topN_ {};
+    // The end of the time range for the query.
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
+    // The start of the time range for the query.
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
-    std::shared_ptr<string> strategy_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
+    // The data aggregation policy. The default value is `max`.
+    // 
+    // Data is collected at a frequency of 1 minute. If you query data over a long time range, the automatic step size for data display may exceed 1 minute. In this case, metrics are aggregated. This parameter specifies the aggregation logic.
+    shared_ptr<string> strategy_ {};
   };
 
   } // namespace Models

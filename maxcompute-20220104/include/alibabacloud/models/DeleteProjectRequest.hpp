@@ -33,13 +33,13 @@ namespace Models
     // isLogical Field Functions 
     bool hasIsLogical() const { return this->isLogical_ != nullptr;};
     void deleteIsLogical() { this->isLogical_ = nullptr;};
-    inline bool isLogical() const { DARABONBA_PTR_GET_DEFAULT(isLogical_, false) };
+    inline bool getIsLogical() const { DARABONBA_PTR_GET_DEFAULT(isLogical_, false) };
     inline DeleteProjectRequest& setIsLogical(bool isLogical) { DARABONBA_PTR_SET_VALUE(isLogical_, isLogical) };
 
 
   protected:
-    // Specifies whether to logically delete the project. Valid values: true and false. Default value: true. The value false indicates that the project is physically deleted.
-    std::shared_ptr<bool> isLogical_ = nullptr;
+    // Specifies whether to perform a logical deletion. The default value is true. A value of false indicates a physical deletion.
+    shared_ptr<bool> isLogical_ {};
   };
 
   } // namespace Models

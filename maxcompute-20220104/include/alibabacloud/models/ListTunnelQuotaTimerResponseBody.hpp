@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTTUNNELQUOTATIMERRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListTunnelQuotaTimerResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,62 +38,157 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(beginTime, beginTime_);
+        DARABONBA_PTR_TO_JSON(endTime, endTime_);
+        DARABONBA_PTR_TO_JSON(timezone, timezone_);
+        DARABONBA_PTR_TO_JSON(tunnelQuotaParameter, tunnelQuotaParameter_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(beginTime, beginTime_);
+        DARABONBA_PTR_FROM_JSON(endTime, endTime_);
+        DARABONBA_PTR_FROM_JSON(timezone, timezone_);
+        DARABONBA_PTR_FROM_JSON(tunnelQuotaParameter, tunnelQuotaParameter_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class TunnelQuotaParameter : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const TunnelQuotaParameter& obj) { 
+          DARABONBA_PTR_TO_JSON(elasticReservedSlotNum, elasticReservedSlotNum_);
+          DARABONBA_PTR_TO_JSON(slotNum, slotNum_);
+        };
+        friend void from_json(const Darabonba::Json& j, TunnelQuotaParameter& obj) { 
+          DARABONBA_PTR_FROM_JSON(elasticReservedSlotNum, elasticReservedSlotNum_);
+          DARABONBA_PTR_FROM_JSON(slotNum, slotNum_);
+        };
+        TunnelQuotaParameter() = default ;
+        TunnelQuotaParameter(const TunnelQuotaParameter &) = default ;
+        TunnelQuotaParameter(TunnelQuotaParameter &&) = default ;
+        TunnelQuotaParameter(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~TunnelQuotaParameter() = default ;
+        TunnelQuotaParameter& operator=(const TunnelQuotaParameter &) = default ;
+        TunnelQuotaParameter& operator=(TunnelQuotaParameter &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->elasticReservedSlotNum_ == nullptr
+        && this->slotNum_ == nullptr; };
+        // elasticReservedSlotNum Field Functions 
+        bool hasElasticReservedSlotNum() const { return this->elasticReservedSlotNum_ != nullptr;};
+        void deleteElasticReservedSlotNum() { this->elasticReservedSlotNum_ = nullptr;};
+        inline int64_t getElasticReservedSlotNum() const { DARABONBA_PTR_GET_DEFAULT(elasticReservedSlotNum_, 0L) };
+        inline TunnelQuotaParameter& setElasticReservedSlotNum(int64_t elasticReservedSlotNum) { DARABONBA_PTR_SET_VALUE(elasticReservedSlotNum_, elasticReservedSlotNum) };
+
+
+        // slotNum Field Functions 
+        bool hasSlotNum() const { return this->slotNum_ != nullptr;};
+        void deleteSlotNum() { this->slotNum_ = nullptr;};
+        inline int64_t getSlotNum() const { DARABONBA_PTR_GET_DEFAULT(slotNum_, 0L) };
+        inline TunnelQuotaParameter& setSlotNum(int64_t slotNum) { DARABONBA_PTR_SET_VALUE(slotNum_, slotNum) };
+
+
+      protected:
+        shared_ptr<int64_t> elasticReservedSlotNum_ {};
+        shared_ptr<int64_t> slotNum_ {};
+      };
+
+      virtual bool empty() const override { return this->beginTime_ == nullptr
+        && this->endTime_ == nullptr && this->timezone_ == nullptr && this->tunnelQuotaParameter_ == nullptr; };
+      // beginTime Field Functions 
+      bool hasBeginTime() const { return this->beginTime_ != nullptr;};
+      void deleteBeginTime() { this->beginTime_ = nullptr;};
+      inline string getBeginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, "") };
+      inline Data& setBeginTime(string beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
+
+
+      // endTime Field Functions 
+      bool hasEndTime() const { return this->endTime_ != nullptr;};
+      void deleteEndTime() { this->endTime_ = nullptr;};
+      inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+      inline Data& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+      // timezone Field Functions 
+      bool hasTimezone() const { return this->timezone_ != nullptr;};
+      void deleteTimezone() { this->timezone_ = nullptr;};
+      inline string getTimezone() const { DARABONBA_PTR_GET_DEFAULT(timezone_, "") };
+      inline Data& setTimezone(string timezone) { DARABONBA_PTR_SET_VALUE(timezone_, timezone) };
+
+
+      // tunnelQuotaParameter Field Functions 
+      bool hasTunnelQuotaParameter() const { return this->tunnelQuotaParameter_ != nullptr;};
+      void deleteTunnelQuotaParameter() { this->tunnelQuotaParameter_ = nullptr;};
+      inline const Data::TunnelQuotaParameter & getTunnelQuotaParameter() const { DARABONBA_PTR_GET_CONST(tunnelQuotaParameter_, Data::TunnelQuotaParameter) };
+      inline Data::TunnelQuotaParameter getTunnelQuotaParameter() { DARABONBA_PTR_GET(tunnelQuotaParameter_, Data::TunnelQuotaParameter) };
+      inline Data& setTunnelQuotaParameter(const Data::TunnelQuotaParameter & tunnelQuotaParameter) { DARABONBA_PTR_SET_VALUE(tunnelQuotaParameter_, tunnelQuotaParameter) };
+      inline Data& setTunnelQuotaParameter(Data::TunnelQuotaParameter && tunnelQuotaParameter) { DARABONBA_PTR_SET_RVALUE(tunnelQuotaParameter_, tunnelQuotaParameter) };
+
+
+    protected:
+      shared_ptr<string> beginTime_ {};
+      shared_ptr<string> endTime_ {};
+      shared_ptr<string> timezone_ {};
+      shared_ptr<Data::TunnelQuotaParameter> tunnelQuotaParameter_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->errorCode_ == nullptr && return this->errorMsg_ == nullptr && return this->httpCode_ == nullptr && return this->requestId_ == nullptr; };
+        && this->errorCode_ == nullptr && this->errorMsg_ == nullptr && this->httpCode_ == nullptr && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<ListTunnelQuotaTimerResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<ListTunnelQuotaTimerResponseBodyData>) };
-    inline vector<ListTunnelQuotaTimerResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<ListTunnelQuotaTimerResponseBodyData>) };
-    inline ListTunnelQuotaTimerResponseBody& setData(const vector<ListTunnelQuotaTimerResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ListTunnelQuotaTimerResponseBody& setData(vector<ListTunnelQuotaTimerResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<ListTunnelQuotaTimerResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<ListTunnelQuotaTimerResponseBody::Data>) };
+    inline vector<ListTunnelQuotaTimerResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<ListTunnelQuotaTimerResponseBody::Data>) };
+    inline ListTunnelQuotaTimerResponseBody& setData(const vector<ListTunnelQuotaTimerResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListTunnelQuotaTimerResponseBody& setData(vector<ListTunnelQuotaTimerResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline ListTunnelQuotaTimerResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorMsg Field Functions 
     bool hasErrorMsg() const { return this->errorMsg_ != nullptr;};
     void deleteErrorMsg() { this->errorMsg_ = nullptr;};
-    inline string errorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
+    inline string getErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
     inline ListTunnelQuotaTimerResponseBody& setErrorMsg(string errorMsg) { DARABONBA_PTR_SET_VALUE(errorMsg_, errorMsg) };
 
 
     // httpCode Field Functions 
     bool hasHttpCode() const { return this->httpCode_ != nullptr;};
     void deleteHttpCode() { this->httpCode_ = nullptr;};
-    inline int32_t httpCode() const { DARABONBA_PTR_GET_DEFAULT(httpCode_, 0) };
+    inline int32_t getHttpCode() const { DARABONBA_PTR_GET_DEFAULT(httpCode_, 0) };
     inline ListTunnelQuotaTimerResponseBody& setHttpCode(int32_t httpCode) { DARABONBA_PTR_SET_VALUE(httpCode_, httpCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListTunnelQuotaTimerResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The data returned.
-    std::shared_ptr<vector<ListTunnelQuotaTimerResponseBodyData>> data_ = nullptr;
-    // The error code.
-    std::shared_ptr<string> errorCode_ = nullptr;
-    // The error message.
-    std::shared_ptr<string> errorMsg_ = nullptr;
-    // The HTTP status code.
-    // 
-    // *   1xx: informational response. The request is received and is being processed.
-    // *   2xx: success. The request is successfully received, understood, and accepted by the server.
-    // *   3xx: redirection. The request is redirected, and further actions are required to complete the request.
-    // *   4xx: client error. The request contains invalid request parameters or syntaxes, or specific request conditions cannot be met.
-    // *   5xx: server error. The server cannot meet requirements due to other reasons.
-    std::shared_ptr<int32_t> httpCode_ = nullptr;
-    // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<ListTunnelQuotaTimerResponseBody::Data>> data_ {};
+    shared_ptr<string> errorCode_ {};
+    shared_ptr<string> errorMsg_ {};
+    shared_ptr<int32_t> httpCode_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

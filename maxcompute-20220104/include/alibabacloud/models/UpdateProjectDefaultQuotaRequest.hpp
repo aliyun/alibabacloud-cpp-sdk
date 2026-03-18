@@ -33,13 +33,12 @@ namespace Models
     // quota Field Functions 
     bool hasQuota() const { return this->quota_ != nullptr;};
     void deleteQuota() { this->quota_ = nullptr;};
-    inline string quota() const { DARABONBA_PTR_GET_DEFAULT(quota_, "") };
+    inline string getQuota() const { DARABONBA_PTR_GET_DEFAULT(quota_, "") };
     inline UpdateProjectDefaultQuotaRequest& setQuota(string quota) { DARABONBA_PTR_SET_VALUE(quota_, quota) };
 
 
   protected:
-    // The default computing quota that is used to allocate computing resources, the jobs that are initiated by this project consume the computing resources in the default quota.
-    std::shared_ptr<string> quota_ = nullptr;
+    shared_ptr<string> quota_ {};
   };
 
   } // namespace Models

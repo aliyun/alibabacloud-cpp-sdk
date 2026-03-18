@@ -33,13 +33,12 @@ namespace Models
     // displayTimezone Field Functions 
     bool hasDisplayTimezone() const { return this->displayTimezone_ != nullptr;};
     void deleteDisplayTimezone() { this->displayTimezone_ = nullptr;};
-    inline string displayTimezone() const { DARABONBA_PTR_GET_DEFAULT(displayTimezone_, "") };
+    inline string getDisplayTimezone() const { DARABONBA_PTR_GET_DEFAULT(displayTimezone_, "") };
     inline GetComputeQuotaScheduleRequest& setDisplayTimezone(string displayTimezone) { DARABONBA_PTR_SET_VALUE(displayTimezone_, displayTimezone) };
 
 
   protected:
-    // Display time zone.
-    std::shared_ptr<string> displayTimezone_ = nullptr;
+    shared_ptr<string> displayTimezone_ {};
   };
 
   } // namespace Models
