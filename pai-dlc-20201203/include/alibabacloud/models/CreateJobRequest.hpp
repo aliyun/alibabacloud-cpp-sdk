@@ -172,21 +172,25 @@ namespace Models
     class DataSources : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const DataSources& obj) { 
+        DARABONBA_PTR_TO_JSON(AccessPointId, accessPointId_);
         DARABONBA_PTR_TO_JSON(DataSourceId, dataSourceId_);
         DARABONBA_PTR_TO_JSON(DataSourceVersion, dataSourceVersion_);
         DARABONBA_PTR_TO_JSON(EnableCache, enableCache_);
         DARABONBA_PTR_TO_JSON(MountAccess, mountAccess_);
         DARABONBA_PTR_TO_JSON(MountPath, mountPath_);
         DARABONBA_PTR_TO_JSON(Options, options_);
+        DARABONBA_PTR_TO_JSON(RoleChain, roleChain_);
         DARABONBA_PTR_TO_JSON(Uri, uri_);
       };
       friend void from_json(const Darabonba::Json& j, DataSources& obj) { 
+        DARABONBA_PTR_FROM_JSON(AccessPointId, accessPointId_);
         DARABONBA_PTR_FROM_JSON(DataSourceId, dataSourceId_);
         DARABONBA_PTR_FROM_JSON(DataSourceVersion, dataSourceVersion_);
         DARABONBA_PTR_FROM_JSON(EnableCache, enableCache_);
         DARABONBA_PTR_FROM_JSON(MountAccess, mountAccess_);
         DARABONBA_PTR_FROM_JSON(MountPath, mountPath_);
         DARABONBA_PTR_FROM_JSON(Options, options_);
+        DARABONBA_PTR_FROM_JSON(RoleChain, roleChain_);
         DARABONBA_PTR_FROM_JSON(Uri, uri_);
       };
       DataSources() = default ;
@@ -200,9 +204,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->dataSourceId_ == nullptr
-        && this->dataSourceVersion_ == nullptr && this->enableCache_ == nullptr && this->mountAccess_ == nullptr && this->mountPath_ == nullptr && this->options_ == nullptr
-        && this->uri_ == nullptr; };
+      virtual bool empty() const override { return this->accessPointId_ == nullptr
+        && this->dataSourceId_ == nullptr && this->dataSourceVersion_ == nullptr && this->enableCache_ == nullptr && this->mountAccess_ == nullptr && this->mountPath_ == nullptr
+        && this->options_ == nullptr && this->roleChain_ == nullptr && this->uri_ == nullptr; };
+      // accessPointId Field Functions 
+      bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
+      void deleteAccessPointId() { this->accessPointId_ = nullptr;};
+      inline string getAccessPointId() const { DARABONBA_PTR_GET_DEFAULT(accessPointId_, "") };
+      inline DataSources& setAccessPointId(string accessPointId) { DARABONBA_PTR_SET_VALUE(accessPointId_, accessPointId) };
+
+
       // dataSourceId Field Functions 
       bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
       void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
@@ -245,6 +256,13 @@ namespace Models
       inline DataSources& setOptions(string options) { DARABONBA_PTR_SET_VALUE(options_, options) };
 
 
+      // roleChain Field Functions 
+      bool hasRoleChain() const { return this->roleChain_ != nullptr;};
+      void deleteRoleChain() { this->roleChain_ = nullptr;};
+      inline string getRoleChain() const { DARABONBA_PTR_GET_DEFAULT(roleChain_, "") };
+      inline DataSources& setRoleChain(string roleChain) { DARABONBA_PTR_SET_VALUE(roleChain_, roleChain) };
+
+
       // uri Field Functions 
       bool hasUri() const { return this->uri_ != nullptr;};
       void deleteUri() { this->uri_ = nullptr;};
@@ -253,6 +271,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> accessPointId_ {};
       // The data source ID.
       shared_ptr<string> dataSourceId_ {};
       shared_ptr<string> dataSourceVersion_ {};
@@ -262,6 +281,7 @@ namespace Models
       shared_ptr<string> mountPath_ {};
       // The mount attribute of the custom dataset. Set the value to OSS.
       shared_ptr<string> options_ {};
+      shared_ptr<string> roleChain_ {};
       // The data source path.
       shared_ptr<string> uri_ {};
     };

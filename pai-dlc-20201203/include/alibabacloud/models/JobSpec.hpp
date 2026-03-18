@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IsChief, isChief_);
       DARABONBA_PTR_TO_JSON(LocalMountSpecs, localMountSpecs_);
       DARABONBA_PTR_TO_JSON(PodCount, podCount_);
+      DARABONBA_PTR_TO_JSON(QuotaId, quotaId_);
       DARABONBA_PTR_TO_JSON(ResourceConfig, resourceConfig_);
       DARABONBA_PTR_TO_JSON(RestartPolicy, restartPolicy_);
       DARABONBA_PTR_TO_JSON(ServiceSpec, serviceSpec_);
@@ -54,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IsChief, isChief_);
       DARABONBA_PTR_FROM_JSON(LocalMountSpecs, localMountSpecs_);
       DARABONBA_PTR_FROM_JSON(PodCount, podCount_);
+      DARABONBA_PTR_FROM_JSON(QuotaId, quotaId_);
       DARABONBA_PTR_FROM_JSON(ResourceConfig, resourceConfig_);
       DARABONBA_PTR_FROM_JSON(RestartPolicy, restartPolicy_);
       DARABONBA_PTR_FROM_JSON(ServiceSpec, serviceSpec_);
@@ -76,9 +78,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assignNodeSpec_ == nullptr
         && this->autoScalingSpec_ == nullptr && this->ecsSpec_ == nullptr && this->extraPodSpec_ == nullptr && this->image_ == nullptr && this->imageConfig_ == nullptr
-        && this->isCheif_ == nullptr && this->isChief_ == nullptr && this->localMountSpecs_ == nullptr && this->podCount_ == nullptr && this->resourceConfig_ == nullptr
-        && this->restartPolicy_ == nullptr && this->serviceSpec_ == nullptr && this->spotSpec_ == nullptr && this->startupDependencies_ == nullptr && this->systemDisk_ == nullptr
-        && this->type_ == nullptr && this->useSpotInstance_ == nullptr; };
+        && this->isCheif_ == nullptr && this->isChief_ == nullptr && this->localMountSpecs_ == nullptr && this->podCount_ == nullptr && this->quotaId_ == nullptr
+        && this->resourceConfig_ == nullptr && this->restartPolicy_ == nullptr && this->serviceSpec_ == nullptr && this->spotSpec_ == nullptr && this->startupDependencies_ == nullptr
+        && this->systemDisk_ == nullptr && this->type_ == nullptr && this->useSpotInstance_ == nullptr; };
     // assignNodeSpec Field Functions 
     bool hasAssignNodeSpec() const { return this->assignNodeSpec_ != nullptr;};
     void deleteAssignNodeSpec() { this->assignNodeSpec_ = nullptr;};
@@ -157,6 +159,13 @@ namespace Models
     void deletePodCount() { this->podCount_ = nullptr;};
     inline int64_t getPodCount() const { DARABONBA_PTR_GET_DEFAULT(podCount_, 0L) };
     inline JobSpec& setPodCount(int64_t podCount) { DARABONBA_PTR_SET_VALUE(podCount_, podCount) };
+
+
+    // quotaId Field Functions 
+    bool hasQuotaId() const { return this->quotaId_ != nullptr;};
+    void deleteQuotaId() { this->quotaId_ = nullptr;};
+    inline string getQuotaId() const { DARABONBA_PTR_GET_DEFAULT(quotaId_, "") };
+    inline JobSpec& setQuotaId(string quotaId) { DARABONBA_PTR_SET_VALUE(quotaId_, quotaId) };
 
 
     // resourceConfig Field Functions 
@@ -248,6 +257,7 @@ namespace Models
     shared_ptr<vector<LocalMountSpec>> localMountSpecs_ {};
     // The number of replicas.
     shared_ptr<int64_t> podCount_ {};
+    shared_ptr<string> quotaId_ {};
     // The resource configurations.
     shared_ptr<ResourceConfig> resourceConfig_ {};
     // The restart policy. Valid values: Always, Never, OnFailure, and ExitCode.
