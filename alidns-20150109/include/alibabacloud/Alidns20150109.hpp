@@ -139,7 +139,7 @@ namespace Alidns20150109
       Models::AddDomainResponse addDomain(const Models::AddDomainRequest &request);
 
       /**
-       * @summary Creates a backup task for a domain name.
+       * @summary Creates a backup for the domain name based on the specified domain name and backup cycle.
        *
        * @param request AddDomainBackupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -148,7 +148,7 @@ namespace Alidns20150109
       Models::AddDomainBackupResponse addDomainBackupWithOptions(const Models::AddDomainBackupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a backup task for a domain name.
+       * @summary Creates a backup for the domain name based on the specified domain name and backup cycle.
        *
        * @param request AddDomainBackupRequest
        * @return AddDomainBackupResponse
@@ -190,6 +190,8 @@ namespace Alidns20150109
       Models::AddDomainRecordResponse addDomainRecord(const Models::AddDomainRecordRequest &request);
 
       /**
+       * @summary You can call this operation to create an access policy for a Global Traffic Manager (GTM) instance.
+       *
        * @param request AddGtmAccessStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddGtmAccessStrategyResponse
@@ -197,6 +199,8 @@ namespace Alidns20150109
       Models::AddGtmAccessStrategyResponse addGtmAccessStrategyWithOptions(const Models::AddGtmAccessStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can call this operation to create an access policy for a Global Traffic Manager (GTM) instance.
+       *
        * @param request AddGtmAccessStrategyRequest
        * @return AddGtmAccessStrategyResponse
        */
@@ -254,7 +258,7 @@ namespace Alidns20150109
       Models::AddGtmRecoveryPlanResponse addGtmRecoveryPlan(const Models::AddGtmRecoveryPlanRequest &request);
 
       /**
-       * @summary 新增递归解析内置权威解析记录
+       * @summary Adds HTTPDNS authoritative DNS resolution records
        *
        * @param request AddRecursionRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -263,7 +267,7 @@ namespace Alidns20150109
       Models::AddRecursionRecordResponse addRecursionRecordWithOptions(const Models::AddRecursionRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增递归解析内置权威解析记录
+       * @summary Adds HTTPDNS authoritative DNS resolution records
        *
        * @param request AddRecursionRecordRequest
        * @return AddRecursionRecordResponse
@@ -271,7 +275,7 @@ namespace Alidns20150109
       Models::AddRecursionRecordResponse addRecursionRecord(const Models::AddRecursionRecordRequest &request);
 
       /**
-       * @summary 新增递归解析内置权威域名zone
+       * @summary Adds HTTPDNS zone
        *
        * @param request AddRecursionZoneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -280,7 +284,7 @@ namespace Alidns20150109
       Models::AddRecursionZoneResponse addRecursionZoneWithOptions(const Models::AddRecursionZoneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增递归解析内置权威域名zone
+       * @summary Adds HTTPDNS zone
        *
        * @param request AddRecursionZoneRequest
        * @return AddRecursionZoneResponse
@@ -502,7 +506,7 @@ namespace Alidns20150109
       Models::CreateCloudGtmMonitorTemplateResponse createCloudGtmMonitorTemplate(const Models::CreateCloudGtmMonitorTemplateRequest &request);
 
       /**
-       * @summary 创建公共DNS AppKey
+       * @summary Creates an AppKey in Alibaba Cloud Public DNS.
        *
        * @param request CreatePdnsAppKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -511,7 +515,7 @@ namespace Alidns20150109
       Models::CreatePdnsAppKeyResponse createPdnsAppKeyWithOptions(const Models::CreatePdnsAppKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建公共DNS AppKey
+       * @summary Creates an AppKey in Alibaba Cloud Public DNS.
        *
        * @param request CreatePdnsAppKeyRequest
        * @return CreatePdnsAppKeyResponse
@@ -638,6 +642,8 @@ namespace Alidns20150109
       Models::DeleteDnsCacheDomainResponse deleteDnsCacheDomain(const Models::DeleteDnsCacheDomainRequest &request);
 
       /**
+       * @summary Deletes an access policy by policy ID.
+       *
        * @param request DeleteDnsGtmAccessStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDnsGtmAccessStrategyResponse
@@ -645,12 +651,16 @@ namespace Alidns20150109
       Models::DeleteDnsGtmAccessStrategyResponse deleteDnsGtmAccessStrategyWithOptions(const Models::DeleteDnsGtmAccessStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes an access policy by policy ID.
+       *
        * @param request DeleteDnsGtmAccessStrategyRequest
        * @return DeleteDnsGtmAccessStrategyResponse
        */
       Models::DeleteDnsGtmAccessStrategyResponse deleteDnsGtmAccessStrategy(const Models::DeleteDnsGtmAccessStrategyRequest &request);
 
       /**
+       * @summary Deletes an address pool by address pool ID.
+       *
        * @param request DeleteDnsGtmAddressPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDnsGtmAddressPoolResponse
@@ -658,6 +668,8 @@ namespace Alidns20150109
       Models::DeleteDnsGtmAddressPoolResponse deleteDnsGtmAddressPoolWithOptions(const Models::DeleteDnsGtmAddressPoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes an address pool by address pool ID.
+       *
        * @param request DeleteDnsGtmAddressPoolRequest
        * @return DeleteDnsGtmAddressPoolResponse
        */
@@ -719,6 +731,8 @@ namespace Alidns20150109
       Models::DeleteDomainRecordResponse deleteDomainRecord(const Models::DeleteDomainRecordRequest &request);
 
       /**
+       * @summary You can call this operation to delete an access policy of a Global Traffic Manager (GTM) instance.
+       *
        * @param request DeleteGtmAccessStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteGtmAccessStrategyResponse
@@ -726,12 +740,16 @@ namespace Alidns20150109
       Models::DeleteGtmAccessStrategyResponse deleteGtmAccessStrategyWithOptions(const Models::DeleteGtmAccessStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can call this operation to delete an access policy of a Global Traffic Manager (GTM) instance.
+       *
        * @param request DeleteGtmAccessStrategyRequest
        * @return DeleteGtmAccessStrategyResponse
        */
       Models::DeleteGtmAccessStrategyResponse deleteGtmAccessStrategy(const Models::DeleteGtmAccessStrategyRequest &request);
 
       /**
+       * @summary You can call this operation to delete an address pool of a Global Traffic Manager (GTM).
+       *
        * @param request DeleteGtmAddressPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteGtmAddressPoolResponse
@@ -739,12 +757,16 @@ namespace Alidns20150109
       Models::DeleteGtmAddressPoolResponse deleteGtmAddressPoolWithOptions(const Models::DeleteGtmAddressPoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can call this operation to delete an address pool of a Global Traffic Manager (GTM).
+       *
        * @param request DeleteGtmAddressPoolRequest
        * @return DeleteGtmAddressPoolResponse
        */
       Models::DeleteGtmAddressPoolResponse deleteGtmAddressPool(const Models::DeleteGtmAddressPoolRequest &request);
 
       /**
+       * @summary Deletes a disaster recovery plan.
+       *
        * @param request DeleteGtmRecoveryPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteGtmRecoveryPlanResponse
@@ -752,13 +774,15 @@ namespace Alidns20150109
       Models::DeleteGtmRecoveryPlanResponse deleteGtmRecoveryPlanWithOptions(const Models::DeleteGtmRecoveryPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a disaster recovery plan.
+       *
        * @param request DeleteGtmRecoveryPlanRequest
        * @return DeleteGtmRecoveryPlanResponse
        */
       Models::DeleteGtmRecoveryPlanResponse deleteGtmRecoveryPlan(const Models::DeleteGtmRecoveryPlanRequest &request);
 
       /**
-       * @summary 删除递归解析内置权威解析记录
+       * @summary Deletes HTTPDNS resolution records
        *
        * @param request DeleteRecursionRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -767,7 +791,7 @@ namespace Alidns20150109
       Models::DeleteRecursionRecordResponse deleteRecursionRecordWithOptions(const Models::DeleteRecursionRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除递归解析内置权威解析记录
+       * @summary Deletes HTTPDNS resolution records
        *
        * @param request DeleteRecursionRecordRequest
        * @return DeleteRecursionRecordResponse
@@ -775,7 +799,7 @@ namespace Alidns20150109
       Models::DeleteRecursionRecordResponse deleteRecursionRecord(const Models::DeleteRecursionRecordRequest &request);
 
       /**
-       * @summary 删除递归解析内置权威域名zone
+       * @summary Deletes HTTPDNS authoritative domain zone
        *
        * @param request DeleteRecursionZoneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -784,7 +808,7 @@ namespace Alidns20150109
       Models::DeleteRecursionZoneResponse deleteRecursionZoneWithOptions(const Models::DeleteRecursionZoneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除递归解析内置权威域名zone
+       * @summary Deletes HTTPDNS authoritative domain zone
        *
        * @param request DeleteRecursionZoneRequest
        * @return DeleteRecursionZoneResponse
@@ -1059,7 +1083,7 @@ namespace Alidns20150109
       Models::DescribeDNSSLBSubDomainsResponse describeDNSSLBSubDomains(const Models::DescribeDNSSLBSubDomainsRequest &request);
 
       /**
-       * @summary 查询代理域名
+       * @summary Queries cache-accelerated domain names within your account based on the specified parameters.
        *
        * @param request DescribeDnsCacheDomainsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1068,7 +1092,7 @@ namespace Alidns20150109
       Models::DescribeDnsCacheDomainsResponse describeDnsCacheDomainsWithOptions(const Models::DescribeDnsCacheDomainsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询代理域名
+       * @summary Queries cache-accelerated domain names within your account based on the specified parameters.
        *
        * @param request DescribeDnsCacheDomainsRequest
        * @return DescribeDnsCacheDomainsResponse
@@ -1076,7 +1100,7 @@ namespace Alidns20150109
       Models::DescribeDnsCacheDomainsResponse describeDnsCacheDomains(const Models::DescribeDnsCacheDomainsRequest &request);
 
       /**
-       * @summary Queries access policies of a Global Traffic Manager (GTM) instance.
+       * @summary Queries the access policies of a GTM instance.
        *
        * @param request DescribeDnsGtmAccessStrategiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1085,7 +1109,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmAccessStrategiesResponse describeDnsGtmAccessStrategiesWithOptions(const Models::DescribeDnsGtmAccessStrategiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries access policies of a Global Traffic Manager (GTM) instance.
+       * @summary Queries the access policies of a GTM instance.
        *
        * @param request DescribeDnsGtmAccessStrategiesRequest
        * @return DescribeDnsGtmAccessStrategiesResponse
@@ -1093,7 +1117,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmAccessStrategiesResponse describeDnsGtmAccessStrategies(const Models::DescribeDnsGtmAccessStrategiesRequest &request);
 
       /**
-       * @summary Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+       * @summary Queries the details about an access policy.
        *
        * @param request DescribeDnsGtmAccessStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1102,7 +1126,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmAccessStrategyResponse describeDnsGtmAccessStrategyWithOptions(const Models::DescribeDnsGtmAccessStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+       * @summary Queries the details about an access policy.
        *
        * @param request DescribeDnsGtmAccessStrategyRequest
        * @return DescribeDnsGtmAccessStrategyResponse
@@ -1110,7 +1134,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmAccessStrategyResponse describeDnsGtmAccessStrategy(const Models::DescribeDnsGtmAccessStrategyRequest &request);
 
       /**
-       * @summary Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+       * @summary Queries the configuration items that can be set for an access policy.
        *
        * @param request DescribeDnsGtmAccessStrategyAvailableConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1119,7 +1143,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmAccessStrategyAvailableConfigResponse describeDnsGtmAccessStrategyAvailableConfigWithOptions(const Models::DescribeDnsGtmAccessStrategyAvailableConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+       * @summary Queries the configuration items that can be set for an access policy.
        *
        * @param request DescribeDnsGtmAccessStrategyAvailableConfigRequest
        * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse
@@ -1144,7 +1168,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmAddrAttributeInfoResponse describeDnsGtmAddrAttributeInfo(const Models::DescribeDnsGtmAddrAttributeInfoRequest &request);
 
       /**
-       * @summary Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+       * @summary Queries the available configurations of an address pool of a GTM instance.
        *
        * @param request DescribeDnsGtmAddressPoolAvailableConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1153,7 +1177,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmAddressPoolAvailableConfigResponse describeDnsGtmAddressPoolAvailableConfigWithOptions(const Models::DescribeDnsGtmAddressPoolAvailableConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+       * @summary Queries the available configurations of an address pool of a GTM instance.
        *
        * @param request DescribeDnsGtmAddressPoolAvailableConfigRequest
        * @return DescribeDnsGtmAddressPoolAvailableConfigResponse
@@ -1161,6 +1185,8 @@ namespace Alidns20150109
       Models::DescribeDnsGtmAddressPoolAvailableConfigResponse describeDnsGtmAddressPoolAvailableConfig(const Models::DescribeDnsGtmAddressPoolAvailableConfigRequest &request);
 
       /**
+       * @summary Queries the available alert groups of a Global Traffic Manager (GTM) instance.
+       *
        * @param request DescribeDnsGtmAvailableAlertGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDnsGtmAvailableAlertGroupResponse
@@ -1168,13 +1194,15 @@ namespace Alidns20150109
       Models::DescribeDnsGtmAvailableAlertGroupResponse describeDnsGtmAvailableAlertGroupWithOptions(const Models::DescribeDnsGtmAvailableAlertGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the available alert groups of a Global Traffic Manager (GTM) instance.
+       *
        * @param request DescribeDnsGtmAvailableAlertGroupRequest
        * @return DescribeDnsGtmAvailableAlertGroupResponse
        */
       Models::DescribeDnsGtmAvailableAlertGroupResponse describeDnsGtmAvailableAlertGroup(const Models::DescribeDnsGtmAvailableAlertGroupRequest &request);
 
       /**
-       * @summary Queries detailed information about a Global Traffic Manager (GTM) instance.
+       * @summary Obtains the details of an instance based on the ID of the instance.
        *
        * @param request DescribeDnsGtmInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1183,7 +1211,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmInstanceResponse describeDnsGtmInstanceWithOptions(const Models::DescribeDnsGtmInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries detailed information about a Global Traffic Manager (GTM) instance.
+       * @summary Obtains the details of an instance based on the ID of the instance.
        *
        * @param request DescribeDnsGtmInstanceRequest
        * @return DescribeDnsGtmInstanceResponse
@@ -1191,7 +1219,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmInstanceResponse describeDnsGtmInstance(const Models::DescribeDnsGtmInstanceRequest &request);
 
       /**
-       * @summary Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+       * @summary Queries detailed information about an address pool by address pool ID.
        *
        * @param request DescribeDnsGtmInstanceAddressPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1200,7 +1228,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmInstanceAddressPoolResponse describeDnsGtmInstanceAddressPoolWithOptions(const Models::DescribeDnsGtmInstanceAddressPoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+       * @summary Queries detailed information about an address pool by address pool ID.
        *
        * @param request DescribeDnsGtmInstanceAddressPoolRequest
        * @return DescribeDnsGtmInstanceAddressPoolResponse
@@ -1208,7 +1236,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmInstanceAddressPoolResponse describeDnsGtmInstanceAddressPool(const Models::DescribeDnsGtmInstanceAddressPoolRequest &request);
 
       /**
-       * @summary Queries the address pools of a Global Traffic Manager (GTM) instance.
+       * @summary Queries address pools by the IDs of GTM instances.
        *
        * @param request DescribeDnsGtmInstanceAddressPoolsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1217,7 +1245,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmInstanceAddressPoolsResponse describeDnsGtmInstanceAddressPoolsWithOptions(const Models::DescribeDnsGtmInstanceAddressPoolsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the address pools of a Global Traffic Manager (GTM) instance.
+       * @summary Queries address pools by the IDs of GTM instances.
        *
        * @param request DescribeDnsGtmInstanceAddressPoolsRequest
        * @return DescribeDnsGtmInstanceAddressPoolsResponse
@@ -1225,7 +1253,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmInstanceAddressPoolsResponse describeDnsGtmInstanceAddressPools(const Models::DescribeDnsGtmInstanceAddressPoolsRequest &request);
 
       /**
-       * @summary Queries the status of a Global Traffic Manager (GTM) instance.
+       * @summary Obtains the current status of the instance by instance ID.
        *
        * @param request DescribeDnsGtmInstanceStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1234,7 +1262,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmInstanceStatusResponse describeDnsGtmInstanceStatusWithOptions(const Models::DescribeDnsGtmInstanceStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of a Global Traffic Manager (GTM) instance.
+       * @summary Obtains the current status of the instance by instance ID.
        *
        * @param request DescribeDnsGtmInstanceStatusRequest
        * @return DescribeDnsGtmInstanceStatusResponse
@@ -1242,7 +1270,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmInstanceStatusResponse describeDnsGtmInstanceStatus(const Models::DescribeDnsGtmInstanceStatusRequest &request);
 
       /**
-       * @summary Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+       * @summary Queries the canonical name (CNAME) assigned by the system for a GTM instance.
        *
        * @param request DescribeDnsGtmInstanceSystemCnameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1251,7 +1279,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmInstanceSystemCnameResponse describeDnsGtmInstanceSystemCnameWithOptions(const Models::DescribeDnsGtmInstanceSystemCnameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+       * @summary Queries the canonical name (CNAME) assigned by the system for a GTM instance.
        *
        * @param request DescribeDnsGtmInstanceSystemCnameRequest
        * @return DescribeDnsGtmInstanceSystemCnameResponse
@@ -1276,7 +1304,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmInstancesResponse describeDnsGtmInstances(const Models::DescribeDnsGtmInstancesRequest &request);
 
       /**
-       * @summary Queries operation logs of a Global Traffic Manager (GTM) instance.
+       * @summary Obtains the operation logs by instance ID.
        *
        * @param request DescribeDnsGtmLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1285,7 +1313,7 @@ namespace Alidns20150109
       Models::DescribeDnsGtmLogsResponse describeDnsGtmLogsWithOptions(const Models::DescribeDnsGtmLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries operation logs of a Global Traffic Manager (GTM) instance.
+       * @summary Obtains the operation logs by instance ID.
        *
        * @param request DescribeDnsGtmLogsRequest
        * @return DescribeDnsGtmLogsResponse
@@ -1365,6 +1393,8 @@ namespace Alidns20150109
       Models::DescribeDnsProductInstancesResponse describeDnsProductInstances(const Models::DescribeDnsProductInstancesRequest &request);
 
       /**
+       * @summary Queries the statistics on DoH-based requests for a domain name.
+       *
        * @param request DescribeDohAccountStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDohAccountStatisticsResponse
@@ -1372,13 +1402,15 @@ namespace Alidns20150109
       Models::DescribeDohAccountStatisticsResponse describeDohAccountStatisticsWithOptions(const Models::DescribeDohAccountStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the statistics on DoH-based requests for a domain name.
+       *
        * @param request DescribeDohAccountStatisticsRequest
        * @return DescribeDohAccountStatisticsResponse
        */
       Models::DescribeDohAccountStatisticsResponse describeDohAccountStatistics(const Models::DescribeDohAccountStatisticsRequest &request);
 
       /**
-       * @summary 查询DOH域名请求量数据
+       * @summary The statistics on DoH-based requests for a domain name are queried.
        *
        * @param request DescribeDohDomainStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1387,7 +1419,7 @@ namespace Alidns20150109
       Models::DescribeDohDomainStatisticsResponse describeDohDomainStatisticsWithOptions(const Models::DescribeDohDomainStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询DOH域名请求量数据
+       * @summary The statistics on DoH-based requests for a domain name are queried.
        *
        * @param request DescribeDohDomainStatisticsRequest
        * @return DescribeDohDomainStatisticsResponse
@@ -1395,6 +1427,8 @@ namespace Alidns20150109
       Models::DescribeDohDomainStatisticsResponse describeDohDomainStatistics(const Models::DescribeDohDomainStatisticsRequest &request);
 
       /**
+       * @summary Queries the statistics on DoH-based requests for domain names.
+       *
        * @param request DescribeDohDomainStatisticsSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDohDomainStatisticsSummaryResponse
@@ -1402,12 +1436,16 @@ namespace Alidns20150109
       Models::DescribeDohDomainStatisticsSummaryResponse describeDohDomainStatisticsSummaryWithOptions(const Models::DescribeDohDomainStatisticsSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the statistics on DoH-based requests for domain names.
+       *
        * @param request DescribeDohDomainStatisticsSummaryRequest
        * @return DescribeDohDomainStatisticsSummaryResponse
        */
       Models::DescribeDohDomainStatisticsSummaryResponse describeDohDomainStatisticsSummary(const Models::DescribeDohDomainStatisticsSummaryRequest &request);
 
       /**
+       * @summary Obtains the statistics on DoH-based requests for a subdomain name.
+       *
        * @param request DescribeDohSubDomainStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDohSubDomainStatisticsResponse
@@ -1415,12 +1453,16 @@ namespace Alidns20150109
       Models::DescribeDohSubDomainStatisticsResponse describeDohSubDomainStatisticsWithOptions(const Models::DescribeDohSubDomainStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains the statistics on DoH-based requests for a subdomain name.
+       *
        * @param request DescribeDohSubDomainStatisticsRequest
        * @return DescribeDohSubDomainStatisticsResponse
        */
       Models::DescribeDohSubDomainStatisticsResponse describeDohSubDomainStatistics(const Models::DescribeDohSubDomainStatisticsRequest &request);
 
       /**
+       * @summary Queries the statistics on DoH-based requests for subdomain names.
+       *
        * @param request DescribeDohSubDomainStatisticsSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDohSubDomainStatisticsSummaryResponse
@@ -1428,6 +1470,8 @@ namespace Alidns20150109
       Models::DescribeDohSubDomainStatisticsSummaryResponse describeDohSubDomainStatisticsSummaryWithOptions(const Models::DescribeDohSubDomainStatisticsSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the statistics on DoH-based requests for subdomain names.
+       *
        * @param request DescribeDohSubDomainStatisticsSummaryRequest
        * @return DescribeDohSubDomainStatisticsSummaryResponse
        */
@@ -1727,6 +1771,8 @@ namespace Alidns20150109
       Models::DescribeGtmAccessStrategyAvailableConfigResponse describeGtmAccessStrategyAvailableConfig(const Models::DescribeGtmAccessStrategyAvailableConfigRequest &request);
 
       /**
+       * @summary You can call this operation to query the available alert groups for a Global Traffic Manager (GTM) instance.
+       *
        * @param request DescribeGtmAvailableAlertGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeGtmAvailableAlertGroupResponse
@@ -1734,6 +1780,8 @@ namespace Alidns20150109
       Models::DescribeGtmAvailableAlertGroupResponse describeGtmAvailableAlertGroupWithOptions(const Models::DescribeGtmAvailableAlertGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can call this operation to query the available alert groups for a Global Traffic Manager (GTM) instance.
+       *
        * @param request DescribeGtmAvailableAlertGroupRequest
        * @return DescribeGtmAvailableAlertGroupResponse
        */
@@ -1808,6 +1856,8 @@ namespace Alidns20150109
       Models::DescribeGtmInstanceStatusResponse describeGtmInstanceStatus(const Models::DescribeGtmInstanceStatusRequest &request);
 
       /**
+       * @summary You can call this operation to query the CNAME record assigned by the system.
+       *
        * @param request DescribeGtmInstanceSystemCnameRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeGtmInstanceSystemCnameResponse
@@ -1815,6 +1865,8 @@ namespace Alidns20150109
       Models::DescribeGtmInstanceSystemCnameResponse describeGtmInstanceSystemCnameWithOptions(const Models::DescribeGtmInstanceSystemCnameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can call this operation to query the CNAME record assigned by the system.
+       *
        * @param request DescribeGtmInstanceSystemCnameRequest
        * @return DescribeGtmInstanceSystemCnameResponse
        */
@@ -1923,7 +1975,7 @@ namespace Alidns20150109
       Models::DescribeGtmRecoveryPlanAvailableConfigResponse describeGtmRecoveryPlanAvailableConfig(const Models::DescribeGtmRecoveryPlanAvailableConfigRequest &request);
 
       /**
-       * @summary Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+       * @summary Queries disaster recovery plans.
        *
        * @param request DescribeGtmRecoveryPlansRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1932,7 +1984,7 @@ namespace Alidns20150109
       Models::DescribeGtmRecoveryPlansResponse describeGtmRecoveryPlansWithOptions(const Models::DescribeGtmRecoveryPlansRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+       * @summary Queries disaster recovery plans.
        *
        * @param request DescribeGtmRecoveryPlansRequest
        * @return DescribeGtmRecoveryPlansResponse
@@ -2110,7 +2162,7 @@ namespace Alidns20150109
       Models::DescribePdnsOperateLogsResponse describePdnsOperateLogs(const Models::DescribePdnsOperateLogsRequest &request);
 
       /**
-       * @summary Queries the statistics on requests for Alibaba Cloud Public DNS.
+       * @summary Queries the number of requests for public DNS.
        *
        * @param request DescribePdnsRequestStatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2119,7 +2171,7 @@ namespace Alidns20150109
       Models::DescribePdnsRequestStatisticResponse describePdnsRequestStatisticWithOptions(const Models::DescribePdnsRequestStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the statistics on requests for Alibaba Cloud Public DNS.
+       * @summary Queries the number of requests for public DNS.
        *
        * @param request DescribePdnsRequestStatisticRequest
        * @return DescribePdnsRequestStatisticResponse
@@ -2301,7 +2353,7 @@ namespace Alidns20150109
       Models::DescribeRecordStatisticsSummaryResponse describeRecordStatisticsSummary(const Models::DescribeRecordStatisticsSummaryRequest &request);
 
       /**
-       * @summary 查询递归解析内置权威解析记录详情
+       * @summary Queries the details of HTTPDNS resolution records
        *
        * @param request DescribeRecursionRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2310,7 +2362,7 @@ namespace Alidns20150109
       Models::DescribeRecursionRecordResponse describeRecursionRecordWithOptions(const Models::DescribeRecursionRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询递归解析内置权威解析记录详情
+       * @summary Queries the details of HTTPDNS resolution records
        *
        * @param request DescribeRecursionRecordRequest
        * @return DescribeRecursionRecordResponse
@@ -2352,7 +2404,7 @@ namespace Alidns20150109
       Models::DescribeSubDomainRecordsResponse describeSubDomainRecords(const Models::DescribeSubDomainRecordsRequest &request);
 
       /**
-       * @summary 查询支持的所有线路
+       * @summary Queries all lines that are supported by Alibaba Cloud DNS.
        *
        * @param request DescribeSupportLinesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2361,7 +2413,7 @@ namespace Alidns20150109
       Models::DescribeSupportLinesResponse describeSupportLinesWithOptions(const Models::DescribeSupportLinesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询支持的所有线路
+       * @summary Queries all lines that are supported by Alibaba Cloud DNS.
        *
        * @param request DescribeSupportLinesRequest
        * @return DescribeSupportLinesResponse
@@ -2537,7 +2589,7 @@ namespace Alidns20150109
       Models::ListCloudGtmInstanceConfigsResponse listCloudGtmInstanceConfigs(const Models::ListCloudGtmInstanceConfigsRequest &request);
 
       /**
-       * @summary Queries a list of Global Traffic Manager (GTM) 3.0 instances.
+       * @summary Obtains the GTM 3.0 instances based on the specified parameters.
        *
        * @param request ListCloudGtmInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2546,7 +2598,7 @@ namespace Alidns20150109
       Models::ListCloudGtmInstancesResponse listCloudGtmInstancesWithOptions(const Models::ListCloudGtmInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of Global Traffic Manager (GTM) 3.0 instances.
+       * @summary Obtains the GTM 3.0 instances based on the specified parameters.
        *
        * @param request ListCloudGtmInstancesRequest
        * @return ListCloudGtmInstancesResponse
@@ -2571,7 +2623,7 @@ namespace Alidns20150109
       Models::ListCloudGtmMonitorNodesResponse listCloudGtmMonitorNodes(const Models::ListCloudGtmMonitorNodesRequest &request);
 
       /**
-       * @summary Queries a list of health check templates.
+       * @summary Queries a list of health check templates based on specified parameters.
        *
        * @param request ListCloudGtmMonitorTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2580,7 +2632,7 @@ namespace Alidns20150109
       Models::ListCloudGtmMonitorTemplatesResponse listCloudGtmMonitorTemplatesWithOptions(const Models::ListCloudGtmMonitorTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of health check templates.
+       * @summary Queries a list of health check templates based on specified parameters.
        *
        * @param request ListCloudGtmMonitorTemplatesRequest
        * @return ListCloudGtmMonitorTemplatesResponse
@@ -2588,7 +2640,7 @@ namespace Alidns20150109
       Models::ListCloudGtmMonitorTemplatesResponse listCloudGtmMonitorTemplates(const Models::ListCloudGtmMonitorTemplatesRequest &request);
 
       /**
-       * @summary 查询递归解析内置权威解析记录
+       * @summary Queries the record details of HTTPDNS resolution records
        *
        * @param request ListRecursionRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2597,7 +2649,7 @@ namespace Alidns20150109
       Models::ListRecursionRecordsResponse listRecursionRecordsWithOptions(const Models::ListRecursionRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询递归解析内置权威解析记录
+       * @summary Queries the record details of HTTPDNS resolution records
        *
        * @param request ListRecursionRecordsRequest
        * @return ListRecursionRecordsResponse
@@ -2605,7 +2657,7 @@ namespace Alidns20150109
       Models::ListRecursionRecordsResponse listRecursionRecords(const Models::ListRecursionRecordsRequest &request);
 
       /**
-       * @summary 查询递归解析内置权威域名zone
+       * @summary Queries HTTPDNS authoritative zones
        *
        * @param request ListRecursionZonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2614,7 +2666,7 @@ namespace Alidns20150109
       Models::ListRecursionZonesResponse listRecursionZonesWithOptions(const Models::ListRecursionZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询递归解析内置权威域名zone
+       * @summary Queries HTTPDNS authoritative zones
        *
        * @param request ListRecursionZonesRequest
        * @return ListRecursionZonesResponse
@@ -2740,7 +2792,7 @@ namespace Alidns20150109
       Models::PausePdnsServiceResponse pausePdnsService(const Models::PausePdnsServiceRequest &request);
 
       /**
-       * @summary You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+       * @summary Views disaster recovery plan.
        *
        * @param request PreviewGtmRecoveryPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2749,7 +2801,7 @@ namespace Alidns20150109
       Models::PreviewGtmRecoveryPlanResponse previewGtmRecoveryPlanWithOptions(const Models::PreviewGtmRecoveryPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+       * @summary Views disaster recovery plan.
        *
        * @param request PreviewGtmRecoveryPlanRequest
        * @return PreviewGtmRecoveryPlanResponse
@@ -2870,7 +2922,7 @@ namespace Alidns20150109
       Models::ReplaceCloudGtmAddressPoolAddressResponse replaceCloudGtmAddressPoolAddress(const Models::ReplaceCloudGtmAddressPoolAddressRequest &request);
 
       /**
-       * @summary Replaces address pools that are associated with a Global Traffic Manager (GTM) 3.0 instance with new address pools.
+       * @summary Replaces address pools that are associated with a GTM instance with new address pools.
        *
        * @param tmpReq ReplaceCloudGtmInstanceConfigAddressPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2879,7 +2931,7 @@ namespace Alidns20150109
       Models::ReplaceCloudGtmInstanceConfigAddressPoolResponse replaceCloudGtmInstanceConfigAddressPoolWithOptions(const Models::ReplaceCloudGtmInstanceConfigAddressPoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Replaces address pools that are associated with a Global Traffic Manager (GTM) 3.0 instance with new address pools.
+       * @summary Replaces address pools that are associated with a GTM instance with new address pools.
        *
        * @param request ReplaceCloudGtmInstanceConfigAddressPoolRequest
        * @return ReplaceCloudGtmInstanceConfigAddressPoolResponse
@@ -3095,7 +3147,7 @@ namespace Alidns20150109
       Models::SetDNSSLBStatusResponse setDNSSLBStatus(const Models::SetDNSSLBStatusRequest &request);
 
       /**
-       * @summary Modifies an access policy.
+       * @summary Modifies the access policy that is available in address pools.
        *
        * @description ****
        *
@@ -3106,7 +3158,7 @@ namespace Alidns20150109
       Models::SetDnsGtmAccessModeResponse setDnsGtmAccessModeWithOptions(const Models::SetDnsGtmAccessModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an access policy.
+       * @summary Modifies the access policy that is available in address pools.
        *
        * @description ****
        *
@@ -3184,6 +3236,8 @@ namespace Alidns20150109
       Models::SetGtmAccessModeResponse setGtmAccessMode(const Models::SetGtmAccessModeRequest &request);
 
       /**
+       * @summary You can call this operation to enable health check for an address pool of a Global Traffic Manager (GTM) instance.
+       *
        * @param request SetGtmMonitorStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SetGtmMonitorStatusResponse
@@ -3191,6 +3245,8 @@ namespace Alidns20150109
       Models::SetGtmMonitorStatusResponse setGtmMonitorStatusWithOptions(const Models::SetGtmMonitorStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can call this operation to enable health check for an address pool of a Global Traffic Manager (GTM) instance.
+       *
        * @param request SetGtmMonitorStatusRequest
        * @return SetGtmMonitorStatusResponse
        */
@@ -3214,7 +3270,7 @@ namespace Alidns20150109
       Models::SubmitIspFlushCacheTaskResponse submitIspFlushCacheTask(const Models::SubmitIspFlushCacheTaskRequest &request);
 
       /**
-       * @summary Changes the access policy type for a Global Traffic Manager (GTM) instance.
+       * @summary Changes the access policy type for a GTM instance.
        *
        * @param request SwitchDnsGtmInstanceStrategyModeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3223,7 +3279,7 @@ namespace Alidns20150109
       Models::SwitchDnsGtmInstanceStrategyModeResponse switchDnsGtmInstanceStrategyModeWithOptions(const Models::SwitchDnsGtmInstanceStrategyModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the access policy type for a Global Traffic Manager (GTM) instance.
+       * @summary Changes the access policy type for a GTM instance.
        *
        * @param request SwitchDnsGtmInstanceStrategyModeRequest
        * @return SwitchDnsGtmInstanceStrategyModeResponse
@@ -3517,7 +3573,7 @@ namespace Alidns20150109
       Models::UpdateCloudGtmInstanceConfigBasicResponse updateCloudGtmInstanceConfigBasic(const Models::UpdateCloudGtmInstanceConfigBasicRequest &request);
 
       /**
-       * @summary Modifies the enabling status of an access domain name.
+       * @summary Updates the enabling status of an access domain name based on the specified parameters.
        *
        * @description *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
        * *   If an access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
@@ -3529,7 +3585,7 @@ namespace Alidns20150109
       Models::UpdateCloudGtmInstanceConfigEnableStatusResponse updateCloudGtmInstanceConfigEnableStatusWithOptions(const Models::UpdateCloudGtmInstanceConfigEnableStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the enabling status of an access domain name.
+       * @summary Updates the enabling status of an access domain name based on the specified parameters.
        *
        * @description *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
        * *   If an access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
@@ -3540,7 +3596,7 @@ namespace Alidns20150109
       Models::UpdateCloudGtmInstanceConfigEnableStatusResponse updateCloudGtmInstanceConfigEnableStatus(const Models::UpdateCloudGtmInstanceConfigEnableStatusRequest &request);
 
       /**
-       * @summary Modifies the load balancing policy of a Global Traffic Manager (GTM) 3.0 instance.
+       * @summary Updates the load balancing policy of a GTM instance.
        *
        * @param request UpdateCloudGtmInstanceConfigLbStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3549,7 +3605,7 @@ namespace Alidns20150109
       Models::UpdateCloudGtmInstanceConfigLbStrategyResponse updateCloudGtmInstanceConfigLbStrategyWithOptions(const Models::UpdateCloudGtmInstanceConfigLbStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the load balancing policy of a Global Traffic Manager (GTM) 3.0 instance.
+       * @summary Updates the load balancing policy of a GTM instance.
        *
        * @param request UpdateCloudGtmInstanceConfigLbStrategyRequest
        * @return UpdateCloudGtmInstanceConfigLbStrategyResponse
@@ -3557,7 +3613,7 @@ namespace Alidns20150109
       Models::UpdateCloudGtmInstanceConfigLbStrategyResponse updateCloudGtmInstanceConfigLbStrategy(const Models::UpdateCloudGtmInstanceConfigLbStrategyRequest &request);
 
       /**
-       * @summary Modifies the description of a Global Traffic Manager (GTM) 3.0 instance.
+       * @summary Updates the description of a GTM instance based on the specified parameters.
        *
        * @param request UpdateCloudGtmInstanceConfigRemarkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3566,7 +3622,7 @@ namespace Alidns20150109
       Models::UpdateCloudGtmInstanceConfigRemarkResponse updateCloudGtmInstanceConfigRemarkWithOptions(const Models::UpdateCloudGtmInstanceConfigRemarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the description of a Global Traffic Manager (GTM) 3.0 instance.
+       * @summary Updates the description of a GTM instance based on the specified parameters.
        *
        * @param request UpdateCloudGtmInstanceConfigRemarkRequest
        * @return UpdateCloudGtmInstanceConfigRemarkResponse
@@ -3587,7 +3643,7 @@ namespace Alidns20150109
       Models::UpdateCloudGtmInstanceNameResponse updateCloudGtmInstanceName(const Models::UpdateCloudGtmInstanceNameRequest &request);
 
       /**
-       * @summary Modifies the information about a health check template.
+       * @summary Modifies the information about a health check template based on specified parameters.
        *
        * @param tmpReq UpdateCloudGtmMonitorTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3596,7 +3652,7 @@ namespace Alidns20150109
       Models::UpdateCloudGtmMonitorTemplateResponse updateCloudGtmMonitorTemplateWithOptions(const Models::UpdateCloudGtmMonitorTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about a health check template.
+       * @summary Modifies the information about a health check template based on specified parameters.
        *
        * @param request UpdateCloudGtmMonitorTemplateRequest
        * @return UpdateCloudGtmMonitorTemplateResponse
@@ -3708,7 +3764,7 @@ namespace Alidns20150109
       Models::UpdateDnsGtmAccessStrategyResponse updateDnsGtmAccessStrategy(const Models::UpdateDnsGtmAccessStrategyRequest &request);
 
       /**
-       * @summary Modifies an address pool.
+       * @summary Modifies an address pool based on the specified parameters.
        *
        * @param request UpdateDnsGtmAddressPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3717,7 +3773,7 @@ namespace Alidns20150109
       Models::UpdateDnsGtmAddressPoolResponse updateDnsGtmAddressPoolWithOptions(const Models::UpdateDnsGtmAddressPoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an address pool.
+       * @summary Modifies an address pool based on the specified parameters.
        *
        * @param request UpdateDnsGtmAddressPoolRequest
        * @return UpdateDnsGtmAddressPoolResponse
@@ -3725,7 +3781,7 @@ namespace Alidns20150109
       Models::UpdateDnsGtmAddressPoolResponse updateDnsGtmAddressPool(const Models::UpdateDnsGtmAddressPoolRequest &request);
 
       /**
-       * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance.
+       * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance by instance ID.
        *
        * @param request UpdateDnsGtmInstanceGlobalConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3734,7 +3790,7 @@ namespace Alidns20150109
       Models::UpdateDnsGtmInstanceGlobalConfigResponse updateDnsGtmInstanceGlobalConfigWithOptions(const Models::UpdateDnsGtmInstanceGlobalConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance.
+       * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance by instance ID.
        *
        * @param request UpdateDnsGtmInstanceGlobalConfigRequest
        * @return UpdateDnsGtmInstanceGlobalConfigResponse
@@ -3831,6 +3887,8 @@ namespace Alidns20150109
       Models::UpdateDomainRemarkResponse updateDomainRemark(const Models::UpdateDomainRemarkRequest &request);
 
       /**
+       * @summary You can call this operation to modify the access policy of a Global Traffic Manager (GTM) instance.
+       *
        * @param request UpdateGtmAccessStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateGtmAccessStrategyResponse
@@ -3838,12 +3896,16 @@ namespace Alidns20150109
       Models::UpdateGtmAccessStrategyResponse updateGtmAccessStrategyWithOptions(const Models::UpdateGtmAccessStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can call this operation to modify the access policy of a Global Traffic Manager (GTM) instance.
+       *
        * @param request UpdateGtmAccessStrategyRequest
        * @return UpdateGtmAccessStrategyResponse
        */
       Models::UpdateGtmAccessStrategyResponse updateGtmAccessStrategy(const Models::UpdateGtmAccessStrategyRequest &request);
 
       /**
+       * @summary You can call this operation to modify an address pool of a Global Traffic Manager (GTM) instance.
+       *
        * @param request UpdateGtmAddressPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateGtmAddressPoolResponse
@@ -3851,6 +3913,8 @@ namespace Alidns20150109
       Models::UpdateGtmAddressPoolResponse updateGtmAddressPoolWithOptions(const Models::UpdateGtmAddressPoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can call this operation to modify an address pool of a Global Traffic Manager (GTM) instance.
+       *
        * @param request UpdateGtmAddressPoolRequest
        * @return UpdateGtmAddressPoolResponse
        */
@@ -3925,7 +3989,7 @@ namespace Alidns20150109
       Models::UpdateIspFlushCacheInstanceConfigResponse updateIspFlushCacheInstanceConfig(const Models::UpdateIspFlushCacheInstanceConfigRequest &request);
 
       /**
-       * @summary 修改递归解析内置权威解析记录
+       * @summary Modifies HTTPDNS resolution records.
        *
        * @param request UpdateRecursionRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3934,7 +3998,7 @@ namespace Alidns20150109
       Models::UpdateRecursionRecordResponse updateRecursionRecordWithOptions(const Models::UpdateRecursionRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改递归解析内置权威解析记录
+       * @summary Modifies HTTPDNS resolution records.
        *
        * @param request UpdateRecursionRecordRequest
        * @return UpdateRecursionRecordResponse
@@ -3942,7 +4006,7 @@ namespace Alidns20150109
       Models::UpdateRecursionRecordResponse updateRecursionRecord(const Models::UpdateRecursionRecordRequest &request);
 
       /**
-       * @summary 修改内置权威解析记录启用状态
+       * @summary Modifies the status of HTTPDNS authoritative DNS resolution records
        *
        * @param request UpdateRecursionRecordEnableStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3951,7 +4015,7 @@ namespace Alidns20150109
       Models::UpdateRecursionRecordEnableStatusResponse updateRecursionRecordEnableStatusWithOptions(const Models::UpdateRecursionRecordEnableStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改内置权威解析记录启用状态
+       * @summary Modifies the status of HTTPDNS authoritative DNS resolution records
        *
        * @param request UpdateRecursionRecordEnableStatusRequest
        * @return UpdateRecursionRecordEnableStatusResponse
@@ -3959,7 +4023,7 @@ namespace Alidns20150109
       Models::UpdateRecursionRecordEnableStatusResponse updateRecursionRecordEnableStatus(const Models::UpdateRecursionRecordEnableStatusRequest &request);
 
       /**
-       * @summary 修改递归解析内置权威解析记录备注
+       * @summary Modifies description of HTTPDNS resolution records.
        *
        * @param request UpdateRecursionRecordRemarkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3968,7 +4032,7 @@ namespace Alidns20150109
       Models::UpdateRecursionRecordRemarkResponse updateRecursionRecordRemarkWithOptions(const Models::UpdateRecursionRecordRemarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改递归解析内置权威解析记录备注
+       * @summary Modifies description of HTTPDNS resolution records.
        *
        * @param request UpdateRecursionRecordRemarkRequest
        * @return UpdateRecursionRecordRemarkResponse
@@ -3976,7 +4040,7 @@ namespace Alidns20150109
       Models::UpdateRecursionRecordRemarkResponse updateRecursionRecordRemark(const Models::UpdateRecursionRecordRemarkRequest &request);
 
       /**
-       * @summary 修改递归解析内置权威解析记录权重
+       * @summary Modifies HTTPDNS authoritative DNS resolution record weights.
        *
        * @param request UpdateRecursionRecordWeightRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3985,7 +4049,7 @@ namespace Alidns20150109
       Models::UpdateRecursionRecordWeightResponse updateRecursionRecordWeightWithOptions(const Models::UpdateRecursionRecordWeightRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改递归解析内置权威解析记录权重
+       * @summary Modifies HTTPDNS authoritative DNS resolution record weights.
        *
        * @param request UpdateRecursionRecordWeightRequest
        * @return UpdateRecursionRecordWeightResponse
@@ -3993,7 +4057,7 @@ namespace Alidns20150109
       Models::UpdateRecursionRecordWeightResponse updateRecursionRecordWeight(const Models::UpdateRecursionRecordWeightRequest &request);
 
       /**
-       * @summary 修改递归解析内置权威解析记录权重算法启用状态
+       * @summary Modifies the status of weight algorithm of authoritative records
        *
        * @param request UpdateRecursionRecordWeightEnableStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4002,7 +4066,7 @@ namespace Alidns20150109
       Models::UpdateRecursionRecordWeightEnableStatusResponse updateRecursionRecordWeightEnableStatusWithOptions(const Models::UpdateRecursionRecordWeightEnableStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改递归解析内置权威解析记录权重算法启用状态
+       * @summary Modifies the status of weight algorithm of authoritative records
        *
        * @param request UpdateRecursionRecordWeightEnableStatusRequest
        * @return UpdateRecursionRecordWeightEnableStatusResponse
@@ -4010,7 +4074,7 @@ namespace Alidns20150109
       Models::UpdateRecursionRecordWeightEnableStatusResponse updateRecursionRecordWeightEnableStatus(const Models::UpdateRecursionRecordWeightEnableStatusRequest &request);
 
       /**
-       * @summary 修改递归解析内置权威域名zone生效范围
+       * @summary Modifies the effective scope of HTTPDNS
        *
        * @param tmpReq UpdateRecursionZoneEffectiveScopeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4019,7 +4083,7 @@ namespace Alidns20150109
       Models::UpdateRecursionZoneEffectiveScopeResponse updateRecursionZoneEffectiveScopeWithOptions(const Models::UpdateRecursionZoneEffectiveScopeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改递归解析内置权威域名zone生效范围
+       * @summary Modifies the effective scope of HTTPDNS
        *
        * @param request UpdateRecursionZoneEffectiveScopeRequest
        * @return UpdateRecursionZoneEffectiveScopeResponse
@@ -4027,7 +4091,7 @@ namespace Alidns20150109
       Models::UpdateRecursionZoneEffectiveScopeResponse updateRecursionZoneEffectiveScope(const Models::UpdateRecursionZoneEffectiveScopeRequest &request);
 
       /**
-       * @summary 修改递归解析内置权威域名zone递归代理模式
+       * @summary Modify the HTTPDNS recursive proxy mode
        *
        * @param request UpdateRecursionZoneProxyPatternRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4036,7 +4100,7 @@ namespace Alidns20150109
       Models::UpdateRecursionZoneProxyPatternResponse updateRecursionZoneProxyPatternWithOptions(const Models::UpdateRecursionZoneProxyPatternRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改递归解析内置权威域名zone递归代理模式
+       * @summary Modify the HTTPDNS recursive proxy mode
        *
        * @param request UpdateRecursionZoneProxyPatternRequest
        * @return UpdateRecursionZoneProxyPatternResponse
@@ -4044,7 +4108,7 @@ namespace Alidns20150109
       Models::UpdateRecursionZoneProxyPatternResponse updateRecursionZoneProxyPattern(const Models::UpdateRecursionZoneProxyPatternRequest &request);
 
       /**
-       * @summary 修改递归解析内置权威域名zone备注
+       * @summary Modifies the description of HTTPDNS authoritative domain names.
        *
        * @param request UpdateRecursionZoneRemarkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4053,7 +4117,7 @@ namespace Alidns20150109
       Models::UpdateRecursionZoneRemarkResponse updateRecursionZoneRemarkWithOptions(const Models::UpdateRecursionZoneRemarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改递归解析内置权威域名zone备注
+       * @summary Modifies the description of HTTPDNS authoritative domain names.
        *
        * @param request UpdateRecursionZoneRemarkRequest
        * @return UpdateRecursionZoneRemarkResponse

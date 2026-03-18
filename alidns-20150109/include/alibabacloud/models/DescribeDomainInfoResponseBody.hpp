@@ -153,13 +153,9 @@ namespace Models
 
 
       protected:
-        // The code of the parent line. This parameter is not returned if the line has no parent line.
         shared_ptr<string> fatherCode_ {};
-        // The code of the line.
         shared_ptr<string> lineCode_ {};
-        // The name of the parent line.
         shared_ptr<string> lineDisplayName_ {};
-        // The name of the line.
         shared_ptr<string> lineName_ {};
       };
 
@@ -433,11 +429,9 @@ namespace Models
   protected:
     // Indicates whether the domain name was registered in Alibaba Cloud.
     shared_ptr<bool> aliDomain_ {};
-    // The available time to live (TTL) values that can be configured for the domain name. Available TTL values are not returned by default. If you want to query such information, set NeedDetailAttributes to true.
     shared_ptr<DescribeDomainInfoResponseBody::AvailableTtls> availableTtls_ {};
     // The time when the domain name was created.
     shared_ptr<string> createTime_ {};
-    // The DNS servers that are used to resolve the domain name.
     shared_ptr<DescribeDomainInfoResponseBody::DnsServers> dnsServers_ {};
     // The ID of the domain name.
     shared_ptr<string> domainId_ {};
@@ -463,7 +457,6 @@ namespace Models
     shared_ptr<string> punyCode_ {};
     // The tree-structure DNS request lines.
     shared_ptr<string> recordLineTreeJson_ {};
-    // The DNS request lines.
     shared_ptr<DescribeDomainInfoResponseBody::RecordLines> recordLines_ {};
     // Indicates whether the DNS request lines are regional lines.
     shared_ptr<bool> regionLines_ {};

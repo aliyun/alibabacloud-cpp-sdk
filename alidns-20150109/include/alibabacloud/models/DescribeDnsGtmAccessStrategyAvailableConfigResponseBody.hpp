@@ -229,15 +229,10 @@ namespace Models
 
 
       protected:
-        // The parent line code of the source region. Leave it blank if no parent line exists.
         shared_ptr<string> fatherCode_ {};
-        // The line name of the source region.
         shared_ptr<string> groupCode_ {};
-        // The name of the source region group.
         shared_ptr<string> groupName_ {};
-        // The line code of the source region.
         shared_ptr<string> lineCode_ {};
-        // The code of the source region group.
         shared_ptr<string> lineName_ {};
       };
 
@@ -321,11 +316,8 @@ namespace Models
 
 
       protected:
-        // The number of addresses in the address pool.
         shared_ptr<int32_t> addrCount_ {};
-        // The ID of the address pool.
         shared_ptr<string> id_ {};
-        // The name of the address pool.
         shared_ptr<string> name_ {};
       };
 
@@ -409,11 +401,8 @@ namespace Models
 
 
       protected:
-        // The number of addresses in the address pool.
         shared_ptr<int32_t> addrCount_ {};
-        // The ID of the address pool.
         shared_ptr<string> id_ {};
-        // The name of the address pool.
         shared_ptr<string> name_ {};
       };
 
@@ -497,11 +486,8 @@ namespace Models
 
 
       protected:
-        // The number of addresses in the address pool.
         shared_ptr<int32_t> addrCount_ {};
-        // The ID of the address pool.
         shared_ptr<string> id_ {};
-        // The name of the address pool.
         shared_ptr<string> name_ {};
       };
 
@@ -600,13 +586,9 @@ namespace Models
 
 
   protected:
-    // The available address pools of the domain name type.
     shared_ptr<DescribeDnsGtmAccessStrategyAvailableConfigResponseBody::DomainAddrPools> domainAddrPools_ {};
-    // The available address pools of the IPv4 type.
     shared_ptr<DescribeDnsGtmAccessStrategyAvailableConfigResponseBody::Ipv4AddrPools> ipv4AddrPools_ {};
-    // The available address pools of the IPv6 type.
     shared_ptr<DescribeDnsGtmAccessStrategyAvailableConfigResponseBody::Ipv6AddrPools> ipv6AddrPools_ {};
-    // The source regions.
     shared_ptr<DescribeDnsGtmAccessStrategyAvailableConfigResponseBody::Lines> lines_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

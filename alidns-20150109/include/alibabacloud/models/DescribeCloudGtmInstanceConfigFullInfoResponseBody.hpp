@@ -440,75 +440,25 @@ namespace Models
 
 
           protected:
-            // IP address or domain name.
             shared_ptr<string> address_ {};
-            // The address ID. This ID uniquely identifies the address.
             shared_ptr<string> addressId_ {};
-            // Address ownership information, not supported in the current version.
             shared_ptr<string> attributeInfo_ {};
-            // The failover mode that is used when address exceptions are identified. Valid values:
-            // 
-            // *   auto: the automatic mode. The system determines whether to return an address based on the health check results. If the address fails health checks, the system does not return the address. If the address passes health checks, the system returns the address.
-            // *   manual: the manual mode. If an address is in the unavailable state, the address is not returned for DNS requests even if the address passes health checks. If an address is in the available state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
             shared_ptr<string> availableMode_ {};
-            // The availability state of the address. Valid values:
-            // 
-            // *   available
-            // *   unavailable
             shared_ptr<string> availableStatus_ {};
-            // Address creation time.
             shared_ptr<string> createTime_ {};
-            // Address creation time (timestamp).
             shared_ptr<int64_t> createTimestamp_ {};
-            // The enabling state of the address. Valid values:
-            // 
-            // *   enable
-            // *   disable
             shared_ptr<string> enableStatus_ {};
-            // The condition for determining the health state of the address. Valid values:
-            // 
-            // *   any_ok: The health check results of at least one health check template are normal.
-            // *   p30_ok: The health check results of at least 30% of health check templates are normal.
-            // *   p50_ok: The health check results of at least 50% of health check templates are normal.
-            // *   p70_ok: The health check results of at least 70% of health check templates are normal.
-            // *   all_ok: The health check results of all health check templates are normal.
             shared_ptr<string> healthJudgement_ {};
-            // The health check state of the address. Valid values:
-            // 
-            // *   ok: The address passes all health checks of the referenced health check templates.
-            // *   ok_alert: The address fails some health checks of the referenced health check templates but the address is deemed normal.
-            // *   ok_no_monitor: The address does not reference any health check template and is normal.
-            // *   exceptional: The address fails some or all health checks of the referenced health check templates and the address is deemed abnormal.
             shared_ptr<string> healthStatus_ {};
-            // The availability state of the address when AvailableMode is set to manual. Valid values:
-            // 
-            // *   available: The address is normal. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
-            // *   unavailable: The address is abnormal. In this state, the address is not returned for DNS requests even if the address passes health checks.
             shared_ptr<string> manualAvailableStatus_ {};
-            // Address name.
             shared_ptr<string> name_ {};
-            // The remark of the address.
             shared_ptr<string> remark_ {};
-            // Request source list.
             shared_ptr<Address::RequestSource> requestSource_ {};
-            // Indicates whether it is a sequential (non-preemptive) mode scheduling object, applicable to hybrid cloud management scenarios: 
-            // 
-            // - true: yes
-            // - false: no
             shared_ptr<bool> seqNonPreemptiveSchedule_ {};
-            // Sequence number, indicating the priority of address return, where smaller numbers have higher priority.
             shared_ptr<int32_t> serialNumber_ {};
-            // The type of the address. Valid values:
-            // 
-            // *   IPV4: the IPv4 address
-            // *   IPv6: the IPv6 address
-            // *   domain: the domain name
             shared_ptr<string> type_ {};
-            // Last modified time of the address.
             shared_ptr<string> updateTime_ {};
-            // The last modification time of the address (timestamp).
             shared_ptr<int64_t> updateTimestamp_ {};
-            // Weight value (an integer between 1 and 100, inclusive), allowing different weight values to be set for each address, enabling resolution queries to return addresses in proportion to their weights.
             shared_ptr<int32_t> weightValue_ {};
           };
 
@@ -662,68 +612,23 @@ namespace Models
 
 
       protected:
-        // Load balancing policy among addresses in the address pool:
-        // - round_robin: Round-robin, for any source of DNS resolution requests, returns all addresses and rotates their order for each request.
-        // - sequence: Sequential, for any source of DNS resolution requests, returns the address with the smaller sequence number (the sequence number indicates the priority of the address return, with smaller numbers having higher priority). If the address with the smaller sequence number is unavailable, the next address with a smaller sequence number is returned.
-        // - weight: Weighted, supports setting different weight values for each address to realize returning addresses according to the weight ratio for resolution queries.
-        // - source_nearest: Source-nearest, i.e., intelligent resolution function, where GTM can return different addresses based on the source of different DNS resolution requests, achieving the effect of users accessing nearby.
         shared_ptr<string> addressLbStrategy_ {};
-        // The ID of the address pool. This ID uniquely identifies the address pool.
         shared_ptr<string> addressPoolId_ {};
-        // Address pool name.
         shared_ptr<string> addressPoolName_ {};
-        // Address pool type:
-        // - IPv4
-        // - IPv6
-        // - domain
         shared_ptr<string> addressPoolType_ {};
-        // The addresses.
         shared_ptr<AddressPool::Addresses> addresses_ {};
-        // The availability state of the address pool. Valid values:
-        // 
-        // *   Available
-        // *   unavailable
         shared_ptr<string> availableStatus_ {};
-        // Address pool creation time.
         shared_ptr<string> createTime_ {};
-        // Address pool creation time (timestamp).
         shared_ptr<int64_t> createTimestamp_ {};
-        // The enabling state of the address pool. Valid values:
-        // 
-        // *   enable
-        // *   disable
         shared_ptr<string> enableStatus_ {};
-        // The condition for determining the health state of the address pool. Valid values:
-        // 
-        // *   any_ok: At least one address in the address pool is available.
-        // *   p30_ok: At least 30% of the addresses in the address pool are available.
-        // *   p50_ok: At least 50% of the addresses in the address pool are available.
-        // *   p70_ok: At least 70% of the addresses in the address pool are available.
-        // *   all_ok: All addresses in the address pool are available.
         shared_ptr<string> healthJudgement_ {};
-        // Address pool health status:
-        // - ok: Normal, all addresses referenced by the address pool are available.
-        // - ok_alert: Warning, some addresses referenced by the address pool are unavailable, but the address pool status is deemed normal. In the warning state, available address pools are resolved normally, while unavailable ones stop resolving.
-        // - exceptional: Abnormal, some or all of the addresses referenced by the address pool are unavailable, and the address pool status is determined to be abnormal.
         shared_ptr<string> healthStatus_ {};
-        // Parse the list of request sources.
         shared_ptr<AddressPool::RequestSource> requestSource_ {};
-        // Indicates whether it is a sequential (non-preemptive) scheduling object for hybrid cloud management scenarios: 
-        // - true: yes 
-        // - false: no
         shared_ptr<bool> seqNonPreemptiveSchedule_ {};
-        // The mode used if the address with the smallest sequence number is recovered. This parameter is required only when AddressLbStrategy is set to sequence. Valid values:
-        // 
-        // *   preemptive: The address with the smallest sequence number is preferentially used if this address is recovered.
-        // *   non_preemptive: The current address is still used even if the address with the smallest sequence number is recovered.
         shared_ptr<string> sequenceLbStrategyMode_ {};
-        // Sequence number. For any parsing request from any source, the address pool with the smaller sequence number is returned (the sequence number indicates the priority of the address pool returned, with smaller numbers having higher priority).
         shared_ptr<int32_t> serialNumber_ {};
-        // Last modification time of the address pool.
         shared_ptr<string> updateTime_ {};
-        // Last modification time of the address pool (timestamp).
         shared_ptr<int64_t> updateTimestamp_ {};
-        // Weight value (an integer between 1 and 100, inclusive), allowing different weight values to be set for each address pool, enabling resolution queries to return address pools according to the weighted ratio.
         shared_ptr<int32_t> weightValue_ {};
       };
 
@@ -932,7 +837,6 @@ namespace Models
     // *   weight: You can set a different weight value for each address pool. This way, address pools are returned based on the weight values.
     // *   source_nearest: GTM returns different addresses based on the sources of DNS requests. This way, users can access nearby addresses.
     shared_ptr<string> addressPoolLbStrategy_ {};
-    // The address pools.
     shared_ptr<DescribeCloudGtmInstanceConfigFullInfoResponseBody::AddressPools> addressPools_ {};
     // Alert notification configuration.
     shared_ptr<string> alertConfig_ {};

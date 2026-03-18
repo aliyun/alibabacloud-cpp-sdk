@@ -107,13 +107,9 @@ namespace Models
 
 
       protected:
-        // The code of the parent line. Currently, no data is returned.
         shared_ptr<string> fatherCode_ {};
-        // The code of the child line.
         shared_ptr<string> lineCode_ {};
-        // The display name of the line.
         shared_ptr<string> lineDisplayName_ {};
-        // The name of the child line.
         shared_ptr<string> lineName_ {};
       };
 
@@ -150,7 +146,6 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud DNS lines.
     shared_ptr<DescribeSupportLinesResponseBody::RecordLines> recordLines_ {};
     shared_ptr<string> requestId_ {};
   };

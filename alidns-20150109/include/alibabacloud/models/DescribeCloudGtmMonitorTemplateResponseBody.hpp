@@ -172,24 +172,13 @@ namespace Models
 
 
       protected:
-        // City code
         shared_ptr<string> cityCode_ {};
-        // City name
         shared_ptr<string> cityName_ {};
-        // Country Code
         shared_ptr<string> countryCode_ {};
-        // Country Name
         shared_ptr<string> countryName_ {};
-        // Probe node group type name
         shared_ptr<string> groupName_ {};
-        // Probe node group types:
-        // - BGP: BGP nodes
-        // - OVERSEAS: International nodes
-        // - ISP: Carrier nodes
         shared_ptr<string> groupType_ {};
-        // Operator Code
         shared_ptr<string> ispCode_ {};
-        // Operator Name
         shared_ptr<string> ispName_ {};
       };
 
@@ -376,7 +365,6 @@ namespace Models
     // - IPv4: Applicable when the target address type is IPv4;
     // - IPv6: Applicable when the target address type is IPv6.
     shared_ptr<string> ipVersion_ {};
-    // Probe node list, detailed information can be obtained by calling ListCloudGtmMonitorNodes.
     shared_ptr<DescribeCloudGtmMonitorTemplateResponseBody::IspCityNodes> ispCityNodes_ {};
     // The name of the health check probe template, which is recommended to be distinguishable for configuration personnel to differentiate and remember, ideally indicating the health check protocol.
     shared_ptr<string> name_ {};

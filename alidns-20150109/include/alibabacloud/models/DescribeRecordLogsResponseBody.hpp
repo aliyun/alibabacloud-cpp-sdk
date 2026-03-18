@@ -122,15 +122,10 @@ namespace Models
 
 
       protected:
-        // The operation that you performed.
         shared_ptr<string> action_ {};
-        // The time when you performed the operation.
         shared_ptr<string> actionTime_ {};
-        // The time when you performed the operation. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> actionTimestamp_ {};
-        // The IP address of the operator.
         shared_ptr<string> clientIp_ {};
-        // The operation message.
         shared_ptr<string> message_ {};
       };
 
@@ -192,7 +187,6 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The operation logs.
     shared_ptr<DescribeRecordLogsResponseBody::RecordLogs> recordLogs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

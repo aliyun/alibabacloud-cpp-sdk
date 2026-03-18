@@ -151,29 +151,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether DingTalk notifications are configured. Valid values:
-        // 
-        // *   true: DingTalk notifications are configured. DingTalk notifications are sent when alerts are triggered.
-        // *   false: DingTalk notifications are not configured.
         shared_ptr<bool> dingtalkNotice_ {};
-        // Indicates whether email notifications are configured. Valid values:
-        // 
-        // *   true: Email notifications are configured. Emails are sent when alerts are triggered.
-        // *   false: Email notifications are not configured.
         shared_ptr<bool> emailNotice_ {};
-        // The type of the alert event. Valid values:
-        // 
-        // *   addr_alert: The address is unavailable.
-        // *   addr_resume: The address becomes available.
-        // *   addr_pool_unavailable: The address pool is unavailable.
-        // *   addr_pool_available: The address pool becomes available.
         shared_ptr<string> noticeType_ {};
-        // Indicates whether text message notifications are configured. Valid values:
-        // 
-        // *   true: Text message notifications are configured. Text messages are sent when alerts are triggered.
-        // *   false: Text message notifications are not configured.
-        // 
-        // Only the China site (aliyun.com) supports text message notifications.
         shared_ptr<bool> smsNotice_ {};
         shared_ptr<int32_t> threshold_ {};
       };
@@ -220,9 +200,7 @@ namespace Models
 
 
   protected:
-    // The alert configurations.
     shared_ptr<DescribeCloudGtmGlobalAlertResponseBody::AlertConfig> alertConfig_ {};
-    // The alert contact groups.
     shared_ptr<DescribeCloudGtmGlobalAlertResponseBody::AlertGroup> alertGroup_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

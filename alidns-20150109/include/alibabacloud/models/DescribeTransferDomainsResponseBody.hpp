@@ -131,17 +131,11 @@ namespace Models
 
 
       protected:
-        // The time when the domain name was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The time when the domain name was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The domain name.
         shared_ptr<string> domainName_ {};
-        // The user ID from which the domain name was transferred.
         shared_ptr<int64_t> fromUserId_ {};
-        // The ID of the domain name that was transferred.
         shared_ptr<int64_t> id_ {};
-        // The user ID to which the domain name was transferred.
         shared_ptr<int64_t> targetUserId_ {};
       };
 
@@ -199,7 +193,6 @@ namespace Models
 
 
   protected:
-    // The domain names that were transferred between accounts.
     shared_ptr<DescribeTransferDomainsResponseBody::DomainTransfers> domainTransfers_ {};
     // The page number. Pages start from page **1**. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};

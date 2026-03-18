@@ -184,36 +184,15 @@ namespace Models
 
 
       protected:
-        // The address.
         shared_ptr<string> addr_ {};
-        // The status of the last health check on the address. Valid values:
-        // 
-        // *   OK: No active alerts are triggered.
-        // *   ALERT: Alerts are triggered based on the alert rules.
         shared_ptr<string> alertStatus_ {};
-        // The source region of the address.
-        // 
-        // *   lineCode: the line code of the source region of the address. This parameter is deprecated, and lineCodes prevails.
-        // *   lineName: the line name of the source region of the address. This parameter is deprecated.
-        // *   lineCodes: the line codes of the source regions of the address.
         shared_ptr<string> attributeInfo_ {};
-        // The time when the address was added into the address pool.
         shared_ptr<string> createTime_ {};
-        // The timestamp that indicates the time when the address was added into the address pool.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The weight of the address.
         shared_ptr<int32_t> lbaWeight_ {};
-        // The mode of the address. Valid values:
-        // 
-        // *   SMART: smart return
-        // *   ONLINE: always online
-        // *   OFFLINE: always offline
         shared_ptr<string> mode_ {};
-        // The description of the address.
         shared_ptr<string> remark_ {};
-        // The time when the address was last updated.
         shared_ptr<string> updateTime_ {};
-        // The timestamp that indicates the time when the address was last updated.
         shared_ptr<int64_t> updateTimestamp_ {};
       };
 
@@ -333,7 +312,6 @@ namespace Models
     shared_ptr<int32_t> addrCount_ {};
     // The ID of the address pool.
     shared_ptr<string> addrPoolId_ {};
-    // The addresses in the address pool.
     shared_ptr<DescribeDnsGtmInstanceAddressPoolResponseBody::Addrs> addrs_ {};
     // The time when the address pool was created.
     shared_ptr<string> createTime_ {};

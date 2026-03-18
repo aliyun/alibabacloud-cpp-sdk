@@ -145,17 +145,11 @@ namespace Models
 
 
       protected:
-        // The code of the city where the monitored node is deployed.
         shared_ptr<string> cityCode_ {};
-        // The display name of the city where the monitored node is deployed.
         shared_ptr<string> cityName_ {};
-        // The code of the country where the monitored node is deployed.
         shared_ptr<string> countryCode_ {};
-        // The display name of the country where the monitored node is deployed.
         shared_ptr<string> countryName_ {};
-        // The code of the Internet service provider (ISP) to which the monitored node belongs.
         shared_ptr<string> ispCode_ {};
-        // The display name of the ISP to which the monitored node belongs.
         shared_ptr<string> ispName_ {};
       };
 
@@ -272,7 +266,6 @@ namespace Models
     shared_ptr<int32_t> evaluationCount_ {};
     // The health check interval. Unit: seconds. The value is 60.
     shared_ptr<int32_t> interval_ {};
-    // The monitored nodes.
     shared_ptr<DescribeGtmMonitorConfigResponseBody::IspCityNodes> ispCityNodes_ {};
     // The ID of the health check configuration.
     shared_ptr<string> monitorConfigId_ {};

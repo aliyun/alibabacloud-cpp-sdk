@@ -237,11 +237,8 @@ namespace Models
 
 
           protected:
-            // The target service port for health check probes. When the health check protocol is set to Ping, configuration of the service port is not supported.
             shared_ptr<int32_t> port_ {};
-            // ID of the health check template associated with the address.
             shared_ptr<string> templateId_ {};
-            // Health check template name.
             shared_ptr<string> templateName_ {};
           };
 
@@ -416,72 +413,26 @@ namespace Models
 
 
       protected:
-        // IP address or domain name.
         shared_ptr<string> address_ {};
-        // The address ID. This ID uniquely identifies the address.
         shared_ptr<string> addressId_ {};
-        // Address ownership information, not supported in the current version.
         shared_ptr<string> attributeInfo_ {};
-        // The failover method that is used if the address fails health checks. Valid values:
-        // 
-        // *   auto: the automatic mode. The system determines whether to return an address based on the health check results. If the address fails health checks, the system does not return the address. If the address passes health checks, the system returns the address.
-        // *   manual: the manual mode. If an address is in the unavailable state, the address is not returned for DNS requests even if the address passes health checks. If an address is in the available state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
         shared_ptr<string> availableMode_ {};
-        // Address availability status:
-        // - available: Address available
-        // - unavailable: Address unavailable
         shared_ptr<string> availableStatus_ {};
-        // Address creation time.
         shared_ptr<string> createTime_ {};
-        // Address creation time (timestamp).
         shared_ptr<int64_t> createTimestamp_ {};
-        // Address enable status, indicating whether the address is currently available:
-        // - enable: Enabled status
-        // - disable: Disabled status
         shared_ptr<string> enableStatus_ {};
-        // The condition for determining the health status of the address. Valid values:
-        // 
-        // *   any_ok: The health check results of at least one health check template are normal.
-        // *   p30_ok: The health check results of at least 30% of health check templates are normal.
-        // *   p50_ok: The health check results of at least 50% of health check templates are normal.
-        // *   p70_ok: The health check results of at least 70% of health check templates are normal.
-        // *   all_ok: The health check results of all health check templates are normal.
         shared_ptr<string> healthJudgement_ {};
-        // The health check state of the address. Valid values:
-        // 
-        // *   ok: The address passes all health checks of the referenced health check templates.
-        // *   ok_alert: The address fails some health checks of the referenced health check templates but the address is deemed normal.
-        // *   ok_no_monitor: The address does not reference a health check template and is normal.
-        // *   exceptional: The address fails some or all health checks of the referenced health check templates and the address is deemed abnormal.
         shared_ptr<string> healthStatus_ {};
-        // Health check task list.
         shared_ptr<Address::HealthTasks> healthTasks_ {};
-        // The availability state of the address when AvailableMode is set to manual. Valid values:
-        // 
-        // *   available: The address is normal. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
-        // *   unavailable: The address is abnormal. In this state, the address is not returned for DNS requests even if the address passes health checks.
         shared_ptr<string> manualAvailableStatus_ {};
-        // Address name.
         shared_ptr<string> name_ {};
-        // Remarks for the address.
         shared_ptr<string> remark_ {};
-        // The request source list.
         shared_ptr<Address::RequestSource> requestSource_ {};
-        // Indicates whether it is a sequential (non-preemptive) scheduling object for hybrid cloud management scenarios: - true: yes - false: no
         shared_ptr<bool> seqNonPreemptiveSchedule_ {};
-        // Sequence number, indicating the priority of address return, where smaller numbers have higher priority.
         shared_ptr<int32_t> serialNumber_ {};
-        // The address type. Valid values:
-        // 
-        // *   IPv4: IPv4 address
-        // *   IPv6: IPv6 address
-        // *   domain: domain name
         shared_ptr<string> type_ {};
-        // The last time the address was modified.
         shared_ptr<string> updateTime_ {};
-        // The last modification time of the address (timestamp).
         shared_ptr<int64_t> updateTimestamp_ {};
-        // Weight value (an integer between 1 and 100, inclusive), allowing different weight values to be set for each address, enabling resolution queries to return addresses according to the weighted ratio.
         shared_ptr<int32_t> weightValue_ {};
       };
 
@@ -633,7 +584,6 @@ namespace Models
     // - IPv6
     // - domain
     shared_ptr<string> addressPoolType_ {};
-    // The addresses.
     shared_ptr<DescribeCloudGtmAddressPoolResponseBody::Addresses> addresses_ {};
     // Address pool availability status:
     // - available: Available

@@ -175,9 +175,7 @@ namespace Models
 
 
           protected:
-            // The key of tag N added to the resource.
             shared_ptr<string> key_ {};
-            // The value of tag N added to the resource.
             shared_ptr<string> value_ {};
           };
 
@@ -393,51 +391,27 @@ namespace Models
 
 
       protected:
-        // Indicates whether the domain name was registered with Alibaba Cloud.
         shared_ptr<bool> aliDomain_ {};
-        // The time when the domain name was added. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The time when the domain name was added. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The names of the DNS servers configured for the domain name assigned by Alibaba Cloud DNS.
         shared_ptr<Domain::DnsServers> dnsServers_ {};
-        // The ID of the domain name.
         shared_ptr<string> domainId_ {};
-        // Indicates whether the DNS traffic analysis feature is enabled for the domain name. Valid values:
-        // 
-        // *   OPEN
-        // *   CLOSE
         shared_ptr<string> domainLoggingSwitchStatus_ {};
-        // The domain name.
         shared_ptr<string> domainName_ {};
-        // The ID of the domain name group.
         shared_ptr<string> groupId_ {};
-        // The name of the domain name group.
         shared_ptr<string> groupName_ {};
-        // The time when the Alibaba Cloud DNS instance expires. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
         shared_ptr<string> instanceEndTime_ {};
-        // Indicates whether the Alibaba Cloud DNS instance expires.
         shared_ptr<bool> instanceExpired_ {};
-        // The ID of the Alibaba Cloud DNS instance.
         shared_ptr<string> instanceId_ {};
-        // The Punycode for the domain name. This parameter is returned only for Chinese domain names.
         shared_ptr<string> punyCode_ {};
-        // The number of Domain Name System (DNS) records added for the domain name.
         shared_ptr<int64_t> recordCount_ {};
-        // The email address of the registrant.
         shared_ptr<string> registrantEmail_ {};
-        // The description of the domain name.
         shared_ptr<string> remark_ {};
-        // The ID of the resource group to which the domain name belongs.
         shared_ptr<string> resourceGroupId_ {};
         shared_ptr<string> slaveDnsStatus_ {};
-        // Indicates whether the domain name was added to favorites.
         shared_ptr<bool> starmark_ {};
-        // The tags added to the resource.
         shared_ptr<Domain::Tags> tags_ {};
-        // The edition code of Alibaba Cloud DNS.
         shared_ptr<string> versionCode_ {};
-        // The edition of Alibaba Cloud DNS.
         shared_ptr<string> versionName_ {};
       };
 
@@ -495,7 +469,6 @@ namespace Models
 
 
   protected:
-    // The domain names.
     shared_ptr<DescribeDomainsResponseBody::Domains> domains_ {};
     // The page number of the returned page.
     shared_ptr<int64_t> pageNumber_ {};

@@ -129,20 +129,11 @@ namespace Models
 
 
       protected:
-        // The code of the parent line. No value is returned if no parent line exists.
         shared_ptr<string> fatherCode_ {};
-        // The group number of the DNS request source.
         shared_ptr<string> groupCode_ {};
-        // The group name of the DNS request source.
         shared_ptr<string> groupName_ {};
-        // The code of the DNS request source.
         shared_ptr<string> lineCode_ {};
-        // The name of the DNS request source.
         shared_ptr<string> lineName_ {};
-        // The state of the line. Valid values:
-        // 
-        // *   **FORBIDDEN**: The line is unavailable.
-        // *   **OPTIONAL**: The line is available.
         shared_ptr<string> status_ {};
       };
 
@@ -217,9 +208,7 @@ namespace Models
 
 
       protected:
-        // The ID of the address pool.
         shared_ptr<string> addrPoolId_ {};
-        // The name of the address pool.
         shared_ptr<string> addrPoolName_ {};
       };
 
@@ -272,9 +261,7 @@ namespace Models
 
 
   protected:
-    // The address pools.
     shared_ptr<DescribeGtmAccessStrategyAvailableConfigResponseBody::AddrPools> addrPools_ {};
-    // The Domain Name System (DNS) request sources.
     shared_ptr<DescribeGtmAccessStrategyAvailableConfigResponseBody::Lines> lines_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

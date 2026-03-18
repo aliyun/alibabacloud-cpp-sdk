@@ -161,23 +161,14 @@ namespace Models
 
 
       protected:
-        // The formatted message content.
         shared_ptr<string> content_ {};
-        // The ID of the object that was operated on.
         shared_ptr<string> entityId_ {};
-        // The name of the object that was operated on.
         shared_ptr<string> entityName_ {};
-        // The type of the object that was operated on.
         shared_ptr<string> entityType_ {};
-        // The ID of the log record.
         shared_ptr<int64_t> id_ {};
-        // The operation performed.
         shared_ptr<string> operAction_ {};
-        // The IP address subject to the operation.
         shared_ptr<string> operIp_ {};
-        // The time when the operation was performed.
         shared_ptr<string> operTime_ {};
-        // A timestamp that indicates the time when the operation was performed.
         shared_ptr<int64_t> operTimestamp_ {};
       };
 
@@ -242,7 +233,6 @@ namespace Models
 
 
   protected:
-    // The list of logs returned.
     shared_ptr<DescribeGtmLogsResponseBody::Logs> logs_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

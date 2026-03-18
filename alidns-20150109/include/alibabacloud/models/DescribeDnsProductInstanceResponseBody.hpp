@@ -421,7 +421,6 @@ namespace Models
     // *   basic: Basic DNS protection is provided.
     // *   advanced: Advanced DNS protection is provided.
     shared_ptr<string> dnsSecurity_ {};
-    // The DNS servers configured for the domain names.
     shared_ptr<DescribeDnsProductInstanceResponseBody::DnsServers> dnsServers_ {};
     // The domain name that is bound to the paid instance.
     // 

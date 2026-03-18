@@ -189,38 +189,17 @@ namespace Models
 
 
       protected:
-        // The number of addresses in the address pool.
         shared_ptr<int32_t> addrCount_ {};
-        // The ID of the address pool.
         shared_ptr<string> addrPoolId_ {};
-        // The time when this address pool was created.
         shared_ptr<string> createTime_ {};
         shared_ptr<int64_t> createTimestamp_ {};
-        // The minimum number of available addresses in the address pool.
         shared_ptr<int32_t> minAvailableAddrNum_ {};
-        // The health check ID of the address pool.
         shared_ptr<string> monitorConfigId_ {};
-        // Indicates whether health check was enabled for the address pool. Valid values:
-        // 
-        // *   **OPEN**: Enabled
-        // *   **CLOSE**: Disabled
-        // *   **UNCONFIGURED**: Not configured
         shared_ptr<string> monitorStatus_ {};
-        // The name of the address pool.
         shared_ptr<string> name_ {};
-        // The availability status of the address pool. Valid values:
-        // 
-        // *   **AVAILABLE**: Available
-        // *   **NOT_AVAILABLE**: Unavailable
         shared_ptr<string> status_ {};
-        // The type of the address pool. Valid values:
-        // 
-        // *   **IP**: IP address
-        // *   **DOMAIN**: Domain name
         shared_ptr<string> type_ {};
-        // The last time when the address pool was updated.
         shared_ptr<string> updateTime_ {};
-        // A timestamp that indicates the last time the address pool was updated.
         shared_ptr<int64_t> updateTimestamp_ {};
       };
 
@@ -285,7 +264,6 @@ namespace Models
 
 
   protected:
-    // The returned list of address pools of the GTM instance.
     shared_ptr<DescribeGtmInstanceAddressPoolsResponseBody::AddrPools> addrPools_ {};
     // The number of the page returned.
     shared_ptr<int32_t> pageNumber_ {};

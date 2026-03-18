@@ -144,28 +144,13 @@ namespace Models
 
 
       protected:
-        // The code of the city where the monitored node is deployed.
         shared_ptr<string> cityCode_ {};
-        // The display name of the city where the monitored node is deployed.
         shared_ptr<string> cityName_ {};
-        // Indicates whether the monitored node is selected for the health check by default.
         shared_ptr<bool> defaultSelected_ {};
-        // The name of the group to which the monitored node belongs.
-        // 
-        // Valid values: Overseas Nodes, BGP Nodes, and ISP Nodes.
         shared_ptr<string> groupName_ {};
-        // The type of the group to which the monitored node belongs.
-        // 
-        // Valid values: BGP, OVERSEAS, and ISP.
         shared_ptr<string> groupType_ {};
-        // The code of the Internet service provider (ISP) to which the monitored node belongs.
-        // 
-        // *   If the value of the GroupType parameter is BGP or OVERSEAS, the value of IspCode is 465 by default.
-        // *   If the value of the GroupType parameter is not BGP or OVERSEAS, valid values of IspCode are 232, 132, and 5. and is used together with CityCode.
         shared_ptr<string> ispCode_ {};
-        // The display name of the ISP to which the monitored node belongs.
         shared_ptr<string> ispName_ {};
-        // Indicates whether the monitored node is deployed in the Chinese mainland.
         shared_ptr<bool> mainland_ {};
       };
 
@@ -202,7 +187,6 @@ namespace Models
 
 
   protected:
-    // The monitored nodes.
     shared_ptr<DescribeGtmMonitorAvailableConfigResponseBody::IspCityNodes> ispCityNodes_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

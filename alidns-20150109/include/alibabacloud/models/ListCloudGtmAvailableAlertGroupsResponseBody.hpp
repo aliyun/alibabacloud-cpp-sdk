@@ -79,7 +79,6 @@ namespace Models
 
 
       protected:
-        // The name of the alert contact group.
         shared_ptr<string> groupName_ {};
       };
 
@@ -116,7 +115,6 @@ namespace Models
 
 
   protected:
-    // The alert contact groups.
     shared_ptr<ListCloudGtmAvailableAlertGroupsResponseBody::AlertGroups> alertGroups_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

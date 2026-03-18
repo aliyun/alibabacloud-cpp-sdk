@@ -137,15 +137,10 @@ namespace Models
 
 
         protected:
-          // The parent line code of the source region.
           shared_ptr<string> fatherCode_ {};
-          // The code of the source region group.
           shared_ptr<string> groupCode_ {};
-          // The name of the source region group.
           shared_ptr<string> groupName_ {};
-          // The line code of the source region.
           shared_ptr<string> lineCode_ {};
-          // The line name of the source region.
           shared_ptr<string> lineName_ {};
         };
 
@@ -168,9 +163,7 @@ namespace Models
 
 
       protected:
-        // The address in the address pool.
         shared_ptr<string> addr_ {};
-        // The information about the source region of the address.
         shared_ptr<AddrItem::AttributeInfo> attributeInfo_ {};
       };
 
@@ -207,7 +200,6 @@ namespace Models
 
 
   protected:
-    // The address in the address pool.
     shared_ptr<DescribeDnsGtmAddrAttributeInfoResponseBody::Addr> addr_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

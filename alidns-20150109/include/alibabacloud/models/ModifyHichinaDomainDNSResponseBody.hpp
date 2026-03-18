@@ -128,9 +128,7 @@ namespace Models
 
 
   protected:
-    // The DNS server names after modification.
     shared_ptr<ModifyHichinaDomainDNSResponseBody::NewDnsServers> newDnsServers_ {};
-    // The DNS server names before modification.
     shared_ptr<ModifyHichinaDomainDNSResponseBody::OriginalDnsServers> originalDnsServers_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

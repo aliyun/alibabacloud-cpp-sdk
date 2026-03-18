@@ -350,65 +350,22 @@ namespace Models
 
 
           protected:
-            // Load balancing policy among addresses in the address pool:
-            // - round_robin: Round-robin, where for any source of DNS resolution requests, all addresses are returned, with a rotation of the order for every request.
-            // - sequence: Sequential, where for any source of DNS resolution requests, the address with the lower sequence number (indicating a higher priority, the smaller the number, the higher the priority) is returned. If the address with the lower sequence number is unavailable, the next address with a lower sequence number is returned.
-            // - weight: Weighted, supporting the setting of different weight values for each address to realize returning addresses according to the ratio of weights in DNS query resolutions.
-            // - source_nearest: Source-nearest, referring to the intelligent resolution feature, where GTM can return different addresses based on the source of different DNS resolution requests, achieving the effect of users accessing the nearest server.
             shared_ptr<string> addressLbStrategy_ {};
-            // Address pool ID, uniquely identifying the address pool.
             shared_ptr<string> addressPoolId_ {};
-            // Address pool name.
             shared_ptr<string> addressPoolName_ {};
-            // Address pool type:
-            // - IPv4
-            // - IPv6
-            // - domain
             shared_ptr<string> addressPoolType_ {};
-            // Address pool availability status:
-            // - available: Available
-            // - unavailable: Unavailable
             shared_ptr<string> availableStatus_ {};
-            // Address pool creation time.
             shared_ptr<string> createTime_ {};
-            // Address pool creation time (timestamp).
             shared_ptr<int64_t> createTimestamp_ {};
-            // Address pool status:
-            // - enable: Enabled status
-            // - disable: Disabled status
             shared_ptr<string> enableStatus_ {};
-            // The condition for determining the health status of the address pool. Valid values:
-            // 
-            // *   any_ok: At least one address in the address pool is available.
-            // *   p30_ok: At least 30% of the addresses in the address pool are available.
-            // *   p50_ok: At least 50% of the addresses in the address pool are available.
-            // *   p70_ok: At least 70% of the addresses in the address pool are available.
-            // *   all_ok: All addresses in the address pool are available.
             shared_ptr<string> healthJudgement_ {};
-            // The health state of the address pool. Valid values:
-            // 
-            // *   ok: The health state of the address pool is normal and all addresses that are referenced by the address pool are available.
-            // *   ok_alert: The health state of the address pool is warning and some of the addresses that are referenced by the address pool are unavailable. However, the address pool is deemed normal. In this case, only the available addresses are returned for DNS requests.
-            // *   exceptional: The health state of the address pool is abnormal and some or all of the addresses that are referenced by the address pool are unavailable. In this case, the address pool is deemed abnormal.
             shared_ptr<string> healthStatus_ {};
-            // Parse the request source list.
             shared_ptr<AddressPool::RequestSource> requestSource_ {};
-            // Indicates whether it is a sequential (non-preemptive) scheduling object for hybrid cloud management scenarios: 
-            // - true: yes 
-            // - false: no
             shared_ptr<bool> seqNonPreemptiveSchedule_ {};
-            // The mode used if the address with the smallest sequence number is recovered. This parameter is required only when the policy for load balancing between addresses is sequence. Valid values:
-            // 
-            // *   preemptive: The address with the smallest sequence number is preferentially used if this address is recovered.
-            // *   non_preemptive: The current address is still used even if the address with the smallest sequence number is recovered.
             shared_ptr<string> sequenceLbStrategyMode_ {};
-            // Sequence number. For any parsing request, the address pool with the smaller sequence number (indicating the priority of the address pool returned, with smaller numbers having higher priority) will be returned.
             shared_ptr<int32_t> serialNumber_ {};
-            // Last modification time of the address pool.
             shared_ptr<string> updateTime_ {};
-            // Update time (timestamp).
             shared_ptr<int64_t> updateTimestamp_ {};
-            // Weight value (an integer between 1 and 100, inclusive), allowing different weight values to be set for each address pool, implementing the return of address pools according to weight ratios in resolution queries.
             shared_ptr<int32_t> weightValue_ {};
           };
 
@@ -589,77 +546,27 @@ namespace Models
 
 
       protected:
-        // The policy for load balancing between address pools. Valid values:
-        // 
-        // *   round_robin: All address pools are returned for DNS requests from any source. All address pools are sorted in round-robin mode each time they are returned.
-        // *   sequence: The address pool with the smallest sequence number is preferentially returned for DNS requests from any source. The sequence number indicates the priority for returning the address pool. A smaller sequence number indicates a higher priority. If the address pool with the smallest sequence number is unavailable, the address pool with the second smallest sequence number is returned.
-        // *   weight: You can set a different weight value for each address pool. This way, address pools are returned based on the weight values.
-        // *   source_nearest: Different address pools are returned based on the sources of DNS requests. This way, users can access nearby address pools.
         shared_ptr<string> addressPoolLbStrategy_ {};
-        // The address pools.
         shared_ptr<InstanceConfig::AddressPools> addressPools_ {};
-        // The availability state of the access domain name. Valid values:
-        // 
-        // *   available: If the access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
-        // *   unavailable: If the access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
         shared_ptr<string> availableStatus_ {};
-        // The commodity code. Valid values:
-        // 
-        // *   dns_gtm_public_cn: the commodity code on the China site (aliyun.com)
-        // *   dns_gtm_public_intl: the commodity code on the international site (alibabacloud.com)
         shared_ptr<string> commodityCode_ {};
-        // The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
         shared_ptr<string> configId_ {};
         shared_ptr<string> configLoggingSwitchStatus_ {};
-        // Domain instance creation time.
         shared_ptr<string> createTime_ {};
-        // Domain instance creation time (timestamp).
         shared_ptr<int64_t> createTimestamp_ {};
-        // The enabling state of the access domain name. Valid values:
-        // 
-        // *   enable: The access domain name is enabled and the intelligent scheduling policy of the corresponding GTM instance takes effect.
-        // *   disable: The access domain name is disabled and the intelligent scheduling policy of the corresponding GTM instance does not take effect.
         shared_ptr<string> enableStatus_ {};
-        // The health state of the access domain name. Valid values:
-        // 
-        // *   ok: The health state of the access domain name is normal and all address pools that are referenced by the access domain name are available.
-        // *   ok_alert: The health state of the access domain name is warning and some of the address pools that are referenced by the access domain name are unavailable. In this case, only the available address pools are returned for DNS requests.
-        // *   exceptional: The health state of the access domain name is abnormal and all address pools that are referenced by the access domain name are unavailable. In this case, addresses in the non-empty address pool with the smallest sequence number are preferentially used for fallback resolution. This returns DNS results for clients as much as possible.
         shared_ptr<string> healthStatus_ {};
-        // The ID of the GTM 3.0 instance.
         shared_ptr<string> instanceId_ {};
-        // Remarks for the domain instance.
         shared_ptr<string> remark_ {};
-        // The access domain name. The value of this parameter is composed of the value of ScheduleHostname and the value of ScheduleZoneName.
         shared_ptr<string> scheduleDomainName_ {};
-        // Host record of the domain accessed by GTM.
         shared_ptr<string> scheduleHostname_ {};
-        // DNS record types for the scheduling domain:
-        // - A: IPv4 address
-        // - AAAA: IPv6 address
-        // - CNAME: Domain name
         shared_ptr<string> scheduleRrType_ {};
-        // The allocation mode of the access domain name. Valid values:
-        // 
-        // *   custom: custom allocation. You must specify a custom hostname and associate the hostname with a zone that is hosted by the Public Authoritative DNS module within the account to which the GTM instance belongs to generate an access domain name.
-        // *   sys_assign: system allocation. This mode is not supported. Do not set ScheduleZoneMode to sys_assign.
         shared_ptr<string> scheduleZoneMode_ {};
-        // The zone such as example.com or subzone such as a.example.com of the access domain name. In most cases, the zone or subzone is hosted by the Public Authoritative DNS module of Alibaba Cloud DNS. This zone belongs to the account to which the GTM instance belongs.
         shared_ptr<string> scheduleZoneName_ {};
-        // The mode used if the address pool with the smallest sequence number is recovered. This parameter is returned when AddressPoolLbStrategy is set to sequence. Valid values:
-        // 
-        // *   preemptive: The address pool with the smallest sequence number is preferentially used if this address pool is recovered.
-        // *   non_preemptive: The current address pool is still used even if the address pool with the smallest sequence number is recovered.
         shared_ptr<string> sequenceLbStrategyMode_ {};
-        // Global TTL (in seconds), the TTL value for resolving the access domain name to the address pool, which affects the caching time of DNS records in the operator\\"s LocalDNS. Supports custom TTL values.
         shared_ptr<int32_t> ttl_ {};
-        // The last modification time of the domain instance.
         shared_ptr<string> updateTime_ {};
-        // The last modification time of the domain instance (timestamp).
         shared_ptr<int64_t> updateTimestamp_ {};
-        // Global Traffic Management version 3.0 instance types:
-        // - standard: Standard Edition
-        // - ultimate: Ultimate Edition
         shared_ptr<string> versionCode_ {};
       };
 
@@ -724,7 +631,6 @@ namespace Models
 
 
   protected:
-    // The instances list.
     shared_ptr<SearchCloudGtmInstanceConfigsResponseBody::InstanceConfigs> instanceConfigs_ {};
     // Current page number, starting from 1, default is 1.
     shared_ptr<int32_t> pageNumber_ {};

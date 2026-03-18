@@ -214,34 +214,20 @@ namespace Models
 
 
       protected:
-        // The time when the DNS record was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since 00:00:00 UTC on January 1, 1970.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The domain name.
         shared_ptr<string> domainName_ {};
         shared_ptr<bool> lbaStatus_ {};
-        // The resolution line.
         shared_ptr<string> line_ {};
-        // Indicates whether the DNS record is locked.
         shared_ptr<bool> locked_ {};
-        // The priority of the mail exchanger (MX) record.
         shared_ptr<int64_t> priority_ {};
-        // The hostname.
         shared_ptr<string> RR_ {};
-        // The ID of the DNS record.
         shared_ptr<string> recordId_ {};
-        // The description of the DNS record.
         shared_ptr<string> remark_ {};
-        // The status of the DNS record.
         shared_ptr<string> status_ {};
-        // The time-to-live (TTL) of the cached DNS record. Unit: seconds.
         shared_ptr<int64_t> TTL_ {};
-        // The type of the DNS record.
         shared_ptr<string> type_ {};
-        // The time when the DNS record was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since 00:00:00 UTC on January 1, 1970.
         shared_ptr<int64_t> updateTimestamp_ {};
-        // The record value.
         shared_ptr<string> value_ {};
-        // The weight of the DNS record.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -299,7 +285,6 @@ namespace Models
 
 
   protected:
-    // The returned Domain Name System (DNS) records.
     shared_ptr<DescribeDomainRecordsResponseBody::DomainRecords> domainRecords_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};

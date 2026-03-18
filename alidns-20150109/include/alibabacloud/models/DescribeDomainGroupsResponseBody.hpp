@@ -104,14 +104,8 @@ namespace Models
 
 
       protected:
-        // The number of domain name groups.
         shared_ptr<int64_t> domainCount_ {};
-        // The ID of the domain name group. Valid values:
-        // 
-        // *   defaultGroup: the default group
-        // *   If an empty string is returned, it indicates the group that contains all domain names.
         shared_ptr<string> groupId_ {};
-        // The name of the domain name group.
         shared_ptr<string> groupName_ {};
       };
 
@@ -169,7 +163,6 @@ namespace Models
 
 
   protected:
-    // The domain name groups.
     shared_ptr<DescribeDomainGroupsResponseBody::DomainGroups> domainGroups_ {};
     // The page number. Pages start from page **1**. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};

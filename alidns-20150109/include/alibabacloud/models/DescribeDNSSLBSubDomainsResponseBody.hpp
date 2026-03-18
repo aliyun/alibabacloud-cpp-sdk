@@ -141,12 +141,7 @@ namespace Models
 
 
           protected:
-            // The DNS resolution line. The line can be China Telecom, China Mobile, and China Unicom.
             shared_ptr<string> line_ {};
-            // Indicates whether weighted round-robin is enabled for the line. Valid values:
-            // 
-            // *   **true** (default): Weighted round-robin is enabled.
-            // *   **false**: Weighted round-robin is disabled.
             shared_ptr<bool> open_ {};
           };
 
@@ -204,15 +199,10 @@ namespace Models
 
 
       protected:
-        // The lines for which weighted round-robin is enabled.
         shared_ptr<SlbSubDomain::LineAlgorithms> lineAlgorithms_ {};
-        // Indicates whether weighted round-robin is enabled for the subdomain.
         shared_ptr<bool> open_ {};
-        // The number of DNS records added for the subdomain.
         shared_ptr<int64_t> recordCount_ {};
-        // The name of the subdomain.
         shared_ptr<string> subDomain_ {};
-        // The type of the Domain Name System (DNS) record that supports weighted round-robin. Valid values: A, AAAA, and CNAME.
         shared_ptr<string> type_ {};
       };
 
@@ -276,7 +266,6 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The subdomains for which weighted round-robin is enabled.
     shared_ptr<DescribeDNSSLBSubDomainsResponseBody::SlbSubDomains> slbSubDomains_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};

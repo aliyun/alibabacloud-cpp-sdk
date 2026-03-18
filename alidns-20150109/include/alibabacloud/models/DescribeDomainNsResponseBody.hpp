@@ -159,9 +159,7 @@ namespace Models
     shared_ptr<bool> allAliDns_ {};
     // The cause code of the detection failure.
     shared_ptr<string> detectFailedReasonCode_ {};
-    // The DNS server names configured for the domain name.
     shared_ptr<DescribeDomainNsResponseBody::DnsServers> dnsServers_ {};
-    // The Domain Name System (DNS) server names assigned by Alibaba Cloud DNS.
     shared_ptr<DescribeDomainNsResponseBody::ExpectDnsServers> expectDnsServers_ {};
     // Indicates whether the name servers include Alibaba Cloud DNS servers.
     shared_ptr<bool> includeAliDns_ {};

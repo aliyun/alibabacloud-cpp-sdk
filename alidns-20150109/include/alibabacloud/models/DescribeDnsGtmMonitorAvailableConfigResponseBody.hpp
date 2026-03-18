@@ -185,25 +185,13 @@ namespace Models
 
 
       protected:
-        // The city code.
         shared_ptr<string> cityCode_ {};
-        // The display name of the city.
         shared_ptr<string> cityName_ {};
-        // Indicates whether the health check node is selected by default.
         shared_ptr<bool> defaultSelected_ {};
-        // The name of the node group.
         shared_ptr<string> groupName_ {};
-        // The type of the node group. Valid values:
-        // 
-        // *   BGP: BGP node
-        // *   OVERSEAS: node outside the Chinese mainland
-        // *   ISP: ISP node
         shared_ptr<string> groupType_ {};
-        // This parameter is not returned.
         shared_ptr<Ipv6IspCityNode::Ips> ips_ {};
-        // The ISP code.
         shared_ptr<string> ispCode_ {};
-        // The display name of the ISP.
         shared_ptr<string> ispName_ {};
       };
 
@@ -368,25 +356,13 @@ namespace Models
 
 
       protected:
-        // The city code.
         shared_ptr<string> cityCode_ {};
-        // The display name of the city.
         shared_ptr<string> cityName_ {};
-        // Indicates whether the health check node is selected by default.
         shared_ptr<bool> defaultSelected_ {};
-        // The name of the node group.
         shared_ptr<string> groupName_ {};
-        // The type of the node group. Valid values:
-        // 
-        // *   BGP: Border Gateway Protocol (BGP) node
-        // *   OVERSEAS: node outside the Chinese mainland
-        // *   ISP: ISP node
         shared_ptr<string> groupType_ {};
-        // The IP addresses of the health check nodes.
         shared_ptr<Ipv4IspCityNode::Ips> ips_ {};
-        // The Internet service provider (ISP) code.
         shared_ptr<string> ispCode_ {};
-        // The display name of the ISP.
         shared_ptr<string> ispName_ {};
       };
 
@@ -551,25 +527,13 @@ namespace Models
 
 
       protected:
-        // The city code.
         shared_ptr<string> cityCode_ {};
-        // The display name of the city.
         shared_ptr<string> cityName_ {};
-        // Indicates whether the health check node is selected by default.
         shared_ptr<bool> defaultSelected_ {};
-        // The name of the node group.
         shared_ptr<string> groupName_ {};
-        // The type of the node group. Valid values:
-        // 
-        // *   BGP: BGP node
-        // *   OVERSEAS: node outside the Chinese mainland
-        // *   ISP: ISP node
         shared_ptr<string> groupType_ {};
-        // This parameter is not returned.
         shared_ptr<DomainIpv6IspCityNode::Ips> ips_ {};
-        // The ISP code.
         shared_ptr<string> ispCode_ {};
-        // The display name of the ISP.
         shared_ptr<string> ispName_ {};
       };
 
@@ -734,25 +698,13 @@ namespace Models
 
 
       protected:
-        // The city code.
         shared_ptr<string> cityCode_ {};
-        // The display name of the city.
         shared_ptr<string> cityName_ {};
-        // Indicates whether the health check node is selected by default.
         shared_ptr<bool> defaultSelected_ {};
-        // The name of the node group.
         shared_ptr<string> groupName_ {};
-        // The type of the node group. Valid values:
-        // 
-        // *   BGP: BGP node
-        // *   OVERSEAS: node outside the Chinese mainland
-        // *   ISP: ISP node
         shared_ptr<string> groupType_ {};
-        // The IP addresses of the health check nodes.
         shared_ptr<DomainIpv4IspCityNode::Ips> ips_ {};
-        // The ISP code.
         shared_ptr<string> ispCode_ {};
-        // The display name of the ISP.
         shared_ptr<string> ispName_ {};
       };
 
@@ -816,13 +768,9 @@ namespace Models
 
 
   protected:
-    // The nodes that perform health checks on domain names that use public IPv4 addresses.
     shared_ptr<DescribeDnsGtmMonitorAvailableConfigResponseBody::DomainIpv4IspCityNodes> domainIpv4IspCityNodes_ {};
-    // The nodes that perform health checks on domain names that use public IPv6 addresses.
     shared_ptr<DescribeDnsGtmMonitorAvailableConfigResponseBody::DomainIpv6IspCityNodes> domainIpv6IspCityNodes_ {};
-    // The nodes that perform health checks on public IPv4 addresses.
     shared_ptr<DescribeDnsGtmMonitorAvailableConfigResponseBody::Ipv4IspCityNodes> ipv4IspCityNodes_ {};
-    // The nodes that perform health checks on public IPv6 addresses.
     shared_ptr<DescribeDnsGtmMonitorAvailableConfigResponseBody::Ipv6IspCityNodes> ipv6IspCityNodes_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

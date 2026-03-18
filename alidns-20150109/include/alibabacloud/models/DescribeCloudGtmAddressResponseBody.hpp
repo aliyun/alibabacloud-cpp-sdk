@@ -139,17 +139,9 @@ namespace Models
 
 
       protected:
-        // The state of the health check task. Valid values:
-        // 
-        // *   ok: The task is normal.
-        // *   alert: An alert is triggered.
-        // *   no_data: No data is available. In most cases, the health check task is newly created and no data is collected.
         shared_ptr<string> monitorStatus_ {};
-        // The target service port for health checks. When the Ping protocol is selected for health checks, configuration of the service port is not supported.
         shared_ptr<int32_t> port_ {};
-        // The ID of the health check template associated with the address.
         shared_ptr<string> templateId_ {};
-        // The name of the health check template.
         shared_ptr<string> templateName_ {};
       };
 
@@ -339,7 +331,6 @@ namespace Models
     // *   ok_no_monitor: The address does not reference a health check template.
     // *   exceptional: The address fails some or all health checks of the referenced health check templates and the address is deemed abnormal.
     shared_ptr<string> healthStatus_ {};
-    // The health check tasks referenced by the address.
     shared_ptr<DescribeCloudGtmAddressResponseBody::HealthTasks> healthTasks_ {};
     // The availability state of the address when AvailableMode is set to manual. Valid values:
     // 

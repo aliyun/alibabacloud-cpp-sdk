@@ -131,9 +131,7 @@ namespace Models
 
 
           protected:
-            // The address pool ID.
             shared_ptr<string> addrPoolId_ {};
-            // The name of the address pool.
             shared_ptr<string> name_ {};
           };
 
@@ -177,11 +175,8 @@ namespace Models
 
 
       protected:
-        // The address pools.
         shared_ptr<Instance::AddrPools> addrPools_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The instance name.
         shared_ptr<string> instanceName_ {};
       };
 
@@ -218,7 +213,6 @@ namespace Models
 
 
   protected:
-    // The instances.
     shared_ptr<DescribeGtmRecoveryPlanAvailableConfigResponseBody::Instances> instances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

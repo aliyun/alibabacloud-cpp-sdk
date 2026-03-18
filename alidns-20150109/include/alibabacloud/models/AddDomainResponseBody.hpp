@@ -130,7 +130,6 @@ namespace Models
 
 
   protected:
-    // The Domain Name System (DNS) servers configured for the domain name.
     shared_ptr<AddDomainResponseBody::DnsServers> dnsServers_ {};
     // The ID of the domain name.
     shared_ptr<string> domainId_ {};

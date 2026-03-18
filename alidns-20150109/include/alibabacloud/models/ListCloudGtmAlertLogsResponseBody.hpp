@@ -115,19 +115,9 @@ namespace Models
 
 
       protected:
-        // Alert type:
-        // - ALERT
-        // - RESUME
         shared_ptr<string> actionType_ {};
-        // The alert content.
         shared_ptr<string> content_ {};
-        // Alarm object types:
-        // - GTM_ADDRESS: Address
-        // - GTM_ADDRESS_POOL: Address Pool
-        // - GTM_INSTANCE: Instance
-        // - GTM_MONITOR_TEMPLATE: Health Check Template
         shared_ptr<string> entityType_ {};
-        // Alert log time (timestamp).
         shared_ptr<int64_t> timestamp_ {};
       };
 
@@ -192,7 +182,6 @@ namespace Models
 
 
   protected:
-    // The alert logs.
     shared_ptr<ListCloudGtmAlertLogsResponseBody::Logs> logs_ {};
     // Current page number, starting from 1, default is 1.
     shared_ptr<int32_t> pageNumber_ {};

@@ -115,20 +115,9 @@ namespace Models
 
 
       protected:
-        // The number of DNS requests.
         shared_ptr<int64_t> count_ {};
-        // The domain name.
         shared_ptr<string> domainName_ {};
-        // The type of the domain name. The parameter value is not case-sensitive. Valid values:
-        // 
-        // PUBLIC (default): hosted public domain name
-        // 
-        // CACHE: cache-accelerated domain name
         shared_ptr<string> domainType_ {};
-        // Indicates whether the DNS traffic analysis feature is enabled for the domain name. Valid values:
-        // 
-        // *   OPEN
-        // *   CLOSE
         shared_ptr<string> resolveAnalysisStatus_ {};
       };
 
@@ -199,7 +188,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The statistics on the Domain Name System (DNS) requests.
     shared_ptr<DescribeDomainStatisticsSummaryResponseBody::Statistics> statistics_ {};
     // The total number of data records.
     shared_ptr<int32_t> totalItems_ {};

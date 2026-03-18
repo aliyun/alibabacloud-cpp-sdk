@@ -500,7 +500,7 @@ AddDomainResponse Client::addDomain(const AddDomainRequest &request) {
 }
 
 /**
- * @summary Creates a backup task for a domain name.
+ * @summary Creates a backup for the domain name based on the specified domain name and backup cycle.
  *
  * @param request AddDomainBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -539,7 +539,7 @@ AddDomainBackupResponse Client::addDomainBackupWithOptions(const AddDomainBackup
 }
 
 /**
- * @summary Creates a backup task for a domain name.
+ * @summary Creates a backup for the domain name based on the specified domain name and backup cycle.
  *
  * @param request AddDomainBackupRequest
  * @return AddDomainBackupResponse
@@ -670,6 +670,8 @@ AddDomainRecordResponse Client::addDomainRecord(const AddDomainRecordRequest &re
 }
 
 /**
+ * @summary You can call this operation to create an access policy for a Global Traffic Manager (GTM) instance.
+ *
  * @param request AddGtmAccessStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddGtmAccessStrategyResponse
@@ -719,6 +721,8 @@ AddGtmAccessStrategyResponse Client::addGtmAccessStrategyWithOptions(const AddGt
 }
 
 /**
+ * @summary You can call this operation to create an access policy for a Global Traffic Manager (GTM) instance.
+ *
  * @param request AddGtmAccessStrategyRequest
  * @return AddGtmAccessStrategyResponse
  */
@@ -942,7 +946,7 @@ AddGtmRecoveryPlanResponse Client::addGtmRecoveryPlan(const AddGtmRecoveryPlanRe
 }
 
 /**
- * @summary 新增递归解析内置权威解析记录
+ * @summary Adds HTTPDNS authoritative DNS resolution records
  *
  * @param request AddRecursionRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1009,7 +1013,7 @@ AddRecursionRecordResponse Client::addRecursionRecordWithOptions(const AddRecurs
 }
 
 /**
- * @summary 新增递归解析内置权威解析记录
+ * @summary Adds HTTPDNS authoritative DNS resolution records
  *
  * @param request AddRecursionRecordRequest
  * @return AddRecursionRecordResponse
@@ -1020,7 +1024,7 @@ AddRecursionRecordResponse Client::addRecursionRecord(const AddRecursionRecordRe
 }
 
 /**
- * @summary 新增递归解析内置权威域名zone
+ * @summary Adds HTTPDNS zone
  *
  * @param request AddRecursionZoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1059,7 +1063,7 @@ AddRecursionZoneResponse Client::addRecursionZoneWithOptions(const AddRecursionZ
 }
 
 /**
- * @summary 新增递归解析内置权威域名zone
+ * @summary Adds HTTPDNS zone
  *
  * @param request AddRecursionZoneRequest
  * @return AddRecursionZoneResponse
@@ -1754,7 +1758,7 @@ CreateCloudGtmMonitorTemplateResponse Client::createCloudGtmMonitorTemplate(cons
 }
 
 /**
- * @summary 创建公共DNS AppKey
+ * @summary Creates an AppKey in Alibaba Cloud Public DNS.
  *
  * @param request CreatePdnsAppKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1789,7 +1793,7 @@ CreatePdnsAppKeyResponse Client::createPdnsAppKeyWithOptions(const CreatePdnsApp
 }
 
 /**
- * @summary 创建公共DNS AppKey
+ * @summary Creates an AppKey in Alibaba Cloud Public DNS.
  *
  * @param request CreatePdnsAppKeyRequest
  * @return CreatePdnsAppKeyResponse
@@ -2150,6 +2154,8 @@ DeleteDnsCacheDomainResponse Client::deleteDnsCacheDomain(const DeleteDnsCacheDo
 }
 
 /**
+ * @summary Deletes an access policy by policy ID.
+ *
  * @param request DeleteDnsGtmAccessStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDnsGtmAccessStrategyResponse
@@ -2183,6 +2189,8 @@ DeleteDnsGtmAccessStrategyResponse Client::deleteDnsGtmAccessStrategyWithOptions
 }
 
 /**
+ * @summary Deletes an access policy by policy ID.
+ *
  * @param request DeleteDnsGtmAccessStrategyRequest
  * @return DeleteDnsGtmAccessStrategyResponse
  */
@@ -2192,6 +2200,8 @@ DeleteDnsGtmAccessStrategyResponse Client::deleteDnsGtmAccessStrategy(const Dele
 }
 
 /**
+ * @summary Deletes an address pool by address pool ID.
+ *
  * @param request DeleteDnsGtmAddressPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDnsGtmAddressPoolResponse
@@ -2225,6 +2235,8 @@ DeleteDnsGtmAddressPoolResponse Client::deleteDnsGtmAddressPoolWithOptions(const
 }
 
 /**
+ * @summary Deletes an address pool by address pool ID.
+ *
  * @param request DeleteDnsGtmAddressPoolRequest
  * @return DeleteDnsGtmAddressPoolResponse
  */
@@ -2380,6 +2392,8 @@ DeleteDomainRecordResponse Client::deleteDomainRecord(const DeleteDomainRecordRe
 }
 
 /**
+ * @summary You can call this operation to delete an access policy of a Global Traffic Manager (GTM) instance.
+ *
  * @param request DeleteGtmAccessStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteGtmAccessStrategyResponse
@@ -2413,6 +2427,8 @@ DeleteGtmAccessStrategyResponse Client::deleteGtmAccessStrategyWithOptions(const
 }
 
 /**
+ * @summary You can call this operation to delete an access policy of a Global Traffic Manager (GTM) instance.
+ *
  * @param request DeleteGtmAccessStrategyRequest
  * @return DeleteGtmAccessStrategyResponse
  */
@@ -2422,6 +2438,8 @@ DeleteGtmAccessStrategyResponse Client::deleteGtmAccessStrategy(const DeleteGtmA
 }
 
 /**
+ * @summary You can call this operation to delete an address pool of a Global Traffic Manager (GTM).
+ *
  * @param request DeleteGtmAddressPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteGtmAddressPoolResponse
@@ -2455,6 +2473,8 @@ DeleteGtmAddressPoolResponse Client::deleteGtmAddressPoolWithOptions(const Delet
 }
 
 /**
+ * @summary You can call this operation to delete an address pool of a Global Traffic Manager (GTM).
+ *
  * @param request DeleteGtmAddressPoolRequest
  * @return DeleteGtmAddressPoolResponse
  */
@@ -2464,6 +2484,8 @@ DeleteGtmAddressPoolResponse Client::deleteGtmAddressPool(const DeleteGtmAddress
 }
 
 /**
+ * @summary Deletes a disaster recovery plan.
+ *
  * @param request DeleteGtmRecoveryPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteGtmRecoveryPlanResponse
@@ -2497,6 +2519,8 @@ DeleteGtmRecoveryPlanResponse Client::deleteGtmRecoveryPlanWithOptions(const Del
 }
 
 /**
+ * @summary Deletes a disaster recovery plan.
+ *
  * @param request DeleteGtmRecoveryPlanRequest
  * @return DeleteGtmRecoveryPlanResponse
  */
@@ -2506,7 +2530,7 @@ DeleteGtmRecoveryPlanResponse Client::deleteGtmRecoveryPlan(const DeleteGtmRecov
 }
 
 /**
- * @summary 删除递归解析内置权威解析记录
+ * @summary Deletes HTTPDNS resolution records
  *
  * @param request DeleteRecursionRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2541,7 +2565,7 @@ DeleteRecursionRecordResponse Client::deleteRecursionRecordWithOptions(const Del
 }
 
 /**
- * @summary 删除递归解析内置权威解析记录
+ * @summary Deletes HTTPDNS resolution records
  *
  * @param request DeleteRecursionRecordRequest
  * @return DeleteRecursionRecordResponse
@@ -2552,7 +2576,7 @@ DeleteRecursionRecordResponse Client::deleteRecursionRecord(const DeleteRecursio
 }
 
 /**
- * @summary 删除递归解析内置权威域名zone
+ * @summary Deletes HTTPDNS authoritative domain zone
  *
  * @param request DeleteRecursionZoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2587,7 +2611,7 @@ DeleteRecursionZoneResponse Client::deleteRecursionZoneWithOptions(const DeleteR
 }
 
 /**
- * @summary 删除递归解析内置权威域名zone
+ * @summary Deletes HTTPDNS authoritative domain zone
  *
  * @param request DeleteRecursionZoneRequest
  * @return DeleteRecursionZoneResponse
@@ -3401,7 +3425,7 @@ DescribeDNSSLBSubDomainsResponse Client::describeDNSSLBSubDomains(const Describe
 }
 
 /**
- * @summary 查询代理域名
+ * @summary Queries cache-accelerated domain names within your account based on the specified parameters.
  *
  * @param request DescribeDnsCacheDomainsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3444,7 +3468,7 @@ DescribeDnsCacheDomainsResponse Client::describeDnsCacheDomainsWithOptions(const
 }
 
 /**
- * @summary 查询代理域名
+ * @summary Queries cache-accelerated domain names within your account based on the specified parameters.
  *
  * @param request DescribeDnsCacheDomainsRequest
  * @return DescribeDnsCacheDomainsResponse
@@ -3455,7 +3479,7 @@ DescribeDnsCacheDomainsResponse Client::describeDnsCacheDomains(const DescribeDn
 }
 
 /**
- * @summary Queries access policies of a Global Traffic Manager (GTM) instance.
+ * @summary Queries the access policies of a GTM instance.
  *
  * @param request DescribeDnsGtmAccessStrategiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3502,7 +3526,7 @@ DescribeDnsGtmAccessStrategiesResponse Client::describeDnsGtmAccessStrategiesWit
 }
 
 /**
- * @summary Queries access policies of a Global Traffic Manager (GTM) instance.
+ * @summary Queries the access policies of a GTM instance.
  *
  * @param request DescribeDnsGtmAccessStrategiesRequest
  * @return DescribeDnsGtmAccessStrategiesResponse
@@ -3513,7 +3537,7 @@ DescribeDnsGtmAccessStrategiesResponse Client::describeDnsGtmAccessStrategies(co
 }
 
 /**
- * @summary Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+ * @summary Queries the details about an access policy.
  *
  * @param request DescribeDnsGtmAccessStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3548,7 +3572,7 @@ DescribeDnsGtmAccessStrategyResponse Client::describeDnsGtmAccessStrategyWithOpt
 }
 
 /**
- * @summary Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+ * @summary Queries the details about an access policy.
  *
  * @param request DescribeDnsGtmAccessStrategyRequest
  * @return DescribeDnsGtmAccessStrategyResponse
@@ -3559,7 +3583,7 @@ DescribeDnsGtmAccessStrategyResponse Client::describeDnsGtmAccessStrategy(const 
 }
 
 /**
- * @summary Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+ * @summary Queries the configuration items that can be set for an access policy.
  *
  * @param request DescribeDnsGtmAccessStrategyAvailableConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3598,7 +3622,7 @@ DescribeDnsGtmAccessStrategyAvailableConfigResponse Client::describeDnsGtmAccess
 }
 
 /**
- * @summary Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+ * @summary Queries the configuration items that can be set for an access policy.
  *
  * @param request DescribeDnsGtmAccessStrategyAvailableConfigRequest
  * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse
@@ -3659,7 +3683,7 @@ DescribeDnsGtmAddrAttributeInfoResponse Client::describeDnsGtmAddrAttributeInfo(
 }
 
 /**
- * @summary Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+ * @summary Queries the available configurations of an address pool of a GTM instance.
  *
  * @param request DescribeDnsGtmAddressPoolAvailableConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3694,7 +3718,7 @@ DescribeDnsGtmAddressPoolAvailableConfigResponse Client::describeDnsGtmAddressPo
 }
 
 /**
- * @summary Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+ * @summary Queries the available configurations of an address pool of a GTM instance.
  *
  * @param request DescribeDnsGtmAddressPoolAvailableConfigRequest
  * @return DescribeDnsGtmAddressPoolAvailableConfigResponse
@@ -3705,6 +3729,8 @@ DescribeDnsGtmAddressPoolAvailableConfigResponse Client::describeDnsGtmAddressPo
 }
 
 /**
+ * @summary Queries the available alert groups of a Global Traffic Manager (GTM) instance.
+ *
  * @param request DescribeDnsGtmAvailableAlertGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDnsGtmAvailableAlertGroupResponse
@@ -3734,6 +3760,8 @@ DescribeDnsGtmAvailableAlertGroupResponse Client::describeDnsGtmAvailableAlertGr
 }
 
 /**
+ * @summary Queries the available alert groups of a Global Traffic Manager (GTM) instance.
+ *
  * @param request DescribeDnsGtmAvailableAlertGroupRequest
  * @return DescribeDnsGtmAvailableAlertGroupResponse
  */
@@ -3743,7 +3771,7 @@ DescribeDnsGtmAvailableAlertGroupResponse Client::describeDnsGtmAvailableAlertGr
 }
 
 /**
- * @summary Queries detailed information about a Global Traffic Manager (GTM) instance.
+ * @summary Obtains the details of an instance based on the ID of the instance.
  *
  * @param request DescribeDnsGtmInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3778,7 +3806,7 @@ DescribeDnsGtmInstanceResponse Client::describeDnsGtmInstanceWithOptions(const D
 }
 
 /**
- * @summary Queries detailed information about a Global Traffic Manager (GTM) instance.
+ * @summary Obtains the details of an instance based on the ID of the instance.
  *
  * @param request DescribeDnsGtmInstanceRequest
  * @return DescribeDnsGtmInstanceResponse
@@ -3789,7 +3817,7 @@ DescribeDnsGtmInstanceResponse Client::describeDnsGtmInstance(const DescribeDnsG
 }
 
 /**
- * @summary Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+ * @summary Queries detailed information about an address pool by address pool ID.
  *
  * @param request DescribeDnsGtmInstanceAddressPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3824,7 +3852,7 @@ DescribeDnsGtmInstanceAddressPoolResponse Client::describeDnsGtmInstanceAddressP
 }
 
 /**
- * @summary Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+ * @summary Queries detailed information about an address pool by address pool ID.
  *
  * @param request DescribeDnsGtmInstanceAddressPoolRequest
  * @return DescribeDnsGtmInstanceAddressPoolResponse
@@ -3835,7 +3863,7 @@ DescribeDnsGtmInstanceAddressPoolResponse Client::describeDnsGtmInstanceAddressP
 }
 
 /**
- * @summary Queries the address pools of a Global Traffic Manager (GTM) instance.
+ * @summary Queries address pools by the IDs of GTM instances.
  *
  * @param request DescribeDnsGtmInstanceAddressPoolsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3878,7 +3906,7 @@ DescribeDnsGtmInstanceAddressPoolsResponse Client::describeDnsGtmInstanceAddress
 }
 
 /**
- * @summary Queries the address pools of a Global Traffic Manager (GTM) instance.
+ * @summary Queries address pools by the IDs of GTM instances.
  *
  * @param request DescribeDnsGtmInstanceAddressPoolsRequest
  * @return DescribeDnsGtmInstanceAddressPoolsResponse
@@ -3889,7 +3917,7 @@ DescribeDnsGtmInstanceAddressPoolsResponse Client::describeDnsGtmInstanceAddress
 }
 
 /**
- * @summary Queries the status of a Global Traffic Manager (GTM) instance.
+ * @summary Obtains the current status of the instance by instance ID.
  *
  * @param request DescribeDnsGtmInstanceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3924,7 +3952,7 @@ DescribeDnsGtmInstanceStatusResponse Client::describeDnsGtmInstanceStatusWithOpt
 }
 
 /**
- * @summary Queries the status of a Global Traffic Manager (GTM) instance.
+ * @summary Obtains the current status of the instance by instance ID.
  *
  * @param request DescribeDnsGtmInstanceStatusRequest
  * @return DescribeDnsGtmInstanceStatusResponse
@@ -3935,7 +3963,7 @@ DescribeDnsGtmInstanceStatusResponse Client::describeDnsGtmInstanceStatus(const 
 }
 
 /**
- * @summary Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+ * @summary Queries the canonical name (CNAME) assigned by the system for a GTM instance.
  *
  * @param request DescribeDnsGtmInstanceSystemCnameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3970,7 +3998,7 @@ DescribeDnsGtmInstanceSystemCnameResponse Client::describeDnsGtmInstanceSystemCn
 }
 
 /**
- * @summary Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+ * @summary Queries the canonical name (CNAME) assigned by the system for a GTM instance.
  *
  * @param request DescribeDnsGtmInstanceSystemCnameRequest
  * @return DescribeDnsGtmInstanceSystemCnameResponse
@@ -4039,7 +4067,7 @@ DescribeDnsGtmInstancesResponse Client::describeDnsGtmInstances(const DescribeDn
 }
 
 /**
- * @summary Queries operation logs of a Global Traffic Manager (GTM) instance.
+ * @summary Obtains the operation logs by instance ID.
  *
  * @param request DescribeDnsGtmLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4094,7 +4122,7 @@ DescribeDnsGtmLogsResponse Client::describeDnsGtmLogsWithOptions(const DescribeD
 }
 
 /**
- * @summary Queries operation logs of a Global Traffic Manager (GTM) instance.
+ * @summary Obtains the operation logs by instance ID.
  *
  * @param request DescribeDnsGtmLogsRequest
  * @return DescribeDnsGtmLogsResponse
@@ -4317,6 +4345,8 @@ DescribeDnsProductInstancesResponse Client::describeDnsProductInstances(const De
 }
 
 /**
+ * @summary Queries the statistics on DoH-based requests for a domain name.
+ *
  * @param request DescribeDohAccountStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDohAccountStatisticsResponse
@@ -4354,6 +4384,8 @@ DescribeDohAccountStatisticsResponse Client::describeDohAccountStatisticsWithOpt
 }
 
 /**
+ * @summary Queries the statistics on DoH-based requests for a domain name.
+ *
  * @param request DescribeDohAccountStatisticsRequest
  * @return DescribeDohAccountStatisticsResponse
  */
@@ -4363,7 +4395,7 @@ DescribeDohAccountStatisticsResponse Client::describeDohAccountStatistics(const 
 }
 
 /**
- * @summary 查询DOH域名请求量数据
+ * @summary The statistics on DoH-based requests for a domain name are queried.
  *
  * @param request DescribeDohDomainStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4406,7 +4438,7 @@ DescribeDohDomainStatisticsResponse Client::describeDohDomainStatisticsWithOptio
 }
 
 /**
- * @summary 查询DOH域名请求量数据
+ * @summary The statistics on DoH-based requests for a domain name are queried.
  *
  * @param request DescribeDohDomainStatisticsRequest
  * @return DescribeDohDomainStatisticsResponse
@@ -4417,6 +4449,8 @@ DescribeDohDomainStatisticsResponse Client::describeDohDomainStatistics(const De
 }
 
 /**
+ * @summary Queries the statistics on DoH-based requests for domain names.
+ *
  * @param request DescribeDohDomainStatisticsSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDohDomainStatisticsSummaryResponse
@@ -4466,6 +4500,8 @@ DescribeDohDomainStatisticsSummaryResponse Client::describeDohDomainStatisticsSu
 }
 
 /**
+ * @summary Queries the statistics on DoH-based requests for domain names.
+ *
  * @param request DescribeDohDomainStatisticsSummaryRequest
  * @return DescribeDohDomainStatisticsSummaryResponse
  */
@@ -4475,6 +4511,8 @@ DescribeDohDomainStatisticsSummaryResponse Client::describeDohDomainStatisticsSu
 }
 
 /**
+ * @summary Obtains the statistics on DoH-based requests for a subdomain name.
+ *
  * @param request DescribeDohSubDomainStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDohSubDomainStatisticsResponse
@@ -4516,6 +4554,8 @@ DescribeDohSubDomainStatisticsResponse Client::describeDohSubDomainStatisticsWit
 }
 
 /**
+ * @summary Obtains the statistics on DoH-based requests for a subdomain name.
+ *
  * @param request DescribeDohSubDomainStatisticsRequest
  * @return DescribeDohSubDomainStatisticsResponse
  */
@@ -4525,6 +4565,8 @@ DescribeDohSubDomainStatisticsResponse Client::describeDohSubDomainStatistics(co
 }
 
 /**
+ * @summary Queries the statistics on DoH-based requests for subdomain names.
+ *
  * @param request DescribeDohSubDomainStatisticsSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDohSubDomainStatisticsSummaryResponse
@@ -4578,6 +4620,8 @@ DescribeDohSubDomainStatisticsSummaryResponse Client::describeDohSubDomainStatis
 }
 
 /**
+ * @summary Queries the statistics on DoH-based requests for subdomain names.
+ *
  * @param request DescribeDohSubDomainStatisticsSummaryRequest
  * @return DescribeDohSubDomainStatisticsSummaryResponse
  */
@@ -5507,6 +5551,8 @@ DescribeGtmAccessStrategyAvailableConfigResponse Client::describeGtmAccessStrate
 }
 
 /**
+ * @summary You can call this operation to query the available alert groups for a Global Traffic Manager (GTM) instance.
+ *
  * @param request DescribeGtmAvailableAlertGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeGtmAvailableAlertGroupResponse
@@ -5536,6 +5582,8 @@ DescribeGtmAvailableAlertGroupResponse Client::describeGtmAvailableAlertGroupWit
 }
 
 /**
+ * @summary You can call this operation to query the available alert groups for a Global Traffic Manager (GTM) instance.
+ *
  * @param request DescribeGtmAvailableAlertGroupRequest
  * @return DescribeGtmAvailableAlertGroupResponse
  */
@@ -5741,6 +5789,8 @@ DescribeGtmInstanceStatusResponse Client::describeGtmInstanceStatus(const Descri
 }
 
 /**
+ * @summary You can call this operation to query the CNAME record assigned by the system.
+ *
  * @param request DescribeGtmInstanceSystemCnameRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeGtmInstanceSystemCnameResponse
@@ -5774,6 +5824,8 @@ DescribeGtmInstanceSystemCnameResponse Client::describeGtmInstanceSystemCnameWit
 }
 
 /**
+ * @summary You can call this operation to query the CNAME record assigned by the system.
+ *
  * @param request DescribeGtmInstanceSystemCnameRequest
  * @return DescribeGtmInstanceSystemCnameResponse
  */
@@ -6087,7 +6139,7 @@ DescribeGtmRecoveryPlanAvailableConfigResponse Client::describeGtmRecoveryPlanAv
 }
 
 /**
- * @summary Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+ * @summary Queries disaster recovery plans.
  *
  * @param request DescribeGtmRecoveryPlansRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6130,7 +6182,7 @@ DescribeGtmRecoveryPlansResponse Client::describeGtmRecoveryPlansWithOptions(con
 }
 
 /**
- * @summary Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+ * @summary Queries disaster recovery plans.
  *
  * @param request DescribeGtmRecoveryPlansRequest
  * @return DescribeGtmRecoveryPlansResponse
@@ -6717,7 +6769,7 @@ DescribePdnsOperateLogsResponse Client::describePdnsOperateLogs(const DescribePd
 }
 
 /**
- * @summary Queries the statistics on requests for Alibaba Cloud Public DNS.
+ * @summary Queries the number of requests for public DNS.
  *
  * @param request DescribePdnsRequestStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6768,7 +6820,7 @@ DescribePdnsRequestStatisticResponse Client::describePdnsRequestStatisticWithOpt
 }
 
 /**
- * @summary Queries the statistics on requests for Alibaba Cloud Public DNS.
+ * @summary Queries the number of requests for public DNS.
  *
  * @param request DescribePdnsRequestStatisticRequest
  * @return DescribePdnsRequestStatisticResponse
@@ -7455,7 +7507,7 @@ DescribeRecordStatisticsSummaryResponse Client::describeRecordStatisticsSummary(
 }
 
 /**
- * @summary 查询递归解析内置权威解析记录详情
+ * @summary Queries the details of HTTPDNS resolution records
  *
  * @param request DescribeRecursionRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7486,7 +7538,7 @@ DescribeRecursionRecordResponse Client::describeRecursionRecordWithOptions(const
 }
 
 /**
- * @summary 查询递归解析内置权威解析记录详情
+ * @summary Queries the details of HTTPDNS resolution records
  *
  * @param request DescribeRecursionRecordRequest
  * @return DescribeRecursionRecordResponse
@@ -7609,7 +7661,7 @@ DescribeSubDomainRecordsResponse Client::describeSubDomainRecords(const Describe
 }
 
 /**
- * @summary 查询支持的所有线路
+ * @summary Queries all lines that are supported by Alibaba Cloud DNS.
  *
  * @param request DescribeSupportLinesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7648,7 +7700,7 @@ DescribeSupportLinesResponse Client::describeSupportLinesWithOptions(const Descr
 }
 
 /**
- * @summary 查询支持的所有线路
+ * @summary Queries all lines that are supported by Alibaba Cloud DNS.
  *
  * @param request DescribeSupportLinesRequest
  * @return DescribeSupportLinesResponse
@@ -8257,7 +8309,7 @@ ListCloudGtmInstanceConfigsResponse Client::listCloudGtmInstanceConfigs(const Li
 }
 
 /**
- * @summary Queries a list of Global Traffic Manager (GTM) 3.0 instances.
+ * @summary Obtains the GTM 3.0 instances based on the specified parameters.
  *
  * @param request ListCloudGtmInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8312,7 +8364,7 @@ ListCloudGtmInstancesResponse Client::listCloudGtmInstancesWithOptions(const Lis
 }
 
 /**
- * @summary Queries a list of Global Traffic Manager (GTM) 3.0 instances.
+ * @summary Obtains the GTM 3.0 instances based on the specified parameters.
  *
  * @param request ListCloudGtmInstancesRequest
  * @return ListCloudGtmInstancesResponse
@@ -8334,6 +8386,10 @@ ListCloudGtmMonitorNodesResponse Client::listCloudGtmMonitorNodesWithOptions(con
   json query = {};
   if (!!request.hasAcceptLanguage()) {
     query["AcceptLanguage"] = request.getAcceptLanguage();
+  }
+
+  if (!!request.hasShowDisabledNodes()) {
+    query["ShowDisabledNodes"] = request.getShowDisabledNodes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8365,7 +8421,7 @@ ListCloudGtmMonitorNodesResponse Client::listCloudGtmMonitorNodes(const ListClou
 }
 
 /**
- * @summary Queries a list of health check templates.
+ * @summary Queries a list of health check templates based on specified parameters.
  *
  * @param request ListCloudGtmMonitorTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8416,7 +8472,7 @@ ListCloudGtmMonitorTemplatesResponse Client::listCloudGtmMonitorTemplatesWithOpt
 }
 
 /**
- * @summary Queries a list of health check templates.
+ * @summary Queries a list of health check templates based on specified parameters.
  *
  * @param request ListCloudGtmMonitorTemplatesRequest
  * @return ListCloudGtmMonitorTemplatesResponse
@@ -8427,7 +8483,7 @@ ListCloudGtmMonitorTemplatesResponse Client::listCloudGtmMonitorTemplates(const 
 }
 
 /**
- * @summary 查询递归解析内置权威解析记录
+ * @summary Queries the record details of HTTPDNS resolution records
  *
  * @param request ListRecursionRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8502,7 +8558,7 @@ ListRecursionRecordsResponse Client::listRecursionRecordsWithOptions(const ListR
 }
 
 /**
- * @summary 查询递归解析内置权威解析记录
+ * @summary Queries the record details of HTTPDNS resolution records
  *
  * @param request ListRecursionRecordsRequest
  * @return ListRecursionRecordsResponse
@@ -8513,7 +8569,7 @@ ListRecursionRecordsResponse Client::listRecursionRecords(const ListRecursionRec
 }
 
 /**
- * @summary 查询递归解析内置权威域名zone
+ * @summary Queries HTTPDNS authoritative zones
  *
  * @param request ListRecursionZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8564,7 +8620,7 @@ ListRecursionZonesResponse Client::listRecursionZonesWithOptions(const ListRecur
 }
 
 /**
- * @summary 查询递归解析内置权威域名zone
+ * @summary Queries HTTPDNS authoritative zones
  *
  * @param request ListRecursionZonesRequest
  * @return ListRecursionZonesResponse
@@ -8895,7 +8951,7 @@ PausePdnsServiceResponse Client::pausePdnsService(const PausePdnsServiceRequest 
 }
 
 /**
- * @summary You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+ * @summary Views disaster recovery plan.
  *
  * @param request PreviewGtmRecoveryPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8938,7 +8994,7 @@ PreviewGtmRecoveryPlanResponse Client::previewGtmRecoveryPlanWithOptions(const P
 }
 
 /**
- * @summary You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+ * @summary Views disaster recovery plan.
  *
  * @param request PreviewGtmRecoveryPlanRequest
  * @return PreviewGtmRecoveryPlanResponse
@@ -9229,7 +9285,7 @@ ReplaceCloudGtmAddressPoolAddressResponse Client::replaceCloudGtmAddressPoolAddr
 }
 
 /**
- * @summary Replaces address pools that are associated with a Global Traffic Manager (GTM) 3.0 instance with new address pools.
+ * @summary Replaces address pools that are associated with a GTM instance with new address pools.
  *
  * @param tmpReq ReplaceCloudGtmInstanceConfigAddressPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9282,7 +9338,7 @@ ReplaceCloudGtmInstanceConfigAddressPoolResponse Client::replaceCloudGtmInstance
 }
 
 /**
- * @summary Replaces address pools that are associated with a Global Traffic Manager (GTM) 3.0 instance with new address pools.
+ * @summary Replaces address pools that are associated with a GTM instance with new address pools.
  *
  * @param request ReplaceCloudGtmInstanceConfigAddressPoolRequest
  * @return ReplaceCloudGtmInstanceConfigAddressPoolResponse
@@ -10115,7 +10171,7 @@ SetDNSSLBStatusResponse Client::setDNSSLBStatus(const SetDNSSLBStatusRequest &re
 }
 
 /**
- * @summary Modifies an access policy.
+ * @summary Modifies the access policy that is available in address pools.
  *
  * @description ****
  *
@@ -10156,7 +10212,7 @@ SetDnsGtmAccessModeResponse Client::setDnsGtmAccessModeWithOptions(const SetDnsG
 }
 
 /**
- * @summary Modifies an access policy.
+ * @summary Modifies the access policy that is available in address pools.
  *
  * @description ****
  *
@@ -10373,6 +10429,8 @@ SetGtmAccessModeResponse Client::setGtmAccessMode(const SetGtmAccessModeRequest 
 }
 
 /**
+ * @summary You can call this operation to enable health check for an address pool of a Global Traffic Manager (GTM) instance.
+ *
  * @param request SetGtmMonitorStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SetGtmMonitorStatusResponse
@@ -10410,6 +10468,8 @@ SetGtmMonitorStatusResponse Client::setGtmMonitorStatusWithOptions(const SetGtmM
 }
 
 /**
+ * @summary You can call this operation to enable health check for an address pool of a Global Traffic Manager (GTM) instance.
+ *
  * @param request SetGtmMonitorStatusRequest
  * @return SetGtmMonitorStatusResponse
  */
@@ -10473,7 +10533,7 @@ SubmitIspFlushCacheTaskResponse Client::submitIspFlushCacheTask(const SubmitIspF
 }
 
 /**
- * @summary Changes the access policy type for a Global Traffic Manager (GTM) instance.
+ * @summary Changes the access policy type for a GTM instance.
  *
  * @param request SwitchDnsGtmInstanceStrategyModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10512,7 +10572,7 @@ SwitchDnsGtmInstanceStrategyModeResponse Client::switchDnsGtmInstanceStrategyMod
 }
 
 /**
- * @summary Changes the access policy type for a Global Traffic Manager (GTM) instance.
+ * @summary Changes the access policy type for a GTM instance.
  *
  * @param request SwitchDnsGtmInstanceStrategyModeRequest
  * @return SwitchDnsGtmInstanceStrategyModeResponse
@@ -11475,7 +11535,7 @@ UpdateCloudGtmInstanceConfigBasicResponse Client::updateCloudGtmInstanceConfigBa
 }
 
 /**
- * @summary Modifies the enabling status of an access domain name.
+ * @summary Updates the enabling status of an access domain name based on the specified parameters.
  *
  * @description *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
  * *   If an access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
@@ -11525,7 +11585,7 @@ UpdateCloudGtmInstanceConfigEnableStatusResponse Client::updateCloudGtmInstanceC
 }
 
 /**
- * @summary Modifies the enabling status of an access domain name.
+ * @summary Updates the enabling status of an access domain name based on the specified parameters.
  *
  * @description *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
  * *   If an access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
@@ -11539,7 +11599,7 @@ UpdateCloudGtmInstanceConfigEnableStatusResponse Client::updateCloudGtmInstanceC
 }
 
 /**
- * @summary Modifies the load balancing policy of a Global Traffic Manager (GTM) 3.0 instance.
+ * @summary Updates the load balancing policy of a GTM instance.
  *
  * @param request UpdateCloudGtmInstanceConfigLbStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11590,7 +11650,7 @@ UpdateCloudGtmInstanceConfigLbStrategyResponse Client::updateCloudGtmInstanceCon
 }
 
 /**
- * @summary Modifies the load balancing policy of a Global Traffic Manager (GTM) 3.0 instance.
+ * @summary Updates the load balancing policy of a GTM instance.
  *
  * @param request UpdateCloudGtmInstanceConfigLbStrategyRequest
  * @return UpdateCloudGtmInstanceConfigLbStrategyResponse
@@ -11601,7 +11661,7 @@ UpdateCloudGtmInstanceConfigLbStrategyResponse Client::updateCloudGtmInstanceCon
 }
 
 /**
- * @summary Modifies the description of a Global Traffic Manager (GTM) 3.0 instance.
+ * @summary Updates the description of a GTM instance based on the specified parameters.
  *
  * @param request UpdateCloudGtmInstanceConfigRemarkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11648,7 +11708,7 @@ UpdateCloudGtmInstanceConfigRemarkResponse Client::updateCloudGtmInstanceConfigR
 }
 
 /**
- * @summary Modifies the description of a Global Traffic Manager (GTM) 3.0 instance.
+ * @summary Updates the description of a GTM instance based on the specified parameters.
  *
  * @param request UpdateCloudGtmInstanceConfigRemarkRequest
  * @return UpdateCloudGtmInstanceConfigRemarkResponse
@@ -11709,7 +11769,7 @@ UpdateCloudGtmInstanceNameResponse Client::updateCloudGtmInstanceName(const Upda
 }
 
 /**
- * @summary Modifies the information about a health check template.
+ * @summary Modifies the information about a health check template based on specified parameters.
  *
  * @param tmpReq UpdateCloudGtmMonitorTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11782,7 +11842,7 @@ UpdateCloudGtmMonitorTemplateResponse Client::updateCloudGtmMonitorTemplateWithO
 }
 
 /**
- * @summary Modifies the information about a health check template.
+ * @summary Modifies the information about a health check template based on specified parameters.
  *
  * @param request UpdateCloudGtmMonitorTemplateRequest
  * @return UpdateCloudGtmMonitorTemplateResponse
@@ -12183,7 +12243,7 @@ UpdateDnsGtmAccessStrategyResponse Client::updateDnsGtmAccessStrategy(const Upda
 }
 
 /**
- * @summary Modifies an address pool.
+ * @summary Modifies an address pool based on the specified parameters.
  *
  * @param request UpdateDnsGtmAddressPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12230,7 +12290,7 @@ UpdateDnsGtmAddressPoolResponse Client::updateDnsGtmAddressPoolWithOptions(const
 }
 
 /**
- * @summary Modifies an address pool.
+ * @summary Modifies an address pool based on the specified parameters.
  *
  * @param request UpdateDnsGtmAddressPoolRequest
  * @return UpdateDnsGtmAddressPoolResponse
@@ -12241,7 +12301,7 @@ UpdateDnsGtmAddressPoolResponse Client::updateDnsGtmAddressPool(const UpdateDnsG
 }
 
 /**
- * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance.
+ * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance by instance ID.
  *
  * @param request UpdateDnsGtmInstanceGlobalConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12316,7 +12376,7 @@ UpdateDnsGtmInstanceGlobalConfigResponse Client::updateDnsGtmInstanceGlobalConfi
 }
 
 /**
- * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance.
+ * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance by instance ID.
  *
  * @param request UpdateDnsGtmInstanceGlobalConfigRequest
  * @return UpdateDnsGtmInstanceGlobalConfigResponse
@@ -12629,6 +12689,8 @@ UpdateDomainRemarkResponse Client::updateDomainRemark(const UpdateDomainRemarkRe
 }
 
 /**
+ * @summary You can call this operation to modify the access policy of a Global Traffic Manager (GTM) instance.
+ *
  * @param request UpdateGtmAccessStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateGtmAccessStrategyResponse
@@ -12678,6 +12740,8 @@ UpdateGtmAccessStrategyResponse Client::updateGtmAccessStrategyWithOptions(const
 }
 
 /**
+ * @summary You can call this operation to modify the access policy of a Global Traffic Manager (GTM) instance.
+ *
  * @param request UpdateGtmAccessStrategyRequest
  * @return UpdateGtmAccessStrategyResponse
  */
@@ -12687,6 +12751,8 @@ UpdateGtmAccessStrategyResponse Client::updateGtmAccessStrategy(const UpdateGtmA
 }
 
 /**
+ * @summary You can call this operation to modify an address pool of a Global Traffic Manager (GTM) instance.
+ *
  * @param request UpdateGtmAddressPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateGtmAddressPoolResponse
@@ -12736,6 +12802,8 @@ UpdateGtmAddressPoolResponse Client::updateGtmAddressPoolWithOptions(const Updat
 }
 
 /**
+ * @summary You can call this operation to modify an address pool of a Global Traffic Manager (GTM) instance.
+ *
  * @param request UpdateGtmAddressPoolRequest
  * @return UpdateGtmAddressPoolResponse
  */
@@ -12997,7 +13065,7 @@ UpdateIspFlushCacheInstanceConfigResponse Client::updateIspFlushCacheInstanceCon
 }
 
 /**
- * @summary 修改递归解析内置权威解析记录
+ * @summary Modifies HTTPDNS resolution records.
  *
  * @param request UpdateRecursionRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13060,7 +13128,7 @@ UpdateRecursionRecordResponse Client::updateRecursionRecordWithOptions(const Upd
 }
 
 /**
- * @summary 修改递归解析内置权威解析记录
+ * @summary Modifies HTTPDNS resolution records.
  *
  * @param request UpdateRecursionRecordRequest
  * @return UpdateRecursionRecordResponse
@@ -13071,7 +13139,7 @@ UpdateRecursionRecordResponse Client::updateRecursionRecord(const UpdateRecursio
 }
 
 /**
- * @summary 修改内置权威解析记录启用状态
+ * @summary Modifies the status of HTTPDNS authoritative DNS resolution records
  *
  * @param request UpdateRecursionRecordEnableStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13110,7 +13178,7 @@ UpdateRecursionRecordEnableStatusResponse Client::updateRecursionRecordEnableSta
 }
 
 /**
- * @summary 修改内置权威解析记录启用状态
+ * @summary Modifies the status of HTTPDNS authoritative DNS resolution records
  *
  * @param request UpdateRecursionRecordEnableStatusRequest
  * @return UpdateRecursionRecordEnableStatusResponse
@@ -13121,7 +13189,7 @@ UpdateRecursionRecordEnableStatusResponse Client::updateRecursionRecordEnableSta
 }
 
 /**
- * @summary 修改递归解析内置权威解析记录备注
+ * @summary Modifies description of HTTPDNS resolution records.
  *
  * @param request UpdateRecursionRecordRemarkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13160,7 +13228,7 @@ UpdateRecursionRecordRemarkResponse Client::updateRecursionRecordRemarkWithOptio
 }
 
 /**
- * @summary 修改递归解析内置权威解析记录备注
+ * @summary Modifies description of HTTPDNS resolution records.
  *
  * @param request UpdateRecursionRecordRemarkRequest
  * @return UpdateRecursionRecordRemarkResponse
@@ -13171,7 +13239,7 @@ UpdateRecursionRecordRemarkResponse Client::updateRecursionRecordRemark(const Up
 }
 
 /**
- * @summary 修改递归解析内置权威解析记录权重
+ * @summary Modifies HTTPDNS authoritative DNS resolution record weights.
  *
  * @param request UpdateRecursionRecordWeightRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13210,7 +13278,7 @@ UpdateRecursionRecordWeightResponse Client::updateRecursionRecordWeightWithOptio
 }
 
 /**
- * @summary 修改递归解析内置权威解析记录权重
+ * @summary Modifies HTTPDNS authoritative DNS resolution record weights.
  *
  * @param request UpdateRecursionRecordWeightRequest
  * @return UpdateRecursionRecordWeightResponse
@@ -13221,7 +13289,7 @@ UpdateRecursionRecordWeightResponse Client::updateRecursionRecordWeight(const Up
 }
 
 /**
- * @summary 修改递归解析内置权威解析记录权重算法启用状态
+ * @summary Modifies the status of weight algorithm of authoritative records
  *
  * @param request UpdateRecursionRecordWeightEnableStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13272,7 +13340,7 @@ UpdateRecursionRecordWeightEnableStatusResponse Client::updateRecursionRecordWei
 }
 
 /**
- * @summary 修改递归解析内置权威解析记录权重算法启用状态
+ * @summary Modifies the status of weight algorithm of authoritative records
  *
  * @param request UpdateRecursionRecordWeightEnableStatusRequest
  * @return UpdateRecursionRecordWeightEnableStatusResponse
@@ -13283,7 +13351,7 @@ UpdateRecursionRecordWeightEnableStatusResponse Client::updateRecursionRecordWei
 }
 
 /**
- * @summary 修改递归解析内置权威域名zone生效范围
+ * @summary Modifies the effective scope of HTTPDNS
  *
  * @param tmpReq UpdateRecursionZoneEffectiveScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13328,7 +13396,7 @@ UpdateRecursionZoneEffectiveScopeResponse Client::updateRecursionZoneEffectiveSc
 }
 
 /**
- * @summary 修改递归解析内置权威域名zone生效范围
+ * @summary Modifies the effective scope of HTTPDNS
  *
  * @param request UpdateRecursionZoneEffectiveScopeRequest
  * @return UpdateRecursionZoneEffectiveScopeResponse
@@ -13339,7 +13407,7 @@ UpdateRecursionZoneEffectiveScopeResponse Client::updateRecursionZoneEffectiveSc
 }
 
 /**
- * @summary 修改递归解析内置权威域名zone递归代理模式
+ * @summary Modify the HTTPDNS recursive proxy mode
  *
  * @param request UpdateRecursionZoneProxyPatternRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13378,7 +13446,7 @@ UpdateRecursionZoneProxyPatternResponse Client::updateRecursionZoneProxyPatternW
 }
 
 /**
- * @summary 修改递归解析内置权威域名zone递归代理模式
+ * @summary Modify the HTTPDNS recursive proxy mode
  *
  * @param request UpdateRecursionZoneProxyPatternRequest
  * @return UpdateRecursionZoneProxyPatternResponse
@@ -13389,7 +13457,7 @@ UpdateRecursionZoneProxyPatternResponse Client::updateRecursionZoneProxyPattern(
 }
 
 /**
- * @summary 修改递归解析内置权威域名zone备注
+ * @summary Modifies the description of HTTPDNS authoritative domain names.
  *
  * @param request UpdateRecursionZoneRemarkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13428,7 +13496,7 @@ UpdateRecursionZoneRemarkResponse Client::updateRecursionZoneRemarkWithOptions(c
 }
 
 /**
- * @summary 修改递归解析内置权威域名zone备注
+ * @summary Modifies the description of HTTPDNS authoritative domain names.
  *
  * @param request UpdateRecursionZoneRemarkRequest
  * @return UpdateRecursionZoneRemarkResponse

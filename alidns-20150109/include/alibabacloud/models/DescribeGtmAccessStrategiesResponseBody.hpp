@@ -185,13 +185,9 @@ namespace Models
 
 
           protected:
-            // The code of the access region group.
             shared_ptr<string> groupCode_ {};
-            // The name of the access region group.
             shared_ptr<string> groupName_ {};
-            // The code for the line of the access region.
             shared_ptr<string> lineCode_ {};
-            // The name for the line of the access region.
             shared_ptr<string> lineName_ {};
           };
 
@@ -336,52 +332,22 @@ namespace Models
 
 
       protected:
-        // The access policy. Valid values:
-        // 
-        // *   **AUTO**: Automatic switch
-        // *   **DEFAULT**: Default address pool
-        // *   **FAILOVER**: Failover address pool
         shared_ptr<string> accessMode_ {};
-        // The access status. Valid values:
-        // 
-        // *   **DEFAULT**: The default address pool is currently accessed.
-        // *   **FAILOVER**: The failover address pool is currently accessed.
         shared_ptr<string> accessStatus_ {};
-        // The time when the access policy was created.
         shared_ptr<string> createTime_ {};
         shared_ptr<int64_t> createTimestamp_ {};
-        // The ID of the default address pool.
         shared_ptr<string> defaultAddrPoolId_ {};
-        // Indicates whether health check was enabled for the default address pool. Valid values:
-        // 
-        // *   **OPEN**: Enabled
-        // *   **CLOSE**: Disabled
-        // *   **UNCONFIGURED**: Not configured
         shared_ptr<string> defaultAddrPoolMonitorStatus_ {};
-        // The name of the default address pool.
         shared_ptr<string> defaultAddrPoolName_ {};
-        // The availability status of the default address pool. Valid values:
-        // 
-        // *   **AVAILABLE**: Available
-        // *   **NOT_AVAILABLE**: Unavailable
         shared_ptr<string> defaultAddrPoolStatus_ {};
-        // The ID of the failover address pool.
         shared_ptr<string> failoverAddrPoolId_ {};
-        // Indicates whether health check was enabled for the failover address pool.
         shared_ptr<string> failoverAddrPoolMonitorStatus_ {};
-        // The name of the failover address pool.
         shared_ptr<string> failoverAddrPoolName_ {};
-        // The availability status of the failover address pool.
         shared_ptr<string> failoverAddrPoolStatus_ {};
-        // The ID of the GTM instance whose access policies you want to query.
         shared_ptr<string> instanceId_ {};
-        // The returned lines of access regions.
         shared_ptr<Strategy::Lines> lines_ {};
-        // The ID of the access policy.
         shared_ptr<string> strategyId_ {};
-        // The mode of the access policy. **SELF_DEFINED** indicates that the access policy is user-defined.
         shared_ptr<string> strategyMode_ {};
-        // The name of the access policy.
         shared_ptr<string> strategyName_ {};
       };
 
@@ -452,7 +418,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned list of access policies of the GTM instance.
     shared_ptr<DescribeGtmAccessStrategiesResponseBody::Strategies> strategies_ {};
     // The total number of entries returned on all pages.
     shared_ptr<int32_t> totalItems_ {};

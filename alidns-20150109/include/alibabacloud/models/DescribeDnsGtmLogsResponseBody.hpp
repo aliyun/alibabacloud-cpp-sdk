@@ -152,21 +152,13 @@ namespace Models
 
 
       protected:
-        // The formatted message content.
         shared_ptr<string> content_ {};
-        // The ID of the object on which the operation was performed.
         shared_ptr<string> entityId_ {};
-        // The name of the object on which the operation was performed.
         shared_ptr<string> entityName_ {};
-        // The type of the object on which the operation was performed.
         shared_ptr<string> entityType_ {};
-        // The ID of the record.
         shared_ptr<int64_t> id_ {};
-        // The operation performed.
         shared_ptr<string> operAction_ {};
-        // The time when the operation was performed.
         shared_ptr<string> operTime_ {};
-        // The timestamp of the operation.
         shared_ptr<int64_t> operTimestamp_ {};
       };
 
@@ -231,7 +223,6 @@ namespace Models
 
 
   protected:
-    // The returned logs.
     shared_ptr<DescribeDnsGtmLogsResponseBody::Logs> logs_ {};
     // The number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

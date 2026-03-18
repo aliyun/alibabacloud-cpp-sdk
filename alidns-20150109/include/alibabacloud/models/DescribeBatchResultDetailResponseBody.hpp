@@ -223,37 +223,21 @@ namespace Models
 
 
       protected:
-        // The type of the batch operation.
         shared_ptr<string> batchType_ {};
-        // The domain name.
         shared_ptr<string> domain_ {};
-        // The line code.
         shared_ptr<string> line_ {};
-        // The new hostname.
         shared_ptr<string> newRr_ {};
-        // The new record value.
         shared_ptr<string> newValue_ {};
-        // The time when the operation was performed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
         shared_ptr<string> operateDateStr_ {};
-        // The priority of the mail exchanger (MX) record.
         shared_ptr<string> priority_ {};
-        // The cause of the execution failure.
         shared_ptr<string> reason_ {};
-        // The ID of the DNS record.
         shared_ptr<string> recordId_ {};
-        // The description of the DNS record.
         shared_ptr<string> remark_ {};
-        // The hostname.
         shared_ptr<string> rr_ {};
-        // The status of the DNS record.
         shared_ptr<string> rrStatus_ {};
-        // The execution result of the batch operation. Valid values: **true**: The operation succeeded. **false**: The operation failed.
         shared_ptr<bool> status_ {};
-        // The time-to-live (TTL) of the DNS record.
         shared_ptr<string> ttl_ {};
-        // The type of the DNS record.
         shared_ptr<string> type_ {};
-        // The value of the DNS record.
         shared_ptr<string> value_ {};
       };
 
@@ -311,7 +295,6 @@ namespace Models
 
 
   protected:
-    // The detailed results of the batch operation.
     shared_ptr<DescribeBatchResultDetailResponseBody::BatchResultDetails> batchResultDetails_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};

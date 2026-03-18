@@ -118,18 +118,10 @@ namespace Models
 
 
       protected:
-        // The line code.
         shared_ptr<string> code_ {};
-        // The display name of the line.
         shared_ptr<string> displayName_ {};
-        // Indicates whether the line can be selected as the source of a Domain Name System (DNS) request. Valid values:
-        // 
-        // *   true
-        // *   false
         shared_ptr<bool> isAvailable_ {};
-        // The name of the line.
         shared_ptr<string> name_ {};
-        // The code of the parent line.
         shared_ptr<string> parentCode_ {};
       };
 
@@ -175,7 +167,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The system lines.
     shared_ptr<DescribeCloudGtmSystemLinesResponseBody::SystemLines> systemLines_ {};
     // The system lines, which are in a tree structure. Only a system line is listed in this example.
     shared_ptr<string> systemLinesTree_ {};

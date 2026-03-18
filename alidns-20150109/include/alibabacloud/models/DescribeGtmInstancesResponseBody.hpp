@@ -225,43 +225,21 @@ namespace Models
 
 
       protected:
-        // The number of access policies.
         shared_ptr<int32_t> accessStrategyNum_ {};
-        // The number of address pools.
         shared_ptr<int32_t> addressPoolNum_ {};
-        // The name of the alert group.
         shared_ptr<string> alertGroup_ {};
-        // The CNAME domain name that is used to access the instance.
         shared_ptr<string> cname_ {};
-        // The CNAME domain name used to access the instance. Valid values:
-        // 
-        // *   **SYSTEM_ASSIGN**: A CNAME domain name assigned by the system is used.
-        // *   **CUSTOM**: A custom CNAME domain name is used.
         shared_ptr<string> cnameMode_ {};
-        // The time when the instance was created.
         shared_ptr<string> createTime_ {};
-        // The UNIX timestamp that indicates when the instance was created.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The time when the instance expires.
         shared_ptr<string> expireTime_ {};
-        // The UNIX timestamp that indicates when the instance expires.
         shared_ptr<int64_t> expireTimestamp_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The name of the instance.
         shared_ptr<string> instanceName_ {};
-        // The load balancing policy that is used. Valid values:
-        // 
-        // *   **ALL_RR**: Load balancing
-        // *   **RATIO**: Weighted round-robin
         shared_ptr<string> lbaStrategy_ {};
-        // The ID of the resource group to which the instance belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The global time to live (TTL).
         shared_ptr<int32_t> ttl_ {};
-        // The domain name of the user.
         shared_ptr<string> userDomainName_ {};
-        // The version code of the instance.
         shared_ptr<string> versionCode_ {};
       };
 
@@ -326,7 +304,6 @@ namespace Models
 
 
   protected:
-    // The list of queried instances.
     shared_ptr<DescribeGtmInstancesResponseBody::GtmInstances> gtmInstances_ {};
     // The returned page number.
     shared_ptr<int32_t> pageNumber_ {};

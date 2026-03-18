@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // The number of DNS requests.
         shared_ptr<int64_t> count_ {};
-        // The domain name.
         shared_ptr<string> domainName_ {};
-        // The statistical timestamp. Unit: milliseconds. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> timestamp_ {};
       };
 
@@ -141,7 +138,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The statistics on the Domain Name System (DNS) requests.
     shared_ptr<DescribeDomainStatisticsResponseBody::Statistics> statistics_ {};
   };
 

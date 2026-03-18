@@ -169,13 +169,9 @@ namespace Models
 
 
           protected:
-            // The code of the source region group.
             shared_ptr<string> groupCode_ {};
-            // The name of the source region group.
             shared_ptr<string> groupName_ {};
-            // The line code of the source region.
             shared_ptr<string> lineCode_ {};
-            // The line name of the source region.
             shared_ptr<string> lineName_ {};
           };
 
@@ -268,13 +264,9 @@ namespace Models
 
 
           protected:
-            // The number of addresses in the address pool.
             shared_ptr<int32_t> addrCount_ {};
-            // The ID of the address pool.
             shared_ptr<string> id_ {};
-            // The weight of the address pool.
             shared_ptr<int32_t> lbaWeight_ {};
-            // The name of the address pool.
             shared_ptr<string> name_ {};
           };
 
@@ -363,33 +355,14 @@ namespace Models
 
 
       protected:
-        // The time when the access policy was created.
         shared_ptr<string> createTime_ {};
-        // The timestamp that indicates when the access policy was created.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The type of the active address pool group. Valid values:
-        // 
-        // *   DEFAULT: the primary address pool group
-        // *   FAILOVER: the secondary address pool group
         shared_ptr<string> effectiveAddrPoolGroupType_ {};
-        // The type of the active address pools. Valid values:
-        // 
-        // *   IPV4
-        // *   IPV6
-        // *   DOMAIN
         shared_ptr<string> effectiveAddrPoolType_ {};
-        // The active address pool groups.
         shared_ptr<Strategy::EffectiveAddrPools> effectiveAddrPools_ {};
-        // The load balancing policy of the active address pool group. Data is returned when StrategyMode is set to GEO. Valid values: 
-        // 
-        // - ALL_RR: returns all addresses.
-        // - RATIO: returns addresses by weight.
         shared_ptr<string> effectiveLbaStrategy_ {};
-        // The source regions. Data is returned when StrategyMode is set to GEO. Valid values:
         shared_ptr<Strategy::Lines> lines_ {};
-        // The ID of the access policy.
         shared_ptr<string> strategyId_ {};
-        // The name of the access policy.
         shared_ptr<string> strategyName_ {};
       };
 
@@ -460,7 +433,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The access policies.
     shared_ptr<DescribeDnsGtmAccessStrategiesResponseBody::Strategies> strategies_ {};
     // The total number of entries returned on all pages.
     shared_ptr<int32_t> totalItems_ {};

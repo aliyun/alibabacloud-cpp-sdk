@@ -187,29 +187,17 @@ namespace Models
 
 
       protected:
-        // The domain name.
         shared_ptr<string> domainName_ {};
-        // The DNS resolution line.
         shared_ptr<string> line_ {};
-        // The lock status of the DNS record.
         shared_ptr<bool> locked_ {};
-        // The priority of the mail exchanger (MX) record.
         shared_ptr<int64_t> priority_ {};
-        // The hostname.
         shared_ptr<string> RR_ {};
-        // The ID of the DNS record.
         shared_ptr<string> recordId_ {};
-        // The description of the DNS record.
         shared_ptr<string> remark_ {};
-        // The status of the DNS record.
         shared_ptr<string> status_ {};
-        // The time-to-live (TTL) of the DNS record.
         shared_ptr<int64_t> TTL_ {};
-        // The type of the DNS record.
         shared_ptr<string> type_ {};
-        // The record value.
         shared_ptr<string> value_ {};
-        // The weight of the DNS record.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -267,7 +255,6 @@ namespace Models
 
 
   protected:
-    // The returned Domain Name System (DNS) records.
     shared_ptr<DescribeSubDomainRecordsResponseBody::DomainRecords> domainRecords_ {};
     // The page number. Pages start from page **1**. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};

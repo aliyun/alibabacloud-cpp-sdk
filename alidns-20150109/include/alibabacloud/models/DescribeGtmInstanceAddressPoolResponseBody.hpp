@@ -177,29 +177,14 @@ namespace Models
 
 
       protected:
-        // The ID of the address.
         shared_ptr<int64_t> addrId_ {};
-        // Indicates whether health check was enabled for the address. Valid values:
-        // 
-        // *   **OK**: Normal
-        // *   **ALERT**: Alert
         shared_ptr<string> alertStatus_ {};
-        // The time when the address pool was created.
         shared_ptr<string> createTime_ {};
         shared_ptr<int64_t> createTimestamp_ {};
-        // The weight of the address.
         shared_ptr<int32_t> lbaWeight_ {};
-        // The mode of the address. Valid values:
-        // 
-        // *   **SMART**: Intelligent return
-        // *   **ONLINE**: Always online
-        // *   **OFFLINE**: Always offline
         shared_ptr<string> mode_ {};
-        // The last time when the address was updated.
         shared_ptr<string> updateTime_ {};
-        // A timestamp that indicates the last time when the address was updated.
         shared_ptr<int64_t> updateTimestamp_ {};
-        // The address.
         shared_ptr<string> value_ {};
       };
 
@@ -326,7 +311,6 @@ namespace Models
     shared_ptr<int32_t> addrCount_ {};
     // The ID of the address pool.
     shared_ptr<string> addrPoolId_ {};
-    // The addresses in the address pool.
     shared_ptr<DescribeGtmInstanceAddressPoolResponseBody::Addrs> addrs_ {};
     // The time when the address pool was created.
     shared_ptr<string> createTime_ {};

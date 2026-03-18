@@ -155,13 +155,9 @@ namespace Models
 
 
       protected:
-        // The code of the source region group.
         shared_ptr<string> groupCode_ {};
-        // The name of the source region group.
         shared_ptr<string> groupName_ {};
-        // The line code of the source region.
         shared_ptr<string> lineCode_ {};
-        // The line name of the source region.
         shared_ptr<string> lineName_ {};
       };
 
@@ -254,13 +250,9 @@ namespace Models
 
 
       protected:
-        // The number of addresses in the address pool.
         shared_ptr<int32_t> addrCount_ {};
-        // The ID of the address pool.
         shared_ptr<string> id_ {};
-        // The weight of the address pool.
         shared_ptr<int32_t> lbaWeight_ {};
-        // The name of the address pool.
         shared_ptr<string> name_ {};
       };
 
@@ -353,13 +345,9 @@ namespace Models
 
 
       protected:
-        // The number of addresses in the address pool.
         shared_ptr<int32_t> addrCount_ {};
-        // The ID of the address pool.
         shared_ptr<string> id_ {};
-        // The weight of the address pool.
         shared_ptr<int32_t> lbaWeight_ {};
-        // The name of the address pool.
         shared_ptr<string> name_ {};
       };
 
@@ -593,7 +581,6 @@ namespace Models
     // *   IPV6
     // *   DOMAIN
     shared_ptr<string> defaultAddrPoolType_ {};
-    // The address pools in the primary address pool group.
     shared_ptr<DescribeDnsGtmAccessStrategyResponseBody::DefaultAddrPools> defaultAddrPools_ {};
     // The number of available addresses in the primary address pool.
     shared_ptr<int32_t> defaultAvailableAddrNum_ {};
@@ -627,7 +614,6 @@ namespace Models
     // *   IPV6
     // *   DOMAIN
     shared_ptr<string> failoverAddrPoolType_ {};
-    // The address pools in the secondary address pool group.
     shared_ptr<DescribeDnsGtmAccessStrategyResponseBody::FailoverAddrPools> failoverAddrPools_ {};
     // The number of available addresses in the secondary address pool.
     shared_ptr<int32_t> failoverAvailableAddrNum_ {};
@@ -647,7 +633,6 @@ namespace Models
     shared_ptr<int32_t> failoverMinAvailableAddrNum_ {};
     // The ID of the associated instance.
     shared_ptr<string> instanceId_ {};
-    // The source regions.
     shared_ptr<DescribeDnsGtmAccessStrategyResponseBody::Lines> lines_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

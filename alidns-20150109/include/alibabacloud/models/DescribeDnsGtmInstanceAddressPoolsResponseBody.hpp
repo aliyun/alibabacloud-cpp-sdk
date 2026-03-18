@@ -179,38 +179,16 @@ namespace Models
 
 
       protected:
-        // The number of addresses in the address pool.
         shared_ptr<int32_t> addrCount_ {};
-        // The ID of the address pool.
         shared_ptr<string> addrPoolId_ {};
-        // The time when the address pool was created.
         shared_ptr<string> createTime_ {};
-        // The timestamp that indicates when the address pool was created.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The load balancing policy of the address pool. Valid values:
-        // 
-        // *   ALL_RR: returns all addresses.
-        // *   RATIO: returns addresses by weight.
         shared_ptr<string> lbaStrategy_ {};
-        // The ID of the health check task.
         shared_ptr<string> monitorConfigId_ {};
-        // Indicates whether health checks are configured. Valid values:
-        // 
-        // *   OPEN: enabled
-        // *   CLOSE: disabled
-        // *   UNCONFIGURED: not configured
         shared_ptr<string> monitorStatus_ {};
-        // The name of the address pool.
         shared_ptr<string> name_ {};
-        // The type of the address pool. Valid values:
-        // 
-        // *   IPV4: IPv4 address
-        // *   IPV6: IPv6 address
-        // *   DOMAIN: domain name
         shared_ptr<string> type_ {};
-        // The time when the address pool was updated.
         shared_ptr<string> updateTime_ {};
-        // The timestamp that indicates when the address pool was updated.
         shared_ptr<int64_t> updateTimestamp_ {};
       };
 
@@ -275,7 +253,6 @@ namespace Models
 
 
   protected:
-    // The returned address pools.
     shared_ptr<DescribeDnsGtmInstanceAddressPoolsResponseBody::AddrPools> addrPools_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

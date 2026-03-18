@@ -141,9 +141,7 @@ namespace Models
 
 
           protected:
-            // The formatted message content.
             shared_ptr<string> content_ {};
-            // The name of the switching policy for address pools.
             shared_ptr<string> strategyName_ {};
           };
 
@@ -194,13 +192,9 @@ namespace Models
 
 
       protected:
-        // The ID of the GTM instance to which the previewed disaster recovery plan belongs.
         shared_ptr<string> instanceId_ {};
-        // The name of the GTM instance to which the previewed disaster recovery plan belongs.
         shared_ptr<string> name_ {};
-        // The returned information of the switching policies for address pools.
         shared_ptr<Preview::SwitchInfos> switchInfos_ {};
-        // The user\\"s domain name or domain name list.
         shared_ptr<string> userDomainName_ {};
       };
 
@@ -269,7 +263,6 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The returned preview information of the disaster recovery plan.
     shared_ptr<PreviewGtmRecoveryPlanResponseBody::Previews> previews_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

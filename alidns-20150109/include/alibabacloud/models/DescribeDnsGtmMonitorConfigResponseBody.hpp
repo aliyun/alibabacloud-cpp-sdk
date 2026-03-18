@@ -145,17 +145,11 @@ namespace Models
 
 
       protected:
-        // The city code.
         shared_ptr<string> cityCode_ {};
-        // The display name of the city.
         shared_ptr<string> cityName_ {};
-        // The code of the country or region.
         shared_ptr<string> countryCode_ {};
-        // The display name of the country or region.
         shared_ptr<string> countryName_ {};
-        // The Internet service provider (ISP) code.
         shared_ptr<string> ispCode_ {};
-        // The display name of the ISP.
         shared_ptr<string> ispName_ {};
       };
 
@@ -272,7 +266,6 @@ namespace Models
     shared_ptr<int32_t> evaluationCount_ {};
     // The health check interval. Unit: seconds.
     shared_ptr<int32_t> interval_ {};
-    // The health check nodes.
     shared_ptr<DescribeDnsGtmMonitorConfigResponseBody::IspCityNodes> ispCityNodes_ {};
     // The ID of the health check configuration.
     shared_ptr<string> monitorConfigId_ {};

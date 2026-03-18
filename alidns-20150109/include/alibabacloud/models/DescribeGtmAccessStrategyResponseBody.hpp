@@ -135,13 +135,9 @@ namespace Models
 
 
       protected:
-        // The code of the access region group.
         shared_ptr<string> groupCode_ {};
-        // The name of the access region group.
         shared_ptr<string> groupName_ {};
-        // The code for the line of the access region.
         shared_ptr<string> lineCode_ {};
-        // The name for the line of the access region.
         shared_ptr<string> lineName_ {};
       };
 
@@ -303,7 +299,6 @@ namespace Models
     shared_ptr<string> failoverAddrPoolStatus_ {};
     // The ID of the GTM instance whose access policy details you want to query.
     shared_ptr<string> instanceId_ {};
-    // The returned lines of access regions.
     shared_ptr<DescribeGtmAccessStrategyResponseBody::Lines> lines_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

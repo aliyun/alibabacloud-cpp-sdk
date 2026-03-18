@@ -61,6 +61,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CountryCode, countryCode_);
           DARABONBA_PTR_TO_JSON(CountryName, countryName_);
           DARABONBA_PTR_TO_JSON(DefaultSelected, defaultSelected_);
+          DARABONBA_PTR_TO_JSON(EnableStatus, enableStatus_);
           DARABONBA_PTR_TO_JSON(GroupName, groupName_);
           DARABONBA_PTR_TO_JSON(GroupType, groupType_);
           DARABONBA_PTR_TO_JSON(Ips, ips_);
@@ -74,6 +75,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CountryCode, countryCode_);
           DARABONBA_PTR_FROM_JSON(CountryName, countryName_);
           DARABONBA_PTR_FROM_JSON(DefaultSelected, defaultSelected_);
+          DARABONBA_PTR_FROM_JSON(EnableStatus, enableStatus_);
           DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
           DARABONBA_PTR_FROM_JSON(GroupType, groupType_);
           DARABONBA_PTR_FROM_JSON(Ips, ips_);
@@ -126,8 +128,9 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->cityCode_ == nullptr
-        && this->cityName_ == nullptr && this->countryCode_ == nullptr && this->countryName_ == nullptr && this->defaultSelected_ == nullptr && this->groupName_ == nullptr
-        && this->groupType_ == nullptr && this->ips_ == nullptr && this->ispCode_ == nullptr && this->ispName_ == nullptr && this->nodeId_ == nullptr; };
+        && this->cityName_ == nullptr && this->countryCode_ == nullptr && this->countryName_ == nullptr && this->defaultSelected_ == nullptr && this->enableStatus_ == nullptr
+        && this->groupName_ == nullptr && this->groupType_ == nullptr && this->ips_ == nullptr && this->ispCode_ == nullptr && this->ispName_ == nullptr
+        && this->nodeId_ == nullptr; };
         // cityCode Field Functions 
         bool hasCityCode() const { return this->cityCode_ != nullptr;};
         void deleteCityCode() { this->cityCode_ = nullptr;};
@@ -161,6 +164,13 @@ namespace Models
         void deleteDefaultSelected() { this->defaultSelected_ = nullptr;};
         inline bool getDefaultSelected() const { DARABONBA_PTR_GET_DEFAULT(defaultSelected_, false) };
         inline Ipv6IspCityNode& setDefaultSelected(bool defaultSelected) { DARABONBA_PTR_SET_VALUE(defaultSelected_, defaultSelected) };
+
+
+        // enableStatus Field Functions 
+        bool hasEnableStatus() const { return this->enableStatus_ != nullptr;};
+        void deleteEnableStatus() { this->enableStatus_ = nullptr;};
+        inline string getEnableStatus() const { DARABONBA_PTR_GET_DEFAULT(enableStatus_, "") };
+        inline Ipv6IspCityNode& setEnableStatus(string enableStatus) { DARABONBA_PTR_SET_VALUE(enableStatus_, enableStatus) };
 
 
         // groupName Field Functions 
@@ -208,32 +218,17 @@ namespace Models
 
 
       protected:
-        // City code.
         shared_ptr<string> cityCode_ {};
-        // City name.
         shared_ptr<string> cityName_ {};
-        // Country code.
         shared_ptr<string> countryCode_ {};
-        // Country name.
         shared_ptr<string> countryName_ {};
-        // Monitor node default selection:
-        // - true: Selected by default
-        // - false: Not selected by default
         shared_ptr<bool> defaultSelected_ {};
-        // Monitoring probe group name.
+        shared_ptr<string> enableStatus_ {};
         shared_ptr<string> groupName_ {};
-        // Monitoring node group type, currently supported:
-        // - BGP: BGP node
-        // - OVERSEAS: International node
-        // - ISP: Carrier node
         shared_ptr<string> groupType_ {};
-        // List of node IP addresses.
         shared_ptr<Ipv6IspCityNode::Ips> ips_ {};
-        // Operator code.
         shared_ptr<string> ispCode_ {};
-        // Operator name.
         shared_ptr<string> ispName_ {};
-        // Unique identifier ID of the probe node.
         shared_ptr<string> nodeId_ {};
       };
 
@@ -278,6 +273,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CountryCode, countryCode_);
           DARABONBA_PTR_TO_JSON(CountryName, countryName_);
           DARABONBA_PTR_TO_JSON(DefaultSelected, defaultSelected_);
+          DARABONBA_PTR_TO_JSON(EnableStatus, enableStatus_);
           DARABONBA_PTR_TO_JSON(GroupName, groupName_);
           DARABONBA_PTR_TO_JSON(GroupType, groupType_);
           DARABONBA_PTR_TO_JSON(Ips, ips_);
@@ -291,6 +287,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CountryCode, countryCode_);
           DARABONBA_PTR_FROM_JSON(CountryName, countryName_);
           DARABONBA_PTR_FROM_JSON(DefaultSelected, defaultSelected_);
+          DARABONBA_PTR_FROM_JSON(EnableStatus, enableStatus_);
           DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
           DARABONBA_PTR_FROM_JSON(GroupType, groupType_);
           DARABONBA_PTR_FROM_JSON(Ips, ips_);
@@ -343,8 +340,9 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->cityCode_ == nullptr
-        && this->cityName_ == nullptr && this->countryCode_ == nullptr && this->countryName_ == nullptr && this->defaultSelected_ == nullptr && this->groupName_ == nullptr
-        && this->groupType_ == nullptr && this->ips_ == nullptr && this->ispCode_ == nullptr && this->ispName_ == nullptr && this->nodeId_ == nullptr; };
+        && this->cityName_ == nullptr && this->countryCode_ == nullptr && this->countryName_ == nullptr && this->defaultSelected_ == nullptr && this->enableStatus_ == nullptr
+        && this->groupName_ == nullptr && this->groupType_ == nullptr && this->ips_ == nullptr && this->ispCode_ == nullptr && this->ispName_ == nullptr
+        && this->nodeId_ == nullptr; };
         // cityCode Field Functions 
         bool hasCityCode() const { return this->cityCode_ != nullptr;};
         void deleteCityCode() { this->cityCode_ = nullptr;};
@@ -378,6 +376,13 @@ namespace Models
         void deleteDefaultSelected() { this->defaultSelected_ = nullptr;};
         inline bool getDefaultSelected() const { DARABONBA_PTR_GET_DEFAULT(defaultSelected_, false) };
         inline Ipv4IspCityNode& setDefaultSelected(bool defaultSelected) { DARABONBA_PTR_SET_VALUE(defaultSelected_, defaultSelected) };
+
+
+        // enableStatus Field Functions 
+        bool hasEnableStatus() const { return this->enableStatus_ != nullptr;};
+        void deleteEnableStatus() { this->enableStatus_ = nullptr;};
+        inline string getEnableStatus() const { DARABONBA_PTR_GET_DEFAULT(enableStatus_, "") };
+        inline Ipv4IspCityNode& setEnableStatus(string enableStatus) { DARABONBA_PTR_SET_VALUE(enableStatus_, enableStatus) };
 
 
         // groupName Field Functions 
@@ -425,32 +430,17 @@ namespace Models
 
 
       protected:
-        // City code.
         shared_ptr<string> cityCode_ {};
-        // City name.
         shared_ptr<string> cityName_ {};
-        // Country code.
         shared_ptr<string> countryCode_ {};
-        // Country name.
         shared_ptr<string> countryName_ {};
-        // Monitor node default selection:
-        // - true: Selected by default
-        // - false: Not selected by default
         shared_ptr<bool> defaultSelected_ {};
-        // Monitor probe group name.
+        shared_ptr<string> enableStatus_ {};
         shared_ptr<string> groupName_ {};
-        // Monitoring node group type, currently supported:
-        // - BGP: BGP node
-        // - OVERSEAS: International node
-        // - ISP: Carrier node
         shared_ptr<string> groupType_ {};
-        // List of node IP addresses.
         shared_ptr<Ipv4IspCityNode::Ips> ips_ {};
-        // Operator code.
         shared_ptr<string> ispCode_ {};
-        // Operator name.
         shared_ptr<string> ispName_ {};
-        // Unique identifier ID of the probe node.
         shared_ptr<string> nodeId_ {};
       };
 
@@ -496,9 +486,7 @@ namespace Models
 
 
   protected:
-    // Public IPv4 monitoring node list.
     shared_ptr<ListCloudGtmMonitorNodesResponseBody::Ipv4IspCityNodes> ipv4IspCityNodes_ {};
-    // List of public IPv6 monitoring nodes.
     shared_ptr<ListCloudGtmMonitorNodesResponseBody::Ipv6IspCityNodes> ipv6IspCityNodes_ {};
     // Unique request identification code.
     shared_ptr<string> requestId_ {};

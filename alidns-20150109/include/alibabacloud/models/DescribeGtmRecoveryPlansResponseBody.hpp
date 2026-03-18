@@ -198,35 +198,18 @@ namespace Models
 
 
       protected:
-        // The time when the disaster recovery plan was created.
         shared_ptr<string> createTime_ {};
-        // The UNIX timestamp that indicates when the disaster recovery plan was created.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The number of faulty address pools.
         shared_ptr<int32_t> faultAddrPoolNum_ {};
-        // The last time when the disaster recovery plan was executed.
         shared_ptr<string> lastExecuteTime_ {};
-        // The UNIX timestamp that indicates the last time when the disaster recovery plan was executed.
         shared_ptr<int64_t> lastExecuteTimestamp_ {};
-        // The last time when the disaster recovery plan was rolled back.
         shared_ptr<string> lastRollbackTime_ {};
-        // The UNIX timestamp that indicates the last time when the disaster recovery plan was rolled back.
         shared_ptr<int64_t> lastRollbackTimestamp_ {};
-        // The name of the disaster recovery plan.
         shared_ptr<string> name_ {};
-        // The ID of the disaster recovery plan.
         shared_ptr<int64_t> recoveryPlanId_ {};
-        // The remarks about the disaster recovery plan.
         shared_ptr<string> remark_ {};
-        // The status of the disaster recovery plan. Valid values:
-        // 
-        // *   **UNEXECUTED**: The plan is not executed.
-        // *   **EXECUTED**: The plan is executed.
-        // *   **ROLLED_BACK**: The plan is rolled back.
         shared_ptr<string> status_ {};
-        // The last time when the disaster recovery plan was updated.
         shared_ptr<string> updateTime_ {};
-        // The UNIX timestamp that indicates the last time when the disaster recovery plan was updated.
         shared_ptr<int64_t> updateTimestamp_ {};
       };
 
@@ -295,7 +278,6 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The details about the queried disaster recovery plans.
     shared_ptr<DescribeGtmRecoveryPlansResponseBody::RecoveryPlans> recoveryPlans_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

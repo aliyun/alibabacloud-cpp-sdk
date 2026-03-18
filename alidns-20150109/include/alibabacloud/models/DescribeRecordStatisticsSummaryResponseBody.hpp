@@ -97,9 +97,7 @@ namespace Models
 
 
       protected:
-        // The number of DNS requests.
         shared_ptr<int64_t> count_ {};
-        // The subdomain.
         shared_ptr<string> subDomain_ {};
       };
 
@@ -170,7 +168,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The DNS requests.
     shared_ptr<DescribeRecordStatisticsSummaryResponseBody::Statistics> statistics_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalItems_ {};

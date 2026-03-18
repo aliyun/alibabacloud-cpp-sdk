@@ -255,7 +255,6 @@ namespace Models
         shared_ptr<string> creatorType_ {};
         shared_ptr<string> enableStatus_ {};
         shared_ptr<int32_t> priority_ {};
-        // record ID
         shared_ptr<string> recordId_ {};
         shared_ptr<string> remark_ {};
         shared_ptr<string> requestSource_ {};
@@ -266,7 +265,6 @@ namespace Models
         shared_ptr<int64_t> updateTimestamp_ {};
         shared_ptr<string> value_ {};
         shared_ptr<string> weight_ {};
-        // zone ID
         shared_ptr<string> zoneId_ {};
       };
 

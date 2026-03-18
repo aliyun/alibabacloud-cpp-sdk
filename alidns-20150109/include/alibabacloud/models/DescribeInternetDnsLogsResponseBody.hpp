@@ -253,37 +253,20 @@ namespace Models
 
 
       protected:
-        // Parse log ID (can be duplicated).
         shared_ptr<string> dnsMsgId_ {};
         shared_ptr<string> flags_ {};
-        // Parse timestamp.
         shared_ptr<int64_t> logTime_ {};
-        // The protocol type of the domain name resolution query request:
-        // - UDP
-        // - TCP
-        // - HTTP
-        // - HTTPS
-        // - DOH
         shared_ptr<string> protocol_ {};
         shared_ptr<string> queryFlags_ {};
-        // The domain name for which you want to query Domain Name System (DNS) records.
         shared_ptr<string> queryName_ {};
-        // Record type.
         shared_ptr<string> queryType_ {};
         shared_ptr<string> responseTimestamp_ {};
-        // Parse response time.
         shared_ptr<int32_t> rt_ {};
-        // Parse server IP.
         shared_ptr<string> serverIp_ {};
-        // Source IP address.
         shared_ptr<string> sourceIp_ {};
-        // Response status.
         shared_ptr<string> status_ {};
-        // The value set for the edns-client-subnet option.
         shared_ptr<string> subnetIp_ {};
-        // Array of parsing results.
         shared_ptr<Log::Value> value_ {};
-        // The zone name.
         shared_ptr<string> zoneName_ {};
       };
 
@@ -360,7 +343,6 @@ namespace Models
     shared_ptr<bool> complete_ {};
     // Current page number.
     shared_ptr<int32_t> curPage_ {};
-    // The queried logs.
     shared_ptr<DescribeInternetDnsLogsResponseBody::Logs> logs_ {};
     // Page size for query.
     shared_ptr<int32_t> pageSize_ {};

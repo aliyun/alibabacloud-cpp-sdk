@@ -236,42 +236,21 @@ namespace Models
 
       protected:
         shared_ptr<string> chargeType_ {};
-        // The commodity code. Valid values:
-        // 
-        // *   dns_gtm_public_cn: commodity code on the China site (aliyun.com)
-        // *   dns_gtm_public_intl: commodity code on the international site (alibabacloud.com)
         shared_ptr<string> commodityCode_ {};
-        // Instance creation time.
         shared_ptr<string> createTime_ {};
-        // Instance creation time (timestamp).
         shared_ptr<int64_t> createTimestamp_ {};
-        // Instance expiration time.
         shared_ptr<int64_t> expireTime_ {};
-        // Instance expiration time (timestamp).
         shared_ptr<string> expireTimestamp_ {};
-        // The ID of the GTM 3.0 instance.
         shared_ptr<string> instanceId_ {};
-        // Schedule instance name.
         shared_ptr<string> instanceName_ {};
-        // Monitor probe task quota.
         shared_ptr<int32_t> monitorTaskQuota_ {};
-        // Monthly email sending volume.
         shared_ptr<int32_t> monthlyEmailUsed_ {};
-        // SMS quota, only supported on the China site. International site does not support SMS.
         shared_ptr<int32_t> monthlySmsQuota_ {};
-        // Monthly SMS sending volume, only supported by the China site as international sites do not support SMS.
         shared_ptr<int32_t> monthlySmsUsed_ {};
-        // Monthly webhook dispatch volume.
         shared_ptr<int32_t> monthlyWebhookUsed_ {};
-        // The access domain name, which consists of a hostname and a zone or a subzone.
         shared_ptr<string> scheduleDomainName_ {};
-        // The last modified time of the instance.
         shared_ptr<string> updateTime_ {};
-        // The last modified time of the instance (timestamp).
         shared_ptr<int64_t> updateTimestamp_ {};
-        // Global Traffic Management version 3.0 instance types:
-        // - standard: Standard Edition
-        // - ultimate: Ultimate Edition
         shared_ptr<string> versionCode_ {};
       };
 
@@ -336,7 +315,6 @@ namespace Models
 
 
   protected:
-    // The instances.
     shared_ptr<SearchCloudGtmInstancesResponseBody::Instances> instances_ {};
     // Current page number, starting at **1**, default is **1**.
     shared_ptr<int32_t> pageNumber_ {};

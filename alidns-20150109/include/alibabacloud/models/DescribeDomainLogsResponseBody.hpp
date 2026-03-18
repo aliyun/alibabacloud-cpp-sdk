@@ -141,19 +141,12 @@ namespace Models
 
 
       protected:
-        // The operation.
         shared_ptr<string> action_ {};
-        // The time when the operation is performed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
         shared_ptr<string> actionTime_ {};
-        // The time when the operation was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> actionTimestamp_ {};
-        // The IP address of the operator.
         shared_ptr<string> clientIp_ {};
-        // The domain name.
         shared_ptr<string> domainName_ {};
-        // The message for the operation.
         shared_ptr<string> message_ {};
-        // The ID of the private zone.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -211,7 +204,6 @@ namespace Models
 
 
   protected:
-    // The operation logs.
     shared_ptr<DescribeDomainLogsResponseBody::DomainLogs> domainLogs_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};

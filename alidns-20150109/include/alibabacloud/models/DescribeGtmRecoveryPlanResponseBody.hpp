@@ -168,11 +168,8 @@ namespace Models
 
 
           protected:
-            // The address ID.
             shared_ptr<int64_t> id_ {};
-            // The address mode.
             shared_ptr<string> mode_ {};
-            // The address.
             shared_ptr<string> value_ {};
           };
 
@@ -223,12 +220,9 @@ namespace Models
 
 
       protected:
-        // The address pool ID.
         shared_ptr<string> addrPoolId_ {};
-        // The address pool name.
         shared_ptr<string> addrPoolName_ {};
         shared_ptr<FaultAddrPool::Addrs> addrs_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
       };
 
@@ -364,7 +358,6 @@ namespace Models
     shared_ptr<int64_t> createTimestamp_ {};
     // The number of faulty address pools.
     shared_ptr<int32_t> faultAddrPoolNum_ {};
-    // The faulty address pools.
     shared_ptr<DescribeGtmRecoveryPlanResponseBody::FaultAddrPools> faultAddrPools_ {};
     // The time when the disaster recovery plan was last executed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> lastExecuteTime_ {};
