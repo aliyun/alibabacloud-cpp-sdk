@@ -597,6 +597,64 @@ EnableUserResponse Client::enableUser(const string &instanceId, const string &ap
 }
 
 /**
+ * @summary 拉取一个有效的OAuth认证令牌。
+ *
+ * @param request FetchOAuthAuthenticationTokenRequest
+ * @param headers FetchOAuthAuthenticationTokenHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return FetchOAuthAuthenticationTokenResponse
+ */
+FetchOAuthAuthenticationTokenResponse Client::fetchOAuthAuthenticationTokenWithOptions(const string &instanceId, const FetchOAuthAuthenticationTokenRequest &request, const FetchOAuthAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCredentialProviderIdentifier()) {
+    body["credentialProviderIdentifier"] = request.getCredentialProviderIdentifier();
+  }
+
+  if (!!request.hasScope()) {
+    body["scope"] = request.getScope();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAuthorization()) {
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "FetchOAuthAuthenticationToken"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/authenticationTokens/_/actions/fetchOAuthAccessToken")},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<FetchOAuthAuthenticationTokenResponse>();
+}
+
+/**
+ * @summary 拉取一个有效的OAuth认证令牌。
+ *
+ * @param request FetchOAuthAuthenticationTokenRequest
+ * @return FetchOAuthAuthenticationTokenResponse
+ */
+FetchOAuthAuthenticationTokenResponse Client::fetchOAuthAuthenticationToken(const string &instanceId, const FetchOAuthAuthenticationTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  FetchOAuthAuthenticationTokenHeaders headers = FetchOAuthAuthenticationTokenHeaders();
+  return fetchOAuthAuthenticationTokenWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Generates a device code.
  *
  * @param request GenerateDeviceCodeRequest
@@ -639,6 +697,84 @@ GenerateDeviceCodeResponse Client::generateDeviceCode(const string &instanceId, 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return generateDeviceCodeWithOptions(instanceId, applicationId, request, headers, runtime);
+}
+
+/**
+ * @summary 生成一个有效的JWT认证令牌。
+ *
+ * @param request GenerateJwtAuthenticationTokenRequest
+ * @param headers GenerateJwtAuthenticationTokenHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateJwtAuthenticationTokenResponse
+ */
+GenerateJwtAuthenticationTokenResponse Client::generateJwtAuthenticationTokenWithOptions(const string &instanceId, const GenerateJwtAuthenticationTokenRequest &request, const GenerateJwtAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAudiences()) {
+    body["audiences"] = request.getAudiences();
+  }
+
+  if (!!request.hasCredentialProviderIdentifier()) {
+    body["credentialProviderIdentifier"] = request.getCredentialProviderIdentifier();
+  }
+
+  if (!!request.hasCustomClaims()) {
+    body["customClaims"] = request.getCustomClaims();
+  }
+
+  if (!!request.hasExpiration()) {
+    body["expiration"] = request.getExpiration();
+  }
+
+  if (!!request.hasIncludeDerivedShortToken()) {
+    body["includeDerivedShortToken"] = request.getIncludeDerivedShortToken();
+  }
+
+  if (!!request.hasIssuer()) {
+    body["issuer"] = request.getIssuer();
+  }
+
+  if (!!request.hasSubject()) {
+    body["subject"] = request.getSubject();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAuthorization()) {
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GenerateJwtAuthenticationToken"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/authenticationTokens/_/actions/generateJwt")},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<GenerateJwtAuthenticationTokenResponse>();
+}
+
+/**
+ * @summary 生成一个有效的JWT认证令牌。
+ *
+ * @param request GenerateJwtAuthenticationTokenRequest
+ * @return GenerateJwtAuthenticationTokenResponse
+ */
+GenerateJwtAuthenticationTokenResponse Client::generateJwtAuthenticationToken(const string &instanceId, const GenerateJwtAuthenticationTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GenerateJwtAuthenticationTokenHeaders headers = GenerateJwtAuthenticationTokenHeaders();
+  return generateJwtAuthenticationTokenWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -1357,6 +1493,80 @@ GetUserInfoResponse Client::getUserInfo(const string &instanceId, const string &
 }
 
 /**
+ * @summary 列举认证令牌。
+ *
+ * @param request ListAuthenticationTokensRequest
+ * @param headers ListAuthenticationTokensHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAuthenticationTokensResponse
+ */
+ListAuthenticationTokensResponse Client::listAuthenticationTokensWithOptions(const string &instanceId, const ListAuthenticationTokensRequest &request, const ListAuthenticationTokensHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConsumerId()) {
+    query["consumerId"] = request.getConsumerId();
+  }
+
+  if (!!request.hasCredentialProviderIdentifier()) {
+    query["credentialProviderIdentifier"] = request.getCredentialProviderIdentifier();
+  }
+
+  if (!!request.hasExpired()) {
+    query["expired"] = request.getExpired();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRevoked()) {
+    query["revoked"] = request.getRevoked();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAuthorization()) {
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAuthenticationTokens"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/authenticationTokens")},
+    {"method" , "GET"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ListAuthenticationTokensResponse>();
+}
+
+/**
+ * @summary 列举认证令牌。
+ *
+ * @param request ListAuthenticationTokensRequest
+ * @return ListAuthenticationTokensResponse
+ */
+ListAuthenticationTokensResponse Client::listAuthenticationTokens(const string &instanceId, const ListAuthenticationTokensRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  ListAuthenticationTokensHeaders headers = ListAuthenticationTokensHeaders();
+  return listAuthenticationTokensWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Queries information about Employee Identity and Access Management (EIAM) groups by page.
  *
  * @param request ListGroupsRequest
@@ -1812,6 +2022,51 @@ ObtainCredentialResponse Client::obtainCredential(const string &instanceId, cons
 }
 
 /**
+ * @summary 使用派生短令牌查询对应的JWT认证令牌详情。
+ *
+ * @param request ObtainJwtAuthenticationTokenByDerivedShortTokenRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ObtainJwtAuthenticationTokenByDerivedShortTokenResponse
+ */
+ObtainJwtAuthenticationTokenByDerivedShortTokenResponse Client::obtainJwtAuthenticationTokenByDerivedShortTokenWithOptions(const string &instanceId, const ObtainJwtAuthenticationTokenByDerivedShortTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDerivedShortToken()) {
+    body["derivedShortToken"] = request.getDerivedShortToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ObtainJwtAuthenticationTokenByDerivedShortToken"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/authenticationTokens/_/actions/obtainJwtByDerivedShortToken")},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ObtainJwtAuthenticationTokenByDerivedShortTokenResponse>();
+}
+
+/**
+ * @summary 使用派生短令牌查询对应的JWT认证令牌详情。
+ *
+ * @param request ObtainJwtAuthenticationTokenByDerivedShortTokenRequest
+ * @return ObtainJwtAuthenticationTokenByDerivedShortTokenResponse
+ */
+ObtainJwtAuthenticationTokenByDerivedShortTokenResponse Client::obtainJwtAuthenticationTokenByDerivedShortToken(const string &instanceId, const ObtainJwtAuthenticationTokenByDerivedShortTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return obtainJwtAuthenticationTokenByDerivedShortTokenWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Modifies information about an Employee Identity and Access Management (EIAM) group.
  *
  * @param request PatchGroupRequest
@@ -2014,6 +2269,122 @@ PatchUserResponse Client::patchUser(const string &instanceId, const string &appl
 }
 
 /**
+ * @summary 恢复一个认证令牌。
+ *
+ * @param request ReinstateAuthenticationTokenRequest
+ * @param headers ReinstateAuthenticationTokenHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReinstateAuthenticationTokenResponse
+ */
+ReinstateAuthenticationTokenResponse Client::reinstateAuthenticationTokenWithOptions(const string &instanceId, const ReinstateAuthenticationTokenRequest &request, const ReinstateAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasToken()) {
+    body["token"] = request.getToken();
+  }
+
+  if (!!request.hasTokenTypeHint()) {
+    body["token_type_hint"] = request.getTokenTypeHint();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAuthorization()) {
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ReinstateAuthenticationToken"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/authenticationTokens/_/actions/reinstate")},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "none"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ReinstateAuthenticationTokenResponse>();
+}
+
+/**
+ * @summary 恢复一个认证令牌。
+ *
+ * @param request ReinstateAuthenticationTokenRequest
+ * @return ReinstateAuthenticationTokenResponse
+ */
+ReinstateAuthenticationTokenResponse Client::reinstateAuthenticationToken(const string &instanceId, const ReinstateAuthenticationTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  ReinstateAuthenticationTokenHeaders headers = ReinstateAuthenticationTokenHeaders();
+  return reinstateAuthenticationTokenWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 基于使用者吊销认证令牌。
+ *
+ * @param request ReinstateAuthenticationTokenByConsumerRequest
+ * @param headers ReinstateAuthenticationTokenByConsumerHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReinstateAuthenticationTokenByConsumerResponse
+ */
+ReinstateAuthenticationTokenByConsumerResponse Client::reinstateAuthenticationTokenByConsumerWithOptions(const string &instanceId, const ReinstateAuthenticationTokenByConsumerRequest &request, const ReinstateAuthenticationTokenByConsumerHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConsumerId()) {
+    body["consumerId"] = request.getConsumerId();
+  }
+
+  if (!!request.hasCredentialProviderIdentifier()) {
+    body["credentialProviderIdentifier"] = request.getCredentialProviderIdentifier();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAuthorization()) {
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ReinstateAuthenticationTokenByConsumer"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/authenticationTokens/_/actions/reinstateByConsumer")},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "none"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ReinstateAuthenticationTokenByConsumerResponse>();
+}
+
+/**
+ * @summary 基于使用者吊销认证令牌。
+ *
+ * @param request ReinstateAuthenticationTokenByConsumerRequest
+ * @return ReinstateAuthenticationTokenByConsumerResponse
+ */
+ReinstateAuthenticationTokenByConsumerResponse Client::reinstateAuthenticationTokenByConsumer(const string &instanceId, const ReinstateAuthenticationTokenByConsumerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  ReinstateAuthenticationTokenByConsumerHeaders headers = ReinstateAuthenticationTokenByConsumerHeaders();
+  return reinstateAuthenticationTokenByConsumerWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary 将账户从多个组织移除【不支持移除主组织】
  *
  * @param request RemoveUserFromOrganizationalUnitsRequest
@@ -2119,6 +2490,122 @@ RemoveUsersFromGroupResponse Client::removeUsersFromGroup(const string &instance
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   RemoveUsersFromGroupHeaders headers = RemoveUsersFromGroupHeaders();
   return removeUsersFromGroupWithOptions(instanceId, applicationId, groupId, request, headers, runtime);
+}
+
+/**
+ * @summary 吊销一个认证令牌。
+ *
+ * @param request RevokeAuthenticationTokenRequest
+ * @param headers RevokeAuthenticationTokenHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeAuthenticationTokenResponse
+ */
+RevokeAuthenticationTokenResponse Client::revokeAuthenticationTokenWithOptions(const string &instanceId, const RevokeAuthenticationTokenRequest &request, const RevokeAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasToken()) {
+    body["token"] = request.getToken();
+  }
+
+  if (!!request.hasTokenTypeHint()) {
+    body["token_type_hint"] = request.getTokenTypeHint();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAuthorization()) {
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RevokeAuthenticationToken"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/authenticationTokens/_/actions/revoke")},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "none"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<RevokeAuthenticationTokenResponse>();
+}
+
+/**
+ * @summary 吊销一个认证令牌。
+ *
+ * @param request RevokeAuthenticationTokenRequest
+ * @return RevokeAuthenticationTokenResponse
+ */
+RevokeAuthenticationTokenResponse Client::revokeAuthenticationToken(const string &instanceId, const RevokeAuthenticationTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  RevokeAuthenticationTokenHeaders headers = RevokeAuthenticationTokenHeaders();
+  return revokeAuthenticationTokenWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 基于使用者吊销认证令牌。
+ *
+ * @param request RevokeAuthenticationTokenByConsumerRequest
+ * @param headers RevokeAuthenticationTokenByConsumerHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeAuthenticationTokenByConsumerResponse
+ */
+RevokeAuthenticationTokenByConsumerResponse Client::revokeAuthenticationTokenByConsumerWithOptions(const string &instanceId, const RevokeAuthenticationTokenByConsumerRequest &request, const RevokeAuthenticationTokenByConsumerHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConsumerId()) {
+    body["consumerId"] = request.getConsumerId();
+  }
+
+  if (!!request.hasCredentialProviderIdentifier()) {
+    body["credentialProviderIdentifier"] = request.getCredentialProviderIdentifier();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAuthorization()) {
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RevokeAuthenticationTokenByConsumer"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/authenticationTokens/_/actions/revokeByConsumer")},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "none"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<RevokeAuthenticationTokenByConsumerResponse>();
+}
+
+/**
+ * @summary 基于使用者吊销认证令牌。
+ *
+ * @param request RevokeAuthenticationTokenByConsumerRequest
+ * @return RevokeAuthenticationTokenByConsumerResponse
+ */
+RevokeAuthenticationTokenByConsumerResponse Client::revokeAuthenticationTokenByConsumer(const string &instanceId, const RevokeAuthenticationTokenByConsumerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  RevokeAuthenticationTokenByConsumerHeaders headers = RevokeAuthenticationTokenByConsumerHeaders();
+  return revokeAuthenticationTokenByConsumerWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -2284,6 +2771,55 @@ UpdateUserPasswordResponse Client::updateUserPassword(const string &instanceId, 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   UpdateUserPasswordHeaders headers = UpdateUserPasswordHeaders();
   return updateUserPasswordWithOptions(instanceId, applicationId, userId, request, headers, runtime);
+}
+
+/**
+ * @summary 校验认证令牌是否有效。
+ *
+ * @param request ValidateAuthenticationTokenRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ValidateAuthenticationTokenResponse
+ */
+ValidateAuthenticationTokenResponse Client::validateAuthenticationTokenWithOptions(const string &instanceId, const ValidateAuthenticationTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasToken()) {
+    body["token"] = request.getToken();
+  }
+
+  if (!!request.hasTokenTypeHint()) {
+    body["token_type_hint"] = request.getTokenTypeHint();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ValidateAuthenticationToken"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/authenticationTokens/_/actions/validate")},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ValidateAuthenticationTokenResponse>();
+}
+
+/**
+ * @summary 校验认证令牌是否有效。
+ *
+ * @param request ValidateAuthenticationTokenRequest
+ * @return ValidateAuthenticationTokenResponse
+ */
+ValidateAuthenticationTokenResponse Client::validateAuthenticationToken(const string &instanceId, const ValidateAuthenticationTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return validateAuthenticationTokenWithOptions(instanceId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace EiamDeveloperapi20220225

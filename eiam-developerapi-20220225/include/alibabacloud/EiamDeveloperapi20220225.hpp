@@ -191,6 +191,24 @@ namespace EiamDeveloperapi20220225
       Models::EnableUserResponse enableUser(const string &instanceId, const string &applicationId, const string &userId);
 
       /**
+       * @summary 拉取一个有效的OAuth认证令牌。
+       *
+       * @param request FetchOAuthAuthenticationTokenRequest
+       * @param headers FetchOAuthAuthenticationTokenHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FetchOAuthAuthenticationTokenResponse
+       */
+      Models::FetchOAuthAuthenticationTokenResponse fetchOAuthAuthenticationTokenWithOptions(const string &instanceId, const Models::FetchOAuthAuthenticationTokenRequest &request, const Models::FetchOAuthAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 拉取一个有效的OAuth认证令牌。
+       *
+       * @param request FetchOAuthAuthenticationTokenRequest
+       * @return FetchOAuthAuthenticationTokenResponse
+       */
+      Models::FetchOAuthAuthenticationTokenResponse fetchOAuthAuthenticationToken(const string &instanceId, const Models::FetchOAuthAuthenticationTokenRequest &request);
+
+      /**
        * @summary Generates a device code.
        *
        * @param request GenerateDeviceCodeRequest
@@ -207,6 +225,24 @@ namespace EiamDeveloperapi20220225
        * @return GenerateDeviceCodeResponse
        */
       Models::GenerateDeviceCodeResponse generateDeviceCode(const string &instanceId, const string &applicationId, const Models::GenerateDeviceCodeRequest &request);
+
+      /**
+       * @summary 生成一个有效的JWT认证令牌。
+       *
+       * @param request GenerateJwtAuthenticationTokenRequest
+       * @param headers GenerateJwtAuthenticationTokenHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateJwtAuthenticationTokenResponse
+       */
+      Models::GenerateJwtAuthenticationTokenResponse generateJwtAuthenticationTokenWithOptions(const string &instanceId, const Models::GenerateJwtAuthenticationTokenRequest &request, const Models::GenerateJwtAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生成一个有效的JWT认证令牌。
+       *
+       * @param request GenerateJwtAuthenticationTokenRequest
+       * @return GenerateJwtAuthenticationTokenResponse
+       */
+      Models::GenerateJwtAuthenticationTokenResponse generateJwtAuthenticationToken(const string &instanceId, const Models::GenerateJwtAuthenticationTokenRequest &request);
 
       /**
        * @summary Generates a token for accessing an application in an instance.
@@ -425,6 +461,24 @@ namespace EiamDeveloperapi20220225
       Models::GetUserInfoResponse getUserInfo(const string &instanceId, const string &applicationId);
 
       /**
+       * @summary 列举认证令牌。
+       *
+       * @param request ListAuthenticationTokensRequest
+       * @param headers ListAuthenticationTokensHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAuthenticationTokensResponse
+       */
+      Models::ListAuthenticationTokensResponse listAuthenticationTokensWithOptions(const string &instanceId, const Models::ListAuthenticationTokensRequest &request, const Models::ListAuthenticationTokensHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列举认证令牌。
+       *
+       * @param request ListAuthenticationTokensRequest
+       * @return ListAuthenticationTokensResponse
+       */
+      Models::ListAuthenticationTokensResponse listAuthenticationTokens(const string &instanceId, const Models::ListAuthenticationTokensRequest &request);
+
+      /**
        * @summary Queries information about Employee Identity and Access Management (EIAM) groups by page.
        *
        * @param request ListGroupsRequest
@@ -567,6 +621,24 @@ namespace EiamDeveloperapi20220225
       Models::ObtainCredentialResponse obtainCredential(const string &instanceId, const Models::ObtainCredentialRequest &request);
 
       /**
+       * @summary 使用派生短令牌查询对应的JWT认证令牌详情。
+       *
+       * @param request ObtainJwtAuthenticationTokenByDerivedShortTokenRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ObtainJwtAuthenticationTokenByDerivedShortTokenResponse
+       */
+      Models::ObtainJwtAuthenticationTokenByDerivedShortTokenResponse obtainJwtAuthenticationTokenByDerivedShortTokenWithOptions(const string &instanceId, const Models::ObtainJwtAuthenticationTokenByDerivedShortTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 使用派生短令牌查询对应的JWT认证令牌详情。
+       *
+       * @param request ObtainJwtAuthenticationTokenByDerivedShortTokenRequest
+       * @return ObtainJwtAuthenticationTokenByDerivedShortTokenResponse
+       */
+      Models::ObtainJwtAuthenticationTokenByDerivedShortTokenResponse obtainJwtAuthenticationTokenByDerivedShortToken(const string &instanceId, const Models::ObtainJwtAuthenticationTokenByDerivedShortTokenRequest &request);
+
+      /**
        * @summary Modifies information about an Employee Identity and Access Management (EIAM) group.
        *
        * @param request PatchGroupRequest
@@ -629,6 +701,42 @@ namespace EiamDeveloperapi20220225
       Models::PatchUserResponse patchUser(const string &instanceId, const string &applicationId, const string &userId, const Models::PatchUserRequest &request);
 
       /**
+       * @summary 恢复一个认证令牌。
+       *
+       * @param request ReinstateAuthenticationTokenRequest
+       * @param headers ReinstateAuthenticationTokenHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReinstateAuthenticationTokenResponse
+       */
+      Models::ReinstateAuthenticationTokenResponse reinstateAuthenticationTokenWithOptions(const string &instanceId, const Models::ReinstateAuthenticationTokenRequest &request, const Models::ReinstateAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 恢复一个认证令牌。
+       *
+       * @param request ReinstateAuthenticationTokenRequest
+       * @return ReinstateAuthenticationTokenResponse
+       */
+      Models::ReinstateAuthenticationTokenResponse reinstateAuthenticationToken(const string &instanceId, const Models::ReinstateAuthenticationTokenRequest &request);
+
+      /**
+       * @summary 基于使用者吊销认证令牌。
+       *
+       * @param request ReinstateAuthenticationTokenByConsumerRequest
+       * @param headers ReinstateAuthenticationTokenByConsumerHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReinstateAuthenticationTokenByConsumerResponse
+       */
+      Models::ReinstateAuthenticationTokenByConsumerResponse reinstateAuthenticationTokenByConsumerWithOptions(const string &instanceId, const Models::ReinstateAuthenticationTokenByConsumerRequest &request, const Models::ReinstateAuthenticationTokenByConsumerHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 基于使用者吊销认证令牌。
+       *
+       * @param request ReinstateAuthenticationTokenByConsumerRequest
+       * @return ReinstateAuthenticationTokenByConsumerResponse
+       */
+      Models::ReinstateAuthenticationTokenByConsumerResponse reinstateAuthenticationTokenByConsumer(const string &instanceId, const Models::ReinstateAuthenticationTokenByConsumerRequest &request);
+
+      /**
        * @summary 将账户从多个组织移除【不支持移除主组织】
        *
        * @param request RemoveUserFromOrganizationalUnitsRequest
@@ -663,6 +771,42 @@ namespace EiamDeveloperapi20220225
        * @return RemoveUsersFromGroupResponse
        */
       Models::RemoveUsersFromGroupResponse removeUsersFromGroup(const string &instanceId, const string &applicationId, const string &groupId, const Models::RemoveUsersFromGroupRequest &request);
+
+      /**
+       * @summary 吊销一个认证令牌。
+       *
+       * @param request RevokeAuthenticationTokenRequest
+       * @param headers RevokeAuthenticationTokenHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevokeAuthenticationTokenResponse
+       */
+      Models::RevokeAuthenticationTokenResponse revokeAuthenticationTokenWithOptions(const string &instanceId, const Models::RevokeAuthenticationTokenRequest &request, const Models::RevokeAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 吊销一个认证令牌。
+       *
+       * @param request RevokeAuthenticationTokenRequest
+       * @return RevokeAuthenticationTokenResponse
+       */
+      Models::RevokeAuthenticationTokenResponse revokeAuthenticationToken(const string &instanceId, const Models::RevokeAuthenticationTokenRequest &request);
+
+      /**
+       * @summary 基于使用者吊销认证令牌。
+       *
+       * @param request RevokeAuthenticationTokenByConsumerRequest
+       * @param headers RevokeAuthenticationTokenByConsumerHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevokeAuthenticationTokenByConsumerResponse
+       */
+      Models::RevokeAuthenticationTokenByConsumerResponse revokeAuthenticationTokenByConsumerWithOptions(const string &instanceId, const Models::RevokeAuthenticationTokenByConsumerRequest &request, const Models::RevokeAuthenticationTokenByConsumerHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 基于使用者吊销认证令牌。
+       *
+       * @param request RevokeAuthenticationTokenByConsumerRequest
+       * @return RevokeAuthenticationTokenByConsumerResponse
+       */
+      Models::RevokeAuthenticationTokenByConsumerResponse revokeAuthenticationTokenByConsumer(const string &instanceId, const Models::RevokeAuthenticationTokenByConsumerRequest &request);
 
       /**
        * @summary Revokes an access token or refresh token.
@@ -717,6 +861,24 @@ namespace EiamDeveloperapi20220225
        * @return UpdateUserPasswordResponse
        */
       Models::UpdateUserPasswordResponse updateUserPassword(const string &instanceId, const string &applicationId, const string &userId, const Models::UpdateUserPasswordRequest &request);
+
+      /**
+       * @summary 校验认证令牌是否有效。
+       *
+       * @param request ValidateAuthenticationTokenRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ValidateAuthenticationTokenResponse
+       */
+      Models::ValidateAuthenticationTokenResponse validateAuthenticationTokenWithOptions(const string &instanceId, const Models::ValidateAuthenticationTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 校验认证令牌是否有效。
+       *
+       * @param request ValidateAuthenticationTokenRequest
+       * @return ValidateAuthenticationTokenResponse
+       */
+      Models::ValidateAuthenticationTokenResponse validateAuthenticationToken(const string &instanceId, const Models::ValidateAuthenticationTokenRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace EiamDeveloperapi20220225

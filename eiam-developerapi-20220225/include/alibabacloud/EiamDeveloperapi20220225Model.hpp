@@ -30,9 +30,17 @@
 #include <alibabacloud/models/DisableUserResponse.hpp>
 #include <alibabacloud/models/EnableUserHeaders.hpp>
 #include <alibabacloud/models/EnableUserResponse.hpp>
+#include <alibabacloud/models/FetchOAuthAuthenticationTokenHeaders.hpp>
+#include <alibabacloud/models/FetchOAuthAuthenticationTokenRequest.hpp>
+#include <alibabacloud/models/FetchOAuthAuthenticationTokenResponseBody.hpp>
+#include <alibabacloud/models/FetchOAuthAuthenticationTokenResponse.hpp>
 #include <alibabacloud/models/GenerateDeviceCodeRequest.hpp>
 #include <alibabacloud/models/GenerateDeviceCodeResponseBody.hpp>
 #include <alibabacloud/models/GenerateDeviceCodeResponse.hpp>
+#include <alibabacloud/models/GenerateJwtAuthenticationTokenHeaders.hpp>
+#include <alibabacloud/models/GenerateJwtAuthenticationTokenRequest.hpp>
+#include <alibabacloud/models/GenerateJwtAuthenticationTokenResponseBody.hpp>
+#include <alibabacloud/models/GenerateJwtAuthenticationTokenResponse.hpp>
 #include <alibabacloud/models/GenerateTokenRequest.hpp>
 #include <alibabacloud/models/GenerateTokenResponseBody.hpp>
 #include <alibabacloud/models/GenerateTokenResponse.hpp>
@@ -73,6 +81,10 @@
 #include <alibabacloud/models/GetUserIdByUsernameResponse.hpp>
 #include <alibabacloud/models/GetUserInfoHeaders.hpp>
 #include <alibabacloud/models/GetUserInfoResponse.hpp>
+#include <alibabacloud/models/ListAuthenticationTokensHeaders.hpp>
+#include <alibabacloud/models/ListAuthenticationTokensRequest.hpp>
+#include <alibabacloud/models/ListAuthenticationTokensResponseBody.hpp>
+#include <alibabacloud/models/ListAuthenticationTokensResponse.hpp>
 #include <alibabacloud/models/ListGroupsHeaders.hpp>
 #include <alibabacloud/models/ListGroupsRequest.hpp>
 #include <alibabacloud/models/ListGroupsResponseBody.hpp>
@@ -104,6 +116,9 @@
 #include <alibabacloud/models/ObtainCredentialRequest.hpp>
 #include <alibabacloud/models/ObtainCredentialResponseBody.hpp>
 #include <alibabacloud/models/ObtainCredentialResponse.hpp>
+#include <alibabacloud/models/ObtainJwtAuthenticationTokenByDerivedShortTokenRequest.hpp>
+#include <alibabacloud/models/ObtainJwtAuthenticationTokenByDerivedShortTokenResponseBody.hpp>
+#include <alibabacloud/models/ObtainJwtAuthenticationTokenByDerivedShortTokenResponse.hpp>
 #include <alibabacloud/models/PatchGroupHeaders.hpp>
 #include <alibabacloud/models/PatchGroupRequest.hpp>
 #include <alibabacloud/models/PatchGroupResponse.hpp>
@@ -113,12 +128,24 @@
 #include <alibabacloud/models/PatchUserHeaders.hpp>
 #include <alibabacloud/models/PatchUserRequest.hpp>
 #include <alibabacloud/models/PatchUserResponse.hpp>
+#include <alibabacloud/models/ReinstateAuthenticationTokenHeaders.hpp>
+#include <alibabacloud/models/ReinstateAuthenticationTokenRequest.hpp>
+#include <alibabacloud/models/ReinstateAuthenticationTokenResponse.hpp>
+#include <alibabacloud/models/ReinstateAuthenticationTokenByConsumerHeaders.hpp>
+#include <alibabacloud/models/ReinstateAuthenticationTokenByConsumerRequest.hpp>
+#include <alibabacloud/models/ReinstateAuthenticationTokenByConsumerResponse.hpp>
 #include <alibabacloud/models/RemoveUserFromOrganizationalUnitsHeaders.hpp>
 #include <alibabacloud/models/RemoveUserFromOrganizationalUnitsRequest.hpp>
 #include <alibabacloud/models/RemoveUserFromOrganizationalUnitsResponse.hpp>
 #include <alibabacloud/models/RemoveUsersFromGroupHeaders.hpp>
 #include <alibabacloud/models/RemoveUsersFromGroupRequest.hpp>
 #include <alibabacloud/models/RemoveUsersFromGroupResponse.hpp>
+#include <alibabacloud/models/RevokeAuthenticationTokenHeaders.hpp>
+#include <alibabacloud/models/RevokeAuthenticationTokenRequest.hpp>
+#include <alibabacloud/models/RevokeAuthenticationTokenResponse.hpp>
+#include <alibabacloud/models/RevokeAuthenticationTokenByConsumerHeaders.hpp>
+#include <alibabacloud/models/RevokeAuthenticationTokenByConsumerRequest.hpp>
+#include <alibabacloud/models/RevokeAuthenticationTokenByConsumerResponse.hpp>
 #include <alibabacloud/models/RevokeTokenRequest.hpp>
 #include <alibabacloud/models/RevokeTokenResponse.hpp>
 #include <alibabacloud/models/SetUserPrimaryOrganizationalUnitHeaders.hpp>
@@ -127,5 +154,8 @@
 #include <alibabacloud/models/UpdateUserPasswordHeaders.hpp>
 #include <alibabacloud/models/UpdateUserPasswordRequest.hpp>
 #include <alibabacloud/models/UpdateUserPasswordResponse.hpp>
+#include <alibabacloud/models/ValidateAuthenticationTokenRequest.hpp>
+#include <alibabacloud/models/ValidateAuthenticationTokenResponseBody.hpp>
+#include <alibabacloud/models/ValidateAuthenticationTokenResponse.hpp>
 
 #endif
