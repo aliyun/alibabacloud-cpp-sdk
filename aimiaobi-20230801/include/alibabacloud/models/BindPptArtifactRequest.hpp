@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const BindPptArtifactRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ArtifactId, artifactId_);
+      DARABONBA_PTR_TO_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, BindPptArtifactRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ArtifactId, artifactId_);
+      DARABONBA_PTR_FROM_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->artifactId_ == nullptr
-        && this->taskId_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->externalUserId_ == nullptr && this->taskId_ == nullptr && this->workspaceId_ == nullptr; };
     // artifactId Field Functions 
     bool hasArtifactId() const { return this->artifactId_ != nullptr;};
     void deleteArtifactId() { this->artifactId_ = nullptr;};
     inline int32_t getArtifactId() const { DARABONBA_PTR_GET_DEFAULT(artifactId_, 0) };
     inline BindPptArtifactRequest& setArtifactId(int32_t artifactId) { DARABONBA_PTR_SET_VALUE(artifactId_, artifactId) };
+
+
+    // externalUserId Field Functions 
+    bool hasExternalUserId() const { return this->externalUserId_ != nullptr;};
+    void deleteExternalUserId() { this->externalUserId_ = nullptr;};
+    inline string getExternalUserId() const { DARABONBA_PTR_GET_DEFAULT(externalUserId_, "") };
+    inline BindPptArtifactRequest& setExternalUserId(string externalUserId) { DARABONBA_PTR_SET_VALUE(externalUserId_, externalUserId) };
 
 
     // taskId Field Functions 
@@ -59,6 +68,7 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<int32_t> artifactId_ {};
+    shared_ptr<string> externalUserId_ {};
     // This parameter is required.
     shared_ptr<string> taskId_ {};
     shared_ptr<string> workspaceId_ {};

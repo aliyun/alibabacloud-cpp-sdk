@@ -13,11 +13,13 @@ namespace Models
   class InitiatePptCreationRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const InitiatePptCreationRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_TO_JSON(Outline, outline_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, InitiatePptCreationRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_FROM_JSON(Outline, outline_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->outline_ == nullptr
-        && this->taskId_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->externalUserId_ == nullptr
+        && this->outline_ == nullptr && this->taskId_ == nullptr && this->workspaceId_ == nullptr; };
+    // externalUserId Field Functions 
+    bool hasExternalUserId() const { return this->externalUserId_ != nullptr;};
+    void deleteExternalUserId() { this->externalUserId_ = nullptr;};
+    inline string getExternalUserId() const { DARABONBA_PTR_GET_DEFAULT(externalUserId_, "") };
+    inline InitiatePptCreationRequest& setExternalUserId(string externalUserId) { DARABONBA_PTR_SET_VALUE(externalUserId_, externalUserId) };
+
+
     // outline Field Functions 
     bool hasOutline() const { return this->outline_ != nullptr;};
     void deleteOutline() { this->outline_ = nullptr;};
@@ -57,6 +66,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> externalUserId_ {};
     shared_ptr<string> outline_ {};
     // This parameter is required.
     shared_ptr<string> taskId_ {};

@@ -13,10 +13,12 @@ namespace Models
   class RunPptOutlineGenerationRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const RunPptOutlineGenerationRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_TO_JSON(Prompt, prompt_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, RunPptOutlineGenerationRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_FROM_JSON(Prompt, prompt_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->prompt_ == nullptr
-        && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->externalUserId_ == nullptr
+        && this->prompt_ == nullptr && this->workspaceId_ == nullptr; };
+    // externalUserId Field Functions 
+    bool hasExternalUserId() const { return this->externalUserId_ != nullptr;};
+    void deleteExternalUserId() { this->externalUserId_ = nullptr;};
+    inline string getExternalUserId() const { DARABONBA_PTR_GET_DEFAULT(externalUserId_, "") };
+    inline RunPptOutlineGenerationRequest& setExternalUserId(string externalUserId) { DARABONBA_PTR_SET_VALUE(externalUserId_, externalUserId) };
+
+
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
@@ -48,6 +57,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> externalUserId_ {};
     // This parameter is required.
     shared_ptr<string> prompt_ {};
     // This parameter is required.

@@ -666,6 +666,10 @@ BindPptArtifactResponse Client::bindPptArtifactWithOptions(const BindPptArtifact
     body["ArtifactId"] = request.getArtifactId();
   }
 
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
   if (!!request.hasTaskId()) {
     body["TaskId"] = request.getTaskId();
   }
@@ -1840,6 +1844,10 @@ DeleteMaterialByIdResponse Client::deleteMaterialById(const DeleteMaterialByIdRe
 DeletePptArtifactResponse Client::deletePptArtifactWithOptions(const DeletePptArtifactRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
   if (!!request.hasPptArtifactId()) {
     body["PptArtifactId"] = request.getPptArtifactId();
   }
@@ -4570,6 +4578,10 @@ GetMaterialByIdResponse Client::getMaterialById(const GetMaterialByIdRequest &re
 GetPptArtifactResponse Client::getPptArtifactWithOptions(const GetPptArtifactRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
   if (!!request.hasPptArtifactId()) {
     body["PptArtifactId"] = request.getPptArtifactId();
   }
@@ -4616,6 +4628,10 @@ GetPptArtifactResponse Client::getPptArtifact(const GetPptArtifactRequest &reque
 GetPptConfigResponse Client::getPptConfigWithOptions(const GetPptConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
   if (!!request.hasWorkspaceId()) {
     body["WorkspaceId"] = request.getWorkspaceId();
   }
@@ -5048,6 +5064,10 @@ ImportInterveneFileAsyncResponse Client::importInterveneFileAsync(const ImportIn
 InitiatePptCreationResponse Client::initiatePptCreationWithOptions(const InitiatePptCreationRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
   if (!!request.hasOutline()) {
     body["Outline"] = request.getOutline();
   }
@@ -7181,6 +7201,10 @@ ListPptArtifactsResponse Client::listPptArtifactsWithOptions(const ListPptArtifa
   }
 
   json body = {};
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
   if (!!request.hasNextToken()) {
     body["NextToken"] = request.getNextToken();
   }
@@ -10888,6 +10912,10 @@ RunMultiDocIntroductionResponse Client::runMultiDocIntroduction(const RunMultiDo
 FutureGenerator<RunPptOutlineGenerationResponse> Client::runPptOutlineGenerationWithSSE(const RunPptOutlineGenerationRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
   if (!!request.hasPrompt()) {
     body["Prompt"] = request.getPrompt();
   }
@@ -10937,6 +10965,10 @@ return Darabonba::FutureGenerator<json>(__retrun);
 RunPptOutlineGenerationResponse Client::runPptOutlineGenerationWithOptions(const RunPptOutlineGenerationRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
   if (!!request.hasPrompt()) {
     body["Prompt"] = request.getPrompt();
   }

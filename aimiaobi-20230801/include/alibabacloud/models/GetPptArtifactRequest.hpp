@@ -13,10 +13,12 @@ namespace Models
   class GetPptArtifactRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetPptArtifactRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_TO_JSON(PptArtifactId, pptArtifactId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, GetPptArtifactRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_FROM_JSON(PptArtifactId, pptArtifactId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->pptArtifactId_ == nullptr
-        && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->externalUserId_ == nullptr
+        && this->pptArtifactId_ == nullptr && this->workspaceId_ == nullptr; };
+    // externalUserId Field Functions 
+    bool hasExternalUserId() const { return this->externalUserId_ != nullptr;};
+    void deleteExternalUserId() { this->externalUserId_ = nullptr;};
+    inline string getExternalUserId() const { DARABONBA_PTR_GET_DEFAULT(externalUserId_, "") };
+    inline GetPptArtifactRequest& setExternalUserId(string externalUserId) { DARABONBA_PTR_SET_VALUE(externalUserId_, externalUserId) };
+
+
     // pptArtifactId Field Functions 
     bool hasPptArtifactId() const { return this->pptArtifactId_ != nullptr;};
     void deletePptArtifactId() { this->pptArtifactId_ = nullptr;};
@@ -48,6 +57,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> externalUserId_ {};
     shared_ptr<int32_t> pptArtifactId_ {};
     shared_ptr<string> workspaceId_ {};
   };

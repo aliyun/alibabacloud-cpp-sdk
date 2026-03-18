@@ -13,9 +13,11 @@ namespace Models
   class GetPptConfigRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetPptConfigRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, GetPptConfigRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     GetPptConfigRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->externalUserId_ == nullptr
+        && this->workspaceId_ == nullptr; };
+    // externalUserId Field Functions 
+    bool hasExternalUserId() const { return this->externalUserId_ != nullptr;};
+    void deleteExternalUserId() { this->externalUserId_ = nullptr;};
+    inline string getExternalUserId() const { DARABONBA_PTR_GET_DEFAULT(externalUserId_, "") };
+    inline GetPptConfigRequest& setExternalUserId(string externalUserId) { DARABONBA_PTR_SET_VALUE(externalUserId_, externalUserId) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -38,6 +48,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> externalUserId_ {};
     shared_ptr<string> workspaceId_ {};
   };
 
