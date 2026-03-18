@@ -828,6 +828,9 @@
 #include <alibabacloud/models/OpenMediaConnectFlowFailoverRequest.hpp>
 #include <alibabacloud/models/OpenMediaConnectFlowFailoverResponseBody.hpp>
 #include <alibabacloud/models/OpenMediaConnectFlowFailoverResponse.hpp>
+#include <alibabacloud/models/PrecheckYikeAIAppJobRequest.hpp>
+#include <alibabacloud/models/PrecheckYikeAIAppJobResponseBody.hpp>
+#include <alibabacloud/models/PrecheckYikeAIAppJobResponse.hpp>
 #include <alibabacloud/models/QueryCopyrightExtractJobRequest.hpp>
 #include <alibabacloud/models/QueryCopyrightExtractJobResponseBody.hpp>
 #include <alibabacloud/models/QueryCopyrightExtractJobResponse.hpp>

@@ -5006,6 +5006,23 @@ namespace ICE20201109
       Models::OpenMediaConnectFlowFailoverResponse openMediaConnectFlowFailover(const Models::OpenMediaConnectFlowFailoverRequest &request);
 
       /**
+       * @summary 检查应用参数是否合法
+       *
+       * @param request PrecheckYikeAIAppJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PrecheckYikeAIAppJobResponse
+       */
+      Models::PrecheckYikeAIAppJobResponse precheckYikeAIAppJobWithOptions(const Models::PrecheckYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查应用参数是否合法
+       *
+       * @param request PrecheckYikeAIAppJobRequest
+       * @return PrecheckYikeAIAppJobResponse
+       */
+      Models::PrecheckYikeAIAppJobResponse precheckYikeAIAppJob(const Models::PrecheckYikeAIAppJobRequest &request);
+
+      /**
        * @summary Queries a job for extracting a copyright watermark.
        *
        * @param request QueryCopyrightExtractJobRequest

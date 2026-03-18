@@ -14001,6 +14001,52 @@ OpenMediaConnectFlowFailoverResponse Client::openMediaConnectFlowFailover(const 
 }
 
 /**
+ * @summary 检查应用参数是否合法
+ *
+ * @param request PrecheckYikeAIAppJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PrecheckYikeAIAppJobResponse
+ */
+PrecheckYikeAIAppJobResponse Client::precheckYikeAIAppJobWithOptions(const PrecheckYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAppParams()) {
+    query["AppParams"] = request.getAppParams();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PrecheckYikeAIAppJob"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PrecheckYikeAIAppJobResponse>();
+}
+
+/**
+ * @summary 检查应用参数是否合法
+ *
+ * @param request PrecheckYikeAIAppJobRequest
+ * @return PrecheckYikeAIAppJobResponse
+ */
+PrecheckYikeAIAppJobResponse Client::precheckYikeAIAppJob(const PrecheckYikeAIAppJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return precheckYikeAIAppJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a job for extracting a copyright watermark.
  *
  * @param request QueryCopyrightExtractJobRequest
