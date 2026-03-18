@@ -98,6 +98,9 @@
 #include <alibabacloud/models/CreateCredentialRequest.hpp>
 #include <alibabacloud/models/CreateCredentialResponseBody.hpp>
 #include <alibabacloud/models/CreateCredentialResponse.hpp>
+#include <alibabacloud/models/CreateCredentialProviderRequest.hpp>
+#include <alibabacloud/models/CreateCredentialProviderResponseBody.hpp>
+#include <alibabacloud/models/CreateCredentialProviderResponse.hpp>
 #include <alibabacloud/models/CreateCustomFieldRequest.hpp>
 #include <alibabacloud/models/CreateCustomFieldResponseBody.hpp>
 #include <alibabacloud/models/CreateCustomFieldResponse.hpp>
@@ -182,6 +185,9 @@
 #include <alibabacloud/models/DeleteCredentialRequest.hpp>
 #include <alibabacloud/models/DeleteCredentialResponseBody.hpp>
 #include <alibabacloud/models/DeleteCredentialResponse.hpp>
+#include <alibabacloud/models/DeleteCredentialProviderRequest.hpp>
+#include <alibabacloud/models/DeleteCredentialProviderResponseBody.hpp>
+#include <alibabacloud/models/DeleteCredentialProviderResponse.hpp>
 #include <alibabacloud/models/DeleteCustomFieldRequest.hpp>
 #include <alibabacloud/models/DeleteCustomFieldResponseBody.hpp>
 #include <alibabacloud/models/DeleteCustomFieldResponse.hpp>
@@ -275,6 +281,9 @@
 #include <alibabacloud/models/DisableCredentialRequest.hpp>
 #include <alibabacloud/models/DisableCredentialResponseBody.hpp>
 #include <alibabacloud/models/DisableCredentialResponse.hpp>
+#include <alibabacloud/models/DisableCredentialProviderRequest.hpp>
+#include <alibabacloud/models/DisableCredentialProviderResponseBody.hpp>
+#include <alibabacloud/models/DisableCredentialProviderResponse.hpp>
 #include <alibabacloud/models/DisableCustomFieldRequest.hpp>
 #include <alibabacloud/models/DisableCustomFieldResponseBody.hpp>
 #include <alibabacloud/models/DisableCustomFieldResponse.hpp>
@@ -353,6 +362,9 @@
 #include <alibabacloud/models/EnableCredentialRequest.hpp>
 #include <alibabacloud/models/EnableCredentialResponseBody.hpp>
 #include <alibabacloud/models/EnableCredentialResponse.hpp>
+#include <alibabacloud/models/EnableCredentialProviderRequest.hpp>
+#include <alibabacloud/models/EnableCredentialProviderResponseBody.hpp>
+#include <alibabacloud/models/EnableCredentialProviderResponse.hpp>
 #include <alibabacloud/models/EnableCustomFieldRequest.hpp>
 #include <alibabacloud/models/EnableCustomFieldResponseBody.hpp>
 #include <alibabacloud/models/EnableCustomFieldResponse.hpp>
@@ -458,6 +470,9 @@
 #include <alibabacloud/models/GetCredentialRequest.hpp>
 #include <alibabacloud/models/GetCredentialResponseBody.hpp>
 #include <alibabacloud/models/GetCredentialResponse.hpp>
+#include <alibabacloud/models/GetCredentialProviderRequest.hpp>
+#include <alibabacloud/models/GetCredentialProviderResponseBody.hpp>
+#include <alibabacloud/models/GetCredentialProviderResponse.hpp>
 #include <alibabacloud/models/GetCustomFieldRequest.hpp>
 #include <alibabacloud/models/GetCustomFieldResponseBody.hpp>
 #include <alibabacloud/models/GetCustomFieldResponse.hpp>
@@ -641,6 +656,9 @@
 #include <alibabacloud/models/ListConditionalAccessPoliciesForUserRequest.hpp>
 #include <alibabacloud/models/ListConditionalAccessPoliciesForUserResponseBody.hpp>
 #include <alibabacloud/models/ListConditionalAccessPoliciesForUserResponse.hpp>
+#include <alibabacloud/models/ListCredentialProvidersRequest.hpp>
+#include <alibabacloud/models/ListCredentialProvidersResponseBody.hpp>
+#include <alibabacloud/models/ListCredentialProvidersResponse.hpp>
 #include <alibabacloud/models/ListCredentialsRequest.hpp>
 #include <alibabacloud/models/ListCredentialsResponseBody.hpp>
 #include <alibabacloud/models/ListCredentialsResponse.hpp>
@@ -950,6 +968,12 @@
 #include <alibabacloud/models/UpdateCredentialDescriptionRequest.hpp>
 #include <alibabacloud/models/UpdateCredentialDescriptionResponseBody.hpp>
 #include <alibabacloud/models/UpdateCredentialDescriptionResponse.hpp>
+#include <alibabacloud/models/UpdateCredentialProviderRequest.hpp>
+#include <alibabacloud/models/UpdateCredentialProviderResponseBody.hpp>
+#include <alibabacloud/models/UpdateCredentialProviderResponse.hpp>
+#include <alibabacloud/models/UpdateCredentialProviderDescriptionRequest.hpp>
+#include <alibabacloud/models/UpdateCredentialProviderDescriptionResponseBody.hpp>
+#include <alibabacloud/models/UpdateCredentialProviderDescriptionResponse.hpp>
 #include <alibabacloud/models/UpdateCustomPrivacyPolicyRequest.hpp>
 #include <alibabacloud/models/UpdateCustomPrivacyPolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateCustomPrivacyPolicyResponse.hpp>

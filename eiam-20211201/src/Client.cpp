@@ -1894,6 +1894,72 @@ CreateCredentialResponse Client::createCredential(const CreateCredentialRequest 
 }
 
 /**
+ * @summary 创建凭据提供商
+ *
+ * @param request CreateCredentialProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCredentialProviderResponse
+ */
+CreateCredentialProviderResponse Client::createCredentialProviderWithOptions(const CreateCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCredentialProviderConfig()) {
+    query["CredentialProviderConfig"] = request.getCredentialProviderConfig();
+  }
+
+  if (!!request.hasCredentialProviderIdentifier()) {
+    query["CredentialProviderIdentifier"] = request.getCredentialProviderIdentifier();
+  }
+
+  if (!!request.hasCredentialProviderName()) {
+    query["CredentialProviderName"] = request.getCredentialProviderName();
+  }
+
+  if (!!request.hasCredentialProviderType()) {
+    query["CredentialProviderType"] = request.getCredentialProviderType();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCredentialProvider"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCredentialProviderResponse>();
+}
+
+/**
+ * @summary 创建凭据提供商
+ *
+ * @param request CreateCredentialProviderRequest
+ * @return CreateCredentialProviderResponse
+ */
+CreateCredentialProviderResponse Client::createCredentialProvider(const CreateCredentialProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCredentialProviderWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建扩展字段
  *
  * @param request CreateCustomFieldRequest
@@ -3494,6 +3560,52 @@ DeleteCredentialResponse Client::deleteCredential(const DeleteCredentialRequest 
 }
 
 /**
+ * @summary 启用凭据提供商
+ *
+ * @param request DeleteCredentialProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCredentialProviderResponse
+ */
+DeleteCredentialProviderResponse Client::deleteCredentialProviderWithOptions(const DeleteCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialProviderId()) {
+    query["CredentialProviderId"] = request.getCredentialProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCredentialProvider"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCredentialProviderResponse>();
+}
+
+/**
+ * @summary 启用凭据提供商
+ *
+ * @param request DeleteCredentialProviderRequest
+ * @return DeleteCredentialProviderResponse
+ */
+DeleteCredentialProviderResponse Client::deleteCredentialProvider(const DeleteCredentialProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCredentialProviderWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除扩展字段
  *
  * @param request DeleteCustomFieldRequest
@@ -4978,6 +5090,52 @@ DisableCredentialResponse Client::disableCredential(const DisableCredentialReque
 }
 
 /**
+ * @summary 禁用凭据提供商
+ *
+ * @param request DisableCredentialProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableCredentialProviderResponse
+ */
+DisableCredentialProviderResponse Client::disableCredentialProviderWithOptions(const DisableCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialProviderId()) {
+    query["CredentialProviderId"] = request.getCredentialProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableCredentialProvider"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableCredentialProviderResponse>();
+}
+
+/**
+ * @summary 禁用凭据提供商
+ *
+ * @param request DisableCredentialProviderRequest
+ * @return DisableCredentialProviderResponse
+ */
+DisableCredentialProviderResponse Client::disableCredentialProvider(const DisableCredentialProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableCredentialProviderWithOptions(request, runtime);
+}
+
+/**
  * @summary 禁用字段
  *
  * @param request DisableCustomFieldRequest
@@ -6213,6 +6371,52 @@ EnableCredentialResponse Client::enableCredentialWithOptions(const EnableCredent
 EnableCredentialResponse Client::enableCredential(const EnableCredentialRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableCredentialWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用凭据提供商
+ *
+ * @param request EnableCredentialProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableCredentialProviderResponse
+ */
+EnableCredentialProviderResponse Client::enableCredentialProviderWithOptions(const EnableCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialProviderId()) {
+    query["CredentialProviderId"] = request.getCredentialProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableCredentialProvider"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableCredentialProviderResponse>();
+}
+
+/**
+ * @summary 启用凭据提供商
+ *
+ * @param request EnableCredentialProviderRequest
+ * @return EnableCredentialProviderResponse
+ */
+EnableCredentialProviderResponse Client::enableCredentialProvider(const EnableCredentialProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableCredentialProviderWithOptions(request, runtime);
 }
 
 /**
@@ -7867,6 +8071,52 @@ GetCredentialResponse Client::getCredentialWithOptions(const GetCredentialReques
 GetCredentialResponse Client::getCredential(const GetCredentialRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getCredentialWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询凭据提供商详情
+ *
+ * @param request GetCredentialProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCredentialProviderResponse
+ */
+GetCredentialProviderResponse Client::getCredentialProviderWithOptions(const GetCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialProviderId()) {
+    query["CredentialProviderId"] = request.getCredentialProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCredentialProvider"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCredentialProviderResponse>();
+}
+
+/**
+ * @summary 查询凭据提供商详情
+ *
+ * @param request GetCredentialProviderRequest
+ * @return GetCredentialProviderResponse
+ */
+GetCredentialProviderResponse Client::getCredentialProvider(const GetCredentialProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCredentialProviderWithOptions(request, runtime);
 }
 
 /**
@@ -10913,6 +11163,72 @@ ListConditionalAccessPoliciesForUserResponse Client::listConditionalAccessPolici
 ListConditionalAccessPoliciesForUserResponse Client::listConditionalAccessPoliciesForUser(const ListConditionalAccessPoliciesForUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listConditionalAccessPoliciesForUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary 列举凭据提供商
+ *
+ * @param request ListCredentialProvidersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCredentialProvidersResponse
+ */
+ListCredentialProvidersResponse Client::listCredentialProvidersWithOptions(const ListCredentialProvidersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialProviderIds()) {
+    query["CredentialProviderIds"] = request.getCredentialProviderIds();
+  }
+
+  if (!!request.hasCredentialProviderTypes()) {
+    query["CredentialProviderTypes"] = request.getCredentialProviderTypes();
+  }
+
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStatuses()) {
+    query["Statuses"] = request.getStatuses();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCredentialProviders"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCredentialProvidersResponse>();
+}
+
+/**
+ * @summary 列举凭据提供商
+ *
+ * @param request ListCredentialProvidersRequest
+ * @return ListCredentialProvidersResponse
+ */
+ListCredentialProvidersResponse Client::listCredentialProviders(const ListCredentialProvidersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCredentialProvidersWithOptions(request, runtime);
 }
 
 /**
@@ -16676,6 +16992,114 @@ UpdateCredentialDescriptionResponse Client::updateCredentialDescriptionWithOptio
 UpdateCredentialDescriptionResponse Client::updateCredentialDescription(const UpdateCredentialDescriptionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateCredentialDescriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新凭据提供商
+ *
+ * @param request UpdateCredentialProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCredentialProviderResponse
+ */
+UpdateCredentialProviderResponse Client::updateCredentialProviderWithOptions(const UpdateCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCredentialProviderConfig()) {
+    query["CredentialProviderConfig"] = request.getCredentialProviderConfig();
+  }
+
+  if (!!request.hasCredentialProviderId()) {
+    query["CredentialProviderId"] = request.getCredentialProviderId();
+  }
+
+  if (!!request.hasCredentialProviderName()) {
+    query["CredentialProviderName"] = request.getCredentialProviderName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCredentialProvider"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCredentialProviderResponse>();
+}
+
+/**
+ * @summary 更新凭据提供商
+ *
+ * @param request UpdateCredentialProviderRequest
+ * @return UpdateCredentialProviderResponse
+ */
+UpdateCredentialProviderResponse Client::updateCredentialProvider(const UpdateCredentialProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCredentialProviderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新凭据提供商描述
+ *
+ * @param request UpdateCredentialProviderDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCredentialProviderDescriptionResponse
+ */
+UpdateCredentialProviderDescriptionResponse Client::updateCredentialProviderDescriptionWithOptions(const UpdateCredentialProviderDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialProviderId()) {
+    query["CredentialProviderId"] = request.getCredentialProviderId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCredentialProviderDescription"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCredentialProviderDescriptionResponse>();
+}
+
+/**
+ * @summary 更新凭据提供商描述
+ *
+ * @param request UpdateCredentialProviderDescriptionRequest
+ * @return UpdateCredentialProviderDescriptionResponse
+ */
+UpdateCredentialProviderDescriptionResponse Client::updateCredentialProviderDescription(const UpdateCredentialProviderDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCredentialProviderDescriptionWithOptions(request, runtime);
 }
 
 /**

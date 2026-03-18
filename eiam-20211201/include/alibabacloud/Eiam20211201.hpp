@@ -573,6 +573,23 @@ namespace Eiam20211201
       Models::CreateCredentialResponse createCredential(const Models::CreateCredentialRequest &request);
 
       /**
+       * @summary 创建凭据提供商
+       *
+       * @param request CreateCredentialProviderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCredentialProviderResponse
+       */
+      Models::CreateCredentialProviderResponse createCredentialProviderWithOptions(const Models::CreateCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建凭据提供商
+       *
+       * @param request CreateCredentialProviderRequest
+       * @return CreateCredentialProviderResponse
+       */
+      Models::CreateCredentialProviderResponse createCredentialProvider(const Models::CreateCredentialProviderRequest &request);
+
+      /**
        * @summary 创建扩展字段
        *
        * @param request CreateCustomFieldRequest
@@ -1055,6 +1072,23 @@ namespace Eiam20211201
        * @return DeleteCredentialResponse
        */
       Models::DeleteCredentialResponse deleteCredential(const Models::DeleteCredentialRequest &request);
+
+      /**
+       * @summary 启用凭据提供商
+       *
+       * @param request DeleteCredentialProviderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCredentialProviderResponse
+       */
+      Models::DeleteCredentialProviderResponse deleteCredentialProviderWithOptions(const Models::DeleteCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用凭据提供商
+       *
+       * @param request DeleteCredentialProviderRequest
+       * @return DeleteCredentialProviderResponse
+       */
+      Models::DeleteCredentialProviderResponse deleteCredentialProvider(const Models::DeleteCredentialProviderRequest &request);
 
       /**
        * @summary 删除扩展字段
@@ -1596,6 +1630,23 @@ namespace Eiam20211201
       Models::DisableCredentialResponse disableCredential(const Models::DisableCredentialRequest &request);
 
       /**
+       * @summary 禁用凭据提供商
+       *
+       * @param request DisableCredentialProviderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableCredentialProviderResponse
+       */
+      Models::DisableCredentialProviderResponse disableCredentialProviderWithOptions(const Models::DisableCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 禁用凭据提供商
+       *
+       * @param request DisableCredentialProviderRequest
+       * @return DisableCredentialProviderResponse
+       */
+      Models::DisableCredentialProviderResponse disableCredentialProvider(const Models::DisableCredentialProviderRequest &request);
+
+      /**
        * @summary 禁用字段
        *
        * @param request DisableCustomFieldRequest
@@ -2040,6 +2091,23 @@ namespace Eiam20211201
        * @return EnableCredentialResponse
        */
       Models::EnableCredentialResponse enableCredential(const Models::EnableCredentialRequest &request);
+
+      /**
+       * @summary 启用凭据提供商
+       *
+       * @param request EnableCredentialProviderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableCredentialProviderResponse
+       */
+      Models::EnableCredentialProviderResponse enableCredentialProviderWithOptions(const Models::EnableCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用凭据提供商
+       *
+       * @param request EnableCredentialProviderRequest
+       * @return EnableCredentialProviderResponse
+       */
+      Models::EnableCredentialProviderResponse enableCredentialProvider(const Models::EnableCredentialProviderRequest &request);
 
       /**
        * @summary 启用字段
@@ -2639,6 +2707,23 @@ namespace Eiam20211201
        * @return GetCredentialResponse
        */
       Models::GetCredentialResponse getCredential(const Models::GetCredentialRequest &request);
+
+      /**
+       * @summary 查询凭据提供商详情
+       *
+       * @param request GetCredentialProviderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCredentialProviderResponse
+       */
+      Models::GetCredentialProviderResponse getCredentialProviderWithOptions(const Models::GetCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询凭据提供商详情
+       *
+       * @param request GetCredentialProviderRequest
+       * @return GetCredentialProviderResponse
+       */
+      Models::GetCredentialProviderResponse getCredentialProvider(const Models::GetCredentialProviderRequest &request);
 
       /**
        * @summary 获取扩展字段信息
@@ -3692,6 +3777,23 @@ namespace Eiam20211201
        * @return ListConditionalAccessPoliciesForUserResponse
        */
       Models::ListConditionalAccessPoliciesForUserResponse listConditionalAccessPoliciesForUser(const Models::ListConditionalAccessPoliciesForUserRequest &request);
+
+      /**
+       * @summary 列举凭据提供商
+       *
+       * @param request ListCredentialProvidersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCredentialProvidersResponse
+       */
+      Models::ListCredentialProvidersResponse listCredentialProvidersWithOptions(const Models::ListCredentialProvidersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列举凭据提供商
+       *
+       * @param request ListCredentialProvidersRequest
+       * @return ListCredentialProvidersResponse
+       */
+      Models::ListCredentialProvidersResponse listCredentialProviders(const Models::ListCredentialProvidersRequest &request);
 
       /**
        * @summary 查询凭据列表
@@ -5469,6 +5571,40 @@ namespace Eiam20211201
        * @return UpdateCredentialDescriptionResponse
        */
       Models::UpdateCredentialDescriptionResponse updateCredentialDescription(const Models::UpdateCredentialDescriptionRequest &request);
+
+      /**
+       * @summary 更新凭据提供商
+       *
+       * @param request UpdateCredentialProviderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCredentialProviderResponse
+       */
+      Models::UpdateCredentialProviderResponse updateCredentialProviderWithOptions(const Models::UpdateCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新凭据提供商
+       *
+       * @param request UpdateCredentialProviderRequest
+       * @return UpdateCredentialProviderResponse
+       */
+      Models::UpdateCredentialProviderResponse updateCredentialProvider(const Models::UpdateCredentialProviderRequest &request);
+
+      /**
+       * @summary 更新凭据提供商描述
+       *
+       * @param request UpdateCredentialProviderDescriptionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCredentialProviderDescriptionResponse
+       */
+      Models::UpdateCredentialProviderDescriptionResponse updateCredentialProviderDescriptionWithOptions(const Models::UpdateCredentialProviderDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新凭据提供商描述
+       *
+       * @param request UpdateCredentialProviderDescriptionRequest
+       * @return UpdateCredentialProviderDescriptionResponse
+       */
+      Models::UpdateCredentialProviderDescriptionResponse updateCredentialProviderDescription(const Models::UpdateCredentialProviderDescriptionRequest &request);
 
       /**
        * @summary 更新自定义条款
