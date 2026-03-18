@@ -101,11 +101,15 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const QuotaInfo& obj) { 
         DARABONBA_PTR_TO_JSON(appType, appType_);
         DARABONBA_PTR_TO_JSON(cu, cu_);
+        DARABONBA_PTR_TO_JSON(elastic, elastic_);
+        DARABONBA_PTR_TO_JSON(minCu, minCu_);
         DARABONBA_PTR_TO_JSON(storage, storage_);
       };
       friend void from_json(const Darabonba::Json& j, QuotaInfo& obj) { 
         DARABONBA_PTR_FROM_JSON(appType, appType_);
         DARABONBA_PTR_FROM_JSON(cu, cu_);
+        DARABONBA_PTR_FROM_JSON(elastic, elastic_);
+        DARABONBA_PTR_FROM_JSON(minCu, minCu_);
         DARABONBA_PTR_FROM_JSON(storage, storage_);
       };
       QuotaInfo() = default ;
@@ -120,7 +124,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appType_ == nullptr
-        && this->cu_ == nullptr && this->storage_ == nullptr; };
+        && this->cu_ == nullptr && this->elastic_ == nullptr && this->minCu_ == nullptr && this->storage_ == nullptr; };
       // appType Field Functions 
       bool hasAppType() const { return this->appType_ != nullptr;};
       void deleteAppType() { this->appType_ = nullptr;};
@@ -135,6 +139,20 @@ namespace Models
       inline QuotaInfo& setCu(int32_t cu) { DARABONBA_PTR_SET_VALUE(cu_, cu) };
 
 
+      // elastic Field Functions 
+      bool hasElastic() const { return this->elastic_ != nullptr;};
+      void deleteElastic() { this->elastic_ = nullptr;};
+      inline bool getElastic() const { DARABONBA_PTR_GET_DEFAULT(elastic_, false) };
+      inline QuotaInfo& setElastic(bool elastic) { DARABONBA_PTR_SET_VALUE(elastic_, elastic) };
+
+
+      // minCu Field Functions 
+      bool hasMinCu() const { return this->minCu_ != nullptr;};
+      void deleteMinCu() { this->minCu_ = nullptr;};
+      inline int32_t getMinCu() const { DARABONBA_PTR_GET_DEFAULT(minCu_, 0) };
+      inline QuotaInfo& setMinCu(int32_t minCu) { DARABONBA_PTR_SET_VALUE(minCu_, minCu) };
+
+
       // storage Field Functions 
       bool hasStorage() const { return this->storage_ != nullptr;};
       void deleteStorage() { this->storage_ = nullptr;};
@@ -145,6 +163,8 @@ namespace Models
     protected:
       shared_ptr<string> appType_ {};
       shared_ptr<int32_t> cu_ {};
+      shared_ptr<bool> elastic_ {};
+      shared_ptr<int32_t> minCu_ {};
       shared_ptr<int32_t> storage_ {};
     };
 
