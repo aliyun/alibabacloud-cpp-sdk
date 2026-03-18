@@ -75,7 +75,7 @@ namespace OpenAPIExplorer20241130
       Models::DeleteApiMcpServerResponse deleteApiMcpServer(const Models::DeleteApiMcpServerRequest &request);
 
       /**
-       * @summary Generates commands for the Alibaba Cloud command-line interface (CLI).
+       * @summary Generates an Alibaba Cloud CLI command dynamically.
        *
        * @param tmpReq GenerateCLICommandRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace OpenAPIExplorer20241130
       Models::GenerateCLICommandResponse generateCLICommandWithOptions(const Models::GenerateCLICommandRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates commands for the Alibaba Cloud command-line interface (CLI).
+       * @summary Generates an Alibaba Cloud CLI command dynamically.
        *
        * @param request GenerateCLICommandRequest
        * @return GenerateCLICommandResponse

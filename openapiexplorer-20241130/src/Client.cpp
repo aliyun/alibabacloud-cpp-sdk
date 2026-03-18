@@ -243,7 +243,7 @@ DeleteApiMcpServerResponse Client::deleteApiMcpServer(const DeleteApiMcpServerRe
 }
 
 /**
- * @summary Generates commands for the Alibaba Cloud command-line interface (CLI).
+ * @summary Generates an Alibaba Cloud CLI command dynamically.
  *
  * @param tmpReq GenerateCLICommandRequest
  * @param headers map
@@ -306,7 +306,7 @@ GenerateCLICommandResponse Client::generateCLICommandWithOptions(const GenerateC
 }
 
 /**
- * @summary Generates commands for the Alibaba Cloud command-line interface (CLI).
+ * @summary Generates an Alibaba Cloud CLI command dynamically.
  *
  * @param request GenerateCLICommandRequest
  * @return GenerateCLICommandResponse

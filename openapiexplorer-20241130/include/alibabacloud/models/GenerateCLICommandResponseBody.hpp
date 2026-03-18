@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GenerateCLICommandResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(cli, cli_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(unifiedCli, unifiedCli_);
     };
     friend void from_json(const Darabonba::Json& j, GenerateCLICommandResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(cli, cli_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(unifiedCli, unifiedCli_);
     };
     GenerateCLICommandResponseBody() = default ;
     GenerateCLICommandResponseBody(const GenerateCLICommandResponseBody &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cli_ == nullptr
-        && this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr && this->unifiedCli_ == nullptr; };
     // cli Field Functions 
     bool hasCli() const { return this->cli_ != nullptr;};
     void deleteCli() { this->cli_ = nullptr;};
@@ -47,11 +49,19 @@ namespace Models
     inline GenerateCLICommandResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // unifiedCli Field Functions 
+    bool hasUnifiedCli() const { return this->unifiedCli_ != nullptr;};
+    void deleteUnifiedCli() { this->unifiedCli_ = nullptr;};
+    inline string getUnifiedCli() const { DARABONBA_PTR_GET_DEFAULT(unifiedCli_, "") };
+    inline GenerateCLICommandResponseBody& setUnifiedCli(string unifiedCli) { DARABONBA_PTR_SET_VALUE(unifiedCli_, unifiedCli) };
+
+
   protected:
-    // The CLI instruction.
+    // CLI command.
     shared_ptr<string> cli_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    shared_ptr<string> unifiedCli_ {};
   };
 
   } // namespace Models
