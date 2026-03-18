@@ -1,0 +1,112 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_APIKEYDTO_HPP_
+#define ALIBABACLOUD_MODELS_APIKEYDTO_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/ClientDTO.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AiContent20240611
+{
+namespace Models
+{
+  class ApiKeyDTO : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ApiKeyDTO& obj) { 
+      DARABONBA_PTR_TO_JSON(client, client_);
+      DARABONBA_PTR_TO_JSON(clientId, clientId_);
+      DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
+      DARABONBA_PTR_TO_JSON(gmtModified, gmtModified_);
+      DARABONBA_PTR_TO_JSON(id, id_);
+      DARABONBA_PTR_TO_JSON(keyPreview, keyPreview_);
+      DARABONBA_PTR_TO_JSON(name, name_);
+    };
+    friend void from_json(const Darabonba::Json& j, ApiKeyDTO& obj) { 
+      DARABONBA_PTR_FROM_JSON(client, client_);
+      DARABONBA_PTR_FROM_JSON(clientId, clientId_);
+      DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
+      DARABONBA_PTR_FROM_JSON(gmtModified, gmtModified_);
+      DARABONBA_PTR_FROM_JSON(id, id_);
+      DARABONBA_PTR_FROM_JSON(keyPreview, keyPreview_);
+      DARABONBA_PTR_FROM_JSON(name, name_);
+    };
+    ApiKeyDTO() = default ;
+    ApiKeyDTO(const ApiKeyDTO &) = default ;
+    ApiKeyDTO(ApiKeyDTO &&) = default ;
+    ApiKeyDTO(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ApiKeyDTO() = default ;
+    ApiKeyDTO& operator=(const ApiKeyDTO &) = default ;
+    ApiKeyDTO& operator=(ApiKeyDTO &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->client_ == nullptr
+        && this->clientId_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr && this->keyPreview_ == nullptr
+        && this->name_ == nullptr; };
+    // client Field Functions 
+    bool hasClient() const { return this->client_ != nullptr;};
+    void deleteClient() { this->client_ = nullptr;};
+    inline const ClientDTO & getClient() const { DARABONBA_PTR_GET_CONST(client_, ClientDTO) };
+    inline ClientDTO getClient() { DARABONBA_PTR_GET(client_, ClientDTO) };
+    inline ApiKeyDTO& setClient(const ClientDTO & client) { DARABONBA_PTR_SET_VALUE(client_, client) };
+    inline ApiKeyDTO& setClient(ClientDTO && client) { DARABONBA_PTR_SET_RVALUE(client_, client) };
+
+
+    // clientId Field Functions 
+    bool hasClientId() const { return this->clientId_ != nullptr;};
+    void deleteClientId() { this->clientId_ = nullptr;};
+    inline int64_t getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, 0L) };
+    inline ApiKeyDTO& setClientId(int64_t clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
+
+
+    // gmtCreate Field Functions 
+    bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
+    void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
+    inline string getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
+    inline ApiKeyDTO& setGmtCreate(string gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
+
+
+    // gmtModified Field Functions 
+    bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
+    void deleteGmtModified() { this->gmtModified_ = nullptr;};
+    inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+    inline ApiKeyDTO& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
+
+
+    // id Field Functions 
+    bool hasId() const { return this->id_ != nullptr;};
+    void deleteId() { this->id_ = nullptr;};
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline ApiKeyDTO& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // keyPreview Field Functions 
+    bool hasKeyPreview() const { return this->keyPreview_ != nullptr;};
+    void deleteKeyPreview() { this->keyPreview_ = nullptr;};
+    inline string getKeyPreview() const { DARABONBA_PTR_GET_DEFAULT(keyPreview_, "") };
+    inline ApiKeyDTO& setKeyPreview(string keyPreview) { DARABONBA_PTR_SET_VALUE(keyPreview_, keyPreview) };
+
+
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline ApiKeyDTO& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+  protected:
+    shared_ptr<ClientDTO> client_ {};
+    shared_ptr<int64_t> clientId_ {};
+    shared_ptr<string> gmtCreate_ {};
+    shared_ptr<string> gmtModified_ {};
+    shared_ptr<int64_t> id_ {};
+    shared_ptr<string> keyPreview_ {};
+    shared_ptr<string> name_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AiContent20240611
+#endif

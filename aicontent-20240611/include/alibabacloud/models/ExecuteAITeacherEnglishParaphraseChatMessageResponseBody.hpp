@@ -1,0 +1,68 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_EXECUTEAITEACHERENGLISHPARAPHRASECHATMESSAGERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_EXECUTEAITEACHERENGLISHPARAPHRASECHATMESSAGERESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AiContent20240611
+{
+namespace Models
+{
+  class ExecuteAITeacherEnglishParaphraseChatMessageResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ExecuteAITeacherEnglishParaphraseChatMessageResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(content, content_);
+      DARABONBA_PTR_TO_JSON(event, event_);
+      DARABONBA_PTR_TO_JSON(requestId, requestId_);
+    };
+    friend void from_json(const Darabonba::Json& j, ExecuteAITeacherEnglishParaphraseChatMessageResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(content, content_);
+      DARABONBA_PTR_FROM_JSON(event, event_);
+      DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+    };
+    ExecuteAITeacherEnglishParaphraseChatMessageResponseBody() = default ;
+    ExecuteAITeacherEnglishParaphraseChatMessageResponseBody(const ExecuteAITeacherEnglishParaphraseChatMessageResponseBody &) = default ;
+    ExecuteAITeacherEnglishParaphraseChatMessageResponseBody(ExecuteAITeacherEnglishParaphraseChatMessageResponseBody &&) = default ;
+    ExecuteAITeacherEnglishParaphraseChatMessageResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ExecuteAITeacherEnglishParaphraseChatMessageResponseBody() = default ;
+    ExecuteAITeacherEnglishParaphraseChatMessageResponseBody& operator=(const ExecuteAITeacherEnglishParaphraseChatMessageResponseBody &) = default ;
+    ExecuteAITeacherEnglishParaphraseChatMessageResponseBody& operator=(ExecuteAITeacherEnglishParaphraseChatMessageResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->content_ == nullptr
+        && this->event_ == nullptr && this->requestId_ == nullptr; };
+    // content Field Functions 
+    bool hasContent() const { return this->content_ != nullptr;};
+    void deleteContent() { this->content_ = nullptr;};
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline ExecuteAITeacherEnglishParaphraseChatMessageResponseBody& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+    // event Field Functions 
+    bool hasEvent() const { return this->event_ != nullptr;};
+    void deleteEvent() { this->event_ = nullptr;};
+    inline string getEvent() const { DARABONBA_PTR_GET_DEFAULT(event_, "") };
+    inline ExecuteAITeacherEnglishParaphraseChatMessageResponseBody& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline ExecuteAITeacherEnglishParaphraseChatMessageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+  protected:
+    shared_ptr<string> content_ {};
+    shared_ptr<string> event_ {};
+    shared_ptr<string> requestId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AiContent20240611
+#endif

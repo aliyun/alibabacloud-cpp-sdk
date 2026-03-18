@@ -1,0 +1,121 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_MODELROUTERCREATEMODELREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_MODELROUTERCREATEMODELREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AiContent20240611
+{
+namespace Models
+{
+  class ModelRouterCreateModelRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ModelRouterCreateModelRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(apiKey, apiKey_);
+      DARABONBA_PTR_TO_JSON(baseUrl, baseUrl_);
+      DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(modelId, modelId_);
+      DARABONBA_PTR_TO_JSON(modelType, modelType_);
+      DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(symbol, symbol_);
+      DARABONBA_PTR_TO_JSON(tags, tags_);
+    };
+    friend void from_json(const Darabonba::Json& j, ModelRouterCreateModelRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(apiKey, apiKey_);
+      DARABONBA_PTR_FROM_JSON(baseUrl, baseUrl_);
+      DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(modelId, modelId_);
+      DARABONBA_PTR_FROM_JSON(modelType, modelType_);
+      DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(symbol, symbol_);
+      DARABONBA_PTR_FROM_JSON(tags, tags_);
+    };
+    ModelRouterCreateModelRequest() = default ;
+    ModelRouterCreateModelRequest(const ModelRouterCreateModelRequest &) = default ;
+    ModelRouterCreateModelRequest(ModelRouterCreateModelRequest &&) = default ;
+    ModelRouterCreateModelRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ModelRouterCreateModelRequest() = default ;
+    ModelRouterCreateModelRequest& operator=(const ModelRouterCreateModelRequest &) = default ;
+    ModelRouterCreateModelRequest& operator=(ModelRouterCreateModelRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->apiKey_ == nullptr
+        && this->baseUrl_ == nullptr && this->description_ == nullptr && this->modelId_ == nullptr && this->modelType_ == nullptr && this->name_ == nullptr
+        && this->symbol_ == nullptr && this->tags_ == nullptr; };
+    // apiKey Field Functions 
+    bool hasApiKey() const { return this->apiKey_ != nullptr;};
+    void deleteApiKey() { this->apiKey_ = nullptr;};
+    inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
+    inline ModelRouterCreateModelRequest& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
+
+
+    // baseUrl Field Functions 
+    bool hasBaseUrl() const { return this->baseUrl_ != nullptr;};
+    void deleteBaseUrl() { this->baseUrl_ = nullptr;};
+    inline string getBaseUrl() const { DARABONBA_PTR_GET_DEFAULT(baseUrl_, "") };
+    inline ModelRouterCreateModelRequest& setBaseUrl(string baseUrl) { DARABONBA_PTR_SET_VALUE(baseUrl_, baseUrl) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline ModelRouterCreateModelRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // modelId Field Functions 
+    bool hasModelId() const { return this->modelId_ != nullptr;};
+    void deleteModelId() { this->modelId_ = nullptr;};
+    inline string getModelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
+    inline ModelRouterCreateModelRequest& setModelId(string modelId) { DARABONBA_PTR_SET_VALUE(modelId_, modelId) };
+
+
+    // modelType Field Functions 
+    bool hasModelType() const { return this->modelType_ != nullptr;};
+    void deleteModelType() { this->modelType_ = nullptr;};
+    inline string getModelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
+    inline ModelRouterCreateModelRequest& setModelType(string modelType) { DARABONBA_PTR_SET_VALUE(modelType_, modelType) };
+
+
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline ModelRouterCreateModelRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // symbol Field Functions 
+    bool hasSymbol() const { return this->symbol_ != nullptr;};
+    void deleteSymbol() { this->symbol_ = nullptr;};
+    inline string getSymbol() const { DARABONBA_PTR_GET_DEFAULT(symbol_, "") };
+    inline ModelRouterCreateModelRequest& setSymbol(string symbol) { DARABONBA_PTR_SET_VALUE(symbol_, symbol) };
+
+
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+    inline ModelRouterCreateModelRequest& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+
+
+  protected:
+    // API Key
+    shared_ptr<string> apiKey_ {};
+    // Base URL
+    shared_ptr<string> baseUrl_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> modelId_ {};
+    shared_ptr<string> modelType_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> symbol_ {};
+    shared_ptr<string> tags_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AiContent20240611
+#endif
