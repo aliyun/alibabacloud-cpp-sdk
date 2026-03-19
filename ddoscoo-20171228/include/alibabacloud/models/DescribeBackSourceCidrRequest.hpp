@@ -35,41 +35,41 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ipVersion_ != nullptr
-        && this->line_ != nullptr && this->resourceGroupId_ != nullptr && this->sourceIp_ != nullptr; };
+    virtual bool empty() const override { return this->ipVersion_ == nullptr
+        && this->line_ == nullptr && this->resourceGroupId_ == nullptr && this->sourceIp_ == nullptr; };
     // ipVersion Field Functions 
     bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
     void deleteIpVersion() { this->ipVersion_ = nullptr;};
-    inline string ipVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
+    inline string getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
     inline DescribeBackSourceCidrRequest& setIpVersion(string ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
 
 
     // line Field Functions 
     bool hasLine() const { return this->line_ != nullptr;};
     void deleteLine() { this->line_ = nullptr;};
-    inline string line() const { DARABONBA_PTR_GET_DEFAULT(line_, "") };
+    inline string getLine() const { DARABONBA_PTR_GET_DEFAULT(line_, "") };
     inline DescribeBackSourceCidrRequest& setLine(string line) { DARABONBA_PTR_SET_VALUE(line_, line) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeBackSourceCidrRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeBackSourceCidrRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
   protected:
-    std::shared_ptr<string> ipVersion_ = nullptr;
-    std::shared_ptr<string> line_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> ipVersion_ {};
+    shared_ptr<string> line_ {};
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

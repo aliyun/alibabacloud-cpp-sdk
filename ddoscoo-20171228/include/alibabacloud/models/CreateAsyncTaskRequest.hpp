@@ -33,35 +33,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->resourceGroupId_ != nullptr
-        && this->taskParams_ != nullptr && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->resourceGroupId_ == nullptr
+        && this->taskParams_ == nullptr && this->taskType_ == nullptr; };
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateAsyncTaskRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // taskParams Field Functions 
     bool hasTaskParams() const { return this->taskParams_ != nullptr;};
     void deleteTaskParams() { this->taskParams_ = nullptr;};
-    inline string taskParams() const { DARABONBA_PTR_GET_DEFAULT(taskParams_, "") };
+    inline string getTaskParams() const { DARABONBA_PTR_GET_DEFAULT(taskParams_, "") };
     inline CreateAsyncTaskRequest& setTaskParams(string taskParams) { DARABONBA_PTR_SET_VALUE(taskParams_, taskParams) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline int32_t taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, 0) };
+    inline int32_t getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, 0) };
     inline CreateAsyncTaskRequest& setTaskType(int32_t taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
   protected:
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskParams_ = nullptr;
+    shared_ptr<string> taskParams_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> taskType_ = nullptr;
+    shared_ptr<int32_t> taskType_ {};
   };
 
   } // namespace Models

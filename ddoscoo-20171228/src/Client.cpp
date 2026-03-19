@@ -36,6 +36,8 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 增加CC规则
+ *
  * @param request AddLayer7CCRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddLayer7CCRuleResponse
@@ -44,39 +46,39 @@ AddLayer7CCRuleResponse Client::addLayer7CCRuleWithOptions(const AddLayer7CCRule
   request.validate();
   json query = {};
   if (!!request.hasAct()) {
-    query["Act"] = request.act();
+    query["Act"] = request.getAct();
   }
 
   if (!!request.hasCount()) {
-    query["Count"] = request.count();
+    query["Count"] = request.getCount();
   }
 
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasInterval()) {
-    query["Interval"] = request.interval();
+    query["Interval"] = request.getInterval();
   }
 
   if (!!request.hasMode()) {
-    query["Mode"] = request.mode();
+    query["Mode"] = request.getMode();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTtl()) {
-    query["Ttl"] = request.ttl();
+    query["Ttl"] = request.getTtl();
   }
 
   if (!!request.hasUri()) {
-    query["Uri"] = request.uri();
+    query["Uri"] = request.getUri();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -97,6 +99,8 @@ AddLayer7CCRuleResponse Client::addLayer7CCRuleWithOptions(const AddLayer7CCRule
 }
 
 /**
+ * @summary 增加CC规则
+ *
  * @param request AddLayer7CCRuleRequest
  * @return AddLayer7CCRuleResponse
  */
@@ -106,6 +110,8 @@ AddLayer7CCRuleResponse Client::addLayer7CCRule(const AddLayer7CCRuleRequest &re
 }
 
 /**
+ * @summary 关闭日志分发
+ *
  * @param request CloseDomainSlsConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CloseDomainSlsConfigResponse
@@ -114,19 +120,19 @@ CloseDomainSlsConfigResponse Client::closeDomainSlsConfigWithOptions(const Close
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -147,6 +153,8 @@ CloseDomainSlsConfigResponse Client::closeDomainSlsConfigWithOptions(const Close
 }
 
 /**
+ * @summary 关闭日志分发
+ *
  * @param request CloseDomainSlsConfigRequest
  * @return CloseDomainSlsConfigResponse
  */
@@ -156,6 +164,8 @@ CloseDomainSlsConfigResponse Client::closeDomainSlsConfig(const CloseDomainSlsCo
 }
 
 /**
+ * @summary 修改健康检查
+ *
  * @param request ConfigHealthCheckRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ConfigHealthCheckResponse
@@ -164,19 +174,19 @@ ConfigHealthCheckResponse Client::configHealthCheckWithOptions(const ConfigHealt
   request.validate();
   json query = {};
   if (!!request.hasForwardProtocol()) {
-    query["ForwardProtocol"] = request.forwardProtocol();
+    query["ForwardProtocol"] = request.getForwardProtocol();
   }
 
   if (!!request.hasFrontendPort()) {
-    query["FrontendPort"] = request.frontendPort();
+    query["FrontendPort"] = request.getFrontendPort();
   }
 
   if (!!request.hasHealthCheck()) {
-    query["HealthCheck"] = request.healthCheck();
+    query["HealthCheck"] = request.getHealthCheck();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -197,6 +207,8 @@ ConfigHealthCheckResponse Client::configHealthCheckWithOptions(const ConfigHealt
 }
 
 /**
+ * @summary 修改健康检查
+ *
  * @param request ConfigHealthCheckRequest
  * @return ConfigHealthCheckResponse
  */
@@ -206,6 +218,8 @@ ConfigHealthCheckResponse Client::configHealthCheck(const ConfigHealthCheckReque
 }
 
 /**
+ * @summary 修改端口规则
+ *
  * @param tmpReq ConfigLayer4RuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ConfigLayer4RuleResponse
@@ -215,20 +229,20 @@ ConfigLayer4RuleResponse Client::configLayer4RuleWithOptions(const ConfigLayer4R
   ConfigLayer4RuleShrinkRequest request = ConfigLayer4RuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUsTimeout()) {
-    request.setUsTimeoutShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.usTimeout(), "UsTimeout", "json"));
+    request.setUsTimeoutShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUsTimeout(), "UsTimeout", "json"));
   }
 
   json query = {};
   if (!!request.hasListeners()) {
-    query["Listeners"] = request.listeners();
+    query["Listeners"] = request.getListeners();
   }
 
   if (!!request.hasProxyEnable()) {
-    query["ProxyEnable"] = request.proxyEnable();
+    query["ProxyEnable"] = request.getProxyEnable();
   }
 
   if (!!request.hasUsTimeoutShrink()) {
-    query["UsTimeout"] = request.usTimeoutShrink();
+    query["UsTimeout"] = request.getUsTimeoutShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -249,6 +263,8 @@ ConfigLayer4RuleResponse Client::configLayer4RuleWithOptions(const ConfigLayer4R
 }
 
 /**
+ * @summary 修改端口规则
+ *
  * @param request ConfigLayer4RuleRequest
  * @return ConfigLayer4RuleResponse
  */
@@ -258,6 +274,8 @@ ConfigLayer4RuleResponse Client::configLayer4Rule(const ConfigLayer4RuleRequest 
 }
 
 /**
+ * @summary 修改端口规则属性
+ *
  * @param request ConfigLayer4RuleAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ConfigLayer4RuleAttributeResponse
@@ -266,23 +284,23 @@ ConfigLayer4RuleAttributeResponse Client::configLayer4RuleAttributeWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasConfig()) {
-    query["Config"] = request.config();
+    query["Config"] = request.getConfig();
   }
 
   if (!!request.hasForwardProtocol()) {
-    query["ForwardProtocol"] = request.forwardProtocol();
+    query["ForwardProtocol"] = request.getForwardProtocol();
   }
 
   if (!!request.hasFrontendPort()) {
-    query["FrontendPort"] = request.frontendPort();
+    query["FrontendPort"] = request.getFrontendPort();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasModule()) {
-    query["Module"] = request.module();
+    query["Module"] = request.getModule();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -303,6 +321,8 @@ ConfigLayer4RuleAttributeResponse Client::configLayer4RuleAttributeWithOptions(c
 }
 
 /**
+ * @summary 修改端口规则属性
+ *
  * @param request ConfigLayer4RuleAttributeRequest
  * @return ConfigLayer4RuleAttributeResponse
  */
@@ -312,6 +332,8 @@ ConfigLayer4RuleAttributeResponse Client::configLayer4RuleAttribute(const Config
 }
 
 /**
+ * @summary 修改黑白名单
+ *
  * @param request ConfigLayer7BlackWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ConfigLayer7BlackWhiteListResponse
@@ -320,19 +342,19 @@ ConfigLayer7BlackWhiteListResponse Client::configLayer7BlackWhiteListWithOptions
   request.validate();
   json query = {};
   if (!!request.hasBlackList()) {
-    query["BlackList"] = request.blackList();
+    query["BlackList"] = request.getBlackList();
   }
 
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasWhiteList()) {
-    query["WhiteList"] = request.whiteList();
+    query["WhiteList"] = request.getWhiteList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -353,6 +375,8 @@ ConfigLayer7BlackWhiteListResponse Client::configLayer7BlackWhiteListWithOptions
 }
 
 /**
+ * @summary 修改黑白名单
+ *
  * @param request ConfigLayer7BlackWhiteListRequest
  * @return ConfigLayer7BlackWhiteListResponse
  */
@@ -362,6 +386,8 @@ ConfigLayer7BlackWhiteListResponse Client::configLayer7BlackWhiteList(const Conf
 }
 
 /**
+ * @summary 修改CC规则
+ *
  * @param request ConfigLayer7CCRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ConfigLayer7CCRuleResponse
@@ -370,39 +396,39 @@ ConfigLayer7CCRuleResponse Client::configLayer7CCRuleWithOptions(const ConfigLay
   request.validate();
   json query = {};
   if (!!request.hasAct()) {
-    query["Act"] = request.act();
+    query["Act"] = request.getAct();
   }
 
   if (!!request.hasCount()) {
-    query["Count"] = request.count();
+    query["Count"] = request.getCount();
   }
 
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasInterval()) {
-    query["Interval"] = request.interval();
+    query["Interval"] = request.getInterval();
   }
 
   if (!!request.hasMode()) {
-    query["Mode"] = request.mode();
+    query["Mode"] = request.getMode();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTtl()) {
-    query["Ttl"] = request.ttl();
+    query["Ttl"] = request.getTtl();
   }
 
   if (!!request.hasUri()) {
-    query["Uri"] = request.uri();
+    query["Uri"] = request.getUri();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -423,6 +449,8 @@ ConfigLayer7CCRuleResponse Client::configLayer7CCRuleWithOptions(const ConfigLay
 }
 
 /**
+ * @summary 修改CC规则
+ *
  * @param request ConfigLayer7CCRuleRequest
  * @return ConfigLayer7CCRuleResponse
  */
@@ -432,6 +460,8 @@ ConfigLayer7CCRuleResponse Client::configLayer7CCRule(const ConfigLayer7CCRuleRe
 }
 
 /**
+ * @summary 修改CC模板
+ *
  * @param request ConfigLayer7CCTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ConfigLayer7CCTemplateResponse
@@ -440,15 +470,15 @@ ConfigLayer7CCTemplateResponse Client::configLayer7CCTemplateWithOptions(const C
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTemplate()) {
-    query["Template"] = request._template();
+    query["Template"] = request.getTemplate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -469,6 +499,8 @@ ConfigLayer7CCTemplateResponse Client::configLayer7CCTemplateWithOptions(const C
 }
 
 /**
+ * @summary 修改CC模板
+ *
  * @param request ConfigLayer7CCTemplateRequest
  * @return ConfigLayer7CCTemplateResponse
  */
@@ -478,6 +510,8 @@ ConfigLayer7CCTemplateResponse Client::configLayer7CCTemplate(const ConfigLayer7
 }
 
 /**
+ * @summary 修改证书
+ *
  * @param request ConfigLayer7CertRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ConfigLayer7CertResponse
@@ -486,35 +520,35 @@ ConfigLayer7CertResponse Client::configLayer7CertWithOptions(const ConfigLayer7C
   request.validate();
   json query = {};
   if (!!request.hasCert()) {
-    query["Cert"] = request.cert();
+    query["Cert"] = request.getCert();
   }
 
   if (!!request.hasCertId()) {
-    query["CertId"] = request.certId();
+    query["CertId"] = request.getCertId();
   }
 
   if (!!request.hasCertIdentifier()) {
-    query["CertIdentifier"] = request.certIdentifier();
+    query["CertIdentifier"] = request.getCertIdentifier();
   }
 
   if (!!request.hasCertName()) {
-    query["CertName"] = request.certName();
+    query["CertName"] = request.getCertName();
   }
 
   if (!!request.hasCertRegion()) {
-    query["CertRegion"] = request.certRegion();
+    query["CertRegion"] = request.getCertRegion();
   }
 
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasKey()) {
-    query["Key"] = request.key();
+    query["Key"] = request.getKey();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -535,6 +569,8 @@ ConfigLayer7CertResponse Client::configLayer7CertWithOptions(const ConfigLayer7C
 }
 
 /**
+ * @summary 修改证书
+ *
  * @param request ConfigLayer7CertRequest
  * @return ConfigLayer7CertResponse
  */
@@ -544,6 +580,8 @@ ConfigLayer7CertResponse Client::configLayer7Cert(const ConfigLayer7CertRequest 
 }
 
 /**
+ * @summary 修改域名接入规则
+ *
  * @param request ConfigLayer7RuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ConfigLayer7RuleResponse
@@ -552,31 +590,31 @@ ConfigLayer7RuleResponse Client::configLayer7RuleWithOptions(const ConfigLayer7R
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasProxyTypeList()) {
-    query["ProxyTypeList"] = request.proxyTypeList();
+    query["ProxyTypeList"] = request.getProxyTypeList();
   }
 
   if (!!request.hasProxyTypes()) {
-    query["ProxyTypes"] = request.proxyTypes();
+    query["ProxyTypes"] = request.getProxyTypes();
   }
 
   if (!!request.hasRealServers()) {
-    query["RealServers"] = request.realServers();
+    query["RealServers"] = request.getRealServers();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasRsType()) {
-    query["RsType"] = request.rsType();
+    query["RsType"] = request.getRsType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -597,6 +635,8 @@ ConfigLayer7RuleResponse Client::configLayer7RuleWithOptions(const ConfigLayer7R
 }
 
 /**
+ * @summary 修改域名接入规则
+ *
  * @param request ConfigLayer7RuleRequest
  * @return ConfigLayer7RuleResponse
  */
@@ -606,6 +646,8 @@ ConfigLayer7RuleResponse Client::configLayer7Rule(const ConfigLayer7RuleRequest 
 }
 
 /**
+ * @summary 创建异步任务
+ *
  * @param request CreateAsyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateAsyncTaskResponse
@@ -614,15 +656,15 @@ CreateAsyncTaskResponse Client::createAsyncTaskWithOptions(const CreateAsyncTask
   request.validate();
   json query = {};
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTaskParams()) {
-    query["TaskParams"] = request.taskParams();
+    query["TaskParams"] = request.getTaskParams();
   }
 
   if (!!request.hasTaskType()) {
-    query["TaskType"] = request.taskType();
+    query["TaskType"] = request.getTaskType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -643,6 +685,8 @@ CreateAsyncTaskResponse Client::createAsyncTaskWithOptions(const CreateAsyncTask
 }
 
 /**
+ * @summary 创建异步任务
+ *
  * @param request CreateAsyncTaskRequest
  * @return CreateAsyncTaskResponse
  */
@@ -652,6 +696,8 @@ CreateAsyncTaskResponse Client::createAsyncTask(const CreateAsyncTaskRequest &re
 }
 
 /**
+ * @summary 创建端口接入
+ *
  * @param tmpReq CreateLayer4RuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateLayer4RuleResponse
@@ -661,20 +707,20 @@ CreateLayer4RuleResponse Client::createLayer4RuleWithOptions(const CreateLayer4R
   CreateLayer4RuleShrinkRequest request = CreateLayer4RuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUsTimeout()) {
-    request.setUsTimeoutShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.usTimeout(), "UsTimeout", "json"));
+    request.setUsTimeoutShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUsTimeout(), "UsTimeout", "json"));
   }
 
   json query = {};
   if (!!request.hasListeners()) {
-    query["Listeners"] = request.listeners();
+    query["Listeners"] = request.getListeners();
   }
 
   if (!!request.hasProxyEnable()) {
-    query["ProxyEnable"] = request.proxyEnable();
+    query["ProxyEnable"] = request.getProxyEnable();
   }
 
   if (!!request.hasUsTimeoutShrink()) {
-    query["UsTimeout"] = request.usTimeoutShrink();
+    query["UsTimeout"] = request.getUsTimeoutShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -695,6 +741,8 @@ CreateLayer4RuleResponse Client::createLayer4RuleWithOptions(const CreateLayer4R
 }
 
 /**
+ * @summary 创建端口接入
+ *
  * @param request CreateLayer4RuleRequest
  * @return CreateLayer4RuleResponse
  */
@@ -704,6 +752,8 @@ CreateLayer4RuleResponse Client::createLayer4Rule(const CreateLayer4RuleRequest 
 }
 
 /**
+ * @summary 创建域名接入规则
+ *
  * @param request CreateLayer7RuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateLayer7RuleResponse
@@ -712,23 +762,23 @@ CreateLayer7RuleResponse Client::createLayer7RuleWithOptions(const CreateLayer7R
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasRsType()) {
-    query["RsType"] = request.rsType();
+    query["RsType"] = request.getRsType();
   }
 
   if (!!request.hasRules()) {
-    query["Rules"] = request.rules();
+    query["Rules"] = request.getRules();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -749,6 +799,8 @@ CreateLayer7RuleResponse Client::createLayer7RuleWithOptions(const CreateLayer7R
 }
 
 /**
+ * @summary 创建域名接入规则
+ *
  * @param request CreateLayer7RuleRequest
  * @return CreateLayer7RuleResponse
  */
@@ -758,6 +810,8 @@ CreateLayer7RuleResponse Client::createLayer7Rule(const CreateLayer7RuleRequest 
 }
 
 /**
+ * @summary 删除异步任务
+ *
  * @param request DeleteAsyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAsyncTaskResponse
@@ -766,11 +820,11 @@ DeleteAsyncTaskResponse Client::deleteAsyncTaskWithOptions(const DeleteAsyncTask
   request.validate();
   json query = {};
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -791,6 +845,8 @@ DeleteAsyncTaskResponse Client::deleteAsyncTaskWithOptions(const DeleteAsyncTask
 }
 
 /**
+ * @summary 删除异步任务
+ *
  * @param request DeleteAsyncTaskRequest
  * @return DeleteAsyncTaskResponse
  */
@@ -800,6 +856,8 @@ DeleteAsyncTaskResponse Client::deleteAsyncTask(const DeleteAsyncTaskRequest &re
 }
 
 /**
+ * @summary 删除端口接入规则
+ *
  * @param request DeleteLayer4RuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteLayer4RuleResponse
@@ -808,7 +866,7 @@ DeleteLayer4RuleResponse Client::deleteLayer4RuleWithOptions(const DeleteLayer4R
   request.validate();
   json query = {};
   if (!!request.hasListeners()) {
-    query["Listeners"] = request.listeners();
+    query["Listeners"] = request.getListeners();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -829,6 +887,8 @@ DeleteLayer4RuleResponse Client::deleteLayer4RuleWithOptions(const DeleteLayer4R
 }
 
 /**
+ * @summary 删除端口接入规则
+ *
  * @param request DeleteLayer4RuleRequest
  * @return DeleteLayer4RuleResponse
  */
@@ -838,6 +898,8 @@ DeleteLayer4RuleResponse Client::deleteLayer4Rule(const DeleteLayer4RuleRequest 
 }
 
 /**
+ * @summary 删除CC规则
+ *
  * @param request DeleteLayer7CCRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteLayer7CCRuleResponse
@@ -846,15 +908,15 @@ DeleteLayer7CCRuleResponse Client::deleteLayer7CCRuleWithOptions(const DeleteLay
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -875,6 +937,8 @@ DeleteLayer7CCRuleResponse Client::deleteLayer7CCRuleWithOptions(const DeleteLay
 }
 
 /**
+ * @summary 删除CC规则
+ *
  * @param request DeleteLayer7CCRuleRequest
  * @return DeleteLayer7CCRuleResponse
  */
@@ -884,6 +948,8 @@ DeleteLayer7CCRuleResponse Client::deleteLayer7CCRule(const DeleteLayer7CCRuleRe
 }
 
 /**
+ * @summary 删除域名接入规则
+ *
  * @param request DeleteLayer7RuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteLayer7RuleResponse
@@ -892,11 +958,11 @@ DeleteLayer7RuleResponse Client::deleteLayer7RuleWithOptions(const DeleteLayer7R
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -917,6 +983,8 @@ DeleteLayer7RuleResponse Client::deleteLayer7RuleWithOptions(const DeleteLayer7R
 }
 
 /**
+ * @summary 删除域名接入规则
+ *
  * @param request DeleteLayer7RuleRequest
  * @return DeleteLayer7RuleResponse
  */
@@ -926,6 +994,8 @@ DeleteLayer7RuleResponse Client::deleteLayer7Rule(const DeleteLayer7RuleRequest 
 }
 
 /**
+ * @summary 查询回源网段
+ *
  * @param request DescribeBackSourceCidrRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeBackSourceCidrResponse
@@ -934,19 +1004,19 @@ DescribeBackSourceCidrResponse Client::describeBackSourceCidrWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasIpVersion()) {
-    query["IpVersion"] = request.ipVersion();
+    query["IpVersion"] = request.getIpVersion();
   }
 
   if (!!request.hasLine()) {
-    query["Line"] = request.line();
+    query["Line"] = request.getLine();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -967,6 +1037,8 @@ DescribeBackSourceCidrResponse Client::describeBackSourceCidrWithOptions(const D
 }
 
 /**
+ * @summary 查询回源网段
+ *
  * @param request DescribeBackSourceCidrRequest
  * @return DescribeBackSourceCidrResponse
  */
@@ -986,23 +1058,23 @@ DescribeBatchSlsDispatchStatusResponse Client::describeBatchSlsDispatchStatusWit
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1034,6 +1106,8 @@ DescribeBatchSlsDispatchStatusResponse Client::describeBatchSlsDispatchStatus(co
 }
 
 /**
+ * @summary 查询事件
+ *
  * @param request DescribeDDoSEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDDoSEventsResponse
@@ -1042,31 +1116,31 @@ DescribeDDoSEventsResponse Client::describeDDoSEventsWithOptions(const DescribeD
   request.validate();
   json query = {};
   if (!!request.hasEip()) {
-    query["Eip"] = request.eip();
+    query["Eip"] = request.getEip();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasOffset()) {
-    query["Offset"] = request.offset();
+    query["Offset"] = request.getOffset();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1087,6 +1161,8 @@ DescribeDDoSEventsResponse Client::describeDDoSEventsWithOptions(const DescribeD
 }
 
 /**
+ * @summary 查询事件
+ *
  * @param request DescribeDDoSEventsRequest
  * @return DescribeDDoSEventsResponse
  */
@@ -1096,6 +1172,8 @@ DescribeDDoSEventsResponse Client::describeDDoSEvents(const DescribeDDoSEventsRe
 }
 
 /**
+ * @summary 查询流量
+ *
  * @param request DescribeDDoSTrafficRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDDoSTrafficResponse
@@ -1104,27 +1182,27 @@ DescribeDDoSTrafficResponse Client::describeDDoSTrafficWithOptions(const Describ
   request.validate();
   json query = {};
   if (!!request.hasEip()) {
-    query["Eip"] = request.eip();
+    query["Eip"] = request.getEip();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInterval()) {
-    query["Interval"] = request.interval();
+    query["Interval"] = request.getInterval();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1145,6 +1223,8 @@ DescribeDDoSTrafficResponse Client::describeDDoSTrafficWithOptions(const Describ
 }
 
 /**
+ * @summary 查询流量
+ *
  * @param request DescribeDDoSTrafficRequest
  * @return DescribeDDoSTrafficResponse
  */
@@ -1154,6 +1234,8 @@ DescribeDDoSTrafficResponse Client::describeDDoSTraffic(const DescribeDDoSTraffi
 }
 
 /**
+ * @summary 查询防护次数
+ *
  * @param request DescribeDefenseCountStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDefenseCountStatisticsResponse
@@ -1162,11 +1244,11 @@ DescribeDefenseCountStatisticsResponse Client::describeDefenseCountStatisticsWit
   request.validate();
   json query = {};
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1187,6 +1269,8 @@ DescribeDefenseCountStatisticsResponse Client::describeDefenseCountStatisticsWit
 }
 
 /**
+ * @summary 查询防护次数
+ *
  * @param request DescribeDefenseCountStatisticsRequest
  * @return DescribeDefenseCountStatisticsResponse
  */
@@ -1196,6 +1280,8 @@ DescribeDefenseCountStatisticsResponse Client::describeDefenseCountStatistics(co
 }
 
 /**
+ * @summary 查询域名接入模式
+ *
  * @param request DescribeDomainAccessModeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDomainAccessModeResponse
@@ -1204,11 +1290,11 @@ DescribeDomainAccessModeResponse Client::describeDomainAccessModeWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasDomainList()) {
-    query["DomainList"] = request.domainList();
+    query["DomainList"] = request.getDomainList();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1229,6 +1315,8 @@ DescribeDomainAccessModeResponse Client::describeDomainAccessModeWithOptions(con
 }
 
 /**
+ * @summary 查询域名接入模式
+ *
  * @param request DescribeDomainAccessModeRequest
  * @return DescribeDomainAccessModeResponse
  */
@@ -1238,6 +1326,8 @@ DescribeDomainAccessModeResponse Client::describeDomainAccessMode(const Describe
 }
 
 /**
+ * @summary 查询域名攻击事件
+ *
  * @param request DescribeDomainAttackEventListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDomainAttackEventListResponse
@@ -1246,27 +1336,27 @@ DescribeDomainAttackEventListResponse Client::describeDomainAttackEventListWithO
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1287,6 +1377,8 @@ DescribeDomainAttackEventListResponse Client::describeDomainAttackEventListWithO
 }
 
 /**
+ * @summary 查询域名攻击事件
+ *
  * @param request DescribeDomainAttackEventListRequest
  * @return DescribeDomainAttackEventListResponse
  */
@@ -1296,6 +1388,8 @@ DescribeDomainAttackEventListResponse Client::describeDomainAttackEventList(cons
 }
 
 /**
+ * @summary 查询域名攻击最大QPS
+ *
  * @param request DescribeDomainAttackMaxQpsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDomainAttackMaxQpsResponse
@@ -1304,19 +1398,19 @@ DescribeDomainAttackMaxQpsResponse Client::describeDomainAttackMaxQpsWithOptions
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1337,6 +1431,8 @@ DescribeDomainAttackMaxQpsResponse Client::describeDomainAttackMaxQpsWithOptions
 }
 
 /**
+ * @summary 查询域名攻击最大QPS
+ *
  * @param request DescribeDomainAttackMaxQpsRequest
  * @return DescribeDomainAttackMaxQpsResponse
  */
@@ -1346,6 +1442,8 @@ DescribeDomainAttackMaxQpsResponse Client::describeDomainAttackMaxQps(const Desc
 }
 
 /**
+ * @summary 域名概览
+ *
  * @param request DescribeDomainOverviewRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDomainOverviewResponse
@@ -1354,19 +1452,19 @@ DescribeDomainOverviewResponse Client::describeDomainOverviewWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1387,6 +1485,8 @@ DescribeDomainOverviewResponse Client::describeDomainOverviewWithOptions(const D
 }
 
 /**
+ * @summary 域名概览
+ *
  * @param request DescribeDomainOverviewRequest
  * @return DescribeDomainOverviewResponse
  */
@@ -1396,6 +1496,8 @@ DescribeDomainOverviewResponse Client::describeDomainOverview(const DescribeDoma
 }
 
 /**
+ * @summary 查询域名QPS
+ *
  * @param request DescribeDomainQpsListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDomainQpsListResponse
@@ -1404,23 +1506,23 @@ DescribeDomainQpsListResponse Client::describeDomainQpsListWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInterval()) {
-    query["Interval"] = request.interval();
+    query["Interval"] = request.getInterval();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1441,6 +1543,8 @@ DescribeDomainQpsListResponse Client::describeDomainQpsListWithOptions(const Des
 }
 
 /**
+ * @summary 查询域名QPS
+ *
  * @param request DescribeDomainQpsListRequest
  * @return DescribeDomainQpsListResponse
  */
@@ -1450,6 +1554,8 @@ DescribeDomainQpsListResponse Client::describeDomainQpsList(const DescribeDomain
 }
 
 /**
+ * @summary 查询qps
+ *
  * @param request DescribeDomainQpsWithCacheRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDomainQpsWithCacheResponse
@@ -1458,23 +1564,23 @@ DescribeDomainQpsWithCacheResponse Client::describeDomainQpsWithCacheWithOptions
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1495,6 +1601,8 @@ DescribeDomainQpsWithCacheResponse Client::describeDomainQpsWithCacheWithOptions
 }
 
 /**
+ * @summary 查询qps
+ *
  * @param request DescribeDomainQpsWithCacheRequest
  * @return DescribeDomainQpsWithCacheResponse
  */
@@ -1504,6 +1612,8 @@ DescribeDomainQpsWithCacheResponse Client::describeDomainQpsWithCache(const Desc
 }
 
 /**
+ * @summary 查询日志分发状态
+ *
  * @param request DescribeDomainSlsStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDomainSlsStatusResponse
@@ -1512,19 +1622,19 @@ DescribeDomainSlsStatusResponse Client::describeDomainSlsStatusWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1545,6 +1655,8 @@ DescribeDomainSlsStatusResponse Client::describeDomainSlsStatusWithOptions(const
 }
 
 /**
+ * @summary 查询日志分发状态
+ *
  * @param request DescribeDomainSlsStatusRequest
  * @return DescribeDomainSlsStatusResponse
  */
@@ -1564,27 +1676,27 @@ DescribeDomainStatusCodeListResponse Client::describeDomainStatusCodeListWithOpt
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInterval()) {
-    query["Interval"] = request.interval();
+    query["Interval"] = request.getInterval();
   }
 
   if (!!request.hasQueryType()) {
-    query["QueryType"] = request.queryType();
+    query["QueryType"] = request.getQueryType();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1616,6 +1728,8 @@ DescribeDomainStatusCodeListResponse Client::describeDomainStatusCodeList(const 
 }
 
 /**
+ * @summary 查询域名
+ *
  * @param request DescribeDomainsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDomainsResponse
@@ -1624,31 +1738,31 @@ DescribeDomainsResponse Client::describeDomainsWithOptions(const DescribeDomains
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasOffset()) {
-    query["Offset"] = request.offset();
+    query["Offset"] = request.getOffset();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQueryDomainPattern()) {
-    query["QueryDomainPattern"] = request.queryDomainPattern();
+    query["QueryDomainPattern"] = request.getQueryDomainPattern();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1669,6 +1783,8 @@ DescribeDomainsResponse Client::describeDomainsWithOptions(const DescribeDomains
 }
 
 /**
+ * @summary 查询域名
+ *
  * @param request DescribeDomainsRequest
  * @return DescribeDomainsResponse
  */
@@ -1678,6 +1794,8 @@ DescribeDomainsResponse Client::describeDomains(const DescribeDomainsRequest &re
 }
 
 /**
+ * @summary 查询弹性带宽规格
+ *
  * @param request DescribeElasticBandwidthSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeElasticBandwidthSpecResponse
@@ -1686,11 +1804,11 @@ DescribeElasticBandwidthSpecResponse Client::describeElasticBandwidthSpecWithOpt
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1711,6 +1829,8 @@ DescribeElasticBandwidthSpecResponse Client::describeElasticBandwidthSpecWithOpt
 }
 
 /**
+ * @summary 查询弹性带宽规格
+ *
  * @param request DescribeElasticBandwidthSpecRequest
  * @return DescribeElasticBandwidthSpecResponse
  */
@@ -1720,6 +1840,8 @@ DescribeElasticBandwidthSpecResponse Client::describeElasticBandwidthSpec(const 
 }
 
 /**
+ * @summary 查询健康检查列表
+ *
  * @param request DescribeHealthCheckListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeHealthCheckListResponse
@@ -1728,11 +1850,11 @@ DescribeHealthCheckListResponse Client::describeHealthCheckListWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasListeners()) {
-    query["Listeners"] = request.listeners();
+    query["Listeners"] = request.getListeners();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1753,6 +1875,8 @@ DescribeHealthCheckListResponse Client::describeHealthCheckListWithOptions(const
 }
 
 /**
+ * @summary 查询健康检查列表
+ *
  * @param request DescribeHealthCheckListRequest
  * @return DescribeHealthCheckListResponse
  */
@@ -1762,6 +1886,8 @@ DescribeHealthCheckListResponse Client::describeHealthCheckList(const DescribeHe
 }
 
 /**
+ * @summary 查询监控检查状态
+ *
  * @param request DescribeHealthCheckStatusListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeHealthCheckStatusListResponse
@@ -1770,11 +1896,11 @@ DescribeHealthCheckStatusListResponse Client::describeHealthCheckStatusListWithO
   request.validate();
   json query = {};
   if (!!request.hasListeners()) {
-    query["Listeners"] = request.listeners();
+    query["Listeners"] = request.getListeners();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1795,6 +1921,8 @@ DescribeHealthCheckStatusListResponse Client::describeHealthCheckStatusListWithO
 }
 
 /**
+ * @summary 查询监控检查状态
+ *
  * @param request DescribeHealthCheckStatusListRequest
  * @return DescribeHealthCheckStatusListResponse
  */
@@ -1804,6 +1932,8 @@ DescribeHealthCheckStatusListResponse Client::describeHealthCheckStatusList(cons
 }
 
 /**
+ * @summary 查询实例详情
+ *
  * @param request DescribeInstanceDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeInstanceDetailsResponse
@@ -1812,11 +1942,11 @@ DescribeInstanceDetailsResponse Client::describeInstanceDetailsWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1837,6 +1967,8 @@ DescribeInstanceDetailsResponse Client::describeInstanceDetailsWithOptions(const
 }
 
 /**
+ * @summary 查询实例详情
+ *
  * @param request DescribeInstanceDetailsRequest
  * @return DescribeInstanceDetailsResponse
  */
@@ -1846,6 +1978,8 @@ DescribeInstanceDetailsResponse Client::describeInstanceDetails(const DescribeIn
 }
 
 /**
+ * @summary 查询实例规格
+ *
  * @param request DescribeInstanceSpecsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeInstanceSpecsResponse
@@ -1854,11 +1988,11 @@ DescribeInstanceSpecsResponse Client::describeInstanceSpecsWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1879,6 +2013,8 @@ DescribeInstanceSpecsResponse Client::describeInstanceSpecsWithOptions(const Des
 }
 
 /**
+ * @summary 查询实例规格
+ *
  * @param request DescribeInstanceSpecsRequest
  * @return DescribeInstanceSpecsResponse
  */
@@ -1888,6 +2024,8 @@ DescribeInstanceSpecsResponse Client::describeInstanceSpecs(const DescribeInstan
 }
 
 /**
+ * @summary 查询实例统计
+ *
  * @param request DescribeInstanceStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeInstanceStatisticsResponse
@@ -1896,11 +2034,11 @@ DescribeInstanceStatisticsResponse Client::describeInstanceStatisticsWithOptions
   request.validate();
   json query = {};
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1921,6 +2059,8 @@ DescribeInstanceStatisticsResponse Client::describeInstanceStatisticsWithOptions
 }
 
 /**
+ * @summary 查询实例统计
+ *
  * @param request DescribeInstanceStatisticsRequest
  * @return DescribeInstanceStatisticsResponse
  */
@@ -1930,6 +2070,8 @@ DescribeInstanceStatisticsResponse Client::describeInstanceStatistics(const Desc
 }
 
 /**
+ * @summary 查询实例
+ *
  * @param request DescribeInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeInstancesResponse
@@ -1938,55 +2080,55 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
   request.validate();
   json query = {};
   if (!!request.hasEdition()) {
-    query["Edition"] = request.edition();
+    query["Edition"] = request.getEdition();
   }
 
   if (!!request.hasEnabled()) {
-    query["Enabled"] = request.enabled();
+    query["Enabled"] = request.getEnabled();
   }
 
   if (!!request.hasExpireEndTime()) {
-    query["ExpireEndTime"] = request.expireEndTime();
+    query["ExpireEndTime"] = request.getExpireEndTime();
   }
 
   if (!!request.hasExpireStartTime()) {
-    query["ExpireStartTime"] = request.expireStartTime();
+    query["ExpireStartTime"] = request.getExpireStartTime();
   }
 
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasIp()) {
-    query["Ip"] = request.ip();
+    query["Ip"] = request.getIp();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRemark()) {
-    query["Remark"] = request.remark();
+    query["Remark"] = request.getRemark();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2007,6 +2149,8 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
 }
 
 /**
+ * @summary 查询实例
+ *
  * @param request DescribeInstancesRequest
  * @return DescribeInstancesResponse
  */
@@ -2016,6 +2160,8 @@ DescribeInstancesResponse Client::describeInstances(const DescribeInstancesReque
 }
 
 /**
+ * @summary 查询流量
+ *
  * @param request DescribeIpTrafficRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeIpTrafficResponse
@@ -2024,35 +2170,35 @@ DescribeIpTrafficResponse Client::describeIpTrafficWithOptions(const DescribeIpT
   request.validate();
   json query = {};
   if (!!request.hasEip()) {
-    query["Eip"] = request.eip();
+    query["Eip"] = request.getEip();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInterval()) {
-    query["Interval"] = request.interval();
+    query["Interval"] = request.getInterval();
   }
 
   if (!!request.hasPort()) {
-    query["Port"] = request.port();
+    query["Port"] = request.getPort();
   }
 
   if (!!request.hasQueryProtocol()) {
-    query["QueryProtocol"] = request.queryProtocol();
+    query["QueryProtocol"] = request.getQueryProtocol();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2073,6 +2219,8 @@ DescribeIpTrafficResponse Client::describeIpTrafficWithOptions(const DescribeIpT
 }
 
 /**
+ * @summary 查询流量
+ *
  * @param request DescribeIpTrafficRequest
  * @return DescribeIpTrafficResponse
  */
@@ -2082,6 +2230,8 @@ DescribeIpTrafficResponse Client::describeIpTraffic(const DescribeIpTrafficReque
 }
 
 /**
+ * @summary 查询端口规则属性
+ *
  * @param request DescribeLayer4RuleAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeLayer4RuleAttributesResponse
@@ -2090,11 +2240,11 @@ DescribeLayer4RuleAttributesResponse Client::describeLayer4RuleAttributesWithOpt
   request.validate();
   json query = {};
   if (!!request.hasListeners()) {
-    query["Listeners"] = request.listeners();
+    query["Listeners"] = request.getListeners();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2115,6 +2265,8 @@ DescribeLayer4RuleAttributesResponse Client::describeLayer4RuleAttributesWithOpt
 }
 
 /**
+ * @summary 查询端口规则属性
+ *
  * @param request DescribeLayer4RuleAttributesRequest
  * @return DescribeLayer4RuleAttributesResponse
  */
@@ -2134,27 +2286,27 @@ DescribeLayer4RulesResponse Client::describeLayer4RulesWithOptions(const Describ
   request.validate();
   json query = {};
   if (!!request.hasForwardProtocol()) {
-    query["ForwardProtocol"] = request.forwardProtocol();
+    query["ForwardProtocol"] = request.getForwardProtocol();
   }
 
   if (!!request.hasFrontendPort()) {
-    query["FrontendPort"] = request.frontendPort();
+    query["FrontendPort"] = request.getFrontendPort();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOffset()) {
-    query["Offset"] = request.offset();
+    query["Offset"] = request.getOffset();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2186,6 +2338,8 @@ DescribeLayer4RulesResponse Client::describeLayer4Rules(const DescribeLayer4Rule
 }
 
 /**
+ * @summary 查询CC规则
+ *
  * @param request DescribeLayer7CCRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeLayer7CCRulesResponse
@@ -2194,23 +2348,23 @@ DescribeLayer7CCRulesResponse Client::describeLayer7CCRulesWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasOffset()) {
-    query["Offset"] = request.offset();
+    query["Offset"] = request.getOffset();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2231,6 +2385,8 @@ DescribeLayer7CCRulesResponse Client::describeLayer7CCRulesWithOptions(const Des
 }
 
 /**
+ * @summary 查询CC规则
+ *
  * @param request DescribeLayer7CCRulesRequest
  * @return DescribeLayer7CCRulesResponse
  */
@@ -2240,6 +2396,8 @@ DescribeLayer7CCRulesResponse Client::describeLayer7CCRules(const DescribeLayer7
 }
 
 /**
+ * @summary 查询日志库存在状态
+ *
  * @param request DescribeLogStoreExistStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeLogStoreExistStatusResponse
@@ -2248,15 +2406,15 @@ DescribeLogStoreExistStatusResponse Client::describeLogStoreExistStatusWithOptio
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2277,6 +2435,8 @@ DescribeLogStoreExistStatusResponse Client::describeLogStoreExistStatusWithOptio
 }
 
 /**
+ * @summary 查询日志库存在状态
+ *
  * @param request DescribeLogStoreExistStatusRequest
  * @return DescribeLogStoreExistStatusResponse
  */
@@ -2286,6 +2446,8 @@ DescribeLogStoreExistStatusResponse Client::describeLogStoreExistStatus(const De
 }
 
 /**
+ * @summary 查询操作日志
+ *
  * @param request DescribeOpEntitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeOpEntitiesResponse
@@ -2294,39 +2456,39 @@ DescribeOpEntitiesResponse Client::describeOpEntitiesWithOptions(const DescribeO
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasEntityObject()) {
-    query["EntityObject"] = request.entityObject();
+    query["EntityObject"] = request.getEntityObject();
   }
 
   if (!!request.hasEntityType()) {
-    query["EntityType"] = request.entityType();
+    query["EntityType"] = request.getEntityType();
   }
 
   if (!!request.hasOpAction()) {
-    query["OpAction"] = request.opAction();
+    query["OpAction"] = request.getOpAction();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2347,6 +2509,8 @@ DescribeOpEntitiesResponse Client::describeOpEntitiesWithOptions(const DescribeO
 }
 
 /**
+ * @summary 查询操作日志
+ *
  * @param request DescribeOpEntitiesRequest
  * @return DescribeOpEntitiesResponse
  */
@@ -2356,6 +2520,8 @@ DescribeOpEntitiesResponse Client::describeOpEntities(const DescribeOpEntitiesRe
 }
 
 /**
+ * @summary 查询域名
+ *
  * @param request DescribeSimpleDomainsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSimpleDomainsResponse
@@ -2364,19 +2530,19 @@ DescribeSimpleDomainsResponse Client::describeSimpleDomainsWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2397,6 +2563,8 @@ DescribeSimpleDomainsResponse Client::describeSimpleDomainsWithOptions(const Des
 }
 
 /**
+ * @summary 查询域名
+ *
  * @param request DescribeSimpleDomainsRequest
  * @return DescribeSimpleDomainsResponse
  */
@@ -2406,6 +2574,8 @@ DescribeSimpleDomainsResponse Client::describeSimpleDomains(const DescribeSimple
 }
 
 /**
+ * @summary 查询sls授权状态
+ *
  * @param request DescribeSlsAuthStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSlsAuthStatusResponse
@@ -2414,15 +2584,15 @@ DescribeSlsAuthStatusResponse Client::describeSlsAuthStatusWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2443,6 +2613,8 @@ DescribeSlsAuthStatusResponse Client::describeSlsAuthStatusWithOptions(const Des
 }
 
 /**
+ * @summary 查询sls授权状态
+ *
  * @param request DescribeSlsAuthStatusRequest
  * @return DescribeSlsAuthStatusResponse
  */
@@ -2452,6 +2624,8 @@ DescribeSlsAuthStatusResponse Client::describeSlsAuthStatus(const DescribeSlsAut
 }
 
 /**
+ * @summary 查询清空次数
+ *
  * @param request DescribeSlsEmptyCountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSlsEmptyCountResponse
@@ -2460,15 +2634,15 @@ DescribeSlsEmptyCountResponse Client::describeSlsEmptyCountWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2489,6 +2663,8 @@ DescribeSlsEmptyCountResponse Client::describeSlsEmptyCountWithOptions(const Des
 }
 
 /**
+ * @summary 查询清空次数
+ *
  * @param request DescribeSlsEmptyCountRequest
  * @return DescribeSlsEmptyCountResponse
  */
@@ -2498,6 +2674,8 @@ DescribeSlsEmptyCountResponse Client::describeSlsEmptyCount(const DescribeSlsEmp
 }
 
 /**
+ * @summary 查询全量日志信息
+ *
  * @param request DescribeSlsLogstoreInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSlsLogstoreInfoResponse
@@ -2506,15 +2684,15 @@ DescribeSlsLogstoreInfoResponse Client::describeSlsLogstoreInfoWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2535,6 +2713,8 @@ DescribeSlsLogstoreInfoResponse Client::describeSlsLogstoreInfoWithOptions(const
 }
 
 /**
+ * @summary 查询全量日志信息
+ *
  * @param request DescribeSlsLogstoreInfoRequest
  * @return DescribeSlsLogstoreInfoResponse
  */
@@ -2544,6 +2724,8 @@ DescribeSlsLogstoreInfoResponse Client::describeSlsLogstoreInfo(const DescribeSl
 }
 
 /**
+ * @summary 查询sls开通状态
+ *
  * @param request DescribeSlsOpenStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSlsOpenStatusResponse
@@ -2552,15 +2734,15 @@ DescribeSlsOpenStatusResponse Client::describeSlsOpenStatusWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2581,6 +2763,8 @@ DescribeSlsOpenStatusResponse Client::describeSlsOpenStatusWithOptions(const Des
 }
 
 /**
+ * @summary 查询sls开通状态
+ *
  * @param request DescribeSlsOpenStatusRequest
  * @return DescribeSlsOpenStatusResponse
  */
@@ -2590,6 +2774,8 @@ DescribeSlsOpenStatusResponse Client::describeSlsOpenStatus(const DescribeSlsOpe
 }
 
 /**
+ * @summary 查询证书列表
+ *
  * @param request DescribleCertListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribleCertListResponse
@@ -2598,15 +2784,19 @@ DescribleCertListResponse Client::describleCertListWithOptions(const DescribleCe
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasDomainList()) {
+    query["DomainList"] = request.getDomainList();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2627,6 +2817,8 @@ DescribleCertListResponse Client::describleCertListWithOptions(const DescribleCe
 }
 
 /**
+ * @summary 查询证书列表
+ *
  * @param request DescribleCertListRequest
  * @return DescribleCertListResponse
  */
@@ -2636,6 +2828,8 @@ DescribleCertListResponse Client::describleCertList(const DescribleCertListReque
 }
 
 /**
+ * @summary 查询域名实例关系
+ *
  * @param request DescribleLayer7InstanceRelationsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribleLayer7InstanceRelationsResponse
@@ -2644,15 +2838,15 @@ DescribleLayer7InstanceRelationsResponse Client::describleLayer7InstanceRelation
   request.validate();
   json query = {};
   if (!!request.hasDomainList()) {
-    query["DomainList"] = request.domainList();
+    query["DomainList"] = request.getDomainList();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2673,6 +2867,8 @@ DescribleLayer7InstanceRelationsResponse Client::describleLayer7InstanceRelation
 }
 
 /**
+ * @summary 查询域名实例关系
+ *
  * @param request DescribleLayer7InstanceRelationsRequest
  * @return DescribleLayer7InstanceRelationsResponse
  */
@@ -2682,6 +2878,8 @@ DescribleLayer7InstanceRelationsResponse Client::describleLayer7InstanceRelation
 }
 
 /**
+ * @summary 关闭CC
+ *
  * @param request DisableLayer7CCRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DisableLayer7CCResponse
@@ -2690,15 +2888,15 @@ DisableLayer7CCResponse Client::disableLayer7CCWithOptions(const DisableLayer7CC
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2719,6 +2917,8 @@ DisableLayer7CCResponse Client::disableLayer7CCWithOptions(const DisableLayer7CC
 }
 
 /**
+ * @summary 关闭CC
+ *
  * @param request DisableLayer7CCRequest
  * @return DisableLayer7CCResponse
  */
@@ -2728,6 +2928,8 @@ DisableLayer7CCResponse Client::disableLayer7CC(const DisableLayer7CCRequest &re
 }
 
 /**
+ * @summary 关闭CC规则
+ *
  * @param request DisableLayer7CCRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DisableLayer7CCRuleResponse
@@ -2736,15 +2938,15 @@ DisableLayer7CCRuleResponse Client::disableLayer7CCRuleWithOptions(const Disable
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2765,6 +2967,8 @@ DisableLayer7CCRuleResponse Client::disableLayer7CCRuleWithOptions(const Disable
 }
 
 /**
+ * @summary 关闭CC规则
+ *
  * @param request DisableLayer7CCRuleRequest
  * @return DisableLayer7CCRuleResponse
  */
@@ -2774,6 +2978,8 @@ DisableLayer7CCRuleResponse Client::disableLayer7CCRule(const DisableLayer7CCRul
 }
 
 /**
+ * @summary 清除SLS日志库
+ *
  * @param request EmptySlsLogstoreRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return EmptySlsLogstoreResponse
@@ -2782,15 +2988,15 @@ EmptySlsLogstoreResponse Client::emptySlsLogstoreWithOptions(const EmptySlsLogst
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2811,6 +3017,8 @@ EmptySlsLogstoreResponse Client::emptySlsLogstoreWithOptions(const EmptySlsLogst
 }
 
 /**
+ * @summary 清除SLS日志库
+ *
  * @param request EmptySlsLogstoreRequest
  * @return EmptySlsLogstoreResponse
  */
@@ -2820,6 +3028,8 @@ EmptySlsLogstoreResponse Client::emptySlsLogstore(const EmptySlsLogstoreRequest 
 }
 
 /**
+ * @summary 开启CC
+ *
  * @param request EnableLayer7CCRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return EnableLayer7CCResponse
@@ -2828,15 +3038,15 @@ EnableLayer7CCResponse Client::enableLayer7CCWithOptions(const EnableLayer7CCReq
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2857,6 +3067,8 @@ EnableLayer7CCResponse Client::enableLayer7CCWithOptions(const EnableLayer7CCReq
 }
 
 /**
+ * @summary 开启CC
+ *
  * @param request EnableLayer7CCRequest
  * @return EnableLayer7CCResponse
  */
@@ -2866,6 +3078,8 @@ EnableLayer7CCResponse Client::enableLayer7CC(const EnableLayer7CCRequest &reque
 }
 
 /**
+ * @summary 开启CC规则
+ *
  * @param request EnableLayer7CCRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return EnableLayer7CCRuleResponse
@@ -2874,15 +3088,15 @@ EnableLayer7CCRuleResponse Client::enableLayer7CCRuleWithOptions(const EnableLay
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2903,6 +3117,8 @@ EnableLayer7CCRuleResponse Client::enableLayer7CCRuleWithOptions(const EnableLay
 }
 
 /**
+ * @summary 开启CC规则
+ *
  * @param request EnableLayer7CCRuleRequest
  * @return EnableLayer7CCRuleResponse
  */
@@ -2912,6 +3128,8 @@ EnableLayer7CCRuleResponse Client::enableLayer7CCRule(const EnableLayer7CCRuleRe
 }
 
 /**
+ * @summary 查询异步任务
+ *
  * @param request ListAsyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAsyncTaskResponse
@@ -2920,23 +3138,23 @@ ListAsyncTaskResponse Client::listAsyncTaskWithOptions(const ListAsyncTaskReques
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2957,6 +3175,8 @@ ListAsyncTaskResponse Client::listAsyncTaskWithOptions(const ListAsyncTaskReques
 }
 
 /**
+ * @summary 查询异步任务
+ *
  * @param request ListAsyncTaskRequest
  * @return ListAsyncTaskResponse
  */
@@ -2966,6 +3186,8 @@ ListAsyncTaskResponse Client::listAsyncTask(const ListAsyncTaskRequest &request)
 }
 
 /**
+ * @summary 查询域名接入端口
+ *
  * @param request ListLayer7CustomPortsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListLayer7CustomPortsResponse
@@ -2974,15 +3196,15 @@ ListLayer7CustomPortsResponse Client::listLayer7CustomPortsWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3003,6 +3225,8 @@ ListLayer7CustomPortsResponse Client::listLayer7CustomPortsWithOptions(const Lis
 }
 
 /**
+ * @summary 查询域名接入端口
+ *
  * @param request ListLayer7CustomPortsRequest
  * @return ListLayer7CustomPortsResponse
  */
@@ -3012,6 +3236,8 @@ ListLayer7CustomPortsResponse Client::listLayer7CustomPorts(const ListLayer7Cust
 }
 
 /**
+ * @summary 列出tag
+ *
  * @param request ListTagKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListTagKeysResponse
@@ -3020,23 +3246,23 @@ ListTagKeysResponse Client::listTagKeysWithOptions(const ListTagKeysRequest &req
   request.validate();
   json query = {};
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3057,6 +3283,8 @@ ListTagKeysResponse Client::listTagKeysWithOptions(const ListTagKeysRequest &req
 }
 
 /**
+ * @summary 列出tag
+ *
  * @param request ListTagKeysRequest
  * @return ListTagKeysResponse
  */
@@ -3066,6 +3294,8 @@ ListTagKeysResponse Client::listTagKeys(const ListTagKeysRequest &request) {
 }
 
 /**
+ * @summary 查询资源
+ *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListTagResourcesResponse
@@ -3074,27 +3304,27 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3115,6 +3345,8 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
+ * @summary 查询资源
+ *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
  */
@@ -3124,6 +3356,8 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
+ * @summary 查询日志实例
+ *
  * @param request ListValueAddedRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListValueAddedResponse
@@ -3132,11 +3366,11 @@ ListValueAddedResponse Client::listValueAddedWithOptions(const ListValueAddedReq
   request.validate();
   json query = {};
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3157,6 +3391,8 @@ ListValueAddedResponse Client::listValueAddedWithOptions(const ListValueAddedReq
 }
 
 /**
+ * @summary 查询日志实例
+ *
  * @param request ListValueAddedRequest
  * @return ListValueAddedResponse
  */
@@ -3166,6 +3402,8 @@ ListValueAddedResponse Client::listValueAdded(const ListValueAddedRequest &reque
 }
 
 /**
+ * @summary 修改弹性业务带宽
+ *
  * @param request ModifyElasticBandWidthRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyElasticBandWidthResponse
@@ -3174,15 +3412,15 @@ ModifyElasticBandWidthResponse Client::modifyElasticBandWidthWithOptions(const M
   request.validate();
   json query = {};
   if (!!request.hasElasticBandwidth()) {
-    query["ElasticBandwidth"] = request.elasticBandwidth();
+    query["ElasticBandwidth"] = request.getElasticBandwidth();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3203,6 +3441,8 @@ ModifyElasticBandWidthResponse Client::modifyElasticBandWidthWithOptions(const M
 }
 
 /**
+ * @summary 修改弹性业务带宽
+ *
  * @param request ModifyElasticBandWidthRequest
  * @return ModifyElasticBandWidthResponse
  */
@@ -3212,6 +3452,8 @@ ModifyElasticBandWidthResponse Client::modifyElasticBandWidth(const ModifyElasti
 }
 
 /**
+ * @summary 修改日志存储时长
+ *
  * @param request ModifyFullLogTtlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyFullLogTtlResponse
@@ -3220,19 +3462,19 @@ ModifyFullLogTtlResponse Client::modifyFullLogTtlWithOptions(const ModifyFullLog
   request.validate();
   json query = {};
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   if (!!request.hasTtl()) {
-    query["Ttl"] = request.ttl();
+    query["Ttl"] = request.getTtl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3253,6 +3495,8 @@ ModifyFullLogTtlResponse Client::modifyFullLogTtlWithOptions(const ModifyFullLog
 }
 
 /**
+ * @summary 修改日志存储时长
+ *
  * @param request ModifyFullLogTtlRequest
  * @return ModifyFullLogTtlResponse
  */
@@ -3262,6 +3506,8 @@ ModifyFullLogTtlResponse Client::modifyFullLogTtl(const ModifyFullLogTtlRequest 
 }
 
 /**
+ * @summary 修改实例备注
+ *
  * @param request ModifyInstanceRemarkRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyInstanceRemarkResponse
@@ -3270,15 +3516,15 @@ ModifyInstanceRemarkResponse Client::modifyInstanceRemarkWithOptions(const Modif
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRemark()) {
-    query["Remark"] = request.remark();
+    query["Remark"] = request.getRemark();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3299,6 +3545,8 @@ ModifyInstanceRemarkResponse Client::modifyInstanceRemarkWithOptions(const Modif
 }
 
 /**
+ * @summary 修改实例备注
+ *
  * @param request ModifyInstanceRemarkRequest
  * @return ModifyInstanceRemarkResponse
  */
@@ -3308,6 +3556,8 @@ ModifyInstanceRemarkResponse Client::modifyInstanceRemark(const ModifyInstanceRe
 }
 
 /**
+ * @summary 开启日志分发
+ *
  * @param request OpenDomainSlsConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return OpenDomainSlsConfigResponse
@@ -3316,19 +3566,19 @@ OpenDomainSlsConfigResponse Client::openDomainSlsConfigWithOptions(const OpenDom
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasLang()) {
-    query["Lang"] = request.lang();
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3349,6 +3599,8 @@ OpenDomainSlsConfigResponse Client::openDomainSlsConfigWithOptions(const OpenDom
 }
 
 /**
+ * @summary 开启日志分发
+ *
  * @param request OpenDomainSlsConfigRequest
  * @return OpenDomainSlsConfigResponse
  */
@@ -3358,6 +3610,8 @@ OpenDomainSlsConfigResponse Client::openDomainSlsConfig(const OpenDomainSlsConfi
 }
 
 /**
+ * @summary 释放实例
+ *
  * @param request ReleaseInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ReleaseInstanceResponse
@@ -3366,11 +3620,11 @@ ReleaseInstanceResponse Client::releaseInstanceWithOptions(const ReleaseInstance
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3391,6 +3645,8 @@ ReleaseInstanceResponse Client::releaseInstanceWithOptions(const ReleaseInstance
 }
 
 /**
+ * @summary 释放实例
+ *
  * @param request ReleaseInstanceRequest
  * @return ReleaseInstanceResponse
  */
@@ -3400,6 +3656,8 @@ ReleaseInstanceResponse Client::releaseInstance(const ReleaseInstanceRequest &re
 }
 
 /**
+ * @summary 释放日志实例
+ *
  * @param request ReleaseValueAddedRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ReleaseValueAddedResponse
@@ -3408,11 +3666,11 @@ ReleaseValueAddedResponse Client::releaseValueAddedWithOptions(const ReleaseValu
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSourceIp()) {
-    query["SourceIp"] = request.sourceIp();
+    query["SourceIp"] = request.getSourceIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3433,6 +3691,8 @@ ReleaseValueAddedResponse Client::releaseValueAddedWithOptions(const ReleaseValu
 }
 
 /**
+ * @summary 释放日志实例
+ *
  * @param request ReleaseValueAddedRequest
  * @return ReleaseValueAddedResponse
  */
@@ -3442,6 +3702,8 @@ ReleaseValueAddedResponse Client::releaseValueAdded(const ReleaseValueAddedReque
 }
 
 /**
+ * @summary 标签资源
+ *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return TagResourcesResponse
@@ -3450,23 +3712,23 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3487,6 +3749,8 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
+ * @summary 标签资源
+ *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
  */
@@ -3496,6 +3760,8 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
+ * @summary 解除资源标签
+ *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UntagResourcesResponse
@@ -3504,27 +3770,27 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3545,6 +3811,8 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
+ * @summary 解除资源标签
+ *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
  */

@@ -21,6 +21,8 @@ namespace Ddoscoo20171228
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 增加CC规则
+       *
        * @param request AddLayer7CCRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddLayer7CCRuleResponse
@@ -28,12 +30,16 @@ namespace Ddoscoo20171228
       Models::AddLayer7CCRuleResponse addLayer7CCRuleWithOptions(const Models::AddLayer7CCRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 增加CC规则
+       *
        * @param request AddLayer7CCRuleRequest
        * @return AddLayer7CCRuleResponse
        */
       Models::AddLayer7CCRuleResponse addLayer7CCRule(const Models::AddLayer7CCRuleRequest &request);
 
       /**
+       * @summary 关闭日志分发
+       *
        * @param request CloseDomainSlsConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CloseDomainSlsConfigResponse
@@ -41,12 +47,16 @@ namespace Ddoscoo20171228
       Models::CloseDomainSlsConfigResponse closeDomainSlsConfigWithOptions(const Models::CloseDomainSlsConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 关闭日志分发
+       *
        * @param request CloseDomainSlsConfigRequest
        * @return CloseDomainSlsConfigResponse
        */
       Models::CloseDomainSlsConfigResponse closeDomainSlsConfig(const Models::CloseDomainSlsConfigRequest &request);
 
       /**
+       * @summary 修改健康检查
+       *
        * @param request ConfigHealthCheckRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ConfigHealthCheckResponse
@@ -54,12 +64,16 @@ namespace Ddoscoo20171228
       Models::ConfigHealthCheckResponse configHealthCheckWithOptions(const Models::ConfigHealthCheckRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改健康检查
+       *
        * @param request ConfigHealthCheckRequest
        * @return ConfigHealthCheckResponse
        */
       Models::ConfigHealthCheckResponse configHealthCheck(const Models::ConfigHealthCheckRequest &request);
 
       /**
+       * @summary 修改端口规则
+       *
        * @param tmpReq ConfigLayer4RuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ConfigLayer4RuleResponse
@@ -67,12 +81,16 @@ namespace Ddoscoo20171228
       Models::ConfigLayer4RuleResponse configLayer4RuleWithOptions(const Models::ConfigLayer4RuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改端口规则
+       *
        * @param request ConfigLayer4RuleRequest
        * @return ConfigLayer4RuleResponse
        */
       Models::ConfigLayer4RuleResponse configLayer4Rule(const Models::ConfigLayer4RuleRequest &request);
 
       /**
+       * @summary 修改端口规则属性
+       *
        * @param request ConfigLayer4RuleAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ConfigLayer4RuleAttributeResponse
@@ -80,12 +98,16 @@ namespace Ddoscoo20171228
       Models::ConfigLayer4RuleAttributeResponse configLayer4RuleAttributeWithOptions(const Models::ConfigLayer4RuleAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改端口规则属性
+       *
        * @param request ConfigLayer4RuleAttributeRequest
        * @return ConfigLayer4RuleAttributeResponse
        */
       Models::ConfigLayer4RuleAttributeResponse configLayer4RuleAttribute(const Models::ConfigLayer4RuleAttributeRequest &request);
 
       /**
+       * @summary 修改黑白名单
+       *
        * @param request ConfigLayer7BlackWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ConfigLayer7BlackWhiteListResponse
@@ -93,12 +115,16 @@ namespace Ddoscoo20171228
       Models::ConfigLayer7BlackWhiteListResponse configLayer7BlackWhiteListWithOptions(const Models::ConfigLayer7BlackWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改黑白名单
+       *
        * @param request ConfigLayer7BlackWhiteListRequest
        * @return ConfigLayer7BlackWhiteListResponse
        */
       Models::ConfigLayer7BlackWhiteListResponse configLayer7BlackWhiteList(const Models::ConfigLayer7BlackWhiteListRequest &request);
 
       /**
+       * @summary 修改CC规则
+       *
        * @param request ConfigLayer7CCRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ConfigLayer7CCRuleResponse
@@ -106,12 +132,16 @@ namespace Ddoscoo20171228
       Models::ConfigLayer7CCRuleResponse configLayer7CCRuleWithOptions(const Models::ConfigLayer7CCRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改CC规则
+       *
        * @param request ConfigLayer7CCRuleRequest
        * @return ConfigLayer7CCRuleResponse
        */
       Models::ConfigLayer7CCRuleResponse configLayer7CCRule(const Models::ConfigLayer7CCRuleRequest &request);
 
       /**
+       * @summary 修改CC模板
+       *
        * @param request ConfigLayer7CCTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ConfigLayer7CCTemplateResponse
@@ -119,12 +149,16 @@ namespace Ddoscoo20171228
       Models::ConfigLayer7CCTemplateResponse configLayer7CCTemplateWithOptions(const Models::ConfigLayer7CCTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改CC模板
+       *
        * @param request ConfigLayer7CCTemplateRequest
        * @return ConfigLayer7CCTemplateResponse
        */
       Models::ConfigLayer7CCTemplateResponse configLayer7CCTemplate(const Models::ConfigLayer7CCTemplateRequest &request);
 
       /**
+       * @summary 修改证书
+       *
        * @param request ConfigLayer7CertRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ConfigLayer7CertResponse
@@ -132,12 +166,16 @@ namespace Ddoscoo20171228
       Models::ConfigLayer7CertResponse configLayer7CertWithOptions(const Models::ConfigLayer7CertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改证书
+       *
        * @param request ConfigLayer7CertRequest
        * @return ConfigLayer7CertResponse
        */
       Models::ConfigLayer7CertResponse configLayer7Cert(const Models::ConfigLayer7CertRequest &request);
 
       /**
+       * @summary 修改域名接入规则
+       *
        * @param request ConfigLayer7RuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ConfigLayer7RuleResponse
@@ -145,12 +183,16 @@ namespace Ddoscoo20171228
       Models::ConfigLayer7RuleResponse configLayer7RuleWithOptions(const Models::ConfigLayer7RuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改域名接入规则
+       *
        * @param request ConfigLayer7RuleRequest
        * @return ConfigLayer7RuleResponse
        */
       Models::ConfigLayer7RuleResponse configLayer7Rule(const Models::ConfigLayer7RuleRequest &request);
 
       /**
+       * @summary 创建异步任务
+       *
        * @param request CreateAsyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateAsyncTaskResponse
@@ -158,12 +200,16 @@ namespace Ddoscoo20171228
       Models::CreateAsyncTaskResponse createAsyncTaskWithOptions(const Models::CreateAsyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建异步任务
+       *
        * @param request CreateAsyncTaskRequest
        * @return CreateAsyncTaskResponse
        */
       Models::CreateAsyncTaskResponse createAsyncTask(const Models::CreateAsyncTaskRequest &request);
 
       /**
+       * @summary 创建端口接入
+       *
        * @param tmpReq CreateLayer4RuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateLayer4RuleResponse
@@ -171,12 +217,16 @@ namespace Ddoscoo20171228
       Models::CreateLayer4RuleResponse createLayer4RuleWithOptions(const Models::CreateLayer4RuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建端口接入
+       *
        * @param request CreateLayer4RuleRequest
        * @return CreateLayer4RuleResponse
        */
       Models::CreateLayer4RuleResponse createLayer4Rule(const Models::CreateLayer4RuleRequest &request);
 
       /**
+       * @summary 创建域名接入规则
+       *
        * @param request CreateLayer7RuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateLayer7RuleResponse
@@ -184,12 +234,16 @@ namespace Ddoscoo20171228
       Models::CreateLayer7RuleResponse createLayer7RuleWithOptions(const Models::CreateLayer7RuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建域名接入规则
+       *
        * @param request CreateLayer7RuleRequest
        * @return CreateLayer7RuleResponse
        */
       Models::CreateLayer7RuleResponse createLayer7Rule(const Models::CreateLayer7RuleRequest &request);
 
       /**
+       * @summary 删除异步任务
+       *
        * @param request DeleteAsyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAsyncTaskResponse
@@ -197,12 +251,16 @@ namespace Ddoscoo20171228
       Models::DeleteAsyncTaskResponse deleteAsyncTaskWithOptions(const Models::DeleteAsyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 删除异步任务
+       *
        * @param request DeleteAsyncTaskRequest
        * @return DeleteAsyncTaskResponse
        */
       Models::DeleteAsyncTaskResponse deleteAsyncTask(const Models::DeleteAsyncTaskRequest &request);
 
       /**
+       * @summary 删除端口接入规则
+       *
        * @param request DeleteLayer4RuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteLayer4RuleResponse
@@ -210,12 +268,16 @@ namespace Ddoscoo20171228
       Models::DeleteLayer4RuleResponse deleteLayer4RuleWithOptions(const Models::DeleteLayer4RuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 删除端口接入规则
+       *
        * @param request DeleteLayer4RuleRequest
        * @return DeleteLayer4RuleResponse
        */
       Models::DeleteLayer4RuleResponse deleteLayer4Rule(const Models::DeleteLayer4RuleRequest &request);
 
       /**
+       * @summary 删除CC规则
+       *
        * @param request DeleteLayer7CCRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteLayer7CCRuleResponse
@@ -223,12 +285,16 @@ namespace Ddoscoo20171228
       Models::DeleteLayer7CCRuleResponse deleteLayer7CCRuleWithOptions(const Models::DeleteLayer7CCRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 删除CC规则
+       *
        * @param request DeleteLayer7CCRuleRequest
        * @return DeleteLayer7CCRuleResponse
        */
       Models::DeleteLayer7CCRuleResponse deleteLayer7CCRule(const Models::DeleteLayer7CCRuleRequest &request);
 
       /**
+       * @summary 删除域名接入规则
+       *
        * @param request DeleteLayer7RuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteLayer7RuleResponse
@@ -236,12 +302,16 @@ namespace Ddoscoo20171228
       Models::DeleteLayer7RuleResponse deleteLayer7RuleWithOptions(const Models::DeleteLayer7RuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 删除域名接入规则
+       *
        * @param request DeleteLayer7RuleRequest
        * @return DeleteLayer7RuleResponse
        */
       Models::DeleteLayer7RuleResponse deleteLayer7Rule(const Models::DeleteLayer7RuleRequest &request);
 
       /**
+       * @summary 查询回源网段
+       *
        * @param request DescribeBackSourceCidrRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeBackSourceCidrResponse
@@ -249,6 +319,8 @@ namespace Ddoscoo20171228
       Models::DescribeBackSourceCidrResponse describeBackSourceCidrWithOptions(const Models::DescribeBackSourceCidrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询回源网段
+       *
        * @param request DescribeBackSourceCidrRequest
        * @return DescribeBackSourceCidrResponse
        */
@@ -272,6 +344,8 @@ namespace Ddoscoo20171228
       Models::DescribeBatchSlsDispatchStatusResponse describeBatchSlsDispatchStatus(const Models::DescribeBatchSlsDispatchStatusRequest &request);
 
       /**
+       * @summary 查询事件
+       *
        * @param request DescribeDDoSEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDDoSEventsResponse
@@ -279,12 +353,16 @@ namespace Ddoscoo20171228
       Models::DescribeDDoSEventsResponse describeDDoSEventsWithOptions(const Models::DescribeDDoSEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询事件
+       *
        * @param request DescribeDDoSEventsRequest
        * @return DescribeDDoSEventsResponse
        */
       Models::DescribeDDoSEventsResponse describeDDoSEvents(const Models::DescribeDDoSEventsRequest &request);
 
       /**
+       * @summary 查询流量
+       *
        * @param request DescribeDDoSTrafficRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDDoSTrafficResponse
@@ -292,12 +370,16 @@ namespace Ddoscoo20171228
       Models::DescribeDDoSTrafficResponse describeDDoSTrafficWithOptions(const Models::DescribeDDoSTrafficRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询流量
+       *
        * @param request DescribeDDoSTrafficRequest
        * @return DescribeDDoSTrafficResponse
        */
       Models::DescribeDDoSTrafficResponse describeDDoSTraffic(const Models::DescribeDDoSTrafficRequest &request);
 
       /**
+       * @summary 查询防护次数
+       *
        * @param request DescribeDefenseCountStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDefenseCountStatisticsResponse
@@ -305,12 +387,16 @@ namespace Ddoscoo20171228
       Models::DescribeDefenseCountStatisticsResponse describeDefenseCountStatisticsWithOptions(const Models::DescribeDefenseCountStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询防护次数
+       *
        * @param request DescribeDefenseCountStatisticsRequest
        * @return DescribeDefenseCountStatisticsResponse
        */
       Models::DescribeDefenseCountStatisticsResponse describeDefenseCountStatistics(const Models::DescribeDefenseCountStatisticsRequest &request);
 
       /**
+       * @summary 查询域名接入模式
+       *
        * @param request DescribeDomainAccessModeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDomainAccessModeResponse
@@ -318,12 +404,16 @@ namespace Ddoscoo20171228
       Models::DescribeDomainAccessModeResponse describeDomainAccessModeWithOptions(const Models::DescribeDomainAccessModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询域名接入模式
+       *
        * @param request DescribeDomainAccessModeRequest
        * @return DescribeDomainAccessModeResponse
        */
       Models::DescribeDomainAccessModeResponse describeDomainAccessMode(const Models::DescribeDomainAccessModeRequest &request);
 
       /**
+       * @summary 查询域名攻击事件
+       *
        * @param request DescribeDomainAttackEventListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDomainAttackEventListResponse
@@ -331,12 +421,16 @@ namespace Ddoscoo20171228
       Models::DescribeDomainAttackEventListResponse describeDomainAttackEventListWithOptions(const Models::DescribeDomainAttackEventListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询域名攻击事件
+       *
        * @param request DescribeDomainAttackEventListRequest
        * @return DescribeDomainAttackEventListResponse
        */
       Models::DescribeDomainAttackEventListResponse describeDomainAttackEventList(const Models::DescribeDomainAttackEventListRequest &request);
 
       /**
+       * @summary 查询域名攻击最大QPS
+       *
        * @param request DescribeDomainAttackMaxQpsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDomainAttackMaxQpsResponse
@@ -344,12 +438,16 @@ namespace Ddoscoo20171228
       Models::DescribeDomainAttackMaxQpsResponse describeDomainAttackMaxQpsWithOptions(const Models::DescribeDomainAttackMaxQpsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询域名攻击最大QPS
+       *
        * @param request DescribeDomainAttackMaxQpsRequest
        * @return DescribeDomainAttackMaxQpsResponse
        */
       Models::DescribeDomainAttackMaxQpsResponse describeDomainAttackMaxQps(const Models::DescribeDomainAttackMaxQpsRequest &request);
 
       /**
+       * @summary 域名概览
+       *
        * @param request DescribeDomainOverviewRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDomainOverviewResponse
@@ -357,12 +455,16 @@ namespace Ddoscoo20171228
       Models::DescribeDomainOverviewResponse describeDomainOverviewWithOptions(const Models::DescribeDomainOverviewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 域名概览
+       *
        * @param request DescribeDomainOverviewRequest
        * @return DescribeDomainOverviewResponse
        */
       Models::DescribeDomainOverviewResponse describeDomainOverview(const Models::DescribeDomainOverviewRequest &request);
 
       /**
+       * @summary 查询域名QPS
+       *
        * @param request DescribeDomainQpsListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDomainQpsListResponse
@@ -370,12 +472,16 @@ namespace Ddoscoo20171228
       Models::DescribeDomainQpsListResponse describeDomainQpsListWithOptions(const Models::DescribeDomainQpsListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询域名QPS
+       *
        * @param request DescribeDomainQpsListRequest
        * @return DescribeDomainQpsListResponse
        */
       Models::DescribeDomainQpsListResponse describeDomainQpsList(const Models::DescribeDomainQpsListRequest &request);
 
       /**
+       * @summary 查询qps
+       *
        * @param request DescribeDomainQpsWithCacheRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDomainQpsWithCacheResponse
@@ -383,12 +489,16 @@ namespace Ddoscoo20171228
       Models::DescribeDomainQpsWithCacheResponse describeDomainQpsWithCacheWithOptions(const Models::DescribeDomainQpsWithCacheRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询qps
+       *
        * @param request DescribeDomainQpsWithCacheRequest
        * @return DescribeDomainQpsWithCacheResponse
        */
       Models::DescribeDomainQpsWithCacheResponse describeDomainQpsWithCache(const Models::DescribeDomainQpsWithCacheRequest &request);
 
       /**
+       * @summary 查询日志分发状态
+       *
        * @param request DescribeDomainSlsStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDomainSlsStatusResponse
@@ -396,6 +506,8 @@ namespace Ddoscoo20171228
       Models::DescribeDomainSlsStatusResponse describeDomainSlsStatusWithOptions(const Models::DescribeDomainSlsStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询日志分发状态
+       *
        * @param request DescribeDomainSlsStatusRequest
        * @return DescribeDomainSlsStatusResponse
        */
@@ -419,6 +531,8 @@ namespace Ddoscoo20171228
       Models::DescribeDomainStatusCodeListResponse describeDomainStatusCodeList(const Models::DescribeDomainStatusCodeListRequest &request);
 
       /**
+       * @summary 查询域名
+       *
        * @param request DescribeDomainsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDomainsResponse
@@ -426,12 +540,16 @@ namespace Ddoscoo20171228
       Models::DescribeDomainsResponse describeDomainsWithOptions(const Models::DescribeDomainsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询域名
+       *
        * @param request DescribeDomainsRequest
        * @return DescribeDomainsResponse
        */
       Models::DescribeDomainsResponse describeDomains(const Models::DescribeDomainsRequest &request);
 
       /**
+       * @summary 查询弹性带宽规格
+       *
        * @param request DescribeElasticBandwidthSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeElasticBandwidthSpecResponse
@@ -439,12 +557,16 @@ namespace Ddoscoo20171228
       Models::DescribeElasticBandwidthSpecResponse describeElasticBandwidthSpecWithOptions(const Models::DescribeElasticBandwidthSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询弹性带宽规格
+       *
        * @param request DescribeElasticBandwidthSpecRequest
        * @return DescribeElasticBandwidthSpecResponse
        */
       Models::DescribeElasticBandwidthSpecResponse describeElasticBandwidthSpec(const Models::DescribeElasticBandwidthSpecRequest &request);
 
       /**
+       * @summary 查询健康检查列表
+       *
        * @param request DescribeHealthCheckListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeHealthCheckListResponse
@@ -452,12 +574,16 @@ namespace Ddoscoo20171228
       Models::DescribeHealthCheckListResponse describeHealthCheckListWithOptions(const Models::DescribeHealthCheckListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询健康检查列表
+       *
        * @param request DescribeHealthCheckListRequest
        * @return DescribeHealthCheckListResponse
        */
       Models::DescribeHealthCheckListResponse describeHealthCheckList(const Models::DescribeHealthCheckListRequest &request);
 
       /**
+       * @summary 查询监控检查状态
+       *
        * @param request DescribeHealthCheckStatusListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeHealthCheckStatusListResponse
@@ -465,12 +591,16 @@ namespace Ddoscoo20171228
       Models::DescribeHealthCheckStatusListResponse describeHealthCheckStatusListWithOptions(const Models::DescribeHealthCheckStatusListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询监控检查状态
+       *
        * @param request DescribeHealthCheckStatusListRequest
        * @return DescribeHealthCheckStatusListResponse
        */
       Models::DescribeHealthCheckStatusListResponse describeHealthCheckStatusList(const Models::DescribeHealthCheckStatusListRequest &request);
 
       /**
+       * @summary 查询实例详情
+       *
        * @param request DescribeInstanceDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeInstanceDetailsResponse
@@ -478,12 +608,16 @@ namespace Ddoscoo20171228
       Models::DescribeInstanceDetailsResponse describeInstanceDetailsWithOptions(const Models::DescribeInstanceDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询实例详情
+       *
        * @param request DescribeInstanceDetailsRequest
        * @return DescribeInstanceDetailsResponse
        */
       Models::DescribeInstanceDetailsResponse describeInstanceDetails(const Models::DescribeInstanceDetailsRequest &request);
 
       /**
+       * @summary 查询实例规格
+       *
        * @param request DescribeInstanceSpecsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeInstanceSpecsResponse
@@ -491,12 +625,16 @@ namespace Ddoscoo20171228
       Models::DescribeInstanceSpecsResponse describeInstanceSpecsWithOptions(const Models::DescribeInstanceSpecsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询实例规格
+       *
        * @param request DescribeInstanceSpecsRequest
        * @return DescribeInstanceSpecsResponse
        */
       Models::DescribeInstanceSpecsResponse describeInstanceSpecs(const Models::DescribeInstanceSpecsRequest &request);
 
       /**
+       * @summary 查询实例统计
+       *
        * @param request DescribeInstanceStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeInstanceStatisticsResponse
@@ -504,12 +642,16 @@ namespace Ddoscoo20171228
       Models::DescribeInstanceStatisticsResponse describeInstanceStatisticsWithOptions(const Models::DescribeInstanceStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询实例统计
+       *
        * @param request DescribeInstanceStatisticsRequest
        * @return DescribeInstanceStatisticsResponse
        */
       Models::DescribeInstanceStatisticsResponse describeInstanceStatistics(const Models::DescribeInstanceStatisticsRequest &request);
 
       /**
+       * @summary 查询实例
+       *
        * @param request DescribeInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeInstancesResponse
@@ -517,12 +659,16 @@ namespace Ddoscoo20171228
       Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询实例
+       *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
        */
       Models::DescribeInstancesResponse describeInstances(const Models::DescribeInstancesRequest &request);
 
       /**
+       * @summary 查询流量
+       *
        * @param request DescribeIpTrafficRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeIpTrafficResponse
@@ -530,12 +676,16 @@ namespace Ddoscoo20171228
       Models::DescribeIpTrafficResponse describeIpTrafficWithOptions(const Models::DescribeIpTrafficRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询流量
+       *
        * @param request DescribeIpTrafficRequest
        * @return DescribeIpTrafficResponse
        */
       Models::DescribeIpTrafficResponse describeIpTraffic(const Models::DescribeIpTrafficRequest &request);
 
       /**
+       * @summary 查询端口规则属性
+       *
        * @param request DescribeLayer4RuleAttributesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeLayer4RuleAttributesResponse
@@ -543,6 +693,8 @@ namespace Ddoscoo20171228
       Models::DescribeLayer4RuleAttributesResponse describeLayer4RuleAttributesWithOptions(const Models::DescribeLayer4RuleAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询端口规则属性
+       *
        * @param request DescribeLayer4RuleAttributesRequest
        * @return DescribeLayer4RuleAttributesResponse
        */
@@ -566,6 +718,8 @@ namespace Ddoscoo20171228
       Models::DescribeLayer4RulesResponse describeLayer4Rules(const Models::DescribeLayer4RulesRequest &request);
 
       /**
+       * @summary 查询CC规则
+       *
        * @param request DescribeLayer7CCRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeLayer7CCRulesResponse
@@ -573,12 +727,16 @@ namespace Ddoscoo20171228
       Models::DescribeLayer7CCRulesResponse describeLayer7CCRulesWithOptions(const Models::DescribeLayer7CCRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询CC规则
+       *
        * @param request DescribeLayer7CCRulesRequest
        * @return DescribeLayer7CCRulesResponse
        */
       Models::DescribeLayer7CCRulesResponse describeLayer7CCRules(const Models::DescribeLayer7CCRulesRequest &request);
 
       /**
+       * @summary 查询日志库存在状态
+       *
        * @param request DescribeLogStoreExistStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeLogStoreExistStatusResponse
@@ -586,12 +744,16 @@ namespace Ddoscoo20171228
       Models::DescribeLogStoreExistStatusResponse describeLogStoreExistStatusWithOptions(const Models::DescribeLogStoreExistStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询日志库存在状态
+       *
        * @param request DescribeLogStoreExistStatusRequest
        * @return DescribeLogStoreExistStatusResponse
        */
       Models::DescribeLogStoreExistStatusResponse describeLogStoreExistStatus(const Models::DescribeLogStoreExistStatusRequest &request);
 
       /**
+       * @summary 查询操作日志
+       *
        * @param request DescribeOpEntitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeOpEntitiesResponse
@@ -599,12 +761,16 @@ namespace Ddoscoo20171228
       Models::DescribeOpEntitiesResponse describeOpEntitiesWithOptions(const Models::DescribeOpEntitiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询操作日志
+       *
        * @param request DescribeOpEntitiesRequest
        * @return DescribeOpEntitiesResponse
        */
       Models::DescribeOpEntitiesResponse describeOpEntities(const Models::DescribeOpEntitiesRequest &request);
 
       /**
+       * @summary 查询域名
+       *
        * @param request DescribeSimpleDomainsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSimpleDomainsResponse
@@ -612,12 +778,16 @@ namespace Ddoscoo20171228
       Models::DescribeSimpleDomainsResponse describeSimpleDomainsWithOptions(const Models::DescribeSimpleDomainsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询域名
+       *
        * @param request DescribeSimpleDomainsRequest
        * @return DescribeSimpleDomainsResponse
        */
       Models::DescribeSimpleDomainsResponse describeSimpleDomains(const Models::DescribeSimpleDomainsRequest &request);
 
       /**
+       * @summary 查询sls授权状态
+       *
        * @param request DescribeSlsAuthStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSlsAuthStatusResponse
@@ -625,12 +795,16 @@ namespace Ddoscoo20171228
       Models::DescribeSlsAuthStatusResponse describeSlsAuthStatusWithOptions(const Models::DescribeSlsAuthStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询sls授权状态
+       *
        * @param request DescribeSlsAuthStatusRequest
        * @return DescribeSlsAuthStatusResponse
        */
       Models::DescribeSlsAuthStatusResponse describeSlsAuthStatus(const Models::DescribeSlsAuthStatusRequest &request);
 
       /**
+       * @summary 查询清空次数
+       *
        * @param request DescribeSlsEmptyCountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSlsEmptyCountResponse
@@ -638,12 +812,16 @@ namespace Ddoscoo20171228
       Models::DescribeSlsEmptyCountResponse describeSlsEmptyCountWithOptions(const Models::DescribeSlsEmptyCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询清空次数
+       *
        * @param request DescribeSlsEmptyCountRequest
        * @return DescribeSlsEmptyCountResponse
        */
       Models::DescribeSlsEmptyCountResponse describeSlsEmptyCount(const Models::DescribeSlsEmptyCountRequest &request);
 
       /**
+       * @summary 查询全量日志信息
+       *
        * @param request DescribeSlsLogstoreInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSlsLogstoreInfoResponse
@@ -651,12 +829,16 @@ namespace Ddoscoo20171228
       Models::DescribeSlsLogstoreInfoResponse describeSlsLogstoreInfoWithOptions(const Models::DescribeSlsLogstoreInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询全量日志信息
+       *
        * @param request DescribeSlsLogstoreInfoRequest
        * @return DescribeSlsLogstoreInfoResponse
        */
       Models::DescribeSlsLogstoreInfoResponse describeSlsLogstoreInfo(const Models::DescribeSlsLogstoreInfoRequest &request);
 
       /**
+       * @summary 查询sls开通状态
+       *
        * @param request DescribeSlsOpenStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSlsOpenStatusResponse
@@ -664,12 +846,16 @@ namespace Ddoscoo20171228
       Models::DescribeSlsOpenStatusResponse describeSlsOpenStatusWithOptions(const Models::DescribeSlsOpenStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询sls开通状态
+       *
        * @param request DescribeSlsOpenStatusRequest
        * @return DescribeSlsOpenStatusResponse
        */
       Models::DescribeSlsOpenStatusResponse describeSlsOpenStatus(const Models::DescribeSlsOpenStatusRequest &request);
 
       /**
+       * @summary 查询证书列表
+       *
        * @param request DescribleCertListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribleCertListResponse
@@ -677,12 +863,16 @@ namespace Ddoscoo20171228
       Models::DescribleCertListResponse describleCertListWithOptions(const Models::DescribleCertListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询证书列表
+       *
        * @param request DescribleCertListRequest
        * @return DescribleCertListResponse
        */
       Models::DescribleCertListResponse describleCertList(const Models::DescribleCertListRequest &request);
 
       /**
+       * @summary 查询域名实例关系
+       *
        * @param request DescribleLayer7InstanceRelationsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribleLayer7InstanceRelationsResponse
@@ -690,12 +880,16 @@ namespace Ddoscoo20171228
       Models::DescribleLayer7InstanceRelationsResponse describleLayer7InstanceRelationsWithOptions(const Models::DescribleLayer7InstanceRelationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询域名实例关系
+       *
        * @param request DescribleLayer7InstanceRelationsRequest
        * @return DescribleLayer7InstanceRelationsResponse
        */
       Models::DescribleLayer7InstanceRelationsResponse describleLayer7InstanceRelations(const Models::DescribleLayer7InstanceRelationsRequest &request);
 
       /**
+       * @summary 关闭CC
+       *
        * @param request DisableLayer7CCRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DisableLayer7CCResponse
@@ -703,12 +897,16 @@ namespace Ddoscoo20171228
       Models::DisableLayer7CCResponse disableLayer7CCWithOptions(const Models::DisableLayer7CCRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 关闭CC
+       *
        * @param request DisableLayer7CCRequest
        * @return DisableLayer7CCResponse
        */
       Models::DisableLayer7CCResponse disableLayer7CC(const Models::DisableLayer7CCRequest &request);
 
       /**
+       * @summary 关闭CC规则
+       *
        * @param request DisableLayer7CCRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DisableLayer7CCRuleResponse
@@ -716,12 +914,16 @@ namespace Ddoscoo20171228
       Models::DisableLayer7CCRuleResponse disableLayer7CCRuleWithOptions(const Models::DisableLayer7CCRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 关闭CC规则
+       *
        * @param request DisableLayer7CCRuleRequest
        * @return DisableLayer7CCRuleResponse
        */
       Models::DisableLayer7CCRuleResponse disableLayer7CCRule(const Models::DisableLayer7CCRuleRequest &request);
 
       /**
+       * @summary 清除SLS日志库
+       *
        * @param request EmptySlsLogstoreRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EmptySlsLogstoreResponse
@@ -729,12 +931,16 @@ namespace Ddoscoo20171228
       Models::EmptySlsLogstoreResponse emptySlsLogstoreWithOptions(const Models::EmptySlsLogstoreRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 清除SLS日志库
+       *
        * @param request EmptySlsLogstoreRequest
        * @return EmptySlsLogstoreResponse
        */
       Models::EmptySlsLogstoreResponse emptySlsLogstore(const Models::EmptySlsLogstoreRequest &request);
 
       /**
+       * @summary 开启CC
+       *
        * @param request EnableLayer7CCRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableLayer7CCResponse
@@ -742,12 +948,16 @@ namespace Ddoscoo20171228
       Models::EnableLayer7CCResponse enableLayer7CCWithOptions(const Models::EnableLayer7CCRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 开启CC
+       *
        * @param request EnableLayer7CCRequest
        * @return EnableLayer7CCResponse
        */
       Models::EnableLayer7CCResponse enableLayer7CC(const Models::EnableLayer7CCRequest &request);
 
       /**
+       * @summary 开启CC规则
+       *
        * @param request EnableLayer7CCRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableLayer7CCRuleResponse
@@ -755,12 +965,16 @@ namespace Ddoscoo20171228
       Models::EnableLayer7CCRuleResponse enableLayer7CCRuleWithOptions(const Models::EnableLayer7CCRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 开启CC规则
+       *
        * @param request EnableLayer7CCRuleRequest
        * @return EnableLayer7CCRuleResponse
        */
       Models::EnableLayer7CCRuleResponse enableLayer7CCRule(const Models::EnableLayer7CCRuleRequest &request);
 
       /**
+       * @summary 查询异步任务
+       *
        * @param request ListAsyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAsyncTaskResponse
@@ -768,12 +982,16 @@ namespace Ddoscoo20171228
       Models::ListAsyncTaskResponse listAsyncTaskWithOptions(const Models::ListAsyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询异步任务
+       *
        * @param request ListAsyncTaskRequest
        * @return ListAsyncTaskResponse
        */
       Models::ListAsyncTaskResponse listAsyncTask(const Models::ListAsyncTaskRequest &request);
 
       /**
+       * @summary 查询域名接入端口
+       *
        * @param request ListLayer7CustomPortsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListLayer7CustomPortsResponse
@@ -781,12 +999,16 @@ namespace Ddoscoo20171228
       Models::ListLayer7CustomPortsResponse listLayer7CustomPortsWithOptions(const Models::ListLayer7CustomPortsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询域名接入端口
+       *
        * @param request ListLayer7CustomPortsRequest
        * @return ListLayer7CustomPortsResponse
        */
       Models::ListLayer7CustomPortsResponse listLayer7CustomPorts(const Models::ListLayer7CustomPortsRequest &request);
 
       /**
+       * @summary 列出tag
+       *
        * @param request ListTagKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListTagKeysResponse
@@ -794,12 +1016,16 @@ namespace Ddoscoo20171228
       Models::ListTagKeysResponse listTagKeysWithOptions(const Models::ListTagKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 列出tag
+       *
        * @param request ListTagKeysRequest
        * @return ListTagKeysResponse
        */
       Models::ListTagKeysResponse listTagKeys(const Models::ListTagKeysRequest &request);
 
       /**
+       * @summary 查询资源
+       *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListTagResourcesResponse
@@ -807,12 +1033,16 @@ namespace Ddoscoo20171228
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询资源
+       *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
        */
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
+       * @summary 查询日志实例
+       *
        * @param request ListValueAddedRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListValueAddedResponse
@@ -820,12 +1050,16 @@ namespace Ddoscoo20171228
       Models::ListValueAddedResponse listValueAddedWithOptions(const Models::ListValueAddedRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询日志实例
+       *
        * @param request ListValueAddedRequest
        * @return ListValueAddedResponse
        */
       Models::ListValueAddedResponse listValueAdded(const Models::ListValueAddedRequest &request);
 
       /**
+       * @summary 修改弹性业务带宽
+       *
        * @param request ModifyElasticBandWidthRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyElasticBandWidthResponse
@@ -833,12 +1067,16 @@ namespace Ddoscoo20171228
       Models::ModifyElasticBandWidthResponse modifyElasticBandWidthWithOptions(const Models::ModifyElasticBandWidthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改弹性业务带宽
+       *
        * @param request ModifyElasticBandWidthRequest
        * @return ModifyElasticBandWidthResponse
        */
       Models::ModifyElasticBandWidthResponse modifyElasticBandWidth(const Models::ModifyElasticBandWidthRequest &request);
 
       /**
+       * @summary 修改日志存储时长
+       *
        * @param request ModifyFullLogTtlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyFullLogTtlResponse
@@ -846,12 +1084,16 @@ namespace Ddoscoo20171228
       Models::ModifyFullLogTtlResponse modifyFullLogTtlWithOptions(const Models::ModifyFullLogTtlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改日志存储时长
+       *
        * @param request ModifyFullLogTtlRequest
        * @return ModifyFullLogTtlResponse
        */
       Models::ModifyFullLogTtlResponse modifyFullLogTtl(const Models::ModifyFullLogTtlRequest &request);
 
       /**
+       * @summary 修改实例备注
+       *
        * @param request ModifyInstanceRemarkRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyInstanceRemarkResponse
@@ -859,12 +1101,16 @@ namespace Ddoscoo20171228
       Models::ModifyInstanceRemarkResponse modifyInstanceRemarkWithOptions(const Models::ModifyInstanceRemarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改实例备注
+       *
        * @param request ModifyInstanceRemarkRequest
        * @return ModifyInstanceRemarkResponse
        */
       Models::ModifyInstanceRemarkResponse modifyInstanceRemark(const Models::ModifyInstanceRemarkRequest &request);
 
       /**
+       * @summary 开启日志分发
+       *
        * @param request OpenDomainSlsConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return OpenDomainSlsConfigResponse
@@ -872,12 +1118,16 @@ namespace Ddoscoo20171228
       Models::OpenDomainSlsConfigResponse openDomainSlsConfigWithOptions(const Models::OpenDomainSlsConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 开启日志分发
+       *
        * @param request OpenDomainSlsConfigRequest
        * @return OpenDomainSlsConfigResponse
        */
       Models::OpenDomainSlsConfigResponse openDomainSlsConfig(const Models::OpenDomainSlsConfigRequest &request);
 
       /**
+       * @summary 释放实例
+       *
        * @param request ReleaseInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ReleaseInstanceResponse
@@ -885,12 +1135,16 @@ namespace Ddoscoo20171228
       Models::ReleaseInstanceResponse releaseInstanceWithOptions(const Models::ReleaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 释放实例
+       *
        * @param request ReleaseInstanceRequest
        * @return ReleaseInstanceResponse
        */
       Models::ReleaseInstanceResponse releaseInstance(const Models::ReleaseInstanceRequest &request);
 
       /**
+       * @summary 释放日志实例
+       *
        * @param request ReleaseValueAddedRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ReleaseValueAddedResponse
@@ -898,12 +1152,16 @@ namespace Ddoscoo20171228
       Models::ReleaseValueAddedResponse releaseValueAddedWithOptions(const Models::ReleaseValueAddedRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 释放日志实例
+       *
        * @param request ReleaseValueAddedRequest
        * @return ReleaseValueAddedResponse
        */
       Models::ReleaseValueAddedResponse releaseValueAdded(const Models::ReleaseValueAddedRequest &request);
 
       /**
+       * @summary 标签资源
+       *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return TagResourcesResponse
@@ -911,12 +1169,16 @@ namespace Ddoscoo20171228
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 标签资源
+       *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
        */
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
+       * @summary 解除资源标签
+       *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UntagResourcesResponse
@@ -924,6 +1186,8 @@ namespace Ddoscoo20171228
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 解除资源标签
+       *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
        */

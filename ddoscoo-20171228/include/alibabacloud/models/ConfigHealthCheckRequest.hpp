@@ -35,45 +35,45 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->forwardProtocol_ != nullptr
-        && this->frontendPort_ != nullptr && this->healthCheck_ != nullptr && this->instanceId_ != nullptr; };
+    virtual bool empty() const override { return this->forwardProtocol_ == nullptr
+        && this->frontendPort_ == nullptr && this->healthCheck_ == nullptr && this->instanceId_ == nullptr; };
     // forwardProtocol Field Functions 
     bool hasForwardProtocol() const { return this->forwardProtocol_ != nullptr;};
     void deleteForwardProtocol() { this->forwardProtocol_ = nullptr;};
-    inline string forwardProtocol() const { DARABONBA_PTR_GET_DEFAULT(forwardProtocol_, "") };
+    inline string getForwardProtocol() const { DARABONBA_PTR_GET_DEFAULT(forwardProtocol_, "") };
     inline ConfigHealthCheckRequest& setForwardProtocol(string forwardProtocol) { DARABONBA_PTR_SET_VALUE(forwardProtocol_, forwardProtocol) };
 
 
     // frontendPort Field Functions 
     bool hasFrontendPort() const { return this->frontendPort_ != nullptr;};
     void deleteFrontendPort() { this->frontendPort_ = nullptr;};
-    inline int32_t frontendPort() const { DARABONBA_PTR_GET_DEFAULT(frontendPort_, 0) };
+    inline int32_t getFrontendPort() const { DARABONBA_PTR_GET_DEFAULT(frontendPort_, 0) };
     inline ConfigHealthCheckRequest& setFrontendPort(int32_t frontendPort) { DARABONBA_PTR_SET_VALUE(frontendPort_, frontendPort) };
 
 
     // healthCheck Field Functions 
     bool hasHealthCheck() const { return this->healthCheck_ != nullptr;};
     void deleteHealthCheck() { this->healthCheck_ = nullptr;};
-    inline string healthCheck() const { DARABONBA_PTR_GET_DEFAULT(healthCheck_, "") };
+    inline string getHealthCheck() const { DARABONBA_PTR_GET_DEFAULT(healthCheck_, "") };
     inline ConfigHealthCheckRequest& setHealthCheck(string healthCheck) { DARABONBA_PTR_SET_VALUE(healthCheck_, healthCheck) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ConfigHealthCheckRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> forwardProtocol_ = nullptr;
+    shared_ptr<string> forwardProtocol_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> frontendPort_ = nullptr;
+    shared_ptr<int32_t> frontendPort_ {};
     // This parameter is required.
-    std::shared_ptr<string> healthCheck_ = nullptr;
+    shared_ptr<string> healthCheck_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

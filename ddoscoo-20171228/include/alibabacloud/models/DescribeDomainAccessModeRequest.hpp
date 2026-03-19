@@ -32,13 +32,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->domainList_ != nullptr
-        && this->sourceIp_ != nullptr; };
+    virtual bool empty() const override { return this->domainList_ == nullptr
+        && this->sourceIp_ == nullptr; };
     // domainList Field Functions 
     bool hasDomainList() const { return this->domainList_ != nullptr;};
     void deleteDomainList() { this->domainList_ = nullptr;};
-    inline const vector<string> & domainList() const { DARABONBA_PTR_GET_CONST(domainList_, vector<string>) };
-    inline vector<string> domainList() { DARABONBA_PTR_GET(domainList_, vector<string>) };
+    inline const vector<string> & getDomainList() const { DARABONBA_PTR_GET_CONST(domainList_, vector<string>) };
+    inline vector<string> getDomainList() { DARABONBA_PTR_GET(domainList_, vector<string>) };
     inline DescribeDomainAccessModeRequest& setDomainList(const vector<string> & domainList) { DARABONBA_PTR_SET_VALUE(domainList_, domainList) };
     inline DescribeDomainAccessModeRequest& setDomainList(vector<string> && domainList) { DARABONBA_PTR_SET_RVALUE(domainList_, domainList) };
 
@@ -46,14 +46,14 @@ namespace Models
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeDomainAccessModeRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> domainList_ = nullptr;
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<vector<string>> domainList_ {};
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

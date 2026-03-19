@@ -35,41 +35,41 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->slsLogstore_ != nullptr && this->slsProject_ != nullptr && this->slsStatus_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->slsLogstore_ == nullptr && this->slsProject_ == nullptr && this->slsStatus_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDomainSlsStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // slsLogstore Field Functions 
     bool hasSlsLogstore() const { return this->slsLogstore_ != nullptr;};
     void deleteSlsLogstore() { this->slsLogstore_ = nullptr;};
-    inline string slsLogstore() const { DARABONBA_PTR_GET_DEFAULT(slsLogstore_, "") };
+    inline string getSlsLogstore() const { DARABONBA_PTR_GET_DEFAULT(slsLogstore_, "") };
     inline DescribeDomainSlsStatusResponseBody& setSlsLogstore(string slsLogstore) { DARABONBA_PTR_SET_VALUE(slsLogstore_, slsLogstore) };
 
 
     // slsProject Field Functions 
     bool hasSlsProject() const { return this->slsProject_ != nullptr;};
     void deleteSlsProject() { this->slsProject_ = nullptr;};
-    inline string slsProject() const { DARABONBA_PTR_GET_DEFAULT(slsProject_, "") };
+    inline string getSlsProject() const { DARABONBA_PTR_GET_DEFAULT(slsProject_, "") };
     inline DescribeDomainSlsStatusResponseBody& setSlsProject(string slsProject) { DARABONBA_PTR_SET_VALUE(slsProject_, slsProject) };
 
 
     // slsStatus Field Functions 
     bool hasSlsStatus() const { return this->slsStatus_ != nullptr;};
     void deleteSlsStatus() { this->slsStatus_ = nullptr;};
-    inline bool slsStatus() const { DARABONBA_PTR_GET_DEFAULT(slsStatus_, false) };
+    inline bool getSlsStatus() const { DARABONBA_PTR_GET_DEFAULT(slsStatus_, false) };
     inline DescribeDomainSlsStatusResponseBody& setSlsStatus(bool slsStatus) { DARABONBA_PTR_SET_VALUE(slsStatus_, slsStatus) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> slsLogstore_ = nullptr;
-    std::shared_ptr<string> slsProject_ = nullptr;
-    std::shared_ptr<bool> slsStatus_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> slsLogstore_ {};
+    shared_ptr<string> slsProject_ {};
+    shared_ptr<bool> slsStatus_ {};
   };
 
   } // namespace Models

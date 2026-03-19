@@ -43,78 +43,78 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eip_ != nullptr
-        && this->endTime_ != nullptr && this->interval_ != nullptr && this->port_ != nullptr && this->queryProtocol_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->sourceIp_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->eip_ == nullptr
+        && this->endTime_ == nullptr && this->interval_ == nullptr && this->port_ == nullptr && this->queryProtocol_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->sourceIp_ == nullptr && this->startTime_ == nullptr; };
     // eip Field Functions 
     bool hasEip() const { return this->eip_ != nullptr;};
     void deleteEip() { this->eip_ = nullptr;};
-    inline string eip() const { DARABONBA_PTR_GET_DEFAULT(eip_, "") };
+    inline string getEip() const { DARABONBA_PTR_GET_DEFAULT(eip_, "") };
     inline DescribeIpTrafficRequest& setEip(string eip) { DARABONBA_PTR_SET_VALUE(eip_, eip) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline DescribeIpTrafficRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
-    inline int32_t interval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0) };
+    inline int32_t getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0) };
     inline DescribeIpTrafficRequest& setInterval(int32_t interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline int32_t port() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+    inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
     inline DescribeIpTrafficRequest& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // queryProtocol Field Functions 
     bool hasQueryProtocol() const { return this->queryProtocol_ != nullptr;};
     void deleteQueryProtocol() { this->queryProtocol_ = nullptr;};
-    inline string queryProtocol() const { DARABONBA_PTR_GET_DEFAULT(queryProtocol_, "") };
+    inline string getQueryProtocol() const { DARABONBA_PTR_GET_DEFAULT(queryProtocol_, "") };
     inline DescribeIpTrafficRequest& setQueryProtocol(string queryProtocol) { DARABONBA_PTR_SET_VALUE(queryProtocol_, queryProtocol) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeIpTrafficRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeIpTrafficRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline DescribeIpTrafficRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> eip_ = nullptr;
+    shared_ptr<string> eip_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> interval_ = nullptr;
-    std::shared_ptr<int32_t> port_ = nullptr;
-    std::shared_ptr<string> queryProtocol_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<int32_t> interval_ {};
+    shared_ptr<int32_t> port_ {};
+    shared_ptr<string> queryProtocol_ {};
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> sourceIp_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
   };
 
   } // namespace Models

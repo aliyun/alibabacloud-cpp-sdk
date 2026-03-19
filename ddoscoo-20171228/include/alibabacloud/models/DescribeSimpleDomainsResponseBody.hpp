@@ -32,13 +32,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->domainList_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->domainList_ == nullptr
+        && this->requestId_ == nullptr; };
     // domainList Field Functions 
     bool hasDomainList() const { return this->domainList_ != nullptr;};
     void deleteDomainList() { this->domainList_ = nullptr;};
-    inline const vector<string> & domainList() const { DARABONBA_PTR_GET_CONST(domainList_, vector<string>) };
-    inline vector<string> domainList() { DARABONBA_PTR_GET(domainList_, vector<string>) };
+    inline const vector<string> & getDomainList() const { DARABONBA_PTR_GET_CONST(domainList_, vector<string>) };
+    inline vector<string> getDomainList() { DARABONBA_PTR_GET(domainList_, vector<string>) };
     inline DescribeSimpleDomainsResponseBody& setDomainList(const vector<string> & domainList) { DARABONBA_PTR_SET_VALUE(domainList_, domainList) };
     inline DescribeSimpleDomainsResponseBody& setDomainList(vector<string> && domainList) { DARABONBA_PTR_SET_RVALUE(domainList_, domainList) };
 
@@ -46,13 +46,13 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSimpleDomainsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> domainList_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<string>> domainList_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

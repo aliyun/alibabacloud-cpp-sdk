@@ -32,13 +32,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->elasticBandwidthSpec_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->elasticBandwidthSpec_ == nullptr
+        && this->requestId_ == nullptr; };
     // elasticBandwidthSpec Field Functions 
     bool hasElasticBandwidthSpec() const { return this->elasticBandwidthSpec_ != nullptr;};
     void deleteElasticBandwidthSpec() { this->elasticBandwidthSpec_ = nullptr;};
-    inline const vector<string> & elasticBandwidthSpec() const { DARABONBA_PTR_GET_CONST(elasticBandwidthSpec_, vector<string>) };
-    inline vector<string> elasticBandwidthSpec() { DARABONBA_PTR_GET(elasticBandwidthSpec_, vector<string>) };
+    inline const vector<string> & getElasticBandwidthSpec() const { DARABONBA_PTR_GET_CONST(elasticBandwidthSpec_, vector<string>) };
+    inline vector<string> getElasticBandwidthSpec() { DARABONBA_PTR_GET(elasticBandwidthSpec_, vector<string>) };
     inline DescribeElasticBandwidthSpecResponseBody& setElasticBandwidthSpec(const vector<string> & elasticBandwidthSpec) { DARABONBA_PTR_SET_VALUE(elasticBandwidthSpec_, elasticBandwidthSpec) };
     inline DescribeElasticBandwidthSpecResponseBody& setElasticBandwidthSpec(vector<string> && elasticBandwidthSpec) { DARABONBA_PTR_SET_RVALUE(elasticBandwidthSpec_, elasticBandwidthSpec) };
 
@@ -46,13 +46,13 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeElasticBandwidthSpecResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> elasticBandwidthSpec_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<string>> elasticBandwidthSpec_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
