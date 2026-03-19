@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(richMainBody, richMainBody_);
       DARABONBA_PTR_TO_JSON(snippet, snippet_);
       DARABONBA_PTR_TO_JSON(summary, summary_);
+      DARABONBA_ANY_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(title, title_);
       DARABONBA_PTR_TO_JSON(websiteAuthorityScore, websiteAuthorityScore_);
     };
@@ -44,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(richMainBody, richMainBody_);
       DARABONBA_PTR_FROM_JSON(snippet, snippet_);
       DARABONBA_PTR_FROM_JSON(summary, summary_);
+      DARABONBA_ANY_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(title, title_);
       DARABONBA_PTR_FROM_JSON(websiteAuthorityScore, websiteAuthorityScore_);
     };
@@ -61,7 +63,7 @@ namespace Models
     virtual bool empty() const override { return this->correlationTag_ == nullptr
         && this->hostAuthorityScore_ == nullptr && this->hostLogo_ == nullptr && this->hostname_ == nullptr && this->images_ == nullptr && this->link_ == nullptr
         && this->mainText_ == nullptr && this->markdownText_ == nullptr && this->publishedTime_ == nullptr && this->rerankScore_ == nullptr && this->richMainBody_ == nullptr
-        && this->snippet_ == nullptr && this->summary_ == nullptr && this->title_ == nullptr && this->websiteAuthorityScore_ == nullptr; };
+        && this->snippet_ == nullptr && this->summary_ == nullptr && this->tags_ == nullptr && this->title_ == nullptr && this->websiteAuthorityScore_ == nullptr; };
     // correlationTag Field Functions 
     bool hasCorrelationTag() const { return this->correlationTag_ != nullptr;};
     void deleteCorrelationTag() { this->correlationTag_ = nullptr;};
@@ -155,6 +157,15 @@ namespace Models
     inline UnifiedPageItem& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline     const Darabonba::Json & getTags() const { DARABONBA_GET(tags_) };
+    Darabonba::Json & getTags() { DARABONBA_GET(tags_) };
+    inline UnifiedPageItem& setTags(const Darabonba::Json & tags) { DARABONBA_SET_VALUE(tags_, tags) };
+    inline UnifiedPageItem& setTags(Darabonba::Json && tags) { DARABONBA_SET_RVALUE(tags_, tags) };
+
+
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
@@ -183,6 +194,7 @@ namespace Models
     shared_ptr<string> richMainBody_ {};
     shared_ptr<string> snippet_ {};
     shared_ptr<string> summary_ {};
+    Darabonba::Json tags_ {};
     shared_ptr<string> title_ {};
     shared_ptr<int32_t> websiteAuthorityScore_ {};
   };
