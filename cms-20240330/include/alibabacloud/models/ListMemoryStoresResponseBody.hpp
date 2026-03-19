@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(memoryStores, memoryStores_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(total, total_);
     };
     friend void from_json(const Darabonba::Json& j, ListMemoryStoresResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(memoryStores, memoryStores_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(total, total_);
     };
     ListMemoryStoresResponseBody() = default ;
     ListMemoryStoresResponseBody(const ListMemoryStoresResponseBody &) = default ;
@@ -121,7 +123,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && this->memoryStores_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr; };
+        && this->memoryStores_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->total_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -152,11 +154,19 @@ namespace Models
     inline ListMemoryStoresResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // total Field Functions 
+    bool hasTotal() const { return this->total_ != nullptr;};
+    void deleteTotal() { this->total_ = nullptr;};
+    inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+    inline ListMemoryStoresResponseBody& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+
+
   protected:
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<vector<ListMemoryStoresResponseBody::MemoryStores>> memoryStores_ {};
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> total_ {};
   };
 
   } // namespace Models

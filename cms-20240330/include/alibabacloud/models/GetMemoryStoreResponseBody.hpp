@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(memoryStoreName, memoryStoreName_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(shortTermStorage, shortTermStorage_);
       DARABONBA_PTR_TO_JSON(shortTermTtl, shortTermTtl_);
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
       DARABONBA_PTR_TO_JSON(workspace, workspace_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(memoryStoreName, memoryStoreName_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(shortTermStorage, shortTermStorage_);
       DARABONBA_PTR_FROM_JSON(shortTermTtl, shortTermTtl_);
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
       DARABONBA_PTR_FROM_JSON(workspace, workspace_);
@@ -49,9 +51,51 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ShortTermStorage : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ShortTermStorage& obj) { 
+        DARABONBA_PTR_TO_JSON(logstore, logstore_);
+        DARABONBA_PTR_TO_JSON(project, project_);
+      };
+      friend void from_json(const Darabonba::Json& j, ShortTermStorage& obj) { 
+        DARABONBA_PTR_FROM_JSON(logstore, logstore_);
+        DARABONBA_PTR_FROM_JSON(project, project_);
+      };
+      ShortTermStorage() = default ;
+      ShortTermStorage(const ShortTermStorage &) = default ;
+      ShortTermStorage(ShortTermStorage &&) = default ;
+      ShortTermStorage(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ShortTermStorage() = default ;
+      ShortTermStorage& operator=(const ShortTermStorage &) = default ;
+      ShortTermStorage& operator=(ShortTermStorage &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->logstore_ == nullptr
+        && this->project_ == nullptr; };
+      // logstore Field Functions 
+      bool hasLogstore() const { return this->logstore_ != nullptr;};
+      void deleteLogstore() { this->logstore_ = nullptr;};
+      inline string getLogstore() const { DARABONBA_PTR_GET_DEFAULT(logstore_, "") };
+      inline ShortTermStorage& setLogstore(string logstore) { DARABONBA_PTR_SET_VALUE(logstore_, logstore) };
+
+
+      // project Field Functions 
+      bool hasProject() const { return this->project_ != nullptr;};
+      void deleteProject() { this->project_ = nullptr;};
+      inline string getProject() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
+      inline ShortTermStorage& setProject(string project) { DARABONBA_PTR_SET_VALUE(project_, project) };
+
+
+    protected:
+      shared_ptr<string> logstore_ {};
+      shared_ptr<string> project_ {};
+    };
+
     virtual bool empty() const override { return this->createTime_ == nullptr
         && this->customExtractionStrategies_ == nullptr && this->description_ == nullptr && this->extractionStrategies_ == nullptr && this->memoryStoreName_ == nullptr && this->regionId_ == nullptr
-        && this->requestId_ == nullptr && this->shortTermTtl_ == nullptr && this->updateTime_ == nullptr && this->workspace_ == nullptr; };
+        && this->requestId_ == nullptr && this->shortTermStorage_ == nullptr && this->shortTermTtl_ == nullptr && this->updateTime_ == nullptr && this->workspace_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -105,6 +149,15 @@ namespace Models
     inline GetMemoryStoreResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // shortTermStorage Field Functions 
+    bool hasShortTermStorage() const { return this->shortTermStorage_ != nullptr;};
+    void deleteShortTermStorage() { this->shortTermStorage_ = nullptr;};
+    inline const GetMemoryStoreResponseBody::ShortTermStorage & getShortTermStorage() const { DARABONBA_PTR_GET_CONST(shortTermStorage_, GetMemoryStoreResponseBody::ShortTermStorage) };
+    inline GetMemoryStoreResponseBody::ShortTermStorage getShortTermStorage() { DARABONBA_PTR_GET(shortTermStorage_, GetMemoryStoreResponseBody::ShortTermStorage) };
+    inline GetMemoryStoreResponseBody& setShortTermStorage(const GetMemoryStoreResponseBody::ShortTermStorage & shortTermStorage) { DARABONBA_PTR_SET_VALUE(shortTermStorage_, shortTermStorage) };
+    inline GetMemoryStoreResponseBody& setShortTermStorage(GetMemoryStoreResponseBody::ShortTermStorage && shortTermStorage) { DARABONBA_PTR_SET_RVALUE(shortTermStorage_, shortTermStorage) };
+
+
     // shortTermTtl Field Functions 
     bool hasShortTermTtl() const { return this->shortTermTtl_ != nullptr;};
     void deleteShortTermTtl() { this->shortTermTtl_ = nullptr;};
@@ -135,6 +188,7 @@ namespace Models
     shared_ptr<string> memoryStoreName_ {};
     shared_ptr<string> regionId_ {};
     shared_ptr<string> requestId_ {};
+    shared_ptr<GetMemoryStoreResponseBody::ShortTermStorage> shortTermStorage_ {};
     shared_ptr<int32_t> shortTermTtl_ {};
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};
