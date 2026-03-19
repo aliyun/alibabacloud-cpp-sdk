@@ -2529,6 +2529,64 @@ ExportIntervenesResponse Client::exportIntervenes(const ExportIntervenesRequest 
 }
 
 /**
+ * @summary 导出PPT作品
+ *
+ * @param request ExportPptArtifactRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExportPptArtifactResponse
+ */
+ExportPptArtifactResponse Client::exportPptArtifactWithOptions(const ExportPptArtifactRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEdit()) {
+    body["Edit"] = request.getEdit();
+  }
+
+  if (!!request.hasExportFileType()) {
+    body["ExportFileType"] = request.getExportFileType();
+  }
+
+  if (!!request.hasPptArtifactId()) {
+    body["PptArtifactId"] = request.getPptArtifactId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  if (!!request.hasZip()) {
+    body["Zip"] = request.getZip();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ExportPptArtifact"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExportPptArtifactResponse>();
+}
+
+/**
+ * @summary 导出PPT作品
+ *
+ * @param request ExportPptArtifactRequest
+ * @return ExportPptArtifactResponse
+ */
+ExportPptArtifactResponse Client::exportPptArtifact(const ExportPptArtifactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return exportPptArtifactWithOptions(request, runtime);
+}
+
+/**
  * @summary 反馈某次生成的结果
  *
  * @param tmpReq FeedbackDialogueRequest
@@ -4619,6 +4677,52 @@ GetPptArtifactResponse Client::getPptArtifact(const GetPptArtifactRequest &reque
 }
 
 /**
+ * @summary 查询PPT导出任务的结果
+ *
+ * @param request GetPptArtifactExportResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPptArtifactExportResultResponse
+ */
+GetPptArtifactExportResultResponse Client::getPptArtifactExportResultWithOptions(const GetPptArtifactExportResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasExportTaskId()) {
+    body["ExportTaskId"] = request.getExportTaskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetPptArtifactExportResult"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPptArtifactExportResultResponse>();
+}
+
+/**
+ * @summary 查询PPT导出任务的结果
+ *
+ * @param request GetPptArtifactExportResultRequest
+ * @return GetPptArtifactExportResultResponse
+ */
+GetPptArtifactExportResultResponse Client::getPptArtifactExportResult(const GetPptArtifactExportResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPptArtifactExportResultWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取PPT组件的配置
  *
  * @param request GetPptConfigRequest
@@ -4662,6 +4766,48 @@ GetPptConfigResponse Client::getPptConfigWithOptions(const GetPptConfigRequest &
 GetPptConfigResponse Client::getPptConfig(const GetPptConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getPptConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询PPT模板筛选器
+ *
+ * @param request GetPptTemplateSelectorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPptTemplateSelectorResponse
+ */
+GetPptTemplateSelectorResponse Client::getPptTemplateSelectorWithOptions(const GetPptTemplateSelectorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetPptTemplateSelector"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPptTemplateSelectorResponse>();
+}
+
+/**
+ * @summary 查询PPT模板筛选器
+ *
+ * @param request GetPptTemplateSelectorRequest
+ * @return GetPptTemplateSelectorResponse
+ */
+GetPptTemplateSelectorResponse Client::getPptTemplateSelector(const GetPptTemplateSelectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPptTemplateSelectorWithOptions(request, runtime);
 }
 
 /**
@@ -7244,6 +7390,74 @@ ListPptArtifactsResponse Client::listPptArtifactsWithOptions(const ListPptArtifa
 ListPptArtifactsResponse Client::listPptArtifacts(const ListPptArtifactsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listPptArtifactsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询PPT模板列表
+ *
+ * @param request ListPptTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPptTemplatesResponse
+ */
+ListPptTemplatesResponse Client::listPptTemplatesWithOptions(const ListPptTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  json body = {};
+  if (!!request.hasCareerId()) {
+    body["CareerId"] = request.getCareerId();
+  }
+
+  if (!!request.hasColourId()) {
+    body["ColourId"] = request.getColourId();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSceneId()) {
+    body["SceneId"] = request.getSceneId();
+  }
+
+  if (!!request.hasStyleId()) {
+    body["StyleId"] = request.getStyleId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListPptTemplates"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPptTemplatesResponse>();
+}
+
+/**
+ * @summary 查询PPT模板列表
+ *
+ * @param request ListPptTemplatesRequest
+ * @return ListPptTemplatesResponse
+ */
+ListPptTemplatesResponse Client::listPptTemplates(const ListPptTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listPptTemplatesWithOptions(request, runtime);
 }
 
 /**

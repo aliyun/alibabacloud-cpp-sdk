@@ -156,6 +156,9 @@
 #include <alibabacloud/models/ExportIntervenesRequest.hpp>
 #include <alibabacloud/models/ExportIntervenesResponseBody.hpp>
 #include <alibabacloud/models/ExportIntervenesResponse.hpp>
+#include <alibabacloud/models/ExportPptArtifactRequest.hpp>
+#include <alibabacloud/models/ExportPptArtifactResponseBody.hpp>
+#include <alibabacloud/models/ExportPptArtifactResponse.hpp>
 #include <alibabacloud/models/FeedbackDialogueRequest.hpp>
 #include <alibabacloud/models/FeedbackDialogueShrinkRequest.hpp>
 #include <alibabacloud/models/FeedbackDialogueResponseBody.hpp>
@@ -285,9 +288,15 @@
 #include <alibabacloud/models/GetPptArtifactRequest.hpp>
 #include <alibabacloud/models/GetPptArtifactResponseBody.hpp>
 #include <alibabacloud/models/GetPptArtifactResponse.hpp>
+#include <alibabacloud/models/GetPptArtifactExportResultRequest.hpp>
+#include <alibabacloud/models/GetPptArtifactExportResultResponseBody.hpp>
+#include <alibabacloud/models/GetPptArtifactExportResultResponse.hpp>
 #include <alibabacloud/models/GetPptConfigRequest.hpp>
 #include <alibabacloud/models/GetPptConfigResponseBody.hpp>
 #include <alibabacloud/models/GetPptConfigResponse.hpp>
+#include <alibabacloud/models/GetPptTemplateSelectorRequest.hpp>
+#include <alibabacloud/models/GetPptTemplateSelectorResponseBody.hpp>
+#include <alibabacloud/models/GetPptTemplateSelectorResponse.hpp>
 #include <alibabacloud/models/GetPropertiesRequest.hpp>
 #include <alibabacloud/models/GetPropertiesResponseBody.hpp>
 #include <alibabacloud/models/GetPropertiesResponse.hpp>
@@ -416,6 +425,9 @@
 #include <alibabacloud/models/ListPptArtifactsRequest.hpp>
 #include <alibabacloud/models/ListPptArtifactsResponseBody.hpp>
 #include <alibabacloud/models/ListPptArtifactsResponse.hpp>
+#include <alibabacloud/models/ListPptTemplatesRequest.hpp>
+#include <alibabacloud/models/ListPptTemplatesResponseBody.hpp>
+#include <alibabacloud/models/ListPptTemplatesResponse.hpp>
 #include <alibabacloud/models/ListSearchTaskDialogueDatasRequest.hpp>
 #include <alibabacloud/models/ListSearchTaskDialogueDatasResponseBody.hpp>
 #include <alibabacloud/models/ListSearchTaskDialogueDatasResponse.hpp>

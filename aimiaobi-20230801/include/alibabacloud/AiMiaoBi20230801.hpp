@@ -769,6 +769,23 @@ namespace AiMiaoBi20230801
       Models::ExportIntervenesResponse exportIntervenes(const Models::ExportIntervenesRequest &request);
 
       /**
+       * @summary 导出PPT作品
+       *
+       * @param request ExportPptArtifactRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExportPptArtifactResponse
+       */
+      Models::ExportPptArtifactResponse exportPptArtifactWithOptions(const Models::ExportPptArtifactRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 导出PPT作品
+       *
+       * @param request ExportPptArtifactRequest
+       * @return ExportPptArtifactResponse
+       */
+      Models::ExportPptArtifactResponse exportPptArtifact(const Models::ExportPptArtifactRequest &request);
+
+      /**
        * @summary 反馈某次生成的结果
        *
        * @param tmpReq FeedbackDialogueRequest
@@ -1466,6 +1483,23 @@ namespace AiMiaoBi20230801
       Models::GetPptArtifactResponse getPptArtifact(const Models::GetPptArtifactRequest &request);
 
       /**
+       * @summary 查询PPT导出任务的结果
+       *
+       * @param request GetPptArtifactExportResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPptArtifactExportResultResponse
+       */
+      Models::GetPptArtifactExportResultResponse getPptArtifactExportResultWithOptions(const Models::GetPptArtifactExportResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PPT导出任务的结果
+       *
+       * @param request GetPptArtifactExportResultRequest
+       * @return GetPptArtifactExportResultResponse
+       */
+      Models::GetPptArtifactExportResultResponse getPptArtifactExportResult(const Models::GetPptArtifactExportResultRequest &request);
+
+      /**
        * @summary 获取PPT组件的配置
        *
        * @param request GetPptConfigRequest
@@ -1481,6 +1515,23 @@ namespace AiMiaoBi20230801
        * @return GetPptConfigResponse
        */
       Models::GetPptConfigResponse getPptConfig(const Models::GetPptConfigRequest &request);
+
+      /**
+       * @summary 查询PPT模板筛选器
+       *
+       * @param request GetPptTemplateSelectorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPptTemplateSelectorResponse
+       */
+      Models::GetPptTemplateSelectorResponse getPptTemplateSelectorWithOptions(const Models::GetPptTemplateSelectorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PPT模板筛选器
+       *
+       * @param request GetPptTemplateSelectorRequest
+       * @return GetPptTemplateSelectorResponse
+       */
+      Models::GetPptTemplateSelectorResponse getPptTemplateSelector(const Models::GetPptTemplateSelectorRequest &request);
 
       /**
        * @summary 获取当前用户的配置
@@ -2144,6 +2195,23 @@ namespace AiMiaoBi20230801
        * @return ListPptArtifactsResponse
        */
       Models::ListPptArtifactsResponse listPptArtifacts(const Models::ListPptArtifactsRequest &request);
+
+      /**
+       * @summary 查询PPT模板列表
+       *
+       * @param request ListPptTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPptTemplatesResponse
+       */
+      Models::ListPptTemplatesResponse listPptTemplatesWithOptions(const Models::ListPptTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PPT模板列表
+       *
+       * @param request ListPptTemplatesRequest
+       * @return ListPptTemplatesResponse
+       */
+      Models::ListPptTemplatesResponse listPptTemplates(const Models::ListPptTemplatesRequest &request);
 
       /**
        * @summary 查询搜索生成任务对话详情中数据列表
