@@ -415,6 +415,10 @@ CreateResourceGroupResponse Client::createResourceGroupWithOptions(const CreateR
     query["BusinessChannel"] = request.getBusinessChannel();
   }
 
+  if (!!request.hasEnableAliyunResourceGroup()) {
+    query["EnableAliyunResourceGroup"] = request.getEnableAliyunResourceGroup();
+  }
+
   if (!!request.hasIsResourceGroupWithOfficeSite()) {
     query["IsResourceGroupWithOfficeSite"] = request.getIsResourceGroupWithOfficeSite();
   }
@@ -1666,7 +1670,7 @@ ModifyOrgResponse Client::modifyOrg(const ModifyOrgRequest &request) {
 }
 
 /**
- * @summary Updates the contact information of a convenience account.
+ * @summary Modifies user information.
  *
  * @param request ModifyUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1709,7 +1713,7 @@ ModifyUserResponse Client::modifyUserWithOptions(const ModifyUserRequest &reques
 }
 
 /**
- * @summary Updates the contact information of a convenience account.
+ * @summary Modifies user information.
  *
  * @param request ModifyUserRequest
  * @return ModifyUserResponse

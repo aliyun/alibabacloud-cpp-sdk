@@ -504,7 +504,7 @@ namespace EdsUser20210308
       Models::ModifyOrgResponse modifyOrg(const Models::ModifyOrgRequest &request);
 
       /**
-       * @summary Updates the contact information of a convenience account.
+       * @summary Modifies user information.
        *
        * @param request ModifyUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -513,7 +513,7 @@ namespace EdsUser20210308
       Models::ModifyUserResponse modifyUserWithOptions(const Models::ModifyUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the contact information of a convenience account.
+       * @summary Modifies user information.
        *
        * @param request ModifyUserRequest
        * @return ModifyUserResponse

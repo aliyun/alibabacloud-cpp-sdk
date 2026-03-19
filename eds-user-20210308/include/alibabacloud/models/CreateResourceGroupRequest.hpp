@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateResourceGroupRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
+      DARABONBA_PTR_TO_JSON(EnableAliyunResourceGroup, enableAliyunResourceGroup_);
       DARABONBA_PTR_TO_JSON(IsResourceGroupWithOfficeSite, isResourceGroupWithOfficeSite_);
       DARABONBA_PTR_TO_JSON(Platform, platform_);
       DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateResourceGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
+      DARABONBA_PTR_FROM_JSON(EnableAliyunResourceGroup, enableAliyunResourceGroup_);
       DARABONBA_PTR_FROM_JSON(IsResourceGroupWithOfficeSite, isResourceGroupWithOfficeSite_);
       DARABONBA_PTR_FROM_JSON(Platform, platform_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessChannel_ == nullptr
-        && this->isResourceGroupWithOfficeSite_ == nullptr && this->platform_ == nullptr && this->resourceGroupName_ == nullptr; };
+        && this->enableAliyunResourceGroup_ == nullptr && this->isResourceGroupWithOfficeSite_ == nullptr && this->platform_ == nullptr && this->resourceGroupName_ == nullptr; };
     // businessChannel Field Functions 
     bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
     void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
     inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
     inline CreateResourceGroupRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
+    // enableAliyunResourceGroup Field Functions 
+    bool hasEnableAliyunResourceGroup() const { return this->enableAliyunResourceGroup_ != nullptr;};
+    void deleteEnableAliyunResourceGroup() { this->enableAliyunResourceGroup_ = nullptr;};
+    inline bool getEnableAliyunResourceGroup() const { DARABONBA_PTR_GET_DEFAULT(enableAliyunResourceGroup_, false) };
+    inline CreateResourceGroupRequest& setEnableAliyunResourceGroup(bool enableAliyunResourceGroup) { DARABONBA_PTR_SET_VALUE(enableAliyunResourceGroup_, enableAliyunResourceGroup) };
 
 
     // isResourceGroupWithOfficeSite Field Functions 
@@ -67,6 +76,7 @@ namespace Models
 
   protected:
     shared_ptr<string> businessChannel_ {};
+    shared_ptr<bool> enableAliyunResourceGroup_ {};
     // >  This parameter is not publicly available.
     shared_ptr<int64_t> isResourceGroupWithOfficeSite_ {};
     // >  Set the value to AliyunConsole.
