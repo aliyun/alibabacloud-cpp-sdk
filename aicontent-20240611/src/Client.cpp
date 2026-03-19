@@ -2678,7 +2678,7 @@ ModelRouterCreateClientResponse Client::modelRouterCreateClient(const ModelRoute
 }
 
 /**
- * @summary 对话管理/创建对话
+ * @summary 对话管理/新建对话
  *
  * @param request ModelRouterCreateConversationRequest
  * @param headers map
@@ -2719,7 +2719,7 @@ ModelRouterCreateConversationResponse Client::modelRouterCreateConversationWithO
 }
 
 /**
- * @summary 对话管理/创建对话
+ * @summary 对话管理/新建对话
  *
  * @param request ModelRouterCreateConversationRequest
  * @return ModelRouterCreateConversationResponse
@@ -2751,6 +2751,14 @@ ModelRouterCreateModelResponse Client::modelRouterCreateModelWithOptions(const M
 
   if (!!request.hasDescription()) {
     body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasMaxInputLength()) {
+    body["maxInputLength"] = request.getMaxInputLength();
+  }
+
+  if (!!request.hasMaxOutputLength()) {
+    body["maxOutputLength"] = request.getMaxOutputLength();
   }
 
   if (!!request.hasModelId()) {
@@ -3381,42 +3389,6 @@ ModelRouterQueryModelListResponse Client::modelRouterQueryModelList(const ModelR
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterQueryModelListWithOptions(request, headers, runtime);
-}
-
-/**
- * @summary 模型管理/获取模型及API密钥详情
- *
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return ModelRouterQueryModelWithApiKeyResponse
- */
-ModelRouterQueryModelWithApiKeyResponse Client::modelRouterQueryModelWithApiKeyWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "ModelRouterQueryModelWithApiKey"},
-    {"version" , "20240611"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/models/" , Darabonba::Encode::Encoder::percentEncode(id) , "/with-api-key")},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ModelRouterQueryModelWithApiKeyResponse>();
-}
-
-/**
- * @summary 模型管理/获取模型及API密钥详情
- *
- * @return ModelRouterQueryModelWithApiKeyResponse
- */
-ModelRouterQueryModelWithApiKeyResponse Client::modelRouterQueryModelWithApiKey(const string &id) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return modelRouterQueryModelWithApiKeyWithOptions(id, headers, runtime);
 }
 
 /**

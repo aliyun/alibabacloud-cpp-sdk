@@ -194,8 +194,6 @@
 #include <alibabacloud/models/ModelRouterQueryModelListRequest.hpp>
 #include <alibabacloud/models/ModelRouterQueryModelListResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterQueryModelListResponse.hpp>
-#include <alibabacloud/models/ModelRouterQueryModelWithApiKeyResponseBody.hpp>
-#include <alibabacloud/models/ModelRouterQueryModelWithApiKeyResponse.hpp>
 #include <alibabacloud/models/ModelRouterQueryNacosProvidersRequest.hpp>
 #include <alibabacloud/models/ModelRouterQueryNacosProvidersResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterQueryNacosProvidersResponse.hpp>

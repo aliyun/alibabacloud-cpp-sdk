@@ -803,7 +803,7 @@ namespace AiContent20240611
       Models::ModelRouterCreateClientResponse modelRouterCreateClient(const Models::ModelRouterCreateClientRequest &request);
 
       /**
-       * @summary 对话管理/创建对话
+       * @summary 对话管理/新建对话
        *
        * @param request ModelRouterCreateConversationRequest
        * @param headers map
@@ -813,7 +813,7 @@ namespace AiContent20240611
       Models::ModelRouterCreateConversationResponse modelRouterCreateConversationWithOptions(const Models::ModelRouterCreateConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 对话管理/创建对话
+       * @summary 对话管理/新建对话
        *
        * @param request ModelRouterCreateConversationRequest
        * @return ModelRouterCreateConversationResponse
@@ -1021,22 +1021,6 @@ namespace AiContent20240611
        * @return ModelRouterQueryModelListResponse
        */
       Models::ModelRouterQueryModelListResponse modelRouterQueryModelList(const Models::ModelRouterQueryModelListRequest &request);
-
-      /**
-       * @summary 模型管理/获取模型及API密钥详情
-       *
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ModelRouterQueryModelWithApiKeyResponse
-       */
-      Models::ModelRouterQueryModelWithApiKeyResponse modelRouterQueryModelWithApiKeyWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 模型管理/获取模型及API密钥详情
-       *
-       * @return ModelRouterQueryModelWithApiKeyResponse
-       */
-      Models::ModelRouterQueryModelWithApiKeyResponse modelRouterQueryModelWithApiKey(const string &id);
 
       /**
        * @summary Nacos配置/获取Nacos服务提供者列表
