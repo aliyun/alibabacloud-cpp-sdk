@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
       DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
+      DARABONBA_PTR_TO_JSON(Output, output_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
       DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
+      DARABONBA_PTR_FROM_JSON(Output, output_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
@@ -37,8 +39,39 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Output : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Output& obj) { 
+        DARABONBA_PTR_TO_JSON(Content, content_);
+      };
+      friend void from_json(const Darabonba::Json& j, Output& obj) { 
+        DARABONBA_PTR_FROM_JSON(Content, content_);
+      };
+      Output() = default ;
+      Output(const Output &) = default ;
+      Output(Output &&) = default ;
+      Output(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Output() = default ;
+      Output& operator=(const Output &) = default ;
+      Output& operator=(Output &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->content_ == nullptr; };
+      // content Field Functions 
+      bool hasContent() const { return this->content_ != nullptr;};
+      void deleteContent() { this->content_ = nullptr;};
+      inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+      inline Output& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+    protected:
+      shared_ptr<string> content_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+        && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->output_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
@@ -60,6 +93,15 @@ namespace Models
     inline GetAIOrderApprovalCommentSSEResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
+    // output Field Functions 
+    bool hasOutput() const { return this->output_ != nullptr;};
+    void deleteOutput() { this->output_ = nullptr;};
+    inline const GetAIOrderApprovalCommentSSEResponseBody::Output & getOutput() const { DARABONBA_PTR_GET_CONST(output_, GetAIOrderApprovalCommentSSEResponseBody::Output) };
+    inline GetAIOrderApprovalCommentSSEResponseBody::Output getOutput() { DARABONBA_PTR_GET(output_, GetAIOrderApprovalCommentSSEResponseBody::Output) };
+    inline GetAIOrderApprovalCommentSSEResponseBody& setOutput(const GetAIOrderApprovalCommentSSEResponseBody::Output & output) { DARABONBA_PTR_SET_VALUE(output_, output) };
+    inline GetAIOrderApprovalCommentSSEResponseBody& setOutput(GetAIOrderApprovalCommentSSEResponseBody::Output && output) { DARABONBA_PTR_SET_RVALUE(output_, output) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -78,6 +120,7 @@ namespace Models
     shared_ptr<string> data_ {};
     shared_ptr<string> errorCode_ {};
     shared_ptr<string> errorMessage_ {};
+    shared_ptr<GetAIOrderApprovalCommentSSEResponseBody::Output> output_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
   };
